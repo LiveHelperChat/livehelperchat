@@ -18,7 +18,7 @@ export default ({onChange, type}) => {
         {
             'value':'list',
             'text' : 'Send List',
-        }
+        },
         /*,
         {
             'value':'typing',
@@ -43,23 +43,15 @@ export default ({onChange, type}) => {
         {
             'value':'file',
             'text' : 'Send File',
-        },
-        {
-            'value':'button',
-            'text' : 'Send Buttons',
-        },
+        },,*/
         {
             'value':'generic',
             'text' : 'Send Carrousel',
         },
         {
-            'value':'list',
-            'text' : 'Send List',
-        },
-        {
             'value':'command',
-            'text' : 'Update Current Lead',
-        }*/
+            'text' : 'Update Current chat',
+        }
     ]);
 
     var list = options.map((option, index) => <option key={index} value={option.get('value')}>{option.get('text')}</option>);

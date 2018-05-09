@@ -526,11 +526,15 @@ class erLhcoreClassGenericBotWorkflow {
         }
     }
 
-    public static function processTrigger($chat, $trigger)
+    public static function processTrigger($chat, $trigger, $setLastMessageId = false)
     {
         $message = null;
         foreach ($trigger->actions_front as $action) {
             $message = call_user_func_array("erLhcoreClassGenericBotAction" . ucfirst($action['type']).'::process',array($chat, $action, $trigger));
+        }
+
+        if ($setLastMessageId == true && isset($message) && $message instanceof erLhcoreClassModelmsg) {
+            self::setLastMessageId($chat->id, $message->id);
         }
 
         return $message;
@@ -550,6 +554,54 @@ class erLhcoreClassGenericBotWorkflow {
                     return $returnAll == false ? $reply['content']['name'] : $reply['content'];
                 }
             }
+        }
+    }
+
+    public static function processTriggerClick($chat, $messageContext, $payload, $params = array()) {
+        if (isset($chat->chat_variables_array['gbot_id'])) {
+
+            // Try to find current workflow first
+            $workflow = erLhcoreClassModelGenericBotChatWorkflow::findOne(array('filterin' => array('status' => array(0,1)), 'filter' => array('chat_id' => $chat->id)));
+            if ($workflow instanceof erLhcoreClassModelGenericBotChatWorkflow) {
+                self::processWorkflow($workflow, $chat, array('payload' => $payload));
+                return;
+            }
+
+            $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_get_trigger_click', array(
+                'chat' => & $chat,
+                'msg' => $messageContext,
+                'payload' => $payload,
+            ));
+
+            if ($handler !== false) {
+                $trigger = $handler['trigger'];
+            } else {
+                $trigger = erLhcoreClassModelGenericBotTrigger::fetch($payload);
+
+                if (!($trigger instanceof erLhcoreClassModelGenericBotTrigger)){
+                    self::sendAsBot($chat,erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Trigger could not be found!'));
+                    return;
+                }
+            }
+
+            $messageClick = self::getClickName($messageContext->meta_msg_array, $payload);
+
+            if (!empty($messageClick)) {
+                if ((isset($params['processed']) && $params['processed'] == true) || !isset($params['processed'])){
+                    $messageContext->meta_msg_array['processed'] = true;
+                }
+                $messageContext->meta_msg = json_encode($messageContext->meta_msg_array);
+                $messageContext->saveThis();
+                self::sendAsUser($chat, $messageClick);
+            }
+
+            $message = self::processTrigger($chat, $trigger);
+
+            if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
+                self::setLastMessageId($chat->id, $message->id);
+            }/* else {
+                self::sendAsBot($chat,erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Button action could not be found!'));
+            }*/
         }
     }
 

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-
 import { addPayload } from "../../actions/nodePayloadActions"
-
+import NodeTriggerList from './NodeTriggerList';
 
 @connect((store) => {
     return {
@@ -48,6 +47,10 @@ class NodeTriggerActionQuickReplyPayload extends Component {
         this.props.onPayloadAttrChange({attr: 'payload_message', value : e.target.value});
     }
 
+    onChangePayload(val) {
+        this.props.onPayloadAttrChange({attr: 'payload', value : val});
+    }
+
     render() {
 
         var list = this.props.payloads.get('payloads').map((option, index) => <option key={option.get('id')} value={option.get('payload')}>{option.get('name')+' [' + option.get('payload') + ']'}</option>);
@@ -81,16 +84,24 @@ class NodeTriggerActionQuickReplyPayload extends Component {
                         <select className="form-control input-sm" value={this.props.currentPayload.get('payload')} onChange={this.onChange.bind(this)} >
                             <option value="">Select event</option>
                             <option value="transferToOperator">Transfer to operator</option>
+                            <option value="transferToBot">Transfer to bot</option>
                         </select>
                     </div>
 
-                    {this.props.currentPayload.get('payload') == 'transferToOperator' &&
+                    {(this.props.currentPayload.get('payload') == 'transferToOperator' || this.props.currentPayload.get('payload') == 'transferToBot') &&
                     <div className="form-group">
                         <label>Message to user after transfer</label>
-                        <input className="form-control input-sm" onChange={this.onChangeMessageToVisitor.bind(this)}  defaultValue={this.props.currentPayload.get('payload_message')} type="text" placeholder="Message to visitor" />
+                        <input className="form-control input-sm" onChange={this.onChangeMessageToVisitor.bind(this)} defaultValue={this.props.currentPayload.get('payload_message')} type="text" placeholder="Message to visitor" />
                     </div>
                     }
                 </div>
+        } else if (this.props.payloadType == 'trigger') {
+            controlPayload = <div className="col-xs-12">
+                <div className="form-group">
+                   <label>Select what trigger to execute</label>
+                   <NodeTriggerList onSetPayload={this.onChangePayload.bind(this)} payload={this.props.currentPayload.get('payload')} />
+                </div>
+            </div>
         }
 
         return (
@@ -104,6 +115,7 @@ class NodeTriggerActionQuickReplyPayload extends Component {
                             <option value="url">URL</option>
                             <option value="button">Click</option>
                             <option value="updatechat">Update chat</option>
+                            <option value="trigger">Execute trigger</option>
                         </select>
                     </div>
                 </div>

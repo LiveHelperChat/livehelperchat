@@ -39,6 +39,8 @@ try {
 
         if ($Params['user_parameters_unordered']['type'] == 'valueclicked') {
             erLhcoreClassGenericBotWorkflow::processValueClick($chat, $message, $_GET['payload'], array('processed' => (isset($_GET['processed']) && $_GET['processed'] == 'true')));
+        } elseif ($Params['user_parameters_unordered']['type'] == 'triggerclicked') {
+            erLhcoreClassGenericBotWorkflow::processTriggerClick($chat, $message, $_GET['payload'], array('processed' => (isset($_GET['processed']) && $_GET['processed'] == 'true')));
         } else {
             erLhcoreClassGenericBotWorkflow::processButtonClick($chat, $message, $_GET['payload'], array('processed' => (isset($_GET['processed']) && $_GET['processed'] == 'true')));
         }

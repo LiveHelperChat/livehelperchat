@@ -3162,6 +3162,26 @@ function lh(){
         });
     }
 
+    this.updateTriggerClicked = function(payload, id, notHide) {
+        $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash+'/(type)/triggerclicked',{payload: payload, id : id, processed : (typeof notHide === 'undefined' || notHide == false)},function(data){
+            if (typeof notHide === 'undefined' || notHide === false){
+                $('#meta-message-'+id).remove();
+            }
+
+            var messageBlock = $('#messagesBlock');
+
+            jQuery('<div/>', {
+                'class': 'message-row pending-storage pending-storage-bot',
+                text: 'Processing...'
+            }).appendTo(messageBlock);
+
+            var scrollHeight = messageBlock.prop("scrollHeight");
+            messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
+
+            lhinst.syncusercall();
+        });
+    }
+
     this.updateChatClicked = function(payload, id, notHide) {
         $.get(this.wwwDir + 'genericbot/updatebuttonclicked/'+this.chat_id+'/'+this.hash,{payload: payload, id : id, processed : (typeof notHide === 'undefined' || notHide == false) },function(data){
             if (typeof notHide === 'undefined' || notHide === false){

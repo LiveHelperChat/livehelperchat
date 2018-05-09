@@ -28,7 +28,7 @@ class NodeActionButton extends Component {
     }
 
     onPayloadAttrChange(payload) {
-        this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content', e.payload.attr], value :  e.payload.value});
+        this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content', payload.attr], value :  payload.value});
     }
 
     deleteField() {

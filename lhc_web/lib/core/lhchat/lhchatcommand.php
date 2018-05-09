@@ -26,6 +26,7 @@ class erLhcoreClassChatCommand
         '!help' => 'self::help',
     	'!note' => 'self::notice',
     	'!hold' => 'self::hold',
+    	'!gotobot' => 'self::goToBot',
     	'!transferforce' => 'self::transferforce'
     );
 
@@ -148,6 +149,28 @@ class erLhcoreClassChatCommand
             'processed' => true,
             'raw_message' => '!hold',
             'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Chat status changed on-hold!')
+        );
+    }
+
+    /**
+     * @desc Transfers chat to bot
+     *
+     * @param $params
+     * @return array
+     * @throws ezcPersistentDefinitionNotFoundException
+     * @throws ezcPersistentObjectNotPersistentException
+     * @throws ezcPersistentQueryException
+     */
+    public static function goToBot($params) {
+
+        $params['chat']->status = erLhcoreClassModelChat::STATUS_BOT_CHAT;
+        $params['chat']->last_op_msg_time = $params['chat']->last_user_msg_time = time();
+        erLhcoreClassChat::getSession()->update($params['chat']);
+
+        return array(
+            'processed' => true,
+            'raw_message' => '!gotobot',
+            'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Chat was transferred to bot!')
         );
     }
 

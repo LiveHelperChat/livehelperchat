@@ -249,7 +249,8 @@ return array_merge(array (
         'erLhcoreClassGenericBotActionButtons'      => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionbuttons.php',
         'erLhcoreClassGenericBotUpdateActions'      => 'lib/core/lhgenericbot/actionsChat/lhgenericbotupdateactions.php',
         'erLhcoreClassGenericBotActionCollectable'  => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactioncollectable.php',
-        'erLhcoreClassGenericBotActionList'         => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionlist.php'
+        'erLhcoreClassGenericBotActionList'         => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionlist.php',
+        'erLhcoreClassGenericBotActionCommand'      => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactioncommand.php'
 
 ),
 include('var/autoloads/lhextension_autoload.php')
