@@ -3144,7 +3144,14 @@ function lh(){
     	lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/editnick/'+this.chat_id+'/'+this.hash})   
     }
 
-    this.buttonClicked = function(payload, id, notHide) {
+    this.buttonClicked = function(payload, id, btn, notHide) {
+
+        btn.attr("disabled","disabled");
+
+        if (btn.attr("data-no-change") == undefined) {
+            btn.text("Processing...");
+        }
+
         $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash,{payload: payload, id : id, processed : (typeof notHide === 'undefined' || notHide == false)},function(data){
             if (typeof notHide === 'undefined' || notHide === false){
                 $('.meta-message-'+id).remove();
@@ -3164,7 +3171,14 @@ function lh(){
         });
     }
 
-    this.updateTriggerClicked = function(payload, id, notHide) {
+    this.updateTriggerClicked = function(payload, id, btn, notHide) {
+
+        btn.attr("disabled","disabled");
+
+        if (btn.attr("data-no-change") == undefined) {
+            btn.text("Processing...");
+        }
+
         $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash+'/(type)/triggerclicked',{payload: payload, id : id, processed : (typeof notHide === 'undefined' || notHide == false)},function(data){
             if (typeof notHide === 'undefined' || notHide === false){
                 $('.meta-message-'+id).remove();
@@ -3184,7 +3198,14 @@ function lh(){
         });
     }
 
-    this.updateChatClicked = function(payload, id, notHide) {
+    this.updateChatClicked = function(payload, id, btn, notHide) {
+
+        btn.attr("disabled","disabled");
+
+        if (btn.attr("data-no-change") == undefined) {
+            btn.text("Processing...");
+        }
+
         $.get(this.wwwDir + 'genericbot/updatebuttonclicked/'+this.chat_id+'/'+this.hash,{payload: payload, id : id, processed : (typeof notHide === 'undefined' || notHide == false) },function(data){
             if (typeof notHide === 'undefined' || notHide === false){
                 $('.meta-message-'+id).remove();
@@ -3203,7 +3224,14 @@ function lh(){
         });
     }
 
-    this.dropdownClicked = function(id) {
+    this.dropdownClicked = function(id, btn) {
+
+        btn.attr("disabled","disabled");
+
+        if (btn.attr("data-no-change") == undefined) {
+            btn.text("Processing...");
+        }
+
         if ($('#generic_list-'+id).val() != '') {
 
             $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash+'/(type)/valueclicked',{payload: $('#id_generic_list-'+id).val(), id : id},function(data){

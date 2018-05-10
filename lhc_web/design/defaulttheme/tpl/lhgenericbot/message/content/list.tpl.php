@@ -21,9 +21,9 @@
                                         <a class="btn btn-xs btn-info" target="_blank" href="<?php echo htmlspecialchars($itemButton['content']['payload'])?>">
                                             <i class="material-icons">open_in_new</i>
                                             <?php elseif ($itemButton['type'] == 'updatechat') : ?>
-                                            <a class="btn btn-xs btn-info" onclick='lhinst.updateChatClicked(<?php echo json_encode($itemButton['content']['payload'])?>,<?php echo $messageId?>,true)'>
+                                            <a class="btn btn-xs btn-info" data-no-change="true" onclick='lhinst.updateChatClicked(<?php echo json_encode($itemButton['content']['payload'])?>,<?php echo $messageId?>,$(this),true)'>
                                             <?php else : ?>
-                                            <a class="btn btn-xs btn-info" onclick='lhinst.buttonClicked(<?php echo json_encode($itemButton['content']['payload'])?>,<?php echo $messageId?>,true)'>
+                                            <a class="btn btn-xs btn-info" data-no-change="true" onclick='lhinst.buttonClicked(<?php echo json_encode($itemButton['content']['payload'])?>,<?php echo $messageId?>,$(this),true)'>
                                             <?php endif?>
                                             <?php echo htmlspecialchars($itemButton['content']['name'])?></a>
                                     </li>
@@ -47,9 +47,9 @@
         <a target="_blank" href="<?php echo htmlspecialchars($item['content']['payload'])?>">
         <i class="material-icons">open_in_new</i>
         <?php elseif ($item['type'] == 'updatechat') : ?>
-        <a onclick='lhinst.updateChatClicked(<?php echo json_encode($item['content']['payload'])?>,<?php echo $messageId?>,true)'>
+        <a data-no-change="true" onclick='lhinst.updateChatClicked(<?php echo json_encode($item['content']['payload'])?>,<?php echo $messageId?>,$(this),true)'>
         <?php else : ?>
-        <a onclick='lhinst.buttonClicked(<?php echo json_encode($item['content']['payload'])?>,<?php echo $messageId?>,true)'>
+        <a data-no-change="true" onclick='lhinst.buttonClicked(<?php echo json_encode($item['content']['payload'])?>,<?php echo $messageId?>,$(this),true)'>
         <?php endif?>
         <?php echo htmlspecialchars($item['content']['name'])?></a>
     </div>
