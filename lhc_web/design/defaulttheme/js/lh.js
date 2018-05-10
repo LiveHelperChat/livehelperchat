@@ -828,14 +828,16 @@ function lh(){
     	            if (data.result != 'false' && data.status == 'true')
     	            {
     	            		var messageBlock = $('#messagesBlock');
+
     	            		var scrollHeight = messageBlock.prop("scrollHeight");
     	            		var isAtTheBottom = Math.abs((scrollHeight - messageBlock.prop("scrollTop")) - messageBlock.prop("clientHeight"));
-    	            		
+
+    	            		messageBlock.find('.meta-auto-hide').hide();
+                            messageBlock.find('.message-row').last().find('.meta-message > .meta-auto-hide').show();
+                            scrollHeight = messageBlock.prop("scrollHeight");
+
     	            		messageBlock.find('.pending-storage').remove();
     	            		messageBlock.append(data.result);
-
-                            messageBlock.find('.meta-auto-hide').hide();
-                            messageBlock.find('.message-row').last().find('.meta-message > .meta-auto-hide').show();
 
 	  	                	if (isAtTheBottom < 20) {
 	  	                		messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);

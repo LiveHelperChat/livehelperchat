@@ -188,7 +188,7 @@ class erLhcoreClassGenericBotWorkflow {
                 if (isset($currentStep['content']['validation_callback']) && !empty($currentStep['content']['validation_callback'])) {
                     $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
                         'render' => $currentStep['content']['validation_callback'],
-                        'render_args' => array(),
+                        'render_args' => (isset($currentStep['content']['validation_argument']) ? $currentStep['content']['validation_argument'] : null),
                         'chat' => & $chat,
                         'workflow' => & $workflow,
                         'payload' => & $payload,
@@ -254,7 +254,7 @@ class erLhcoreClassGenericBotWorkflow {
 
                 $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
                     'render' => $currentStep['content']['provider_dropdown'],
-                    'render_args' => array(),
+                    'render_args' => (isset($currentStep['content']['provider_argument']) ? $currentStep['content']['provider_argument'] : null),
                     'chat' => & $chat,
                     'workflow' => & $workflow,
                     'payload' => & $payload,
@@ -340,6 +340,14 @@ class erLhcoreClassGenericBotWorkflow {
                 {
                     $dataProcess = call_user_func_array($handler['render'], $handler['render_args']);
 
+                    if ($dataProcess['valid'] == false) {
+                        if (isset($dataProcess['message']) && !empty($dataProcess['message'])) {
+                            throw new Exception($dataProcess['message']);
+                        } else {
+                            throw new Exception('Your message does not match required format!');
+                        }
+                    }
+
                     $message = self::sendAsUser($chat, $dataProcess['chosen_value_literal']);
                     self::setLastMessageId($chat->id, $message->id);
 
@@ -371,7 +379,7 @@ class erLhcoreClassGenericBotWorkflow {
 
                         $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
                             'render' => $workflow->collected_data_array['collectable_options']['collection_callback'],
-                            'render_args' => (isset($workflow->collected_data_array['collectable_options']['collection_callback_args']) ? $workflow->collected_data_array['collectable_options']['collection_callback_args'] : null),
+                            'render_args' => (isset($workflow->collected_data_array['collectable_options']['collection_argument']) ? $workflow->collected_data_array['collectable_options']['collection_argument'] : null),
                             'chat' => & $chat,
                             'workflow' => & $workflow,
                             'payload' => & $payload,
@@ -458,7 +466,7 @@ class erLhcoreClassGenericBotWorkflow {
 
                             $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
                                 'render' => $workflow->collected_data_array['collectable_options']['collection_callback'],
-                                'render_args' => (isset($workflow->collected_data_array['collectable_options']['collection_callback_args']) ? $workflow->collected_data_array['collectable_options']['collection_callback_args'] : null),
+                                'render_args' => (isset($workflow->collected_data_array['collectable_options']['collection_argument']) ? $workflow->collected_data_array['collectable_options']['collection_argument'] : null),
                                 'chat' => & $chat,
                                 'workflow' => & $workflow,
                                 'payload' => & $payload,

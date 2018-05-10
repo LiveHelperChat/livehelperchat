@@ -118,6 +118,13 @@ class NodeTriggerActionCollectable extends Component {
                         </div>
                     </div>
                     <div className="col-xs-12">
+                        <div className="form-group">
+                            <label>Argument</label>
+                            <input type="text" className="form-control" onChange={(e) => this.onChangeMainAttr('collection_argument',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','collection_argument'])} />
+                        </div>
+                    </div>
+
+                    <div className="col-xs-12">
                         <p>Then process is complete send this message to user or trigger payload</p>
 
                         <div className="row">

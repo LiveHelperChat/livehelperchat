@@ -36,7 +36,7 @@ class erLhcoreClassGenericBotActionCollectable {
 
                 $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
                     'render' => $stepData['content']['provider_dropdown'],
-                    'render_args' => array(),
+                    'render_args' => $stepData['content']['provider_argument'],
                     'chat' => & $chat,
                 ));
 
@@ -46,9 +46,10 @@ class erLhcoreClassGenericBotActionCollectable {
                         'provider_dropdown' => $handler['render'],
                         'provider_id' => $stepData['content']['provider_id'],
                         'provider_name' => $stepData['content']['provider_name'],
+                        'provider_arguments' => $handler['render_args'],
+                        'provider_default' => $stepData['content']['provider_default'],
                     );
                 }
-
             }
 
             if ($stepData['type'] == 'buttons') {

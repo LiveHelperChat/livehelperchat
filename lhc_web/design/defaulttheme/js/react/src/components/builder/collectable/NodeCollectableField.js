@@ -55,6 +55,14 @@ class NodeCollectableField extends Component {
         this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content','provider_id'], value : e.target.value});
     }
 
+    onChangeProviderDefault(e) {
+        this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content','provider_default'], value : e.target.value});
+    }
+
+    onChangeProviderArgument(e) {
+        this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content','provider_argument'], value : e.target.value});
+    }
+
     onChangeRenderValidateFunction(e) {
         this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content','render_validate'], value : e.target.value});
     }
@@ -65,6 +73,10 @@ class NodeCollectableField extends Component {
 
     onChangeValidationError(e) {
         this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content','validation_error'], value : e.target.value});
+    }
+
+    onChangeValidationArgument(e) {
+        this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content','validation_argument'], value : e.target.value});
     }
 
     deleteField() {
@@ -133,6 +145,12 @@ class NodeCollectableField extends Component {
                                 <input className="form-control" type="text" onChange={this.onChangeValidationError.bind(this)} defaultValue={this.props.field.getIn(['content','validation_error'])}/>
                             </div>
                         </div>
+                        <div className="col-xs-12">
+                            <div className="form-group">
+                                <label>Argument</label>
+                                <input className="form-control" type="text" onChange={this.onChangeValidationArgument.bind(this)} defaultValue={this.props.field.getIn(['content','validation_argument'])}/>
+                            </div>
+                        </div>
                     </div>
                 </div>}
 
@@ -156,6 +174,18 @@ class NodeCollectableField extends Component {
                             <div className="form-group">
                                 <label>Id attribute</label>
                                 <input className="form-control" type="text" onChange={this.onChangeProviderId.bind(this)} defaultValue={this.props.field.getIn(['content','provider_id'])}/>
+                            </div>
+                        </div>
+                        <div className="col-xs-6">
+                            <div className="form-group">
+                                <label>Default value</label>
+                                <input className="form-control" type="text" onChange={this.onChangeProviderDefault.bind(this)} defaultValue={this.props.field.getIn(['content','provider_default'])}/>
+                            </div>
+                        </div>
+                        <div className="col-xs-6">
+                            <div className="form-group">
+                                <label>Argument</label>
+                                <input className="form-control" type="text" onChange={this.onChangeProviderArgument.bind(this)} defaultValue={this.props.field.getIn(['content','provider_argument'])}/>
                             </div>
                         </div>
                     </div>
