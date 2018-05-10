@@ -840,7 +840,7 @@ function lh(){
     	            		messageBlock.append(data.result);
 
 	  	                	if (isAtTheBottom < 20) {
-	  	                		messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
+	  	                		messageBlock.stop(true,false).animate({ scrollTop: scrollHeight+500 }, 500);
 	  	                	}  	                	  
     	            		
                 			// If one the message owner is not current user play sound
