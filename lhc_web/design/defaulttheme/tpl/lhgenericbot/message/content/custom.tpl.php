@@ -1,4 +1,4 @@
-<div class="meta-auto-hide">
+<div class="meta-auto-hide meta-message-<?php echo $messageId?>">
     <?php if (is_callable($metaMessage['render_function'])) :
         $argsCall =  $metaMessage['render_args'];
         $argsCall[] = $messageId;

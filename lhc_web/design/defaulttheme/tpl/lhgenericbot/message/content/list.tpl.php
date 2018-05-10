@@ -1,4 +1,4 @@
-<div class="list-group">
+<div class="list-group meta-message meta-message-<?php echo $messageId?>">
     <?php $listCompactStyle = $metaMessageData['options']['no_highlight'] == true; ?>
 
     <?php foreach ($metaMessage['items'] as $index => $item) : ?>

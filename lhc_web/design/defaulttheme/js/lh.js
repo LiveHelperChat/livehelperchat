@@ -833,7 +833,7 @@ function lh(){
     	            		var isAtTheBottom = Math.abs((scrollHeight - messageBlock.prop("scrollTop")) - messageBlock.prop("clientHeight"));
 
     	            		messageBlock.find('.meta-auto-hide').hide();
-                            messageBlock.find('.message-row').last().find('.meta-message > .meta-auto-hide').show();
+                            messageBlock.find('.message-row').last().find('.meta-message .meta-auto-hide').show();
                             scrollHeight = messageBlock.prop("scrollHeight");
 
     	            		messageBlock.find('.pending-storage').remove();
@@ -3147,7 +3147,7 @@ function lh(){
     this.buttonClicked = function(payload, id, notHide) {
         $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash,{payload: payload, id : id, processed : (typeof notHide === 'undefined' || notHide == false)},function(data){
             if (typeof notHide === 'undefined' || notHide === false){
-                $('#meta-message-'+id).remove();
+                $('.meta-message-'+id).remove();
             }
 
             var messageBlock = $('#messagesBlock');
@@ -3167,7 +3167,7 @@ function lh(){
     this.updateTriggerClicked = function(payload, id, notHide) {
         $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash+'/(type)/triggerclicked',{payload: payload, id : id, processed : (typeof notHide === 'undefined' || notHide == false)},function(data){
             if (typeof notHide === 'undefined' || notHide === false){
-                $('#meta-message-'+id).remove();
+                $('.meta-message-'+id).remove();
             }
 
             var messageBlock = $('#messagesBlock');
@@ -3187,7 +3187,7 @@ function lh(){
     this.updateChatClicked = function(payload, id, notHide) {
         $.get(this.wwwDir + 'genericbot/updatebuttonclicked/'+this.chat_id+'/'+this.hash,{payload: payload, id : id, processed : (typeof notHide === 'undefined' || notHide == false) },function(data){
             if (typeof notHide === 'undefined' || notHide === false){
-                $('#meta-message-'+id).remove();
+                $('.meta-message-'+id).remove();
             }
             var messageBlock = $('#messagesBlock');
 
@@ -3207,7 +3207,7 @@ function lh(){
         if ($('#generic_list-'+id).val() != '') {
 
             $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash+'/(type)/valueclicked',{payload: $('#id_generic_list-'+id).val(), id : id},function(data){
-                $('#meta-message-'+id).remove();
+                $('.meta-message-'+id).remove();
                 jQuery('<div/>', {
                     'class': 'message-row pending-storage pending-storage-bot',
                     text: 'Processing...'
