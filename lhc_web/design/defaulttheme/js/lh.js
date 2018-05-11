@@ -3146,9 +3146,8 @@ function lh(){
 
     this.buttonClicked = function(payload, id, btn, notHide) {
 
-        btn.attr("disabled","disabled");
-
         if (btn.attr("data-no-change") == undefined) {
+            btn.attr("disabled","disabled");
             btn.text("Processing...");
         }
 
@@ -3173,9 +3172,8 @@ function lh(){
 
     this.updateTriggerClicked = function(payload, id, btn, notHide) {
 
-        btn.attr("disabled","disabled");
-
         if (btn.attr("data-no-change") == undefined) {
+            btn.attr("disabled","disabled");
             btn.text("Processing...");
         }
 
@@ -3200,9 +3198,8 @@ function lh(){
 
     this.updateChatClicked = function(payload, id, btn, notHide) {
 
-        btn.attr("disabled","disabled");
-
         if (btn.attr("data-no-change") == undefined) {
+            btn.attr("disabled","disabled");
             btn.text("Processing...");
         }
 
@@ -3226,9 +3223,8 @@ function lh(){
 
     this.dropdownClicked = function(id, btn) {
 
-        btn.attr("disabled","disabled");
-
         if (btn.attr("data-no-change") == undefined) {
+            btn.attr("disabled","disabled");
             btn.text("Processing...");
         }
 
