@@ -27,8 +27,19 @@ class erLhcoreClassGenericBotWorkflow {
             return;
         }
 
-        // There is no current workflow in progress
-        $event = self::findEvent($msg->msg, $chat->chat_variables_array['gbot_id']);
+        // There is no current workflow in progress                
+        $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_get_message', array(
+                    'chat' => & $chat,
+                    'msg' => $msg,
+                    'payload' => $msg->msg,
+        ));
+        
+        if ($handler !== false) {
+            $event = $handler['event'];
+        } else {
+            // There is no current workflow in progress
+            $event = self::findEvent($msg->msg, $chat->chat_variables_array['gbot_id']);
+        }           
 
         if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
             self::processTrigger($chat, $event->trigger);

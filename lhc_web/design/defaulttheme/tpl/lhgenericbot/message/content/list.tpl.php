@@ -41,7 +41,7 @@
         </div>
     <?php endforeach; ?>
 
-    <?php foreach ($metaMessage['list_quick_replies'] as $index => $item) : ?>
+    <?php if (isset($metaMessage['list_quick_replies'])) : foreach ($metaMessage['list_quick_replies'] as $index => $item) : ?>
     <div class="list-group-element button-item <?php $listCompactStyle == true ? print ' compact' : print ' large'?>">
         <?php if ($item['type'] == 'url') : ?>
         <a target="_blank" href="<?php echo htmlspecialchars($item['content']['payload'])?>">
@@ -53,5 +53,5 @@
         <?php endif?>
         <?php echo htmlspecialchars($item['content']['name'])?></a>
     </div>
-    <?php endforeach; ?>
+    <?php endforeach;endif; ?>
 </div>
