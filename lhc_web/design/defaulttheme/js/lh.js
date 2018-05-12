@@ -36,6 +36,7 @@ function lh(){
     this.userclosechaturl = "chat/userclosechat/";
     this.disableremember = false;
     this.operatorTyping = false;
+    this.forceBottomScroll = false;
     this.appendSyncArgument = '';
     
     // Disable sync, is used in angular controllers before migration to new JS structure
@@ -839,8 +840,9 @@ function lh(){
     	            		messageBlock.find('.pending-storage').remove();
     	            		messageBlock.append(data.result);
 
-	  	                	if (isAtTheBottom < 20) {
-	  	                		messageBlock.stop(true,false).animate({ scrollTop: scrollHeight+500 }, 500);
+	  	                	if (isAtTheBottom < 20 || inst.forceBottomScroll == true) {
+                                inst.forceBottomScroll = false;
+	  	                		messageBlock.stop(true,false).animate({ scrollTop: scrollHeight+2000 }, 500);
 	  	                	}  	                	  
     	            		
                 			// If one the message owner is not current user play sound
@@ -3166,6 +3168,7 @@ function lh(){
             var scrollHeight = messageBlock.prop("scrollHeight");
             messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 
+            lhinst.forceBottomScroll = true;
             lhinst.syncusercall();
         });
         lhinst.focusUserText();
@@ -3193,6 +3196,7 @@ function lh(){
             var scrollHeight = messageBlock.prop("scrollHeight");
             messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 
+            lhinst.forceBottomScroll = true;
             lhinst.syncusercall();
         });
         lhinst.focusUserText();
@@ -3219,6 +3223,7 @@ function lh(){
             var scrollHeight = messageBlock.prop("scrollHeight");
             messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 
+            lhinst.forceBottomScroll = true;
             lhinst.syncusercall();
         });
         lhinst.focusUserText();
@@ -3240,6 +3245,7 @@ function lh(){
                     text: 'Processing...'
                 }).appendTo($('#messagesBlock'));
 
+                lhinst.forceBottomScroll = true;
                 lhinst.syncusercall();
             });
             lhinst.focusUserText();
