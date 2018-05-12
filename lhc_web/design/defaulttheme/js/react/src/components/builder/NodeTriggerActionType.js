@@ -19,15 +19,16 @@ export default ({onChange, type}) => {
             'value':'list',
             'text' : 'Send List',
         },
+        {
+            'value':'predefined',
+            'text' : 'Send predefined block',
+        },
         /*,
         {
             'value':'typing',
             'text' : 'Send Typing',
         },
-        {
-            'value':'predefined',
-            'text' : 'Send predefined block',
-        },
+
         {
             'value':'image',
             'text' : 'Send Image',

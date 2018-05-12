@@ -7,6 +7,7 @@ import NodeTriggerActionGeneric from './builder/NodeTriggerActionGeneric';
 import NodeTriggerActionCollectable from './builder/NodeTriggerActionCollectable';
 import NodeTriggerActionButtons from './builder/NodeTriggerActionButtons';
 import NodeTriggerActionCommand from './builder/NodeTriggerActionCommand';
+import NodeTriggerActionPredefined from './builder/NodeTriggerActionPredefined';
 
 
 @connect((store) => {
@@ -120,6 +121,8 @@ class NodeTriggerBuilder extends Component {
                     return <NodeTriggerActionButtons moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
                 } else if (action.get('type') == 'command') {
                     return <NodeTriggerActionCommand key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
+                } else if (action.get('type') == 'predefined') {
+                    return <NodeTriggerActionPredefined key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
                 }
             });
         }
