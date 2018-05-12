@@ -176,7 +176,9 @@ class erLhcoreClassGenericBotWorkflow {
         if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
             self::setLastMessageId($chat->id, $message->id);
         } else {
-            self::sendAsBot($chat,erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Button action could not be found!'));
+            if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
+                self::sendAsBot($chat,erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Button action could not be found!'));
+            }
         }
     }
 
@@ -526,7 +528,9 @@ class erLhcoreClassGenericBotWorkflow {
                         if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
                             self::setLastMessageId($chat->id, $message->id);
                         } else {
-                            self::sendAsBot($chat,erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Button action could not be found!'));
+                            if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
+                                self::sendAsBot($chat,erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Button action could not be found!'));
+                            }
                         }
                     }
 
@@ -549,7 +553,10 @@ class erLhcoreClassGenericBotWorkflow {
     {
         $message = null;
         foreach ($trigger->actions_front as $action) {
-            $message = call_user_func_array("erLhcoreClassGenericBotAction" . ucfirst($action['type']).'::process',array($chat, $action, $trigger));
+            $messageNew = call_user_func_array("erLhcoreClassGenericBotAction" . ucfirst($action['type']).'::process',array($chat, $action, $trigger));
+            if ($messageNew instanceof erLhcoreClassModelmsg) {
+                $message = $messageNew;
+            }
         }
 
         if ($setLastMessageId == true && isset($message) && $message instanceof erLhcoreClassModelmsg) {
@@ -618,9 +625,11 @@ class erLhcoreClassGenericBotWorkflow {
 
             if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
                 self::setLastMessageId($chat->id, $message->id);
-            }/* else {
-                self::sendAsBot($chat,erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Button action could not be found!'));
-            }*/
+            } else {
+                if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
+                    self::sendAsBot($chat,erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Button action could not be found!'));
+                }
+            }
         }
     }
 
@@ -665,7 +674,9 @@ class erLhcoreClassGenericBotWorkflow {
             if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
                 self::setLastMessageId($chat->id, $message->id);
             } else {
-                self::sendAsBot($chat,erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Button action could not be found!'));
+                if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
+                    self::sendAsBot($chat,erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Button action could not be found!'));
+                }
             }
         }
     }
