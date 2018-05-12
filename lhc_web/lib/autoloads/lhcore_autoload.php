@@ -250,6 +250,7 @@ return array_merge(array (
         'erLhcoreClassGenericBotUpdateActions'      => 'lib/core/lhgenericbot/actionsChat/lhgenericbotupdateactions.php',
         'erLhcoreClassGenericBotActionCollectable'  => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactioncollectable.php',
         'erLhcoreClassGenericBotActionList'         => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionlist.php',
+        'erLhcoreClassGenericBotActionGeneric'      => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactiongeneric.php',
         'erLhcoreClassGenericBotActionCommand'      => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactioncommand.php'
 
 ),

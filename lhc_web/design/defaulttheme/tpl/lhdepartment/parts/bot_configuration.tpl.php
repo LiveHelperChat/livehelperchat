@@ -9,3 +9,7 @@
         'list_function'  => 'erLhcoreClassModelGenericBotBot::getList'
     )); ?>
 </div>
+
+<div class="form-group">
+    <label><input type="checkbox" name="bot_only_offline" <?php if (isset($departament->bot_configuration_array['bot_only_offline']) && $departament->bot_configuration_array['bot_only_offline'] == true) : ?>checked="checked"<?php endif?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Transfer to bot only if department is offline')?></label>
+</div>

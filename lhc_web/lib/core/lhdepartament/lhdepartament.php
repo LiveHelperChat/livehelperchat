@@ -139,6 +139,9 @@ class erLhcoreClassDepartament{
                 // Bot attributes
                 'bot_id' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+                ),
+                'bot_only_offline' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
                 )
 	   	);
 
@@ -449,7 +452,13 @@ class erLhcoreClassDepartament{
        {
            $botConfiguration['bot_id'] = $form->bot_id;
        } else {
-           $botConfiguration = array();
+           $botConfiguration['bot_id'] = 0;
+       }
+
+       if ( $form->hasValidData( 'bot_only_offline' ) ) {
+           $botConfiguration['bot_only_offline'] = true;
+       } else {
+           $botConfiguration['bot_only_offline'] = false;
        }
 
        $department->bot_configuration_array = $botConfiguration;

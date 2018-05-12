@@ -1075,9 +1075,19 @@ class erLhcoreClassChatValidator {
              return;
         }
 
-        if (isset($chat->department->bot_configuration_array['bot_id']) && is_numeric($chat->department->bot_configuration_array['bot_id'])) {
-            $bot = erLhcoreClassModelGenericBotBot::fetch($chat->department->bot_configuration_array['bot_id']);
-            if ($bot instanceof erLhcoreClassModelGenericBotBot) {
+        if (isset($chat->department->bot_configuration_array['bot_id']) && is_numeric($chat->department->bot_configuration_array['bot_id']) && $chat->department->bot_configuration_array['bot_id'] > 0) {
+
+            $botConfiguration = $chat->department->bot_configuration_array;
+
+            $bot = erLhcoreClassModelGenericBotBot::fetch($botConfiguration['bot_id']);
+                                    
+            if (
+                $bot instanceof erLhcoreClassModelGenericBotBot &&
+                    (
+                        (!isset($botConfiguration['bot_only_offline']) || $botConfiguration['bot_only_offline'] == false) ||
+                        (isset($botConfiguration['bot_only_offline']) && $botConfiguration['bot_only_offline'] == true && erLhcoreClassChat::isOnline($chat->dep_id) == false)
+                    )
+                ) {
                 $chat->status = erLhcoreClassModelChat::STATUS_BOT_CHAT;
                 
                 $variablesArray = $chat->chat_variables_array;

@@ -233,8 +233,6 @@ class NodeCollectableField extends Component {
                         </div>
                     </div>
 
-
-
                     <div className="row">
                         <div className="col-xs-12">
                             <div className="btn-group pull-left" role="group" aria-label="Trigger actions">

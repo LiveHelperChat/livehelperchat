@@ -99,7 +99,7 @@ class NodeTriggerActionQuickReplyPayload extends Component {
             controlPayload = <div className="col-xs-12">
                 <div className="form-group">
                    <label>Select what trigger to execute</label>
-                   <NodeTriggerList onSetPayload={this.onChangePayload.bind(this)} payload={this.props.currentPayload.get('payload')} />
+                   <NodeTriggerList onSetPayload={(e) => this.props.onPayloadChange(e)} payload={this.props.currentPayload.get('payload')} />
                 </div>
             </div>
         }

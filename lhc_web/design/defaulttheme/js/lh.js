@@ -3168,6 +3168,7 @@ function lh(){
 
             lhinst.syncusercall();
         });
+        lhinst.focusUserText();
     }
 
     this.updateTriggerClicked = function(payload, id, btn, notHide) {
@@ -3194,6 +3195,7 @@ function lh(){
 
             lhinst.syncusercall();
         });
+        lhinst.focusUserText();
     }
 
     this.updateChatClicked = function(payload, id, btn, notHide) {
@@ -3219,6 +3221,7 @@ function lh(){
 
             lhinst.syncusercall();
         });
+        lhinst.focusUserText();
     }
 
     this.dropdownClicked = function(id, btn) {
@@ -3239,10 +3242,15 @@ function lh(){
 
                 lhinst.syncusercall();
             });
+            lhinst.focusUserText();
 
         } else {
             alert('Please choose!');
         }
+    }
+
+    this.focusUserText = function() {
+        $('#CSChatMessage').focus();
     }
 
 }

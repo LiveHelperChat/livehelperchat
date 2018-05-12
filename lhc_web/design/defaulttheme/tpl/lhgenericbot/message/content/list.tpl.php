@@ -4,6 +4,9 @@
     <?php foreach ($metaMessage['items'] as $index => $item) : ?>
         <div class="list-group-element<?php $listCompactStyle == true ? print ' compact' : print ' large'?>">
 
+            <?php $itemLink = $item; ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/part/link.tpl.php'));?>
+
             <?php if ($listCompactStyle == false && $index == 0 && $item['content']['img'] != '') : ?>
                     <div class="element-background" style="background-image: url('<?php echo $item['content']['img']?>')"></div>
             <?php endif ?>
@@ -11,7 +14,7 @@
             <div class="row element-description-row">
                 <div class="col-xs-9">
                     <div class="element-description">
-                        <h4><?php echo htmlspecialchars($item['content']['title'])?></h4>
+                        <h4><?php echo $linkData['start']?><?php echo htmlspecialchars($item['content']['title'])?><?php echo $linkData['end']?></h4>
                         <div><?php echo htmlspecialchars($item['content']['subtitle'])?></div>
                         <?php if (isset($item['buttons']) && !empty($item['buttons'])) : ?>
                             <ul class="quick-replies list-inline">
@@ -19,13 +22,15 @@
                                     <li>
                                         <?php if ($item['type'] == 'url') : ?>
                                         <a class="btn btn-xs btn-info" target="_blank" href="<?php echo htmlspecialchars($itemButton['content']['payload'])?>">
-                                            <i class="material-icons">open_in_new</i>
-                                            <?php elseif ($itemButton['type'] == 'updatechat') : ?>
-                                            <a class="btn btn-xs btn-info" data-no-change="true" onclick='lhinst.updateChatClicked(<?php echo json_encode($itemButton['content']['payload'])?>,<?php echo $messageId?>,$(this),true)'>
-                                            <?php else : ?>
-                                            <a class="btn btn-xs btn-info" data-no-change="true" onclick='lhinst.buttonClicked(<?php echo json_encode($itemButton['content']['payload'])?>,<?php echo $messageId?>,$(this),true)'>
-                                            <?php endif?>
-                                            <?php echo htmlspecialchars($itemButton['content']['name'])?></a>
+                                        <i class="material-icons">open_in_new</i>
+                                        <?php elseif ($itemButton['type'] == 'updatechat') : ?>
+                                        <a class="btn btn-xs btn-info" data-no-change="true" onclick='lhinst.updateChatClicked(<?php echo json_encode($itemButton['content']['payload'])?>,<?php echo $messageId?>,$(this),true)'>
+                                        <?php elseif ($itemButton['type'] == 'trigger') : ?>
+                                        <a class="btn btn-xs btn-info" data-no-change="true" onclick='lhinst.updateTriggerClicked(<?php echo json_encode($itemButton['content']['payload'])?>,<?php echo $messageId?>,$(this),true)'>
+                                        <?php else : ?>
+                                        <a class="btn btn-xs btn-info" data-no-change="true" onclick='lhinst.buttonClicked(<?php echo json_encode($itemButton['content']['payload'])?>,<?php echo $messageId?>,$(this),true)'>
+                                        <?php endif?>
+                                        <?php echo htmlspecialchars($itemButton['content']['name'])?></a>
                                     </li>
                                 <?php endforeach; ?>
                             </ul>
@@ -34,7 +39,7 @@
                 </div>
                 <div class="col-xs-3">
                     <?php if ($item['content']['img'] != '' && ($index != 0 || $listCompactStyle == true)) : ?>
-                        <img class="pull-right img-responsive" src="<?php echo $item['content']['img']?>" />
+                        <?php echo $linkData['start']?><img class="pull-right img-responsive" src="<?php echo $item['content']['img']?>" /><?php echo $linkData['end']?>
                     <?php endif; ?>
                 </div>
             </div>
@@ -48,6 +53,8 @@
         <i class="material-icons">open_in_new</i>
         <?php elseif ($item['type'] == 'updatechat') : ?>
         <a data-no-change="true" onclick='lhinst.updateChatClicked(<?php echo json_encode($item['content']['payload'])?>,<?php echo $messageId?>,$(this),true)'>
+        <?php elseif ($item['type'] == 'trigger') : ?>
+        <a data-no-change="true" onclick='lhinst.updateTriggerClicked(<?php echo json_encode($item['content']['payload'])?>,<?php echo $messageId?>,$(this),true)'>
         <?php else : ?>
         <a data-no-change="true" onclick='lhinst.buttonClicked(<?php echo json_encode($item['content']['payload'])?>,<?php echo $messageId?>,$(this),true)'>
         <?php endif?>

@@ -1540,6 +1540,11 @@ input[type="file"]{
 	border-bottom: 1px solid #ccc;
 }
 
+.generic-bubble-item h4 a,
+.list-group-element h4 a{
+	color: #333;
+}
+
 .list-group-element:first-child:not(.compact) .element-description-row {
 	position: absolute;
 	top: 35%;
@@ -1560,4 +1565,33 @@ input[type="file"]{
 .element-background {
 	height: 180px;
 	background-size: cover;
+}
+
+/**
+* List generic carousel
+*/
+.generic-carousel{
+	display: flex;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	margin-bottom:10px;
+	padding-bottom: 10px;
+}
+
+.generic-bubble-item  {
+	flex: 0 0 auto;
+	width: 220px;
+}
+
+.generic-bubble-content{
+	margin: 0 20px 0 0;
+	border: 1px solid #eee;
+	padding: 10px;
+}
+
+.generic-carousel {
+	width: 100%;
+	-webkit-overflow-scrolling: touch;
+	-webkit-overflow-scrolling: touch;
 }
