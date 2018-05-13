@@ -80,19 +80,27 @@ var LHCCannedMessageAutoSuggest = (function() {
 		} else {
 			var current = $('#canned-hash-current-'+this.chat_id+' > ul > li.current-item');
 		}
-		
+
+		if (current.length == 0) {
+			return;
+		}
+
 		if (action == 'up') {			
 			var prev = current.prev();			
 			if (prev.is('li')){
 				current.removeClass('current-item');
 				prev.addClass('current-item');
-			}			
+			} else {
+                current.removeClass('current-item').parent().find(' > li').last().addClass('current-item');
+			}
 		} else if(action == 'down') {
 			var next = current.next();			
 			if (next.is('li')){
 				current.removeClass('current-item');
 				next.addClass('current-item');
-			}
+			} else {
+                current.removeClass('current-item').parent().find(' > li').first().addClass('current-item');
+  			}
 		}
 	}
 	
@@ -164,7 +172,7 @@ var LHCCannedMessageAutoSuggest = (function() {
 	LHCCannedMessageAutoSuggest.prototype.initSuggester = function()
 	{
 		var _that = this;
-		$('#canned-hash-'+this.chat_id+' > li:first-child').addClass('current-item');
+		$('#canned-hash-'+this.chat_id+' > li:last-child').addClass('current-item');
 		
 		$('#canned-hash-'+this.chat_id+' > li > a').click(function() {
 			
