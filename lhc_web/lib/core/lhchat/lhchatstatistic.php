@@ -653,7 +653,7 @@ class erLhcoreClassChatStatistic {
         		$generalFilter = ' AND '.$generalFilter;
         	}
         	
-        	$sql = "SELECT count(id) AS number_of_chats,country_name FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY country_code,country_name ORDER BY number_of_chats DESC LIMIT 20";
+        	$sql = "SELECT count(id) AS number_of_chats,country_name FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY country_code,country_name ORDER BY number_of_chats DESC LIMIT 40";
         	$db = ezcDbInstance::get();
         	$stmt = $db->prepare($sql);
         	
@@ -717,7 +717,7 @@ class erLhcoreClassChatStatistic {
     }
     
     
-    public static function averageOfChatsDialogsByUser($days = 30, $filter = array(), $limit = 20) 
+    public static function averageOfChatsDialogsByUser($days = 30, $filter = array(), $limit = 40)
     {    	    
         $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.averageofchatsdialogsbyuser',array('days' => $days, 'filter' => $filter, 'limit' => $limit));
         
@@ -777,7 +777,7 @@ class erLhcoreClassChatStatistic {
                 $generalFilter = ' AND '.$generalFilter;
             }
 
-            $sql = "SELECT count(id) AS number_of_chats,dep_id FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY dep_id ORDER BY number_of_chats DESC LIMIT 20";
+            $sql = "SELECT count(id) AS number_of_chats,dep_id FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY dep_id ORDER BY number_of_chats DESC LIMIT 40";
 
             $db = ezcDbInstance::get();
             $stmt = $db->prepare($sql);
@@ -815,7 +815,7 @@ class erLhcoreClassChatStatistic {
         		$generalFilter = ' AND '.$generalFilter;
         	}
         	    	
-        	$sql = "SELECT count(id) AS number_of_chats,user_id FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 20";
+        	$sql = "SELECT count(id) AS number_of_chats,user_id FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 40";
         	
         	$db = ezcDbInstance::get();
         	$stmt = $db->prepare($sql);
@@ -855,7 +855,7 @@ class erLhcoreClassChatStatistic {
         		$generalFilter = ' AND '.$generalFilter;
         	}
         	    	
-        	$sql = "SELECT avg(wait_time) AS avg_wait_time,user_id FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY avg_wait_time DESC LIMIT 20";
+        	$sql = "SELECT avg(wait_time) AS avg_wait_time,user_id FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY avg_wait_time DESC LIMIT 40";
         	        	
         	$db = ezcDbInstance::get();
         	$stmt = $db->prepare($sql);
@@ -912,7 +912,7 @@ class erLhcoreClassChatStatistic {
         	INNER JOIN lh_chat ON lh_chat.id = lh_msg.chat_id
         	WHERE {$appendFilterTime} {$generalFilter} 
         	GROUP BY lh_msg.user_id 
-        	ORDER BY number_of_chats DESC LIMIT 20";
+        	ORDER BY number_of_chats DESC LIMIT 40";
         	$db = ezcDbInstance::get();
         	$stmt = $db->prepare($sql);
         
@@ -997,7 +997,7 @@ class erLhcoreClassChatStatistic {
     		$appendFilterTime = ' AND time > :time ';
     	}    	
     	
-    	$sql = "SELECT count(id) AS number_of_chats,user_id FROM lh_chat WHERE fbst = 1 {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 20";
+    	$sql = "SELECT count(id) AS number_of_chats,user_id FROM lh_chat WHERE fbst = 1 {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 40";
     	$db = ezcDbInstance::get();
     	$stmt = $db->prepare($sql);
     	if ($useTimeFilter == true) {
@@ -1007,7 +1007,7 @@ class erLhcoreClassChatStatistic {
     	$stmt->execute();
     	$rating['thumbsup'] = $stmt->fetchAll();
     		
-    	$sql = "SELECT count(id) AS number_of_chats,user_id FROM lh_chat WHERE fbst = 2 {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 20";
+    	$sql = "SELECT count(id) AS number_of_chats,user_id FROM lh_chat WHERE fbst = 2 {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 40";
     	$db = ezcDbInstance::get();
     	$stmt = $db->prepare($sql);
     	if ($useTimeFilter == true) {
@@ -1017,7 +1017,7 @@ class erLhcoreClassChatStatistic {
     	$stmt->execute();
     	$rating['thumbdown'] = $stmt->fetchAll();
     		
-    	$sql = "SELECT count(id) AS number_of_chats,user_id FROM lh_chat WHERE fbst = 0 {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 20";
+    	$sql = "SELECT count(id) AS number_of_chats,user_id FROM lh_chat WHERE fbst = 0 {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 40";
     	$db = ezcDbInstance::get();
     	$stmt = $db->prepare($sql);
     	if ($useTimeFilter == true) {
@@ -1298,7 +1298,7 @@ class erLhcoreClassChatStatistic {
         return round($seconds/60/60,2);
     }
     
-    public static function totalHoursOfOnlineDialogsByUser($days = 30, $filter = array(), $limit = 20)
+    public static function totalHoursOfOnlineDialogsByUser($days = 30, $filter = array(), $limit = 40)
     {
         if (empty($filter)) {
             $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
