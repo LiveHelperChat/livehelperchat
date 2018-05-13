@@ -812,8 +812,6 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 					var tabs = $('#tabs');
 
-					
-					
 					angular.forEach(data.result, function(item, key) {
 
 						$scope[key] = item;
@@ -823,9 +821,15 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 								item.list.forEach(function (chat) {
 									if (typeof chat.user_id !== 'undefined' && chat.user_id == confLH.user_id && confLH.accept_chats == 1 && chat.status !== 1) {
 										if ($('#chat-tab-link-' + chat.id).length == 0) {
-											lhinst.removeSynchroChat(chat.id);
-											lhinst.startChatBackground(chat.id, tabs, LiveHelperChatFactory.truncate(chat.nick, 10));
-											notificationDataAccept.push(chat.id);
+
+											if (tabs.length > 0 && lhinst.disableremember == false) {
+                                                lhinst.removeSynchroChat(chat.id);
+                                                lhinst.startChatBackground(chat.id, tabs, LiveHelperChatFactory.truncate(chat.nick, 10));
+											}
+
+											if (lhinst.disableremember == false) {
+                                                notificationDataAccept.push(chat.id);
+											}
 										}
 									}
 								});
@@ -905,10 +909,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				
 				if (typeof data.mac !== 'undefined' && data.mac.length > 0) {
 					var tabs = $('#tabs');
-					
-					angular.forEach(data.mac, function(item, key) {
-						lhinst.startChatBackground(item.id,tabs,LiveHelperChatFactory.truncate(item.nick,10),false);
-					});
+
+					if (tabs.length > 0 && lhinst.disableremember == false) {
+						angular.forEach(data.mac, function(item, key) {
+							lhinst.startChatBackground(item.id,tabs,LiveHelperChatFactory.truncate(item.nick,10),false);
+						});
+					}
 				}
 
 				_that.hideOnline = data.ho == 1;
@@ -923,7 +929,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				_that.isListLoaded = true;
 				
 		},function(error){
-			console.log(error);
+				console.log(error);
 				$scope.timeoutControl = setTimeout(function(){
 					$scope.loadChatList();
 				},confLH.back_office_sinterval);
