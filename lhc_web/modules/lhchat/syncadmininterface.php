@@ -247,7 +247,19 @@ if ($closedTabEnabled == true) {
             $filter['filterin']['dep_id'] = isset($filter['filterin']['dep_id']) ? array_merge($filter['filterin']['dep_id'],$depIds) : $depIds;
         }
     }
-    
+
+    $sortArray = array(
+        'id_asc' => 'id ASC',
+        'id_dsc' => 'id DESC',
+        'cst_asc' => 'cls_time ASC',
+        'cst_dsc' => 'cls_time DESC',
+
+    );
+
+    if (!empty($Params['user_parameters_unordered']['clcs']) && key_exists($Params['user_parameters_unordered']['clcs'], $sortArray)) {
+        $filter['sort'] = $sortArray[$Params['user_parameters_unordered']['clcs']];
+    }
+
 	/**
 	 * Closed chats
 	 * */
@@ -255,7 +267,7 @@ if ($closedTabEnabled == true) {
 
 	$chatsListAll = $chatsListAll+$chats;
 
-	erLhcoreClassChat::prefillGetAttributes($chats,array('time_created_front','department_name','plain_user_name','product_name'),array('product_id','product','department','time','status','user_id','user'));
+	erLhcoreClassChat::prefillGetAttributes($chats,array('cls_time_front', 'time_created_front','department_name','plain_user_name','product_name'),array('product_id','product','department','time','status','user_id','user'));
 	$ReturnMessages['closed_chats'] = array('list' => array_values($chats));
 	
 	$chatsList[] = & $ReturnMessages['closed_chats']['list'];
