@@ -28,8 +28,7 @@
             </div>
 
             <div class="mx550" id="transfer-chat-listuserrefilter">
-                <?php $user_filter = array('hide_online' => 0); ?>
-                <?php include(erLhcoreClassDesign::designtpl('lhchat/transfer/transferchatrefilteruser.tpl.php'));?>
+
             </div>
 
     		<input type="button" onclick="lhinst.transferChat('<?php echo $chat->id;?>')" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
@@ -40,17 +39,8 @@
     		<div class="row">
     		    <div class="col-xs-6">
 
-                    <?php 
-                    $departments_filter = array (
-                        'dep_id' => $chat->dep_id,
-                        'chat_id' => $chat->id,
-                        'filter' => array(),
-                        'explicit' => true
-                    );
-                    ?>
-                    
                     <div id="transfer-chat-list-refilter">
-                        <?php include(erLhcoreClassDesign::designtpl('lhchat/transfer/transferchatrefilter.tpl.php'));?>
+
                     </div>
 
             		<input type="button" onclick="lhinst.transferChatDep('<?php echo $chat->id;?>')" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
@@ -91,6 +81,8 @@
                     $('#transfer-chat-listuserrefilter').html(data);
                 });
             }
+            updateTransferUser();
+            updateTransferDepartments();
             </script>
 		</div>
         
