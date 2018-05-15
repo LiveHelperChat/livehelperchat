@@ -8,7 +8,8 @@
 <label><input type="radio" name="ChatStatus" value="1" <?php if ($chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Active')?></label><br/>
 <label><input type="radio" name="ChatStatus" value="2" <?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Closed')?></label><br/>
 <label><input type="radio" name="ChatStatus" value="3" <?php if ($chat->status == erLhcoreClassModelChat::STATUS_CHATBOX_CHAT) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Chatbox chat')?></label><br/>
-<label><input type="radio" name="ChatStatus" value="4" <?php if ($chat->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Operators chat')?></label>
+<label><input type="radio" name="ChatStatus" value="4" <?php if ($chat->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Operators chat')?></label><br/>
+<label><input type="radio" name="ChatStatus" value="5" <?php if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Bot chat')?></label>
 </div>
 
 <div class="btn-group" role="group" aria-label="...">
