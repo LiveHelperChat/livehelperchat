@@ -18,6 +18,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por cuantos días el widget de votación no será expandido después de mostrarlo la última vez</translation>
     </message>
@@ -1236,6 +1244,10 @@
       <translation>Escriba para buscar</translation>
     </message>
     <message>
+      <source>Select bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nombre</translation>
     </message>
@@ -1250,6 +1262,10 @@
     <message>
       <source>Disabled</source>
       <translation>Desactivado</translation>
+    </message>
+    <message>
+      <source>Please choose</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Exclude offline request from charts.</source>
@@ -1588,16 +1604,16 @@
       <translation>Minimizar / Restaurar</translation>
     </message>
     <message>
+      <source>Our staff are always ready to help</source>
+      <translation>Nuestro personal siempre está listo para ayudar</translation>
+    </message>
+    <message>
       <source>Live help is online...</source>
       <translation>Soporte en línea...</translation>
     </message>
     <message>
       <source>Need help?</source>
       <translation>¿Necesita ayuda?</translation>
-    </message>
-    <message>
-      <source>Our staff are always ready to help</source>
-      <translation>Nuestro personal siempre está listo para ayudar</translation>
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
@@ -2937,6 +2953,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat was transferred to operator!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button action could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update actions could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a message, max characters</source>
       <translation>Por favor introduzca un mensaje, máximo de caracteres</translation>
     </message>
@@ -3419,6 +3447,10 @@
       <translation>¿Está seguro?</translation>
     </message>
     <message>
+      <source>Please enable bot chats list in your account!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Pending chats</source>
       <translation>Chats pendientes</translation>
     </message>
@@ -3796,6 +3828,10 @@
     </message>
     <message>
       <source>My active and pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot chats</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -4662,6 +4698,14 @@
       <translation>Usuarios bloqueados</translation>
     </message>
     <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Browse offers embed code</source>
       <translation>Código de incrustación  para ofertas en el navegador</translation>
     </message>
@@ -5067,6 +5111,10 @@
       <source>Chats list</source>
       <translation>Lista de Chats</translation>
     </message>
+    <message>
+      <source>Bot list</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/activechats</name>
@@ -5191,6 +5239,10 @@
     <message>
       <source>Number of elements in list</source>
       <translation>Nro de elementos en la lista</translation>
+    </message>
+    <message>
+      <source>Bot chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments stats</source>
@@ -6078,6 +6130,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Bot chats list enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>I can see all pending chats, not only assigned to me</source>
       <translation>Puedo ver todos los chats pendientes, no solo los que se me han asignado</translation>
     </message>
@@ -6087,6 +6143,10 @@
     </message>
     <message>
       <source>Exclude me from auto assign workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto preload previous visitor chat messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9692,6 +9752,37 @@
     </message>
     <message>
       <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>genericbot/list</name>
+    <message>
+      <source>Bot list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>with args</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Confirm</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Function is not callable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose</source>
       <translation type="unfinished"/>
     </message>
   </context>

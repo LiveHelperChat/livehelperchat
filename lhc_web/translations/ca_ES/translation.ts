@@ -18,6 +18,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Quants dies després de l&apos;última visualització ha de romandre ocult el widget de votació</translation>
     </message>
@@ -1236,6 +1244,10 @@
       <translation>Escriviu per cercar</translation>
     </message>
     <message>
+      <source>Select bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nom</translation>
     </message>
@@ -1250,6 +1262,10 @@
     <message>
       <source>Disabled</source>
       <translation>Inhabilitat</translation>
+    </message>
+    <message>
+      <source>Please choose</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Exclude offline request from charts.</source>
@@ -1588,16 +1604,16 @@
       <translation>Minimitza / restaura</translation>
     </message>
     <message>
+      <source>Our staff are always ready to help</source>
+      <translation>El nostres agents es troben a disposició per ajudar-vos</translation>
+    </message>
+    <message>
       <source>Live help is online...</source>
       <translation>Xat en viu disponible...</translation>
     </message>
     <message>
       <source>Need help?</source>
       <translation>Necessiteu ajuda?</translation>
-    </message>
-    <message>
-      <source>Our staff are always ready to help</source>
-      <translation>El nostres agents es troben a disposició per ajudar-vos</translation>
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
@@ -2937,6 +2953,18 @@
       <translation>La vostra petició no s&apos;ha processat com s&apos;esperava - però no us amoïneu que no és culpa vostra! Torneu-la a enviar. Si torna a passar, ens haureu de contactar per altres mitjans.</translation>
     </message>
     <message>
+      <source>Chat was transferred to operator!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button action could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update actions could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a message, max characters</source>
       <translation>Introduïu un missatge, límit de caràcters</translation>
     </message>
@@ -3419,6 +3447,10 @@
       <translation>Esteu segur?</translation>
     </message>
     <message>
+      <source>Please enable bot chats list in your account!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Pending chats</source>
       <translation>Xats pendents</translation>
     </message>
@@ -3797,6 +3829,10 @@
     <message>
       <source>My active and pending chats</source>
       <translation>Els meus xats actius i pendents</translation>
+    </message>
+    <message>
+      <source>Bot chats</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -4663,6 +4699,14 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>Usuaris blocats</translation>
     </message>
     <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Browse offers embed code</source>
       <translation>Codi incrustat per a navegar les ofertes</translation>
     </message>
@@ -5068,6 +5112,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <source>Chats list</source>
       <translation>Llista de xats</translation>
     </message>
+    <message>
+      <source>Bot list</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/activechats</name>
@@ -5192,6 +5240,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <message>
       <source>Number of elements in list</source>
       <translation>Nombre d&apos;elements a la llista</translation>
+    </message>
+    <message>
+      <source>Bot chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments stats</source>
@@ -6079,6 +6131,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>S&apos;ha habilitat la meva llista de xats pendents i actius</translation>
     </message>
     <message>
+      <source>Bot chats list enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>I can see all pending chats, not only assigned to me</source>
       <translation>Puc veure tots els xats pendents, no només els assignats a mi</translation>
     </message>
@@ -6089,6 +6145,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <message>
       <source>Exclude me from auto assign workflow</source>
       <translation>Exclou-me del protocol d&apos;assignació automàtica</translation>
+    </message>
+    <message>
+      <source>Auto preload previous visitor chat messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Maximum active chats</source>
@@ -9693,6 +9753,37 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     </message>
     <message>
       <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>genericbot/list</name>
+    <message>
+      <source>Bot list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>with args</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Confirm</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Function is not callable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose</source>
       <translation type="unfinished"/>
     </message>
   </context>

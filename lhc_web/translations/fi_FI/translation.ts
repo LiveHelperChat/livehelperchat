@@ -18,6 +18,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Kuinka monta päivää edellisen äänestyksen jälkeen äänestys-widgetti pidetään piilossa</translation>
     </message>
@@ -31,11 +39,11 @@
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation>Aktivoi online sivuston vierailijoiden seuraaminen</translation>
+      <translation>Aktivoi sivuston vierailijoiden online-seuraaminen</translation>
     </message>
     <message>
       <source>Should mouse movement be tracked as activity measure, if not checked only basic events would be tracked</source>
-      <translation>Käytä hiiren liikkeitä aktiivisuuden mittaukseen, jos ei ole valittuna seurataan vain tavallisia tapahtumia</translation>
+      <translation>Käytä hiiren liikkeitä aktiivisuuden mittaukseen, ja jos se ei ole valittuna seurataan vain tavallisia tapahtumia</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
@@ -87,19 +95,19 @@
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
-      <translation>SocketIO kirjaston sijainti</translation>
+      <translation>SocketIO-kirjaston sijainti</translation>
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
-      <translation>Käyttä https yhteyttä NodeJs rajapinnassa</translation>
+      <translation>Käyttä https-yhteyttä NodeJs rajapinnassa</translation>
     </message>
     <message>
       <source>socket.io path, optional</source>
-      <translation>Jätä viesti -lomakkeen teksti</translation>
+      <translation>socket.io-polku, valinnainen</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
-      <translation>NodeJS tuki aktivoitu</translation>
+      <translation>NodeJS-tuki aktivoitu</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
@@ -115,7 +123,7 @@
     </message>
     <message>
       <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
-      <translation>Ajetaanko yksiköiden siirto workflow cronjob, vaikka käyttäjä lähtee keskustelusta</translation>
+      <translation>Ajetaanko yksiköiden työnkulun siirto crontyönä, vaikka käyttäjä lähtee keskustelusta</translation>
     </message>
     <message>
       <source>Reopen chat functionality enabled</source>
@@ -123,7 +131,7 @@
     </message>
     <message>
       <source>Reopen closed chat as new? Otherwise it will be reopened as active.</source>
-      <translation>Uudeelleenavaa suljettu keskustelu uutena? Muuten avataan aktiivisena.</translation>
+      <translation>Avaa suljettu keskustelu uutena kskusteluna? Muuten avataan aktiivisena.</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
@@ -155,11 +163,11 @@
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation>Näytä Tarvitsetko apua vihjeen?</translation>
+      <translation>Näytä Tarvitsetko apua -vihjeen?</translation>
     </message>
     <message>
       <source>Minimum phone number length</source>
-      <translation>Puhelinnumeron minimi pituus</translation>
+      <translation>Puhelinnumeron minimipituus</translation>
     </message>
     <message>
       <source>Messages box height</source>
@@ -319,7 +327,7 @@
     </message>
     <message>
       <source>How long operator should go offline automatically because of inactivity</source>
-      <translation>Kuinka pian operaattori menee automaattisesti offline tilaan oltuaan epäaktiivinen.</translation>
+      <translation>Kuinka pian operaattori menee automaattisesti offline-tilaan oltuaan epäaktiivinen.</translation>
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
@@ -327,7 +335,7 @@
     </message>
     <message>
       <source>How many seconds chat accept link is valid. Set 0 to force login all the time manually.</source>
-      <translation>Kuinka monta sekunttia keskustelun hyväksymislinkki on voimassa. 0-vaatii aina kirjautumisen käsin.</translation>
+      <translation>Kuinka monta sekuntia keskustelun hyväksymislinkki on voimassa. 0-vaatii aina kirjautumisen käsin.</translation>
     </message>
   </context>
   <context>
@@ -543,7 +551,7 @@
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation>Näytä Tarvitsetko apua vihjelaatikko?</translation>
+      <translation>Näytä Tarvitsetko apua -vihjelaatikko?</translation>
     </message>
     <message>
       <source>Hide message time from visitor</source>
@@ -555,7 +563,7 @@
     </message>
     <message>
       <source>Need help standard text</source>
-      <translation>Tarvitsetko apua sisältöteksti</translation>
+      <translation>Tarvitsetko apua -sisältöteksti</translation>
     </message>
     <message>
       <source>Widget border width (px)</source>
@@ -651,15 +659,15 @@
     </message>
     <message>
       <source>Need help background color</source>
-      <translation>Tarvitsetko apua taustaväri</translation>
+      <translation>Tarvitsetko apua -taustaväri</translation>
     </message>
     <message>
       <source>Need help hover background color</source>
-      <translation>Tarvitsetko apua aktiivinen taustaväri</translation>
+      <translation>Tarvitsetko apua -aktiivinen taustaväri</translation>
     </message>
     <message>
       <source>Need help text color</source>
-      <translation>Tarvitsetko apua tekstin väri</translation>
+      <translation>Tarvitsetko apua -tekstin väri</translation>
     </message>
     <message>
       <source>Text when user starts chat based on proactive invitation</source>
@@ -667,35 +675,35 @@
     </message>
     <message>
       <source>Text when operator closes a chat</source>
-      <translation>Teksti kun operaattori sulkee keskustelun</translation>
+      <translation>Teksti operaattorin sulkiessa keskustelun</translation>
     </message>
     <message>
       <source>Text when user starts a chat and is waiting for operator to join a chat</source>
-      <translation>Teksti kun käyttäjä aloittaa keskustelun ja odottaa operaattoria liittymään keskusteluun</translation>
+      <translation>Teksti käyttäjän aloittaessa keskustelun ja odottaessa operaattorin liittymistä keskusteluun</translation>
     </message>
     <message>
       <source>Text when user starts a chat but department is offline</source>
-      <translation>Teksti kun käyttäjä aloittaa keskustelun, mutta osasto on offline-tilassa</translation>
+      <translation>Teksti käyttäjän aloittaessa keskustelun kun osasto on offline-tilassa</translation>
     </message>
     <message>
       <source>Leave a message form text</source>
-      <translation>Jätä viesti lomakkeen teksti</translation>
+      <translation>Jätä viesti -lomakkeen teksti</translation>
     </message>
     <message>
       <source>Need help border color</source>
-      <translation>Tarvitsetko apua reunan väri</translation>
+      <translation>Tarvitsetko apua -reunan väri</translation>
     </message>
     <message>
       <source>Need help close background color</source>
-      <translation>Tarvitsetko apua taustaväri</translation>
+      <translation>Tarvitsetko apua -taustaväri</translation>
     </message>
     <message>
       <source>Need help close hover background color</source>
-      <translation>Tarvitsetko apua aktiivinen taustaväri</translation>
+      <translation>Tarvitsetko apua -aktiivinen taustaväri</translation>
     </message>
     <message>
       <source>Need help operator image</source>
-      <translation>Tarvitsetko apua operaattorikuva</translation>
+      <translation>Tarvitsetko apua -operaattorikuva</translation>
     </message>
     <message>
       <source>Status widget additional CSS, takes effect after save</source>
@@ -727,7 +735,7 @@
     </message>
     <message>
       <source>Popup image</source>
-      <translation>Popupin kuva</translation>
+      <translation>Popupin kuvake</translation>
     </message>
     <message>
       <source>Visitor buble background color</source>
@@ -775,7 +783,7 @@
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>Widget teemat</translation>
+      <translation>Widget-teemat</translation>
     </message>
   </context>
   <context>
@@ -798,7 +806,7 @@
     </message>
     <message>
       <source>Custom fields generator, these fields will be visible in start chat forms</source>
-      <translation>Omien kenttien generointi, nämä kentät ovat näkybillä viesti-lomakkeella</translation>
+      <translation>Omien kenttien generointi, nämä kentät ovat näkyvillä viesti-lomakkeella</translation>
     </message>
     <message>
       <source>Field label</source>
@@ -1236,6 +1244,10 @@
       <translation>Haettava merkkijono</translation>
     </message>
     <message>
+      <source>Select bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nimi</translation>
     </message>
@@ -1250,6 +1262,10 @@
     <message>
       <source>Disabled</source>
       <translation>Pois käytöstä</translation>
+    </message>
+    <message>
+      <source>Please choose</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Exclude offline request from charts.</source>
@@ -1588,16 +1604,16 @@
       <translation>Pienennä/Palauta</translation>
     </message>
     <message>
+      <source>Our staff are always ready to help</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live help is online...</source>
       <translation>Hei, voinko auttaa?</translation>
     </message>
     <message>
       <source>Need help?</source>
       <translation>Voimmeko auttaa?</translation>
-    </message>
-    <message>
-      <source>Our staff are always ready to help</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
@@ -2937,6 +2953,18 @@
       <translation>Pyyntöäsi ei voitu käsitellä. Yritä uudestaan tai ota yhteyttä muulla tavoin, kiitos.</translation>
     </message>
     <message>
+      <source>Chat was transferred to operator!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button action could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update actions could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a message, max characters</source>
       <translation>Syötä viesti, kirjaimia korkeintaan</translation>
     </message>
@@ -3419,6 +3447,10 @@
       <translation>Oletko varma?</translation>
     </message>
     <message>
+      <source>Please enable bot chats list in your account!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Pending chats</source>
       <translation>Odottavat viestit</translation>
     </message>
@@ -3796,6 +3828,10 @@
     </message>
     <message>
       <source>My active and pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot chats</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -4662,6 +4698,14 @@
       <translation>Estetyt käyttäjät</translation>
     </message>
     <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Browse offers embed code</source>
       <translation>Selaa tarjouksia upotuskoodi</translation>
     </message>
@@ -5067,6 +5111,10 @@
       <source>Chats list</source>
       <translation>Keskustelu listat</translation>
     </message>
+    <message>
+      <source>Bot list</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/activechats</name>
@@ -5191,6 +5239,10 @@
     <message>
       <source>Number of elements in list</source>
       <translation>Elementtejä listassa lkm</translation>
+    </message>
+    <message>
+      <source>Bot chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments stats</source>
@@ -6078,6 +6130,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Bot chats list enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>I can see all pending chats, not only assigned to me</source>
       <translation>Näen kaikki odottavat keskustelut, ei vain minulle ohjattuja</translation>
     </message>
@@ -6087,6 +6143,10 @@
     </message>
     <message>
       <source>Exclude me from auto assign workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto preload previous visitor chat messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9692,6 +9752,37 @@
     </message>
     <message>
       <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>genericbot/list</name>
+    <message>
+      <source>Bot list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>with args</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Confirm</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Function is not callable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose</source>
       <translation type="unfinished"/>
     </message>
   </context>

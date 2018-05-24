@@ -18,6 +18,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Πόσες ημέρες ψηφοφορίας widget δεν θα πρέπει να επεκταθεί μετά από την τελευταία εμφάνιση</translation>
     </message>
@@ -1236,6 +1244,10 @@
       <translation>Πληκτρολόγηση για αναζήτηση</translation>
     </message>
     <message>
+      <source>Select bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Όνομα</translation>
     </message>
@@ -1249,6 +1261,10 @@
     </message>
     <message>
       <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1588,16 +1604,16 @@
       <translation>Ελαχιστοποίηση/επαναφορά</translation>
     </message>
     <message>
+      <source>Our staff are always ready to help</source>
+      <translation>Το προσωπικό μας είναι πάντα έτοιμο να βοηθήσει</translation>
+    </message>
+    <message>
       <source>Live help is online...</source>
       <translation>Η ζωντανή βοήθεια είναι σε απευθείας σύνδεση...</translation>
     </message>
     <message>
       <source>Need help?</source>
       <translation>Χρειάζεστε βοήθεια;</translation>
-    </message>
-    <message>
-      <source>Our staff are always ready to help</source>
-      <translation>Το προσωπικό μας είναι πάντα έτοιμο να βοηθήσει</translation>
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
@@ -2937,6 +2953,18 @@
       <translation>Το αίτημά σας δεν διεκπεραιώθηκε όπως ήταν αναμενόμενο - αλλά μην ανησυχείτε δεν ήταν το ελάττωμά σας. Παρακαλείσθε να υποβάλει εκ νέου το αίτημά σας. Εάν αντιμετωπίζετε το ίδιο ζήτημα που θα πρέπει να επικοινωνήσετε μαζί μας μέσω άλλων μέσων.</translation>
     </message>
     <message>
+      <source>Chat was transferred to operator!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button action could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update actions could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a message, max characters</source>
       <translation>Παρακαλούμε εισάγετε ένα μήνυμα, max χαρακτήρες</translation>
     </message>
@@ -3419,6 +3447,10 @@
       <translation>Είσαι σίγουρος?</translation>
     </message>
     <message>
+      <source>Please enable bot chats list in your account!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Pending chats</source>
       <translation>Συνομιλίες σε εκκρεμότητα</translation>
     </message>
@@ -3796,6 +3828,10 @@
     </message>
     <message>
       <source>My active and pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot chats</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -4662,6 +4698,14 @@
       <translation>Αποκλεισμένοι χρήστες</translation>
     </message>
     <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Browse offers embed code</source>
       <translation>Αναζήτηση προσφορές ενσωματώνει τον κώδικα</translation>
     </message>
@@ -5067,6 +5111,10 @@
       <source>Chats list</source>
       <translation>Λίστα συνομιλιών</translation>
     </message>
+    <message>
+      <source>Bot list</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/activechats</name>
@@ -5191,6 +5239,10 @@
     <message>
       <source>Number of elements in list</source>
       <translation>Αριθμό των στοιχείων στη λίστα</translation>
+    </message>
+    <message>
+      <source>Bot chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments stats</source>
@@ -6078,6 +6130,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Bot chats list enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>I can see all pending chats, not only assigned to me</source>
       <translation>Μπορώ να δω όλα σε εκκρεμότητα συνομιλίες, όχι μόνο που μου έχουν ανατεθεί</translation>
     </message>
@@ -6087,6 +6143,10 @@
     </message>
     <message>
       <source>Exclude me from auto assign workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto preload previous visitor chat messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9692,6 +9752,37 @@
     </message>
     <message>
       <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>genericbot/list</name>
+    <message>
+      <source>Bot list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>with args</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Confirm</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Function is not callable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose</source>
       <translation type="unfinished"/>
     </message>
   </context>
