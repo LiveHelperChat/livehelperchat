@@ -16,6 +16,8 @@
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/generic.tpl.php'));?>
         <?php elseif ($type == 'list') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/list.tpl.php'));?>
+        <?php elseif ($type == 'typing') : ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/typing.tpl.php'));?>
         <?php endif; ?>
     <?php endforeach; endif;  ?>
 <?php endif; ?>

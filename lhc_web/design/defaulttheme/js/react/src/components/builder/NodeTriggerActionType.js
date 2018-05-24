@@ -23,12 +23,11 @@ export default ({onChange, type}) => {
             'value':'predefined',
             'text' : 'Send predefined block',
         },
-        /*,
         {
             'value':'typing',
             'text' : 'Send Typing',
         },
-
+        /*,
         {
             'value':'image',
             'text' : 'Send Image',

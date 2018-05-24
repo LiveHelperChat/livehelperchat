@@ -82,6 +82,8 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 				        $tpl->set('messages',$Messages);
 				        $tpl->set('chat',$chat);
 				        $tpl->set('sync_mode',isset($Params['user_parameters_unordered']['mode']) ? $Params['user_parameters_unordered']['mode'] : '');
+                        $tpl->set('async_call',true);
+
 				        $content = $tpl->fetch();
 		
 				        foreach ($Messages as $msg) {

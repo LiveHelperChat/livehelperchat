@@ -8,6 +8,7 @@ import NodeTriggerActionCollectable from './builder/NodeTriggerActionCollectable
 import NodeTriggerActionButtons from './builder/NodeTriggerActionButtons';
 import NodeTriggerActionCommand from './builder/NodeTriggerActionCommand';
 import NodeTriggerActionPredefined from './builder/NodeTriggerActionPredefined';
+import NodeTriggerActionTyping from './builder/NodeTriggerActionTyping';
 
 
 @connect((store) => {
@@ -120,9 +121,11 @@ class NodeTriggerBuilder extends Component {
                 } else if (action.get('type') == 'buttons') {
                     return <NodeTriggerActionButtons moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
                 } else if (action.get('type') == 'command') {
-                    return <NodeTriggerActionCommand key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
+                    return <NodeTriggerActionCommand key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 } else if (action.get('type') == 'predefined') {
-                    return <NodeTriggerActionPredefined key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
+                    return <NodeTriggerActionPredefined key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
+                } else if (action.get('type') == 'typing') {
+                    return <NodeTriggerActionTyping key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 }
             });
         }

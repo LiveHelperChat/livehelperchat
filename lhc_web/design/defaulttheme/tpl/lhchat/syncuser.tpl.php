@@ -1,4 +1,4 @@
-<?php 
+<?php
 $lastOperatorChanged = false;
 $lastOperatorId = false;
 
@@ -19,5 +19,6 @@ if ($lastOperatorId !== false && $lastOperatorId != $msg['user_id']) {
 $lastOperatorId = $msg['user_id'];
 
 ?>
-<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/user_msg_row.tpl.php'));?>			            
+<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/user_msg_row.tpl.php'));?>
 <?php endforeach; ?>
+

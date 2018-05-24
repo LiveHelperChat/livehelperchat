@@ -6,6 +6,7 @@ import NodeTriggerActionListPreview from './preview/NodeTriggerActionListPreview
 import NodeTriggerActionButtonsPreview from './preview/NodeTriggerActionButtonsPreview';
 import NodeTriggerActionGenericPreview from './preview/NodeTriggerActionGenericPreview';
 import NodeTriggerActionPredefinedPreview from './preview/NodeTriggerActionPredefinedPreview';
+import NodeTriggerActionTypingPreview from './preview/NodeTriggerActionTypingPreview';
 
 
 @connect((store) => {
@@ -35,6 +36,8 @@ class NodeTriggerBuilderPreview extends Component {
                     return <NodeTriggerActionGenericPreview key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} action={action} />
                 } else if (action.get('type') == 'predefined') {
                     return <NodeTriggerActionPredefinedPreview key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} action={action} />
+                } else if (action.get('type') == 'typing') {
+                    return <NodeTriggerActionTypingPreview key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} action={action} />
                 }
             });
         }

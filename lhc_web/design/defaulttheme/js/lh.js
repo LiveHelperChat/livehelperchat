@@ -915,7 +915,7 @@ function lh(){
 	               }
 	           }
 	        };
-        } catch(err) {		     
+        } catch(err) {
         	inst.userTimeout = setTimeout(chatsyncuser,confLH.chat_message_sinterval);
         };
 
@@ -3257,6 +3257,54 @@ function lh(){
 
     this.focusUserText = function() {
         $('#CSChatMessage').focus();
+    }
+
+    this.delayQueue = [];
+    this.delayed = false;
+
+    this.setDelay = function(id, delay) {
+
+        $('#msg-'+id).addClass('meta-hider message-row-typing').nextUntil('meta-hider').addClass('hide');
+
+        if (lhinst.delayed == false) {
+
+            lhinst.delayed = true;
+            setTimeout(function () {
+                lhinst.unhideDelayed(id);
+            }, delay * 1000);
+            $('#msg-'+id).removeClass('hide');
+            $('#msg-'+id+' .msg-body').removeClass('hide');
+        } else {
+            lhinst.delayQueue.push({'id' : id, 'delay' : delay});
+        }
+    }
+
+    this.unhideDelayed = function (id) {
+
+        var msg = $('#messagesBlock > #msg-'+id);
+        msg.nextUntil('.meta-hider').removeClass('hide');
+        msg.remove();
+
+        var messageBlock = $('#messagesBlock');
+
+        var scrollHeight = messageBlock.prop("scrollHeight");
+        messageBlock.find('.meta-auto-hide').hide();
+        messageBlock.find('.message-row').last().find('.meta-message .meta-auto-hide').show();
+        scrollHeight = messageBlock.prop("scrollHeight");
+
+        messageBlock.find('.pending-storage').remove();
+        messageBlock.stop(true,false).animate({ scrollTop: scrollHeight+2000 }, 500);
+
+        if (this.delayQueue.length > 0) {
+            var data = lhinst.delayQueue.pop();
+            setTimeout(function () {
+                lhinst.unhideDelayed(data.id);
+            }, data.delay * 1000);
+            $('#msg-'+data.id).removeClass('hide');
+            $('#msg-' + data.id + ' .msg-body').removeClass('hide');
+        } else {
+            lhinst.delayed = false;
+        }
     }
 
 }

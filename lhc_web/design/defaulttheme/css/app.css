@@ -442,6 +442,17 @@ div.message-row.response+div.message-admin{
 	padding-top:7px;
 }
 
+.message-row-typing {
+	margin:4px 0px;
+	animation: blink 1500ms linear infinite;
+}
+
+@keyframes blink{
+	0%{opacity: 0.3;}
+	50%{opacity: .9;}
+	100%{opacity: 0.3;}
+}
+
 .read-operator-message .message-row-profile-shown{
 	margin-top:0!important;
 	-webkit-border-top-left-radius: 0px!important;
@@ -473,6 +484,12 @@ div.message-admin div.msg-body{
 	padding:3px 7px;	
 	margin-top:0px;
 	margin-bottom:0px;
+}
+
+div.message-row-typing div.msg-body {
+	background-color: #f3f3f3;
+	border-radius: 3px;
+	display: inline-block;
 }
 
 div.message-row.response div.msg-body{
