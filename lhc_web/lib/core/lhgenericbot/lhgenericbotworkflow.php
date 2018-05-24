@@ -27,26 +27,30 @@ class erLhcoreClassGenericBotWorkflow {
             return;
         }
 
-        // There is no current workflow in progress                
-        $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_get_message', array(
-                    'chat' => & $chat,
-                    'msg' => $msg,
-                    'payload' => $msg->msg,
-        ));
-        
-        if ($handler !== false) {
-            $event = $handler['event'];
-        } else {
+        // Execute rest workflow if chat is in full bot mode
+        if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT)
+        {
             // There is no current workflow in progress
-            $event = self::findEvent($msg->msg, $chat->chat_variables_array['gbot_id']);
-        }           
+            $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_get_message', array(
+                'chat' => & $chat,
+                'msg' => $msg,
+                'payload' => $msg->msg,
+            ));
 
-        if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
-            self::processTrigger($chat, $event->trigger);
-            return;
+            if ($handler !== false) {
+                $event = $handler['event'];
+            } else {
+                // There is no current workflow in progress
+                $event = self::findEvent($msg->msg, $chat->chat_variables_array['gbot_id']);
+            }
+
+            if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
+                self::processTrigger($chat, $event->trigger);
+                return;
+            }
+
+            self::sendDefault($chat, $chat->chat_variables_array['gbot_id']);
         }
-
-        self::sendDefault($chat, $chat->chat_variables_array['gbot_id']);
     }
 
     // Send default message if there is any

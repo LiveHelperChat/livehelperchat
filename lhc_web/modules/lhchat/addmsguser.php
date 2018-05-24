@@ -59,7 +59,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
                 exit;
             }
 
-            if (isset($chat->chat_variables_array['gbot_id']) && (!isset($chat->chat_variables_array['gbot_disabled']) || $chat->chat_variables_array['gbot_disabled'] == 0) && $chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
+            if (isset($chat->chat_variables_array['gbot_id']) && (!isset($chat->chat_variables_array['gbot_disabled']) || $chat->chat_variables_array['gbot_disabled'] == 0)) {
                 erLhcoreClassGenericBotWorkflow::userMessageAdded($chat, $msg);
             }
 

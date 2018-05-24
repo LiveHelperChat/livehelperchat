@@ -128,7 +128,40 @@ if (trim($form->msg) != '')
     	        	$stmt->bindValue(':status',$Chat->status,PDO::PARAM_INT);
     	        	$stmt->execute();	        	
     	        }
+
+    	        // If chat is in bot mode and operators writes a message, accept a chat as operator.
+    	        if ($Chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
+
+                    $userData = $currentUser->getUserData();
+
+                    if ($userData->invisible_mode == 0 && erLhcoreClassChat::hasAccessToWrite($Chat)) {
+                        $Chat->refreshThis();
+                        $Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
+
+                        $Chat->wait_time = time() - ($Chat->pnd_time > 0 ? $Chat->pnd_time : $Chat->time);
+                        $Chat->user_id = $currentUser->getUserID();
+
+                        // User status in event of chat acceptance
+                        $Chat->usaccept = $userData->hide_online;
+                        $Chat->operation_admin .= "lhinst.updateVoteStatus(".$Chat->id.");";
+                        $Chat->saveThis();
+
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('chat' => & $Chat, 'user' => $currentUser));
+
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.accept',array('chat' => & $Chat, 'user' => $currentUser));
+                        erLhcoreClassChat::updateActiveChats($Chat->user_id);
+
+                        if ($Chat->department !== false) {
+                            erLhcoreClassChat::updateDepartmentStats($Chat->department);
+                        }
+
+                        $options = $Chat->department->inform_options_array;
+                        erLhcoreClassChatWorkflow::chatAcceptedWorkflow(array('department' => $chat->department,'options' => $options),$Chat);
+                    }
+                }
 	        }
+
+
 
 	        if ($Chat->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) {
 	            

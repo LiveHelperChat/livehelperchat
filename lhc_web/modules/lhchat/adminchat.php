@@ -19,7 +19,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
     		$operatorAccepted = false;
     		$chatDataChanged = false;
     		
-    	    if ($chat->user_id == 0) {
+    	    if ($chat->user_id == 0 && $chat->status != erLhcoreClassModelChat::STATUS_BOT_CHAT) {
     	        $currentUser = erLhcoreClassUser::instance();
     	        $chat->user_id = $currentUser->getUserID();	     
     	        $chatDataChanged = true;
