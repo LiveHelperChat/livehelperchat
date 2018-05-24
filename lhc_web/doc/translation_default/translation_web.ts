@@ -28,6 +28,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -533,6 +541,10 @@
     </message>
     <message>
       <source>Name of the company</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status if customer is chatting with a bot</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1243,6 +1255,10 @@
     </message>
     <message>
       <source>Type to search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer to bot only if department is offline</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2252,6 +2268,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Bot chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Cancel</source>
       <translation type="unfinished"/>
     </message>
@@ -2959,7 +2979,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat was transferred to bot!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Button action could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trigger could not be found!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3210,6 +3238,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Bot chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation type="unfinished"/>
     </message>
@@ -3450,6 +3482,10 @@
     </message>
     <message>
       <source>Please enable bot chats list in your account!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort by close time</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3715,6 +3751,10 @@
   <context>
     <name>chat/checkchatstatus</name>
     <message>
+      <source>You are talking with out bot now.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>A support staff member has closed this chat</source>
       <translation type="unfinished"/>
     </message>
@@ -3886,6 +3926,14 @@
     </message>
     <message>
       <source>Edit nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Read more</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Typing...</source>
       <translation type="unfinished"/>
     </message>
     <message>
