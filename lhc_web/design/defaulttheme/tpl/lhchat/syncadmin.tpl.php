@@ -12,7 +12,11 @@
         }
         
         $lastOperatorId = $msg['user_id'];
-        
+
+        if ($msg['msg'] == '') {
+            continue;
+        }
+
 if ($msg['user_id'] == -1) : ?>
 <div class="message-row system-response" id="msg-<?php echo $msg['id']?>" title="<?php echo erLhcoreClassChat::formatDate($msg['time']);?>">
     <div class="msg-date"><?php echo erLhcoreClassChat::formatDate($msg['time']);?></div><i><span class="usr-tit sys-tit"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant')?></span><div class="msg-body"><?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($msg['msg']))?></div></i>
