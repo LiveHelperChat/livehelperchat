@@ -8,14 +8,11 @@ var LHCCannedMessageAutoSuggest = (function() {
 		
 		this.currentText = null;
 		this.currentKeword = null;
-		
-		this.initialising = false;
-		this.timeoutDelay = null;
-				
+
 		var _that = this;
 		
 		this.textarea = jQuery('#CSChatMessage-'+this.chat_id);
-		
+
 		this.textarea.bind('keyup', function (evt) {
 			
 			if (evt.key == '#' || evt.keyCode == 51 || evt.keyCode == 222) {	
@@ -135,36 +132,33 @@ var LHCCannedMessageAutoSuggest = (function() {
 		this.currentKeword = null;
 		return null;
 	}
-	
+
+	this.timeoutRequest = null;
+
 	LHCCannedMessageAutoSuggest.prototype.showSuggester = function()
 	{
 		var _that = this;
 		
 		this.extractKeyword();	
 		this.cannedMode = false;
-		
+        clearTimeout(this.timeoutRequest);
+
 		if (this.currentKeword !== null) {	
-						
-			if (this.initialising === false) {
-				
-				this.initialising = true;
-				
-				$.getJSON(WWW_DIR_JAVASCRIPT + 'cannedmsg/showsuggester/' + this.chat_id,{keyword : this.currentKeword}, function(data) {			
+
+			this.suggesting = true;
+
+			this.timeoutRequest = setTimeout(function () {
+
+				$.getJSON(WWW_DIR_JAVASCRIPT + 'cannedmsg/showsuggester/' + _that.chat_id,{keyword : _that.currentKeword}, function(data) {
 					_that.textarea.parent().find('.canned-suggester').remove();
-		    		_that.textarea.before(data.result);
-		    		_that.initSuggester();
-		    		_that.initialising = false;
-		    		_that.suggesting = true;
-		    	});
-				
-			} else {								
-				clearTimeout(this.timeoutDelay);
-				this.timeoutDelay = setTimeout(function(){
-					_that.showSuggester();
-				},500);
-			}
-			
+					_that.textarea.before(data.result);
+					_that.initSuggester();
+				});
+
+			}, 200);
+
 		} else {
+
 			this.stopSuggesting();
 		}
 	}
