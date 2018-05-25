@@ -44,7 +44,7 @@ $positionArgument = array (
                 'border_widget' => 'border:1px solid #'.($theme !== false ? $theme->bor_bcolor : 'e3e3e3').';border-right:0;border-bottom:0;',
                 'widget_radius' => '-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;',
                 'nh_hor_pos' => 'margin-left:-80px;',
-                'nh_tr_pos' => 'right:20px;',
+                'nh_tr_pos' => 'right:26px;',
                 'mobile_position' => 'height:25px !important;left:auto !important;right:0;top:auto !important;bottom:0 !important;', // Classic style
                 'mobile_position_status' => 'width:auto;padding:0;border-radius:0px;bottom:50px;right:5px;left:auto;top:auto;', // Classic style
 
