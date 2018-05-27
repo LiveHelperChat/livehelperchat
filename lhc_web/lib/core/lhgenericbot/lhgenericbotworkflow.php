@@ -200,6 +200,10 @@ class erLhcoreClassGenericBotWorkflow {
                 $payload =  $params['payload'];
             }
 
+            if ($payload == 'cancel_workflow') {
+                $workflow->status = erLhcoreClassModelGenericBotChatWorkflow::STATUS_CANCELED;
+            }
+
             if ($currentStep['type'] == 'text') {
 
                 if (isset($currentStep['content']['validation_callback']) && !empty($currentStep['content']['validation_callback'])) {
@@ -239,18 +243,29 @@ class erLhcoreClassGenericBotWorkflow {
 
                 $workflow->collected_data_array['collected'][$currentStep['content']['field']] = array(
                     'value' => $payload,
-                    'name' => $currentStep['content']['name']
+                    'name' => $currentStep['content']['name'],
+                    'step' => $currentStepId
                 );
+
+                if (isset($workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary']) && $workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary'] == true) {
+                    $workflow->collected_data_array['step'] = $currentStepId = count($workflow->collected_data_array['steps']);
+                }
 
             } else if ($currentStep['type'] == 'email') {
                 if (filter_var($payload, FILTER_VALIDATE_EMAIL)) {
                     $workflow->collected_data_array['collected'][$currentStep['content']['field']] = array(
                         'value' => $payload,
-                        'name' => $currentStep['content']['name']
+                        'name' => $currentStep['content']['name'],
+                        'step' => $currentStepId
                     );
                 } else {
                     throw new Exception('Invalid e-mail address');
                 }
+
+                if (isset($workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary']) && $workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary'] == true) {
+                    $workflow->collected_data_array['step'] = $currentStepId = count($workflow->collected_data_array['steps']);
+                }
+
             } else if ($currentStep['type'] == 'phone') {
 
                 if ($payload == '' || mb_strlen($payload) < erLhcoreClassModelChatConfig::fetch('min_phone_length')->current_value) {
@@ -264,8 +279,13 @@ class erLhcoreClassGenericBotWorkflow {
 
                 $workflow->collected_data_array['collected'][$currentStep['content']['field']] = array(
                     'value' => $payload,
-                    'name' => $currentStep['content']['name']
+                    'name' => $currentStep['content']['name'],
+                    'step' => $currentStepId
                 );
+
+                if (isset($workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary']) && $workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary'] == true) {
+                    $workflow->collected_data_array['step'] = $currentStepId = count($workflow->collected_data_array['steps']);
+                }
 
             } else if ($currentStep['type'] == 'dropdown') {
 
@@ -302,8 +322,13 @@ class erLhcoreClassGenericBotWorkflow {
                     $workflow->collected_data_array['collected'][$currentStep['content']['field']] = array(
                         'value' => $payload,
                         'value_literal' => $messageClick,
-                        'name' => $currentStep['content']['name']
+                        'name' => $currentStep['content']['name'],
+                        'step' => $currentStepId
                     );
+
+                    if (isset($workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary']) && $workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary'] == true) {
+                        $workflow->collected_data_array['step'] = $currentStepId = count($workflow->collected_data_array['steps']);
+                    }
 
                 } else {
                     throw new Exception('Validation function could not be found! Have you defined listener for ' . $currentStep['content']['provider_dropdown'] . ' identifier');
@@ -331,11 +356,22 @@ class erLhcoreClassGenericBotWorkflow {
                     $workflow->collected_data_array['collected'][$currentStep['content']['field']] = array(
                         'value' => $dataProcess['chosen_value'],
                         'value_literal' => $dataProcess['chosen_value_literal'],
-                        'name' => $currentStep['content']['name']
+                        'name' => $currentStep['content']['name'],
+                        'step' => $currentStepId
                     );
+
+                    if (isset($dataProcess['reset_step']) && is_array($dataProcess['reset_step']) && !empty($dataProcess['reset_step'])) {
+                        foreach ($dataProcess['reset_step'] as $fieldName) {
+                            unset($workflow->collected_data_array['collected'][$fieldName]);
+                        }
+                    }
 
                     if (isset($dataProcess['go_to_step'])) {
                         $workflow->collected_data_array['step'] = $currentStepId = $dataProcess['go_to_step'];
+                    } else if (isset($dataProcess['go_to_next']) && $dataProcess['go_to_next'] == true) {
+                        // Do nothing at the moment
+                    } else if (isset($workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary']) && $workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary'] == true) {
+                        $workflow->collected_data_array['step'] = $currentStepId = count($workflow->collected_data_array['steps']);
                     }
 
                 } else {
@@ -351,6 +387,7 @@ class erLhcoreClassGenericBotWorkflow {
                     'chat' => & $chat,
                     'workflow' => & $workflow,
                     'payload' => & $payload,
+                    'step_id' => $currentStepId
                 ));
 
                 if ($handler !== false && isset($handler['render']) && is_callable($handler['render']))
@@ -371,11 +408,22 @@ class erLhcoreClassGenericBotWorkflow {
                     $workflow->collected_data_array['collected'][$currentStep['content']['field']] = array(
                         'value' => $dataProcess['chosen_value'],
                         'value_literal' => $dataProcess['chosen_value_literal'],
-                        'name' => $currentStep['content']['name']
+                        'name' => $currentStep['content']['name'],
+                        'step' => $currentStepId
                     );
+
+                    if (isset($dataProcess['reset_step']) && is_array($dataProcess['reset_step']) && !empty($dataProcess['reset_step'])) {
+                        foreach ($dataProcess['reset_step'] as $fieldName) {
+                            unset($workflow->collected_data_array['collected'][$fieldName]);
+                        }
+                    }
 
                     if (isset($dataProcess['go_to_step'])) {
                         $workflow->collected_data_array['step'] = $currentStepId = $dataProcess['go_to_step'];
+                    } else if (isset($dataProcess['go_to_next']) && $dataProcess['go_to_next'] == true) {
+                        // Do nothing at the moment
+                    } else if (isset($workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary']) && $workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary'] == true) {
+                        $workflow->collected_data_array['step'] = $currentStepId = count($workflow->collected_data_array['steps']);
                     }
 
                 } else {
@@ -583,6 +631,35 @@ class erLhcoreClassGenericBotWorkflow {
                 if ($reply['content']['payload'] == $payload) {
                     return $returnAll == false ? $reply['content']['name'] : $reply['content'];
                 }
+            }
+        }
+    }
+
+    public static function processStepEdit($chat, $messageContext, $payload, $params = array())
+    {
+        if (isset($chat->chat_variables_array['gbot_id'])) {
+
+            // Try to find current workflow first
+            $workflow = erLhcoreClassModelGenericBotChatWorkflow::findOne(array('filterin' => array('status' => array(0,1)), 'filter' => array('chat_id' => $chat->id)));
+            if ($workflow instanceof erLhcoreClassModelGenericBotChatWorkflow) {
+
+                $message = self::sendAsUser($chat, 'Edit - ' . '"'.$workflow->collected_data_array['steps'][$payload]['content']['name'] . '"');
+                self::setLastMessageId($chat->id, $message->id);
+
+                $workflow->collected_data_array['current_step'] = $workflow->collected_data_array['steps'][$payload];
+                $workflow->collected_data_array['step'] = $payload;
+                $workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary'] = true;
+
+                // Force go to summary again if required
+                /*if (isset($workflow->collected_data_array['collectable_options']['go_to_summary']) && $workflow->collected_data_array['collectable_options']['go_to_summary'] == true) {
+                    $workflow->collected_data_array['step'] = $currentStepId = count($workflow->collected_data_array['steps']);
+                }*/
+
+                erLhcoreClassGenericBotActionCollectable::processStep($chat, $workflow->collected_data_array['current_step']);
+
+                $workflow->collected_data = json_encode($workflow->collected_data_array);
+                $workflow->status = erLhcoreClassModelGenericBotChatWorkflow::STATUS_STARTED;
+                $workflow->saveThis();
             }
         }
     }

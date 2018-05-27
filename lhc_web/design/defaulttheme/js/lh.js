@@ -3174,6 +3174,24 @@ function lh(){
         lhinst.focusUserText();
     }
 
+    this.editGenericStep = function(step, id) {
+
+        $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash+'/(type)/editgenericstep',{payload : step,id : id},function(data){
+            var messageBlock = $('#messagesBlock');
+
+            jQuery('<div/>', {
+                'class': 'message-row pending-storage pending-storage-bot',
+                text: 'Processing...'
+            }).appendTo(messageBlock);
+
+            var scrollHeight = messageBlock.prop("scrollHeight");
+            messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
+
+            lhinst.forceBottomScroll = true;
+            lhinst.syncusercall();
+        });
+    }
+
     this.updateTriggerClicked = function(payload, id, btn, notHide) {
 
         if (btn.attr("data-no-change") == undefined) {

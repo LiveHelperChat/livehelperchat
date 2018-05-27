@@ -52,6 +52,7 @@ class erLhcoreClassModelGenericBotChatWorkflow {
     const STATUS_STARTED = 0;
     const STATUS_PENDING_CONFIRM = 1;
     const STATUS_COMPLETED = 2;
+    const STATUS_CANCELED = 3;
 
     public $id = null;
     public $chat_id = null;
