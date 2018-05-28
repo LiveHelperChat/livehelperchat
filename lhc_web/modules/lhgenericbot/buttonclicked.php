@@ -47,7 +47,6 @@ try {
             erLhcoreClassGenericBotWorkflow::processButtonClick($chat, $message, $_GET['payload'], array('processed' => (isset($_GET['processed']) && $_GET['processed'] == 'true')));
         }
 
-
         echo json_encode(array('error' => false));
 
         $db->commit();

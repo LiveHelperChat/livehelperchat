@@ -53,6 +53,22 @@ class erLhcoreClassGenericBotWorkflow {
         }
     }
 
+    public static function getDefaultNick($chat)
+    {
+        $chatVariables = $chat->chat_variables_array;
+
+        $nameSupport = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+
+        if (isset($chatVariables['gbot_id']) && $chatVariables['gbot_id'] > 0) {
+            $bot = erLhcoreClassModelGenericBotBot::fetch($chatVariables['gbot_id']);
+            if ($bot instanceof erLhcoreClassModelGenericBotBot && $bot->nick != '') {
+                $nameSupport = $bot->nick;
+            }
+        }
+
+        return $nameSupport;
+    }
+
     // Send default message if there is any
     public static function sendDefault(& $chat, $botId)
     {
@@ -204,124 +220,53 @@ class erLhcoreClassGenericBotWorkflow {
                 $workflow->status = erLhcoreClassModelGenericBotChatWorkflow::STATUS_CANCELED;
             }
 
-            if ($currentStep['type'] == 'text') {
+            if (isset($workflow->collected_data_array['collectable_options']['expires_in']) && is_numeric($workflow->collected_data_array['collectable_options']['expires_in']) && $workflow->collected_data_array['collectable_options']['expires_in'] > 0) {
+                if ($workflow->time < (time() - ($workflow->collected_data_array['collectable_options']['expires_in'] * 60))) {
+                    $workflow->status = erLhcoreClassModelGenericBotChatWorkflow::STATUS_EXPIRED;
+                }
+            }
 
-                if (isset($currentStep['content']['validation_callback']) && !empty($currentStep['content']['validation_callback'])) {
-                    $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
-                        'render' => $currentStep['content']['validation_callback'],
-                        'render_args' => (isset($currentStep['content']['validation_argument']) ? $currentStep['content']['validation_argument'] : null),
-                        'chat' => & $chat,
-                        'workflow' => & $workflow,
-                        'payload' => & $payload,
-                    ));
+            if (!in_array($workflow->status,array(erLhcoreClassModelGenericBotChatWorkflow::STATUS_CANCELED,erLhcoreClassModelGenericBotChatWorkflow::STATUS_EXPIRED)))
+            {
+                if ($currentStep['type'] == 'text') {
 
-                    if ($handler !== false && isset($handler['render']) && is_callable($handler['render'])) {
+                    if (isset($currentStep['content']['validation_callback']) && !empty($currentStep['content']['validation_callback'])) {
+                        $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
+                            'render' => $currentStep['content']['validation_callback'],
+                            'render_args' => (isset($currentStep['content']['validation_argument']) ? $currentStep['content']['validation_argument'] : null),
+                            'chat' => & $chat,
+                            'workflow' => & $workflow,
+                            'payload' => & $payload,
+                        ));
 
-                        $dataProcess = call_user_func_array($handler['render'], $handler['render_args']);
+                        if ($handler !== false && isset($handler['render']) && is_callable($handler['render'])) {
 
-                        if ($dataProcess['valid'] == false) {
-                            if (isset($dataProcess['message']) && !empty($dataProcess['message'])){
-                                throw new Exception($dataProcess['message']);
-                            } else if (isset($currentStep['content']['validation_error']) && !empty($currentStep['content']['validation_error'])){
+                            $dataProcess = call_user_func_array($handler['render'], $handler['render_args']);
+
+                            if ($dataProcess['valid'] == false) {
+                                if (isset($dataProcess['message']) && !empty($dataProcess['message'])){
+                                    throw new erLhcoreClassGenericBotException($dataProcess['message'], 0, null, (isset($dataProcess['params_exception']) ? $dataProcess['params_exception'] : array()));
+                                } else if (isset($currentStep['content']['validation_error']) && !empty($currentStep['content']['validation_error'])){
+                                    throw new Exception($currentStep['content']['validation_error']);
+                                } else {
+                                    throw new Exception('Your message does not match required format!');
+                                }
+                            }
+                        }
+                    }
+
+                    if (isset($currentStep['content']['validation']) && !empty($currentStep['content']['validation'])) {
+                        if (!preg_match('/' . $currentStep['content']['validation'] . '/',$payload)) {
+                            if (isset($currentStep['content']['validation_error']) && !empty($currentStep['content']['validation_error'])){
                                 throw new Exception($currentStep['content']['validation_error']);
                             } else {
                                 throw new Exception('Your message does not match required format!');
                             }
                         }
                     }
-                }
-
-                if (isset($currentStep['content']['validation']) && !empty($currentStep['content']['validation'])) {
-                    if (!preg_match('/' . $currentStep['content']['validation'] . '/',$payload)) {
-                        if (isset($currentStep['content']['validation_error']) && !empty($currentStep['content']['validation_error'])){
-                            throw new Exception($currentStep['content']['validation_error']);
-                        } else {
-                            throw new Exception('Your message does not match required format!');
-                        }
-                    }
-                }
-
-                $workflow->collected_data_array['collected'][$currentStep['content']['field']] = array(
-                    'value' => $payload,
-                    'name' => $currentStep['content']['name'],
-                    'step' => $currentStepId
-                );
-
-                if (isset($workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary']) && $workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary'] == true) {
-                    $workflow->collected_data_array['step'] = $currentStepId = count($workflow->collected_data_array['steps']);
-                }
-
-            } else if ($currentStep['type'] == 'email') {
-                if (filter_var($payload, FILTER_VALIDATE_EMAIL)) {
-                    $workflow->collected_data_array['collected'][$currentStep['content']['field']] = array(
-                        'value' => $payload,
-                        'name' => $currentStep['content']['name'],
-                        'step' => $currentStepId
-                    );
-                } else {
-                    throw new Exception('Invalid e-mail address');
-                }
-
-                if (isset($workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary']) && $workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary'] == true) {
-                    $workflow->collected_data_array['step'] = $currentStepId = count($workflow->collected_data_array['steps']);
-                }
-
-            } else if ($currentStep['type'] == 'phone') {
-
-                if ($payload == '' || mb_strlen($payload) < erLhcoreClassModelChatConfig::fetch('min_phone_length')->current_value) {
-                    throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your phone'));
-                }
-
-                if (mb_strlen($payload) > 100)
-                {
-                    throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 100 characters for phone'));
-                }
-
-                $workflow->collected_data_array['collected'][$currentStep['content']['field']] = array(
-                    'value' => $payload,
-                    'name' => $currentStep['content']['name'],
-                    'step' => $currentStepId
-                );
-
-                if (isset($workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary']) && $workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary'] == true) {
-                    $workflow->collected_data_array['step'] = $currentStepId = count($workflow->collected_data_array['steps']);
-                }
-
-            } else if ($currentStep['type'] == 'dropdown') {
-
-                $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
-                    'render' => $currentStep['content']['provider_dropdown'],
-                    'render_args' => (isset($currentStep['content']['provider_argument']) ? $currentStep['content']['provider_argument'] : null),
-                    'chat' => & $chat,
-                    'workflow' => & $workflow,
-                    'payload' => & $payload,
-                ));
-
-                if ($handler !== false && isset($handler['render']) && is_callable($handler['render'])) {
-
-                    $content = array(
-                        'content' => array(
-                            'dropdown' => array(
-                                'provider_dropdown' => $handler['render'],
-                                'provider_name' => $currentStep['content']['provider_name'],
-                                'provider_id' => $currentStep['content']['provider_id'],
-                            )
-                        )
-                    );
-
-                    $messageClick = self::getValueName($content, $payload);
-
-                    if (empty($messageClick)) {
-                        $reprocess = true;
-                        throw new Exception('Please choose a value from dropdown!');
-                    } else {
-                        $message = self::sendAsUser($chat, $messageClick);
-                        self::setLastMessageId($chat->id, $message->id);
-                    }
 
                     $workflow->collected_data_array['collected'][$currentStep['content']['field']] = array(
                         'value' => $payload,
-                        'value_literal' => $messageClick,
                         'name' => $currentStep['content']['name'],
                         'step' => $currentStepId
                     );
@@ -330,107 +275,186 @@ class erLhcoreClassGenericBotWorkflow {
                         $workflow->collected_data_array['step'] = $currentStepId = count($workflow->collected_data_array['steps']);
                     }
 
-                } else {
-                    throw new Exception('Validation function could not be found! Have you defined listener for ' . $currentStep['content']['provider_dropdown'] . ' identifier');
-                }
+                } else if ($currentStep['type'] == 'email') {
+                    if (filter_var($payload, FILTER_VALIDATE_EMAIL)) {
+                        $workflow->collected_data_array['collected'][$currentStep['content']['field']] = array(
+                            'value' => $payload,
+                            'name' => $currentStep['content']['name'],
+                            'step' => $currentStepId
+                        );
+                    } else {
+                        throw new Exception('Invalid e-mail address');
+                    }
 
-            } else if ($currentStep['type'] == 'buttons') {
+                    if (isset($workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary']) && $workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary'] == true) {
+                        $workflow->collected_data_array['step'] = $currentStepId = count($workflow->collected_data_array['steps']);
+                    }
 
-                $reprocess = true;
+                } else if ($currentStep['type'] == 'phone') {
 
-                $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
-                    'render' => $currentStep['content']['render_validate'],
-                    'render_args' => $currentStep['content']['render_args'],
-                    'chat' => & $chat,
-                    'workflow' => & $workflow,
-                    'payload' => & $payload,
-                ));
+                    if ($payload == '' || mb_strlen($payload) < erLhcoreClassModelChatConfig::fetch('min_phone_length')->current_value) {
+                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your phone'));
+                    }
 
-                if ($handler !== false && isset($handler['render']) && is_callable($handler['render']))
-                {
-                    $dataProcess = call_user_func_array($handler['render'], $handler['render_args']);
-
-                    $message = self::sendAsUser($chat, $dataProcess['chosen_value_literal']);
-                    self::setLastMessageId($chat->id, $message->id);
+                    if (mb_strlen($payload) > 100)
+                    {
+                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 100 characters for phone'));
+                    }
 
                     $workflow->collected_data_array['collected'][$currentStep['content']['field']] = array(
-                        'value' => $dataProcess['chosen_value'],
-                        'value_literal' => $dataProcess['chosen_value_literal'],
+                        'value' => $payload,
                         'name' => $currentStep['content']['name'],
                         'step' => $currentStepId
                     );
 
-                    if (isset($dataProcess['reset_step']) && is_array($dataProcess['reset_step']) && !empty($dataProcess['reset_step'])) {
-                        foreach ($dataProcess['reset_step'] as $fieldName) {
-                            unset($workflow->collected_data_array['collected'][$fieldName]);
-                        }
-                    }
-
-                    if (isset($dataProcess['go_to_step'])) {
-                        $workflow->collected_data_array['step'] = $currentStepId = $dataProcess['go_to_step'];
-                    } else if (isset($dataProcess['go_to_next']) && $dataProcess['go_to_next'] == true) {
-                        // Do nothing at the moment
-                    } else if (isset($workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary']) && $workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary'] == true) {
+                    if (isset($workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary']) && $workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary'] == true) {
                         $workflow->collected_data_array['step'] = $currentStepId = count($workflow->collected_data_array['steps']);
                     }
 
-                } else {
-                    throw new Exception('Validation function could not be found! Have you defined listener for ' . $currentStep['content']['render_validate'] . ' identifier');
-                }
+                } else if ($currentStep['type'] == 'dropdown') {
 
-            } else if ($currentStep['type'] == 'custom') {
-                $reprocess = true;
+                    $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
+                        'render' => $currentStep['content']['provider_dropdown'],
+                        'render_args' => (isset($currentStep['content']['provider_argument']) ? $currentStep['content']['provider_argument'] : null),
+                        'chat' => & $chat,
+                        'workflow' => & $workflow,
+                        'payload' => & $payload,
+                    ));
 
-                $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
-                    'render' => $currentStep['content']['render_validate'],
-                    'render_args' => $currentStep['content']['render_args'],
-                    'chat' => & $chat,
-                    'workflow' => & $workflow,
-                    'payload' => & $payload,
-                    'step_id' => $currentStepId
-                ));
+                    if ($handler !== false && isset($handler['render']) && is_callable($handler['render'])) {
 
-                if ($handler !== false && isset($handler['render']) && is_callable($handler['render']))
-                {
-                    $dataProcess = call_user_func_array($handler['render'], $handler['render_args']);
+                        $content = array(
+                            'content' => array(
+                                'dropdown' => array(
+                                    'provider_dropdown' => $handler['render'],
+                                    'provider_name' => $currentStep['content']['provider_name'],
+                                    'provider_id' => $currentStep['content']['provider_id'],
+                                )
+                            )
+                        );
 
-                    if ($dataProcess['valid'] == false) {
-                        if (isset($dataProcess['message']) && !empty($dataProcess['message'])) {
-                            throw new Exception($dataProcess['message']);
+                        $messageClick = self::getValueName($content, $payload);
+
+                        if (empty($messageClick)) {
+                            $reprocess = true;
+                            throw new Exception('Please choose a value from dropdown!');
                         } else {
-                            throw new Exception('Your message does not match required format!');
+                            $message = self::sendAsUser($chat, $messageClick);
+                            self::setLastMessageId($chat->id, $message->id);
                         }
-                    }
 
-                    $message = self::sendAsUser($chat, $dataProcess['chosen_value_literal']);
-                    self::setLastMessageId($chat->id, $message->id);
+                        $workflow->collected_data_array['collected'][$currentStep['content']['field']] = array(
+                            'value' => $payload,
+                            'value_literal' => $messageClick,
+                            'name' => $currentStep['content']['name'],
+                            'step' => $currentStepId
+                        );
 
-                    $workflow->collected_data_array['collected'][$currentStep['content']['field']] = array(
-                        'value' => $dataProcess['chosen_value'],
-                        'value_literal' => $dataProcess['chosen_value_literal'],
-                        'name' => $currentStep['content']['name'],
-                        'step' => $currentStepId
-                    );
-
-                    if (isset($dataProcess['reset_step']) && is_array($dataProcess['reset_step']) && !empty($dataProcess['reset_step'])) {
-                        foreach ($dataProcess['reset_step'] as $fieldName) {
-                            unset($workflow->collected_data_array['collected'][$fieldName]);
+                        if (isset($workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary']) && $workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary'] == true) {
+                            $workflow->collected_data_array['step'] = $currentStepId = count($workflow->collected_data_array['steps']);
                         }
+
+                    } else {
+                        throw new Exception('Validation function could not be found! Have you defined listener for ' . $currentStep['content']['provider_dropdown'] . ' identifier');
                     }
 
-                    if (isset($dataProcess['go_to_step'])) {
-                        $workflow->collected_data_array['step'] = $currentStepId = $dataProcess['go_to_step'];
-                    } else if (isset($dataProcess['go_to_next']) && $dataProcess['go_to_next'] == true) {
-                        // Do nothing at the moment
-                    } else if (isset($workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary']) && $workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary'] == true) {
-                        $workflow->collected_data_array['step'] = $currentStepId = count($workflow->collected_data_array['steps']);
+                } else if ($currentStep['type'] == 'buttons') {
+
+                    $reprocess = true;
+
+                    $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
+                        'render' => $currentStep['content']['render_validate'],
+                        'render_args' => $currentStep['content']['render_args'],
+                        'chat' => & $chat,
+                        'workflow' => & $workflow,
+                        'payload' => & $payload,
+                    ));
+
+                    if ($handler !== false && isset($handler['render']) && is_callable($handler['render']))
+                    {
+                        $dataProcess = call_user_func_array($handler['render'], $handler['render_args']);
+
+                        $message = self::sendAsUser($chat, $dataProcess['chosen_value_literal']);
+                        self::setLastMessageId($chat->id, $message->id);
+
+                        $workflow->collected_data_array['collected'][$currentStep['content']['field']] = array(
+                            'value' => $dataProcess['chosen_value'],
+                            'value_literal' => $dataProcess['chosen_value_literal'],
+                            'name' => $currentStep['content']['name'],
+                            'step' => $currentStepId
+                        );
+
+                        if (isset($dataProcess['reset_step']) && is_array($dataProcess['reset_step']) && !empty($dataProcess['reset_step'])) {
+                            foreach ($dataProcess['reset_step'] as $fieldName) {
+                                unset($workflow->collected_data_array['collected'][$fieldName]);
+                            }
+                        }
+
+                        if (isset($dataProcess['go_to_step'])) {
+                            $workflow->collected_data_array['step'] = $currentStepId = $dataProcess['go_to_step'];
+                        } else if (isset($dataProcess['go_to_next']) && $dataProcess['go_to_next'] == true) {
+                            // Do nothing at the moment
+                        } else if (isset($workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary']) && $workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary'] == true) {
+                            $workflow->collected_data_array['step'] = $currentStepId = count($workflow->collected_data_array['steps']);
+                        }
+
+                    } else {
+                        throw new Exception('Validation function could not be found! Have you defined listener for ' . $currentStep['content']['render_validate'] . ' identifier');
                     }
 
-                } else {
-                    throw new Exception('Validation function could not be found!');
+                } else if ($currentStep['type'] == 'custom') {
+                    $reprocess = true;
+
+                    $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
+                        'render' => $currentStep['content']['render_validate'],
+                        'render_args' => $currentStep['content']['render_args'],
+                        'chat' => & $chat,
+                        'workflow' => & $workflow,
+                        'payload' => & $payload,
+                        'step_id' => $currentStepId
+                    ));
+
+                    if ($handler !== false && isset($handler['render']) && is_callable($handler['render']))
+                    {
+                        $dataProcess = call_user_func_array($handler['render'], $handler['render_args']);
+
+                        if ($dataProcess['valid'] == false) {
+                            if (isset($dataProcess['message']) && !empty($dataProcess['message'])) {
+                                throw new Exception($dataProcess['message']);
+                            } else {
+                                throw new Exception('Your message does not match required format!');
+                            }
+                        }
+
+                        $message = self::sendAsUser($chat, $dataProcess['chosen_value_literal']);
+                        self::setLastMessageId($chat->id, $message->id);
+
+                        $workflow->collected_data_array['collected'][$currentStep['content']['field']] = array(
+                            'value' => $dataProcess['chosen_value'],
+                            'value_literal' => $dataProcess['chosen_value_literal'],
+                            'name' => $currentStep['content']['name'],
+                            'step' => $currentStepId
+                        );
+
+                        if (isset($dataProcess['reset_step']) && is_array($dataProcess['reset_step']) && !empty($dataProcess['reset_step'])) {
+                            foreach ($dataProcess['reset_step'] as $fieldName) {
+                                unset($workflow->collected_data_array['collected'][$fieldName]);
+                            }
+                        }
+
+                        if (isset($dataProcess['go_to_step'])) {
+                            $workflow->collected_data_array['step'] = $currentStepId = $dataProcess['go_to_step'];
+                        } else if (isset($dataProcess['go_to_next']) && $dataProcess['go_to_next'] == true) {
+                            // Do nothing at the moment
+                        } else if (isset($workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary']) && $workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary'] == true) {
+                            $workflow->collected_data_array['step'] = $currentStepId = count($workflow->collected_data_array['steps']);
+                        }
+
+                    } else {
+                        throw new Exception('Validation function could not be found!');
+                    }
                 }
             }
-
             if ($workflow->status == erLhcoreClassModelGenericBotChatWorkflow::STATUS_PENDING_CONFIRM) {
                 $reprocess = true;
 
@@ -474,7 +498,7 @@ class erLhcoreClassGenericBotWorkflow {
 
 
             // There is more steps to proceed
-            if (count($workflow->collected_data_array['steps']) >= $currentStepId+1 && isset($workflow->collected_data_array['steps'][$currentStepId+1])) {
+            if (count($workflow->collected_data_array['steps']) >= $currentStepId+1 && isset($workflow->collected_data_array['steps'][$currentStepId+1]) && !in_array($workflow->status,array(erLhcoreClassModelGenericBotChatWorkflow::STATUS_CANCELED,erLhcoreClassModelGenericBotChatWorkflow::STATUS_EXPIRED))) {
                 $workflow->collected_data_array['current_step'] = $workflow->collected_data_array['steps'][$currentStepId+1];
                 $workflow->collected_data_array['step'] = $currentStepId+1;
                 erLhcoreClassGenericBotActionCollectable::processStep($chat, $workflow->collected_data_array['current_step']);
@@ -512,6 +536,14 @@ class erLhcoreClassGenericBotWorkflow {
 
                     if (isset($workflow->collected_data_array['collectable_options']['show_summary_checkbox_name']) && !empty($workflow->collected_data_array['collectable_options']['show_summary_checkbox_name'])) {
                         $stepData['content']['collectable_options']['show_summary_checkbox_name'] = $workflow->collected_data_array['collectable_options']['show_summary_checkbox_name'];
+                    }
+
+                    if (isset($workflow->collected_data_array['collectable_options']['show_summary_cancel_name']) && !empty($workflow->collected_data_array['collectable_options']['show_summary_cancel_name'])) {
+                        $stepData['content']['collectable_options']['show_summary_cancel_name'] = $workflow->collected_data_array['collectable_options']['show_summary_cancel_name'];
+                    }
+
+                    if (isset($workflow->collected_data_array['collectable_options']['edit_image_url']) && !empty($workflow->collected_data_array['collectable_options']['edit_image_url'])) {
+                        $stepData['content']['collectable_options']['edit_image_url'] = $workflow->collected_data_array['collectable_options']['edit_image_url'];
                     }
 
                     if (isset($workflow->collected_data_array['collectable_options']['show_summary_checkbox']) && $workflow->collected_data_array['collectable_options']['show_summary_checkbox'] == true) {
@@ -569,23 +601,40 @@ class erLhcoreClassGenericBotWorkflow {
                         }
                     }
 
-                    if (isset($workflow->collected_data_array['collectable_options']['collection_callback_pattern']) && $workflow->collected_data_array['collectable_options']['collection_callback_pattern'] != '') {
+                    if (isset($workflow->collected_data_array['collectable_options']['collection_callback_pattern']) && is_numeric($workflow->collected_data_array['collectable_options']['collection_callback_pattern'])) {
+                        $trigger = erLhcoreClassModelGenericBotTrigger::fetch($workflow->collected_data_array['collectable_options']['collection_callback_pattern']);
 
-                        $event = self::findEvent($workflow->collected_data_array['collectable_options']['collection_callback_pattern'], $chat->chat_variables_array['gbot_id'], 1);
-
-                        if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
-                            $message = self::processTrigger($chat, $event->trigger);
-                        }
-
-                        if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
-                            self::setLastMessageId($chat->id, $message->id);
-                        } else {
-                            if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
-                                self::sendAsBot($chat,erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Button action could not be found!'));
-                            }
+                        if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                            erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true);
                         }
                     }
 
+                } elseif ($workflow->status == erLhcoreClassModelGenericBotChatWorkflow::STATUS_CANCELED) {
+
+                    if (isset($workflow->collected_data_array['collectable_options']['cancel_message']) && !empty($workflow->collected_data_array['collectable_options']['cancel_message'])) {
+                       self::sendAsBot($chat, $workflow->collected_data_array['collectable_options']['cancel_message']);
+                    }
+
+                    if (isset($workflow->collected_data_array['collectable_options']['collection_cancel_callback_pattern']) && is_numeric($workflow->collected_data_array['collectable_options']['collection_cancel_callback_pattern'])) {
+                        $trigger = erLhcoreClassModelGenericBotTrigger::fetch($workflow->collected_data_array['collectable_options']['collection_cancel_callback_pattern']);
+
+                        if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                            erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true);
+                        }
+                    }
+                } elseif ($workflow->status == erLhcoreClassModelGenericBotChatWorkflow::STATUS_EXPIRED) {
+
+                    if (isset($workflow->collected_data_array['collectable_options']['expire_message']) && !empty($workflow->collected_data_array['collectable_options']['expire_message'])) {
+                       self::sendAsBot($chat, $workflow->collected_data_array['collectable_options']['expire_message']);
+                    }
+
+                    if (isset($workflow->collected_data_array['collectable_options']['collection_expire_callback_pattern']) && is_numeric($workflow->collected_data_array['collectable_options']['collection_expire_callback_pattern'])) {
+                        $trigger = erLhcoreClassModelGenericBotTrigger::fetch($workflow->collected_data_array['collectable_options']['collection_expire_callback_pattern']);
+
+                        if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                            erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true);
+                        }
+                    }
                 }
             }
 
@@ -593,7 +642,12 @@ class erLhcoreClassGenericBotWorkflow {
             $workflow->saveThis();
 
         } catch (Exception $e) {
-            self::sendAsBot($chat, $e->getMessage());
+
+            if ($e instanceof erLhcoreClassGenericBotException) {
+                self::sendAsBot($chat, $e->getMessage(), $e->getContent());
+            } else {
+                self::sendAsBot($chat, $e->getMessage() . '-' . get_class($e));
+            }
 
             if ($reprocess) {
                 erLhcoreClassGenericBotActionCollectable::processStep($chat, $workflow->collected_data_array['current_step']);
@@ -649,11 +703,6 @@ class erLhcoreClassGenericBotWorkflow {
                 $workflow->collected_data_array['current_step'] = $workflow->collected_data_array['steps'][$payload];
                 $workflow->collected_data_array['step'] = $payload;
                 $workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary'] = true;
-
-                // Force go to summary again if required
-                /*if (isset($workflow->collected_data_array['collectable_options']['go_to_summary']) && $workflow->collected_data_array['collectable_options']['go_to_summary'] == true) {
-                    $workflow->collected_data_array['step'] = $currentStepId = count($workflow->collected_data_array['steps']);
-                }*/
 
                 erLhcoreClassGenericBotActionCollectable::processStep($chat, $workflow->collected_data_array['current_step']);
 
@@ -830,14 +879,19 @@ class erLhcoreClassGenericBotWorkflow {
         }
     }
 
-    public static function sendAsBot($chat, $message)
-    {
+    public static function sendAsBot($chat, $message, $metaMessage = array())
+    {      
         $msg = new erLhcoreClassModelmsg();
         $msg->msg = $message;
         $msg->chat_id = $chat->id;
-        $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+        $msg->name_support = self::getDefaultNick($chat);
         $msg->user_id = -2;
         $msg->time = time() + 5;
+
+        if (!empty($metaMessage)) {
+            $msg->meta_msg = json_encode($metaMessage);
+        }
+
         erLhcoreClassChat::getSession()->save($msg);
 
         self::setLastMessageId($chat->id, $msg->id);

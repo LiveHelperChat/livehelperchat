@@ -113,6 +113,7 @@ $inputData->phone = '';
 $inputData->ua = $Params['user_parameters_unordered']['ua'];
 $inputData->product_id = '';
 
+
 if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1) {
 	erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
 	$inputData->departament_id = array_shift($Params['user_parameters_unordered']['department']);
@@ -183,6 +184,7 @@ $inputData->via_hidden = array(); // These variables get's filled from start cha
 $inputData->hattr = array();
 $inputData->hash_resume = false;
 $inputData->vid = false;
+$inputData->only_bot_online = isset($_POST['onlyBotOnline']) ? (int)$_POST['onlyBotOnline'] : 0;
 
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash_resume'] != '') {
@@ -334,27 +336,30 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
     	               $chat->saveThis();
     	           }
     	       }
-    
+
+    	       // Set bot workflow if required
+               erLhcoreClassChatValidator::setBot($chat);
+
     			// Auto responder
     			$responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
-    
+
     			if ($responder instanceof erLhAbstractModelAutoResponder) {
     				$beforeAutoResponderErrors = array();
     				erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_triggered', array('chat' => & $chat, 'errors' => & $beforeAutoResponderErrors));
-    
+
     				if (empty($beforeAutoResponderErrors)) {
-    				    
+
     				    $responderChat = new erLhAbstractModelAutoResponderChat();
     				    $responderChat->auto_responder_id = $responder->id;
     				    $responderChat->chat_id = $chat->id;
     				    $responderChat->wait_timeout_send = 1 - $responder->repeat_number;
     				    $responderChat->saveThis();
-    				    
+
     				    $chat->auto_responder_id = $responderChat->id;
 
     				    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_message', array('chat' => & $chat, 'responder' => & $responder));
 
-    					if ($responder->wait_message != '') {
+    					if ($responder->wait_message != '' && $chat->status !== erLhcoreClassModelChat::STATUS_BOT_CHAT) {
     						$msg = new erLhcoreClassModelmsg();
     						$msg->msg = trim($responder->wait_message);
     						$msg->chat_id = $chat->id;
@@ -362,15 +367,15 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
     						$msg->user_id = -2;
     						$msg->time = time() + 5;
     						erLhcoreClassChat::getSession()->save($msg);
-    
+
     						if ($chat->last_msg_id < $msg->id) {
     							$chat->last_msg_id = $msg->id;
     						}
     					}
-    
-    					
+
+
     					erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered', array('chat' => & $chat));
-    
+
     					$chat->saveThis();
     				} else {
     					$msg = new erLhcoreClassModelmsg();
@@ -378,17 +383,16 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
     					$msg->chat_id = $chat->id;
     					$msg->user_id = -1;
     					$msg->time = time();
-    
+
     					if ($chat->last_msg_id < $msg->id) {
     						$chat->last_msg_id = $msg->id;
     					}
-    
+
     					erLhcoreClassChat::getSession()->save($msg);
     				}
     			}
 
-                // Set bot workflow if required
-                erLhcoreClassChatValidator::setBot($chat);
+
 
     	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
     

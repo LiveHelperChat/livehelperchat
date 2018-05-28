@@ -20,7 +20,8 @@ class erLhcoreClassModelGenericBotChatWorkflow {
             'identifier' => $this->identifier,
             'status' => $this->status,
             'collected_data' => $this->collected_data,
-            'trigger_id' => $this->trigger_id
+            'trigger_id' => $this->trigger_id,
+            'time' => $this->time
         );
 
         return $stateArray;
@@ -53,6 +54,7 @@ class erLhcoreClassModelGenericBotChatWorkflow {
     const STATUS_PENDING_CONFIRM = 1;
     const STATUS_COMPLETED = 2;
     const STATUS_CANCELED = 3;
+    const STATUS_EXPIRED = 4;
 
     public $id = null;
     public $chat_id = null;
@@ -60,5 +62,6 @@ class erLhcoreClassModelGenericBotChatWorkflow {
     public $status = self::STATUS_STARTED;
     public $collected_data = '';
     public $trigger_id = null;
+    public $time = 0;
 
 }

@@ -16,7 +16,8 @@ class erLhcoreClassModelGenericBotBot {
     {
         $stateArray = array(
             'id' => $this->id,
-            'name' => $this->name
+            'name' => $this->name,
+            'nick' => $this->nick,
         );
 
         return $stateArray;
@@ -53,4 +54,5 @@ class erLhcoreClassModelGenericBotBot {
 
     public $id = null;
     public $name = '';
+    public $nick = '';
 }

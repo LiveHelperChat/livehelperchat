@@ -22,6 +22,7 @@
         		<li role="presentation"><a href="#messagesstyle" aria-controls="messagesstyle" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Messages style');?></a></li>
         		<li role="presentation"><a href="#needhelp" aria-controls="needhelp" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help widget');?></a></li>
         		<li role="presentation"><a href="#widgettexts" aria-controls="widgettexts" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Chat widget');?></a></li>
+        		<li role="presentation"><a href="#customcontent" aria-controls="customcontent" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom content');?></a></li>
         		<li role="presentation"><a href="#customcss" aria-controls="customcss" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom CSS');?></a></li>
         	</ul>
         
@@ -349,27 +350,57 @@
         		
         		<div role="tabpanel" class="tab-pane" id="customcss">
         		
-        		<label><?php echo $fields['custom_status_css']['trans'];?></label>
-						<div class="form-group">
-						<?php echo erLhcoreClassAbstract::renderInput('custom_status_css', $fields['custom_status_css'], $object)?>		
-						</div>
-						
-						<div class="form-group">										
-						<label><?php echo $fields['custom_container_css']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('custom_container_css', $fields['custom_container_css'], $object)?>												
-						</div>
-						
-						<div class="form-group">										
-						<label><?php echo $fields['custom_widget_css']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('custom_widget_css', $fields['custom_widget_css'], $object)?>	
-						</div>	
-						
-						<div class="form-group">										
-						<label><?php echo $fields['custom_popup_css']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('custom_popup_css', $fields['custom_popup_css'], $object)?>	
-						</div>	
+                    <label><?php echo $fields['custom_status_css']['trans'];?></label>
+                    <div class="form-group">
+                    <?php echo erLhcoreClassAbstract::renderInput('custom_status_css', $fields['custom_status_css'], $object)?>
+                    </div>
+
+                    <div class="form-group">
+                    <label><?php echo $fields['custom_container_css']['trans'];?></label>
+                    <?php echo erLhcoreClassAbstract::renderInput('custom_container_css', $fields['custom_container_css'], $object)?>
+                    </div>
+
+                    <div class="form-group">
+                    <label><?php echo $fields['custom_widget_css']['trans'];?></label>
+                    <?php echo erLhcoreClassAbstract::renderInput('custom_widget_css', $fields['custom_widget_css'], $object)?>
+                    </div>
+
+                    <div class="form-group">
+                    <label><?php echo $fields['custom_popup_css']['trans'];?></label>
+                    <?php echo erLhcoreClassAbstract::renderInput('custom_popup_css', $fields['custom_popup_css'], $object)?>
+                    </div>
 						
         		</div>
+
+                <div role="tabpanel" class="tab-pane" id="customcontent">
+
+                    <div class="form-group">
+                        <label><?php echo $fields['custom_html']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('custom_html', $fields['custom_html'], $object)?>
+                    </div>
+
+                    <div class="form-group">
+                        <label><?php echo $fields['custom_html_widget']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('custom_html_widget', $fields['custom_html_widget'], $object)?>
+                    </div>
+
+                    <div class="form-group">
+                        <label><?php echo $fields['custom_start_button']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('custom_start_button', $fields['custom_start_button'], $object)?>
+                    </div>
+
+                    <div class="form-group">
+                        <label><?php echo $fields['custom_start_button_bot']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('custom_start_button_bot', $fields['custom_start_button_bot'], $object)?>
+                    </div>
+
+                    <div class="form-group">
+                        <label><?php echo $fields['custom_start_button_offline']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('custom_start_button_offline', $fields['custom_start_button_offline'], $object)?>
+                    </div>
+
+                </div>
+
         	</div>
         </div>
 			  	

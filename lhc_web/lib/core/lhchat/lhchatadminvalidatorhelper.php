@@ -146,6 +146,9 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'NameHidden' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
+            'NameHiddenBot' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
             'RequiresPrefilledDepartment' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
@@ -180,6 +183,9 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'EmailHidden' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
+            'EmailHiddenBot' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
 	        'OfflineEmailHidden' => new ezcInputFormDefinitionElement(
 	        				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
@@ -197,12 +203,18 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'MessageHidden' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
+            'MessageHiddenBot' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
 	        'MessageAutoStart' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
 	        'MessageAutoStartOnKeyPress' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
+
+
+
 	        'MessageRequireOption' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'string'
 	        ),
@@ -235,6 +247,9 @@ class erLhcoreClassAdminChatValidatorHelper {
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
 	        'PhoneHidden' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
+            'PhoneHiddenBot' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
 	        'PhoneRequireOption' => new ezcInputFormDefinitionElement(
@@ -424,7 +439,13 @@ class erLhcoreClassAdminChatValidatorHelper {
 	    } else {
 	        $data['name_hidden'] = false;
 	    }
-	    
+
+	    if ( $form->hasValidData( 'NameHiddenBot' ) && $form->NameHiddenBot == true ) {
+	        $data['name_hidden_bot'] = true;
+	    } else {
+	        $data['name_hidden_bot'] = false;
+	    }
+
 	    if ( $form->hasValidData( 'NameVisibleInPageWidget' ) && $form->NameVisibleInPageWidget == true ) {
 	        $data['name_visible_in_page_widget'] = true;
 	    } else {
@@ -502,6 +523,12 @@ class erLhcoreClassAdminChatValidatorHelper {
 	    } else {
 	        $data['email_hidden'] = false;
 	    }
+
+	    if ( $form->hasValidData( 'EmailHiddenBot' ) && $form->EmailHiddenBot == true ) {
+	        $data['email_hidden_bot'] = true;
+	    } else {
+	        $data['email_hidden_bot'] = false;
+	    }
 	    
 	    if ( $form->hasValidData( 'OfflineEmailHidden' ) && $form->OfflineEmailHidden == true ) {
 	        $data['offline_email_hidden'] = true;
@@ -546,6 +573,12 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        $data['phone_hidden'] = true;
 	    } else {
 	        $data['phone_hidden'] = false;
+	    }
+
+	    if ( $form->hasValidData( 'PhoneHiddenBot' ) && $form->PhoneHiddenBot == true ) {
+	        $data['phone_hidden_bot'] = true;
+	    } else {
+	        $data['phone_hidden_bot'] = false;
 	    }
 	    
 	    if ( $form->hasValidData( 'PhoneVisibleInPageWidget' ) && $form->PhoneVisibleInPageWidget == true ) {
@@ -605,7 +638,13 @@ class erLhcoreClassAdminChatValidatorHelper {
 	    } else {
 	        $data['message_hidden'] = false;
 	    }
-	    
+
+	    if ( $form->hasValidData( 'MessageHiddenBot' ) && $form->MessageHiddenBot == true ) {
+	        $data['message_hidden_bot'] = true;
+	    } else {
+	        $data['message_hidden_bot'] = false;
+	    }
+
 	    if ( $form->hasValidData( 'MessageAutoStart' ) && $form->MessageAutoStart == true ) {
 	        $data['message_auto_start'] = true;
 	    } else {

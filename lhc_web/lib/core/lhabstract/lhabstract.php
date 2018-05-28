@@ -15,11 +15,25 @@ class erLhcoreClassAbstract {
 
         	           return $returnString;
         	       } else {
-        	       	  $ngModel = isset($attr['nginit']) ? ' ng-init=\'ngModelAbstractInput_'.$name.'='.json_encode($object->$name,JSON_HEX_APOS).'\' ng-model="ngModelAbstractInput_'.$name.'" ' : '';
+
+                      if (isset($attr['main_attr']) && !empty($attr['main_attr'])) {
+
+                          if (isset($object->{$attr['main_attr']}[$name])) {
+                              $value = $object->{$attr['main_attr']}[$name];
+                          } else {
+                              $value = '';
+                          }
+
+                      } else {
+                          $value = $object->$name;
+                      }
+
+        	       	  $ngModel = isset($attr['nginit']) ? ' ng-init=\'ngModelAbstractInput_'.$name.'='.json_encode($value,JSON_HEX_APOS).'\' ng-model="ngModelAbstractInput_'.$name.'" ' : '';
+
         	       	  if (isset($attr['placeholder'])) {
         	       	  		$ngModel .= " placeholder=\"{$attr['placeholder']}\" ";
         	       	  };
-        		      return '<input class="form-control" '.$ngModel.' name="AbstractInput_'.$name.'" type="text" value="'.htmlspecialchars($object->$name).'" />';
+        		      return '<input class="form-control" '.$ngModel.' name="AbstractInput_'.$name.'" type="text" value="'.htmlspecialchars($value).'" />';
         	       }
         		break;
 
@@ -41,7 +55,18 @@ class erLhcoreClassAbstract {
         			return $returnString;
         		} else {
         			  $placeholder = isset($attr['placeholder']) ? 'placeholder="'.htmlspecialchars($attr['placeholder']).'"' :'';
-        		      return '<textarea ng-non-bindable style="height:'.$height.';" '.$placeholder.' class="form-control" name="AbstractInput_'.$name.'">'.htmlspecialchars($object->$name).'</textarea>';
+
+                        if (isset($attr['main_attr']) && !empty($attr['main_attr'])) {
+                            if (isset($object->{$attr['main_attr']}[$name])) {
+                                $value = $object->{$attr['main_attr']}[$name];
+                            } else {
+                                $value = '';
+                            }
+                        } else {
+                            $value = $object->$name;
+                        }
+
+        		      return '<textarea ng-non-bindable style="height:'.$height.';" '.$placeholder.' class="form-control" name="AbstractInput_'.$name.'">'.htmlspecialchars($value).'</textarea>';
         		}
         		break;
 
@@ -215,8 +240,14 @@ class erLhcoreClassAbstract {
             			$object->{$key.'_'.strtolower($locale)}  = $form->{'AbstractInput_'.$key.'_'.$locale};
             		}
             	} else {
-            		if ($form->hasValidData( 'AbstractInput_'.$key )){
-            			$object->$key = $form->{'AbstractInput_'.$key};
+            		if ($form->hasValidData( 'AbstractInput_'.$key )) {
+            		    if (isset($field['main_attr']) && !empty($field['main_attr'])) {
+            		        $botConfiguration = $object->{$field['main_attr']};
+                            $botConfiguration[$key] = $form->{'AbstractInput_'.$key};
+                            $object->{$field['main_attr']} = $botConfiguration;
+                        } else {
+                            $object->$key = $form->{'AbstractInput_'.$key};
+                        }
             		}
             	}
 
@@ -242,7 +273,13 @@ class erLhcoreClassAbstract {
                     $object->$key = serialize($partsTranslated);
 
                 } else {
-                    $object->$key = $form->{'AbstractInput_'.$key};
+                    if (isset($field['main_attr']) && !empty($field['main_attr'])) {
+                        $botConfiguration = $object->{$field['main_attr']};
+                        $botConfiguration[$key] = $form->{'AbstractInput_'.$key};
+                        $object->{$field['main_attr']} = $botConfiguration;
+                    } else {
+                        $object->$key = $form->{'AbstractInput_'.$key};
+                    }
                 }
 
             } elseif (isset($field['required']) && $field['required'] == true) {

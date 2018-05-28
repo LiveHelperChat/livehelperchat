@@ -18,6 +18,7 @@ $fields = array(
                 'bot_status_text' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Chat status if customer is chatting with a bot'),
+                        'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Chat status if customer is chatting with a bot'),
    						'required' => false,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
@@ -257,7 +258,54 @@ $fields = array(
    						'nginit' => true,						
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),  				
+   						)),
+                'custom_html' => array(
+   						'type' => 'textarea',
+   						'height' => '50px',
+                        'main_attr' => 'bot_configuration_array',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom html before start chat form fields, popup'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+                'custom_html_widget' => array(
+   						'type' => 'textarea',
+   						'height' => '50px',
+                        'main_attr' => 'bot_configuration_array',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom html before start chat form fields, widget'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+                'custom_start_button' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Start chat button text, standard chat'),
+   						'required' => false,
+   						'hidden' => true,
+   						'main_attr' => 'bot_configuration_array',
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+                'custom_start_button_bot' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Start chat button text, bot chat'),
+   						'required' => false,
+   						'hidden' => true,
+   						'main_attr' => 'bot_configuration_array',
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+                'custom_start_button_offline' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Leave a message button text'),
+   						'required' => false,
+   						'hidden' => true,
+   						'main_attr' => 'bot_configuration_array',
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
    				'online_image' => array(
    						'type' => 'file',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Online image'),

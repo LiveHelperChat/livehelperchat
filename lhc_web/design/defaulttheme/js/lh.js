@@ -3190,6 +3190,8 @@ function lh(){
             lhinst.forceBottomScroll = true;
             lhinst.syncusercall();
         });
+        
+        lhinst.focusUserText();
     }
 
     this.updateTriggerClicked = function(payload, id, btn, notHide) {
