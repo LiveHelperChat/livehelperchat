@@ -1455,6 +1455,7 @@ input[type="file"]{
 
 .quick-replies > li {
 	padding-left:0;
+	padding-bottom: 3px;
 }
 
 .pending-storage-bot{

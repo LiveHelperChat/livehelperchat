@@ -15,7 +15,7 @@ class erLhcoreClassGenericBotActionGeneric {
         $msg->msg = '';
         $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';
         $msg->chat_id = $chat->id;
-        $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+        $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
         $msg->user_id = -2;
         $msg->time = time() + 5;
 

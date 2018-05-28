@@ -392,6 +392,11 @@ $def->properties['widget_response_width']->columnName   = 'widget_response_width
 $def->properties['widget_response_width']->propertyName = 'widget_response_width';
 $def->properties['widget_response_width']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['bot_configuration'] = new ezcPersistentObjectProperty();
+$def->properties['bot_configuration']->columnName   = 'bot_configuration';
+$def->properties['bot_configuration']->propertyName = 'bot_configuration';
+$def->properties['bot_configuration']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('lhabstract.erlhabstractmodelwidgettheme.posdefinition',array('def' => & $def));
 
 return $def;

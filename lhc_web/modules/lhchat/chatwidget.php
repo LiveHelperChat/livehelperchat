@@ -223,6 +223,7 @@ $inputData->encattr = array();
 $inputData->via_encrypted = array();
 $inputData->ua = $Params['user_parameters_unordered']['ua'];
 $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
+$inputData->only_bot_online = isset($_POST['onlyBotOnline']) ? (int)$_POST['onlyBotOnline'] : 0;
 
 // If chat was started based on key up, we do not need to store a message
 //  because user is still typing it. We start chat in the background just.
@@ -384,7 +385,10 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     	               $chat->saveThis();
     	           }
     	       }
-    
+
+               // Set bot workflow if required
+               erLhcoreClassChatValidator::setBot($chat);
+
     	       // Auto responder does not make sense in this mode
     	       if ($inputData->key_up_started == false) {
         	       // Auto responder
@@ -406,7 +410,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 
                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_message',array('chat' => & $chat, 'responder' => & $responder));
 
-    					   if ($responder->wait_message != '') {
+    					   if ($responder->wait_message != '' && $chat->status !== erLhcoreClassModelChat::STATUS_BOT_CHAT) {
     						   $msg = new erLhcoreClassModelmsg();
     						   $msg->msg = trim($responder->wait_message);
     						   $msg->chat_id = $chat->id;
@@ -441,9 +445,6 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     	           $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_START_ON_KEY_UP;
     	           $chat->saveThis();
     	       }
-
-    	       // Set bot workflow if required
-               erLhcoreClassChatValidator::setBot($chat);
 
     	       erLhcoreClassChat::updateDepartmentStats($chat->department);
 

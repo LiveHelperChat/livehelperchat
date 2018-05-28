@@ -34,6 +34,11 @@ $def->properties['collected_data']->columnName   = 'collected_data';
 $def->properties['collected_data']->propertyName = 'collected_data';
 $def->properties['collected_data']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['time'] = new ezcPersistentObjectProperty();
+$def->properties['time']->columnName   = 'time';
+$def->properties['time']->propertyName = 'time';
+$def->properties['time']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

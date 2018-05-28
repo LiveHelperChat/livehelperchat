@@ -78,6 +78,8 @@ class erLhAbstractModelWidgetTheme {
 			'buble_operator_title_color'=> $this->buble_operator_title_color,
 			'buble_operator_text_color' => $this->buble_operator_text_color,
 
+			'bot_configuration'         => $this->bot_configuration,
+
 			'hide_ts'                   => $this->hide_ts,
 			'widget_response_width'     => $this->widget_response_width,
 		);
@@ -316,8 +318,21 @@ class erLhAbstractModelWidgetTheme {
 	   				$this->$var = '<img src="'.($this->{$attr.'_path'} != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->{$attr.'_path'} . $this->$attr.'"/>';
 	   			}
 	   			return $this->$var;
-	   		break;	   		
-	   		
+	   		break;
+
+       case 'bot_configuration_array':
+           if (!empty($this->bot_configuration)) {
+               $jsonData = json_decode($this->bot_configuration,true);
+               if ($jsonData !== null) {
+                   $this->bot_configuration_array = $jsonData;
+               } else {
+                   $this->bot_configuration_array = array();
+               }
+           } else {
+               $this->bot_configuration_array = array();
+           }
+           return $this->bot_configuration_array;
+           break;
 	   		
 	   	default:
 	   		break;
@@ -417,22 +432,27 @@ class erLhAbstractModelWidgetTheme {
     	return $objects;
 	}
 	
-	public function updateThis(){
+	public function updateThis()
+    {
+        $this->bot_configuration = json_encode($this->bot_configuration_array);
 		erLhcoreClassAbstract::getSession()->update($this);
 	}
 
-	public function dependCss(){
+	public function dependCss()
+    {
 		return '<link rel="stylesheet" type="text/css" href="'.erLhcoreClassDesign::design('css/colorpicker.css').'" />';
 	}
 
-	public function dependJs(){
+	public function dependJs()
+    {
 		return '<script type="text/javascript" src="'.erLhcoreClassDesign::design('js/colorpicker.js').'"></script>';
 	}
 	
-	public function customForm(){
+	public function customForm()
+    {
 		return 'widget_theme.tpl.php';
 	}
-	
+
    	public $id = null;
 	public $name = '';
 	public $onl_bcolor = '0c8fc4';
@@ -495,7 +515,9 @@ class erLhAbstractModelWidgetTheme {
 	public $pending_join = '';
 	public $noonline_operators = '';
 	public $noonline_operators_offline = '';
-	
+
+	public $bot_configuration = '';
+
 	public $show_voting = 1;
 	public $modern_look = 1;
 	public $department_title = '';

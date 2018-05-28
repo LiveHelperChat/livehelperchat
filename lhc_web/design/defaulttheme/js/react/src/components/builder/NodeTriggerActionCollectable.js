@@ -3,6 +3,7 @@ import NodeTriggerActionType from './NodeTriggerActionType';
 import NodeCollectableField from './collectable/NodeCollectableField';
 import NodeTriggerPayloadList from './NodeTriggerPayloadList';
 import shortid from 'shortid';
+import NodeTriggerList from './NodeTriggerList';
 
 class NodeTriggerActionCollectable extends Component {
 
@@ -99,12 +100,19 @@ class NodeTriggerActionCollectable extends Component {
                             <input type="text" className="form-control" onChange={(e) => this.onChangeMainAttr('show_summary_checkbox_name',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','show_summary_checkbox_name'])} />
                         </div>
                     </div>
-                    <div className="col-xs-12">
+                    <div className="col-xs-6">
                         <div className="form-group">
                             <label>Confirm button value</label>
                             <input type="text" className="form-control" onChange={(e) => this.onChangeMainAttr('show_summary_confirm_name',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','show_summary_confirm_name'])} />
                         </div>
                     </div>
+                    <div className="col-xs-6">
+                        <div className="form-group">
+                            <label>Cancel button value</label>
+                            <input type="text" className="form-control" onChange={(e) => this.onChangeMainAttr('show_summary_cancel_name',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','show_summary_cancel_name'])} />
+                        </div>
+                    </div>
+
                     <div className="col-xs-6">
                         <div className="form-group">
                             <label>Custom summary formation event</label>
@@ -117,15 +125,23 @@ class NodeTriggerActionCollectable extends Component {
                             <input type="text" className="form-control" onChange={(e) => this.onChangeMainAttr('collection_callback',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','collection_callback'])} />
                         </div>
                     </div>
-                    <div className="col-xs-12">
+                    <div className="col-xs-6">
                         <div className="form-group">
                             <label>Argument</label>
                             <input type="text" className="form-control" onChange={(e) => this.onChangeMainAttr('collection_argument',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','collection_argument'])} />
                         </div>
                     </div>
 
+                    <div className="col-xs-6">
+                        <div className="form-group">
+                            <label>Workflow from begining expires in n minutes, 0 for unlimited</label>
+                            <input type="number" className="form-control" onChange={(e) => this.onChangeMainAttr('expires_in',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','expires_in'])} />
+                        </div>
+                    </div>
+
+
                     <div className="col-xs-12">
-                        <p>Then process is complete send this message to user or trigger payload</p>
+                        <p>Then process is complete send this message to user or execute trigger</p>
 
                         <div className="row">
                             <div className="col-xs-6">
@@ -136,13 +152,59 @@ class NodeTriggerActionCollectable extends Component {
                             </div>
                             <div className="col-xs-6">
                                 <div className="form-group">
-                                    <label>Trigger payload</label>
-                                    <NodeTriggerPayloadList showOptional={true} onSetPayload={(e) => this.onChangeMainAttr('collection_callback_pattern',e)} payload={this.props.action.getIn(['content','collectable_options','collection_callback_pattern'])} />
+                                    <label>Execute trigger</label>
+                                    <NodeTriggerList onSetPayload={(e) => this.onChangeMainAttr('collection_callback_pattern',e)} payload={this.props.action.getIn(['content','collectable_options','collection_callback_pattern'])} />
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>Then process is canceled send this message to user or execute trigger</p>
+
+                        <div className="row">
+                            <div className="col-xs-6">
+                                <div className="form-group">
+                                    <label>Cancel message</label>
+                                    <textarea className="form-control" onChange={(e) => this.onChangeMainAttr('cancel_message',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','cancel_message'])}></textarea>
+                                </div>
+                            </div>
+                            <div className="col-xs-6">
+                                <div className="form-group">
+                                    <label>Execute trigger</label>
+                                    <NodeTriggerList onSetPayload={(e) => this.onChangeMainAttr('collection_cancel_callback_pattern',e)} payload={this.props.action.getIn(['content','collectable_options','collection_cancel_callback_pattern'])} />
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>Then process is expired send this message to user or execute trigger</p>
+
+                        <div className="row">
+                            <div className="col-xs-6">
+                                <div className="form-group">
+                                    <label>Expire message</label>
+                                    <textarea className="form-control" onChange={(e) => this.onChangeMainAttr('expire_message',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','expire_message'])}></textarea>
+                                </div>
+                            </div>
+                            <div className="col-xs-6">
+                                <div className="form-group">
+                                    <label>Execute trigger</label>
+                                    <NodeTriggerList onSetPayload={(e) => this.onChangeMainAttr('collection_expire_callback_pattern',e)} payload={this.props.action.getIn(['content','collectable_options','collection_expire_callback_pattern'])} />
                                 </div>
                             </div>
                         </div>
 
                     </div>
+
+                    <div className="col-xs-12">
+                        <div className="row">
+                            <div className="col-xs-6">
+                                <div className="form-group">
+                                    <label>Edit collected information image URL</label>
+                                    <input type="text" className="form-control" onChange={(e) => this.onChangeMainAttr('edit_image_url',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','edit_image_url'])} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 <hr/>

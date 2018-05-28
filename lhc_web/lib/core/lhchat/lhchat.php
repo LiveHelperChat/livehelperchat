@@ -718,6 +718,8 @@ class erLhcoreClassChat {
     	return self::getCount($filter);
     }
 
+    public static $botOnlyOnline = null;
+
     public static function isOnline($dep_id = false, $exclipic = false, $params = array())
     {
        $isOnlineUser = isset($params['online_timeout']) ? $params['online_timeout'] : (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
@@ -784,7 +786,29 @@ class erLhcoreClassChat {
                     $rowsNumber = $stmt->fetchColumn();                     
                 }
 			}					
-			
+
+			// Check is bot enabled for department
+			if ($rowsNumber == 0 && (is_numeric($dep_id) || count($dep_id) == 1) && (!isset($params['exclude_bot']) || $params['exclude_bot'] == false)) {
+                if (is_numeric($dep_id)) {
+                    $stmt = $db->prepare("SELECT bot_configuration FROM lh_departament WHERE (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND id = :dep_id");
+                    $stmt->bindValue(':dep_id', $dep_id);
+                    $stmt->execute();
+                    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                } else {
+                    $stmt = $db->prepare("SELECT bot_configuration FROM lh_departament WHERE (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND id IN (" . implode(',', $dep_id) . ")");
+                    $stmt->execute();
+                    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                }
+
+                if (!empty($result['bot_configuration'])) {
+                    $botData = json_decode($result['bot_configuration'], true);
+                    if (isset($botData['bot_id']) && $botData['bot_id'] > 0) {
+                        $rowsNumber = 1;
+                        self::$botOnlyOnline = true;
+                    }
+                }
+            }
+
        } else {
        	
 	       	if ($ignoreUserStatus === false) {
@@ -823,6 +847,31 @@ class erLhcoreClassChat {
        }
        
        return $rowsNumber >= 1;
+    }
+
+    public static function isOnlyBotOnline($department) {
+
+        if ( self::$botOnlyOnline == null) {
+            self::isOnline($department, false, array('ignore_user_status'=> (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value, 'online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout']));
+        }
+
+        $onlyBotOnline = false;
+
+        if ((is_numeric($department) && $department > 0) || (is_array($department) && count($department) == 1)) {
+            $onlyBotOnline = self::$botOnlyOnline;
+
+            // Check does chat is started with bot
+            if ($onlyBotOnline == false) {
+                $departmentObject = erLhcoreClassModelDepartament::fetch($department);
+                if ($departmentObject instanceof erLhcoreClassModelDepartament) {
+                    if (!isset($departmentObject->bot_configuration_array['bot_only_offline']) || $departmentObject->bot_configuration_array['bot_only_offline'] == 0) {
+                        $onlyBotOnline = true;
+                    }
+                }
+            }
+        }
+
+        return $onlyBotOnline;
     }
 
     /**

@@ -95,6 +95,7 @@ class erLhcoreClassChatValidator {
 
         // Dynamic form field
         if ($inputForm->validate_start_chat == true) {
+
             if ( (isset($start_data_fields['name_visible_in_popup']) && $start_data_fields['name_visible_in_popup'] == true && !isset($additionalParams['offline'])) || (isset($additionalParams['offline']) && isset($start_data_fields['offline_name_visible_in_popup']) && $start_data_fields['offline_name_visible_in_popup'] == true) ) {
                 $validationFields['Username'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
             }
@@ -124,7 +125,7 @@ class erLhcoreClassChatValidator {
                 $validationFields['Email'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'validate_email' );
             }
 
-            if ( (isset($start_data_fields['message_visible_in_page_widget']) && $start_data_fields['message_visible_in_page_widget'] == true && !isset($additionalParams['offline'])) || (isset($additionalParams['offline']) && isset($start_data_fields['offline_message_visible_in_page_widget']) && $start_data_fields['offline_message_visible_in_page_widget'] == true)) {
+            if ((isset($start_data_fields['message_visible_in_page_widget']) && $start_data_fields['message_visible_in_page_widget'] == true && !isset($additionalParams['offline'])) || (isset($additionalParams['offline']) && isset($start_data_fields['offline_message_visible_in_page_widget']) && $start_data_fields['offline_message_visible_in_page_widget'] == true)) {
                 $validationFields['Question'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
             }
 
@@ -134,9 +135,11 @@ class erLhcoreClassChatValidator {
 
             if ((isset($start_data_fields['tos_visible_in_page_widget']) && $start_data_fields['tos_visible_in_page_widget'] == true && !isset($additionalParams['offline'])) || (isset($additionalParams['offline']) && isset($start_data_fields['offline_tos_visible_in_page_widget']) && $start_data_fields['offline_tos_visible_in_page_widget'] == true)) {
             	$validationFields['AcceptTOS'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'boolean' );
-            }            
-            
+            }
         }
+
+
+
 
         $validationFields['ProductID'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1));
         $validationFields['DepartamentID'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => -1));
@@ -264,7 +267,10 @@ class erLhcoreClassChatValidator {
 
             if ( !$form->hasValidData( 'Username' ) || ($form->Username == '' && (($start_data_fields['name_require_option'] == 'required' && !isset($additionalParams['offline'])) || (isset($additionalParams['offline']) && isset($start_data_fields['offline_name_require_option']) && $start_data_fields['offline_name_require_option'] == 'required' )))  )
             {
-                $Errors['nick'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your name');
+                if (!($inputForm->only_bot_online == 1 && isset($start_data_fields['name_hidden_bot']) && $start_data_fields['name_hidden_bot'] == true)) {
+                    $Errors['nick'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your name');
+                }
+
             } elseif ($form->hasValidData( 'Username' )) {
                 $chat->nick = $inputForm->username = $form->Username;
             }
@@ -277,7 +283,11 @@ class erLhcoreClassChatValidator {
 
         if ( isset($validationFields['Email']) ) {
             if ( (!$form->hasValidData( 'Email' ) && $start_data_fields['email_require_option'] == 'required') || (!$form->hasValidData( 'Email' ) && isset($additionalParams['offline'])) ) {
-                $Errors['email'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a valid email address');
+
+                if (!($inputForm->only_bot_online == 1 && isset($start_data_fields['email_hidden_bot']) && $start_data_fields['email_hidden_bot'] == true)) {
+                    $Errors['email'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a valid email address');
+                }
+
             } elseif ( $form->hasValidData( 'Email' ) ) {
                 $chat->email = $inputForm->email = $form->Email;
             } else {
@@ -289,7 +299,9 @@ class erLhcoreClassChatValidator {
         if (isset($validationFields['Question'])) {
 
             if ( !$form->hasValidData('keyUpStarted') && (!$form->hasValidData( 'Question' ) || (trim($form->Question) == '' && (($start_data_fields['message_require_option'] == 'required' && !isset($additionalParams['offline'])) || (isset($additionalParams['offline']) && isset($start_data_fields['offline_message_require_option']) && $start_data_fields['offline_message_require_option'] == 'required'))))) {
-                $Errors['question'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your message');
+                if (!($inputForm->only_bot_online == 1 && isset($start_data_fields['message_hidden_bot']) && $start_data_fields['message_hidden_bot'] == true)) {
+                    $Errors['question'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your message');
+                }
             } elseif ($form->hasValidData( 'Question' )) {
                 $inputForm->question = trim($form->Question);
             }
@@ -313,7 +325,9 @@ class erLhcoreClassChatValidator {
         if (isset($validationFields['Phone'])) {
 
             if ( !$form->hasValidData( 'Phone' ) || (($form->Phone == '' || mb_strlen($form->Phone) < erLhcoreClassModelChatConfig::fetch('min_phone_length')->current_value) && ( ($start_data_fields['phone_require_option'] == 'required' && !isset($additionalParams['offline'])) || (isset($additionalParams['offline']) && isset($start_data_fields['offline_phone_require_option']) && $start_data_fields['offline_phone_require_option'] == 'required')  ))) {
-                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your phone');
+                if (!($inputForm->only_bot_online == 1 && isset($start_data_fields['phone_hidden_bot']) && $start_data_fields['phone_hidden_bot'] == true)) {
+                    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your phone');
+                }
             } elseif ($form->hasValidData( 'Phone' )) {
                 $chat->phone = $inputForm->phone = $form->Phone;
             }
@@ -1085,7 +1099,7 @@ class erLhcoreClassChatValidator {
                 $bot instanceof erLhcoreClassModelGenericBotBot &&
                     (
                         (!isset($botConfiguration['bot_only_offline']) || $botConfiguration['bot_only_offline'] == false) ||
-                        (isset($botConfiguration['bot_only_offline']) && $botConfiguration['bot_only_offline'] == true && erLhcoreClassChat::isOnline($chat->dep_id) == false)
+                        (isset($botConfiguration['bot_only_offline']) && $botConfiguration['bot_only_offline'] == true && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true)) == false)
                     )
                 ) {
                 $chat->status = erLhcoreClassModelChat::STATUS_BOT_CHAT;

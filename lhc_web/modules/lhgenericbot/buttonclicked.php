@@ -33,7 +33,7 @@ try {
             throw new Exception('Invalid message provided');
         }
 
-        if (!isset($_GET['payload']) || empty($_GET['payload'])) {
+        if (!isset($_GET['payload']) || $_GET['payload'] == '') {
             throw new Exception('Payload not provided');
         }
 
@@ -41,10 +41,11 @@ try {
             erLhcoreClassGenericBotWorkflow::processValueClick($chat, $message, $_GET['payload'], array('processed' => (isset($_GET['processed']) && $_GET['processed'] == 'true')));
         } elseif ($Params['user_parameters_unordered']['type'] == 'triggerclicked') {
             erLhcoreClassGenericBotWorkflow::processTriggerClick($chat, $message, $_GET['payload'], array('processed' => (isset($_GET['processed']) && $_GET['processed'] == 'true')));
+        } elseif ($Params['user_parameters_unordered']['type'] == 'editgenericstep') {
+            erLhcoreClassGenericBotWorkflow::processStepEdit($chat, $message, $_GET['payload'], array('processed' => (isset($_GET['processed']) && $_GET['processed'] == 'true')));
         } else {
             erLhcoreClassGenericBotWorkflow::processButtonClick($chat, $message, $_GET['payload'], array('processed' => (isset($_GET['processed']) && $_GET['processed'] == 'true')));
         }
-
 
         echo json_encode(array('error' => false));
 

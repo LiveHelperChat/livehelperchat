@@ -23,6 +23,8 @@
 
 <?php if ($leaveamessage == false || ($forceoffline === false && erLhcoreClassChat::isOnline($department, false, array('ignore_user_status'=> (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value, 'online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'])) === true)) : ?>
 
+<?php $onlyBotOnline = erLhcoreClassChat::isOnlyBotOnline($department); ?>
+
 <?php if (isset($start_data_fields['show_operator_profile']) && $start_data_fields['show_operator_profile'] == true) : ?>
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_start_chat.tpl.php'));?>
 <?php endif;?>
@@ -39,6 +41,10 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 <p class="start-chat-intro"><?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->explain_text))?></p>
 <?php endif;?>
 
+<?php if (isset($theme) && $theme !== false && isset($theme->bot_configuration_array['custom_html_widget']) && !empty($theme->bot_configuration_array['custom_html_widget'])) : ?>
+       <?php echo $theme->bot_configuration_array['custom_html_widget']?>
+<?php endif;?>
+
 <form method="post" id="form-start-chat" action="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php echo $append_mode?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $input_data->priority !== false ? print '/(priority)/'.$input_data->priority : ''?><?php $input_data->vid !== false ? print '/(vid)/'.htmlspecialchars($input_data->vid) : ''?><?php $input_data->hash_resume !== false ? print '/(hash_resume)/'.htmlspecialchars($input_data->hash_resume) : ''?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $forceoffline == true ? print '/(offline)/true' : ''?><?php echo $append_mode_theme?>" onsubmit="return <?php if (isset($start_data_fields['message_auto_start']) && $start_data_fields['message_auto_start'] == true) : ?>lhinst.prestartChat('<?php echo time()?>',$(this))<?php else : ?>lhinst.addCaptchaSubmit('<?php echo time()?>',$(this))<?php endif?>">
 
 <?php if (isset($start_data_fields['message_visible_in_page_widget']) && $start_data_fields['message_visible_in_page_widget'] == true && isset($start_data_fields['show_messages_box']) && $start_data_fields['show_messages_box'] == true) : ?>
@@ -48,6 +54,8 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 <?php $formResubmitId = 'form-start-chat'; ?>
 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/auto_resubmit.tpl.php'));?>
 
+<input type="hidden" name="onlyBotOnline" value="<?php echo $onlyBotOnline == true ? 1 : 0?>">
+
 <div class="row">
     <?php if (isset($start_data_fields['name_visible_in_page_widget']) && $start_data_fields['name_visible_in_page_widget'] == true) : $hasExtraField = true;?>
     
@@ -56,7 +64,7 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 	<?php else : ?>	
 		<?php if (in_array('username', $input_data->hattr)) : ?>
 			<input type="hidden" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
-		<?php else : ?>
+		<?php elseif (!($onlyBotOnline == true && isset($start_data_fields['name_hidden_bot']) && $start_data_fields['name_hidden_bot'] == true)) : ?>
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/chatwidget/form_parts/name_hidden.tpl.php'));?>
 	    <?php endif; ?>    
     <?php endif; ?>
@@ -70,7 +78,7 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 	<?php else : ?>
 		<?php if (in_array('email', $input_data->hattr)) : ?>
 			<input type="hidden" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
-		<?php else : ?>
+		<?php elseif (!($onlyBotOnline == true && isset($start_data_fields['email_hidden_bot']) && $start_data_fields['email_hidden_bot'] == true)) : ?>
 	    <div class="col-xs-6 form-group<?php if (isset($errors['email'])) : ?> has-error<?php endif;?>">
 	        <label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?><?php if (isset($start_data_fields['email_require_option']) && $start_data_fields['email_require_option'] == 'required') : ?>*<?php endif;?></label>
 	        <input <?php if (!(isset($is_embed_mode) && $is_embed_mode ==true)) :?>autofocus="autofocus"<?php endif;?> class="form-control" aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your email address')?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your email address')?>" <?php if (isset($start_data_fields['email_require_option']) && $start_data_fields['email_require_option'] == 'required') : ?>aria-required="true" required<?php endif;?> type="text" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
@@ -88,7 +96,7 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 <?php else : ?>
 		<?php if (in_array('phone', $input_data->hattr)) : ?>
 		<input type="hidden" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
-		<?php else : ?>
+		<?php elseif (!($onlyBotOnline == true && isset($start_data_fields['phone_hidden_bot']) && $start_data_fields['phone_hidden_bot'] == true)) : ?>
 		<div class="form-group<?php if (isset($errors['phone'])) : ?> has-error<?php endif;?>">
 		  <label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone');?><?php if (isset($start_data_fields['phone_require_option']) && $start_data_fields['phone_require_option'] == 'required') : ?>*<?php endif;?></label>
 		  <input <?php if (!(isset($is_embed_mode) && $is_embed_mode ==true)) :?>autofocus="autofocus"<?php endif;?> <?php if (isset($start_data_fields['phone_require_option']) && $start_data_fields['phone_require_option'] == 'required') : ?>aria-required="true" required<?php endif;?> aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your phone')?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your phone')?>" class="form-control" aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your phone')?>" type="text" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
@@ -110,7 +118,7 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 <textarea class="hide" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
 </div>
 
-<?php else : ?>
+<?php elseif (!($onlyBotOnline == true && isset($start_data_fields['message_hidden_bot']) && $start_data_fields['message_hidden_bot'] == true)) : ?>
 <div class="<?php if (isset($errors['question'])) : ?> has-error<?php endif;?>">
 <?php if (!isset($start_data_fields['hide_message_label']) || $start_data_fields['hide_message_label'] == false) : ?><label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your question');?><?php if (isset($start_data_fields['message_require_option']) && $start_data_fields['message_require_option'] == 'required') : ?>*<?php endif;?></label><?php endif;?>
 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/above_text_area_user_start_chat.tpl.php'));?>

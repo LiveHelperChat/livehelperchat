@@ -12,11 +12,11 @@
 
                 <?php if ($msg['msg'] != '') : ?>
                 <div class="msg-body">
+                    <?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($msg['msg']))?>
+
                     <?php if (isset($metaMessageData['content_static']['message_explain'])) : ?>
                         <span><a class="show-more" onclick="$(this).hide();$('#message-explain-<?php echo $messageId?>').removeClass('hide')"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Read more');?></a><span id="message-explain-<?php echo $messageId?>" class="hide"><?php echo htmlspecialchars(erLhcoreClassBBCode::make_clickable($metaMessageData['content_static']['message_explain']))?></span></span>
                     <?php endif; ?>
-
-                    <?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($msg['msg']))?>
                 </div>
                 <?php endif; ?>
 
@@ -29,11 +29,11 @@
 
                 <?php if ($msg['msg'] != '') : ?>
                     <div class="msg-body">
+                        <?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($msg['msg']))?>
+
                         <?php if (isset($metaMessageData['content_static']['message_explain'])) : ?>
                             <span><a class="show-more" onclick="$(this).hide();$('#message-explain-<?php echo $messageId?>').removeClass('hide')"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Read more');?></a><span id="message-explain-<?php echo $messageId?>" class="hide"><?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($metaMessageData['content_static']['message_explain']))?></span></span>
                         <?php endif; ?>
-
-                        <?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($msg['msg']))?>
                     </div>
                 <?php endif; ?>
 
