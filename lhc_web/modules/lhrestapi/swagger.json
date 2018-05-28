@@ -900,7 +900,7 @@
           }
         }
       }
-    },
+    }
   },
   "securityDefinitions": {
     "login": {
