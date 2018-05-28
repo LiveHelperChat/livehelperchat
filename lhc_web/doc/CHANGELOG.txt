@@ -7,6 +7,7 @@
 5. Added support for Collectable workflow to have cancel workflow button on error.
 6. Custom edit icon in Collected summary.
 7. Bot can have custom nick.
+8. And various other bot fixes/improvements.
 
 execute doc/update_db/update_171.sql for update
 
