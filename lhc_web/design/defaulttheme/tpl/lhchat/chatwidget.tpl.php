@@ -130,7 +130,7 @@ if ($theme !== false && $theme->explain_text != '') : ?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/below_text_area_user_start_chat.tpl.php'));?>
 </div>
-<?php endif; ?>
+<?php else : $hasExtraField = true; endif; ?>
 <?php else : $hasExtraField = true; endif; ?>
 
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/user_variables.tpl.php'));?>
