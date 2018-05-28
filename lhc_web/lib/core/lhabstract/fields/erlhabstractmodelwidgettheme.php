@@ -279,6 +279,26 @@ $fields = array(
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
+                'custom_html_bot' => array(
+   						'type' => 'textarea',
+   						'height' => '50px',
+                        'main_attr' => 'bot_configuration_array',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom html before start chat form fields, popup (bot mode)'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+                'custom_html_widget_bot' => array(
+   						'type' => 'textarea',
+   						'height' => '50px',
+                        'main_attr' => 'bot_configuration_array',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom html before start chat form fields, widget (bot mode)'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
                 'custom_start_button' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Start chat button text, standard chat'),

@@ -385,6 +385,16 @@
                     </div>
 
                     <div class="form-group">
+                        <label><?php echo $fields['custom_html_bot']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('custom_html_bot', $fields['custom_html_bot'], $object)?>
+                    </div>
+
+                    <div class="form-group">
+                        <label><?php echo $fields['custom_html_widget_bot']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('custom_html_widget_bot', $fields['custom_html_widget_bot'], $object)?>
+                    </div>
+
+                    <div class="form-group">
                         <label><?php echo $fields['custom_start_button']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('custom_start_button', $fields['custom_start_button'], $object)?>
                     </div>
