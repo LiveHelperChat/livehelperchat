@@ -63,8 +63,9 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
                 erLhcoreClassGenericBotWorkflow::userMessageAdded($chat, $msg);
             }
 
-	        $stmt = $db->prepare('UPDATE lh_chat SET last_user_msg_time = :last_user_msg_time, lsync = :lsync, last_msg_id = :last_msg_id, has_unread_messages = 1, unanswered_chat = :unanswered_chat WHERE id = :id');
+	        $stmt = $db->prepare('UPDATE lh_chat SET last_user_msg_time = :last_user_msg_time, lsync = :lsync, last_msg_id = :last_msg_id, has_unread_messages = :has_unread_messages, unanswered_chat = :unanswered_chat WHERE id = :id');
 	        $stmt->bindValue(':id', $chat->id, PDO::PARAM_INT);
+	        $stmt->bindValue(':has_unread_messages', ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT ? 0 : 1),PDO::PARAM_INT);
 	        $stmt->bindValue(':lsync', time(), PDO::PARAM_INT);
 	        $stmt->bindValue(':last_user_msg_time', $msg->time, PDO::PARAM_INT);
 	        $stmt->bindValue(':unanswered_chat',($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT ? 1 : 0), PDO::PARAM_INT);
