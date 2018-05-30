@@ -26,7 +26,7 @@
 <?php if (isset($theme) && $theme !== false && isset($theme->bot_configuration_array['custom_html']) && !empty($theme->bot_configuration_array['custom_html']) && $onlyBotOnline == false) : ?>
     <?php echo $theme->bot_configuration_array['custom_html']?>
 <?php elseif (isset($theme) && $theme !== false && isset($theme->bot_configuration_array['custom_html_bot']) && !empty($theme->bot_configuration_array['custom_html_bot']) && $onlyBotOnline == true) : ?>
-    <?php echo $theme->bot_configuration_array['custom_html_bot']?>       
+    <?php echo $theme->bot_configuration_array['custom_html_bot']?>
 <?php else  : ?>
     <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Fill out this form to start a chat');?></h4>
 <?php endif;?>
@@ -116,7 +116,7 @@
         <?php $startChatText = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Start chat');?>
         <?php if (isset($theme) && $theme !== false && isset($theme->bot_configuration_array['custom_start_button']) && !empty($theme->bot_configuration_array['custom_start_button']) && $onlyBotOnline == false) {
             $startChatText = htmlspecialchars($theme->bot_configuration_array['custom_start_button']);
-        } elseif (isset($theme) && $theme !== false && isset($theme->bot_configuration_array['custom_start_button']) && !empty($theme->bot_configuration_array['custom_start_button']) && $onlyBotOnline == true) {
+        } elseif (isset($theme) && $theme !== false && isset($theme->bot_configuration_array['custom_start_button_bot']) && !empty($theme->bot_configuration_array['custom_start_button_bot']) && $onlyBotOnline == true) {
             $startChatText = htmlspecialchars($theme->bot_configuration_array['custom_start_button_bot']);
         } ?>
 
