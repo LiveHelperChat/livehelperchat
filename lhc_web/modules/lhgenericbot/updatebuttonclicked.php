@@ -2,6 +2,8 @@
 
 header ( 'content-type: application/json; charset=utf-8' );
 
+session_write_close();
+
 $db = ezcDbInstance::get();
 
 $db->beginTransaction();
