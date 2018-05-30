@@ -646,7 +646,7 @@ class erLhcoreClassGenericBotWorkflow {
             if ($e instanceof erLhcoreClassGenericBotException) {
                 self::sendAsBot($chat, $e->getMessage(), $e->getContent());
             } else {
-                self::sendAsBot($chat, $e->getMessage() . '-' . get_class($e));
+                self::sendAsBot($chat, $e->getMessage());
             }
 
             if ($reprocess) {
