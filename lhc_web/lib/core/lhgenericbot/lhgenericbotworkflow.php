@@ -78,7 +78,7 @@ class erLhcoreClassGenericBotWorkflow {
             $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger);
 
             if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
-                self::setLastMessageId($chat->id, $message->id);
+                self::setLastMessageId($chat, $message->id);
             }
         }
     }
@@ -194,7 +194,7 @@ class erLhcoreClassGenericBotWorkflow {
         }
 
         if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
-            self::setLastMessageId($chat->id, $message->id);
+            self::setLastMessageId($chat, $message->id);
         } else {
             if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
                 self::sendAsBot($chat,erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Button action could not be found!'));
@@ -340,7 +340,7 @@ class erLhcoreClassGenericBotWorkflow {
                             throw new Exception('Please choose a value from dropdown!');
                         } else {
                             $message = self::sendAsUser($chat, $messageClick);
-                            self::setLastMessageId($chat->id, $message->id);
+                            self::setLastMessageId($chat, $message->id);
                         }
 
                         $workflow->collected_data_array['collected'][$currentStep['content']['field']] = array(
@@ -375,7 +375,7 @@ class erLhcoreClassGenericBotWorkflow {
                         $dataProcess = call_user_func_array($handler['render'], $handler['render_args']);
 
                         $message = self::sendAsUser($chat, $dataProcess['chosen_value_literal']);
-                        self::setLastMessageId($chat->id, $message->id);
+                        self::setLastMessageId($chat, $message->id);
 
                         $workflow->collected_data_array['collected'][$currentStep['content']['field']] = array(
                             'value' => $dataProcess['chosen_value'],
@@ -427,7 +427,7 @@ class erLhcoreClassGenericBotWorkflow {
                         }
 
                         $message = self::sendAsUser($chat, $dataProcess['chosen_value_literal']);
-                        self::setLastMessageId($chat->id, $message->id);
+                        self::setLastMessageId($chat, $message->id);
 
                         $workflow->collected_data_array['collected'][$currentStep['content']['field']] = array(
                             'value' => $dataProcess['chosen_value'],
@@ -462,7 +462,7 @@ class erLhcoreClassGenericBotWorkflow {
 
                     // Send message as user confirmed it
                     $message = self::sendAsUser($chat, 'Confirm');
-                    self::setLastMessageId($chat->id, $message->id);
+                    self::setLastMessageId($chat, $message->id);
 
                     if (isset($workflow->collected_data_array['collectable_options']['collection_callback']) && $workflow->collected_data_array['collectable_options']['collection_callback'] !== '') {
 
@@ -643,6 +643,7 @@ class erLhcoreClassGenericBotWorkflow {
 
         } catch (Exception $e) {
 
+            $metaError = array();
             if ($e instanceof erLhcoreClassGenericBotException) {
                 self::sendAsBot($chat, $e->getMessage(), $e->getContent());
             } else {
@@ -652,6 +653,7 @@ class erLhcoreClassGenericBotWorkflow {
             if ($reprocess) {
                 erLhcoreClassGenericBotActionCollectable::processStep($chat, $workflow->collected_data_array['current_step']);
             }
+
         }
     }
 
@@ -666,7 +668,7 @@ class erLhcoreClassGenericBotWorkflow {
         }
 
         if ($setLastMessageId == true && isset($message) && $message instanceof erLhcoreClassModelmsg) {
-            self::setLastMessageId($chat->id, $message->id);
+            self::setLastMessageId($chat, $message->id);
         }
 
         return $message;
@@ -698,7 +700,7 @@ class erLhcoreClassGenericBotWorkflow {
             if ($workflow instanceof erLhcoreClassModelGenericBotChatWorkflow) {
 
                 $message = self::sendAsUser($chat, 'Edit - ' . '"'.$workflow->collected_data_array['steps'][$payload]['content']['name'] . '"');
-                self::setLastMessageId($chat->id, $message->id);
+                self::setLastMessageId($chat, $message->id);
 
                 $workflow->collected_data_array['current_step'] = $workflow->collected_data_array['steps'][$payload];
                 $workflow->collected_data_array['step'] = $payload;
@@ -754,7 +756,7 @@ class erLhcoreClassGenericBotWorkflow {
             $message = self::processTrigger($chat, $trigger);
 
             if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
-                self::setLastMessageId($chat->id, $message->id);
+                self::setLastMessageId($chat, $message->id);
             } else {
                 if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
                     self::sendAsBot($chat,erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Button action could not be found!'));
@@ -802,7 +804,7 @@ class erLhcoreClassGenericBotWorkflow {
             }
 
             if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
-                self::setLastMessageId($chat->id, $message->id);
+                self::setLastMessageId($chat, $message->id);
             } else {
                 if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
                     self::sendAsBot($chat,erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Button action could not be found!'));
@@ -870,7 +872,7 @@ class erLhcoreClassGenericBotWorkflow {
                 $messageContext->saveThis();
 
                 if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
-                    self::setLastMessageId($chat->id, $message->id);
+                    self::setLastMessageId($chat, $message->id);
                 }
 
             } else {
@@ -894,7 +896,7 @@ class erLhcoreClassGenericBotWorkflow {
 
         erLhcoreClassChat::getSession()->save($msg);
 
-        self::setLastMessageId($chat->id, $msg->id);
+        self::setLastMessageId($chat, $msg->id);
     }
 
     public static function sendAsUser($chat, $messageText) {
@@ -915,13 +917,14 @@ class erLhcoreClassGenericBotWorkflow {
         return $msg;
     }
 
-    public static function setLastMessageId($chatId, $messageId) {
+    public static function setLastMessageId($chat, $messageId) {
 
         $db = ezcDbInstance::get();
 
-        $stmt = $db->prepare('UPDATE lh_chat SET last_user_msg_time = :last_user_msg_time, lsync = :lsync, last_msg_id = :last_msg_id, has_unread_messages = 1, unanswered_chat = :unanswered_chat WHERE id = :id');
-        $stmt->bindValue(':id', $chatId, PDO::PARAM_INT);
+        $stmt = $db->prepare('UPDATE lh_chat SET last_user_msg_time = :last_user_msg_time, lsync = :lsync, last_msg_id = :last_msg_id, has_unread_messages = :has_unread_messages, unanswered_chat = :unanswered_chat WHERE id = :id');
+        $stmt->bindValue(':id', $chat->id, PDO::PARAM_INT);
         $stmt->bindValue(':lsync', time(), PDO::PARAM_INT);
+        $stmt->bindValue(':has_unread_messages', ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT ? 0 : 1), PDO::PARAM_INT);
         $stmt->bindValue(':last_user_msg_time', time(), PDO::PARAM_INT);
         $stmt->bindValue(':unanswered_chat', 0, PDO::PARAM_INT);
         $stmt->bindValue(':last_msg_id',$messageId,PDO::PARAM_INT);

@@ -27,7 +27,7 @@ class erLhcoreClassGenericBotActionCollectable {
         return self::processStep($chat, $workflow->collected_data_array['current_step']);
     }
 
-    public static function processStep($chat, $stepData)
+    public static function processStep($chat, $stepData, $errorMeta = null)
     {
         if (isset($stepData['content']['message']) && !empty($stepData['content']['message'])) {
 
@@ -94,6 +94,10 @@ class erLhcoreClassGenericBotActionCollectable {
 
             if (isset($stepData['content']['message_explain']) && !empty($stepData['content']['message_explain'])) {
                 $metaMessage['content_static']['message_explain'] = $stepData['content']['message_explain'];
+            }
+
+            if (isset($errorMeta['meta_error'])) {
+                $metaMessage['content_error'] = $errorMeta['meta_error'];
             }
 
             $msg = new erLhcoreClassModelmsg();
