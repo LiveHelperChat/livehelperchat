@@ -247,9 +247,9 @@ class erLhcoreClassGenericBotWorkflow {
                                 if (isset($dataProcess['message']) && !empty($dataProcess['message'])){
                                     throw new erLhcoreClassGenericBotException($dataProcess['message'], 0, null, (isset($dataProcess['params_exception']) ? $dataProcess['params_exception'] : array()));
                                 } else if (isset($currentStep['content']['validation_error']) && !empty($currentStep['content']['validation_error'])){
-                                    throw new Exception($currentStep['content']['validation_error']);
+                                    throw new erLhcoreClassGenericBotException($currentStep['content']['validation_error']);
                                 } else {
-                                    throw new Exception('Your message does not match required format!');
+                                    throw new erLhcoreClassGenericBotException('Your message does not match required format!');
                                 }
                             }
                         }
@@ -258,9 +258,9 @@ class erLhcoreClassGenericBotWorkflow {
                     if (isset($currentStep['content']['validation']) && !empty($currentStep['content']['validation'])) {
                         if (!preg_match('/' . $currentStep['content']['validation'] . '/',$payload)) {
                             if (isset($currentStep['content']['validation_error']) && !empty($currentStep['content']['validation_error'])){
-                                throw new Exception($currentStep['content']['validation_error']);
+                                throw new erLhcoreClassGenericBotException($currentStep['content']['validation_error']);
                             } else {
-                                throw new Exception('Your message does not match required format!');
+                                throw new erLhcoreClassGenericBotException('Your message does not match required format!');
                             }
                         }
                     }
@@ -283,7 +283,7 @@ class erLhcoreClassGenericBotWorkflow {
                             'step' => $currentStepId
                         );
                     } else {
-                        throw new Exception('Invalid e-mail address');
+                        throw new erLhcoreClassGenericBotException('Invalid e-mail address');
                     }
 
                     if (isset($workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary']) && $workflow->collected_data_array['current_step']['content']['collectable_options']['go_to_summary'] == true) {
@@ -293,12 +293,12 @@ class erLhcoreClassGenericBotWorkflow {
                 } else if ($currentStep['type'] == 'phone') {
 
                     if ($payload == '' || mb_strlen($payload) < erLhcoreClassModelChatConfig::fetch('min_phone_length')->current_value) {
-                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your phone'));
+                        throw new erLhcoreClassGenericBotException(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your phone'));
                     }
 
                     if (mb_strlen($payload) > 100)
                     {
-                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 100 characters for phone'));
+                        throw new erLhcoreClassGenericBotException(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 100 characters for phone'));
                     }
 
                     $workflow->collected_data_array['collected'][$currentStep['content']['field']] = array(
@@ -355,7 +355,7 @@ class erLhcoreClassGenericBotWorkflow {
                         }
 
                     } else {
-                        throw new Exception('Validation function could not be found! Have you defined listener for ' . $currentStep['content']['provider_dropdown'] . ' identifier');
+                        throw new erLhcoreClassGenericBotException('Validation function could not be found! Have you defined listener for ' . $currentStep['content']['provider_dropdown'] . ' identifier');
                     }
 
                 } else if ($currentStep['type'] == 'buttons') {
@@ -399,7 +399,7 @@ class erLhcoreClassGenericBotWorkflow {
                         }
 
                     } else {
-                        throw new Exception('Validation function could not be found! Have you defined listener for ' . $currentStep['content']['render_validate'] . ' identifier');
+                        throw new erLhcoreClassGenericBotException('Validation function could not be found! Have you defined listener for ' . $currentStep['content']['render_validate'] . ' identifier');
                     }
 
                 } else if ($currentStep['type'] == 'custom') {
@@ -420,9 +420,9 @@ class erLhcoreClassGenericBotWorkflow {
 
                         if ($dataProcess['valid'] == false) {
                             if (isset($dataProcess['message']) && !empty($dataProcess['message'])) {
-                                throw new Exception($dataProcess['message']);
+                                throw new erLhcoreClassGenericBotException($dataProcess['message']);
                             } else {
-                                throw new Exception('Your message does not match required format!');
+                                throw new erLhcoreClassGenericBotException('Your message does not match required format!');
                             }
                         }
 
@@ -451,7 +451,7 @@ class erLhcoreClassGenericBotWorkflow {
                         }
 
                     } else {
-                        throw new Exception('Validation function could not be found!');
+                        throw new erLhcoreClassGenericBotException('Validation function could not be found!');
                     }
                 }
             }
@@ -492,7 +492,11 @@ class erLhcoreClassGenericBotWorkflow {
                     $workflow->collected_data_array['current_step'] = array();
 
                 } else {
-                    throw new Exception('Information was unconfirmed!');
+                    if (isset($workflow->collected_data_array['collectable_options']['collection_confirm_missing']) && !empty($workflow->collected_data_array['collectable_options']['collection_confirm_missing'])) {
+                        throw new erLhcoreClassGenericBotException($workflow->collected_data_array['collectable_options']['collection_confirm_missing']);
+                    } else {
+                        throw new erLhcoreClassGenericBotException('Information was unconfirmed!');
+                    }
                 }
             }
 
@@ -644,14 +648,21 @@ class erLhcoreClassGenericBotWorkflow {
         } catch (Exception $e) {
 
             $metaError = array();
+
             if ($e instanceof erLhcoreClassGenericBotException) {
-                self::sendAsBot($chat, $e->getMessage(), $e->getContent());
+
+                if ($reprocess) {
+                    $metaError['meta_error']['message'] = $e->getMessage();
+                    $metaError['meta_error']['content'] = $e->getContent();
+                } else {
+                    self::sendAsBot($chat, $e->getMessage(), $e->getContent());
+                }
             } else {
                 self::sendAsBot($chat, $e->getMessage());
             }
 
             if ($reprocess) {
-                erLhcoreClassGenericBotActionCollectable::processStep($chat, $workflow->collected_data_array['current_step']);
+                erLhcoreClassGenericBotActionCollectable::processStep($chat, $workflow->collected_data_array['current_step'], $metaError);
             }
 
         }

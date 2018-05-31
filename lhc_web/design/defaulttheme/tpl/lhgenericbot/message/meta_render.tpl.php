@@ -20,4 +20,9 @@
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/typing.tpl.php'));?>
         <?php endif; ?>
     <?php endforeach; endif;  ?>
+
+    <?php if (isset($metaMessageData['content_error']) && is_array($metaMessageData['content_error'])) : ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/error.tpl.php'));?>
+    <?php endif; ?>
+
 <?php endif; ?>

@@ -125,6 +125,21 @@ class NodeTriggerActionCollectable extends Component {
                             <input type="text" className="form-control" onChange={(e) => this.onChangeMainAttr('collection_callback',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','collection_callback'])} />
                         </div>
                     </div>
+
+                    <div className="col-xs-12">
+                        <div className="form-group">
+                            <label>Question to confirm collected information</label>
+                            <input type="text" className="form-control" onChange={(e) => this.onChangeMainAttr('collection_confirm',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','collection_confirm'])} />
+                        </div>
+                    </div>
+
+                    <div className="col-xs-12">
+                        <div className="form-group">
+                            <label>Message if user types instead of clicking confirm button</label>
+                            <input type="text" className="form-control" onChange={(e) => this.onChangeMainAttr('collection_confirm_missing',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','collection_confirm_missing'])} />
+                        </div>
+                    </div>
+
                     <div className="col-xs-6">
                         <div className="form-group">
                             <label>Argument</label>

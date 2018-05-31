@@ -1613,3 +1613,7 @@ input[type="file"]{
 	-webkit-overflow-scrolling: touch;
 	-webkit-overflow-scrolling: touch;
 }
+
+.alert-small{
+	padding:5px;
+}
