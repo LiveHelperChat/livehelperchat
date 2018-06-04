@@ -342,8 +342,6 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     	       // Store chat
     	       $chat->saveThis();
 
-
-
     	       // Assign chat to user
     	       if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
     	            // To track online users
@@ -624,6 +622,21 @@ if (isset($_GET['r']))
 if (isset($_POST['r']))
 {
     $tpl->set('referer_site',$_POST['r']);
+}
+
+// Auto start chat
+$autoStartResult = erLhcoreClassChatValidator::validateAutoStart(array(
+    'params' => $Params,
+    'inputData' => $inputData,
+    'chat' => $chat,
+    'startDataFields' => $startDataFields,
+    'modeAppend' => $modeAppend,
+    'modeAppendTheme' => $modeAppendTheme,
+));
+
+if ($autoStartResult !== false) {
+    $Result = $autoStartResult;
+    return;
 }
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatwidget',array('result' => & $Result, 'tpl' => & $tpl, 'params' => & $Params, 'inputData' => & $inputData));

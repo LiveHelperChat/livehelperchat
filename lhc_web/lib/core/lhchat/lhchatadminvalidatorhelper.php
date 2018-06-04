@@ -277,6 +277,9 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'ForceLeaveMessage' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
+            'AutoStartChat' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
 	    
 	        // TOS
 	        'OfflineTOSVisibleInPopup' => new ezcInputFormDefinitionElement(
@@ -358,6 +361,12 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        $data['force_leave_a_message'] = true;
 	    } else {
 	        $data['force_leave_a_message'] = false;
+	    }
+
+	    if ( $form->hasValidData( 'AutoStartChat' ) && $form->AutoStartChat == true ) {
+	        $data['auto_start_chat'] = true;
+	    } else {
+	        $data['auto_start_chat'] = false;
 	    }
 
 	    // TOS

@@ -1125,6 +1125,252 @@ class erLhcoreClassChatValidator {
             }
         }
     }
+
+    /*
+     * Auto start chat if required
+     *
+     * */
+    public static function validateAutoStart($params)
+    {
+        if (isset($params['startDataFields']['auto_start_chat']) && $params['startDataFields']['auto_start_chat'] == true && $params['chat']->dep_id > 0) {
+
+            $chat = $params['chat'];
+
+            if (erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('ip' => erLhcoreClassIPDetect::getIP()))) > 0) {
+                return false;
+            }
+
+            if (erLhcoreClassChat::isOnlyBotOnline($chat->dep_id)) {
+
+                $chat->setIP();
+                erLhcoreClassModelChat::detectLocation($chat);
+
+                $statusGeoAdjustment = erLhcoreClassChat::getAdjustment(erLhcoreClassModelChatConfig::fetch('geoadjustment_data')->data_value, $params['inputData']->vid);
+
+                if ($statusGeoAdjustment['status'] == 'hidden') { // This should never happen
+                    exit('Chat not available in your country');
+                }
+
+                $chat->time = $chat->pnd_time = time();
+                $chat->status = 0;
+                $chat->hash = erLhcoreClassChat::generateHash();
+
+                if ( $params['inputData']->priority !== false && is_numeric($params['inputData']->priority) ) {
+                    $chat->priority = (int)$params['inputData']->priority;
+                } else {
+                    if ($chat->department !== false) {
+                        $chat->priority = $chat->department->priority;
+                    }
+                }
+
+                if (isset($_GET['URLReferer']))
+                {
+                    $chat->referrer = $_GET['URLReferer'];
+                }
+
+                if (isset($_GET['r']))
+                {
+                    $chat->session_referrer = $_GET['r'];
+                }
+
+                $nick = trim($chat->nick);
+
+                if ( empty($nick) ) {
+                    $chat->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
+                }
+
+                $db = ezcDbInstance::get();
+
+                try {
+                    $db->beginTransaction();
+
+                    // Store chat
+                    $chat->saveThis();
+
+                    // Assign chat to user
+                    if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
+                        // To track online users
+                        $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('check_message_operator' => true, 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'vid' => $params['params']['user_parameters_unordered']['vid']));
+
+                        if ($userInstance !== false) {
+                            $userInstance->chat_id = $chat->id;
+                            $userInstance->dep_id = $chat->dep_id;
+                            $userInstance->message_seen = 1;
+                            $userInstance->message_seen_ts = time();
+                            $userInstance->saveThis();
+
+                            $chat->online_user_id = $userInstance->id;
+                            $chat->saveThis();
+
+                            if ( erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) {
+                                erLhcoreClassModelChatOnlineUserFootprint::assignChatToPageviews($userInstance);
+                            }
+                        }
+                    }
+
+                    if (!empty($stringParts)) {
+                        $chat->additional_data = json_encode($stringParts);
+                    }
+
+                    // Detect timezone if provided
+                    if (isset($_GET['tzuser']) && !empty($_GET['tzuser'])) {
+                        $timezone_name = timezone_name_from_abbr(null, $_GET['tzuser']*3600, true);
+                        if ($timezone_name !== false) {
+                            $chat->user_tz_identifier = $timezone_name;
+                        } else {
+                            $chat->user_tz_identifier = '';
+                        }
+                    }
+
+                    $stringParts = array();
+
+                    if (!empty($params['inputData']->name_items))
+                    {
+                        $valuesArray = $params['inputData']->value_items;
+
+                        foreach ($params['inputData']->name_items as $key => $name_item) {
+
+                            if (isset($params['inputData']->values_req[$key]) && $params['inputData']->values_req[$key] == 't' && ($params['inputData']->value_show[$key] == 'b' || $params['inputData']->value_show[$key] == (isset($additionalParams['offline']) ? 'off' : 'on')) && (!isset($valuesArray[$key]) || trim($valuesArray[$key]) == '')) {
+                                $Errors['additional_'.$key] = trim($name_item).' : '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
+                            }
+
+                            $valueStore = isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '';
+
+                            if (isset($params['inputData']->encattr[$key]) && $params['inputData']->encattr[$key] == 't' && $valueStore != '') {
+                                try {
+                                    $valueStore = self::decryptAdditionalField($valueStore, $chat);
+                                } catch (Exception $e) {
+                                    $Errors[] = $e->getMessage();
+                                }
+                            }
+
+                            $stringParts[] = array('h' => ($params['inputData']->value_types[$key] && $params['inputData']->value_types[$key] == 'hidden' ? true : false), 'key' => $name_item, 'value' => $valueStore);
+                        }
+                    }
+
+                    if (!empty($params['inputData']->value_items_admin)) {
+                        if (isset($params['startDataFields']['custom_fields']) && $params['startDataFields']['custom_fields'] != '') {
+
+                            $customAdminfields = json_decode($params['startDataFields']['custom_fields'], true);
+
+                            $valuesArray = $params['inputData']->value_items_admin;
+
+                            if (is_array($customAdminfields)) {
+                                foreach ($customAdminfields as $key => $adminField) {
+
+                                    if (isset($params['inputData']->value_items_admin[$key]) && isset($adminField['isrequired']) && $adminField['isrequired'] == 'true' && ($adminField['visibility'] == 'all' || $adminField['visibility'] == (isset($additionalParams['offline']) ? 'off' : 'on')) && (!isset($valuesArray[$key]) || trim($valuesArray[$key]) == '')) {
+                                        $Errors['additional_admin_'.$key] = trim($adminField['fieldname']).': '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
+                                    }
+
+                                    if (isset($valuesArray[$key]) && $valuesArray[$key] != '') {
+
+                                        $valueStore = (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '');
+
+                                        if (isset($params['inputData']->via_encrypted[$key]) && $params['inputData']->via_encrypted[$key] == 't' && $valueStore != '') {
+                                            try {
+                                                $valueStore = self::decryptAdditionalField($valueStore, $chat);
+                                            } catch (Exception $e) {
+                                                $valueStore = $e->getMessage();
+                                            }
+                                        }
+
+                                        $stringParts[] = array('h' => (isset($params['inputData']->via_hidden[$key]) || $adminField['fieldtype'] == 'hidden'), 'identifier' => (isset($adminField['fieldidentifier'])) ? $adminField['fieldidentifier'] : null, 'key' => $adminField['fieldname'], 'value' => $valueStore);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if (!empty($stringParts)) {
+                        $chat->additional_data = json_encode($stringParts);
+                    }
+
+                    // Detect user locale
+                    if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+                        $parts = explode(';',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
+                        $languages = explode(',',$parts[0]);
+                        if (isset($languages[0])) {
+                            $chat->chat_locale = $languages[0];
+                        }
+                    }
+
+                    // Detect device
+                    $detect = new Mobile_Detect;
+                    $chat->uagent = $detect->getUserAgent();
+                    $chat->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
+
+                    // Set bot workflow if required
+                    erLhcoreClassChatValidator::setBot($chat);
+
+                    // Auto responder
+                    $responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
+
+                    if ($responder instanceof erLhAbstractModelAutoResponder) {
+                        $beforeAutoResponderErrors = array();
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_triggered',array('chat' => & $chat, 'errors' => & $beforeAutoResponderErrors));
+
+                        if (empty($beforeAutoResponderErrors)) {
+
+                            $responderChat = new erLhAbstractModelAutoResponderChat();
+                            $responderChat->auto_responder_id = $responder->id;
+                            $responderChat->chat_id = $chat->id;
+                            $responderChat->wait_timeout_send = 1 - $responder->repeat_number;
+                            $responderChat->saveThis();
+
+                            $chat->auto_responder_id = $responderChat->id;
+
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_message',array('chat' => & $chat, 'responder' => & $responder));
+
+                            if ($responder->wait_message != '' && $chat->status !== erLhcoreClassModelChat::STATUS_BOT_CHAT) {
+                                $msg = new erLhcoreClassModelmsg();
+                                $msg->msg = trim($responder->wait_message);
+                                $msg->chat_id = $chat->id;
+                                $msg->name_support = $responder->operator != '' ? $responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+                                $msg->user_id = -2;
+                                $msg->time = time() + 5;
+                                erLhcoreClassChat::getSession()->save($msg);
+
+                                if ($chat->last_msg_id < $msg->id) {
+                                    $chat->last_msg_id = $msg->id;
+                                }
+                            }
+
+                            $chat->saveThis();
+
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered', array('chat' => & $chat));
+                        } else {
+                            $msg = new erLhcoreClassModelmsg();
+                            $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Auto responder got error').': '.implode('; ', $beforeAutoResponderErrors);
+                            $msg->chat_id = $chat->id;
+                            $msg->user_id = -1;
+                            $msg->time = time();
+
+                            if ($chat->last_msg_id < $msg->id) {
+                                $chat->last_msg_id = $msg->id;
+                            }
+
+                            erLhcoreClassChat::getSession()->save($msg);
+                        }
+                    }
+
+                    erLhcoreClassChat::updateDepartmentStats($chat->department);
+
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat));
+
+                    $db->commit();
+
+                } catch (Exception $e) {
+                    $db->rollback();
+                }
+
+                // Redirect user
+                $Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat') . '/' . $chat->id . '/' . $chat->hash . $params['modeAppend'] . $params['modeAppendTheme'] . '/(cstarted)/online_chat_started_cb');
+                return $Result;
+            }
+        }
+
+        return false;
+    }
 }
 
 ?>

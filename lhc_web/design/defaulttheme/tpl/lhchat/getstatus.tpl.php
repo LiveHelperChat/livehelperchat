@@ -285,6 +285,31 @@ var lh_inst  = {
         this.toggleStatusWidget(false);
     },
 
+    getTimeZone : function() {
+
+            var today = new Date();
+
+            stdTimezoneOffset = function() {
+                var jan = new Date(today.getFullYear(), 0, 1);
+                var jul = new Date(today.getFullYear(), 6, 1);
+                return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
+            };
+
+            var dst = function() {
+                return today.getTimezoneOffset() < stdTimezoneOffset();
+            };
+
+            var timeZoneOffset = 0;
+
+            if (dst()) {
+                timeZoneOffset = today.getTimezoneOffset();
+            } else {
+                timeZoneOffset = today.getTimezoneOffset()-60;
+            };
+
+            return (((timeZoneOffset)/60) * -1);
+    },
+
     parseOptions : function() {
 		argumentsQuery = new Array();
         var paramsReturn = '';
@@ -342,7 +367,9 @@ var lh_inst  = {
     	if (this.prefillMessage != '') {
     	   paramsReturn = paramsReturn + '&' + 'prefillMsg=' + encodeURIComponent(this.prefillMessage);
     	}
-    	
+
+        paramsReturn = paramsReturn + '&' + 'tzuser=' + encodeURIComponent(this.getTimeZone());
+
     	return paramsReturn;
     },
 
