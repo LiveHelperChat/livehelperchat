@@ -1617,3 +1617,8 @@ input[type="file"]{
 .alert-small{
 	padding:5px;
 }
+
+.btn-bot:focus,.btn-bot:active:focus,.btn-bot.active:focus,
+.btn-bot.focus,.btn-bot:active.focus,.btn-bot.active.focus {
+	outline: none;
+}
