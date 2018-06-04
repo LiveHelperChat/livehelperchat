@@ -243,7 +243,7 @@ class erLhcoreClassAbstract {
                    $object->{$field['backend_call']}();
                }
 
-            } elseif ($field['type'] == 'textarea') {
+            } elseif ($field['type'] == 'textarea' || $field['type'] == 'number') {
 
             	if ( isset($field['multilanguage']) && $field['multilanguage'] == true ) {
             		foreach (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'available_locales' ) as $locale) {
@@ -277,7 +277,7 @@ class erLhcoreClassAbstract {
                     $object->$key = $form->{'AbstractInput_' . $key};
                 }
 
-            } elseif ($form->hasValidData( 'AbstractInput_'.$key ) && (($field['required'] == false) || ($field['type'] == 'combobox') ||($field['required'] == true && $field['type'] == 'text' && $form->{'AbstractInput_'.$key} != '') )) {
+            } elseif ($form->hasValidData( 'AbstractInput_'.$key ) && (($field['required'] == false) || ($field['type'] == 'combobox') ||($field['required'] == true && ($field['type'] == 'text' || $field['type'] == 'number') && $form->{'AbstractInput_'.$key} != '') )) {
 
                 if (isset($field['multilanguage']) && $field['multilanguage'] == true) {
 
