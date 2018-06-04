@@ -24,6 +24,7 @@
         		<li role="presentation"><a href="#widgettexts" aria-controls="widgettexts" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Chat widget');?></a></li>
         		<li role="presentation"><a href="#customcontent" aria-controls="customcontent" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom content');?></a></li>
         		<li role="presentation"><a href="#customcss" aria-controls="customcss" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom CSS');?></a></li>
+        		<li role="presentation"><a href="#custombot" aria-controls="custombot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom bot style');?></a></li>
         	</ul>
         
         	<!-- Tab panes -->
@@ -411,6 +412,57 @@
 
                 </div>
 
+                <div role="tabpanel" class="tab-pane" id="custombot">
+                    <div class="form-group">
+                        <label><?php echo $fields['bot_button_border']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('bot_button_border', $fields['bot_button_border'], $object)?>
+                    </div>
+                    <div class="form-group">
+                        <label><?php echo $fields['bot_button_background']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('bot_button_background', $fields['bot_button_background'], $object)?>
+                    </div>
+                    <div class="form-group">
+                        <label><?php echo $fields['bot_button_background_hover']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('bot_button_background_hover', $fields['bot_button_background_hover'], $object)?>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label><?php echo $fields['bot_button_text_color']['trans'];?></label>
+                                <?php echo erLhcoreClassAbstract::renderInput('bot_button_text_color', $fields['bot_button_text_color'], $object)?>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label><?php echo $fields['bot_button_fs']['trans'];?></label>
+                                <?php echo erLhcoreClassAbstract::renderInput('bot_button_fs', $fields['bot_button_fs'], $object)?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><?php echo $fields['bot_button_border_radius']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('bot_button_border_radius', $fields['bot_button_border_radius'], $object)?>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label><?php echo $fields['bot_button_padding']['trans'];?></label>
+                                <?php echo erLhcoreClassAbstract::renderInput('bot_button_padding', $fields['bot_button_padding'], $object)?>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label><?php echo $fields['bot_button_padding_left_right']['trans'];?></label>
+                                <?php echo erLhcoreClassAbstract::renderInput('bot_button_padding_left_right', $fields['bot_button_padding_left_right'], $object)?>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
         	</div>
         </div>
 			  	
@@ -429,6 +481,12 @@
 			<div id="lhc_container"><div id="lhc_header"><span id="lhc_title" ng-show="abstract_checked_show_copyright"><a title="Powered by Live Helper Chat" href="{{ngModelAbstractInput_widget_copyright_url || 'http://livehelperchat.com'}}" target="_blank"><img src="<?php if ($object->copyright_image_url != '') : ?><?php echo $object->copyright_image_url?><?php else : ?><?php echo erLhcoreClassDesign::design('images/general/logo_grey.png');?><?php endif?>" alt="Live Helper Chat"></a></span><a ng-hide="abstract_checked_hide_close" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" id="lhc_close"><img src="<?php if ($object->close_image_url != '') : ?><?php echo $object->close_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/cancel.png');?><?php endif;?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>"></a>&nbsp;<a ng-hide="abstract_checked_hide_popup" target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chat/startchat')?>/(leaveamessage)/true<?php echo $object->id > 0 ? '/(theme)/'.$object->id : ''?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>" id="lhc_remote_window"><img src="<?php if ($object->popup_image_url != '') : ?><?php echo $object->popup_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/application_double.png');?><?php endif;?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>"></a><a href="#" id="lhc_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Minimize/Restore')?>"><img src="<?php if ($object->minimize_image_url != '') : ?><?php echo $object->minimize_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/min.png');?><?php endif;?>"></a><a href="#" id="lhc_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Minimize/Restore')?>"><img src="<?php if ($object->restore_image_url != '') : ?><?php echo $object->restore_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/restore.png');?><?php endif;?>"></a></div><div id="lhc_iframe_container"><iframe id="lhc_iframe" allowtransparency="true" scrolling="no" class="lhc-loading" frameborder="0" src="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?>/(sdemo)/true/(leaveamessage)/true<?php echo $object->id > 0 ? '/(theme)/'.$object->id : ''?>" width="320" height="292" style="width: 100%; height: 292px;"></iframe></div></div>
 			<hr>
 		</div>
+
+        <div class="col-md-12">
+            <button type="button" class="btn btn-xs btn-info btn-bot">Quick Reply Button</button>
+            <hr>
+        </div>
+
 		<div class="col-md-12">
 			<div id="lhc_status_container"><a id="online-icon" class="status-icon" href="#">{{ngModelAbstractInput_online_text || <?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live help is online...'),ENT_QUOTES))?>}}</a></div>
 			<hr>
@@ -457,6 +515,20 @@
             padding: 10px;
             background: #{{bactract_bg_color_onl_bcolor}} url('<?php if ($object->online_image_url != '') : ?><?php echo $object->online_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/getstatus/online.svg');?><?php endif?>') no-repeat center center;
         }
+
+        .btn-bot,.btn-bot:hover{
+            border-color: #{{bactract_bg_color_bot_button_border}};
+            color: #{{bactract_bg_color_bot_button_text_color}};
+            background-color: #{{bactract_bg_color_bot_button_background}};
+            border-radius: {{ngModelAbstractInput_bot_button_border_radius}}px;
+            padding: {{ngModelAbstractInput_bot_button_padding}}px {{ngModelAbstractInput_bot_button_padding_left_right}}px;
+            font-size: {{ngModelAbstractInput_bot_button_fs}}px;
+        }
+
+        .btn-bot:hover{
+            background-color: #{{bactract_bg_color_bot_button_background_hover}};
+        }
+
 		#lhc_status_container * {direction:ltr;text-align:left;;font-family:arial;font-size:12px;box-sizing: content-box;zoom:1;margin:0;padding:0}
 		#lhc_status_container .status-icon{text-decoration:none;font-size:12px;font-weight:bold;color:#{{bactract_bg_color_text_color}};display:block;padding:10px 10px 10px 35px;background:url('<?php if ($object->online_image_url != '') : ?><?php echo $object->online_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/user_green_chat.png');?><?php endif?>') no-repeat left center}
 		#lhc_status_container:hover{}

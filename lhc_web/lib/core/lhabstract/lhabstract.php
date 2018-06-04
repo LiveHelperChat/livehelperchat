@@ -6,6 +6,7 @@ class erLhcoreClassAbstract {
     {
         switch ($attr['type']) {
 
+        	case 'number':
         	case 'text':
         	       if (isset($attr['multilanguage']) && $attr['multilanguage'] == true) {
         	           $returnString = '';
@@ -33,12 +34,21 @@ class erLhcoreClassAbstract {
         	       	  if (isset($attr['placeholder'])) {
         	       	  		$ngModel .= " placeholder=\"{$attr['placeholder']}\" ";
         	       	  };
-        		      return '<input class="form-control" '.$ngModel.' name="AbstractInput_'.$name.'" type="text" value="'.htmlspecialchars($value).'" />';
+        		      return '<input class="form-control" '.$ngModel.' name="AbstractInput_'.$name.'" type="' . $attr['type'] . '" value="'.htmlspecialchars($value).'" />';
         	       }
         		break;
 
-        	case 'colorpicker':        	      
-        		      return '<div class="input-group" ng-init=\'bactract_bg_color_'.$name.'='.json_encode($object->$name,JSON_HEX_APOS).'\'><div class="input-group-addon" style="background-color:#{{bactract_bg_color_'.$name.'}}">#</div><input class="form-control" class="abstract_input" ng-model="bactract_bg_color_'.$name.'" id="id_AbstractInput_'.$name.'" name="AbstractInput_'.$name.'" type="text" value="'.htmlspecialchars($object->$name).'" /></div><script>$(\'#id_AbstractInput_'.$name.'\').ColorPicker({	onSubmit: function(hsb, hex, rgb, el) {		$(el).val(hex);	$(el).trigger(\'input\'); $(el).trigger(\'change\'); $(el).ColorPickerHide();	},	onBeforeShow: function () {		$(this).ColorPickerSetColor(this.value);	}});</script>';
+        	case 'colorpicker':
+                        if (isset($attr['main_attr']) && !empty($attr['main_attr'])) {
+                            if (isset($object->{$attr['main_attr']}[$name])) {
+                                $value = $object->{$attr['main_attr']}[$name];
+                            } else {
+                                $value = '';
+                            }
+                        } else {
+                            $value = $object->$name;
+                        }
+        		      return '<div class="input-group" ng-init=\'bactract_bg_color_'.$name.'='.json_encode($value,JSON_HEX_APOS).'\'><div class="input-group-addon" style="background-color:#{{bactract_bg_color_'.$name.'}}">#</div><input class="form-control" class="abstract_input" ng-model="bactract_bg_color_'.$name.'" id="id_AbstractInput_'.$name.'" name="AbstractInput_'.$name.'" type="text" value="'.htmlspecialchars($value).'" /></div><script>$(\'#id_AbstractInput_'.$name.'\').ColorPicker({	onSubmit: function(hsb, hex, rgb, el) {		$(el).val(hex);	$(el).trigger(\'input\'); $(el).trigger(\'change\'); $(el).ColorPickerHide();	},	onBeforeShow: function () {		$(this).ColorPickerSetColor(this.value);	}});</script>';
         		break;
 
         	case 'textarea':
@@ -259,7 +269,13 @@ class erLhcoreClassAbstract {
                 
             } elseif ($field['type'] == 'colorpicker' ) {
 
-            	$object->$key = $form->{'AbstractInput_'.$key};
+                if (isset($field['main_attr']) && !empty($field['main_attr'])) {
+                    $botConfiguration = $object->{$field['main_attr']};
+                    $botConfiguration[$key] = $form->{'AbstractInput_'.$key};
+                    $object->{$field['main_attr']} = $botConfiguration;
+                } else {
+                    $object->$key = $form->{'AbstractInput_' . $key};
+                }
 
             } elseif ($form->hasValidData( 'AbstractInput_'.$key ) && (($field['required'] == false) || ($field['type'] == 'combobox') ||($field['required'] == true && $field['type'] == 'text' && $form->{'AbstractInput_'.$key} != '') )) {
 

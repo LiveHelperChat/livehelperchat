@@ -457,7 +457,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                  `need_help_hover_bg` varchar(10) NOT NULL,
                  `need_help_close_hover_bg` varchar(10) NOT NULL,
                  `need_help_image_path` varchar(250) NOT NULL,
-                 `bot_configuration` text NOT NULL,
+                 `bot_configuration` longtext NOT NULL,
                  `custom_status_css` text NOT NULL,
                  `custom_container_css` text NOT NULL,
                  `custom_widget_css` text NOT NULL,

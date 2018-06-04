@@ -2881,7 +2881,7 @@
             },
             {
                 "field": "bot_configuration",
-                "type": "text",
+                "type": "longtext",
                 "null": "NO",
                 "key": "",
                 "default": null,
