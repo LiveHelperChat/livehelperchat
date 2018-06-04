@@ -24,7 +24,7 @@
         .op-tit{color:#<?php echo htmlspecialchars($Result['theme']->buble_operator_title_color)?>;}
         <?php endif;?>
 
-        .btn-bot,.btn-bot:hover{
+        .btn-bot,.btn-bot:hover,.btn-bot:focus,.btn-bot:active{
             <?php if (isset($Result['theme']->bot_configuration_array['bot_button_border']) && $Result['theme']->bot_configuration_array['bot_button_border'] != '') : ?>
             border-color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['bot_button_border']);?>;
             <?php endif; ?>
