@@ -65,6 +65,7 @@
             <?php $lastMessageID = $msg['id'];
              endforeach; ?>
            </div>
+            <div id="chat-progress-status" class="hide"></div>
         </div>
     </div>
     <div id="id-operator-typing"></div>

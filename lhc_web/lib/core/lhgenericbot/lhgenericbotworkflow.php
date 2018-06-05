@@ -481,10 +481,16 @@ class erLhcoreClassGenericBotWorkflow {
                             if (isset($dataProcess['chosen_value_literal']) && !empty($dataProcess['chosen_value_literal'])) {
                                 $message = self::sendAsBot($chat, $dataProcess['chosen_value_literal']);
                             }
-
-                            $workflow->collected_data_array['collected_confirm'] = array(
-                                'info' => $dataProcess['info'],
+                            
+                            $collectedInfo = array (
+								'info' => $dataProcess['info'],
                             );
+                            
+                            if (isset($dataProcess['args_next'])) {
+                            	$collectedInfo['args_next'] = $dataProcess['args_next'];
+                            }
+                            
+                            $workflow->collected_data_array['collected_confirm'] = $collectedInfo;
                         }
                     }
 
@@ -580,10 +586,16 @@ class erLhcoreClassGenericBotWorkflow {
                                 if (isset($dataProcess['chosen_value_literal']) && !empty($dataProcess['chosen_value_literal'])) {
                                     $message = self::sendAsBot($chat, $dataProcess['chosen_value_literal']);
                                 }
-
-                                $workflow->collected_data_array['collected_confirm'] = array(
-                                    'info' => $dataProcess['info'],
+                                
+                                $collectedInfo = array (
+                                		'info' => $dataProcess['info'],
                                 );
+                                
+                                if (isset($dataProcess['args_next'])) {
+                                	$collectedInfo['args_next'] = $dataProcess['args_next'];
+                                }
+                                
+                                $workflow->collected_data_array['collected_confirm'] = $collectedInfo;
                             }
                         }
 
@@ -609,7 +621,13 @@ class erLhcoreClassGenericBotWorkflow {
                         $trigger = erLhcoreClassModelGenericBotTrigger::fetch($workflow->collected_data_array['collectable_options']['collection_callback_pattern']);
 
                         if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
-                            erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true);
+                        	                        	
+                        	$paramsTrigger = array();
+                        	if (isset($workflow->collected_data_array['collected_confirm']['args_next'])) {
+                        		$paramsTrigger['args'] = $workflow->collected_data_array['collected_confirm']['args_next'];
+                        	}
+
+                        	erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, $paramsTrigger);
                         }
                     }
 
@@ -668,11 +686,11 @@ class erLhcoreClassGenericBotWorkflow {
         }
     }
 
-    public static function processTrigger($chat, $trigger, $setLastMessageId = false)
+    public static function processTrigger($chat, $trigger, $setLastMessageId = false, $params = array())
     {
         $message = null;
         foreach ($trigger->actions_front as $action) {
-            $messageNew = call_user_func_array("erLhcoreClassGenericBotAction" . ucfirst($action['type']).'::process',array($chat, $action, $trigger));
+        	$messageNew = call_user_func_array("erLhcoreClassGenericBotAction" . ucfirst($action['type']).'::process',array($chat, $action, $trigger, (isset($params['args']) ? $params['args'] : array())));
             if ($messageNew instanceof erLhcoreClassModelmsg) {
                 $message = $messageNew;
             }

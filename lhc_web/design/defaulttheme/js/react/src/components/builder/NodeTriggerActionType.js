@@ -27,12 +27,11 @@ export default ({onChange, type}) => {
             'value':'typing',
             'text' : 'Send Typing',
         },
-        /*,
         {
-            'value':'image',
-            'text' : 'Send Image',
+            'value':'progress',
+            'text' : 'Progress',
         },
-        {
+        /*{
             'value':'video',
             'text' : 'Send Video',
         },

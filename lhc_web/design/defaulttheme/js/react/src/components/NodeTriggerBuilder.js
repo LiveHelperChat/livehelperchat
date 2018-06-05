@@ -9,7 +9,7 @@ import NodeTriggerActionButtons from './builder/NodeTriggerActionButtons';
 import NodeTriggerActionCommand from './builder/NodeTriggerActionCommand';
 import NodeTriggerActionPredefined from './builder/NodeTriggerActionPredefined';
 import NodeTriggerActionTyping from './builder/NodeTriggerActionTyping';
-
+import NodeTriggerActionProgress from './builder/NodeTriggerActionProgress';
 
 @connect((store) => {
     return {
@@ -126,6 +126,8 @@ class NodeTriggerBuilder extends Component {
                     return <NodeTriggerActionPredefined key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 } else if (action.get('type') == 'typing') {
                     return <NodeTriggerActionTyping key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
+                } else if (action.get('type') == 'progress') {
+                    return <NodeTriggerActionProgress key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 }
             });
         }
