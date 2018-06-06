@@ -1636,4 +1636,6 @@ input[type="file"]{
 	padding-right:5px;
 	color: #636363;
 	background-color: #fff;
+	font-weight: bold;
+	font-style: italic;
 }

@@ -2,7 +2,7 @@
 if (is_callable($metaMessage['method'])) :
 $jsExecute = call_user_func_array($metaMessage['method'],array($metaMessage['args'])); ?>
 <script>
-    var interval_<?php echo $msg['id']?> = setInterval(function () {
+    function interval_function_<?php echo $msg['id']?>(){
         $.getJSON(WWW_DIR_JAVASCRIPT + "<?php echo $jsExecute['url']?>/(id)/<?php echo $msg['id']?>",<?php echo json_encode($jsExecute['args'])?>, function(data) {
             if (data.error == false) {
                 $('#chat-progress-status').removeClass('hide');
@@ -17,6 +17,10 @@ $jsExecute = call_user_func_array($metaMessage['method'],array($metaMessage['arg
         }).fail(function() {
 
         });
+    }
+    var interval_<?php echo $msg['id']?> = setInterval(function () {
+        interval_function_<?php echo $msg['id']?>();
     },<?php echo $metaMessage['interval']?>*1000);
+    interval_function_<?php echo $msg['id']?>();
 </script>
 <?php endif; ?>
