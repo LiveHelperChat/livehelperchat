@@ -3160,6 +3160,8 @@ function lh(){
             text: 'Processing...'
         }).appendTo(messageBlock);
 
+        this.syncroRequestSend = true;
+
         $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash,{payload: payload, id : id, processed : (typeof notHide === 'undefined' || notHide == false)},function(data){
             if (typeof notHide === 'undefined' || notHide === false){
                 $('.meta-message-'+id).remove();
@@ -3171,6 +3173,10 @@ function lh(){
             messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 
             lhinst.forceBottomScroll = true;
+            lhinst.syncroRequestSend = false;
+            lhinst.syncusercall();
+        }).fail(function() {
+            lhinst.syncroRequestSend = false;
             lhinst.syncusercall();
         });
 
@@ -3186,6 +3192,8 @@ function lh(){
             text: 'Processing...'
         }).appendTo(messageBlock);
 
+        this.syncroRequestSend = true;
+
         $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash+'/(type)/editgenericstep',{payload : step,id : id},function(data){
 
             processing.remove();
@@ -3194,6 +3202,11 @@ function lh(){
             messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 
             lhinst.forceBottomScroll = true;
+            lhinst.syncroRequestSend = false;
+            lhinst.syncusercall();
+
+        }).fail(function() {
+            lhinst.syncroRequestSend = false;
             lhinst.syncusercall();
         });
         
@@ -3214,6 +3227,8 @@ function lh(){
             text: 'Processing...'
         }).appendTo(messageBlock);
 
+        this.syncroRequestSend = true;
+
         $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash+'/(type)/triggerclicked',{payload: payload, id : id, processed : (typeof notHide === 'undefined' || notHide == false)},function(data){
             if (typeof notHide === 'undefined' || notHide === false){
                 $('.meta-message-'+id).remove();
@@ -3225,8 +3240,14 @@ function lh(){
             messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 
             lhinst.forceBottomScroll = true;
+            lhinst.syncroRequestSend = false;
+            lhinst.syncusercall();
+
+        }).fail(function() {
+            lhinst.syncroRequestSend = false;
             lhinst.syncusercall();
         });
+
         lhinst.focusUserText();
     }
 
@@ -3244,6 +3265,8 @@ function lh(){
             text: 'Processing...'
         }).appendTo(messageBlock);
 
+        lhinst.syncroRequestSend = true;
+
         $.get(this.wwwDir + 'genericbot/updatebuttonclicked/'+this.chat_id+'/'+this.hash,{payload: payload, id : id, processed : (typeof notHide === 'undefined' || notHide == false) },function(data){
             if (typeof notHide === 'undefined' || notHide === false){
                 $('.meta-message-'+id).remove();
@@ -3255,6 +3278,11 @@ function lh(){
             messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 
             lhinst.forceBottomScroll = true;
+            lhinst.syncroRequestSend = false;
+            lhinst.syncusercall();
+
+        }).fail(function() {
+            lhinst.syncroRequestSend = false;
             lhinst.syncusercall();
         });
         lhinst.focusUserText();
@@ -3273,15 +3301,20 @@ function lh(){
         }).appendTo($('#messagesBlock'));
 
         if ($('#generic_list-'+id).val() != '') {
-
+            this.syncroRequestSend = true;
             $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash+'/(type)/valueclicked',{payload: $('#id_generic_list-'+id).val(), id : id},function(data){
                 $('.meta-message-'+id).remove();
 
                 processing.remove();
 
                 lhinst.forceBottomScroll = true;
+                lhinst.syncroRequestSend = false;
+                lhinst.syncusercall();
+            }).fail(function() {
+                lhinst.syncroRequestSend = false;
                 lhinst.syncusercall();
             });
+            
             lhinst.focusUserText();
 
         } else {
