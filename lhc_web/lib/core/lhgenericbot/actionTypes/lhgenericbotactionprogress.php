@@ -22,6 +22,11 @@ class erLhcoreClassGenericBotActionProgress {
                 $action['content']['args'] = $handler['render_args'];
                 $action['content']['method'] = $handler['render'];
 
+                if (isset($action['content']['argument_template']['args'])) {
+                    $metaMessage['content']['payload_data'] = $action['content']['argument_template']['args'];
+                    unset($action['content']['argument_template']);
+                }
+
                 $metaMessage['content']['progress'] = $action['content'];
 
                 $msg->msg = "";

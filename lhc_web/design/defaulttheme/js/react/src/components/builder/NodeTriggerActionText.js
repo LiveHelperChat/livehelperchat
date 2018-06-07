@@ -10,6 +10,7 @@ class NodeTriggerActionText extends Component {
         super(props);
         this.changeType = this.changeType.bind(this);
         this.setText = this.setText.bind(this);
+        this.setHTML = this.setHTML.bind(this);
         this.addQuickReply = this.addQuickReply.bind(this);
         this.addAction = this.addAction.bind(this);
         this.removeAction = this.removeAction.bind(this);
@@ -32,6 +33,10 @@ class NodeTriggerActionText extends Component {
 
     setText(e) {
         this.props.onChangeContent({id : this.props.id, 'path' : ['content','text'], value : e.target.value});
+    }
+
+    setHTML(e) {
+        this.props.onChangeContent({id : this.props.id, 'path' : ['content','html'], value : e.target.value});
     }
 
     addQuickReply(e) {
@@ -108,10 +113,14 @@ class NodeTriggerActionText extends Component {
                         </div>
                     </div>
 
-
                     <div className="form-group">
                         <label>Enter text</label>
                         <textarea placeholder="Write your response here!" onChange={this.setText} defaultValue={this.props.action.getIn(['content','text'])} className="form-control"></textarea>
+                    </div>
+
+                    <div className="form-group">
+                        <label>Enter HTML</label>
+                        <textarea placeholder="Write your response here!" onChange={this.setHTML} defaultValue={this.props.action.getIn(['content','html'])} className="form-control"></textarea>
                     </div>
 
                     <div className="btn-group pull-right" role="group">

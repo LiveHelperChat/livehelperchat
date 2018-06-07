@@ -29,6 +29,12 @@ $ViewList['getpayloads'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['argumenttemplates'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['nodegroups'] = array(
     'params' => array('id'),
     'uparams' => array(),

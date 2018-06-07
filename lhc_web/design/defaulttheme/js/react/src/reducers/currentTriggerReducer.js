@@ -15,6 +15,7 @@ import {
     HANDLE_ADD_QUICK_REPLY_REMOVE,
     REMOVE_TRIGGER_RESPONSE,
     INIT_BOT_FULFILLED,
+    INIT_BOT_ARGUMENTS_FULFILLED,
     ADD_PAYLOAD_TRIGGERS_FULFILLED,
     UPDATE_PAYLOADS_FULFILLED,
     ADD_SUBELEMENT,
@@ -145,6 +146,10 @@ const nodeGroupTriggerReducer = (state = initialState, action) => {
 
         case INIT_BOT_FULFILLED : {
             return state.set('payloads',fromJS(action.payload['payloads']));
+        }
+        
+        case INIT_BOT_ARGUMENTS_FULFILLED : {
+            return state.set('arguments',fromJS(action.payload['arguments']));
         }
 
         case ADD_PAYLOAD_TRIGGERS_FULFILLED: {

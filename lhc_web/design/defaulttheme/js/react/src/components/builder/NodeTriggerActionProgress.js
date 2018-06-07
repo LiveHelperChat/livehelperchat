@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NodeTriggerActionType from './NodeTriggerActionType';
+import NodeTriggerArgumentTemplate from './NodeTriggerArgumentTemplate';
 
 class NodeTriggerActionProgress extends Component {
 
@@ -49,6 +50,11 @@ class NodeTriggerActionProgress extends Component {
                             <input placeholder="progress_event" type="text" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['method'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','method'])}/>
                         </div>
                     </div>
+                </div>
+
+                <div className="form-group">
+                    <label>Argument template</label>
+                    <NodeTriggerArgumentTemplate showOptional={true} onChange={this.onchangeAttr} argument={this.props.action.getIn(['content','argument_template'])} />
                 </div>
                 <hr/>
 

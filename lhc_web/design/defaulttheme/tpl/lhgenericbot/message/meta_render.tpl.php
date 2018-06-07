@@ -20,6 +20,8 @@
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/typing.tpl.php'));?>
         <?php elseif ($type == 'progress') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/progress.tpl.php'));?>
+        <?php elseif ($type == 'html') : ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/html.tpl.php'));?>
         <?php endif; ?>
     <?php endforeach; endif;  ?>
 

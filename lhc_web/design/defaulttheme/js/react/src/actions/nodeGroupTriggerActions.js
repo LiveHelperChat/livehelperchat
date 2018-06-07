@@ -224,3 +224,15 @@ export function initBot(botId) {
         })
     }
 }
+
+export function initArgumentTemplates() {
+    return function(dispatch) {
+        axios.post(WWW_DIR_JAVASCRIPT + "genericbot/argumenttemplates")
+            .then((response) => {                
+            dispatch({type: "INIT_BOT_ARGUMENTS_FULFILLED", payload: response.data})
+        }).catch((err) => {
+            dispatch({type: "INIT_BOT_ARGUMENTS_REJECTED", payload: err})
+        })
+    }
+}
+

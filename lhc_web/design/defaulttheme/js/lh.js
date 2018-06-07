@@ -840,7 +840,7 @@ function lh(){
                             messageBlock.append(data.result);
 
                             messageBlock.find('.meta-auto-hide').hide();
-                            messageBlock.find('.message-row').last().find('.meta-message .meta-auto-hide').show();
+                            messageBlock.find('.message-row').last().find('.meta-auto-hide').show();
 
 	  	                	if (isAtTheBottom < 20 || inst.forceBottomScroll == true) {
                                 inst.forceBottomScroll = false;
@@ -3358,7 +3358,7 @@ function lh(){
 
         var scrollHeight = messageBlock.prop("scrollHeight");
         messageBlock.find('.meta-auto-hide').hide();
-        messageBlock.find('.message-row').last().find('.meta-message .meta-auto-hide').show();
+        messageBlock.find('.message-row').last().find('.meta-auto-hide').show();
         scrollHeight = messageBlock.prop("scrollHeight");
 
         messageBlock.find('.pending-storage').remove();
