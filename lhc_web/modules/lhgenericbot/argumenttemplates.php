@@ -2,8 +2,15 @@
 
 header('content-type: application/json; charset=utf-8');
 
-echo json_encode(
-    array('arguments' => array(/*
+$arguments = array();
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_arguments', array(
+    'arguments' => & $arguments
+));
+
+echo json_encode(array('arguments' => $arguments));
+
+/* array(
         'callback_status' =>
     array(
         'name' => 'Call back status',
@@ -41,7 +48,5 @@ echo json_encode(
             )
         )
     )*/
-)));
-
 exit;
 ?>

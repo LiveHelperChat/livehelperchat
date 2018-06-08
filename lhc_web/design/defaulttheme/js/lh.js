@@ -3161,8 +3161,11 @@ function lh(){
             'class': 'message-row pending-storage pending-storage-bot',
             text: 'Processing...'
         }).appendTo(messageBlock);
+        var scrollHeight = messageBlock.prop("scrollHeight");
+        messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 
         this.syncroRequestSend = true;
+        clearTimeout(this.userTimeout);
 
         $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash,{payload: payload, id : id, processed : (typeof notHide === 'undefined' || notHide == false)},function(data){
             if (typeof notHide === 'undefined' || notHide === false){
@@ -3170,10 +3173,8 @@ function lh(){
             }
 
             processing.remove();
-
             var scrollHeight = messageBlock.prop("scrollHeight");
             messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
-
             lhinst.forceBottomScroll = true;
             lhinst.syncroRequestSend = false;
             lhinst.syncusercall();
@@ -3194,19 +3195,19 @@ function lh(){
             text: 'Processing...'
         }).appendTo(messageBlock);
 
+        var scrollHeight = messageBlock.prop("scrollHeight");
+        messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
+
         this.syncroRequestSend = true;
+        clearTimeout(this.userTimeout);
 
         $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash+'/(type)/editgenericstep',{payload : step,id : id},function(data){
-
             processing.remove();
-
             var scrollHeight = messageBlock.prop("scrollHeight");
             messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
-
             lhinst.forceBottomScroll = true;
             lhinst.syncroRequestSend = false;
             lhinst.syncusercall();
-
         }).fail(function() {
             lhinst.syncroRequestSend = false;
             lhinst.syncusercall();
@@ -3229,15 +3230,18 @@ function lh(){
             text: 'Processing...'
         }).appendTo(messageBlock);
 
-        this.syncroRequestSend = true;
+        var scrollHeight = messageBlock.prop("scrollHeight");
+        messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 
-        $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash+'/(type)/triggerclicked',{payload: payload, id : id, processed : (typeof notHide === 'undefined' || notHide == false)},function(data){
+        this.syncroRequestSend = true;
+        clearTimeout(this.userTimeout);
+
+        $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash+'/(type)/triggerclicked',{payload: payload, id : id, processed : (typeof notHide === 'undefined' || notHide == false)},function(data) {
             if (typeof notHide === 'undefined' || notHide === false){
                 $('.meta-message-'+id).remove();
             }
 
             processing.remove();
-
             var scrollHeight = messageBlock.prop("scrollHeight");
             messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 
@@ -3267,7 +3271,11 @@ function lh(){
             text: 'Processing...'
         }).appendTo(messageBlock);
 
+        var scrollHeight = messageBlock.prop("scrollHeight");
+        messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
+
         lhinst.syncroRequestSend = true;
+        clearTimeout(this.userTimeout);
 
         $.get(this.wwwDir + 'genericbot/updatebuttonclicked/'+this.chat_id+'/'+this.hash,{payload: payload, id : id, processed : (typeof notHide === 'undefined' || notHide == false) },function(data){
             if (typeof notHide === 'undefined' || notHide === false){
@@ -3275,7 +3283,6 @@ function lh(){
             }
 
             processing.remove();
-
             var scrollHeight = messageBlock.prop("scrollHeight");
             messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 
@@ -3296,18 +3303,23 @@ function lh(){
             btn.attr("disabled","disabled");
             btn.text("Processing...");
         }
-
+        var messageBlock = $('#messagesBlock');
         var processing = jQuery('<div/>', {
             'class': 'message-row pending-storage pending-storage-bot',
             text: 'Processing...'
-        }).appendTo($('#messagesBlock'));
+        }).appendTo(messageBlock);
+
+        var scrollHeight = messageBlock.prop("scrollHeight");
+        messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 
         if ($('#generic_list-'+id).val() != '') {
             this.syncroRequestSend = true;
+            clearTimeout(this.userTimeout);
             $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash+'/(type)/valueclicked',{payload: $('#id_generic_list-'+id).val(), id : id},function(data){
                 $('.meta-message-'+id).remove();
-
                 processing.remove();
+                var scrollHeight = messageBlock.prop("scrollHeight");
+                messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 
                 lhinst.forceBottomScroll = true;
                 lhinst.syncroRequestSend = false;
