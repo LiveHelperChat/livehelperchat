@@ -23,6 +23,12 @@ $ViewList['addpayload'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['triggersbybot'] = array(
+    'params' => array('id','trigger_id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['getpayloads'] = array(
     'params' => array('id'),
     'uparams' => array(),

@@ -1,3 +1,7 @@
+2.97v
+
+1. Option to set trigger for invitation.
+
 2.96v
 
 1. In themes possible to override Start chat, Leave a message button texts.

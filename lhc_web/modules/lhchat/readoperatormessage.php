@@ -51,6 +51,7 @@ $inputData->via_hidden = array(); // These variables get's filled from start cha
 $inputData->hattr = array();
 $inputData->encattr = array();
 $inputData->via_encrypted = array();
+$inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
 
 // If chat was started based on key up, we do not need to store a message
 //  because user is still typing it. We start chat in the background just.
@@ -60,8 +61,11 @@ if ((string)$Params['user_parameters_unordered']['vid'] != '') {
     $inputData->vid = (string)$Params['user_parameters_unordered']['vid'];
 }
 
+$chat = new erLhcoreClassModelChat();
+
 // Assign department instantly
 if ($inputData->departament_id > 0) {
+    $chat->dep_id = $inputData->departament_id;
 	$tpl->set('department',$inputData->departament_id);
 } else {
 	$tpl->set('department',false);
@@ -87,8 +91,6 @@ if (is_numeric($inputData->departament_id) && $inputData->departament_id > 0 && 
 
 // Allow extension override start chat fields
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.readoperatormessage_data_field',array('data_fields' => & $startDataFields, 'params' => $Params));
-
-$chat = new erLhcoreClassModelChat();
 
 $modeAppendTheme = '';
 if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
@@ -747,6 +749,22 @@ if (isset($_POST['r']))
 	$tpl->set('referer_site',$_POST['r']);
 }
 
+
+// Auto start chat
+$autoStartResult = erLhcoreClassChatValidator::validateAutoStart(array(
+    'params' => $Params,
+    'inputData' => $inputData,
+    'chat' => $chat,
+    'startDataFields' => $startDataFields,
+    'modeAppendTheme' => $modeAppendTheme,
+    'invitation_mode' => true,
+    'userInstance' => $userInstance
+));
+
+if ($autoStartResult !== false) {
+    $Result = $autoStartResult;
+    return;
+}
 
 
 

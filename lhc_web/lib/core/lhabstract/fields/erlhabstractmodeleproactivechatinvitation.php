@@ -151,6 +151,33 @@ return array(
         ),
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
+    'bot_id' => array(
+        'type' => 'combobox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Bot'),
+        'required' => false,
+        'hidden' => true,
+        'source' => 'erLhcoreClassModelGenericBotBot::getList',
+        'hide_optional' => false,
+        'params_call' => array(),
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
+    ),
+    'trigger_id' => array(
+        'type' => 'combobox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Trigger to execute'),
+        'required' => false,
+        'hidden' => true,
+        'source' => 'erLhcoreClassModelGenericBotTrigger::getList',
+        'hide_optional' => false,
+        'params_call' => array('filter' => array('bot_id' => $this->bot_id)),
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
+    ),
+    'bot_offline' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Execute bot only if there is no online operators'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
+    ),
     'executed_times' => array(
         'type' => 'none',
         'hide_edit' => true,
