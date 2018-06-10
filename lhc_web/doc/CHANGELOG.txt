@@ -1,6 +1,10 @@
 2.97v
 
-1. Option to set trigger for invitation.
+1. Option to set bot/trigger for proactive invitation.
+2. Possible to search by subjects in chats list and in statistic will be represented chart.
+3. Various bot improvements/fixes.
+
+execute doc/update_db/update_172.sql for update
 
 2.96v
 
