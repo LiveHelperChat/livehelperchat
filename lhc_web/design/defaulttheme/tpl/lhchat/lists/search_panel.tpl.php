@@ -269,11 +269,22 @@
                  </div>
 			</div>
 		</div>
-
-
 	</div>
     
     <div class="row">
+        <div class="col-md-2">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Subject');?></label>
+                <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                    'input_name'     => 'subject_id',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Subject'),
+                    'selected_id'    => $input->subject_id,
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'name',
+                    'list_function'  => 'erLhAbstractModelSubject::getList'
+                )); ?>
+            </div>
+        </div>
 		<div class="col-md-3">
     		<div class="form-group">
         	   <label class="control-label"><input type="checkbox" name="hum" <?php $input->hum == 1 ? print ' checked="checked" ' : ''?> value="on" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Has unread messages')?></label>

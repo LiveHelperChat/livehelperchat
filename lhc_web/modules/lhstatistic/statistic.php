@@ -50,6 +50,7 @@ if ($tab == 'active') {
             'numberOfChatsPerHour' => erLhcoreClassChatStatistic::getWorkLoadStatistic(30, $filterParams['filter']),
             'averageChatTime' => erLhcoreClassChatStatistic::getAverageChatduration(30,$filterParams['filter']),
             'numberOfMsgByUser' => erLhcoreClassChatStatistic::numberOfMessagesByUser(30,$filterParams['filter']),
+            'subjectsStatistic' => erLhcoreClassChatStatistic::subjectsStatistic(30,$filterParams['filter']),
             'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
         );
 

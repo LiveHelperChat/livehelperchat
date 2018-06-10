@@ -69,6 +69,12 @@ if (isset($_GET['doSearch'])) {
 
 erLhcoreClassChatStatistic::formatUserFilter($filterParams);
 
+if ($filterParams['input_form']->subject_id > 0){
+    $filterParams['filter']['innerjoin']['lh_abstract_subject_chat'] = array('`lh_abstract_subject_chat`.`chat_id`','`lh_chat` . `id`');
+    $filterParams['filter']['filter']['`lh_abstract_subject_chat`.`subject_id`'] = $filterParams['input_form']->subject_id;
+}
+
+
 /**
  * Departments filter
  * */

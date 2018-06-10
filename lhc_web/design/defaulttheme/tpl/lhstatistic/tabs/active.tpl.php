@@ -284,6 +284,46 @@
             }
         });
 	  <?php endif;?>
+
+	  <?php if (!empty($subjectsStatistic)) : ?>
+	    var ctx = document.getElementById("chart_div_subjects_statistic").getContext("2d");
+	    var barChartData = {
+            labels: [<?php foreach ($subjectsStatistic as $key => $data) : echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars((string)erLhAbstractModelSubject::fetch($data['subject_id'],true),ENT_QUOTES).'\''; endforeach;?>],
+            datasets: [{
+                label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats')?>',
+                backgroundColor: '#4bc044',
+                borderColor: '#4bc044',
+                borderWidth: 1,
+                data: [<?php foreach ($subjectsStatistic as $key => $data) : echo ($key > 0 ? ',' : ''),$data['number_of_chats']; endforeach;?>]
+            }]
+        };
+
+	    var myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                legend: {
+                    display : false,
+                    position: 'top',
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            fontSize: 11,
+                            stepSize: 1,
+                            min: 0,
+                            autoSkip: false
+                        }
+                    }]
+                },
+                title: {
+                    display: true,
+                    text: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_subject.tpl.php'));?>'
+                }
+            }
+        });
+      <?php endif; ?>
 	};
 	
 	function drawChartCountry() {	
@@ -706,6 +746,13 @@
 <div class="pl20"><strong><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/avg_visitor_wait_time_by_operator.tpl.php'));?></strong></div>
 <div id="chart_div_user_wait_time" style="width: 100%; height: 300px;"></div> 	
 <?php endif;?>
+
+<?php if (!empty($subjectsStatistic)) : ?>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chat_subjects_statistic.tpl.php'));?></h5>
+<hr>
+<canvas id="chart_div_subjects_statistic"></canvas>
+<?php endif; ?>
+
 
 <canvas id="chart_div_upvotes_canvas"></canvas>
 
