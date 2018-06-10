@@ -1079,29 +1079,33 @@ class erLhcoreClassChatValidator {
     }
 
     // Set's chat as a bot
-    public static function setBot(& $chat) {
+    public static function setBot(& $chat, $params = array()) {
 
         $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_set_bot', array(
             'chat' => & $chat,
+            'params' => $params
         ));
 
         if ($handler !== false) {
              return;
         }
 
-        if (isset($chat->department->bot_configuration_array['bot_id']) && is_numeric($chat->department->bot_configuration_array['bot_id']) && $chat->department->bot_configuration_array['bot_id'] > 0) {
+        if ((isset($params['bot_id']) && $params['bot_id'] > 0) || (isset($chat->department->bot_configuration_array['bot_id']) && is_numeric($chat->department->bot_configuration_array['bot_id']) && $chat->department->bot_configuration_array['bot_id'] > 0)) {
 
-            $botConfiguration = $chat->department->bot_configuration_array;
+            if (isset($params['bot_id']) && $params['bot_id'] > 0) {
+                $bot = erLhcoreClassModelGenericBotBot::fetch($params['bot_id']);
+            } else {
+                $botConfiguration = $chat->department->bot_configuration_array;
+                $bot = erLhcoreClassModelGenericBotBot::fetch($botConfiguration['bot_id']);
+            }
 
-            $bot = erLhcoreClassModelGenericBotBot::fetch($botConfiguration['bot_id']);
-                                    
             if (
-                $bot instanceof erLhcoreClassModelGenericBotBot &&
+                $bot instanceof erLhcoreClassModelGenericBotBot && ((isset($params['bot_id']) && isset($params['trigger_id'])) ||
                     (
                         (!isset($botConfiguration['bot_only_offline']) || $botConfiguration['bot_only_offline'] == false) ||
                         (isset($botConfiguration['bot_only_offline']) && $botConfiguration['bot_only_offline'] == true && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true)) == false)
                     )
-                ) {
+                )) {
                 $chat->status = erLhcoreClassModelChat::STATUS_BOT_CHAT;
                 
                 $variablesArray = $chat->chat_variables_array;
@@ -1110,8 +1114,13 @@ class erLhcoreClassChatValidator {
                 $chat->chat_variables = json_encode($variablesArray);
                 $chat->chat_variables_array = $variablesArray;
 
-                // Find default messages if there are any
-                $botTrigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filter' => array('bot_id' => $bot->id, 'default' => 1)));
+                if (isset($params['trigger_id']) && $params['trigger_id'] > 0) {
+                    $botTrigger = erLhcoreClassModelGenericBotTrigger::fetch($params['trigger_id']);
+                } else {
+                    // Find default messages if there are any
+                    $botTrigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filter' => array('bot_id' => $bot->id, 'default' => 1)));
+                }
+
                 if ($botTrigger instanceof erLhcoreClassModelGenericBotTrigger) {
 
                     $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $botTrigger);
@@ -1132,7 +1141,30 @@ class erLhcoreClassChatValidator {
      * */
     public static function validateAutoStart($params)
     {
-        if (isset($params['startDataFields']['auto_start_chat']) && $params['startDataFields']['auto_start_chat'] == true && $params['chat']->dep_id > 0) {
+        $paramsExecution = array();
+
+        $skipOnlyOnlineCheck = false;
+        $autoStart = false;
+
+        if (isset($params['invitation_mode']) && $params['invitation_mode'] == 1 && isset($params['userInstance'])) {
+
+            $autoStart = true;
+            $invitation = erLhAbstractModelProactiveChatInvitation::fetch($params['userInstance']->invitation_id);
+
+            if ($invitation instanceof erLhAbstractModelProactiveChatInvitation && $invitation->bot_id > 0 && $invitation->trigger_id > 0) {
+                
+                if ($invitation->bot_offline == false) {
+                    $skipOnlyOnlineCheck = true;
+                }
+
+                $paramsExecution['bot_id'] = $invitation->bot_id;
+                $paramsExecution['trigger_id'] = $invitation->trigger_id;
+
+                $params['chat']->chat_initiator = erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE;
+            }
+        }
+
+        if ($autoStart == true || (isset($params['startDataFields']['auto_start_chat']) && $params['startDataFields']['auto_start_chat'] == true && $params['chat']->dep_id > 0)) {
 
             $chat = $params['chat'];
 
@@ -1140,7 +1172,7 @@ class erLhcoreClassChatValidator {
                 return false;
             }
 
-            if (erLhcoreClassChat::isOnlyBotOnline($chat->dep_id)) {
+            if ($skipOnlyOnlineCheck == true || erLhcoreClassChat::isOnlyBotOnline($chat->dep_id)) {
 
                 $chat->setIP();
                 erLhcoreClassModelChat::detectLocation($chat);
@@ -1300,7 +1332,7 @@ class erLhcoreClassChatValidator {
                     $chat->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
 
                     // Set bot workflow if required
-                    erLhcoreClassChatValidator::setBot($chat);
+                    erLhcoreClassChatValidator::setBot($chat, $paramsExecution);
 
                     // Auto responder
                     $responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
@@ -1363,9 +1395,16 @@ class erLhcoreClassChatValidator {
                     $db->rollback();
                 }
 
-                // Redirect user
-                $Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat') . '/' . $chat->id . '/' . $chat->hash . $params['modeAppend'] . $params['modeAppendTheme'] . '/(cstarted)/online_chat_started_cb');
-                return $Result;
+                 if (isset($params['invitation_mode']) && $params['invitation_mode'] == 1){
+                     $callBack = '/(cstarted)/chat_started_by_invitation_cb';
+                 } else {
+                     $callBack = '/(cstarted)/online_chat_started_cb';
+                 }
+
+                 // Redirect user
+                 $Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat') . '/' . $chat->id . '/' . $chat->hash . (isset($params['modeAppend']) ? $params['modeAppend'] : null) . $params['modeAppendTheme'] . $callBack);
+
+                 return $Result;
             }
         }
 

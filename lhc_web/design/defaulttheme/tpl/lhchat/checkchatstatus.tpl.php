@@ -6,6 +6,12 @@
     <?php if ($chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT && ($user = $chat->user) !== false) : ?>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_main_pre.tpl.php')); ?>
     	<?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile.tpl.php'));?>
+    <?php elseif ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) : ?>
+        <h4><?php if ($theme !== false  && $theme->bot_status_text != '') : ?>
+            <?php echo htmlspecialchars($theme->bot_status_text)?>
+        <?php else : ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/bot_chat.tpl.php'));?>
+        <?php endif; ?></h4>
     <?php elseif ($is_proactive_based == true) : ?>
     <h4>
     	<?php if ($theme !== false  && $theme->support_joined != '') : ?>

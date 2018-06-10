@@ -2262,6 +2262,30 @@
                 "extra": ""
             },
             {
+                "field": "bot_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "trigger_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
+                "field": "bot_offline",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "pageviews",
                 "type": "int(11)",
                 "null": "NO",

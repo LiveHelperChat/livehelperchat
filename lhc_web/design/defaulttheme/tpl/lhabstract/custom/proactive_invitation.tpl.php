@@ -11,6 +11,7 @@
     	<!-- Nav tabs -->
     	<ul class="nav nav-tabs" role="tablist">
     		<li role="presentation" class="active"><a href="#invitation" aria-controls="invitation" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Invitation');?></a></li>
+    		<li role="presentation"><a href="#bot" aria-controls="bot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Bot');?></a></li>
     		<li role="presentation"><a href="#dynamic" aria-controls="dynamic" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Dynamic');?></a></li>
     		<li role="presentation"><a href="#events" aria-controls="events" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Events');?></a></li>
     	</ul>
@@ -20,7 +21,10 @@
     		<div role="tabpanel" class="tab-pane active" id="invitation">
     		  <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/events/invitation.tpl.php'));?>
     		</div>
-    		<div role="tabpanel" class="tab-pane" id="events">
+    		<div role="tabpanel" class="tab-pane" id="bot">
+    		  <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/events/bot.tpl.php'));?>
+    		</div>
+            <div role="tabpanel" class="tab-pane" id="events">
     		  <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/events/events.tpl.php'));?>
     		</div>
     		<div role="tabpanel" class="tab-pane" id="dynamic">

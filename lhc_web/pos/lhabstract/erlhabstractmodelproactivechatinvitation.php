@@ -164,6 +164,24 @@ $def->properties['event_invitation']->columnName   = 'event_invitation';
 $def->properties['event_invitation']->propertyName = 'event_invitation';
 $def->properties['event_invitation']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+// Bot ID
+$def->properties['bot_id'] = new ezcPersistentObjectProperty();
+$def->properties['bot_id']->columnName   = 'bot_id';
+$def->properties['bot_id']->propertyName = 'bot_id';
+$def->properties['bot_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+// Bot trigger id to send
+$def->properties['trigger_id'] = new ezcPersistentObjectProperty();
+$def->properties['trigger_id']->columnName   = 'trigger_id';
+$def->properties['trigger_id']->propertyName = 'trigger_id';
+$def->properties['trigger_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+// Execute bot only if there is no online operators
+$def->properties['bot_offline'] = new ezcPersistentObjectProperty();
+$def->properties['bot_offline']->columnName   = 'bot_offline';
+$def->properties['bot_offline']->propertyName = 'bot_offline';
+$def->properties['bot_offline']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

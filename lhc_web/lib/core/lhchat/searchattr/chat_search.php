@@ -38,6 +38,18 @@ $fieldsSearch['chat_id'] = array (
     )
 );
 
+$fieldsSearch['subject_id'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => false,
+    'filter_table_field' => 'id',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+            ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
 $fieldsSearch['wait_time_from'] = array (
     'type' => 'text',
     'trans' => 'id',
