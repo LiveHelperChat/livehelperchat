@@ -1148,11 +1148,12 @@ class erLhcoreClassChatValidator {
 
         if (isset($params['invitation_mode']) && $params['invitation_mode'] == 1 && isset($params['userInstance'])) {
 
-            $autoStart = true;
             $invitation = erLhAbstractModelProactiveChatInvitation::fetch($params['userInstance']->invitation_id);
 
             if ($invitation instanceof erLhAbstractModelProactiveChatInvitation && $invitation->bot_id > 0 && $invitation->trigger_id > 0) {
                 
+                $autoStart = true;
+
                 if ($invitation->bot_offline == false) {
                     $skipOnlyOnlineCheck = true;
                 }
