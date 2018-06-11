@@ -728,7 +728,7 @@ class erLhcoreClassChat {
        $db = ezcDbInstance::get();
 	   $rowsNumber = 0;
 
-       if ($dep_id !== false) {
+       if ($dep_id !== false && $dep_id !== '') {
        		$exclipicFilter = ($exclipic == false) ? ' OR dep_id = 0' : '';
 
        		if ($ignoreUserStatus === false) {
