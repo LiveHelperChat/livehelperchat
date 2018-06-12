@@ -588,7 +588,7 @@ class erLhcoreClassChatStatistic {
                 $filter['filtergte']['time'] = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
             }
 
-            $diffDays = ((isset($filter['filterlte']['time']) ? $filter['filterlte']['time'] : time())-$filter['filtergte']['time'])/(24*3600);
+            $diffDays = ceil(((isset($filter['filterlte']['time']) ? $filter['filterlte']['time'] : time())-$filter['filtergte']['time'])/(24*3600));
 
         	for ($i = 0; $i < 24; $i++) {
         		$dateHour = str_pad($i , 2, '0' , STR_PAD_LEFT);
