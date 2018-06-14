@@ -78,9 +78,6 @@ class erLhcoreClassChat {
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'status_dep_id_priority_id';
-    	} else {
-    		$filter['use_index'] = 'status_priority_id';
     	}
 
     	$filter['limit'] = $limit;
