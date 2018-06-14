@@ -26,6 +26,8 @@
 
 	<div class="col-xs-3 mb5">
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings.tpl.php'));?>
+
+        <button onclick="notificationsLHC.sendNotification()">Send notification</button>
 	</div>
 
 </div>

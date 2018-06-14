@@ -859,8 +859,10 @@ var lh_inst  = {
         this.addEvent(document,'touchend',resetTimeout);
         this.resetTimeoutActivity();
         <?php endif;?> 
-    },  
-       
+    },
+
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/functions/send_notification.tpl.php')); ?>
+
     handleMessage : function(e) {
         if (typeof e.data !== 'string') { return; }
     	var action = e.data.split(':')[0];    	
@@ -936,6 +938,9 @@ var lh_inst  = {
     			lh_inst.addCookieAttributePersistent('lng','');
     			lh_inst.lang = '';
     		}
+        } else if (action == 'lhc_notification') {
+                var parts = e.data.split(':');
+                lh_inst.sendNotification(parts);
     	} else if (action == 'lh_callback') {
     		var functionName = e.data.split(':')[1];
     		lh_inst.genericCallback(functionName);    	
