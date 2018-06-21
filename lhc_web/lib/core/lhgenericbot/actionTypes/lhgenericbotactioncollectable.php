@@ -2,8 +2,12 @@
 
 class erLhcoreClassGenericBotActionCollectable {
 
-    public static function process($chat, $action, $trigger)
+    public static function process($chat, $action, $trigger, $params)
     {
+        if (isset($params['do_not_save']) && $params['do_not_save'] == true) {
+            return;
+        }
+
         $workflow = erLhcoreClassModelGenericBotChatWorkflow::findOne(array('filterin' => array('status' => array(0,1)),'filter' => array('chat_id' => $chat->id, 'trigger_id' => $trigger->id)));
 
         if (!($workflow instanceof erLhcoreClassModelGenericBotChatWorkflow)) {

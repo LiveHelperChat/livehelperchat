@@ -35,6 +35,11 @@ $ViewList['adminthemes'] = array(
     'functions' => array( 'administratethemes' )
 );
 
+$ViewList['renderpreview'] = array(
+    'params' => array('id'),
+    'functions' => array( 'administratethemes' )
+);
+
 $ViewList['adminnewtheme'] = array(
     'params' => array(),
     'functions' => array( 'administratethemes' )

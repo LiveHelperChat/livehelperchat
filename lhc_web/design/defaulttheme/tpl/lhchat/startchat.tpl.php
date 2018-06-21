@@ -21,12 +21,16 @@
 
 <?php if ($leaveamessage == false || ($forceoffline === false && erLhcoreClassChat::isOnline($department,false,array('ignore_user_status'=> (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value, 'online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout']))) === true) : ?>
 
-<?php $onlyBotOnline = erLhcoreClassChat::isOnlyBotOnline($department); ?>
+<?php
+    $onlyBotOnline = erLhcoreClassChat::isOnlyBotOnline($department);
+?>
 
 <?php if (isset($theme) && $theme !== false && isset($theme->bot_configuration_array['custom_html']) && !empty($theme->bot_configuration_array['custom_html']) && $onlyBotOnline == false) : ?>
     <?php echo $theme->bot_configuration_array['custom_html']?>
 <?php elseif (isset($theme) && $theme !== false && isset($theme->bot_configuration_array['custom_html_bot']) && !empty($theme->bot_configuration_array['custom_html_bot']) && $onlyBotOnline == true) : ?>
     <?php echo $theme->bot_configuration_array['custom_html_bot']?>
+<?php elseif (isset($theme) && $theme !== false && isset($theme->bot_configuration_array['trigger_id']) && !empty($theme->bot_configuration_array['trigger_id']) && $theme->bot_configuration_array['trigger_id'] > 0) :  ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/render_intro.tpl.php'));?>
 <?php else  : ?>
     <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Fill out this form to start a chat');?></h4>
 <?php endif;?>

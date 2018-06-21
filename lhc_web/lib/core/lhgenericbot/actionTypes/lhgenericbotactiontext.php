@@ -2,7 +2,7 @@
 
 class erLhcoreClassGenericBotActionText {
 
-    public static function process($chat, $action)
+    public static function process($chat, $action, $trigger, $params)
     {
         $msg = new erLhcoreClassModelmsg();
 
@@ -30,7 +30,10 @@ class erLhcoreClassGenericBotActionText {
                 $event->chat_id = $chat->id;
                 $event->ctime = time();
                 $event->content = json_encode(array('callback_list' => $action['content']['callback_list']));
-                $event->saveThis();
+
+                if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
+                    $event->saveThis();
+                }
             }
         }
 
@@ -46,7 +49,9 @@ class erLhcoreClassGenericBotActionText {
         $msg->user_id = -2;
         $msg->time = time() + 5;
 
-        erLhcoreClassChat::getSession()->save($msg);
+        if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
+            erLhcoreClassChat::getSession()->save($msg);
+        }
 
         return $msg;
     }

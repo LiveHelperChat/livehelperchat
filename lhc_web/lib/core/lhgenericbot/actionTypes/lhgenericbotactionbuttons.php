@@ -2,7 +2,7 @@
 
 class erLhcoreClassGenericBotActionButtons {
 
-    public static function process($chat, $action)
+    public static function process($chat, $action, $trigger, $params)
     {
         $msg = new erLhcoreClassModelmsg();
 
@@ -19,7 +19,9 @@ class erLhcoreClassGenericBotActionButtons {
         $msg->user_id = -2;
         $msg->time = time() + 5;
 
-        erLhcoreClassChat::getSession()->save($msg);
+        if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
+            erLhcoreClassChat::getSession()->save($msg);
+        }
 
         return $msg;
     }
