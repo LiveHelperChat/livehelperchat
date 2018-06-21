@@ -81,22 +81,33 @@ if (ezcInputForm::hasPostData()) {
 				$widgetTheme->saveThis();
 	
 				foreach ($imgData as $attr => $dataImage) {
-					$imgDataItem = base64_decode($dataImage);
-					if ($imgDataItem !== false) {		
-									
-						$dir = 'var/tmpfiles/';
-						$fileName = 'data.'.$data[$attr.'_data_ext'];
-												
-						erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.temppath',array('dir' => & $dir));
 
-						erLhcoreClassFileUpload::mkdirRecursive( $dir );
-						
-						$imgPath = $dir . $fileName;
-						file_put_contents($imgPath, $imgDataItem);
-						
-						if (erLhcoreClassImageConverter::isPhotoLocal($imgPath)){
-							$widgetTheme->movePhoto($attr,true,$imgPath);	
-						}				
+					$imgDataItem = base64_decode($dataImage);
+
+					if ($imgDataItem !== false) {
+
+					    /*
+					     * Allow upload only images
+					     * Security report by https://sentry.co.com
+					     */
+					    if (in_array($data[$attr.'_data_ext'],array ('gif','jpg','jpeg','png','bmp')))
+                        {
+                            $dir = 'var/tmpfiles/';
+                            $fileName = 'data.'.$data[$attr.'_data_ext'];
+
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.temppath',array('dir' => & $dir));
+
+                            erLhcoreClassFileUpload::mkdirRecursive( $dir );
+
+                            $imgPath = $dir . $fileName;
+                            file_put_contents($imgPath, $imgDataItem);
+
+                            if (erLhcoreClassImageConverter::isPhotoLocal($imgPath)){
+                                $widgetTheme->movePhoto($attr,true,$imgPath);
+                            } else {
+                                unlink($imgPath);
+                            }
+                        }
 					}
 				}	
 	
