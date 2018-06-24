@@ -410,7 +410,7 @@
                         <?php echo erLhcoreClassAbstract::renderInput('custom_start_button_offline', $fields['custom_start_button_offline'], $object)?>
                     </div>
 
-                    <h4>Text content before user fields</h4>
+                    <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text content before user fields')?></h4>
 
                     <div class="row">
                         <div class="col-xs-6">
