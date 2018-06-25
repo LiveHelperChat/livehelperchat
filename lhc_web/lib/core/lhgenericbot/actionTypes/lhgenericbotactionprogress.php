@@ -36,7 +36,9 @@ class erLhcoreClassGenericBotActionProgress {
                 $msg->user_id = -2;
                 $msg->time = time() + 5;
 
-                erLhcoreClassChat::getSession()->save($msg);
+                if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
+                    erLhcoreClassChat::getSession()->save($msg);
+                }
             }
         }
 

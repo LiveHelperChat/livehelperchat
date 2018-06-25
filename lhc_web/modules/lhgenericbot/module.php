@@ -25,7 +25,7 @@ $ViewList['addpayload'] = array(
 
 $ViewList['triggersbybot'] = array(
     'params' => array('id','trigger_id'),
-    'uparams' => array(),
+    'uparams' => array('preview'),
     'functions' => array( 'use' )
 );
 

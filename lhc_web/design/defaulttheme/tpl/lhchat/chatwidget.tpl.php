@@ -45,6 +45,8 @@ if ($theme !== false && $theme->explain_text != '' && $onlyBotOnline == false) :
        <?php echo $theme->bot_configuration_array['custom_html_widget']?>
 <?php elseif (isset($theme) && $theme !== false && isset($theme->bot_configuration_array['custom_html_widget_bot']) && !empty($theme->bot_configuration_array['custom_html_widget_bot']) && $onlyBotOnline == true) : ?>
     <?php echo $theme->bot_configuration_array['custom_html_widget_bot']?>
+<?php elseif (isset($theme) && $theme !== false && isset($theme->bot_configuration_array['trigger_id']) && !empty($theme->bot_configuration_array['trigger_id']) && $theme->bot_configuration_array['trigger_id'] > 0) :  ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/render_intro.tpl.php'));?>
 <?php endif;?>
 
 <form method="post" id="form-start-chat" action="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php echo $append_mode?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $input_data->priority !== false ? print '/(priority)/'.$input_data->priority : ''?><?php $input_data->vid !== false ? print '/(vid)/'.htmlspecialchars($input_data->vid) : ''?><?php $input_data->hash_resume !== false ? print '/(hash_resume)/'.htmlspecialchars($input_data->hash_resume) : ''?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $forceoffline == true ? print '/(offline)/true' : ''?><?php echo $append_mode_theme?>" onsubmit="return <?php if (isset($start_data_fields['message_auto_start']) && $start_data_fields['message_auto_start'] == true) : ?>lhinst.prestartChat('<?php echo time()?>',$(this))<?php else : ?>lhinst.addCaptchaSubmit('<?php echo time()?>',$(this))<?php endif?>">
@@ -91,7 +93,6 @@ if ($theme !== false && $theme->explain_text != '' && $onlyBotOnline == false) :
     <?php endif; ?>
 </div>
 
-
 <?php if (isset($start_data_fields['phone_visible_in_page_widget']) && $start_data_fields['phone_visible_in_page_widget'] == true) : $hasExtraField = true;?>
 <?php if (isset($start_data_fields['phone_hidden']) && $start_data_fields['phone_hidden'] == true) : ?>
 <input type="hidden" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
@@ -108,6 +109,8 @@ if ($theme !== false && $theme->explain_text != '' && $onlyBotOnline == false) :
 <?php endif; ?>
 
 <?php $canReopen = erLhcoreClassModelChatConfig::fetch('reopen_chat_enabled')->current_value == 1 && ($reopenData = erLhcoreClassChat::canReopenDirectly(array('reopen_closed' => erLhcoreClassModelChatConfig::fetch('allow_reopen_closed')->current_value))) !== false; ?>
+
+
 
 <?php $adminCustomFieldsMode = 'on';?>
 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/admin_form_variables.tpl.php'));?>

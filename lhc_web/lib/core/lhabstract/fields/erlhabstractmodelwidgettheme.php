@@ -317,6 +317,30 @@ $fields = array(
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
+                'bot_id' => array(
+   						'type' => 'combobox',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Choose a bot'),
+   						'required' => false,
+                        'frontend' => 'name',
+   						'hidden' => true,
+                        'source' => 'erLhcoreClassModelGenericBotBot::getList',
+                        'params_call' => array(),
+   						'main_attr' => 'bot_configuration_array',
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+   						)),
+                'trigger_id' => array(
+   						'type' => 'combobox',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Choose a trigger'),
+   						'required' => false,
+   						'hidden' => true,
+                        'frontend' => 'name',
+                        'source' => 'erLhcoreClassModelGenericBotTrigger::getList',
+   						'main_attr' => 'bot_configuration_array',
+                        'params_call' => array('filter' => array('bot_id' => (isset($this->bot_configuration_array['bot_id']) ? $this->bot_configuration_array['bot_id'] : 0))),
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+   						)),
                 'custom_start_button_offline' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Leave a message button text'),

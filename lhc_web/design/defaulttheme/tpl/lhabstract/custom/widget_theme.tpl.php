@@ -410,6 +410,28 @@
                         <?php echo erLhcoreClassAbstract::renderInput('custom_start_button_offline', $fields['custom_start_button_offline'], $object)?>
                     </div>
 
+                    <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text content before user fields')?></h4>
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label><?php echo $fields['bot_id']['trans'];?></label>
+                                <?php echo erLhcoreClassAbstract::renderInput('bot_id', $fields['bot_id'], $object)?>
+                            </div>
+
+                            <div class="form-group">
+                                <label><?php echo $fields['trigger_id']['trans'];?></label>
+                                <div id="trigger-list-id"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Preview')?></label>
+                            <div id="trigger-preview-window">
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div role="tabpanel" class="tab-pane" id="custombot">
@@ -560,13 +582,35 @@
 		#lhc_need_help_close{float:right;border-radius:10px;background:#{{bactract_bg_color_need_help_close_bg}};padding:0px 6px;color:#FFF;right:10px;font-size:16px;font-weight:bold;text-decoration:none;margin-top:0px;line-height:20px}#lhc_need_help_close:hover{background-color:#{{bactract_bg_color_need_help_close_hover_bg}};}
 		#lhc_need_help_image{padding-right:10px;float:left;cursor:pointer;}#lhc_need_help_image img{border-radius:30px;border:1px solid #d0d0d0}#lhc_need_help_main_title{font-size:16px;font-weight:bold;cursor:pointer;line-height:1.5}#lhc_need_help_sub_title{cursor:pointer;line-height:1.5}
 		</style>
-			
-			 
+
 	    <script>	  
 	    $('#id_AbstractInput_buble_visitor_background').change(function(){
 		    document.getElementById('lhc_iframe').src = document.getElementById('lhc_iframe').src;		    
 		});
+
+        $('select[name="AbstractInput_bot_id"]').change(function(){
+            $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $(this).val() + '/0/(preview)/1', { }, function(data) {
+                $('#trigger-list-id').html(data);
+                renderPreview($('select[name="AbstractInput_trigger_id"]'));
+            }).fail(function() {
+
+            });
+        });
+
+        $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $('select[name="AbstractInput_bot_id"]').val() + '/<?php echo (isset($object->bot_configuration_array['trigger_id'])) ? $object->bot_configuration_array['trigger_id'] : 0 ?>/(preview)/1', { }, function(data) {
+            $('#trigger-list-id').html(data);
+            renderPreview($('select[name="AbstractInput_trigger_id"]'));
+        }).fail(function() {
+
+        });
+
+        function renderPreview(inst) {
+            $.get(WWW_DIR_JAVASCRIPT + 'theme/renderpreview/' + inst.val(), { }, function(data) {
+                $('#trigger-preview-window').html(data);
+            }).fail(function() {
+                $('#trigger-preview-window').html('');
+            });
+        }
 	    </script>
-		
 	</div>
 </div>

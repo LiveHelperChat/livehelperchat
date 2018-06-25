@@ -205,7 +205,16 @@ var lh_inst  = {
             this.addClass(dm,'<?php echo $chatCSSPrefix?>-min');
 			this.removeClass(document.body,'<?php echo $chatCSSPrefix?>-opened');
 		} else {
+
+            if (this.cookieData.pos) {
+                var posContainer = this.cookieData.pos.split(',');
+                if (typeof posContainer[2] !== 'undefined' && posContainer[2] > 0){
+                    document.getElementById('<?php echo $chatCSSPrefix?>_iframe').style.height = posContainer[2] + 'px';
+                }
+            };
+
             this.removeClass(dm,'<?php echo $chatCSSPrefix?>-min');
+
 			dm.attrIsMin = false;
             this.isMinimized = false;
 			<?php if ($currentPosition['posv'] == 'b') : ?>
@@ -221,7 +230,7 @@ var lh_inst  = {
 			}
 			<?php endif;?>		
 			this.removeCookieAttr('m');
-			var inst = this;		
+			var inst = this;
 			this.storePos(dm);
 			this.addClass(document.body,'<?php echo $chatCSSPrefix?>-opened');
 		};

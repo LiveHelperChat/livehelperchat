@@ -119,9 +119,20 @@ class erLhcoreClassAbstract {
         	        }
             	    
             	    $items = call_user_func($attr['source'],$attr['params_call']);
+
+                    if (isset($attr['main_attr']) && !empty($attr['main_attr'])) {
+                        if (isset($object->{$attr['main_attr']}[$name])) {
+                            $value = $object->{$attr['main_attr']}[$name];
+                        } else {
+                            $value = '';
+                        }
+                    } else {
+                        $value = $object->$name;
+                    }
+
             	    foreach ($items as $item)
             	    {
-            	        $selected = $object->$name == $item->id ? 'selected="selected"' : '';
+            	        $selected = $value == $item->id ? 'selected="selected"' : '';
             	        $nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
 
             	        $return .= '<option value="'.$item->id.'" '.$selected.'>'.((string)$nameAttr).'</option>';

@@ -316,7 +316,7 @@ class erLhcoreClassChatWorkflow {
 
 	    	    $chat->syncAndLock();
 
-	    	    if ($chat->user_id == 0 && $chat->tslasign < time()-$department->max_timeout_seconds) {
+	    	    if ($chat->user_id == 0 || ($department->max_timeout_seconds > 0 && $chat->tslasign < time()-$department->max_timeout_seconds)) {
 
         	    	$statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.autoassign', array(
         	    	    'department' => & $department,

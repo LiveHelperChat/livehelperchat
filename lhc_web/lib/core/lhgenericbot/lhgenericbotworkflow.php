@@ -703,6 +703,21 @@ class erLhcoreClassGenericBotWorkflow {
         return $message;
     }
 
+    public static function processTriggerPreview($chat, $trigger, $params = array())
+    {
+        $messages = array();
+        foreach ($trigger->actions_front as $action) {
+            $messageNew = call_user_func_array("erLhcoreClassGenericBotAction" . ucfirst($action['type']).'::process',array($chat, $action, $trigger, (isset($params['args']) ? $params['args'] : array())));
+            if ($messageNew instanceof erLhcoreClassModelmsg) {
+                $messages[] = $messageNew;
+            } else if (is_array($messageNew)) {
+                $messages = array_merge($messages, $messageNew);
+            }
+        }
+
+        return $messages;
+    }
+
     public static function getClickName($metaData, $payload, $returnAll = false)
     {
         if (isset($metaData['content']['quick_replies'])) {

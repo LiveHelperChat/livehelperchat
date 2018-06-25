@@ -2,7 +2,7 @@
 
 class erLhcoreClassGenericBotActionPredefined {
 
-    public static function process($chat, $action)
+    public static function process($chat, $action, $trigger, $params = array())
     {
         if (isset($action['content']['payload']) && is_numeric($action['content']['payload'])) {
 
@@ -18,7 +18,11 @@ class erLhcoreClassGenericBotActionPredefined {
             }
 
             if (($trigger instanceof erLhcoreClassModelGenericBotTrigger)){
-                erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true);
+                if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
+                    erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true);
+                } else {
+                    return erLhcoreClassGenericBotWorkflow::processTriggerPreview($chat, $trigger, array('args' => $params));
+                }
             }
         }
 
