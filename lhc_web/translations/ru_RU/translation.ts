@@ -4309,11 +4309,11 @@
     </message>
     <message>
       <source>User has seen message from operator.</source>
-      <translation>Пользователь увидел сообщение от опратора.</translation>
+      <translation>Пользователь увидел сообщение от оператора.</translation>
     </message>
     <message>
       <source>User is chatting</source>
-      <translation>Пользовател в активном общении</translation>
+      <translation>Пользователь в активном общении</translation>
     </message>
     <message>
       <source>User is not having any chat right now</source>
