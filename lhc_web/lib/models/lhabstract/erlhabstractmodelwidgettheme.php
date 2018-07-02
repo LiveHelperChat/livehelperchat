@@ -2,6 +2,16 @@
 
 class erLhAbstractModelWidgetTheme {
 
+    use erLhcoreClassDBTrait;
+
+    public static $dbTable = 'lh_abstract_widget_theme';
+
+    public static $dbTableId = 'id';
+
+    public static $dbSessionHandler = 'erLhcoreClassAbstract::getSession';
+
+    public static $dbSortOrder = 'DESC';
+
 	public function getState()
 	{
 		$stateArray = array (
@@ -79,6 +89,7 @@ class erLhAbstractModelWidgetTheme {
 			'buble_operator_text_color' => $this->buble_operator_text_color,
 
 			'bot_configuration'         => $this->bot_configuration,
+			'notification_configuration'=> $this->notification_configuration,
 
 			'hide_ts'                   => $this->hide_ts,
 			'widget_response_width'     => $this->widget_response_width,
@@ -87,14 +98,6 @@ class erLhAbstractModelWidgetTheme {
 		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('lhabstract.erlhabstractmodelwidgettheme.getstate',array('state' => & $stateArray, 'object' => & $this));
 		
 		return $stateArray;
-	}
-
-	public function setState( array $properties )
-	{
-		foreach ( $properties as $key => $val )
-		{
-			$this->$key = $val;
-		}
 	}
 
 	public function __toString()
@@ -116,7 +119,7 @@ class erLhAbstractModelWidgetTheme {
 			return $response['filedata'];
 		}
 	}
-								
+
 	public function movePhoto($attr, $isLocal = false, $localFile = false)
 	{
 		$this->deletePhoto($attr);
@@ -135,7 +138,15 @@ class erLhAbstractModelWidgetTheme {
 			}
 			
 			$this->{$attr.'_path'} = $dir;
-			
+
+			if ($attr == 'notification_icon') {
+			    $noteConfigurationArray = $this->notification_configuration_array;
+                $noteConfigurationArray[$attr.'_path'] = $this->{$attr.'_path'};
+                $noteConfigurationArray[$attr] = $this->{$attr};
+
+                $this->notification_configuration_array = $noteConfigurationArray;
+            }
+
 			$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.edit.store_'.$attr,array(
 					'theme' => & $this, 
 					'path_attr' => $attr.'_path', 
@@ -165,7 +176,14 @@ class erLhAbstractModelWidgetTheme {
 					'name' => $this->$attr));
 			
 			$this->$attr = '';
-			$this->{$attr.'_path'} = '';			
+			$this->{$attr.'_path'} = '';
+
+			if ($attr == 'notification_icon') {
+                $noteConfigurationArray = $this->notification_configuration_array;
+                $noteConfigurationArray[$attr.'_path'] = '';
+                $noteConfigurationArray[$attr] = '';
+                $this->notification_configuration_array = $noteConfigurationArray;
+            }
 		}		
 	}
 	
@@ -177,62 +195,35 @@ class erLhAbstractModelWidgetTheme {
 	    
 	    return $metaData;
 	}
-	
-	public function saveThis() {
-				
-		erLhcoreClassAbstract::getSession()->save($this);
-		
-		$movePhotos = array(
-		    'need_help_image',
-		    'online_image',
-		    'offline_image',
-		    'logo_image',
-		    'copyright_image',
-		    'operator_image',
-		    'minimize_image',
-		    'restore_image',
-		    'close_image',
-		    'popup_image',
-		);
-		
-		$pendingUpdate = false;
-		foreach ($movePhotos as $photoAttr) {
-		    if ($this->{$photoAttr.'_pending'} == true) {
-		        $this->movePhoto($photoAttr);
-		        $pendingUpdate = true;		       
-		    }
-		}
-		
-		if ($pendingUpdate == true) {
-		    $this->updateThis();
-		}				
-	}
-	
-	
-	public static function getCount($params = array())
-	{
-		$session = erLhcoreClassAbstract::getSession();
-		$q = $session->database->createSelectQuery();
-		$q->select( "COUNT(id)" )->from( "lh_abstract_widget_theme" );
 
-		if (isset($params['filter']) && count($params['filter']) > 0)
-		{
-	   		$conditions = array();
+	public function afterSave()
+    {
+        $movePhotos = array(
+            'need_help_image',
+            'online_image',
+            'offline_image',
+            'logo_image',
+            'copyright_image',
+            'operator_image',
+            'minimize_image',
+            'restore_image',
+            'close_image',
+            'popup_image',
+            'notification_icon',
+        );
 
-		   	foreach ($params['filter'] as $field => $fieldValue)
-		   	{
-		    	$conditions[] = $q->expr->eq( $field, $fieldValue );
-		   	}
+        $pendingUpdate = false;
+        foreach ($movePhotos as $photoAttr) {
+            if ($this->{$photoAttr.'_pending'} == true) {
+                $this->movePhoto($photoAttr);
+                $pendingUpdate = true;
+            }
+        }
 
-	   		$q->where( $conditions );
-		}
-
-		$stmt = $q->prepare();
-		$stmt->execute();
-		$result = $stmt->fetchColumn();
-
-		return $result;
-	}
+        if ($pendingUpdate == true) {
+            $this->updateThis();
+        }
+    }
 
 	public function __get($var)
 	{
@@ -284,6 +275,7 @@ class erLhAbstractModelWidgetTheme {
                return $this->replace_array;
                break;
 
+	   	case 'notification_icon_url':
 	   	case 'logo_image_url':
 	   	case 'minimize_image_url':
 	   	case 'restore_image_url':
@@ -297,7 +289,7 @@ class erLhAbstractModelWidgetTheme {
 	   	       $attr = str_replace('_url', '', $var);	   	       	   	       
 	   	       $this->$var = false;	   	        
 	   	       if ($this->$attr != ''){
-	   	           $this->$var =  ($this->{$attr.'_path'} != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->{$attr.'_path'} . $this->$attr;
+	   	           $this->$var =  ($this->{$attr.'_path'} != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) . '/' . $this->{$attr.'_path'} . $this->$attr;
 	   	       }	   	        
 	   	       return $this->$var;
 	   	    break;
@@ -320,18 +312,42 @@ class erLhAbstractModelWidgetTheme {
 	   			return $this->$var;
 	   		break;
 
+       case 'notification_icon':
+       case 'notification_icon_path':
+           $configurationArray = $this->notification_configuration_array;
+           if (isset($configurationArray[$var]) && $configurationArray[$var] != '') {
+               $this->$var = $configurationArray[$var];
+           } else {
+               $this->$var = '';
+           }
+           return $this->$var;
+           break;
+
+       case 'notification_icon_url_img':
+           $attr = str_replace('_url_img', '', $var);
+           $configurationArray = $this->notification_configuration_array;
+           if (isset($configurationArray[$attr]) && $configurationArray[$attr] != '') {
+               $this->$var = '<img src="'.($this->{$attr.'_path'} != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->{$attr.'_path'} . $configurationArray[$attr].'"/>';
+           } else {
+               $this->$var = false;
+           }
+           return $this->$var;
+           break;
+
        case 'bot_configuration_array':
-           if (!empty($this->bot_configuration)) {
-               $jsonData = json_decode($this->bot_configuration,true);
+       case 'notification_configuration_array':
+           $attr = str_replace('_array','',$var);
+           if (!empty($this->{$attr})) {
+               $jsonData = json_decode($this->{$attr},true);
                if ($jsonData !== null) {
-                   $this->bot_configuration_array = $jsonData;
+                   $this->{$var} = $jsonData;
                } else {
-                   $this->bot_configuration_array = array();
+                   $this->{$var} = array();
                }
            } else {
-               $this->bot_configuration_array = array();
+               $this->{$var} = array();
            }
-           return $this->bot_configuration_array;
+           return $this->{$var};
            break;
 	   		
 	   	default:
@@ -339,22 +355,9 @@ class erLhAbstractModelWidgetTheme {
 	   }
 	}
 
-	public static function fetch($id)
-	{
-		if (isset($GLOBALS['erLhAbstractModelWidgetTheme_'.$id])) return $GLOBALS['erLhAbstractModelWidgetTheme_'.$id];
-
-		try {
-			$GLOBALS['erLhAbstractModelWidgetTheme_'.$id] = erLhcoreClassAbstract::getSession()->load( 'erLhAbstractModelWidgetTheme', (int)$id );
-		} catch (Exception $e) {
-			$GLOBALS['erLhAbstractModelWidgetTheme_'.$id] = false;
-		}
-
-		return $GLOBALS['erLhAbstractModelWidgetTheme_'.$id];
-	}
-
-	public function removeThis()
-	{
-	    $imagesToRemove = array(
+	public function beforeRemove()
+    {
+        $imagesToRemove = array(
             'online_image',
             'offline_image',
             'logo_image',
@@ -366,77 +369,17 @@ class erLhAbstractModelWidgetTheme {
             'close_image',
             'popup_image'
         );
-	    
-	    foreach ($imagesToRemove as $img) {
-	        $this->deletePhoto($img);
-	    }
-		
-		erLhcoreClassAbstract::getSession()->delete($this);
-	}
 
-	public static function getList($paramsSearch = array())
-   	{
-       	$paramsDefault = array('limit' => 500, 'offset' => 0);
+        foreach ($imagesToRemove as $img) {
+            $this->deletePhoto($img);
+        }
+    }
 
-       	$params = array_merge($paramsDefault,$paramsSearch);
-
-       	$session = erLhcoreClassAbstract::getSession();
-
-       	$q = $session->createFindQuery( 'erLhAbstractModelWidgetTheme' );
-
-		$conditions = array();
-
-		if (isset($params['filter']) && count($params['filter']) > 0)
-		{
-			foreach ($params['filter'] as $field => $fieldValue)
-			{
-				$conditions[] = $q->expr->eq( $field, $fieldValue );
-			}
-		}
-
-		if (isset($params['filterin']) && count($params['filterin']) > 0)
-		{
-			foreach ($params['filterin'] as $field => $fieldValue)
-			{
-				$conditions[] = $q->expr->in( $field, $fieldValue );
-			}
-		}
-
-		if (isset($params['filterlt']) && count($params['filterlt']) > 0)
-		{
-			foreach ($params['filterlt'] as $field => $fieldValue)
-			{
-				$conditions[] = $q->expr->lt( $field, $fieldValue );
-			}
-		}
-
-		if (isset($params['filtergt']) && count($params['filtergt']) > 0)
-		{
-			foreach ($params['filtergt'] as $field => $fieldValue)
-			{
-				$conditions[] = $q->expr->gt( $field, $fieldValue );
-			}
-		}
-
-		if (count($conditions) > 0)
-		{
-			$q->where( $conditions );
-		}
-
-      	$q->limit($params['limit'],$params['offset']);
-
-      	$q->orderBy(isset($params['sort']) ? $params['sort'] : 'id ASC' );
-
-       	$objects = $session->find( $q );
-
-    	return $objects;
-	}
-	
-	public function updateThis()
+    public function beforeUpdate()
     {
         $this->bot_configuration = json_encode($this->bot_configuration_array);
-		erLhcoreClassAbstract::getSession()->update($this);
-	}
+        $this->notification_configuration = json_encode($this->notification_configuration_array);
+    }
 
 	public function dependCss()
     {

@@ -130,7 +130,7 @@ if (trim($form->msg) != '')
     	        }
 
     	        // If chat is in bot mode and operators writes a message, accept a chat as operator.
-    	        if ($Chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
+    	        if ($Chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT && $messageUserId != -1) {
 
                     $userData = $currentUser->getUserData();
 
@@ -156,12 +156,10 @@ if (trim($form->msg) != '')
                         }
 
                         $options = $Chat->department->inform_options_array;
-                        erLhcoreClassChatWorkflow::chatAcceptedWorkflow(array('department' => $chat->department,'options' => $options),$Chat);
+                        erLhcoreClassChatWorkflow::chatAcceptedWorkflow(array('department' => $Chat->department,'options' => $options),$Chat);
                     }
                 }
 	        }
-
-
 
 	        if ($Chat->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) {
 	            
@@ -185,7 +183,8 @@ if (trim($form->msg) != '')
 	        
 	        echo erLhcoreClassChat::safe_json_encode(array('error' => 'false','r' => $returnBody)+ $customArgs);
 	        
-	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin',array('msg' => & $msg,'chat' => & $Chat));
+	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg,'chat' => & $Chat));
+
 	    } else {
 	        throw new Exception('You cannot read this chat!');
         }

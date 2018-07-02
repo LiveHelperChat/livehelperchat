@@ -26,6 +26,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -531,6 +539,10 @@
     </message>
     <message>
       <source>Name of the company</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status if customer is chatting with a bot</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1242,6 +1254,10 @@
     <message>
       <source>Type to search</source>
       <translation>Shtyp per te kerkuar</translation>
+    </message>
+    <message>
+      <source>Transfer to bot only if department is offline</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select bot</source>
@@ -2250,6 +2266,10 @@
       <translation>Chati i operatorit</translation>
     </message>
     <message>
+      <source>Bot chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Cancel</source>
       <translation>Anulo</translation>
     </message>
@@ -2957,7 +2977,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat was transferred to bot!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Button action could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trigger could not be found!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3209,6 +3237,10 @@
       <translation>Chati i operatoreve</translation>
     </message>
     <message>
+      <source>Bot chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>Nuk mund të zbulojë. Sigurohuni që zbulimi Gjeo është aktivizuar.</translation>
     </message>
@@ -3449,6 +3481,10 @@
     </message>
     <message>
       <source>Please enable bot chats list in your account!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort by close time</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3714,6 +3750,10 @@
   <context>
     <name>chat/checkchatstatus</name>
     <message>
+      <source>You are talking with out bot now.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>A support staff member has closed this chat</source>
       <translation>Një anëtar i personelit ndihmës e ka mbyllur këtë chat</translation>
     </message>
@@ -3885,6 +3925,14 @@
     </message>
     <message>
       <source>Edit nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Read more</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Typing...</source>
       <translation type="unfinished"/>
     </message>
     <message>

@@ -8,7 +8,11 @@
              <?php elseif ($item['type'] == 'trigger') : ?>
                 <button type="button" class="btn btn-xs btn-info btn-bot" onclick='lhinst.updateTriggerClicked(<?php echo json_encode($item['content']['payload'])?>,<?php echo $messageId?>,$(this))'><?php echo htmlspecialchars($item['content']['name'])?></button>
             <?php elseif ($item['type'] == 'updatechat') : ?>
-                <button type="button" class="btn btn-xs btn-info btn-bot" onclick='lhinst.updateChatClicked(<?php echo json_encode($item['content']['payload'])?>,<?php echo $messageId?>,$(this))'><?php echo htmlspecialchars($item['content']['name'])?></button>
+                <?php if ($item['content']['payload'] == 'subscribeToNotifications') : ?>
+                    <button type="button" class="btn btn-xs btn-info btn-bot" onclick='notificationsLHC.sendNotification()'><?php echo htmlspecialchars($item['content']['name'])?></button>
+                <?php else : ?>
+                    <button type="button" class="btn btn-xs btn-info btn-bot" onclick='lhinst.updateChatClicked(<?php echo json_encode($item['content']['payload'])?>,<?php echo $messageId?>,$(this))'><?php echo htmlspecialchars($item['content']['name'])?></button>
+                <?php endif; ?>
             <?php else : ?>
                 <button type="button" class="btn btn-xs btn-info btn-bot" onclick='lhinst.buttonClicked(<?php echo json_encode($item['content']['payload'])?>,<?php echo $messageId?>,$(this))'><?php echo htmlspecialchars($item['content']['name'])?></button>
             <?php endif?>

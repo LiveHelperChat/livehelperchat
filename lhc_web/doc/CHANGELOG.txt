@@ -1,3 +1,10 @@
+2.98v
+
+1. Web push notifications for visitors.
+2. Themes import allowed to upload php files. Security report by https://sentry.co.com
+
+execute doc/update_db/update_173.sql for update
+
 2.97v
 
 1. Option to set bot/trigger for proactive invitation.
