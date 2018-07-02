@@ -1,17 +1,16 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Subscribers list')?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/list','Subscribers list')?></h1>
 
 <?php if (isset($items)) : ?>
-
     <table class="table" cellpadding="0" cellspacing="0" width="100%">
         <thead>
         <tr>
-            <th nowrap="nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Chat ID');?></th>
-            <th nowrap="nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Department');?></th>
-            <th nowrap="nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Theme');?></th>
-            <th nowrap="nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Device');?></th>
-            <th nowrap="nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','IP');?></th>
-            <th nowrap="nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Registration time');?></th>
-            <th nowrap="nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Update time');?></th>
+            <th nowrap="nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notification/list','Chat ID');?></th>
+            <th nowrap="nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notification/list','Department');?></th>
+            <th nowrap="nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notification/list','Theme');?></th>
+            <th nowrap="nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notification/list','Device');?></th>
+            <th nowrap="nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notification/list','IP');?></th>
+            <th nowrap="nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notification/list','Registration time');?></th>
+            <th nowrap="nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notification/list','Update time');?></th>
             <th width="1%">&nbsp;</th>
             <th width="1%">&nbsp;</th>
         </tr>

@@ -34,8 +34,8 @@ $Result['content'] = $tpl->fetch();
 
 $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/new','System configuration')),
-    array('url' => erLhcoreClassDesign::baseurl('notifications/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('lhelasticsearch/module', 'Notifications')),
-    array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Subscribers list'))
+    array('url' => erLhcoreClassDesign::baseurl('notifications/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/list', 'Notifications')),
+    array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/list','Subscribers list'))
 );
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('notifications.list_path',array('result' => & $Result));

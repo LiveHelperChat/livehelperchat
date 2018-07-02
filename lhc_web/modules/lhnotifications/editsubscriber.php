@@ -61,9 +61,9 @@ $tpl->set('tab', '');
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
-    array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/edit','System configuration')),
-    array('url' => erLhcoreClassDesign::baseurl('notifications/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('lhelasticsearch/module', 'Notifications')),
-    array('url' => erLhcoreClassDesign::baseurl('notifications/list'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/edit','Subscribers list')),
+    array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System configuration')),
+    array('url' => erLhcoreClassDesign::baseurl('notifications/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/index', 'Notifications')),
+    array('url' => erLhcoreClassDesign::baseurl('notifications/list'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/index','Subscribers list')),
     array('title' => $subscriber->id));
 
 ?>

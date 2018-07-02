@@ -55,7 +55,5 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '' && $subscription 
     }
 }
 
-
-file_put_contents('cache/subscribe.json', $subscription);
 exit;
 ?>
