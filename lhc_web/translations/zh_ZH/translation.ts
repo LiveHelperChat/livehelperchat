@@ -26,6 +26,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>多少天投票窗口小部件不应扩大后最后的展示</translation>
     </message>
@@ -532,6 +540,10 @@
     <message>
       <source>Name of the company</source>
       <translation>公司名称</translation>
+    </message>
+    <message>
+      <source>Chat status if customer is chatting with a bot</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help header text</source>
@@ -1242,6 +1254,10 @@
     <message>
       <source>Type to search</source>
       <translation>要搜索的类型</translation>
+    </message>
+    <message>
+      <source>Transfer to bot only if department is offline</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select bot</source>
@@ -2250,6 +2266,10 @@
       <translation>经营者聊天</translation>
     </message>
     <message>
+      <source>Bot chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Cancel</source>
       <translation>取消</translation>
     </message>
@@ -2957,7 +2977,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat was transferred to bot!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Button action could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trigger could not be found!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3208,6 +3236,10 @@
       <translation>運營聊天</translation>
     </message>
     <message>
+      <source>Bot chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>無法檢測。確保啟用GEO檢測。</translation>
     </message>
@@ -3448,6 +3480,10 @@
     </message>
     <message>
       <source>Please enable bot chats list in your account!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort by close time</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3713,6 +3749,10 @@
   <context>
     <name>chat/checkchatstatus</name>
     <message>
+      <source>You are talking with out bot now.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>A support staff member has closed this chat</source>
       <translation>一个支持工作人员已经关闭了这个聊天</translation>
     </message>
@@ -3884,6 +3924,14 @@
     </message>
     <message>
       <source>Edit nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Read more</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Typing...</source>
       <translation type="unfinished"/>
     </message>
     <message>

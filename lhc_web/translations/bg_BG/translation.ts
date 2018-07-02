@@ -26,6 +26,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Колко дни след последното показване да не се показва приставката за гласуване?</translation>
     </message>
@@ -532,6 +540,10 @@
     <message>
       <source>Name of the company</source>
       <translation>Име на компанията</translation>
+    </message>
+    <message>
+      <source>Chat status if customer is chatting with a bot</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help header text</source>
@@ -1242,6 +1254,10 @@
     <message>
       <source>Type to search</source>
       <translation>Напишете тук, за да търсите</translation>
+    </message>
+    <message>
+      <source>Transfer to bot only if department is offline</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select bot</source>
@@ -2250,6 +2266,10 @@
       <translation>Чат оператори</translation>
     </message>
     <message>
+      <source>Bot chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Cancel</source>
       <translation>Отказване</translation>
     </message>
@@ -2957,7 +2977,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat was transferred to bot!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Button action could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trigger could not be found!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3208,6 +3236,10 @@
       <translation>Чат оператори</translation>
     </message>
     <message>
+      <source>Bot chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>Не бе открит. Проверете дали GEO проследяването е включено.</translation>
     </message>
@@ -3448,6 +3480,10 @@
     </message>
     <message>
       <source>Please enable bot chats list in your account!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort by close time</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3713,6 +3749,10 @@
   <context>
     <name>chat/checkchatstatus</name>
     <message>
+      <source>You are talking with out bot now.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>A support staff member has closed this chat</source>
       <translation>Оператор на e-2print затвори чата.</translation>
     </message>
@@ -3884,6 +3924,14 @@
     </message>
     <message>
       <source>Edit nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Read more</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Typing...</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8870,7 +8918,7 @@
     <name>user/forgotpasswordsent</name>
     <message>
       <source>Password reminder</source>
-      <translation>Подсказка за парола</translation>
+      <translation>Напомняне за парола</translation>
     </message>
     <message>
       <source>E-mail sent. Click the link in the email and You will be sent out a new password.</source>
@@ -9321,7 +9369,7 @@
     </message>
     <message>
       <source>Mail send</source>
-      <translation>Пощата е изпратена</translation>
+      <translation>Имейлът е изпратен</translation>
     </message>
     <message>
       <source>Page</source>
@@ -9337,7 +9385,7 @@
     </message>
     <message>
       <source>Chat content</source>
-      <translation>Чат съдържание</translation>
+      <translation>Съдържание на чата</translation>
     </message>
     <message>
       <source>User ID</source>

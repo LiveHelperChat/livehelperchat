@@ -26,6 +26,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -532,6 +540,10 @@
     <message>
       <source>Name of the company</source>
       <translation>Nome della compagnia (compare nel footer pop up)</translation>
+    </message>
+    <message>
+      <source>Chat status if customer is chatting with a bot</source>
+      <translation>Stato della chat se il visitatore sta chattando con il bot</translation>
     </message>
     <message>
       <source>Need help header text</source>
@@ -1243,6 +1255,10 @@
     <message>
       <source>Type to search</source>
       <translation>Digita per cercare</translation>
+    </message>
+    <message>
+      <source>Transfer to bot only if department is offline</source>
+      <translation>Trasferisci al bot solo se il dipartmento è offline</translation>
     </message>
     <message>
       <source>Select bot</source>
@@ -2251,6 +2267,10 @@
       <translation>Chat operatori</translation>
     </message>
     <message>
+      <source>Bot chat</source>
+      <translation>Bot chat</translation>
+    </message>
+    <message>
       <source>Cancel</source>
       <translation>Annulla</translation>
     </message>
@@ -2958,12 +2978,20 @@
       <translation>La chat è stata trasferita all&apos;operatore!</translation>
     </message>
     <message>
+      <source>Chat was transferred to bot!</source>
+      <translation>La chat è stata trasferita al bot!</translation>
+    </message>
+    <message>
       <source>Button action could not be found!</source>
-      <translation type="unfinished"/>
+      <translation>Il bottone azione non può essere trovato!</translation>
+    </message>
+    <message>
+      <source>Trigger could not be found!</source>
+      <translation>Trigger non può essere trovato</translation>
     </message>
     <message>
       <source>Update actions could not be found!</source>
-      <translation type="unfinished"/>
+      <translation>Le azioni di aggiornamento non possono essere trovate!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -3209,6 +3237,10 @@
       <translation>Chat operatore</translation>
     </message>
     <message>
+      <source>Bot chat</source>
+      <translation>Bot chat</translation>
+    </message>
+    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>NOn posso verificare. Assicurati che GEO verifica sia attiva.</translation>
     </message>
@@ -3450,6 +3482,10 @@
     <message>
       <source>Please enable bot chats list in your account!</source>
       <translation>Si prega di abilitare la lista chat bot nel proprio profilo!</translation>
+    </message>
+    <message>
+      <source>Sort by close time</source>
+      <translation>Ordinamento per tempo di chiusura</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -3714,6 +3750,10 @@
   <context>
     <name>chat/checkchatstatus</name>
     <message>
+      <source>You are talking with out bot now.</source>
+      <translation>Stai conversando con il bot.</translation>
+    </message>
+    <message>
       <source>A support staff member has closed this chat</source>
       <translation>Un membro del personale di supporto ha chiuso questa chat</translation>
     </message>
@@ -3886,6 +3926,14 @@
     <message>
       <source>Edit nick</source>
       <translation>Modificare il nome</translation>
+    </message>
+    <message>
+      <source>Read more</source>
+      <translation>Leggi di più</translation>
+    </message>
+    <message>
+      <source>Typing...</source>
+      <translation>Sta scrivendo...</translation>
     </message>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -9772,7 +9820,7 @@
     </message>
     <message>
       <source>with args</source>
-      <translation type="unfinished"/>
+      <translation>con args</translation>
     </message>
     <message>
       <source>Confirm</source>

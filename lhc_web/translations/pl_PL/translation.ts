@@ -26,6 +26,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Przez ile dni, od czasu ostatniego wyświetlenia, widżet głosowania ma się nie wyświetlać</translation>
     </message>
@@ -532,6 +540,10 @@
     <message>
       <source>Name of the company</source>
       <translation>Nazwa firmy</translation>
+    </message>
+    <message>
+      <source>Chat status if customer is chatting with a bot</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help header text</source>
@@ -1242,6 +1254,10 @@
     <message>
       <source>Type to search</source>
       <translation>Wpisz, aby wyszukać</translation>
+    </message>
+    <message>
+      <source>Transfer to bot only if department is offline</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select bot</source>
@@ -2250,6 +2266,10 @@
       <translation>Rozmowa operatora</translation>
     </message>
     <message>
+      <source>Bot chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Cancel</source>
       <translation>Anuluj</translation>
     </message>
@@ -2957,7 +2977,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat was transferred to bot!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Button action could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trigger could not be found!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3208,6 +3236,10 @@
       <translation>Konsultacje operatorów</translation>
     </message>
     <message>
+      <source>Bot chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>Nie można wykryć GEO. Upewnij się czy GEO jest włączone.</translation>
     </message>
@@ -3448,6 +3480,10 @@
     </message>
     <message>
       <source>Please enable bot chats list in your account!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort by close time</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3713,6 +3749,10 @@
   <context>
     <name>chat/checkchatstatus</name>
     <message>
+      <source>You are talking with out bot now.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>A support staff member has closed this chat</source>
       <translation>Pracownik wsparcia zamknął tą rozmowę</translation>
     </message>
@@ -3885,6 +3925,14 @@
     <message>
       <source>Edit nick</source>
       <translation>Edytuj nick</translation>
+    </message>
+    <message>
+      <source>Read more</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Typing...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat was automatically transferred to</source>

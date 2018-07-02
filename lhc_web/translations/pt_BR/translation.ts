@@ -26,6 +26,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por quantos dias o widget de votação não deve ser exibido após última exibição</translation>
     </message>
@@ -532,6 +540,10 @@
     <message>
       <source>Name of the company</source>
       <translation>Nome da empresa</translation>
+    </message>
+    <message>
+      <source>Chat status if customer is chatting with a bot</source>
+      <translation>Status do chat se o cliente estiver conversando com um robô</translation>
     </message>
     <message>
       <source>Need help header text</source>
@@ -1244,8 +1256,12 @@
       <translation>Digite para pesquisar</translation>
     </message>
     <message>
+      <source>Transfer to bot only if department is offline</source>
+      <translation>Tranferir para o robô apenas se o departamento estiver offline</translation>
+    </message>
+    <message>
       <source>Select bot</source>
-      <translation type="unfinished"/>
+      <translation>Selecionar robô</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1265,7 +1281,7 @@
     </message>
     <message>
       <source>Please choose</source>
-      <translation type="unfinished"/>
+      <translation>Por favor escolha</translation>
     </message>
     <message>
       <source>Exclude offline request from charts.</source>
@@ -2250,6 +2266,10 @@
       <translation>Chats dos operadores</translation>
     </message>
     <message>
+      <source>Bot chat</source>
+      <translation>Chat robô</translation>
+    </message>
+    <message>
       <source>Cancel</source>
       <translation>Cancelar</translation>
     </message>
@@ -2954,15 +2974,23 @@
     </message>
     <message>
       <source>Chat was transferred to operator!</source>
-      <translation type="unfinished"/>
+      <translation>Chat transferido para um operador!</translation>
+    </message>
+    <message>
+      <source>Chat was transferred to bot!</source>
+      <translation>Chat transferido para um robô!</translation>
     </message>
     <message>
       <source>Button action could not be found!</source>
-      <translation type="unfinished"/>
+      <translation>Ação do botão não foi encontrada!</translation>
+    </message>
+    <message>
+      <source>Trigger could not be found!</source>
+      <translation>Gatilho não foi encontrado!</translation>
     </message>
     <message>
       <source>Update actions could not be found!</source>
-      <translation type="unfinished"/>
+      <translation>Ações de atualização não foram encontradas!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -3208,6 +3236,10 @@
       <translation>Operadores de chat</translation>
     </message>
     <message>
+      <source>Bot chat</source>
+      <translation>Chat robô</translation>
+    </message>
+    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>Não pôde detectar. Certifique-se que a geolocalização está ativada.</translation>
     </message>
@@ -3448,7 +3480,11 @@
     </message>
     <message>
       <source>Please enable bot chats list in your account!</source>
-      <translation type="unfinished"/>
+      <translation>Por favor ative a lista de robôs de chat na sua conta!</translation>
+    </message>
+    <message>
+      <source>Sort by close time</source>
+      <translation>Ordenar por hora de encerramento</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -3713,6 +3749,10 @@
   <context>
     <name>chat/checkchatstatus</name>
     <message>
+      <source>You are talking with out bot now.</source>
+      <translation>Agora você está falando com nosso robô.</translation>
+    </message>
+    <message>
       <source>A support staff member has closed this chat</source>
       <translation>Um membro da equipe de suporte encerrou este chat</translation>
     </message>
@@ -3832,7 +3872,7 @@
     </message>
     <message>
       <source>Bot chats</source>
-      <translation type="unfinished"/>
+      <translation>Chats robô</translation>
     </message>
   </context>
   <context>
@@ -3885,6 +3925,14 @@
     <message>
       <source>Edit nick</source>
       <translation>Editar apelido</translation>
+    </message>
+    <message>
+      <source>Read more</source>
+      <translation>Leia mais</translation>
+    </message>
+    <message>
+      <source>Typing...</source>
+      <translation>Digitando...</translation>
     </message>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -4700,11 +4748,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>Robô</translation>
     </message>
     <message>
       <source>Bot list</source>
-      <translation type="unfinished"/>
+      <translation>Lista de robôs</translation>
     </message>
     <message>
       <source>Browse offers embed code</source>
@@ -5114,7 +5162,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Bot list</source>
-      <translation type="unfinished"/>
+      <translation>Lista de robôs</translation>
     </message>
   </context>
   <context>
@@ -5243,7 +5291,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Bot chats</source>
-      <translation type="unfinished"/>
+      <translation>Chats robô</translation>
     </message>
     <message>
       <source>Departments stats</source>
@@ -6132,7 +6180,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Bot chats list enabled</source>
-      <translation type="unfinished"/>
+      <translation>Lista de chats robô ativada</translation>
     </message>
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
@@ -6148,7 +6196,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Auto preload previous visitor chat messages</source>
-      <translation type="unfinished"/>
+      <translation>Carregar automaticamente as conversas anteriores do visitante</translation>
     </message>
     <message>
       <source>Maximum active chats</source>
@@ -9761,31 +9809,31 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>genericbot/list</name>
     <message>
       <source>Bot list</source>
-      <translation type="unfinished"/>
+      <translation>Lista de bots</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Novo</translation>
     </message>
     <message>
       <source>Could not call</source>
-      <translation type="unfinished"/>
+      <translation>Não foi possível chamar</translation>
     </message>
     <message>
       <source>with args</source>
-      <translation type="unfinished"/>
+      <translation>com argumentos</translation>
     </message>
     <message>
       <source>Confirm</source>
-      <translation type="unfinished"/>
+      <translation>Confirmar</translation>
     </message>
     <message>
       <source>Function is not callable</source>
-      <translation type="unfinished"/>
+      <translation>Função não disponível</translation>
     </message>
     <message>
       <source>Choose</source>
-      <translation type="unfinished"/>
+      <translation>Escolha</translation>
     </message>
   </context>
 </TS>
