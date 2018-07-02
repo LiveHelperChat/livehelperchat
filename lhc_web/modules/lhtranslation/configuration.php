@@ -39,6 +39,9 @@ if ( isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSettin
         'google_api_key' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
+        'google_referrer' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
     );
 
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -75,6 +78,12 @@ if ( isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSettin
 
     if ( $form->hasValidData( 'google_api_key' ) && $form->google_api_key != '') {
         $data['google_api_key'] = $form->google_api_key;
+    }
+
+    if ( $form->hasValidData( 'google_referrer' ) && $form->google_referrer != '') {
+        $data['google_referrer'] = $form->google_referrer;
+    } else {
+        $data['google_referrer'] = '';
     }
 
     $translationData->value = serialize($data);

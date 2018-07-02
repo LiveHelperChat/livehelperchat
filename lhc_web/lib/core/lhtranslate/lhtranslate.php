@@ -192,9 +192,9 @@ class erLhcoreClassTranslate
                     $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
                     
                     if ($msg->user_id == 0) {
-                        $msgTranslated = erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to);
+                        $msgTranslated = erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
                     } else { // Operator message
-                        $msgTranslated = erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale);
+                        $msgTranslated = erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
                     }
                     
                     $length += mb_strlen($msgTranslated);
@@ -426,7 +426,7 @@ class erLhcoreClassTranslate
             
             return erLhcoreClassTranslateBing::detectLanguage($translationData['bing_access_token'], $text);
         } elseif (isset($translationData['translation_handler']) && $translationData['translation_handler'] == 'google') {
-            return erLhcoreClassTranslateGoogle::detectLanguage($translationData['google_api_key'], $text);
+            return erLhcoreClassTranslateGoogle::detectLanguage($translationData['google_api_key'], $text, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
         }
     }
 
@@ -471,10 +471,10 @@ class erLhcoreClassTranslate
         } else {
             
             if ($translateFrom == false) {
-                $translateFrom = self::detectLanguage($text);
+                $translateFrom = self::detectLanguage($text, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
             }
             
-            return erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $text, $translateFrom, $translateTo);
+            return erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $text, $translateFrom, $translateTo, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
         }
     }
 

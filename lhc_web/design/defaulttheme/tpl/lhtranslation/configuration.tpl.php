@@ -92,6 +92,11 @@
 				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','API key, key is never shown for security purposes');?></label>
 				    <input class="form-control" type="text" name="google_api_key" value="" />
 				</div>
+
+				<div class="form-group">
+				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Set referrer, usefull if want to limit calls to specific referrer.');?></label>
+				    <input class="form-control" type="text" name="google_referrer" value="<?php (isset($translation_data['google_referrer']) && $translation_data['google_referrer'] != '') ? print htmlspecialchars($translation_data['google_referrer']) : print '' ?>" />
+				</div>
 																
 				<div class="btn-group" role="group" aria-label="...">
 				    <input type="submit" class="btn btn-default" name="StoreLanguageSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />

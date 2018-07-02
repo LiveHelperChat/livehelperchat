@@ -2,7 +2,7 @@
 
 class erLhcoreClassTranslateGoogle {
     
-        public static function executeRequest($url)
+        public static function executeRequest($url, $referer = '')
         {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
@@ -11,6 +11,11 @@ class erLhcoreClassTranslateGoogle {
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT , 5);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+
+            if ($referer != '') {
+                curl_setopt($ch, CURLOPT_REFERER, $referer);
+            }
+
             @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Some hostings produces wargning...
             return curl_exec($ch);
         }
@@ -28,7 +33,7 @@ class erLhcoreClassTranslateGoogle {
                 ]
         }
         } */
-        public static function detectLanguage($apiKey, $text)
+        public static function detectLanguage($apiKey, $text, $referer = '')
         {  
             if (empty($text)){
                 throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Missing text to translate'));
@@ -36,7 +41,7 @@ class erLhcoreClassTranslateGoogle {
             
             $url = "https://www.googleapis.com/language/translate/v2/detect?key={$apiKey}&q=".urlencode($text);
                                 
-            $rsp = self::executeRequest($url);
+            $rsp = self::executeRequest($url, $referer);
             
             $data = json_decode($rsp,true);
                         
@@ -56,11 +61,11 @@ class erLhcoreClassTranslateGoogle {
             ]
         }
         } */
-        public static function translate($apiKey, $word, $from, $to)
+        public static function translate($apiKey, $word, $from, $to, $referer = '')
         {            
             $url = "https://www.googleapis.com/language/translate/v2?key={$apiKey}&q=".urlencode($word)."&source={$from}&target={$to}&format=text";
             
-            $rsp = self::executeRequest($url);
+            $rsp = self::executeRequest($url, $referer);
             
             $data = json_decode($rsp,true);
             
