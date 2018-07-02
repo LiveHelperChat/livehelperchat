@@ -16,18 +16,16 @@
 			<a href="<?php echo erLhcoreClassDesign::baseurl('chat/reopen')?>/<?php echo $chat->id?>/<?php echo $chat->hash?><?php if ( isset($chat_widget_mode) && $chat_widget_mode == true ) : ?>/(mode)/widget<?php endif; ?><?php if ( isset($chat_embed_mode) && $chat_embed_mode == true ) : ?>/(embedmode)/embed<?php endif;?>" class="btn btn-default" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatnotexists','Resume chat');?></a>
 		<?php endif; ?>
 						
-		<?php if (!isset($paid_chat_params['allow_read']) || $paid_chat_params['allow_read'] == false) : ?>
+		<?php /*if (!isset($paid_chat_params['allow_read']) || $paid_chat_params['allow_read'] == false) : ?>
     		<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && ( (isset($chat_widget_mode) && $chat_widget_mode == true && $chat->time < time()-1800)) ) : ?>
     			<input type="button" class="btn btn-default mb10" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" />
     		<?php endif;?>
-		<?php endif;?>
+		<?php endif;*/?>
 		
 	</div>
 
 	<div class="col-xs-3 mb5">
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings.tpl.php'));?>
-
-        <button onclick="notificationsLHC.sendNotification()">Send notification</button>
 	</div>
 
 </div>
@@ -36,7 +34,7 @@
     $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT ||
     $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT ||
     $chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT ||
-    ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && $chat->time > time()-1800) ||
+    ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && $chat->last_op_msg_time > time()-1800) ||
     (isset($paid_chat_params['allow_read']) && $paid_chat_params['allow_read'] == true)) : ?>
     <div id="messages"<?php if (isset($fullheight) && $fullheight == true) : ?> class="fullheight"<?php endif ?>>
         <div id="messagesBlockWrap">

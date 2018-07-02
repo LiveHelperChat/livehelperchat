@@ -25,6 +25,7 @@
         		<li role="presentation"><a href="#customcontent" aria-controls="customcontent" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom content');?></a></li>
         		<li role="presentation"><a href="#customcss" aria-controls="customcss" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom CSS');?></a></li>
         		<li role="presentation"><a href="#custombot" aria-controls="custombot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom bot style');?></a></li>
+        		<li role="presentation"><a href="#customnotification" aria-controls="customnotification" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Notification');?></a></li>
         	</ul>
         
         	<!-- Tab panes -->
@@ -484,6 +485,25 @@
                     </div>
 
                 </div>
+
+                <div role="tabpanel" class="tab-pane" id="customnotification">
+
+                    <div class="form-group">
+                        <label><?php echo erLhcoreClassAbstract::renderInput('notification_enabled', $fields['notification_enabled'], $object)?><?php echo $fields['notification_enabled']['trans'];?></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label><?php echo $fields['ntitle']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('ntitle', $fields['ntitle'], $object)?>
+                    </div>
+
+                    <div class="form-group">
+                        <label><?php echo $fields['notification_icon']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('notification_icon', $fields['notification_icon'], $object)?>
+                    </div>
+
+                </div>
+
 
         	</div>
         </div>

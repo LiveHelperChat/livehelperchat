@@ -363,6 +363,20 @@ $fields = array(
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
    						)),
+                'notification_icon' => array(
+   						'type' => 'file',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Notification icon'),
+   						'required' => false,
+   						'hidden' => true,
+                        'main_attr' => 'notification_configuration_array',
+   						'frontend' => 'notification_icon_url_img',
+       				    'backend_call' => 'movePhoto',
+       				    'backend_call_param' => 'notification_icon',
+       				    'delete_call' => 'deletePhoto',
+       				    'delete_call_param' => 'notification_icon',
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
+   						)),
    				'offline_image' => array(
    						'type' => 'file',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Offline image'),
@@ -744,7 +758,26 @@ $fields = array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 )),
-
+                'notification_enabled' => array(
+                    'type' => 'checkbox',
+                    'main_attr' => 'notification_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Notifications enabled'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+                )),
+                'ntitle' => array(
+                    'type' => 'text',
+                    'main_attr' => 'notification_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Notification title'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
    		);
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('lhabstract.erlhabstractmodelwidgettheme.fields',array('fields' => & $fields));
 

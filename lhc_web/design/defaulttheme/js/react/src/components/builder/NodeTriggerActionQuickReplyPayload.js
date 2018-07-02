@@ -85,6 +85,7 @@ class NodeTriggerActionQuickReplyPayload extends Component {
                             <option value="">Select event</option>
                             <option value="transferToOperator">Transfer to operator</option>
                             <option value="transferToBot">Transfer to bot</option>
+                            <option value="subscribeToNotifications">Subscribe to notifications</option>
                         </select>
                     </div>
 

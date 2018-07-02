@@ -1064,6 +1064,14 @@ if ( window.addEventListener ){
     document.attachEvent("beforeunload", resetLHCRender);
 };
 
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.addEventListener('message', function(event) {
+        if (typeof event.data.lhc_ch !== 'undefined' && typeof event.data.lhc_cid !== 'undefined') {
+            lh_inst.readNotification(event.data.lhc_cid, event.data.lhc_ch);
+        }
+    });
+}
+
 <?php endif;exit; // Hide if offline ?>
 
 

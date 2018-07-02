@@ -17,6 +17,10 @@ var lh_inst_page  = {
     },
 	cookieData : {},
 
+    lang: '<?php echo erLhcoreClassSystem::instance()->WWWDirLang?>',
+
+    langDefault: '/<?php echo erLhcoreClassSystem::instance()->SiteAccess?>',
+
     hide : function() {
         var th = document.getElementsByTagName('head')[0];
         var s = document.createElement('script');
@@ -114,20 +118,26 @@ var lh_inst_page  = {
     	}
     },
 
-    showStartWindow : function() {
-		 var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
-         this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $theme !== false ? print '/(theme)/'.$theme : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : ''?>/(mode)/embed"+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions();
+    showStartWindow : function(url_to_open) {
 
-         var raw_css = "@media only screen and (max-device-width : 640px) { #lhc_status_container_page{position: fixed; overflow: hidden; right: 0px; left: 0px; top: 0px; bottom: 0px;} #lhc_status_container_page iframe{width:100% !important;height: 100%!important}}";
-         this.addCss(raw_css);
+        var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
 
-         this.iframe_html = '<iframe id="fdbk_iframe_page" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live Help')?>" allowTransparency="true" scrolling="no" class="loading" frameborder="0" ' +
+        if ( url_to_open != undefined ) {
+            this.initial_iframe_url = url_to_open+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+'&dt='+encodeURIComponent(document.title);
+        } else {
+            this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $theme !== false ? print '/(theme)/'.$theme : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : ''?>/(mode)/embed"+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions();
+        };
+
+        var raw_css = "@media only screen and (max-device-width : 640px) { #lhc_status_container_page{position: fixed; overflow: hidden; right: 0px; left: 0px; top: 0px; bottom: 0px;} #lhc_status_container_page iframe{width:100% !important;height: 100%!important}}";
+        this.addCss(raw_css);
+
+        this.iframe_html = '<iframe id="fdbk_iframe_page" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live Help')?>" allowTransparency="true" scrolling="no" class="loading" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
                        ' width="100%"' +
                        ' height="340"' +
                        ' style="width: 100%; height: 340px;"></iframe>';
 
-		  document.getElementById('lhc_status_container_page').innerHTML = this.iframe_html;
+		document.getElementById('lhc_status_container_page').innerHTML = this.iframe_html;
     },
 
 	storeSesCookie : function(){
@@ -171,7 +181,9 @@ var lh_inst_page  = {
     		<?php echo $chatOptionsVariablePage?>.callback[name](this);    	
     	}
     },
-    
+
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/functions/send_notification.tpl.php')); ?>
+
     handleMessage : function(e) {
         if (typeof e.data !== 'string') { return; }
     	var action = e.data.split(':')[0];
@@ -192,6 +204,9 @@ var lh_inst_page  = {
     		lh_inst_page.genericCallback(functionName);    	
     	} else if (action == 'lhc_close') {
     		lh_inst_page.hide();
+        } else if (action == 'lhc_notification') {
+            var parts = e.data.split(':');
+            lh_inst_page.sendNotification(parts);
     	} else if (action == 'lhc_chat_closed_explicit') {
     		lh_inst_page.hide();
     	} <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/handlemessageembed_multiinclude.tpl.php')); ?>
@@ -216,6 +231,14 @@ if ( window.addEventListener ){
 };
 
 lh_inst_page.showStartWindow();
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.addEventListener('message', function(event) {
+        if (typeof event.data.lhc_ch !== 'undefined' && typeof event.data.lhc_cid !== 'undefined') {
+            lh_inst_page.readNotification(event.data.lhc_cid, event.data.lhc_ch);
+        }
+    });
+}
 
 <?php endif;
 exit;?>
