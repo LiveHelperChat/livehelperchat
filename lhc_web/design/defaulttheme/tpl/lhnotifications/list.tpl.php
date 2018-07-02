@@ -52,5 +52,3 @@
     <?php endif;?>
 
 <?php endif; ?>
-
-<a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/new')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','New')?></a>
