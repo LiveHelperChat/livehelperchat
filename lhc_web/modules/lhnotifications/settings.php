@@ -107,6 +107,10 @@ if ( isset($_POST['StoreOptions']) ) {
     $nSettings->identifier = 'notifications_settings';
     $nSettings->value = serialize($data);
     $nSettings->saveThis();
+    
+    // Cleanup cache to recompile templates etc.
+    $CacheManager = erConfigClassLhCacheConfig::getInstance();
+    $CacheManager->expireCache();
 
     $tpl->set('updated','done');
 }
