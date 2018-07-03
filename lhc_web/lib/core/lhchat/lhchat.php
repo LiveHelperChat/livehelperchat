@@ -112,7 +112,6 @@ class erLhcoreClassChat {
         
         $filter = array();
         $filter['filterin'] = array('status' => array(0,1));
-        $filter['use_index'] = 'status';
 
         if ($limitation !== true) {
             $filter['customfilter'][] = $limitation;
