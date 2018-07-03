@@ -341,6 +341,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  KEY `unread_operator` (`has_unread_op_messages`,`unread_op_messages_informed`),
 				  KEY `user_id_sender_user_id` (`user_id`,`sender_user_id`),
 				  KEY `sender_user_id` (`sender_user_id`),
+				  KEY `anonymized` (`anonymized`),
 				  KEY `status` (`status`),
 				  KEY `dep_id_status` (`dep_id`,`status`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
