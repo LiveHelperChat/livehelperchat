@@ -8265,9 +8265,11 @@
     			"unread_operator" : "ALTER TABLE `lh_chat` ADD INDEX `unread_operator` (`has_unread_op_messages`, `unread_op_messages_informed`);",
     			"user_id_sender_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `user_id_sender_user_id` (`user_id`, `sender_user_id`);",
     			"sender_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `sender_user_id` (`sender_user_id`);",
-    			"anonymized" : "ALTER TABLE `lh_chat` ADD INDEX `anonymized` (`anonymized`);"
+    			"anonymized" : "ALTER TABLE `lh_chat` ADD INDEX `anonymized` (`anonymized`);",
+    			"dep_id_status" : "ALTER TABLE `lh_chat` ADD INDEX `dep_id_status` (`dep_id`,`status`);",
+    			"status" : "ALTER TABLE `lh_chat` ADD INDEX `status` (`status`);"
     		},
-    		"old" : ["user_id"]
+    		"old" : ["user_id","status_dep_id_id"]
     	},
     	"lh_users" : {
     		"new" : {"rec_per_req" : "ALTER TABLE `lh_users` ADD INDEX `rec_per_req` (`rec_per_req`);"},

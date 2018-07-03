@@ -75,6 +75,7 @@ class erLhcoreClassChat {
 
     	$filter = array();
     	$filter['filter'] = array('status' => 0);
+        $filter['use_index'] = 'status';
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
@@ -111,7 +112,8 @@ class erLhcoreClassChat {
         
         $filter = array();
         $filter['filterin'] = array('status' => array(0,1));
-        
+        $filter['use_index'] = 'status';
+
         if ($limitation !== true) {
             $filter['customfilter'][] = $limitation;
         }
@@ -137,10 +139,10 @@ class erLhcoreClassChat {
 
     	$filter = array();
     	$filter['filter'] = array('status' => 0);
+        $filter['use_index'] = 'status';
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'status_dep_id_id';
     	}
 
     	if (!empty($filterAdditional)) {
@@ -154,6 +156,7 @@ class erLhcoreClassChat {
     {
     	$filter = array();
     	$filter['filter'] = array('status' => 0);
+        $filter['use_index'] = 'status';
 
     	if ($department !== false && is_numeric($department)) {
     		$filter['filter']['dep_id'] = $department;
@@ -554,10 +557,10 @@ class erLhcoreClassChat {
 
     	$filter = array();
     	$filter['filter'] = array('status' => 1);
+        $filter['use_index'] = 'status';
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'status_dep_id_id';
     	}
 
     	$filter['limit'] = $limit;
@@ -580,10 +583,10 @@ class erLhcoreClassChat {
 
     	$filter = array();
     	$filter['filter'] = array('status' => 1);
+        $filter['use_index'] = 'status';
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'status_dep_id_id';
     	}
 
     	if (!empty($filterAdditional)) {
@@ -602,10 +605,10 @@ class erLhcoreClassChat {
 
     	$filter = array();
     	$filter['filter'] = array('status' => 2);
+        $filter['use_index'] = 'status';
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'status_dep_id_id';
     	}
 
     	$filter['limit'] = $limit;
@@ -628,10 +631,10 @@ class erLhcoreClassChat {
 
     	$filter = array();
     	$filter['filter'] = array('status' => 5);
+        $filter['use_index'] = 'status';
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'status_dep_id_id';
     	}
 
     	$filter['limit'] = $limit;
@@ -654,10 +657,10 @@ class erLhcoreClassChat {
 
     	$filter = array();
     	$filter['filter'] = array('status' => 2);
+        $filter['use_index'] = 'status';
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'status_dep_id_id';
     	}
 
     	if (!empty($filterAdditional)) {
@@ -676,10 +679,10 @@ class erLhcoreClassChat {
 
     	$filter = array();
     	$filter['filter'] = array('status' => 4);
+        $filter['use_index'] = 'status';
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'status_dep_id_id';
     	}
 
     	$filter['limit'] = $limit;
@@ -702,10 +705,10 @@ class erLhcoreClassChat {
 
     	$filter = array();
     	$filter['filter'] = array('status' => 4);
+        $filter['use_index'] = 'status';
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'status_dep_id_id';
     	}
 
     	if (!empty($filterAdditional)) {
@@ -1300,9 +1303,9 @@ class erLhcoreClassChat {
    public static function updateDepartmentStats($dep) {
        $db = ezcDbInstance::get();
        $stmt = $db->prepare('UPDATE lh_departament SET active_chats_counter = :active_chats_counter, pending_chats_counter = :pending_chats_counter, closed_chats_counter = :closed_chats_counter WHERE id = :id');
-       $stmt->bindValue(':active_chats_counter',erLhcoreClassChat::getCount(array('filter' => array('dep_id' => $dep->id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))),PDO::PARAM_INT);
-       $stmt->bindValue(':pending_chats_counter',erLhcoreClassChat::getCount(array('filter' => array('dep_id' => $dep->id, 'status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))),PDO::PARAM_INT);
-       $stmt->bindValue(':closed_chats_counter',erLhcoreClassChat::getCount(array('filter' => array('dep_id' => $dep->id, 'status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT))),PDO::PARAM_INT);
+       $stmt->bindValue(':active_chats_counter',erLhcoreClassChat::getCount(array('use_index' => 'dep_id_status','filter' => array('dep_id' => $dep->id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))),PDO::PARAM_INT);
+       $stmt->bindValue(':pending_chats_counter',erLhcoreClassChat::getCount(array('use_index' => 'dep_id_status','filter' => array('dep_id' => $dep->id, 'status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))),PDO::PARAM_INT);
+       $stmt->bindValue(':closed_chats_counter',erLhcoreClassChat::getCount(array('use_index' => 'dep_id_status','filter' => array('dep_id' => $dep->id, 'status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT))),PDO::PARAM_INT);
        $stmt->bindValue(':id',$dep->id,PDO::PARAM_INT);
        $stmt->execute();
        
