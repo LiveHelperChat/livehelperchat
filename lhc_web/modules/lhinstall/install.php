@@ -334,19 +334,15 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `nc_cb_executed` tinyint(1) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `status_user_id` (`status`,`user_id`),
-				  KEY `user_id_sender_user_id` (`user_id`, `sender_user_id`),
 				  KEY `unanswered_chat` (`unanswered_chat`),
-				  KEY `sender_user_id` (`sender_user_id`),
 				  KEY `online_user_id` (`online_user_id`),
 				  KEY `dep_id` (`dep_id`),
-				  KEY `anonymized` (`anonymized`),
 				  KEY `product_id` (`product_id`),
-        	   	  KEY `unread_operator` (`has_unread_op_messages`, `unread_op_messages_informed`),
-				  KEY `has_unread_messages_dep_id_id` (`has_unread_messages`,`dep_id`,`id`),
+				  KEY `unread_operator` (`has_unread_op_messages`,`unread_op_messages_informed`),
+				  KEY `user_id_sender_user_id` (`user_id`,`sender_user_id`),
+				  KEY `sender_user_id` (`sender_user_id`),
 				  KEY `status` (`status`),
-				  KEY `dep_id_status` (`dep_id`,`status`),
-        	   	  KEY `status_dep_id_priority_id` (`status`,`dep_id`,`priority`,`id`),
-        	   	  KEY `status_priority_id` (`status`,`priority`,`id`)
+				  KEY `dep_id_status` (`dep_id`,`status`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_blocked_user` (

@@ -8262,12 +8262,16 @@
     		"new" : {
     			"unanswered_chat" : "ALTER TABLE `lh_chat` ADD INDEX `unanswered_chat` (`unanswered_chat`);", 
     			"product_id" : "ALTER TABLE `lh_chat` ADD INDEX `product_id` (`product_id`);",
+    			"dep_id" : "ALTER TABLE `lh_chat` ADD INDEX `dep_id` (`dep_id`);",
+    			"online_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `dep_id` (`online_user_id`);",
     			"unread_operator" : "ALTER TABLE `lh_chat` ADD INDEX `unread_operator` (`has_unread_op_messages`, `unread_op_messages_informed`);",
-    			"user_id_sender_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `user_id_sender_user_id` (`user_id`, `sender_user_id`);",
+                "user_id_sender_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `user_id_sender_user_id` (`user_id`, `sender_user_id`);",
     			"sender_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `sender_user_id` (`sender_user_id`);",
     			"anonymized" : "ALTER TABLE `lh_chat` ADD INDEX `anonymized` (`anonymized`);",
     			"dep_id_status" : "ALTER TABLE `lh_chat` ADD INDEX `dep_id_status` (`dep_id`,`status`);",
-    			"status" : "ALTER TABLE `lh_chat` ADD INDEX `status` (`status`);"
+    			"status" : "ALTER TABLE `lh_chat` ADD INDEX `status` (`status`);",
+    			"status_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `status_user_id` (`status`,`user_id`);",
+    			"unread_operator" : "ALTER TABLE `lh_chat` ADD INDEX `unread_operator` (`has_unread_op_messages`, `unread_op_messages_informed`);"
     		},
     		"old" : ["user_id","status_dep_id_id"]
     	},
