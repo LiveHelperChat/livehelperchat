@@ -458,6 +458,7 @@ class erLhAbstractModelWidgetTheme {
 	public $pending_join = '';
 	public $noonline_operators = '';
 	public $noonline_operators_offline = '';
+	public $notification_configuration = '';
 
 	public $bot_configuration = '';
 
