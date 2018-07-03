@@ -8263,7 +8263,7 @@
     			"unanswered_chat" : "ALTER TABLE `lh_chat` ADD INDEX `unanswered_chat` (`unanswered_chat`);", 
     			"product_id" : "ALTER TABLE `lh_chat` ADD INDEX `product_id` (`product_id`);",
     			"dep_id" : "ALTER TABLE `lh_chat` ADD INDEX `dep_id` (`dep_id`);",
-    			"online_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `dep_id` (`online_user_id`);",
+    			"online_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `online_user_id` (`online_user_id`);",
     			"unread_operator" : "ALTER TABLE `lh_chat` ADD INDEX `unread_operator` (`has_unread_op_messages`, `unread_op_messages_informed`);",
                 "user_id_sender_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `user_id_sender_user_id` (`user_id`, `sender_user_id`);",
     			"sender_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `sender_user_id` (`sender_user_id`);",
