@@ -8273,7 +8273,7 @@
     			"status_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `status_user_id` (`status`,`user_id`);",
     			"unread_operator" : "ALTER TABLE `lh_chat` ADD INDEX `unread_operator` (`has_unread_op_messages`, `unread_op_messages_informed`);"
     		},
-    		"old" : ["user_id","status_dep_id_id"]
+    		"old" : ["user_id","status_dep_id_id","status_dep_id_priority_id","status_priority_id","has_unread_messages_dep_id_id"]
     	},
     	"lh_users" : {
     		"new" : {"rec_per_req" : "ALTER TABLE `lh_users` ADD INDEX `rec_per_req` (`rec_per_req`);"},
