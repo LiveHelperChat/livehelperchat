@@ -1832,12 +1832,48 @@ class erLhcoreClassChat {
 
        $ids = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
+       $activeChats = null;
+       $pendingChats = null;
+       $inactiveChats = null;
+
        if (!empty($ids)) {
-           $stmt = $db->prepare('UPDATE lh_userdep SET active_chats = :active_chats, pending_chats = :pending_chats, inactive_chats = :inactive_chats WHERE id IN (' . implode(',', $ids) . ');');
-           $stmt->bindValue(':active_chats',erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))),PDO::PARAM_INT);
-           $stmt->bindValue(':pending_chats',erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))),PDO::PARAM_INT);
-           $stmt->bindValue(':inactive_chats',erLhcoreClassChat::getCount(array('filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_PENDING_CHAT, erLhcoreClassModelChat::STATUS_ACTIVE_CHAT),'status_sub' => array(erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT,erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW)), 'filter' => array('user_id' => $user_id))),PDO::PARAM_INT);
-           $stmt->execute();
+
+           // Try 3 times to update table
+           for ($i = 0; $i < 3; $i++)
+           {
+               try {
+
+                   if ($activeChats === null){
+                       $activeChats = erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)));
+                   }
+
+                   if ($pendingChats === null) {
+                       $pendingChats = erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT)));
+                   }
+
+                   if ($inactiveChats === null) {
+                       $inactiveChats = erLhcoreClassChat::getCount(array('filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_PENDING_CHAT, erLhcoreClassModelChat::STATUS_ACTIVE_CHAT), 'status_sub' => array(erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW)), 'filter' => array('user_id' => $user_id)));
+                   }
+
+                   $stmt = $db->prepare('UPDATE lh_userdep SET active_chats = :active_chats, pending_chats = :pending_chats, inactive_chats = :inactive_chats WHERE id IN (' . implode(',', $ids) . ');');
+                   $stmt->bindValue(':active_chats',$activeChats,PDO::PARAM_INT);
+                   $stmt->bindValue(':pending_chats',$pendingChats,PDO::PARAM_INT);
+                   $stmt->bindValue(':inactive_chats',$inactiveChats,PDO::PARAM_INT);
+                   $stmt->execute();
+
+                   // Finish cycle
+                   break;
+
+               } catch (Exception $e) {
+                   if ($i == 2) { // It was last try
+                       erLhcoreClassLog::write($e->getMessage() . "\n" . $e->getTraceAsString());
+                       error_log($e->getMessage() . "\n" . $e->getTraceAsString());
+                   } else {
+                       // Just sleep for fraction of second and try again
+                       usleep(150);
+                   }
+               }
+           }
        }
    }
    
