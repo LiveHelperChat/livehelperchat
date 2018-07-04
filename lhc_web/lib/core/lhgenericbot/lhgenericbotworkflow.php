@@ -524,7 +524,7 @@ class erLhcoreClassGenericBotWorkflow {
                     ) {
                         $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
                             'render' => $workflow->collected_data_array['collectable_options']['show_summary_callback'],
-                            'render_args' => array(),
+                            'render_args' => (isset($workflow->collected_data_array['collectable_options']['collection_argument']) ? $workflow->collected_data_array['collectable_options']['collection_argument'] : null),
                             'chat' => & $chat,
                             'workflow' => & $workflow,
                             'payload' => & $payload,

@@ -3,7 +3,7 @@
         <ul class="quick-replies list-unstyled">
             <?php foreach ($metaMessage as $item) : ?>
                 <li>
-                    <?php if (!isset($messagesStats) || $messagesStats['total_messages'] == $messagesStats['counter_messages']) : ?>
+                    <?php if ((!isset($item['editable']) || $item['editable'] == true) && (!isset($messagesStats) || $messagesStats['total_messages'] == $messagesStats['counter_messages'])) : ?>
                     <a class="meta-auto-hide" href="#" title="Edit this step" onclick="lhinst.editGenericStep(<?php echo $item['step']?>,<?php echo $messageId?>)">
                         <?php if (isset($metaMessageData['content']['collectable_options']['edit_image_url']) && !empty($metaMessageData['content']['collectable_options']['edit_image_url'])) : ?>
                             <img src="<?php echo htmlspecialchars($metaMessageData['content']['collectable_options']['edit_image_url'])?>" />

@@ -8268,6 +8268,7 @@
                 "user_id_sender_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `user_id_sender_user_id` (`user_id`, `sender_user_id`);",
     			"sender_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `sender_user_id` (`sender_user_id`);",
     			"anonymized" : "ALTER TABLE `lh_chat` ADD INDEX `anonymized` (`anonymized`);",
+    			"has_unread_messages" : "ALTER TABLE `lh_chat` ADD INDEX `has_unread_messages` (`has_unread_messages`);",
     			"dep_id_status" : "ALTER TABLE `lh_chat` ADD INDEX `dep_id_status` (`dep_id`,`status`);",
     			"status" : "ALTER TABLE `lh_chat` ADD INDEX `status` (`status`);",
     			"status_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `status_user_id` (`status`,`user_id`);",

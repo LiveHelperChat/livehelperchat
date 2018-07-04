@@ -504,7 +504,6 @@ class erLhcoreClassChat {
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'has_unread_messages_dep_id_id';
     	}
     	
     	// Give 5 seconds to operator to sync a chat and avoid annoying him
