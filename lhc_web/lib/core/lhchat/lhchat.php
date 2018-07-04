@@ -1856,9 +1856,9 @@ class erLhcoreClassChat {
                    }
 
                    $stmt = $db->prepare('UPDATE lh_userdep SET active_chats = :active_chats, pending_chats = :pending_chats, inactive_chats = :inactive_chats WHERE id IN (' . implode(',', $ids) . ');');
-                   $stmt->bindValue(':active_chats',$activeChats,PDO::PARAM_INT);
-                   $stmt->bindValue(':pending_chats',$pendingChats,PDO::PARAM_INT);
-                   $stmt->bindValue(':inactive_chats',$inactiveChats,PDO::PARAM_INT);
+                   $stmt->bindValue(':active_chats',(int)$activeChats,PDO::PARAM_INT);
+                   $stmt->bindValue(':pending_chats',(int)$pendingChats,PDO::PARAM_INT);
+                   $stmt->bindValue(':inactive_chats',(int)$inactiveChats,PDO::PARAM_INT);
                    $stmt->execute();
 
                    // Finish cycle
