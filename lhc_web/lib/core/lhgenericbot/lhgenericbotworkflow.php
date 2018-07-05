@@ -204,7 +204,6 @@ class erLhcoreClassGenericBotWorkflow {
 
     public static function processWorkflow($workflow, & $chat, $params = array())
     {
-
         $reprocess = false;
         try {
             $currentStep = $workflow->collected_data_array['current_step'];
@@ -506,12 +505,13 @@ class erLhcoreClassGenericBotWorkflow {
                 }
             }
 
-
             // There is more steps to proceed
             if (count($workflow->collected_data_array['steps']) >= $currentStepId+1 && isset($workflow->collected_data_array['steps'][$currentStepId+1]) && !in_array($workflow->status,array(erLhcoreClassModelGenericBotChatWorkflow::STATUS_CANCELED,erLhcoreClassModelGenericBotChatWorkflow::STATUS_EXPIRED))) {
                 $workflow->collected_data_array['current_step'] = $workflow->collected_data_array['steps'][$currentStepId+1];
                 $workflow->collected_data_array['step'] = $currentStepId+1;
+
                 erLhcoreClassGenericBotActionCollectable::processStep($chat, $workflow->collected_data_array['current_step']);
+               
             } else {
 
                 // Collected information should be confirmed by user
@@ -679,7 +679,7 @@ class erLhcoreClassGenericBotWorkflow {
                 self::sendAsBot($chat, $e->getMessage());
             }
 
-            if ($reprocess) {
+            if ($reprocess == true) {
                 erLhcoreClassGenericBotActionCollectable::processStep($chat, $workflow->collected_data_array['current_step'], $metaError);
             }
 

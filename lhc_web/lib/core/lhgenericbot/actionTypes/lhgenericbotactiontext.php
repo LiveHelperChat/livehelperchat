@@ -10,7 +10,41 @@ class erLhcoreClassGenericBotActionText {
 
         if (isset($action['content']['quick_replies']) && !empty($action['content']['quick_replies']))
         {
-            $metaMessage['content']['quick_replies'] = $action['content']['quick_replies'];
+
+            $quickReplies = array();
+
+            foreach ($action['content']['quick_replies'] as $quickReply) {
+
+                $validButton = true;
+
+                if (isset($quickReply['content']['render_precheck_function']) && $quickReply['content']['render_precheck_function'] != '') {
+
+                    $validationResult = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
+                        'render' => $quickReply['content']['render_precheck_function'],
+                        'render_args' => $quickReply['content']['render_args'],
+                        'chat' => & $chat,
+                    ));
+
+                    if ($validationResult !== false && isset($validationResult['content']['valid']) && $validationResult['content']['valid'] === false)
+                    {
+                        if (isset($validationResult['content']['hide_button']) && $validationResult['content']['hide_button'] == true) {
+                            $validButton = false;
+                        }
+
+                        if (isset($validationResult['content']['disable_button']) && $validationResult['content']['disable_button'] == true) {
+                            $quickReply['content']['disabled'] = true;
+                        }
+                    }
+                }
+
+                if ($validButton == true) {
+                    $quickReplies[] = $quickReply;
+                }
+            }
+
+            if (!empty($quickReplies)){
+                $metaMessage['content']['quick_replies'] = $quickReplies;
+            }
         }
 
         if (isset($action['content']['callback_list']) && !empty($action['content']['callback_list']))

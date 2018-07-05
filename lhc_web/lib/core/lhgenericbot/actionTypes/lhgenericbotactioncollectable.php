@@ -36,58 +36,86 @@ class erLhcoreClassGenericBotActionCollectable {
         if (isset($stepData['content']['message']) && !empty($stepData['content']['message'])) {
 
             $metaMessage = array();
+            $blockMeta = false;
 
-            if ($stepData['type'] == 'dropdown') {
 
-                $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
-                    'render' => $stepData['content']['provider_dropdown'],
-                    'render_args' => $stepData['content']['provider_argument'],
-                    'chat' => & $chat,
-                ));
-
-                if ($handler !== false && isset($handler['render']) && is_callable($handler['render']))
-                {
-                    $metaMessage['content']['dropdown'] = array(
-                        'provider_dropdown' => $handler['render'],
-                        'provider_id' => $stepData['content']['provider_id'],
-                        'provider_name' => $stepData['content']['provider_name'],
-                        'provider_arguments' => $handler['render_args'],
-                        'provider_default' => $stepData['content']['provider_default'],
-                    );
-                }
-            }
-
-            if ($stepData['type'] == 'buttons') {
-
-                $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
-                    'render' => $stepData['content']['render_function'],
+            if (isset($stepData['content']['render_precheck_function']) && $stepData['content']['render_precheck_function'] != '') {
+                $validationResult = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
+                    'render' => $stepData['content']['render_precheck_function'],
                     'render_args' => $stepData['content']['render_args'],
                     'chat' => & $chat,
                 ));
 
-                if ($handler !== false && isset($handler['render']) && is_callable($handler['render']))
-                {
-                    $metaMessage['content']['buttons'] = array(
-                        'render_function' => $handler['render'],
-                        'render_args' => $handler['render_args']
-                    );
+                if ($validationResult !== false && isset($validationResult['content']['valid']) && $validationResult['content']['valid'] === false) {
+
+                    if (isset($stepData['content']['message_precheck']) && $stepData['content']['message_precheck'] != '') {
+                        $stepData['content']['message'] = $stepData['content']['message_precheck'];
+                    } else if (isset($validationResult['content']['message']) && !empty($validationResult['content']['message'])){
+                        $stepData['content']['message'] = $validationResult['content']['message'];
+                    } else {
+                        $stepData['content']['message'] = 'Sorry bit we could not handle your request!';
+                    }
+
+                    if (isset($validationResult['content']['block_meta']) && $validationResult['content']['block_meta'] == true) {
+                        $blockMeta = true;
+                    }
+
+                    if (isset($validationResult['content']['params_exception'])) {
+                        $metaMessage = $validationResult['content']['params_exception'];
+                    }
                 }
             }
 
-            if ($stepData['type'] == 'custom') {
+            if ($blockMeta == false) {
+                if ($stepData['type'] == 'dropdown') {
 
-                $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
-                    'render' => $stepData['content']['render_function'],
-                    'render_args' => $stepData['content']['render_args'],
-                    'chat' => & $chat,
-                ));
+                    $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
+                        'render' => $stepData['content']['provider_dropdown'],
+                        'render_args' => $stepData['content']['provider_argument'],
+                        'chat' => & $chat,
+                    ));
 
-                if ($handler !== false && isset($handler['render']) && is_callable($handler['render']))
-                {
-                    $metaMessage['content']['custom'] = array(
-                        'render_function' => $handler['render'],
-                        'render_args' => $handler['render_args']
-                    );
+                    if ($handler !== false && isset($handler['render']) && is_callable($handler['render'])) {
+                        $metaMessage['content']['dropdown'] = array(
+                            'provider_dropdown' => $handler['render'],
+                            'provider_id' => $stepData['content']['provider_id'],
+                            'provider_name' => $stepData['content']['provider_name'],
+                            'provider_arguments' => $handler['render_args'],
+                            'provider_default' => $stepData['content']['provider_default'],
+                        );
+                    }
+                }
+
+                if ($stepData['type'] == 'buttons') {
+
+                    $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
+                        'render' => $stepData['content']['render_function'],
+                        'render_args' => $stepData['content']['render_args'],
+                        'chat' => & $chat,
+                    ));
+
+                    if ($handler !== false && isset($handler['render']) && is_callable($handler['render'])) {
+                        $metaMessage['content']['buttons'] = array(
+                            'render_function' => $handler['render'],
+                            'render_args' => $handler['render_args']
+                        );
+                    }
+                }
+
+                if ($stepData['type'] == 'custom') {
+
+                    $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
+                        'render' => $stepData['content']['render_function'],
+                        'render_args' => $stepData['content']['render_args'],
+                        'chat' => & $chat,
+                    ));
+
+                    if ($handler !== false && isset($handler['render']) && is_callable($handler['render'])) {
+                        $metaMessage['content']['custom'] = array(
+                            'render_function' => $handler['render'],
+                            'render_args' => $handler['render_args']
+                        );
+                    }
                 }
             }
 
