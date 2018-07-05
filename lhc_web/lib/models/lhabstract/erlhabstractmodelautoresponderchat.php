@@ -82,6 +82,7 @@ class erLhAbstractModelAutoResponderChat
 
                                 $msg = new erLhcoreClassModelmsg();
                                 $msg->msg = trim($this->auto_responder->{'timeout_message_' . $i});
+                                $msg->meta_msg = $this->auto_responder->getMeta($this->chat, 'pending');
                                 $msg->chat_id = $this->chat->id;
                                 $msg->name_support = $this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support');
                                 $msg->user_id = - 2;
@@ -163,6 +164,7 @@ class erLhAbstractModelAutoResponderChat
 
                                 $msg = new erLhcoreClassModelmsg();
                                 $msg->msg = trim($this->auto_responder->{'timeout_reply_message_' . $i});
+                                $msg->meta_msg = $this->auto_responder->getMeta($this->chat, 'nreply');
                                 $msg->chat_id = $this->chat->id;
                                 $msg->name_support = $this->chat->user !== false ? $this->chat->user->name_support : ($this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support'));
                                 $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
@@ -188,6 +190,7 @@ class erLhAbstractModelAutoResponderChat
 
                             $msg = new erLhcoreClassModelmsg();
                             $msg->msg = trim($this->auto_responder->{'timeout_hold_message_' . $i});
+                            $msg->meta_msg = $this->auto_responder->getMeta($this->chat, 'onhold');
                             $msg->chat_id = $this->chat->id;
                             $msg->name_support = $this->chat->user !== false ? $this->chat->user->name_support : ($this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support'));
                             $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;

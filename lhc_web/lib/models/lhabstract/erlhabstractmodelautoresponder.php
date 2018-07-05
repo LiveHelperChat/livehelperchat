@@ -63,8 +63,8 @@ class erLhAbstractModelAutoResponder {
 			'repeat_number'		=> $this->repeat_number,
 			'survey_timeout'	=> $this->survey_timeout,
 			'survey_id'		    => $this->survey_id,
-
-            'languages' => $this->languages,
+            'languages'         => $this->languages,
+            'bot_configuration' => $this->bot_configuration,
 		);
 
 		return $stateArray;
@@ -111,7 +111,22 @@ class erLhAbstractModelAutoResponder {
 	   	       }
 	   		   return $this->dep;
 	   		break;
-	   		
+
+        case 'bot_configuration_array':
+           $attr = str_replace('_array','',$var);
+           if (!empty($this->{$attr})) {
+               $jsonData = json_decode($this->{$attr},true);
+               if ($jsonData !== null) {
+                   $this->{$var} = $jsonData;
+               } else {
+                   $this->{$var} = array();
+               }
+           } else {
+               $this->{$var} = array();
+           }
+           return $this->{$var};
+           break;
+
 	   	case 'dep_frontend':
 	   	       $this->dep_frontend = $this->dep === false ? '-' : (string)$this->dep;
 	   		   return $this->dep_frontend;
@@ -135,6 +150,11 @@ class erLhAbstractModelAutoResponder {
 	   }
 	}
 
+    public function beforeUpdate()
+    {
+        $this->bot_configuration = json_encode($this->bot_configuration_array);
+    }
+
 	public static function processAutoResponder(erLhcoreClassModelChat $chat) {
 
 		$session = erLhcoreClassAbstract::getSession();
@@ -153,6 +173,32 @@ class erLhAbstractModelAutoResponder {
 
 		return false;
 	}
+
+	public function getMeta(& $chat, $type)
+    {
+        if (isset($this->bot_configuration_array[$type . '_bot_id']) && $this->bot_configuration_array[$type . '_bot_id'] > 0 &&
+            isset($this->bot_configuration_array[$type . '_trigger_id']) && $this->bot_configuration_array[$type . '_trigger_id'] > 0) {
+
+            $trigger = erLhcoreClassModelGenericBotTrigger::fetch($this->bot_configuration_array[$type . '_trigger_id']);
+
+            if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger,false, array('args' => array('do_not_save' => true)));
+
+                // Set chat bot
+                $variablesArray = $chat->chat_variables_array;
+
+                if (!isset($variablesArray['gbot_id'])){
+                    $variablesArray['gbot_id'] = $trigger->bot_id;
+                    $chat->chat_variables = json_encode($variablesArray);
+                    $chat->chat_variables_array = $variablesArray;
+                }
+
+                return $message->meta_msg;
+            }
+        }
+
+        return '';
+    }
 
 	public function dependFooterJs()
     {
@@ -335,6 +381,8 @@ class erLhAbstractModelAutoResponder {
 	public $wait_timeout_hold = '';
 
 	public $languages = '';
+
+	public $bot_configuration = '';
 
 	// Auto responder name
 	public $name = '';

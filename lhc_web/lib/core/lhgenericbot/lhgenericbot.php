@@ -23,6 +23,15 @@ class erLhcoreClassGenericBot {
             'Nick' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'attr_str_1' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'attr_str_2' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'attr_str_3' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
         );
 
         $form = new ezcInputForm( INPUT_POST, $definition );
@@ -38,6 +47,24 @@ class erLhcoreClassGenericBot {
             $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter bot nick!');
         } else {
             $bot->nick = $form->Nick;
+        }
+
+        if ( $form->hasValidData( 'attr_str_1' ) ) {
+            $bot->attr_str_1 = $form->attr_str_1;
+        } else {
+            $bot->attr_str_1 = '';
+        }
+
+        if ( $form->hasValidData( 'attr_str_2' ) ) {
+            $bot->attr_str_2 = $form->attr_str_2;
+        } else {
+            $bot->attr_str_2 = '';
+        }
+
+        if ( $form->hasValidData( 'attr_str_3' ) ) {
+            $bot->attr_str_3 = $form->attr_str_3;
+        } else {
+            $bot->attr_str_3 = '';
         }
 
         return $Errors;

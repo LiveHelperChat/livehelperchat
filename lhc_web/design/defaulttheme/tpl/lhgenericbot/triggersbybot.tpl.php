@@ -1,4 +1,4 @@
-<select name="AbstractInput_trigger_id" class="form-control" <?php if ($preview == true) : ?>onchange="renderPreview($(this))"<?php endif; ?> >
+<select name="AbstractInput_<?php echo htmlspecialchars($element)?>" class="form-control" <?php if ($preview == true) : ?>onchange="renderPreview($(this))"<?php endif; ?> >
     <?php foreach (erLhcoreClassModelGenericBotGroup::getList(array('filter' => array('bot_id' => $bot->id))) as $optGroup) : ?>
     <optgroup label="<?php echo htmlspecialchars($optGroup->name)?>">
         <?php foreach (erLhcoreClassModelGenericBotTrigger::getList(array('filter' => array('group_id' => $optGroup->id))) as $trigger) : ?>

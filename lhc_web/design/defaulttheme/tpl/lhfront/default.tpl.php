@@ -16,12 +16,14 @@
 
     $pendingTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_pending_list', 1);
     $activeTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_active_list', 1);
-    $closedTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_close_list', 0);
-    $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list', 1);
+
+    $closedTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_close_list', 0) && erLhcoreClassModelChatConfig::fetchCache('list_closed')->current_value == 1;
+
+    $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list', 0) && erLhcoreClassModelChatConfig::fetchCache('list_unread')->current_value == 1;
+
     $mchatsTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_mchats_list', 0);
     
     $frontTabsOrder = explode(',', erLhcoreClassModelChatConfig::fetch('front_tabs')->current_value);
-
     ?>
 
     <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/online_settings_general.tpl.php')); ?>

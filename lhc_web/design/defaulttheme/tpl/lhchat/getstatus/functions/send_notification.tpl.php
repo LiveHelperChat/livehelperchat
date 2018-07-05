@@ -89,12 +89,12 @@ sendNotification : function() {
             userVisibleOnly: true,
             applicationServerKey: applicationServerKey
         }).then(function(subscription) {
-            console.log('User just subscribed subscribed.');
+            <?php /*console.log('User just subscribed subscribed.');*/ ?>
             updateSubscriptionOnServer(subscription, true);
             that.isNotificationsSubscribed = true;
-            alert('You have subscribed!');
+            <?php /*alert('You have subscribed!');*/ ?>
         }).catch(function(err) {
-            console.log('Failed to subscribe the user: ', err);
+            <?php /*console.log('Failed to subscribe the user: ', err);*/ ?>
         });
     }
 
@@ -105,10 +105,10 @@ sendNotification : function() {
                 return subscription.unsubscribe();
             }
         }).catch(function(error) {
-            console.log('Error unsubscribing', error);
+            <?php /*console.log('Error unsubscribing', error);*/ ?>
         }).then(function() {
-            console.log('User is unsubscribed.');
-            alert('You have unsubscribed!');
+        <?php /*console.log('User is unsubscribed.');*/ ?>
+                alert('You have unsubscribed!');
             that.isNotificationsSubscribed = false;
         });
     }
@@ -128,21 +128,14 @@ sendNotification : function() {
 
     // At last, if the user has denied notifications, and you
     // want to be respectful there is no need to bother them any more.
-    if ('serviceWorker' in navigator && 'PushManager' in window) {
-        console.log('Service Worker and Push is supported');
-        navigator.serviceWorker.register('sw.lhc.js?v=2')
-        .then(function(swReg) {
-            console.log('Service Worker is registered', swReg);
-            swRegistration = swReg;
-            initializeUI();
-        })
-        .catch(function(error) {
-            console.error('Service Worker Error', error);
-        });
-    } else {
-        console.warn('Push messaging is not supported');
-    }
-
+    navigator.serviceWorker.register('sw.lhc.js?v=2')
+    .then(function(swReg) {
+        <?php /*console.log('Service Worker is registered', swReg);*/ ?>
+        swRegistration = swReg;
+        initializeUI();
+    }).catch(function(error) {
+        <?php /*console.error('Service Worker Error', error);*/ ?>
+    });
     <?php endif; ?>
 },
 

@@ -179,6 +179,11 @@ $def->properties['timeout_reply_message_5']->columnName   = 'timeout_reply_messa
 $def->properties['timeout_reply_message_5']->propertyName = 'timeout_reply_message_5';
 $def->properties['timeout_reply_message_5']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['bot_configuration'] = new ezcPersistentObjectProperty();
+$def->properties['bot_configuration']->columnName   = 'bot_configuration';
+$def->properties['bot_configuration']->propertyName = 'bot_configuration';
+$def->properties['bot_configuration']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 // Ignore pending and assigned chat.
 // Pending messages won't be send if chat is assigned
 $def->properties['ignore_pa_chat'] = new ezcPersistentObjectProperty();

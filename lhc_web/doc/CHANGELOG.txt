@@ -1,3 +1,18 @@
+2.99v
+
+1. New themes could not be saved.
+2. Updated GEO ip detection section. Freegeoip was retired by owner.
+3. Bot enhancements and subsciption integration.
+4. Auto responder can take bot trigger and send's it's meta data as additional data within message. Usefull if you want to show visitor Subscribe button.
+5. Performance improvements be refactoring lh_chat table indexes.
+6. Clicking subcribe button will show message in user messages window.
+7. Updating user statistic in high load environment causes table locks. Added retry to that part.
+8. Option to set referrer in google translations service integration.
+
+P.s I really need somehow find time document bot properly. So much now with it can be done...
+
+execute doc/update_db/update_174.sql for update
+
 2.98v
 
 1. Web push notifications for visitors.
