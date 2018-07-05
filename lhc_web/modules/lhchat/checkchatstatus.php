@@ -91,7 +91,9 @@ try {
     				}
     				
     			} else {
-    				erLhcoreClassChatWorkflow::autoAssign($chat,$department, array('user_init' => true));
+                    if (erLhcoreClassModelChatConfig::fetchCache('disable_live_autoassign')->current_value == 0) {
+    				    erLhcoreClassChatWorkflow::autoAssign($chat,$department, array('user_init' => true));
+                    }
     			}
     		}   		
     	}    	

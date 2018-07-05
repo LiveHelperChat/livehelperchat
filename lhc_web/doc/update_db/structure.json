@@ -7255,6 +7255,13 @@
                 "hidden": "0"
             },
             {
+                "identifier": "disable_live_autoassign",
+                "value": "0",
+                "type": "0",
+                "explain": "Disable live auto assign",
+                "hidden": "0"
+            },
+            {
                 "identifier": "default_admin_theme_id",
                 "value": "0",
                 "type": "0",
