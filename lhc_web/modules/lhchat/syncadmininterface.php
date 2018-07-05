@@ -27,9 +27,21 @@ $ReturnMessages = array();
 
 $pendingTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_pending_list',1);
 $activeTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_active_list',1);
-$closedTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);
+
+if (erLhcoreClassModelChatConfig::fetchCache('list_closed')->current_value == 1) {
+    $closedTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);
+} else {
+    $closedTabEnabled = 0;
+}
+
 $botTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_bot_list',0);
-$unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1);
+
+if (erLhcoreClassModelChatConfig::fetchCache('list_unread')->current_value == 1) {
+    $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list', 0);
+} else {
+    $unreadTabEnabled = 0;
+}
+
 $showAllPending = erLhcoreClassModelUserSetting::getSetting('show_all_pending',1);
 $showDepartmentsStats = $currentUser->hasAccessTo('lhuser','canseedepartmentstats');
 $showDepartmentsStatsAll = $currentUser->hasAccessTo('lhuser','canseealldepartmentstats');

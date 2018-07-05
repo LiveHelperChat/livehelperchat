@@ -120,7 +120,13 @@
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/text_chat_related.tpl.php'));?>
     		    <?php $attribute = 'list_online_operators';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    		    
+
+                <?php $attribute = 'list_closed';$boolValue = true;?>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
+                <?php $attribute = 'list_unread';$boolValue = true;?>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
     		    <?php $attribute = 'disable_popup_restore';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    

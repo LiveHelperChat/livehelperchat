@@ -9,6 +9,7 @@ class erLhcoreClassChatWorkflow {
     {
     	$msg = new erLhcoreClassModelmsg();
     	$msg->msg = trim($chat->auto_responder->auto_responder->timeout_message);
+        $msg->meta_msg = $chat->auto_responder->auto_responder->getMeta($chat, 'pending');
     	$msg->chat_id = $chat->id;
     	$operator = $chat->auto_responder->auto_responder->operator;
     	$msg->name_support = $operator != '' ? $operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');

@@ -81,3 +81,37 @@
 </div>
 
 </div>
+
+<script>
+$('select[name="AbstractInput_pending_bot_id"],select[name="AbstractInput_nreply_bot_id"],select[name="AbstractInput_onhold_bot_id"]').change(function(){
+    var identifier = $(this).attr('name').replace(/AbstractInput_|_bot_id/g,"");
+    $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $(this).val() + '/0/(preview)/1/(element)/'+identifier+'_trigger_id', { }, function(data) {
+        $('#'+identifier+'-trigger-list-id').html(data);
+        renderPreview($('select[name="AbstractInput_'+identifier+'_trigger_id"]'));
+    }).fail(function() {
+
+    });
+});
+
+$.each([ {'id':'pending','val' : <?php echo (isset($object->bot_configuration_array['pending_trigger_id'])) ? $object->bot_configuration_array['pending_trigger_id'] : 0 ?>}, {'id':'nreply','val':<?php echo (isset($object->bot_configuration_array['nreply_trigger_id'])) ? $object->bot_configuration_array['nreply_trigger_id'] : 0 ?>}, {'id':'onhold','val': <?php echo (isset($object->bot_configuration_array['onhold_trigger_id'])) ? $object->bot_configuration_array['onhold_trigger_id'] : 0 ?>}], function( index, value ) {
+    $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $('select[name="AbstractInput_'+value.id+'_bot_id"]').val() + '/'+value.val+'/(preview)/1/(element)/'+value.id+'_trigger_id', { }, function(data) {
+        $('#' + value.id +'-trigger-list-id').html(data);
+        if (parseInt(value.val) > 0){
+            renderPreview($('select[name="AbstractInput_' + value.id +'_trigger_id"]'));
+        }
+    }).fail(function() {
+
+    });
+});
+
+function renderPreview(inst) {
+
+    var identifier = inst.attr('name').replace(/AbstractInput_|_trigger_id/g,"");
+
+    $.get(WWW_DIR_JAVASCRIPT + 'theme/renderpreview/' + inst.val(), { }, function(data) {
+        $('#'+identifier+'-trigger-preview-window').html(data);
+    }).fail(function() {
+        $('#'+identifier+'-trigger-preview-window').html('');
+    });
+}
+</script>

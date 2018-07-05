@@ -2,6 +2,27 @@
 <label><?php echo erLhcoreClassAbstract::renderInput('ignore_pa_chat', $fields['ignore_pa_chat'], $object)?> <?php echo $fields['ignore_pa_chat']['trans'];?></label>
 </div>
 
+<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Choose what bot trigger element append after auto responder message')?></h4>
+
+<div class="row">
+    <div class="col-xs-6">
+        <div class="form-group">
+            <label><?php echo $fields['pending_bot_id']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('pending_bot_id', $fields['pending_bot_id'], $object)?>
+        </div>
+        <div class="form-group">
+            <label><?php echo $fields['pending_trigger_id']['trans'];?></label>
+            <div id="pending-trigger-list-id"></div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Preview')?></label>
+        <div id="pending-trigger-preview-window">
+
+        </div>
+    </div>
+</div>
+
 <div class="form-group">		
 <label><?php echo $fields['repeat_number']['trans'];?></label>
 <?php echo erLhcoreClassAbstract::renderInput('repeat_number', $fields['repeat_number'], $object)?>

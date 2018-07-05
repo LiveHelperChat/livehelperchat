@@ -14,18 +14,24 @@ foreach ($dashboardOrder as $widgetsColumn) {
     }
 }
 
-$supportedWidgets = array(
-    'online_operators' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Online operators'),
-    'active_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Active chats'),
-    'online_visitors' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Online visitors'),
-    'departments_stats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Departments stats'),
-    'pending_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Pending chats'),
-    'unread_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Unread chats'),
-    'transfered_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Transfered chats'),
-    'closed_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Closed chats'),
-    'my_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','My active and pending chats'),
-    'bot_chats' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Bot chats')
-);
+$supportedWidgets = array();
+$supportedWidgets['online_operators'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Online operators');
+$supportedWidgets['active_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Active chats');
+$supportedWidgets['online_visitors'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Online visitors');
+$supportedWidgets['departments_stats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Departments stats');
+$supportedWidgets['pending_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Pending chats');
+$supportedWidgets['transfered_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Transfered chats');
+
+if (erLhcoreClassModelChatConfig::fetchCache('list_unread')->current_value == 1) {
+    $supportedWidgets['unread_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Unread chats');
+}
+
+if (erLhcoreClassModelChatConfig::fetchCache('list_closed')->current_value == 1) {
+    $supportedWidgets['closed_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Closed chats');
+}
+
+$supportedWidgets['my_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','My active and pending chats');
+$supportedWidgets['bot_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Bot chats');
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.dashboardwidgets',array('supported_widgets' => & $supportedWidgets));
 
