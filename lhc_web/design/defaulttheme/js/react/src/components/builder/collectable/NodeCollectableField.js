@@ -31,12 +31,20 @@ class NodeCollectableField extends Component {
         this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content','render_function'], value : e.target.value});
     }
 
+    onChangePrecheckRenderFunction(e) {
+        this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content','render_precheck_function'], value : e.target.value});
+    }
+
     onChangeRenderArgs(e) {
         this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content','render_args'], value : e.target.value});
     }
 
     onChangeMessage(e) {
         this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content','message'], value : e.target.value});
+    }
+
+    onChangePrecheckMessage(e) {
+        this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content','message_precheck'], value : e.target.value});
     }
 
     onChangeAdditionalMessage(e) {
@@ -197,20 +205,26 @@ class NodeCollectableField extends Component {
                     <div className="row">
                         <div className="col-xs-6">
                             <div className="form-group">
-                                <label>Render event</label>
-                                <input className="form-control" type="text" onChange={this.onChangeRenderFunction.bind(this)} defaultValue={this.props.field.getIn(['content','render_function'])}/>
+                                <label>Precheck event</label>
+                                <input className="form-control" type="text" onChange={this.onChangePrecheckRenderFunction.bind(this)} defaultValue={this.props.field.getIn(['content','render_precheck_function'])}/>
                             </div>
                         </div>
                         <div className="col-xs-6">
                             <div className="form-group">
-                                <label>Arguments</label>
-                                <input className="form-control" type="text" onChange={this.onChangeRenderArgs.bind(this)} defaultValue={this.props.field.getIn(['content','render_args'])}/>
+                                <label>Render event</label>
+                                <input className="form-control" type="text" onChange={this.onChangeRenderFunction.bind(this)} defaultValue={this.props.field.getIn(['content','render_function'])}/>
                             </div>
                         </div>
                         <div className="col-xs-12">
                             <div className="form-group">
                                 <label>Validate event</label>
                                 <input className="form-control" type="text" onChange={this.onChangeRenderValidateFunction.bind(this)} defaultValue={this.props.field.getIn(['content','render_validate'])}/>
+                            </div>
+                        </div>
+                        <div className="col-xs-6">
+                            <div className="form-group">
+                                <label>Arguments</label>
+                                <input className="form-control" type="text" onChange={this.onChangeRenderArgs.bind(this)} defaultValue={this.props.field.getIn(['content','render_args'])}/>
                             </div>
                         </div>
                     </div>
@@ -223,6 +237,12 @@ class NodeCollectableField extends Component {
                             <div className="form-group">
                                 <label>Message to user</label>
                                 <textarea onChange={this.onChangeMessage.bind(this)} defaultValue={this.props.field.getIn(['content','message'])} className="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div className="col-xs-6">
+                            <div className="form-group">
+                                <label>If something wrong in precheck send this</label>
+                                <textarea onChange={this.onChangePrecheckMessage.bind(this)} defaultValue={this.props.field.getIn(['content','message_precheck'])} className="form-control"></textarea>
                             </div>
                         </div>
                         <div className="col-xs-6">

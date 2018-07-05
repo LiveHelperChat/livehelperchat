@@ -176,10 +176,19 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
 
             } elseif ($form->UseGeoIP == 'freegeoip') {
                 $data['geo_service_identifier'] = 'freegeoip';
-                $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('freegeoip',erLhcoreClassIPDetect::getServerAddress());
-                if ( $responseDetection == false || !isset($responseDetection->country_code) || !isset($responseDetection->country_name) ) {
-                    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Setting service provider failed, please check that your service provider allows you to make requests to remote pages!');
+                $data['freegeoip_key'] = isset($_POST['freegeoip_key']) ? $_POST['freegeoip_key'] : '';
+
+                if (empty($data['freegeoip_key'])) {
+                    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Please enter API Key!');
                 }
+
+                if (empty($Errors)){
+                    $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('freegeoip',erLhcoreClassIPDetect::getServerAddress(),$data);
+                    if ( $responseDetection == false || !isset($responseDetection->country_code) || !isset($responseDetection->country_name) ) {
+                        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Setting service provider failed, please check that your service provider allows you to make requests to remote pages!');
+                    }
+                }
+
             } elseif ($form->UseGeoIP == 'max_mind') {
                 $data['geo_service_identifier'] = 'max_mind';                
                 $data['max_mind_detection_type'] = $form->hasValidData('MaxMindDetectionType') ? $form->MaxMindDetectionType : 'city';

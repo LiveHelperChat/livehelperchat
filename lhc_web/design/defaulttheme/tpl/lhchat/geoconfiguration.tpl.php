@@ -32,7 +32,7 @@
 
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs" role="tablist">
-						<li role="presentation" class="<?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'freegeoip') ? print 'active' : ''?>"><a href="#freegeoip" aria-controls="freegeoip" role="tab" data-toggle="tab">http://freegeoip.net/static/index.html</a></li>
+						<li role="presentation" class="<?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'freegeoip') ? print 'active' : ''?>"><a href="#freegeoip" aria-controls="freegeoip" role="tab" data-toggle="tab">https://ipstack.com</a></li>
 						<li role="presentation" class="<?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'mod_geoip2') ? print 'active' : ''?>"><a href="#mod_geoip2" aria-controls="mod_geoip2" role="tab" data-toggle="tab">mod_geoip2</a></li>
 						<li role="presentation" class="<?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'max_mind') ? print 'active' : ''?>"><a href="#maxmind" aria-controls="maxmind" role="tab" data-toggle="tab">MaxMind</a></li>
 						<li role="presentation" class="<?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'php_geoip') ? print 'active' : ''?>"><a href="#phpgeoip" aria-controls="phpgeoip" role="tab" data-toggle="tab">PHP-GeoIP</a></li>
@@ -46,6 +46,14 @@
 						      <div class="form-group">
 						          <label><input type="radio" name="UseGeoIP" value="freegeoip" <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'freegeoip') ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Use this service'); ?></label> 
 						      </div>
+
+                            <p>Get API Key from - <a href="https://ipstack.com">https://ipstack.com</a></p>
+
+                              <div class="form-group">
+                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','API Key'); ?></label>
+                                    <input class="form-control" type="text" name="freegeoip_key" value="<?php isset($geo_data['freegeoip_key']) ? print $geo_data['freegeoip_key'] : print '' ?>">
+                              </div>
+
 						</div>
 						
 						<div role="tabpanel" class="tab-pane <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'mod_geoip2') ? print 'active' : ''?>" id="mod_geoip2">
