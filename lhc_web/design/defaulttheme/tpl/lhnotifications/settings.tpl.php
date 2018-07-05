@@ -14,7 +14,7 @@
 
     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','Explains were taken from:')?> <a target="_blank" href="https://web-push-book.gauntface.com/demos/notification-examples/">https://web-push-book.gauntface.com/demos/notification-examples/</a></p>
 
-    <p><a href="<?php echo erLhcoreClassDesign::baseurl('notifications/downloadworker')?>"><i class="material-icons">cloud_download</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','Download Service Worker')?></a> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','you will have to pus this file in your domain root folder.')?></p>
+    <p><a href="<?php echo erLhcoreClassDesign::baseurl('notifications/downloadworker')?>"><i class="material-icons">cloud_download</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','Download Service Worker')?></a> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','you will have to put this file in your domain root folder.')?></p>
 
     <div class="form-group">
         <label><input type="checkbox" value="on" name="enabled" <?php isset($n_settings['enabled']) && ($n_settings['enabled'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','Enable notifications')?></label><br/>

@@ -10143,7 +10143,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>you will have to pus this file in your domain root folder.</source>
+      <source>you will have to put this file in your domain root folder.</source>
       <translation type="unfinished"/>
     </message>
     <message>

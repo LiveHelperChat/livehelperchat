@@ -53,7 +53,7 @@ class erLhcoreClassGenericBotActionCollectable {
                     } else if (isset($validationResult['content']['message']) && !empty($validationResult['content']['message'])){
                         $stepData['content']['message'] = $validationResult['content']['message'];
                     } else {
-                        $stepData['content']['message'] = 'Sorry bit we could not handle your request!';
+                        $stepData['content']['message'] = 'Sorry but we could not handle your request!';
                     }
 
                     if (isset($validationResult['content']['block_meta']) && $validationResult['content']['block_meta'] == true) {
