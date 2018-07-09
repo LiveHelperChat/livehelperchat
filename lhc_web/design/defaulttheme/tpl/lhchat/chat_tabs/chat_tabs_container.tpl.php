@@ -18,7 +18,7 @@
 	    <?php if ( isset($fileData['active_admin_upload']) && $fileData['active_admin_upload'] == true && erLhcoreClassUser::instance()->hasAccessTo('lhfile','use_operator') ) : ?>
 	    <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_tab_user_files_tab.tpl.php'));?>	
 	    <?php endif; ?>
-	       <?php elseif ($tabItem == 'operator_screenshot_tab' && $canEditChat == true) : ?>
+	       <?php elseif ($tabItem == 'operator_screenshot_tab' && isset($canEditChat) && $canEditChat == true) : ?>
 	       <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/operator_screenshot_tab.tpl.php'));?>
 	       <?php elseif ($tabItem == 'footprint_tab_tab') : ?>
 	       <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/footprint_tab_tab.tpl.php')); ?>
