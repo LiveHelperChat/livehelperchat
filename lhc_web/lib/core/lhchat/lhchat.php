@@ -536,7 +536,6 @@ class erLhcoreClassChat {
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
-    		$filter['use_index'] = 'has_unread_messages_dep_id_id';
     	}
 
     	if (!empty($filterAdditional)) {
