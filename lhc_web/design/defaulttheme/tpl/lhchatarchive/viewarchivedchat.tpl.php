@@ -33,3 +33,4 @@
         <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/chat_tabs_container.tpl.php')); ?>
     </div>
 </div>
+<script>ee.emitEvent('adminArchiveChatLoaded', [<?php echo $archive->id?>,<?php echo $chat->id;?>]);</script>
