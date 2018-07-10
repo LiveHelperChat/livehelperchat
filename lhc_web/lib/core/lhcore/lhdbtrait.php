@@ -491,9 +491,9 @@ trait erLhcoreClassDBTrait {
 	
 	    if (is_array($pieces)) {
 	        reset($pieces);
-	        while (list ($key, $value) = each($pieces)) {
-	            $string .= $key.'_'.$glue . self::multi_implode($glue, $value, $key);
-	        }
+	        foreach ($pieces as $key => $value) {
+                $string .= $key.'_'.$glue . self::multi_implode($glue, $value, $key);
+            }
 	    } else {
 	        return "{$key}_{$pieces}";
 	    }

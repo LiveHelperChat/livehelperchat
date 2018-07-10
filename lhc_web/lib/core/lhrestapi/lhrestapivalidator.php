@@ -279,7 +279,13 @@ class erLhcoreClassRestAPIHandler
     
         return true;
     }
-    
+
+    public static function hasAccessToWrite($chat)
+    {
+        $dep = erLhcoreClassUserDep::getUserReadDepartments(self::$apiKey->user->id);
+        return !in_array($chat->dep_id, $dep);
+    }
+
     public static function hasAccessTo($module, $functions) 
     {
         $AccessArray = erLhcoreClassRole::accessArrayByUserID( self::$apiKey->user->id );
@@ -304,7 +310,17 @@ class erLhcoreClassRestAPIHandler
         
         return true;
     }
-    
+
+    public static function getUserId()
+    {
+        return self::$apiKey->user->id;
+    }
+
+    public static function getUser()
+    {
+        return self::$apiKey->user;
+    }
+
     /*
      * Departaments
      */

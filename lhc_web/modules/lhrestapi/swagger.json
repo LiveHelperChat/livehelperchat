@@ -323,6 +323,76 @@
         }
       }
     },
+    "/restapi/addmsgadmin": {
+      "post": {
+        "tags": [
+          "api"
+        ],
+        "summary": "Add message to chat as an admin",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "chat_id",
+            "in": "formData",
+            "description": "Chat ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "msg",
+            "in": "formData",
+            "description": "Message",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sender",
+            "in": "formData",
+            "description": "Sender - operator or bot is sending a message. On it depends how Live Helper Chat will change chat statuses.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "operator",
+              "bot"
+            ]
+          },
+          {
+            "name": "meta_msg",
+            "in": "formData",
+            "description": "Meta body for a message",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "operator_name",
+            "in": "formData",
+            "description": "Set custom operator name for a message",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Message added",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
     "/restapi/getuser": {
       "post": {
         "tags": [

@@ -107,6 +107,10 @@ $ViewList['addmsguser'] = array(
     'params' => array()
 );
 
+$ViewList['addmsgadmin'] = array(
+    'params' => array()
+);
+
 $ViewList['setnewvid'] = array(
     'params' => array()
 );
