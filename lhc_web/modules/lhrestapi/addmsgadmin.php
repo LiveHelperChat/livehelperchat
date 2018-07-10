@@ -85,7 +85,7 @@ try {
                     $msg->user_id = $messageUserId;
                     $msg->time = time();
 
-                    if ($form->hasInputField('meta_msg') && $form->meta_msg != '') {
+                    if ($form->hasValidData('meta_msg') && $form->meta_msg != '') {
                         $metaParts = json_decode($form->meta_msg,true);
                         // Parse meta message as it was bot message and store it within message
                         // We cannot store directly meta message content because it may contain callbacks which can be internal functions
@@ -111,7 +111,7 @@ try {
                         }
                     }
 
-                    if ($form->hasInputField('operator_name') && $form->operator_name != '') {
+                    if ($form->hasValidData('operator_name') && $form->operator_name != '') {
                         $msg->name_support = $form->operator_name;
                     } elseif ($form->sender == 'bot') {
 

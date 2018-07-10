@@ -663,6 +663,59 @@
         ]
       }
     },
+    "/restapi/isonlinechat/{chat_id}": {
+      "get": {
+        "tags": [
+          "online"
+        ],
+        "summary": "Check is user anyone from operators online for provided chat",
+        "description": "Returns status for particular user",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "chat_id",
+            "in": "path",
+            "description": "Chat ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "ignore_user_status",
+            "in": "query",
+            "description": "Ignore user status",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "exclude_bot",
+            "in": "query",
+            "description": "Exclude bot status",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
     "/restapi/groupsbyobject/{object_id}/{type}": {
       "get": {
         "tags": [
