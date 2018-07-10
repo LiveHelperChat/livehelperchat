@@ -111,6 +111,10 @@ $ViewList['addmsgadmin'] = array(
     'params' => array()
 );
 
+$ViewList['setchatstatus'] = array(
+    'params' => array()
+);
+
 $ViewList['setnewvid'] = array(
     'params' => array()
 );

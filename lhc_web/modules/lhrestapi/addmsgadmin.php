@@ -242,7 +242,7 @@ try {
                     }
                 }
 
-                echo erLhcoreClassChat::safe_json_encode(array('error' => 'false','r' => $returnBody)+ $customArgs);
+                echo erLhcoreClassChat::safe_json_encode(array('error' => false, 'result' => $returnBody)+ $customArgs);
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg,'chat' => & $Chat));
 
@@ -254,18 +254,26 @@ try {
 
         } catch (Exception $e) {
             http_response_code(400);
-            echo erLhcoreClassChat::safe_json_encode(array('error' => 'true', 'r' => $e->getMessage()));
+            echo erLhcoreClassRestAPIHandler::outputResponse(array(
+                'error' => true,
+                'result' => $e->getMessage()
+            ));
             $db->rollback();
         }
 
     } else {
         http_response_code(400);
-        echo erLhcoreClassChat::safe_json_encode(array('error' => 'true'));
+        echo erLhcoreClassRestAPIHandler::outputResponse(array(
+            'error' => true,
+            'result' => "Please enter a message!"
+        ));
     }
-
 } catch (Exception $e) {
     http_response_code(400);
-    echo erLhcoreClassChat::safe_json_encode(array('error' => 'true', 'r' => $e->getMessage()));
+    echo erLhcoreClassRestAPIHandler::outputResponse(array(
+        'error' => true,
+        'result' => $e->getMessage()
+    ));
 }
 
 exit;
