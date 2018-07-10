@@ -544,6 +544,13 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "name": "ignore_user_status",
+            "in": "query",
+            "description": "Ignore user status",
+            "required": false,
+            "type": "boolean"
+          }
         ],
         "responses": {
           "200": {
@@ -579,9 +586,23 @@
             "name": "department_id",
             "in": "path",
             "description": "Department ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
+          },
+          {
+            "name": "ignore_user_status",
+            "in": "query",
+            "description": "Ignore user status",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "exclude_bot",
+            "in": "query",
+            "description": "Exclude bot status",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
