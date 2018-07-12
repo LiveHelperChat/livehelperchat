@@ -9,12 +9,28 @@ var LHCCannedMessageAutoSuggest = (function() {
 		this.currentText = null;
 		this.currentKeword = null;
 
+		// Uppercase related
+		this.nextUppercase = false;
+		this.nextUppercasePos = 0;
+		this.nextUppercaseCallback = null;
+
+		// General one
 		var _that = this;
 		
 		this.textarea = jQuery('#CSChatMessage-'+this.chat_id);
 
 		this.textarea.bind('keyup', function (evt) {
-			
+
+            //console.log(_that.capitalizezeSentences(_that.textarea.val()));
+			if (_that.nextUppercase == true) {
+				clearTimeout(_that.nextUppercaseCallback);
+				_that.nextUppercaseCallback = setTimeout(function(){
+                    _that.capitalizeSentences(evt);
+				},50);
+			} else {
+                _that.capitalizeSentences(evt);
+			}
+
 			if (evt.key == '#' || evt.keyCode == 51 || evt.keyCode == 222) {	
 				_that.currentText = _that.textarea.val();				
 				_that.showSuggester();	
@@ -66,10 +82,59 @@ var LHCCannedMessageAutoSuggest = (function() {
 						evt.stopImmediatePropagation();
 					}
 				}
-			} 
+			}
 		});
 	}
-	
+
+    /*
+    * Capitalizes sentences.
+    * */
+    LHCCannedMessageAutoSuggest.prototype.capitalizeSentences = function(evt) {
+
+        var originalText = this.textarea.val();
+        var capText = originalText;
+        var caretPos = this.textarea[0].selectionStart;
+
+        if (evt.keyCode == 8 || evt.keyCode == 46) {
+            this.nextUppercase = false;
+            return;
+        }
+
+        // Replace very first character
+    	if (originalText.length <= 2) {
+            capText = capText.replace(capText.charAt(0),capText.charAt(0).toUpperCase());
+		}
+
+        if (this.nextUppercase == true) {
+             capText = capText.substr(0, this.nextUppercasePos) + capText.charAt(this.nextUppercasePos).toUpperCase() + capText.substr(this.nextUppercasePos+1);
+		}
+
+        if (originalText.charAt(caretPos-1) == ' ' && originalText.charAt(caretPos-2) == '.' && originalText.length == caretPos) {
+            this.nextUppercase = true;
+            this.nextUppercasePos = caretPos;
+        } else if (this.nextUppercase == true) {
+            this.nextUppercase = false;
+        }
+
+		if (capText != originalText) {
+
+            this.textarea.val(capText);
+
+            if ('selectionStart' in this.textarea[0]) {
+                this.textarea[0].selectionStart = caretPos;
+                this.textarea[0].selectionEnd = caretPos;
+            } else if (this.textarea[0].setSelectionRange) {
+                this.textarea[0].setSelectionRange(caretPos, caretPos);
+            } else if (this.textarea[0].createTextRange) {
+                var range = this.textarea[0].createTextRange();
+                range.collapse(true);
+                range.moveEnd('character', caretPos);
+                range.moveStart('character', caretPos);
+                range.select();
+            }
+		}
+	}
+
 	LHCCannedMessageAutoSuggest.prototype.moveAction = function(action)
 	{
 		if (this.cannedMode === false) {
