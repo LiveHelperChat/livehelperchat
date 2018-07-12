@@ -76,7 +76,7 @@ class erLhcoreClassGenericBotActionText {
             $metaMessage['content']['html']['content'] = $action['content']['html'];
         }
 
-        $msg->msg = trim($action['content']['text']);
+        $msg->msg = isset($action['content']['text']) ? trim($action['content']['text']) : '';
         $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';
         $msg->chat_id = $chat->id;
         $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
