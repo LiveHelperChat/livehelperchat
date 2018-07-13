@@ -21,6 +21,8 @@ confLH.sn_off = <?php echo (int)erLhcoreClassModelUserSetting::getSetting('sn_of
 confLH.ownntfonly = <?php echo (int)erLhcoreClassModelUserSetting::getSetting('ownntfonly',0)?>;
 confLH.show_alert_transfer = <?php echo (int)erLhcoreClassModelUserSetting::getSetting('show_alert_transfer',1)?>;
 confLH.accept_chats = <?php if (erLhcoreClassUser::instance()->isLogged()) { print (int)erLhcoreClassUser::instance()->getUserData()->auto_accept; } else {print 0;}?>;
+confLH.auto_uppercase = <?php echo (int)erLhcoreClassModelUserSetting::getSetting('auto_uppercase',1)?>;
+confLH.content_language = '<?php echo erLhcoreClassSystem::instance()->ContentLanguage?>';
 </script>
 <script type="text/javascript" src="<?php echo erLhcoreClassDesign::designJS('vendor/jquery/jquery.min.js;vendor/bootstrap/js/bootstrap.min.js;js/modernizr.js;js/lh.min.js;js/lh.cannedmsg.min.js;js/jquery.hotkeys.min.js;js/fileupload/jquery.fileupload.min.js;js/jquery.zoom.min.js;js/datepicker.min.js;js/lh/dist/common.js;js/lh/dist/bundle.js;js/EventEmitter.min.js;js/events.js;js/notifiations.js');?>"></script>
 <?php echo isset($Result['additional_header_js']) ? $Result['additional_header_js'] : ''?>

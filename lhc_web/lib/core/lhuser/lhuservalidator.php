@@ -291,6 +291,9 @@ class erLhcoreClassUserValidator {
             'exclude_autoasign' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			),
+            'auto_uppercase' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+			),
             'maximumChats' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'int'
 			),
@@ -304,6 +307,12 @@ class erLhcoreClassUserValidator {
             $result['show_all_pending'] = 1;
 		} else {
             $result['show_all_pending'] = 0;
+		}
+
+		if ( $form->hasValidData( 'auto_uppercase' ) && $form->auto_uppercase == true ) {
+            $result['auto_uppercase'] = 1;
+		} else {
+            $result['auto_uppercase'] = 0;
 		}
 
 		if ( $form->hasValidData( 'autoAccept' ) && $form->autoAccept == true ) {

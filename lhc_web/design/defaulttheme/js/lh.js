@@ -2274,7 +2274,7 @@ function lh(){
 		
 		var $textarea = jQuery('#CSChatMessage-'+chat_id);
 		
-		var cannedMessageSuggest = new LHCCannedMessageAutoSuggest({'chat_id':chat_id});
+		var cannedMessageSuggest = new LHCCannedMessageAutoSuggest({'chat_id': chat_id,'uppercase_enabled': confLH.auto_uppercase});
 		
 		$textarea.bind('keydown', 'return', function (evt){			
 				_that.addmsgadmin(chat_id);

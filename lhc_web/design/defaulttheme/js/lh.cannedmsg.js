@@ -13,23 +13,27 @@ var LHCCannedMessageAutoSuggest = (function() {
 		this.nextUppercase = false;
 		this.nextUppercasePos = 0;
 		this.nextUppercaseCallback = null;
+		this.nextUppercaseEnabled = typeof params['uppercase_enabled'] === 'undefined' || params['uppercase_enabled'] == true;
 
-		// General one
+        // General one
 		var _that = this;
 		
 		this.textarea = jQuery('#CSChatMessage-'+this.chat_id);
 
 		this.textarea.bind('keyup', function (evt) {
 
-            //console.log(_that.capitalizezeSentences(_that.textarea.val()));
-			if (_that.nextUppercase == true) {
-				clearTimeout(_that.nextUppercaseCallback);
-				_that.nextUppercaseCallback = setTimeout(function(){
+			if (_that.nextUppercaseEnabled == true)
+			{
+                if (_that.nextUppercase == true) {
+                    clearTimeout(_that.nextUppercaseCallback);
+                    _that.nextUppercaseCallback = setTimeout(function(){
+                        _that.capitalizeSentences(evt);
+                    },50);
+                } else {
                     _that.capitalizeSentences(evt);
-				},50);
-			} else {
-                _that.capitalizeSentences(evt);
+                }
 			}
+
 
 			if (evt.key == '#' || evt.keyCode == 51 || evt.keyCode == 222) {	
 				_that.currentText = _that.textarea.val();				
@@ -101,7 +105,7 @@ var LHCCannedMessageAutoSuggest = (function() {
         }
 
         // Replace very first character
-    	if (originalText.length <= 2) {
+    	if (originalText.length <= 3) {
             capText = capText.replace(capText.charAt(0),capText.charAt(0).toUpperCase());
 		}
 
@@ -109,12 +113,16 @@ var LHCCannedMessageAutoSuggest = (function() {
              capText = capText.substr(0, this.nextUppercasePos) + capText.charAt(this.nextUppercasePos).toUpperCase() + capText.substr(this.nextUppercasePos+1);
 		}
 
-        if (originalText.charAt(caretPos-1) == ' ' && originalText.charAt(caretPos-2) == '.' && originalText.length == caretPos) {
+        if (originalText.charAt(caretPos-1) == ' ' && (originalText.charAt(caretPos-2) == '.' || originalText.charAt(caretPos-2) == '?' || originalText.charAt(caretPos-2) == '!') && originalText.length == caretPos) {
             this.nextUppercase = true;
             this.nextUppercasePos = caretPos;
         } else if (this.nextUppercase == true) {
             this.nextUppercase = false;
         }
+
+        if (confLH.content_language == 'en') {
+            capText = capText.replace(/\si\s/g,' I ');
+		}
 
 		if (capText != originalText) {
 

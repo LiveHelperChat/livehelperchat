@@ -197,7 +197,11 @@
             </div>
 
             <div class="form-group">
-                <label><input type="checkbox" name="auto_preload" value="1" <?php erLhcoreClassModelUserSetting::getSetting('auto_preload',0) == 1 ? print 'checked="checked"' : '' ?> <?php $user->exclude_autoasign == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Auto preload previous visitor chat messages');?></label>
+                <label><input type="checkbox" name="auto_preload" value="1" <?php erLhcoreClassModelUserSetting::getSetting('auto_preload',0) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Auto preload previous visitor chat messages');?></label>
+            </div>
+
+            <div class="form-group">
+                <label><input type="checkbox" name="auto_uppercase" value="1" <?php erLhcoreClassModelUserSetting::getSetting('auto_uppercase',1) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Auto uppercase sentences');?></label>
             </div>
 
             <div class="form-group">

@@ -24,6 +24,7 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
 	$pendingSettings = erLhcoreClassUserValidator::validateShowAllPendingOption();
 	
 	erLhcoreClassModelUserSetting::setSetting('show_all_pending', $pendingSettings['show_all_pending']);
+	erLhcoreClassModelUserSetting::setSetting('auto_uppercase', $pendingSettings['auto_uppercase']);
 
     $UserData->exclude_autoasign = $pendingSettings['exclude_autoasign'];
     $UserData->auto_accept = $pendingSettings['auto_accept'];
