@@ -21,7 +21,7 @@ class NodeTriggerBuilder extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {dataChanged : false, value : ''};
+        this.state = {dataChanged : false, value : '', viewCode : false, compressCode : false};
 
         this.handleChange = this.handleChange.bind(this);
         this.handleTypeChange = this.handleTypeChange.bind(this);
@@ -36,6 +36,7 @@ class NodeTriggerBuilder extends Component {
         this.deleteSubelement = this.deleteSubelement.bind(this);
         this.moveUpSubelement = this.moveUpSubelement.bind(this);
         this.moveDownSubelement = this.moveDownSubelement.bind(this);
+        this.viewCode = this.viewCode.bind(this);
 
         this.props.dispatch(initBot(this.props.botId));
     }
@@ -105,6 +106,10 @@ class NodeTriggerBuilder extends Component {
         this.props.dispatch({'type' : 'MOVE_DOWN_SUBELEMENT','payload' : obj});
     }
 
+    viewCode() {
+        this.setState({viewCode : !this.state.viewCode});
+    }
+
     render() {
 
         var actions = [];
@@ -139,7 +144,23 @@ class NodeTriggerBuilder extends Component {
                     <input className="form-control gbot-group-name" value={this.props.currenttrigger.getIn(['currenttrigger','name'])} onChange={this.handleChange} />
                     <hr/>
                     {actions}
-                    <a className="btn btn-info btn-sm" onClick={this.addResponse} >Add response</a>
+                    <div className="form-group">
+                        <div className="btn-group" role="group" aria-label="Trigger actions">
+                            <a className="btn btn-info btn-xs" onClick={this.addResponse} >Add response</a>
+                            <a className="btn btn-info btn-xs" onClick={this.viewCode} ><i className="material-icons">code</i>{this.state.viewCode == true ? ('Hide code') : ('Show code')}</a>
+                        </div>
+                    </div>
+
+                        {this.state.viewCode == true ? (
+                            <div className="form-group">
+                                <div className="pull-right"><label><input type="checkbox" value="on" onChange={(e) => this.setState({compressCode : !this.state.compressCode})} defaultChecked={this.state.compressCode} />Compressed version</label></div>
+                                <label>JSON body you can use for REST API</label>
+                                <textarea rows="10" className="form-control fs11" value={JSON.stringify(this.props.currenttrigger.getIn(['currenttrigger','actions']).toJSON(), null, (this.state.compressCode == false ? 4 : 0))}></textarea>
+                                <p><small><i>&quot;_id&quot; can be ignored</i></small></p>
+                            </div>
+                        ) : ''}
+
+
                     <hr/>
                         <div className="btn-group" role="group" aria-label="Trigger actions">
                             <a className="btn btn-success btn-sm" disabled={!this.state.dataChanged} onClick={this.saveResponse} >Save</a>
