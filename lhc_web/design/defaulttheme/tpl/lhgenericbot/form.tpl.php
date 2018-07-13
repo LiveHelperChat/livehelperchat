@@ -9,16 +9,16 @@
 </div>
 
 <div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Custom attribute 1');?></label>
+    <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/attr/attr_str_1.tpl.php'));?>
     <input type="text" class="form-control" name="attr_str_1"  value="<?php echo htmlspecialchars($item->attr_str_1);?>" />
 </div>
 
 <div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Custom attribute 2');?></label>
+    <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/attr/attr_str_2.tpl.php'));?>
     <input type="text" class="form-control" name="attr_str_2"  value="<?php echo htmlspecialchars($item->attr_str_2);?>" />
 </div>
 
 <div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Custom attribute 3');?></label>
+    <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/attr/attr_str_3.tpl.php'));?>
     <input type="text" class="form-control" name="attr_str_3"  value="<?php echo htmlspecialchars($item->attr_str_3);?>" />
 </div>
