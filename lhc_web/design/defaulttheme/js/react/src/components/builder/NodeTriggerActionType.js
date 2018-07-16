@@ -31,10 +31,10 @@ export default ({onChange, type}) => {
             'value':'progress',
             'text' : 'Progress',
         },
-        /*{
+        {
             'value':'video',
             'text' : 'Send Video',
-        },
+        },/*,
         {
             'value':'audio',
             'text' : 'Send Audio',
