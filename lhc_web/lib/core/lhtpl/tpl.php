@@ -315,6 +315,27 @@ class erLhcoreClassTemplate {
 				$contentFile = str_replace($Matches[0][$key],'\''.erLhcoreClassDesign::baseurldirect(trim($UrlAddress,'\'')).'\'',$contentFile);
 			}
 
+            // Compile config settings, direct output
+			$Matches = array();
+			preg_match_all('/<\?php echo erLhcoreClassModule::getExtensionInstance\(\'([a-zA-Z0-9-\.-\/\_]+)\'\)->getSettingVariable\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)(.*?)\?\>/i',$contentFile,$Matches);
+
+			foreach ($Matches[1] as $key => $extension)
+            {
+                $valueConfig = erLhcoreClassModule::getExtensionInstance($extension)->getSettingVariable($Matches[3][$key]);
+
+                if (is_bool($valueConfig)){
+                    $valueReplace = $valueConfig == false ? 'false' : 'true';
+                } elseif (is_integer($valueConfig)) {
+                    $valueReplace = $valueConfig;
+                } elseif (is_array($valueConfig)) {
+                    $valueReplace = var_export($valueConfig,true);
+                } else {
+                    $valueReplace = $valueConfig;
+                }
+
+                $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+            }
+
 			// Compile config settings, direct output
 			$Matches = array();
 			preg_match_all('/<\?php echo erConfigClassLhConfig::getInstance\(\)->getSetting\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?),(\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)(.*?)\?\>/i',$contentFile,$Matches);
