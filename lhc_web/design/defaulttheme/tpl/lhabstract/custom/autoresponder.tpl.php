@@ -29,6 +29,25 @@
 <?php echo erLhcoreClassAbstract::renderInput('dep_id', $fields['dep_id'], $object)?>
 </div>
 
+<div class="row">
+    <div class="col-xs-6">
+        <div class="form-group">
+            <label><?php echo $fields['mint_reset']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('mint_reset', $fields['mint_reset'], $object, 70)?>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="form-group">
+            <label><?php echo $fields['maxt_reset']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('maxt_reset', $fields['maxt_reset'], $object, 120)?>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label><?php echo erLhcoreClassAbstract::renderInput('dreset_survey', $fields['dreset_survey'], $object)?> <?php echo $fields['dreset_survey']['trans'];?></label>
+</div>
+
 <div class="form-group">		
 <label><?php echo $fields['wait_message']['trans'];?></label>
 <?php echo erLhcoreClassAbstract::renderInput('wait_message', $fields['wait_message'], $object)?>

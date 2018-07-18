@@ -3,7 +3,7 @@
 class erLhcoreClassAbstract
 {
 
-    public static function renderInput($name, $attr, $object)
+    public static function renderInput($name, $attr, $object, $defaultValue = '')
     {
         switch ($attr['type']) {
 
@@ -23,7 +23,7 @@ class erLhcoreClassAbstract
                         if (isset($object->{$attr['main_attr']}[$name])) {
                             $value = $object->{$attr['main_attr']}[$name];
                         } else {
-                            $value = '';
+                            $value = $defaultValue;
                         }
 
                     } else {

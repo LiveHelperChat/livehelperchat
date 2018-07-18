@@ -103,6 +103,33 @@ return array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
                     )),
+                'mint_reset' => array(
+                    'type' => 'text',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Minimum time in second how long sync has to be stopped before allowing reset auto responder'),
+                    'required' => false,
+                    'hidden' => true,
+                    'main_attr' => 'bot_configuration_array',
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+                    )),
+                'maxt_reset' => array(
+                    'type' => 'text',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Maximum time in seconds how long sync has to be stopped before we do not reset auto responder'),
+                    'required' => false,
+                    'hidden' => true,
+                    'main_attr' => 'bot_configuration_array',
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+                    )),
+                'dreset_survey' => array(
+                    'type' => 'checkbox',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Disable reset auto responder if visitor was redirected to survey'),
+                    'required' => false,
+                    'hidden' => true,
+                    'main_attr' => 'bot_configuration_array',
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+                    )),
    				'dep_id' => array (
    						'type' => 'combobox',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Department'),
