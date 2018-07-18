@@ -421,6 +421,15 @@ if (isset($_POST['askQuestion']))
        $chat->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : $chat->department->priority;
        $chat->chat_initiator = erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE;
 
+       $onlineAttrSystem = $userInstance->online_attr_system_array;
+
+       $ignoreResponder = isset($onlineAttrSystem['lhc_ignore_autoresponder']) && $onlineAttrSystem['lhc_ignore_autoresponder'] == 1;
+
+       if (isset($onlineAttrSystem['lhc_assign_to_me']) && $onlineAttrSystem['lhc_assign_to_me'] == 1 && $userInstance->operator_user_id > 0) {
+           $chat->user_id = $userInstance->operator_user_id;
+           $chat->tslasign = time();
+       }
+
        // Store chat
        erLhcoreClassChat::getSession()->save($chat);
 
@@ -463,7 +472,7 @@ if (isset($_POST['askQuestion']))
            
            $messageInitial = $msg;
        
-           if ($userInstance->invitation !== false) {
+           if ($ignoreResponder == false && $userInstance->invitation !== false) {
 
                $responder = $userInstance->invitation->autoresponder;
                
@@ -515,7 +524,7 @@ if (isset($_POST['askQuestion']))
                    }
                }
 
-           } else {
+           } elseif ($ignoreResponder == false) {
     
            		// Default auto responder
     	       	$responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
@@ -585,7 +594,14 @@ if (isset($_POST['askQuestion']))
        $chat->last_msg_id = $msg->id;
        $chat->last_user_msg_time = time();
        $chat->saveThis();
-       
+
+       if ($chat->user_id > 0) {
+           erLhcoreClassUserDep::updateLastAcceptedByUser($chat->user_id, time());
+
+           // Update fresh user statistic
+           erLhcoreClassChat::updateActiveChats($chat->user_id);
+       }
+
        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
        
        erLhcoreClassChat::updateDepartmentStats($chat->department);
@@ -749,7 +765,6 @@ if (isset($_POST['r']))
 	$tpl->set('referer_site',$_POST['r']);
 }
 
-
 // Auto start chat
 $autoStartResult = erLhcoreClassChatValidator::validateAutoStart(array(
     'params' => $Params,
@@ -765,8 +780,6 @@ if ($autoStartResult !== false) {
     $Result = $autoStartResult;
     return;
 }
-
-
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.readoperatormessage',array('tpl' => $tpl, 'params' => & $Params));
 

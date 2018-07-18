@@ -1165,7 +1165,7 @@ class erLhcoreClassChatValidator {
             }
         }
 
-        if (($autoStart == true && $params['chat']->dep_id > 0) || (isset($params['startDataFields']['auto_start_chat']) && $params['startDataFields']['auto_start_chat'] == true && $params['chat']->dep_id > 0)) {
+        if (($autoStart == true && $params['chat']->dep_id > 0) || (!isset($params['invitation_mode']) && isset($params['startDataFields']['auto_start_chat']) && $params['startDataFields']['auto_start_chat'] == true && $params['chat']->dep_id > 0)) {
 
             $chat = $params['chat'];
 
