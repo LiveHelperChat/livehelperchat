@@ -83,14 +83,15 @@ class erLhcoreClassChatExport {
 		$page = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Page');
 		$from = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Came from');
 		$link = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Link');
-		
+		$additionalData = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Additional data');
+
 		if (isset($params['type']) && $params['type'] == 2) {
 		    $content = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Chat content');
 		} else {
 			$content = null;
 		}
 
-		$chatArray[] = array($id, $name, $email, $phone, $wait, $country, $city, $ip, $operator, $dept, $date, $minutes, $vote, $mail, $page, $from, $link, $content);
+		$chatArray[] = array($id, $name, $email, $phone, $wait, $country, $city, $ip, $operator, $dept, $date, $minutes, $vote, $mail, $page, $from, $link, $content, $additionalData);
 		
         foreach ($chats as $item) {
                 $id = (string)$item->{'id'};
@@ -109,7 +110,8 @@ class erLhcoreClassChatExport {
                 $vote = ($item->fbst == 1 ? 'UP' : ($item->fbst == 2 ? 'DOWN' : 'NONE'));
                 $mail = $item->mail_send == 1 ? 'Yes' : 'No';
                 $page = $item->referrer;
-                
+                $additionalDataContent = $item->additional_data;
+
                 if ($item->session_referrer != ''){
                         $referer = parse_url($item->session_referrer);                    
                         if (isset($referer['host'])) {
@@ -137,9 +139,9 @@ class erLhcoreClassChatExport {
                                 }
                         }
 
-                    $chatArray[] = array($id, $nick, $email, $phone, $wait, $country, $city, $ip, $user, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, trim($messagesContent));
+                    $chatArray[] = array($id, $nick, $email, $phone, $wait, $country, $city, $ip, $user, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, trim($messagesContent),$additionalDataContent);
                 } else {
-                	$chatArray[] = array($id, $nick, $email, $phone, $wait, $country, $city, $ip, $user, $dept, $date, $minutes, $vote, $mail, $page, $from, $url);
+                	$chatArray[] = array($id, $nick, $email, $phone, $wait, $country, $city, $ip, $user, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, $additionalDataContent);
                 }
         }
 
