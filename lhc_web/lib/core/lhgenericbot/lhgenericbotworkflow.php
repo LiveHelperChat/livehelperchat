@@ -159,6 +159,52 @@ class erLhcoreClassGenericBotWorkflow {
                             $stmt->execute();
                             $chat->phone = $payload;
                         }
+                    } elseif ($eventData['content']['type'] == 'chat_attr') {
+
+                        // Make sure field is not empty
+                        if (empty($payload)) {
+                            if (isset($eventData['content']['validation_error']) && !empty($eventData['content']['validation_error'])){
+                                throw new erLhcoreClassGenericBotException($eventData['content']['validation_error']);
+                            } else {
+                                throw new erLhcoreClassGenericBotException('Your message does not match required format!');
+                            }
+                        }
+
+                        // Preg match validation
+                        if (isset($eventData['content']['preg_match']) && !empty($eventData['content']['preg_match']))
+                        {
+                            if (!preg_match('/' . $eventData['content']['preg_match'] . '/',$payload)) {
+                                if (isset($eventData['content']['validation_error']) && !empty($eventData['content']['validation_error'])){
+                                    throw new erLhcoreClassGenericBotException($eventData['content']['validation_error']);
+                                } else {
+                                    throw new erLhcoreClassGenericBotException('Your message does not match required format!');
+                                }
+                            }
+                        }
+
+                        if (!empty($chat->additional_data)){
+                            $chatAttributes = (array)json_decode($chat->additional_data,true);
+                        } else {
+                            $chatAttributes = array();
+                        }
+
+                        $attrIdToUpdate = (isset($eventData['content']['attr_options']['identifier']) ? $eventData['content']['attr_options']['identifier'] : $eventData['content']['attr_options']['name']);
+
+                        foreach ($chatAttributes as $key => $attr) {
+                            if ($attr['identifier'] == $attrIdToUpdate) {
+                                unset($chatAttributes[$key]);
+                            }
+                        }
+
+                        $chatAttributes[] = array('key' => $eventData['content']['attr_options']['name'], 'identifier' => $attrIdToUpdate, 'value' => $payload);
+                        $chat->additional_data = json_encode(array_values($chatAttributes));
+
+                        $q = $db->createUpdateQuery();
+                        $q->update( 'lh_chat' )
+                            ->set( 'additional_data', $q->bindValue($chat->additional_data) )
+                            ->where( $q->expr->eq( 'id', $chat->id ) );
+                        $stmt = $q->prepare();
+                        $stmt->execute();
                     }
                 }
 
@@ -175,6 +221,16 @@ class erLhcoreClassGenericBotWorkflow {
                 // Initiate text based callback if there is any
                 if (isset($eventData['content']['success_text_pattern']) && !empty($eventData['content']['success_text_pattern'])) {
                     self::reprocessPayload($eventData['content']['success_text_pattern'], $chat, 0);
+                }
+
+                // Execute next trigger if set
+                if (isset($eventData['content']['attr_options']['collection_callback_pattern']) && is_numeric($eventData['content']['attr_options']['collection_callback_pattern'])) {
+                    $trigger = erLhcoreClassModelGenericBotTrigger::fetch($eventData['content']['attr_options']['collection_callback_pattern']);
+
+                    if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                        $paramsTrigger = array();
+                        erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, $paramsTrigger);
+                    }
                 }
             }
 

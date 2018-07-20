@@ -50,6 +50,10 @@ export default ({onChange, type}) => {
         {
             'value':'command',
             'text' : 'Update Current chat',
+        },
+        {
+            'value':'attribute',
+            'text' : 'Collect custom attribute',
         }
     ]);
 
