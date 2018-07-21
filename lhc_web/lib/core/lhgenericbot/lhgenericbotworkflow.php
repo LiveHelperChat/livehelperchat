@@ -91,9 +91,31 @@ class erLhcoreClassGenericBotWorkflow {
             $payload =  $params['payload'];
         }
 
+
+
         $db = ezcDbInstance::get();
 
         try {
+
+            // Cancel workflow
+            if ($payload == 'cancel_workflow') {
+
+                $chatEvent->removeThis();
+
+                if (isset($chatEvent->content_array['callback_list'][0]['content']['attr_options']['collection_callback_cancel']) && is_numeric($chatEvent->content_array['callback_list'][0]['content']['attr_options']['collection_callback_cancel'])) {
+                       $trigger = erLhcoreClassModelGenericBotTrigger::fetch($chatEvent->content_array['callback_list'][0]['content']['attr_options']['collection_callback_cancel']);
+                        if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                            $paramsTrigger = array();
+                            erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, $paramsTrigger);
+                        }
+                } elseif (isset($chatEvent->content_array['callback_list'][0]['content']['cancel_message']) && $chatEvent->content_array['callback_list'][0]['content']['cancel_message'] != '') {
+                    throw new Exception($chatEvent->content_array['callback_list'][0]['content']['cancel_message']);
+                } else {
+                    throw new Exception('Canceled!');
+                }
+
+                return;
+            }
 
             // Event was processed we can remove it now
             foreach ($chatEvent->content_array['callback_list'] as $eventData) {
@@ -174,13 +196,35 @@ class erLhcoreClassGenericBotWorkflow {
                         if (isset($eventData['content']['preg_match']) && !empty($eventData['content']['preg_match']))
                         {
                             if (!preg_match('/' . $eventData['content']['preg_match'] . '/',$payload)) {
+
+                                $metaMessage = array();
+
+                                if (isset($eventData['content']['attr_options']['cancel_button_enabled']) && $eventData['content']['attr_options']['cancel_button_enabled'] == true) {
+                                    $metaMessage = array('content' =>
+                                        array (
+                                            'quick_replies' =>
+                                                array (
+                                                    0 =>
+                                                        array (
+                                                            'type' => 'button',
+                                                            'content' =>
+                                                                array (
+                                                                    'name' => (($eventData['content']['cancel_button'] && $eventData['content']['cancel_button'] != '') ? $eventData['content']['cancel_button'] : 'Cancel?'),
+                                                                    'payload' => 'cancel_workflow',
+                                                                ),
+                                                        )
+                                                ),
+                                        ));
+                                }
+
                                 if (isset($eventData['content']['validation_error']) && !empty($eventData['content']['validation_error'])){
-                                    throw new erLhcoreClassGenericBotException($eventData['content']['validation_error']);
+                                    throw new erLhcoreClassGenericBotException($eventData['content']['validation_error'], 0, null, $metaMessage);
                                 } else {
-                                    throw new erLhcoreClassGenericBotException('Your message does not match required format!');
+                                    throw new erLhcoreClassGenericBotException('Your message does not match required format!', 0, null, $metaMessage);
                                 }
                             }
                         }
+
 
                         if (!empty($chat->additional_data)){
                             $chatAttributes = (array)json_decode($chat->additional_data,true);
@@ -237,13 +281,26 @@ class erLhcoreClassGenericBotWorkflow {
             $chatEvent->removeThis();
 
         } catch (Exception $e) {
-             self::sendAsBot($chat, $e->getMessage());
+             if ($e instanceof erLhcoreClassGenericBotException){
+                 self::sendAsBot($chat, $e->getMessage(), $e->getContent());
+             } else {
+                 self::sendAsBot($chat, $e->getMessage());
+             }
         }
     }
 
     public static function reprocessPayload($payload, $chat, $type = 1)
     {
-        $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'], $type);
+        $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_get_message', array(
+            'chat' => & $chat,
+            'payload' => $payload,
+        ));
+
+        if ($handler !== false) {
+            $event = $handler['event'];
+        } else {
+            $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'], $type);
+        }
 
         if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
             $message = self::processTrigger($chat, $event->trigger);
@@ -868,6 +925,14 @@ class erLhcoreClassGenericBotWorkflow {
     public static function processButtonClick($chat, $messageContext, $payload, $params = array()) {
 
         if (isset($chat->chat_variables_array['gbot_id'])) {
+
+            // Try to find current callback handler just
+            $chatEvent = erLhcoreClassModelGenericBotChatEvent::findOne(array('filter' => array('chat_id' => $chat->id)));
+            if ($chatEvent instanceof erLhcoreClassModelGenericBotChatEvent) {
+                self::$currentEvent = $chatEvent;
+                self::processEvent($chatEvent, $chat, array('payload' => $payload));
+                return;
+            }
 
             // Try to find current workflow first
             $workflow = erLhcoreClassModelGenericBotChatWorkflow::findOne(array('filterin' => array('status' => array(0,1)), 'filter' => array('chat_id' => $chat->id)));

@@ -392,12 +392,8 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
     				}
     			}
 
+    	       erLhcoreClassChat::updateDepartmentStats($chat->department);
 
-
-    	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
-    
-    	        erLhcoreClassChat::updateDepartmentStats($chat->department);
-    	       	       
     	       // Paid chat settings
     	       if (isset($paidChatSettings)) {
     	           erLhcoreClassChatPaid::processPaidChatWorkflow(array(
@@ -406,7 +402,9 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
     	           ));
     	       }
 
-    	       $db->commit();
+               $db->commit();
+
+               erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
 	       
 	       } catch (Exception $e) {
 	           $db->rollback();

@@ -3,6 +3,8 @@
 try {
     erLhcoreClassRestAPIHandler::validateRequest();
 
+    erLhcoreClassLog::write(print_r($_POST,true));
+
     $definition = array(
         'chat_id' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::REQUIRED, 'int'

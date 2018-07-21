@@ -62,6 +62,20 @@ class NodeTriggerActionAttribute extends Component {
                             <input type="text" placeholder="Event name" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['event'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','event'])} />
                         </div>
                     </div>
+
+                    <div className="col-xs-6">
+                        <div className="form-group">
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','cancel_button_enabled'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','cancel_button_enabled'])} />Cancel button enabled on failed validation</label>
+                        </div>
+                    </div>
+
+                    <div className="col-xs-6">
+                        <div className="form-group">
+                            <label>Cancel button text</label>
+                            <input type="text" placeholder="Cancel" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['cancel_button'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','cancel_button'])} />
+                        </div>
+                    </div>
+
                     <div className="col-xs-6">
                         <div className="form-group">
                             <label>Intro message</label>
@@ -84,6 +98,25 @@ class NodeTriggerActionAttribute extends Component {
                         <div className="form-group">
                             <label>Execute trigger on success</label>
                             <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','collection_callback_pattern'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','collection_callback_pattern'])} />
+                        </div>
+                    </div>
+
+                    <div className="col-xs-12">
+
+                        <div className="row">
+                            <div className="col-xs-6">
+                                <div className="form-group">
+                                    <label>Execute trigger on cancelation, overrides message on cancelation</label>
+                                    <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','collection_callback_cancel'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','collection_callback_cancel'])} />
+                                </div>
+                            </div>
+
+                            <div className="col-xs-6">
+                                <div className="form-group">
+                                    <label>Message on cancelation</label>
+                                    <textarea className="form-control" defaultValue={this.props.action.getIn(['content','cancel_message'])} onChange={(e) => this.onchangeAttr({'path' : ['cancel_message'], 'value' : e.target.value})}></textarea>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
