@@ -1,3 +1,12 @@
+3.00v
+
+1. Various bot enhancements. Attribute element.
+2. Option to setup automatic chat closing for active/pending/bot chats.
+Responsible cron
+php cron.php -s site_admin -c cron/workflow
+
+execute doc/update_db/update_175.sql for update
+
 2.99v
 
 1. New themes could not be saved.
