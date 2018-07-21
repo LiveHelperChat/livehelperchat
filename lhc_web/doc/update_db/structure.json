@@ -7010,6 +7010,27 @@
                 "hidden": "0"
             },
             {
+                "identifier": "autoclose_timeout_pending",
+                "value": "0",
+                "type": "0",
+                "explain": "Automatic pending chats closing. 0 - disabled, n > 0 time in minutes before chat is automatically closed",
+                "hidden": "0"
+            },
+            {
+                "identifier": "autoclose_timeout_active",
+                "value": "0",
+                "type": "0",
+                "explain": "Automatic active chats closing. 0 - disabled, n > 0 time in minutes before chat is automatically closed",
+                "hidden": "0"
+            },
+            {
+                "identifier": "autoclose_timeout_bot",
+                "value": "0",
+                "type": "0",
+                "explain": "Automatic bot chats closing. 0 - disabled, n > 0 time in minutes before chat is automatically closed",
+                "hidden": "0"
+            },
+            {
                 "identifier": "automatically_reopen_chat",
                 "value": "1",
                 "type": "0",
