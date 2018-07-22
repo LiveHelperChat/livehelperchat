@@ -10,6 +10,8 @@ php cron.php -s site_admin -c cron/workflow
 6. Allow to see generated bot syntax from bot builder interface
 7. Option to have auto uppercase sentences in operator interface.
 8. Rest api enhancements
+9. Option to set how long chat can be opened after he was closed.
+10. Show correct online status on widget minimization.
 
 execute doc/update_db/update_175.sql for update
 

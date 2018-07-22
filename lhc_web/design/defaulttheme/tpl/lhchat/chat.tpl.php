@@ -34,7 +34,7 @@
     $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT ||
     $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT ||
     $chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT ||
-    ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && $chat->last_op_msg_time > time()-1800) ||
+    ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && $chat->last_op_msg_time > time() - (int)erLhcoreClassModelChatConfig::fetch('open_closed_chat_timeout')->current_value) ||
     (isset($paid_chat_params['allow_read']) && $paid_chat_params['allow_read'] == true)) : ?>
     <div id="messages"<?php if (isset($fullheight) && $fullheight == true) : ?> class="fullheight"<?php endif ?>>
         <div id="messagesBlockWrap">

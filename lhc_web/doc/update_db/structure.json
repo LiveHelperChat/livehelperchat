@@ -6870,6 +6870,13 @@
                 "hidden": "0"
             },
             {
+                "identifier": "open_closed_chat_timeout",
+                "value": "1800",
+                "type": "0",
+                "explain": "How many seconds customer has to open already closed chat.",
+                "hidden": "0"
+            },
+            {
                 "identifier": "hide_right_column_frontpage",
                 "value": "0",
                 "type": "0",
