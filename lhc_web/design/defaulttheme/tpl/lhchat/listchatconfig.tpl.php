@@ -158,7 +158,10 @@
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    
     		    <?php $attribute = 'accept_chat_link_timeout'?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>	
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
+    		    <?php $attribute = 'open_closed_chat_timeout'?>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    
     		    <?php $attribute = 'activity_timeout'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>	
@@ -206,6 +209,15 @@
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    <hr>		    
     		    <?php $attribute = 'autoclose_timeout'?>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
+                <?php $attribute = 'autoclose_timeout_pending'?>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
+                <?php $attribute = 'autoclose_timeout_active'?>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
+                <?php $attribute = 'autoclose_timeout_bot'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    
     		    <?php $attribute = 'autopurge_timeout'?>
