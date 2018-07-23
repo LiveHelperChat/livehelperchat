@@ -158,7 +158,7 @@ class erLhcoreClassNotifications {
 
     public static function informAboutUnreadMessages()
     {
-        $items = erLhcoreClassModelChat::getList(array( 'filtergt' => array('last_op_msg_time' => (time() - (3600))), 'filterlt' => array('last_op_msg_time' => (time() - (5*60))), 'filter' => array('has_unread_op_messages' => 1, 'unread_op_messages_informed' => 0)));
+        $items = erLhcoreClassModelChat::getList(array( 'filtergt' => array('last_op_msg_time' => (time() - (3600))), 'filterlt' => array('last_op_msg_time' => (time() - (90))), 'filter' => array('has_unread_op_messages' => 1, 'unread_op_messages_informed' => 0)));
 
         foreach ($items as $item) {
             $item->has_unread_op_messages = 0;
