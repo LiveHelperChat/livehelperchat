@@ -1387,6 +1387,18 @@ input[type="file"]{
 	font-size:12px;
 }
 
+.current-hash-content{
+	float:left;
+}
+
+.canned-msg-preview{
+	float:left;
+	padding: 2px 5px 1px;
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+}
+
 .current-hash-content ul{
 	margin-bottom:0;
 }
