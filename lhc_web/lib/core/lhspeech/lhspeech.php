@@ -103,6 +103,49 @@ class erLhcoreClassSpeech {
         return $Errors;
     }
 
+    public static function setUserLanguages($userId, $userLanguages)
+    {
+        $currentLanguages = erLhcoreClassModelSpeechUserLanguage::getList(array('limit' => false, 'filter' => array('user_id' => $userId)));
+
+        $currentLanguagesLangs = array();
+
+        foreach ($currentLanguages as $language) {
+            $currentLanguagesLangs[$language->language] = $language;
+        }
+
+        $languagesNew = array();
+
+        foreach ($userLanguages as $userLanguage) {
+            $languagesNew[] = $userLanguage;
+            if (!key_exists($userLanguage,$currentLanguagesLangs)) {
+                $newLanguage = new erLhcoreClassModelSpeechUserLanguage();
+                $newLanguage->language = $userLanguage;
+                $newLanguage->user_id = $userId;
+                $newLanguage->saveThis();
+            }
+        }
+
+        $removedLanguages = array_diff(array_keys($currentLanguagesLangs),$languagesNew);
+
+        foreach ($removedLanguages as $removedLanguage) {
+            if (isset($currentLanguagesLangs[$removedLanguage])) {
+                $currentLanguagesLangs[$removedLanguage]->removeThis();
+            }
+        }
+    }
+
+    public static function getUserLanguages($userId)
+    {
+        $currentLanguages = erLhcoreClassModelSpeechUserLanguage::getList(array('limit' => false, 'filter' => array('user_id' => $userId)));
+
+        $currentLanguagesLangs = array();
+        foreach ($currentLanguages as $currentLanguage) {
+            $currentLanguagesLangs[$currentLanguage->language] = $currentLanguage;
+        }
+
+        return $currentLanguagesLangs;
+    }
+
 	public static function getList($paramsSearch = array(), $class = 'erLhcoreClassModelSpeechLanguage', $tableName = 'lh_speech_language')
 	{
 	    $paramsDefault = array('limit' => 500, 'offset' => 0);

@@ -212,6 +212,11 @@ $def->properties['pending_group_max']->columnName   = 'pending_group_max';
 $def->properties['pending_group_max']->propertyName = 'pending_group_max';
 $def->properties['pending_group_max']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['assign_same_language'] = new ezcPersistentObjectProperty();
+$def->properties['assign_same_language']->columnName   = 'assign_same_language';
+$def->properties['assign_same_language']->propertyName = 'assign_same_language';
+$def->properties['assign_same_language']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['inform_close_all_email'] = new ezcPersistentObjectProperty();
 $def->properties['inform_close_all_email']->columnName   = 'inform_close_all_email';
 $def->properties['inform_close_all_email']->propertyName = 'inform_close_all_email';

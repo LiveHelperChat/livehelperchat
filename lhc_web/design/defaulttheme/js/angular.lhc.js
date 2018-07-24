@@ -213,6 +213,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	$scope.lmtoggle = this.restoreLocalSetting('lmtoggle','false',false) != 'false';
 	$scope.lmtoggler = this.restoreLocalSetting('lmtoggler','false',false) != 'false';
 
+    this.lhcVersion = 0;
+    this.lhcVersionCounter = 8;
+    this.lhcPendingRefresh = false;
+
 	// Stores last ID of unread/pending chat id
 	this.lastidEvent = 0;
 	
@@ -924,6 +928,13 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				_that.hideOnline = data.ho == 1;
 				_that.hideInvisible = data.im == 1;
 
+				if (_that.lhcVersion != data.v) {
+                    _that.lhcVersion = data.v;
+                    _that.lhcPendingRefresh = true;
+					_that.versionChanged();
+				}
+
+
 				if ($scope.setTimeoutEnabled == true) {
 					$scope.timeoutControl = setTimeout(function(){
 						$scope.loadChatList();
@@ -938,6 +949,17 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 					$scope.loadChatList();
 				},confLH.back_office_sinterval);
 		});
+	};
+
+    this.versionChanged = function() {
+		var _that = this;
+        $interval(function() {
+            _that.lhcVersionCounter = _that.lhcVersionCounter - 1;
+            console.log(_that.lhcVersionCounter);
+            if (_that.lhcVersionCounter == 0) {
+                document.location.reload(true);
+            }
+        }, 1000);
 	};
 
 	this.compareNotificationsAndHide = function(oldStatus, newStatus) {
@@ -1187,7 +1209,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			_that.userList = data.user_list;
             _that.hideInvisible = data.im;
             _that.hideOnline = data.ho;
-			
+            _that.lhcVersion = data.v;
+
 			angular.forEach(_that.widgetsItems, function(listId) {
 				_that.setDepartmentNames(listId);
 			});
