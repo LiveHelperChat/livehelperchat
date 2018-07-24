@@ -62,6 +62,8 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhspeech','changedefaultlanguage
 	erLhcoreClassModelUserSetting::setSetting('speech_language', $validateSpeechData['speech_language']);
 	erLhcoreClassModelUserSetting::setSetting('speech_dialect', $validateSpeechData['speech_dialect']);
 
+    erLhcoreClassSpeech::setUserLanguages($currentUser->getUserID(),$validateSpeechData['user_languages']);
+
 	$tpl->set('account_updated','done');
 	$tpl->set('tab','tab_speech');
 	

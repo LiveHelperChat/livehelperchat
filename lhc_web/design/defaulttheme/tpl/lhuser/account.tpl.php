@@ -230,7 +230,9 @@
 	  	?>
 	  	
 		<?php include(erLhcoreClassDesign::designtpl('lhspeech/speech_form_fields.tpl.php'));?>
-		
+
+		<?php include(erLhcoreClassDesign::designtpl('lhspeech/my_languages.tpl.php'));?>
+
 		<input type="submit" class="btn btn-default" name="UpdateSpeech_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
 
 		</form>

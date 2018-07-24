@@ -136,6 +136,9 @@ class erLhcoreClassDepartament{
 	   			'products_required' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
+                'assign_same_language' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
                 // Bot attributes
                 'bot_id' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
@@ -187,6 +190,12 @@ class erLhcoreClassDepartament{
 		   		$department->active_balancing = 1;
 		   	} else {
 		   		$department->active_balancing = 0;
+		   	}
+
+		   	if ( $form->hasValidData( 'assign_same_language' ) && $form->assign_same_language == true )	{
+		   		$department->assign_same_language = 1;
+		   	} else {
+		   		$department->assign_same_language = 0;
 		   	}
 		   	
 		   	if ( $form->hasValidData( 'MaxNumberActiveChats' ) )	{

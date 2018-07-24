@@ -1655,3 +1655,13 @@ input[type="file"]{
 	font-weight: bold;
 	font-style: italic;
 }
+
+.version-updated{
+	line-height:52px;
+	color: #BB474A;
+}
+
+.version-updated .material-icons{
+	font-size:24px;
+	color:#BB474A;
+}

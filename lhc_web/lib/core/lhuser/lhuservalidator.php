@@ -429,7 +429,12 @@ class erLhcoreClassUserValidator {
 			),
 			'select_dialect' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'string'
-			)
+			),
+            'userLanguages' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'string',
+                null,
+                FILTER_REQUIRE_ARRAY
+            )
 		);
 				
 		$form = new ezcInputForm( INPUT_POST, $definition );
@@ -438,10 +443,11 @@ class erLhcoreClassUserValidator {
 		
 		$data['speech_language'] = ( $form->hasValidData( 'select_language' ) ) ? $form->select_language : ''; 
 		
-		$data['speech_dialect'] = ( $form->hasValidData( 'select_dialect' ) && $form->hasValidData( 'select_dialect' ) != '0' ) ? $form->select_dialect : ''; 
-		
+		$data['speech_dialect'] = ( $form->hasValidData( 'select_dialect' ) && $form->hasValidData( 'select_dialect' ) != '0' ) ? $form->select_dialect : '';
+
+        $data['user_languages'] = ($form->hasValidData( 'userLanguages' ) && !empty($form->userLanguages)) ? $form->userLanguages : array();
+
 		return $data;
-		
 	}
 	
 	public static function validateVisibilityList() {

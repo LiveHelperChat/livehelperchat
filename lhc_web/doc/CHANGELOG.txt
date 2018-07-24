@@ -1,3 +1,10 @@
+3.01v
+
+1. Auto assign enhancement. It can try to assign chats matching operators languages first. It can be per department enable/disabled
+2. Auto refresh window for operators then version is updated.
+
+execute doc/update_db/update_176.sql for update
+
 3.00v
 
 1. Various bot enhancements. Attribute element.
