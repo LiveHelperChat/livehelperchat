@@ -59,6 +59,9 @@ class erLhcoreClassChat {
 			'auto_responder_id',
 			'chat_locale',
 			'anonymized',
+			'uagent',
+			'pnd_time',
+			'user_tz_identifier',
 	);
 
 	public static $limitMessages = 50;
