@@ -35,6 +35,13 @@ showStartWindow : function(url_to_open,delayShow) {
 		widgetHeightUnit = '%';
 	  }
 
+        <?php
+            $iconsStatuses = array(
+                'online_image_url' => ($theme !== false && $theme->online_image_url !== false && strpos($theme->online_image_url, 'http') !== false),
+                'offline_image_url' => ($theme !== false && $theme->offline_image_url !== false && strpos($theme->offline_image_url, 'http') !== false)
+            );
+        ?>
+
       this.iframe_html = '<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/before_iframe_container.tpl.php')); ?>'+'<div id="<?php echo $chatCSSPrefix?>_iframe_container" <?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ? 'style="height: calc(100% - 25px);"' : '' ?>><iframe id="<?php echo $chatCSSPrefix?>_iframe" allowTransparency="true" scrolling="no" class="<?php echo $chatCSSPrefix?>-loading" frameborder="0" ' +
                    ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
                    ' width="'+widgetWidth+'"' +

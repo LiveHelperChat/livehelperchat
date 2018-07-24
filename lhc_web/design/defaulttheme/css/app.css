@@ -341,7 +341,7 @@ option.offline-dep{
 	margin-bottom: 5px;
 }
 
-.msgBlock{
+.msgBlock,.msgBlock-inv{
 	height:120px;
 	overflow-y:auto;
 	border: 1px solid #CCCCCC;
