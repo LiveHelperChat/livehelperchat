@@ -15,7 +15,7 @@
         <i class="material-icons mr-0">menu</i>
       </button>
 
-      <div ng-cloak class="version-updated pull-left" ng-if="lhc.lhcPendingRefresh == true"><i class="material-icons">update</i> This window will be automatically refreshed in {{lhc.lhcVersionCounter}} seconds due to a version update.</div>
+      <div ng-cloak class="version-updated pull-left" ng-if="lhc.lhcPendingRefresh == true"><i class="material-icons">update</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','This window will be automatically refreshed in {{lhc.lhcVersionCounter}} seconds due to a version update.');?></div>
     </div>
       <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">    
           <ul class="nav navbar-nav navbar-inline">   
