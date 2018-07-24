@@ -386,6 +386,11 @@ $def->properties['anonymized']->columnName   = 'anonymized';
 $def->properties['anonymized']->propertyName = 'anonymized';
 $def->properties['anonymized']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['invitation_id'] = new ezcPersistentObjectProperty();
+$def->properties['invitation_id']->columnName   = 'invitation_id';
+$def->properties['invitation_id']->propertyName = 'invitation_id';
+$def->properties['invitation_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

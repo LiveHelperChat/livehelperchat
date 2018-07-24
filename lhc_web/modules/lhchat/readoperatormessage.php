@@ -421,6 +421,11 @@ if (isset($_POST['askQuestion']))
        $chat->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : $chat->department->priority;
        $chat->chat_initiator = erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE;
 
+       // Set invitation if any
+       if ($userInstance->invitation_id > 0) {
+            $chat->invitation_id = $userInstance->invitation_id;
+       }
+
        $onlineAttrSystem = $userInstance->online_attr_system_array;
 
        $ignoreResponder = isset($onlineAttrSystem['lhc_ignore_autoresponder']) && $onlineAttrSystem['lhc_ignore_autoresponder'] == 1;

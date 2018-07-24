@@ -62,6 +62,7 @@ class erLhcoreClassChat {
 			'uagent',
 			'pnd_time',
 			'user_tz_identifier',
+			'invitation_id',
 	);
 
 	public static $limitMessages = 50;

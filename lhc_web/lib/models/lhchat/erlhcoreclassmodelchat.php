@@ -105,6 +105,9 @@ class erLhcoreClassModelChat {
            
                // Product ID
                'product_id'    	        => $this->product_id,
+
+               // Product ID
+               'invitation_id'    	    => $this->invitation_id,
        		
                'uagent'    	        	=> $this->uagent,
                'device_type'    	    => $this->device_type,
@@ -665,6 +668,8 @@ class erLhcoreClassModelChat {
    public $uagent = '';
 
    public $anonymized = 0;
+
+   public $invitation_id = 0;
 
    // 0 - PC, 1 - mobile, 2 - tablet
    public $device_type = 0;

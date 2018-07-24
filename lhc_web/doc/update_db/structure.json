@@ -3466,6 +3466,14 @@
                 "extra": ""
             },
             {
+                "field": "invitation_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": "0",
+                "extra": ""
+            },
+            {
                 "field": "pnd_time",
                 "type": "int(11)",
                 "null": "NO",
