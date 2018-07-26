@@ -7,10 +7,10 @@ sendNotification : function() {
 
     <?php if (isset($notificationsSettings['enabled']) && $notificationsSettings['enabled'] == 1) : ?>
 
-    const applicationServerPublicKey = '<?php echo $notificationsSettings['public_key']?>';
+    var applicationServerPublicKey = '<?php echo $notificationsSettings['public_key']?>';
     this.isNotificationsSubscribed = false;
 
-    let swRegistration = null;
+    var swRegistration = null;
 
     if (!('serviceWorker' in navigator) || !('PushManager' in window)) {
         alert("This browser does not support desktop notification");
@@ -42,15 +42,15 @@ sendNotification : function() {
     }
 
     function urlB64ToUint8Array(base64String) {
-        const padding = '='.repeat((4 - base64String.length % 4) % 4);
-        const base64 = (base64String + padding)
+        var padding = '='.repeat((4 - base64String.length % 4) % 4);
+        var base64 = (base64String + padding)
         .replace(/\-/g, '+')
         .replace(/_/g, '/');
 
-        const rawData = window.atob(base64);
-        const outputArray = new Uint8Array(rawData.length);
+        var rawData = window.atob(base64);
+        var outputArray = new Uint8Array(rawData.length);
 
-        for (let i = 0; i < rawData.length; ++i) {
+        for (var i = 0; i < rawData.length; ++i) {
             outputArray[i] = rawData.charCodeAt(i);
         }
         return outputArray;
@@ -64,9 +64,9 @@ sendNotification : function() {
             return;
         }
 
-        const key = subscription.getKey('p256dh');
-        const token = subscription.getKey('auth');
-        const contentEncoding = (PushManager.supportedContentEncodings || ['aesgcm'])[0];
+        var key = subscription.getKey('p256dh');
+        var token = subscription.getKey('auth');
+        var contentEncoding = (PushManager.supportedContentEncodings || ['aesgcm'])[0];
 
         var payload = JSON.stringify({
             endpoint: subscription.endpoint,
@@ -84,7 +84,7 @@ sendNotification : function() {
     var that = this;
 
     function subscribeUser() {
-        const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
+        var applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
         swRegistration.pushManager.subscribe({
             userVisibleOnly: true,
             applicationServerKey: applicationServerKey
