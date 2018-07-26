@@ -603,10 +603,17 @@ var lh_inst  = {
     	}
     },
 
-    storePersistenCookie : function(){
+    storePersistenCookie : function() {
     	try {
 	    	lhc_Cookies('lhc_per',this.JSON.stringify(this.cookieDataPers),{expires:16070400<?php $trackDomain != '' || $disableHTML5Storage == 1 ? ($trackDomain != '' ? print ",domain:'.{$trackDomain}'" : print ",domain:this.getCookieDomain()") : ''?>});
 	    } catch(err) { };
+    },
+
+    checkCookieTime : function() {
+
+        var cookieData = lhc_Cookies('lhc_per');
+
+        console.log(cookieData);
     },
 
 	setVid : function(vid) {
@@ -971,15 +978,19 @@ function preloadDataLHC() {
     <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/lhc_chat_multiinclude.tpl.php')); ?>
 
     var cookieData = lhc_Cookies('lhc_per');
-    if ( typeof cookieData === "string" && cookieData ) {
-    lh_inst.cookieDataPers = lh_inst.JSON.parse(cookieData);
-    if (!lh_inst.cookieDataPers.vid) {
-    lh_inst.cookieDataPers = {<?php isset($vid) ? print 'vid:\''.$vid.'\'' : ''?>};
-    lh_inst.storePersistenCookie();
-    };
+
+    if ( typeof cookieData === "string" && cookieData) {
+        lh_inst.cookieDataPers = lh_inst.JSON.parse(cookieData);
+        if (!lh_inst.cookieDataPers.vid) {
+            lh_inst.cookieDataPers = {<?php isset($vid) ? print 'vid:\''.$vid.'\'' : ''?>};
+            lh_inst.storePersistenCookie();
+        } else {
+            lh_inst.checkCookieTime();
+        }
+
     } else {
-    lh_inst.cookieDataPers = {<?php isset($vid) ? print 'vid:\''.$vid.'\'' : ''?>};
-    lh_inst.storePersistenCookie();
+        lh_inst.cookieDataPers = {<?php isset($vid) ? print 'vid:\''.$vid.'\'' : ''?>};
+        lh_inst.storePersistenCookie();
     };
 
     <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/lhc_chat_after_cookie_multiinclude.tpl.php')); ?>
