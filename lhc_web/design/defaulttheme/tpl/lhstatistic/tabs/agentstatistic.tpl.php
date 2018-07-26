@@ -71,9 +71,8 @@
 	    </div>
 	  </div>
 	</div>
-	
 
-	<div class="col-md-4">
+	<div class="col-md-3">
 	   <div class="form-group">
     	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User group');?></label>
     	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
@@ -87,7 +86,7 @@
         </div>   
     </div>
 
-	<div class="col-md-4">
+	<div class="col-md-3">
 	   <div class="form-group">
     	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
     	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
@@ -100,7 +99,7 @@
         </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
 	   <div class="form-group">
     	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department group');?></label>
     	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
@@ -111,8 +110,8 @@
                     'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
             )); ?> 
         </div>   
-    </div> 
-    
+    </div>
+
     <div class="col-md-12">
     	<div class="row">
     		<div class="col-md-1">

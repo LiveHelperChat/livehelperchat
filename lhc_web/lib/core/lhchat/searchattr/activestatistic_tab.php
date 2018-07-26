@@ -40,6 +40,18 @@ $fieldsSearch['department_id'] = array (
 	)
 );
 
+$fieldsSearch['invitation_id'] = array (
+	'type' => 'text',
+	'trans' => 'Proactive invitation',
+	'required' => false,
+	'valid_if_filled' => false,
+	'filter_type' => 'filter',
+	'filter_table_field' => 'invitation_id',
+	'validation_definition' => new ezcInputFormDefinitionElement(
+		ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
+	)
+);
+
 $fieldsSearch['department_group_id'] = array (
 	'type' => 'text',
 	'trans' => 'Department group',
