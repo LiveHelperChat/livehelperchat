@@ -1,3 +1,10 @@
+3.02v
+
+1. Chat lists will include proactive invitation filtering options
+2. Statistic windows also will include invitation filtering options
+
+execute doc/update_db/update_177.sql for update
+
 3.01v
 
 1. Auto assign enhancement. It can try to assign chats matching operators languages first. It can be per department enable/disabled
