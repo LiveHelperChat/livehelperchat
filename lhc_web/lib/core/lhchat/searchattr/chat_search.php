@@ -50,6 +50,18 @@ $fieldsSearch['subject_id'] = array (
     )
 );
 
+$fieldsSearch['invitation_id'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'invitation_id',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+            ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
 $fieldsSearch['wait_time_from'] = array (
     'type' => 'text',
     'trans' => 'id',

@@ -2,7 +2,7 @@
 
 <div class="row form-group">
 
-	<div class="col-md-3">
+	<div class="col-md-2">
 	<div class="form-group">
 	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User');?></label>
 	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
@@ -16,7 +16,7 @@
     </div>   
     </div>   
 
-    <div class="col-md-3">
+    <div class="col-md-2">
 	   <div class="form-group">
     	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User group');?></label>
     	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
@@ -30,7 +30,7 @@
         </div>   
     </div>
     
-    <div class="col-md-3">
+    <div class="col-md-2">
     <div class="form-group">
 	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Group by');?></label>
 	   <select name="groupby" class="form-control">
@@ -41,7 +41,7 @@
 	</div>
 	</div>
 
-	<div class="col-md-3">
+	<div class="col-md-2">
 	<div class="form-group">
 	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
 
@@ -53,8 +53,34 @@
                 'list_function'  => 'erLhcoreClassModelDepartament::getList'
         )); ?> 
     </div>   
-    </div>   
-  
+    </div>
+
+    <div class="col-md-2">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department group');?></label>
+            <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                'input_name'     => 'department_group_id',
+                'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department group'),
+                'selected_id'    => $input->department_group_id,
+                'css_class'      => 'form-control',
+                'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
+            )); ?>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Invitation');?></label>
+            <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                'input_name'     => 'invitation_id',
+                'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose proactive invitation'),
+                'selected_id'    => $input->invitation_id,
+                'css_class'      => 'form-control',
+                'list_function'  => 'erLhAbstractModelProactiveChatInvitation::getList'
+            )); ?>
+        </div>
+    </div>
+
 	 <div class="col-md-3">
 	  <div class="form-group">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from');?></label>
@@ -125,18 +151,7 @@
 	  </div>
 	</div>
 
-     <div class="col-md-6">
-	   <div class="form-group">
-    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department group');?></label>
-    	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-                    'input_name'     => 'department_group_id',
-    				'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department group'),
-                    'selected_id'    => $input->department_group_id,	
-    	            'css_class'      => 'form-control',			
-                    'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
-            )); ?> 
-        </div>   
-      </div>
+
 
         <div class="col-md-6">
             <label><input type="checkbox" name="exclude_offline" value="<?php echo erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ?>" <?php $input->exclude_offline == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ? print 'checked="checked"' : ''?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Exclude offline request from charts.')?></label>&nbsp;&nbsp;<label><input type="checkbox" name="online_offline" value="<?php echo erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ?>" <?php $input->online_offline == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ? print 'checked="checked"' : ''?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Show only offline request')?></label>

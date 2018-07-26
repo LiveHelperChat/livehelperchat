@@ -2289,6 +2289,14 @@
                 "extra": ""
             },
             {
+                "field": "disabled",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "trigger_id",
                 "type": "int(11)",
                 "null": "NO",
@@ -3459,6 +3467,14 @@
             },
             {
                 "field": "status",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "MUL",
+                "default": "0",
+                "extra": ""
+            },
+            {
+                "field": "invitation_id",
                 "type": "int(11)",
                 "null": "NO",
                 "key": "MUL",

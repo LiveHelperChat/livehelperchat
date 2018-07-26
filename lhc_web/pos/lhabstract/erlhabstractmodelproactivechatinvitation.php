@@ -182,6 +182,12 @@ $def->properties['bot_offline']->columnName   = 'bot_offline';
 $def->properties['bot_offline']->propertyName = 'bot_offline';
 $def->properties['bot_offline']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+// Execute bot only if there is no online operators
+$def->properties['disabled'] = new ezcPersistentObjectProperty();
+$def->properties['disabled']->columnName   = 'disabled';
+$def->properties['disabled']->propertyName = 'disabled';
+$def->properties['disabled']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

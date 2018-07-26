@@ -285,17 +285,30 @@
                 )); ?>
             </div>
         </div>
-		<div class="col-md-3">
+        <div class="col-md-2">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Proactive invitation');?></label>
+                <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                    'input_name'     => 'invitation_id',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose proactive invitation'),
+                    'selected_id'    => $input->invitation_id,
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'name',
+                    'list_function'  => 'erLhAbstractModelProactiveChatInvitation::getList'
+                )); ?>
+            </div>
+        </div>
+		<div class="col-md-2">
     		<div class="form-group">
         	   <label class="control-label"><input type="checkbox" name="hum" <?php $input->hum == 1 ? print ' checked="checked" ' : ''?> value="on" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Has unread messages')?></label>
         	</div>
 		</div>
-        <div class="col-md-3">
+        <div class="col-md-2">
     		<div class="form-group">
         	   <label class="control-label"><input type="checkbox" name="una" <?php $input->una == 1 ? print ' checked="checked" ' : ''?> value="on" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Unanswered chat')?></label>
         	</div>
 		</div>
-        <div class="col-md-3">
+        <div class="col-md-2">
     		<div class="form-group">
         	   <label class="control-label"><input type="checkbox" name="anonymized" <?php $input->anonymized == 1 ? print ' checked="checked" ' : ''?> value="on" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Anonymised')?></label>
         	</div>

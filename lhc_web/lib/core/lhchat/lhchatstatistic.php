@@ -1178,7 +1178,6 @@ class erLhcoreClassChatStatistic {
             }
         }
 
-        
         if (isset($filtergte['filter']['department_group_id'])) {
             
             $depGroup = $filtergte['filter']['department_group_id'];
@@ -1264,9 +1263,9 @@ class erLhcoreClassChatStatistic {
         }
         
         $list = array();
-        
+
         $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatistic',array('user_filter' => $userIdFilter, 'department_user_id' => $userIdGroupDep, 'user_list' => $userList, 'days' => $days, 'filter' => $filter));
-        
+
         if ($statusWorkflow === false) {        
             foreach ($userList as $user) {
                 $userInfo = erLhcoreClassModelUser::fetch($user->id,true);

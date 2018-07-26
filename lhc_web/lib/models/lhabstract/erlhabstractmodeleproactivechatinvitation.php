@@ -47,7 +47,8 @@ class erLhAbstractModelProactiveChatInvitation {
 			'show_instant' => $this->show_instant,
 			'bot_id' => $this->bot_id,
 			'trigger_id' => $this->trigger_id,
-			'bot_offline' => $this->bot_offline
+			'bot_offline' => $this->bot_offline,
+			'disabled' => $this->disabled
 		);
 			
 		return $stateArray;
@@ -182,6 +183,7 @@ class erLhAbstractModelProactiveChatInvitation {
 				' . $appendTag . '
 				AND ('.$q->expr->eq( 'dep_id', $q->bindValue( $item->dep_id ) ).' OR dep_id = 0)
 	            AND `dynamic_invitation` = 1
+	            AND `disabled` = 0
 				AND ('.$q->expr->like( $session->database->quote(trim($referrer)), 'concat(referrer,\'%\')' ).' OR referrer = \'\')'
 	    )
 	    ->orderBy('position ASC')
@@ -258,6 +260,7 @@ class erLhAbstractModelProactiveChatInvitation {
 				AND ('.$q->expr->eq( 'identifier', $q->bindValue( $item->identifier ) ).' OR identifier = \'\')
 				' . $appendTag . '
 		        AND `dynamic_invitation` = 0
+		        AND `disabled` = 0
 		        ' . $appendInvitationsId . '
 				AND ('.$q->expr->eq( 'dep_id', $q->bindValue( $item->dep_id ) ).' OR dep_id = 0)
 				AND ('.$q->expr->like( $session->database->quote(trim($referrer)), 'concat(referrer,\'%\')' ).' OR referrer = \'\')'
@@ -395,6 +398,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $bot_id = 0;
 	public $trigger_id = 0;
 	public $bot_offline = 0;
+	public $disabled = 0;
 
 	public $hide_add = false;
 	public $hide_delete = false;
