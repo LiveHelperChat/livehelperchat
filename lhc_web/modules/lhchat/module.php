@@ -406,6 +406,11 @@ $ViewList['chatcheckoperatormessage'] = array(
 	'multiple_arguments' => array ( 'department','ua','dyn' )
 );
 
+$ViewList['extendcookie'] = array(
+    'params' => array('vid'),
+    'uparams' => array()
+);
+
 $ViewList['logpageview'] = array(
     'params' => array(),
     'uparams' => array('tz','vid','identifier','department','ua','uactiv','wopen'),

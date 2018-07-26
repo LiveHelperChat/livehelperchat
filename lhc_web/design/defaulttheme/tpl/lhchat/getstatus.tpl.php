@@ -610,10 +610,13 @@ var lh_inst  = {
     },
 
     checkCookieTime : function() {
-
-        var cookieData = lhc_Cookies('lhc_per');
-
-        console.log(cookieData);
+        if (!this.cookieDataPers['ex'] || this.cookieDataPers['ex'] < Math.round(Date.now()/100000000)) {
+            this.cookieDataPers['ex'] = Math.round(Date.now()/100000000)+10;
+            this.storePersistenCookie();
+            var xhr = new XMLHttpRequest();
+            xhr.open( "GET", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/extendcookie/'+this.cookieDataPers.vid, true);
+            xhr.send();
+        }
     },
 
 	setVid : function(vid) {
