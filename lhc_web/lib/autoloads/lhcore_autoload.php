@@ -111,8 +111,11 @@ return array_merge(array (
 		'erLhAbstractModelEmailTemplate' 			      => 'lib/models/lhabstract/erlhabstractmodelemailtemplate.php',
 		'erLhAbstractModelProactiveChatInvitation'        => 'lib/models/lhabstract/erlhabstractmodeleproactivechatinvitation.php',
 		'erLhAbstractModelProactiveChatInvitationEvent'   => 'lib/models/lhabstract/erlhabstractmodeleproactivechatinvitationevent.php',
-		'erLhAbstractModelProactiveChatVariables'   => 'lib/models/lhabstract/erlhabstractmodeleproactivechatvariables.php',
-		'erLhAbstractModelProactiveChatEvent'       => 'lib/models/lhabstract/erlhabstractmodeleproactivechatevent.php',
+		'erLhAbstractModelProactiveChatVariables'           => 'lib/models/lhabstract/erlhabstractmodeleproactivechatvariables.php',
+		'erLhAbstractModelProactiveChatEvent'               => 'lib/models/lhabstract/erlhabstractmodeleproactivechatevent.php',
+		'erLhAbstractModelProactiveChatCampaign'            => 'lib/models/lhabstract/erlhabstractmodeleproactivechatcampaign.php',
+		'erLhAbstractModelProactiveChatCampaignConversion'  => 'lib/models/lhabstract/erlhabstractmodelproactivechatcampaignconv.php',
+
 		'erLhAbstractModelAutoResponder'  			=> 'lib/models/lhabstract/erlhabstractmodelautoresponder.php',
 		'erLhAbstractModelAutoResponderChat'  		=> 'lib/models/lhabstract/erlhabstractmodelautoresponderchat.php',
     

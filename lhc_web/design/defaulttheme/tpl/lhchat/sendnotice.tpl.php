@@ -30,14 +30,28 @@ setTimeout(function(){
 		<div class="col-xs-6"><label><input type="checkbox" name="RequiresUsername" value="on" <?php $visitor->requires_username == 1 ? print 'checked="checked"' : ''?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Requires name')?></label></div>
 		<div class="col-xs-6"><label><input type="checkbox" name="RequiresPhone" value="on" <?php $visitor->requires_phone == 1 ? print 'checked="checked"' : ''?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Requires phone')?></label></div>
 	</div>
-	
-	<select class="form-control" id="id_CannedMessage-<?php echo $chat->id?>" onchange="$('#sendMessageContent').val(($(this).val() > 0) ? $(this).find(':selected').text() : '');">
-		        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Select a canned message')?></option>
-		        <?php foreach (erLhcoreClassModelCannedMsg::getCannedMessages($chat->dep_id,erLhcoreClassUser::instance()->getUserID()) as $item) : ?>
-		            <option value="<?php echo $item->id?>"><?php echo htmlspecialchars(str_replace('{nick}', (isset($chat) ? $chat->nick : ''), $item->msg))?></option>
-		       <?php endforeach;?>
-	</select>
-		      
+
+    <div class="row">
+        <div class="col-xs-6">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Campaign')?></label>
+            <select name="CampaignId" id="id_CampaignMessage-<?php echo $chat->id?>" class="form-control" onchange="$('#sendMessageContent').val(($(this).val() > 0) ? $(this).find(':selected').attr('data-msg') : '');">
+                <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Select campaign')?></option>
+                <?php foreach (erLhAbstractModelProactiveChatCampaign::getList() as $item) : ?>
+                    <option value="<?php echo $item->id?>" data-msg="<?php echo htmlspecialchars(str_replace('{nick}', (isset($chat) ? $chat->nick : ''), $item->text))?>"><?php echo htmlspecialchars($item->name)?></option>
+                <?php endforeach;?>
+            </select>
+        </div>
+        <div class="col-xs-6">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Canned message')?></label>
+            <select class="form-control" id="id_CannedMessage-<?php echo $chat->id?>" onchange="$('#sendMessageContent').val(($(this).val() > 0) ? $(this).find(':selected').text() : '');">
+                <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Select a canned message')?></option>
+                <?php foreach (erLhcoreClassModelCannedMsg::getCannedMessages($chat->dep_id,erLhcoreClassUser::instance()->getUserID()) as $item) : ?>
+                    <option value="<?php echo $item->id?>"><?php echo htmlspecialchars(str_replace('{nick}', (isset($chat) ? $chat->nick : ''), $item->msg))?></option>
+                <?php endforeach;?>
+            </select>
+        </div>
+    </div>
+
 	<input type="hidden" name="SendMessage" value="1" />
 	<hr>      
 	<input type="submit" class="btn btn-default" name="SendMessage" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send the message');?>" />

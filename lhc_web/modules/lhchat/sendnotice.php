@@ -15,6 +15,7 @@ if ( isset($_POST['SendMessage']) ) {
     $validationFields['RequiresPhone'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['AssignToMe'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['IgnoreAutoresponder'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
+    $validationFields['CampaignId'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1) );
 
     $form = new ezcInputForm( INPUT_POST, $validationFields );    
     $Errors = array();
@@ -73,11 +74,38 @@ if ( isset($_POST['SendMessage']) ) {
         $visitor->invitation_id = -1;
         $visitor->operator_user_id = $currentUser->getUserID();
 
+        $campaign = erLhAbstractModelProactiveChatCampaignConversion::findOne(array('filterin' => array('invitation_status' => array(
+            erLhAbstractModelProactiveChatCampaignConversion::INV_SEND,
+            erLhAbstractModelProactiveChatCampaignConversion::INV_SHOWN,
+            erLhAbstractModelProactiveChatCampaignConversion::INV_SEEN
+        )),'filter' => array('vid_id' => $visitor->id)));
+
+        if (!($campaign instanceof erLhAbstractModelProactiveChatCampaignConversion)) {
+            $campaign = new erLhAbstractModelProactiveChatCampaignConversion();
+        }
+
+        $campaign->vid_id = $visitor->id;
+        $campaign->invitation_status = erLhAbstractModelProactiveChatCampaignConversion::INV_SEND;
+        $campaign->ctime = time();
+        $campaign->con_time = time();
+        $campaign->department_id = $visitor->dep_id;
+
+        $detect = new Mobile_Detect;
+        $detect->setUserAgent($visitor->user_agent);
+        $campaign->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
+
+        if ($form->hasValidData( 'CampaignId' )) {
+            $campaign->campaign_id = $form->CampaignId;
+        }
+
+        $campaign->saveThis();
+
+        $visitor->conversion_id = $campaign->id;
         $visitor->saveThis();
-        
+
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.proactive_send_invitation', array('ou' => & $visitor));
-        
-        $tpl->set('message_saved',true);    
+
+        $tpl->set('message_saved',true);
     } else {        
         $tpl->set('errors',$Errors);
     } 

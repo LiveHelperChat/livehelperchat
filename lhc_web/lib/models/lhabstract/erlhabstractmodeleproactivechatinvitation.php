@@ -48,7 +48,8 @@ class erLhAbstractModelProactiveChatInvitation {
 			'bot_id' => $this->bot_id,
 			'trigger_id' => $this->trigger_id,
 			'bot_offline' => $this->bot_offline,
-			'disabled' => $this->disabled
+			'disabled' => $this->disabled,
+			'campaign_id' => $this->campaign_id
 		);
 			
 		return $stateArray;
@@ -311,9 +312,36 @@ class erLhAbstractModelProactiveChatInvitation {
 				$item->operator_user_id = erLhcoreClassChat::getRandomOnlineUserID(array('operators' => explode(',',trim($message->operator_ids))));				
 			}
 
+			$campaign = erLhAbstractModelProactiveChatCampaignConversion::findOne(array('filterin' => array('invitation_status' => array(
+                erLhAbstractModelProactiveChatCampaignConversion::INV_SEND,
+                erLhAbstractModelProactiveChatCampaignConversion::INV_SHOWN
+            )),'filter' => array('vid_id' => $item->id, 'invitation_id' => $message->id)));
+
 			$message->executed_times += 1;
 			$message->updateThis();
-			
+
+			// Campaign tracking
+			if (!($campaign instanceof erLhAbstractModelProactiveChatCampaignConversion)) {
+                $campaign = new erLhAbstractModelProactiveChatCampaignConversion();
+            }
+
+            $campaign->vid_id = $item->id;
+            $campaign->invitation_status = erLhAbstractModelProactiveChatCampaignConversion::INV_SEND;
+            $campaign->ctime = time();
+            $campaign->con_time = time();
+            $campaign->department_id = $item->dep_id;
+            $campaign->invitation_id = $message->id;
+            $campaign->invitation_type = 1;
+            $campaign->campaign_id = $message->campaign_id;
+
+            $detect = new Mobile_Detect;
+            $detect->setUserAgent($item->user_agent);
+            $campaign->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
+            $campaign->saveThis();
+
+            // Set conversion for trackback for online visitor record
+            $item->conversion_id = $campaign->id;
+
 			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.proactive_triggered', array('message' => & $message, 'ou' => & $item));
 		}
 	}
@@ -399,6 +427,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $trigger_id = 0;
 	public $bot_offline = 0;
 	public $disabled = 0;
+	public $campaign_id = 0;
 
 	public $hide_add = false;
 	public $hide_delete = false;

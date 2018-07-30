@@ -39,6 +39,7 @@ class erLhcoreClassModelChatOnlineUser
             'requires_username' => $this->requires_username,
             'requires_phone' => $this->requires_phone,
             'dep_id' => $this->dep_id,
+            'conversion_id' => $this->conversion_id,
             'reopen_chat' => $this->reopen_chat,
             'operation' => $this->operation,
             'operation_chat' => $this->operation_chat,
@@ -897,6 +898,7 @@ class erLhcoreClassModelChatOnlineUser
     public $requires_phone = 0;
     public $last_check_time = 0;
     public $user_active = 0;
+    public $conversion_id = 0;
 
     // 0 - do not reopen
     // 1 - reopen chat

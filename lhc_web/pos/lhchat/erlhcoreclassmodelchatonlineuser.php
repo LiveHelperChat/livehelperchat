@@ -179,6 +179,11 @@ $def->properties['reopen_chat']->columnName   = 'reopen_chat';
 $def->properties['reopen_chat']->propertyName = 'reopen_chat';
 $def->properties['reopen_chat']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['conversion_id'] = new ezcPersistentObjectProperty();
+$def->properties['conversion_id']->columnName   = 'conversion_id';
+$def->properties['conversion_id']->propertyName = 'conversion_id';
+$def->properties['conversion_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['identifier'] = new ezcPersistentObjectProperty();
 $def->properties['identifier']->columnName   = 'identifier';
 $def->properties['identifier']->propertyName = 'identifier';

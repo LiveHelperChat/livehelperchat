@@ -188,6 +188,12 @@ $def->properties['disabled']->columnName   = 'disabled';
 $def->properties['disabled']->propertyName = 'disabled';
 $def->properties['disabled']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+// Campaign tracking
+$def->properties['campaign_id'] = new ezcPersistentObjectProperty();
+$def->properties['campaign_id']->columnName   = 'campaign_id';
+$def->properties['campaign_id']->propertyName = 'campaign_id';
+$def->properties['campaign_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

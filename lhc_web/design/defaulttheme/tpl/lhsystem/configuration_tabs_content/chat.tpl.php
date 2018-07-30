@@ -42,8 +42,10 @@
         		   		
         		   		<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/proactive_variables.tpl.php'));?>	
         		   		
-        		   		<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/proactive_events.tpl.php'));?>	
-        
+        		   		<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/proactive_events.tpl.php'));?>
+
+        		   		<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/proactive_campaign.tpl.php'));?>
+
         			    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/autoresponder.tpl.php'));?>
         	    
         		    <?php endif; ?>
