@@ -1,6 +1,6 @@
 <h2><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/last_24h_statistic.tpl.php'));?></h2>
 
-<form action="" method="get">
+<form action="" method="get" autocomplete="off">
 
 <div class="form-group">
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from to');?></label>

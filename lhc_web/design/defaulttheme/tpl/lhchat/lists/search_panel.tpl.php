@@ -1,4 +1,4 @@
-<form action="<?php echo $input->form_action?>" method="get" name="SearchFormRight">
+<form action="<?php echo $input->form_action?>" method="get" name="SearchFormRight" autocomplete="off">
 
 	<input type="hidden" name="doSearch" value="1">
 

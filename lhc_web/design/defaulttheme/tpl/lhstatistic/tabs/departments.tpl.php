@@ -1,4 +1,4 @@
-<form action="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/departments" method="get">
+<form action="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/departments" method="get" autocomplete="off">
 
     <div class="row form-group">
 
