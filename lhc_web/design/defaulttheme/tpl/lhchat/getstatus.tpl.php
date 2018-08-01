@@ -492,8 +492,12 @@ var lh_inst  = {
 
     tag : '',
     
-    addTag : function(tag) {
-        this.tag = this.tag != '' ? this.tag + ',' + tag : '&tag='+tag; 
+    addTag : function(tag, forceUpdate) {
+        this.tag = this.tag != '' ? this.tag + ',' + tag : '&tag='+tag;
+
+        if (typeof forceUpdate !== 'undefined' && forceUpdate === true) {
+            this.startNewMessageCheckSingle();
+        }
     },
     
     updateAttribute : function(attributes) {         
