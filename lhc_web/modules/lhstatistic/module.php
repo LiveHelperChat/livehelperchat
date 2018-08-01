@@ -18,6 +18,18 @@ $ViewList['statistic'] = array(
     'multiple_arguments' => array('department_ids')
 );
 
+$ViewList['campaignmodal'] = array(
+    'params' => array('invitation_id'),
+    'uparams' => array(),
+    'functions' => array( 'viewstatistic' )
+);
+
+$ViewList['abstatistic'] = array(
+    'params' => array('campaign_id'),
+    'uparams' => array(),
+    'functions' => array( 'viewstatistic' )
+);
+
 $ViewList['onlinehours'] = array(
     'params' => array(),
     'uparams' => array('group_by','xls','timefrom','timeto','user_id','timefrom_minutes','timefrom_hours','timeto_hours','timeto_minutes'),

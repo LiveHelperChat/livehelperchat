@@ -1673,6 +1673,33 @@ class erLhcoreClassChatStatistic {
         
         return $stats;
     }
+
+    public static function getProactiveStatistic($params)
+    {
+        $stats = array(
+            // Send invitations
+            'INV_SEND' => erLhAbstractModelProactiveChatCampaignConversion::getCount($params['filter']),
+
+            // Invitations where widget was opened
+            'INV_SHOWN' => erLhAbstractModelProactiveChatCampaignConversion::getCount(array_merge_recursive($params['filter'], array('filterin' => array('invitation_status' => array(
+                erLhAbstractModelProactiveChatCampaignConversion::INV_SHOWN,
+                erLhAbstractModelProactiveChatCampaignConversion::INV_SEEN,
+                erLhAbstractModelProactiveChatCampaignConversion::INV_CHAT_STARTED,
+            ))))),
+
+            // Invitations where it was shown but chat was not started
+            'INV_SEEN' => erLhAbstractModelProactiveChatCampaignConversion::getCount(array_merge_recursive($params['filter'],array('filterin' => array('invitation_status' => array(
+                erLhAbstractModelProactiveChatCampaignConversion::INV_SEEN,
+            ))))),
+
+            // Invitations where it was shown but chat was not started
+            'INV_CHAT_STARTED' => erLhAbstractModelProactiveChatCampaignConversion::getCount(array_merge_recursive($params['filter'],array('filterin' => array('invitation_status' => array(
+                erLhAbstractModelProactiveChatCampaignConversion::INV_CHAT_STARTED,
+            ))))),
+        );
+
+        return $stats;
+    }
 }
 
 ?>

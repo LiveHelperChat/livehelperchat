@@ -192,6 +192,9 @@ return array(
         'hide_edit' => true,
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Matched times'),
         'required' => false,
+        'link' => 'statistic/campaignmodal',
+        'is_modal' => true,
+        'is_iframe' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
     ),
     'message' => array(
