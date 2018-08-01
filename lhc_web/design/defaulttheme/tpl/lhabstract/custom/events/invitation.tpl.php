@@ -97,6 +97,11 @@
 <?php echo erLhcoreClassAbstract::renderInput('dep_id', $fields['dep_id'], $object)?>
 </div>
 
+<div class="form-group">
+<label><?php echo $fields['campaign_id']['trans'];?></label>
+<?php echo erLhcoreClassAbstract::renderInput('campaign_id', $fields['campaign_id'], $object)?>
+</div>
+
 <div class="form-group">		
 <label><?php echo $fields['message']['trans'];?>*</label>
 <?php echo erLhcoreClassAbstract::renderInput('message', $fields['message'], $object)?>

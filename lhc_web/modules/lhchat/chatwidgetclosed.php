@@ -15,6 +15,18 @@ if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value
     $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'vid' => $Params['user_parameters_unordered']['vid']));
 
     if ($userInstance !== false && $userInstance->has_message_from_operator == true) {
+
+        // Finish conversion
+        if ($userInstance->conversion_id > 0) {
+            $conversionUser = erLhAbstractModelProactiveChatCampaignConversion::fetch($userInstance->conversion_id);
+            if ($conversionUser instanceof erLhAbstractModelProactiveChatCampaignConversion) {
+                $conversionUser->invitation_status = erLhAbstractModelProactiveChatCampaignConversion::INV_SEEN;
+                $conversionUser->con_time = time();
+                $conversionUser->saveThis();
+            }
+        }
+
+        $userInstance->conversion_id = 0;
         $userInstance->message_seen = 1;
         $userInstance->message_seen_ts = time();
         $userInstance->saveThis();

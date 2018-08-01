@@ -1,3 +1,10 @@
+3.03v
+
+1. Proactive chats A/B testing with campaign feature
+2. Proactive chat efficiency tracking statistic. To track conversion rate.
+
+execute doc/update_db/update_178.sql for update
+
 3.02v
 
 1. Chat lists will include proactive invitation filtering options

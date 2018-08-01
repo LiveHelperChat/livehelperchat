@@ -438,10 +438,20 @@ if (isset($_POST['askQuestion']))
        // Store chat
        erLhcoreClassChat::getSession()->save($chat);
 
+       $conversionUser = erLhAbstractModelProactiveChatCampaignConversion::fetch($userInstance->conversion_id);
+       if ($conversionUser instanceof erLhAbstractModelProactiveChatCampaignConversion) {
+           $conversionUser->invitation_status = erLhAbstractModelProactiveChatCampaignConversion::INV_CHAT_STARTED;
+           $conversionUser->chat_id = $chat->id;
+           $conversionUser->department_id = $chat->dep_id;
+           $conversionUser->con_time = time();
+           $conversionUser->saveThis();
+       }
+
        // Mark as user has read message from operator.
        $userInstance->message_seen = 1;
        $userInstance->message_seen_ts = time();
        $userInstance->chat_id = $chat->id;
+       $userInstance->conversion_id = 0;
        $userInstance->saveThis();
 
        $chat->online_user_id = $userInstance->id;
@@ -622,6 +632,13 @@ if (isset($_POST['askQuestion']))
 
     } else {
         $tpl->set('errors',$Errors);
+    }
+} elseif ($userInstance->conversion_id > 0) {
+    $conversionUser = erLhAbstractModelProactiveChatCampaignConversion::fetch($userInstance->conversion_id);
+    if ($conversionUser instanceof erLhAbstractModelProactiveChatCampaignConversion && $conversionUser->invitation_status != erLhAbstractModelProactiveChatCampaignConversion::INV_SHOWN) {
+        $conversionUser->invitation_status = erLhAbstractModelProactiveChatCampaignConversion::INV_SHOWN;
+        $conversionUser->con_time = time();
+        $conversionUser->saveThis();
     }
 }
 

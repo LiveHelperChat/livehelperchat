@@ -437,6 +437,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   KEY `siteaccess_position` (`siteaccess`,`position`)
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
+
+
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_widget_theme` (
 				 `id` int(11) NOT NULL AUTO_INCREMENT,
                  `name` varchar(250) NOT NULL,
@@ -1178,7 +1180,28 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       PRIMARY KEY (`id`),
         	       KEY `identifier` (`identifier`)
         	   ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
-        	   
+
+        	   $db->query("CREATE TABLE `lh_abstract_proactive_chat_campaign` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `name` varchar(50) NOT NULL, `text` text NOT NULL, PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
+        	   $db->query("CREATE TABLE `lh_abstract_proactive_chat_campaign_conv` (
+                  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+				  `device_type` tinyint(11) NOT NULL,
+				  `invitation_type` tinyint(1) NOT NULL,
+				  `invitation_status` tinyint(1) NOT NULL,
+				  `chat_id` bigint(20) NOT NULL,
+				  `campaign_id` int(11) NOT NULL,
+				  `invitation_id` int(11) NOT NULL,
+				  `department_id` int(11) NOT NULL,
+				  `ctime` int(11) NOT NULL,
+				  `con_time` int(11) NOT NULL,
+				  `vid_id` bigint(20) DEFAULT NULL,
+				  PRIMARY KEY (`id`),
+				  KEY `campaign_id` (`campaign_id`),
+				  KEY `invitation_id` (`invitation_id`),
+				  KEY `invitation_status` (`invitation_status`)
+				) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
+
         	   $db->query("CREATE TABLE IF NOT EXISTS `lh_users_setting` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
         	   `user_id` int(11) NOT NULL,
@@ -1389,6 +1412,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `operator_message` text NOT NULL,
                   `operator_user_proactive` varchar(100) NOT NULL,
                   `operator_user_id` int(11) NOT NULL,
+                  `conversion_id` int(11) NOT NULL,
                   `message_seen` int(11) NOT NULL,
                   `message_seen_ts` int(11) NOT NULL,
                   `user_active` int(11) NOT NULL,
@@ -1435,6 +1459,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `referrer` varchar(250) NOT NULL,				  
 				  `show_random_operator` int(11) NOT NULL,
 				  `operator_name` varchar(100) NOT NULL,
+				  `campaign_id` int(11) NOT NULL,
 				  `position` int(11) NOT NULL,
 				  `event_invitation` int(11) NOT NULL,
 				  `dynamic_invitation` int(11) NOT NULL,

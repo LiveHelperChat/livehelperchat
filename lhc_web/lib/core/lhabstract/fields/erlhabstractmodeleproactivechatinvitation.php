@@ -151,6 +151,15 @@ return array(
         ),
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
+    'campaign_id' => array(
+        'type' => 'combobox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Campaign'),
+        'required' => false,
+        'hidden' => true,
+        'source' => 'erLhAbstractModelProactiveChatCampaign::getList',
+        'params_call' => array(),
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
+    ),
     'bot_id' => array(
         'type' => 'combobox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Bot'),
@@ -183,6 +192,9 @@ return array(
         'hide_edit' => true,
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Matched times'),
         'required' => false,
+        'link' => 'statistic/campaignmodal',
+        'is_modal' => true,
+        'is_iframe' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
     ),
     'message' => array(
