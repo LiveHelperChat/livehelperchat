@@ -1,4 +1,4 @@
-<form action="" method="get">
+<form action="" method="get" autocomplete="off">
 
 <div class="row form-group">
     	
