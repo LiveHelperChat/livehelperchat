@@ -1136,8 +1136,63 @@ class erLhcoreClassChatStatistic {
         header('Content-Disposition: attachment; filename="report.xlsx"');
         // Write file to the browser
         $objWriter->save('php://output');
-    }    
-    
+    }
+
+    public static function getMedian($objects, $attr, $exclude = 10) {
+
+        $numberOfElements = 0;
+        $totalValue = 0;
+
+        $valuesArray = array();
+        foreach ($objects as $object) {
+            if ($object->$attr > 0) {
+                $valuesArray[] = (int)$object->$attr;
+            }
+        }
+
+        sort($valuesArray);
+
+        $elementstoExclude = floor(count($valuesArray)*($exclude/100));
+
+        $keyMin = $elementstoExclude;
+        $keyMax = count($valuesArray) - $elementstoExclude;
+
+        foreach ($valuesArray as $key => $value) {
+                if ($key >= $keyMin && $key < $keyMax) {
+                    $numberOfElements++;
+                    $totalValue += $value;
+                }
+        }
+
+        return round($totalValue/$numberOfElements,2);
+    }
+
+    public static function getAgentStatisticSummary($statistic) {
+
+        $attrToAverage = array(
+            'numberOfChats',
+            'numberOfChatsOnline',
+            'totalHours',
+            'totalHoursOnline',
+            'aveNumber',
+            'avgWaitTime',
+            'avgChatLengthSeconds',
+        );
+
+        $stats = array();
+        foreach ($attrToAverage as $attr) {
+            $stats[$attr] = self::getMedian($statistic,$attr);
+        }
+
+        foreach ($stats as $attr => $value) {
+            if ($attr == 'totalHours' || $attr == 'totalHoursOnline' || $attr == 'avgWaitTime' || $attr == 'avgChatLengthSeconds') {
+                $stats[$attr . '_front'] = erLhcoreClassChat::formatSeconds($stats[$attr]);
+            }
+        }
+
+        return $stats;
+    }
+
     public static function getAgentStatistic ($days = 30, $filtergte) {
         $filter = array();
     

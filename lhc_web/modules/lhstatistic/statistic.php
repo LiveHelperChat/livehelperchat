@@ -139,6 +139,8 @@ if ($tab == 'active') {
 
     $tpl->set('input',$filterParams['input_form']);
     $tpl->set('agentStatistic',$agentStatistic);
+    $tpl->set('agentStatistic_avg',erLhcoreClassChatStatistic::getAgentStatisticSummary($agentStatistic));
+
     
 } else if ($tab == 'performance') {
 
