@@ -1179,13 +1179,22 @@ class erLhcoreClassChatStatistic {
             'avgChatLengthSeconds',
         );
 
+        $attrFrontAverage = array(
+            'totalHours',
+            'totalHoursOnline',
+            'avgWaitTime',
+            'avgChatLengthSeconds',
+        );
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatisticaveragefield',array('attr' => & $attrToAverage, 'attr_front' => & $attrFrontAverage));
+
         $stats = array();
         foreach ($attrToAverage as $attr) {
             $stats[$attr] = self::getMedian($statistic,$attr);
         }
 
         foreach ($stats as $attr => $value) {
-            if ($attr == 'totalHours' || $attr == 'totalHoursOnline' || $attr == 'avgWaitTime' || $attr == 'avgChatLengthSeconds') {
+            if (in_array($attr,$attrFrontAverage)) {
                 $stats[$attr . '_front'] = erLhcoreClassChat::formatSeconds($stats[$attr]);
             }
         }
