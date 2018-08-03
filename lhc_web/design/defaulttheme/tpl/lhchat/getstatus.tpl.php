@@ -508,7 +508,7 @@ var lh_inst  = {
     },
     
     startNewMessageCheck : function() {
-    	var vid = this.cookieDataPers.vid;
+    	<?php /*var vid = this.cookieDataPers.vid;
     	var inst = this;
     	var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
     	
@@ -522,7 +522,7 @@ var lh_inst  = {
             s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ?  '/(fullheight)/true' : '/(fullheight)/false' ?>/(vid)/'+vid + lh_inst.survey_id + '/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+dynamic+'?l='+locationCurrent+inst.tag+'&dt='+encodeURIComponent(document.title)+'&ts='+Date.now());
             th.appendChild(s);
             lh_inst.startNewMessageCheck();        
-        }, <?php echo (int)(erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['check_for_operator_msg']*1000); ?> );
+        }, <?php echo (int)(erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['check_for_operator_msg']*1000); ?> );*/ ?>
     },
 
     getTzOffset : function(){
@@ -549,19 +549,21 @@ var lh_inst  = {
     },
     
     startNewMessageCheckSingle : function() {
-    	var vid = this.cookieDataPers.vid;
-        lh_inst.removeById('lhc_operator_message');
-        var th = document.getElementsByTagName('head')[0];
-        var s = document.createElement('script');
-        var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
-        var tzOffset = this.getTzOffset();
-           
-        var dynamic = this.dynamicAssigned.length > 0 ? '/(dyn)/' +  this.dynamicAssigned.join('/'): '';
-        
-        s.setAttribute('id','lhc_operator_message');
-        s.setAttribute('type','text/javascript');
-        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ?  '/(fullheight)/true' : '/(fullheight)/false' ?>/(tz)/' + tzOffset + this.survey_id + '/(count_page)/1/(vid)/'+vid+'/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+dynamic+'?l='+locationCurrent+this.tag+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title)+'&ts='+Date.now());
-        th.appendChild(s);
+        if (!lh_inst.cookieData.hash) {
+            var vid = this.cookieDataPers.vid;
+            lh_inst.removeById('lhc_operator_message');
+            var th = document.getElementsByTagName('head')[0];
+            var s = document.createElement('script');
+            var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
+            var tzOffset = this.getTzOffset();
+
+            var dynamic = this.dynamicAssigned.length > 0 ? '/(dyn)/' +  this.dynamicAssigned.join('/'): '';
+
+            s.setAttribute('id','lhc_operator_message');
+            s.setAttribute('type','text/javascript');
+            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ?  '/(fullheight)/true' : '/(fullheight)/false' ?>/(tz)/' + tzOffset + this.survey_id + '/(count_page)/1/(vid)/'+vid+'/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+dynamic+'?l='+locationCurrent+this.tag+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title)+'&ts='+Date.now());
+            th.appendChild(s);
+        }
     },
 
     logPageView : function() {
@@ -632,9 +634,8 @@ var lh_inst  = {
 			<?php if ($trackOnline == true && $disable_online_tracking == false) : ?>
 			lh_inst.stopCheckNewMessage();
 			lh_inst.logPageView();
-			if (!lh_inst.cookieData.hash) {
-				lh_inst.startNewMessageCheck();
-			}
+			lh_inst.startNewMessageCheckSingle();
+
 			<?php endif;?>
 			
 			if (old && old != this.cookieDataPers.vid) {
@@ -1025,12 +1026,12 @@ function preloadDataLHC() {
         <?php endif;?>
         }
 
-        <?php if ($check_operator_messages == 'true' && $disable_pro_active == false && $disable_online_tracking == false) : ?>
+        <?php /*if ($check_operator_messages == 'true' && $disable_pro_active == false && $disable_online_tracking == false) : ?>
             if (!lh_inst.cookieData.hash) {
             lh_inst.startNewMessageCheck();
             lh_inst.online_tracked = true;
             }
-        <?php endif; ?>
+        <?php endif;*/ ?>
 
         <?php if ($disable_pro_active == false && $track_online_users == true && $disable_online_tracking == false) : ?>
             if (!lh_inst.cookieData.hash) {

@@ -36,4 +36,10 @@ lh_inst.stopCheckNewMessage();
 <?php endif; ?>
 <?php if (isset($operation)) : ?><?php echo $operation;?><?php endif;?>
 
+<?php if ($visitor->next_reschedule > 0) : ?>
+    setTimeout(function() {
+        lh_inst.startNewMessageCheckSingle();
+    },<?php echo (($visitor->next_reschedule + 1)*1000);?>);
+<?php endif; ?>
+
 <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/chatcheckoperatormessage_multiinclude.tpl.php')); ?>	

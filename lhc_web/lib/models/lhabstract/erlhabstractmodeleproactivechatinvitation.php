@@ -256,7 +256,7 @@ class erLhAbstractModelProactiveChatInvitation {
 		    $appendInvitationsId = 'AND id IN ('.implode(',', $params['invitation_id']).')';
 		}
 
-		$q->where( $q->expr->lte( 'time_on_site', $q->bindValue( $item->time_on_site ) ).' AND '.$q->expr->lte( 'pageviews', $q->bindValue( $item->pages_count ) ).'
+		$q->where( /*$q->expr->lte( 'time_on_site', $q->bindValue( $item->time_on_site ) ).' AND '.*/ $q->expr->lte( 'pageviews', $q->bindValue( $item->pages_count ) ).'
 				AND ('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\')
 				AND ('.$q->expr->eq( 'identifier', $q->bindValue( $item->identifier ) ).' OR identifier = \'\')
 				' . $appendTag . '
@@ -266,83 +266,90 @@ class erLhAbstractModelProactiveChatInvitation {
 				AND ('.$q->expr->eq( 'dep_id', $q->bindValue( $item->dep_id ) ).' OR dep_id = 0)
 				AND ('.$q->expr->like( $session->database->quote(trim($referrer)), 'concat(referrer,\'%\')' ).' OR referrer = \'\')'
 		)
-		->orderBy('position ASC')
+		->orderBy('position ASC, time_on_site ASC')
 		->limit( 1 );
 		
 		$messagesToUser = $session->find( $q );
 		
 		if ( !empty($messagesToUser) ) {
+
 			$message = array_shift($messagesToUser);
-			
-			if ($message->event_invitation == 1 && (!isset($params['ignore_event']) || $params['ignore_event'] == 0)) {
-			    
-			    // Event conditions does not satisfied
-			    if (erLhcoreClassChatEvent::isConditionsSatisfied($item, $message) === false) {
-			        return;
-			    }
-			}
-			
-			// Use default message if first time visit or returning message is empty
-			if ($item->total_visits == 1 || $message->message_returning == '') {			
-				$item->operator_message = $message->message;
-			} else {				
-				if ($item->chat !== false && $item->chat->nick != '') {
-					$nick = $item->chat->nick;
-				} elseif ($message->message_returning_nick != '') {
-					$nick = $message->message_returning_nick;
-				} else {
-					$nick = '';
-				}
-				
-				$item->operator_message = str_replace('{nick}', $nick, $message->message_returning);				
-			}
-			
-			$item->operator_user_proactive = $message->operator_name;
-			$item->invitation_id = $message->id;
-			$item->invitation_seen_count = 0;
-			$item->requires_email = $message->requires_email;
-			$item->requires_username = $message->requires_username;
-			$item->requires_phone = $message->requires_phone;
-			$item->invitation_count++;
-			$item->store_chat = true;
-			$item->invitation_assigned = true;
-			$item->last_visit = time();
 
-			if ($message->show_random_operator == 1) {
-				$item->operator_user_id = erLhcoreClassChat::getRandomOnlineUserID(array('operators' => explode(',',trim($message->operator_ids))));				
-			}
+			if ($message->time_on_site <= $item->time_on_site)
+            {
+                if ($message->event_invitation == 1 && (!isset($params['ignore_event']) || $params['ignore_event'] == 0)) {
 
-			$campaign = erLhAbstractModelProactiveChatCampaignConversion::findOne(array('filterin' => array('invitation_status' => array(
-                erLhAbstractModelProactiveChatCampaignConversion::INV_SEND,
-                erLhAbstractModelProactiveChatCampaignConversion::INV_SHOWN
-            )),'filter' => array('vid_id' => $item->id, 'invitation_id' => $message->id)));
+                    // Event conditions does not satisfied
+                    if (erLhcoreClassChatEvent::isConditionsSatisfied($item, $message) === false) {
+                        return;
+                    }
+                }
 
-			$message->executed_times += 1;
-			$message->updateThis();
+                // Use default message if first time visit or returning message is empty
+                if ($item->total_visits == 1 || $message->message_returning == '') {
+                    $item->operator_message = $message->message;
+                } else {
+                    if ($item->chat !== false && $item->chat->nick != '') {
+                        $nick = $item->chat->nick;
+                    } elseif ($message->message_returning_nick != '') {
+                        $nick = $message->message_returning_nick;
+                    } else {
+                        $nick = '';
+                    }
 
-			// Campaign tracking
-			if (!($campaign instanceof erLhAbstractModelProactiveChatCampaignConversion)) {
-                $campaign = new erLhAbstractModelProactiveChatCampaignConversion();
+                    $item->operator_message = str_replace('{nick}', $nick, $message->message_returning);
+                }
+
+                $item->operator_user_proactive = $message->operator_name;
+                $item->invitation_id = $message->id;
+                $item->invitation_seen_count = 0;
+                $item->requires_email = $message->requires_email;
+                $item->requires_username = $message->requires_username;
+                $item->requires_phone = $message->requires_phone;
+                $item->invitation_count++;
+                $item->store_chat = true;
+                $item->invitation_assigned = true;
+                $item->last_visit = time();
+
+                if ($message->show_random_operator == 1) {
+                    $item->operator_user_id = erLhcoreClassChat::getRandomOnlineUserID(array('operators' => explode(',',trim($message->operator_ids))));
+                }
+
+                $campaign = erLhAbstractModelProactiveChatCampaignConversion::findOne(array('filterin' => array('invitation_status' => array(
+                    erLhAbstractModelProactiveChatCampaignConversion::INV_SEND,
+                    erLhAbstractModelProactiveChatCampaignConversion::INV_SHOWN
+                )),'filter' => array('vid_id' => $item->id, 'invitation_id' => $message->id)));
+
+                $message->executed_times += 1;
+                $message->updateThis();
+
+                // Campaign tracking
+                if (!($campaign instanceof erLhAbstractModelProactiveChatCampaignConversion)) {
+                    $campaign = new erLhAbstractModelProactiveChatCampaignConversion();
+                }
+
+                $campaign->vid_id = $item->id;
+                $campaign->invitation_status = erLhAbstractModelProactiveChatCampaignConversion::INV_SEND;
+                $campaign->ctime = time();
+                $campaign->con_time = time();
+                $campaign->department_id = $item->dep_id;
+                $campaign->invitation_id = $message->id;
+                $campaign->invitation_type = 1;
+                $campaign->campaign_id = $message->campaign_id;
+
+                $detect = new Mobile_Detect;
+                $detect->setUserAgent($item->user_agent);
+                $campaign->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
+                $campaign->saveThis();
+
+                // Set conversion for trackback for online visitor record
+                $item->conversion_id = $campaign->id;
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.proactive_triggered', array('message' => & $message, 'ou' => & $item));
+            } else {
+			    // We know there is invitation based on current criteria just time on site is still not matched.
+                $item->next_reschedule = $message->time_on_site - $item->time_on_site;
             }
-
-            $campaign->vid_id = $item->id;
-            $campaign->invitation_status = erLhAbstractModelProactiveChatCampaignConversion::INV_SEND;
-            $campaign->ctime = time();
-            $campaign->con_time = time();
-            $campaign->department_id = $item->dep_id;
-            $campaign->invitation_id = $message->id;
-            $campaign->invitation_type = 1;
-            $campaign->campaign_id = $message->campaign_id;
-
-            $detect = new Mobile_Detect;
-            $detect->setUserAgent($item->user_agent);
-            $campaign->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
-            $campaign->saveThis();
-
-            // Set conversion for trackback for online visitor record
-            $item->conversion_id = $campaign->id;
-
-			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.proactive_triggered', array('message' => & $message, 'ou' => & $item));
 		}
 	}
 	
@@ -429,6 +436,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $disabled = 0;
 	public $campaign_id = 0;
 
+	public $next_reschedule = 0;
 	public $hide_add = false;
 	public $hide_delete = false;
 
