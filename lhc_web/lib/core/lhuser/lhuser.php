@@ -213,6 +213,7 @@ class erLhcoreClassUser{
    				if ( $data['disabled'][0] == 0 ) {
 
    					$this->AccessArray = false;
+                    $this->AccessTimestamp = false;
 
    					if ( isset($_SESSION['lhc_access_array']) ) {
    						unset($_SESSION['lhc_access_array']);
@@ -237,7 +238,7 @@ class erLhcoreClassUser{
    					    $stmt->bindValue(':id',$this->userid,PDO::PARAM_INT);
    					    $stmt->execute();
    					}
-   					
+
    					return true;
    				}
 

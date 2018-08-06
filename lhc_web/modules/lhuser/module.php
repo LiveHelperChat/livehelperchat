@@ -23,6 +23,17 @@ $ViewList['logout'] = array(
     'params' => array()
 );
 
+$ViewList['loginas'] = array(
+    'params' => array('id'),
+    'functions' => array( 'loginas' )
+);
+
+$ViewList['loginasuser'] = array(
+    'params' => array('id'),
+    'uparams' => array('hash', 'ts'),
+    'functions' => array(  )
+);
+
 $ViewList['account'] = array(
     'params' => array(),
     'uparams' => array('msg','action','csfr','tab'),
@@ -158,5 +169,6 @@ $FunctionList['userautologin'] = array('explain' => 'Allow user to configure aut
 $FunctionList['canseedepartmentstats'] = array('explain' => 'Allow user to see departments statistic');
 $FunctionList['canseealldepartmentstats'] = array('explain' => 'Allow user to see all departments statistic, not only from his departments');
 $FunctionList['import'] = array('explain' => 'Allow user to import users');
+$FunctionList['loginas'] = array('explain' => 'Allow user to login as other user');
 
 ?>

@@ -5,6 +5,7 @@
 <?php
 	$canEdit = $currentUser->hasAccessTo('lhuser','edituser');
 	$canDelete = $currentUser->hasAccessTo('lhuser','deleteuser');
+	$canLoginAs = $currentUser->hasAccessTo('lhuser','loginas');
 ?>
 <table class="table" cellpadding="0" cellspacing="0" width="100%">
 <thead>
@@ -14,6 +15,7 @@
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','E-mail');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Last activity');?></th>
     <?php include(erLhcoreClassDesign::designtpl('lhuser/userlist/column_multiinclude.tpl.php')); ?>
+    <?php if ($canLoginAs) : ?><th width="1%">&nbsp;</th><?php endif;?>
     <?php if ($canEdit) : ?><th width="1%">&nbsp;</th><?php endif;?>
     <?php if ($canDelete) : ?><th width="1%">&nbsp;</th><?php endif;?>
 </tr>
@@ -25,6 +27,9 @@
         <td><?php echo htmlspecialchars($user->email)?></td>
         <td><?php echo $user->lastactivity_ago?> ago</td>
         <?php include(erLhcoreClassDesign::designtpl('lhuser/userlist/column_data_multiinclude.tpl.php')); ?>
+        <?php if ($canLoginAs) : ?>
+            <td><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('user/loginas')?>/<?php echo $user->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Login As');?></a></td>
+        <?php endif;?>
         <?php if ($canEdit) : ?><td><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Edit');?></a></td><?php endif;?>
         <?php if ($canDelete) : ?><td><?php if ($user->id != 1) : ?><a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('user/delete')?>/<?php echo $user->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Delete');?></a><?php endif;?></td><?php endif;?>
     </tr>
