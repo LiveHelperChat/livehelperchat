@@ -240,6 +240,11 @@
                     display : false,
                     position: 'top',
                 },
+                layout: {
+                    padding: {
+                         top: 20
+                    }
+                },
                 scales: {
                     xAxes: [{
                         ticks: {
@@ -280,6 +285,11 @@
                     display : false,
                     position: 'top',
                 },
+                layout: {
+                    padding: {
+                         top: 20
+                    }
+                },
                 scales: {
                     xAxes: [{
                         ticks: {
@@ -319,6 +329,11 @@
                 legend: {
                     display : false,
                     position: 'top',
+                },
+                layout: {
+                    padding: {
+                         top: 20
+                    }
                 },
                 scales: {
                     xAxes: [{
@@ -506,6 +521,11 @@
                 data: barChartData,
                 options: {
                     responsive: true,
+                    layout: {
+                        padding: {
+                             top: 20
+                        }
+                    },
                     legend: {
                         display : false,
                         position: 'top',
@@ -616,6 +636,11 @@
                     display : false,
                     position: 'top',
                 },
+                layout: {
+                    padding: {
+                         top: 20
+                    }
+                },
                 scales: {
                     xAxes: [{
                         ticks: {
@@ -663,6 +688,11 @@
                 legend: {
                     display : false,
                     position: 'top',
+                },
+                layout: {
+                    padding: {
+                         top: 20
+                    }
                 },
                 tooltips: {
                     callbacks: {

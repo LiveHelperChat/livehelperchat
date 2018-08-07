@@ -230,6 +230,11 @@ function drawDepartmentStats(){
                // display : false,
                // position: 'top',
             },
+            layout: {
+                padding: {
+                    top: 20
+                }
+            },
             tooltips: {
                 callbacks: {
                     label : function(param) {
