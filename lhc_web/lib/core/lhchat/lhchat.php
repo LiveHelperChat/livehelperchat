@@ -427,6 +427,13 @@ class erLhcoreClassChat {
     		}
     	}
 
+        if (isset($params['filternot']) && count($params['filternot']) > 0)
+        {
+            foreach ($params['filternot'] as $field => $fieldValue) {
+                $conditions[] = $q->expr->neq($field, $q->bindValue($fieldValue));
+            }
+        }
+
     	if (isset($params['customfilter']) && count($params['customfilter']) > 0)
     	{
     		foreach ($params['customfilter'] as $fieldValue)
