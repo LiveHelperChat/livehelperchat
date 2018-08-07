@@ -2,19 +2,19 @@ services.factory('OnlineUsersFactory', ['$http','$q',function ($http, $q) {
 	
 	this.loadOnlineUsers = function(params){
 		var deferred = $q.defer();		
-		$http.get(WWW_DIR_JAVASCRIPT + 'chat/onlineusers/(method)/ajax/(timeout)/'+params.timeout + (params.department > 0 ? '/(department)/' + params.department : '' ) + (params.max_rows > 0 ? '/(maxrows)/' + params.max_rows : '' )).success(function(data) {
-			 deferred.resolve(data);		
+		$http.get(WWW_DIR_JAVASCRIPT + 'chat/onlineusers/(method)/ajax/(timeout)/'+params.timeout + (params.department > 0 ? '/(department)/' + params.department : '' ) + (params.max_rows > 0 ? '/(maxrows)/' + params.max_rows : '' )).then(function(data) {
+			 deferred.resolve(data.data);
 		});		
 		return deferred.promise;
 	};
 	
 	this.deleteOnlineUser = function(params){
 		var deferred = $q.defer();		
-		$http.post(WWW_DIR_JAVASCRIPT +'chat/onlineusers/(deletevisitor)/'+params.user_id + '/(csfr)/'+confLH.csrf_token).success(function(data) {
+		$http.post(WWW_DIR_JAVASCRIPT +'chat/onlineusers/(deletevisitor)/'+params.user_id + '/(csfr)/'+confLH.csrf_token).then(function(data) {
 			if (typeof data.error_url !== 'undefined') {
-				document.location = data.error_url;
+				document.location = data.data.error_url;
 			} else {
-				deferred.resolve(data);
+				deferred.resolve(data.data);
 			}		
 		});		
 		return deferred.promise;
@@ -29,10 +29,10 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 		this.onlineusers = [];	
 		this.onlineusersPreviousID = [];
 		$scope.onlineusersGrouped = [];
-		this.updateTimeout = 10;
-		this.userTimeout = 3600;	
-		this.maxRows = 50;	
-		this.department = 0;	
+		this.updateTimeout = '10';
+		this.userTimeout = '3600';
+		this.maxRows = '50';
+		this.department = '0';
 		this.predicate = 'last_visit';
 		this.reverse = true;
 		this.wasInitiated = false;

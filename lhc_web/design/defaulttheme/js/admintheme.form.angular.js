@@ -2,9 +2,9 @@ services.factory('IClickToCallFormFactory', ['$http','$q',function ($http, $q) {
 	
 	this.getHash = function(){
 		var deferred = $q.defer();		
-		$http.get(WWW_DIR_JAVASCRIPT + 'theme/gethash').success(function(data) {			
-			deferred.resolve(data);			 		 
-		}).error(function(){
+		$http.get(WWW_DIR_JAVASCRIPT + 'theme/gethash').then(function(data) {
+			deferred.resolve(data.data);
+		},function(){
 			deferred.reject('error');
 		});
 		
@@ -13,9 +13,9 @@ services.factory('IClickToCallFormFactory', ['$http','$q',function ($http, $q) {
 	
 	this.deleteResource = function(id, resource, itemId){
 		var deferred = $q.defer();		
-		$http.get(WWW_DIR_JAVASCRIPT + 'theme/deleteresource/'+id+'/'+resource+'/'+itemId).success(function(data) {			
-			 deferred.resolve(data);			 		 
-		}).error(function(){
+		$http.get(WWW_DIR_JAVASCRIPT + 'theme/deleteresource/'+id+'/'+resource+'/'+itemId).then(function(data) {
+			 deferred.resolve(data.data);
+		},function(){
 			deferred.reject('error');
 		});
 		

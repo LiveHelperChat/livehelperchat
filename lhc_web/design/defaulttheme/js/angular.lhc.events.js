@@ -10,7 +10,6 @@ lhcAppControllers.controller('ProactiveEventsFormCtrl',['$scope','$http','$locat
 			'during_seconds' : 0,
 			'id' : 'temp'+new Date().getTime()
 		});
-		console.log(that.events);
 	};
 	
 	this.deleteField = function(field) {								

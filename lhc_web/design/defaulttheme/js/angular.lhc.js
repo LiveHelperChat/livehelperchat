@@ -24,13 +24,13 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 	
 	this.loadChatList = function(filter){
 		var deferred = $q.defer();		
-		$http.get(WWW_DIR_JAVASCRIPT + 'chat/syncadmininterface' + filter).success(function(data) {
+		$http.get(WWW_DIR_JAVASCRIPT + 'chat/syncadmininterface' + filter).then(function(data) {
 			 if (typeof data.error_url !== 'undefined') {
 				 document.location = data.error_url;
 			 } else {
-				 deferred.resolve(data);
+				 deferred.resolve(data.data);
 			 }			 
-		}).error(function(){
+		},function(){
 			deferred.reject('error');
 		});		
 		return deferred.promise;
@@ -38,13 +38,13 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 
 	this.loadInitialData = function(appendURL) {
 		var deferred = $q.defer();		
-		$http.get(WWW_DIR_JAVASCRIPT + 'chat/loadinitialdata' + appendURL).success(function(data) {
+		$http.get(WWW_DIR_JAVASCRIPT + 'chat/loadinitialdata' + appendURL).then(function(data) {
 			 if (typeof data.error_url !== 'undefined') {
-				 document.location = data.error_url;
+				 document.location = data.data.error_url;
 			 } else {
-				 deferred.resolve(data);
+				 deferred.resolve(data.data);
 			 }			 
-		}).error(function(){
+		},function(){
 			deferred.reject('error');
 		});		
 		return deferred.promise;
@@ -52,13 +52,13 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 
 	this.loadActiveChats = function() {
 		var deferred = $q.defer();		
-		$http.get(WWW_DIR_JAVASCRIPT + 'chat/loadactivechats').success(function(data) {
+		$http.get(WWW_DIR_JAVASCRIPT + 'chat/loadactivechats').then(function(data) {
 			 if (typeof data.error_url !== 'undefined') {
 				 document.location = data.error_url;
 			 } else {
-				 deferred.resolve(data);
+				 deferred.resolve(data.data);
 			 }			 
-		}).error(function(){
+		},function(){
 			deferred.reject('error');
 		});		
 		return deferred.promise;
@@ -66,13 +66,13 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 	
 	this.getNotificationsData = function(id) {
 		var deferred = $q.defer();
-		$http.get(WWW_DIR_JAVASCRIPT + 'chat/getnotificationsdata/(id)/' + id).success(function(data) {
+		$http.get(WWW_DIR_JAVASCRIPT + 'chat/getnotificationsdata/(id)/' + id).then(function(data) {
 			if (typeof data.error_url !== 'undefined') {
-				document.location = data.error_url;
+				document.location = data.data.error_url;
 			} else {
-				deferred.resolve(data);
+				deferred.resolve(data.data);
 			}
-		}).error(function(){
+		},function(){
 			deferred.reject('error');
 		});
 		return deferred.promise;
@@ -80,9 +80,9 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 	
 	this.setInactive = function(status) {
 		var deferred = $q.defer();
-		$http.get(WWW_DIR_JAVASCRIPT + 'user/setinactive/'+status).success(function(data) {
-			deferred.resolve(data);
-		}).error(function() {
+		$http.get(WWW_DIR_JAVASCRIPT + 'user/setinactive/'+status).then(function(data) {
+			deferred.resolve(data.data);
+		},function() {
 			deferred.reject('error');
 		});
 		return deferred.promise;
@@ -90,10 +90,10 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 
 	this.setOnlineMode = function(status) {
         var deferred = $q.defer();
-        $http.get(WWW_DIR_JAVASCRIPT + 'user/setoffline/'+status).success(function(data) {
-            deferred.resolve(data);
-        }).error(function(data) {
-            deferred.reject(data);
+        $http.get(WWW_DIR_JAVASCRIPT + 'user/setoffline/'+status).then(function(data) {
+            deferred.resolve(data.data);
+        },function(data) {
+            deferred.reject(data.data);
         });
         return deferred.promise;
 	};
@@ -101,19 +101,19 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 	this.changeVisibility = function(status)
     {
         var deferred = $q.defer();
-        $http.get(WWW_DIR_JAVASCRIPT + 'user/setinvisible/'+status).success(function(data) {
-            deferred.resolve(data);
-        }).error(function(data) {
-            deferred.reject(data);
+        $http.get(WWW_DIR_JAVASCRIPT + 'user/setinvisible/'+status).then(function(data) {
+            deferred.resolve(data.data);
+        },function(data) {
+            deferred.reject(data.data);
         });
         return deferred.promise;
     };
 
 	this.getActiveOperatorChat = function(user_id) {
         var deferred = $q.defer();
-        $http.get(WWW_DIR_JAVASCRIPT + 'chat/startchatwithoperator/'+user_id+'/(mode)/check').success(function(data) {
-        	deferred.resolve(data);
-        }).error(function(){
+        $http.get(WWW_DIR_JAVASCRIPT + 'chat/startchatwithoperator/'+user_id+'/(mode)/check').then(function(data) {
+        	deferred.resolve(data.data);
+        },function(){
             deferred.reject('error');
         });
         return deferred.promise;
@@ -196,15 +196,15 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.custom_extension_filter = '';
 
 	// Active chat limit
-	this.limitb = this.restoreLocalSetting('limitb',10,false);
-	this.limita = this.restoreLocalSetting('limita',10,false);
-	this.limitu = this.restoreLocalSetting('limitu',10,false);
-	this.limitp = this.restoreLocalSetting('limitp',10,false);
-	this.limito = this.restoreLocalSetting('limito',10,false);
-	this.limitc = this.restoreLocalSetting('limitc',10,false);
-	this.limitd = this.restoreLocalSetting('limitd',10,false);
-	this.limitmc = this.restoreLocalSetting('limitmc',10,false);
-	
+	this.limitb = this.restoreLocalSetting('limitb','10',false);
+	this.limita = this.restoreLocalSetting('limita','10',false);
+	this.limitu = this.restoreLocalSetting('limitu','10',false);
+	this.limitp = this.restoreLocalSetting('limitp','10',false);
+	this.limito = this.restoreLocalSetting('limito','10',false);
+	this.limitc = this.restoreLocalSetting('limitc','10',false);
+	this.limitd = this.restoreLocalSetting('limitd','10',false);
+	this.limitmc = this.restoreLocalSetting('limitmc','10',false);
+
 	// Active chat's operators filter
 	this.activeu = this.restoreLocalSetting('activeu',[],true);
 	this.pendingu = this.restoreLocalSetting('pendingu',[],true);
