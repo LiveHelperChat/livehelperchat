@@ -100,7 +100,7 @@ class erLhcoreClassModelChatArchiveRange
             $stmt->execute();
 
             // Dispatch event if chat is archived
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.archived',array('chat' => & $item));
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.archived',array('chat' => & $item, 'archive' => $this));
 
             erLhcoreClassChat::getSession()->delete($item);
 
@@ -251,6 +251,8 @@ class erLhcoreClassModelChatArchiveRange
             $command = str_replace("`lh_msg`", "`lh_chat_archive_msg_{$this->id}`", $command);
             $db->query($command);
         }
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.create_archive', array('archive' => & $this));
 
         return $this->id;
     }
