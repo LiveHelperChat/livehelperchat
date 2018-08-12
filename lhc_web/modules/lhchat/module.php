@@ -510,7 +510,7 @@ $ViewList['startchatformsettingsindex'] = array(
 
 $ViewList['cannedmsg'] = array(
     'params' => array(),
-    'uparams' => array('action','id','csfr'),
+    'uparams' => array('action','id','csfr','message','title','fmsg','department_id'),
     'functions' => array( 'administratecannedmsg' )
 );
 
