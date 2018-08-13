@@ -1,0 +1,2 @@
+ALTER TABLE `lh_abstract_proactive_chat_campaign_conv` ADD INDEX `ctime` (`ctime`);
+INSERT INTO `lh_chat_config` (`identifier`,`value`,`type`,`explain`,`hidden`) VALUES ('departament_availability','364','0','How long department availability statistic should be kept? (days)','0');
