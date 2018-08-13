@@ -101,6 +101,9 @@
                 <?php $attribute = 'departament_availability'?>
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 
+                <?php $attribute = 'uonline_sessions'?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
             </div>
 
 			<div role="tabpanel" class="tab-pane" id="misc">

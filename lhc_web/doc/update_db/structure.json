@@ -7466,9 +7466,16 @@
             },
             {
                 "identifier": "departament_availability",
-                "value": "370",
+                "value": "364",
                 "type": "0",
                 "explain": "How long department availability statistic should be kept? (days)",
+                "hidden": "0"
+            },
+            {
+                "identifier": "uonline_sessions",
+                "value": "364",
+                "type": "0",
+                "explain": "How long keep operators online sessions data? (days)",
                 "hidden": "0"
             },
             {

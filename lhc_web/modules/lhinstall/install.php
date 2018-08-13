@@ -1293,6 +1293,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('list_unread','0','0','List unread chats','0'),
                 ('list_closed','0','0','List closed chats','0'),
                 ('departament_availability','364','0','How long department availability statistic should be kept? (days)','0'),
+                ('uonline_sessions','364','0','How long keep operators online sessions data? (days)','0'),
                 ('disable_live_autoassign','0','0','Disable live auto assign','0'),
                 ('tracked_footprint_cleanup','90','0','How many days keep records of users footprint.','0'),
                 ('cleanup_cronjob','0','0','Cleanup should be done only using cronjob.','0'),         

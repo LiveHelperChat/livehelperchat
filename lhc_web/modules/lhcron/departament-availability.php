@@ -48,31 +48,4 @@ foreach ($departmentList as $department) {
     }
 }
 
-echo "Department availability cleanup\n";
-
-$timeout = erLhcoreClassModelChatConfig::fetch('departament_availability')->current_value;
-
-if ($timeout >= 0) {
-
-    $db = ezcDbInstance::get();
-
-    for ($i = 0; $i < 100; $i++)
-    {
-        $stmt = $db->prepare("SELECT `id`, `time` FROM lh_departament_availability ORDER BY id ASC LIMIT 1 OFFSET 1000");
-        $stmt->execute();
-        $data = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if (isset($data['time']) && $data['time'] < (int)(time() - ($timeout * 24 * 3600))) {
-            $stmt = $db->prepare('DELETE FROM lh_departament_availability WHERE id < :id');
-            $stmt->bindValue(':id', $data['id'], PDO::PARAM_INT);
-            $stmt->execute();
-            break;
-        } else {
-            // No more records found to remove
-            break;
-        }
-    }
-}
-
-
 ?>

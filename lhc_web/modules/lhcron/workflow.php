@@ -76,7 +76,13 @@ try {
 erLhcoreClassChatWorkflow::autoInformVisitor(erLhcoreClassModelChatConfig::fetch('inform_unread_message')->current_value);
 
 // Cleanup online visitors
-erLhcoreClassModelChatOnlineUser::cleanupOnlineUsers(array('cronjob' => true));
+erLhcoreClassChatCleanup::cleanupOnlineUsers(array('cronjob' => true));
+
+// Cleanup online operators sessions
+erLhcoreClassChatCleanup::onlineOperatorsCleanup(array('cronjob' => true));
+
+// Cleanup online operators sessions
+erLhcoreClassChatCleanup::departmentAvailabilityCleanup(array('cronjob' => true));
 
 echo "Ended chat/workflow\n";
 
