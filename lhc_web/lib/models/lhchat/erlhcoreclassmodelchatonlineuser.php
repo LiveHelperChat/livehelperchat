@@ -588,6 +588,11 @@ class erLhcoreClassModelChatOnlineUser
                     $stmt = $db->prepare('DELETE FROM lh_chat_online_user WHERE last_visit < :last_activity');
                     $stmt->bindValue(':last_activity', (int)(time() - ($timeoutCleanup * 24 * 3600)), PDO::PARAM_INT);
                     $stmt->execute();
+
+                    // Cleanup proactive statistic. As it's related to online visitors cleanup it with same workflow
+                    $stmt = $db->prepare('DELETE FROM lh_abstract_proactive_chat_campaign_conv WHERE ctime < :ctime');
+                    $stmt->bindValue(':ctime', (int)(time() - ($timeoutCleanup * 24 * 3600)), PDO::PARAM_INT);
+                    $stmt->execute();
                 }
 
                 if ($timeoutCleanupFootprint > 0) {

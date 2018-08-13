@@ -98,6 +98,9 @@
                 <?php $attribute = 'tracked_footprint_cleanup'?>
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 
+                <?php $attribute = 'departament_availability'?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
             </div>
 
 			<div role="tabpanel" class="tab-pane" id="misc">

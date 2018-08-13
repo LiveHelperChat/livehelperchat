@@ -1196,6 +1196,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
 				  `con_time` int(11) NOT NULL,
 				  `vid_id` bigint(20) DEFAULT NULL,
 				  PRIMARY KEY (`id`),
+				  KEY `ctime` (`ctime`),
 				  KEY `campaign_id` (`campaign_id`),
 				  KEY `invitation_id` (`invitation_id`),
 				  KEY `invitation_status` (`invitation_status`)
@@ -1291,6 +1292,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('transfer_configuration','0','0','Transfer configuration','1'),
                 ('list_unread','0','0','List unread chats','0'),
                 ('list_closed','0','0','List closed chats','0'),
+                ('departament_availability','364','0','How long department availability statistic should be kept? (days)','0'),
                 ('disable_live_autoassign','0','0','Disable live auto assign','0'),
                 ('tracked_footprint_cleanup','90','0','How many days keep records of users footprint.','0'),
                 ('cleanup_cronjob','0','0','Cleanup should be done only using cronjob.','0'),         
