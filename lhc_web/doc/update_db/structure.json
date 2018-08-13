@@ -7465,6 +7465,20 @@
                 "hidden": "0"
             },
             {
+                "identifier": "departament_availability",
+                "value": "364",
+                "type": "0",
+                "explain": "How long department availability statistic should be kept? (days)",
+                "hidden": "0"
+            },
+            {
+                "identifier": "uonline_sessions",
+                "value": "364",
+                "type": "0",
+                "explain": "How long keep operators online sessions data? (days)",
+                "hidden": "0"
+            },
+            {
                 "identifier": "start_chat_data",
                 "value": "a:23:{i:0;b:0;s:21:\"name_visible_in_popup\";b:1;s:27:\"name_visible_in_page_widget\";b:1;s:19:\"name_require_option\";s:8:\"required\";s:22:\"email_visible_in_popup\";b:0;s:28:\"email_visible_in_page_widget\";b:0;s:20:\"email_require_option\";s:8:\"required\";s:24:\"message_visible_in_popup\";b:1;s:30:\"message_visible_in_page_widget\";b:1;s:22:\"message_require_option\";s:8:\"required\";s:22:\"phone_visible_in_popup\";b:0;s:28:\"phone_visible_in_page_widget\";b:0;s:20:\"phone_require_option\";s:8:\"required\";s:21:\"force_leave_a_message\";b:0;s:29:\"offline_name_visible_in_popup\";b:1;s:35:\"offline_name_visible_in_page_widget\";b:1;s:27:\"offline_name_require_option\";s:8:\"required\";s:30:\"offline_phone_visible_in_popup\";b:0;s:36:\"offline_phone_visible_in_page_widget\";b:0;s:28:\"offline_phone_require_option\";s:8:\"required\";s:32:\"offline_message_visible_in_popup\";b:1;s:38:\"offline_message_visible_in_page_widget\";b:1;s:30:\"offline_message_require_option\";s:8:\"required\";}",
                 "type": "0",
@@ -8504,6 +8518,12 @@
     		"new" : {
     			"tag" : "ALTER TABLE `lh_abstract_proactive_chat_invitation` ADD INDEX `tag` (`tag`);",
     			"dynamic_invitation" : "ALTER TABLE `lh_abstract_proactive_chat_invitation` ADD INDEX `dynamic_invitation` (`dynamic_invitation`);"
+    		},
+    		"old" : []
+    	},
+        "lh_abstract_proactive_chat_campaign_conv" : {
+    		"new" : {
+    			"ctime" : "ALTER TABLE `lh_abstract_proactive_chat_campaign_conv` ADD INDEX `ctime` (`ctime`);"
     		},
     		"old" : []
     	}

@@ -34,6 +34,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -409,6 +417,10 @@
       <translation>Elimina dipartimento</translation>
     </message>
     <message>
+      <source>Send test notification</source>
+      <translation>Invia una notifica di test</translation>
+    </message>
+    <message>
       <source>Test</source>
       <translation>Test</translation>
     </message>
@@ -466,6 +478,10 @@
       <translation>Inviti</translation>
     </message>
     <message>
+      <source>Bot</source>
+      <translation>Bot</translation>
+    </message>
+    <message>
       <source>Dynamic</source>
       <translation>Dinamico</translation>
     </message>
@@ -498,8 +514,20 @@
       <translation>Widget Chat</translation>
     </message>
     <message>
+      <source>Custom content</source>
+      <translation>Contenuto personalizzato</translation>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation>CSS Personalizzato</translation>
+    </message>
+    <message>
+      <source>Custom bot style</source>
+      <translation>Stile bot personalizzato</translation>
+    </message>
+    <message>
+      <source>Notification</source>
+      <translation>Notifica</translation>
     </message>
     <message>
       <source>Live preview</source>
@@ -520,6 +548,14 @@
     <message>
       <source>Text changes</source>
       <translation>Modifiche al testo</translation>
+    </message>
+    <message>
+      <source>Text content before user fields</source>
+      <translation>Contenuto di testo prima dei campi utente</translation>
+    </message>
+    <message>
+      <source>Preview</source>
+      <translation>Anteprima</translation>
     </message>
     <message>
       <source>Do not send messages to pending chat if chat is assigned to operator.</source>
@@ -654,8 +690,48 @@
       <translation>Testo sopra &quot;Avvia chat&quot;</translation>
     </message>
     <message>
+      <source>Custom html before start chat form fields, popup</source>
+      <translation>Html personalizzato, prima dei campi di inizio chat, popup</translation>
+    </message>
+    <message>
+      <source>Custom html before start chat form fields, widget</source>
+      <translation>Html personalizzato, prima dei campi di inizio chat, widget</translation>
+    </message>
+    <message>
+      <source>Custom html before start chat form fields, popup (bot mode)</source>
+      <translation>Html personalizzato, prima dei campi di inizio chat, popup (modalità bot)</translation>
+    </message>
+    <message>
+      <source>Custom html before start chat form fields, widget (bot mode)</source>
+      <translation>Html personalizzato, prima dei campi di inizio chat, widget (modalità bot)</translation>
+    </message>
+    <message>
+      <source>Start chat button text, standard chat</source>
+      <translation>Testo inizio chat, chat standard</translation>
+    </message>
+    <message>
+      <source>Start chat button text, bot chat</source>
+      <translation>Testo inizio chat, chat bot</translation>
+    </message>
+    <message>
+      <source>Choose a bot</source>
+      <translation>Scegliere un bot</translation>
+    </message>
+    <message>
+      <source>Choose a trigger</source>
+      <translation>Scegli un innesco</translation>
+    </message>
+    <message>
+      <source>Leave a message button text</source>
+      <translation>Testo del bottone lascia un messaggio</translation>
+    </message>
+    <message>
       <source>Online image</source>
       <translation>Immagine online</translation>
+    </message>
+    <message>
+      <source>Notification icon</source>
+      <translation>Icona di notifica</translation>
     </message>
     <message>
       <source>Offline image</source>
@@ -795,6 +871,46 @@
       <translation>Scegli Dipartimento</translation>
     </message>
     <message>
+      <source>Button border color</source>
+      <translation>Colore bordo del bottone</translation>
+    </message>
+    <message>
+      <source>Button background color</source>
+      <translation>Colore sfondo del bottone</translation>
+    </message>
+    <message>
+      <source>Button background hover color</source>
+      <translation>Colore sfondo del bottone quando sopra</translation>
+    </message>
+    <message>
+      <source>Button text color</source>
+      <translation>Colore del testo bottone</translation>
+    </message>
+    <message>
+      <source>Button border radius</source>
+      <translation>Raggio bordo pulsante</translation>
+    </message>
+    <message>
+      <source>Button top and bottom</source>
+      <translation>Pulsante in alto e in basso</translation>
+    </message>
+    <message>
+      <source>Button padding right and left</source>
+      <translation>Spazio bottone destra e sinistra</translation>
+    </message>
+    <message>
+      <source>Button font size</source>
+      <translation>Dimensione testo bottone</translation>
+    </message>
+    <message>
+      <source>Notifications enabled</source>
+      <translation>Notifiche attivate</translation>
+    </message>
+    <message>
+      <source>Notification title</source>
+      <translation>Titolo notifiche</translation>
+    </message>
+    <message>
       <source>Widget themes</source>
       <translation>Temi Widget</translation>
     </message>
@@ -910,6 +1026,10 @@
       <translation>Abilita la funzionalità lascia un messaggio se non ci sono operatori online</translation>
     </message>
     <message>
+      <source>Auto start chat if there is no required fields. Usefull in case bot handles chat.</source>
+      <translation>Avvia automaticamente la chat se non ci sono campi obbligatori. Utile nel caso in cui bot gestisca la chat.</translation>
+    </message>
+    <message>
       <source>Online form settings</source>
       <translation>Impostazioni modulo online</translation>
     </message>
@@ -940,6 +1060,10 @@
     <message>
       <source>This field is invisible but prefilled data is collected</source>
       <translation>Questo campo è invisibile, ma sono raccolti i dati preriempiti</translation>
+    </message>
+    <message>
+      <source>This field is hidden if chat is started with bot</source>
+      <translation>Questo campo è nascosto se la chat viene avviata con bot</translation>
     </message>
     <message>
       <source>This field is</source>
@@ -1077,6 +1201,10 @@
   <context>
     <name>chat/lists/search_panel</name>
     <message>
+      <source>Anonymized</source>
+      <translation>Anonimizzare</translation>
+    </message>
+    <message>
       <source>Select event</source>
       <translation>Seleziona evento</translation>
     </message>
@@ -1205,6 +1333,10 @@
       <translation>Fino</translation>
     </message>
     <message>
+      <source>Subject</source>
+      <translation>Oggetto</translation>
+    </message>
+    <message>
       <source>Has unread messages</source>
       <translation>messaggi non letti</translation>
     </message>
@@ -1213,8 +1345,8 @@
       <translation>Chat senza risposta</translation>
     </message>
     <message>
-      <source>Anonymized</source>
-      <translation>Anonimizzare</translation>
+      <source>Anonymised</source>
+      <translation>Rendere anonime</translation>
     </message>
     <message>
       <source>Search</source>
@@ -1326,7 +1458,7 @@
     </message>
     <message>
       <source>Day interval to include from</source>
-      <translation type="unfinished"/>
+      <translation>Intervallo diurno da includere da</translation>
     </message>
     <message>
       <source>Select hour</source>
@@ -1338,7 +1470,7 @@
     </message>
     <message>
       <source>Day interval to include to</source>
-      <translation type="unfinished"/>
+      <translation>Intervallo di un giorno da includere a</translation>
     </message>
     <message>
       <source>Date range from to</source>
@@ -2672,6 +2804,10 @@
       <translation>Chat massime in attesa</translation>
     </message>
     <message>
+      <source>Nick, what should be operator nick. E.g Support Bot</source>
+      <translation>Nick, quale dovrebbe essere il nick operatore. E.s Supporto Bot</translation>
+    </message>
+    <message>
       <source>Monday</source>
       <translation>Lunedì</translation>
     </message>
@@ -3329,12 +3465,12 @@
       <translation>Sicuri di voler eliminare questa chat?</translation>
     </message>
     <message>
-      <source>has accepted the chat!</source>
-      <translation>ha accettato la chat!</translation>
-    </message>
-    <message>
       <source>Auto responder got error</source>
       <translation>L&apos;autorisponditore ha riportato un errore</translation>
+    </message>
+    <message>
+      <source>has accepted the chat!</source>
+      <translation>ha accettato la chat!</translation>
     </message>
     <message>
       <source>Hold removed!</source>
@@ -3754,6 +3890,10 @@
       <translation>Stai conversando con il bot.</translation>
     </message>
     <message>
+      <source>You are talking with our bot now.</source>
+      <translation>Sei ora in contatto con il nostro bot</translation>
+    </message>
+    <message>
       <source>A support staff member has closed this chat</source>
       <translation>Un membro del personale di supporto ha chiuso questa chat</translation>
     </message>
@@ -3780,6 +3920,10 @@
     <message>
       <source>in the queue. Please wait...</source>
       <translation>in coda. Attendere prego...</translation>
+    </message>
+    <message>
+      <source>Chat status if customer is chatting with a bot</source>
+      <translation>Stato chat se il visitatore sta chattando con il bot</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
@@ -4815,6 +4959,18 @@
       <translation>Manutenzione</translation>
     </message>
     <message>
+      <source>Notifications</source>
+      <translation>Notifiche</translation>
+    </message>
+    <message>
+      <source>Subscribers list</source>
+      <translation>Elenco degli abbonati</translation>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation>Impostazioni</translation>
+    </message>
+    <message>
       <source>Offline settings</source>
       <translation>Impostazioni offline</translation>
     </message>
@@ -5439,6 +5595,10 @@
       <translation>Pollice in giù</translation>
     </message>
     <message>
+      <source>Number of chats</source>
+      <translation>Numero di chat</translation>
+    </message>
+    <message>
       <source>Country</source>
       <translation>Nazione</translation>
     </message>
@@ -5609,6 +5769,10 @@
     <message>
       <source>AVG wait time in seconds, max 10 mininutes</source>
       <translation>Tempo medio di attesa in secondi, massimo 10 minuti</translation>
+    </message>
+    <message>
+      <source>Chats subjects statistic</source>
+      <translation>Statistiche chat oggetto</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
@@ -5784,6 +5948,10 @@
   </context>
   <context>
     <name>chat/part/operator_profile</name>
+    <message>
+      <source>Subscribe/Unsubscribe for notifications</source>
+      <translation>Iscriviti / Annulla iscrizione per le notifiche</translation>
+    </message>
     <message>
       <source>Skype call</source>
       <translation>Chiamata Skype</translation>
@@ -9479,6 +9647,14 @@
       <translation>Si prega di inserire un nome bot</translation>
     </message>
     <message>
+      <source>Please enter bot nick!</source>
+      <translation>Si prega di inserire un nick bot!</translation>
+    </message>
+    <message>
+      <source>Please enter chat id!</source>
+      <translation>Si prega di inserire l&apos;id chat!</translation>
+    </message>
+    <message>
       <source>Please enter a valid from date range!</source>
       <translation>Inserisci un inizio data valido</translation>
     </message>
@@ -9807,6 +9983,10 @@
   <context>
     <name>genericbot/list</name>
     <message>
+      <source>Could not call</source>
+      <translation>Non posso chiamare</translation>
+    </message>
+    <message>
       <source>Bot list</source>
       <translation>Lista bot</translation>
     </message>
@@ -9815,8 +9995,8 @@
       <translation>Nuovo</translation>
     </message>
     <message>
-      <source>Could not call</source>
-      <translation>Non posso chiamare</translation>
+      <source>Could not execute</source>
+      <translation>Non posso eseguire</translation>
     </message>
     <message>
       <source>with args</source>
@@ -9827,12 +10007,218 @@
       <translation>Conferma</translation>
     </message>
     <message>
+      <source>Cancel</source>
+      <translation>Annulla</translation>
+    </message>
+    <message>
       <source>Function is not callable</source>
       <translation>La funzione non è richiamabile</translation>
     </message>
     <message>
       <source>Choose</source>
       <translation>Scegliere</translation>
+    </message>
+  </context>
+  <context>
+    <name>notifications/edit</name>
+    <message>
+      <source>Main</source>
+      <translation>Principale</translation>
+    </message>
+    <message>
+      <source>Test notification</source>
+      <translation>Notifica di test</translation>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation>Dispositivo</translation>
+    </message>
+    <message>
+      <source>User Agent</source>
+      <translation>Browser</translation>
+    </message>
+    <message>
+      <source>Chat ID</source>
+      <translation>ID Chat</translation>
+    </message>
+    <message>
+      <source>Online Visitor ID</source>
+      <translation>ID Visitatore Online</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP</translation>
+    </message>
+    <message>
+      <source>Last error</source>
+      <translation>Ultimo errore</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Creata</translation>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation>Aggiornata</translation>
+    </message>
+    <message>
+      <source>Subscriber endpoint settings</source>
+      <translation>Impostazioni endpoint del sottoscrittore</translation>
+    </message>
+  </context>
+  <context>
+    <name>notifications/admin</name>
+    <message>
+      <source>Notifications</source>
+      <translation>Notifiche</translation>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation>Impostazioni</translation>
+    </message>
+    <message>
+      <source>Subscribers list</source>
+      <translation>Elenco degli abbonati</translation>
+    </message>
+  </context>
+  <context>
+    <name>notifications/list</name>
+    <message>
+      <source>Subscribers list</source>
+      <translation>Elenco degli abbonati</translation>
+    </message>
+  </context>
+  <context>
+    <name>notification/list</name>
+    <message>
+      <source>Chat ID</source>
+      <translation>ID Chat</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Dipartimento</translation>
+    </message>
+    <message>
+      <source>Theme</source>
+      <translation>Tema</translation>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation>Dispositivo</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP</translation>
+    </message>
+    <message>
+      <source>Registration time</source>
+      <translation>Nome registrazione</translation>
+    </message>
+    <message>
+      <source>Update time</source>
+      <translation>Tempo di aggiornamento</translation>
+    </message>
+  </context>
+  <context>
+    <name>notifications/notifications</name>
+    <message>
+      <source>Notifications settings</source>
+      <translation>Impostazioni notifiche</translation>
+    </message>
+    <message>
+      <source>For more information see</source>
+      <translation>Per maggiori informazioni vedere</translation>
+    </message>
+    <message>
+      <source>You can generate your private and public key here</source>
+      <translation>Puoi generare la tua chiave privata e pubblica qui</translation>
+    </message>
+    <message>
+      <source>Explains were taken from:</source>
+      <translation>Le spiegazioni sono state prese da:</translation>
+    </message>
+    <message>
+      <source>Download Service Worker</source>
+      <translation>Scarica il Service Worker</translation>
+    </message>
+    <message>
+      <source>you will have to put this file in your domain root folder.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable notifications</source>
+      <translation>Attiva notifiche</translation>
+    </message>
+    <message>
+      <source>On desktop, a notification is only displayed for a short period of time. On Android, notifications are shown until the user interacts with it.</source>
+      <translation>Sul desktop, una notifica viene visualizzata solo per un breve periodo di tempo. Su Android, le notifiche vengono visualizzate fino a quando l&apos;utente non interagisce con esso.</translation>
+    </message>
+    <message>
+      <source>To get the same behaviour on desktop and mobile you can set the &quot;require-interaction&quot; option to true, which means the user must click or dismiss the notification.</source>
+      <translation>Per ottenere lo stesso comportamento su desktop e dispositivi mobili, è possibile impostare l&apos;opzione &quot;require-interaction&quot; su true, il che significa che l&apos;utente deve fare clic o chiudere la notifica.</translation>
+    </message>
+    <message>
+      <source>When you use the tag option, the default behavior of a new notification replacing an existing one is that there is no sound, vibration and the screen is kept asleep.</source>
+      <translation>Quando si utilizza l&apos;opzione di tag, il comportamento predefinito di una nuova notifica che sostituisce uno esistente è che non vi è alcun suono, vibrazione e lo schermo è tenuto addormentato.</translation>
+    </message>
+    <message>
+      <source>With `renotify: true` a new notification will play a sound, vibrate and wake up the users device. This means replacing notifications have the same behavior as a completely new notification.</source>
+      <translation>Con `renotify: true` una nuova notifica riprodurrà un suono, vibrerà e riattiverà il dispositivo dell&apos;utente. Ciò significa che la sostituzione delle notifiche ha lo stesso comportamento di una notifica completamente nuova.</translation>
+    </message>
+    <message>
+      <source>Note</source>
+      <translation>Note</translation>
+    </message>
+    <message>
+      <source>There is no visible affect on desktop, but on mobile, vibration and sound will be affected.</source>
+      <translation>Non c&apos;è alcun effetto visibile sul desktop, ma su dispositivi mobili, le vibrazioni e il suono ne risentiranno.</translation>
+    </message>
+    <message>
+      <source>Subject*</source>
+      <translation>Oggetto*</translation>
+    </message>
+    <message>
+      <source>You must provide a subject that is either a mailto: or a URL.</source>
+      <translation>Devi fornire un argomento che sia o mailto: o un URL.</translation>
+    </message>
+    <message>
+      <source>HTTP Host*</source>
+      <translation>HTTP Host*</translation>
+    </message>
+    <message>
+      <source>Default Icon</source>
+      <translation>Icona di Default</translation>
+    </message>
+    <message>
+      <source>Badge Icon</source>
+      <translation>Icona Distintivo</translation>
+    </message>
+    <message>
+      <source>Notification badges are only being used on mobile, at least at the time of writing. It is used to replace the browser icon that is shown by default.</source>
+      <translation>I badge di notifica vengono utilizzati solo sui dispositivi mobili, almeno al momento della scrittura. Viene utilizzato per sostituire l&apos;icona del browser che viene visualizzata per impostazione predefinita.</translation>
+    </message>
+    <message>
+      <source>Vibrate</source>
+      <translation>Vibra</translation>
+    </message>
+    <message>
+      <source>Public key*</source>
+      <translation>Chiave pubblica*</translation>
+    </message>
+    <message>
+      <source>Private key*</source>
+      <translation>Chiave privata*</translation>
+    </message>
+    <message>
+      <source>Private key is not shown after save</source>
+      <translation>La chiave privata non sarà visibile dopo il salvataggio</translation>
+    </message>
+  </context>
+  <context>
+    <name>notifications/index</name>
+    <message>
+      <source>Subscribers list</source>
+      <translation>Elenco degli abbonati</translation>
     </message>
   </context>
 </TS>

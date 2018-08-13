@@ -1,3 +1,10 @@
+3.04v
+
+1. Proactive campaigns will be kept as long as online visitors records.
+2. Option to configure how long to keep department availability statistic.
+
+execute doc/update_db/update_179.sql for update
+
 3.03v
 
 1. Proactive chats A/B testing with campaign feature
