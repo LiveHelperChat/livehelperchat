@@ -99,6 +99,11 @@ class erLhcoreClassModelChatArchiveRange
             $stmt = $q->prepare();
             $stmt->execute();
 
+            // Delete auto responder
+            $q->deleteFrom( 'lh_abstract_auto_responder_chat' )->where( $q->expr->eq( 'chat_id', $item->id ) );
+            $stmt = $q->prepare();
+            $stmt->execute();
+
             // Dispatch event if chat is archived
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.archived',array('chat' => & $item, 'archive' => $this));
 
