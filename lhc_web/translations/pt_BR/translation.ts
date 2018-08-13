@@ -34,6 +34,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por quantos dias o widget de votação não deve ser exibido após última exibição</translation>
     </message>
@@ -409,6 +417,10 @@
       <translation>Apagar departamento</translation>
     </message>
     <message>
+      <source>Send test notification</source>
+      <translation>Enviar notificação de teste</translation>
+    </message>
+    <message>
       <source>Test</source>
       <translation>Teste</translation>
     </message>
@@ -466,6 +478,10 @@
       <translation>Convite</translation>
     </message>
     <message>
+      <source>Bot</source>
+      <translation>Robô</translation>
+    </message>
+    <message>
       <source>Dynamic</source>
       <translation>Dinâmico</translation>
     </message>
@@ -498,8 +514,20 @@
       <translation>Chat Widget</translation>
     </message>
     <message>
+      <source>Custom content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom CSS</source>
       <translation>CSS Personalizado</translation>
+    </message>
+    <message>
+      <source>Custom bot style</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notification</source>
+      <translation>Notificação</translation>
     </message>
     <message>
       <source>Live preview</source>
@@ -520,6 +548,14 @@
     <message>
       <source>Text changes</source>
       <translation>Alterações no texto</translation>
+    </message>
+    <message>
+      <source>Text content before user fields</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Preview</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Do not send messages to pending chat if chat is assigned to operator.</source>
@@ -654,8 +690,48 @@
       <translation>Texto acima dos campos de formulário no início do chat</translation>
     </message>
     <message>
+      <source>Custom html before start chat form fields, popup</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom html before start chat form fields, widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom html before start chat form fields, popup (bot mode)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom html before start chat form fields, widget (bot mode)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat button text, standard chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat button text, bot chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a bot</source>
+      <translation>Escolha um robô</translation>
+    </message>
+    <message>
+      <source>Choose a trigger</source>
+      <translation>Escolha um gatilho</translation>
+    </message>
+    <message>
+      <source>Leave a message button text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Online image</source>
       <translation>Imagem online</translation>
+    </message>
+    <message>
+      <source>Notification icon</source>
+      <translation>Ícone de notificação</translation>
     </message>
     <message>
       <source>Offline image</source>
@@ -794,6 +870,46 @@
       <translation>Escolher departamento</translation>
     </message>
     <message>
+      <source>Button border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button background hover color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button text color</source>
+      <translation>Cor do texto do botão</translation>
+    </message>
+    <message>
+      <source>Button border radius</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button top and bottom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button padding right and left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button font size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notifications enabled</source>
+      <translation>Notificações habilitadas</translation>
+    </message>
+    <message>
+      <source>Notification title</source>
+      <translation>Título da notificação</translation>
+    </message>
+    <message>
       <source>Widget themes</source>
       <translation>Temas de widget</translation>
     </message>
@@ -909,6 +1025,10 @@
       <translation>Ativar funcionalidade de deixar uma mensagem automaticamente se não há operadores on-line</translation>
     </message>
     <message>
+      <source>Auto start chat if there is no required fields. Usefull in case bot handles chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Online form settings</source>
       <translation>Configurações do formulário online</translation>
     </message>
@@ -939,6 +1059,10 @@
     <message>
       <source>This field is invisible but prefilled data is collected</source>
       <translation>O campo é invisível mas os dados inseridos são coletados</translation>
+    </message>
+    <message>
+      <source>This field is hidden if chat is started with bot</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is</source>
@@ -1076,6 +1200,10 @@
   <context>
     <name>chat/lists/search_panel</name>
     <message>
+      <source>Anonymized</source>
+      <translation>Anonimizado</translation>
+    </message>
+    <message>
       <source>Select event</source>
       <translation>Selecionar o evento</translation>
     </message>
@@ -1204,6 +1332,10 @@
       <translation>Até</translation>
     </message>
     <message>
+      <source>Subject</source>
+      <translation>Assunto</translation>
+    </message>
+    <message>
       <source>Has unread messages</source>
       <translation>Possui mensagens não lidas</translation>
     </message>
@@ -1212,8 +1344,8 @@
       <translation>Chat não respondido</translation>
     </message>
     <message>
-      <source>Anonymized</source>
-      <translation>Anonimizado</translation>
+      <source>Anonymised</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Search</source>
@@ -2671,6 +2803,10 @@
       <translation>Máximo de chats pendentes</translation>
     </message>
     <message>
+      <source>Nick, what should be operator nick. E.g Support Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Monday</source>
       <translation>Segunda-feira</translation>
     </message>
@@ -3328,12 +3464,12 @@
       <translation>Você tem certeza que quer apagar este chat?</translation>
     </message>
     <message>
-      <source>has accepted the chat!</source>
-      <translation>aceitou o chat!</translation>
-    </message>
-    <message>
       <source>Auto responder got error</source>
       <translation>Erro na resposta automática</translation>
+    </message>
+    <message>
+      <source>has accepted the chat!</source>
+      <translation>aceitou o chat!</translation>
     </message>
     <message>
       <source>Hold removed!</source>
@@ -3753,6 +3889,10 @@
       <translation>Agora você está falando com nosso robô.</translation>
     </message>
     <message>
+      <source>You are talking with our bot now.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>A support staff member has closed this chat</source>
       <translation>Um membro da equipe de suporte encerrou este chat</translation>
     </message>
@@ -3779,6 +3919,10 @@
     <message>
       <source>in the queue. Please wait...</source>
       <translation>na fila. Por favor, aguarde...</translation>
+    </message>
+    <message>
+      <source>Chat status if customer is chatting with a bot</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
@@ -4815,6 +4959,18 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Manutenção</translation>
     </message>
     <message>
+      <source>Notifications</source>
+      <translation>Notificações</translation>
+    </message>
+    <message>
+      <source>Subscribers list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation>Configurações</translation>
+    </message>
+    <message>
       <source>Offline settings</source>
       <translation>Configurações offline</translation>
     </message>
@@ -5439,6 +5595,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Negativo</translation>
     </message>
     <message>
+      <source>Number of chats</source>
+      <translation>Número de chats</translation>
+    </message>
+    <message>
       <source>Country</source>
       <translation>País</translation>
     </message>
@@ -5609,6 +5769,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>AVG wait time in seconds, max 10 mininutes</source>
       <translation>tempo médio de espera em segundos, máx. 10 minutos.</translation>
+    </message>
+    <message>
+      <source>Chats subjects statistic</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chatbox chats</source>
@@ -5784,6 +5948,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   </context>
   <context>
     <name>chat/part/operator_profile</name>
+    <message>
+      <source>Subscribe/Unsubscribe for notifications</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Skype call</source>
       <translation>Chamada Skype</translation>
@@ -9480,6 +9648,14 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Por favor, insira o nome do robô!</translation>
     </message>
     <message>
+      <source>Please enter bot nick!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter chat id!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a valid from date range!</source>
       <translation>Por favor informe uma data de início de intervalo válida!</translation>
     </message>
@@ -9808,6 +9984,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>genericbot/list</name>
     <message>
+      <source>Could not call</source>
+      <translation>Não foi possível chamar</translation>
+    </message>
+    <message>
       <source>Bot list</source>
       <translation>Lista de bots</translation>
     </message>
@@ -9816,8 +9996,8 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Novo</translation>
     </message>
     <message>
-      <source>Could not call</source>
-      <translation>Não foi possível chamar</translation>
+      <source>Could not execute</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>with args</source>
@@ -9828,12 +10008,218 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Confirmar</translation>
     </message>
     <message>
+      <source>Cancel</source>
+      <translation>Cancelar</translation>
+    </message>
+    <message>
       <source>Function is not callable</source>
       <translation>Função não disponível</translation>
     </message>
     <message>
       <source>Choose</source>
       <translation>Escolha</translation>
+    </message>
+  </context>
+  <context>
+    <name>notifications/edit</name>
+    <message>
+      <source>Main</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test notification</source>
+      <translation>Testar notificação</translation>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation>Dispositivo</translation>
+    </message>
+    <message>
+      <source>User Agent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online Visitor ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP</translation>
+    </message>
+    <message>
+      <source>Last error</source>
+      <translation>Último erro</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Criado</translation>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation>Atualizado</translation>
+    </message>
+    <message>
+      <source>Subscriber endpoint settings</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>notifications/admin</name>
+    <message>
+      <source>Notifications</source>
+      <translation>Notificações</translation>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation>Configurações</translation>
+    </message>
+    <message>
+      <source>Subscribers list</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>notifications/list</name>
+    <message>
+      <source>Subscribers list</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>notification/list</name>
+    <message>
+      <source>Chat ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departamento</translation>
+    </message>
+    <message>
+      <source>Theme</source>
+      <translation>Tema</translation>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation>Dispositivo</translation>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation>IP</translation>
+    </message>
+    <message>
+      <source>Registration time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update time</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>notifications/notifications</name>
+    <message>
+      <source>Notifications settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For more information see</source>
+      <translation>Para mais informação veja</translation>
+    </message>
+    <message>
+      <source>You can generate your private and public key here</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Explains were taken from:</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download Service Worker</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>you will have to put this file in your domain root folder.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable notifications</source>
+      <translation>Habilitar notificações</translation>
+    </message>
+    <message>
+      <source>On desktop, a notification is only displayed for a short period of time. On Android, notifications are shown until the user interacts with it.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To get the same behaviour on desktop and mobile you can set the &quot;require-interaction&quot; option to true, which means the user must click or dismiss the notification.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>When you use the tag option, the default behavior of a new notification replacing an existing one is that there is no sound, vibration and the screen is kept asleep.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>With `renotify: true` a new notification will play a sound, vibrate and wake up the users device. This means replacing notifications have the same behavior as a completely new notification.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Note</source>
+      <translation>Nota</translation>
+    </message>
+    <message>
+      <source>There is no visible affect on desktop, but on mobile, vibration and sound will be affected.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject*</source>
+      <translation>Assunto*</translation>
+    </message>
+    <message>
+      <source>You must provide a subject that is either a mailto: or a URL.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTTP Host*</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default Icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Badge Icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notification badges are only being used on mobile, at least at the time of writing. It is used to replace the browser icon that is shown by default.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Vibrate</source>
+      <translation>Vibrar</translation>
+    </message>
+    <message>
+      <source>Public key*</source>
+      <translation>Chave pública*</translation>
+    </message>
+    <message>
+      <source>Private key*</source>
+      <translation>Chave privada*</translation>
+    </message>
+    <message>
+      <source>Private key is not shown after save</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>notifications/index</name>
+    <message>
+      <source>Subscribers list</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
