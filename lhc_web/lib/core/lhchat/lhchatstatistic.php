@@ -1164,7 +1164,7 @@ class erLhcoreClassChatStatistic {
                 }
         }
 
-        return round($totalValue/$numberOfElements,2);
+        return round($totalValue/($numberOfElements > 0 ? $numberOfElements : 1),2);
     }
 
     public static function getAgentStatisticSummary($statistic) {

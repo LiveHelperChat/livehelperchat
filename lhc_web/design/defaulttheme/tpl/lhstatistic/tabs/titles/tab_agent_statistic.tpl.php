@@ -1,1 +1,1 @@
-<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Agents statistic');?>
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Agents statistics');?>

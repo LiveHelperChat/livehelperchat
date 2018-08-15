@@ -1,1 +1,1 @@
-<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Messages types');?>
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Message types');?>
