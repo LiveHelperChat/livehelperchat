@@ -278,7 +278,30 @@ class erLhcoreClassModelChat {
        	        }
        	        
        			return $this->plain_user_name;
-       		break;	
+       		break;
+
+       	case 'n_official':
+       	        $this->n_office = false;
+
+       	        if ($this->user !== false) {
+       	            $this->n_office = (string)$this->user->name;
+       	            if ($this->n_office == '') {
+                        $this->n_office = $this->plain_user_name;
+                    }
+       	        }
+
+       			return $this->n_office;
+       		break;
+
+       	case 'n_off_full':
+       	        $this->n_off_full = false;
+       	        
+       	        if ($this->user !== false) {
+       	            $this->n_off_full = (string)$this->user->name_official;
+       	        }
+
+       			return $this->n_off_full;
+       		break;
        		
        	case 'user':
        		   $this->user = false;

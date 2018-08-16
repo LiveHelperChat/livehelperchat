@@ -51,7 +51,7 @@
 		  <div class="abbr-list" title="{{chat.time_created_front}}">{{chat.time_created_front}}</div>
 		</td>
 		<td>
-			<div class="abbr-list" title="{{chat.plain_user_name}}">{{chat.plain_user_name}}</div>
+			<div class="abbr-list" title="{{chat.n_off_full}} | {{chat.plain_user_name}}">{{chat.n_office}}</div>
 		</td>
 		<td>
 			<div class="abbr-list" title="{{chat.department_name}}{{chat.product_name ? ' | '+chat.product_name : ''}}">{{chat.department_name}}{{chat.product_name ? ' | '+chat.product_name : ''}}</div>
