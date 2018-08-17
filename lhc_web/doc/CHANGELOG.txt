@@ -1,3 +1,9 @@
+3.05v
+
+1. Filter online visitors by Country and Time On Site
+
+execute doc/update_db/update_180.sql for update
+
 3.04v
 
 1. Proactive campaigns will be kept as long as online visitors records.
