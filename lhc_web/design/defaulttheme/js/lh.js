@@ -2676,7 +2676,7 @@ function lh(){
     }; 
     
     this.changeUserSettingsIndifferent = function(attr,value){
-    	$.get(this.wwwDir+  'user/setsettingajax/'+attr+'/'+value+'/(indifferent)/true');
+    	$.get(this.wwwDir+  'user/setsettingajax/'+attr+'/'+encodeURIComponent(value)+'/(indifferent)/true');
     };
 
 	this.switchToOfflineForm = function(){

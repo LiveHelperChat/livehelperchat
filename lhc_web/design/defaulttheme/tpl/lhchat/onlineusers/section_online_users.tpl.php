@@ -5,14 +5,14 @@
 		<label id="online-users-count" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','online users');?>">{{online.onlineusers.length}}</label>
 		
 		<div class="pull-right">
-		  <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/online_settings.tpl.php')); ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/online_settings.tpl.php')); ?>
 	    </div>
 	
 	</div>
 	<div class="col-sm-2 form-group col-xs-6 pl5 pr5">
 		<input class="form-control input-sm" ng-model="query" type="text" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search')?>">
 	</div>
-	<div class="col-sm-2 form-group col-xs-6 pl5 pr5">
+	<div class="col-sm-1 form-group col-xs-6 pl5 pr5">
 		<select class="form-control input-sm" ng-model="groupByField" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Group list by');?>">
 		    	<option value="none"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Group by');?></option>
 		    	<option value="user_country_name"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User country');?></option>
@@ -24,8 +24,7 @@
 		</select>
 	</div>	
 	<div class="col-sm-2 form-group col-xs-6 pl5 pr5">
-		<?php 		
-		echo erLhcoreClassRenderHelper::renderCombobox( array (
+		<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
 	                    'input_name'     => 'department_id',
 						'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select department'),
 	                    'selected_id'    => 0,	
@@ -34,8 +33,15 @@
 	                    'list_function'  => 'erLhcoreClassModelDepartament::getList',
 						'list_function_params' => $departmentParams
 	    )); ?>
-	</div>	
-	<div class="col-sm-2 form-group col-xs-6 pl5 pr5">
+	</div>
+
+    <?php $columnCountrySize = 1?>
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/country_filter.tpl.php')); ?>
+
+    <?php $columnCountrySize = 1?>
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/time_on_site_filter.tpl.php')); ?>
+
+	<div class="col-sm-1 form-group col-xs-6 pl5 pr5">
 		<select class="form-control input-sm" id="updateTimeout" ng-model="online.updateTimeout" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Refresh list every');?>">
 		    	<option value="1">1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','second');?></option>		    	
 		    	<option value="3">3 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>		    	

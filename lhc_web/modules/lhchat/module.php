@@ -456,7 +456,7 @@ $ViewList['userclosechat'] = array(
 $ViewList['onlineusers'] = array(
     'params' => array(),
     'ajax' => true,
-    'uparams' => array('clear_list','method','deletevisitor','timeout','csfr','department','maxrows'),
+    'uparams' => array('clear_list','method','deletevisitor','timeout','csfr','department','maxrows','country','timeonsite'),
     'functions' => array( 'use_onlineusers' )
 );
 

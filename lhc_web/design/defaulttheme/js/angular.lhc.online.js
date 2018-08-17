@@ -2,7 +2,7 @@ services.factory('OnlineUsersFactory', ['$http','$q',function ($http, $q) {
 	
 	this.loadOnlineUsers = function(params){
 		var deferred = $q.defer();		
-		$http.get(WWW_DIR_JAVASCRIPT + 'chat/onlineusers/(method)/ajax/(timeout)/'+params.timeout + (params.department > 0 ? '/(department)/' + params.department : '' ) + (params.max_rows > 0 ? '/(maxrows)/' + params.max_rows : '' )).then(function(data) {
+		$http.get(WWW_DIR_JAVASCRIPT + 'chat/onlineusers/(method)/ajax/(timeout)/'+params.timeout + (params.department > 0 ? '/(department)/' + params.department : '' ) + (params.max_rows > 0 ? '/(maxrows)/' + params.max_rows : '' ) + (params.country != '' ? '/(country)/' + params.country : '' ) + (params.time_on_site != '' ? '/(timeonsite)/' + encodeURIComponent(params.time_on_site) : '') ).then(function(data) {
 			 deferred.resolve(data.data);
 		});		
 		return deferred.promise;
@@ -33,7 +33,9 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 		this.userTimeout = '3600';
 		this.maxRows = '50';
 		this.department = '0';
+		this.country = 'none';
 		this.predicate = 'last_visit';
+		this.time_on_site = '';
 		this.reverse = true;
 		this.wasInitiated = false;
 
@@ -100,7 +102,7 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 				return;
 			}
 			
-			OnlineUsersFactory.loadOnlineUsers({timeout: that.userTimeout,department : that.department, max_rows : that.maxRows}).then(function(data){
+			OnlineUsersFactory.loadOnlineUsers({timeout: that.userTimeout, time_on_site : that.time_on_site, department : that.department, country: that.country, max_rows : that.maxRows}).then(function(data){
 							
 				that.onlineusers = data;
 				if ($scope.groupByField != 'none') {
@@ -211,9 +213,15 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 			}
 		});
 		
-		$scope.$watch('online.department',function(newVal,oldVal){
+		$scope.$watch('online.country',function(newVal,oldVal){
 			if (newVal != oldVal) {	
-				lhinst.changeUserSettingsIndifferent('o_department',newVal);
+				lhinst.changeUserSettingsIndifferent('ocountry',newVal);
+			}
+		});
+
+		$scope.$watch('online.time_on_site',function(newVal,oldVal){
+			if (newVal != oldVal) {
+				lhinst.changeUserSettingsIndifferent('otime_on_site',newVal == '' ? 'none' : newVal);
 			}
 		});
 		
@@ -229,7 +237,7 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 			}
 		});
 		
-		$scope.$watch('online.userTimeout + online.department + online.maxRows + groupByField', function(newVal,oldVal) { 
+		$scope.$watch('online.userTimeout + online.department + online.maxRows + groupByField + online.country + online.time_on_site', function(newVal,oldVal) {
 				that.updateList();			
 		});
 				
