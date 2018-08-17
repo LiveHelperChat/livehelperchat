@@ -131,6 +131,8 @@ class erLhcoreClassModelChatArchiveRange
     {
         erLhcoreClassModelChatArchive::$dbTable = self::$archiveTable = "lh_chat_archive_{$this->id}";
         erLhcoreClassModelChatArchiveMsg::$dbTable = self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
+        
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.set_archive_tables', array('archive' => & $this));
     }
 
     public function __get($var)
