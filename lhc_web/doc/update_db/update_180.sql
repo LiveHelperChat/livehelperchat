@@ -1,0 +1,2 @@
+INSERT INTO `lh_users_setting_option` (`identifier`,`class`,`attribute`) VALUES ('ocountry','','');
+INSERT INTO `lh_users_setting_option` (`identifier`,`class`,`attribute`) VALUES ('otime_on_site','','');

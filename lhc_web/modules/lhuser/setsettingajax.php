@@ -12,7 +12,7 @@ try {
     if (!isset($Params['user_parameters_unordered']['indifferent'])){
     	erLhcoreClassModelUserSetting::setSetting($Params['user_parameters']['identifier'],$Params['user_parameters']['value'] == 1 ? 1 : 0);    
     } else {  
-    	erLhcoreClassModelUserSetting::setSetting($Params['user_parameters']['identifier'],(string)$Params['user_parameters']['value']);
+    	erLhcoreClassModelUserSetting::setSetting($Params['user_parameters']['identifier'],(string)rawurldecode($Params['user_parameters']['value']));
     }
     exit;
     

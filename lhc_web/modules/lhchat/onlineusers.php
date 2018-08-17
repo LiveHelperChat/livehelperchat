@@ -43,6 +43,22 @@ if ($department !== false){
 	$filter['filter']['dep_id'] = $department;
 }
 
+$country = isset($Params['user_parameters_unordered']['country']) && $Params['user_parameters_unordered']['country'] != '' ? (string)$Params['user_parameters_unordered']['country'] : false;
+if ($country !== false && $country != 'none') {
+    $filter['filter']['user_country_code'] = $country;
+}
+
+$timeonsite = isset($Params['user_parameters_unordered']['timeonsite']) && $Params['user_parameters_unordered']['timeonsite'] != '' ? (string)rawurldecode($Params['user_parameters_unordered']['timeonsite']) : false;
+
+if ($timeonsite !== false && $timeonsite != '' && $timeonsite != 'none') {
+    if (strpos($timeonsite,'+') === 0) {
+        $filter['filtergt']['time_on_site'] = str_replace('+','',$timeonsite);
+    } else {
+        $filter['filterlt']['time_on_site'] = str_replace(array('+','-'),'',$timeonsite);
+    }
+}
+
+
 /**
  * Append user departments filter
  * */

@@ -1258,6 +1258,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   ('ogroup_by', '', ''),
         	   ('omap_depid', '', ''),
         	   ('omap_mtimeout', '', ''),
+        	   ('ocountry', '', ''),
+        	   ('otime_on_site', '', ''),
         	   ('dwo', '', ''),
         	   ('enable_unread_list', '', '')");
        	   
