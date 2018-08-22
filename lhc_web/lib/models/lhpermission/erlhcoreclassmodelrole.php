@@ -1,28 +1,29 @@
 <?php
 
-class erLhcoreClassModelRole {
-        
+class erLhcoreClassModelRole
+{
+    use erLhcoreClassDBTrait;
+
+    public static $dbTable = 'lh_role';
+
+    public static $dbTableId = 'id';
+
+    public static $dbSessionHandler = 'erLhcoreClassRole::getSession';
+
+    public static $dbSortOrder = 'DESC';
+
     public function getState()
-   {
-       return array(
-               'id'          => $this->id,
-               'name'        => $this->name             
-       );
-   }
-   
-   public function setState( array $properties )
-   {
-       foreach ( $properties as $key => $val )
-       {
-           $this->$key = $val;
-       }
-   }
-     
-   public $id = null;
-   public $name = '';
+    {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name
+        );
+    }
+
+    public $id = null;
+    public $name = '';
 
 }
-
 
 
 ?>
