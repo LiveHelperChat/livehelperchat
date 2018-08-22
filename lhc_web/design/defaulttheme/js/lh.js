@@ -1059,10 +1059,10 @@ function lh(){
     			var link = linkTab.find('> a');
     		}
     	}
-    	
+
     	if (!tabs.find('> ul > li.active').length) {
     		link.tab('show');
-    		
+
     		if (link.attr('id') !== undefined) {
         		var new_chat_id = link.attr('href').replace('#chat-id-','');
         		this.removeBackgroundChat(new_chat_id);
@@ -1070,8 +1070,12 @@ function lh(){
         		ee.emitEvent('chatTabFocused', [new_chat_id]);
         	}
     	}
-    	
-    	return link.attr('href').replace('#','#/');
+
+    	if (link.attr('href') !== undefined) {
+            return link.attr('href').replace('#','#/');
+        } else {
+    	    return '#';
+        }
 	};
 	
 	this.startChatCloseTabNewWindow = function(chat_id, tabs, name)
