@@ -495,7 +495,7 @@ var lh_inst  = {
     addTag : function(params) {
 
         if (typeof params === 'string') {
-            var params = {'child_mode' : true, tag : params};
+            var params = {tag : params};
         }
 
         if (typeof params['child_mode'] !== 'undefined' && params['child_mode'] == true && typeof(parent) !== 'undefined') {
