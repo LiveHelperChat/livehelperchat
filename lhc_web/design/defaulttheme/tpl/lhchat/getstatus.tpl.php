@@ -1,7 +1,7 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/position_css.tpl.php')); ?>
 <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/position_css_override.tpl.php')); ?>
 
-<?php 
+<?php
 $trackDomain = erLhcoreClassModelChatConfig::fetch('track_domain')->current_value;
 $disableHTML5Storage = (int)erLhcoreClassModelChatConfig::fetch('disable_html5_storage')->current_value;
 $trackOnline = (int)erLhcoreClassModelChatConfig::fetch('track_if_offline')->current_value;
@@ -44,10 +44,10 @@ var lh_inst  = {
 	is_dragging : false,
 	is_full_height : <?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ? 'true' : 'false' ?>,
 	online_tracked : false,
-    urlopen : function(){   
+    urlopen : function(){
     	return "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>"+this.lang+"/chat/startchat<?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : ''?>"+this.survey_id;
     },
-	<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/custom_get_status_lh_inst_js.tpl.php')); ?>	
+	<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/custom_get_status_lh_inst_js.tpl.php')); ?>
     hasSurvey : <?php echo $survey !== false ? 'true ': 'false'?>,
     survey_id : '<?php echo $survey !== false ? '/(survey)/' . $survey : ''?>',
     surveyShown : false,
@@ -62,23 +62,23 @@ var lh_inst  = {
 	domain : false,
     isSharing : false,
     chat_started : false,
-    extensionArgs : '',    
-    prefillMessage : '',    
-    getCookieDomain : function(domain) {    
+    extensionArgs : '',
+    prefillMessage : '',
+    getCookieDomain : function(domain) {
     	 if (this.domain !== false) {
     	 	return this.domain;
-    	 } else {    
+    	 } else {
 	    	if (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.domain != 'undefined') {
 	    		this.domain = '.'+<?php echo $chatOptionsVariable?>.opt.domain.replace(/(https:\/\/|http:\/\/)/g,'');
-	    	} else {    	
+	    	} else {
 	    		this.domain = '.'+document.location.hostname.replace(/^(?:[a-z0-9\-\.]+\.)??([a-z0-9\-]+)?(\.com|\.net|\.org|\.biz|\.ws|\.in|\.me|\.co\.uk|\.co|\.org\.uk|\.ltd\.uk|\.plc\.uk|\.me\.uk|\.edu|\.mil|\.br\.com|\.cn\.com|\.eu\.com|\.hu\.com|\.no\.com|\.qc\.com|\.sa\.com|\.se\.com|\.se\.net|\.us\.com|\.uy\.com|\.ac|\.co\.ac|\.gv\.ac|\.or\.ac|\.ac\.ac|\.af|\.am|\.as|\.at|\.ac\.at|\.co\.at|\.gv\.at|\.or\.at|\.asn\.au|\.com\.au|\.edu\.au|\.org\.au|\.net\.au|\.id\.au|\.be|\.ac\.be|\.adm\.br|\.adv\.br|\.am\.br|\.arq\.br|\.art\.br|\.bio\.br|\.cng\.br|\.cnt\.br|\.com\.br|\.ecn\.br|\.eng\.br|\.esp\.br|\.etc\.br|\.eti\.br|\.fm\.br|\.fot\.br|\.fst\.br|\.g12\.br|\.gov\.br|\.ind\.br|\.inf\.br|\.jor\.br|\.lel\.br|\.med\.br|\.mil\.br|\.net\.br|\.nom\.br|\.ntr\.br|\.odo\.br|\.org\.br|\.ppg\.br|\.pro\.br|\.psc\.br|\.psi\.br|\.rec\.br|\.slg\.br|\.tmp\.br|\.tur\.br|\.tv\.br|\.vet\.br|\.zlg\.br|\.br|\.ab\.ca|\.bc\.ca|\.mb\.ca|\.nb\.ca|\.nf\.ca|\.ns\.ca|\.nt\.ca|\.on\.ca|\.pe\.ca|\.qc\.ca|\.sk\.ca|\.yk\.ca|\.ca|\.cc|\.ac\.cn|\.com\.cn|\.edu\.cn|\.gov\.cn|\.org\.cn|\.bj\.cn|\.sh\.cn|\.tj\.cn|\.cq\.cn|\.he\.cn|\.nm\.cn|\.ln\.cn|\.jl\.cn|\.hl\.cn|\.js\.cn|\.zj\.cn|\.ah\.cn|\.gd\.cn|\.gx\.cn|\.hi\.cn|\.sc\.cn|\.gz\.cn|\.yn\.cn|\.xz\.cn|\.sn\.cn|\.gs\.cn|\.qh\.cn|\.nx\.cn|\.xj\.cn|\.tw\.cn|\.hk\.cn|\.mo\.cn|\.cn|\.cx|\.cz|\.de|\.dk|\.fo|\.com\.ec|\.tm\.fr|\.com\.fr|\.asso\.fr|\.presse\.fr|\.fr|\.gf|\.gs|\.co\.il|\.net\.il|\.ac\.il|\.k12\.il|\.gov\.il|\.muni\.il|\.ac\.in|\.co\.in|\.org\.in|\.ernet\.in|\.gov\.in|\.net\.in|\.res\.in|\.is|\.it|\.ac\.jp|\.co\.jp|\.go\.jp|\.or\.jp|\.ne\.jp|\.ac\.kr|\.co\.kr|\.go\.kr|\.ne\.kr|\.nm\.kr|\.or\.kr|\.li|\.lt|\.lu|\.asso\.mc|\.tm\.mc|\.com\.mm|\.org\.mm|\.net\.mm|\.edu\.mm|\.gov\.mm|\.ms|\.nl|\.no|\.nu|\.pl|\.ro|\.org\.ro|\.store\.ro|\.tm\.ro|\.firm\.ro|\.www\.ro|\.arts\.ro|\.rec\.ro|\.info\.ro|\.nom\.ro|\.nt\.ro|\.se|\.si|\.com\.sg|\.org\.sg|\.net\.sg|\.gov\.sg|\.sk|\.st|\.tf|\.ac\.th|\.co\.th|\.go\.th|\.mi\.th|\.net\.th|\.or\.th|\.tm|\.to|\.com\.tr|\.edu\.tr|\.gov\.tr|\.k12\.tr|\.net\.tr|\.org\.tr|\.com\.tw|\.org\.tw|\.net\.tw|\.ac\.uk|\.uk\.com|\.uk\.net|\.gb\.com|\.gb\.net|\.vg|\.sh|\.kz|\.ch|\.info|\.ua|\.gov|\.name|\.pro|\.ie|\.hk|\.com\.hk|\.org\.hk|\.net\.hk|\.edu\.hk|\.us|\.tk|\.cd|\.by|\.ad|\.lv|\.eu\.lv|\.bz|\.es|\.jp|\.cl|\.ag|\.mobi|\.eu|\.co\.nz|\.org\.nz|\.net\.nz|\.maori\.nz|\.iwi\.nz|\.io|\.la|\.md|\.sc|\.sg|\.vc|\.tw|\.travel|\.my|\.se|\.tv|\.pt|\.com\.pt|\.edu\.pt|\.asia|\.fi|\.com\.ve|\.net\.ve|\.fi|\.org\.ve|\.web\.ve|\.info\.ve|\.co\.ve|\.tel|\.im|\.gr|\.ru|\.net\.ru|\.org\.ru|\.hr|\.com\.hr)$/, '$1$2');
 	    	}
-    	};    	
+    	};
     	return this.domain;
     },
-    
-    appendArg : function(args) {        
-        var tt = args.length/2;        
+
+    appendArg : function(args) {
+        var tt = args.length/2;
         for (i = 0; i < tt; i++) {
             var argument = args[i*2];
             var value = args[(i*2)+1];
@@ -86,9 +86,9 @@ var lh_inst  = {
                 this.survey_id = '/(survey)/'+value;
                 this.hasSurvey = true;
             }
-        }        
+        }
     },
-    
+
     addCss : function(css_content) {
         var head = document.getElementsByTagName('head')[0];
         var style = document.createElement('style');
@@ -118,11 +118,11 @@ var lh_inst  = {
     {
         return(EObj=document.getElementById(EId))?EObj.parentNode.removeChild(EObj):false;
     },
-    
+
 	hasClass : function(el, name) {
 	   return new RegExp('(\\s|^)'+name+'(\\s|$)').test(el.className);
 	},
-	
+
 	addClass : function(el, name) {
 	   if (!this.hasClass(el, name)) { el.className += (el.className ? ' ' : '') +name; }
 	},
@@ -132,18 +132,18 @@ var lh_inst  = {
 	      el.className=el.className.replace(new RegExp('(\\s|^)'+name+'(\\s|$)'),' ').replace(/^\s+|\s+$/g, '');
 	   }
     },
-    
+
     storePos : function(dm, height) {
 		    var cookiePos = '';
 			<?php if ($currentPosition['pos'] == 'r') : ?>
-		    	cookiePos += dm.style.right;			    	   	
+		    	cookiePos += dm.style.right;
 		    <?php else : ?>
-		    	cookiePos += dm.style.left;	
-		    <?php endif;?>	    
+		    	cookiePos += dm.style.left;
+		    <?php endif;?>
 		    <?php if ($currentPosition['posv'] == 't') : ?>
 		    cookiePos += ","+dm.style.top;
 		    <?php else : ?>
-		    cookiePos += ","+dm.style.bottom;		
+		    cookiePos += ","+dm.style.bottom;
 		    <?php endif;?>
 
             if (height > 0) {
@@ -152,7 +152,7 @@ var lh_inst  = {
 
 		    this.addCookieAttribute('pos',cookiePos);
     },
-    
+
 	min : function(initial) {
 
         // If it's proactive invitation hide instead to avoid reopening.
@@ -172,13 +172,13 @@ var lh_inst  = {
 			dm.attrHeight = dm.style.height;
 			dm.attrIsMin = true;
             this.isMinimized = true;
-			<?php if ($currentPosition['posv'] == 'b') : ?>			
+			<?php if ($currentPosition['posv'] == 'b') : ?>
 			if(dm.style.bottom!='' && dm.attrHeight!=''){
-				dm.style.bottom = (parseInt(dm.style.bottom)+parseInt(dm.attrHeight)-35)+'px';							
+				dm.style.bottom = (parseInt(dm.style.bottom)+parseInt(dm.attrHeight)-35)+'px';
 			} else {
 				if (initial == undefined) {
 					dm.style.bottom = (parseInt(dm.style.bottom) + parseInt(document.getElementById('<?php echo $chatCSSPrefix?>_iframe_container').offsetHeight)-10)+'px';
-				}			
+				}
 			}
 			<?php endif; ?>
 
@@ -193,14 +193,14 @@ var lh_inst  = {
 			this.storePos(dm, heightIframe);
 			<?php if ($currentPosition['posv'] == 'b' && $minimize_action == 'br') : ?>
 					dm.attrBottomOrigin = dm.style.bottom;
-					dm.style.bottom = '';										
+					dm.style.bottom = '';
 					<?php if ($currentPosition['pos'] == 'r') : ?>
 					dm.attrRightOrigin = dm.style.right;
-					dm.style.right = '0px';	
+					dm.style.right = '0px';
 					<?php else : ?>
 					dm.attrLeftOrigin = dm.style.left;
-					dm.style.left = '0px';	
-					<?php endif;?>													
+					dm.style.left = '0px';
+					<?php endif;?>
 			<?php endif;?>
             this.addClass(dm,'<?php echo $chatCSSPrefix?>-min');
 			this.removeClass(document.body,'<?php echo $chatCSSPrefix?>-opened');
@@ -221,29 +221,29 @@ var lh_inst  = {
 			if (dm.attrBottomOrigin) {
 				dm.style.bottom = (parseInt(dm.attrBottomOrigin)-parseInt(document.getElementById('<?php echo $chatCSSPrefix?>_iframe').style.height)+9)+'px';
 				<?php if ($currentPosition['pos'] == 'r') : ?>
-				dm.style.right = dm.attrRightOrigin;	
+				dm.style.right = dm.attrRightOrigin;
 				<?php else : ?>
-				dm.style.left = dm.attrLeftOrigin;	
+				dm.style.left = dm.attrLeftOrigin;
 				<?php endif;?>
 			} else if (dm.style.bottom!='') {
 				dm.style.bottom = (parseInt(dm.style.bottom)-parseInt(document.getElementById('<?php echo $chatCSSPrefix?>_iframe').style.height)+9)+'px';
 			}
-			<?php endif;?>		
+			<?php endif;?>
 			this.removeCookieAttr('m');
 			var inst = this;
 			this.storePos(dm);
 			this.addClass(document.body,'<?php echo $chatCSSPrefix?>-opened');
 		};
 	},
-	
+
     hide : function() {
-        this.isProactivePending = 0;      
+        this.isProactivePending = 0;
         if (!lh_inst.cookieData.hash || lh_inst.hasSurvey == false || lh_inst.surveyShown == true) {
 
-            <?php if ((int)erLhcoreClassModelChatConfig::fetch('on_close_exit_chat')->current_value == 1) : ?>  
-            this.explicitClose = true;            
+            <?php if ((int)erLhcoreClassModelChatConfig::fetch('on_close_exit_chat')->current_value == 1) : ?>
+            this.explicitClose = true;
             <?php endif;?>
-                
+
             var th = document.getElementsByTagName('head')[0];
             var s = document.createElement('script');
             s.setAttribute('type','text/javascript');
@@ -254,16 +254,16 @@ var lh_inst  = {
             this.removeCookieAttr('hash');
             this.removeCookieAttr('pos');
             this.removeCookieAttr('m');
-                    
+
             this.removeClass(document.body,'<?php echo $chatCSSPrefix?>-opened');
-                    
+
             <?php if ($check_operator_messages == 'true' && $disable_pro_active == false) : ?>
             this.startNewMessageCheck();
             <?php endif; ?>
             this.timeoutStatusWidgetOpen = 0;
             this.surveyShown = true;
-        } else {           
-            this.showSurvey(); 
+        } else {
+            this.showSurvey();
         }
     },
 
@@ -275,12 +275,12 @@ var lh_inst  = {
 		    var hashResume = this.cookieData.hash_resume ? '/(hash_resume)/'+this.cookieData.hash_resume : '';
 		    var soundOption = this.cookieData.s ? '/(sound)/'+this.cookieData.s : '';
 		    var explicitClose = this.explicitClose ? '/(eclose)/t' : '';
-		    		    		    
+
 		    if (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.attr_paid != 'undefined') {
 		          explicitClose = explicitClose + '/(phash)/'+ <?php echo $chatOptionsVariable?>.attr_paid.phash;
 		          explicitClose = explicitClose + '/(pvhash)/'+ <?php echo $chatOptionsVariable?>.attr_paid.pvhash;
 		    };
-		    		    
+
 		    return hashAppend+vidAppend+hashResume+soundOption+explicitClose+this.survey_id;
     },
 
@@ -288,7 +288,7 @@ var lh_inst  = {
         this.removeById('<?php echo $chatCSSLayoutOptions['container_id']?>');
         var popupHeight = (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.popup_height != 'undefined') ? parseInt(<?php echo $chatOptionsVariable?>.opt.popup_height) : 520;
         var popupWidth = (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.popup_width != 'undefined') ? parseInt(<?php echo $chatOptionsVariable?>.opt.popup_width) : 500;
-        var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));        
+        var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
         window.open(this.urlopen()+this.getAppendCookieArguments()+'/(er)/1'+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments(),this.windowname,"scrollbars=yes,menubar=1,resizable=1,width="+popupWidth+",height="+popupHeight);
         this.removeCookieAttr('hash');
         this.toggleStatusWidget(false);
@@ -326,7 +326,7 @@ var lh_inst  = {
 	    	if (typeof <?php echo $chatOptionsVariable?>.attr != 'undefined') {
 	    		if (<?php echo $chatOptionsVariable?>.attr.length > 0){
 					for (var index in <?php echo $chatOptionsVariable?>.attr) {
-						if (typeof <?php echo $chatOptionsVariable?>.attr[index] != 'undefined' && typeof <?php echo $chatOptionsVariable?>.attr[index].type != 'undefined') {							
+						if (typeof <?php echo $chatOptionsVariable?>.attr[index] != 'undefined' && typeof <?php echo $chatOptionsVariable?>.attr[index].type != 'undefined') {
 							argumentsQuery.push('name[]='+encodeURIComponent(<?php echo $chatOptionsVariable?>.attr[index].name)+'&encattr[]='+(typeof <?php echo $chatOptionsVariable?>.attr[index].encrypted != 'undefined' && <?php echo $chatOptionsVariable?>.attr[index].encrypted == true ? 't' : 'f')+'&value[]='+encodeURIComponent(<?php echo $chatOptionsVariable?>.attr[index].value)+'&type[]='+encodeURIComponent(<?php echo $chatOptionsVariable?>.attr[index].type)+'&size[]='+encodeURIComponent(<?php echo $chatOptionsVariable?>.attr[index].size)+'&req[]='+(typeof <?php echo $chatOptionsVariable?>.attr[index].req != 'undefined' && <?php echo $chatOptionsVariable?>.attr[index].req == true ? 't' : 'f')+'&sh[]='+((typeof <?php echo $chatOptionsVariable?>.attr[index].show != 'undefined' && (<?php echo $chatOptionsVariable?>.attr[index].show == 'on' || <?php echo $chatOptionsVariable?>.attr[index].show == 'off')) ? <?php echo $chatOptionsVariable?>.attr[index].show : 'b'));
 						};
 					};
@@ -350,7 +350,7 @@ var lh_inst  = {
 	    		if (<?php echo $chatOptionsVariable?>.attr_prefill_admin.length > 0){
 					for (var index in <?php echo $chatOptionsVariable?>.attr_prefill_admin) {
 						if (typeof <?php echo $chatOptionsVariable?>.attr_prefill_admin[index] != 'undefined') {
-							argumentsQuery.push('value_items_admin['+<?php echo $chatOptionsVariable?>.attr_prefill_admin[index].index+']='+encodeURIComponent(<?php echo $chatOptionsVariable?>.attr_prefill_admin[index].value));	
+							argumentsQuery.push('value_items_admin['+<?php echo $chatOptionsVariable?>.attr_prefill_admin[index].index+']='+encodeURIComponent(<?php echo $chatOptionsVariable?>.attr_prefill_admin[index].value));
 
 						    if (typeof <?php echo $chatOptionsVariable?>.attr_prefill_admin[index].hidden != 'undefined') {
 							     argumentsQuery.push('via_hidden['+<?php echo $chatOptionsVariable?>.attr_prefill_admin[index].index+']='+encodeURIComponent(<?php echo $chatOptionsVariable?>.attr_prefill_admin[index].hidden == true ? 't' : 'f'));
@@ -363,7 +363,7 @@ var lh_inst  = {
 					};
 	    		};
 	    	};
-	    	
+
 	    	if (argumentsQuery.length > 0) {
 	    		paramsReturn = '&'+argumentsQuery.join('&');
 	    	};
@@ -372,7 +372,7 @@ var lh_inst  = {
     	if (this.extensionArgs != '') {
     	    paramsReturn = paramsReturn + this.extensionArgs;
     	}
-    	
+
     	if (this.prefillMessage != '') {
     	   paramsReturn = paramsReturn + '&' + 'prefillMsg=' + encodeURIComponent(this.prefillMessage);
     	}
@@ -385,12 +385,12 @@ var lh_inst  = {
     setDefaultMessage : function(msg) {
         this.prefillMessage = msg;
     },
-    
+
     parseOptionsOnline : function(){
     	argumentsQuery = new Array();
 
 		if (typeof <?php echo $chatOptionsVariable?> != 'undefined') {
-	    	
+
 	    	if (typeof <?php echo $chatOptionsVariable?>.attr_online != 'undefined') {
 	    		if (<?php echo $chatOptionsVariable?>.attr_online.length > 0){
 					for (var index in <?php echo $chatOptionsVariable?>.attr_online) {
@@ -408,14 +408,14 @@ var lh_inst  = {
 
     	return '';
     },
-    
+
     parseStorageArguments : function() {
     	if (sessionStorage && sessionStorage.getItem('lhc_ref') && sessionStorage.getItem('lhc_ref') != '') {
     		return '&r='+encodeURIComponent(sessionStorage.getItem('lhc_ref'));
     	}
     	return '';
     },
-    
+
 	addEvent : (function () {
 	  if (document.addEventListener) {
 	    return function (el, type, fn) {
@@ -439,7 +439,7 @@ var lh_inst  = {
 	    };
 	  }
 	})(),
-	
+
 	removeEvent : function(target, type, callback) {
         if (target.removeEventListener){
             target.removeEventListener(type,callback);
@@ -459,7 +459,7 @@ var lh_inst  = {
         }
       }
     },
-    
+
     <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/functions/open_chat_window.tpl.php')); ?>
 
     chatOpenedCallback : function(type){
@@ -478,12 +478,12 @@ var lh_inst  = {
 
     genericCallback : function(name){
     	if (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.callback != 'undefined' && typeof <?php echo $chatOptionsVariable?>.callback[name] != 'undefined') {
-    		<?php echo $chatOptionsVariable?>.callback[name](this);    	
+    		<?php echo $chatOptionsVariable?>.callback[name](this);
     	}
     },
-    
+
     <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/functions/show_status_widget.tpl.php')); ?>
-    
+
     timeoutInstance : null,
 
     stopCheckNewMessage : function() {
@@ -491,37 +491,49 @@ var lh_inst  = {
     },
 
     tag : '',
-    
-    addTag : function(tag, forceUpdate) {
-        this.tag = this.tag != '' ? this.tag + ',' + tag : '&tag='+tag;
 
-        if (typeof forceUpdate !== 'undefined' && forceUpdate === true) {
-            this.startNewMessageCheckSingle();
+    addTag : function(params) {
+
+        if (typeof params === 'string') {
+            var params = {'child_mode' : true, tag : params};
+        }
+
+        if (typeof params['child_mode'] !== 'undefined' && params['child_mode'] == true && typeof(parent) !== 'undefined') {
+            if (typeof window.parent.lh_inst !== 'undefined') {
+                window.parent.lh_inst.addTag({'tag':params['tag']});
+            } else {
+                parent.postMessage('lhc_add_tag:'+params['tag'], '*');
+            }
+        } else {
+            this.tag = this.tag != '' ? this.tag + ',' + params['tag'] : '&tag='+params['tag'];
+            if (this.timeoutStatusWidgetOpen == 0) {
+                this.startNewMessageCheckSingle();
+            }
         }
     },
-    
-    updateAttribute : function(attributes) {         
+
+    updateAttribute : function(attributes) {
         var xhr = new XMLHttpRequest();
         xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/updateattribute'+this.getAppendCookieArguments(), true);
      	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
      	xhr.send( "data=" + encodeURIComponent( this.JSON.stringify(attributes) ) );
     },
-    
+
     startNewMessageCheck : function() {
     	<?php /*var vid = this.cookieDataPers.vid;
     	var inst = this;
     	var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
-    	
+
         this.timeoutInstance = setTimeout(function() {
             lh_inst.removeById('lhc_operator_message');
-            var dynamic = inst.dynamicAssigned.length > 0 ? '/(dyn)/' +  inst.dynamicAssigned.join('/') : '';                     
+            var dynamic = inst.dynamicAssigned.length > 0 ? '/(dyn)/' +  inst.dynamicAssigned.join('/') : '';
             var th = document.getElementsByTagName('head')[0];
             var s = document.createElement('script');
             s.setAttribute('id','lhc_operator_message');
             s.setAttribute('type','text/javascript');
             s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ?  '/(fullheight)/true' : '/(fullheight)/false' ?>/(vid)/'+vid + lh_inst.survey_id + '/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+dynamic+'?l='+locationCurrent+inst.tag+'&dt='+encodeURIComponent(document.title)+'&ts='+Date.now());
             th.appendChild(s);
-            lh_inst.startNewMessageCheck();        
+            lh_inst.startNewMessageCheck();
         }, <?php echo (int)(erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['check_for_operator_msg']*1000); ?> );*/ ?>
     },
 
@@ -531,23 +543,23 @@ var lh_inst  = {
 		    var jul = new Date(this.getFullYear(), 6, 1);
 		    return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
 		};
-	
+
 		Date.prototype.dst = function() {
 		    return this.getTimezoneOffset() < this.stdTimezoneOffset();
 		};
-		
+
 		var today = new Date();
 		var timeZoneOffset = 0;
-		
-		if (today.dst()) { 
+
+		if (today.dst()) {
 			timeZoneOffset = today.getTimezoneOffset();
 		} else {
 			timeZoneOffset = today.getTimezoneOffset()-60;
 		};
-		
+
 		return (timeZoneOffset/60)*-1;
     },
-    
+
     startNewMessageCheckSingle : function() {
         if (!lh_inst.cookieData.hash) {
             var vid = this.cookieDataPers.vid;
@@ -567,17 +579,17 @@ var lh_inst  = {
     },
 
     logPageView : function() {
-    	var vid = this.cookieDataPers.vid;       
+    	var vid = this.cookieDataPers.vid;
         var th = document.getElementsByTagName('head')[0];
         var s = document.createElement('script');
-        var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));        
-        var tzOffset = this.getTzOffset(); 
+        var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
+        var tzOffset = this.getTzOffset();
         s.setAttribute('id','lhc_log_pageview');
         s.setAttribute('type','text/javascript');
         s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/logpageview<?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?>/(tz)/'+tzOffset+'/(vid)/' + vid + this.survey_id + '/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title)+'&ts='+Date.now());
         th.appendChild(s);
     },
-    
+
     storeEvents : function() {
         if (typeof <?php echo $chatOptionsVariable?>.events != 'undefined') {
             if (<?php echo $chatOptionsVariable?>.events.length > 0) {
@@ -589,12 +601,12 @@ var lh_inst  = {
             }
         }
     },
-    
+
     logEvent : function(events) {
         <?php echo $chatOptionsVariable?>.events = events;
         this.storeEvents();
     },
-    
+
     removeCookieAttr : function(attr){
     	if (this.cookieData[attr]) {
     		delete this.cookieData[attr];
@@ -627,17 +639,17 @@ var lh_inst  = {
 
 	setVid : function(vid) {
 		if ((this.cookieDataPers.vid && vid != this.cookieDataPers.vid) || !this.cookieDataPers.vid) {
-		
-			var old = this.cookieDataPers.vid;			
+
+			var old = this.cookieDataPers.vid;
 			this.addCookieAttributePersistent('vid',vid);
-			
+
 			<?php if ($trackOnline == true && $disable_online_tracking == false) : ?>
 			lh_inst.stopCheckNewMessage();
 			lh_inst.logPageView();
 			lh_inst.startNewMessageCheckSingle();
 
 			<?php endif;?>
-			
+
 			if (old && old != this.cookieDataPers.vid) {
 				var inst = this;
 				setTimeout(function(){
@@ -645,8 +657,8 @@ var lh_inst  = {
 			        xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+inst.lang+'/chat/setnewvid', true);
 			     	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			     	xhr.send( "data=" + encodeURIComponent( inst.JSON.stringify({'vid':old,'new':vid}) ) );
-				},1000);				
-			}						
+				},1000);
+			}
 		}
 	},
 
@@ -663,9 +675,9 @@ var lh_inst  = {
 	    	lhc_Cookies('lhc_ses',this.JSON.stringify(this.cookieData),{<?php $trackDomain != '' || $disableHTML5Storage == 1 ? ($trackDomain != '' ? print "domain:'.{$trackDomain}'" : print "domain:this.getCookieDomain()") : ''?>});
 	    <?php if ($trackDomain == '' && $disableHTML5Storage == 0) : ?>}<?php endif;?>
     },
-    
-    <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/functions/init_session_storage.tpl.php')); ?>	
-    
+
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/functions/init_session_storage.tpl.php')); ?>
+
     storeReferrer : function(ref){
     	if (sessionStorage && !sessionStorage.getItem('lhc_ref')) {
     		try {
@@ -674,17 +686,17 @@ var lh_inst  = {
     	}
     },
 
-    makeScreenshot : function() {    	
+    makeScreenshot : function() {
     	var inst = this;
-    	if (typeof html2canvas == "undefined") {    					   		
+    	if (typeof html2canvas == "undefined") {
 		   		var th = document.getElementsByTagName('head')[0];
 		        var s = document.createElement('script');
 		        s.setAttribute('type','text/javascript');
 		        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('js/html2canvas.min.js');?>');
-		        th.appendChild(s);		        
+		        th.appendChild(s);
 		        s.onreadystatechange = s.onload = function(){
 		        	inst.makeScreenshot();
-		        };		        
+		        };
     	} else {
 		    	try {
 				  	html2canvas(document.body, {
@@ -692,45 +704,45 @@ var lh_inst  = {
 						         var xhr = new XMLHttpRequest();
 						         xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/file/storescreenshot'+inst.getAppendCookieArguments(), true);
 							     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-							     xhr.send( "data=" + encodeURIComponent( canvas.toDataURL() ) );			         
+							     xhr.send( "data=" + encodeURIComponent( canvas.toDataURL() ) );
 						  }
 					});
 			   } catch(err) {
-			  	
+
 			   }
-    	};    			
+    	};
     },
-    
+
     finishScreenSharing : function(){
     	this.removeById('lhc_status_mirror');
 		this.removeCookieAttr('shr');
 		this.removeCookieAttr('shrm');
 		this.isSharing = false;
-		
-		var vid = this.cookieDataPers.vid;       
+
+		var vid = this.cookieDataPers.vid;
         var th = document.getElementsByTagName('head')[0];
         var s = document.createElement('script');
-        var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));        
-        var tzOffset = this.getTzOffset(); 
+        var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
+        var tzOffset = this.getTzOffset();
         s.setAttribute('id','lhc_finish_shr');
         s.setAttribute('type','text/javascript');
         s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/cobrowse/finishsession/(sharemode)/'+lh_inst.sharemode+lh_inst.getAppendCookieArguments());
         th.appendChild(s);
         this.cobrowser = null;
     },
-    
+
     cobrowse : null,
-    
+
     startCoBrowse : function(chatHash,sharemode){
-    	var inst = this;    	
+    	var inst = this;
     	if (this.isSharing == false && (this.cookieData.shr || <?php echo (int)erLhcoreClassModelChatConfig::fetch('sharing_auto_allow')->current_value?> == 1 || confirm(<?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Allow operator to see your page content?'),ENT_QUOTES))?>)))
     	{
-    		this.sharehash = chatHash || this.cookieData.hash || this.cookieData.shr;    		
+    		this.sharehash = chatHash || this.cookieData.hash || this.cookieData.shr;
     		this.sharemode = sharemode || this.cookieData.shrm || 'chat';
     		this.addCookieAttribute('shr',this.sharehash);
     		this.addCookieAttribute('shrm',this.sharemode);
-    		
-	    	if (typeof TreeMirror == "undefined") {    					   		
+
+	    	if (typeof TreeMirror == "undefined") {
 			   		var th = document.getElementsByTagName('head')[0];
 			        var s = document.createElement('script');
 			        s.setAttribute('type','text/javascript');
@@ -738,9 +750,9 @@ var lh_inst  = {
 			        th.appendChild(s);
 			        s.onreadystatechange = s.onload = function(){
 			        	inst.startCoBrowse(inst.sharehash,this.sharemode);
-			        };		        
+			        };
 	    	} else {
-		    	try {	 
+		    	try {
 		    		this.isSharing = true;
 		    		this.addCookieAttribute('shr',this.sharehash);
 		    		this.addCookieAttribute('shrm',this.sharemode);
@@ -751,35 +763,35 @@ var lh_inst  = {
 	    	};
     	}
     },
-    
+
     lhc_need_help_hide :function() {
     	this.removeById('<?php echo $chatCSSPrefix?>_need_help_container');
     	<?php $needHelpTimeout = $theme !== false ? $theme->show_need_help_timeout : erLhcoreClassModelChatConfig::fetch('need_help_tip_timeout')->current_value; ?>
-    	<?php if ($needHelpTimeout > 0) : ?>    	
+    	<?php if ($needHelpTimeout > 0) : ?>
     	this.addCookieAttributePersistent('lhc_hnh','<?php echo (($needHelpTimeout * 3600) + time())?>');
-    	<?php else : ?>    	
-    	if (localStorage) {    	
+    	<?php else : ?>
+    	if (localStorage) {
 	    	localStorage.removeItem('lhc_hnh');
     	};
-    	this.addCookieAttribute('lhc_hnh','<?php echo ((24 * 3600) + time())?>');    	
+    	this.addCookieAttribute('lhc_hnh','<?php echo ((24 * 3600) + time())?>');
     	<?php endif; ?>
-    	
+
     	return false;
     },
-    
+
     getPersistentAttribute : function(attr) {
     	<?php if ($trackDomain == '' && $disableHTML5Storage == 0) : ?>
-    	if (localStorage) {    	
+    	if (localStorage) {
 	    	return localStorage.getItem(attr);
     	} else {
     	<?php endif;?>
 	    	if (this.cookieDataPers[attr]){
 		    	return this.cookieDataPers[attr];
 	    	}
-	    	return null;    	
+	    	return null;
     	<?php if ($trackDomain == '' && $disableHTML5Storage == 0) : ?>}<?php endif;?>
     },
-    
+
     addCookieAttributePersistent : function(attr, value){
     	<?php if ($trackDomain == '' && $disableHTML5Storage == 0) : ?>
     	if (localStorage) {
@@ -788,50 +800,50 @@ var lh_inst  = {
     		} catch(err) {
     			if (!this.cookieDataPers[attr] || this.cookieDataPers[attr] != value){
 			    	this.cookieDataPers[attr] = value;
-			    	this.storePersistenCookie();	    	
-		    	};    		
+			    	this.storePersistenCookie();
+		    	};
     		};
     	} else {
     	<?php endif;?>
     	if (!this.cookieDataPers[attr] || this.cookieDataPers[attr] != value){
 	    	this.cookieDataPers[attr] = value;
-	    	this.storePersistenCookie();	    	
+	    	this.storePersistenCookie();
     	}
     	<?php if ($trackDomain == '' && $disableHTML5Storage == 0) : ?>}<?php endif;?>
     },
-    
+
     lhc_need_help_click : function() {
     	this.lhc_need_help_hide();
-    	this.lh_openchatWindow();    	
+    	this.lh_openchatWindow();
     },
-    
+
     initLanguage : function() {
-   		var langUser = this.getPersistentAttribute('lng');   		
-    	this.lang = (langUser != null && langUser != '' && langUser != undefined && this.langDefault != langUser) ? langUser : this.lang;   
+   		var langUser = this.getPersistentAttribute('lng');
+    	this.lang = (langUser != null && langUser != '' && langUser != undefined && this.langDefault != langUser) ? langUser : this.lang;
     },
-    
+
     resetTimeoutActivity : function() {
-    
-        var wasInactive = this.userActive == 0;        
+
+        var wasInactive = this.userActive == 0;
         this.userActive = 1;
-        
+
         if (wasInactive == true) {
             this.syncUserStatus(1);
         }
-        
+
         clearTimeout(this.timeoutActivity);
         var _that = this;
         this.timeoutActivity = setTimeout(function(){
             _that.userActive = 0;
             _that.syncUserStatus(1);
-        }, 300*1000);        
+        }, 300*1000);
     },
-    
+
     timeoutActivity : null,
     userActive : 1,
     timeoutStatuscheck : null,
     timeoutStatusWidgetOpen : 0,
-    
+
     syncUserStatus : function(sender) {
     	var hashAppend = this.cookieData.hash ? '/(hash)/'+this.cookieData.hash : '';
 		var hashResume = this.cookieData.hash_resume ? '/(hash_resume)/'+this.cookieData.hash_resume : '';
@@ -850,8 +862,8 @@ var lh_inst  = {
         	var _that = this;
             this.timeoutStatuscheck = setTimeout(function() {
                 _that.syncUserStatus(0);
-                _that.checkStatusChat();        
-            },<?php echo ((int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value > 0 ? (int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value : 10)*1000; ?>);       
+                _that.checkStatusChat();
+            },<?php echo ((int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value > 0 ? (int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value : 10)*1000; ?>);
         }
     },
 
@@ -859,37 +871,37 @@ var lh_inst  = {
         var xhr = new XMLHttpRequest();
         xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/chat/refreshcustomfields'+this.getAppendCookieArguments() , true);
 	    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	    xhr.send(this.parseOptions());	
+	    xhr.send(this.parseOptions());
     },
-      
+
     attatchActivityListeners : function() {
-        <?php if ((int)erLhcoreClassModelChatConfig::fetch('track_activity')->current_value > 0) : ?>  
+        <?php if ((int)erLhcoreClassModelChatConfig::fetch('track_activity')->current_value > 0) : ?>
         var resetTimeout = function() {
             lh_inst.resetTimeoutActivity();
-        };    
-        
-        <?php if ((int)erLhcoreClassModelChatConfig::fetch('track_mouse_activity')->current_value == 1) : ?> 
-        this.addEvent(window,'mousemove',resetTimeout);     
+        };
+
+        <?php if ((int)erLhcoreClassModelChatConfig::fetch('track_mouse_activity')->current_value == 1) : ?>
+        this.addEvent(window,'mousemove',resetTimeout);
         this.addEvent(document,'mousemove',resetTimeout);
         <?php endif;?>
-            
+
         this.addEvent(window,'mousedown',resetTimeout);
         this.addEvent(window,'click',resetTimeout);
-        this.addEvent(window,'scroll',resetTimeout);        
+        this.addEvent(window,'scroll',resetTimeout);
         this.addEvent(window,'keypress',resetTimeout);
-        this.addEvent(window,'load',resetTimeout);    
-        this.addEvent(document,'scroll',resetTimeout);        
+        this.addEvent(window,'load',resetTimeout);
+        this.addEvent(document,'scroll',resetTimeout);
         this.addEvent(document,'touchstart',resetTimeout);
         this.addEvent(document,'touchend',resetTimeout);
         this.resetTimeoutActivity();
-        <?php endif;?> 
+        <?php endif;?>
     },
 
     <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/functions/send_notification.tpl.php')); ?>
 
     handleMessage : function(e) {
         if (typeof e.data !== 'string') { return; }
-    	var action = e.data.split(':')[0];    	
+    	var action = e.data.split(':')[0];
 
         if (action == 'lhc_newopmsg') {
             if ( lh_inst.isMinimized == true) {
@@ -914,7 +926,7 @@ var lh_inst  = {
     			elementObject.style.height = height+'px';
     		}
 
-    		iframeContainer.className = iframeContainer.className;    		
+    		iframeContainer.className = iframeContainer.className;
     	} else if (action == 'lhc_ch') {
     		var parts = e.data.split(':');
     		if (parts[1] != '' && parts[2] != '') {
@@ -922,18 +934,20 @@ var lh_inst  = {
     			if (parts[1] == 'hash') {
                     lh_inst.chat_started = true;
     			}
-    		}    		
-    	} else if (action == 'lhc_open_restore') {    		
-    		lh_inst.lh_openchatWindow();    		
-    	} else if (action == 'lhc_continue_chat') {    		
-    		lh_inst.showStartWindow();    		
-    	} else if (action == 'lhc_cfrefresh') {    		
-    		lh_inst.refreshCustomFields();    		
+    		}
+    	} else if (action == 'lhc_open_restore') {
+    		lh_inst.lh_openchatWindow();
+    	} else if (action == 'lhc_continue_chat') {
+    		lh_inst.showStartWindow();
+    	} else if (action == 'lhc_add_tag') {
+    		lh_inst.addTag({tag:e.data.split(':')[1]});
+    	} else if (action == 'lhc_cfrefresh') {
+    		lh_inst.refreshCustomFields();
     	} else if (action == 'lhc_screenshot') {
     		lh_inst.makeScreenshot();
     	} else if (action == 'lhc_disable_survey') {
     		lh_inst.surveyShown = true;
-    	} else if (action == 'lhc_chat_closed_explicit') {    	  
+    	} else if (action == 'lhc_chat_closed_explicit') {
     	    lh_inst.explicitClose = true;
     		lh_inst.hide();
     	} else if (action == 'lhc_chat_closed') {
@@ -941,12 +955,12 @@ var lh_inst  = {
     	    parts.shift();
     	    if (parts.length > 0){
     	       lh_inst.appendArg(parts);
-    	    }    	    
+    	    }
     		lh_inst.showSurvey();
     	} else if (action == 'lhc_cobrowse') {
-    		lh_inst.startCoBrowse(e.data.split(':')[1],'chat');    	
-    	} else if (action == 'lhc_cobrowse_online') {    		    		
-    		lh_inst.startCoBrowse(e.data.split(':')[1],'onlineuser');    			
+    		lh_inst.startCoBrowse(e.data.split(':')[1],'chat');
+    	} else if (action == 'lhc_cobrowse_online') {
+    		lh_inst.startCoBrowse(e.data.split(':')[1],'onlineuser');
     	} else if (action == 'lhc_chat_redirect') {
     		document.location = e.data.split(':')[1].replace(new RegExp('__SPLIT__','g'),':');
     	} else if (action == 'lhc_cobrowse_cmd') {
@@ -955,7 +969,7 @@ var lh_inst  = {
     		};
     	} else if (action == 'lhc_lang') {
     		var lang = e.data.split(':')[1];
-    		if (lang != undefined) {    				
+    		if (lang != undefined) {
     			lh_inst.addCookieAttributePersistent('lng',lang);
     			lh_inst.lang = lang;
     		} else {
@@ -967,7 +981,7 @@ var lh_inst  = {
                 lh_inst.sendNotification(parts);
     	} else if (action == 'lh_callback') {
     		var functionName = e.data.split(':')[1];
-    		lh_inst.genericCallback(functionName);    	
+    		lh_inst.genericCallback(functionName);
     	} else if (action == 'lhc_close') {
     		lh_inst.hide();
                 lh_inst.chatClosedCallback('message')
