@@ -1,6 +1,6 @@
 <?php if (isset($reopen_chat)) : ?>
 lh_inst.stopCheckNewMessage();
-if (window.innerWidth > 1023) {
+if (window.innerWidth > 700) {
 	lh_inst.addCookieAttribute('hash','<?php echo $reopen_chat->id;?>_<?php echo $reopen_chat->hash?>');
 	lh_inst.showStartWindow();
 };
@@ -19,7 +19,7 @@ lh_inst.stopCheckNewMessage();
     <?php endif; ?>
 
 <?php else : ?>
-        if (window.innerWidth > 1023) {
+        if (window.innerWidth > 700) {
             <?php if ($visitor->invitation instanceof erLhAbstractModelProactiveChatInvitation && (($visitor->invitation_assigned == false && $visitor->invitation->delay > 0) || $visitor->invitation->delay_init > 0)) : ?>
                 setTimeout(function() {
             <?php endif; ?>
