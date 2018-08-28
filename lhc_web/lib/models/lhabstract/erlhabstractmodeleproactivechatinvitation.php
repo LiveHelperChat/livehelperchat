@@ -187,7 +187,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	            AND `disabled` = 0
 				AND ('.$q->expr->like( $session->database->quote(trim($referrer)), 'concat(referrer,\'%\')' ).' OR referrer = \'\')'
 	    )
-	    ->orderBy('position ASC')
+	    ->orderBy('position ASC, RAND()')
 	    ->limit( 10 );
 
 	    $messagesToUser = $session->find( $q );
@@ -266,7 +266,7 @@ class erLhAbstractModelProactiveChatInvitation {
 				AND ('.$q->expr->eq( 'dep_id', $q->bindValue( $item->dep_id ) ).' OR dep_id = 0)
 				AND ('.$q->expr->like( $session->database->quote(trim($referrer)), 'concat(referrer,\'%\')' ).' OR referrer = \'\')'
 		)
-		->orderBy('position ASC, time_on_site ASC')
+		->orderBy('position ASC, time_on_site ASC, RAND()')
 		->limit( 1 );
 		
 		$messagesToUser = $session->find( $q );
