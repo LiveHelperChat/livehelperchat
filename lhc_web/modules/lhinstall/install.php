@@ -59,6 +59,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
 		if (!is_writable("var/storagetheme"))
 	       $Errors[] = "var/storagetheme is not writable";
 
+		if (!is_writable("var/storageinvitation"))
+	       $Errors[] = "var/storageinvitation is not writable";
+
 		if (!is_writable("var/storageadmintheme"))
 	       $Errors[] = "var/storageadmintheme is not writable";
 
@@ -1478,6 +1481,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `event_type` int(11) NOT NULL,
         	   	  `requires_username` int(11) NOT NULL,
         	   	  `requires_phone` int(11) NOT NULL,        	   	  
+        	   	  `design_data` longtext NOT NULL,        	   	  
 				  PRIMARY KEY (`id`),
 				  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`identifier`,`position`),
         	      KEY `identifier` (`identifier`),

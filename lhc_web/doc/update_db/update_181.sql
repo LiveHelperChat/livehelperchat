@@ -1,0 +1,1 @@
+ALTER TABLE `lh_abstract_proactive_chat_invitation` ADD `design_data` longtext NOT NULL, COMMENT='';
