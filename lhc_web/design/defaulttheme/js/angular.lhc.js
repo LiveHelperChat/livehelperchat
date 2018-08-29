@@ -386,8 +386,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		}
 	};
 	
-	this.getToggleWidget = function(variable) {
-		this.toggleWidgetData[variable] = this.restoreLocalSetting(variable,'false',false) == 'false' ? false : true;
+	this.getToggleWidget = function(variable, defaultValue) {
+		this.toggleWidgetData[variable] = this.restoreLocalSetting(variable,(typeof defaultValue === 'undefined' ? 'false' : defaultValue), false) == 'false' ? false : true;
 	};
 	
 	this.getToggleWidgetSort = function(variable) {

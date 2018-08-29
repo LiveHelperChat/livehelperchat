@@ -26,23 +26,22 @@ lhcAppControllers.controller('ProactiveDesignerCtrl',['$scope','$http','$locatio
 
     this.replaceArray = [];
 	this.plainHtml = '';
+	this.plainStyle = '';
     var that = this;
 
 
     $scope.$watch('ngModelAbstractInput_mobile_html', function(newVal,oldVal) {
-
         angular.forEach(that.replaceArray, function(item) {
             newVal = newVal.replace(item.id,item.val);
         });
-
         that.plainHtml = newVal;
     });
 
-
-    this.replaceItems = function(html) {
-		console.log(html);
-	}
-
-	console.log('here');
+    $scope.$watch('ngModelAbstractInput_mobile_style', function(newVal,oldVal) {
+        angular.forEach(that.replaceArray, function(item) {
+            newVal = newVal.replace(item.id,item.val);
+        });
+        that.plainStyle = newVal;
+    });
 
 }]);

@@ -10,7 +10,9 @@ for ($i = 1; $i < 5; $i++) {
 
 <div class="row" ng-controller="ProactiveDesignerCtrl as prdesign" ng-init='prdesign.replaceArray = <?php echo json_encode($replaceArrayImages);?>'>
 
-    <p>You can bind also 5 images using tag as. {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}</p>
+    <div class="col-xs-12">
+        <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','You can also use 5 images using keywords as {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}')?></p>
+    </div>
 
     <div class="col-xs-6">
         <div class="form-group" >
@@ -61,7 +63,7 @@ for ($i = 1; $i < 5; $i++) {
         </div>
     </div>
     <div class="col-xs-6">
-        <style ng-bind-html="ngModelAbstractInput_mobile_style">
+        <style ng-bind-html="prdesign.plainStyle">
 
         </style>
 

@@ -2629,6 +2629,15 @@
                 "collation": "utf8mb4_unicode_ci"
             },
             {
+                "field": "pending_join_queue",
+                "type": "varchar(250)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": "",
+                "collation": "utf8mb4_unicode_ci"
+            },
+            {
                 "field": "noonline_operators",
                 "type": "varchar(250)",
                 "null": "NO",
@@ -7067,6 +7076,13 @@
                 "value": "0",
                 "type": "0",
                 "explain": "Track is user still on site, chat status checks also has to be enabled",
+                "hidden": "0"
+            },
+            {
+                "identifier": "reverse_pending",
+                "value": "0",
+                "type": "0",
+                "explain": "Make default pending chats order from old to new",
                 "hidden": "0"
             },
             {

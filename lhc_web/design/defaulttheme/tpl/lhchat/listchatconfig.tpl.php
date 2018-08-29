@@ -153,7 +153,9 @@
     		    		    
     		    <?php $attribute = 'allow_reopen_closed';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    		   			     		    
+
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/reverse_order_pending.tpl.php'));?>
+
     		    <?php $attribute = 'min_phone_length';?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    
@@ -199,6 +201,7 @@
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/suggest_leave_msg.tpl.php'));?>
     		    
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/text_misc.tpl.php'));?>
+
     		    <?php $attribute = 'voting_days_limit'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		     
