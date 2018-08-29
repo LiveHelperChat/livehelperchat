@@ -248,4 +248,94 @@ return array(
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
+    'mobile_html' => array(
+        'type' => 'textarea',
+        'main_attr' => 'design_data_array',
+        'height' => '200px',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Mobile HTML'),
+        'required' => false,
+        'hidden' => true,
+        'nginit' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
+    ),
+    'mobile_style' => array(
+        'type' => 'textarea',
+        'main_attr' => 'design_data_array',
+        'height' => '200px',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Mobile style'),
+        'required' => false,
+        'hidden' => true,
+        'nginit' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
+    ),
+    'design_data_img_1' => array(
+        'type' => 'file',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom image 1'),
+        'required' => false,
+        'hidden' => true,
+        'main_attr' => 'design_data_array',
+        'frontend' => 'design_data_img_1_url_img',
+        'backend_call' => 'movePhoto',
+        'backend_call_param' => 'design_data_img_1',
+        'delete_call' => 'deletePhoto',
+        'delete_call_param' => 'design_data_img_1',
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
+    )),
+    'design_data_img_2' => array(
+        'type' => 'file',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom image 2'),
+        'required' => false,
+        'hidden' => true,
+        'main_attr' => 'design_data_array',
+        'frontend' => 'design_data_img_2_url_img',
+        'backend_call' => 'movePhoto',
+        'backend_call_param' => 'design_data_img_2',
+        'delete_call' => 'deletePhoto',
+        'delete_call_param' => 'design_data_img_2',
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
+    )),
+    'design_data_img_3' => array(
+        'type' => 'file',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom image 3'),
+        'required' => false,
+        'hidden' => true,
+        'main_attr' => 'design_data_array',
+        'frontend' => 'design_data_img_3_url_img',
+        'backend_call' => 'movePhoto',
+        'backend_call_param' => 'design_data_img_3',
+        'delete_call' => 'deletePhoto',
+        'delete_call_param' => 'design_data_img_3',
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
+    )),
+    'design_data_img_4' => array(
+        'type' => 'file',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom image 4'),
+        'required' => false,
+        'hidden' => true,
+        'main_attr' => 'design_data_array',
+        'frontend' => 'design_data_img_4_url_img',
+        'backend_call' => 'movePhoto',
+        'backend_call_param' => 'design_data_img_4',
+        'delete_call' => 'deletePhoto',
+        'delete_call_param' => 'design_data_img_4',
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
+    )),
+    'design_data_img_5' => array(
+        'type' => 'file',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom image 5'),
+        'required' => false,
+        'hidden' => true,
+        'main_attr' => 'design_data_array',
+        'frontend' => 'design_data_img_5_url_img',
+        'backend_call' => 'movePhoto',
+        'backend_call_param' => 'design_data_img_5',
+        'delete_call' => 'deletePhoto',
+        'delete_call_param' => 'design_data_img_5',
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
+    )),
 );

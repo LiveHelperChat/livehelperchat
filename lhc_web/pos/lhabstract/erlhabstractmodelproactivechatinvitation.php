@@ -194,6 +194,11 @@ $def->properties['campaign_id']->columnName   = 'campaign_id';
 $def->properties['campaign_id']->propertyName = 'campaign_id';
 $def->properties['campaign_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['design_data'] = new ezcPersistentObjectProperty();
+$def->properties['design_data']->columnName   = 'design_data';
+$def->properties['design_data']->propertyName = 'design_data';
+$def->properties['design_data']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

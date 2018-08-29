@@ -337,6 +337,11 @@
     				<label><?php echo $fields['pending_join']['trans'];?></label>
     				<?php echo erLhcoreClassAbstract::renderInput('pending_join', $fields['pending_join'], $object)?>		
     				</div>
+
+    				<div class="form-group">
+    				<label><?php echo $fields['pending_join_queue']['trans'];?></label>
+    				<?php echo erLhcoreClassAbstract::renderInput('pending_join_queue', $fields['pending_join_queue'], $object)?>
+    				</div>
     				
     				<div class="form-group">										
     				<label><?php echo $fields['noonline_operators']['trans'];?></label>

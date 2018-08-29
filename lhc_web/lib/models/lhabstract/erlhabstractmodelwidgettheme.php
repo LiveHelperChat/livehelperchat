@@ -72,6 +72,7 @@ class erLhAbstractModelWidgetTheme {
 			'support_joined'		    => $this->support_joined,
 			'support_closed'		    => $this->support_closed,
 			'pending_join'		        => $this->pending_join,
+			'pending_join_queue'		=> $this->pending_join_queue,
 			'noonline_operators'		=> $this->noonline_operators,
 			'noonline_operators_offline'=> $this->noonline_operators_offline,
 			'show_need_help'            => $this->show_need_help,
@@ -456,6 +457,7 @@ class erLhAbstractModelWidgetTheme {
 	public $bot_status_text = '';
 	public $support_closed = '';
 	public $pending_join = '';
+	public $pending_join_queue = '';
 	public $noonline_operators = '';
 	public $noonline_operators_offline = '';
 	public $notification_configuration = '';

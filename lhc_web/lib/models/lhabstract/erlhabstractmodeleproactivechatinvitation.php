@@ -49,7 +49,8 @@ class erLhAbstractModelProactiveChatInvitation {
 			'trigger_id' => $this->trigger_id,
 			'bot_offline' => $this->bot_offline,
 			'disabled' => $this->disabled,
-			'campaign_id' => $this->campaign_id
+			'campaign_id' => $this->campaign_id,
+			'design_data' => $this->design_data
 		);
 			
 		return $stateArray;
@@ -148,7 +149,69 @@ class erLhAbstractModelProactiveChatInvitation {
                }
 	   	       return $this->autoresponder;
 	   	    break;
-	   	    
+
+       case 'design_data_array':
+           $attr = str_replace('_array','',$var);
+           if (!empty($this->{$attr})) {
+               $jsonData = json_decode($this->{$attr},true);
+               if ($jsonData !== null) {
+                   $this->{$var} = $jsonData;
+               } else {
+                   $this->{$var} = array();
+               }
+           } else {
+               $this->{$var} = array();
+           }
+           return $this->{$var};
+           break;
+
+       case 'design_data_img_1_url':
+       case 'design_data_img_2_url':
+       case 'design_data_img_3_url':
+       case 'design_data_img_4_url':
+       case 'design_data_img_5_url':
+           $attr = str_replace('_url', '', $var);
+           $this->$var = '';
+           if ($this->$attr != ''){
+               $this->$var =  ($this->{$attr.'_path'} != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) . '/' . $this->{$attr.'_path'} . $this->$attr;
+           }
+           return $this->$var;
+           break;
+
+       case 'design_data_img_1':
+       case 'design_data_img_2':
+       case 'design_data_img_3':
+       case 'design_data_img_4':
+       case 'design_data_img_5':
+       case 'design_data_img_1_path':
+       case 'design_data_img_2_path':
+       case 'design_data_img_3_path':
+       case 'design_data_img_4_path':
+       case 'design_data_img_5_path':
+           $configurationArray = $this->design_data_array;
+           if (isset($configurationArray[$var]) && $configurationArray[$var] != '') {
+               $this->$var = $configurationArray[$var];
+           } else {
+               $this->$var = '';
+           }
+           return $this->$var;
+           break;
+
+       case 'design_data_img_1_url_img':
+       case 'design_data_img_2_url_img':
+       case 'design_data_img_3_url_img':
+       case 'design_data_img_4_url_img':
+       case 'design_data_img_5_url_img':
+           $attr = str_replace('_url_img', '', $var);
+           $configurationArray = $this->design_data_array;
+           if (isset($configurationArray[$attr]) && $configurationArray[$attr] != '') {
+               $this->$var = '<img src="'.($this->{$attr.'_path'} != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->{$attr.'_path'} . $configurationArray[$attr].'"/>';
+           } else {
+               $this->$var = false;
+           }
+           return $this->$var;
+           break;
+
 	   	default:
 	   		break;
 	   }
@@ -358,7 +421,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	}
 	
 	public function dependFooterJs(){
-	    return '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/angular.lhc.events.js').'"></script>';
+	    return '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/angular-sanitize.min.js;js/angular.lhc.events.js').'"></script>';
 	}
 	
 	public function validateInput($params)
@@ -370,19 +433,19 @@ class erLhAbstractModelProactiveChatInvitation {
 	public function afterUpdate()
 	{
 	    $ids = array();
-	    
+
 	    // Save events and collect id's
 	    foreach ($this->events as $event) {
 	        $event->saveThis();
 	        $ids[] = $event->id;
 	    }
-	    
+
 	    // Remove old, non-existing events
 	    foreach (erLhAbstractModelProactiveChatInvitationEvent::getList(array('filter' => array('invitation_id' => $this->id))) as $oldEvent) {
 	        if (!in_array($oldEvent->id, $ids)) {
 	            $oldEvent->removeThis();
 	        }
-	    }	
+	    }
 
 	    if (empty($ids) && $this->event_invitation == 1) {
 	        $this->event_invitation = 0;
@@ -399,7 +462,104 @@ class erLhAbstractModelProactiveChatInvitation {
             $oldEvent->removeThis();
 	    }
 	}
-	
+
+    public function beforeUpdate()
+    {
+        $this->design_data = json_encode($this->design_data_array);
+    }
+
+    public function getContentAttribute($attr)
+    {
+        $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.download_image.'.$attr, array('theme' => $this, 'attr' => $attr));
+        if ($response === false) {
+            return file_get_contents($this->{$attr.'_path'}.'/'.$this->$attr);
+        } else {
+            return $response['filedata'];
+        }
+    }
+
+    public function movePhoto($attr, $isLocal = false, $localFile = false)
+    {
+        $this->deletePhoto($attr);
+
+        if ($this->id != null){
+            $dir = 'var/storageinvitation/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $this->id . '/';
+
+            $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.edit.'.$attr.'_path',array('dir' => & $dir, 'storage_id' => $this->id));
+
+            erLhcoreClassFileUpload::mkdirRecursive( $dir );
+
+            if ($isLocal == false) {
+                $this->$attr = erLhcoreClassSearchHandler::moveUploadedFile('AbstractInput_'.$attr, $dir . '/','.' );
+            } else {
+                $this->$attr = erLhcoreClassSearchHandler::moveLocalFile($localFile, $dir . '/','.' );
+            }
+
+            $this->{$attr.'_path'} = $dir;
+
+            $noteConfigurationArray = $this->design_data_array;
+            $noteConfigurationArray[$attr.'_path'] = $this->{$attr.'_path'};
+            $noteConfigurationArray[$attr] = $this->{$attr};
+
+            $this->design_data_array = $noteConfigurationArray;
+
+            $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.edit.store_'.$attr,array(
+                'theme' => & $this,
+                'path_attr' => $attr.'_path',
+                'name' => $this->$attr,
+                'name_attr' => $attr,
+                'file_path' => $this->{$attr.'_path'} . $this->$attr));
+
+        } else {
+            $this->{$attr.'_pending'} = true;
+        }
+    }
+
+    public function deletePhoto($attr)
+    {
+        if ($this->$attr != '') {
+            if ( file_exists($this->{$attr.'_path'} . $this->$attr) ) {
+                unlink($this->{$attr.'_path'} . $this->$attr);
+            }
+
+            if ($this->{$attr.'_path'} != '') {
+                erLhcoreClassFileUpload::removeRecursiveIfEmpty('var/storageinvitation/',str_replace('var/storageinvitation/','',$this->{$attr.'_path'}));
+            }
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.edit.remove_'.$attr,array(
+                'theme' => & $this,
+                'path_attr' => $attr.'_path',
+                'name' => $this->$attr));
+
+            $this->$attr = '';
+            $this->{$attr.'_path'} = '';
+
+            $noteConfigurationArray = $this->design_data_array;
+            $noteConfigurationArray[$attr.'_path'] = '';
+            $noteConfigurationArray[$attr] = '';
+            $this->design_data_array = $noteConfigurationArray;
+        }
+    }
+
+    public function afterSave()
+    {
+        $movePhotos = array(
+            'design_data_img_1',
+        );
+
+        $pendingUpdate = false;
+        foreach ($movePhotos as $photoAttr) {
+            if ($this->{$photoAttr.'_pending'} == true) {
+                $this->movePhoto($photoAttr);
+                $pendingUpdate = true;
+            }
+        }
+
+        if ($pendingUpdate == true) {
+            $this->updateThis();
+        }
+    }
+
    	public $id = null;
 	public $siteaccess = '';
 	public $time_on_site = 0;
@@ -435,6 +595,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $bot_offline = 0;
 	public $disabled = 0;
 	public $campaign_id = 0;
+	public $design_data = '';
 
 	public $next_reschedule = 0;
 	public $hide_add = false;

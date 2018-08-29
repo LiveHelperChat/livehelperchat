@@ -41,7 +41,12 @@
         <?php endif; ?></h4>
     <?php elseif ($is_online == true) : ?>
     <h4>
-         <?php if ($chat->number_in_queue > 1) : ?><?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/you_a_number_in_queue.tpl.php'));?>
+         <?php if ($chat->number_in_queue > 1) : ?>
+            <?php if ($theme !== false  && $theme->pending_join_queue != '') : ?>
+                 <?php echo htmlspecialchars(str_replace('{number}',$chat->number_in_queue,$theme->pending_join_queue))?>
+            <?php else : ?>
+                 <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/you_a_number_in_queue.tpl.php'));?>
+            <?php endif ?>
          <?php else : ?>
              <?php if ($theme !== false  && $theme->pending_join != '') : ?>
         	   <?php echo htmlspecialchars($theme->pending_join)?>

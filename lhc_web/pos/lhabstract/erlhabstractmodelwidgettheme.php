@@ -290,6 +290,11 @@ $def->properties['pending_join']->columnName   = 'pending_join';
 $def->properties['pending_join']->propertyName = 'pending_join';
 $def->properties['pending_join']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['pending_join_queue'] = new ezcPersistentObjectProperty();
+$def->properties['pending_join_queue']->columnName   = 'pending_join_queue';
+$def->properties['pending_join_queue']->propertyName = 'pending_join_queue';
+$def->properties['pending_join_queue']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['noonline_operators'] = new ezcPersistentObjectProperty();
 $def->properties['noonline_operators']->columnName   = 'noonline_operators';
 $def->properties['noonline_operators']->propertyName = 'noonline_operators';
