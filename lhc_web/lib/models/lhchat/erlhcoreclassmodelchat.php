@@ -518,11 +518,11 @@ class erLhcoreClassModelChat {
            $location = erLhcoreClassModelChatOnlineUser::getUserData($geo_data['geo_service_identifier'],$instance->ip,$params);
 
            if ($location !== false){
-               $instance->country_code = $location->country_code;
-               $instance->country_name = $location->country_name;
-               $instance->lat = $location->lat;
-               $instance->lon = $location->lon;
-               $instance->city = $location->city;
+               $instance->country_code = (string)$location->country_code;
+               $instance->country_name = (string)$location->country_name;
+               $instance->lat = (string)$location->lat;
+               $instance->lon = (string)$location->lon;
+               $instance->city = (string)$location->city;
            }
        }
 

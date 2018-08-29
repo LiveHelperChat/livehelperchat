@@ -59,6 +59,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
 		if (!is_writable("var/storagetheme"))
 	       $Errors[] = "var/storagetheme is not writable";
 
+		if (!is_writable("var/storageinvitation"))
+	       $Errors[] = "var/storageinvitation is not writable";
+
 		if (!is_writable("var/storageadmintheme"))
 	       $Errors[] = "var/storageadmintheme is not writable";
 
@@ -492,6 +495,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                  `support_joined` varchar(250) NOT NULL,
                  `support_closed` varchar(250) NOT NULL,
                  `pending_join` varchar(250) NOT NULL,
+                 `pending_join_queue` varchar(250) NOT NULL,
                  `noonline_operators` varchar(250) NOT NULL,
                  `noonline_operators_offline` varchar(250) NOT NULL,
                  `hide_close` int(11) NOT NULL,
@@ -1294,6 +1298,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('transfer_configuration','0','0','Transfer configuration','1'),
                 ('list_unread','0','0','List unread chats','0'),
                 ('list_closed','0','0','List closed chats','0'),
+                ('reverse_pending','0','0','Make default pending chats order from old to new','0'),
                 ('departament_availability','364','0','How long department availability statistic should be kept? (days)','0'),
                 ('uonline_sessions','364','0','How long keep operators online sessions data? (days)','0'),
                 ('disable_live_autoassign','0','0','Disable live auto assign','0'),
@@ -1478,6 +1483,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	   	  `event_type` int(11) NOT NULL,
         	   	  `requires_username` int(11) NOT NULL,
         	   	  `requires_phone` int(11) NOT NULL,        	   	  
+        	   	  `design_data` longtext NOT NULL,        	   	  
 				  PRIMARY KEY (`id`),
 				  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`identifier`,`position`),
         	      KEY `identifier` (`identifier`),

@@ -83,6 +83,8 @@ class erLhcoreClassChatExport {
 		$page = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Page');
 		$from = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Came from');
 		$link = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Link');
+		$remarks = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Remarks');
+		$additionalDataPlain = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Additional plain');
 		$additionalData = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Additional data');
 
 		if (isset($params['type']) && $params['type'] == 2) {
@@ -91,8 +93,12 @@ class erLhcoreClassChatExport {
 			$content = null;
 		}
 
-		$chatArray[] = array($id, $name, $email, $phone, $wait, $country, $city, $ip, $operator, $dept, $date, $minutes, $vote, $mail, $page, $from, $link, $content, $additionalData);
-		
+        if (isset($params['type']) && $params['type'] == 2) {
+            $chatArray[] = array($id, $name, $email, $phone, $wait, $country, $city, $ip, $operator, $dept, $date, $minutes, $vote, $mail, $page, $from, $link, $remarks, $content, $additionalDataPlain, $additionalData);
+        } else {
+            $chatArray[] = array($id, $name, $email, $phone, $wait, $country, $city, $ip, $operator, $dept, $date, $minutes, $vote, $mail, $page, $from, $link, $remarks, $additionalDataPlain, $additionalData);
+        }
+
         foreach ($chats as $item) {
                 $id = (string)$item->{'id'};
                 $nick = (string)$item->{'nick'};
@@ -104,6 +110,7 @@ class erLhcoreClassChatExport {
                 $ip = (string)$item->{'ip'};
                 $user = (string)$item->{'user'};
                 $dept = (string)$item->{'department'};
+                $remarks = (string)$item->{'remarks'};
 
                 $date = date(erLhcoreClassModule::$dateFormat,$item->time);
                 $minutes = date('H:i:s',$item->time);
@@ -112,7 +119,17 @@ class erLhcoreClassChatExport {
                 $page = $item->referrer;
                 $additionalDataContent = $item->additional_data;
 
-                if ($item->session_referrer != ''){
+                $additionalDataPlain = '';
+
+                $additionalPairs = array();
+
+                if (!empty($additionalDataContent)){
+                    foreach (json_decode($additionalDataContent,true) as $additionalItem) {
+                        $additionalPairs[] = $additionalItem['key'] . ' - ' . $additionalItem['value'];
+                    }
+                }
+
+                if ($item->session_referrer != '') {
                         $referer = parse_url($item->session_referrer);                    
                         if (isset($referer['host'])) {
                             $from = $referer['host'];
@@ -139,9 +156,9 @@ class erLhcoreClassChatExport {
                                 }
                         }
 
-                    $chatArray[] = array($id, $nick, $email, $phone, $wait, $country, $city, $ip, $user, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, trim($messagesContent),$additionalDataContent);
+                    $chatArray[] = array($id, $nick, $email, $phone, $wait, $country, $city, $ip, $user, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, $remarks, trim($messagesContent),implode(', ',$additionalPairs), $additionalDataContent);
                 } else {
-                	$chatArray[] = array($id, $nick, $email, $phone, $wait, $country, $city, $ip, $user, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, $additionalDataContent);
+                	$chatArray[] = array($id, $nick, $email, $phone, $wait, $country, $city, $ip, $user, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, $remarks, implode(', ',$additionalPairs), $additionalDataContent);
                 }
         }
 

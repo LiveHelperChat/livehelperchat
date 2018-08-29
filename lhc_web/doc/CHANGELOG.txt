@@ -1,3 +1,13 @@
+3.06v
+
+1. Option to have custom text in themes for text like "You are number {number} in the queue. Please wait..."
+2. Option to set default order for pending chats. Chat configuration -> Misc -> "Make default pending chats order from old to new"
+3. Proactive invitation feature to have custom design for proactive invitation. Still not completed. But fields is presented already.
+Proactive invitations if have same priority will be used randmonly. So A/B testing will make sense.
+4. Gulp library updated.
+
+execute doc/update_db/update_181.sql for update
+
 3.05v
 
 1. Filter online visitors by Country and Time On Site

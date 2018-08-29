@@ -66,9 +66,7 @@ gulp.task('js-angular-online', function() {
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
-// https://gist.github.com/micmania1/3a6f91b256b8f3e7dc97a740d60e20cb
-
-gulp.task('react',[], function () {
+gulp.task('react', function () {
     return	gulp.src([
     	"design/defaulttheme/js/react/src/*.jsx"
 	])
@@ -80,7 +78,7 @@ gulp.task('react',[], function () {
         .pipe(gulp.dest("design/defaulttheme/js/react/build"));
 });
 
-gulp.task('react-components',[], function () {
+gulp.task('react-components', function () {
     return	gulp.src([
         "design/defaulttheme/js/react/src/components/*.jsx"
 	])
@@ -92,7 +90,7 @@ gulp.task('react-components',[], function () {
 	.pipe(gulp.dest("design/defaulttheme/js/react/build/components"));
 });
 
-gulp.task('react-js', [/*'react','react-components'*/], function() {
+gulp.task('react-js',  function() {
 
     process.env.NODE_ENV = 'production';
 
@@ -109,15 +107,15 @@ gulp.task('react-js', [/*'react','react-components'*/], function() {
         .pipe(gulp.dest('design/defaulttheme/js/react/build'))
 });
 
-gulp.task('default-react', ['react-js'], function() {
+gulp.task('default-react', gulp.series('react-js', function() {
     gulp.watch([
-    	'design/defaulttheme/js/react/src/*.js',
-		'design/defaulttheme/js/react/src/*.jsx',
-		'design/defaulttheme/js/react/src/*/*.js',
-		'design/defaulttheme/js/react/src/*/*/*.js',
-		'design/defaulttheme/js/react/src/*/*/*/*.js'
+    	'design/defaulttheme/js/react/src/!*.js',
+		'design/defaulttheme/js/react/src/!*.jsx',
+		'design/defaulttheme/js/react/src/!*!/!*.js',
+		'design/defaulttheme/js/react/src/!*!/!*!/!*.js',
+		'design/defaulttheme/js/react/src/!*!/!*!/!*!/!*.js'
 	], ['react-js']);
-});
+}));
 
 gulp.task('js-angular-checkmodel', function() {
 	var stylePath = ['design/defaulttheme/js/checklist-model.js'];
@@ -201,49 +199,49 @@ gulp.task('bower', function() {
 	.pipe(gulp.dest("./bower_components"));
 });
 
-gulp.task('bower-move-bootstrap',['bower'], function() {
-	gulp.src('./bower_components/bootstrap/dist/js/**.*').pipe(gulp.dest('./design/defaulttheme/vendor/bootstrap/js'));
-	gulp.src('./bower_components/bootstrap/dist/fonts/**.*').pipe(gulp.dest('./design/defaulttheme/vendor/bootstrap/fonts'));
+gulp.task('bower-move-bootstrap',gulp.series('bower', function() {
+	gulp.src('./bower_components/bootstrap/dist/js/!**.*').pipe(gulp.dest('./design/defaulttheme/vendor/bootstrap/js'));
+	gulp.src('./bower_components/bootstrap/dist/fonts/!**.*').pipe(gulp.dest('./design/defaulttheme/vendor/bootstrap/fonts'));
 	gulp.src('./bower_components/bootstrap/dist/css/bootstrap.min.css').pipe(gulp.dest('./design/defaulttheme/vendor/bootstrap/css'));
-});
+}));
 
-gulp.task('bower-move-bootstrap-font',['bower'], function() {
-	gulp.src('./bower_components/bootstrap/dist/fonts/**.*').pipe(gulp.dest('./design/defaulttheme/fonts'));
-});
+gulp.task('bower-move-bootstrap-font',gulp.series('bower', function() {
+	gulp.src('./bower_components/bootstrap/dist/fonts/!**.*').pipe(gulp.dest('./design/defaulttheme/fonts'));
+}));
 
-gulp.task('bower-move-material-font',['bower'], function() {
+gulp.task('bower-move-material-font',gulp.series('bower', function() {
 	gulp.src('./bower_components/material-design-icons/iconfont/MaterialIcons-Regular.eot').pipe(gulp.dest('./design/defaulttheme/fonts'));
 	gulp.src('./bower_components/material-design-icons/iconfont/MaterialIcons-Regular.ttf').pipe(gulp.dest('./design/defaulttheme/fonts'));
 	gulp.src('./bower_components/material-design-icons/iconfont/MaterialIcons-Regular.woff').pipe(gulp.dest('./design/defaulttheme/fonts'));
 	gulp.src('./bower_components/material-design-icons/iconfont/MaterialIcons-Regular.woff2').pipe(gulp.dest('./design/defaulttheme/fonts'));
-});
+}));
 
-gulp.task('bower-move-jquery',['bower'], function() {
-	gulp.src('./bower_components/jquery/dist/**.*').pipe(gulp.dest('./design/defaulttheme/vendor/jquery'));  
-});
+gulp.task('bower-move-jquery',gulp.series('bower', function() {
+	gulp.src('./bower_components/jquery/dist/!**.*').pipe(gulp.dest('./design/defaulttheme/vendor/jquery'));
+}));
 
-gulp.task('bower-move-metismenu',['bower'], function() {
-	gulp.src('./bower_components/metisMenu/dist/**.*').pipe(gulp.dest('./design/defaulttheme/vendor/metisMenu'));  
-});
+gulp.task('bower-move-metismenu',gulp.series('bower', function() {
+	gulp.src('./bower_components/metisMenu/dist/!**.*').pipe(gulp.dest('./design/defaulttheme/vendor/metisMenu'));
+}));
 
-gulp.task('bower-setup',['bower-move-bootstrap','bower-move-jquery','bower-move-bootstrap-font','bower-move-metismenu','bower-move-material-font'], function() {
+gulp.task('bower-setup',gulp.series('bower-move-bootstrap','bower-move-jquery','bower-move-bootstrap-font','bower-move-metismenu','bower-move-material-font', function() {
 	
-});
+}));
 
-gulp.task('js-cobrowse',['js-cobrowse-operator','js-cobrowse-visitor'], function() {
+gulp.task('js-cobrowse',gulp.series('js-cobrowse-operator','js-cobrowse-visitor', function() {
 
-});
+}));
 
 //bower setup
-gulp.task('bower-setup',[]);
+gulp.task('bower-setup');
 
-gulp.task('default', ['js-lh-dashboard','js-cobrowse-operator','js-cobrowse-visitor','js-angular-main','js-main-fileupload','js-datepicker','js-lhc-speak-js','js-lh','js-lh-canned','js-angular-checkmodel','js-angular-online','js-lh-npm'], function() {
+gulp.task('default', gulp.series('js-lh-dashboard','js-cobrowse-operator','js-cobrowse-visitor','js-angular-main','js-main-fileupload','js-datepicker','js-lhc-speak-js','js-lh','js-lh-canned','js-angular-checkmodel','js-angular-online','js-lh-npm', function() {
 	// Just execute all the tasks	
-});
+}));
 
-gulp.task('webpack', ['js-lh-npm'], function() {
+gulp.task('webpack', gulp.series('js-lh-npm', function() {
 	// Just execute all the tasks	
-});
+}));
 
 gulp.task('watch', function () {
 	gulp.watch('design/defaulttheme/js/cobrowse/*.js', ['js-cobrowse-visitor','js-cobrowse-operator']);	

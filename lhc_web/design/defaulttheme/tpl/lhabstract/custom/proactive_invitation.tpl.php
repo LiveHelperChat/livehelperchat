@@ -14,6 +14,7 @@
     		<li role="presentation"><a href="#bot" aria-controls="bot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Bot');?></a></li>
     		<li role="presentation"><a href="#dynamic" aria-controls="dynamic" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Dynamic');?></a></li>
     		<li role="presentation"><a href="#events" aria-controls="events" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Events');?></a></li>
+    		<li role="presentation"><a href="#design" aria-controls="design" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Design');?></a></li>
     	</ul>
     
     	<!-- Tab panes -->
@@ -29,6 +30,9 @@
     		</div>
     		<div role="tabpanel" class="tab-pane" id="dynamic">
     		  <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/events/dynamic.tpl.php'));?>
+    		</div>
+            <div role="tabpanel" class="tab-pane" id="design">
+    		  <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/events/design.tpl.php'));?>
     		</div>
 		</div>
 </div>

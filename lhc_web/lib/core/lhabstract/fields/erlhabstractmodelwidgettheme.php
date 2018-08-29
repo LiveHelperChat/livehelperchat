@@ -450,13 +450,22 @@ $fields = array(
    						)),    
    				'pending_join' => array(
    						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text when user starts a chat and is waiting for operator to join a chat'),
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text when user starts a chat and is waiting for operator to join a chat. Only if queue is 1'),
    				        'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages'),
    						'required' => false,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),    
+   						)),
+                'pending_join_queue' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text when user starts a chat and is waiting for operator to join a chat. Only if queue is >= 1'),
+   				        'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','You are number {number} in the queue. Please wait...'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
    				'noonline_operators' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text when user starts a chat but department is offline'),
