@@ -98,7 +98,7 @@ if ($Params['user_parameters_unordered']['print'] == 1) {
 	return;
 }
 
-if (in_array($Params['user_parameters_unordered']['xls'], array(1,2))) {
+if (in_array($Params['user_parameters_unordered']['xls'], array(1,2,3,4))) {
 	erLhcoreClassChatExport::chatListExportXLS(erLhcoreClassChat::getList(array_merge($filterParams['filter'],array('limit' => 100000,'offset' => 0))),array('type' => (int)$Params['user_parameters_unordered']['xls']));
 	exit;
 }

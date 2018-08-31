@@ -315,14 +315,30 @@
 		</div>
     </div>
 
-	<div class="btn-group" role="group" aria-label="...">
-		<input type="submit" name="doSearch" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
-		<?php if ($pages->items_total > 0) : ?>
-		<a target="_blank" class="btn btn-default" href="<?php echo $pages->serverURL?>/(print)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Print');?></a>
-		<a target="_blank" class="btn btn-default" href="<?php echo $pages->serverURL?>/(xls)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS');?></a>
-		<a target="_blank" class="btn btn-default" href="<?php echo $pages->serverURL?>/(xls)/2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS (with content)');?></a>
-		<?php endif; ?>
-	</div>
+
+    <div class="row">
+        <div class="col-xs-2">
+            <div class="btn-group" role="group" aria-label="...">
+                <input type="submit" name="doSearch" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
+                <?php if ($pages->items_total > 0) : ?>
+                    <a target="_blank" class="btn btn-default" href="<?php echo $pages->serverURL?>/(print)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Print');?></a>
+                <?php endif; ?>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="form-group">
+                <select class="form-control" id="export-type">
+                    <option value="<?php echo $pages->serverURL?>/(xls)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS')?></option>
+                    <option value="<?php echo $pages->serverURL?>/(xls)/2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS (with content)')?></option>
+                    <option value="<?php echo $pages->serverURL?>/(xls)/3"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS (with survey)')?></option>
+                    <option value="<?php echo $pages->serverURL?>/(xls)/4"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS (with content and survey)')?></option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <button onclick="window.open($('#export-type').val())" class="btn btn-default"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export')?></button>
+        </div>
+    </div>
 	
 </form>
 
