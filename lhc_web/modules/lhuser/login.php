@@ -90,7 +90,7 @@ if (isset($_POST['Login']))
 
             $res 		= json_decode($res,true);
 
-            if (!(isset($res['success']) && $res['success'] == 1 && isset($res['score']) && $res['score'] >= 0.5 && $res['action'] == 'login_action')) {
+            if (!(isset($res['success']) && $res['success'] == 1 && isset($res['score']) && $res['score'] >= 0.1 && $res['action'] == 'login_action')) {
                 $valid = false;
             }
         }
