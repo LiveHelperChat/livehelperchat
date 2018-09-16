@@ -1,3 +1,9 @@
+3.07v
+
+1. Google re-captcha option for login page.
+
+execute doc/update_db/update_182.sql for update
+
 3.06v
 
 1. Option to have custom text in themes for text like "You are number {number} in the queue. Please wait..."

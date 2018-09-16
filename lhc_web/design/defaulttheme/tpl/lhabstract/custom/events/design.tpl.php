@@ -14,6 +14,12 @@ for ($i = 1; $i < 5; $i++) {
         <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','You can also use 5 images using keywords as {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}')?></p>
     </div>
 
+    <div class="col-xs-12">
+        <div class="form-group">
+            <label><?php echo erLhcoreClassAbstract::renderInput('mobile_html_only', $fields['mobile_html_only'], $object)?> <?php echo $fields['mobile_html_only']['trans'];?></label>
+        </div>
+    </div>
+
     <div class="col-xs-6">
         <div class="form-group" >
             <div class="form-group">

@@ -1344,6 +1344,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('track_domain',	'',	0,	'Set your domain to enable user tracking across different domain subdomains.',	0),
                 ('max_message_length','500',0,'Maximum message length in characters', '0'),
                 ('need_help_tip','1',0,'Show need help tooltip?', '0'),
+                ('recaptcha_data','a:4:{i:0;b:0;s:8:\"site_key\";s:0:\"\";s:10:\"secret_key\";s:0:\"\";s:7:\"enabled\";i:0;}','0','Re-captcha configuration','1'),
                 ('need_help_tip_timeout','24',0,'Need help tooltip timeout, after how many hours show again tooltip?', '0'),
                 ('use_secure_cookie','0',0,'Use secure cookie, check this if you want to force SSL all the time', '0'),
                 ('faq_email_required','0',0,'Is visitor e-mail required for FAQ', '0'),

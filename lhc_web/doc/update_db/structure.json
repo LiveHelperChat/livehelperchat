@@ -7492,6 +7492,13 @@
                 "hidden": "1"
             },
             {
+                "identifier": "recaptcha_data",
+                "value": "",
+                "type": "0",
+                "explain": "Re-captcha configuration",
+                "hidden": "1"
+            },
+            {
                 "identifier": "sound_invitation",
                 "value": "1",
                 "type": "0",

@@ -39,6 +39,11 @@ $ViewList['smtp'] = array(
     'functions' => array( 'configuresmtp' )
 );
 
+$ViewList['recaptcha'] = array(
+    'params' => array(),
+    'functions' => array( 'configurerecaptcha' )
+);
+
 $ViewList['timezone'] = array(
     'params' => array(),
     'functions' => array( 'timezone' )
@@ -79,5 +84,6 @@ $FunctionList['changetemplates'] = array('explain' => 'Allow user to change e-ma
 $FunctionList['generate_js_tab'] = array('explain' => 'User can see embed code tab');
 $FunctionList['transferconfiguration'] = array('explain' => 'User can configure transfer options');
 $FunctionList['offlinesettings'] = array('explain' => 'Allow user to change offline settings');
+$FunctionList['configurerecaptcha'] = array('explain' => 'Allow user to configure recaptcha');
 
 ?>
