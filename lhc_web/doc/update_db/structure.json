@@ -1538,6 +1538,15 @@
                 "collation": "utf8mb4_unicode_ci"
             },
             {
+                "field": "css_attributes",
+                "type": "longtext",
+                "null": "NO",
+                "key": "",
+                "default": "",
+                "extra": "",
+                "collation": "utf8mb4_unicode_ci"
+            },
+            {
                 "field": "static_css_content",
                 "type": "longtext",
                 "null": "NO",

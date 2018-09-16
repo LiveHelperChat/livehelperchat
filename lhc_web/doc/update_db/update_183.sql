@@ -1,0 +1,1 @@
+ALTER TABLE `lh_admin_theme` ADD `css_attributes` longtext NOT NULL, COMMENT='';

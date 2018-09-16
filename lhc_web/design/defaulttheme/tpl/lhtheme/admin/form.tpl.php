@@ -9,9 +9,9 @@
 	<!-- Nav tabs -->
 	<ul class="nav nav-tabs" role="tablist">
 		<li role="presentation" class="active"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Settings');?></a></li>
-		<li role="presentation"><a href="#headersettings" aria-controls="headersettings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Header settings');?></a></li>
+        <li role="presentation"><a href="#mainattr" aria-controls="mainattr" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Main attributes');?></a></li>
+        <li role="presentation"><a href="#headersettings" aria-controls="headersettings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Header settings');?></a></li>
 		<li role="presentation"><a href="#headercss" aria-controls="headercss" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Header css');?></a></li>
-
 		<?php if ($form->id !== null) : ?>
 		<li role="presentation"><a href="#static" aria-controls="static" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Static content');?></a></li>
 		<li role="presentation"><a href="#js" aria-controls="js" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','JS');?></a></li>
@@ -93,5 +93,21 @@
 			<?php include(erLhcoreClassDesign::designtpl('lhtheme/admin/resource_repeat.tpl.php'));?>
 		</div>
 		<?php endif;?>
+
+        <div role="tabpanel" class="tab-pane" id="mainattr">
+            <div class="form-group">
+                <label><?php echo $fields['main_background_color']['trans'];?></label>
+                <?php echo erLhcoreClassAbstract::renderInput('main_background_color', $fields['main_background_color'], $form)?>
+            </div>
+            <div class="form-group">
+                <label><?php echo $fields['panel_background_color']['trans'];?></label>
+                <?php echo erLhcoreClassAbstract::renderInput('panel_background_color', $fields['panel_background_color'], $form)?>
+            </div>
+            <div class="form-group">
+                <label><?php echo $fields['header_font_size']['trans'];?></label>
+                <?php echo erLhcoreClassAbstract::renderInput('header_font_size', $fields['header_font_size'], $form)?>
+            </div>
+        </div>
+
 	</div>
 </div>

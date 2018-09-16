@@ -40,6 +40,10 @@ $ViewList['renderpreview'] = array(
     'functions' => array( 'administratethemes' )
 );
 
+$ViewList['admincss'] = array(
+    'params' => array('id')
+);
+
 $ViewList['adminnewtheme'] = array(
     'params' => array(),
     'functions' => array( 'administratethemes' )
