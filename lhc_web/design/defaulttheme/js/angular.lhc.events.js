@@ -41,7 +41,7 @@ lhcAppControllers.controller('ProactiveDesignerCtrl',['$scope','$http','$locatio
         angular.forEach(that.replaceArray, function(item) {
             newVal = newVal.replace(item.id,item.val);
         });
-        that.plainStyle = newVal;
+        that.plainStyle = newVal.replace(/\n/g, "").replace(/\r/g, "");
     });
 
 }]);

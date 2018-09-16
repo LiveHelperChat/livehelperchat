@@ -267,6 +267,18 @@ var lh_inst  = {
         }
     },
 
+    hideHTMLInvitation : function() {
+        lh_inst.hide();
+        lh_inst.removeById('<?php echo $chatCSSPrefix?>-inv-container');
+        return false;
+    },
+
+    showHTMLInvitation : function(invitationURL) {
+        this.showStartWindow(invitationURL,true);
+        lh_inst.removeById('<?php echo $chatCSSPrefix?>-inv-container');
+        return false;
+    },
+
     <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/functions/part/show_survey.tpl.php')); ?>
 
     getAppendCookieArguments : function() {
