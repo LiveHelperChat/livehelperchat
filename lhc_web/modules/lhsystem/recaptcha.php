@@ -47,6 +47,9 @@ if ( isset($_POST['StoreRecaptchaSettings']) ) {
     $rcData->value = serialize($data);
     $rcData->saveThis();
 
+    $CacheManager = erConfigClassLhCacheConfig::getInstance();
+    $CacheManager->expireCache(true);
+
     $tpl->set('updated','done');
 }
 
