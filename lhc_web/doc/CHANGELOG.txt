@@ -1,3 +1,11 @@
+3.08v
+
+1. Back office styling options
+2. Option to have custom default messages box height
+3. option to have custom default operators number in list
+
+execute doc/update_db/update_183.sql for update
+
 3.07v
 
 1. Google re-captcha option for login page.
