@@ -200,7 +200,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.limita = this.restoreLocalSetting('limita','10',false);
 	this.limitu = this.restoreLocalSetting('limitu','10',false);
 	this.limitp = this.restoreLocalSetting('limitp','10',false);
-	this.limito = this.restoreLocalSetting('limito','10',false);
+	this.limito = this.restoreLocalSetting('limito',confLH.dlist.op_n,false);
 	this.limitc = this.restoreLocalSetting('limitc','10',false);
 	this.limitd = this.restoreLocalSetting('limitd','10',false);
 	this.limitmc = this.restoreLocalSetting('limitmc','10',false);

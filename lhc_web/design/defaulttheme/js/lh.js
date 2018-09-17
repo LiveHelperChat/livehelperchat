@@ -2305,7 +2305,7 @@ function lh(){
 		// Resize by user 
 		$messageBlock = $('#messagesBlock-'+chat_id);
 		
-		$messageBlock.css('height',this.getLocalValue('lhc_mheight','200'));
+		$messageBlock.css('height',this.getLocalValue('lhc_mheight',confLH.defaultm_hegiht));
 		
 		$messageBlock.data('resized',false);
 		$messageBlock.data('y', $messageBlock.outerHeight()); 
