@@ -11,7 +11,19 @@ for ($i = 1; $i < 5; $i++) {
 <div class="row" ng-controller="ProactiveDesignerCtrl as prdesign" ng-init='prdesign.replaceArray = <?php echo json_encode($replaceArrayImages);?>'>
 
     <div class="col-xs-12">
-        <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','You can also use 5 images using keywords as {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}')?></p>
+        <p>
+            <small>
+            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','You can also use 5 images using keywords as {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}. You can use these events. These events should be used on onclick event.')?>
+            <ul>
+                <li>{readmessage} - Opens invitation window</li>
+                <li>{hideInvitation} - Hides invitation</li>
+            </ul>
+
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/options_variable.tpl.php')); ?>
+
+            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Main wrapper element should have id of');?>&nbsp;&quot;<?php echo $chatCSSPrefix?>-inv-container&quot;
+            </small>
+        </p>
     </div>
 
     <div class="col-xs-12">
