@@ -5,7 +5,7 @@
     </div>*/ ?>
 </div>
 
-<form action="<?php echo erLhcoreClassDesign::baseurldirect('theme/adminthemeedit')?>/<?php echo $form->id?>" method="post" autocomplete="off" enctype="multipart/form-data">
+<form action="<?php echo erLhcoreClassDesign::baseurl('theme/adminthemeedit')?>/<?php echo $form->id?>" method="post" autocomplete="off" enctype="multipart/form-data">
 
     <?php if (isset($updated)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('admintheme/form','Updated'); ?>
 			<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>

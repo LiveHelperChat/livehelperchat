@@ -1538,6 +1538,15 @@
                 "collation": "utf8mb4_unicode_ci"
             },
             {
+                "field": "css_attributes",
+                "type": "longtext",
+                "null": "NO",
+                "key": "",
+                "default": "",
+                "extra": "",
+                "collation": "utf8mb4_unicode_ci"
+            },
+            {
                 "field": "static_css_content",
                 "type": "longtext",
                 "null": "NO",
@@ -7492,6 +7501,13 @@
                 "hidden": "1"
             },
             {
+                "identifier": "recaptcha_data",
+                "value": "",
+                "type": "0",
+                "explain": "Re-captcha configuration",
+                "hidden": "1"
+            },
+            {
                 "identifier": "sound_invitation",
                 "value": "1",
                 "type": "0",
@@ -7566,6 +7582,20 @@
                 "value": "",
                 "type": "0",
                 "explain": "Messages box height",
+                "hidden": "0"
+            },
+            {
+                "identifier": "mheight_op",
+                "value": "200",
+                "type": "0",
+                "explain": "Messages box height for operator",
+                "hidden": "0"
+            },
+            {
+                "identifier": "listd_op",
+                "value": "10",
+                "type": "0",
+                "explain": "Default number of online operators to show",
                 "hidden": "0"
             },
             {

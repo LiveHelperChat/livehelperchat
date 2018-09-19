@@ -66,14 +66,49 @@ if (isset($_POST['Login']))
         }
     } else {
 
-        if (!$currentUser->authenticate($_POST['Username'], $_POST['Password'], isset($_POST['rememberMe']) && $_POST['rememberMe'] == 1 ? true : false))
+        $recaptchaData = erLhcoreClassModelChatConfig::fetch('recaptcha_data')->data_value;
+
+        $valid = true;
+
+        if (is_array($recaptchaData) && $recaptchaData['enabled'] == 1) {
+           $params = [
+                'secret' 	=> $recaptchaData['secret_key'],
+                'response' 	=> $_POST['g-recaptcha']
+            ];
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, 'https://www.google.com/recaptcha/api/siteverify');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+            curl_setopt($ch,CURLOPT_POST,1);
+            curl_setopt($ch,CURLOPT_POSTFIELDS,$params);
+            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT , 5);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+            @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Some hostings produces wargning...
+            $res = curl_exec($ch);
+
+            $res 		= json_decode($res,true);
+
+            if (!(isset($res['success']) && $res['success'] == 1 && isset($res['score']) && $res['score'] >= 0.1 && $res['action'] == 'login_action')) {
+                $valid = false;
+            }
+        }
+
+        if ($valid == false || !$currentUser->authenticate($_POST['Username'], $_POST['Password'], isset($_POST['rememberMe']) && $_POST['rememberMe'] == 1 ? true : false))
         {
-            $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Incorrect username or password');
+            if ($valid == false) {
+                $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Google re-captcha validation failed');
+            } else {
+                $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Incorrect username or password');
+            }
+
             $tpl->set('errors',array($Error));
-            if($isExternalRequest) {
+            if ($isExternalRequest) {
                 echo json_encode(array('success' => false, 'result' => $tpl->fetch()));
                 exit;
             }
+
         } else {
             
             $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.login_after_success_authenticate', array('current_user' => & $currentUser, 'tpl' => & $tpl));

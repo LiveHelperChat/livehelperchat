@@ -21,7 +21,7 @@
           <ul class="nav navbar-nav navbar-inline">   
         	 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu_chat_actions_pre.tpl.php'));?>    	 
              <?php if ($parts_top_menu_chat_actions_enabled == true && $currentUser->hasAccessTo('lhchat','allowchattabs')) : ?>
-                <li class="li-icon"><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chat tabs');?>" href="javascript:void(0)" onclick="javascript:lhinst.chatTabsOpen()"><i class="material-icons">chat</i></a></li>		
+                <li class="li-icon"><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chat tabs');?>" href="#" onclick="javascript:lhinst.chatTabsOpen()"><i class="material-icons">chat</i></a></li>
              <?php endif;?>
     
         	 <?php if ($currentUser->hasAccessTo('lhsystem','use')) : ?>

@@ -1665,3 +1665,30 @@ input[type="file"]{
 	font-size:24px;
 	color:#BB474A;
 }
+
+.adjust-size{
+	display:none;
+	position:absolute;
+	text-align: center;
+	border-top:0;
+	border-right:0;
+	border-left:0;
+	margin-left:-1px;
+	background-color: rgba(196, 203, 209, 0.57);
+	color:#FFF;
+	font-weight:bold;
+	user-select: none;
+	right:10px;
+	bottom:0;
+	-webkit-border-top-left-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	border-top-left-radius: 10px;
+	padding:1px 5px 2px 5px;
+	border:1px solid #ccc;
+	border-bottom:0;
+	border-right:0;
+}
+
+.message-block:hover .adjust-size {
+	display:block;
+}

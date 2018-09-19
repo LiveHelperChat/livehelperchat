@@ -137,6 +137,58 @@ class erLhcoreClassSurveyExporter {
         $objWriter->save('php://output');
     }
 
+    /**
+     * Export raw chat data
+     */
+    public static function exportRAW($items, $survey)
+    {
+        include(erLhcoreClassDesign::designtpl('lhsurvey/forms/fields_names.tpl.php'));
+        include(erLhcoreClassDesign::designtpl('lhsurvey/forms/fields_names_enabled.tpl.php'));
+
+        $dataValue = array();
+        $namesValue = array();
+
+        foreach ($starFields as $starField) {
+            $namesValue[] = $starField;
+        }
+
+        foreach ($enabledOptions as $optionField) {
+            $namesValue[] = $optionField;
+        }
+
+        foreach ($enabledOptionsPlain as $optionFieldPlain) {
+            $namesValue[] = $optionFieldPlain;
+        }
+
+
+        foreach ($items as $item) {
+            $valueItem = array();
+            foreach ($enabledStars as $n) {
+                $valueItem[] = $item->{'max_stars_' . $n};
+            }
+
+            foreach ($enabledFields as $enabledField) {
+                $options = $survey->{'question_options_' . $enabledField . '_items_front'};
+                if (isset($options[$item->{'question_options_' . $enabledField}-1])) {
+                    $valueItem[] = strip_tags(erLhcoreClassSurveyValidator::parseAnswer($options[$item->{'question_options_' . $enabledField}-1]['option']));
+                } else {
+                    $valueItem[] = strip_tags(erLhcoreClassSurveyValidator::parseAnswer($item->{'question_options_' . $enabledField}));
+                }
+            }
+
+            foreach ($enabledFieldsPlain as $enabledFieldPlain) {
+                $valueItem[] = $item->{'question_plain_' . $enabledFieldPlain};
+            }
+
+            $dataValue[$item->chat_id] = $valueItem;
+        }
+
+        return array(
+            'title' => $namesValue,
+            'value' => $dataValue,
+        );
+    }
+
     public static function exportJSON($items, $survey, $format = null) {
 
 	    $rows = array();
@@ -190,10 +242,12 @@ class erLhcoreClassSurveyExporter {
             $rows[] = $row;
         }
 
-        if ($format === null || $format === 'json'){
+        if ($format === null || $format === 'json') {
             header('Content-Type: application/json');
             header('Content-Disposition: attachment; filename="report.json"');
             erLhcoreClassRestAPIHandler::outputResponse(array('header' => $header, 'items' => $rows), $format);
+        } elseif ($format === 'raw') {
+            return $rows;
         } else {
             header('Content-Type: text/xml');
             header('Content-Disposition: attachment; filename="report.xml"');

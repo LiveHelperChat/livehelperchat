@@ -86,8 +86,9 @@ class erLhcoreClassChatExport {
 		$remarks = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Remarks');
 		$additionalDataPlain = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Additional plain');
 		$additionalData = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Additional data');
+        $survey = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Survey data');
 
-		if (isset($params['type']) && $params['type'] == 2) {
+		if (isset($params['type']) && ($params['type'] == 2 || $params['type'] == 4)) {
 		    $content = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Chat content');
 		} else {
 			$content = null;
@@ -95,8 +96,31 @@ class erLhcoreClassChatExport {
 
         if (isset($params['type']) && $params['type'] == 2) {
             $chatArray[] = array($id, $name, $email, $phone, $wait, $country, $city, $ip, $operator, $dept, $date, $minutes, $vote, $mail, $page, $from, $link, $remarks, $content, $additionalDataPlain, $additionalData);
+        } elseif (isset($params['type']) && $params['type'] == 3) {
+            $chatArray[] = array($id, $name, $email, $phone, $wait, $country, $city, $ip, $operator, $dept, $date, $minutes, $vote, $mail, $page, $from, $link, $remarks, $survey, $additionalDataPlain, $additionalData);
+            $surveyData = erLhAbstractModelSurveyItem::getList(array_merge(array('filterin' => array('chat_id' => array_keys($chats)), 'offset' => 0, 'limit' => 100000)));
+        } elseif (isset($params['type']) && $params['type'] == 4) {
+            $chatArray[] = array($id, $name, $email, $phone, $wait, $country, $city, $ip, $operator, $dept, $date, $minutes, $vote, $mail, $page, $from, $link, $remarks, $survey, $content, $additionalDataPlain, $additionalData);
+            $surveyData = erLhAbstractModelSurveyItem::getList(array_merge(array('filterin' => array('chat_id' => array_keys($chats)), 'offset' => 0, 'limit' => 100000)));
         } else {
             $chatArray[] = array($id, $name, $email, $phone, $wait, $country, $city, $ip, $operator, $dept, $date, $minutes, $vote, $mail, $page, $from, $link, $remarks, $additionalDataPlain, $additionalData);
+        }
+
+        $exportChatData = array();
+        foreach ($surveyData as $surveyItem)
+        {
+            $survey = erLhAbstractModelSurvey::fetch($surveyItem->survey_id);
+            $exported = erLhcoreClassSurveyExporter::exportRAW(array($surveyItem),$survey);
+
+            $pairs = array();
+
+            foreach ($exported['value'] as $chatId => $valueItems) {
+                foreach ($exported['title'] as $indexColumn => $columnName) {
+                    $pairs[] = $columnName . ' - ' . $valueItems[$indexColumn];
+                }
+            }
+
+            $exportChatData[$surveyItem->chat_id] = implode(', ',$pairs);
         }
 
         foreach ($chats as $item) {
@@ -143,20 +167,27 @@ class erLhcoreClassChatExport {
                 $url = erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('user/login').'/(r)/'.rawurlencode(base64_encode('chat/single/'.$item->id));
 
                 // Print chat content to last column
-                if (isset($params['type']) && $params['type'] == 2) {
+                if (isset($params['type']) && ($params['type'] == 2 || $params['type'] == 4)) {
 
                     $messages = erLhcoreClassModelmsg::getList(array('limit' => 10000,'sort' => 'id ASC','filter' => array('chat_id' => $item->id)));                       
                     $messagesContent = '';
 
-                        foreach ($messages as $msg ) {
-                                if ($msg->user_id == -1) {
-                                        $messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant').': '.htmlspecialchars($msg->msg)."\n";
-                                } else {
-                                        $messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. ($msg->user_id == 0 ? htmlspecialchars($item->nick) : htmlspecialchars($msg->name_support)).': '.htmlspecialchars($msg->msg)."\n";
-                                }
+                    foreach ($messages as $msg ) {
+                        if ($msg->user_id == -1) {
+                                $messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant').': '.htmlspecialchars($msg->msg)."\n";
+                        } else {
+                                $messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. ($msg->user_id == 0 ? htmlspecialchars($item->nick) : htmlspecialchars($msg->name_support)).': '.htmlspecialchars($msg->msg)."\n";
                         }
+                    }
 
-                    $chatArray[] = array($id, $nick, $email, $phone, $wait, $country, $city, $ip, $user, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, $remarks, trim($messagesContent),implode(', ',$additionalPairs), $additionalDataContent);
+                    if ($params['type'] == 2) {
+                        $chatArray[] = array($id, $nick, $email, $phone, $wait, $country, $city, $ip, $user, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, $remarks, trim($messagesContent),implode(', ',$additionalPairs), $additionalDataContent);
+                    } else {
+                        $chatArray[] = array($id, $nick, $email, $phone, $wait, $country, $city, $ip, $user, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, $remarks, (isset($exportChatData[$item->id]) ? $exportChatData[$item->id] : ''), trim($messagesContent),implode(', ',$additionalPairs), $additionalDataContent);
+                    }
+
+                } elseif ($params['type'] == 3) {
+                    $chatArray[] = array($id, $nick, $email, $phone, $wait, $country, $city, $ip, $user, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, $remarks, (isset($exportChatData[$item->id]) ? $exportChatData[$item->id] : ''), implode(', ',$additionalPairs), $additionalDataContent);
                 } else {
                 	$chatArray[] = array($id, $nick, $email, $phone, $wait, $country, $city, $ip, $user, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, $remarks, implode(', ',$additionalPairs), $additionalDataContent);
                 }

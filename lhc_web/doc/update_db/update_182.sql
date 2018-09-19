@@ -1,0 +1,1 @@
+INSERT INTO `lh_chat_config` (`identifier`,`value`,`type`,`explain`,`hidden`) VALUES ('recaptcha_data','a:4:{i:0;b:0;s:8:"site_key";s:0:"";s:10:"secret_key";s:0:"";s:7:"enabled";i:0;}','0','Re-captcha configuration','1');
