@@ -12,9 +12,42 @@ lh_inst.stopCheckNewMessage();
     <?php if (($visitor->invitation_assigned == false && $visitor->invitation->delay > 0) || $visitor->invitation->delay_init > 0) : ?>
     setTimeout(function() {
     <?php endif; ?>
-        lh_inst.isProactivePending = 1;
-        lh_inst.showStartWindow('<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/readoperatormessage')?><?php $department !== false ? print '/(department)/'.$department : '' ?><?php $theme !== false ? print '/(theme)/'.$theme : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : ''?><?php $survey !== false ? print '/(survey)/'.$survey : ''?>/(vid)/<?php echo $vid;?><?php $visitor->invitation_assigned == true ? print '/(playsound)/true' : ''?>/(fullheight)/<?= $fullheight ? 'true' : 'false' ?>',true);
-    <?php if ($visitor->invitation_assigned == false && $visitor->invitation->delay > 0) : ?>
+
+        var invitationURL =  '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/readoperatormessage')?><?php $department !== false ? print '/(department)/'.$department : '' ?><?php $theme !== false ? print '/(theme)/'.$theme : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : ''?><?php $survey !== false ? print '/(survey)/'.$survey : ''?>/(vid)/<?php echo $vid;?><?php $visitor->invitation_assigned == true ? print '/(playsound)/true' : ''?>/(fullheight)/<?= $fullheight ? 'true' : 'false' ?>';
+
+        <?php if (isset($visitor->invitation->design_data_array['mobile_html']) && $visitor->invitation->design_data_array['mobile_html'] != '') : ?>
+
+            <?php if (isset($visitor->invitation->design_data_array['mobile_style']) && $visitor->invitation->design_data_array['mobile_style'] != '') : ?>
+                <?php
+                    $replaceStyleArray = array();
+                    for ($i = 1; $i < 5; $i++) {
+                        $replaceStyleArray['{proactive_img_' . $i . '}'] =  erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . $visitor->invitation->{'design_data_img_' . $i . '_url'};
+                    }
+                ?>
+                <?php
+                    $contentCSS = str_replace(array_keys($replaceStyleArray),array_values($replaceStyleArray),$visitor->invitation->design_data_array['mobile_style']);
+                    $contentCSS = str_replace(array("\n","\r"),'',$contentCSS);
+                ?>
+                lh_inst.addCss(<?php echo json_encode($contentCSS)?>);
+            <?php endif; ?>
+            lh_inst.invitationURL = invitationURL;
+            var fragmentInv = lh_inst.appendHTML(<?php echo json_encode(str_replace(array("\n","\r",'{readmessage}','{hideInvitation}'),array('','',"return lh_inst.showHTMLInvitation(lh_inst.invitationURL)","return lh_inst.hideHTMLInvitation()"),$visitor->invitation->design_data_array['mobile_html']))?>);
+            document.body.insertBefore(fragmentInv, document.body.childNodes[0]);
+            lh_inst.isProactivePending = 1;
+            lh_inst.toggleStatusWidget(true);
+
+            document.getElementById('<?php echo $chatCSSPrefix?>_min').onclick = function() {
+                return lh_inst.hideHTMLInvitation()
+            };
+
+
+        <?php else : ?>
+            lh_inst.isProactivePending = 1;
+            lh_inst.showStartWindow(invitationURL,true);
+        <?php endif; ?>
+
+
+    <?php if (($visitor->invitation_assigned == false && $visitor->invitation->delay > 0) || $visitor->invitation->delay_init > 0) : ?>
     },<?php echo ($visitor->invitation_assigned == true ? $visitor->invitation->delay_init : $visitor->invitation->delay) * 1000?>);
     <?php endif; ?>
 
