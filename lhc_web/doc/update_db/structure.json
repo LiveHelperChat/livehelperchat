@@ -1524,7 +1524,7 @@
                 "type": "longtext",
                 "null": "NO",
                 "key": "",
-                "default": "0",
+                "default": "",
                 "extra": "",
                 "collation": "utf8mb4_unicode_ci"
             },
@@ -1533,7 +1533,7 @@
                 "type": "longtext",
                 "null": "NO",
                 "key": "",
-                "default": "0",
+                "default": "",
                 "extra": "",
                 "collation": "utf8mb4_unicode_ci"
             },
@@ -1551,7 +1551,7 @@
                 "type": "longtext",
                 "null": "NO",
                 "key": "",
-                "default": "0",
+                "default": "",
                 "extra": "",
                 "collation": "utf8mb4_unicode_ci"
             },
@@ -1560,7 +1560,7 @@
                 "type": "text",
                 "null": "NO",
                 "key": "",
-                "default": "0",
+                "default": "",
                 "extra": "",
                 "collation": "utf8mb4_unicode_ci"
             },
@@ -1569,7 +1569,7 @@
                 "type": "text",
                 "null": "NO",
                 "key": "",
-                "default": "0",
+                "default": "",
                 "extra": "",
                 "collation": "utf8mb4_unicode_ci"
             }
