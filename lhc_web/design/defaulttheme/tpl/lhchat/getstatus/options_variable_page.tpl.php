@@ -1,1 +1,4 @@
-<?php $chatOptionsVariablePage = 'LHCChatOptionsPage'?> 
+<?php
+    $chatOptionsVariablePage = 'LHCChatOptionsPage';
+    $chatCSSPrefix = 'lhc';
+?>

@@ -128,7 +128,7 @@ var lh_inst_page  = {
             this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $theme !== false ? print '/(theme)/'.$theme : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : ''?>/(mode)/embed"+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions();
         };
 
-        var raw_css = "@media only screen and (max-device-width : 640px) { #lhc_status_container_page{position: fixed; overflow: hidden; right: 0px; left: 0px; top: 0px; bottom: 0px;} #lhc_status_container_page iframe{width:100% !important;height: 100%!important}}";
+        var raw_css = "@media only screen and (max-device-width : 640px) { #<?php echo $chatCSSPrefix?>_status_container_page{position: fixed; overflow: hidden; right: 0px; left: 0px; top: 0px; bottom: 0px;} #<?php echo $chatCSSPrefix?>_status_container_page iframe{width:100% !important;height: 100%!important}}";
         this.addCss(raw_css);
 
         this.iframe_html = '<iframe id="fdbk_iframe_page" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live Help')?>" allowTransparency="true" scrolling="no" class="loading" frameborder="0" ' +
@@ -137,7 +137,7 @@ var lh_inst_page  = {
                        ' height="340"' +
                        ' style="width: 100%; height: 340px;"></iframe>';
 
-		document.getElementById('lhc_status_container_page').innerHTML = this.iframe_html;
+		document.getElementById('<?php echo $chatCSSPrefix?>_status_container_page').innerHTML = this.iframe_html;
     },
 
 	storeSesCookie : function(){
