@@ -28,7 +28,7 @@ if (ezcInputForm::hasPostData())
 			$tpl->set('updated',true);
 		}
 
-	}  else {
+	} else {
 		$tpl->set('errors',array_merge($Errors,$ErrorsAbstract));
 	}
 }
