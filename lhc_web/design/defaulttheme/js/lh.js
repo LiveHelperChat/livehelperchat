@@ -299,13 +299,18 @@ function lh(){
     	};
     	
     	$('#chat-tab-link-'+chat_id).click(function() {
+
+            setTimeout(function() {
+                $('#CSChatMessage-' + chat_id).focus();
+            },10);
+
     		var inst = $(this);
     		setTimeout(function(){
     			inst.find('.msg-nm').remove();
     			inst.removeClass('has-pm');    			
     			$('#messagesBlock-'+chat_id).stop(true,false).animate({ scrollTop: $('#messagesBlock-'+chat_id).prop('scrollHeight') }, 500);
-    			$('#CSChatMessage-'+chat_id).focus();
     			ee.emitEvent('chatTabClicked', [chat_id, inst]);
+
     		},500);
     	});
     	
