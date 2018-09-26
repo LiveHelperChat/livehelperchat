@@ -26,6 +26,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
   $pages->paginate();
   
   $items = array();
+  
   if ($pages->items_total > 0) {
   		$items = erLhcoreClassChat::getList(array_merge(array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id DESC'),$filterParams['filter']),'erLhcoreClassModelChatFile','lh_chat_file');
   }

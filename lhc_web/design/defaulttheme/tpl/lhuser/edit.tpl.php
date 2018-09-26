@@ -16,7 +16,9 @@
 	<li role="presentation" <?php if ($tab == 'tab_permission') : ?>class="active"<?php endif;?>><a href="#permission" aria-controls="permission" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Permissions');?></a></li>
 	<?php endif;?>
 
-	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs/custom_multiinclude_tab.tpl.php'));?>
+    <li role="presentation" <?php if ($tab == 'tab_speech') : ?>class="active"<?php endif;?>><a href="#speech" aria-controls="speech" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Speech');?></a></li>
+
+    <?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs/custom_multiinclude_tab.tpl.php'));?>
 
 </ul>
 
@@ -220,7 +222,32 @@
 		<div id="permissions-summary"></div>		
     </div>
 	<?php endif;?>
-	
+
+    <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_speech') : ?>active<?php endif;?>" id="speech">
+
+        <?php if (isset($account_updated) && $account_updated == 'done') : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Account updated'); ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
+        <?php endif; ?>
+
+        <form action="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>" method="post">
+
+            <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
+            <?php $dataSpeech = array(
+                'language' => (int)erLhcoreClassModelUserSetting::getSetting('speech_language','',$user->id),
+                'dialect' => (int)erLhcoreClassModelUserSetting::getSetting('speech_dialect','',$user->id),
+                'optional' => true,
+            ); ?>
+
+            <?php include(erLhcoreClassDesign::designtpl('lhspeech/speech_form_fields.tpl.php'));?>
+
+            <?php include(erLhcoreClassDesign::designtpl('lhspeech/my_languages.tpl.php'));?>
+
+            <input type="submit" class="btn btn-default" name="UpdateSpeech_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
+
+        </form>
+    </div>
+
 	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs_content/custom_multiinclude_tab.tpl.php'));?>
 	
 </div>

@@ -1,8 +1,10 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','List of files');?></h1>
 
+<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhfile', 'upload_new_file')) : ?>
 <div class="form-group">
     <a onclick="lhc.revealModal({'iframe':true,'height':400,'url':'<?php echo erLhcoreClassDesign::baseurl('file/new')?>' + '/(mode)/reloadparent'})" href="#" class="btn btn-default btn-xs"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Upload a file');?></a>
 </div>
+<?php endif; ?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhfile/parts/search_panel.tpl.php')); ?>
 

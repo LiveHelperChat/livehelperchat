@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 	var hash = window.location.hash;	
 	if (hash != '') {
-		$('ul[role="tablist"] a[href="' + hash.replace("#/","#") + '"]').tab('show');
+		$('ul[role="tablist"] a[href="' + hash.replace("#!","") + '"]').tab('show');
 	}
 });
 

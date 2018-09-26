@@ -121,6 +121,24 @@ if (isset($_POST['UpdateDepartaments_account'])) {
    
 }
 
+if (isset($_POST['UpdateSpeech_account'])) {
+
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('user/edit', '/'.$UserData->id);
+        exit;
+    }
+
+    $validateSpeechData = erLhcoreClassUserValidator::validateSpeech();
+
+    erLhcoreClassModelUserSetting::setSetting('speech_language', $validateSpeechData['speech_language'],$UserData->id);
+    erLhcoreClassModelUserSetting::setSetting('speech_dialect', $validateSpeechData['speech_dialect'],$UserData->id);
+
+    erLhcoreClassSpeech::setUserLanguages($UserData->id, $validateSpeechData['user_languages']);
+
+    $tpl->set('account_updated','done');
+    $tpl->set('tab','tab_speech');
+}
+
 $userGroupFilter = $groups_can_edit === true ? array() : array('filterin' => array('id' => $groups_can_edit));
 
 $tpl->set('user_groups_filter',$userGroupFilter);
