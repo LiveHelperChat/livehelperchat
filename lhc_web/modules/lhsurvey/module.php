@@ -22,7 +22,7 @@ $ViewList['backtochat'] = array(
 $ViewList['choosesurvey'] = array(
     'params' => array('chat_id','survey_id'),
     'uparams' => array(),
-    'functions' => array( 'manage_survey' )
+    'functions' => array( 'redirect_to_survey' )
 );
 
 $ViewList['collected'] = array(
@@ -51,5 +51,6 @@ $ViewList['collecteditem'] = array(
 
 $FunctionList = array();
 $FunctionList['manage_survey'] = array('explain' => 'Allow operator to manage/view survey');
+$FunctionList['redirect_to_survey'] = array('explain' => 'Allow operator to redirect visitor to survey');
 
 ?>

@@ -28,7 +28,7 @@ $ViewList['loadpreviousmessages'] = array(
 $ViewList['subject'] = array(
     'params' => array('chat_id'),
     'uparams' => array('subject','status'),
-    'functions' => array( 'use' )
+    'functions' => array( 'setsubject' )
 );
 
 $ViewList['getnotificationsdata'] = array(
@@ -48,7 +48,7 @@ $ViewList['getcannedfiltered'] = array(
 $ViewList['holdaction'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),
-    'functions' => array( 'use' )
+    'functions' => array( 'holduse' )
 );
 
 $ViewList['copymessages'] = array(
@@ -75,7 +75,7 @@ $ViewList['setnewvid'] = array(
 $ViewList['redirectcontact'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),
-    'functions' => array( 'use' )
+    'functions' => array( 'redirectcontact' )
 );
 
 $ViewList['changestatus'] = array(
@@ -147,7 +147,7 @@ $ViewList['closechat'] = array(
 
 $ViewList['sendmail'] = array(
     'params' => array('chat_id'),
-    'functions' => array( 'use' )
+    'functions' => array( 'sendmail' )
 );
 
 $ViewList['modifychat'] = array(
@@ -580,6 +580,10 @@ $FunctionList['administrategeoconfig'] = array('explain' => 'Allow operator to e
 $FunctionList['manage_product'] = array('explain' => 'Allow operator to manage products');
 $FunctionList['administratesubject'] = array('explain' => 'Allow operator to manage subjects');
 $FunctionList['modifychatcore'] = array('explain' => 'Allow operator to change chat core attributes');
+$FunctionList['sendmail'] = array('explain' => 'Allow operator to send e-mail to visitor from chat window');
+$FunctionList['redirectcontact'] = array('explain' => 'Allow operator to redirect visitor to contact form');
+$FunctionList['holduse'] = array('explain' => 'Allow operator to use hold/unhold functionality');
+$FunctionList['setsubject'] = array('explain' => 'Allow operator to use set chat subject');
 
 
 ?>

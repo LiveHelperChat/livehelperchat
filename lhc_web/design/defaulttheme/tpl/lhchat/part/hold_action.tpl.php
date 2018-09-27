@@ -1,1 +1,3 @@
+<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','holduse')) : ?>
 <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Hold/Un-Hold chat')?>" href="#" class="btn btn-default material-icons<?php ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_ON_HOLD) ? print ' btn-info' : ''?>" id="hold-action-<?php echo $chat->id?>" onclick="return lhinst.holdAction('<?php echo $chat->id?>',$(this))">pan_tool</a>
+<?php endif; ?>

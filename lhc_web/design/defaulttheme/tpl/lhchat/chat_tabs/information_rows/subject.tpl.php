@@ -1,3 +1,4 @@
+<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','setsubject')) : ?>
 <tr>
     <td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Subject')?></td>
     <td>
@@ -6,3 +7,4 @@
         <a class="btn btn-xs btn-success" onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/subject')?>/<?php echo $chat->id?>'})"><i class="material-icons mr-0">&#xE145;</i></a>
     </td>
 </tr>
+<?php endif; ?>

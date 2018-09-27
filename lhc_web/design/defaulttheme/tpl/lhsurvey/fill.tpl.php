@@ -10,7 +10,7 @@
             
             <div class="btn-group" role="group" aria-label="...">
                 <?php if ($survey_item->is_filled == false) : ?>
-                    <input type="submit" class="btn btn-success btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save')?>" name="Vote" />
+                    <input type="submit" class="btn btn-success btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Submit')?>" name="Vote" />
                 <?php endif;?>
                     <a class="btn btn-info btn-sm" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/chatpreview/<?php echo $chat->id?>/<?php echo $chat->hash?>'})"><i class="material-icons">chat</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Preview chat')?></a>
              </div>
