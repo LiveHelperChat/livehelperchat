@@ -143,6 +143,18 @@ $ViewList['autologinconfig'] = array(
     'functions' => array( 'userautologin' )
 );
 
+$ViewList['passwordrequirements'] = array(
+    'params' => array(),
+    'uparams' => array('csfr'),
+    'functions' => array( 'pswdsecurity' )
+);
+
+$ViewList['updatepassword'] = array(
+    'params' => array('user_id','ts','hash'),
+    'uparams' => array('csfr'),
+    'functions' => array( )
+);
+
 $FunctionList['groupassignuser'] = array('explain' => 'Allow user to assign user to group');
 $FunctionList['editgroup'] = array('explain' => 'Allow user to edit group');
 $FunctionList['creategroup'] = array('explain' => 'Allow user to create group');
@@ -170,5 +182,6 @@ $FunctionList['canseedepartmentstats'] = array('explain' => 'Allow user to see d
 $FunctionList['canseealldepartmentstats'] = array('explain' => 'Allow user to see all departments statistic, not only from his departments');
 $FunctionList['import'] = array('explain' => 'Allow user to import users');
 $FunctionList['loginas'] = array('explain' => 'Allow user to login as other user');
+$FunctionList['passwordsecurity'] = array('explain' => 'Allow user to set password security requirements');
 
 ?>

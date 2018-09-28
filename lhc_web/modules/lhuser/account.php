@@ -1,11 +1,5 @@
 <?php
 
-/*$chatResponder = erLhAbstractModelAutoResponderChat::fetch(186);
-print_r($chatResponder->auto_responder);
-exit;*/
-
-
-
 $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/account.tpl.php' );
 
 $currentUser = erLhcoreClassUser::instance();

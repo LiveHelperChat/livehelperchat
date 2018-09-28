@@ -6753,6 +6753,14 @@
                 "key": "",
                 "default": null,
                 "extra": ""
+            },
+            {
+                "field": "pswd_updated",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
             }
         ],
         "lh_users_remember": [
@@ -7330,6 +7338,13 @@
                 "value": "a:3:{i:0;b:0;s:11:\"secret_hash\";s:16:\"please_change_me\";s:7:\"enabled\";i:0;}",
                 "type": "0",
                 "explain": "Autologin configuration data",
+                "hidden": "1"
+            },
+            {
+                "identifier": "password_data",
+                "value": "",
+                "type": "0",
+                "explain": "Password requirements",
                 "hidden": "1"
             },
             {

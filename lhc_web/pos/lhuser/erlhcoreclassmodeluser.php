@@ -165,6 +165,11 @@ $def->properties['attr_int_3']->columnName   = 'attr_int_3';
 $def->properties['attr_int_3']->propertyName = 'attr_int_3';
 $def->properties['attr_int_3']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['pswd_updated'] = new ezcPersistentObjectProperty();
+$def->properties['pswd_updated']->columnName   = 'pswd_updated';
+$def->properties['pswd_updated']->propertyName = 'pswd_updated';
+$def->properties['pswd_updated']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

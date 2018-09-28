@@ -1,0 +1,2 @@
+INSERT INTO `lh_chat_config` (`identifier`,`value`,`type`,`explain`,`hidden`) VALUES ('password_data','','0','Password requirements','1');
+ALTER TABLE `lh_users` ADD `pswd_updated` int(11) NOT NULL, COMMENT='';

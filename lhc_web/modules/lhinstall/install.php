@@ -1356,6 +1356,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('disable_send','0',0,'Disable chat transcript send', '0'),
                 ('ignore_user_status','0',0,'Ignore users online statuses and use departments online hours', '0'),
                 ('bbc_button_visible','1',0,'Show BB Code button', '0'),
+                ('password_data','','0','Password requirements','1'),
                 ('activity_track_all','0','0','Track all logged operators activity and ignore their individual settings.','0'),
                 ('allow_reopen_closed','1', 0, 'Allow user to reopen closed chats?', '0'),
                 ('reopen_as_new','1', 0, 'Reopen closed chat as new? Otherwise it will be reopened as active.', '0'),
@@ -1739,6 +1740,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                   `pending_chats_counter` int(11) NOT NULL,
                   `auto_accept` tinyint(1) NOT NULL,
                   `max_active_chats` int(11) NOT NULL,
+                  `pswd_updated` int(11) NOT NULL,
                   `attr_int_1` int(11) NOT NULL,
                   `attr_int_2` int(11) NOT NULL,
                   `attr_int_3` int(11) NOT NULL,
@@ -1758,7 +1760,8 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 $UserData->username = $form->AdminUsername;
                 $UserData->all_departments = 1;
                 $UserData->departments_ids = 0;
-                
+                $UserData->pswd_updated = time();
+
                 erLhcoreClassUser::getSession()->save($UserData);
 
                 // User departaments
