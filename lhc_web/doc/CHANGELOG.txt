@@ -1,3 +1,10 @@
+3.09v
+
+1. Password requirements configuration options
+2. Option to have expirable password so after n days operators would have to change their password.
+
+execute doc/update_db/update_184.sql for update
+
 3.08v
 
 1. Back office styling options

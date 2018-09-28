@@ -115,12 +115,29 @@ if (isset($_POST['Login']))
             
             if ($response === false)
             {
-                if($isExternalRequest) {
+
+                $passwordData = (array)erLhcoreClassModelChatConfig::fetch('password_data')->data;
+
+                if (isset($passwordData['expires_in']) && $passwordData['expires_in'] > 0) {
+                   $userData = $currentUser->getUserData();
+                   if ($userData->pswd_updated < time()-($passwordData['expires_in']*24*3600)) {
+                       $currentUser->logout();
+
+                       $secretHash = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' );
+                       $ts = time()+600; // Visitor has 10 minutes to change password until link is expired
+                       $hash = sha1($secretHash.sha1($secretHash.implode(',', array($userData->id,$ts))));
+
+                       erLhcoreClassModule::redirect('user/updatepassword','/' . $userData->id . '/' . $ts . '/' . $hash);
+                       exit;
+                   }
+                }
+
+                if ($isExternalRequest) {
                     $tpl->set('msg', erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Logged in successfully'));
-    
                     echo json_encode(array('success' => true, 'result' => $tpl->fetch()));
                     exit;
                 }
+
                 if ($redirect != '') {
                     erLhcoreClassModule::redirect(base64_decode($redirect));
                 } else {
@@ -131,7 +148,6 @@ if (isset($_POST['Login']))
         }
 
     }
-
 }
 
 if (isset($_SESSION['logout_reason'])) {

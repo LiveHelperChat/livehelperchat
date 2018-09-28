@@ -113,7 +113,7 @@ class erLhcoreClassUserValidator {
     			}
     			
     			if ( $form->hasInputField( 'Password' ) && (!$form->hasInputField( 'Password1' ) || $form->Password != $form->Password1 ) ) {
-    				$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Passwords mismatch');
+    				$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Passwords mismatch');
     			} else {
     				
     				if ($form->hasInputField( 'Password' ) && $form->hasInputField( 'Password1' ) && $form->Password != '' && $form->Password1 != '') {
@@ -127,7 +127,9 @@ class erLhcoreClassUserValidator {
 		}  else {
 			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','User action type not set');
 		}
-		
+
+		self::validatePassword($userData,$Errors);
+
 		if ( $form->hasValidData( 'ChatNickname' ) && $form->ChatNickname != '' ) {
 		    $userData->chat_nickname = $form->ChatNickname;
 		} else {
@@ -542,7 +544,73 @@ class erLhcoreClassUserValidator {
 	    	
 	    return $globalDepartament;
 	}
-	
+
+	public static function validatePassword(& $userData, & $Errors)
+    {
+        if ($userData->password_temp_1 != '') {
+            $passwordData = (array)erLhcoreClassModelChatConfig::fetch('password_data')->data;
+
+            if (isset($passwordData['length']) && $passwordData['length'] > 0 && $passwordData['length'] > mb_strlen($userData->password_temp_1)) {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Password has to be atleast') .' '. $passwordData['length'] .' '. erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','characters length');
+            }
+
+            if (isset($passwordData['uppercase_required']) && $passwordData['uppercase_required'] == 1 && !(bool) preg_match('/[A-Z]/', $userData->password_temp_1)) {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Password has to have at-least one uppercase letter');
+            }
+
+            if (isset($passwordData['number_required']) && $passwordData['number_required'] == 1 && !(bool) preg_match('/[0-9]/', $userData->password_temp_1)) {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Password has to have at-least one number');
+            }
+
+            if (isset($passwordData['special_required']) && $passwordData['special_required'] == 1 && !(bool)preg_match('/[\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:"\<\>,\.\?\\\]/', $userData->password_temp_1)) {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Password has to have at-least one special character');
+            }
+        }
+    }
+
+    public static function validatePasswordChange(& $userData, & $Errors)
+    {
+        $definition = array (
+            'OldPassword' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'NewPassword' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'NewPassword1' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition);
+
+        $Errors = array();
+
+        if ( $form->hasValidData( 'NewPassword' ) && $form->hasValidData( 'NewPassword1' ) ) {
+            $userData->password_temp_1 = $form->NewPassword;
+            $userData->password_temp_2 = $form->NewPassword1;
+        }
+
+        if (!$form->hasValidData( 'OldPassword' ) || !password_verify($form->OldPassword, $userData->password)) {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Old password incorrect!');
+        }
+
+        if ( !$form->hasValidData( 'NewPassword' ) || !$form->hasValidData( 'NewPassword1' ) || $form->NewPassword == '' || $form->NewPassword1 == '' || $form->NewPassword != $form->NewPassword1) {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Passwords mismatch!');
+        } else {
+            $userData->setPassword($form->NewPassword);
+            $userData->password_front = $form->NewPassword;
+        }
+
+        if ($form->hasValidData( 'NewPassword' ) && $form->hasValidData( 'OldPassword' ) && $form->OldPassword === $form->NewPassword) {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Old and new password has to be different!');
+        }
+
+        self::validatePassword($userData, $Errors);
+
+        return $Errors;
+    }
+
 	public static function validateAccount(& $userData) {
 		
 		$definition = array(
@@ -627,6 +695,8 @@ class erLhcoreClassUserValidator {
 				$userData->password_front = $form->Password;
 			}
 		}
+
+        self::validatePassword($userData,$Errors);
 
 		if ( $form->hasValidData( 'ChatNickname' ) && $form->ChatNickname != '' ) {
 		    $userData->chat_nickname = $form->ChatNickname;

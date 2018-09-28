@@ -35,7 +35,8 @@ class erLhcoreClassModelUser {
             'attr_int_2' => $this->attr_int_2,
             'attr_int_3' => $this->attr_int_3,
             'operation_admin' => $this->operation_admin,
-            'exclude_autoasign' => $this->exclude_autoasign
+            'exclude_autoasign' => $this->exclude_autoasign,
+            'pswd_updated' => $this->pswd_updated
         );
    }
       
@@ -49,15 +50,14 @@ class erLhcoreClassModelUser {
 
    public function setPassword($password)
    {
-		
 		$hash = password_hash($password, PASSWORD_DEFAULT);
        
 		if ($hash) {
 			$this->password = $hash;
+			$this->pswd_updated = time();
 		} else {
 			return false;
-		}		
-       
+		}
    }
 
    public static function fetch($user_id, $useCache = false)
@@ -400,6 +400,7 @@ class erLhcoreClassModelUser {
     public $max_active_chats = 0;
     public $auto_accept = 0;
     public $exclude_autoasign = 0;
+    public $pswd_updated = 0;
 
     public $attr_int_1 = 0;
     public $attr_int_2 = 0;
