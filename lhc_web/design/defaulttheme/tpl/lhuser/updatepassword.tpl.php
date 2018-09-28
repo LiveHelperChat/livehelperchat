@@ -4,7 +4,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<?php if (isset($account_updated) && $account_updated == 'done') : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Password was updated. Now you can login to back office.'); ?>
+<?php if (isset($account_updated) && $account_updated == 'done') : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Password was updated. Now you can go to back office.'); ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
     <p>
         <a class="btn btn-primary" href="<?php echo erLhcoreClassDesign::baseurl('/')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Go to back office');?></a>

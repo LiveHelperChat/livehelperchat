@@ -403,7 +403,8 @@ class erLhcoreClassUserValidator {
 
         $userData->auto_accept = $params['auto_accept'];
         $userData->max_active_chats = $params['max_chats'];
-
+        $userData->pswd_updated = time();
+        
 		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.new_user', array('userData' => & $userData, 'errors' => & $Errors));
 		
 		return $Errors;
