@@ -33,26 +33,26 @@ class erLhcoreClassModelCannedMsgTagLink
     public static function formatSuggester($tags, $paramsExecution)
     {
         $tagLinks = self::getList(array('filterin' => array('tag_id' => array_keys($tags))));
-        
+
         $cannedMessagesIds = array();
         foreach ($tagLinks as $tagLink) {
             $cannedMessagesIds[] = $tagLink->canned_id;
         }
-                
+
         $cannedMessagesAll = erLhcoreClassModelCannedMsg::getCannedMessages($paramsExecution['chat']->dep_id, $paramsExecution['user']->id, array('id' => $cannedMessagesIds));
-        
+
         $chat = $paramsExecution['chat'];
         $user = $paramsExecution['user'];
-        
+
         $replaceArray = array(
             '{nick}' => $chat->nick,
             '{email}' => $chat->email,
             '{phone}' => $chat->phone,
             '{operator}' => $user->name_support
         );
-        
+
         $additionalData = $chat->additional_data_array;
-        
+
         if (is_array($additionalData)) {
             foreach ($additionalData as $row) {
                 if (isset($row->identifier) && $row->identifier != '') {
@@ -60,22 +60,51 @@ class erLhcoreClassModelCannedMsgTagLink
                 }
             }
         }
-        
+
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_replace', array(
             'chat' => $chat,
             'replace_array' => & $replaceArray,
             'user' => $user,
             'items' => & $cannedMessagesAll
         ));
-        
+
         foreach ($cannedMessagesAll as $item) {
             $item->setReplaceData($replaceArray);
         }
-        
+
         $returnArray = array();
-        
-        foreach ($tags as $tag) {
-            
+
+        $index = 0;
+        foreach ($cannedMessagesAll as & $cannedMessage) {
+            $cannedMessage->priority_index = $index;
+            $index++;
+        }
+
+        $tagLinkGroups = array();
+        foreach ($tagLinks as $tagLink) {
+            if (isset($cannedMessagesAll[$tagLink->canned_id])) {
+                $tagLinkGroups[$tagLink->tag_id][$cannedMessagesAll[$tagLink->canned_id]->priority_index] = $cannedMessagesAll[$tagLink->canned_id];
+            }
+        }
+
+        foreach ($tagLinkGroups as $tagId => $cannedMessages) {
+            ksort($cannedMessages); // Sort by canned message priority and title
+            $tag =  $tags[$tagId];
+            $tag->cnt = count($cannedMessages);
+            $returnArray[$tags[$tagId]->tag] = array(
+                'tag' => $tags[$tagId],
+                'messages' => $cannedMessages
+            );
+        }
+
+        // Sort by tag title
+        ksort($returnArray);
+
+        /*
+         * Legacy version of tags
+         *
+         * foreach ($tags as $tag) {
+
              $cannedMessages = array();
              foreach ($tagLinks as $tagLink) {
                  if ($tagLink->tag_id == $tag->id) {
@@ -84,7 +113,7 @@ class erLhcoreClassModelCannedMsgTagLink
                      }
                  }
             }
-            
+
             if (!empty($cannedMessages)) {
                 $tag->cnt = count($cannedMessages);
                 $returnArray[] = array(
@@ -92,9 +121,9 @@ class erLhcoreClassModelCannedMsgTagLink
                     'messages' => $cannedMessages
                 );
             }
-        }
-        
-        return $returnArray;        
+        }*/
+
+        return $returnArray;
     }
     
     private $replaceData = array();
