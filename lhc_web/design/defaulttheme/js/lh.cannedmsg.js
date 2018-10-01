@@ -15,6 +15,9 @@ var LHCCannedMessageAutoSuggest = (function() {
 		this.nextUppercaseCallback = null;
 		this.nextUppercaseEnabled = typeof params['uppercase_enabled'] === 'undefined' || params['uppercase_enabled'] == true;
 
+		// Store current request
+		this.currentRequest = null;
+
         // General one
 		var _that = this;
 		
@@ -244,7 +247,12 @@ var LHCCannedMessageAutoSuggest = (function() {
 
 			this.timeoutRequest = setTimeout(function () {
 
-				$.getJSON(WWW_DIR_JAVASCRIPT + 'cannedmsg/showsuggester/' + _that.chat_id,{keyword : _that.currentKeword}, function(data) {
+				if (_that.currentRequest != null) {
+                    _that.currentRequest.abort();
+                    _that.currentRequest = null;
+				}
+
+				_that.currentRequest = $.getJSON(WWW_DIR_JAVASCRIPT + 'cannedmsg/showsuggester/' + _that.chat_id,{keyword : _that.currentKeword}, function(data) {
 					_that.textarea.parent().find('.canned-suggester').remove();
 					_that.textarea.before(data.result);
 					_that.initSuggester();
