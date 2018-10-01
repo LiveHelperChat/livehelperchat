@@ -32,6 +32,10 @@ class erLhcoreClassModelCannedMsgTagLink
 
     public static function formatSuggester($tags, $paramsExecution)
     {
+        if (empty($tags)) {
+            return array();
+        }
+
         $tagLinks = self::getList(array('filterin' => array('tag_id' => array_keys($tags))));
 
         $cannedMessagesIds = array();
