@@ -5,8 +5,6 @@
  * For various testing purposes
  *
  * */
-$chat = erLhcoreClassModelChat::fetch(7906);
-$chat->invitation_id = 4;
-$chat->saveThis();
+
 
 ?>

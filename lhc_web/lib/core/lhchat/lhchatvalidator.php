@@ -138,9 +138,6 @@ class erLhcoreClassChatValidator {
             }
         }
 
-
-
-
         $validationFields['ProductID'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1));
         $validationFields['DepartamentID'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => -1));
         $validationFields['DepartmentIDDefined'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1),FILTER_REQUIRE_ARRAY);
@@ -632,6 +629,39 @@ class erLhcoreClassChatValidator {
 
             		    $stringParts[] = array('h' => (isset($inputForm->via_hidden[$key]) || $adminField['fieldtype'] == 'hidden'), 'identifier' => (isset($adminField['fieldidentifier'])) ? $adminField['fieldidentifier'] : null, 'key' => $adminField['fieldname'], 'value' => $valueStore);
             		}
+                }
+            }
+        }
+
+        $refererALL = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
+
+        if ($refererALL != '' && isset($start_data_fields['custom_fields_url']) && $start_data_fields['custom_fields_url'] != '') {
+            $queryURL = array();
+            preg_match('/(\?|\:\:)(.*?)$/',$refererALL,$queryURL);
+
+            if (isset($queryURL[2]))
+            {
+                $referer = $queryURL[2];
+
+                $matchesArray = array();
+                preg_match_all('/(.*?)\=(.*?)(\&|\;|$)/',$referer,$matchesArray);
+
+                $argumentsFormatted = array();
+                foreach ($matchesArray[1] as $index => $value) {
+                    $argumentsFormatted[$value] = $matchesArray[2][$index];
+                }
+
+                $stringParts = array();
+
+                if ($referer != '') {
+                    $customURLfields = json_decode($start_data_fields['custom_fields_url'],true);
+                    if (is_array($customURLfields)) {
+                        foreach ($customURLfields as $key => $adminField) {
+                            if (isset($argumentsFormatted[$adminField['fieldidentifier']])) {
+                                $stringParts[] = array('url' => true, 'identifier' => (isset($adminField['fieldidentifier'])) ? $adminField['fieldidentifier'] : null, 'key' => $adminField['fieldname'], 'value' => $argumentsFormatted[$adminField['fieldidentifier']]);
+                            }
+                        }
+                    }
                 }
             }
         }

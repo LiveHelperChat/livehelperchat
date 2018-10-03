@@ -6,7 +6,7 @@
 		<div class="col-xs-3">
 			<div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Field label')?></label>
-                <input ng-model="startChat.fieldname" class="form-control" ng-model="" type="text" name="" value="" />
+                <input ng-model="startChat.fieldname" class="form-control" type="text" name="" value="" />
 			</div>
 		</div>
 		<div class="col-xs-3">
@@ -153,8 +153,6 @@
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Options')?></label>
                 <textarea name="customFieldOptions[]" class="form-control" ng-model="field.options" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Each option in new line')?>"></textarea>
             </div>
-
-
 
 		</div>
 	</div>

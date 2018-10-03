@@ -45,3 +45,40 @@ lhcAppControllers.controller('StartChatFormCtrl',['$scope','$http','$location','
 		
 		
 }]);
+
+lhcAppControllers.controller('StartChatFormURLCtrl',['$scope','$http','$location','$rootScope', '$log', function($scope, $http, $location, $rootScope, $log) {
+
+		this.startchatfields = [];
+
+		var that = this;
+				
+		this.move = function(element, offset) {
+		  index = that.startchatfields.indexOf(element);
+		  newIndex = index + offset;
+		  if (newIndex > -1 && newIndex < that.startchatfields.length){
+		    removedElement = that.startchatfields.splice(index, 1)[0];
+		    that.startchatfields.splice(newIndex, 0, removedElement)
+		  }
+		};
+
+		this.addField = function() {
+			that.startchatfields.push({
+				'fieldname' : that.fieldname,
+				'fieldidentifier' : that.fieldidentifier
+			});
+		};
+
+		this.deleteField = function(field) {
+			that.startchatfields.splice(that.startchatfields.indexOf(field),1);
+		};
+
+		this.moveLeftField = function(field) {
+			that.move(field,-1);
+		}
+
+		this.moveRightField = function(field) {
+			that.move(field,1);
+		}
+
+
+}]);
