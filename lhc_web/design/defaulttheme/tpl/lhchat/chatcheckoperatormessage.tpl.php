@@ -1,5 +1,3 @@
-<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/options_variable.tpl.php')); ?>
-
 <?php if (isset($reopen_chat)) : ?>
 lh_inst.stopCheckNewMessage();
 if (window.innerWidth > 700) {
@@ -37,11 +35,6 @@ lh_inst.stopCheckNewMessage();
             document.body.insertBefore(fragmentInv, document.body.childNodes[0]);
             lh_inst.isProactivePending = 1;
             lh_inst.toggleStatusWidget(true);
-
-            document.getElementById('<?php echo $chatCSSPrefix?>_min').onclick = function() {
-                return lh_inst.hideHTMLInvitation()
-            };
-
 
         <?php else : ?>
             lh_inst.isProactivePending = 1;
