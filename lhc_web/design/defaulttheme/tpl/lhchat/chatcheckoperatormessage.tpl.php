@@ -1,3 +1,5 @@
+<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/options_variable.tpl.php')); ?>
+
 <?php if (isset($reopen_chat)) : ?>
 lh_inst.stopCheckNewMessage();
 if (window.innerWidth > 700) {
