@@ -651,8 +651,6 @@ class erLhcoreClassChatValidator {
                     $argumentsFormatted[$value] = $matchesArray[2][$index];
                 }
 
-                $stringParts = array();
-
                 if ($referer != '') {
                     $customURLfields = json_decode($start_data_fields['custom_fields_url'],true);
                     if (is_array($customURLfields)) {
