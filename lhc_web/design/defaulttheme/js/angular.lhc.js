@@ -825,7 +825,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 						$scope[key] = item;
 
                         if (tabs.size() > 0) {
-							if (key == 'pending_chats' || key == 'my_chats') {
+							if (key == 'pending_chat' || key == 'my_chats') {
 								item.list.forEach(function (chat) {
 									if (typeof chat.user_id !== 'undefined' && chat.user_id == confLH.user_id && confLH.accept_chats == 1 && chat.status !== 1) {
 										if ($('#chat-tab-link-' + chat.id).length == 0) {
@@ -851,7 +851,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 							
 							var chatsSkipped = 0; // Do not show notification for chats if they appear at the bottom, only applies to unassigned chats
 
-							angular.forEach(item.list, function(itemList, keyItem) {
+							var itemsList = item.list;
+							if (item.last_id_identifier == 'pending_chat' && typeof _that.toggleWidgetData['pending_chats_sort'] !== 'undefined' && _that.toggleWidgetData['pending_chats_sort'] == true) {
+                                itemsList = item.list.slice().reverse();
+							}
+
+							angular.forEach(itemsList, function(itemList, keyItem) {
 	
 		                        var userId = (typeof itemList.user_id !== 'undefined' ? itemList.user_id : 0);
 		                       		                        
