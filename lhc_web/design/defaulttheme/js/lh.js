@@ -302,7 +302,7 @@ function lh(){
 
             setTimeout(function() {
                 $('#CSChatMessage-' + chat_id).focus();
-            },10);
+            },2);
 
     		var inst = $(this);
     		setTimeout(function(){

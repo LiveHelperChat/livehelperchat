@@ -1,8 +1,8 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information/information_top.tpl.php'));?>
 
 <div class="pull-right operator-info pt5">
-	<i class="material-icons mr-0<?php if ($chat->fbst == 1) : ?> up-voted<?php endif;?>">thumb_up</i>
-	<i class="material-icons<?php if ($chat->fbst == 2) : ?> down-voted<?php endif;?>">thumb_down</i>
+
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information/thumbs.tpl.php'));?>
 	
 	<i id="chat-id-<?php echo $chat->id?>-mds" data-chat-status="<?php echo $chat->status?>" data-chat-user="<?php echo $chat->user_id?>" class="material-icons<?php if ($chat->has_unread_op_messages == 1) : ?> chat-unread<?php else : ?> chat-active<?php endif;?>">chat</i>
 
