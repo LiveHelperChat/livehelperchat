@@ -157,13 +157,22 @@ class erLhcoreClassChatExport {
                 $additionalDataContent = $item->additional_data;
 
                 // Create empty array of 20 to make sure all are filled
-                $additionalPairs = array_fill(0,20,'');
-
+                $urlData = array();
+                $pairsRegular = array();
                 if (!empty($additionalDataContent)) {
                     foreach (json_decode($additionalDataContent,true) as $index => $additionalItem) {
-                        $additionalPairs[$index] = $additionalItem['key'] . ' - ' . $additionalItem['value'];
+                        if (isset($additionalItem['url']) && $additionalItem['url'] == true) {
+                            $urlData[] = $additionalItem['key'] . ' - ' . $additionalItem['value'];
+                        } else {
+                            $pairsRegular[] = $additionalItem['key'] . ' - ' . $additionalItem['value'];
+                        }
+
                     }
                 }
+                       
+                // Put URL arguments always first
+                $additionalPairs = array_merge($urlData,$pairsRegular);
+                $additionalPairs = array_merge($additionalPairs,array_fill(count($additionalPairs),20-count($additionalPairs),''));
 
                 if ($item->session_referrer != '') {
                         $referer = parse_url($item->session_referrer);                    
