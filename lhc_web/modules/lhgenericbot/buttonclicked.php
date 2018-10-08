@@ -4,11 +4,7 @@ header ( 'content-type: application/json; charset=utf-8' );
 
 session_write_close();
 
-$db = ezcDbInstance::get();
-
-$db->beginTransaction();
-
-$chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
+$chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 
 $validStatuses = array(
     erLhcoreClassModelChat::STATUS_PENDING_CHAT,
@@ -51,19 +47,13 @@ try {
 
         echo json_encode(array('error' => false));
 
-        $db->commit();
-
     } else {
         throw new Exception('You do not have permission!');
     }
 
 } catch (Exception $e) {
-    $db->rollback();
     echo json_encode(array('error' => true, 'message' => $e->getMessage()));
 }
-
-
-
 
 exit;
 

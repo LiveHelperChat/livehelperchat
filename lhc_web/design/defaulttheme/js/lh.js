@@ -3161,15 +3161,11 @@ function lh(){
 
         if (btn.attr("data-no-change") == undefined) {
             btn.attr("disabled","disabled");
-            btn.text("Processing...");
+            btn.prepend("<i class=\"material-icons lhc-spin\">loop</i>");
         }
 
         var messageBlock = $('#messagesBlock');
-
-        var processing = jQuery('<div/>', {
-            'class': 'message-row pending-storage pending-storage-bot',
-            text: 'Processing...'
-        }).appendTo(messageBlock);
+        
         var scrollHeight = messageBlock.prop("scrollHeight");
         messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 
@@ -3181,7 +3177,6 @@ function lh(){
                 $('.meta-message-'+id).remove();
             }
 
-            processing.remove();
             var scrollHeight = messageBlock.prop("scrollHeight");
             messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
             lhinst.forceBottomScroll = true;
@@ -3199,11 +3194,6 @@ function lh(){
 
         var messageBlock = $('#messagesBlock');
 
-        var processing = jQuery('<div/>', {
-            'class': 'message-row pending-storage pending-storage-bot',
-            text: 'Processing...'
-        }).appendTo(messageBlock);
-
         var scrollHeight = messageBlock.prop("scrollHeight");
         messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 
@@ -3211,7 +3201,6 @@ function lh(){
         clearTimeout(this.userTimeout);
 
         $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash+'/(type)/editgenericstep',{payload : step,id : id},function(data){
-            processing.remove();
             var scrollHeight = messageBlock.prop("scrollHeight");
             messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
             lhinst.forceBottomScroll = true;
@@ -3229,16 +3218,10 @@ function lh(){
 
         if (btn.attr("data-no-change") == undefined) {
             btn.attr("disabled","disabled");
-            btn.text("Processing...");
+            btn.prepend("<i class=\"material-icons lhc-spin\">loop</i>");
         }
 
         var messageBlock = $('#messagesBlock');
-
-        var processing = jQuery('<div/>', {
-            'class': 'message-row pending-storage pending-storage-bot',
-            text: 'Processing...'
-        }).appendTo(messageBlock);
-
         var scrollHeight = messageBlock.prop("scrollHeight");
         messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 
@@ -3250,7 +3233,6 @@ function lh(){
                 $('.meta-message-'+id).remove();
             }
 
-            processing.remove();
             var scrollHeight = messageBlock.prop("scrollHeight");
             messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 
@@ -3270,15 +3252,10 @@ function lh(){
 
         if (btn.attr("data-no-change") == undefined) {
             btn.attr("disabled","disabled");
-            btn.text("Processing...");
+            btn.prepend("<i class=\"material-icons lhc-spin\">loop</i>");
         }
 
         var messageBlock = $('#messagesBlock');
-
-        var processing = jQuery('<div/>', {
-            'class': 'message-row pending-storage pending-storage-bot',
-            text: 'Processing...'
-        }).appendTo(messageBlock);
 
         var scrollHeight = messageBlock.prop("scrollHeight");
         messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
@@ -3291,7 +3268,6 @@ function lh(){
                 $('.meta-message-'+id).remove();
             }
 
-            processing.remove();
             var scrollHeight = messageBlock.prop("scrollHeight");
             messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 
@@ -3310,13 +3286,9 @@ function lh(){
 
         if (btn.attr("data-no-change") == undefined) {
             btn.attr("disabled","disabled");
-            btn.text("Processing...");
+            btn.prepend("<i class=\"material-icons lhc-spin\">loop</i>");
         }
         var messageBlock = $('#messagesBlock');
-        var processing = jQuery('<div/>', {
-            'class': 'message-row pending-storage pending-storage-bot',
-            text: 'Processing...'
-        }).appendTo(messageBlock);
 
         var scrollHeight = messageBlock.prop("scrollHeight");
         messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
@@ -3326,7 +3298,6 @@ function lh(){
             clearTimeout(this.userTimeout);
             $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash+'/(type)/valueclicked',{payload: $('#id_generic_list-'+id).val(), id : id},function(data){
                 $('.meta-message-'+id).remove();
-                processing.remove();
                 var scrollHeight = messageBlock.prop("scrollHeight");
                 messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
 
