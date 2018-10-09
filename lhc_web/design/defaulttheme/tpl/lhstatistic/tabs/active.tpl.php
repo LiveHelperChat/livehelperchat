@@ -166,14 +166,8 @@
 
 <?php if (isset($_GET['doSearch'])) : ?>
 
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
-  	google.load("visualization", "1", {packages:["corechart"]});
-	
-	var timeoutResize = null;			
-	function redrawAllCharts(ts){
-		clearTimeout(timeoutResize);
-		setTimeout(function(){
+	function redrawAllCharts(){
 			drawChart();
 			drawChartCountry();
 			drawChartUser();
@@ -184,7 +178,6 @@
 			drawChartUserAVGWaitTime();
 			drawChartUserAverage();
             drawChartDepartmnent();
-		},ts);
 	};
 
     // Define a plugin to provide data labels
@@ -198,7 +191,7 @@
                     meta.data.forEach(function(element, index) {
                         // Draw the text in black, with the specified font
                         ctx.fillStyle = 'rgb(0, 0, 0)';
-                        var fontSize = 12;
+                        var fontSize = 11;
                         var fontStyle = 'normal';
                         var fontFamily = 'Arial';
                         ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
@@ -215,7 +208,6 @@
             });
         }
     });
-
 
 	function drawChart() {
 	  <?php if (!empty($userStats['thumbsup'])) : ?>
@@ -274,7 +266,6 @@
                 data: [<?php foreach ($userStats['thumbdown'] as $key => $data) : echo ($key > 0 ? ',' : ''),$data['number_of_chats']; endforeach;?>]
             }]
         };
-
         var ctx = document.getElementById("chart_div_downvotes_canvas").getContext("2d");
         var myBar = new Chart(ctx, {
             type: 'bar',
@@ -309,7 +300,6 @@
 	  <?php endif;?>
 
 	  <?php if (!empty($subjectsStatistic)) : ?>
-	    var ctx = document.getElementById("chart_div_subjects_statistic").getContext("2d");
 	    var barChartData = {
             labels: [<?php foreach ($subjectsStatistic as $key => $data) : echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars((string)erLhAbstractModelSubject::fetch($data['subject_id'],true),ENT_QUOTES).'\''; endforeach;?>],
             datasets: [{
@@ -320,15 +310,168 @@
                 data: [<?php foreach ($subjectsStatistic as $key => $data) : echo ($key > 0 ? ',' : ''),$data['number_of_chats']; endforeach;?>]
             }]
         };
+        drawBasicChart(barChartData,'chart_div_subjects_statistic');
+      <?php endif; ?>
+	};
+	
+	function drawChartCountry() {	
+		<?php if (!empty($countryStats)) : ?>
+        var barChartData = {
+            labels: [<?php $key = 0; foreach ($countryStats as $data) : echo ($key > 0 ? ',' : ''),'\''.$data['country_name'].'\'';$key++; endforeach;?>],
+            datasets: [{
+                backgroundColor: '#36c',
+                borderColor: '#36c',
+                borderWidth: 1,
+                data: [<?php $key = 0; foreach ($countryStats as $data) : echo ($key > 0 ? ',' : ''),$data['number_of_chats']; $key++; endforeach;?>]
+            }]
+        };
+        drawBasicChart(barChartData,'chart_div_country');
+		<?php endif;?>					  
+	};
+	
+	function drawChartUser() {	
+		<?php if (!empty($userChatsStats)) : ?>
 
-	    var myBar = new Chart(ctx, {
+                var barChartData = {
+                    labels: [<?php $key = 0; foreach ($userChatsStats as $data) : $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars((is_object($obUser) ? $obUser->name_official : $data['user_id']),ENT_QUOTES).'\'';$key++; endforeach;?>],
+                    datasets: [{
+                        backgroundColor: '#36c',
+                        borderColor: '#36c',
+                        borderWidth: 1,
+                        data: [<?php $key = 0; foreach ($userChatsStats as $data) : echo ($key > 0 ? ',' : ''),$data['number_of_chats']; $key++; endforeach;?>]
+                    }]
+                };
+                drawBasicChart(barChartData,'chart_div_user');
+		  <?php endif;?>						  
+	};
+
+	function drawChartDepartmnent() {
+		<?php if (!empty($depChatsStats)) : ?>
+            var barChartData = {
+                        labels: [<?php $key = 0; foreach ($depChatsStats as $data) : $obUser = erLhcoreClassModelDepartament::fetch($data['dep_id'],true); echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars((is_object($obUser) ? $obUser->name : $data['dep_id']),ENT_QUOTES).'\'';$key++; endforeach;?>],
+                        datasets: [{
+                            backgroundColor: '#36c',
+                            borderColor: '#36c',
+                            borderWidth: 1,
+                            data: [<?php $key = 0; foreach ($depChatsStats as $data) : echo ($key > 0 ? ',' : ''),$data['number_of_chats']; $key++; endforeach;?>]
+                        }]
+                    };
+            drawBasicChart(barChartData,'chart_div_dep');
+		  <?php endif;?>
+	};
+	
+	function drawChartUserAverage() {	
+		<?php if (!empty($userChatsAverageStats)) : ?>
+        var barChartData = {
+            labels: [<?php $key = 0; foreach ($userChatsAverageStats as $data) :  $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars((is_object($obUser) ? $obUser->name_official : $data['user_id']),ENT_QUOTES).'\'';$key++; endforeach;?>],
+            datasets: [{
+                backgroundColor: '#36c',
+                borderColor: '#36c',
+                borderWidth: 1,
+                data: [<?php $key = 0; foreach ($userChatsAverageStats as $data) : echo ($key > 0 ? ',' : ''),$data['avg_chat_duration']; $key++; endforeach;?>]
+            }]
+        };
+
+        drawBasicChart(barChartData,'chart_div_avg_user');
+        <?php endif;?>
+	};
+
+	function drawChartUserAVGWaitTime() {	
+		<?php if (!empty($userWaitTimeByOperator)) : ?>
+
+
+		var barChartData = {
+            labels: [<?php $key = 0; foreach ($userWaitTimeByOperator as $data) : $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars((is_object($obUser) ? $obUser->name_official : $data['user_id']),ENT_QUOTES).'\'';$key++; endforeach;?>],
+            datasets: [{
+                backgroundColor: '#36c',
+                borderColor: '#36c',
+                borderWidth: 1,
+                data: [<?php $key = 0; foreach ($userWaitTimeByOperator as $data) : echo ($key > 0 ? ',' : ''),$data['avg_wait_time']; $key++; endforeach;?>]
+            }]
+        };
+
+		drawBasicChart(barChartData,'chart_div_user_wait_time');
+		<?php endif;?>
+	};
+	
+	function drawChartUserMessages() {
+		<?php if (!empty($numberOfMsgByUser)) : ?>
+
+        var barChartData = {
+            labels: [<?php $key = 0; foreach ($numberOfMsgByUser as $data) :
+            $operator = '';
+		    if ($data['user_id'] == 0) {
+		    	$operator = 'Visitor';
+		    } elseif ($data['user_id'] == -1) {
+		    	$operator = 'System assistant';
+		    } elseif ($data['user_id'] == -2) {
+		    	$operator = 'Virtual assistant';
+		    } else {
+		        $operatorObj = erLhcoreClassModelUser::fetch($data['user_id'],true);
+		        if (is_object($operatorObj) ) {
+		    	   $operator = $operatorObj->name_official;
+		        } else {
+		           $operator = '['.$data['user_id'].']';
+		        }
+		    }; echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars($operator,ENT_QUOTES).'\'';$key++; endforeach;?>],
+            datasets: [{
+                backgroundColor: '#36c',
+                borderColor: '#36c',
+                borderWidth: 1,
+                data: [<?php $key = 0; foreach ($numberOfMsgByUser as $data) : echo ($key > 0 ? ',' : ''),$data['number_of_chats']; $key++; endforeach;?>]
+            }]
+        };
+
+        drawBasicChart(barChartData,'chart_div_user_msg');
+		<?php endif;?>					  
+	};
+				
+	function drawChartPerMonth() {	
+
+		  // Chats number by statuses
+		var barChartData = {
+            labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date('Y.m',$monthUnix).'\'';$key++; endforeach;?>],
+            datasets: [
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Active');?>',
+                    backgroundColor: '#dc3912',
+                    borderColor: '#dc3912',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['active']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Operators');?>',
+                    backgroundColor: '#ff9900',
+                    borderColor: '#ff9900',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['operators']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Pending');?>',
+                    backgroundColor: '#109618',
+                    borderColor: '#109618',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['pending']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Closed');?>',
+                    backgroundColor: '#3366cc',
+                    borderColor: '#3366cc',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['closed']; $key++; endforeach;?>]
+                },
+            ]
+        };
+
+        var ctx = document.getElementById("chart_div_per_month").getContext("2d");
+        var myBar = new Chart(ctx, {
             type: 'bar',
             data: barChartData,
             options: {
                 responsive: true,
-                legend: {
-                    display : false,
-                    position: 'top',
+                tooltips: {
+                    mode: 'index',
+                    intersect: false
                 },
                 layout: {
                     padding: {
@@ -337,171 +480,24 @@
                 },
                 scales: {
                     xAxes: [{
+                        stacked: true,
                         ticks: {
                             fontSize: 11,
                             stepSize: 1,
                             min: 0,
                             autoSkip: false
                         }
+                    }
+                    ],
+                    yAxes: [{
+                        stacked: true
                     }]
                 },
                 title: {
-                    display: true,
-                    text: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_subject.tpl.php'));?>'
+                    display: false
                 }
             }
         });
-      <?php endif; ?>
-	};
-	
-	function drawChartCountry() {	
-		<?php if (!empty($countryStats)) : ?>						
-		var data = google.visualization.arrayToDataTable([
-		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Country');?>', '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chats');?>']
-		    <?php foreach ($countryStats as $data) : ?>
-		    	<?php echo ',[\''.htmlspecialchars($data['country_name'],ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
-		    <?php endforeach;?>
-		  ]);      
-		var options = {
-		    title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_country.tpl.php'));?>',
-		    hAxis: {titleTextStyle: {color: 'red'},textStyle : {fontSize: 10}},
-	        width: '100%',
-	        height: '100%'		      
-		  };
-		var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_country'));
-		chartUp.draw(data, options);	
-		<?php endif;?>					  
-	};
-	
-	function drawChartUser() {	
-		<?php if (!empty($userChatsStats)) : ?>			
-		  var data = google.visualization.arrayToDataTable([
-		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chats');?>']
-		    <?php foreach ($userChatsStats as $data) : ?>
-		    	<?php $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ',[\''.htmlspecialchars((is_object($obUser) ? $obUser->name_official : $data['user_id']),ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
-		    <?php endforeach;?>
-		  ]);   
-		  var options = {		    
-		    hAxis: {titleTextStyle: {color: 'red'},textStyle : {fontSize: 10}},
-		    chartArea:{top:20},
-	        width: '100%',
-	        height: '100%'
-		  };
-		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_user'));
-		  chartUp.draw(data, options);	
-		  <?php endif;?>						  
-	};
-
-	function drawChartDepartmnent() {
-		<?php if (!empty($depChatsStats)) : ?>
-		  var data = google.visualization.arrayToDataTable([
-		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chats');?>']
-		    <?php foreach ($depChatsStats as $data) : ?>
-		    	<?php $obUser = erLhcoreClassModelDepartament::fetch($data['dep_id'],true); echo ',[\''.htmlspecialchars((is_object($obUser) ? $obUser->name : $data['dep_id']),ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
-		    <?php endforeach;?>
-		  ]);
-		  var options = {
-		    hAxis: {titleTextStyle: {color: 'red'},textStyle : {fontSize: 10}},
-		    chartArea:{top:20},
-	        width: '100%',
-	        height: '100%'
-		  };
-		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_dep'));
-		  chartUp.draw(data, options);
-		  <?php endif;?>
-	};
-	
-	function drawChartUserAverage() {	
-		<?php if (!empty($userChatsAverageStats)) : ?>			
-		  var data = google.visualization.arrayToDataTable([
-		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average in seconds');?>']
-		    <?php foreach ($userChatsAverageStats as $data) : ?>
-		    	<?php $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ',[\''.htmlspecialchars((is_object($obUser) ? $obUser->name_official : $data['user_id']),ENT_QUOTES).'\','.$data['avg_chat_duration'].']'?>
-		    <?php endforeach;?>
-		  ]);   
-		  var options = {		    
-		    hAxis: {titleTextStyle: {color: 'red'},textStyle : {fontSize: 10}},
-		    chartArea:{top:20},
-	        width: '100%',
-	        height: '100%'
-		  };
-		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_avg_user'));
-		  chartUp.draw(data, options);	
-		  <?php endif;?>						  
-	};
-
-	function drawChartUserAVGWaitTime() {	
-		<?php if (!empty($userWaitTimeByOperator)) : ?>			
-		  var data = google.visualization.arrayToDataTable([
-		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Wait time');?>']
-		    <?php foreach ($userWaitTimeByOperator as $data) : ?>
-		    	<?php $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ',[\''.htmlspecialchars((is_object($obUser) ? $obUser->name_official : $data['user_id']),ENT_QUOTES).'\','.$data['avg_wait_time'].']'?>
-		    <?php endforeach;?>
-		  ]);   
-		  var options = {
-		    hAxis: {titleTextStyle: {color: 'red'},textStyle : {fontSize: 10}},
-	        width: '100%',
-	        chartArea:{top:20},
-	        height: '100%'
-		  };
-		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_user_wait_time'));
-		  chartUp.draw(data, options);	
-		  <?php endif;?>						  
-	};
-	
-	function drawChartUserMessages() {
-		<?php if (!empty($numberOfMsgByUser)) : ?>			
-		  var data = google.visualization.arrayToDataTable([
-		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','User');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Messages');?>']
-		    <?php foreach ($numberOfMsgByUser as $data) : 				    
-		    $operator = '';
-		    if ($data['user_id'] == 0) {
-		    	$operator = 'Visitor';
-		    } elseif ($data['user_id'] == -1) {
-		    	$operator = 'System assistant';
-		    } elseif ($data['user_id'] == -2) {
-		    	$operator = 'Virtual assistant';
-		    } else {				        				    
-		        $operatorObj = erLhcoreClassModelUser::fetch($data['user_id'],true);				        
-		        if (is_object($operatorObj) ) {
-		    	   $operator = $operatorObj->name_official;
-		        } else {
-		           $operator = '['.$data['user_id'].']';
-		        }
-		    }				    
-		    ?>
-		    <?php echo ',[\''.htmlspecialchars($operator,ENT_QUOTES).'\','.$data['number_of_chats'].']'?>
-		    <?php endforeach;?>
-		  ]);	   
-		  var options = {
-		    hAxis: {titleTextStyle: {color: 'red'},textStyle : {fontSize: 10}},
-	        width: '100%',
-	        chartArea:{top:20},
-	        height: '100%'
-		  };
-		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_user_msg'));
-		  chartUp.draw(data, options);		
-		<?php endif;?>					  
-	};
-				
-	function drawChartPerMonth() {	
-
-		  // Chats number by statuses	
-		  var data = google.visualization.arrayToDataTable([
-		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Month');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Closed');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Active');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Operators');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Pending');?>']
-		    <?php foreach ($numberOfChatsPerMonth as $monthUnix => $data) : ?>
-		    	<?php echo ',[\''.date('Y.m',$monthUnix).'\','.$data['closed'].','.$data['active'].','.$data['operators'].','.$data['pending'].']'?>
-		    <?php endforeach;?>
-		  ]);					                  		  
-		  var options = {
-			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_number_by_statuses.tpl.php'));?>',
-	        width: '100%',
-	        height: '100%',
-	        isStacked: true,
-            hAxis : {textStyle:{fontSize: 10}}
-		  };
-		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_per_month'));
-		  chartUp.draw(data, options);
 
 
 		  // Chats number by unanswered chats
@@ -552,67 +548,141 @@
             });
 
 		  // AVG Wait time
-		  var data = google.visualization.arrayToDataTable([
-		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Month');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Time');?>']
-		    <?php foreach ($numberOfChatsPerWaitTimeMonth as $monthUnix => $data) : ?>
-		    	<?php echo ',[\''.date('Y.m',$monthUnix).'\','.$data.']'?>
-		    <?php endforeach;?>
-		  ]);   		  
-		  var options = {
-			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/avg_wait_time_in_seconds_max_10_mininutes.tpl.php'));?>',
-	        width: '100%',
-	        height: '100%',
-	        isStacked: true,
-              hAxis : {
-                  textStyle : {
-                      fontSize: 10 // or the number you want
-                  }
-              }
-		  };
-		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_per_month_wait_time'));
-		  chartUp.draw(data, options);
+        var barChartData = {
+            labels: [<?php $key = 0; foreach ($numberOfChatsPerWaitTimeMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date('Y.m',$monthUnix).'\'';$key++; endforeach;?>],
+            datasets: [{
+                backgroundColor: '#36c',
+                borderColor: '#36c',
+                borderWidth: 1,
+                data: [<?php $key = 0; foreach ($numberOfChatsPerWaitTimeMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data; $key++; endforeach;?>]
+            }]
+        };
 
-		  						  
-		  var data = google.visualization.arrayToDataTable([
-		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Month');?>', '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Visitors initiated');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Proactive');?>']
-		    <?php foreach ($numberOfChatsPerMonth as $monthUnix => $data) : ?>
-		    	<?php echo ',[\''.date('Y.m',$monthUnix).'\','.$data['chatinitdefault'].','.$data['chatinitproact'].']'?>
-		    <?php endforeach;?>
-		  ]);		                    
-		  var options = {
-			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/proactive_chats_number_vs_visitors_initiated.tpl.php'));?>',
-	        width: '100%',
-	        height: '100%',
-	        isStacked: true,
-            hAxis : {
-                textStyle : {
-                    fontSize: 10 // or the number you want
+        drawBasicChart(barChartData,'chart_div_per_month_wait_time');
+
+        var barChartData = {
+            labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date('Y.m',$monthUnix).'\'';$key++; endforeach;?>],
+            datasets: [
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Proactive');?>',
+                    backgroundColor: '#dc3912',
+                    borderColor: '#dc3912',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['chatinitproact']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Visitors initiated');?>',
+                    backgroundColor: '#36c',
+                    borderColor: '#36c',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['chatinitdefault']; $key++; endforeach;?>]
+                }
+            ]
+        };
+
+        var ctx = document.getElementById("chart_type_div_per_month").getContext("2d");
+        var myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                /*legend: {
+                    display : false,
+                    position: 'top',
+                },*/
+                tooltips: {
+                    mode: 'index',
+                    intersect: false
+                },
+                layout: {
+                    padding: {
+                         top: 20
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        stacked: true,
+                        ticks: {
+                            fontSize: 11,
+                            stepSize: 1,
+                            min: 0,
+                            autoSkip: false
+                        }
+                    }
+                    ],
+                    yAxes: [{
+                        stacked: true
+                    }]
+                },
+                title: {
+                    display: false
                 }
             }
-		  };
-		  var chartProactive = new google.visualization.ColumnChart(document.getElementById('chart_type_div_per_month'));
-		  chartProactive.draw(data, options);						  
-  						  
-		  var data = google.visualization.arrayToDataTable([
-		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Month');?>', '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Visitors');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Operators');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','System');?>']
-		    <?php foreach ($numberOfChatsPerMonth as $monthUnix => $data) : ?>
-		    	<?php echo ',[\''.date('Y.m',$monthUnix).'\','.$data['msg_user'].','.$data['msg_operator'].','.$data['msg_system'].']'?>
-		    <?php endforeach;?>
-		  ]);					                  		  
-			                    
-		  var options = {
-			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/messages_types.tpl.php'));?>',
-	        width: '100%',
-	        height: '100%',
-	        isStacked: true,
-            hAxis : {
-                 textStyle : {
-                    fontSize: 10 // or the number you want
+        });
+
+        var barChartData = {
+            labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date('Y.m',$monthUnix).'\'';$key++; endforeach;?>],
+            datasets: [
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Visitors');?>',
+                    backgroundColor: '#36c',
+                    borderColor: '#36c',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['msg_user']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Operators');?>',
+                    backgroundColor: '#dc3912',
+                    borderColor: '#dc3912',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['msg_operator']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','System');?>',
+                    backgroundColor: '#ff9900',
+                    borderColor: '#ff9900',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['msg_system']; $key++; endforeach;?>]
+                }
+            ]
+        };
+
+
+        var ctx = document.getElementById("chart_type_div_msg_type").getContext("2d");
+        var myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                tooltips: {
+                    mode: 'index',
+                    intersect: false
+                },
+                layout: {
+                    padding: {
+                         top: 20
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        stacked: true,
+                        ticks: {
+                            fontSize: 11,
+                            stepSize: 1,
+                            min: 0,
+                            autoSkip: false
+                        }
+                    }
+                    ],
+                    yAxes: [{
+                        stacked: true
+                    }]
+                },
+                title: {
+                    display: false
                 }
             }
-		  };
-		  var chartMessages = new google.visualization.ColumnChart(document.getElementById('chart_type_div_msg_type'));
-		  chartMessages.draw(data, options);						  
+        });
 	}
 	
 	function drawChartWorkload() {
@@ -625,11 +695,14 @@
                 data: [<?php $key = 0; foreach ($numberOfChatsPerHour['total'] as $hour => $chatsNumber) : echo ($key > 0 ? ',' : ''),$chatsNumber; $key++; endforeach;?>]
             }]
         };
+        drawBasicChart(barChartData,'chart_div_per_hour');
+	}
 
-        var ctx = document.getElementById("chart_div_per_hour").getContext("2d");
+	function drawBasicChart(data, id) {
+        var ctx = document.getElementById(id).getContext("2d");
         var myBar = new Chart(ctx, {
             type: 'bar',
-            data: barChartData,
+            data: data,
             options: {
                 responsive: true,
                 legend: {
@@ -722,84 +795,90 @@
             }
         });
 	}
-	
-	$(window).on("resize", function (event) {
-		redrawAllCharts(100);
-	});
 
 	$( document ).ready(function() {
-		redrawAllCharts(100);
+		redrawAllCharts();
 	});
 				
 </script> 
 
-<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_statistic.tpl.php'));?></h5>
-<hr>
-
 <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/statistic_active_content_multiinclude.tpl.php'));?>
 
-<div id="chart_div_per_month" style="width: 100%; height: 300px;"></div> 		 		
-<div id="chart_type_div_per_month" style="width: 100%; height: 300px;"></div> 		
-<div id="chart_type_div_msg_type" style="width: 100%; height: 300px;"></div>
-<div id="chart_div_per_month_wait_time" style="width: 100%; height: 300px;"></div>
+<hr>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_number_by_statuses.tpl.php'));?></h5>
+<canvas id="chart_div_per_month"></canvas>
 
+<hr>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/proactive_chats_number_vs_visitors_initiated.tpl.php'));?></h5>
+<canvas id="chart_type_div_per_month"></canvas>
+
+<hr>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/messages_types.tpl.php'));?></h5>
+<canvas id="chart_type_div_msg_type"></canvas>
+
+<hr>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/avg_wait_time_in_seconds_max_10_mininutes.tpl.php'));?></h5>
+<canvas id="chart_div_per_month_wait_time"></canvas>
+
+<hr>
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/unanswered_chats_numbers.tpl.php'));?></h5>
-<hr>
 <canvas id="chart_div_per_month_unanswered"></canvas>
-
-<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_per_hour_average_chat_duration_hour.tpl.php'));?><h5>
 <hr>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_per_hour_average_chat_duration_hour.tpl.php'));?><h5>
 <canvas id="chart_div_per_hour_by_hour"></canvas>
 
+<hr>
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_per_hour_average_chat_duration.tpl.php'));?>&nbsp;<?php echo $averageChatTime != null ? erLhcoreClassChat::formatSeconds($averageChatTime) : '(-)';?></h5>
+<canvas id="chart_div_per_hour"></canvas>
+
 <hr>
-<canvas id="chart_div_per_hour" style="width: 100%; height: 300px;"></canvas>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_country.tpl.php'));?></h5>
+<canvas id="chart_div_country"></canvas>
 
 
-<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/country_statistic.tpl.php'));?></h5>
+<?php if (!empty($userChatsStats)) : ?>
 <hr>
-<div id="chart_div_country" style="width: 100%; height: 300px;"></div>
- 
-<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/users_statisic.tpl.php'));?></h5>
-<hr>
-
-<?php if (!empty($userChatsStats)) : ?>	
-<div class="pl20"><strong><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_user.tpl.php'));?></strong></div>
-<div id="chart_div_user" style="width: 100%; height: 300px;"></div>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_user.tpl.php'));?></h5>
+<canvas id="chart_div_user"></canvas>
 <?php endif;?>
 
 <?php if (!empty($depChatsStats)) : ?>
-<div class="pl20"><strong><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_dep.tpl.php'));?></strong></div>
-<div id="chart_div_dep" style="width: 100%; height: 300px;"></div>
+<hr>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_dep.tpl.php'));?></h5>
+<canvas id="chart_div_dep"></canvas>
 <?php endif;?>
 
-<?php if (!empty($numberOfMsgByUser)) : ?>	
-<div class="pl20"><strong><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_messages_by_user.tpl.php'));?></strong></div>
-<div id="chart_div_user_msg" style="width: 100%; height: 300px;"></div> 		
+<?php if (!empty($numberOfMsgByUser)) : ?>
+<hr>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_messages_by_user.tpl.php'));?></h5>
+<canvas id="chart_div_user_msg"></canvas>
 <?php endif;?>
 
 <?php if (!empty($userChatsAverageStats)) : ?>
-<div class="pl20"><strong><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/average_chat_duration_by_user.tpl.php'));?></strong>
-    <a href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?><?php echo $urlappend?>?xmlavguser=1" target="_blank" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','All operators statistic will be downloaded')?>"><i class="material-icons mr-0">file_download</i></a>
-</div>
-<div id="chart_div_avg_user" style="width: 100%; height: 300px;"></div> 
+<hr>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/average_chat_duration_by_user.tpl.php'));?> <a href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?><?php echo $urlappend?>?xmlavguser=1" target="_blank" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','All operators statistic will be downloaded')?>"><i class="material-icons mr-0">file_download</i></a></h5>
+<canvas id="chart_div_avg_user"></canvas>
 <?php endif;?>
 
-<?php if (!empty($userWaitTimeByOperator)) : ?>	
-<div class="pl20"><strong><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/avg_visitor_wait_time_by_operator.tpl.php'));?></strong></div>
-<div id="chart_div_user_wait_time" style="width: 100%; height: 300px;"></div> 	
+<?php if (!empty($userWaitTimeByOperator)) : ?>
+<hr>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/avg_visitor_wait_time_by_operator.tpl.php'));?></h5>
+<canvas id="chart_div_user_wait_time"></canvas>
 <?php endif;?>
 
 <?php if (!empty($subjectsStatistic)) : ?>
-<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chat_subjects_statistic.tpl.php'));?></h5>
 <hr>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_subject.tpl.php'));?></h5>
 <canvas id="chart_div_subjects_statistic"></canvas>
 <?php endif; ?>
 
-
+<?php if (!empty($userStats['thumbsup'])) : ?>
 <canvas id="chart_div_upvotes_canvas"></canvas>
+<?php endif; ?>
 
+<?php if (!empty($userStats['thumbdown'])) : ?>
 <canvas id="chart_div_downvotes_canvas"></canvas>
+<?php endif; ?>
 
 <?php else : ?>
 <br/>

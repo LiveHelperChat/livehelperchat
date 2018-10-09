@@ -171,114 +171,314 @@
 </form>
 
 <?php if (isset($_GET['doSearch'])) : ?> 
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
-  	google.load("visualization", "1", {packages:["corechart"]});
-	
-	var timeoutResize = null;			
-	function redrawAllCharts(ts){
-		clearTimeout(timeoutResize);
-		setTimeout(function(){			
+	function redrawAllCharts(){
 			drawChartPerMonth();
-		},ts);
 	};
-			
-	function drawChartPerMonth() {			
-		  var data = google.visualization.arrayToDataTable([
-		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Month');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Closed');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Active');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Operators');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Pending');?>']
-		    <?php foreach ($numberOfChatsPerMonth as $monthUnix => $data) : ?>
-		    	<?php echo ',[\''.date($groupby,$monthUnix).'\','.$data['closed'].','.$data['active'].','.$data['operators'].','.$data['pending'].']'?>
-		    <?php endforeach;?>
-		  ]);					                  		  
-		  var options = {
-			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_number_by_statuses.tpl.php'));?>',
-	        width: '100%',
-	        height: '100%',
-	        isStacked: true
-		  };
-		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_per_month'));
-		  chartUp.draw(data, options);
 
-		  // Chats number by unanswered chats
-          var data = google.visualization.arrayToDataTable([
-		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Month');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number');?>']
-		    <?php foreach ($numberOfChatsPerMonth as $monthUnix => $data) : ?>
-		    	<?php echo ',[\''.date($groupby,$monthUnix).'\','.$data['unanswered'].']'?>
-		    <?php endforeach;?>
-		  ]);   		  
-		  var options = {
-			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/unanswered_chats_numbers.tpl.php'));?>',
-	        width: '100%',
-	        height: '100%',
-	        isStacked: true
-		  };
-		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_per_month_unanswered'));
-		  chartUp.draw(data, options);
+    // Define a plugin to provide data labels
+    Chart.plugins.register({
+        afterDatasetsDraw: function(chart, easing) {
+            // To only draw at the end of animation, check for easing === 1
+            var ctx = chart.ctx;
+            chart.data.datasets.forEach(function (dataset, i) {
+                var meta = chart.getDatasetMeta(i);
+                if (!meta.hidden) {
+                    meta.data.forEach(function(element, index) {
+                        // Draw the text in black, with the specified font
+                        ctx.fillStyle = 'rgb(0, 0, 0)';
+                        var fontSize = 11;
+                        var fontStyle = 'normal';
+                        var fontFamily = 'Arial';
+                        ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
+                        // Just naively convert to string for now
+                        var dataString = dataset.data[index].toString();
+                        // Make sure alignment settings are correct
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        var padding = 5;
+                        var position = element.tooltipPosition();
+                        ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
+                    });
+                }
+            });
+        }
+    });
+    function drawBasicChart(data, id) {
+        var ctx = document.getElementById(id).getContext("2d");
+        var myBar = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                legend: {
+                    display : false,
+                    position: 'top',
+                },
+                layout: {
+                    padding: {
+                        top: 20
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            fontSize: 11,
+                            stepSize: 1,
+                            min: 0,
+                            autoSkip: false
+                        }
+                    }]
+                },
+                title: {
+                    display: false
+                }
+            }
+        });
+    }
 
-		  var data = google.visualization.arrayToDataTable([
-		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Month');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Time');?>']
-		    <?php foreach ($numberOfChatsPerWaitTimeMonth as $monthUnix => $data) : ?>
-		    	<?php echo ',[\''.date($groupby,$monthUnix).'\','.$data.']'?>
-		    <?php endforeach;?>
-		  ]);   		  
-		  var options = {
-			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/avg_wait_time_in_seconds_max_10_mininutes.tpl.php'));?>',
-	        width: '100%',
-	        height: '100%',
-	        isStacked: true
-		  };
-		  var chartUp = new google.visualization.ColumnChart(document.getElementById('chart_div_per_month_wait_time'));
-		  chartUp.draw(data, options);
+	function drawChartPerMonth() {
+        var barChartData = {
+            labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date($groupby,$monthUnix).'\'';$key++; endforeach;?>],
+            datasets: [
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Active');?>',
+                    backgroundColor: '#dc3912',
+                    borderColor: '#dc3912',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['active']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Operators');?>',
+                    backgroundColor: '#ff9900',
+                    borderColor: '#ff9900',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['operators']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Pending');?>',
+                    backgroundColor: '#109618',
+                    borderColor: '#109618',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['pending']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Closed');?>',
+                    backgroundColor: '#3366cc',
+                    borderColor: '#3366cc',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['closed']; $key++; endforeach;?>]
+                },
+            ]
+        };
 
-		  						  
-		  var data = google.visualization.arrayToDataTable([
-		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Month');?>', '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Visitors initiated');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Proactive');?>']
-		    <?php foreach ($numberOfChatsPerMonth as $monthUnix => $data) : ?>
-		    	<?php echo ',[\''.date($groupby,$monthUnix).'\','.$data['chatinitdefault'].','.$data['chatinitproact'].']'?>
-		    <?php endforeach;?>
-		  ]);		                    
-		  var options = {
-			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/proactive_chats_number_vs_visitors_initiated.tpl.php'));?>',
-	        width: '100%',
-	        height: '100%',
-	        isStacked: true
-		  };
-		  var chartProactive = new google.visualization.ColumnChart(document.getElementById('chart_type_div_per_month'));
-		  chartProactive.draw(data, options);						  
-  						  
-		  var data = google.visualization.arrayToDataTable([
-		    ['<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Month');?>', '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Visitors');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Operators');?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','System');?>']
-		    <?php foreach ($numberOfChatsPerMonth as $monthUnix => $data) : ?>
-		    	<?php echo ',[\''.date($groupby,$monthUnix).'\','.$data['msg_user'].','.$data['msg_operator'].','.$data['msg_system'].']'?>
-		    <?php endforeach;?>
-		  ]);					                  		  
-			                    
-		  var options = {
-			title: '<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/messages_types.tpl.php'));?>',
-	        width: '100%',
-	        height: '100%',
-	        isStacked: true
-		  };
-		  var chartMessages = new google.visualization.ColumnChart(document.getElementById('chart_type_div_msg_type'));
-		  chartMessages.draw(data, options);						  
+        var ctx = document.getElementById("chart_div_per_month").getContext("2d");
+        var myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                tooltips: {
+                    mode: 'index',
+                    intersect: false
+                },
+                layout: {
+                    padding: {
+                        top: 20
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        stacked: true,
+                        ticks: {
+                            fontSize: 11,
+                            stepSize: 1,
+                            min: 0,
+                            autoSkip: false
+                        }
+                    }
+                    ],
+                    yAxes: [{
+                        stacked: true
+                    }]
+                },
+                title: {
+                    display: false
+                }
+            }
+        });
+
+        var barChartData = {
+            labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : ; echo ($key > 0 ? ',' : ''),'\''.date($groupby,$monthUnix).'\'';$key++; endforeach;?>],
+            datasets: [{
+                backgroundColor: '#36c',
+                borderColor: '#36c',
+                borderWidth: 1,
+                data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['unanswered']; $key++; endforeach;?>]
+            }]
+        };
+        drawBasicChart(barChartData,'chart_div_per_month_unanswered');
+
+
+        var barChartData = {
+            labels: [<?php $key = 0; foreach ($numberOfChatsPerWaitTimeMonth as $monthUnix => $data) : ; echo ($key > 0 ? ',' : ''),'\''.date($groupby,$monthUnix).'\'';$key++; endforeach;?>],
+            datasets: [{
+                backgroundColor: '#36c',
+                borderColor: '#36c',
+                borderWidth: 1,
+                data: [<?php $key = 0; foreach ($numberOfChatsPerWaitTimeMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data; $key++; endforeach;?>]
+            }]
+        };
+        drawBasicChart(barChartData,'chart_div_per_month_wait_time');
+
+        var barChartData = {
+            labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date($groupby,$monthUnix).'\'';$key++; endforeach;?>],
+            datasets: [
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Proactive');?>',
+                    backgroundColor: '#dc3912',
+                    borderColor: '#dc3912',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['chatinitproact']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Visitors initiated');?>',
+                    backgroundColor: '#36c',
+                    borderColor: '#36c',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['chatinitdefault']; $key++; endforeach;?>]
+                }
+            ]
+        };
+
+        var ctx = document.getElementById("chart_type_div_per_month").getContext("2d");
+        var myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                tooltips: {
+                    mode: 'index',
+                    intersect: false
+                },
+                layout: {
+                    padding: {
+                        top: 20
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        stacked: true,
+                        ticks: {
+                            fontSize: 11,
+                            stepSize: 1,
+                            min: 0,
+                            autoSkip: false
+                        }
+                    }
+                    ],
+                    yAxes: [{
+                        stacked: true
+                    }]
+                },
+                title: {
+                    display: false
+                }
+            }
+        });
+
+        var barChartData = {
+            labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date($groupby,$monthUnix).'\'';$key++; endforeach;?>],
+            datasets: [
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Visitors');?>',
+                    backgroundColor: '#36c',
+                    borderColor: '#36c',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['msg_user']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Operators');?>',
+                    backgroundColor: '#dc3912',
+                    borderColor: '#dc3912',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['msg_operator']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','System');?>',
+                    backgroundColor: '#ff9900',
+                    borderColor: '#ff9900',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['msg_system']; $key++; endforeach;?>]
+                }
+            ]
+        };
+
+        var ctx = document.getElementById("chart_type_div_msg_type").getContext("2d");
+        var myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                tooltips: {
+                    mode: 'index',
+                    intersect: false
+                },
+                layout: {
+                    padding: {
+                        top: 20
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        stacked: true,
+                        ticks: {
+                            fontSize: 11,
+                            stepSize: 1,
+                            min: 0,
+                            autoSkip: false
+                        }
+                    }
+                    ],
+                    yAxes: [{
+                        stacked: true
+                    }]
+                },
+                title: {
+                    display: false
+                }
+            }
+        });
 	}
 	
-	$(window).on("resize", function (event) {
-		redrawAllCharts(100);
-	});
+
 	$( document ).ready(function() {
-		redrawAllCharts(100);
+		redrawAllCharts();
 	});
 				
 </script> 
 
-<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_statistic.tpl.php'));?></h5>
+
 <hr>
-<div id="chart_div_per_month" style="width: 100%; height: 300px;"></div> 		 		
-<div id="chart_type_div_per_month" style="width: 100%; height: 300px;"></div> 		
-<div id="chart_type_div_msg_type" style="width: 100%; height: 300px;"></div>
-<div id="chart_div_per_month_wait_time" style="width: 100%; height: 300px;"></div>
-<div id="chart_div_per_month_unanswered" style="width: 100%; height: 300px;"></div>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_number_by_statuses.tpl.php'));?></h5>
+<canvas id="chart_div_per_month"></canvas>
+
+<hr>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/proactive_chats_number_vs_visitors_initiated.tpl.php'));?></h5>
+<canvas id="chart_type_div_per_month"></canvas>
+
+<hr>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/messages_types.tpl.php'));?></h5>
+<canvas id="chart_type_div_msg_type"></canvas>
+
+<hr>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/avg_wait_time_in_seconds_max_10_mininutes.tpl.php'));?></h5>
+<canvas id="chart_div_per_month_wait_time"></canvas>
+
+<hr>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/unanswered_chats_numbers.tpl.php'));?></h5>
+<canvas id="chart_div_per_month_unanswered"></canvas>
+
 
 <?php else : ?>
 <br/>
