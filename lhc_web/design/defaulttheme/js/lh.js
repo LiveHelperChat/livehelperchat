@@ -38,7 +38,8 @@ function lh(){
     this.operatorTyping = false;
     this.forceBottomScroll = false;
     this.appendSyncArgument = '';
-    
+    this.nodeJsMode = false;
+
     // Disable sync, is used in angular controllers before migration to new JS structure
     this.disableSync = false;
     
@@ -527,7 +528,9 @@ function lh(){
         };
 
         this.forgetChat(chat_id);
-        
+
+        ee.emitEvent('removeSynchroChat', [chat_id]);
+
         if (LHCCallbacks.removeSynchroChat) {
         	LHCCallbacks.removeSynchroChat(chat_id);
         }
@@ -546,9 +549,9 @@ function lh(){
             inst.is_typing = true;
             clearTimeout(inst.typing_timeout);
             
-            if (LHCCallbacks.initTypingMonitoringAdminInform) {
-            	inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);   
-           		LHCCallbacks.initTypingMonitoringAdminInform({'chat_id':chat_id,'status':true});
+            if (inst.nodeJsMode == true) {
+            	inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);
+            	ee.emitEvent('operatorTyping', [{'chat_id':chat_id,'status':true}]);
             } else {                
                 $.getJSON(www_dir + 'chat/operatortyping/' + chat_id+'/true',{ }, function(data){
                    inst.typing_timeout = setTimeout(function(){inst.typingStoppedOperator(chat_id);},3000);                   
@@ -619,9 +622,9 @@ function lh(){
         var inst = this;
         if (inst.is_typing == true){
         	
-        	if (LHCCallbacks.typingStoppedOperatorInform) {
+        	if (lhinst.nodeJsMode  == true) {
         		inst.is_typing = false;
-           		LHCCallbacks.typingStoppedOperatorInform({'chat_id':chat_id,'status':false});
+           		ee.emitEvent('operatorTyping', [{'chat_id':chat_id,'status':false}]);
             } else {        	
 	            $.getJSON(this.wwwDir + 'chat/operatortyping/' + chat_id+'/false',{ }, function(data){
 	                inst.is_typing = false;                
@@ -679,18 +682,24 @@ function lh(){
          	 };
         	
             if (inst.is_typing == false) {
-                inst.is_typing = true;
+
                 clearTimeout(inst.typing_timeout);
-                                
+
                 if (LHCCallbacks.initTypingMonitoringUserInform) {
-                	inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},3000);
-               		LHCCallbacks.initTypingMonitoringUserInform({'chat_id':chat_id,'hash':inst.hash,'status':true,msg:$(this).val()});               		
-                } else {               
+
+                	inst.typing_timeout = setTimeout(function(){
+                        ee.emitEvent('visitorTypingStopped', [{'chat_id':chat_id,'hash':inst.hash}]);
+                    },3000);
+
+                    ee.emitEvent('visitorTyping', [{'chat_id':chat_id,'hash':inst.hash,'status':true,msg:$(this).val()}]);
+                } else {
+
+                    inst.is_typing = true;
 	                $.postJSON(www_dir + 'chat/usertyping/' + chat_id+'/'+inst.hash+'/true',{msg:$(this).val()}, function(data){
 	                   inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},3000);
 	                   
 	                   if (LHCCallbacks.initTypingMonitoringUser) {
-	                   		LHCCallbacks.initTypingMonitoringUser(chat_id,true);
+                           ee.emitEvent('initVisitorTyping', [chat_id,true]);
 	                   };
 	                   
 	                }).fail(function(){
@@ -700,17 +709,18 @@ function lh(){
                                 
             } else {
                  clearTimeout(inst.typing_timeout);
-                 inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},3000);
+                 inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);}, 3000);
+
                  var txtArea = $(this).val();
                  if (inst.currentMessageText != txtArea ) {
                 	 if ( Math.abs(inst.currentMessageText.length - txtArea.length) > 6) {
                 		 inst.currentMessageText = txtArea;                		 
                 		 if (LHCCallbacks.initTypingMonitoringUserInform) {                         	
-                        		LHCCallbacks.initTypingMonitoringUserInform({'chat_id':chat_id,'hash':inst.hash,'status':true,msg:txtArea});               		
+                                ee.emitEvent('visitorTyping', [{'chat_id':chat_id,'hash':inst.hash,'status':true,msg:$(this).val()}]);
                          } else {                		 
 	                		 $.postJSON(www_dir + 'chat/usertyping/' + chat_id+'/'+inst.hash+'/true',{msg:txtArea}, function(data){
 	                			 if (LHCCallbacks.initTypingMonitoringUser) {
-	                            		LHCCallbacks.initTypingMonitoringUser(chat_id,true);
+                                        ee.emitEvent('initVisitorTyping', [chat_id,true]);
 	                             };
 	                		 });
                 		 }
@@ -725,12 +735,12 @@ function lh(){
         if (inst.is_typing == true){        	
         	if (LHCCallbacks.typingStoppedUserInform) {   
         		inst.is_typing = false;
-        		LHCCallbacks.typingStoppedUserInform({'chat_id':chat_id,'hash':this.hash,'status':false});               		
-        	} else {        	        	
+                ee.emitEvent('visitorTypingStopped', [{'chat_id':chat_id,'hash':this.hash,'status':false}]);
+        	} else {
 	            $.getJSON(this.wwwDir + 'chat/usertyping/' + chat_id+'/'+this.hash+'/false',{ }, function(data){
 	                inst.is_typing = false;
 	                if (LHCCallbacks.initTypingMonitoringUser) {
-	            		LHCCallbacks.initTypingMonitoringUser(chat_id,false);
+                        ee.emitEvent('initVisitorTyping', [chat_id,false]);
 	                };
 	            }).fail(function(){
 	            	inst.is_typing = false;
@@ -1781,7 +1791,9 @@ function lh(){
 	        	                      if (item.tp == 'true') {
 	                                      $('#user-is-typing-'+item.chat_id).html(item.tx).css('visibility','visible');
 	        	                      } else {
-	        	                          $('#user-is-typing-'+item.chat_id).css('visibility','hidden');
+                                          if (lhinst.nodeJsMode == false) {
+                                              $('#user-is-typing-'+item.chat_id).css('visibility','hidden');
+                                          }
 	        	                      };
 
                                       $('#last-msg-chat-'+item.chat_id).text(item.lmsg);
