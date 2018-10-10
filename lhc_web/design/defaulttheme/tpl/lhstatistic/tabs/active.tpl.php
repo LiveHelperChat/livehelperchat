@@ -372,7 +372,7 @@
                 backgroundColor: '#36c',
                 borderColor: '#36c',
                 borderWidth: 1,
-                data: [<?php $key = 0; foreach ($userChatsAverageStats as $data) : echo ($key > 0 ? ',' : ''),round($data['avg_chat_duration'],2); $key++; endforeach;?>]
+                data: [<?php $key = 0; foreach ($userChatsAverageStats as $data) : echo ($key > 0 ? ',' : ''),round($data['avg_chat_duration']); $key++; endforeach;?>]
             }]
         };
 
@@ -390,7 +390,7 @@
                 backgroundColor: '#36c',
                 borderColor: '#36c',
                 borderWidth: 1,
-                data: [<?php $key = 0; foreach ($userWaitTimeByOperator as $data) : echo ($key > 0 ? ',' : ''),round($data['avg_wait_time'],2); $key++; endforeach;?>]
+                data: [<?php $key = 0; foreach ($userWaitTimeByOperator as $data) : echo ($key > 0 ? ',' : ''),round($data['avg_wait_time']); $key++; endforeach;?>]
             }]
         };
 
