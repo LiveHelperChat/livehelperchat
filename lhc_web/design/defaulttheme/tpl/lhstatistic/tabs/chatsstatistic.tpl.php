@@ -186,24 +186,29 @@
                 if (!meta.hidden) {
                     meta.data.forEach(function(element, index) {
                         // Draw the text in black, with the specified font
-                        ctx.fillStyle = 'rgb(0, 0, 0)';
-                        var fontSize = 11;
-                        var fontStyle = 'normal';
-                        var fontFamily = 'Arial';
-                        ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
-                        // Just naively convert to string for now
                         var dataString = dataset.data[index].toString();
-                        // Make sure alignment settings are correct
-                        ctx.textAlign = 'center';
-                        ctx.textBaseline = 'middle';
-                        var padding = 5;
-                        var position = element.tooltipPosition();
-                        ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
+                        if (dataString !== '0')
+                        {
+                            ctx.fillStyle = 'rgb(0, 0, 0)';
+                            var fontSize = 11;
+                            var fontStyle = 'normal';
+                            var fontFamily = 'Arial';
+                            ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
+                            // Just naively convert to string for now
+
+                            // Make sure alignment settings are correct
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'middle';
+                            var padding = 5;
+                            var position = element.tooltipPosition();
+                            ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
+                        }
                     });
                 }
             });
         }
     });
+
     function drawBasicChart(data, id) {
         var ctx = document.getElementById(id).getContext("2d");
         var myBar = new Chart(ctx, {

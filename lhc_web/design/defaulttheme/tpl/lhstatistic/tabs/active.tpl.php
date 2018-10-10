@@ -190,19 +190,23 @@
                 if (!meta.hidden) {
                     meta.data.forEach(function(element, index) {
                         // Draw the text in black, with the specified font
-                        ctx.fillStyle = 'rgb(0, 0, 0)';
-                        var fontSize = 11;
-                        var fontStyle = 'normal';
-                        var fontFamily = 'Arial';
-                        ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
-                        // Just naively convert to string for now
                         var dataString = dataset.data[index].toString();
-                        // Make sure alignment settings are correct
-                        ctx.textAlign = 'center';
-                        ctx.textBaseline = 'middle';
-                        var padding = 5;
-                        var position = element.tooltipPosition();
-                        ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
+                        if (dataString !== '0')
+                        {
+                            ctx.fillStyle = 'rgb(0, 0, 0)';
+                            var fontSize = 11;
+                            var fontStyle = 'normal';
+                            var fontFamily = 'Arial';
+                            ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
+                            // Just naively convert to string for now
+
+                            // Make sure alignment settings are correct
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'middle';
+                            var padding = 5;
+                            var position = element.tooltipPosition();
+                            ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
+                        }
                     });
                 }
             });
@@ -368,7 +372,7 @@
                 backgroundColor: '#36c',
                 borderColor: '#36c',
                 borderWidth: 1,
-                data: [<?php $key = 0; foreach ($userChatsAverageStats as $data) : echo ($key > 0 ? ',' : ''),$data['avg_chat_duration']; $key++; endforeach;?>]
+                data: [<?php $key = 0; foreach ($userChatsAverageStats as $data) : echo ($key > 0 ? ',' : ''),round($data['avg_chat_duration'],2); $key++; endforeach;?>]
             }]
         };
 
@@ -386,7 +390,7 @@
                 backgroundColor: '#36c',
                 borderColor: '#36c',
                 borderWidth: 1,
-                data: [<?php $key = 0; foreach ($userWaitTimeByOperator as $data) : echo ($key > 0 ? ',' : ''),$data['avg_wait_time']; $key++; endforeach;?>]
+                data: [<?php $key = 0; foreach ($userWaitTimeByOperator as $data) : echo ($key > 0 ? ',' : ''),round($data['avg_wait_time'],2); $key++; endforeach;?>]
             }]
         };
 
