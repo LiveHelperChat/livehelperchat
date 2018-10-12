@@ -2,11 +2,13 @@
 
 $lastOperatorChanged = false;
 $lastOperatorId = false;
+$lastOperatorNick = '';
 
 foreach ($messages as $msg) : 
 
-if ($lastOperatorId !== false && $lastOperatorId != $msg->user_id) {
+if ($lastOperatorId !== false && ($lastOperatorId != $msg->user_id || $lastOperatorNick != $msg->name_support)) {
     $lastOperatorChanged = true;
+    $lastOperatorNick = $msg->name_support;
 } else {
     $lastOperatorChanged = false;
 }
