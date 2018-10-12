@@ -868,7 +868,7 @@ function lh(){
                 			};
                 			
                 			if (inst.last_message_id > 0) {
-                				if ($('#msg-'+inst.last_message_id).attr('data-op-id') != data.msop) {
+                				if ($('#msg-'+inst.last_message_id).attr('data-op-id') != data.msop || ($('#msg-'+inst.last_message_id+' > .usr-tit').text() !== $('#msg-'+data.message_id+' > .usr-tit').text())) {
                 					$('#msg-'+inst.last_message_id).next().addClass('operator-changes');
                 				}
                 			}
