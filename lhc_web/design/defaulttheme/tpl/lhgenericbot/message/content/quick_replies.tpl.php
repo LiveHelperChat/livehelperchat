@@ -2,8 +2,9 @@
     <ul class="quick-replies list-inline meta-auto-hide">
     <?php foreach ($metaMessage as $item) : $disabledButton = isset($item['content']['disabled']) && $item['content']['disabled'] == true;?>
             <?php if ($item['type'] == 'url') : ?>
-            <li><a class="btn btn-xs btn-info btn-bot" target="_blank" href="<?php echo htmlspecialchars($item['content']['payload'])?>">
-                    <i class="material-icons">open_in_new</i><?php echo htmlspecialchars($item['content']['name'])?></a></li>
+            <li>
+                <a <?php if (isset($item['content']['payload_message']) && $item['content']['payload_message'] != '') : ?>onclick='lhinst.buttonClicked(<?php echo json_encode($item['content']['payload_message'])?>,<?php echo $messageId?>,$(this))'<?php endif;?> class="btn btn-xs btn-info btn-bot" target="_blank" href="<?php echo htmlspecialchars($item['content']['payload'])?>"><i class="material-icons">open_in_new</i><?php echo htmlspecialchars($item['content']['name'])?></a>
+            </li>
              <?php elseif ($item['type'] == 'trigger') : ?>
             <li><button type="button" class="btn btn-xs btn-info btn-bot" <?php if ($disabledButton == true) : ?>disabled="disabled"<?php endif;?> <?php if ($disabledButton == false) : ?>onclick='lhinst.updateTriggerClicked(<?php echo json_encode($item['content']['payload'])?>,<?php echo $messageId?>,$(this))'<?php endif;?>><?php echo htmlspecialchars($item['content']['name'])?></button></li>
             <?php elseif ($item['type'] == 'updatechat') : ?>

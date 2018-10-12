@@ -72,15 +72,26 @@ class NodeTriggerActionQuickReplyPayload extends Component {
         } else if (this.props.payloadType == 'url') {
             controlPayload =
                 <div className="col-xs-12">
-                    <div className="form-group">
-                        <label>URL</label>
-                        <input className="form-control input-sm" type="text" onChange={this.onChange.bind(this)} defaultValue={this.props.currentPayload.get('payload')} />
+                    <div className="row">
+                        <div className="col-xs-6">
+                            <div className="form-group">
+                                <label>URL</label>
+                                <input className="form-control input-sm" type="text" onChange={this.onChange.bind(this)} defaultValue={this.props.currentPayload.get('payload')} />
+                            </div>
+                        </div>
+                        <div className="col-xs-6">
+                            <div className="form-group">
+                                <label>Payload</label>
+                                <select className="form-control input-sm" onChange={this.onChangeMessageToVisitor.bind(this)} value={this.props.currentPayload.get('payload_message')}><option value="">Select event</option>{list}</select>
+                            </div>
+                        </div>
                     </div>
                 </div>
         } else if (this.props.payloadType == 'updatechat') {
             controlPayload =
                 <div className="col-xs-12">
                     <div className="form-group">
+                        <label>Select action</label>
                         <select className="form-control input-sm" value={this.props.currentPayload.get('payload')} onChange={this.onChange.bind(this)} >
                             <option value="">Select event</option>
                             <option value="transferToOperator">Transfer to operator</option>
