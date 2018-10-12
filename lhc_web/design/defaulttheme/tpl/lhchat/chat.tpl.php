@@ -42,6 +42,7 @@
             $lastMessageID = 0;
             $lastOperatorChanged = false;
             $lastOperatorId = false;
+            $lastOperatorNick = '';
 
             $messages = erLhcoreClassChat::getChatMessages($chat_id);
             $messagesStats = array(
@@ -53,8 +54,9 @@
 
             $messagesStats['counter_messages']++;
 
-            if ($lastOperatorId !== false && $lastOperatorId != $msg['user_id']) {
+            if ($lastOperatorId !== false && ($lastOperatorId != $msg['user_id'] || $msg['name_support'] != $lastOperatorNick)) {
                 $lastOperatorChanged = true;
+                $lastOperatorNick = $msg['name_support'];
             } else {
                 $lastOperatorChanged = false;
             }
