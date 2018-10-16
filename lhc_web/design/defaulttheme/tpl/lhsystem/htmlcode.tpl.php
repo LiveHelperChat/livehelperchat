@@ -24,13 +24,6 @@
     			</div>
 			</div>
 
-            <?php /*
-			<div class="col-md-6">
-    			<div>
-    				<label><input type="checkbox" id="id_check_operator_message" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Automatically check for messages from the operator/invitation messages');?> <span data-tooltip data-width="250" class="has-tip" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','It increases server load, because every 15 seconds is checked for operator message or invitation message.');?>">?</span></label>
-    			</div>
-			</div>*/ ?>
-
 			<div class="col-md-6">
     			<div>
     				<label><input type="checkbox" id="id_show_leave_form" checked="checked" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Show a ‘leave a message form’ when there are no online operators');?></label>

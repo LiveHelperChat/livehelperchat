@@ -1714,7 +1714,6 @@ function lh(){
 	        {
 	            this.syncroRequestSend = true;
 
-                clearTimeout(this.userTimeout);
         	    $.postJSON(this.wwwDir + this.syncadmin ,{ 'chats[]': this.chatsSynchronisingMsg }, function(data){
 
                     if (typeof data.error_url !== 'undefined') {
@@ -1857,9 +1856,11 @@ function lh(){
 
                             lhinst.hidenicknamesstatus = groupTabs;
 
+                            clearTimeout(lhinst.userTimeout);
 	        	            lhinst.userTimeout = setTimeout(chatsyncadmin,confLH.chat_message_sinterval);
 	        	        };
-        	    	} catch (err) {        	    	
+        	    	} catch (err) {
+                        clearTimeout(lhinst.userTimeout);
         	    		lhinst.userTimeout = setTimeout(chatsyncadmin,confLH.chat_message_sinterval);
 					};
         	        									
@@ -1872,10 +1873,12 @@ function lh(){
         	        
         	        
             	}).fail(function(){
+                    clearTimeout(lhinst.userTimeout);
             		lhinst.userTimeout = setTimeout(chatsyncadmin,confLH.chat_message_sinterval);
             		lhinst.setSynchronizationRequestSend(false);
             	});
 	        } else {
+                clearTimeout(lhinst.userTimeout);
 	        	lhinst.userTimeout = setTimeout(chatsyncadmin,confLH.chat_message_sinterval);
 	        }
 
