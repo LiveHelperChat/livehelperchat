@@ -148,7 +148,7 @@ class erLhcoreClassGenericBotActionCollectable {
     // Send's summary to user to confirm
     public static function sendSummary($chat, $workflow) {
 
-        $message = 'Here is your collection information is it correct?';
+        $message = 'Below is the information that our Online Assistant has captured. Is it correct?';
         if (isset($workflow->collected_data_array['collectable_options']['collection_confirm']) && !empty($workflow->collected_data_array['collectable_options']['collection_confirm'])) {
             $message = $workflow->collected_data_array['collectable_options']['collection_confirm'];
         }
