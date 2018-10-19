@@ -47,31 +47,31 @@
 	<div class="col-md-4">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User group');?></label>
-            <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-                    'input_name'     => 'group_id',
-            		'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select group'),
-                    'selected_id'    => $input->group_id,
-                    'css_class'      => 'form-control',
-                    'display_name'   => 'name',
-                    'list_function'  => 'erLhcoreClassModelGroup::getList'
+            <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                'input_name'     => 'group_ids[]',
+                'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select group'),
+                'selected_id'    => $input->group_ids,
+                'css_class'      => 'form-control',
+                'display_name'   => 'name',
+                'list_function'  => 'erLhcoreClassModelGroup::getList'
             )); ?>
         </div>
     </div>
     <div class="col-md-4">
 	   <div class="form-group">
-    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department group');?></label>
-    	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-                    'input_name'     => 'department_group_id',
-    				'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department group'),
-                    'selected_id'    => $input->department_group_id,	
-    	            'css_class'      => 'form-control',			
-                    'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
-            )); ?> 
+    	    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department group');?></label>
+            <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+               'input_name'     => 'department_group_ids[]',
+               'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department group'),
+               'selected_id'    => $input->department_group_ids,
+               'css_class'      => 'form-control',
+               'display_name'   => 'name',
+               'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
+           )); ?>
         </div>   
     </div>
 </div>   
 
-    
     
 <input type="submit" name="doSearch" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
 
@@ -80,6 +80,9 @@ $(function() {
 	$('#id_timefrom,#id_timeto').fdatepicker({
 		format: 'yyyy-mm-dd'
 	});
+    $(".btn-block-department").on("click", "[data-stopPropagation]", function(e) {
+        e.stopPropagation();
+    });
 });
 </script>	
 	

@@ -167,6 +167,26 @@ class erLhcoreClassRenderHelper {
     	return $array;
     }
 
+    public static function renderMultiDropdown($params) {
 
+        $template = '<div class="btn-block-department">
+                <ul class="nav">
+                    <li class="dropdown">
+                        <button type="button" class="btn btn-default btn-block btn-sm dropdown-toggle btn-department-dropdown" data-toggle="dropdown" aria-expanded="false">' .
+                        $params['optional_field']. ' <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">';
+
+        $items = call_user_func($params['list_function'],isset($params['list_function_params']) ? $params['list_function_params'] : array());
+        $array = array();
+
+        foreach ($items as $item) {
+            $template .= '<li data-stoppropagation="true"><label><input '. ((is_array($params['selected_id']) && in_array($item->id,$params['selected_id'])) ? 'checked="checked"' : '') .' type="checkbox" name="' .$params['input_name'] .'" value="'. $item->id .'">' . htmlspecialchars($item->{$params['display_name']}). '</label></li>';
+        }
+
+        $template .= '</ul></li></ul></div>';
+
+        return $template;
+    }
 
 }

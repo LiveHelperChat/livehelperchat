@@ -29,7 +29,7 @@ $fieldsSearch['timeto'] = array (
     )
 );
 
-$fieldsSearch['department_id'] = array (
+/*$fieldsSearch['department_id'] = array (
     'type' => 'text',
     'trans' => 'Department',
     'required' => false,
@@ -51,7 +51,7 @@ $fieldsSearch['department_group_id'] = array (
     'validation_definition' => new ezcInputFormDefinitionElement(
         ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
     )
-);
+);*/
 
 $fieldsSearch['invitation_id'] = array (
     'type' => 'text',
@@ -65,7 +65,7 @@ $fieldsSearch['invitation_id'] = array (
     )
 );
 
-$fieldsSearch['group_id'] = array (
+/*$fieldsSearch['group_id'] = array (
     'type' => 'text',
     'trans' => 'Group',
     'required' => false,
@@ -75,8 +75,8 @@ $fieldsSearch['group_id'] = array (
     'validation_definition' => new ezcInputFormDefinitionElement(
         ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
     )
-);
-
+);*/
+/*
 $fieldsSearch['user_id'] = array (
 	'type' => 'text',
 	'trans' => 'User',
@@ -87,8 +87,43 @@ $fieldsSearch['user_id'] = array (
 	'validation_definition' => new ezcInputFormDefinitionElement(
 		ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
 	)
+);*/
+
+$fieldsSearch['group_ids'] = array (
+    'type' => 'text',
+    'trans' => 'Group',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterin',
+    'filter_table_field' => 'group_ids',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1), FILTER_REQUIRE_ARRAY
+    )
 );
 
+$fieldsSearch['department_ids'] = array (
+    'type' => 'text',
+    'trans' => 'Department',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterin',
+    'filter_table_field' => 'department_ids',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0), FILTER_REQUIRE_ARRAY
+    )
+);
+
+$fieldsSearch['department_group_ids'] = array (
+    'type' => 'text',
+    'trans' => 'Group',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterin',
+    'filter_table_field' => 'department_group_ids',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1), FILTER_REQUIRE_ARRAY
+    )
+);
 
 
 $fieldSortAttr = array (

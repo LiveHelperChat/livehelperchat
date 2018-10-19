@@ -39,6 +39,12 @@ $ViewList['settings'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['deletesubscriber'] = array(
+    'params' => array('id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'use' )
+);
+
 $FunctionList['use'] = array('explain' => 'Notifications module');
 
 ?>
