@@ -251,9 +251,9 @@ option.offline-dep{
 
 .footer-row {
     border-top: 1px solid #e7e7e7;
-    margin-top: -1px;
+    margin-top: 0px;
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 
 .footer-row p {
