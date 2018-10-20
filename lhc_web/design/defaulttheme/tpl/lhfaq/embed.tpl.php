@@ -14,6 +14,7 @@ var lhc_FAQEmbed = function() {
     };
 
     this.handleMessage = function(e) {
+        if (typeof e.data !== 'string') { return; }
     	var action = e.data.split(':')[0];
     	if (action == 'lhc_sizing_faq_embed') {
     		var height = e.data.split(':')[1];

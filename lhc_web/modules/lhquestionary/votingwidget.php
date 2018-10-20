@@ -214,7 +214,7 @@ $Result['dynamic_height_message'] = 'lhc_sizing_questionary';
 
 if ($embedMode == true) {
 	$Result['dynamic_height_message'] = 'lhc_sizing_questionary_page';
-	$Result['pagelayout_css_append'] = 'embed-widget';
+	$Result['pagelayout_css_append'] = 'embed-widget embed-fixed';
 }
 
 ?>

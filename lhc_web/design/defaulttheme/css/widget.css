@@ -103,6 +103,11 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 		padding-top:0px!important;
 	}
 
+	.embed-fixed > #widget-layout,.embed-fixed > #widget-layout > .col-xs-12,.embed-fixed #widget-content-body{
+		height:auto;
+	}
+
+
 	body {
 		padding-top:7px!important;
 	}

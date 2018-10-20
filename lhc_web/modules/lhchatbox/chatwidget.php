@@ -79,7 +79,7 @@ if (($Result = $cache->restore($cacheKey)) === false)
 
     if ($embedMode == true) {
         $Result['dynamic_height_message'] = 'lhc_sizing_chatbox_page';
-        $Result['pagelayout_css_append'] = 'embed-widget';
+        $Result['pagelayout_css_append'] = 'embed-widget embed-fixed';
     }
 
     $cache->store($cacheKey,$Result);

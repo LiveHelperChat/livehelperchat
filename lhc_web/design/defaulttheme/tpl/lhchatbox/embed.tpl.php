@@ -34,6 +34,8 @@ var lhc_ChatboxPage = {
     },
 
    handleMessage : function(e) {
+        if (typeof e.data !== 'string') { return; }
+
     	var action = e.data.split(':')[0];
     	if (action == 'lhc_sizing_chatbox_page') {
     		var height = e.data.split(':')[1];
