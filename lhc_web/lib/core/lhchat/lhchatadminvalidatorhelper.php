@@ -101,7 +101,12 @@ class erLhcoreClassAdminChatValidatorHelper {
         {
             $cannedMessage->tags_plain = $form->Tags;
         }
-        
+
+        if (strpos($cannedMessage->tags_plain,'#') !== false)
+        {
+            $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Canned message tags should not contain # character');
+        }
+
         if ( $form->hasValidData( 'DepartmentID' )  ) {
             $cannedMessage->department_id = $form->DepartmentID;
             if ($userDepartments !== true) {

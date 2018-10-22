@@ -18,6 +18,9 @@ var LHCCannedMessageAutoSuggest = (function() {
 		// Store current request
 		this.currentRequest = null;
 
+		// Cache
+		this.cacheCanned = {};
+
         // General one
 		var _that = this;
 		
@@ -252,13 +255,33 @@ var LHCCannedMessageAutoSuggest = (function() {
                     _that.currentRequest = null;
 				}
 
-				_that.currentRequest = $.getJSON(WWW_DIR_JAVASCRIPT + 'cannedmsg/showsuggester/' + _that.chat_id,{keyword : _that.currentKeword}, function(data) {
-					_that.textarea.parent().find('.canned-suggester').remove();
-					_that.textarea.before(data.result);
-					_that.initSuggester();
-				});
+                var cacheKeyword = false;
+				var cacheData = null;
 
-			}, 200);
+                if (_that.currentKeword.length < 3) {
+                    cacheKeyword = true;
+                    if (typeof _that.cacheCanned[_that.currentKeword] !== 'undefined') {
+                        cacheData = _that.cacheCanned[_that.currentKeword];
+					}
+                }
+
+                if (cacheData !== null)
+				{
+                    _that.textarea.parent().find('.canned-suggester').remove();
+                    _that.textarea.before(cacheData);
+                    _that.initSuggester();
+				} else {
+                    _that.currentRequest = $.getJSON(WWW_DIR_JAVASCRIPT + 'cannedmsg/showsuggester/' + _that.chat_id,{keyword : _that.currentKeword}, function(data) {
+                        _that.textarea.parent().find('.canned-suggester').remove();
+                        _that.textarea.before(data.result);
+                        _that.initSuggester();
+                        if (cacheKeyword == true) {
+                            _that.cacheCanned[_that.currentKeword] = data.result;
+						}
+                    });
+				}
+
+			}, 130);
 
 		} else {
 
