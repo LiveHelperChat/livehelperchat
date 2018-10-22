@@ -159,6 +159,9 @@
 	
 	<script>
 	$(function() {
+        $(".btn-block-department").on("click", "[data-stopPropagation]", function(e) {
+            e.stopPropagation();
+        });
 		$('#id_timefrom,#id_timeto').fdatepicker({
 			format: 'yyyy-mm-dd'
 		});
@@ -803,9 +806,6 @@
 	}
 
 	$( document ).ready(function() {
-	    $(".btn-block-department").on("click", "[data-stopPropagation]", function(e) {
-                e.stopPropagation();
-        });
 		redrawAllCharts();
 	});
 				
