@@ -76,6 +76,11 @@ class erLhcoreClassGenericBotActionText {
             $metaMessage['content']['html']['content'] = $action['content']['html'];
         }
 
+        if (isset($action['content']['attr_options']) && !empty($action['content']['attr_options']))
+        {
+            $metaMessage['content']['attr_options'] = $action['content']['attr_options'];
+        }
+
         $msg->msg = isset($action['content']['text']) ? trim($action['content']['text']) : '';
         $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';
         $msg->chat_id = $chat->id;

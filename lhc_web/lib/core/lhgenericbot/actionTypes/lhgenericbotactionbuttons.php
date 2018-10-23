@@ -12,6 +12,10 @@ class erLhcoreClassGenericBotActionButtons {
             $metaMessage['content']['buttons_generic'] = $action['content']['buttons'];
         }
 
+        if (isset($action['content']['buttons_options']['hide_text_area']) && $action['content']['buttons_options']['hide_text_area'] == true) {
+             $metaMessage['content']['attr_options']['hide_text_area'] = true;
+        }
+
         $msg->msg = isset($action['content']['buttons_options']['message']) && !empty($action['content']['buttons_options']['message']) ? $action['content']['buttons_options']['message'] : '';
         $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';
         $msg->chat_id = $chat->id;

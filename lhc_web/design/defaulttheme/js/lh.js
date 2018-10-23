@@ -3172,6 +3172,18 @@ function lh(){
     	lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/editnick/'+this.chat_id+'/'+this.hash})   
     }
 
+    this.enableVisitorEditor = function()
+    {
+        $('#CSChatMessage').prop('readonly',false);
+    }
+
+    this.disableVisitorEditor = function()
+    {
+        setTimeout(function(){
+            $('#CSChatMessage').prop('readonly',true);
+        },300);
+    }
+
     this.buttonClicked = function(payload, id, btn, notHide) {
 
         if (btn.attr("data-no-change") == undefined) {
@@ -3196,9 +3208,11 @@ function lh(){
             messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
             lhinst.forceBottomScroll = true;
             lhinst.syncroRequestSend = false;
+            $('#CSChatMessage').prop('readonly',false);
             lhinst.syncusercall();
         }).fail(function() {
             lhinst.syncroRequestSend = false;
+            $('#CSChatMessage').prop('readonly',false);
             lhinst.syncusercall();
         });
 
@@ -3220,9 +3234,11 @@ function lh(){
             messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
             lhinst.forceBottomScroll = true;
             lhinst.syncroRequestSend = false;
+            $('#CSChatMessage').prop('readonly',false);
             lhinst.syncusercall();
         }).fail(function() {
             lhinst.syncroRequestSend = false;
+            $('#CSChatMessage').prop('readonly',false);
             lhinst.syncusercall();
         });
         
@@ -3253,10 +3269,12 @@ function lh(){
 
             lhinst.forceBottomScroll = true;
             lhinst.syncroRequestSend = false;
+            $('#CSChatMessage').prop('readonly',false);
             lhinst.syncusercall();
 
         }).fail(function() {
             lhinst.syncroRequestSend = false;
+            $('#CSChatMessage').prop('readonly',false);
             lhinst.syncusercall();
         });
 
@@ -3288,10 +3306,12 @@ function lh(){
 
             lhinst.forceBottomScroll = true;
             lhinst.syncroRequestSend = false;
+            $('#CSChatMessage').prop('readonly',false);
             lhinst.syncusercall();
 
         }).fail(function() {
             lhinst.syncroRequestSend = false;
+            $('#CSChatMessage').prop('readonly',false);
             lhinst.syncusercall();
         });
         lhinst.focusUserText();
@@ -3318,9 +3338,11 @@ function lh(){
 
                 lhinst.forceBottomScroll = true;
                 lhinst.syncroRequestSend = false;
+                $('#CSChatMessage').prop('readonly',false);
                 lhinst.syncusercall();
             }).fail(function() {
                 lhinst.syncroRequestSend = false;
+                $('#CSChatMessage').prop('readonly',false);
                 lhinst.syncusercall();
             });
             

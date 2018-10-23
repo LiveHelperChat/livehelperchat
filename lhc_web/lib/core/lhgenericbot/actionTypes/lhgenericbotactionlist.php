@@ -18,6 +18,10 @@ class erLhcoreClassGenericBotActionList {
 
         $metaMessage['options']['no_highlight'] = isset($action['content']['list_options']['no_highlight']) && $action['content']['list_options']['no_highlight'] == true ? true : false;
 
+        if (isset($action['content']['list_options']['hide_text_area']) && $action['content']['list_options']['hide_text_area'] == true) {
+            $metaMessage['content']['attr_options']['hide_text_area'] = true;
+        }
+
         $msg->msg = '';
         $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';
         $msg->chat_id = $chat->id;

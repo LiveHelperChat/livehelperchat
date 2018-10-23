@@ -64,7 +64,7 @@ class NodeActionListItem extends Component {
     }
 
     onPayloadButtonAttrChange(e) {
-        this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['buttons', e.id,'content',e.payload.attr], value :  payload});
+        this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['buttons', e.id,'content',e.payload.attr], value :  e.payload.value});
     }
 
     onQuickReplyPayloadChange(e) {

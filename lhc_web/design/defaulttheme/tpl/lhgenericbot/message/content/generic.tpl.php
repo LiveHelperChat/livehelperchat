@@ -21,7 +21,7 @@
                             <?php foreach ($item['buttons'] as $itemButton) : ?>
                                 <li>
                                     <?php if ($itemButton['type'] == 'url') : ?>
-                                    <a target="_blank" href="<?php echo htmlspecialchars($itemButton['content']['payload'])?>">
+                                    <a target="_blank" <?php if (isset($itemButton['content']['payload_message']) && $itemButton['content']['payload_message'] != '') : ?>onclick='lhinst.buttonClicked(<?php echo json_encode($itemButton['content']['payload_message'])?>,<?php echo $messageId?>,$(this))'<?php else : ?>onclick="lhinst.enableVisitorEditor()"<?php endif;?> href="<?php echo htmlspecialchars($itemButton['content']['payload'])?>">
                                     <i class="material-icons">open_in_new</i>
                                     <?php elseif ($itemButton['type'] == 'updatechat') : ?>
                                     <a data-no-change="true" onclick='lhinst.updateChatClicked(<?php echo json_encode($itemButton['content']['payload'])?>,<?php echo $messageId?>,$(this),true)'>

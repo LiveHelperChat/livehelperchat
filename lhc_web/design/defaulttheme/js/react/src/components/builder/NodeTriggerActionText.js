@@ -89,6 +89,10 @@ class NodeTriggerActionText extends Component {
         this.props.onChangeContent({id : this.props.id, 'path' : ['content','callback_list',e.id].concat(e.path), value : e.value});
     }
 
+    onchangeAttr(e) {
+        this.props.onChangeContent({id : this.props.id, 'path' : ['content'].concat(e.path), value : e.value});
+    }
+
     render() {
 
         var quick_replies = [];
@@ -131,6 +135,10 @@ class NodeTriggerActionText extends Component {
                     <div className="form-group">
                         <label>Enter HTML</label>
                         <textarea placeholder="Write your response here!" onChange={this.setHTML} defaultValue={this.props.action.getIn(['content','html'])} className="form-control"></textarea>
+                    </div>
+
+                    <div className="pull-left" role="group">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','hide_text_area'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','hide_text_area'])} /> Hide text area on response.</label> <i className="material-icons" title="Textarea to enter user message will be disabled. Make sure you include buttons for user to click.">info</i>
                     </div>
 
                     <div className="btn-group pull-right" role="group">

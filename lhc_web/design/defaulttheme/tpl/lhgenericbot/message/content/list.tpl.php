@@ -20,8 +20,8 @@
                             <ul class="quick-replies list-inline">
                                 <?php foreach ($item['buttons'] as $itemButton) : ?>
                                     <li>
-                                        <?php if ($item['type'] == 'url') : ?>
-                                        <a class="btn btn-xs btn-info btn-bot" target="_blank" href="<?php echo htmlspecialchars($itemButton['content']['payload'])?>">
+                                        <?php if ($itemButton['type'] == 'url') : ?>
+                                        <a class="btn btn-xs btn-info btn-bot" <?php if (isset($itemButton['content']['payload_message']) && $itemButton['content']['payload_message'] != '') : ?>onclick='lhinst.buttonClicked(<?php echo json_encode($itemButton['content']['payload_message'])?>,<?php echo $messageId?>,$(this))'<?php else : ?>onclick="lhinst.enableVisitorEditor()"<?php endif;?> target="_blank" href="<?php echo htmlspecialchars($itemButton['content']['payload'])?>">
                                         <i class="material-icons">open_in_new</i>
                                         <?php elseif ($itemButton['type'] == 'updatechat') : ?>
                                         <a class="btn btn-xs btn-info btn-bot" data-no-change="true" onclick='lhinst.updateChatClicked(<?php echo json_encode($itemButton['content']['payload'])?>,<?php echo $messageId?>,$(this),true)'>
@@ -49,7 +49,7 @@
     <?php if (isset($metaMessage['list_quick_replies'])) : foreach ($metaMessage['list_quick_replies'] as $index => $item) : ?>
     <div class="list-group-element button-item <?php $listCompactStyle == true ? print ' compact' : print ' large'?>">
         <?php if ($item['type'] == 'url') : ?>
-        <a target="_blank" href="<?php echo htmlspecialchars($item['content']['payload'])?>">
+        <a target="_blank" <?php if (isset($item['content']['payload_message']) && $item['content']['payload_message'] != '') : ?>onclick='lhinst.buttonClicked(<?php echo json_encode($item['content']['payload_message'])?>,<?php echo $messageId?>,$(this))'<?php else : ?>onclick="lhinst.enableVisitorEditor()"<?php endif;?> href="<?php echo htmlspecialchars($item['content']['payload'])?>">
         <i class="material-icons">open_in_new</i>
         <?php elseif ($item['type'] == 'updatechat') : ?>
         <a data-no-change="true" onclick='lhinst.updateChatClicked(<?php echo json_encode($item['content']['payload'])?>,<?php echo $messageId?>,$(this),true)'>

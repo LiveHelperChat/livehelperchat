@@ -12,6 +12,10 @@ class erLhcoreClassGenericBotActionGeneric {
             $metaMessage['content']['generic']['items'] = $action['content']['list'];
         }
 
+        if (isset($action['content']['list_options']['hide_text_area']) && $action['content']['list_options']['hide_text_area'] == true) {
+            $metaMessage['content']['attr_options']['hide_text_area'] = true;
+        }
+        
         $msg->msg = '';
         $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';
         $msg->chat_id = $chat->id;
