@@ -3208,11 +3208,11 @@ function lh(){
             messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
             lhinst.forceBottomScroll = true;
             lhinst.syncroRequestSend = false;
-            $('#CSChatMessage').prop('readonly',false);
+            lhinst.enableVisitorEditor();
             lhinst.syncusercall();
         }).fail(function() {
             lhinst.syncroRequestSend = false;
-            $('#CSChatMessage').prop('readonly',false);
+            lhinst.enableVisitorEditor();
             lhinst.syncusercall();
         });
 
@@ -3234,11 +3234,11 @@ function lh(){
             messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
             lhinst.forceBottomScroll = true;
             lhinst.syncroRequestSend = false;
-            $('#CSChatMessage').prop('readonly',false);
+            lhinst.enableVisitorEditor();
             lhinst.syncusercall();
         }).fail(function() {
             lhinst.syncroRequestSend = false;
-            $('#CSChatMessage').prop('readonly',false);
+            lhinst.enableVisitorEditor();
             lhinst.syncusercall();
         });
         
@@ -3269,12 +3269,12 @@ function lh(){
 
             lhinst.forceBottomScroll = true;
             lhinst.syncroRequestSend = false;
-            $('#CSChatMessage').prop('readonly',false);
+            lhinst.enableVisitorEditor();
             lhinst.syncusercall();
 
         }).fail(function() {
             lhinst.syncroRequestSend = false;
-            $('#CSChatMessage').prop('readonly',false);
+            lhinst.enableVisitorEditor();
             lhinst.syncusercall();
         });
 
@@ -3306,12 +3306,12 @@ function lh(){
 
             lhinst.forceBottomScroll = true;
             lhinst.syncroRequestSend = false;
-            $('#CSChatMessage').prop('readonly',false);
+            lhinst.enableVisitorEditor();
             lhinst.syncusercall();
 
         }).fail(function() {
             lhinst.syncroRequestSend = false;
-            $('#CSChatMessage').prop('readonly',false);
+            lhinst.enableVisitorEditor();
             lhinst.syncusercall();
         });
         lhinst.focusUserText();
@@ -3338,11 +3338,11 @@ function lh(){
 
                 lhinst.forceBottomScroll = true;
                 lhinst.syncroRequestSend = false;
-                $('#CSChatMessage').prop('readonly',false);
+                lhinst.enableVisitorEditor();
                 lhinst.syncusercall();
             }).fail(function() {
                 lhinst.syncroRequestSend = false;
-                $('#CSChatMessage').prop('readonly',false);
+                lhinst.enableVisitorEditor();
                 lhinst.syncusercall();
             });
             
