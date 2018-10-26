@@ -1698,6 +1698,16 @@ input[type="file"]{
 	animation: lhc-spin 2s infinite linear;
 }
 
+.btn-block-department-filter{
+	padding: 0px 4px 4px 4px;
+	border-bottom: 1px solid #CCC;
+}
+
+.btn-block-department-filter input{
+	padding: 2px 4px;
+	height: auto;
+}
+
 @keyframes lhc-spin {
 	0% {
 		-webkit-transform: rotate(0deg);

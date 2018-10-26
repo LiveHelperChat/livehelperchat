@@ -175,7 +175,11 @@ class erLhcoreClassRenderHelper {
                         <button type="button" class="btn btn-default btn-block btn-sm dropdown-toggle btn-department-dropdown" data-toggle="dropdown" aria-expanded="false">' .
                         $params['optional_field']. ' <span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu" role="menu">';
+                        <ul class="dropdown-menu" role="menu">
+                        <li class="btn-block-department-filter">
+                        <input type="text" class="form-control input-sm" value="" />
+</li>
+                        ';
 
         $items = call_user_func($params['list_function'],isset($params['list_function_params']) ? $params['list_function_params'] : array());
         $array = array();

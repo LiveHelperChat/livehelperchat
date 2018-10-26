@@ -3550,6 +3550,34 @@ function gMapsCallback(){
 	});
 };
 
+$.fn.makeDropdown = function() {
+    var filterInput = this.find('.btn-block-department-filter > input');
+
+    this.click(function(){
+        setTimeout(function(){
+            filterInput.focus();
+        },50);
+    })
+
+    this.on("click", "[data-stopPropagation]", function(e) {
+        e.stopPropagation();
+        filterInput.focus();
+    })
+
+    filterInput.keyup(function(){
+        var filter = $(this).val();
+        $(this).parent().parent().children('li').each(function(i) {
+            if (i > 0) {
+                if (!$(this).text().toLowerCase().includes(filter) && filter != ''){
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            }
+        });
+    });
+};
+
 var focused = true;
 window.onfocus = window.onblur = function(e) {
     focused = (e || event).type === "focus";

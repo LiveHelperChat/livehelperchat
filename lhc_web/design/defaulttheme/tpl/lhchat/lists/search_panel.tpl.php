@@ -388,8 +388,6 @@ $(function() {
 	$('#id_timefrom,#id_timeto').fdatepicker({
 		format: 'yyyy-mm-dd'
 	});
-    $(".btn-block-department").on("click", "[data-stopPropagation]", function(e) {
-        e.stopPropagation();
-    });
+    $('.btn-block-department').makeDropdown();
 });
 </script>
