@@ -1094,6 +1094,28 @@ input[type="file"]{
     overflow: hidden;
 }
 
+.abbr-list-general{
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow:hidden;
+	table-layout:fixed;
+	height:25px;
+	font-size:12px;
+	padding:3px;
+	border:1px solid #fff;
+	display:block;
+}
+
+.abbr-list-general:hover{
+	/*position:absolute;*/
+	height:auto;
+	background-color: #fbfbfb;
+	border:1px solid #ccc;
+	border-radius:5px;
+	padding:3px 3px 3px 3px;
+}
+
+
 .table-fixed {
 	table-layout:fixed;
 }
