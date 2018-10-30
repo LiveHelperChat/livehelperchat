@@ -284,6 +284,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
    if (count($Errors) == 0 && !isset($_POST['switchLang']))
    {   	
    		$chat->setIP();
+        $chat->lsync = time();
    		erLhcoreClassModelChat::detectLocation($chat);
    		
    		$statusGeoAdjustment = erLhcoreClassChat::getAdjustment(erLhcoreClassModelChatConfig::fetch('geoadjustment_data')->data_value, $inputData->vid);
@@ -338,7 +339,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	       try {
     	       $db = ezcDbInstance::get();
     	       $db->beginTransaction();
-    	       
+
     	       // Store chat
     	       $chat->saveThis();
 
