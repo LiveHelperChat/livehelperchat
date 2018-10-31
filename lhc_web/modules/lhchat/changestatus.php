@@ -30,7 +30,8 @@ if (erLhcoreClassChat::hasAccessToRead($chat)) {
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('chat' => & $chat, 'user' => $currentUser));
             
             echo json_encode(array(
-                'error' => 'false'
+                'error' => 'false',
+                'is_owner' => $chat->user_id == $userData->id
             ));
             exit();
         } else {

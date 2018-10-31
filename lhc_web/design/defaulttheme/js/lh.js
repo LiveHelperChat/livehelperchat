@@ -2716,6 +2716,10 @@ function lh(){
 	   		 if (data.error == 'false') {
 	   			$('#myModal').modal('hide');
 	   			inst.updateVoteStatus(chat_id);
+	   			if (data.is_owner === true) {
+                    $('#CSChatMessage-'+chat_id).attr('placeholder','');
+                    $('#CSChatMessage-'+chat_id).focus();
+                }
 	   		 } else {
 	   			 alert(data.result);
 	   		 }
