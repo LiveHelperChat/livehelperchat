@@ -2,7 +2,6 @@ $( document ).ready(function() {
 	$('#dashboard-body, #onlineusers, #map').popover({
 		  trigger:'hover',
 		  html : true, 
-		  container: 'body',
 		  selector: '[data-toggle="popover"]',
 		  content: function () {
 			 if ($(this).is('[data-popover-content]')) {
@@ -15,7 +14,7 @@ $( document ).ready(function() {
 			 if ($(this).is('[data-popover-title]')) {
 				 return $('#'+$(this).attr('data-popover-title')+'-'+$(this).attr('data-chat-id')).html();
 			 } else {
-				 return  $('#popover-title-'+$(this).attr('data-chat-id')).html();
+				 return $('#popover-title-'+$(this).attr('data-chat-id')).html();
 			 }
 		  }
 	});
