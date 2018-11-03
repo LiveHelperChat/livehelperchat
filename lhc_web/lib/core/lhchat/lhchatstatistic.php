@@ -1258,7 +1258,7 @@ class erLhcoreClassChatStatistic {
         if (isset($filtergte['filtergte']['time'])) {
             $filter['filtergte']['time'] = $filtergte['filtergte']['time'];
         } else {
-            $filter['filtergte']['time'] = 0;
+            $filter['filtergte']['time'] = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
         }
     
         if (isset($filtergte['filterlte']['time'])) {

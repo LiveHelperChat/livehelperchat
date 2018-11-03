@@ -114,7 +114,7 @@ class erLhcoreClassChatMail {
     	
     	$surveyContent = self::getSurveyContent($chat);
     	
-    	$sendMail->content = str_replace(array('{user_chat_nick}','{messages_content}','{chat_id}','{survey}'), array($chat->nick,$tpl->fetch(),$chat->id,$surveyContent), $sendMail->content);
+    	$sendMail->content = str_replace(array('{user_chat_nick}','{messages_content}','{chat_id}','{survey}','{operator_name}'), array($chat->nick,$tpl->fetch(),$chat->id,$surveyContent,$chat->plain_user_name), $sendMail->content);
     	
     	if ($form->hasValidData( 'Message' ) )
     	{
