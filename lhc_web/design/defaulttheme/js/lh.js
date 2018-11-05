@@ -40,6 +40,8 @@ function lh(){
     this.appendSyncArgument = '';
     this.nodeJsMode = false;
 
+    this.gmaps_loaded = false;
+
     // Disable sync, is used in angular controllers before migration to new JS structure
     this.disableSync = false;
     
@@ -3409,6 +3411,64 @@ function lh(){
         }
     }
 
+    this.gmaps_loading = false;
+    this.queue_render = [];
+
+    this.showMessageLocation = function(id,lat,lon) {
+        var myLatLng = {lat: lat, lng: lon};
+
+        if (this.gmaps_loaded == true) {
+
+            var map = new google.maps.Map(document.getElementById('msg-location-' + id), {
+                zoom: 13,
+                center: myLatLng
+            });
+
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: lat+","+lon
+            });
+
+        } else {
+            if (this.gmaps_loading == false) {
+                this.gmaps_loading = true;
+                var po = document.createElement('script'); po.type = 'text/javascript';
+                po.async = true;
+                po.src = 'https://maps.googleapis.com/maps/api/js?key='+confLH.gmaps_api_key+"&callback=chatMapLoaded";
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(po, s);
+                lhinst.queue_render.push({'id':id,'lat':lat,'lon':lon});
+            } else {
+                lhinst.queue_render.push({'id':id,'lat':lat,'lon':lon});
+            }
+        }
+    }
+}
+
+function chatMapLoaded()
+{
+    if (lhinst.queue_render.length > 0){
+        lhinst.gmaps_loaded = true;
+        var i = lhinst.queue_render.pop();
+
+        var myLatLng = {lat: i.lat, lng: i.lon};
+
+        var map = new google.maps.Map(document.getElementById('msg-location-' + i.id), {
+            zoom: 13,
+            center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: i.lat+","+i.lon
+        });
+
+        if (lhinst.queue_render.length > 0) {
+            chatMapLoaded();
+        }
+    }
 }
 
 var lhinst = new lh();
@@ -3427,6 +3487,8 @@ jQuery(document).on("click", function(){
 jQuery(document).on("touchstart", preloadSound);
 
 function gMapsCallback(){
+
+    lhinst.gmaps_loaded = true;
 
 	var $mapCanvas = $('#map_canvas');
 
