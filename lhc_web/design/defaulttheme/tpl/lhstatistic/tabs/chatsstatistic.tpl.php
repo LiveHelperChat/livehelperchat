@@ -211,6 +211,10 @@
         }
     });
 
+    Chart.Legend.prototype.afterFit = function() {
+        this.height = this.height + 10;
+    };
+
     function drawBasicChart(data, id) {
         var ctx = document.getElementById(id).getContext("2d");
         var myBar = new Chart(ctx, {
@@ -234,6 +238,11 @@
                             stepSize: 1,
                             min: 0,
                             autoSkip: false
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
                         }
                     }]
                 },
@@ -303,10 +312,12 @@
                             min: 0,
                             autoSkip: false
                         }
-                    }
-                    ],
+                    }],
                     yAxes: [{
-                        stacked: true
+                        stacked: true,
+                        ticks: {
+                            beginAtZero: true
+                        }
                     }]
                 },
                 title: {
@@ -385,7 +396,10 @@
                     }
                     ],
                     yAxes: [{
-                        stacked: true
+                        stacked: true,
+                        ticks: {
+                            beginAtZero: true
+                        }
                     }]
                 },
                 title: {
@@ -448,7 +462,10 @@
                     }
                     ],
                     yAxes: [{
-                        stacked: true
+                        stacked: true,
+                        ticks: {
+                            beginAtZero: true
+                        }
                     }]
                 },
                 title: {

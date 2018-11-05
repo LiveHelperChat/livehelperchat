@@ -208,6 +208,8 @@ function drawDepartmentStats(){
         }]
     };
 
+
+
     var ctx = document.getElementById("departments-stats").getContext("2d");
     var myBar = new Chart(ctx, {
         type: 'bar',
@@ -248,6 +250,9 @@ function drawDepartmentStats(){
                 }],
                 yAxes: [{
                     stacked: true,
+                    ticks: {
+                        beginAtZero: true
+                    },
                     max: 100
                 }]
             },

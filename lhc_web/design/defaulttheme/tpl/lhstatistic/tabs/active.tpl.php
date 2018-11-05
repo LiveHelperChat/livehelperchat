@@ -215,6 +215,10 @@
             });
         }
     });
+    
+    Chart.Legend.prototype.afterFit = function() {
+        this.height = this.height + 10;
+    };
 
 	function drawChart() {
 	  <?php if (!empty($userStats['thumbsup'])) : ?>
@@ -251,6 +255,11 @@
                             stepSize: 1,
                             min: 0,
                             autoSkip: false
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
                         }
                     }]
                 },
@@ -295,6 +304,11 @@
                             stepSize: 1,
                             min: 0,
                             autoSkip: false
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
                         }
                     }]
                 },
@@ -494,10 +508,12 @@
                             min: 0,
                             autoSkip: false
                         }
-                    }
-                    ],
+                    }],
                     yAxes: [{
-                        stacked: true
+                        stacked: true,
+                        ticks: {
+                            beginAtZero: true
+                        }
                     }]
                 },
                 title: {
@@ -545,6 +561,11 @@
                                 stepSize: 1,
                                 min: 0,
                                 autoSkip: false
+                            }
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
                             }
                         }]
                     },
@@ -618,7 +639,10 @@
                     }
                     ],
                     yAxes: [{
-                        stacked: true
+                        stacked: true,
+                        ticks: {
+                            beginAtZero: true
+                        }
                     }]
                 },
                 title: {
@@ -679,10 +703,12 @@
                             min: 0,
                             autoSkip: false
                         }
-                    }
-                    ],
+                    }],
                     yAxes: [{
-                        stacked: true
+                        stacked: true,
+                        ticks: {
+                            beginAtZero: true
+                        }
                     }]
                 },
                 title: {
@@ -728,6 +754,11 @@
                             stepSize: 1,
                             min: 0,
                             autoSkip: false
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
                         }
                     }]
                 },
@@ -793,6 +824,11 @@
                             stepSize: 1,
                             min: 0,
                             autoSkip: false
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
                         }
                     }]
                 },
