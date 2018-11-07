@@ -13,9 +13,9 @@ $ViewList['departmentstatusxls'] = array(
 
 $ViewList['statistic'] = array(
     'params' => array(),
-    'uparams' => array('department_ids','timeintervalto_hours', 'timeintervalfrom_hours', 'group_by','xls','tab','timefrom','timeto','department_id','user_id','group_id','department_group_id','timefrom_minutes','timefrom_hours','timeto_hours','timeto_minutes'),
+    'uparams' => array('department_ids','department_group_ids','group_ids','user_ids','timeintervalto_hours', 'timeintervalfrom_hours', 'group_by','xls','tab','timefrom','timeto','department_id','user_id','group_id','department_group_id','timefrom_minutes','timefrom_hours','timeto_hours','timeto_minutes'),
     'functions' => array( 'viewstatistic' ),
-    'multiple_arguments' => array('department_ids')
+    'multiple_arguments' => array('department_ids','group_ids','user_ids','department_group_ids')
 );
 
 $ViewList['campaignmodal'] = array(
