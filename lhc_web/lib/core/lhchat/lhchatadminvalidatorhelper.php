@@ -786,22 +786,6 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        $data['custom_fields'] = '';
 	    }
 	    
-	    /*if ($data['message_visible_in_popup'] == true && $data['message_require_option'] == 'required') {
-	        $hasValidPopupData = true;
-	    }*/
-	    
-	    /*if ($data['message_visible_in_page_widget'] == true && $data['message_require_option'] == 'required') {
-	        $hasWidgetData = true;
-	    }*/
-	    
-	    /*if ($hasValidPopupData == false){
-	        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Please choose at least one field for a popup');
-	    }*/
-	    
-	    /*if ($hasWidgetData == false){
-	        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Please choose at least one field for a page widget');
-	    }*/
-	    
 	    return $Errors;
     }
 }
