@@ -318,7 +318,8 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
     	       }
     
     	       $messageInitial = false;
-    	       
+
+    	       $paramsExecution = array();
     	       // Store message if required
     	       if (isset($startDataFields['message_visible_in_popup']) && $startDataFields['message_visible_in_popup'] == true) {
     	           if ( $inputData->question != '' ) {
@@ -329,9 +330,9 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
     	               $msg->user_id = 0;
     	               $msg->time = time();
     	               erLhcoreClassChat::getSession()->save($msg);
-    	               
-    	               $messageInitial = $msg;
-    	               
+
+                       $paramsExecution['msg'] = $messageInitial = $msg;
+
     	               $chat->unanswered_chat = 1;
     	               $chat->last_msg_id = $msg->id;
     	               $chat->saveThis();
@@ -339,7 +340,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
     	       }
 
     	       // Set bot workflow if required
-               erLhcoreClassChatValidator::setBot($chat);
+               erLhcoreClassChatValidator::setBot($chat, $paramsExecution);
 
     			// Auto responder
     			$responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
@@ -411,9 +412,10 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 	           $db->rollback();
 	           throw $e;
 	       }
-	       
+
 	       // Redirect user
-	       erLhcoreClassModule::redirect('chat/chat/' . $chat->id . '/' . $chat->hash . $themeAppend);
+	       erLhcoreClassModule::redirect('chat/chat/' . $chat->id . '/' . $chat->hash . $themeAppend . '/(cstarted)/online_chat_started_cb');
+           return;
 	       exit;
 	   	}
     } else {

@@ -54,6 +54,10 @@ export default ({onChange, type}) => {
         {
             'value':'attribute',
             'text' : 'Collect custom attribute',
+        },
+        {
+            'value': 'actions',
+            'text' : 'Execute action',
         }
     ]);
 

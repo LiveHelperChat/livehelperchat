@@ -1151,7 +1151,7 @@ class erLhcoreClassChatValidator {
 
                 if ($botTrigger instanceof erLhcoreClassModelGenericBotTrigger) {
 
-                    $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $botTrigger);
+                    $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $botTrigger, false, array('args' => $params));
 
                     if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
                         $chat->last_msg_id = $message->id;

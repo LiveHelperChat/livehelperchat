@@ -402,6 +402,21 @@
                     </div>
 
                     <div class="form-group">
+                        <label><?php echo $fields['custom_html_header']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('custom_html_header', $fields['custom_html_header'], $object)?>
+                    </div>
+
+                    <div class="form-group">
+                        <label><?php echo $fields['custom_html_header_body']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('custom_html_header_body', $fields['custom_html_header_body'], $object)?>
+                    </div>   
+
+                    <div class="form-group">
+                        <label><?php echo $fields['custom_html_status']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('custom_html_status', $fields['custom_html_status'], $object)?>
+                    </div>
+
+                    <div class="form-group">
                         <label><?php echo $fields['custom_start_button']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('custom_start_button', $fields['custom_start_button'], $object)?>
                     </div>
@@ -415,6 +430,8 @@
                         <label><?php echo $fields['custom_start_button_offline']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('custom_start_button_offline', $fields['custom_start_button_offline'], $object)?>
                     </div>
+
+
 
                     <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text content before user fields')?></h4>
 

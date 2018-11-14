@@ -23,6 +23,10 @@
 
 <?php if ($leaveamessage == false || ($forceoffline === false && erLhcoreClassChat::isOnline($department, false, array('ignore_user_status'=> (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value, 'online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'])) === true)) : ?>
 
+<?php if (isset($start_data_fields['pre_chat_html']) && $start_data_fields['pre_chat_html'] != '') : ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/chatwidget/pre_chat_html.tpl.php'));?>
+<?php endif?>
+
 <?php $onlyBotOnline = erLhcoreClassChat::isOnlyBotOnline($department); ?>
 
 <?php if (isset($start_data_fields['show_operator_profile']) && $start_data_fields['show_operator_profile'] == true) : ?>
@@ -174,6 +178,10 @@ if ($theme !== false && $theme->explain_text != '' && $onlyBotOnline == false) :
 <?php endif;?>
 </form>
 
+<?php if (isset($start_data_fields['pre_chat_html']) && $start_data_fields['pre_chat_html'] != '') : ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/chatwidget/post_chat_html.tpl.php'));?>
+<?php endif?>
+
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/switch_to_offline.tpl.php'));?>
 
 <?php if ($hasExtraField === false) : ?>
@@ -208,6 +216,11 @@ jQuery('#id_Question').bind('keydown', 'return', function (evt){
 <?php include(erLhcoreClassDesign::designtpl('lhchat/chatwidget/chatwidget_post_multiinclude.tpl.php'));?>
 
 <?php else : ?>
+
+    <?php if (isset($start_data_fields['pre_offline_chat_html']) && $start_data_fields['pre_offline_chat_html'] != '') : ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/chatwidget/pre_offline_chat_html.tpl.php'));?>
+    <?php endif?>
+
 	<?php if (isset($start_data_fields['show_operator_profile']) && $start_data_fields['show_operator_profile'] == true) : ?>
 	
 		<div class="pl10 pos-rel max-width-180 pull-right">
@@ -224,10 +237,15 @@ jQuery('#id_Question').bind('keydown', 'return', function (evt){
 	<?php include(erLhcoreClassDesign::designtpl('lhchat/chatwidget/chatwidget_pre_offline_form_multiinclude.tpl.php'));?>
 
 	<?php include(erLhcoreClassDesign::designtpl('lhchat/offline_form.tpl.php'));?>
-	
+
+    <?php if (isset($start_data_fields['pre_offline_chat_html']) && $start_data_fields['pre_offline_chat_html'] != '') : ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/chatwidget/post_offline_chat_html.tpl.php'));?>
+    <?php endif?>
+
 	<?php include(erLhcoreClassDesign::designtpl('lhchat/chatwidget/chatwidget_post_offline_form_multiinclude.tpl.php'));?>
-	
-	
+
 <?php endif;?>
+
+
 
 <?php endif;?>

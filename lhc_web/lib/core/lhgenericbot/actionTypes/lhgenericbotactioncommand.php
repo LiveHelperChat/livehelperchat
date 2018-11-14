@@ -30,7 +30,7 @@ class erLhcoreClassGenericBotActionCommand {
                     erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true);
                 }
 
-            } else if ($isOnline == true && isset($action['content']['payload_online']) && is_numeric($action['content']['payload_online'])) {
+            } else if ($isOnline == true) {
 
                 $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
                 $chat->status_sub_sub = 2; // Will be used to indicate that we have to show notification for this chat if it appears on list
@@ -46,7 +46,11 @@ class erLhcoreClassGenericBotActionCommand {
                 if ($handler !== false) {
                     $trigger = $handler['trigger'];
                 } else {
-                    $trigger = erLhcoreClassModelGenericBotTrigger::fetch($action['content']['payload_online']);
+                    if (isset($action['content']['payload_online']) && is_numeric($action['content']['payload_online'])) {
+                        $trigger = erLhcoreClassModelGenericBotTrigger::fetch($action['content']['payload_online']);
+                    } else {
+                        $trigger = null;
+                    }
                 }
 
                 if (($trigger instanceof erLhcoreClassModelGenericBotTrigger)){

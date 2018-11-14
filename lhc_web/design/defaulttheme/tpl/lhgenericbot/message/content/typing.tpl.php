@@ -1,4 +1,4 @@
-<?php if (isset($async_call) && $async_call == true) : ?>
+<?php if ((isset($async_call) && $async_call == true) || (isset($chat_started_now) && isset($chat_started_now) == true)) : if (isset($chat_started_now) && isset($chat_started_now) == true) {$hideNextMessages = true;}?>
 <script>lhinst.setDelay(<?php echo $msg['id']?>,<?php echo $metaMessage['duration']?>);</script>
-<div class="msg-body hide"><?php if (isset($metaMessage['text']) && !empty($metaMessage['text'])) : ?><?php echo htmlspecialchars($metaMessage['text'])?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Typing...');?><?php endif; ?></div>
+<div class="msg-body<?php if (!isset($chat_started_now) || $chat_started_now == false) : ?> hide<?php endif;?>"><?php if (isset($metaMessage['text']) && !empty($metaMessage['text'])) : ?><?php echo htmlspecialchars($metaMessage['text'])?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Typing...');?><?php endif; ?></div>
 <?php endif; ?>

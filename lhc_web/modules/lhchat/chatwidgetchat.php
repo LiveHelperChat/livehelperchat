@@ -29,6 +29,7 @@ if ($Params['user_parameters_unordered']['sound'] !== null && is_numeric($Params
 
 if ($Params['user_parameters_unordered']['cstarted'] !== null && $Params['user_parameters_unordered']['cstarted'] != '') {
 	$Result['parent_messages'][] = 'lh_callback:' . (string)strip_tags($Params['user_parameters_unordered']['cstarted']);
+    $tpl->set('chat_started_now',true);
 }
 
 try {

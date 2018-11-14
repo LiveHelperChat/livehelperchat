@@ -250,6 +250,7 @@ class erLhAbstractModelWidgetTheme {
 
                $this->replace_array = array(
                    'search' => array(
+                       '{{host}}',
                        '{{logo_image_url}}',
                        '{{minimize_image_url}}',
                        '{{restore_image_url}}',
@@ -262,6 +263,7 @@ class erLhAbstractModelWidgetTheme {
                        '{{offline_image_url}}',
                    ),
                    'replace' => array(
+                       $host,
                        $host . $this->logo_image_url,
                        $host . $this->minimize_image_url,
                        $host . $this->restore_image_url,
