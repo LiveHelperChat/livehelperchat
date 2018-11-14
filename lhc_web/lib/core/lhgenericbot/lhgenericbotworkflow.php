@@ -115,21 +115,29 @@ class erLhcoreClassGenericBotWorkflow {
                 return;
             }
 
+            $keepEvent = false;
+
             // Event was processed we can remove it now
             foreach ($chatEvent->content_array['callback_list'] as $eventData) {
+
+                $handler = false;
 
                 // Perhaps there is extension which listens for a specific event
                 if (isset($eventData['content']['event']) && !empty($eventData['content']['event'])) {
                     $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_event_handler', array(
                         'render' => $eventData['content']['event'],
-                        'render_args' => array(),
+                        'render_args' => (isset($eventData['content']['event_args']) ? $eventData['content']['event_args'] : array()),
                         'chat' => & $chat,
                         'event' => & $chatEvent,
                         'event_data' => $eventData,
                         'payload' => & $payload,
                     ));
-                }
 
+                    if (isset($handler['keep_event']) && $handler['keep_event'] == true) {
+                        $keepEvent = true;
+                    }
+                }
+                
                 if (isset($handler) && $handler !== false && isset($handler['render']) && is_callable($handler['render'])){
 
                     // Extension itself has to update chat
@@ -146,7 +154,7 @@ class erLhcoreClassGenericBotWorkflow {
                     }
 
                 } else {
-                    if ($eventData['content']['type'] == 'chat') {
+                    if (isset($eventData['content']['type']) && $eventData['content']['type'] == 'chat') {
                         if ($eventData['content']['field'] == 'email') {
                             if (filter_var($payload, FILTER_VALIDATE_EMAIL)) {
                                 $q = $db->createUpdateQuery();
@@ -179,7 +187,7 @@ class erLhcoreClassGenericBotWorkflow {
                             $stmt->execute();
                             $chat->phone = $payload;
                         }
-                    } elseif ($eventData['content']['type'] == 'chat_attr') {
+                    } elseif (isset($eventData['content']['type']) && $eventData['content']['type'] == 'chat_attr') {
 
                         // Make sure field is not empty
                         if (empty($payload)) {
@@ -276,7 +284,9 @@ class erLhcoreClassGenericBotWorkflow {
                 }
             }
 
-            $chatEvent->removeThis();
+            if ($keepEvent === false) {
+                $chatEvent->removeThis();
+            }
 
         } catch (Exception $e) {
              if ($e instanceof erLhcoreClassGenericBotException){
@@ -808,7 +818,9 @@ class erLhcoreClassGenericBotWorkflow {
         }
 
         if ($setLastMessageId == true && isset($message) && $message instanceof erLhcoreClassModelmsg) {
-            self::setLastMessageId($chat, $message->id);
+            if ($message->id > 0) {
+                self::setLastMessageId($chat, $message->id);
+            }
         }
 
         return $message;

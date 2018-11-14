@@ -430,7 +430,7 @@ $ViewList['chatwidgetclosed'] = array(
 
 $ViewList['chat'] = array(
     'params' => array('chat_id','hash'),
-    'uparams' => array('theme','er','survey')
+    'uparams' => array('theme','er','survey','cstarted')
 );
 
 $ViewList['printchat'] = array(

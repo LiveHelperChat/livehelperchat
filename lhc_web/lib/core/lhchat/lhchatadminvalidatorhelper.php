@@ -177,6 +177,10 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'OfflineNameRequireOption' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'string'
 	        ),
+
+            'pre_chat_html' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+	        ),
 	    
 	        // E-mail options
 	        'EmailVisibleInPopup' => new ezcInputFormDefinitionElement(
@@ -524,6 +528,12 @@ class erLhcoreClassAdminChatValidatorHelper {
 	    } else {
 	        $data['offline_name_require_option'] = 'required';
 	    }
+
+	    if ( $form->hasValidData( 'pre_chat_html' ) && $form->pre_chat_html != '' ) {
+	        $data['pre_chat_html'] = $form->pre_chat_html;
+	    } else {
+	        $data['pre_chat_html'] = '';
+	    }
 	    
 	    if ($data['name_visible_in_popup'] == true && $data['name_require_option'] == 'required') {
 	        $hasValidPopupData = true;
@@ -767,21 +777,21 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        $data['custom_fields'] = '';
 	    }
 	    
-	    if ($data['message_visible_in_popup'] == true && $data['message_require_option'] == 'required') {
+	    /*if ($data['message_visible_in_popup'] == true && $data['message_require_option'] == 'required') {
 	        $hasValidPopupData = true;
-	    }
+	    }*/
 	    
-	    if ($data['message_visible_in_page_widget'] == true && $data['message_require_option'] == 'required') {
+	    /*if ($data['message_visible_in_page_widget'] == true && $data['message_require_option'] == 'required') {
 	        $hasWidgetData = true;
-	    }
+	    }*/
 	    
-	    if ($hasValidPopupData == false){
+	    /*if ($hasValidPopupData == false){
 	        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Please choose at least one field for a popup');
-	    }
+	    }*/
 	    
-	    if ($hasWidgetData == false){
+	    /*if ($hasWidgetData == false){
 	        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Please choose at least one field for a page widget');
-	    }
+	    }*/
 	    
 	    return $Errors;
     }

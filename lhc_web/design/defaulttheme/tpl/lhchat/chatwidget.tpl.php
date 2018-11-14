@@ -11,6 +11,11 @@
 
 <?php else : ?>
 
+<?php if (isset($start_data_fields['pre_chat_html']) && $start_data_fields['pre_chat_html'] != '') : ?>
+    <?php echo $start_data_fields['pre_chat_html']?>
+    <div class="hide" id="post-chat-content">
+<?php endif?>
+
 <?php if (!isset($start_data_fields['show_operator_profile']) || $start_data_fields['show_operator_profile'] == false) : ?>
 <div class="pl10 max-width-180 pull-right absolute-language-top-right">
 	<?php $rightLanguage = true;?>
@@ -229,5 +234,7 @@ jQuery('#id_Question').bind('keydown', 'return', function (evt){
 	
 	
 <?php endif;?>
+
+<?php if (isset($start_data_fields['pre_chat_html']) && $start_data_fields['pre_chat_html'] != '') : ?></div><?php endif?>
 
 <?php endif;?>

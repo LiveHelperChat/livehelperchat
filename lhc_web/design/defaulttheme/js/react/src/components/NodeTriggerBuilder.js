@@ -12,6 +12,7 @@ import NodeTriggerActionTyping from './builder/NodeTriggerActionTyping';
 import NodeTriggerActionProgress from './builder/NodeTriggerActionProgress';
 import NodeTriggerActionVideo from './builder/NodeTriggerActionVideo';
 import NodeTriggerActionAttribute from './builder/NodeTriggerActionAttribute';
+import NodeTriggerActionActions from './builder/NodeTriggerActionActions';
 
 @connect((store) => {
     return {
@@ -139,6 +140,8 @@ class NodeTriggerBuilder extends Component {
                     return <NodeTriggerActionVideo key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 } else if (action.get('type') == 'attribute') {
                     return <NodeTriggerActionAttribute key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
+                } else if (action.get('type') == 'actions') {
+                    return <NodeTriggerActionActions key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 }
             });
         }
