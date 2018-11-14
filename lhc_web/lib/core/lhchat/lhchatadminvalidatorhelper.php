@@ -181,6 +181,9 @@ class erLhcoreClassAdminChatValidatorHelper {
             'pre_chat_html' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 	        ),
+            'pre_offline_chat_html' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+	        ),
 	    
 	        // E-mail options
 	        'EmailVisibleInPopup' => new ezcInputFormDefinitionElement(
@@ -534,7 +537,13 @@ class erLhcoreClassAdminChatValidatorHelper {
 	    } else {
 	        $data['pre_chat_html'] = '';
 	    }
-	    
+
+	    if ( $form->hasValidData( 'pre_offline_chat_html' ) && $form->pre_offline_chat_html != '' ) {
+	        $data['pre_offline_chat_html'] = $form->pre_offline_chat_html;
+	    } else {
+	        $data['pre_offline_chat_html'] = '';
+	    }
+
 	    if ($data['name_visible_in_popup'] == true && $data['name_require_option'] == 'required') {
 	        $hasValidPopupData = true;
 	    }
