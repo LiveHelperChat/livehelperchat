@@ -83,6 +83,58 @@ class erLhcoreClassGenericBotWorkflow {
         }
     }
 
+    public static function checkPresence($words, $text, $mistypeLetters = 1) {
+
+        $textLetters = self::splitWord($text);
+        foreach ($words as $word) {
+
+            $wordLetters = self::splitWord($word);
+            $currentWordLetterIndex = 0;
+            $mistypedCount = 0;
+
+            foreach ($textLetters as $indexLetter => $letter) {
+
+                if ($letter != $wordLetters[$currentWordLetterIndex]) {
+                    $mistypedCount++;
+                }
+
+                // We do not allow first letter to be mistaken
+                if ($mistypedCount > $mistypeLetters || $mistypedCount == 1 && $currentWordLetterIndex == 0) {
+                    $currentWordLetterIndex = 0;
+                    $mistypedCount = 0;
+                } else {
+                    // It has to be not the end of previous word
+                    if ($currentWordLetterIndex > 0 || $mistypedCount == 0 && $currentWordLetterIndex == 0 && !isset($textLetters[$indexLetter-1]) || in_array($textLetters[$indexLetter-1],array(',',' ',"'",':','.','?','!'))){
+                        $currentWordLetterIndex++;
+                    } else {
+                        $currentWordLetterIndex = 0;
+                        $mistypedCount = 0;
+                    }
+                }
+
+                if (count($wordLetters) == $currentWordLetterIndex) {
+                    if (!isset($textLetters[$indexLetter+1]) || in_array($textLetters[$indexLetter+1],array(',',' ',"'",':','.','?','!'))){
+                        return true;
+                    } else {
+                        $currentWordLetterIndex = 0;
+                        $mistypedCount = 0;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public static function splitWord($word){
+        $len = mb_strlen($word, 'UTF-8');
+        $result = [];
+        for ($i = 0; $i < $len; $i++) {
+            $result[] = mb_strtolower(mb_substr($word, $i, 1, 'UTF-8'));
+        }
+        return $result;
+    }
+
     public static function processEvent($chatEvent, & $chat, $params = array()) {
 
         if (isset($params['msg'])) {
@@ -154,7 +206,30 @@ class erLhcoreClassGenericBotWorkflow {
                     }
 
                 } else {
-                    if (isset($eventData['content']['type']) && $eventData['content']['type'] == 'chat') {
+                    
+                    if (isset($eventData['content']['type']) && $eventData['content']['type'] == 'intent') {
+                        
+                        if (isset($eventData['content']['validation']['words']) && $eventData['content']['validation']['words'] != '') {
+                            $words = explode(',',str_replace(' ','',$eventData['content']['validation']['words']));
+
+                            if (self::checkPresence($words,mb_strtolower($payload),(isset($eventData['content']['validation']['typos']) ? (int)$eventData['content']['validation']['typos'] : 0)) === true) {
+                                 if (isset($eventData['content']['event_args']['valid']) && is_numeric($eventData['content']['event_args']['valid'])){
+                                     $trigger = erLhcoreClassModelGenericBotTrigger::fetch($eventData['content']['event_args']['valid']);
+                                     if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                                         erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, array());
+                                     }
+                                 }
+                            } else {
+                                if (isset($eventData['content']['event_args']['invalid']) && is_numeric($eventData['content']['event_args']['invalid'])){
+                                    $trigger = erLhcoreClassModelGenericBotTrigger::fetch($eventData['content']['event_args']['invalid']);
+                                    if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                                        erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, array());
+                                    }
+                                }
+                            }
+                        }
+                        
+                    } else if (isset($eventData['content']['type']) && $eventData['content']['type'] == 'chat') {
                         if ($eventData['content']['field'] == 'email') {
                             if (filter_var($payload, FILTER_VALIDATE_EMAIL)) {
                                 $q = $db->createUpdateQuery();

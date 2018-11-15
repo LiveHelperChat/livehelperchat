@@ -42,23 +42,36 @@ class NodeTriggerActionActions extends Component {
                     <textarea className="form-control" defaultValue={this.props.action.getIn(['content','success_message'])} onChange={(e) => this.onchangeAttr({'path' : ['success_message'], 'value' : e.target.value})}></textarea>
                 </div>
 
-                <div className="form-group">
-                    <label>Event identifier</label>
-                    <input type="text" placeholder="Event name" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['event'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','event'])} />
-                </div>
-
-                <div className="form-group">
-                    <label>Validation event identifier</label>
-                    <input type="text" placeholder="Event name" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['event_validate'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','event_validate'])} />
-                </div>
-
                 <div className="row">
                     <div className="col-xs-6">
                         <div className="form-group">
-                            <label>Execute trigger on failed format</label>
-                            <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','collection_callback_format'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','collection_callback_format'])} />
+                            <label>Event identifier</label>
+                            <input type="text" placeholder="Event name" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['event'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','event'])} />
                         </div>
                     </div>
+                    <div className="col-xs-6">
+                        <div>
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['event_background'],'value' : e.target.checked})} defaultChecked={this.props.action.getIn(['content','event_background'])} /> Event is processed on next visitor message.</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-xs-8">
+                        <div className="form-group">
+                            <label>For success visitor message has to contain one of these words</label>
+                            <input type="text" placeholder="ok, yes, great, go ahead" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['event_validate'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','event_validate'])} />
+                        </div>
+                    </div>
+                    <div className="col-xs-4">
+                        <div className="form-group">
+                            <label>How many typos are allowed in a word?</label>
+                            <input type="text" placeholder="0" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['event_typos'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','event_typos'])} />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="row">
                     <div className="col-xs-6">
                         <div className="form-group">
                             <label>Execute trigger on fail</label>
@@ -69,6 +82,12 @@ class NodeTriggerActionActions extends Component {
                         <div className="form-group">
                             <label>Execute trigger on success</label>
                             <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','collection_callback_pattern'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','collection_callback_pattern'])} />
+                        </div>
+                    </div>
+                    <div className="col-xs-6">
+                        <div className="form-group">
+                            <label>Execute trigger on failed format</label>
+                            <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','collection_callback_format'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','collection_callback_format'])} />
                         </div>
                     </div>
                 </div>
