@@ -134,6 +134,7 @@ return array_merge(array (
 		'erLhAbstractModelProduct'  			    => 'lib/models/lhabstract/erlhabstractmodelproduct.php',
 		'erLhAbstractModelProductDepartament'  		=> 'lib/models/lhabstract/erlhabstractmodelproductdepartament.php',
 		'erLhAbstractModelRestAPIKey'  			    => 'lib/models/lhabstract/erlhabstractmodelrestapikey.php',
+		'erLhAbstractModelRestAPIKeyRemote'  		=> 'lib/models/lhabstract/erlhabstractmodelrestapikeyremote.php',
 
 		'erLhcoreClassFormRenderer'  		=> 'lib/core/lhform/lhformrenderer.php',
 		'erLhcoreClassAbstract' 			=> 'lib/core/lhabstract/lhabstract.php',
