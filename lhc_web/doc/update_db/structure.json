@@ -1520,6 +1520,15 @@
                 "collation": "utf8mb4_unicode_ci"
             },
             {
+                "field": "username",
+                "type": "varchar(50)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": "",
+                "collation": "utf8mb4_unicode_ci"
+            },
+            {
                 "field": "name",
                 "type": "varchar(50)",
                 "null": "NO",
@@ -8710,7 +8719,7 @@
         "lh_cobrowse": "CREATE TABLE `lh_cobrowse` ( `id` int(11) NOT NULL AUTO_INCREMENT, `chat_id` int(11) NOT NULL, `mtime` int(11) NOT NULL, `url` varchar(250) NOT NULL, `initialize` longtext NOT NULL, `modifications` longtext NOT NULL, `finished` tinyint(1) NOT NULL, `w` int(11) NOT NULL, `wh` int(11) NOT NULL, `x` int(11) NOT NULL, `y` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `chat_id` (`chat_id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
         "lh_chat_paid": "CREATE TABLE `lh_chat_paid` ( `id` int(11) NOT NULL AUTO_INCREMENT,  `hash` varchar(250) NOT NULL,  `chat_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `hash` (`hash`(191)),  KEY `chat_id` (`chat_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
         "lh_abstract_rest_api_key": "CREATE TABLE `lh_abstract_rest_api_key` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `api_key` varchar(50) NOT NULL,  `user_id` int(11) NOT NULL,  `active` int(11) NOT NULL DEFAULT '0',  PRIMARY KEY (`id`),  KEY `user_id` (`user_id`),  KEY `api_key_active` (`api_key`,`active`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
-        "lh_abstract_rest_api_key_remote": "CREATE TABLE `lh_abstract_rest_api_key_remote` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `api_key` varchar(50) NOT NULL, `name` varchar(50) NOT NULL,  `host` varchar(250) NOT NULL, `active` tinyint(1) NOT NULL DEFAULT '0', `position` int(11) NOT NULL DEFAULT '0',  PRIMARY KEY (`id`), KEY `active` (`active`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        "lh_abstract_rest_api_key_remote": "CREATE TABLE `lh_abstract_rest_api_key_remote` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `api_key` varchar(50) NOT NULL, `username` varchar(50) NOT NULL, `name` varchar(50) NOT NULL,  `host` varchar(250) NOT NULL, `active` tinyint(1) NOT NULL DEFAULT '0', `position` int(11) NOT NULL DEFAULT '0',  PRIMARY KEY (`id`), KEY `active` (`active`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
         "lh_departament_group_user": "CREATE TABLE `lh_departament_group_user` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `dep_group_id` int(11) NOT NULL,  `user_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `dep_group_id` (`dep_group_id`),  KEY `user_id` (`user_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
         "lh_departament_group_member": "CREATE TABLE `lh_departament_group_member` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `dep_id` int(11) NOT NULL,  `dep_group_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `dep_group_id` (`dep_group_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
         "lh_departament_limit_group_member": "CREATE TABLE `lh_departament_limit_group_member` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `dep_id` int(11) NOT NULL,  `dep_limit_group_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `dep_limit_group_id` (`dep_limit_group_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",

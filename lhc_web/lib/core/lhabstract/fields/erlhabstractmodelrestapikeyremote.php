@@ -13,6 +13,12 @@ return array(
         'required' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
     ),
+    'username' => array(
+        'type' => 'text',
+        'trans' => 'Username of API key',
+        'required' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
+    ),
     'api_key' => array(
         'type' => 'text',
         'trans' => 'API Key, max 50 characters',

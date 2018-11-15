@@ -21,6 +21,7 @@ class erLhAbstractModelRestAPIKeyRemote {
             'id'         => $this->id,
             'host'  	 => $this->host,
             'name'  	 => $this->name,
+            'username'   => $this->username,
             'position'   => $this->position,
             'api_key'	 => $this->api_key,
             'active'     => $this->active
@@ -63,6 +64,7 @@ class erLhAbstractModelRestAPIKeyRemote {
     public $host = '';
     public $api_key = '';
     public $name = '';
+    public $username = '';
     public $position = 0;
     public $active = 0;
 
