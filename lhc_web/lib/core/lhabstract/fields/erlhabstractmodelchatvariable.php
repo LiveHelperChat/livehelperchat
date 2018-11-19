@@ -41,18 +41,6 @@ return array(
         'params_call' => array(),
         'source' => 'erLhAbstractModelChatVariable::getDataTypes',
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
-    ),
-    'chat_enabled' => array(
-        'type' => 'checkbox',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Variable enabled in chat'),
-        'required' => false,
-        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
-    ),
-    'online_enabled' => array(
-        'type' => 'checkbox',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Variable enabled in online visitor'),
-        'required' => false,
-        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
     )
 );
 
