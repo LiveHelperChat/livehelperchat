@@ -5,7 +5,7 @@ return array(
         'type' => 'combobox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Department'),
         'required' => false,
-        'hidden' => true,
+        'frontend' => 'dep',
         'source' => 'erLhcoreClassModelDepartament::getList',
         'hide_optional' => false,
         'params_call' => array(),

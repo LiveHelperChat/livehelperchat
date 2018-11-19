@@ -90,6 +90,15 @@ class erLhAbstractModelChatVariable
     {
         switch ($var) {
 
+            case 'dep':
+                if ($this->dep_id > 0) {
+                    $this->dep = erLhcoreClassModelDepartament::fetch($this->dep_id);
+                } else {
+                    $this->dep = null;
+                }
+                return $this->dep;
+                break;
+
             case 'left_menu':
                 $this->left_menu = '';
                 return $this->left_menu;
