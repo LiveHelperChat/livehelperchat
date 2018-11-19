@@ -29,11 +29,14 @@ lhc_Cookies.defaults = {path:"/",secure: <?php erLhcoreClassModelChatConfig::fet
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/custom_get_status_js.tpl.php')); ?>
 
+<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/functions/part/javascript_variables.tpl.php')); ?>
+
 var lh_inst  = {
    JSON : {
             parse: window.JSON && (window.JSON.parse || window.JSON.decode) || String.prototype.evalJSON && function(str){return String(str).evalJSON();} || $.parseJSON || $.evalJSON,
             stringify:  Object.toJSON || window.JSON && (window.JSON.stringify || window.JSON.encode) || $.toJSON
     },
+    js_variables : <?php echo json_encode($jsVars);?>,
     rendered : false,
     isOnline : <?php echo $isOnlineHelp == true ? 'true' : 'false'?>,
     disabledGeo : <?php echo (isset($disableByGeoAdjustment) && $disableByGeoAdjustment == true) ? 'true' : 'false' ?>,
@@ -385,6 +388,23 @@ var lh_inst  = {
     	    paramsReturn = paramsReturn + this.extensionArgs;
     	}
 
+        var js_args = [];
+        var currentVar = null;
+        for (var index in this.js_variables) {
+            try {
+                currentVar = eval(this.js_variables[index].var);
+                if (typeof currentVar !== 'undefined' && currentVar !== null && currentVar !== '') {
+                    js_args.push('jsvar['+this.js_variables[index].id+']='+encodeURIComponent(currentVar));
+                }
+            } catch(err) {
+                console.log(err.message);
+            }
+        }
+
+        if (js_args.length > 0) {
+            paramsReturn = paramsReturn + '&' + js_args.join('&');
+        }
+
     	if (this.prefillMessage != '') {
     	   paramsReturn = paramsReturn + '&' + 'prefillMsg=' + encodeURIComponent(this.prefillMessage);
     	}
@@ -402,7 +422,6 @@ var lh_inst  = {
     	argumentsQuery = new Array();
 
 		if (typeof <?php echo $chatOptionsVariable?> != 'undefined') {
-
 	    	if (typeof <?php echo $chatOptionsVariable?>.attr_online != 'undefined') {
 	    		if (<?php echo $chatOptionsVariable?>.attr_online.length > 0){
 					for (var index in <?php echo $chatOptionsVariable?>.attr_online) {
@@ -412,11 +431,25 @@ var lh_inst  = {
 					};
 	    		};
 	    	};
-
-	    	if (argumentsQuery.length > 0) {
-	    		return '&'+argumentsQuery.join('&');
-	    	};
     	};
+
+        var js_args = [];
+        var currentVar = null;
+
+        for (var index in this.js_variables) {
+            try {
+                var currentVar = eval(this.js_variables[index].var);
+                if (typeof currentVar !== 'undefined' && currentVar !== null && currentVar !== '') {
+                    argumentsQuery.push('jsvar['+this.js_variables[index].id+']='+encodeURIComponent(currentVar));
+                }
+            } catch(err) {
+                console.log(err.message);
+            }
+        }
+
+        if (argumentsQuery.length > 0) {
+            return '&'+argumentsQuery.join('&');
+        };
 
     	return '';
     },

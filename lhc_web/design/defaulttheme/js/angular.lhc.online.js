@@ -230,7 +230,13 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 				lhinst.changeUserSettingsIndifferent('omax_rows',newVal);
 			}
 		});
-		
+
+		$scope.$watch('online.department',function(newVal,oldVal){
+			if (newVal != oldVal) {
+				lhinst.changeUserSettingsIndifferent('o_department',newVal);
+			}
+		});
+
 		$scope.$watch('groupByField',function(newVal,oldVal){
 			if (newVal != oldVal) {	
 				lhinst.changeUserSettingsIndifferent('ogroup_by',newVal);
@@ -238,7 +244,9 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 		});
 		
 		$scope.$watch('online.userTimeout + online.department + online.maxRows + groupByField + online.country + online.time_on_site', function(newVal,oldVal) {
-				that.updateList();			
+			setTimeout(function(){
+				that.updateList();
+			},500);						
 		});
 				
 		this.showOnlineUserInfo = function(user_id) {

@@ -219,6 +219,7 @@ $inputData->value_sizes = array();
 $inputData->value_types = array();
 $inputData->value_items_admin = array(); // These variables get's filled from start chat form settings
 $inputData->hattr = array();
+$inputData->jsvar = array();
 $inputData->encattr = array();
 $inputData->via_encrypted = array();
 $inputData->ua = $Params['user_parameters_unordered']['ua'];
@@ -494,6 +495,11 @@ $definition = array(
 				null,
 				FILTER_REQUIRE_ARRAY
 		),
+		'jsvar'  => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+				null,
+				FILTER_REQUIRE_ARRAY
+		),
 		'value' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
 				null,
@@ -596,6 +602,11 @@ if ( $form->hasValidData( 'encattr' ) && !empty($form->encattr))
 if ( $form->hasValidData( 'via_encrypted' ) && !empty($form->via_encrypted))
 {
     $inputData->via_encrypted = $form->via_encrypted;
+}
+
+if ( $form->hasValidData( 'jsvar' ) && !empty($form->jsvar))
+{
+    $inputData->jsvar = $form->jsvar;
 }
 
 // Fill back office values ir prefilled

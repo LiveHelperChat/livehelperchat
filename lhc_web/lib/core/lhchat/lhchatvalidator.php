@@ -194,6 +194,12 @@ class erLhcoreClassChatValidator {
             null,
             FILTER_REQUIRE_ARRAY
         );
+
+        $validationFields['jsvar'] = new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string',
+            null,
+            FILTER_REQUIRE_ARRAY
+        );
         
         if (!isset($additionalParams['ignore_captcha']) || $additionalParams['ignore_captcha'] == false)
         {
@@ -528,7 +534,7 @@ class erLhcoreClassChatValidator {
         }
 
         $stringParts = array();
-        
+
         if ( $form->hasValidData( 'name_items' ) && !empty($form->name_items))
         {
         	$valuesArray = array();
@@ -588,7 +594,6 @@ class erLhcoreClassChatValidator {
         		$stringParts[] = array('h' => ($inputForm->value_types[$key] && $inputForm->value_types[$key] == 'hidden' ? true : false), 'key' => $name_item, 'value' => $valueStore);
         	}
         }
-        
 
         if (isset($start_data_fields['custom_fields']) && $start_data_fields['custom_fields'] != '') {
             $customAdminfields = json_decode($start_data_fields['custom_fields'],true);
@@ -670,6 +675,33 @@ class erLhcoreClassChatValidator {
             $languages = explode(',',$parts[0]);
             if (isset($languages[0])) {
                 $chat->chat_locale = $languages[0];
+            }
+        }
+
+        // Javascript variables
+        if ( $form->hasValidData( 'jsvar' ) && !empty($form->jsvar))
+        {
+            $inputForm->jsvar = $form->jsvar;
+            foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
+                if (isset($form->jsvar[$jsVar->id]) && !empty($form->jsvar[$jsVar->id])) {
+                    if ($jsVar->var_identifier == 'lhc.nick') {
+                        $chat->nick = $form->jsvar[$jsVar->id];
+                    } else {
+
+                        $val = $form->jsvar[$jsVar->id];
+                        if ($jsVar->type == 0) {
+                            $val = (string)$val;
+                        } elseif ($jsVar->type == 1) {
+                            $val = (int)$val;
+                        } elseif ($jsVar->type == 2) {
+                            $val = (real)$val;
+                        }
+
+                        $stringParts[] = array('h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
+
+                    }
+
+                }
             }
         }
 
