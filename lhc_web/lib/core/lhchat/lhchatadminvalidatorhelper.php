@@ -358,11 +358,6 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'CustomFieldsEncryption' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 	        ),
-	        'CustomFieldsEncryptionHMac' => new ezcInputFormDefinitionElement(
-	            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' 
-	        ),
-
-
             'customFieldURLIdentifier' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
             ),
@@ -495,16 +490,6 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        }
 	    } else {
 	        $data['custom_fields_encryption'] = '';
-	    }
-
-	    if ( $form->hasValidData( 'CustomFieldsEncryptionHMac' ) && $form->CustomFieldsEncryptionHMac != '' ) {
-	        if (strlen($form->CustomFieldsEncryptionHMac) < 40) {
-	            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Minimum 40 characters for additional encryption key!');
-	        } else {
-	            $data['custom_fields_encryption_hmac'] = $form->CustomFieldsEncryptionHMac;
-	        }
-	    } else {
-	        $data['custom_fields_encryption_hmac'] = '';
 	    }
 
 	    // Name offline

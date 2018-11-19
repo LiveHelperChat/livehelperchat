@@ -14,6 +14,8 @@ foreach ($dashboardOrder as $widgetsColumn) {
     }
 }
 
+
+
 $supportedWidgets = array();
 $supportedWidgets['online_operators'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Online operators');
 $supportedWidgets['active_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Active chats');
@@ -37,7 +39,8 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.dashboardwidgets
 
 if (ezcInputForm::hasPostData()) {
     $definition = array(
-        'WidgetsUser' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY)
+        'WidgetsUser' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY),
+        'ColumnNumber' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     );
     
     $form = new ezcInputForm(INPUT_POST, $definition);
@@ -65,16 +68,25 @@ if (ezcInputForm::hasPostData()) {
                 unset($widgetsUser[array_search($userWidget, $widgetsUser)]);
             }
         }
-        if (count($dashboardOrder) == 1) {
-            $dashboardOrder[] = array();
-            $dashboardOrder[] = array();
-        }  
-              
-        if (count($dashboardOrder) == 2) {
-            $dashboardOrder[] = array();
-        }        
+
+        if ($form->ColumnNumber !== count($dashboardOrder)) {
+            if ($form->ColumnNumber > count($dashboardOrder)) {
+                for ($i = $form->ColumnNumber - count($dashboardOrder); $i > 0; $i--) {
+                    $dashboardOrder[] = array();
+                }
+            } elseif ($form->ColumnNumber < count($dashboardOrder)) {
+                $dashboardRemoved = array_splice($dashboardOrder,$form->ColumnNumber);
+
+                foreach ($dashboardRemoved as $items) {
+                    foreach ($items as $item) {
+                        $dashboardOrder[0][] = $item;
+                    }
+                }
+            }
+        }
+
         // Store settings in user scope now
-        erLhcoreClassModelUserSetting::setSetting('dwo', json_encode($dashboardOrder));
+        erLhcoreClassModelUserSetting::setSetting('dwo', json_encode(array_values($dashboardOrder)));
         
         $tpl->set('updated', true);
     }
@@ -82,7 +94,8 @@ if (ezcInputForm::hasPostData()) {
 
 $tpl->setArray(array(
     'widgets' => $supportedWidgets,
-    'user_widgets' => $widgetsUser
+    'user_widgets' => $widgetsUser,
+    'columns_number' => count($dashboardOrder)
 ));
 
 echo $tpl->fetch();

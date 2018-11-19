@@ -9,7 +9,45 @@
  * */
 class erLhcoreClassRestAPIHandler
 {
+    public static function executeRequest(erLhAbstractModelRestAPIKeyRemote $apiKey, $function, $params = array(), $uparams = array(), $method = 'GET', $manualAppend = '')
+    {
+        $ch = curl_init();
+        $headers = array('Accept' => 'application/json');
 
+        $uparamsArg = '';
+
+        if (!empty($uparams) && is_array($uparams)) {
+            $parts = array();
+            foreach ($uparams as $param => $value) {
+                $parts[] = '/('.$param .')/'.$value;
+            }
+            $uparamsArg = implode('', $parts);
+
+        }
+
+        $requestArgs = ($method == 'GET') ? '?' .http_build_query($params) : '';
+
+        if ($method == 'POST') {
+            curl_setopt($ch,CURLOPT_POST,1);
+            curl_setopt($ch,CURLOPT_POSTFIELDS,$params);
+        }
+
+        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+        curl_setopt($ch, CURLOPT_USERPWD, $apiKey->username . ':' . $apiKey->api_key);
+        curl_setopt($ch, CURLOPT_URL, $apiKey->host . $function . $manualAppend . $uparamsArg . $requestArgs);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT , 5);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        $content = curl_exec($ch);
+
+        return $content;
+    }
+    
     public static function getHeaders()
     {
         if (! function_exists('getallheaders')) {

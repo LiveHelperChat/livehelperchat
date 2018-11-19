@@ -1,4 +1,8 @@
-<?php 
+<?php if (isset($input_data->jsvar)) : foreach ($input_data->jsvar as $index => $item) : ?>
+    <input type="hidden" name="jsvar[<?php echo $index?>]" value="<?php echo htmlspecialchars($item)?>" />
+<?php endforeach;endif;?>
+
+<?php
 $modeUserVariables = isset($modeUserVariables) ? $modeUserVariables : 'on';
 
 if (!empty($input_data->name_items)) {

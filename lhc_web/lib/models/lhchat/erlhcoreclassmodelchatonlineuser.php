@@ -689,12 +689,36 @@ class erLhcoreClassModelChatOnlineUser
                 $item->tt_pages_count++;
                 $item->store_chat = true;
 
+                $onlineAttr = array();
+
                 if (isset($_GET['onattr']) && is_array($_GET['onattr']) && !(empty($_GET['onattr']))) {
-                    $item->online_attr = json_encode($_GET['onattr']);
+                    $onlineAttr = $_GET['onattr'];
                 }
 
                 if ($item->has_message_from_operator == true) {
                     $item->invitation_seen_count++;
+                }
+
+                if (isset($_GET['jsvar']) && is_array($_GET['jsvar']) && !(empty($_GET['jsvar']))) {
+                    foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$item->dep_id))) as $jsVar) {
+                        if (isset($_GET['jsvar'][$jsVar->id]) && !empty($_GET['jsvar'][$jsVar->id])) {
+
+                            $val = $_GET['jsvar'][$jsVar->id];
+                            if ($jsVar->type == 0) {
+                                $val = (string)$val;
+                            } elseif ($jsVar->type == 1) {
+                                $val = (int)$val;
+                            } elseif ($jsVar->type == 2) {
+                                $val = (real)$val;
+                            }
+
+                            $onlineAttr[$jsVar->var_identifier] =  array('h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
+                        }
+                    }
+                }
+
+                if (!empty($onlineAttr)) {
+                    $item->online_attr = json_encode($onlineAttr);
                 }
 
                 if (isset($paramsHandle['tz']) && is_numeric($paramsHandle['tz']) && $item->visitor_tz == '') {

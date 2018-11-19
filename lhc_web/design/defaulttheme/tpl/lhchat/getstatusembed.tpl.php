@@ -10,12 +10,16 @@ if ( !($isOnlineHelp == false && $hide_offline == 'true') ) : ?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/options_variable_page.tpl.php')); ?>
 
+<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/functions/part/javascript_variables.tpl.php')); ?>
+
 var lh_inst_page  = {
 	JSON : {
             parse: window.JSON && (window.JSON.parse || window.JSON.decode) || String.prototype.evalJSON && function(str){return String(str).evalJSON();} || $.parseJSON || $.evalJSON,
             stringify:  Object.toJSON || window.JSON && (window.JSON.stringify || window.JSON.encode) || $.toJSON
     },
 	cookieData : {},
+
+    js_variables : <?php echo json_encode($jsVars);?>,
 
     lang: '<?php echo erLhcoreClassSystem::instance()->WWWDirLang?>',
 
@@ -78,7 +82,24 @@ var lh_inst_page  = {
 	    		paramsReturn = '&'+argumentsQuery.join('&');
 	    	};
     	};
-    	
+
+        var js_args = [];
+        var currentVar = null;
+        for (var index in this.js_variables) {
+            try {
+                currentVar = eval(this.js_variables[index].var);
+                if (typeof currentVar !== 'undefined' && currentVar !== null && currentVar !== '') {
+                    js_args.push('jsvar['+this.js_variables[index].id+']='+encodeURIComponent(currentVar));
+                }
+            } catch(err) {
+                console.log(err.message);
+            }
+        }
+
+        if (js_args.length > 0) {
+            paramsReturn = paramsReturn + '&' + js_args.join('&');
+        }
+
     	return paramsReturn;
     },
 

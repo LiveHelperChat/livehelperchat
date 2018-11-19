@@ -5,9 +5,9 @@
 try {
 	// Start session if required only
 	$currentUser = erLhcoreClassUser::instance();
-	
+
     $settingHandler = erLhcoreClassModelUserSettingOption::fetch($Params['user_parameters']['identifier']);
-        
+
     // Never trust user input    
     if (!isset($Params['user_parameters_unordered']['indifferent'])){
     	erLhcoreClassModelUserSetting::setSetting($Params['user_parameters']['identifier'],$Params['user_parameters']['value'] == 1 ? 1 : 0);    

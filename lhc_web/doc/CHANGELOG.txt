@@ -1,3 +1,12 @@
+3.10v
+
+1. Remote API Keys support, this feature can be used by external API
+2. Custom arguments based on javascript variables existing in embedded page. No need to generate custom Live Helper Chat code. You just define what variable should check LHC
+3. Avoid PHP Sessions concurrent conditions if Redis is used as PHP Sessions handler.
+4. Various bot improvements. New Datatype
+
+execute doc/update_db/update_185.sql for update
+
 3.09v
 
 1. Password requirements configuration options
