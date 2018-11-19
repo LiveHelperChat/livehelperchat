@@ -233,12 +233,6 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Encryption key, min length 40');?></label> 
 				<input class="form-control" type="text" name="CustomFieldsEncryption" value="<?php (isset($start_chat_data['custom_fields_encryption'])) ? print htmlspecialchars($start_chat_data['custom_fields_encryption']) : ''?>" />
 			</div>
-
-			<div class="form-group">
-				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Additional encryption key, min length 40');?></label> 
-				<input class="form-control" type="text" name="CustomFieldsEncryptionHMac" value="<?php (isset($start_chat_data['custom_fields_encryption_hmac'])) ? print htmlspecialchars($start_chat_data['custom_fields_encryption_hmac']) : ''?>" />
-			</div>
-
 		</div>
 		
 		<div role="tabpanel" class="tab-pane" id="customfields">

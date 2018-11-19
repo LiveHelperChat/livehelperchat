@@ -958,9 +958,8 @@ class erLhcoreClassChatValidator {
                 $startData = (array)erLhcoreClassModelChatConfig::fetch('start_chat_data')->data;
             }
             
-            $valueStore = lhSecurity::decrypt(base64_decode($valueStore),
-                (isset($startData['custom_fields_encryption']) && !empty($startData['custom_fields_encryption']) ? $startData['custom_fields_encryption'] : null),
-                (isset($startData['custom_fields_encryption_hmac']) && !empty($startData['custom_fields_encryption_hmac']) ? $startData['custom_fields_encryption_hmac'] : null)
+            $valueStore = lhSecurity::decrypt($valueStore,
+                (isset($startData['custom_fields_encryption']) && !empty($startData['custom_fields_encryption']) ? $startData['custom_fields_encryption'] : null)
             );
         
             if ($valueStore === false) {
