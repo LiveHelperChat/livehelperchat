@@ -45,6 +45,7 @@ class NodeTriggerActionCommand extends Component {
                                 <option value="">Select action</option>
                                 <option value="stopchat">Stop chat and transfer to human</option>
                                 <option value="transfertobot">Transfer chat to bot</option>
+                                <option value="closechat">Close chat</option>
                             </select>
                         </div>
                     </div>

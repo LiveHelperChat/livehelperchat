@@ -13,6 +13,10 @@ class erLhcoreClassGenericBotActionActions {
             $msg->time = time() + 5;
             $msg->msg = $action['content']['success_message'];
 
+            if (isset($params['replace_array'])) {
+                $msg->msg = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$msg->msg);
+            }
+
             if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
                 erLhcoreClassChat::getSession()->save($msg);
             }

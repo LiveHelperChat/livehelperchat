@@ -127,7 +127,7 @@ class erLhcoreClassChatHelper
                 $params['chat']->has_unread_messages = 0;
                 
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = (string) $params['user'] . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'has closed the chat!');
+                $msg->msg = (($params['bot'] && $params['bot'] == true) ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'Bot') : (string) $params['user']) . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'has closed the chat!');
                 $msg->chat_id = $params['chat']->id;
                 $msg->user_id = - 1;
                 
@@ -139,15 +139,17 @@ class erLhcoreClassChatHelper
                 $params['chat']->updateThis();
             
             $db->commit();
-            
-            erLhcoreClassChat::updateActiveChats($params['chat']->user_id);
-            
+
+            if (!isset($params['bot']) || $params['bot'] == false) {
+                erLhcoreClassChat::updateActiveChats($params['chat']->user_id);
+            }
+
             if ($params['chat']->department !== false) {
                 erLhcoreClassChat::updateDepartmentStats($params['chat']->department);
             }
             
             // Execute callback for close chat
-            erLhcoreClassChat::closeChatCallback($params['chat'], $params['user']);            
+            erLhcoreClassChat::closeChatCallback($params['chat'], (isset($params['user']) ? $params['user'] : false));
         }
     }
     

@@ -79,8 +79,20 @@ class erLhcoreClassGenericBotActionCommand {
                     erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true);
                 }
             }
-        }
+        } elseif ($action['content']['command'] == 'closechat') {
 
+            $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_chat_command_transfer', array(
+                'action' => $action,
+                'chat' => & $chat,
+            ));
+
+            if ($handler === false) {
+                erLhcoreClassChatHelper::closeChat(array(
+                    'chat' => & $chat,
+                    'bot' => true
+                ));
+            }
+        }
     }
 }
 
