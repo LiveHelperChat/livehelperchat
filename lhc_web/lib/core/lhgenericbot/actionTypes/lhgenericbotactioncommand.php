@@ -35,6 +35,7 @@ class erLhcoreClassGenericBotActionCommand {
                 $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
                 $chat->status_sub_sub = 2; // Will be used to indicate that we have to show notification for this chat if it appears on list
                 $chat->pnd_time = time();
+                $chat->last_op_msg_time = time();
                 $chat->saveThis();
 
                 $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_chat_command_transfer', array(
@@ -60,6 +61,7 @@ class erLhcoreClassGenericBotActionCommand {
 
         } elseif ($action['content']['command'] == 'transfertobot') {
             $chat->status = erLhcoreClassModelChat::STATUS_BOT_CHAT;
+            $chat->last_op_msg_time = time();
             $chat->saveThis();
 
             if (isset($action['content']['payload']) && is_numeric($action['content']['payload'])) {

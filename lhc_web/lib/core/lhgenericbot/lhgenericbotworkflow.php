@@ -78,7 +78,7 @@ class erLhcoreClassGenericBotWorkflow {
             $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger);
 
             if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
-                self::setLastMessageId($chat, $message->id);
+                self::setLastMessageId($chat, $message->id, true);
             }
         }
     }
@@ -894,7 +894,7 @@ class erLhcoreClassGenericBotWorkflow {
 
         if ($setLastMessageId == true && isset($message) && $message instanceof erLhcoreClassModelmsg) {
             if ($message->id > 0) {
-                self::setLastMessageId($chat, $message->id);
+                self::setLastMessageId($chat, $message->id, true);
             }
         }
 
@@ -1226,7 +1226,7 @@ class erLhcoreClassGenericBotWorkflow {
 
         erLhcoreClassChat::getSession()->save($msg);
 
-        self::setLastMessageId($chat, $msg->id);
+        self::setLastMessageId($chat, $msg->id, true);
     }
 
     public static function sendAsUser($chat, $messageText) {
@@ -1247,11 +1247,15 @@ class erLhcoreClassGenericBotWorkflow {
         return $msg;
     }
 
-    public static function setLastMessageId($chat, $messageId) {
+    public static function setLastMessageId($chat, $messageId, $isBot = false) {
 
         $db = ezcDbInstance::get();
 
-        $stmt = $db->prepare('UPDATE lh_chat SET last_user_msg_time = :last_user_msg_time, lsync = :lsync, last_msg_id = :last_msg_id, has_unread_messages = :has_unread_messages, unanswered_chat = :unanswered_chat WHERE id = :id');
+        $attrLastMessageTime = $isBot === false ? 'last_user_msg_time' : 'last_op_msg_time';
+
+        $chat->{$attrLastMessageTime} = time();
+
+        $stmt = $db->prepare("UPDATE lh_chat SET {$attrLastMessageTime} = :last_user_msg_time, lsync = :lsync, last_msg_id = :last_msg_id, has_unread_messages = :has_unread_messages, unanswered_chat = :unanswered_chat WHERE id = :id");
         $stmt->bindValue(':id', $chat->id, PDO::PARAM_INT);
         $stmt->bindValue(':lsync', time(), PDO::PARAM_INT);
         $stmt->bindValue(':has_unread_messages', ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT ? 0 : 1), PDO::PARAM_INT);
