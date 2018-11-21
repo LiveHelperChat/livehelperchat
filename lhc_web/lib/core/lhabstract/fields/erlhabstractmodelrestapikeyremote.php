@@ -1,6 +1,13 @@
 <?php
 
 return array(
+    'id' => array(
+        'type' => 'none',
+        'trans' => 'ID',
+        'required' => false,
+        'hide_edit' => false,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
+    ),
     'name' => array(
         'type' => 'text',
         'trans' => 'Name',

@@ -82,6 +82,11 @@ class erLhcoreClassGenericBotActionText {
         }
 
         $msg->msg = isset($action['content']['text']) ? trim($action['content']['text']) : '';
+
+        if (isset($params['replace_array'])) {
+            $msg->msg = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$msg->msg);
+        }
+
         $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';
         $msg->chat_id = $chat->id;
         $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);

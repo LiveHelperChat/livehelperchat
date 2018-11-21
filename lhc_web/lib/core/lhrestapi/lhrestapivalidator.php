@@ -324,16 +324,24 @@ class erLhcoreClassRestAPIHandler
         return !in_array($chat->dep_id, $dep);
     }
 
-    public static function hasAccessTo($module, $functions) 
+    public static function hasAccessTo($module, $functions, $returnLimitation = false)
     {
         $AccessArray = erLhcoreClassRole::accessArrayByUserID( self::$apiKey->user->id );
-              
+
         // Global rights
         if (isset($AccessArray['*']['*']) || isset($AccessArray[$module]['*']))
         {
-            return true;
+            if ($returnLimitation === false) {
+                return true;
+            } elseif (isset($AccessArray[$module]['*']) && !is_bool($AccessArray[$module]['*'])) {
+                return $AccessArray[$module]['*'];
+            } elseif ($AccessArray['*']['*'] && !is_bool($AccessArray['*']['*'])) {
+                return $AccessArray['*']['*'];
+            } else {
+                return true;
+            }
         }
-        
+
         // Provided rights have to be set
         if (is_array($functions))
         {
@@ -342,10 +350,15 @@ class erLhcoreClassRestAPIHandler
                 // Missing one of provided right
                 if (!isset($AccessArray[$module][$function])) return false;
             }
+
         } else {
-            if (!isset($AccessArray[$module][$functions])) return false;
+            if (!isset($AccessArray[$module][$functions])) {
+                return false;
+            } elseif (isset($AccessArray[$module][$functions]) && $returnLimitation === true && !is_bool($AccessArray[$module][$functions])) {
+                return $AccessArray[$module][$functions];
+            }
         }
-        
+
         return true;
     }
 
