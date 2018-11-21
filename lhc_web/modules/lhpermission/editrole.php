@@ -28,7 +28,7 @@ if (isset($_POST['Update_role']))
 
     if ( !$form->hasValidData( 'Name' ) || $form->Name == '' )
     {
-        $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Please enter role name');
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Please enter role name');
     }
 
     if (count($Errors) == 0)

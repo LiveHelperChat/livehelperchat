@@ -1,3 +1,4 @@
 <td><?php echo htmlspecialchars(erLhcoreClassModules::getModuleName($Function['module']))?>&nbsp;(<b><?php echo htmlspecialchars($Function['module'])?></b>)</td>
 <td><?php echo htmlspecialchars(erLhcoreClassModules::getFunctionName($Function['module'],$Function['function']))?>&nbsp;(<b><?php echo htmlspecialchars($Function['function'])?></b>)</td>
 <td><?php echo htmlspecialchars($Function['limitation'])?></td>
+<td><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('permission/editfunction')?>/<?php echo $Function['id']?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit');?></a></td>

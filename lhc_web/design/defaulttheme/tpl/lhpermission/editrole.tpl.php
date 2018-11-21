@@ -27,6 +27,7 @@
 		     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Module');?></th>
 		     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Function');?></th>
 		     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Limitation');?></th>
+		     <th>&nbsp;</th>
 		</tr>
 		</thead>
 		     <?php foreach (erLhcoreClassRoleFunction::getRoleFunctions($role->id) as $Function) : ?>

@@ -1,6 +1,6 @@
 <?php
 
-class erLhcoreClassModules{
+class erLhcoreClassModules {
 
    function __construct()
    {

@@ -22,6 +22,11 @@ $ViewList['editrole'] = array(
     'functions' => array( 'edit' )
 );
 
+$ViewList['editfunction'] = array(
+    'params' => array('function_id'),
+    'functions' => array( 'edit' )
+);
+
 $ViewList['getpermissionsummary'] = array(
     'params' => array('user_id'),
     'functions' => array( 'see_permissions' )
