@@ -92,7 +92,7 @@ var lh_inst_page  = {
                     js_args.push('jsvar['+this.js_variables[index].id+']='+encodeURIComponent(currentVar));
                 }
             } catch(err) {
-                console.log(err.message);
+                
             }
         }
 
