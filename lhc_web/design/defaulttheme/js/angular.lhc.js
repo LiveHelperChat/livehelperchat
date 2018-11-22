@@ -226,7 +226,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.userDepartmentsGroups = [];
 	this.userGroups = [];
 	this.userList = [];
-	
+	this.additionalColumns = [];
+
 	this.departmentd = this.restoreLocalSetting('departmentd',[],true);
 	this.departmentd_dpgroups = this.restoreLocalSetting('departmentd_dpgroups',[],true);
 	this.departmentdNames = [];	
@@ -1215,6 +1216,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             _that.hideInvisible = data.im;
             _that.hideOnline = data.ho;
             _that.lhcVersion = data.v;
+            _that.additionalColumns = data.col;
 
 			angular.forEach(_that.widgetsItems, function(listId) {
 				_that.setDepartmentNames(listId);

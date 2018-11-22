@@ -59,8 +59,8 @@ class erLhcoreClassModelCannedMsgTagLink
 
         if (is_array($additionalData)) {
             foreach ($additionalData as $row) {
-                if (isset($row->identifier) && $row->identifier != '') {
-                    $replaceArray['{' . $row->identifier . '}'] = $row->value;
+                if (isset($row['identifier']) && $row['identifier'] != '') {
+                    $replaceArray['{' . $row['identifier'] . '}'] = $row['value'];
                 }
             }
         }

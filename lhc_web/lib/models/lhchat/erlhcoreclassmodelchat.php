@@ -429,7 +429,7 @@ class erLhcoreClassModelChat {
        		break;
        		
        	case 'additional_data_array':
-       			$jsonData = json_decode($this->additional_data);
+       			$jsonData = json_decode($this->additional_data,true);
        			if ($jsonData !== null) {
        				$this->additional_data_array = $jsonData;
        			} else {

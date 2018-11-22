@@ -120,7 +120,9 @@ return array_merge(array (
 		'erLhAbstractModelAutoResponder'  			=> 'lib/models/lhabstract/erlhabstractmodelautoresponder.php',
 		'erLhAbstractModelAutoResponderChat'  		=> 'lib/models/lhabstract/erlhabstractmodelautoresponderchat.php',
 		'erLhAbstractModelChatVariable'  		    => 'lib/models/lhabstract/erlhabstractmodelchatvariable.php',
-  
+		'erLhAbstractModelChatColumn'  		        => 'lib/models/lhabstract/erlhabstractmodelchatcolumn.php',
+		'erLhAbstractModelChatPriority'  		    => 'lib/models/lhabstract/erlhabstractmodelchatpriority.php',
+
 		'erLhAbstractModelSurvey'  			        => 'lib/models/lhabstract/erlhabstractmodelsurvey.php',
 		'erLhAbstractModelSurveyItem'  			    => 'lib/models/lhabstract/erlhabstractmodelsurveyitem.php',
 		'erLhcoreClassSurveyValidator'  			=> 'lib/core/lhsurvey/lhsurveyvalidator.php',
