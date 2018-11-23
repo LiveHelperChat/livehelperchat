@@ -770,16 +770,16 @@ class erLhcoreClassChatValidator {
                     if ($rule['comparator'] == '=' && $rule['value'] != $valueToCompare) {
                         $ruleMatched = false;
                         break;
-                    } else if ($rule['comparator'] == '>' && ($rule['value'] > $valueToCompare) == false) {
+                    } else if ($rule['comparator'] == '>' && ($valueToCompare > $rule['value']) == false) {
                         $ruleMatched = false;
                         break;
-                    } else if ($rule['comparator'] == '>=' && ($rule['value'] >= $valueToCompare) == false) {
+                    } else if ($rule['comparator'] == '>=' && ($valueToCompare >= $rule['value']) == false) {
                         $ruleMatched = false;
                         break;
-                    } else if ($rule['comparator'] == '<' && ($rule['value'] < $valueToCompare) == false) {
+                    } else if ($rule['comparator'] == '<' && ($valueToCompare < $rule['value']) == false) {
                         $ruleMatched = false;
                         break;
-                    } else if ($rule['comparator'] == '<=' && ($rule['value'] <= $valueToCompare) == false) {
+                    } else if ($rule['comparator'] == '<=' && ($valueToCompare <= $rule['value']) == false) {
                         $ruleMatched = false;
                         break;
                     }
