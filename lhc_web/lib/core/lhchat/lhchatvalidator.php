@@ -707,6 +707,14 @@ class erLhcoreClassChatValidator {
 
         if (!empty($stringParts)) {
             $chat->additional_data = json_encode($stringParts);
+            $chat->additional_data_array = $stringParts;
+        }
+
+        // Set priority by additional variables
+        $priority = self::getPriorityByAdditionalData($chat);
+
+        if ($priority !== false && $priority > $chat->priority) {
+            $chat->priority = $priority;
         }
 
         // Detect device
@@ -719,6 +727,75 @@ class erLhcoreClassChatValidator {
         return $Errors;
     }
     
+    public static function getPriorityByAdditionalData($chat)
+    {
+        $priorityRules = erLhAbstractModelChatPriority::getList(array('sort' => 'dep_id DESC, priority DESC','customfilter' => array('dep_id = 0 OR dep_id = ' .(int)$chat->dep_id)));
+
+        foreach ($priorityRules as $priorityRule) {
+
+            $ruleMatched = true;
+
+            foreach ($priorityRule->value_array as $rule) {
+                $valueToCompare = null;
+                if (strpos($rule['field'],'additional_data') !== false) {
+                    $additionalDataArray = $chat->additional_data_array;
+
+                    if (is_array($additionalDataArray)) {
+                        foreach ($additionalDataArray as $additionalItem) {
+                            $valueCompare = false;
+
+                            if (isset($additionalItem['identifier'])){
+                                $valueCompare = $additionalItem['identifier'];
+                            } elseif (isset($additionalItem['key'])){
+                                $valueCompare = $additionalItem['key'];
+                            }
+
+                            if ($valueCompare !== false && $valueCompare == str_replace('additional_data.','',$rule['field'])) {
+                                $valueToCompare = $additionalItem['value'];
+                                break;
+                            }
+                        }
+                    }
+                } elseif (strpos($rule['field'],'chat_variable') !== false) {
+                    $additionalDataArray = $chat->chat_variables_array;
+                    if (is_array($additionalDataArray)) {
+                        $variableName = str_replace('chat_variable.','', $rule['field']);
+                        if (isset($chat->chat_variables_array[$variableName]) && $chat->chat_variables_array[$variableName] != '') {
+                            $valueToCompare = $chat->chat_variables_array[$variableName];
+                        }
+                    }
+                }
+
+                if ($valueToCompare !== null) {
+                    if ($rule['comparator'] == '=' && $rule['value'] != $valueToCompare) {
+                        $ruleMatched = false;
+                        break;
+                    } else if ($rule['comparator'] == '>' && ($rule['value'] > $valueToCompare) == false) {
+                        $ruleMatched = false;
+                        break;
+                    } else if ($rule['comparator'] == '>=' && ($rule['value'] >= $valueToCompare) == false) {
+                        $ruleMatched = false;
+                        break;
+                    } else if ($rule['comparator'] == '<' && ($rule['value'] < $valueToCompare) == false) {
+                        $ruleMatched = false;
+                        break;
+                    } else if ($rule['comparator'] == '<=' && ($rule['value'] <= $valueToCompare) == false) {
+                        $ruleMatched = false;
+                        break;
+                    }
+                } else {
+                    $ruleMatched = false;
+                    break;
+                }
+            }
+
+            if ($ruleMatched == true) {
+                return $priorityRule->priority;
+            }
+        }
+
+        return false;
+    }
     
     /**
      * Validates custom fields
@@ -943,6 +1020,7 @@ class erLhcoreClassChatValidator {
         
         if (!empty($currentChatData)) {
             $chat->additional_data = json_encode($currentChatData);
+            $chat->additional_data_array = $currentChatData;
         }
     }
     

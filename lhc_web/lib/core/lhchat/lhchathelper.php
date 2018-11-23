@@ -127,7 +127,7 @@ class erLhcoreClassChatHelper
                 $params['chat']->has_unread_messages = 0;
                 
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = (($params['bot'] && $params['bot'] == true) ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'Bot') : (string) $params['user']) . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'has closed the chat!');
+                $msg->msg = ((isset($params['bot']) && $params['bot'] == true) ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'Bot') : (string) $params['user']) . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'has closed the chat!');
                 $msg->chat_id = $params['chat']->id;
                 $msg->user_id = - 1;
                 

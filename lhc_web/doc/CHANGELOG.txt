@@ -1,3 +1,12 @@
+3.11v
+
+1. Option to have custom columns in dashboard chat lists based on additional chat data.
+additional_data.<key || identifier>
+chat_variable.<key || identifier>
+2. Custom priority based on additional chat data.
+
+execute doc/update_db/update_186.sql for update
+
 3.10v
 
 1. Remote API Keys support, this feature can be used by external API

@@ -397,7 +397,7 @@ var lh_inst  = {
                     js_args.push('jsvar['+this.js_variables[index].id+']='+encodeURIComponent(currentVar));
                 }
             } catch(err) {
-                console.log(err.message);
+                
             }
         }
 

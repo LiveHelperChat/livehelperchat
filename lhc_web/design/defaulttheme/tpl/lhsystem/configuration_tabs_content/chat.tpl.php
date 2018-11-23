@@ -21,10 +21,11 @@
         		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/geoadjustment.tpl.php'));?>
         			
         			<?php if ($currentUser->hasAccessTo('lhchat','administrateconfig')) : ?>
-        			<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/syncandsoundesetting.tpl.php'));?>
-        		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/start_chat_form_settings.tpl.php'));?>
-        		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/chat_variables_settings.tpl.php'));?>
-
+                        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/syncandsoundesetting.tpl.php'));?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/start_chat_form_settings.tpl.php'));?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/chat_variables_settings.tpl.php'));?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/chat_column_settings.tpl.php'));?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/chat_priority_settings.tpl.php'));?>
         		    <?php endif;?>
         		    		    
          			<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/translation.tpl.php'));?>

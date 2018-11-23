@@ -4,6 +4,7 @@
         <th width="40%">
             <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Visitor');?>" class="material-icons">face</i>
         </th>
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/additional_column_header.tpl.php'));?>
         <th width="20%">
             <i title="Time ago" class="material-icons">access_time</i>
         </th>
@@ -29,6 +30,7 @@
                 </div>
             <?php endif; ?>
         </td>
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/additional_column_body.tpl.php'));?>
         <td>
             <div class="abbr-list" title="{{chat.time_created_front}}">{{chat.time_created_front}}</div>
         </td>
