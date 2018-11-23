@@ -87,7 +87,9 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '' && (!isset($paidC
     		if (isset($Params['user_parameters_unordered']['survey']) && is_numeric($Params['user_parameters_unordered']['survey'])){
     		    $modeAppendTheme .= '/(survey)/' . $Params['user_parameters_unordered']['survey'];
     		}
-    		
+
+            erLhcoreClassChatValidator::updateAdditionalVariables($chat);
+						
     		// Rerun module
     		$Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat') . '/' . $chatID . '/' . $hash . $modeAppend . $modeAppendTheme . $sound);
     		return true;
