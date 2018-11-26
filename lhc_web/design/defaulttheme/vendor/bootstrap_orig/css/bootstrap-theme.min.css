@@ -1,0 +1,42 @@
+.nav-pills{
+	border-bottom:1px solid #ddd;
+	padding-bottom:10px;
+}
+
+.nav-pills>li>a{
+	border:1px solid #F4F4F4;
+	margin-bottom:5px;
+	margin-right:3px;
+}
+
+.tab-content {
+	margin-top:15px;
+}
+
+.panel-lhc > .panel-heading{
+	border-top:1px solid #ddd;
+}
+
+.panel-lhc > .panel-heading:first-child{
+	border-top:0;
+}
+
+.navbar-lhc{
+	border-radius:0;
+	border-width:0 0 1px 0;
+	margin-bottom:0;
+}
+
+#onlineusers .tooltip-inner {
+	text-align:left;
+}
+
+.paginator-lhc{
+	margin-top:0;
+}
+
+.found-total{
+	color:#999999;
+	float:right;
+	line-height: 2.42857143;
+}

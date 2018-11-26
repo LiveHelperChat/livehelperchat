@@ -4,8 +4,8 @@
 
 <div role="tabpanel">
 
-	<ul class="nav nav-tabs" role="tablist">
-		<li role="presentation" class="active"><a href="#system" aria-controls="system" role="tab" data-toggle="tab"><?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_titles/system_title.tpl.php'));?></a></li>
+	<ul class="nav nav-tabs mb-3" role="tablist">
+		<li role="presentation" class="active nav-item"><a href="#system" class="nav-link" aria-controls="system" role="tab" data-toggle="tab"><?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_titles/system_title.tpl.php'));?></a></li>
         
         <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs/generate_js.tpl.php'));?>
         

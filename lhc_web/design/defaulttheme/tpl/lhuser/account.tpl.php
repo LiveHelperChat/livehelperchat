@@ -13,29 +13,29 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<ul class="nav nav-pills" role="tablist">
-	<li role="presentation" <?php if ($tab == '') : ?> class="active" <?php endif;?>><a href="#account" aria-controls="account" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Account data');?></a></li>
+<ul class="nav nav-tabs mb-3" role="tablist">
+	<li role="presentation" class="nav-item<?php if ($tab == '') : ?> active<?php endif;?>"><a href="#account" class="nav-link" aria-controls="account" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Account data');?></a></li>
 	
 	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_assigned_departments')) : ?>
-	<li role="presentation" <?php if ($tab == 'tab_departments') : ?>class="active"<?php endif;?>><a href="#departments" aria-controls="departments" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assigned departments');?></a></li>
+	<li role="presentation" class="nav-item<?php if ($tab == 'tab_departments') : ?> active<?php endif;?>"><a class="nav-link" href="#departments" aria-controls="departments" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assigned departments');?></a></li>
 	<?php endif;?>
 	
 	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_visibility_list')) : ?>
-	<li role="presentation" <?php if ($tab == 'tab_settings') : ?>class="active"<?php endif;?>><a href="#lists" aria-controls="lists" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Visible lists');?></a></li>
+	<li role="presentation" class="nav-item<?php if ($tab == 'tab_settings') : ?> active<?php endif;?>"><a class="nav-link" href="#lists" aria-controls="lists" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Visible lists');?></a></li>
 	<?php endif; ?>
 	
 	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs/personal_canned_messages_tab.tpl.php'));?>
 	
 	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmode')) : ?>
-	<li role="presentation" <?php if ($tab == 'tab_pending') : ?>class="active"<?php endif;?>><a href="#pending" aria-controls="pending" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Chats');?></a></li>
+	<li role="presentation" class="nav-item<?php if ($tab == 'tab_pending') : ?> active<?php endif;?>"><a href="#pending" class="nav-link" aria-controls="pending" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Chats');?></a></li>
 	<?php endif;?>
 	
 	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhspeech','changedefaultlanguage')) : ?>
-	<li role="presentation" <?php if ($tab == 'tab_speech') : ?>class="active"<?php endif;?>><a href="#speech" aria-controls="speech" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Speech');?></a></li>
+	<li role="presentation" class="nav-item<?php if ($tab == 'tab_speech') : ?> active<?php endif;?>"><a class="nav-link" href="#speech" aria-controls="speech" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Speech');?></a></li>
 	<?php endif;?>	
 
 	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhpermission','see_permissions')) : ?>
-	<li role="presentation" <?php if ($tab == 'tab_permission') : ?>class="active"<?php endif;?>><a href="#permission" aria-controls="permission" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Permissions');?></a></li>
+	<li role="presentation" class="nav-item<?php if ($tab == 'tab_permission') : ?> active<?php endif;?>"><a class="nav-link" href="#permission" aria-controls="permission" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Permissions');?></a></li>
 	<?php endif;?>
 	
 	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs/notifications_tab.tpl.php'));?>

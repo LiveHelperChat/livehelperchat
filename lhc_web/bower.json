@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "dependencies": {
     "jqueryui" : "*",
-    "bootstrap": "3.3.7",
+    "bootstrap": "4.1.3",
     "metisMenu" : "*",
     "material-design-icons" : "*"
   }  
