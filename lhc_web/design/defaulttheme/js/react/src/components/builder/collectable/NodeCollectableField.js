@@ -255,7 +255,7 @@ class NodeCollectableField extends Component {
 
                     <div className="row">
                         <div className="col-xs-12">
-                            <div className="btn-group pull-left" role="group" aria-label="Trigger actions">
+                            <div className="btn-group float-left" role="group" aria-label="Trigger actions">
                                 {this.props.isFirst == false && <a className="btn btn-default btn-xs" onClick={this.upField.bind(this)}><i className="material-icons mr-0">keyboard_arrow_up</i></a>}
                                 {this.props.isLast == false && <a className="btn btn-default btn-xs" onClick={this.downField.bind(this)}><i className="material-icons mr-0">keyboard_arrow_down</i></a>}
                             </div>

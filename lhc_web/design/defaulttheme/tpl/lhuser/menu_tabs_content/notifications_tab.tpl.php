@@ -1,6 +1,6 @@
 <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_notifications') : ?>active<?php endif;?>" id="notifications">
      <div class="form-group">
-         <div class="pull-left">
+         <div class="float-left">
             <?php include(erLhcoreClassDesign::designtpl('lhchat/user_settings.tpl.php'));?>
 		 </div>
 		 

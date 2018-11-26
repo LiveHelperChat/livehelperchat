@@ -1,5 +1,5 @@
 <div class="operator-info float-break">
-	<div class="pull-left pr5">
+	<div class="float-left pr5">
 		<?php if ($user->has_photo) : ?>
      			<?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_name_support_img.tpl.php'));?>
      	<?php else : ?>

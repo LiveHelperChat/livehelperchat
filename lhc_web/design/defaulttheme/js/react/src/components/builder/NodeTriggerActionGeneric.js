@@ -83,7 +83,7 @@ class NodeTriggerActionGeneric extends Component {
             </div>
             </div>
 
-            <div className="pull-left" role="group">
+            <div className="float-left" role="group">
                 <label><input type="checkbox" onChange={(e) => this.onChangeMainAttr('hide_text_area',e.target.checked)} defaultChecked={this.props.action.getIn(['content','list_options','hide_text_area'])} /> Hide text area on response.</label> <i className="material-icons" title="Textarea to enter user message will be disabled. Make sure you include buttons for user to click.">info</i>
             </div>
 
