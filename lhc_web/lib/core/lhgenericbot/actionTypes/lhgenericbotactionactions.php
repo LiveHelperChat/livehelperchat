@@ -31,6 +31,7 @@ class erLhcoreClassGenericBotActionActions {
                 array(
                     'content' => array(
                         'type' => 'intent',
+                        'replace_array' => (isset($params['replace_array']) ? $params['replace_array'] : array()),
                         'validation' => array(
                             'words' => (isset($action['content']['event_validate']) ? $action['content']['event_validate'] : null),
                             'typos' => (isset($action['content']['event_typos']) ? $action['content']['event_typos'] : null),
