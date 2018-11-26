@@ -37,7 +37,7 @@
 			<table ng-cloak class="table table-condensed mb0 table-small table-fixed" cellpadding="0" cellspacing="0" ng-init='trans = <?php echo json_encode(array('third' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has not seen a message from the operator, or the message window is still open.'),'msg_seen' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Seen'),'msg_not_seen' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Unseen'),'second' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has seen the message from the operator.'),'first' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any messages from the operator')),JSON_HEX_APOS)?>'>
 				<tbody ng-repeat="group in onlineusersGrouped track by group.id">
 					<tr ng-show="group.label != ''">
-						<td colspan="6"><h5 class="group-by-{{groupByField}}">{{group.label}} ({{group.ou.length}})</h5></td>
+						<td><h5 class="group-by-{{groupByField}}">{{group.label}} ({{group.ou.length}})</h5></td>
 					</tr>
 					<tr ng-repeat="ou in group.ou | orderBy:online.predicate:online.reverse | filter:query track by ou.id" ng-class="{recent_visit:(ou.last_visit_seconds_ago < 15)<?php echo $onlineCheck?>}">
 						<td>
