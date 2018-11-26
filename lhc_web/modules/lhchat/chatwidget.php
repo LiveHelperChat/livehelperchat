@@ -368,7 +368,9 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     	       }
     
     	       $messageInitial = false;
-    	       
+
+               $paramsExecution = array();
+               
     	       // Store message if required
     	       if (isset($startDataFields['message_visible_in_page_widget']) && $startDataFields['message_visible_in_page_widget'] == true) {
     	           if ( $inputData->question != '' && $inputData->key_up_started == false) {
@@ -379,8 +381,8 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     	               $msg->user_id = 0;
     	               $msg->time = time();
     	               erLhcoreClassChat::getSession()->save($msg);
-    
-    	               $messageInitial = $msg;	     
+
+                       $paramsExecution['msg'] = $messageInitial = $msg;     
     	               	               
     	               $chat->unanswered_chat = 1;
     	               $chat->last_msg_id = $msg->id;
@@ -389,7 +391,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     	       }
 
                // Set bot workflow if required
-               erLhcoreClassChatValidator::setBot($chat);
+               erLhcoreClassChatValidator::setBot($chat, $paramsExecution);
 
     	       // Auto responder does not make sense in this mode
     	       if ($inputData->key_up_started == false) {
