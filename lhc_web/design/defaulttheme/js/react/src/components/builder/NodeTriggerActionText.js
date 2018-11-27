@@ -14,6 +14,7 @@ class NodeTriggerActionText extends Component {
         this.addQuickReply = this.addQuickReply.bind(this);
         this.addAction = this.addAction.bind(this);
         this.removeAction = this.removeAction.bind(this);
+        this.addAnswerVariation = this.addAnswerVariation.bind(this);
 
         this.onQuickReplyNameChange = this.onQuickReplyNameChange.bind(this);
         this.onPrecheckChange = this.onPrecheckChange.bind(this);
@@ -27,6 +28,9 @@ class NodeTriggerActionText extends Component {
         // Abstract methods
         this.onDeleteField = this.onDeleteField.bind(this);
         this.onchangeFieldAttr = this.onchangeFieldAttr.bind(this);
+
+        // Text area focys
+        this.textMessageRef = React.createRef();
     }
 
     changeType(e) {
@@ -35,6 +39,13 @@ class NodeTriggerActionText extends Component {
 
     setText(e) {
         this.props.onChangeContent({id : this.props.id, 'path' : ['content','text'], value : e.target.value});
+    }
+
+    addAnswerVariation() {
+        var newVal = this.props.action.getIn(['content','text'])+" |||\n";
+        this.props.onChangeContent({id : this.props.id, 'path' : ['content','text'], value : newVal});
+        this.textMessageRef.current.focus();
+        this.textMessageRef.current.value = newVal;
     }
 
     setHTML(e) {
@@ -129,7 +140,8 @@ class NodeTriggerActionText extends Component {
 
                     <div className="form-group">
                         <label>Enter text</label>
-                        <textarea placeholder="Write your response here!" onChange={this.setText} defaultValue={this.props.action.getIn(['content','text'])} className="form-control"></textarea>
+                        <a title="Add answer variation" className="pull-right" onClick={this.addAnswerVariation}><i className="material-icons mr-0">question_answer</i></a>
+                        <textarea rows="3" placeholder="Write your response here!" onChange={this.setText} ref={this.textMessageRef} defaultValue={this.props.action.getIn(['content','text'])} className="form-control"></textarea>
                     </div>
 
                     <div className="form-group">

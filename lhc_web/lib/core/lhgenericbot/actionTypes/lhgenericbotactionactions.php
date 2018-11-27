@@ -6,12 +6,20 @@ class erLhcoreClassGenericBotActionActions {
     {
         // save message if required
         if (isset($action['content']['success_message']) && $action['content']['success_message'] != '') {
+
+            $msgData = explode('|||',(isset($action['content']['success_message']) ? trim($action['content']['success_message']) : ''));
+
+            $item = $msgData[0];
+            if (count($msgData) > 0){
+                $item = trim($msgData[mt_rand(0,count($msgData)-1)]);
+            }
+
             $msg = new erLhcoreClassModelmsg();
             $msg->chat_id = $chat->id;
             $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
             $msg->user_id = -2;
             $msg->time = time() + 5;
-            $msg->msg = $action['content']['success_message'];
+            $msg->msg = $item;
 
             if (isset($params['replace_array'])) {
                 $msg->msg = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$msg->msg);
@@ -35,12 +43,14 @@ class erLhcoreClassGenericBotActionActions {
                         'validation' => array(
                             'words' => (isset($action['content']['event_validate']) ? $action['content']['event_validate'] : null),
                             'typos' => (isset($action['content']['event_typos']) ? $action['content']['event_typos'] : null),
+                            'words_alt' => (isset($action['content']['event_in_validate']) ? $action['content']['event_in_validate'] : null),
                         ),
                         'event' => (isset($action['content']['event']) ? $action['content']['event'] : null),
                         'event_args' => array(
                             'invalid' => (isset($action['content']['attr_options']['collection_callback_cancel']) ? $action['content']['attr_options']['collection_callback_cancel'] : null),
                             'valid' => (isset($action['content']['attr_options']['collection_callback_pattern']) ? $action['content']['attr_options']['collection_callback_pattern'] : null),
-                            'format' => (isset($action['content']['attr_options']['collection_callback_format']) ? $action['content']['attr_options']['collection_callback_format'] : null)
+                            'format' => (isset($action['content']['attr_options']['collection_callback_format']) ? $action['content']['attr_options']['collection_callback_format'] : null),
+                            'valid_alt' => (isset($action['content']['attr_options']['collection_callback_alternative']) ? $action['content']['attr_options']['collection_callback_alternative'] : null)
                         )
                     )
                 )

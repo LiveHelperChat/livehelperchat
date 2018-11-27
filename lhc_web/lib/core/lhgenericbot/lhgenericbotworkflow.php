@@ -226,7 +226,14 @@ class erLhcoreClassGenericBotWorkflow {
                                      }
                                  }
                             } else {
-                                if (isset($eventData['content']['event_args']['invalid']) && is_numeric($eventData['content']['event_args']['invalid'])){
+                                if (isset($eventData['content']['validation']['words_alt']) && self::checkPresence(explode(',',$eventData['content']['validation']['words_alt']),mb_strtolower($payload),(isset($eventData['content']['validation']['typos']) ? (int)$eventData['content']['validation']['typos'] : 0)) === true){
+                                    if (isset($eventData['content']['event_args']['valid_alt']) && is_numeric($eventData['content']['event_args']['valid_alt'])) {
+                                        $trigger = erLhcoreClassModelGenericBotTrigger::fetch($eventData['content']['event_args']['valid_alt']);
+                                        if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                                            erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, $args);
+                                        }
+                                    }
+                                } else if (isset($eventData['content']['event_args']['invalid']) && is_numeric($eventData['content']['event_args']['invalid'])){
                                     $trigger = erLhcoreClassModelGenericBotTrigger::fetch($eventData['content']['event_args']['invalid']);
                                     if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
                                         erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, $args);

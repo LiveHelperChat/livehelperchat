@@ -81,7 +81,14 @@ class erLhcoreClassGenericBotActionText {
             $metaMessage['content']['attr_options'] = $action['content']['attr_options'];
         }
 
-        $msg->msg = isset($action['content']['text']) ? trim($action['content']['text']) : '';
+        $msgData = explode('|||',(isset($action['content']['text']) ? trim($action['content']['text']) : ''));
+
+        $item = $msgData[0];
+        if (count($msgData) > 0){
+            $item = trim($msgData[mt_rand(0,count($msgData)-1)]);
+        }
+
+        $msg->msg = $item;
 
         if (isset($params['replace_array'])) {
             $msg->msg = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$msg->msg);
