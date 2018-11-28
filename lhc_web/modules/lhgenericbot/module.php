@@ -23,6 +23,18 @@ $ViewList['addpayload'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['downloadbot'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['import'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['triggersbybot'] = array(
     'params' => array('id','trigger_id'),
     'uparams' => array('preview','element'),
