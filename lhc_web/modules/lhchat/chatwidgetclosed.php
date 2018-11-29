@@ -104,7 +104,11 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
                             }
 
 				            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.explicitly_closed',array('chat' => & $chat));
-				        }
+				        } else {
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.visitor_regular_closed',array('chat' => & $chat));
+                        }
+
+
 	        
 	        } elseif ($chat->hash == $hash && $Params['user_parameters_unordered']['eclose'] == 't' && $chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
 

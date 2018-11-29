@@ -12,9 +12,22 @@
 
 <?php if ($online_user->online_attr != '') : ?>
 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Additional information')?></h5>
-<pre>
-<?php echo htmlspecialchars(json_encode(json_decode($online_user->online_attr),JSON_PRETTY_PRINT));?>
-</pre>
+    <ul class="circle">
+        <?php foreach (json_decode($online_user->online_attr,true) as $addItem) : ?>
+        <?php if (isset($addItem['key'])) : ?>
+            <li<?php if (isset($addItem['identifier'])): ?> title="<?php echo htmlspecialchars($addItem['identifier'])?>"<?php endif;?>><?php echo htmlspecialchars($addItem['key'])?> - <?php echo htmlspecialchars($addItem['value'])?>
+                <?php if (isset($addItem['h']) && $addItem['h'] == true) : ?>&nbsp;<i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Hidden field')?>">visibility_off</i><?php endif;?>
+                <?php if (isset($addItem['url']) && $addItem['url'] == true) : ?>&nbsp;<i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Identifier')?> - <?php echo htmlspecialchars($addItem['identifier'])?>">link</i><?php endif;?>
+            </li>
+        <?php else : ?>
+        <li>
+            <pre>
+               <?php echo htmlspecialchars(json_encode($addItem,JSON_PRETTY_PRINT));?>
+            </pre>
+        </li>
+        <?php endif; ?>
+    <?php endforeach; ?>
+    </ul>
 <?php endif;?>
 </div>
 

@@ -44,6 +44,7 @@ $inputData->name_items = array();
 $inputData->value_items = array();
 $inputData->value_types = array();
 $inputData->value_sizes = array();
+$inputData->jsvar = array();
 $inputData->ua = $Params['user_parameters_unordered']['ua'];
 $inputData->hattr = array();
 $inputData->value_items_admin = array(); // These variables get's filled from start chat form settings
@@ -155,6 +156,12 @@ if (isset($_POST['askQuestion']))
 	);
 	
 	$validationFields['via_encrypted'] = new ezcInputFormDefinitionElement(
+	    ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+	    null,
+	    FILTER_REQUIRE_ARRAY
+	);
+
+	$validationFields['jsvar'] = new ezcInputFormDefinitionElement(
 	    ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
 	    null,
 	    FILTER_REQUIRE_ARRAY
@@ -328,6 +335,32 @@ if (isset($_POST['askQuestion']))
 	        }
 	    }
 	}
+
+    // Javascript variables
+    if ( $form->hasValidData( 'jsvar' ) && !empty($form->jsvar))
+    {
+        $inputForm->jsvar = $form->jsvar;
+        foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
+            if (isset($form->jsvar[$jsVar->id]) && !empty($form->jsvar[$jsVar->id])) {
+                if ($jsVar->var_identifier == 'lhc.nick') {
+                    $chat->nick = $form->jsvar[$jsVar->id];
+                } else {
+
+                    $val = $form->jsvar[$jsVar->id];
+                    if ($jsVar->type == 0) {
+                        $val = (string)$val;
+                    } elseif ($jsVar->type == 1) {
+                        $val = (int)$val;
+                    } elseif ($jsVar->type == 2) {
+                        $val = (real)$val;
+                    }
+
+                    $stringParts[] = array('h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
+
+                }
+            }
+        }
+    }
 
     // Detect user locale
     if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
@@ -652,6 +685,11 @@ if (!ezcInputForm::hasPostData()) {
 					null,
 					FILTER_REQUIRE_ARRAY
 			),
+            'jsvar'  => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
+                null,
+                FILTER_REQUIRE_ARRAY
+            ),
 			'value' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
 					null,
@@ -725,7 +763,12 @@ if (!ezcInputForm::hasPostData()) {
 	{
 		$inputData->value_items = $form->value;
 	}
-	
+
+    if ( $form->hasValidData( 'jsvar' ) && !empty($form->jsvar))
+    {
+        $inputData->jsvar = $form->jsvar;
+    }
+
 	if ( $form->hasValidData( 'hattr' ) && !empty($form->hattr))
 	{
 		$inputData->hattr = $form->hattr;
