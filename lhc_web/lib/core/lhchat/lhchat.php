@@ -2003,7 +2003,7 @@ class erLhcoreClassChat {
                $stmt->execute();
            } catch (Exception $e) {
                try {
-                   usleep(50);
+                   usleep(100);
                    $stmt = $db->prepare('SELECT 1 FROM lh_userdep WHERE id IN (' . implode(',', $recordIds) . ') ORDER BY id ASC FOR UPDATE;');
                    $stmt->execute();
                } catch (Exception $e) {
