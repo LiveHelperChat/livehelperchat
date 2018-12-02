@@ -24,6 +24,11 @@ $def->properties['ctime']->columnName   = 'ctime';
 $def->properties['ctime']->propertyName = 'ctime';
 $def->properties['ctime']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['counter'] = new ezcPersistentObjectProperty();
+$def->properties['counter']->columnName   = 'counter';
+$def->properties['counter']->propertyName = 'counter';
+$def->properties['counter']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

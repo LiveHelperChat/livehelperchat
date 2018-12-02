@@ -1163,7 +1163,7 @@ class erLhcoreClassChat {
 
        $userData = $currentUser->getUserData(true);
 
-       if ( $userData->all_departments == 0 ) {
+       if ( $userData->all_departments == 0 && $chat->dep_id != 0) {
 
             /*
              * --From now permission is strictly by assigned department, not by chat owner

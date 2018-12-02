@@ -1,0 +1,1 @@
+ALTER TABLE `lh_generic_bot_chat_event` ADD `counter` int(11) NOT NULL, COMMENT='';

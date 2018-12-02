@@ -1,3 +1,9 @@
+3.12v
+
+1. Events will store how many times it was executed so extension can forbid executing it second time.
+
+execute doc/update_db/update_187.sql for update
+
 3.11v
 
 1. Option to have custom columns in dashboard chat lists based on additional chat data.

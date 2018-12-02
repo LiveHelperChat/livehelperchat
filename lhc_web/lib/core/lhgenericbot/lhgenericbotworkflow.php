@@ -374,6 +374,9 @@ class erLhcoreClassGenericBotWorkflow {
 
             if ($keepEvent === false) {
                 $chatEvent->removeThis();
+            } else {
+                $chatEvent->counter++;
+                $chatEvent->saveThis();
             }
 
         } catch (Exception $e) {
