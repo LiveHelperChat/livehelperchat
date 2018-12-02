@@ -1998,8 +1998,18 @@ class erLhcoreClassChat {
        $recordIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
        if (!empty($recordIds)) {
-           $stmt = $db->prepare('SELECT 1 FROM lh_userdep WHERE id IN (' . implode(',', $recordIds) . ') ORDER BY id ASC FOR UPDATE;');
-           $stmt->execute();
+           try {
+               $stmt = $db->prepare('SELECT 1 FROM lh_userdep WHERE id IN (' . implode(',', $recordIds) . ') ORDER BY id ASC FOR UPDATE;');
+               $stmt->execute();
+           } catch (Exception $e) {
+               try {
+                   usleep(50);
+                   $stmt = $db->prepare('SELECT 1 FROM lh_userdep WHERE id IN (' . implode(',', $recordIds) . ') ORDER BY id ASC FOR UPDATE;');
+                   $stmt->execute();
+               } catch (Exception $e) {
+                   error_log($e->getMessage() . "\n" . $e->getTraceAsString());
+               }
+           }
        }
    }
 

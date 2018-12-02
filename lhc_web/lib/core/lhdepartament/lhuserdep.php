@@ -193,9 +193,21 @@ class erLhcoreClassUserDep
 
         if (!empty($ids)) {
             $db = ezcDbInstance::get();
-            $stmt = $db->prepare('UPDATE lh_userdep SET last_accepted = :last_accepted WHERE id IN (' . implode(',', $ids) . ');');
-            $stmt->bindValue(':last_accepted', $lastAccepted, PDO::PARAM_INT);
-            $stmt->execute();
+            try {
+                $stmt = $db->prepare('UPDATE lh_userdep SET last_accepted = :last_accepted WHERE id IN (' . implode(',', $ids) . ');');
+                $stmt->bindValue(':last_accepted', $lastAccepted, PDO::PARAM_INT);
+                $stmt->execute();
+            } catch (Exception $e) {
+                try {
+                    usleep(100);
+                    $stmt = $db->prepare('UPDATE lh_userdep SET last_accepted = :last_accepted WHERE id IN (' . implode(',', $ids) . ');');
+                    $stmt->bindValue(':last_accepted', $lastAccepted, PDO::PARAM_INT);
+                    $stmt->execute();
+                } catch (Exception $e) {
+                    error_log($e->getMessage() . "\n" . $e->getTraceAsString());
+                }
+            }
+
         }
     }
 
