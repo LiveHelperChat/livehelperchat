@@ -37,10 +37,12 @@ if ($ts > time()) {
                 if (count($Errors) == 0) {
 
                     erLhcoreClassUser::getSession()->update($user);
-
+                                        
                     // Login user instantly as during password change he verified his logins
                     erLhcoreClassUser::instance()->setLoggedUser($user->id);
 
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.2fa_intercept', array('current_user' => erLhcoreClassUser::instance()));
+                    
                     $tpl->set('account_updated','done');
 
                 }  else {

@@ -132,6 +132,8 @@ if (isset($_POST['Login']))
                    }
                 }
 
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.2fa_intercept', array('remember' => (isset($_POST['rememberMe']) && $_POST['rememberMe'] == 1),'is_external' => $isExternalRequest, 'current_user' => $currentUser));
+
                 if ($isExternalRequest) {
                     $tpl->set('msg', erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Logged in successfully'));
                     echo json_encode(array('success' => true, 'result' => $tpl->fetch()));
