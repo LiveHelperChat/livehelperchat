@@ -1029,6 +1029,10 @@ function lh(){
                     $('#CSChatMessage-'+chat_id).unbind('keyup', function(){});
                 };
 
+                if (!!window.postMessage && window.opener) {
+                    window.opener.postMessage("lhc_ch:chatclosed:"+chat_id, '*');
+                };
+                
                 if (hidetab == true) {
 
                     var location = that.smartTabFocus(tabs, chat_id);
