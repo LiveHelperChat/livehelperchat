@@ -104,7 +104,7 @@ class erLhcoreClassGenericBotWorkflow {
                     $mistypedCount = 0;
                 } else {
                     // It has to be not the end of previous word
-                    if ($currentWordLetterIndex > 0 || $mistypedCount == 0 && $currentWordLetterIndex == 0 && !isset($textLetters[$indexLetter-1]) || in_array($textLetters[$indexLetter-1],array(',',' ',"'",':','.','?','!'))){
+                    if ($currentWordLetterIndex > 0 || $mistypedCount == 0 && $currentWordLetterIndex == 0 && !isset($textLetters[$indexLetter-1]) || in_array($textLetters[$indexLetter-1],array('"',',',' ',"'",':','.','?','!'))){
                         $currentWordLetterIndex++;
                     } else {
                         $currentWordLetterIndex = 0;
@@ -113,7 +113,7 @@ class erLhcoreClassGenericBotWorkflow {
                 }
 
                 if (count($wordLetters) == $currentWordLetterIndex) {
-                    if (!isset($textLetters[$indexLetter+1]) || in_array($textLetters[$indexLetter+1],array(',',' ',"'",':','.','?','!'))){
+                    if (!isset($textLetters[$indexLetter+1]) || in_array($textLetters[$indexLetter+1],array('"',',',' ',"'",':','.','?','!'))){
                         return true;
                     } else {
                         $currentWordLetterIndex = 0;
