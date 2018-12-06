@@ -55,6 +55,7 @@ if (ezcInputForm::hasPostData()) {
                         $eventObj->bot_id = $bot->id;
                         $eventObj->pattern = $event['pattern'];
                         $eventObj->type = $event['type'];
+                        $eventObj->saveThis();
                     }
                 }
             }

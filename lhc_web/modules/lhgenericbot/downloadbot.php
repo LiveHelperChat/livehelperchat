@@ -4,7 +4,7 @@ $bot =  erLhcoreClassModelGenericBotBot::fetch((int)$Params['user_parameters']['
 
 $exportData = array('bot' => array('name' => $bot->name));
 
-$groups = erLhcoreClassModelGenericBotGroup::getList(array('filter' => array('bot_id' => $bot->id)));
+$groups = erLhcoreClassModelGenericBotGroup::getList(array('sort' => 'id ASC', 'filter' => array('bot_id' => $bot->id)));
 
 foreach ($groups as $group) {
     $groupVars = get_object_vars($group);
@@ -16,7 +16,7 @@ foreach ($groups as $group) {
         'triggers' => array()
     );
 
-    $triggers = erLhcoreClassModelGenericBotTrigger::getList(array('filter' => array('bot_id' => $group->bot_id,'group_id' => $group->id)));
+    $triggers = erLhcoreClassModelGenericBotTrigger::getList(array('sort' => 'id ASC', 'filter' => array('bot_id' => $group->bot_id,'group_id' => $group->id)));
     foreach ($triggers as $trigger) {
 
         $triggerVars = get_object_vars($trigger);
@@ -24,7 +24,7 @@ foreach ($groups as $group) {
         unset($triggerVars['group_id']);
         unset($triggerVars['bot_id']);
 
-        $events = erLhcoreClassModelGenericBotTriggerEvent::getList(array('filter' => array('trigger_id' => $trigger->id, 'bot_id' => $trigger->bot_id)));
+        $events = erLhcoreClassModelGenericBotTriggerEvent::getList(array('sort' => 'id ASC', 'filter' => array('trigger_id' => $trigger->id, 'bot_id' => $trigger->bot_id)));
 
         $eventsVars = array();
         foreach ($events as $event) {
