@@ -242,7 +242,10 @@ return array_merge(array (
 		'erLhcoreClassChatEvent'       				=> 'lib/core/lhchat/lhchatevent.php',
 
         // Bot classes
-        'erLhcoreClassModelGenericBotBot'           => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotbot.php',
+        'erLhcoreClassModelGenericBotBot'               => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotbot.php',
+        'erLhcoreClassModelGenericBotException'         => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotexception.php',
+        'erLhcoreClassModelGenericBotExceptionMessage'  => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotexceptionmessage.php',
+
         'erLhcoreClassModelGenericBotGroup'         => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotgroup.php',
         'erLhcoreClassModelGenericBotTrigger'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbottrigger.php',
         'erLhcoreClassModelGenericBotTriggerEvent'  => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbottriggerevent.php',
