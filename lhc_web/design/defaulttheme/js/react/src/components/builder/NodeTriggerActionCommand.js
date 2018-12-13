@@ -46,6 +46,7 @@ class NodeTriggerActionCommand extends Component {
                                 <option value="stopchat">Stop chat and transfer to human</option>
                                 <option value="transfertobot">Transfer chat to bot</option>
                                 <option value="closechat">Close chat</option>
+                                <option value="chatvariable">Set chat variable</option>
                             </select>
                         </div>
                     </div>
@@ -68,6 +69,14 @@ class NodeTriggerActionCommand extends Component {
                     <div className="form-group">
                         <label>What trigger to execute once chat is transfered to bot</label>
                         <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path':['payload'],'value':e})} payload={this.props.action.getIn(['content','payload'])} />
+                    </div>
+                </div>}
+
+                {this.props.action.getIn(['content','command']) == 'chatvariable' &&
+                <div>
+                    <div className="form-group">
+                        <label>Set chat variables in json format.</label>
+                        <input className="form-control" type="text" placeholder="{&quot;bot_touched&quot;:true}" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
                     </div>
                 </div>}
 

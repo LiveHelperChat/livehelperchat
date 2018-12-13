@@ -13,6 +13,7 @@ import NodeTriggerActionProgress from './builder/NodeTriggerActionProgress';
 import NodeTriggerActionVideo from './builder/NodeTriggerActionVideo';
 import NodeTriggerActionAttribute from './builder/NodeTriggerActionAttribute';
 import NodeTriggerActionActions from './builder/NodeTriggerActionActions';
+import NodeTriggerActionIntent from './builder/NodeTriggerActionIntent';
 
 @connect((store) => {
     return {
@@ -40,6 +41,10 @@ class NodeTriggerBuilder extends Component {
         this.moveUpSubelement = this.moveUpSubelement.bind(this);
         this.moveDownSubelement = this.moveDownSubelement.bind(this);
         this.viewCode = this.viewCode.bind(this);
+
+
+        this.upField = this.upField.bind(this);
+        this.downField = this.downField.bind(this);
 
         this.props.dispatch(initBot(this.props.botId));
     }
@@ -113,6 +118,14 @@ class NodeTriggerBuilder extends Component {
         this.setState({viewCode : !this.state.viewCode});
     }
 
+    upField() {
+        //this.props.onMoveUpField(this.props.id);
+    }
+
+    downField() {
+        //this.props.onMoveDownField(this.props.id);
+    }
+
     render() {
 
         var actions = [];
@@ -142,6 +155,8 @@ class NodeTriggerBuilder extends Component {
                     return <NodeTriggerActionAttribute key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 } else if (action.get('type') == 'actions') {
                     return <NodeTriggerActionActions key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
+                } else if (action.get('type') == 'intent') {
+                    return <NodeTriggerActionIntent key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 }
             });
         }
@@ -164,7 +179,7 @@ class NodeTriggerBuilder extends Component {
                             <div className="form-group">
                                 <div className="pull-right"><label><input type="checkbox" value="on" onChange={(e) => this.setState({compressCode : !this.state.compressCode})} defaultChecked={this.state.compressCode} />Compressed version</label></div>
                                 <label>JSON body you can use for REST API</label>
-                                <textarea rows="10" className="form-control fs11" value={JSON.stringify(this.props.currenttrigger.getIn(['currenttrigger','actions']).toJSON(), null, (this.state.compressCode == false ? 4 : 0))}></textarea>
+                                <textarea readOnly="readOnly" rows="10" className="form-control fs11" value={JSON.stringify(this.props.currenttrigger.getIn(['currenttrigger','actions']).toJSON(), null, (this.state.compressCode == false ? 4 : 0))}></textarea>
                                 <p><small><i>&quot;_id&quot; can be ignored</i></small></p>
                             </div>
                         ) : ''}

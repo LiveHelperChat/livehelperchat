@@ -14,7 +14,7 @@ class NodeTriggerActionButtons extends Component {
         this.onDeleteField = this.onDeleteField.bind(this);
         this.onMoveUpField = this.onMoveUpField.bind(this);
         this.onMoveDownField = this.onMoveDownField.bind(this);
-         this.onChangeMainAttr = this.onChangeMainAttr.bind(this);
+        this.onChangeMainAttr = this.onChangeMainAttr.bind(this);
     }
 
     changeType(e) {

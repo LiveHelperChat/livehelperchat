@@ -92,7 +92,7 @@ gulp.task('react-components', function () {
 
 gulp.task('react-js',  function() {
 
-    process.env.NODE_ENV = 'production';
+    process.env.NODE_ENV = 'dev';
 
     return browserify('design/defaulttheme/js/react/src/index.jsx')
         .transform("babelify", {
@@ -103,7 +103,7 @@ gulp.task('react-js',  function() {
         .on('error', gutil.log)
         .pipe(source('all.js'))
         .pipe(buffer())
-        .pipe(uglify({ mangle: false }))
+        //.pipe(uglify({ mangle: false }))
         .pipe(gulp.dest('design/defaulttheme/js/react/build'))
 });
 
