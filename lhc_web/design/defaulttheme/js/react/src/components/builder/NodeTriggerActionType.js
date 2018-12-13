@@ -58,6 +58,10 @@ export default ({onChange, type}) => {
         {
             'value': 'actions',
             'text' : 'Execute action',
+        },
+        {
+            'value': 'intent',
+            'text' : 'Intent detection',
         }
     ]);
 

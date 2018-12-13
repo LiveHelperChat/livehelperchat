@@ -249,6 +249,7 @@ return array_merge(array (
         'erLhcoreClassModelGenericBotPayload'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotpayload.php',
         'erLhcoreClassModelGenericBotChatWorkflow'  => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotchatworkflow.php',
         'erLhcoreClassModelGenericBotChatEvent'     => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotchatevent.php',
+        'erLhcoreClassModelGenericBotPendingEvent'  => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotpendingevent.php',
 
         'erLhcoreClassGenericBot'                   => 'lib/core/lhgenericbot/lhgenericbot.php',
         'erLhcoreClassGenericBotWorkflow'           => 'lib/core/lhgenericbot/lhgenericbotworkflow.php',
