@@ -72,7 +72,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 				            
 				            erLhcoreClassChat::getSession()->save($msg);
 		          				            
-				            $chat->last_user_msg_time = $msg->time;
+				            //$chat->last_user_msg_time = $msg->time;
 				            
 				            // Set last message ID
 				            if ($chat->last_msg_id < $msg->id) {
@@ -125,7 +125,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 
                     erLhcoreClassChat::getSession()->save($msg);
 
-                    $chat->last_user_msg_time = $msg->time;
+                    //$chat->last_user_msg_time = $msg->time;
 
                     // Set last message ID
                     if ($chat->last_msg_id < $msg->id) {
