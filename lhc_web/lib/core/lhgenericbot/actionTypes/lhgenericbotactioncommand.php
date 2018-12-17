@@ -83,10 +83,7 @@ class erLhcoreClassGenericBotActionCommand {
             }
         } elseif ($action['content']['command'] == 'closechat') {
 
-            if ($chat->pnd_time == 0) {
-                $chat->pnd_time = time();
-            }
-
+            $chat->pnd_time = time();
             $chat->last_op_msg_time = time();
 
             $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_chat_command_transfer', array(
