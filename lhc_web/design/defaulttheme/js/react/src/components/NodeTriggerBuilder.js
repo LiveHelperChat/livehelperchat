@@ -14,6 +14,7 @@ import NodeTriggerActionVideo from './builder/NodeTriggerActionVideo';
 import NodeTriggerActionAttribute from './builder/NodeTriggerActionAttribute';
 import NodeTriggerActionActions from './builder/NodeTriggerActionActions';
 import NodeTriggerActionIntent from './builder/NodeTriggerActionIntent';
+import NodeTriggerActionIntentCheck from './builder/NodeTriggerActionIntentCheck';
 
 @connect((store) => {
     return {
@@ -118,45 +119,50 @@ class NodeTriggerBuilder extends Component {
         this.setState({viewCode : !this.state.viewCode});
     }
 
-    upField() {
-        //this.props.onMoveUpField(this.props.id);
+    upField(fieldIndex) {
+        this.setState({dataChanged : true});
+        this.props.dispatch({'type' : 'MOVE_UP','payload' : {'index' : fieldIndex}});
     }
 
-    downField() {
-        //this.props.onMoveDownField(this.props.id);
+    downField(fieldIndex) {
+        this.setState({dataChanged : true});
+        this.props.dispatch({'type' : 'MOVE_DOWN','payload' : {'index' : fieldIndex}});
     }
 
     render() {
 
         var actions = [];
         if (this.props.currenttrigger.get('currenttrigger').has('actions')) {
+            var totalTriggers = this.props.currenttrigger.get('currenttrigger').get('actions').size;
             actions = this.props.currenttrigger.get('currenttrigger').get('actions').map((action, index) => {
                 if (action.get('type') == 'text') {
-                    return <NodeTriggerActionText addSubelement={this.addSubelement} deleteSubelement={this.deleteSubelement} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} removeQuickReply={this.removeQuickReply} addQuickReply={this.addQuickReply} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
+                    return <NodeTriggerActionText upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} addSubelement={this.addSubelement} deleteSubelement={this.deleteSubelement} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} removeQuickReply={this.removeQuickReply} addQuickReply={this.addQuickReply} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
                 } else if (action.get('type') == 'list') {
-                    return <NodeTriggerActionList moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} addSubelement={this.addSubelement} removeQuickReply={this.removeQuickReply} addQuickReply={this.addQuickReply} deleteSubelement={this.deleteSubelement} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} /> 
+                    return <NodeTriggerActionList upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} addSubelement={this.addSubelement} removeQuickReply={this.removeQuickReply} addQuickReply={this.addQuickReply} deleteSubelement={this.deleteSubelement} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
                 } else if (action.get('type') == 'generic') {
-                    return <NodeTriggerActionGeneric moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} addSubelement={this.addSubelement} removeQuickReply={this.removeQuickReply} addQuickReply={this.addQuickReply} deleteSubelement={this.deleteSubelement} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
+                    return <NodeTriggerActionGeneric upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} addSubelement={this.addSubelement} removeQuickReply={this.removeQuickReply} addQuickReply={this.addQuickReply} deleteSubelement={this.deleteSubelement} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
                 } else if (action.get('type') == 'collectable') {
-                    return <NodeTriggerActionCollectable moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
+                    return <NodeTriggerActionCollectable upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
                 } else if (action.get('type') == 'buttons') {
-                    return <NodeTriggerActionButtons moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
+                    return <NodeTriggerActionButtons upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
                 } else if (action.get('type') == 'command') {
-                    return <NodeTriggerActionCommand key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
+                    return <NodeTriggerActionCommand upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 } else if (action.get('type') == 'predefined') {
-                    return <NodeTriggerActionPredefined key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
+                    return <NodeTriggerActionPredefined upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 } else if (action.get('type') == 'typing') {
-                    return <NodeTriggerActionTyping key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
+                    return <NodeTriggerActionTyping upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 } else if (action.get('type') == 'progress') {
-                    return <NodeTriggerActionProgress key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
+                    return <NodeTriggerActionProgress upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 } else if (action.get('type') == 'video') {
-                    return <NodeTriggerActionVideo key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
+                    return <NodeTriggerActionVideo upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 } else if (action.get('type') == 'attribute') {
-                    return <NodeTriggerActionAttribute key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
+                    return <NodeTriggerActionAttribute upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 } else if (action.get('type') == 'actions') {
-                    return <NodeTriggerActionActions key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
+                    return <NodeTriggerActionActions upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 } else if (action.get('type') == 'intent') {
-                    return <NodeTriggerActionIntent key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
+                    return <NodeTriggerActionIntent upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
+                } else if (action.get('type') == 'intentcheck') {
+                    return <NodeTriggerActionIntentCheck upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 }
             });
         }

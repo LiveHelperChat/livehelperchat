@@ -94,6 +94,23 @@ class erLhcoreClassGenericBotActionCommand {
                     'bot' => true
                 ));
             }
+
+        } elseif ($action['content']['command'] == 'chatvariable') {
+
+                $variablesArray = (array)$chat->chat_variables_array;
+
+                $variablesAppend = json_decode($action['content']['payload'],true);
+
+                if (is_array($variablesAppend)) {
+                    foreach ($variablesAppend as $key => $value) {
+                        $variablesArray[$key] = $value;
+                    }
+                }
+
+                $chat->chat_variables = json_encode($variablesArray);
+                $chat->chat_variables_array = $variablesArray;
+                $chat->saveThis();
+
         }
     }
 }

@@ -7,6 +7,8 @@ class NodeActionIntentItem extends Component {
         super(props);
         this.onIncludeWordsChange = this.onIncludeWordsChange.bind(this);
         this.onExcludeWordsChange = this.onExcludeWordsChange.bind(this);
+        this.onTypos = this.onTypos.bind(this);
+        this.onTyposExc = this.onTyposExc.bind(this);
         this.onchangeAttr = this.onchangeAttr.bind(this);
     }
 
@@ -26,6 +28,14 @@ class NodeActionIntentItem extends Component {
         this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content'].concat(e.path), value : e.value});
     }
 
+    onTypos(payload) {
+        this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content', 'words_typo'], value :  payload});
+    }
+
+    onTyposExc(payload) {
+        this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content', 'exc_words_typo'], value : payload});
+    }
+
     render() {
         return (
             <div className="row">
@@ -39,6 +49,18 @@ class NodeActionIntentItem extends Component {
                     <div className="form-group">
                         <label>But not any of these</label>
                         <input type="text" placeholder="no, nop" className="form-control input-sm" onChange={(e) => this.onExcludeWordsChange(e.target.value)} defaultValue={this.props.action.getIn(['content','exc_words'])} />
+                    </div>
+                </div>
+                <div className="col-xs-6">
+                    <div className="form-group">
+                        <label>Number of typos allowed</label>
+                        <input type="text" placeholder="0" className="form-control input-sm" onChange={(e) => this.onTypos(e.target.value)} defaultValue={this.props.action.getIn(['content','words_typo'])} />
+                    </div>
+                </div>
+                <div className="col-xs-6">
+                    <div className="form-group">
+                        <label>Number of typos allowed</label>
+                        <input type="text" placeholder="0" className="form-control input-sm" onChange={(e) => this.onTyposExc(e.target.value)} defaultValue={this.props.action.getIn(['content','exc_words_typo'])} />
                     </div>
                 </div>
 

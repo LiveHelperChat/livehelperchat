@@ -45,11 +45,11 @@ class erLhcoreClassGenericBotWorkflow {
             }
 
             if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
-                self::processTrigger($chat, $event->trigger);
+                self::processTrigger($chat, $event->trigger, false, array('args' => array('msg' => $msg)));
                 return;
             }
 
-            self::sendDefault($chat, $chat->chat_variables_array['gbot_id']);
+            self::sendDefault($chat, $chat->chat_variables_array['gbot_id'], $msg);
         }
     }
 
@@ -70,12 +70,12 @@ class erLhcoreClassGenericBotWorkflow {
     }
 
     // Send default message if there is any
-    public static function sendDefault(& $chat, $botId)
+    public static function sendDefault(& $chat, $botId, $msg = null)
     {
         $trigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filter' => array('bot_id' => $botId, 'default_unknown' => 1)));
 
         if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
-            $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger);
+            $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('msg' => $msg)));
 
             if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
                 self::setLastMessageId($chat, $message->id, true);
@@ -217,6 +217,8 @@ class erLhcoreClassGenericBotWorkflow {
                             if (isset($eventData['content']['replace_array'])) {
                                 $args['args']['replace_array'] = $eventData['content']['replace_array'];
                             }
+
+                            $args['args']['msg_text'] = $payload;
 
                             if (self::checkPresence($words,mb_strtolower($payload),(isset($eventData['content']['validation']['typos']) ? (int)$eventData['content']['validation']['typos'] : 0)) === true) {
                                  if (isset($eventData['content']['event_args']['valid']) && is_numeric($eventData['content']['event_args']['valid'])){
@@ -905,6 +907,12 @@ class erLhcoreClassGenericBotWorkflow {
         	$messageNew = call_user_func_array("erLhcoreClassGenericBotAction" . ucfirst($action['type']).'::process',array($chat, $action, $trigger, (isset($params['args']) ? $params['args'] : array())));
             if ($messageNew instanceof erLhcoreClassModelmsg) {
                 $message = $messageNew;
+            } elseif (is_array($messageNew) && isset($messageNew['status']) && $messageNew['status'] == 'stop') {
+                if (isset($messageNew['trigger_id'])) {
+                    $trigger = erLhcoreClassModelGenericBotTrigger::fetch($messageNew['trigger_id']);
+                    return self::processTrigger($chat, $trigger, $setLastMessageId, $params);
+                }
+                break;
             }
         }
 

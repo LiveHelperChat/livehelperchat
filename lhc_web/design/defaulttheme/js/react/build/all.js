@@ -70,7 +70,7 @@ var App = function (_Component) {
 
 exports.default = App;
 
-},{"./components/NodeGroups":8,"./components/NodeTriggerBuilder":9,"./components/NodeTriggerBuilderPreview":10,"react":132}],2:[function(require,module,exports){
+},{"./components/NodeGroups":8,"./components/NodeTriggerBuilder":9,"./components/NodeTriggerBuilderPreview":10,"react":133}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -142,7 +142,7 @@ function updateNodeGroup(obj) {
     };
 }
 
-},{"axios":51}],3:[function(require,module,exports){
+},{"axios":52}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -389,7 +389,7 @@ function initArgumentTemplates() {
     };
 }
 
-},{"axios":51}],4:[function(require,module,exports){
+},{"axios":52}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -415,7 +415,7 @@ function addPayload(payload) {
     };
 }
 
-},{"axios":51}],5:[function(require,module,exports){
+},{"axios":52}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -595,7 +595,7 @@ var NodeGroup = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react.Component)) || _class);
 exports.default = NodeGroup;
 
-},{"../actions/nodeGroupTriggerActions":3,"./NodeGroupTrigger":6,"./NodeGroupTriggerEvents":7,"react":132,"react-redux":114}],6:[function(require,module,exports){
+},{"../actions/nodeGroupTriggerActions":3,"./NodeGroupTrigger":6,"./NodeGroupTriggerEvents":7,"react":133,"react-redux":115}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -771,7 +771,7 @@ var NodeGroupTrigger = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react.Component)) || _class);
 exports.default = NodeGroupTrigger;
 
-},{"../actions/nodeGroupTriggerActions":3,"react":132,"react-redux":114}],7:[function(require,module,exports){
+},{"../actions/nodeGroupTriggerActions":3,"react":133,"react-redux":115}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -858,7 +858,7 @@ var NodeGroupTriggerEvents = function (_Component) {
 
 exports.default = NodeGroupTriggerEvents;
 
-},{"./events/NodeGroupTriggerEvent":35,"immutable":91,"react":132}],8:[function(require,module,exports){
+},{"./events/NodeGroupTriggerEvent":36,"immutable":92,"react":133}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -944,7 +944,7 @@ var NodeGroups = (_dec = (0, _reactRedux.connect)(function (state) {
 }(_react.Component)) || _class);
 exports.default = NodeGroups;
 
-},{"../actions/nodeGroupActions":2,"./NodeGroup":5,"react":132,"react-redux":114}],9:[function(require,module,exports){
+},{"../actions/nodeGroupActions":2,"./NodeGroup":5,"react":133,"react-redux":115}],9:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1015,6 +1015,10 @@ var _NodeTriggerActionIntent = require("./builder/NodeTriggerActionIntent");
 
 var _NodeTriggerActionIntent2 = _interopRequireDefault(_NodeTriggerActionIntent);
 
+var _NodeTriggerActionIntentCheck = require("./builder/NodeTriggerActionIntentCheck");
+
+var _NodeTriggerActionIntentCheck2 = _interopRequireDefault(_NodeTriggerActionIntentCheck);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1051,6 +1055,9 @@ var NodeTriggerBuilder = (_dec = (0, _reactRedux.connect)(function (store) {
         _this.moveUpSubelement = _this.moveUpSubelement.bind(_this);
         _this.moveDownSubelement = _this.moveDownSubelement.bind(_this);
         _this.viewCode = _this.viewCode.bind(_this);
+
+        _this.upField = _this.upField.bind(_this);
+        _this.downField = _this.downField.bind(_this);
 
         _this.props.dispatch((0, _nodeGroupTriggerActions.initBot)(_this.props.botId));
         return _this;
@@ -1140,39 +1147,54 @@ var NodeTriggerBuilder = (_dec = (0, _reactRedux.connect)(function (store) {
             this.setState({ viewCode: !this.state.viewCode });
         }
     }, {
+        key: "upField",
+        value: function upField(fieldIndex) {
+            this.setState({ dataChanged: true });
+            this.props.dispatch({ 'type': 'MOVE_UP', 'payload': { 'index': fieldIndex } });
+        }
+    }, {
+        key: "downField",
+        value: function downField(fieldIndex) {
+            this.setState({ dataChanged: true });
+            this.props.dispatch({ 'type': 'MOVE_DOWN', 'payload': { 'index': fieldIndex } });
+        }
+    }, {
         key: "render",
         value: function render() {
             var _this2 = this;
 
             var actions = [];
             if (this.props.currenttrigger.get('currenttrigger').has('actions')) {
+                var totalTriggers = this.props.currenttrigger.get('currenttrigger').get('actions').size;
                 actions = this.props.currenttrigger.get('currenttrigger').get('actions').map(function (action, index) {
                     if (action.get('type') == 'text') {
-                        return _react2.default.createElement(_NodeTriggerActionText2.default, { addSubelement: _this2.addSubelement, deleteSubelement: _this2.deleteSubelement, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, removeAction: _this2.removeAction, removeQuickReply: _this2.removeQuickReply, addQuickReply: _this2.addQuickReply, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action });
+                        return _react2.default.createElement(_NodeTriggerActionText2.default, { upField: _this2.upField, downField: _this2.downField, isFirst: index == 0, isLast: index + 1 == totalTriggers, addSubelement: _this2.addSubelement, deleteSubelement: _this2.deleteSubelement, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, removeAction: _this2.removeAction, removeQuickReply: _this2.removeQuickReply, addQuickReply: _this2.addQuickReply, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action });
                     } else if (action.get('type') == 'list') {
-                        return _react2.default.createElement(_NodeTriggerActionList2.default, { moveDownSubelement: _this2.moveDownSubelement, moveUpSubelement: _this2.moveUpSubelement, addSubelement: _this2.addSubelement, removeQuickReply: _this2.removeQuickReply, addQuickReply: _this2.addQuickReply, deleteSubelement: _this2.deleteSubelement, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, removeAction: _this2.removeAction, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action });
+                        return _react2.default.createElement(_NodeTriggerActionList2.default, { upField: _this2.upField, downField: _this2.downField, isFirst: index == 0, isLast: index + 1 == totalTriggers, moveDownSubelement: _this2.moveDownSubelement, moveUpSubelement: _this2.moveUpSubelement, addSubelement: _this2.addSubelement, removeQuickReply: _this2.removeQuickReply, addQuickReply: _this2.addQuickReply, deleteSubelement: _this2.deleteSubelement, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, removeAction: _this2.removeAction, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action });
                     } else if (action.get('type') == 'generic') {
-                        return _react2.default.createElement(_NodeTriggerActionGeneric2.default, { moveDownSubelement: _this2.moveDownSubelement, moveUpSubelement: _this2.moveUpSubelement, addSubelement: _this2.addSubelement, removeQuickReply: _this2.removeQuickReply, addQuickReply: _this2.addQuickReply, deleteSubelement: _this2.deleteSubelement, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, removeAction: _this2.removeAction, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action });
+                        return _react2.default.createElement(_NodeTriggerActionGeneric2.default, { upField: _this2.upField, downField: _this2.downField, isFirst: index == 0, isLast: index + 1 == totalTriggers, moveDownSubelement: _this2.moveDownSubelement, moveUpSubelement: _this2.moveUpSubelement, addSubelement: _this2.addSubelement, removeQuickReply: _this2.removeQuickReply, addQuickReply: _this2.addQuickReply, deleteSubelement: _this2.deleteSubelement, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, removeAction: _this2.removeAction, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action });
                     } else if (action.get('type') == 'collectable') {
-                        return _react2.default.createElement(_NodeTriggerActionCollectable2.default, { moveDownSubelement: _this2.moveDownSubelement, moveUpSubelement: _this2.moveUpSubelement, deleteSubelement: _this2.deleteSubelement, addSubelement: _this2.addSubelement, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, removeAction: _this2.removeAction, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action });
+                        return _react2.default.createElement(_NodeTriggerActionCollectable2.default, { upField: _this2.upField, downField: _this2.downField, isFirst: index == 0, isLast: index + 1 == totalTriggers, moveDownSubelement: _this2.moveDownSubelement, moveUpSubelement: _this2.moveUpSubelement, deleteSubelement: _this2.deleteSubelement, addSubelement: _this2.addSubelement, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, removeAction: _this2.removeAction, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action });
                     } else if (action.get('type') == 'buttons') {
-                        return _react2.default.createElement(_NodeTriggerActionButtons2.default, { moveDownSubelement: _this2.moveDownSubelement, moveUpSubelement: _this2.moveUpSubelement, deleteSubelement: _this2.deleteSubelement, addSubelement: _this2.addSubelement, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, removeAction: _this2.removeAction, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action });
+                        return _react2.default.createElement(_NodeTriggerActionButtons2.default, { upField: _this2.upField, downField: _this2.downField, isFirst: index == 0, isLast: index + 1 == totalTriggers, moveDownSubelement: _this2.moveDownSubelement, moveUpSubelement: _this2.moveUpSubelement, deleteSubelement: _this2.deleteSubelement, addSubelement: _this2.addSubelement, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, removeAction: _this2.removeAction, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action });
                     } else if (action.get('type') == 'command') {
-                        return _react2.default.createElement(_NodeTriggerActionCommand2.default, { key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action, removeAction: _this2.removeAction });
+                        return _react2.default.createElement(_NodeTriggerActionCommand2.default, { upField: _this2.upField, downField: _this2.downField, isFirst: index == 0, isLast: index + 1 == totalTriggers, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action, removeAction: _this2.removeAction });
                     } else if (action.get('type') == 'predefined') {
-                        return _react2.default.createElement(_NodeTriggerActionPredefined2.default, { key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action, removeAction: _this2.removeAction });
+                        return _react2.default.createElement(_NodeTriggerActionPredefined2.default, { upField: _this2.upField, downField: _this2.downField, isFirst: index == 0, isLast: index + 1 == totalTriggers, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action, removeAction: _this2.removeAction });
                     } else if (action.get('type') == 'typing') {
-                        return _react2.default.createElement(_NodeTriggerActionTyping2.default, { key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action, removeAction: _this2.removeAction });
+                        return _react2.default.createElement(_NodeTriggerActionTyping2.default, { upField: _this2.upField, downField: _this2.downField, isFirst: index == 0, isLast: index + 1 == totalTriggers, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action, removeAction: _this2.removeAction });
                     } else if (action.get('type') == 'progress') {
-                        return _react2.default.createElement(_NodeTriggerActionProgress2.default, { key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action, removeAction: _this2.removeAction });
+                        return _react2.default.createElement(_NodeTriggerActionProgress2.default, { upField: _this2.upField, downField: _this2.downField, isFirst: index == 0, isLast: index + 1 == totalTriggers, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action, removeAction: _this2.removeAction });
                     } else if (action.get('type') == 'video') {
-                        return _react2.default.createElement(_NodeTriggerActionVideo2.default, { key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action, removeAction: _this2.removeAction });
+                        return _react2.default.createElement(_NodeTriggerActionVideo2.default, { upField: _this2.upField, downField: _this2.downField, isFirst: index == 0, isLast: index + 1 == totalTriggers, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action, removeAction: _this2.removeAction });
                     } else if (action.get('type') == 'attribute') {
-                        return _react2.default.createElement(_NodeTriggerActionAttribute2.default, { key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action, removeAction: _this2.removeAction });
+                        return _react2.default.createElement(_NodeTriggerActionAttribute2.default, { upField: _this2.upField, downField: _this2.downField, isFirst: index == 0, isLast: index + 1 == totalTriggers, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action, removeAction: _this2.removeAction });
                     } else if (action.get('type') == 'actions') {
-                        return _react2.default.createElement(_NodeTriggerActionActions2.default, { key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action, removeAction: _this2.removeAction });
+                        return _react2.default.createElement(_NodeTriggerActionActions2.default, { upField: _this2.upField, downField: _this2.downField, isFirst: index == 0, isLast: index + 1 == totalTriggers, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action, removeAction: _this2.removeAction });
                     } else if (action.get('type') == 'intent') {
-                        return _react2.default.createElement(_NodeTriggerActionIntent2.default, { key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, onChangeContent: _this2.handleContentChange, moveDownSubelement: _this2.moveDownSubelement, moveUpSubelement: _this2.moveUpSubelement, deleteSubelement: _this2.deleteSubelement, addSubelement: _this2.addSubelement, onChangeType: _this2.handleTypeChange, action: action, removeAction: _this2.removeAction });
+                        return _react2.default.createElement(_NodeTriggerActionIntent2.default, { upField: _this2.upField, downField: _this2.downField, isFirst: index == 0, isLast: index + 1 == totalTriggers, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, onChangeContent: _this2.handleContentChange, moveDownSubelement: _this2.moveDownSubelement, moveUpSubelement: _this2.moveUpSubelement, deleteSubelement: _this2.deleteSubelement, addSubelement: _this2.addSubelement, onChangeType: _this2.handleTypeChange, action: action, removeAction: _this2.removeAction });
+                    } else if (action.get('type') == 'intentcheck') {
+                        return _react2.default.createElement(_NodeTriggerActionIntentCheck2.default, { upField: _this2.upField, downField: _this2.downField, isFirst: index == 0, isLast: index + 1 == totalTriggers, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, onChangeType: _this2.handleTypeChange, action: action, removeAction: _this2.removeAction });
                     }
                 });
             }
@@ -1272,7 +1294,7 @@ var NodeTriggerBuilder = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react.Component)) || _class);
 exports.default = NodeTriggerBuilder;
 
-},{"../actions/nodeGroupTriggerActions":3,"./builder/NodeTriggerActionActions":11,"./builder/NodeTriggerActionAttribute":12,"./builder/NodeTriggerActionButtons":13,"./builder/NodeTriggerActionCollectable":14,"./builder/NodeTriggerActionCommand":15,"./builder/NodeTriggerActionGeneric":16,"./builder/NodeTriggerActionIntent":17,"./builder/NodeTriggerActionList":18,"./builder/NodeTriggerActionPredefined":19,"./builder/NodeTriggerActionProgress":20,"./builder/NodeTriggerActionText":23,"./builder/NodeTriggerActionTyping":25,"./builder/NodeTriggerActionVideo":26,"react":132,"react-redux":114}],10:[function(require,module,exports){
+},{"../actions/nodeGroupTriggerActions":3,"./builder/NodeTriggerActionActions":11,"./builder/NodeTriggerActionAttribute":12,"./builder/NodeTriggerActionButtons":13,"./builder/NodeTriggerActionCollectable":14,"./builder/NodeTriggerActionCommand":15,"./builder/NodeTriggerActionGeneric":16,"./builder/NodeTriggerActionIntent":17,"./builder/NodeTriggerActionIntentCheck":18,"./builder/NodeTriggerActionList":19,"./builder/NodeTriggerActionPredefined":20,"./builder/NodeTriggerActionProgress":21,"./builder/NodeTriggerActionText":24,"./builder/NodeTriggerActionTyping":26,"./builder/NodeTriggerActionVideo":27,"react":133,"react-redux":115}],10:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1378,7 +1400,7 @@ var NodeTriggerBuilderPreview = (_dec = (0, _reactRedux.connect)(function (store
 }(_react.Component)) || _class);
 exports.default = NodeTriggerBuilderPreview;
 
-},{"../actions/nodeGroupTriggerActions":3,"./preview/NodeTriggerActionButtonsPreview":36,"./preview/NodeTriggerActionGenericPreview":37,"./preview/NodeTriggerActionListPreview":38,"./preview/NodeTriggerActionPredefinedPreview":39,"./preview/NodeTriggerActionTextPreview":41,"./preview/NodeTriggerActionTypingPreview":42,"./preview/NodeTriggerActionVideoPreview":43,"react":132,"react-redux":114}],11:[function(require,module,exports){
+},{"../actions/nodeGroupTriggerActions":3,"./preview/NodeTriggerActionButtonsPreview":37,"./preview/NodeTriggerActionGenericPreview":38,"./preview/NodeTriggerActionListPreview":39,"./preview/NodeTriggerActionPredefinedPreview":40,"./preview/NodeTriggerActionTextPreview":42,"./preview/NodeTriggerActionTypingPreview":43,"./preview/NodeTriggerActionVideoPreview":44,"react":133,"react-redux":115}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1461,7 +1483,42 @@ var NodeTriggerActionActions = function (_Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-xs-11' },
+                        { className: 'col-xs-2' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'btn-group pull-left', role: 'group', 'aria-label': 'Trigger actions' },
+                            _react2.default.createElement(
+                                'button',
+                                { disabled: 'disabled', className: 'btn btn-xs btn-info' },
+                                this.props.id + 1
+                            ),
+                            this.props.isFirst == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.upField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_up'
+                                )
+                            ),
+                            this.props.isLast == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.downField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_down'
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-9' },
                         _react2.default.createElement(_NodeTriggerActionType2.default, { onChange: this.changeType, type: this.props.action.get('type') })
                     ),
                     _react2.default.createElement(
@@ -1665,7 +1722,7 @@ var NodeTriggerActionActions = function (_Component) {
 
 exports.default = NodeTriggerActionActions;
 
-},{"./NodeTriggerActionType":24,"./NodeTriggerList":29,"react":132}],12:[function(require,module,exports){
+},{"./NodeTriggerActionType":25,"./NodeTriggerList":30,"react":133}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1967,7 +2024,7 @@ var NodeTriggerActionAttribute = function (_Component) {
 
 exports.default = NodeTriggerActionAttribute;
 
-},{"./NodeTriggerActionType":24,"./NodeTriggerList":29,"react":132}],13:[function(require,module,exports){
+},{"./NodeTriggerActionType":25,"./NodeTriggerList":30,"react":133}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2083,7 +2140,42 @@ var NodeTriggerActionButtons = function (_Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-xs-11' },
+                        { className: 'col-xs-2' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'btn-group pull-left', role: 'group', 'aria-label': 'Trigger actions' },
+                            _react2.default.createElement(
+                                'button',
+                                { disabled: 'disabled', className: 'btn btn-xs btn-info' },
+                                this.props.id + 1
+                            ),
+                            this.props.isFirst == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.upField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_up'
+                                )
+                            ),
+                            this.props.isLast == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.downField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_down'
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-9' },
                         _react2.default.createElement(_NodeTriggerActionType2.default, { onChange: this.changeType, type: this.props.action.get('type') })
                     ),
                     _react2.default.createElement(
@@ -2159,7 +2251,7 @@ var NodeTriggerActionButtons = function (_Component) {
 
 exports.default = NodeTriggerActionButtons;
 
-},{"./NodeTriggerActionType":24,"./NodeTriggerPayloadList":30,"./buttons/NodeActionButton":31,"react":132,"shortid":155}],14:[function(require,module,exports){
+},{"./NodeTriggerActionType":25,"./NodeTriggerPayloadList":31,"./buttons/NodeActionButton":32,"react":133,"shortid":156}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2285,7 +2377,42 @@ var NodeTriggerActionCollectable = function (_Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-xs-11' },
+                        { className: 'col-xs-2' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'btn-group pull-left', role: 'group', 'aria-label': 'Trigger actions' },
+                            _react2.default.createElement(
+                                'button',
+                                { disabled: 'disabled', className: 'btn btn-xs btn-info' },
+                                this.props.id + 1
+                            ),
+                            this.props.isFirst == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.upField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_up'
+                                )
+                            ),
+                            this.props.isLast == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.downField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_down'
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-9' },
                         _react2.default.createElement(_NodeTriggerActionType2.default, { onChange: this.changeType, type: this.props.action.get('type') })
                     ),
                     _react2.default.createElement(
@@ -2662,7 +2789,7 @@ var NodeTriggerActionCollectable = function (_Component) {
 
 exports.default = NodeTriggerActionCollectable;
 
-},{"./NodeTriggerActionType":24,"./NodeTriggerList":29,"./NodeTriggerPayloadList":30,"./collectable/NodeCollectableField":32,"react":132,"shortid":155}],15:[function(require,module,exports){
+},{"./NodeTriggerActionType":25,"./NodeTriggerList":30,"./NodeTriggerPayloadList":31,"./collectable/NodeCollectableField":33,"react":133,"shortid":156}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2733,7 +2860,42 @@ var NodeTriggerActionCommand = function (_Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-xs-11' },
+                        { className: 'col-xs-2' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'btn-group pull-left', role: 'group', 'aria-label': 'Trigger actions' },
+                            _react2.default.createElement(
+                                'button',
+                                { disabled: 'disabled', className: 'btn btn-xs btn-info' },
+                                this.props.id + 1
+                            ),
+                            this.props.isFirst == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.upField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_up'
+                                )
+                            ),
+                            this.props.isLast == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.downField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_down'
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-9' },
                         _react2.default.createElement(_NodeTriggerActionType2.default, { onChange: this.changeType, type: this.props.action.get('type') })
                     ),
                     _react2.default.createElement(
@@ -2853,7 +3015,7 @@ var NodeTriggerActionCommand = function (_Component) {
                             null,
                             'Set chat variables in json format.'
                         ),
-                        _react2.default.createElement('input', { type: 'text', placeholder: '{"bot_touched":true}', onChange: function onChange(e) {
+                        _react2.default.createElement('input', { className: 'form-control', type: 'text', placeholder: '{"bot_touched":true}', onChange: function onChange(e) {
                                 return _this2.onchangeAttr({ 'path': ['payload'], 'value': e.target.value });
                             }, defaultValue: this.props.action.getIn(['content', 'payload']) })
                     )
@@ -2868,7 +3030,7 @@ var NodeTriggerActionCommand = function (_Component) {
 
 exports.default = NodeTriggerActionCommand;
 
-},{"./NodeTriggerActionType":24,"./NodeTriggerList":29,"react":132}],16:[function(require,module,exports){
+},{"./NodeTriggerActionType":25,"./NodeTriggerList":30,"react":133}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2996,7 +3158,42 @@ var NodeTriggerActionGeneric = function (_Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-xs-11' },
+                        { className: 'col-xs-2' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'btn-group pull-left', role: 'group', 'aria-label': 'Trigger actions' },
+                            _react2.default.createElement(
+                                'button',
+                                { disabled: 'disabled', className: 'btn btn-xs btn-info' },
+                                this.props.id + 1
+                            ),
+                            this.props.isFirst == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.upField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_up'
+                                )
+                            ),
+                            this.props.isLast == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.downField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_down'
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-9' },
                         _react2.default.createElement(_NodeTriggerActionType2.default, { onChange: this.changeType, type: this.props.action.get('type') })
                     ),
                     _react2.default.createElement(
@@ -3055,7 +3252,7 @@ var NodeTriggerActionGeneric = function (_Component) {
 
 exports.default = NodeTriggerActionGeneric;
 
-},{"./NodeTriggerActionType":24,"./NodeTriggerPayloadList":30,"./list/NodeActionListItem":34,"react":132,"shortid":155}],17:[function(require,module,exports){
+},{"./NodeTriggerActionType":25,"./NodeTriggerPayloadList":31,"./list/NodeActionListItem":35,"react":133,"shortid":156}],17:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3160,7 +3357,42 @@ var NodeTriggerActionIntent = function (_Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-xs-11' },
+                        { className: 'col-xs-2' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'btn-group pull-left', role: 'group', 'aria-label': 'Trigger actions' },
+                            _react2.default.createElement(
+                                'button',
+                                { disabled: 'disabled', className: 'btn btn-xs btn-info' },
+                                this.props.id + 1
+                            ),
+                            this.props.isFirst == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.upField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_up'
+                                )
+                            ),
+                            this.props.isLast == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.downField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_down'
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-9' },
                         _react2.default.createElement(_NodeTriggerActionType2.default, { onChange: this.changeType, type: this.props.action.get('type') })
                     ),
                     _react2.default.createElement(
@@ -3199,8 +3431,8 @@ var NodeTriggerActionIntent = function (_Component) {
                         )
                     )
                 ),
-                button_list,
-                _react2.default.createElement('hr', null)
+                _react2.default.createElement('hr', null),
+                button_list
             );
         }
     }]);
@@ -3210,7 +3442,143 @@ var NodeTriggerActionIntent = function (_Component) {
 
 exports.default = NodeTriggerActionIntent;
 
-},{"./NodeTriggerActionType":24,"./NodeTriggerList":29,"./intent/NodeActionIntentItem":33,"react":132,"shortid":155}],18:[function(require,module,exports){
+},{"./NodeTriggerActionType":25,"./NodeTriggerList":30,"./intent/NodeActionIntentItem":34,"react":133,"shortid":156}],18:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _NodeTriggerActionType = require('./NodeTriggerActionType');
+
+var _NodeTriggerActionType2 = _interopRequireDefault(_NodeTriggerActionType);
+
+var _shortid = require('shortid');
+
+var _shortid2 = _interopRequireDefault(_shortid);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var NodeTriggerActionIntentCheck = function (_Component) {
+    _inherits(NodeTriggerActionIntentCheck, _Component);
+
+    function NodeTriggerActionIntentCheck(props) {
+        _classCallCheck(this, NodeTriggerActionIntentCheck);
+
+        var _this = _possibleConstructorReturn(this, (NodeTriggerActionIntentCheck.__proto__ || Object.getPrototypeOf(NodeTriggerActionIntentCheck)).call(this, props));
+
+        _this.changeType = _this.changeType.bind(_this);
+        _this.removeAction = _this.removeAction.bind(_this);
+        return _this;
+    }
+
+    _createClass(NodeTriggerActionIntentCheck, [{
+        key: 'changeType',
+        value: function changeType(e) {
+            this.props.onChangeType({ id: this.props.id, 'type': e.target.value });
+        }
+    }, {
+        key: 'removeAction',
+        value: function removeAction() {
+            this.props.removeAction({ id: this.props.id });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-2' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'btn-group pull-left', role: 'group', 'aria-label': 'Trigger actions' },
+                            _react2.default.createElement(
+                                'button',
+                                { disabled: 'disabled', className: 'btn btn-xs btn-info' },
+                                this.props.id + 1
+                            ),
+                            this.props.isFirst == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.upField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_up'
+                                )
+                            ),
+                            this.props.isLast == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.downField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_down'
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-9' },
+                        _react2.default.createElement(_NodeTriggerActionType2.default, { onChange: this.changeType, type: this.props.action.get('type') })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-1' },
+                        _react2.default.createElement(
+                            'button',
+                            { onClick: this.removeAction, type: 'button', className: 'btn btn-danger btn-sm pull-right' },
+                            _react2.default.createElement(
+                                'i',
+                                { className: 'material-icons mr-0' },
+                                'delete'
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'Check for pending intended actions. If atleast one pending actions will be found. None of the rest triggers will be executed.'
+                    )
+                ),
+                _react2.default.createElement('hr', null)
+            );
+        }
+    }]);
+
+    return NodeTriggerActionIntentCheck;
+}(_react.Component);
+
+exports.default = NodeTriggerActionIntentCheck;
+
+},{"./NodeTriggerActionType":25,"react":133,"shortid":156}],19:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3375,7 +3743,42 @@ var NodeTriggerActionList = function (_Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-xs-11' },
+                        { className: 'col-xs-2' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'btn-group pull-left', role: 'group', 'aria-label': 'Trigger actions' },
+                            _react2.default.createElement(
+                                'button',
+                                { disabled: 'disabled', className: 'btn btn-xs btn-info' },
+                                this.props.id + 1
+                            ),
+                            this.props.isFirst == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.upField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_up'
+                                )
+                            ),
+                            this.props.isLast == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.downField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_down'
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-9' },
                         _react2.default.createElement(_NodeTriggerActionType2.default, { onChange: this.changeType, type: this.props.action.get('type') })
                     ),
                     _react2.default.createElement(
@@ -3465,7 +3868,7 @@ var NodeTriggerActionList = function (_Component) {
 
 exports.default = NodeTriggerActionList;
 
-},{"./NodeTriggerActionQuickReply":21,"./NodeTriggerActionType":24,"./NodeTriggerPayloadList":30,"./list/NodeActionListItem":34,"react":132,"shortid":155}],19:[function(require,module,exports){
+},{"./NodeTriggerActionQuickReply":22,"./NodeTriggerActionType":25,"./NodeTriggerPayloadList":31,"./list/NodeActionListItem":35,"react":133,"shortid":156}],20:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3536,7 +3939,42 @@ var NodeTriggerActionPredefined = function (_Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-xs-11' },
+                        { className: 'col-xs-2' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'btn-group pull-left', role: 'group', 'aria-label': 'Trigger actions' },
+                            _react2.default.createElement(
+                                'button',
+                                { disabled: 'disabled', className: 'btn btn-xs btn-info' },
+                                this.props.id + 1
+                            ),
+                            this.props.isFirst == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.upField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_up'
+                                )
+                            ),
+                            this.props.isLast == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.downField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_down'
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-9' },
                         _react2.default.createElement(_NodeTriggerActionType2.default, { onChange: this.changeType, type: this.props.action.get('type') })
                     ),
                     _react2.default.createElement(
@@ -3582,7 +4020,7 @@ var NodeTriggerActionPredefined = function (_Component) {
 
 exports.default = NodeTriggerActionPredefined;
 
-},{"./NodeTriggerActionType":24,"./NodeTriggerList":29,"react":132}],20:[function(require,module,exports){
+},{"./NodeTriggerActionType":25,"./NodeTriggerList":30,"react":133}],21:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3653,7 +4091,42 @@ var NodeTriggerActionProgress = function (_Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-xs-11' },
+                        { className: 'col-xs-2' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'btn-group pull-left', role: 'group', 'aria-label': 'Trigger actions' },
+                            _react2.default.createElement(
+                                'button',
+                                { disabled: 'disabled', className: 'btn btn-xs btn-info' },
+                                this.props.id + 1
+                            ),
+                            this.props.isFirst == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.upField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_up'
+                                )
+                            ),
+                            this.props.isLast == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.downField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_down'
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-9' },
                         _react2.default.createElement(_NodeTriggerActionType2.default, { onChange: this.changeType, type: this.props.action.get('type') })
                     ),
                     _react2.default.createElement(
@@ -3726,7 +4199,7 @@ var NodeTriggerActionProgress = function (_Component) {
 
 exports.default = NodeTriggerActionProgress;
 
-},{"./NodeTriggerActionType":24,"./NodeTriggerArgumentTemplate":27,"react":132}],21:[function(require,module,exports){
+},{"./NodeTriggerActionType":25,"./NodeTriggerArgumentTemplate":28,"react":133}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3906,7 +4379,7 @@ var NodeTriggerActionQuickReply = (_dec = (0, _reactRedux.connect)(function (sto
 }(_react.Component)) || _class);
 exports.default = NodeTriggerActionQuickReply;
 
-},{"./NodeTriggerActionQuickReplyPayload":22,"react":132,"react-redux":114}],22:[function(require,module,exports){
+},{"./NodeTriggerActionQuickReplyPayload":23,"react":133,"react-redux":115}],23:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4249,7 +4722,7 @@ var NodeTriggerActionQuickReplyPayload = (_dec = (0, _reactRedux.connect)(functi
 }(_react.Component)) || _class);
 exports.default = NodeTriggerActionQuickReplyPayload;
 
-},{"../../actions/nodePayloadActions":4,"./NodeTriggerList":29,"react":132,"react-redux":114}],23:[function(require,module,exports){
+},{"../../actions/nodePayloadActions":4,"./NodeTriggerList":30,"react":133,"react-redux":115}],24:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -4439,7 +4912,42 @@ var NodeTriggerActionText = function (_Component) {
                         { className: 'row' },
                         _react2.default.createElement(
                             'div',
-                            { className: 'col-xs-11' },
+                            { className: 'col-xs-2' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'btn-group pull-left', role: 'group', 'aria-label': 'Trigger actions' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { disabled: 'disabled', className: 'btn btn-xs btn-info' },
+                                    this.props.id + 1
+                                ),
+                                this.props.isFirst == false && _react2.default.createElement(
+                                    'a',
+                                    { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                            return _this2.props.upField(_this2.props.id);
+                                        } },
+                                    _react2.default.createElement(
+                                        'i',
+                                        { className: 'material-icons mr-0' },
+                                        'keyboard_arrow_up'
+                                    )
+                                ),
+                                this.props.isLast == false && _react2.default.createElement(
+                                    'a',
+                                    { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                            return _this2.props.downField(_this2.props.id);
+                                        } },
+                                    _react2.default.createElement(
+                                        'i',
+                                        { className: 'material-icons mr-0' },
+                                        'keyboard_arrow_down'
+                                    )
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-xs-9' },
                             _react2.default.createElement(_NodeTriggerActionType2.default, { onChange: this.changeType, type: this.props.action.get('type') })
                         ),
                         _react2.default.createElement(
@@ -4549,7 +5057,7 @@ var NodeTriggerActionText = function (_Component) {
 
 exports.default = NodeTriggerActionText;
 
-},{"./NodeTriggerActionQuickReply":21,"./NodeTriggerActionType":24,"./NodeTriggerCallbackItem":28,"react":132,"shortid":155}],24:[function(require,module,exports){
+},{"./NodeTriggerActionQuickReply":22,"./NodeTriggerActionType":25,"./NodeTriggerCallbackItem":29,"react":133,"shortid":156}],25:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -4616,6 +5124,9 @@ exports.default = function (_ref) {
     }, {
         'value': 'intent',
         'text': 'Intent detection'
+    }, {
+        'value': 'intentcheck',
+        'text': 'Check for pending intentions'
     }]);
 
     var list = options.map(function (option, index) {
@@ -4652,7 +5163,7 @@ exports.default = function (_ref) {
     );
 };
 
-},{"immutable":91,"react":132}],25:[function(require,module,exports){
+},{"immutable":92,"react":133}],26:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -4719,7 +5230,42 @@ var NodeTriggerActionTyping = function (_Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-xs-11' },
+                        { className: 'col-xs-2' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'btn-group pull-left', role: 'group', 'aria-label': 'Trigger actions' },
+                            _react2.default.createElement(
+                                'button',
+                                { disabled: 'disabled', className: 'btn btn-xs btn-info' },
+                                this.props.id + 1
+                            ),
+                            this.props.isFirst == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.upField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_up'
+                                )
+                            ),
+                            this.props.isLast == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.downField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_down'
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-9' },
                         _react2.default.createElement(_NodeTriggerActionType2.default, { onChange: this.changeType, type: this.props.action.get('type') })
                     ),
                     _react2.default.createElement(
@@ -4782,7 +5328,7 @@ var NodeTriggerActionTyping = function (_Component) {
 
 exports.default = NodeTriggerActionTyping;
 
-},{"./NodeTriggerActionType":24,"react":132}],26:[function(require,module,exports){
+},{"./NodeTriggerActionType":25,"react":133}],27:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -4849,7 +5395,42 @@ var NodeTriggerActionVideo = function (_Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-xs-11' },
+                        { className: 'col-xs-2' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'btn-group pull-left', role: 'group', 'aria-label': 'Trigger actions' },
+                            _react2.default.createElement(
+                                'button',
+                                { disabled: 'disabled', className: 'btn btn-xs btn-info' },
+                                this.props.id + 1
+                            ),
+                            this.props.isFirst == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.upField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_up'
+                                )
+                            ),
+                            this.props.isLast == false && _react2.default.createElement(
+                                'a',
+                                { className: 'btn btn-default btn-xs', onClick: function onClick(e) {
+                                        return _this2.props.downField(_this2.props.id);
+                                    } },
+                                _react2.default.createElement(
+                                    'i',
+                                    { className: 'material-icons mr-0' },
+                                    'keyboard_arrow_down'
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-9' },
                         _react2.default.createElement(_NodeTriggerActionType2.default, { onChange: this.changeType, type: this.props.action.get('type') })
                     ),
                     _react2.default.createElement(
@@ -4920,7 +5501,7 @@ var NodeTriggerActionVideo = function (_Component) {
 
 exports.default = NodeTriggerActionVideo;
 
-},{"./NodeTriggerActionType":24,"react":132}],27:[function(require,module,exports){
+},{"./NodeTriggerActionType":25,"react":133}],28:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5054,7 +5635,7 @@ var NodeTriggerArgumentTemplate = (_dec = (0, _reactRedux.connect)(function (sto
 }(_react.Component)) || _class);
 exports.default = NodeTriggerArgumentTemplate;
 
-},{"../../actions/nodeGroupTriggerActions":3,"immutable":91,"react":132,"react-redux":114}],28:[function(require,module,exports){
+},{"../../actions/nodeGroupTriggerActions":3,"immutable":92,"react":133,"react-redux":115}],29:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -5281,7 +5862,7 @@ var NodeTriggerCallbackItem = function (_Component) {
 
 exports.default = NodeTriggerCallbackItem;
 
-},{"./NodeTriggerPayloadList":30,"react":132}],29:[function(require,module,exports){
+},{"./NodeTriggerPayloadList":31,"react":133}],30:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -5361,7 +5942,7 @@ var NodeTriggerList = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react.Component)) || _class);
 exports.default = NodeTriggerList;
 
-},{"react":132,"react-redux":114}],30:[function(require,module,exports){
+},{"react":133,"react-redux":115}],31:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -5433,7 +6014,7 @@ var NodeTriggerPayloadList = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react.Component)) || _class);
 exports.default = NodeTriggerPayloadList;
 
-},{"react":132,"react-redux":114}],31:[function(require,module,exports){
+},{"react":133,"react-redux":115}],32:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -5592,7 +6173,7 @@ var NodeActionButton = function (_Component) {
 
 exports.default = NodeActionButton;
 
-},{"../NodeTriggerActionQuickReplyPayload":22,"react":132}],32:[function(require,module,exports){
+},{"../NodeTriggerActionQuickReplyPayload":23,"react":133}],33:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6133,7 +6714,7 @@ var NodeCollectableField = function (_Component) {
 
 exports.default = NodeCollectableField;
 
-},{"react":132}],33:[function(require,module,exports){
+},{"react":133}],34:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6168,6 +6749,8 @@ var NodeActionIntentItem = function (_Component) {
 
         _this.onIncludeWordsChange = _this.onIncludeWordsChange.bind(_this);
         _this.onExcludeWordsChange = _this.onExcludeWordsChange.bind(_this);
+        _this.onTypos = _this.onTypos.bind(_this);
+        _this.onTyposExc = _this.onTyposExc.bind(_this);
         _this.onchangeAttr = _this.onchangeAttr.bind(_this);
         return _this;
     }
@@ -6191,6 +6774,16 @@ var NodeActionIntentItem = function (_Component) {
         key: 'onchangeAttr',
         value: function onchangeAttr(e) {
             this.props.onChangeFieldAttr({ id: this.props.id, 'path': ['content'].concat(e.path), value: e.value });
+        }
+    }, {
+        key: 'onTypos',
+        value: function onTypos(payload) {
+            this.props.onChangeFieldAttr({ id: this.props.id, 'path': ['content', 'words_typo'], value: payload });
+        }
+    }, {
+        key: 'onTyposExc',
+        value: function onTyposExc(payload) {
+            this.props.onChangeFieldAttr({ id: this.props.id, 'path': ['content', 'exc_words_typo'], value: payload });
         }
     }, {
         key: 'render',
@@ -6230,6 +6823,38 @@ var NodeActionIntentItem = function (_Component) {
                         _react2.default.createElement('input', { type: 'text', placeholder: 'no, nop', className: 'form-control input-sm', onChange: function onChange(e) {
                                 return _this2.onExcludeWordsChange(e.target.value);
                             }, defaultValue: this.props.action.getIn(['content', 'exc_words']) })
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'col-xs-6' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'form-group' },
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Number of typos allowed'
+                        ),
+                        _react2.default.createElement('input', { type: 'text', placeholder: '0', className: 'form-control input-sm', onChange: function onChange(e) {
+                                return _this2.onTypos(e.target.value);
+                            }, defaultValue: this.props.action.getIn(['content', 'words_typo']) })
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'col-xs-6' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'form-group' },
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Number of typos allowed'
+                        ),
+                        _react2.default.createElement('input', { type: 'text', placeholder: '0', className: 'form-control input-sm', onChange: function onChange(e) {
+                                return _this2.onTyposExc(e.target.value);
+                            }, defaultValue: this.props.action.getIn(['content', 'exc_words_typo']) })
                     )
                 ),
                 _react2.default.createElement(
@@ -6291,7 +6916,7 @@ var NodeActionIntentItem = function (_Component) {
 
 exports.default = NodeActionIntentItem;
 
-},{"../NodeTriggerList":29,"react":132}],34:[function(require,module,exports){
+},{"../NodeTriggerList":30,"react":133}],35:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6548,7 +7173,7 @@ var NodeActionListItem = function (_Component) {
 
 exports.default = NodeActionListItem;
 
-},{"../NodeTriggerActionQuickReply":21,"../NodeTriggerActionQuickReplyPayload":22,"react":132,"shortid":155}],35:[function(require,module,exports){
+},{"../NodeTriggerActionQuickReply":22,"../NodeTriggerActionQuickReplyPayload":23,"react":133,"shortid":156}],36:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6690,7 +7315,7 @@ var NodeGroupTriggerEvent = function (_Component) {
 
 exports.default = NodeGroupTriggerEvent;
 
-},{"../builder/NodeTriggerPayloadList":30,"react":132}],36:[function(require,module,exports){
+},{"../builder/NodeTriggerPayloadList":31,"react":133}],37:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6784,7 +7409,7 @@ var NodeTriggerActionButtonsPreview = function (_Component) {
 
 exports.default = NodeTriggerActionButtonsPreview;
 
-},{"react":132}],37:[function(require,module,exports){
+},{"react":133}],38:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6879,7 +7504,7 @@ var NodeTriggerActionGenericPreview = function (_Component) {
 
 exports.default = NodeTriggerActionGenericPreview;
 
-},{"./NodeTriggerActionQuickReplyListPreview":40,"react":132}],38:[function(require,module,exports){
+},{"./NodeTriggerActionQuickReplyListPreview":41,"react":133}],39:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6993,7 +7618,7 @@ var NodeTriggerActionListPreview = function (_Component) {
 
 exports.default = NodeTriggerActionListPreview;
 
-},{"./NodeTriggerActionQuickReplyListPreview":40,"react":132}],39:[function(require,module,exports){
+},{"./NodeTriggerActionQuickReplyListPreview":41,"react":133}],40:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7050,7 +7675,7 @@ var NodeTriggerActionPredefinedPreview = function (_Component) {
 
 exports.default = NodeTriggerActionPredefinedPreview;
 
-},{"react":132}],40:[function(require,module,exports){
+},{"react":133}],41:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7111,7 +7736,7 @@ var NodeTriggerActionQuickReplyListPreview = function (_Component) {
 
 exports.default = NodeTriggerActionQuickReplyListPreview;
 
-},{"react":132}],41:[function(require,module,exports){
+},{"react":133}],42:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -7186,7 +7811,7 @@ var NodeTriggerActionTextPreview = function (_Component) {
 
 exports.default = NodeTriggerActionTextPreview;
 
-},{"./NodeTriggerActionQuickReplyListPreview":40,"react":132}],42:[function(require,module,exports){
+},{"./NodeTriggerActionQuickReplyListPreview":41,"react":133}],43:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7249,7 +7874,7 @@ var NodeTriggerActionTypingPreview = function (_Component) {
 
 exports.default = NodeTriggerActionTypingPreview;
 
-},{"react":132}],43:[function(require,module,exports){
+},{"react":133}],44:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -7331,7 +7956,7 @@ var NodeTriggerActionVideoPreview = function (_Component) {
 
 exports.default = NodeTriggerActionVideoPreview;
 
-},{"./NodeTriggerActionQuickReplyListPreview":40,"react":132}],44:[function(require,module,exports){
+},{"./NodeTriggerActionQuickReplyListPreview":41,"react":133}],45:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7382,7 +8007,10 @@ var SET_DEFAULT_UNKNOWN_TRIGGER = exports.SET_DEFAULT_UNKNOWN_TRIGGER = "SET_DEF
 var INIT_BOT_ARGUMENTS_FULFILLED = exports.INIT_BOT_ARGUMENTS_FULFILLED = "INIT_BOT_ARGUMENTS_FULFILLED";
 var INIT_BOT_ARGUMENTS_REJECTED = exports.INIT_BOT_ARGUMENTS_REJECTED = "INIT_BOT_ARGUMENTS_REJECTED";
 
-},{}],45:[function(require,module,exports){
+var MOVE_UP = exports.MOVE_UP = "MOVE_UP";
+var MOVE_DOWN = exports.MOVE_DOWN = "MOVE_DOWN";
+
+},{}],46:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -7413,7 +8041,7 @@ _reactDom2.default.render(_react2.default.createElement(
     _react2.default.createElement(_App2.default, root.dataset)
 ), root);
 
-},{"./App":1,"./store/index":50,"react":132,"react-dom":103,"react-redux":114}],46:[function(require,module,exports){
+},{"./App":1,"./store/index":51,"react":133,"react-dom":104,"react-redux":115}],47:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -7517,6 +8145,23 @@ var nodeGroupTriggerReducer = function nodeGroupTriggerReducer() {
                 return state.setIn(['currenttrigger', 'actions', action.payload.id].concat(action.payload.path).concat([action.payload.index]), _destination).setIn(['currenttrigger', 'actions', action.payload.id].concat(action.payload.path).concat([action.payload.index + 1]), _source);
             }
 
+        case _actionTypes.MOVE_UP:
+            {
+
+                var _source2 = state.getIn(['currenttrigger', 'actions']).get(action.payload.index);
+                var _destination2 = state.getIn(['currenttrigger', 'actions']).get(action.payload.index - 1);
+
+                return state.setIn(['currenttrigger', 'actions'].concat([action.payload.index]), _destination2).setIn(['currenttrigger', 'actions'].concat([action.payload.index - 1]), _source2);
+            }
+
+        case _actionTypes.MOVE_DOWN:
+            {
+                var _source3 = state.getIn(['currenttrigger', 'actions']).get(action.payload.index);
+                var _destination3 = state.getIn(['currenttrigger', 'actions']).get(action.payload.index + 1);
+
+                return state.setIn(['currenttrigger', 'actions'].concat([action.payload.index]), _destination3).setIn(['currenttrigger', 'actions'].concat([action.payload.index + 1]), _source3);
+            }
+
         case _actionTypes.HANDLE_ADD_QUICK_REPLY:
             {
 
@@ -7605,7 +8250,7 @@ var nodeGroupTriggerReducer = function nodeGroupTriggerReducer() {
 
 exports.default = nodeGroupTriggerReducer;
 
-},{"../constants/action-types":44,"immutable":91,"shortid":155}],47:[function(require,module,exports){
+},{"../constants/action-types":45,"immutable":92,"shortid":156}],48:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7634,7 +8279,7 @@ exports.default = (0, _redux.combineReducers)({
     currenttrigger: _currentTriggerReducer2.default
 });
 
-},{"./currentTriggerReducer":46,"./nodeGroupReducer":48,"./nodeGroupTriggerReducer":49,"redux":143}],48:[function(require,module,exports){
+},{"./currentTriggerReducer":47,"./nodeGroupReducer":49,"./nodeGroupTriggerReducer":50,"redux":144}],49:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -7718,7 +8363,7 @@ var nodeGroupReducer = function nodeGroupReducer() {
 
 exports.default = nodeGroupReducer;
 
-},{"../constants/action-types":44,"immutable":91}],49:[function(require,module,exports){
+},{"../constants/action-types":45,"immutable":92}],50:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -7812,7 +8457,7 @@ var nodeGroupTriggerReducer = function nodeGroupTriggerReducer() {
 
 exports.default = nodeGroupTriggerReducer;
 
-},{"../constants/action-types":44,"immutable":91}],50:[function(require,module,exports){
+},{"../constants/action-types":45,"immutable":92}],51:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7843,9 +8488,9 @@ var store = (0, _redux.createStore)(_index2.default, middleware);
 
 exports.default = store;
 
-},{"../reducers/index":47,"redux":143,"redux-logger":134,"redux-promise-middleware":135,"redux-thunk":137}],51:[function(require,module,exports){
+},{"../reducers/index":48,"redux":144,"redux-logger":135,"redux-promise-middleware":136,"redux-thunk":138}],52:[function(require,module,exports){
 module.exports = require('./lib/axios');
-},{"./lib/axios":53}],52:[function(require,module,exports){
+},{"./lib/axios":54}],53:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -8029,7 +8674,7 @@ module.exports = function xhrAdapter(config) {
 };
 
 }).call(this,require('_process'))
-},{"../core/createError":59,"./../core/settle":62,"./../helpers/btoa":66,"./../helpers/buildURL":67,"./../helpers/cookies":69,"./../helpers/isURLSameOrigin":71,"./../helpers/parseHeaders":73,"./../utils":75,"_process":94}],53:[function(require,module,exports){
+},{"../core/createError":60,"./../core/settle":63,"./../helpers/btoa":67,"./../helpers/buildURL":68,"./../helpers/cookies":70,"./../helpers/isURLSameOrigin":72,"./../helpers/parseHeaders":74,"./../utils":76,"_process":95}],54:[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -8083,7 +8728,7 @@ module.exports = axios;
 // Allow use of default import syntax in TypeScript
 module.exports.default = axios;
 
-},{"./cancel/Cancel":54,"./cancel/CancelToken":55,"./cancel/isCancel":56,"./core/Axios":57,"./defaults":64,"./helpers/bind":65,"./helpers/spread":74,"./utils":75}],54:[function(require,module,exports){
+},{"./cancel/Cancel":55,"./cancel/CancelToken":56,"./cancel/isCancel":57,"./core/Axios":58,"./defaults":65,"./helpers/bind":66,"./helpers/spread":75,"./utils":76}],55:[function(require,module,exports){
 'use strict';
 
 /**
@@ -8104,7 +8749,7 @@ Cancel.prototype.__CANCEL__ = true;
 
 module.exports = Cancel;
 
-},{}],55:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 'use strict';
 
 var Cancel = require('./Cancel');
@@ -8163,14 +8808,14 @@ CancelToken.source = function source() {
 
 module.exports = CancelToken;
 
-},{"./Cancel":54}],56:[function(require,module,exports){
+},{"./Cancel":55}],57:[function(require,module,exports){
 'use strict';
 
 module.exports = function isCancel(value) {
   return !!(value && value.__CANCEL__);
 };
 
-},{}],57:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 'use strict';
 
 var defaults = require('./../defaults');
@@ -8251,7 +8896,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = Axios;
 
-},{"./../defaults":64,"./../utils":75,"./InterceptorManager":58,"./dispatchRequest":60}],58:[function(require,module,exports){
+},{"./../defaults":65,"./../utils":76,"./InterceptorManager":59,"./dispatchRequest":61}],59:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -8305,7 +8950,7 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
 
 module.exports = InterceptorManager;
 
-},{"./../utils":75}],59:[function(require,module,exports){
+},{"./../utils":76}],60:[function(require,module,exports){
 'use strict';
 
 var enhanceError = require('./enhanceError');
@@ -8325,7 +8970,7 @@ module.exports = function createError(message, config, code, request, response) 
   return enhanceError(error, config, code, request, response);
 };
 
-},{"./enhanceError":61}],60:[function(require,module,exports){
+},{"./enhanceError":62}],61:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -8413,7 +9058,7 @@ module.exports = function dispatchRequest(config) {
   });
 };
 
-},{"../cancel/isCancel":56,"../defaults":64,"./../helpers/combineURLs":68,"./../helpers/isAbsoluteURL":70,"./../utils":75,"./transformData":63}],61:[function(require,module,exports){
+},{"../cancel/isCancel":57,"../defaults":65,"./../helpers/combineURLs":69,"./../helpers/isAbsoluteURL":71,"./../utils":76,"./transformData":64}],62:[function(require,module,exports){
 'use strict';
 
 /**
@@ -8436,7 +9081,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
   return error;
 };
 
-},{}],62:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 'use strict';
 
 var createError = require('./createError');
@@ -8464,7 +9109,7 @@ module.exports = function settle(resolve, reject, response) {
   }
 };
 
-},{"./createError":59}],63:[function(require,module,exports){
+},{"./createError":60}],64:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -8486,7 +9131,7 @@ module.exports = function transformData(data, headers, fns) {
   return data;
 };
 
-},{"./../utils":75}],64:[function(require,module,exports){
+},{"./../utils":76}],65:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -8586,7 +9231,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = defaults;
 
 }).call(this,require('_process'))
-},{"./adapters/http":52,"./adapters/xhr":52,"./helpers/normalizeHeaderName":72,"./utils":75,"_process":94}],65:[function(require,module,exports){
+},{"./adapters/http":53,"./adapters/xhr":53,"./helpers/normalizeHeaderName":73,"./utils":76,"_process":95}],66:[function(require,module,exports){
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -8599,7 +9244,7 @@ module.exports = function bind(fn, thisArg) {
   };
 };
 
-},{}],66:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 'use strict';
 
 // btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
@@ -8637,7 +9282,7 @@ function btoa(input) {
 
 module.exports = btoa;
 
-},{}],67:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -8705,7 +9350,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
   return url;
 };
 
-},{"./../utils":75}],68:[function(require,module,exports){
+},{"./../utils":76}],69:[function(require,module,exports){
 'use strict';
 
 /**
@@ -8721,7 +9366,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
     : baseURL;
 };
 
-},{}],69:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -8776,7 +9421,7 @@ module.exports = (
   })()
 );
 
-},{"./../utils":75}],70:[function(require,module,exports){
+},{"./../utils":76}],71:[function(require,module,exports){
 'use strict';
 
 /**
@@ -8792,7 +9437,7 @@ module.exports = function isAbsoluteURL(url) {
   return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
 };
 
-},{}],71:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -8862,7 +9507,7 @@ module.exports = (
   })()
 );
 
-},{"./../utils":75}],72:[function(require,module,exports){
+},{"./../utils":76}],73:[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -8876,7 +9521,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
   });
 };
 
-},{"../utils":75}],73:[function(require,module,exports){
+},{"../utils":76}],74:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -8931,7 +9576,7 @@ module.exports = function parseHeaders(headers) {
   return parsed;
 };
 
-},{"./../utils":75}],74:[function(require,module,exports){
+},{"./../utils":76}],75:[function(require,module,exports){
 'use strict';
 
 /**
@@ -8960,7 +9605,7 @@ module.exports = function spread(callback) {
   };
 };
 
-},{}],75:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 'use strict';
 
 var bind = require('./helpers/bind');
@@ -9265,7 +9910,7 @@ module.exports = {
   trim: trim
 };
 
-},{"./helpers/bind":65,"is-buffer":93}],76:[function(require,module,exports){
+},{"./helpers/bind":66,"is-buffer":94}],77:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -9299,7 +9944,7 @@ var ExecutionEnvironment = {
 };
 
 module.exports = ExecutionEnvironment;
-},{}],77:[function(require,module,exports){
+},{}],78:[function(require,module,exports){
 "use strict";
 
 /**
@@ -9329,7 +9974,7 @@ function camelize(string) {
 }
 
 module.exports = camelize;
-},{}],78:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -9367,7 +10012,7 @@ function camelizeStyleName(string) {
 }
 
 module.exports = camelizeStyleName;
-},{"./camelize":77}],79:[function(require,module,exports){
+},{"./camelize":78}],80:[function(require,module,exports){
 'use strict';
 
 /**
@@ -9405,7 +10050,7 @@ function containsNode(outerNode, innerNode) {
 }
 
 module.exports = containsNode;
-},{"./isTextNode":87}],80:[function(require,module,exports){
+},{"./isTextNode":88}],81:[function(require,module,exports){
 "use strict";
 
 /**
@@ -9442,7 +10087,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-},{}],81:[function(require,module,exports){
+},{}],82:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -9460,7 +10105,7 @@ if ("dev" !== 'production') {
 }
 
 module.exports = emptyObject;
-},{}],82:[function(require,module,exports){
+},{}],83:[function(require,module,exports){
 'use strict';
 
 /**
@@ -9497,7 +10142,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 }
 
 module.exports = getActiveElement;
-},{}],83:[function(require,module,exports){
+},{}],84:[function(require,module,exports){
 'use strict';
 
 /**
@@ -9528,7 +10173,7 @@ function hyphenate(string) {
 }
 
 module.exports = hyphenate;
-},{}],84:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -9565,7 +10210,7 @@ function hyphenateStyleName(string) {
 }
 
 module.exports = hyphenateStyleName;
-},{"./hyphenate":83}],85:[function(require,module,exports){
+},{"./hyphenate":84}],86:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -9619,7 +10264,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-},{}],86:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 'use strict';
 
 /**
@@ -9642,7 +10287,7 @@ function isNode(object) {
 }
 
 module.exports = isNode;
-},{}],87:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 'use strict';
 
 /**
@@ -9665,7 +10310,7 @@ function isTextNode(object) {
 }
 
 module.exports = isTextNode;
-},{"./isNode":86}],88:[function(require,module,exports){
+},{"./isNode":87}],89:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -9731,7 +10376,7 @@ function shallowEqual(objA, objB) {
 }
 
 module.exports = shallowEqual;
-},{}],89:[function(require,module,exports){
+},{}],90:[function(require,module,exports){
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -9794,7 +10439,7 @@ if ("dev" !== 'production') {
 }
 
 module.exports = warning;
-},{"./emptyFunction":80}],90:[function(require,module,exports){
+},{"./emptyFunction":81}],91:[function(require,module,exports){
 /**
  * Copyright 2015, Yahoo! Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
@@ -9868,7 +10513,7 @@ module.exports = warning;
     };
 })));
 
-},{}],91:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -14846,7 +15491,7 @@ module.exports = warning;
   return Immutable;
 
 }));
-},{}],92:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -14897,7 +15542,7 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 
 module.exports = invariant;
 
-},{}],93:[function(require,module,exports){
+},{}],94:[function(require,module,exports){
 /*!
  * Determine if an object is a Buffer
  *
@@ -14920,7 +15565,7 @@ function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
 }
 
-},{}],94:[function(require,module,exports){
+},{}],95:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -15106,7 +15751,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],95:[function(require,module,exports){
+},{}],96:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -15167,7 +15812,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 
 module.exports = checkPropTypes;
 
-},{"./lib/ReactPropTypesSecret":99,"fbjs/lib/invariant":85,"fbjs/lib/warning":89}],96:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":100,"fbjs/lib/invariant":86,"fbjs/lib/warning":90}],97:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -15227,7 +15872,7 @@ module.exports = function() {
   return ReactPropTypes;
 };
 
-},{"./lib/ReactPropTypesSecret":99,"fbjs/lib/emptyFunction":80,"fbjs/lib/invariant":85}],97:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":100,"fbjs/lib/emptyFunction":81,"fbjs/lib/invariant":86}],98:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -15771,7 +16416,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   return ReactPropTypes;
 };
 
-},{"./checkPropTypes":95,"./lib/ReactPropTypesSecret":99,"fbjs/lib/emptyFunction":80,"fbjs/lib/invariant":85,"fbjs/lib/warning":89,"object-assign":100}],98:[function(require,module,exports){
+},{"./checkPropTypes":96,"./lib/ReactPropTypesSecret":100,"fbjs/lib/emptyFunction":81,"fbjs/lib/invariant":86,"fbjs/lib/warning":90,"object-assign":101}],99:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -15801,7 +16446,7 @@ if ("dev" !== 'production') {
   module.exports = require('./factoryWithThrowingShims')();
 }
 
-},{"./factoryWithThrowingShims":96,"./factoryWithTypeCheckers":97}],99:[function(require,module,exports){
+},{"./factoryWithThrowingShims":97,"./factoryWithTypeCheckers":98}],100:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -15815,7 +16460,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
-},{}],100:[function(require,module,exports){
+},{}],101:[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -15907,7 +16552,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-},{}],101:[function(require,module,exports){
+},{}],102:[function(require,module,exports){
 /** @license React v16.3.2
  * react-dom.development.js
  *
@@ -32563,7 +33208,7 @@ module.exports = reactDom;
   })();
 }
 
-},{"fbjs/lib/ExecutionEnvironment":76,"fbjs/lib/camelizeStyleName":78,"fbjs/lib/containsNode":79,"fbjs/lib/emptyFunction":80,"fbjs/lib/emptyObject":81,"fbjs/lib/getActiveElement":82,"fbjs/lib/hyphenateStyleName":84,"fbjs/lib/invariant":85,"fbjs/lib/shallowEqual":88,"fbjs/lib/warning":89,"object-assign":104,"prop-types/checkPropTypes":95,"react":132}],102:[function(require,module,exports){
+},{"fbjs/lib/ExecutionEnvironment":77,"fbjs/lib/camelizeStyleName":79,"fbjs/lib/containsNode":80,"fbjs/lib/emptyFunction":81,"fbjs/lib/emptyObject":82,"fbjs/lib/getActiveElement":83,"fbjs/lib/hyphenateStyleName":85,"fbjs/lib/invariant":86,"fbjs/lib/shallowEqual":89,"fbjs/lib/warning":90,"object-assign":105,"prop-types/checkPropTypes":96,"react":133}],103:[function(require,module,exports){
 /** @license React v16.3.2
  * react-dom.production.min.js
  *
@@ -32811,7 +33456,7 @@ var Gg={createPortal:Fg,findDOMNode:function(a){return null==a?null:1===a.nodeTy
 null})}),!0):!1},unstable_createPortal:function(){return Fg.apply(void 0,arguments)},unstable_batchedUpdates:X.batchedUpdates,unstable_deferredUpdates:X.deferredUpdates,flushSync:X.flushSync,unstable_flushControlled:X.flushControlled,__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{EventPluginHub:Ra,EventPluginRegistry:Ca,EventPropagators:kb,ReactControlledComponent:$b,ReactDOMComponentTree:bb,ReactDOMEventListener:$d},unstable_createRoot:function(a,b){return new tg(a,!0,null!=b&&!0===b.hydrate)}};
 X.injectIntoDevTools({findFiberByHostInstance:Ua,bundleType:0,version:"16.3.2",rendererPackageName:"react-dom"});var Hg=Object.freeze({default:Gg}),Ig=Hg&&Gg||Hg;module.exports=Ig["default"]?Ig["default"]:Ig;
 
-},{"fbjs/lib/ExecutionEnvironment":76,"fbjs/lib/containsNode":79,"fbjs/lib/emptyFunction":80,"fbjs/lib/emptyObject":81,"fbjs/lib/getActiveElement":82,"fbjs/lib/invariant":85,"fbjs/lib/shallowEqual":88,"object-assign":104,"react":132}],103:[function(require,module,exports){
+},{"fbjs/lib/ExecutionEnvironment":77,"fbjs/lib/containsNode":80,"fbjs/lib/emptyFunction":81,"fbjs/lib/emptyObject":82,"fbjs/lib/getActiveElement":83,"fbjs/lib/invariant":86,"fbjs/lib/shallowEqual":89,"object-assign":105,"react":133}],104:[function(require,module,exports){
 'use strict';
 
 function checkDCE() {
@@ -32851,9 +33496,9 @@ if ("dev" === 'production') {
   module.exports = require('./cjs/react-dom.development.js');
 }
 
-},{"./cjs/react-dom.development.js":101,"./cjs/react-dom.production.min.js":102}],104:[function(require,module,exports){
-arguments[4][100][0].apply(exports,arguments)
-},{"dup":100}],105:[function(require,module,exports){
+},{"./cjs/react-dom.development.js":102,"./cjs/react-dom.production.min.js":103}],105:[function(require,module,exports){
+arguments[4][101][0].apply(exports,arguments)
+},{"dup":101}],106:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -32940,7 +33585,7 @@ function createProvider() {
 }
 
 exports.default = createProvider();
-},{"../utils/PropTypes":115,"../utils/warning":119,"prop-types":98,"react":132}],106:[function(require,module,exports){
+},{"../utils/PropTypes":116,"../utils/warning":120,"prop-types":99,"react":133}],107:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -33247,7 +33892,7 @@ selectorFactory) {
     return (0, _hoistNonReactStatics2.default)(Connect, WrappedComponent);
   };
 }
-},{"../utils/PropTypes":115,"../utils/Subscription":116,"hoist-non-react-statics":90,"invariant":92,"react":132}],107:[function(require,module,exports){
+},{"../utils/PropTypes":116,"../utils/Subscription":117,"hoist-non-react-statics":91,"invariant":93,"react":133}],108:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -33376,7 +34021,7 @@ function createConnect() {
 }
 
 exports.default = createConnect();
-},{"../components/connectAdvanced":106,"../utils/shallowEqual":117,"./mapDispatchToProps":108,"./mapStateToProps":109,"./mergeProps":110,"./selectorFactory":111}],108:[function(require,module,exports){
+},{"../components/connectAdvanced":107,"../utils/shallowEqual":118,"./mapDispatchToProps":109,"./mapStateToProps":110,"./mergeProps":111,"./selectorFactory":112}],109:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -33405,7 +34050,7 @@ function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
 }
 
 exports.default = [whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject];
-},{"./wrapMapToProps":113,"redux":143}],109:[function(require,module,exports){
+},{"./wrapMapToProps":114,"redux":144}],110:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -33425,7 +34070,7 @@ function whenMapStateToPropsIsMissing(mapStateToProps) {
 }
 
 exports.default = [whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing];
-},{"./wrapMapToProps":113}],110:[function(require,module,exports){
+},{"./wrapMapToProps":114}],111:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -33484,7 +34129,7 @@ function whenMergePropsIsOmitted(mergeProps) {
 }
 
 exports.default = [whenMergePropsIsFunction, whenMergePropsIsOmitted];
-},{"../utils/verifyPlainObject":118}],111:[function(require,module,exports){
+},{"../utils/verifyPlainObject":119}],112:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -33598,7 +34243,7 @@ function finalPropsSelectorFactory(dispatch, _ref2) {
 
   return selectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch, options);
 }
-},{"./verifySubselectors":112}],112:[function(require,module,exports){
+},{"./verifySubselectors":113}],113:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -33625,7 +34270,7 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
   verify(mapDispatchToProps, 'mapDispatchToProps', displayName);
   verify(mergeProps, 'mergeProps', displayName);
 }
-},{"../utils/warning":119}],113:[function(require,module,exports){
+},{"../utils/warning":120}],114:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -33704,7 +34349,7 @@ function wrapMapToPropsFunc(mapToProps, methodName) {
     return proxy;
   };
 }
-},{"../utils/verifyPlainObject":118}],114:[function(require,module,exports){
+},{"../utils/verifyPlainObject":119}],115:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -33728,7 +34373,7 @@ exports.Provider = _Provider2.default;
 exports.createProvider = _Provider.createProvider;
 exports.connectAdvanced = _connectAdvanced2.default;
 exports.connect = _connect2.default;
-},{"./components/Provider":105,"./components/connectAdvanced":106,"./connect/connect":107}],115:[function(require,module,exports){
+},{"./components/Provider":106,"./components/connectAdvanced":107,"./connect/connect":108}],116:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -33752,7 +34397,7 @@ var storeShape = exports.storeShape = _propTypes2.default.shape({
   dispatch: _propTypes2.default.func.isRequired,
   getState: _propTypes2.default.func.isRequired
 });
-},{"prop-types":98}],116:[function(require,module,exports){
+},{"prop-types":99}],117:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -33849,7 +34494,7 @@ var Subscription = function () {
 }();
 
 exports.default = Subscription;
-},{}],117:[function(require,module,exports){
+},{}],118:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -33884,7 +34529,7 @@ function shallowEqual(objA, objB) {
 
   return true;
 }
-},{}],118:[function(require,module,exports){
+},{}],119:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -33905,7 +34550,7 @@ function verifyPlainObject(value, displayName, methodName) {
     (0, _warning2.default)(methodName + '() in ' + displayName + ' must return a plain object. Instead received ' + value + '.');
   }
 }
-},{"./warning":119,"lodash/isPlainObject":129}],119:[function(require,module,exports){
+},{"./warning":120,"lodash/isPlainObject":130}],120:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -33931,7 +34576,7 @@ function warning(message) {
   } catch (e) {}
   /* eslint-enable no-empty */
 }
-},{}],120:[function(require,module,exports){
+},{}],121:[function(require,module,exports){
 var root = require('./_root');
 
 /** Built-in value references. */
@@ -33939,7 +34584,7 @@ var Symbol = root.Symbol;
 
 module.exports = Symbol;
 
-},{"./_root":127}],121:[function(require,module,exports){
+},{"./_root":128}],122:[function(require,module,exports){
 var Symbol = require('./_Symbol'),
     getRawTag = require('./_getRawTag'),
     objectToString = require('./_objectToString');
@@ -33969,7 +34614,7 @@ function baseGetTag(value) {
 
 module.exports = baseGetTag;
 
-},{"./_Symbol":120,"./_getRawTag":124,"./_objectToString":125}],122:[function(require,module,exports){
+},{"./_Symbol":121,"./_getRawTag":125,"./_objectToString":126}],123:[function(require,module,exports){
 (function (global){
 /** Detect free variable `global` from Node.js. */
 var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
@@ -33977,7 +34622,7 @@ var freeGlobal = typeof global == 'object' && global && global.Object === Object
 module.exports = freeGlobal;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],123:[function(require,module,exports){
+},{}],124:[function(require,module,exports){
 var overArg = require('./_overArg');
 
 /** Built-in value references. */
@@ -33985,7 +34630,7 @@ var getPrototype = overArg(Object.getPrototypeOf, Object);
 
 module.exports = getPrototype;
 
-},{"./_overArg":126}],124:[function(require,module,exports){
+},{"./_overArg":127}],125:[function(require,module,exports){
 var Symbol = require('./_Symbol');
 
 /** Used for built-in method references. */
@@ -34033,7 +34678,7 @@ function getRawTag(value) {
 
 module.exports = getRawTag;
 
-},{"./_Symbol":120}],125:[function(require,module,exports){
+},{"./_Symbol":121}],126:[function(require,module,exports){
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
 
@@ -34057,7 +34702,7 @@ function objectToString(value) {
 
 module.exports = objectToString;
 
-},{}],126:[function(require,module,exports){
+},{}],127:[function(require,module,exports){
 /**
  * Creates a unary function that invokes `func` with its argument transformed.
  *
@@ -34074,7 +34719,7 @@ function overArg(func, transform) {
 
 module.exports = overArg;
 
-},{}],127:[function(require,module,exports){
+},{}],128:[function(require,module,exports){
 var freeGlobal = require('./_freeGlobal');
 
 /** Detect free variable `self`. */
@@ -34085,7 +34730,7 @@ var root = freeGlobal || freeSelf || Function('return this')();
 
 module.exports = root;
 
-},{"./_freeGlobal":122}],128:[function(require,module,exports){
+},{"./_freeGlobal":123}],129:[function(require,module,exports){
 /**
  * Checks if `value` is object-like. A value is object-like if it's not `null`
  * and has a `typeof` result of "object".
@@ -34116,7 +34761,7 @@ function isObjectLike(value) {
 
 module.exports = isObjectLike;
 
-},{}],129:[function(require,module,exports){
+},{}],130:[function(require,module,exports){
 var baseGetTag = require('./_baseGetTag'),
     getPrototype = require('./_getPrototype'),
     isObjectLike = require('./isObjectLike');
@@ -34180,7 +34825,7 @@ function isPlainObject(value) {
 
 module.exports = isPlainObject;
 
-},{"./_baseGetTag":121,"./_getPrototype":123,"./isObjectLike":128}],130:[function(require,module,exports){
+},{"./_baseGetTag":122,"./_getPrototype":124,"./isObjectLike":129}],131:[function(require,module,exports){
 /** @license React v16.3.2
  * react.development.js
  *
@@ -35596,7 +36241,7 @@ module.exports = react;
   })();
 }
 
-},{"fbjs/lib/emptyFunction":80,"fbjs/lib/emptyObject":81,"fbjs/lib/invariant":85,"fbjs/lib/warning":89,"object-assign":133,"prop-types/checkPropTypes":95}],131:[function(require,module,exports){
+},{"fbjs/lib/emptyFunction":81,"fbjs/lib/emptyObject":82,"fbjs/lib/invariant":86,"fbjs/lib/warning":90,"object-assign":134,"prop-types/checkPropTypes":96}],132:[function(require,module,exports){
 /** @license React v16.3.2
  * react.production.min.js
  *
@@ -35620,7 +36265,7 @@ _calculateChangedBits:b,_defaultValue:a,_currentValue:a,_changedBits:0,Provider:
 (k=a.type.defaultProps);for(c in b)J.call(b,c)&&!K.hasOwnProperty(c)&&(d[c]=void 0===b[c]&&void 0!==k?k[c]:b[c])}c=arguments.length-2;if(1===c)d.children=e;else if(1<c){k=Array(c);for(var l=0;l<c;l++)k[l]=arguments[l+2];d.children=k}return{$$typeof:t,type:a.type,key:g,ref:h,props:d,_owner:f}},createFactory:function(a){var b=L.bind(null,a);b.type=a;return b},isValidElement:M,version:"16.3.2",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{ReactCurrentOwner:I,assign:m}},X=Object.freeze({default:W}),
 Y=X&&W||X;module.exports=Y["default"]?Y["default"]:Y;
 
-},{"fbjs/lib/emptyFunction":80,"fbjs/lib/emptyObject":81,"fbjs/lib/invariant":85,"object-assign":133}],132:[function(require,module,exports){
+},{"fbjs/lib/emptyFunction":81,"fbjs/lib/emptyObject":82,"fbjs/lib/invariant":86,"object-assign":134}],133:[function(require,module,exports){
 'use strict';
 
 if ("dev" === 'production') {
@@ -35629,14 +36274,14 @@ if ("dev" === 'production') {
   module.exports = require('./cjs/react.development.js');
 }
 
-},{"./cjs/react.development.js":130,"./cjs/react.production.min.js":131}],133:[function(require,module,exports){
-arguments[4][100][0].apply(exports,arguments)
-},{"dup":100}],134:[function(require,module,exports){
+},{"./cjs/react.development.js":131,"./cjs/react.production.min.js":132}],134:[function(require,module,exports){
+arguments[4][101][0].apply(exports,arguments)
+},{"dup":101}],135:[function(require,module,exports){
 (function (global){
 !function(e,t){"object"==typeof exports&&"undefined"!=typeof module?t(exports):"function"==typeof define&&define.amd?define(["exports"],t):t(e.reduxLogger=e.reduxLogger||{})}(this,function(e){"use strict";function t(e,t){e.super_=t,e.prototype=Object.create(t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}})}function r(e,t){Object.defineProperty(this,"kind",{value:e,enumerable:!0}),t&&t.length&&Object.defineProperty(this,"path",{value:t,enumerable:!0})}function n(e,t,r){n.super_.call(this,"E",e),Object.defineProperty(this,"lhs",{value:t,enumerable:!0}),Object.defineProperty(this,"rhs",{value:r,enumerable:!0})}function o(e,t){o.super_.call(this,"N",e),Object.defineProperty(this,"rhs",{value:t,enumerable:!0})}function i(e,t){i.super_.call(this,"D",e),Object.defineProperty(this,"lhs",{value:t,enumerable:!0})}function a(e,t,r){a.super_.call(this,"A",e),Object.defineProperty(this,"index",{value:t,enumerable:!0}),Object.defineProperty(this,"item",{value:r,enumerable:!0})}function f(e,t,r){var n=e.slice((r||t)+1||e.length);return e.length=t<0?e.length+t:t,e.push.apply(e,n),e}function u(e){var t="undefined"==typeof e?"undefined":N(e);return"object"!==t?t:e===Math?"math":null===e?"null":Array.isArray(e)?"array":"[object Date]"===Object.prototype.toString.call(e)?"date":"function"==typeof e.toString&&/^\/.*\//.test(e.toString())?"regexp":"object"}function l(e,t,r,c,s,d,p){s=s||[],p=p||[];var g=s.slice(0);if("undefined"!=typeof d){if(c){if("function"==typeof c&&c(g,d))return;if("object"===("undefined"==typeof c?"undefined":N(c))){if(c.prefilter&&c.prefilter(g,d))return;if(c.normalize){var h=c.normalize(g,d,e,t);h&&(e=h[0],t=h[1])}}}g.push(d)}"regexp"===u(e)&&"regexp"===u(t)&&(e=e.toString(),t=t.toString());var y="undefined"==typeof e?"undefined":N(e),v="undefined"==typeof t?"undefined":N(t),b="undefined"!==y||p&&p[p.length-1].lhs&&p[p.length-1].lhs.hasOwnProperty(d),m="undefined"!==v||p&&p[p.length-1].rhs&&p[p.length-1].rhs.hasOwnProperty(d);if(!b&&m)r(new o(g,t));else if(!m&&b)r(new i(g,e));else if(u(e)!==u(t))r(new n(g,e,t));else if("date"===u(e)&&e-t!==0)r(new n(g,e,t));else if("object"===y&&null!==e&&null!==t)if(p.filter(function(t){return t.lhs===e}).length)e!==t&&r(new n(g,e,t));else{if(p.push({lhs:e,rhs:t}),Array.isArray(e)){var w;e.length;for(w=0;w<e.length;w++)w>=t.length?r(new a(g,w,new i(void 0,e[w]))):l(e[w],t[w],r,c,g,w,p);for(;w<t.length;)r(new a(g,w,new o(void 0,t[w++])))}else{var x=Object.keys(e),S=Object.keys(t);x.forEach(function(n,o){var i=S.indexOf(n);i>=0?(l(e[n],t[n],r,c,g,n,p),S=f(S,i)):l(e[n],void 0,r,c,g,n,p)}),S.forEach(function(e){l(void 0,t[e],r,c,g,e,p)})}p.length=p.length-1}else e!==t&&("number"===y&&isNaN(e)&&isNaN(t)||r(new n(g,e,t)))}function c(e,t,r,n){return n=n||[],l(e,t,function(e){e&&n.push(e)},r),n.length?n:void 0}function s(e,t,r){if(r.path&&r.path.length){var n,o=e[t],i=r.path.length-1;for(n=0;n<i;n++)o=o[r.path[n]];switch(r.kind){case"A":s(o[r.path[n]],r.index,r.item);break;case"D":delete o[r.path[n]];break;case"E":case"N":o[r.path[n]]=r.rhs}}else switch(r.kind){case"A":s(e[t],r.index,r.item);break;case"D":e=f(e,t);break;case"E":case"N":e[t]=r.rhs}return e}function d(e,t,r){if(e&&t&&r&&r.kind){for(var n=e,o=-1,i=r.path?r.path.length-1:0;++o<i;)"undefined"==typeof n[r.path[o]]&&(n[r.path[o]]="number"==typeof r.path[o]?[]:{}),n=n[r.path[o]];switch(r.kind){case"A":s(r.path?n[r.path[o]]:n,r.index,r.item);break;case"D":delete n[r.path[o]];break;case"E":case"N":n[r.path[o]]=r.rhs}}}function p(e,t,r){if(r.path&&r.path.length){var n,o=e[t],i=r.path.length-1;for(n=0;n<i;n++)o=o[r.path[n]];switch(r.kind){case"A":p(o[r.path[n]],r.index,r.item);break;case"D":o[r.path[n]]=r.lhs;break;case"E":o[r.path[n]]=r.lhs;break;case"N":delete o[r.path[n]]}}else switch(r.kind){case"A":p(e[t],r.index,r.item);break;case"D":e[t]=r.lhs;break;case"E":e[t]=r.lhs;break;case"N":e=f(e,t)}return e}function g(e,t,r){if(e&&t&&r&&r.kind){var n,o,i=e;for(o=r.path.length-1,n=0;n<o;n++)"undefined"==typeof i[r.path[n]]&&(i[r.path[n]]={}),i=i[r.path[n]];switch(r.kind){case"A":p(i[r.path[n]],r.index,r.item);break;case"D":i[r.path[n]]=r.lhs;break;case"E":i[r.path[n]]=r.lhs;break;case"N":delete i[r.path[n]]}}}function h(e,t,r){if(e&&t){var n=function(n){r&&!r(e,t,n)||d(e,t,n)};l(e,t,n)}}function y(e){return"color: "+F[e].color+"; font-weight: bold"}function v(e){var t=e.kind,r=e.path,n=e.lhs,o=e.rhs,i=e.index,a=e.item;switch(t){case"E":return[r.join("."),n,"→",o];case"N":return[r.join("."),o];case"D":return[r.join(".")];case"A":return[r.join(".")+"["+i+"]",a];default:return[]}}function b(e,t,r,n){var o=c(e,t);try{n?r.groupCollapsed("diff"):r.group("diff")}catch(e){r.log("diff")}o?o.forEach(function(e){var t=e.kind,n=v(e);r.log.apply(r,["%c "+F[t].text,y(t)].concat(P(n)))}):r.log("—— no diff ——");try{r.groupEnd()}catch(e){r.log("—— diff end —— ")}}function m(e,t,r,n){switch("undefined"==typeof e?"undefined":N(e)){case"object":return"function"==typeof e[n]?e[n].apply(e,P(r)):e[n];case"function":return e(t);default:return e}}function w(e){var t=e.timestamp,r=e.duration;return function(e,n,o){var i=["action"];return i.push("%c"+String(e.type)),t&&i.push("%c@ "+n),r&&i.push("%c(in "+o.toFixed(2)+" ms)"),i.join(" ")}}function x(e,t){var r=t.logger,n=t.actionTransformer,o=t.titleFormatter,i=void 0===o?w(t):o,a=t.collapsed,f=t.colors,u=t.level,l=t.diff,c="undefined"==typeof t.titleFormatter;e.forEach(function(o,s){var d=o.started,p=o.startedTime,g=o.action,h=o.prevState,y=o.error,v=o.took,w=o.nextState,x=e[s+1];x&&(w=x.prevState,v=x.started-d);var S=n(g),k="function"==typeof a?a(function(){return w},g,o):a,j=D(p),E=f.title?"color: "+f.title(S)+";":"",A=["color: gray; font-weight: lighter;"];A.push(E),t.timestamp&&A.push("color: gray; font-weight: lighter;"),t.duration&&A.push("color: gray; font-weight: lighter;");var O=i(S,j,v);try{k?f.title&&c?r.groupCollapsed.apply(r,["%c "+O].concat(A)):r.groupCollapsed(O):f.title&&c?r.group.apply(r,["%c "+O].concat(A)):r.group(O)}catch(e){r.log(O)}var N=m(u,S,[h],"prevState"),P=m(u,S,[S],"action"),C=m(u,S,[y,h],"error"),F=m(u,S,[w],"nextState");if(N)if(f.prevState){var L="color: "+f.prevState(h)+"; font-weight: bold";r[N]("%c prev state",L,h)}else r[N]("prev state",h);if(P)if(f.action){var T="color: "+f.action(S)+"; font-weight: bold";r[P]("%c action    ",T,S)}else r[P]("action    ",S);if(y&&C)if(f.error){var M="color: "+f.error(y,h)+"; font-weight: bold;";r[C]("%c error     ",M,y)}else r[C]("error     ",y);if(F)if(f.nextState){var _="color: "+f.nextState(w)+"; font-weight: bold";r[F]("%c next state",_,w)}else r[F]("next state",w);l&&b(h,w,r,k);try{r.groupEnd()}catch(e){r.log("—— log end ——")}})}function S(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},t=Object.assign({},L,e),r=t.logger,n=t.stateTransformer,o=t.errorTransformer,i=t.predicate,a=t.logErrors,f=t.diffPredicate;if("undefined"==typeof r)return function(){return function(e){return function(t){return e(t)}}};if(e.getState&&e.dispatch)return console.error("[redux-logger] redux-logger not installed. Make sure to pass logger instance as middleware:\n// Logger with default options\nimport { logger } from 'redux-logger'\nconst store = createStore(\n  reducer,\n  applyMiddleware(logger)\n)\n// Or you can create your own logger with custom options http://bit.ly/redux-logger-options\nimport createLogger from 'redux-logger'\nconst logger = createLogger({\n  // ...options\n});\nconst store = createStore(\n  reducer,\n  applyMiddleware(logger)\n)\n"),function(){return function(e){return function(t){return e(t)}}};var u=[];return function(e){var r=e.getState;return function(e){return function(l){if("function"==typeof i&&!i(r,l))return e(l);var c={};u.push(c),c.started=O.now(),c.startedTime=new Date,c.prevState=n(r()),c.action=l;var s=void 0;if(a)try{s=e(l)}catch(e){c.error=o(e)}else s=e(l);c.took=O.now()-c.started,c.nextState=n(r());var d=t.diff&&"function"==typeof f?f(r,l):t.diff;if(x(u,Object.assign({},t,{diff:d})),u.length=0,c.error)throw c.error;return s}}}}var k,j,E=function(e,t){return new Array(t+1).join(e)},A=function(e,t){return E("0",t-e.toString().length)+e},D=function(e){return A(e.getHours(),2)+":"+A(e.getMinutes(),2)+":"+A(e.getSeconds(),2)+"."+A(e.getMilliseconds(),3)},O="undefined"!=typeof performance&&null!==performance&&"function"==typeof performance.now?performance:Date,N="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},P=function(e){if(Array.isArray(e)){for(var t=0,r=Array(e.length);t<e.length;t++)r[t]=e[t];return r}return Array.from(e)},C=[];k="object"===("undefined"==typeof global?"undefined":N(global))&&global?global:"undefined"!=typeof window?window:{},j=k.DeepDiff,j&&C.push(function(){"undefined"!=typeof j&&k.DeepDiff===c&&(k.DeepDiff=j,j=void 0)}),t(n,r),t(o,r),t(i,r),t(a,r),Object.defineProperties(c,{diff:{value:c,enumerable:!0},observableDiff:{value:l,enumerable:!0},applyDiff:{value:h,enumerable:!0},applyChange:{value:d,enumerable:!0},revertChange:{value:g,enumerable:!0},isConflict:{value:function(){return"undefined"!=typeof j},enumerable:!0},noConflict:{value:function(){return C&&(C.forEach(function(e){e()}),C=null),c},enumerable:!0}});var F={E:{color:"#2196F3",text:"CHANGED:"},N:{color:"#4CAF50",text:"ADDED:"},D:{color:"#F44336",text:"DELETED:"},A:{color:"#2196F3",text:"ARRAY:"}},L={level:"log",logger:console,logErrors:!0,collapsed:void 0,predicate:void 0,duration:!1,timestamp:!0,stateTransformer:function(e){return e},actionTransformer:function(e){return e},errorTransformer:function(e){return e},colors:{title:function(){return"inherit"},prevState:function(){return"#9E9E9E"},action:function(){return"#03A9F4"},nextState:function(){return"#4CAF50"},error:function(){return"#F20404"}},diff:!1,diffPredicate:void 0,transformer:void 0},T=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},t=e.dispatch,r=e.getState;return"function"==typeof t||"function"==typeof r?S()({dispatch:t,getState:r}):void console.error("\n[redux-logger v3] BREAKING CHANGE\n[redux-logger v3] Since 3.0.0 redux-logger exports by default logger with default settings.\n[redux-logger v3] Change\n[redux-logger v3] import createLogger from 'redux-logger'\n[redux-logger v3] to\n[redux-logger v3] import { createLogger } from 'redux-logger'\n")};e.defaults=L,e.createLogger=S,e.logger=T,e.default=T,Object.defineProperty(e,"__esModule",{value:!0})});
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],135:[function(require,module,exports){
+},{}],136:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35851,7 +36496,7 @@ function promiseMiddleware() {
     };
   };
 }
-},{"./isPromise.js":136}],136:[function(require,module,exports){
+},{"./isPromise.js":137}],137:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35868,7 +36513,7 @@ function isPromise(value) {
 
   return false;
 }
-},{}],137:[function(require,module,exports){
+},{}],138:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -35892,7 +36537,7 @@ var thunk = createThunkMiddleware();
 thunk.withExtraArgument = createThunkMiddleware;
 
 exports['default'] = thunk;
-},{}],138:[function(require,module,exports){
+},{}],139:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -35951,7 +36596,7 @@ function applyMiddleware() {
     };
   };
 }
-},{"./compose":141}],139:[function(require,module,exports){
+},{"./compose":142}],140:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -36003,7 +36648,7 @@ function bindActionCreators(actionCreators, dispatch) {
   }
   return boundActionCreators;
 }
-},{}],140:[function(require,module,exports){
+},{}],141:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -36147,7 +36792,7 @@ function combineReducers(reducers) {
     return hasChanged ? nextState : state;
   };
 }
-},{"./createStore":142,"./utils/warning":144,"lodash/isPlainObject":154}],141:[function(require,module,exports){
+},{"./createStore":143,"./utils/warning":145,"lodash/isPlainObject":155}],142:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -36184,7 +36829,7 @@ function compose() {
     };
   });
 }
-},{}],142:[function(require,module,exports){
+},{}],143:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -36446,7 +37091,7 @@ var ActionTypes = exports.ActionTypes = {
     replaceReducer: replaceReducer
   }, _ref2[_symbolObservable2['default']] = observable, _ref2;
 }
-},{"lodash/isPlainObject":154,"symbol-observable":165}],143:[function(require,module,exports){
+},{"lodash/isPlainObject":155,"symbol-observable":166}],144:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -36493,7 +37138,7 @@ exports.combineReducers = _combineReducers2['default'];
 exports.bindActionCreators = _bindActionCreators2['default'];
 exports.applyMiddleware = _applyMiddleware2['default'];
 exports.compose = _compose2['default'];
-},{"./applyMiddleware":138,"./bindActionCreators":139,"./combineReducers":140,"./compose":141,"./createStore":142,"./utils/warning":144}],144:[function(require,module,exports){
+},{"./applyMiddleware":139,"./bindActionCreators":140,"./combineReducers":141,"./compose":142,"./createStore":143,"./utils/warning":145}],145:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -36519,31 +37164,31 @@ function warning(message) {
   } catch (e) {}
   /* eslint-enable no-empty */
 }
-},{}],145:[function(require,module,exports){
-arguments[4][120][0].apply(exports,arguments)
-},{"./_root":152,"dup":120}],146:[function(require,module,exports){
+},{}],146:[function(require,module,exports){
 arguments[4][121][0].apply(exports,arguments)
-},{"./_Symbol":145,"./_getRawTag":149,"./_objectToString":150,"dup":121}],147:[function(require,module,exports){
+},{"./_root":153,"dup":121}],147:[function(require,module,exports){
 arguments[4][122][0].apply(exports,arguments)
-},{"dup":122}],148:[function(require,module,exports){
+},{"./_Symbol":146,"./_getRawTag":150,"./_objectToString":151,"dup":122}],148:[function(require,module,exports){
 arguments[4][123][0].apply(exports,arguments)
-},{"./_overArg":151,"dup":123}],149:[function(require,module,exports){
+},{"dup":123}],149:[function(require,module,exports){
 arguments[4][124][0].apply(exports,arguments)
-},{"./_Symbol":145,"dup":124}],150:[function(require,module,exports){
+},{"./_overArg":152,"dup":124}],150:[function(require,module,exports){
 arguments[4][125][0].apply(exports,arguments)
-},{"dup":125}],151:[function(require,module,exports){
+},{"./_Symbol":146,"dup":125}],151:[function(require,module,exports){
 arguments[4][126][0].apply(exports,arguments)
 },{"dup":126}],152:[function(require,module,exports){
 arguments[4][127][0].apply(exports,arguments)
-},{"./_freeGlobal":147,"dup":127}],153:[function(require,module,exports){
+},{"dup":127}],153:[function(require,module,exports){
 arguments[4][128][0].apply(exports,arguments)
-},{"dup":128}],154:[function(require,module,exports){
+},{"./_freeGlobal":148,"dup":128}],154:[function(require,module,exports){
 arguments[4][129][0].apply(exports,arguments)
-},{"./_baseGetTag":146,"./_getPrototype":148,"./isObjectLike":153,"dup":129}],155:[function(require,module,exports){
+},{"dup":129}],155:[function(require,module,exports){
+arguments[4][130][0].apply(exports,arguments)
+},{"./_baseGetTag":147,"./_getPrototype":149,"./isObjectLike":154,"dup":130}],156:[function(require,module,exports){
 'use strict';
 module.exports = require('./lib/index');
 
-},{"./lib/index":160}],156:[function(require,module,exports){
+},{"./lib/index":161}],157:[function(require,module,exports){
 'use strict';
 
 var randomFromSeed = require('./random/random-from-seed');
@@ -36643,7 +37288,7 @@ module.exports = {
     shuffled: getShuffled
 };
 
-},{"./random/random-from-seed":163}],157:[function(require,module,exports){
+},{"./random/random-from-seed":164}],158:[function(require,module,exports){
 'use strict';
 
 var encode = require('./encode');
@@ -36693,7 +37338,7 @@ function build(clusterWorkerId) {
 
 module.exports = build;
 
-},{"./alphabet":156,"./encode":159}],158:[function(require,module,exports){
+},{"./alphabet":157,"./encode":160}],159:[function(require,module,exports){
 'use strict';
 var alphabet = require('./alphabet');
 
@@ -36712,7 +37357,7 @@ function decode(id) {
 
 module.exports = decode;
 
-},{"./alphabet":156}],159:[function(require,module,exports){
+},{"./alphabet":157}],160:[function(require,module,exports){
 'use strict';
 
 var randomByte = require('./random/random-byte');
@@ -36733,7 +37378,7 @@ function encode(lookup, number) {
 
 module.exports = encode;
 
-},{"./random/random-byte":162}],160:[function(require,module,exports){
+},{"./random/random-byte":163}],161:[function(require,module,exports){
 'use strict';
 
 var alphabet = require('./alphabet');
@@ -36800,7 +37445,7 @@ module.exports.characters = characters;
 module.exports.decode = decode;
 module.exports.isValid = isValid;
 
-},{"./alphabet":156,"./build":157,"./decode":158,"./encode":159,"./is-valid":161,"./util/cluster-worker-id":164}],161:[function(require,module,exports){
+},{"./alphabet":157,"./build":158,"./decode":159,"./encode":160,"./is-valid":162,"./util/cluster-worker-id":165}],162:[function(require,module,exports){
 'use strict';
 var alphabet = require('./alphabet');
 
@@ -36821,7 +37466,7 @@ function isShortId(id) {
 
 module.exports = isShortId;
 
-},{"./alphabet":156}],162:[function(require,module,exports){
+},{"./alphabet":157}],163:[function(require,module,exports){
 'use strict';
 
 var crypto = typeof window === 'object' && (window.crypto || window.msCrypto); // IE 11 uses window.msCrypto
@@ -36837,7 +37482,7 @@ function randomByte() {
 
 module.exports = randomByte;
 
-},{}],163:[function(require,module,exports){
+},{}],164:[function(require,module,exports){
 'use strict';
 
 // Found this seed-based random generator somewhere
@@ -36864,12 +37509,12 @@ module.exports = {
     seed: setSeed
 };
 
-},{}],164:[function(require,module,exports){
+},{}],165:[function(require,module,exports){
 'use strict';
 
 module.exports = 0;
 
-},{}],165:[function(require,module,exports){
+},{}],166:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -36901,7 +37546,7 @@ if (typeof self !== 'undefined') {
 var result = (0, _ponyfill2['default'])(root);
 exports['default'] = result;
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./ponyfill.js":166}],166:[function(require,module,exports){
+},{"./ponyfill.js":167}],167:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36925,4 +37570,4 @@ function symbolObservablePonyfill(root) {
 
 	return result;
 };
-},{}]},{},[45]);
+},{}]},{},[46]);

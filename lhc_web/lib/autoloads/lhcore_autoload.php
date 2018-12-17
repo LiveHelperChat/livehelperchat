@@ -272,6 +272,8 @@ return array_merge(array (
 		'erLhcoreClassGenericBotActionVideo'        => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionvideo.php',
 		'erLhcoreClassGenericBotActionAttribute'    => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionattribute.php',
 		'erLhcoreClassGenericBotActionActions'      => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionactions.php',
+		'erLhcoreClassGenericBotActionIntent'       => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionintent.php',
+        'erLhcoreClassGenericBotActionIntentcheck'  => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionintentcheck.php',
 
         // Notifications
         'erLhcoreClassNotifications'                => 'lib/core/lhnotifications/lhnotifications.php',
