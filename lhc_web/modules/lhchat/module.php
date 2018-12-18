@@ -437,7 +437,7 @@ $ViewList['printchat'] = array(
     'params' => array('chat_id','hash')
 );
 
-$ViewList['printchat'] = array(
+$ViewList['readchatmail'] = array(
     'params' => array('chat_id','hash')
 );
 

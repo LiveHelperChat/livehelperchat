@@ -113,13 +113,20 @@ class erLhcoreClassChatMail {
     	$tpl->set('messages', $messages);
     	
     	$surveyContent = self::getSurveyContent($chat);
-    	
-    	$sendMail->content = str_replace(array('{user_chat_nick}','{messages_content}','{chat_id}','{survey}','{operator_name}'), array($chat->nick,$tpl->fetch(),$chat->id,$surveyContent,$chat->plain_user_name), $sendMail->content);
+
+
+        $cfgSite = erConfigClassLhConfig::getInstance();
+        $secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
+        $url = erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('chat/readchatmail') . '/' . $chat->id . '/' . sha1($secretHash . $chat->hash . $chat->id);
+
+    	$sendMail->content = str_replace(array('{user_chat_nick}','{messages_content}','{chat_id}','{survey}','{operator_name}','{chat_link}'), array($chat->nick, $tpl->fetch(), $chat->id, $surveyContent, $chat->plain_user_name, $url), $sendMail->content);
     	
     	if ($form->hasValidData( 'Message' ) )
     	{
     		$sendMail->content = str_replace('{additional_message}', $form->Message, $sendMail->content);
     	}
+
+        $sendMail->content = str_replace(array('{chat_link}'), array($url), $sendMail->content);
 
     	$sendMail->content = erLhcoreClassBBCode::parseForMail($sendMail->content);
     	
