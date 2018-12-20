@@ -4,6 +4,7 @@ class erLhcoreClassGenericBotActionIntent {
 
     public static function process($chat, $action, $trigger, $params)
     {
+
         $payload = '';
         if (isset($params['msg']) && $params['msg'] instanceof erLhcoreClassModelmsg) {
             $payload = $params['msg']->msg;
@@ -24,10 +25,21 @@ class erLhcoreClassGenericBotActionIntent {
                     $wordsTypo = isset($intent['content']['words_typo']) && is_numeric($intent['content']['words_typo']) ? (int)$intent['content']['words_typo'] : 0;
                     $wordsTypoExc = isset($intent['content']['exc_words_typo']) && is_numeric($intent['content']['exc_words_typo']) ? (int)$intent['content']['exc_words_typo'] : 0;
 
-                    // We should include atleast one word from group
-                    if (isset($intent['content']['words']) && $intent['content']['words'] != '') {
+                    // // We should include atleast one word from group
+                    if (isset($intent['content']['only_these']) && $intent['content']['only_these'] == true) {
+                        $words = explode(' ',$messageText);
                         $mustCombinations = explode('&&',$intent['content']['words']);
-                        foreach ($mustCombinations as $mustCombination){
+                        foreach ($words as $messageWord) {
+                            foreach ($mustCombinations as $mustCombination) {
+                                if (!erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$mustCombination),$messageWord,$wordsTypo)) {
+                                    $wordsFound = false;
+                                    break;
+                                }
+                            }
+                        }
+                    } else if (isset($intent['content']['words']) && $intent['content']['words'] != '') {
+                        $mustCombinations = explode('&&',$intent['content']['words']);
+                        foreach ($mustCombinations as $mustCombination) {
                             if (!erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$mustCombination),$messageText,$wordsTypo)) {
                                 $wordsFound = false;
                                 break;
@@ -38,7 +50,7 @@ class erLhcoreClassGenericBotActionIntent {
                     // We should NOT include any of these words
                     if (isset($intent['content']['exc_words']) && $intent['content']['exc_words'] != '') {
                         $mustCombinations = explode('&&',$intent['content']['exc_words']);
-                        foreach ($mustCombinations as $mustCombination){
+                        foreach ($mustCombinations as $mustCombination) {
                             if (erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$mustCombination),$messageText,$wordsTypoExc) == true) {
                                 $wordsFound = false;
                                 break;
@@ -47,7 +59,7 @@ class erLhcoreClassGenericBotActionIntent {
                     }
 
                     if ($wordsFound == true) {
-                        if (isset($intent['content']['exec_insta']) && $intent['content']['exec_insta'] == true){
+                        if (isset($intent['content']['exec_insta']) && $intent['content']['exec_insta'] == true) {
                             return array(
                                 'status' => 'stop',
                                 'trigger_id' => $intent['content']['trigger_id']

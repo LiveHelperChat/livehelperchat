@@ -7,7 +7,7 @@ class erLhcoreClassGenericBotActionCommand {
         if (isset($params['do_not_save']) && $params['do_not_save'] == true) {
             return;
         }
-        
+
         if ($action['content']['command'] == 'stopchat') {
 
             $isOnline = erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true));

@@ -4,7 +4,7 @@ class erLhcoreClassGenericBotActionActions {
 
     public static function process($chat, $action, $trigger, $params)
     {
-        // save message if required
+
         if (isset($action['content']['success_message']) && $action['content']['success_message'] != '') {
 
             $msgData = explode('|||',(isset($action['content']['success_message']) ? trim($action['content']['success_message']) : ''));
@@ -43,6 +43,8 @@ class erLhcoreClassGenericBotActionActions {
                         'validation' => array(
                             'words' => (isset($action['content']['event_validate']) ? $action['content']['event_validate'] : null),
                             'typos' => (isset($action['content']['event_typos']) ? $action['content']['event_typos'] : null),
+                            'words_exc' => (isset($action['content']['event_validate_exc']) ? $action['content']['event_validate_exc'] : null),
+                            'typos_exc' => (isset($action['content']['event_typos_exc']) ? $action['content']['event_typos_exc'] : null),
                             'words_alt' => (isset($action['content']['event_in_validate']) ? $action['content']['event_in_validate'] : null),
                         ),
                         'event' => (isset($action['content']['event']) ? $action['content']['event'] : null),

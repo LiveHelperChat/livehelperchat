@@ -88,6 +88,18 @@ class NodeTriggerActionActions extends Component {
                             <input type="text" placeholder="0" className="form-control input-sm" onChange={(e) => this.onchangeAttr({'path' : ['event_typos'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','event_typos'])} />
                         </div>
                     </div>
+                    <div className="col-xs-8">
+                        <div className="form-group">
+                            <label>Bot not any of</label>
+                            <input type="text" placeholder="no, not" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['event_validate_exc'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','event_validate_exc'])} />
+                        </div>
+                    </div>
+                    <div className="col-xs-4">
+                        <div className="form-group">
+                            <label>How many typos are allowed in a word?</label>
+                            <input type="text" placeholder="0" className="form-control input-sm" onChange={(e) => this.onchangeAttr({'path' : ['event_typos_exc'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','event_typos_exc'])} />
+                        </div>
+                    </div>
                 </div>
 
                 <div className="row">
