@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import NodeTriggerActionType from './NodeTriggerActionType';
-import NodeTriggerArgumentTemplate from './NodeTriggerArgumentTemplate';
+import shortid from 'shortid';
 
-class NodeTriggerActionProgress extends Component {
+class NodeTriggerActionIntentCheck extends Component {
 
     constructor(props) {
         super(props);
         this.changeType = this.changeType.bind(this);
         this.removeAction = this.removeAction.bind(this);
-        this.onchangeAttr = this.onchangeAttr.bind(this);
     }
 
     changeType(e) {
@@ -17,10 +16,6 @@ class NodeTriggerActionProgress extends Component {
 
     removeAction() {
         this.props.removeAction({id : this.props.id});
-    }
-
-    onchangeAttr(e) {
-        this.props.onChangeContent({id : this.props.id, 'path' : ['content'].concat(e.path), value : e.value});
     }
 
     render() {
@@ -43,31 +38,13 @@ class NodeTriggerActionProgress extends Component {
                         </button>
                     </div>
                 </div>
-
                 <div className="row">
-                    <div className="col-xs-6">
-                        <div className="form-group">
-                            <label>Update interval</label>
-                            <input type="text" placeholder="Value in seconds" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['interval'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','interval'])}/>
-                        </div>
-                    </div>
-                    <div className="col-xs-6">
-                        <div className="form-group">
-                            <label>Event identifier</label>
-                            <input placeholder="progress_event" type="text" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['method'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','method'])}/>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="form-group">
-                    <label>Argument template</label>
-                    <NodeTriggerArgumentTemplate showOptional={true} onChange={this.onchangeAttr} argument={this.props.action.getIn(['content','argument_template'])} />
+                    <p>Check for pending intended actions. If atleast one pending actions will be found. None of the rest triggers will be executed.</p>
                 </div>
                 <hr/>
-
             </div>
         );
     }
 }
 
-export default NodeTriggerActionProgress;
+export default NodeTriggerActionIntentCheck;

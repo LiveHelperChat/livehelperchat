@@ -27,7 +27,14 @@ class NodeTriggerActionCommand extends Component {
         return (
             <div>
                 <div className="row">
-                    <div className="col-xs-11">
+                    <div className="col-xs-2">
+                        <div className="btn-group pull-left" role="group" aria-label="Trigger actions">
+                            <button disabled="disabled" className="btn btn-xs btn-info">{this.props.id + 1}</button>
+                            {this.props.isFirst == false && <a className="btn btn-default btn-xs" onClick={(e) => this.props.upField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_up</i></a>}
+                            {this.props.isLast == false && <a className="btn btn-default btn-xs" onClick={(e) => this.props.downField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_down</i></a>}
+                        </div>
+                    </div>
+                    <div className="col-xs-9">
                         <NodeTriggerActionType onChange={this.changeType} type={this.props.action.get('type')} />
                     </div>
                     <div className="col-xs-1">
@@ -46,6 +53,7 @@ class NodeTriggerActionCommand extends Component {
                                 <option value="stopchat">Stop chat and transfer to human</option>
                                 <option value="transfertobot">Transfer chat to bot</option>
                                 <option value="closechat">Close chat</option>
+                                <option value="chatvariable">Set chat variable</option>
                             </select>
                         </div>
                     </div>
@@ -68,6 +76,14 @@ class NodeTriggerActionCommand extends Component {
                     <div className="form-group">
                         <label>What trigger to execute once chat is transfered to bot</label>
                         <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path':['payload'],'value':e})} payload={this.props.action.getIn(['content','payload'])} />
+                    </div>
+                </div>}
+
+                {this.props.action.getIn(['content','command']) == 'chatvariable' &&
+                <div>
+                    <div className="form-group">
+                        <label>Set chat variables in json format.</label>
+                        <input className="form-control" type="text" placeholder="{&quot;bot_touched&quot;:true}" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
                     </div>
                 </div>}
 

@@ -1,3 +1,9 @@
+3.13v
+
+1. Various bot improvements. Intent detection by matching rules. Possibility to plug in various AI engines in the future.
+
+execute doc/update_db/update_188.sql for update
+
 3.12v
 
 1. Events will store how many times it was executed so extension can forbid executing it second time.

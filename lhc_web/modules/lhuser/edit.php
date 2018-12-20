@@ -145,6 +145,8 @@ $tpl->set('user_groups_filter',$userGroupFilter);
 $tpl->set('can_edit_groups',$can_edit_groups);
 $tpl->set('user',$UserData);
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit_user_window',array('userData' => & $UserData, 'tpl' => & $tpl, 'params' => $Params));
+
 $Result['content'] = $tpl->fetch();
 $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.account.validator.js').'"></script>';
 $Result['path'] = array(

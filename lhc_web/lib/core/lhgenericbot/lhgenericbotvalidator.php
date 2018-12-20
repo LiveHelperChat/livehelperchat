@@ -83,7 +83,6 @@ class erLhcoreClassGenericBotValidator {
         }
     }
 
-
     public static function validateAddPayload($payload)
     {
         $payloadObj = erLhcoreClassModelGenericBotPayload::findOne(array('filter' => array('payload' => $payload['value'], 'trigger_id' => $payload['trigger_id'])));
@@ -96,8 +95,36 @@ class erLhcoreClassGenericBotValidator {
         }
 
         $payloadObj->name = $payload['name'];
-        $payloadObj->payload =$payload['value'];
+        $payloadObj->payload = $payload['value'];
         $payloadObj->saveThis();
+    }
+
+    public static function formatExceptionList($exceptionGroup, $exceptions)
+    {
+        if ($exceptionGroup->id > 0) {
+            $exceptionsMessages = erLhcoreClassModelGenericBotExceptionMessage::getList(array('filter' => array('exception_group_id' => $exceptionGroup->id)));
+        } else {
+            $exceptionsMessages = array();
+        }
+
+        $remappedExceptions = array();
+        foreach ($exceptionsMessages as $exceptionsMessage) {
+            $remappedExceptions[$exceptionsMessage->code] = $exceptionsMessage;
+        }
+
+        $formatedExceptions = array();
+        foreach ($exceptions as $exception) {
+            if (isset($remappedExceptions[$exception['code']])) {
+                $formatedExceptions[$exception['code']] = $remappedExceptions[$exception['code']];
+                $formatedExceptions[$exception['code']]->default_message = $exception['message'];
+            } else {
+                $formatedExceptions[$exception['code']] = new erLhcoreClassModelGenericBotExceptionMessage();
+                $formatedExceptions[$exception['code']]->code = $exception['code'];
+                $formatedExceptions[$exception['code']]->default_message = $exception['message'];
+            }
+        }
+
+        return $formatedExceptions;
     }
 }
 

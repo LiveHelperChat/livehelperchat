@@ -65,7 +65,19 @@ $ViewList['list'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['listexceptions'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['new'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['newexception'] = array(
     'params' => array(),
     'uparams' => array(),
     'functions' => array( 'use' )

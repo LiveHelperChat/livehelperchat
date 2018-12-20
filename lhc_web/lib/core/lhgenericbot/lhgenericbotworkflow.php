@@ -45,11 +45,11 @@ class erLhcoreClassGenericBotWorkflow {
             }
 
             if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
-                self::processTrigger($chat, $event->trigger);
+                self::processTrigger($chat, $event->trigger, false, array('args' => array('msg' => $msg)));
                 return;
             }
 
-            self::sendDefault($chat, $chat->chat_variables_array['gbot_id']);
+            self::sendDefault($chat, $chat->chat_variables_array['gbot_id'], $msg);
         }
     }
 
@@ -70,12 +70,12 @@ class erLhcoreClassGenericBotWorkflow {
     }
 
     // Send default message if there is any
-    public static function sendDefault(& $chat, $botId)
+    public static function sendDefault(& $chat, $botId, $msg = null)
     {
         $trigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filter' => array('bot_id' => $botId, 'default_unknown' => 1)));
 
         if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
-            $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger);
+            $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('msg' => $msg)));
 
             if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
                 self::setLastMessageId($chat, $message->id, true);
@@ -83,23 +83,50 @@ class erLhcoreClassGenericBotWorkflow {
         }
     }
 
+    public static function getWordParams($word){
+        $matches = array();
+        preg_match('/\{[0-9]\}/',$word,$matches);
+
+        $numberTypos = null;
+        foreach ($matches as $match) {
+            $numberTypos = str_replace(array('{','}'),'',$match);
+            $word = str_replace($match,'',$word);
+        }
+
+        $noEndTypo = false;
+        if (preg_match('/\$$/is',$word)) {
+            $noEndTypo = true;
+            $word = str_replace('$','',$word);
+        }
+
+        return array('typos' => $numberTypos, 'word' => $word, 'noendtypo' => $noEndTypo);
+    }
+
     public static function checkPresence($words, $text, $mistypeLetters = 1) {
 
         $textLetters = self::splitWord($text);
+
         foreach ($words as $word) {
 
-            $wordLetters = self::splitWord(trim($word));
+            $wordSettings = self::getWordParams(trim($word));
+
+            $wordLetters = self::splitWord($wordSettings['word']);
             $currentWordLetterIndex = 0;
             $mistypedCount = 0;
 
+            // allow word to have custom mistype number configuration
+            $mistypeLettersWord = $wordSettings['typos'] !== null ? $wordSettings['typos'] : $mistypeLetters;
+
             foreach ($textLetters as $indexLetter => $letter) {
 
+                $lastLetterMatch = true;
                 if ($letter != $wordLetters[$currentWordLetterIndex]) {
                     $mistypedCount++;
+                    $lastLetterMatch = false;
                 }
 
                 // We do not allow first letter to be mistaken
-                if ($mistypedCount > $mistypeLetters || $mistypedCount == 1 && $currentWordLetterIndex == 0) {
+                if ($mistypedCount > $mistypeLettersWord || $mistypedCount == 1 && $currentWordLetterIndex == 0) {
                     $currentWordLetterIndex = 0;
                     $mistypedCount = 0;
                 } else {
@@ -114,7 +141,14 @@ class erLhcoreClassGenericBotWorkflow {
 
                 if (count($wordLetters) == $currentWordLetterIndex) {
                     if (!isset($textLetters[$indexLetter+1]) || in_array($textLetters[$indexLetter+1],array('"',',',' ',"'",':','.','?','!'))){
-                        return true;
+
+                        if ($wordSettings['noendtypo'] == true && $lastLetterMatch == false) {
+                            $currentWordLetterIndex = 0;
+                            $mistypedCount = 0;
+                        } else {
+                            return true;
+                        }
+
                     } else {
                         $currentWordLetterIndex = 0;
                         $mistypedCount = 0;
@@ -213,12 +247,22 @@ class erLhcoreClassGenericBotWorkflow {
 
                             $words = explode(',',$eventData['content']['validation']['words']);
 
+                            $wordsExc = array();
+                            if (isset($eventData['content']['validation']['words_exc']) && $eventData['content']['validation']['words_exc'] != '') {
+                                $wordsExc = explode(',',$eventData['content']['validation']['words_exc']);
+                            }
+
                             $args = array();
                             if (isset($eventData['content']['replace_array'])) {
                                 $args['args']['replace_array'] = $eventData['content']['replace_array'];
                             }
 
-                            if (self::checkPresence($words,mb_strtolower($payload),(isset($eventData['content']['validation']['typos']) ? (int)$eventData['content']['validation']['typos'] : 0)) === true) {
+                            $args['args']['msg_text'] = $payload;
+
+                            if (
+                                self::checkPresence($words,mb_strtolower($payload),(isset($eventData['content']['validation']['typos']) ? (int)$eventData['content']['validation']['typos'] : 0)) === true &&
+                                (empty($wordsExc) || self::checkPresence($wordsExc,mb_strtolower($payload),(isset($eventData['content']['validation']['typos_exc']) ? (int)$eventData['content']['validation']['typos_exc'] : 0)) === false)
+                            ) {
                                  if (isset($eventData['content']['event_args']['valid']) && is_numeric($eventData['content']['event_args']['valid'])){
                                      $trigger = erLhcoreClassModelGenericBotTrigger::fetch($eventData['content']['event_args']['valid']);
                                      if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
@@ -900,11 +944,27 @@ class erLhcoreClassGenericBotWorkflow {
 
     public static function processTrigger($chat, $trigger, $setLastMessageId = false, $params = array())
     {
+
+        // Delete pending event if same even is executing already
+        if ($chat->id > 0 && $trigger->id > 0){
+            $db = ezcDbInstance::get();
+            $stmt = $db->prepare("DELETE FROM lh_generic_bot_pending_event WHERE chat_id = :chat_id AND trigger_id = :trigger_id");
+            $stmt->bindValue(':chat_id', $chat->id, PDO::PARAM_INT);
+            $stmt->bindValue(':trigger_id', $trigger->id, PDO::PARAM_INT);
+            $stmt->execute();
+        }
+
         $message = null;
         foreach ($trigger->actions_front as $action) {
         	$messageNew = call_user_func_array("erLhcoreClassGenericBotAction" . ucfirst($action['type']).'::process',array($chat, $action, $trigger, (isset($params['args']) ? $params['args'] : array())));
             if ($messageNew instanceof erLhcoreClassModelmsg) {
                 $message = $messageNew;
+            } elseif (is_array($messageNew) && isset($messageNew['status']) && $messageNew['status'] == 'stop') {
+                if (isset($messageNew['trigger_id'])) {
+                    $trigger = erLhcoreClassModelGenericBotTrigger::fetch($messageNew['trigger_id']);
+                    return self::processTrigger($chat, $trigger, $setLastMessageId, $params);
+                }
+                break;
             }
         }
 

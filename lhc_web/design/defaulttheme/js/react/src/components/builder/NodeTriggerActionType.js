@@ -58,6 +58,14 @@ export default ({onChange, type}) => {
         {
             'value': 'actions',
             'text' : 'Execute action',
+        },
+        {
+            'value': 'intent',
+            'text' : 'Intent detection',
+        },
+        {
+            'value': 'intentcheck',
+            'text' : 'Check for pending intentions',
         }
     ]);
 

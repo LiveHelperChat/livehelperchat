@@ -4,6 +4,7 @@ class erLhcoreClassGenericBotActionAttribute {
 
     public static function process($chat, $action, $trigger, $params)
     {
+
         $msg = new erLhcoreClassModelmsg();
 
         $metaMessage = array();

@@ -19,7 +19,7 @@ class erLhcoreClassGenericBotActionPredefined {
 
             if (($trigger instanceof erLhcoreClassModelGenericBotTrigger)){
                 if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
-                    erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true);
+                    return erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, array('args' => $params));
                 } else {
                     return erLhcoreClassGenericBotWorkflow::processTriggerPreview($chat, $trigger, array('args' => $params));
                 }
