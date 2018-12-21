@@ -957,12 +957,19 @@ class erLhcoreClassGenericBotWorkflow {
         $message = null;
         foreach ($trigger->actions_front as $action) {
         	$messageNew = call_user_func_array("erLhcoreClassGenericBotAction" . ucfirst($action['type']).'::process',array($chat, $action, $trigger, (isset($params['args']) ? $params['args'] : array())));
+
             if ($messageNew instanceof erLhcoreClassModelmsg) {
                 $message = $messageNew;
             } elseif (is_array($messageNew) && isset($messageNew['status']) && $messageNew['status'] == 'stop') {
                 if (isset($messageNew['trigger_id'])) {
                     $trigger = erLhcoreClassModelGenericBotTrigger::fetch($messageNew['trigger_id']);
-                    return self::processTrigger($chat, $trigger, $setLastMessageId, $params);
+                    $response = self::processTrigger($chat, $trigger, $setLastMessageId, $params);
+                    return array(
+                        'status' => 'stop',
+                        'response' => $response
+                    );
+                } elseif (isset($messageNew['response']) && $messageNew['response'] instanceof erLhcoreClassModelmsg) {
+                    $message = $messageNew['response'];
                 }
                 break;
             }
