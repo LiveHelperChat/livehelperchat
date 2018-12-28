@@ -28,7 +28,11 @@ class erLhcoreClassModelGenericBotException {
     {
         foreach ($this->exceptions as $exception) {
             $exception->exception_group_id = $this->id;
-            $exception->saveThis();
+            if ($exception->message != '') {
+                $exception->saveThis();
+            } elseif ($exception->message == '' && $exception->id > 0){
+                $exception->removeThis();
+            }
         }
     }
 
