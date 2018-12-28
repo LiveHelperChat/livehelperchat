@@ -154,13 +154,21 @@ class NodeTriggerActionText extends Component {
                         <textarea placeholder="Write your response here!" onChange={this.setHTML} defaultValue={this.props.action.getIn(['content','html'])} className="form-control"></textarea>
                     </div>
 
-                    <div className="pull-left" role="group">
-                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','hide_text_area'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','hide_text_area'])} /> Hide text area on response.</label> <i className="material-icons" title="Textarea to enter user message will be disabled. Make sure you include buttons for user to click.">info</i>
-                    </div>
-
-                    <div className="btn-group pull-right" role="group">
-                        <a onClick={this.addAction} className="btn btn-xs btn-default"><i className="material-icons mr-0">add</i> Add action on message</a>
-                        <a onClick={this.addQuickReply} className="btn btn-xs btn-default"><i className="material-icons mr-0">add</i> Add quick reply</a>
+                    <div className="row">
+                        <div className="col-xs-6">
+                            <div role="group">
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','hide_text_area'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','hide_text_area'])} /> Hide text area on response.</label> <i className="material-icons" title="Textarea to enter user message will be disabled. Make sure you include buttons for user to click.">info</i>
+                            </div>
+                            <div role="group">
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','on_start_chat'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','on_start_chat'])} /> Send message only at chat start.</label> <i className="material-icons" title="Message will be send only on chat start event.">info</i>
+                            </div>
+                        </div>
+                        <div className="col-xs-6">
+                            <div className="btn-group" role="group">
+                                <a onClick={this.addAction} className="btn btn-xs btn-default"><i className="material-icons mr-0">add</i> Add action on message</a>
+                                <a onClick={this.addQuickReply} className="btn btn-xs btn-default"><i className="material-icons mr-0">add</i> Add quick reply</a>
+                            </div>
+                        </div>
                     </div>
 
                 </div>

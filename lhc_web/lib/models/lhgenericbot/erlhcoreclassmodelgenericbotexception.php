@@ -24,6 +24,21 @@ class erLhcoreClassModelGenericBotException {
         return $stateArray;
     }
 
+    public function afterSave()
+    {
+        foreach ($this->exceptions as $exception) {
+            $exception->exception_group_id = $this->id;
+            $exception->saveThis();
+        }
+    }
+
+    public function afterRemove()
+    {
+        foreach (erLhcoreClassModelGenericBotExceptionMessage::getList(array('filter' => array('exception_group_id' => $this->id))) as $exception){
+            $exception->removeThis();
+        }
+    }
+
     public function __toString()
     {
         return $this->name;
@@ -33,4 +48,5 @@ class erLhcoreClassModelGenericBotException {
     public $name = '';
     public $priority = 0;
     public $active = 1;
+    public $exceptions = array();
 }

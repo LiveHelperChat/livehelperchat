@@ -15,6 +15,7 @@ import NodeTriggerActionAttribute from './builder/NodeTriggerActionAttribute';
 import NodeTriggerActionActions from './builder/NodeTriggerActionActions';
 import NodeTriggerActionIntent from './builder/NodeTriggerActionIntent';
 import NodeTriggerActionIntentCheck from './builder/NodeTriggerActionIntentCheck';
+import NodeTriggerActionConditions from './builder/NodeTriggerActionConditions';
 
 @connect((store) => {
     return {
@@ -163,6 +164,8 @@ class NodeTriggerBuilder extends Component {
                     return <NodeTriggerActionIntent upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 } else if (action.get('type') == 'intentcheck') {
                     return <NodeTriggerActionIntentCheck upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
+                } else if (action.get('type') == 'conditions') {
+                    return <NodeTriggerActionConditions upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} />
                 }
             });
         }

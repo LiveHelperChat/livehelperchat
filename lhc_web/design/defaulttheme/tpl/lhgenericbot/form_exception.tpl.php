@@ -4,7 +4,7 @@
 </div>
 
 <div class="form-group">
-    <label><input type="checkbox" value="on" name="active" value="<?php echo htmlspecialchars($item->active);?>" /> Active</label>
+    <label><input type="checkbox" value="on" name="active" <?php if ($item->active == 1) : ?>checked="checked"<?php endif;?> value="<?php echo htmlspecialchars($item->active);?>" /> Active</label>
 </div>
 
 <div class="form-group">
@@ -14,14 +14,14 @@
 
 <h4>Extensions defined exceptions you can translate</h4>
 <?php foreach ($exceptions as $exception) : ?>
-    <input type="hidden" name="code" value="<?php echo htmlspecialchars($exception->code)?>">
+    <input type="hidden" name="code[]" value="<?php echo htmlspecialchars($exception->code)?>">
     <div class="row">
         <div class="col-xs-6">Error code - &quot;<?php echo htmlspecialchars($exception->code)?>&quot;</div>
         <div class="col-xs-6">Default message - &quot;<?php echo htmlspecialchars($exception->default_message)?>&quot;</div>
         <div class="col-xs-12">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Custom message');?></label>
-                <textarea class="form-control"></textarea>
+                <textarea class="form-control" name="message[]"><?php echo htmlspecialchars($exception->message)?></textarea>
             </div>
         </div>
     </div>

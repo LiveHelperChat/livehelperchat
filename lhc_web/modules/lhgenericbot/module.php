@@ -83,6 +83,12 @@ $ViewList['newexception'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['editexception'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['edit'] = array(
     'params' => array('id'),
     'uparams' => array(),
@@ -90,6 +96,12 @@ $ViewList['edit'] = array(
 );
 
 $ViewList['delete'] = array(
+    'params' => array('id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'use' )
+);
+
+$ViewList['deleteexception'] = array(
     'params' => array('id'),
     'uparams' => array('csfr'),
     'functions' => array( 'use' )

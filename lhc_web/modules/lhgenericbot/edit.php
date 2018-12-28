@@ -31,6 +31,12 @@ if (isset($_POST['Update_bot']) || isset($_POST['Save_bot'])  )
 
     $Errors = erLhcoreClassGenericBot::validateBot($bot);
 
+    $userPhotoErrors = erLhcoreClassGenericBot::validateBotPhoto($bot);
+
+    if ($userPhotoErrors !== false) {
+        $Errors = array_merge($Errors, $userPhotoErrors);
+    }
+
     if (count($Errors) == 0)
     {
         $bot->saveThis();

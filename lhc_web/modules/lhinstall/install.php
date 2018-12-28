@@ -59,6 +59,9 @@ switch ((int)$Params['user_parameters']['step_id']) {
 		if (!is_writable("var/storagetheme"))
 	       $Errors[] = "var/storagetheme is not writable";
 
+		if (!is_writable("var/botphoto"))
+	       $Errors[] = "var/botphoto is not writable";
+
 		if (!is_writable("var/storageinvitation"))
 	       $Errors[] = "var/storageinvitation is not writable";
 
@@ -67,23 +70,23 @@ switch ((int)$Params['user_parameters']['step_id']) {
 
 		if (!extension_loaded ('pdo_mysql' ))
 	       $Errors[] = "php-pdo extension not detected. Please install php extension";
-		
+
 		if (!extension_loaded('curl'))
-			$Errors[] = "php_curl extension not detected. Please install php extension";	
-		
+			$Errors[] = "php_curl extension not detected. Please install php extension";
+
 		if (!extension_loaded('mbstring'))
-			$Errors[] = "mbstring extension not detected. Please install php extension";	
-		
+			$Errors[] = "mbstring extension not detected. Please install php extension";
+
 		if (!extension_loaded('gd'))
-			$Errors[] = "gd extension not detected. Please install php extension";	
-		
+			$Errors[] = "gd extension not detected. Please install php extension";
+
 		if (!function_exists('json_encode'))
-			$Errors[] = "json support not detected. Please install php extension";	
-		
+			$Errors[] = "json support not detected. Please install php extension";
+
 		if (version_compare(PHP_VERSION, '5.4.0','<')) {
-			$Errors[] = "Minimum 5.4.0 PHP version is required";	
+			$Errors[] = "Minimum 5.4.0 PHP version is required";
 		}
-		
+
        if (count($Errors) == 0){
            $tpl->setFile('lhinstall/install2.tpl.php');
        }

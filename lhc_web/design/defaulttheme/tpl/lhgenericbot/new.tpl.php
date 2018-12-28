@@ -4,7 +4,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('genericbot/new')?>" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('genericbot/new')?>" method="post" enctype="multipart/form-data">
 
     <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/form.tpl.php'));?>
 
