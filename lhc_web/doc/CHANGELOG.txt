@@ -1,3 +1,10 @@
+3.14v
+
+1. Various bot improvements. More flexible rules for triggers matching. Termination of bot workflow in the middle of sequence.
+Bot conditions check.
+
+execute doc/update_db/update_189.sql for update
+
 3.13v
 
 1. Various bot improvements. Intent detection by matching rules. Possibility to plug in various AI engines in the future.

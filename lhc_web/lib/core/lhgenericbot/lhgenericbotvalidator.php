@@ -27,6 +27,9 @@ class erLhcoreClassGenericBotValidator {
         $triggerEvent = erLhcoreClassModelGenericBotTriggerEvent::fetch($data['id']);
         $triggerEvent->type = $data['type'];
         $triggerEvent->pattern = $data['pattern'];
+        $triggerEvent->pattern_exc = $data['pattern_exc'];
+        $triggerEvent->configuration_array = is_array($data['configuration_array']) ? $data['configuration_array'] : new stdClass();
+        $triggerEvent->configuration = json_encode($triggerEvent->configuration_array);
         $triggerEvent->saveThis();
     }
 

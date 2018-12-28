@@ -75,6 +75,15 @@ class NodeTriggerActionActions extends Component {
                     </div>
                 </div>
 
+                <div className="form-group">
+                    <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['event_default'],'value' : e.target.checked})} defaultChecked={this.props.action.getIn(['content','event_default'])} /> Check for default matching text first.</label>
+                </div>
+
+                <div className="form-group">
+                    <label>Check for alternative scenario first executing this trigger</label>
+                    <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','collection_callback_match'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','collection_callback_match'])} />
+                </div>
+
                 <div className="row">
                     <div className="col-xs-8">
                         <div className="form-group">
@@ -102,19 +111,24 @@ class NodeTriggerActionActions extends Component {
                     </div>
                 </div>
 
+                <div className="form-group">
+                    <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','check_default'],'value' : e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','check_default'])} /> On failure check for default match trigger first.</label>
+                </div>
+
                 <div className="row">
-                    <div className="col-xs-6">
-                        <div className="form-group">
-                            <label>Execute trigger on fail</label>
-                            <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','collection_callback_cancel'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','collection_callback_cancel'])} />
-                        </div>
-                    </div>
                     <div className="col-xs-6">
                         <div className="form-group">
                             <label>Execute trigger on success</label>
                             <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','collection_callback_pattern'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','collection_callback_pattern'])} />
                         </div>
                     </div>
+                    <div className="col-xs-6">
+                        <div className="form-group">
+                            <label>Execute trigger on fail</label>
+                            <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','collection_callback_cancel'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','collection_callback_cancel'])} />
+                        </div>
+                    </div>
+
                     <div className="col-xs-12">
                         <div className="form-group">
                             <label>Execute trigger on failed format</label>

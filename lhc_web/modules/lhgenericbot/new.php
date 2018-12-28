@@ -16,6 +16,12 @@ if (isset($_POST['Save_bot']) || isset($_POST['Update_bot']))
     {
         $bot->saveThis();
 
+        $userPhotoErrors = erLhcoreClassGenericBot::validateBotPhoto($bot);
+
+        if ($userPhotoErrors !== false && count($userPhotoErrors) == 0) {
+            $bot->saveThis();
+        }
+
         if (isset($_POST['Update_bot'])) {
             erLhcoreClassModule::redirect('genericbot/edit','/' . $bot->id);
         } else {

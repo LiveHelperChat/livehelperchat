@@ -14,18 +14,17 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_excep
 
 if (isset($_POST['Save_bot']) || isset($_POST['Update_bot']))
 {
-    $Errors = erLhcoreClassGenericBot::validateBot($bot);
+    $Errors = erLhcoreClassGenericBot::validateBotException($botException);
 
     if (count($Errors) == 0)
     {
-        $bot->saveThis();
+        $botException->saveThis();
 
         if (isset($_POST['Update_bot'])) {
-            erLhcoreClassModule::redirect('genericbot/editexception','/' . $bot->id);
+            erLhcoreClassModule::redirect('genericbot/editexception','/' . $botException->id);
         } else {
             erLhcoreClassModule::redirect('genericbot/listexception');
         }
-
         exit ;
 
     } else {

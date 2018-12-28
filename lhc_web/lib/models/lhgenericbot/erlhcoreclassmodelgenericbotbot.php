@@ -51,6 +51,8 @@ class erLhcoreClassModelGenericBotBot {
         $q->deleteFrom( 'lh_generic_bot_trigger_event' )->where( $q->expr->eq( 'bot_id', $this->id ) );
         $stmt = $q->prepare();
         $stmt->execute();
+
+        $this->removeFile();
     }
 
     public function __get($var) {
@@ -70,10 +72,45 @@ class erLhcoreClassModelGenericBotBot {
                 return $this->configuration_array;
                 break;
 
+            case 'name_support':
+                return $this->name_support = $this->nick;
+                break;
+
+            case 'has_photo':
+                return $this->filename != '';
+                break;
+
+            case 'photo_path':
+                $this->photo_path = ($this->filepath != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'. $this->filepath . $this->filename;
+                return $this->photo_path;
+                break;
+
+            case 'file_path_server':
+                return $this->filepath . $this->filename;
+                break;
+
             default:
                 break;
         }
+    }
 
+    public function removeFile()
+    {
+        if ($this->filename != '') {
+            if ( file_exists($this->filepath . $this->filename) ) {
+                unlink($this->filepath . $this->filename);
+            }
+
+            if ($this->filepath != '') {
+                erLhcoreClassFileUpload::removeRecursiveIfEmpty('var/botphoto/',str_replace('var/botphoto/','',$this->filepath));
+            }
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.remove_photo', array('user' => & $this));
+
+            $this->filepath = '';
+            $this->filename = '';
+            $this->saveThis();
+        }
     }
 
     public function __toString()

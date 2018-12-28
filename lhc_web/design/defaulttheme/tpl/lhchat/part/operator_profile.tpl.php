@@ -9,11 +9,7 @@
      <div class="pl10">        
 	    
 	    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_name_support.tpl.php'));?>
-	    
-	    <?php if (isset($extraMessage)) : ?>
-	    	<i><?php echo $extraMessage;?></i>
-	    <?php endif;?>
-	    
+
 	    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_pre.tpl.php'));?>
 	    	    	    
 	    <?php if (!isset($hideThumbs) || $hideThumbs == false) : ?>

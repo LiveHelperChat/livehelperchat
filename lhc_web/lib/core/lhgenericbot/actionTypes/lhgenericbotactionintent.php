@@ -74,7 +74,7 @@ class erLhcoreClassGenericBotActionIntent {
                 }
             }
 
-            return null/*$msg*/;
+            return null;
         }
     }
 }

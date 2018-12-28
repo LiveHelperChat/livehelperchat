@@ -57,6 +57,11 @@ class NodeTriggerActionTyping extends Component {
                             <input placeholder="Typing..." type="text" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['text'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','text'])}/>
                         </div>
                     </div>
+                    <div className="col-xs-12">
+                        <div role="group">
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['on_start_chat'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','on_start_chat'])} /> Send typing only at chat start.</label> <i className="material-icons" title="Typing will be send only on chat start event.">info</i>
+                        </div>
+                    </div>
                 </div>
                 <hr/>
 
