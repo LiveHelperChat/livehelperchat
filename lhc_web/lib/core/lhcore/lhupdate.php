@@ -213,7 +213,7 @@ class erLhcoreClassUpdate
     		    $removeIndexes = array_intersect($dataTableIndex['old'], $existingIndexes);
     		   
     		    foreach ($removeIndexes as $removeIndex) {
-    		        $tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}` DROP INDEX `{$removeIndex}`;";
+                    array_unshift($tablesStatus[$table]['queries'],"ALTER TABLE `{$table}` DROP INDEX `{$removeIndex}`;");
     		        $tablesStatus[$table]['error'] = true;
     		        $status[] = "{$removeIndex} legacy index was found";
     		    }
