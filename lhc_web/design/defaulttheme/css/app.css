@@ -364,6 +364,7 @@ textarea[name=ChatMessage]{
 	min-height:50px;
 	overflow:hidden;
 	resize: none;
+	padding-right:60px;
 }
 
 .msg-date {
@@ -699,8 +700,34 @@ div.message-row.response+div.message-row.response:hover .msg-date,
 
 .user-chatwidget-buttons{
 	position:absolute;
-	top:0;
-	right:0;
+	top: 7px;
+	right: 3px;
+}
+
+.dropdown-toggle-widget,
+.dropdown-toggle-widget:hover,
+.send-icons-action,
+.send-icons-action:hover{
+	color: #FFF;
+	background-color: #969696;
+	padding: 7px;
+	border-radius: 16px;
+	font-size: 12px;
+	display: inline-block;
+	margin-right: 2px;
+	opacity: 0.5;
+}
+
+.dropdown-toggle-widget i,
+.send-icons-action i{
+	margin: 1px 2px 1px 1px;
+	font-size: 16px;
+}
+
+.send-icons-action i{
+	margin-left:2px;
+	margin-right:0px;
+	font-size: 15px;
 }
 
 .text-edit-menu{

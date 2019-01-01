@@ -2518,7 +2518,7 @@ function lh(){
 		});
     };
        
-    this.addmsguser = function ()
+    this.addmsguser = function (focusArea)
     {
     	if (LHCCallbacks.addmsguserbefore) {
     		LHCCallbacks.addmsguserbefore(this);
@@ -2597,6 +2597,10 @@ function lh(){
 	        		inst.addDelayedMessage();
 	        	},50);	        		        	
 	        }
+        }
+
+		if (typeof focusArea !== 'undefined' && focusArea == true) {
+            textArea.focus();
         }
     };
 
