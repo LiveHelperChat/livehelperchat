@@ -718,6 +718,11 @@ div.message-row.response+div.message-row.response:hover .msg-date,
 	opacity: 0.5;
 }
 
+.dropdown-toggle-widget:hover,
+.send-icons-action:hover{
+	opacity: 0.9;
+}
+
 .dropdown-toggle-widget i,
 .send-icons-action i{
 	margin: 1px 2px 1px 1px;
