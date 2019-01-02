@@ -1047,11 +1047,24 @@ class erLhcoreClassGenericBotWorkflow {
 
             if ($e instanceof erLhcoreClassGenericBotException) {
 
+                $message = $e->getMessage();
+
+                $bot = erLhcoreClassModelGenericBotBot::fetch($chat->chat_variables_array['gbot_id']);
+                if ($bot instanceof erLhcoreClassModelGenericBotBot) {
+                    $configurationArray = $bot->configuration_array;
+                    if (isset($configurationArray['exc_group_id']) && !empty($configurationArray['exc_group_id'])){
+                        $exceptionMessage = erLhcoreClassModelGenericBotExceptionMessage::findOne(array('limit' => 1, 'sort' => 'priority ASC', 'filter' => array('active' => 1, 'code' => $e->getCode()), 'filterin' => array('exception_group_id' => $configurationArray['exc_group_id'])));
+                        if ($exceptionMessage instanceof erLhcoreClassModelGenericBotExceptionMessage && $exceptionMessage->message != '') {
+                            $message = $exceptionMessage->message;
+                        }
+                    }
+                }
+                
                 if ($reprocess) {
-                    $metaError['meta_error']['message'] = $e->getMessage();
+                    $metaError['meta_error']['message'] = $message;
                     $metaError['meta_error']['content'] = $e->getContent();
                 } else {
-                    self::sendAsBot($chat, $e->getMessage(), $e->getContent());
+                    self::sendAsBot($chat, $message, $e->getContent());
                 }
             } else {
                 self::sendAsBot($chat, $e->getMessage());
