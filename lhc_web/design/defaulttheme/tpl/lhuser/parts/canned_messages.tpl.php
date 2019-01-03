@@ -108,11 +108,11 @@ if ($pages->items_total > 0) {
                 <div role="tabpanel" class="tab-pane active" id="main-extension">
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?>*</label>
-                        <textarea class="form-control" name="Message"><?php echo htmlspecialchars($canned_msg->msg);?></textarea>
+                        <textarea class="form-control" rows="5" name="Message"><?php echo htmlspecialchars($canned_msg->msg);?></textarea>
                     </div>
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message');?></label>
-                        <textarea class="form-control" name="FallbackMessage"><?php echo htmlspecialchars($canned_msg->fallback_msg);?></textarea>
+                        <textarea class="form-control" rows="5" name="FallbackMessage"><?php echo htmlspecialchars($canned_msg->fallback_msg);?></textarea>
                     </div>
                 </div>
                 <?php $canned_message = $canned_msg; ?>
@@ -150,11 +150,11 @@ if ($pages->items_total > 0) {
                 <div role="tabpanel" class="tab-pane active" id="main-extension-lang-{{$index}}">
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?>*</label>
-                        <textarea class="form-control" name="message_lang[{{$index}}]" ng-model="lang.message"></textarea>
+                        <textarea class="form-control" rows="5" name="message_lang[{{$index}}]" ng-model="lang.message"></textarea>
                     </div>
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message');?></label>
-                        <textarea class="form-control" name="fallback_message_lang[{{$index}}]" ng-model="lang.fallback_message"></textarea>
+                        <textarea class="form-control" rows="5" name="fallback_message_lang[{{$index}}]" ng-model="lang.fallback_message"></textarea>
                     </div>
                 </div>
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/custom_fallback_lang_tab_content_multiinclude.tpl.php')); ?>

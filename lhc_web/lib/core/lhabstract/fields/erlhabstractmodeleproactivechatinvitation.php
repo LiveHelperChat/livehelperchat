@@ -143,7 +143,7 @@ return array(
         'required' => false,
         'hidden' => true,
         'source' => 'erLhcoreClassModelDepartament::getList',
-        'hide_optional' => $userDepartments !== true,
+        'hide_optional' => false/*$userDepartments !== true*/,
         'params_call' => ($userDepartments === true) ? array() : array(
             'filterin' => array(
                 'id' => $userDepartments

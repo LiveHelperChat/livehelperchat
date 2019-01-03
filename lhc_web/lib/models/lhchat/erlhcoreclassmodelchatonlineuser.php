@@ -249,12 +249,22 @@ class erLhcoreClassModelChatOnlineUser
                 return $this->screenshot;
                 break;
 
+            case 'chat_variables_array':
             case 'online_attr_system_array':
-                $this->online_attr_system_array = array();
+                $this->{$var} = array();
                 if ($this->online_attr_system != '') {
-                    $this->online_attr_system_array = json_decode($this->online_attr_system, true);
+                    $this->{$var} = json_decode($this->online_attr_system, true);
                 }
-                return $this->online_attr_system_array;
+                return $this->{$var};
+                break;
+
+            case 'additional_data_array':
+            case 'online_attr_array':
+                $this->{$var} = array();
+                if ($this->online_attr != '') {
+                    $this->{$var} = json_decode($this->online_attr, true);
+                }
+                return $this->{$var};
                 break;
 
             case 'online_status':

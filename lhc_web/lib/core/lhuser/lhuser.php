@@ -191,7 +191,7 @@ class erLhcoreClassUser{
    		return $this->getCSFRToken() == $token;
    }
 
-   function setLoggedUser($user_id)
+   function setLoggedUser($user_id, $remember = false)
    {
 	   	if ($user_id != $this->userid) {
 
@@ -225,6 +225,10 @@ class erLhcoreClassUser{
 
    					$_SESSION['lhc_user_id'] = $data['id'][0];
    					$this->userid = $data['id'][0];
+
+   					if ($remember == true) {
+   					    $this->rememberMe();
+                    }
 
    					$this->authenticated = true;
    					

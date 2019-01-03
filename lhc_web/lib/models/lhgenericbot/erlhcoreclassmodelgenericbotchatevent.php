@@ -18,7 +18,8 @@ class erLhcoreClassModelGenericBotChatEvent {
             'id' => $this->id,
             'chat_id' => $this->chat_id,
             'content' => $this->content,
-            'ctime' => $this->ctime
+            'ctime' => $this->ctime,
+            'counter' => $this->counter
         );
 
         return $stateArray;
@@ -42,9 +43,9 @@ class erLhcoreClassModelGenericBotChatEvent {
         }
     }
 
-
     public $id = null;
     public $chat_id = null;
     public $content = '';
     public $ctime = 0;
+    public $counter = 0;
 }

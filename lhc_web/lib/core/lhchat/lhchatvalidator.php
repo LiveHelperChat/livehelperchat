@@ -1353,6 +1353,10 @@ class erLhcoreClassChatValidator {
 
                 if ($botTrigger instanceof erLhcoreClassModelGenericBotTrigger) {
 
+
+                    // set flag that we are executing everthing in start chat mode
+                    erLhcoreClassGenericBotWorkflow::$startChat = true;
+                    
                     $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $botTrigger, false, array('args' => $params));
 
                     if (isset($message) && $message instanceof erLhcoreClassModelmsg) {

@@ -1029,6 +1029,10 @@ function lh(){
                     $('#CSChatMessage-'+chat_id).unbind('keyup', function(){});
                 };
 
+                if (!!window.postMessage && window.opener) {
+                    window.opener.postMessage("lhc_ch:chatclosed:"+chat_id, '*');
+                };
+                
                 if (hidetab == true) {
 
                     var location = that.smartTabFocus(tabs, chat_id);
@@ -2514,7 +2518,7 @@ function lh(){
 		});
     };
        
-    this.addmsguser = function ()
+    this.addmsguser = function (focusArea)
     {
     	if (LHCCallbacks.addmsguserbefore) {
     		LHCCallbacks.addmsguserbefore(this);
@@ -2593,6 +2597,10 @@ function lh(){
 	        		inst.addDelayedMessage();
 	        	},50);	        		        	
 	        }
+        }
+
+		if (typeof focusArea !== 'undefined' && focusArea == true) {
+            textArea.focus();
         }
     };
 

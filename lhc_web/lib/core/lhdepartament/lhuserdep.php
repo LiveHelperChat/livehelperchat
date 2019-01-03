@@ -104,8 +104,15 @@ class erLhcoreClassUserDep
 
     public static function getDefaultUserDepartment($userID = false)
     {
-        $userDepartments = self::getUserDepartaments($userID);
-        return array_shift($userDepartments);
+        $db = ezcDbInstance::get();
+
+        $stmt = $db->prepare('SELECT lh_userdep.dep_id FROM lh_userdep WHERE user_id = :user_id and ro = 0 ORDER BY id ASC LIMIT 1');
+        $stmt->bindValue(':user_id', $userID);
+        $stmt->execute();
+
+        $userDepartment = $stmt->fetch(PDO::FETCH_COLUMN);
+
+        return $userDepartment;
     }
 
     public static function addUserDepartaments($Departaments, $userID = false, $UserData = false, $readOnly = array())
@@ -186,9 +193,21 @@ class erLhcoreClassUserDep
 
         if (!empty($ids)) {
             $db = ezcDbInstance::get();
-            $stmt = $db->prepare('UPDATE lh_userdep SET last_accepted = :last_accepted WHERE id IN (' . implode(',', $ids) . ');');
-            $stmt->bindValue(':last_accepted', $lastAccepted, PDO::PARAM_INT);
-            $stmt->execute();
+            try {
+                $stmt = $db->prepare('UPDATE lh_userdep SET last_accepted = :last_accepted WHERE id IN (' . implode(',', $ids) . ');');
+                $stmt->bindValue(':last_accepted', $lastAccepted, PDO::PARAM_INT);
+                $stmt->execute();
+            } catch (Exception $e) {
+                try {
+                    usleep(100);
+                    $stmt = $db->prepare('UPDATE lh_userdep SET last_accepted = :last_accepted WHERE id IN (' . implode(',', $ids) . ');');
+                    $stmt->bindValue(':last_accepted', $lastAccepted, PDO::PARAM_INT);
+                    $stmt->execute();
+                } catch (Exception $e) {
+                    error_log($e->getMessage() . "\n" . $e->getTraceAsString());
+                }
+            }
+
         }
     }
 

@@ -92,6 +92,10 @@ try {
                 $onlineuser->saveThis();
             }
 
+            $chat->unread_op_messages_informed = 0;
+            $chat->has_unread_op_messages = 0;
+            $chat->unanswered_chat = 0;
+
             $chat->user_status = erLhcoreClassModelChat::USER_STATUS_JOINED_CHAT;
 
             $nick = isset($_GET['prefill']['username']) ? trim($_GET['prefill']['username']) : '';
@@ -112,10 +116,10 @@ try {
             erLhcoreClassChat::getSession()->update($chat);
         }        
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatwidgetchat',array('result' => & $Result , 'tpl' => & $tpl, 'params' => & $Params, 'chat' => & $chat));
-        
         $db->commit();
-        
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatwidgetchat',array('result' => & $Result , 'tpl' => & $tpl, 'params' => & $Params, 'chat' => & $chat));
+
     } else {
         $tpl->setFile( 'lhchat/errors/chatnotexists.tpl.php');
     }

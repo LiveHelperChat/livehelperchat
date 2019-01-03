@@ -23,6 +23,18 @@ $ViewList['addpayload'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['downloadbot'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['import'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['triggersbybot'] = array(
     'params' => array('id','trigger_id'),
     'uparams' => array('preview','element'),
@@ -53,8 +65,26 @@ $ViewList['list'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['listexceptions'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['new'] = array(
     'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['newexception'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['editexception'] = array(
+    'params' => array('id'),
     'uparams' => array(),
     'functions' => array( 'use' )
 );
@@ -66,6 +96,12 @@ $ViewList['edit'] = array(
 );
 
 $ViewList['delete'] = array(
+    'params' => array('id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'use' )
+);
+
+$ViewList['deleteexception'] = array(
     'params' => array('id'),
     'uparams' => array('csfr'),
     'functions' => array( 'use' )

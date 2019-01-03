@@ -276,7 +276,7 @@ class erLhcoreClassChatHelper
     		$new->pages_count += $old->pages_count;
     		$new->tt_pages_count += $old->tt_pages_count;
     		$new->first_visit = $old->first_visit;
-    		$new->notes += trim("\n" . $old->notes);
+    		$new->notes = $new->notes . trim("\n" . $old->notes);
     		$new->total_visits += $old->total_visits;
     		$new->invitation_count += $old->invitation_count;
     		$new->time_on_site += $old->time_on_site;

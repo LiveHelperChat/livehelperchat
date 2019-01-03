@@ -14,6 +14,7 @@ class NodeTriggerActionText extends Component {
         this.addQuickReply = this.addQuickReply.bind(this);
         this.addAction = this.addAction.bind(this);
         this.removeAction = this.removeAction.bind(this);
+        this.addAnswerVariation = this.addAnswerVariation.bind(this);
 
         this.onQuickReplyNameChange = this.onQuickReplyNameChange.bind(this);
         this.onPrecheckChange = this.onPrecheckChange.bind(this);
@@ -27,6 +28,9 @@ class NodeTriggerActionText extends Component {
         // Abstract methods
         this.onDeleteField = this.onDeleteField.bind(this);
         this.onchangeFieldAttr = this.onchangeFieldAttr.bind(this);
+
+        // Text area focys
+        this.textMessageRef = React.createRef();
     }
 
     changeType(e) {
@@ -35,6 +39,13 @@ class NodeTriggerActionText extends Component {
 
     setText(e) {
         this.props.onChangeContent({id : this.props.id, 'path' : ['content','text'], value : e.target.value});
+    }
+
+    addAnswerVariation() {
+        var newVal = this.props.action.getIn(['content','text'])+" |||\n";
+        this.props.onChangeContent({id : this.props.id, 'path' : ['content','text'], value : newVal});
+        this.textMessageRef.current.focus();
+        this.textMessageRef.current.value = newVal;
     }
 
     setHTML(e) {
@@ -64,7 +75,7 @@ class NodeTriggerActionText extends Component {
     onPrecheckChange(e) {
         this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content','render_precheck_function'], value : e.value});
     }
-    
+
     onRenderArgsChange(e) {
         this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content','render_args'], value : e.value});
     }
@@ -98,7 +109,7 @@ class NodeTriggerActionText extends Component {
         var quick_replies = [];
 
         if (this.props.action.hasIn(['content','quick_replies'])) {
-             quick_replies = this.props.action.getIn(['content','quick_replies']).map((reply, index) => {
+            quick_replies = this.props.action.getIn(['content','quick_replies']).map((reply, index) => {
                 return <NodeTriggerActionQuickReply onPayloadAttrChange={this.onPayloadAttrChange} onPrecheckChange={this.onPrecheckChange} onRenderArgsChange={this.onRenderArgsChange} onPayloadTypeChange={this.onQuickReplyPayloadTypeChange} deleteReply={this.onDeleteQuickReply} onNameChange={this.onQuickReplyNameChange} onPayloadChange={this.onQuickReplyPayloadChange} id={index} key={index} reply={reply} />
             });
         }
@@ -114,10 +125,15 @@ class NodeTriggerActionText extends Component {
         return (
             <div className="row">
                 <div className="col-xs-12">
-
-
                     <div className="row">
-                        <div className="col-xs-11">
+                        <div className="col-xs-2">
+                            <div className="btn-group pull-left" role="group" aria-label="Trigger actions">
+                                <button disabled="disabled" className="btn btn-xs btn-info">{this.props.id + 1}</button>
+                                {this.props.isFirst == false && <a className="btn btn-default btn-xs" onClick={(e) => this.props.upField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_up</i></a>}
+                                {this.props.isLast == false && <a className="btn btn-default btn-xs" onClick={(e) => this.props.downField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_down</i></a>}
+                            </div>
+                        </div>
+                        <div className="col-xs-9">
                             <NodeTriggerActionType onChange={this.changeType} type={this.props.action.get('type')} />
                         </div>
                         <div className="col-xs-1">
@@ -129,7 +145,8 @@ class NodeTriggerActionText extends Component {
 
                     <div className="form-group">
                         <label>Enter text</label>
-                        <textarea placeholder="Write your response here!" onChange={this.setText} defaultValue={this.props.action.getIn(['content','text'])} className="form-control"></textarea>
+                        <a title="Add answer variation" className="pull-right" onClick={this.addAnswerVariation}><i className="material-icons mr-0">question_answer</i></a>
+                        <textarea rows="3" placeholder="Write your response here!" onChange={this.setText} ref={this.textMessageRef} defaultValue={this.props.action.getIn(['content','text'])} className="form-control"></textarea>
                     </div>
 
                     <div className="form-group">
@@ -137,13 +154,21 @@ class NodeTriggerActionText extends Component {
                         <textarea placeholder="Write your response here!" onChange={this.setHTML} defaultValue={this.props.action.getIn(['content','html'])} className="form-control"></textarea>
                     </div>
 
-                    <div className="float-left" role="group">
-                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','hide_text_area'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','hide_text_area'])} /> Hide text area on response.</label> <i className="material-icons" title="Textarea to enter user message will be disabled. Make sure you include buttons for user to click.">info</i>
-                    </div>
-
-                    <div className="btn-group pull-right" role="group">
-                        <a onClick={this.addAction} className="btn btn-xs btn-default"><i className="material-icons mr-0">add</i> Add action on message</a>
-                        <a onClick={this.addQuickReply} className="btn btn-xs btn-default"><i className="material-icons mr-0">add</i> Add quick reply</a>
+                    <div className="row">
+                        <div className="col-xs-6">
+                            <div role="group">
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','hide_text_area'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','hide_text_area'])} /> Hide text area on response.</label> <i className="material-icons" title="Textarea to enter user message will be disabled. Make sure you include buttons for user to click.">info</i>
+                            </div>
+                            <div role="group">
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','on_start_chat'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','on_start_chat'])} /> Send message only at chat start.</label> <i className="material-icons" title="Message will be send only on chat start event.">info</i>
+                            </div>
+                        </div>
+                        <div className="col-xs-6">
+                            <div className="btn-group" role="group">
+                                <a onClick={this.addAction} className="btn btn-xs btn-default"><i className="material-icons mr-0">add</i> Add action on message</a>
+                                <a onClick={this.addQuickReply} className="btn btn-xs btn-default"><i className="material-icons mr-0">add</i> Add quick reply</a>
+                            </div>
+                        </div>
                     </div>
 
                 </div>

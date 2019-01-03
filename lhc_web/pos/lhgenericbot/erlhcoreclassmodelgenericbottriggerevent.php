@@ -24,6 +24,16 @@ $def->properties['pattern']->columnName   = 'pattern';
 $def->properties['pattern']->propertyName = 'pattern';
 $def->properties['pattern']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['pattern_exc'] = new ezcPersistentObjectProperty();
+$def->properties['pattern_exc']->columnName   = 'pattern_exc';
+$def->properties['pattern_exc']->propertyName = 'pattern_exc';
+$def->properties['pattern_exc']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['configuration'] = new ezcPersistentObjectProperty();
+$def->properties['configuration']->columnName   = 'configuration';
+$def->properties['configuration']->propertyName = 'configuration';
+$def->properties['configuration']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 // Trigger event type 0 - text, 1 - click
 $def->properties['type'] = new ezcPersistentObjectProperty();
 $def->properties['type']->columnName   = 'type';

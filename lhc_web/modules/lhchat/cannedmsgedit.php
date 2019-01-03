@@ -9,7 +9,7 @@ $Msg = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelCannedMsg', (in
  * */
 $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
 if ($userDepartments !== true) {
-	if (!in_array($Msg->department_id, $userDepartments)) {
+	if (!in_array($Msg->department_id, $userDepartments) && $Msg->department_id != 0) {
 		erLhcoreClassModule::redirect('chat/cannedmsg');
 		exit;
 	}

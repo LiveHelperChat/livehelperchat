@@ -4,6 +4,8 @@ class erLhcoreClassGenericBotActionProgress {
 
     public static function process($chat, $action, $trigger, $params = array())
     {
+        // Do not process if chat status changed
+
         $msg = new erLhcoreClassModelmsg();
 
         $metaMessage = array();

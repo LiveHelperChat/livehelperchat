@@ -70,7 +70,7 @@ if ( isset($_POST['SendMessage']) ) {
     	    $chat->session_referrer = '';
     	    $chat->nick = $currentUserData->name.' '.$currentUserData->surname;
     	    $chat->user_id = $user->id; // Assign chat to receiver operator, this way he will get permission to open chat
-    	    $chat->dep_id = erLhcoreClassUserDep::getDefaultUserDepartment(); // Set default department to chat creator, this way current user will get permission to open it
+    	    $chat->dep_id = 0;//erLhcoreClassUserDep::getDefaultUserDepartment(); // Set default department to chat creator, this way current user will get permission to open it
     	    $chat->sender_user_id = $currentUser->getUserID();
     	    
     	    $chat->saveThis();
