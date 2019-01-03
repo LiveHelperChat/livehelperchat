@@ -9,7 +9,7 @@
             <?php include(erLhcoreClassDesign::designtpl('lhpermission/gerpermissionsummary_module.tpl.php'));?>                      
             <?php else : $hasFunctions = false; // There is no custom functions that means user can use all module functions ?>                       
             <?php include(erLhcoreClassDesign::designtpl('lhpermission/gerpermissionsummary_module.tpl.php'));?>            
-            <label class="pull-right label label-success">Y</label>            
+            <label class="float-right label label-success">Y</label>            
             <?php endif;?>
         </a>
     </div>    

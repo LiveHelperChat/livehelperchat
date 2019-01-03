@@ -3,7 +3,7 @@
 
     <a href="#" class="send-icons-action" onclick="lhinst.addmsguser(true)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>"><i class="material-icons">send</i></a>
 
-    <div class="btn-group pull-right dropup" role="group">
+    <div class="btn-group float-right dropup" role="group">
         <a class="dropdown-toggle dropdown-toggle-widget" data-toggle="dropdown" aria-expanded="false">
               <i class="material-icons mr-0">settings</i>
         </a>

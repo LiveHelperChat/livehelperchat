@@ -41,7 +41,7 @@ $titleOptions = array (
 	    		<div class="col-12">
 	    			<label><?php echo erLhcoreClassAbstract::renderInput($sortOption['field'] . '_enabled', $fields[$sortOption['field'] . '_enabled'], $object)?> <?php echo $titleOptions[$sortOption['type']]?></label>
 
-	        	    <div class="btn-group pull-right" role="group" aria-label="...">
+	        	    <div class="btn-group float-right" role="group" aria-label="...">
 						<button type="button" class="btn btn-secondary btn-xs" onclick="adminSurvey.moveUp('<?php echo $sortOption['field']?>')"><i class="material-icons">trending_up</i></button>
 						<button type="button" class="btn btn-secondary btn-xs" onclick="adminSurvey.moveDown('<?php echo $sortOption['field']?>')"><i class="material-icons">trending_down</i></button>
 				    </div>

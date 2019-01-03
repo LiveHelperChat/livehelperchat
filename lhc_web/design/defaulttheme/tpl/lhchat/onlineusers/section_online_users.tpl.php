@@ -4,7 +4,7 @@
 	<div class="col-sm-2 form-group col-6 pr5">
 		<label id="online-users-count" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','online users');?>">{{online.onlineusers.length}}</label>
 		
-		<div class="pull-right">
+		<div class="float-right">
         <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/online_settings.tpl.php')); ?>
 	    </div>
 	

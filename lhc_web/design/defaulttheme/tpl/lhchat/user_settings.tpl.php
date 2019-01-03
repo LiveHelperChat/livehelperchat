@@ -27,7 +27,7 @@ if ( $currentUser->hasAccessTo('lhuser','changevisibility') ) {
 <?php if ($currentUser->hasAccessTo('lhchat','use') ) : ?>
 
 <?php if (!isset($hideULSetting)) : ?>
-<ul class="list-inline user-settings-list pull-right">
+<ul class="list-inline user-settings-list float-right">
 <?php endif;?>
 	
 	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/user_settings_sound.tpl.php'));?>

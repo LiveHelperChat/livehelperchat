@@ -1,6 +1,6 @@
 <?php $currentUser = erLhcoreClassUser::instance(); ?>
 
-<div class="btn-group pull-right" role="group" aria-label="...">
+<div class="btn-group float-right" role="group" aria-label="...">
       <?php if ($currentUser->hasAccessTo('lhchat','administrateconfig')) : ?>
       <a href="<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>" class="btn btn-secondary btn-xs"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','GEO detection configuration');?></a></li>
       <?php endif; ?>

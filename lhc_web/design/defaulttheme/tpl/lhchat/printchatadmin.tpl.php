@@ -1,5 +1,5 @@
 <div class="fs12">
-<h4><?php echo htmlspecialchars($chat->nick)?><?php $chat->city != '' ? print ', '.htmlspecialchars($chat->city) : ''?>, <?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time)?> <div class="pull-right">IP:<?php echo htmlspecialchars($chat->ip)?>, ID: <?php echo $chat->id?></div></h4>
+<h4><?php echo htmlspecialchars($chat->nick)?><?php $chat->city != '' ? print ', '.htmlspecialchars($chat->city) : ''?>, <?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time)?> <div class="float-right">IP:<?php echo htmlspecialchars($chat->ip)?>, ID: <?php echo $chat->id?></div></h4>
 
 <?php $collectedSurveys = erLhAbstractModelSurveyItem::getList(array('filter' => array('chat_id' => $chat->id)));?>
 

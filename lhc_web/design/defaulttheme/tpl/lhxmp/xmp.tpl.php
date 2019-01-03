@@ -130,7 +130,7 @@
 			    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Please enter to what gmail address test message should be send?');?></label>
 			    <input class="form-control" type="text" name="test_recipients_gtalk" value="<?php (isset($test_gmail_email) && $test_gmail_email != '') ? print htmlspecialchars($test_gmail_email) : print '' ?>" />
 				</div>			
-				<input type="submit" class="btn btn-primary pull-right" name="StoreXMPGTalkSendeMessage" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','This message will be send to test e-mail'); ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Send test message'); ?>" />
+				<input type="submit" class="btn btn-primary float-right" name="StoreXMPGTalkSendeMessage" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','This message will be send to test e-mail'); ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Send test message'); ?>" />
 				<?php endif;?>
 									
 				<div class="btn-group" role="group" aria-label="...">

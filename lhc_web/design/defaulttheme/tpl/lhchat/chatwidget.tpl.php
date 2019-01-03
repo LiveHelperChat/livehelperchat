@@ -12,7 +12,7 @@
 <?php else : ?>
 
 <?php if (!isset($start_data_fields['show_operator_profile']) || $start_data_fields['show_operator_profile'] == false) : ?>
-<div class="pl10 max-width-180 pull-right absolute-language-top-right">
+<div class="pl10 max-width-180 float-right absolute-language-top-right">
 	<?php $rightLanguage = true;?>
 	<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/switch_language.tpl.php'));?>
 </div>
@@ -223,7 +223,7 @@ jQuery('#id_Question').bind('keydown', 'return', function (evt){
 
 	<?php if (isset($start_data_fields['show_operator_profile']) && $start_data_fields['show_operator_profile'] == true) : ?>
 	
-		<div class="pl10 pos-rel max-width-180 pull-right">
+		<div class="pl10 pos-rel max-width-180 float-right">
 		<?php $rightLanguage = true;?>
 		<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/switch_language.tpl.php'));?>
 		</div>

@@ -15,7 +15,7 @@
     </div>
     <?php if (!isset($Result['hide_close_window'])) : ?>
     <div class="col-2 pt20">
-		<input type="button" class="btn btn-defaut pull-right closebutton" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatandbrowser();" />
+		<input type="button" class="btn btn-defaut float-right closebutton" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatandbrowser();" />
 	</div>
 	<?php endif;?>
 </div>

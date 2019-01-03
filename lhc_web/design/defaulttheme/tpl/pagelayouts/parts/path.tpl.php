@@ -1,7 +1,7 @@
 <?php if (isset($Result['path'])) :
 $pathElementCount = count($Result['path'])-1;
 if ($pathElementCount >= 0): ?>
-<nav class="pull-right navbar-default navbar-lhc-right">
+<nav class="float-right navbar-default navbar-lhc-right">
     <button type="button" class="navbar-toggle navbar-toggle-visible" ng-click="lhc.toggleList('lmtoggler')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Expand or collapse right menu')?>"><span class="sr-only">Menu</span><i class="material-icons mr-0">menu</i></button>
 </nav>
 <ul class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">

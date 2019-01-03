@@ -28,7 +28,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <ul class="nav nav-pills nav-pills-bbcode" role="tablist">
                         <?php foreach ($icons as $index => $iconGroup) : ?>
                             <li role="presentation" <?php if ($index == 0) : ?>class="active"<?php endif;?> ><a href="#bbcode-smiley-<?php echo $index?>" aria-controls="bbcode-smiley-<?php echo $index?>" role="tab" data-toggle="tab"><?php echo htmlspecialchars($iconGroup['title'])?></a></li>

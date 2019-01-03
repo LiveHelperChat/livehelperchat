@@ -69,7 +69,7 @@
 
     </ul>
     
-    <div class="found-total pull-right"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Page')?> <?php echo $pages->current_page?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>, <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Found')?> - <?php echo $pages->items_total?></div>
+    <div class="found-total float-right"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Page')?> <?php echo $pages->current_page?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>, <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Found')?> - <?php echo $pages->items_total?></div>
     
     </nav>
 <?php endif;?>

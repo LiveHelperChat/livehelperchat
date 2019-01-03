@@ -73,7 +73,7 @@
 	<div class="row">
 		<div ng-repeat="field in startChat.startchatfields" class="col-{{field.size}}">
 			<div class="form-group">
-				<div class="btn-group pull-right" role="group" aria-label="...">
+				<div class="btn-group float-right" role="group" aria-label="...">
 					<button ng-if="$index > 0" type="button" class="btn btn-secondary btn-xs" ng-click="startChat.moveLeftField(field)">&laquo; <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','left')?></button>
 					<button ng-if="$index < startChat.startchatfields.length-1" type="button" class="btn btn-secondary btn-xs" ng-click="startChat.moveRightField(field)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','right')?> &raquo;</button>
 				</div>

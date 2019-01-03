@@ -21,7 +21,7 @@
             		  <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_logo.tpl.php'));?>
             		</div>
 					<div class="col-6">
-						<div class="btn-group pull-right" role="group" aria-label="...">
+						<div class="btn-group float-right" role="group" aria-label="...">
                         <?php if (!isset($Result['hide_close_window'])) : ?>
 
                             <?php if (isset($Result['chat']) && is_numeric($Result['chat']->id) && isset($Result['er']) && $Result['er'] == true) : ?>
