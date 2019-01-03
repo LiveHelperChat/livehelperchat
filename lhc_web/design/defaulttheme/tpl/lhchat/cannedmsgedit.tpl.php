@@ -8,15 +8,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<script>
-    function confirmSave(){
-        if (parseInt($('#id_DepartmentID').val()) > 0 || confirm("<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','This change will be applied to all departments that use this canned message');?>")){
-            return true;
-        } else {
-            return false;
-        }
-    }
-</script>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/confirm_global.tpl.php'));?>
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsgedit')?>/<?php echo $canned_message->id?>" method="post" onsubmit="return confirmSave()">
 
