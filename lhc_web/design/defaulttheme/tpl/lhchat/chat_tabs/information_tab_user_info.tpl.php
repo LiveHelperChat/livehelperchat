@@ -68,7 +68,7 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/information_order.tpl.php'));?>
 <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/information_order_extension_multiinclude.tpl.php'));?>
 
-<table class="table table-condensed">
+<table class="table table-sm">
 <?php foreach ($orderInformation as $buttonData) : ?>
     <?php if ($buttonData['enabled'] == true) : ?>
         <?php if ($buttonData['item'] == 'department') : ?>

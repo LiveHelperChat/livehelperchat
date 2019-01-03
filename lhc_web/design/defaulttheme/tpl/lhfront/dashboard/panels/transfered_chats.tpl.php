@@ -17,7 +17,7 @@
     			<div class="tab-content mt0">
     				<div role="tabpanel" class="tab-pane active" id="transferedperson-widget">
     				
-            	      		<table class="table table-condensed mb0 table-small table-fixed" ng-if="transfer_chats.list.length > 0">
+            	      		<table class="table table-sm mb0 table-small table-fixed" ng-if="transfer_chats.list.length > 0">
                         		<thead>
                         			<tr>
                         				<th width="60%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Visitor');?>" class="material-icons">face</i></th>
@@ -39,7 +39,7 @@
     				</div>
     				<div role="tabpanel" class="tab-pane" id="transfereddep-widget">
             	      		
-            	      		<table class="table table-condensed mb0 table-small table-fixed" ng-if="transfer_dep_chats.list.length > 0">
+            	      		<table class="table table-sm mb0 table-small table-fixed" ng-if="transfer_dep_chats.list.length > 0">
                         		<thead>
                         			<tr>
                         				<th width="60%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Visitor');?>" class="material-icons">face</i></th>

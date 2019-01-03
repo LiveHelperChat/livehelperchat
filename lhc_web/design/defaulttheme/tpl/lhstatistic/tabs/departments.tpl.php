@@ -351,7 +351,7 @@ function drawDepartmentStats(){
 
 <div class="row">
     <div class="col-4">
-        <table class="table table-condensed table-striped">
+        <table class="table table-sm table-striped">
             <thead>
                 <tr>
                     <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Date')?></th>
@@ -372,7 +372,7 @@ function drawDepartmentStats(){
             <?php endforeach; ?>
         </table>
 
-        <table class="table table-condensed table-striped">
+        <table class="table table-sm table-striped">
             <thead>
                 <tr>
                     <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Hour')?></th>

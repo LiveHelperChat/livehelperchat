@@ -87,7 +87,7 @@ $totalCount = $positiveChatsCount + $negativeChatsCount;
         </div>
     <div class="col-4">        
         <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Average')?> - <?php echo number_format(round($survey->getStarsNumberAverage($starEnabled, $survey_filter)*100)/100,2)?></h4>
-        <table class="table table-condensed">
+        <table class="table table-sm">
             <?php for ($i = $survey->{'max_stars_' . $starEnabled}; $i >= 1; $i--) : ?>
             <tr>
                 <td width="1%" nowrap>
@@ -156,7 +156,7 @@ foreach ($enabledFields as $optionKey => $optionEnabled) :
         </div>
         <div class="col-4">
             <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Percentages')?></h4>
-            <table class="table table-condensed">
+            <table class="table table-sm">
                 <?php foreach ($survey->{'question_options_' . $optionEnabled . '_items_front'} as $optionKeyValue => $optionValue) : ?>
                     <tr>
                         <td width="1%" nowrap>
