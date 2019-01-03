@@ -10,7 +10,7 @@
                     <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/part/link.tpl.php'));?>
 
                     <?php if ($item['content']['img'] != '') : ?>
-                        <?php echo $linkData['start']?><img class="img-responsive" src="<?php echo $item['content']['img']?>" /><?php echo $linkData['end']?>
+                        <?php echo $linkData['start']?><img class="img-fluid" src="<?php echo $item['content']['img']?>" /><?php echo $linkData['end']?>
                     <?php endif ?>
 
                     <h4><?php echo $linkData['start']?><?php echo htmlspecialchars($item['content']['title'])?><?php echo $linkData['end']?></h4>

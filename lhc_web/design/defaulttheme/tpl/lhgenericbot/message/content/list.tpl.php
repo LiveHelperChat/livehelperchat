@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-3">
                     <?php if ($item['content']['img'] != '' && ($index != 0 || $listCompactStyle == true)) : ?>
-                        <?php echo $linkData['start']?><img class="float-right img-responsive" src="<?php echo $item['content']['img']?>" /><?php echo $linkData['end']?>
+                        <?php echo $linkData['start']?><img class="float-right img-fluid" src="<?php echo $item['content']['img']?>" /><?php echo $linkData['end']?>
                     <?php endif; ?>
                 </div>
             </div>
