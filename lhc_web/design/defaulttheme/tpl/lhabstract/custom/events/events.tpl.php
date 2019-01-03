@@ -10,9 +10,9 @@
     <hr>
     
     <div class="row">
-        <div ng-repeat="event in proev.events" class="col-xs-12">
+        <div ng-repeat="event in proev.events" class="col-12">
             <div class="row">
-                <div class="col-xs-4">
+                <div class="col-4">
                     <div class="form-group">
                         <label>Event</label>
                         <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
@@ -26,19 +26,19 @@
                         )); ?>
                     </div>
                 </div>
-                <div class="col-xs-3">
+                <div class="col-3">
                     <div class="form-group">
                         <label>Min number of times.</label>
                         <input type="text" class="form-control input-sm" name="min_number[]" value="" ng-model="event.min_number" />
                     </div>
                 </div>
-                <div class="col-xs-3">
+                <div class="col-3">
                     <div class="form-group">
                         <label>During last N seconds.</label>
                         <input type="text" class="form-control input-sm" name="during_seconds[]" value="" ng-model="event.during_seconds" />
                     </div>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-2">
                     <label>&nbsp;</label><br/>
                     <button type="button" class="btn btn-danger btn-sm" ng-click="proev.deleteField(event)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Remove')?></button>
                 </div>

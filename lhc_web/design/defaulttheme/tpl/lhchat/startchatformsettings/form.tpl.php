@@ -21,10 +21,10 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
 <?php endif; ?>
 
 <div class="row">
-    <div class="col-xs-6">
+    <div class="col-6">
         <label><input type="checkbox" name="ForceLeaveMessage" value="on" <?php (isset($start_chat_data['force_leave_a_message']) && $start_chat_data['force_leave_a_message'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Enable leave a message functionality automatically if there are no online operators');?></label><br/>
     </div>
-    <div class="col-xs-6">
+    <div class="col-6">
         <label><input type="checkbox" name="AutoStartChat" value="on" <?php (isset($start_chat_data['auto_start_chat']) && $start_chat_data['auto_start_chat'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Auto start chat if there is no required fields. Usefull in case bot handles chat.');?></label>
     </div>
 </div>

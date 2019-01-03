@@ -84,7 +84,7 @@
 
               <?php include(erLhcoreClassDesign::designtpl('lhuser/account/part/hidability.tpl.php'));?>
 
-    		  <div class="col-xs-4">
+    		  <div class="col-4">
         		  <div class="form-group">
         		      <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','User receives other operators permissions request');?>"><input type="checkbox" value="on" name="ReceivePermissionRequest" <?php echo $user->rec_per_req == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','User receives other operators permissions request')?></label>
         		  </div>
@@ -126,7 +126,7 @@
                     'selected_id'    => $user->user_groups_id,
                     'multiple' 		 => true,
                     'css_class'      => 'form-control',
-                    'wrap_prepend'   => '<div class="col-xs-3">',
+                    'wrap_prepend'   => '<div class="col-3">',
                     'wrap_append'    => '</div>',
                     'list_function'  => 'erLhcoreClassModelGroup::getList',
                     'list_function_params'  => $user_groups_filter
@@ -143,7 +143,7 @@
                             'selected_id'    => $user->user_groups_id,
                             'multiple' 		 => true,
                             'css_class'      => 'form-control',
-                            'wrap_prepend'   => '<div class="col-xs-3">',
+                            'wrap_prepend'   => '<div class="col-3">',
                             'wrap_append'    => '</div>',
                             'ng_change'      => 'accval.validateGroups()',
                             'ng_model'      => 'accval.requiredGroups[$id]',

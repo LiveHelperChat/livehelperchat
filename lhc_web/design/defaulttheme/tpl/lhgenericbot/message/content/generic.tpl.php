@@ -1,6 +1,6 @@
 <div class="meta-message meta-message-<?php echo $messageId?>" style="padding:10px">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
             <div class="generic-carousel">
             <?php foreach ($metaMessage['items'] as $index => $item) : ?>
             <div class="generic-bubble-item">

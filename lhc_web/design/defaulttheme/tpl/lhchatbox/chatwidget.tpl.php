@@ -1,10 +1,10 @@
 <?php if (isset($chatbox)) : ?>
     <?php if ($chatbox !== false) : ?>
         <div class="row form-group">
-            <div class="col-xs-10">
+            <div class="col-10">
                 <span><b><?php echo htmlspecialchars($chatbox->name)?></b></span>
             </div>
-            <div class="col-xs-2">
+            <div class="col-2">
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings.tpl.php'));?>
             </div>
         </div>

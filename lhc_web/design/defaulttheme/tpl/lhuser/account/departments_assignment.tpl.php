@@ -3,7 +3,7 @@
 <hr class="mt10 mb10">      
   
 <div class="row">
-    <div class="col-xs-6">
+    <div class="col-6">
 	    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
     	
         <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Individual departments')?></h4>
@@ -18,7 +18,7 @@
     <?php $departmentsGroups = erLhcoreClassModelDepartamentGroup::getList(array('limit' => false)); ?>
     
     <?php if (!empty($departmentsGroups)) : ?>
-    <div class="col-xs-6">    	           
+    <div class="col-6">    	           
         <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Departments groups')?></h4>
        
         <?php foreach ($departmentsGroups as $departamentGroup) : ?>

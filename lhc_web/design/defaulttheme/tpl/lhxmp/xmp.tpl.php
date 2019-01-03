@@ -25,11 +25,11 @@
 <label><input type="checkbox" name="use_xmp" value="1" <?php isset($xmp_data['use_xmp']) && ($xmp_data['use_xmp'] == '1') ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','XMPP active'); ?></label>
 
 <div class="row form-group">
-	<div class="col-xs-6">
+	<div class="col-6">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','XMPP Message content');?></label>
 		<textarea class="form-control" name="XMPMessage" style="height:100px;"><?php echo htmlspecialchars($xmp_data['xmp_message'])?></textarea>
 	</div>
-	<div class="col-xs-6">
+	<div class="col-6">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','XMPP Message about accepted chat');?></label>
 		<textarea class="form-control" name="XMPAcceptedMessage" style="height:100px;"><?php echo htmlspecialchars($xmp_data['xmp_accepted_message'])?></textarea>
 	</div>
@@ -49,33 +49,33 @@
 		        <label><input type="radio" name="use_standard_xmp" value="0" <?php ( (isset($xmp_data['use_standard_xmp']) && $xmp_data['use_standard_xmp'] == '0') || !isset($xmp_data['use_standard_xmp']) ) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Use standard XMPP service'); ?></label>
 		
 				<div class="row form-group">
-					<div class="col-xs-6">
+					<div class="col-6">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Host');?></label>
 						<input class="form-control" type="text" name="host" placeholder="talk.google.com" value="<?php (isset($xmp_data['host']) && $xmp_data['host'] != '') ? print $xmp_data['host'] : print '' ?>" />
 					</div>
-					<div class="col-xs-6">
+					<div class="col-6">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Port');?></label>
 						<input class="form-control" type="text" name="port" value="<?php (isset($xmp_data['port']) && $xmp_data['port'] != '') ? print $xmp_data['port'] : print '5222' ?>" />
 					</div>
 				</div>
 				
 				<div class="row form-group">
-					<div class="col-xs-6">			
+					<div class="col-6">			
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Login');?></label>
 						<input class="form-control" type="text" name="username" autocomplete="new-password" value="<?php (isset($xmp_data['username']) && $xmp_data['username'] != '') ? print $xmp_data['username'] : print '' ?>" />
 					</div>
-					<div class="col-xs-6">
+					<div class="col-6">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Password');?></label>
 						<input class="form-control" type="password" name="password" autocomplete="new-password" value="" />
 					</div>
 				</div>
 				
 				<div class="row form-group">
-					<div class="col-xs-6">
+					<div class="col-6">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Resource');?></label>
 						<input class="form-control" type="text" name="resource" placeholder="xmpphp" value="<?php (isset($xmp_data['resource']) && $xmp_data['resource'] != '') ? print $xmp_data['resource'] : print '' ?>" />
 					</div>
-					<div class="col-xs-6">
+					<div class="col-6">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Server');?></label>
 						<input class="form-control" type="text" name="server" placeholder="gmail.com" value="<?php (isset($xmp_data['server']) && $xmp_data['server'] != '') ? print $xmp_data['server'] : print '' ?>" />
 					</div>

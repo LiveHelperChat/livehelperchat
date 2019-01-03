@@ -57,17 +57,17 @@
     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Files will be deleted only if days is > 0')?></p>
 
     <div class="row">
-        <div class="col-xs-4">
+        <div class="col-4">
             <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Delete files'); ?></p>
             <label><input type="checkbox" name="typeDelete[]" <?php if (isset($file_data['mtype_delete']) && in_array('visitors',$file_data['mtype_delete'])) : ?>checked="checked"<?php endif;?> value="visitors">Visitors</label><br/>
             <label><input type="checkbox" name="typeDelete[]" <?php if (isset($file_data['mtype_delete']) && in_array('operators',$file_data['mtype_delete'])) : ?>checked="checked"<?php endif;?> value="operators">Operators</label>
         </div>
-        <div class="col-xs-4">
+        <div class="col-4">
             <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','if file is (OR)'); ?></p>
             <label><input type="checkbox" name="typeChatDelete[]" <?php if (isset($file_data['mtype_cdelete']) && in_array('unassigned',$file_data['mtype_cdelete'])) : ?>checked="checked"<?php endif;?> value="unassigned">Unassigned to chat</label><br/>
             <label><input type="checkbox" name="typeChatDelete[]" <?php if (isset($file_data['mtype_cdelete']) && in_array('assigned',$file_data['mtype_cdelete'])) : ?>checked="checked"<?php endif;?> value="assigned">Assigned to chat</label><br/>
         </div>
-        <div class="col-xs-4">
+        <div class="col-4">
             <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','And operator file is older than n days'); ?></p>
             <div class="form-group">
                 <input type="text" class="form-control" name="mdays_older" value="<?php if (isset($file_data['mdays_older'])) : ?><?php echo htmlspecialchars($file_data['mdays_older'])?><?php endif?>" />

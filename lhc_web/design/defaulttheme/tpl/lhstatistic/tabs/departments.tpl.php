@@ -350,7 +350,7 @@ function drawDepartmentStats(){
 </script>
 
 <div class="row">
-    <div class="col-xs-4">
+    <div class="col-4">
         <table class="table table-condensed table-striped">
             <thead>
                 <tr>
@@ -402,10 +402,10 @@ function drawDepartmentStats(){
         </table>
 
     </div>
-    <div class="col-xs-5">
+    <div class="col-5">
         <canvas id="departments-stats"></canvas>
     </div>
-    <div class="col-xs-3">
+    <div class="col-3">
         <canvas id="departments-stats-pie"></canvas>
     </div>
 </div>

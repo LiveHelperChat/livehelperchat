@@ -128,7 +128,7 @@ if ($pages->items_total > 0) {
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Language');?>*</label>
                 <div class="row">
-                    <div class="col-xs-3" ng-repeat="langDialtect in cmsg.dialects">
+                    <div class="col-3" ng-repeat="langDialtect in cmsg.dialects">
                         <label class="fs12">
                             <input name="languages[{{$parent.$index}}][]" type="checkbox" value="{{langDialtect.lang_code}}" ng-checked="lang.languages.indexOf(langDialtect.lang_code) > -1" ng-click="cmsg.toggleSelection(lang,langDialtect.lang_code)"> {{langDialtect.lang_name}} [{{langDialtect.lang_code}}]
                         </label>

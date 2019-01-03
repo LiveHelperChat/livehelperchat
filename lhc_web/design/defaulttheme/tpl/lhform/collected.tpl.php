@@ -1,8 +1,8 @@
 <h1><?php echo htmlspecialchars($form)?></h1>
 
 <div class="row">
-	<div class="col-xs-6"><a href="<?php echo erLhcoreClassDesign::baseurl('form/downloadcollected')?>/<?php echo $form->id?>" class="btn btn-default"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Download XLS');?></a></div>
-	<div class="col-xs-6">
+	<div class="col-6"><a href="<?php echo erLhcoreClassDesign::baseurl('form/downloadcollected')?>/<?php echo $form->id?>" class="btn btn-default"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Download XLS');?></a></div>
+	<div class="col-6">
 	
 	<div class="input-group">
       <div class="input-group-addon"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','URL');?></div>

@@ -27,7 +27,7 @@
             ?>
 
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-12">
                     <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <ul class="nav nav-pills nav-pills-bbcode" role="tablist">
                         <?php foreach ($icons as $index => $iconGroup) : ?>

@@ -11,12 +11,12 @@
 <form action="<?php echo erLhcoreClassDesign::baseurl('translation/configuration')?>" method="post" autocomplete="off" ng-show="enable_translations">
     
     <div class="row">
-        <div class="col-xs-4">
+        <div class="col-4">
             <div class="form-group">
                 <textarea class="form-control" name="DetectLanguageText" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Enter text for testing purposes')?>"><?php isset($_POST['DetectLanguageText']) ? print htmlspecialchars($_POST['DetectLanguageText']) : ''?></textarea>
             </div>
         </div>
-        <div class="col-xs-4">
+        <div class="col-4">
             <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                     'input_name'     => 'LanguageTo',  
     	            'css_class'      => 'form-control',
@@ -25,7 +25,7 @@
             )); ?>
               
         </div>
-        <div class="col-xs-4">
+        <div class="col-4">
             <?php if (isset($translated_text)) : ?>
                 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Translated text')?></h5>
                 <p><b><?php echo htmlspecialchars($translated_text)?></b></p>

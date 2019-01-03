@@ -30,13 +30,13 @@
 </div>
 
 <div class="row">
-    <div class="col-xs-6">
+    <div class="col-6">
         <div class="form-group">
             <label><?php echo $fields['mint_reset']['trans'];?></label>
             <?php echo erLhcoreClassAbstract::renderInput('mint_reset', $fields['mint_reset'], $object, 70)?>
         </div>
     </div>
-    <div class="col-xs-6">
+    <div class="col-6">
         <div class="form-group">
             <label><?php echo $fields['maxt_reset']['trans'];?></label>
             <?php echo erLhcoreClassAbstract::renderInput('maxt_reset', $fields['maxt_reset'], $object, 120)?>

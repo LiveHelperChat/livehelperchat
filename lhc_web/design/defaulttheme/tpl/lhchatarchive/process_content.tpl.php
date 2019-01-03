@@ -1,8 +1,8 @@
 <div class="row">
 
-	<div class="col-xs-6">
+	<div class="col-6">
 		<div class="row">
-			<div class="col-xs-6">
+			<div class="col-6">
 				<ul>
 					<li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Date from')?> - <?php echo htmlspecialchars($archive->range_from_front);?></li>
 					<li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Date to')?> - <?php echo htmlspecialchars($archive->range_to_front);?></li>
@@ -10,7 +10,7 @@
 				<input type="hidden" value="<?php echo htmlspecialchars($archive->range_from_front);?>" name="RangeFrom" />
 				<input type="hidden" value="<?php echo htmlspecialchars($archive->range_to_front);?>" name="RangeTo" />
 			</div>
-			<div class="col-xs-6 end">
+			<div class="col-6 end">
 				<ul>
 					<li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Potential chats to archive')?> - <?php echo htmlspecialchars($archive->potential_chats_count);?></li>
 					<li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Archived chats')?> - <?php echo htmlspecialchars($archive->chats_in_archive);?></li>
@@ -32,7 +32,7 @@
 		</div>
 
 	</div>
-	<div class="col-xs-6 end">
+	<div class="col-6 end">
 		<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Archive progress')?></h3>
 		<div id="archive-progress" class="mx170 fs12 p10"><div class="radius secondary label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Pending for action...')?></div></div>
 

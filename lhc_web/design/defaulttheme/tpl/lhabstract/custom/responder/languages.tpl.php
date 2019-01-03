@@ -5,7 +5,7 @@
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Language');?>*</label>
         <div class="row">
-            <div class="col-xs-3" ng-repeat="langDialtect in cmsg.dialects">
+            <div class="col-3" ng-repeat="langDialtect in cmsg.dialects">
                 <label class="fs12">
                     <input name="languages[{{$parent.$index}}][]" type="checkbox" value="{{langDialtect.lang_code}}" ng-checked="lang.languages.indexOf(langDialtect.lang_code) > -1" ng-click="cmsg.toggleSelection(lang,langDialtect.lang_code)"> {{langDialtect.lang_name}} [{{langDialtect.lang_code}}]
                 </label>
@@ -31,14 +31,14 @@
     <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Pending chat messaging');?></h4>
 
     <div class="row">
-        <div class="col-xs-6">
+        <div class="col-6">
             <div class="form-group">
                 <label><?php echo $fields['timeout_message']['trans'];?> [1]</label>
                 <input type="text" class="form-control" ng-model="lang.timeout_message" value="" name="timeout_message[{{$index}}]">
             </div>
         </div>
         <?php for ($i = 2; $i <= 5; $i++) : ?>
-        <div class="col-xs-6">
+        <div class="col-6">
             <div class="form-group">
                 <label><?php echo $fields['timeout_message_' . $i]['trans'];?> [<?php echo $i?>]</label>
                 <input type="text" class="form-control" ng-model="lang.timeout_message_<?php echo $i?>" value="" name="timeout_message_<?php echo $i?>[{{$index}}]">
@@ -51,7 +51,7 @@
 
     <div class="row">
     <?php for ($i = 1; $i <= 5; $i++) : ?>
-            <div class="col-xs-6">
+            <div class="col-6">
                 <div class="form-group">
                     <label><?php echo $fields['timeout_reply_message_' . $i]['trans'];?></label>
                     <input type="text" class="form-control" ng-model="lang.timeout_reply_message_<?php echo $i?>" value="" name="timeout_reply_message_<?php echo $i?>[{{$index}}]">
@@ -69,7 +69,7 @@
 
     <div class="row">
     <?php for ($i = 1; $i <= 5; $i++) : ?>
-        <div class="col-xs-6">
+        <div class="col-6">
             <div class="form-group">
                 <label><?php echo $fields['timeout_hold_message_' . $i]['trans'];?></label>
                 <input type="text" class="form-control" ng-model="lang.timeout_hold_message_<?php echo $i?>" value="" name="timeout_hold_message_<?php echo $i?>[{{$index}}]">

@@ -22,7 +22,7 @@
 				<?php if (in_array('username', $input_data->hattr)) : ?>
 					<input type="hidden" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
 				<?php else : ?>
-					<div class="col-xs-6 form-group<?php if (isset($errors['nick'])) : ?> has-error<?php endif;?>">
+					<div class="col-6 form-group<?php if (isset($errors['nick'])) : ?> has-error<?php endif;?>">
 						<label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?><?php if (isset($start_data_fields['offline_name_require_option']) && $start_data_fields['offline_name_require_option'] == 'required') : ?>*<?php endif;?></label>
 						<input autofocus="autofocus" class="form-control" <?php if (isset($start_data_fields['offline_name_require_option']) && $start_data_fields['offline_name_require_option'] == 'required') : ?>aria-required="true" required<?php endif;?> aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your name');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your name');?>" type="text" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
 					</div>
@@ -36,7 +36,7 @@
 			<?php if (in_array('email', $input_data->hattr)) : ?>
 				<input type="hidden" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 			<?php else : ?>
-				<div class="col-xs-6 form-group<?php if (isset($errors['email'])) : ?> has-error<?php endif;?>">
+				<div class="col-6 form-group<?php if (isset($errors['email'])) : ?> has-error<?php endif;?>">
 					<label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?>*</label>
 					<input autofocus="autofocus" class="form-control" aria-required="true" required aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your email address')?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your email address')?>" type="text" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 				</div>

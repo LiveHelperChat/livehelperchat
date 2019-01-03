@@ -37,7 +37,7 @@
 		<div role="tabpanel" class="tab-pane" id="transferdepmodal">
 
     		<div class="row">
-    		    <div class="col-xs-6">
+    		    <div class="col-6">
 
                     <div id="transfer-chat-list-refilter">
 
@@ -45,7 +45,7 @@
 
             		<input type="button" onclick="lhinst.transferChatDep('<?php echo $chat->id;?>')" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
         		</div>
-        		<div class="col-xs-6">
+        		<div class="col-6">
         		    <div class="checkbox">
         		      <label><input type="checkbox" onchange="updateTransferDepartments()" checked="checked" id="dep_transfer_only_explicit"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Only departments which are online and explicitly assigned operator are online');?></label>
         		    </div>

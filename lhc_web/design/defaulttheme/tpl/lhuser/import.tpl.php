@@ -21,7 +21,7 @@
         <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
         <div class="row">
-            <div class="col-xs-3">
+            <div class="col-3">
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/import','CSV Separator')?></label>
                     <select class="form-control" name="CSVSeparator">
@@ -33,7 +33,7 @@
                     <label><input type="checkbox" name="skipFirstRow" <?php if (isset($importSettings['skip_first_row']) && $importSettings['skip_first_row'] == true) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/import','Skip first row')?></label>
                 </div>
             </div>
-            <div class="col-xs-3">
+            <div class="col-3">
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','User group')?></label>
                     <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
@@ -47,7 +47,7 @@
                 </div>
             </div>
 
-            <div class="col-xs-3">
+            <div class="col-3">
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','User department')?></label>
                     <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
@@ -61,7 +61,7 @@
                 </div>
             </div>
 
-            <div class="col-xs-3">
+            <div class="col-3">
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/import','File')?></label>
                     <input type="file" name="file" value="">
@@ -92,7 +92,7 @@
         ?>
         <div class="row">
             <?php foreach ($attr as $key => $item) : ?>
-            <div class="col-xs-4">
+            <div class="col-4">
                 <div class="form-group">
                     <label><?php echo htmlspecialchars($item['name'])?></label>
                     <input type="number" class="form-control" name="field[<?php echo $key?>]" value="<?php (isset($importSettings['field'][$key])) ? print htmlspecialchars($importSettings['field'][$key]) : null ?>" />

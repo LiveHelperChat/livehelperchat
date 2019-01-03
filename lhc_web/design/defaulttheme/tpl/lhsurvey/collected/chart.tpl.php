@@ -73,7 +73,7 @@ $totalCount = $positiveChatsCount + $negativeChatsCount;
 <h1 class="text-center"><?php echo $starFields[$starKey]?></h1>
 
 <div class="row">
-    <div class="col-xs-3">
+    <div class="col-3">
         <h2 class="text-center chat-active"><i class="material-icons">&#xE8DC;</i></h2>
         <h2 class="text-center"><?php echo $positiveChatsCount?></h2>
         <p class="text-center"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Great chats with average of')?> <?php echo $positiveRange[0],'-',$positiveRange[1];?></p>
@@ -82,10 +82,10 @@ $totalCount = $positiveChatsCount + $negativeChatsCount;
         <h2 class="text-center"><?php echo $negativeChatsCount?></h2>
         <p class="text-center"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Not so great chats')?> <?php echo $negativeRange[0],'-',$negativeRange[1];?></p>
     </div>
-        <div class="col-xs-5">
+        <div class="col-5">
             <canvas id="myChart-<?php echo $starEnabled?>" width="400" height="300" style="cursor:pointer"></canvas>
         </div>
-    <div class="col-xs-4">        
+    <div class="col-4">        
         <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Average')?> - <?php echo number_format(round($survey->getStarsNumberAverage($starEnabled, $survey_filter)*100)/100,2)?></h4>
         <table class="table table-condensed">
             <?php for ($i = $survey->{'max_stars_' . $starEnabled}; $i >= 1; $i--) : ?>
@@ -145,16 +145,16 @@ foreach ($enabledFields as $optionKey => $optionEnabled) :
     <h1 class="text-center"><?php echo $enabledOptions[$optionKey]?></h1>
 
     <div class="row">
-        <div class="col-xs-3">
+        <div class="col-3">
             <?php foreach ($survey->{'question_options_' . $optionEnabled . '_items_front'} as $optionKeyValue => $optionValue) : ?>
                 <h2 class="text-center" style="color: <?php echo $backgroundColours[$optionKeyValue]?>"><?php echo $optionsValues[$optionKeyValue]?></h2>
                 <p class="text-center"><?php echo erLhcoreClassSurveyValidator::parseAnswer($optionValue['option']) ?></p>
             <?php endforeach; ?>
         </div>
-        <div class="col-xs-5">
+        <div class="col-5">
             <canvas id="myChart-option-<?php echo $optionEnabled?>" width="400" height="300" style="cursor:pointer"></canvas>
         </div>
-        <div class="col-xs-4">
+        <div class="col-4">
             <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Percentages')?></h4>
             <table class="table table-condensed">
                 <?php foreach ($survey->{'question_options_' . $optionEnabled . '_items_front'} as $optionKeyValue => $optionValue) : ?>

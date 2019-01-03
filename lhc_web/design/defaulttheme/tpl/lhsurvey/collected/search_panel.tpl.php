@@ -49,7 +49,7 @@
     	<?php foreach ($sortOptions as $keyOption => $sortOption) : ?>    	   		    
     		<?php if ($survey->{$keyOption . '_pos'} == $i && $survey->{$keyOption . '_enabled'} == 1) : ?>
     			<?php if ($sortOption['type'] == 'stars') : ?>
-    			<div class="col-xs-3">
+    			<div class="col-3">
     				<div class="form-group">
 				    	<label><?php echo htmlspecialchars($survey->{$sortOption['field'] . '_title'});?></label>
 				    	<select name="<?php echo $sortOption['field']?>[]" class="form-control" multiple="multiple" size="5">
@@ -63,7 +63,7 @@
     			<?php endif;?>
     			
     			<?php if ($sortOption['type'] == 'question_options') : ?>
-    			<div class="col-xs-3">
+    			<div class="col-3">
     				<div class="form-group">
 				    	<label><?php echo htmlspecialchars($survey->{$sortOption['field']});?></label>				    	
 				    	<select name="<?php echo $sortOption['field']?>" class="form-control">
@@ -83,10 +83,10 @@
 	
 	
 	<div class="row">
-	   <div class="col-xs-6">
+	   <div class="col-6">
 	       <label><input ng-model="group_results" ng-init="group_results = <?php ($input->group_results == true) ? print 'true' : 'false' ?>" type="checkbox" name="group_results" value="on" <?php if ($input->group_results == true) : ?>checked="checked"<?php endif;?>/> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Group results by operator');?></label>
 	   </div>
-	   <div class="col-xs-6">
+	   <div class="col-6">
     	   <div class="form-group" ng-show="group_results">
     	      <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Minimum chats');?></label>
     	      <input class="form-control" type="text" name="minimum_chats" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Optional')?>" value="<?php echo htmlspecialchars($input->minimum_chats)?>" />

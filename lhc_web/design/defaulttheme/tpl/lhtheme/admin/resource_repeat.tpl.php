@@ -1,13 +1,13 @@
 <?php /* list without files */ ?>
 <div class="row">
-	<div ng-repeat="field in cform.<?php echo $paramsResourceRepeat['attr']?>" class="col-xs-12" ng-if="!field.file">
+	<div ng-repeat="field in cform.<?php echo $paramsResourceRepeat['attr']?>" class="col-12" ng-if="!field.file">
 		<div class="form-group">
 			<label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Resource name for replacement');?></label>
 			<div class="row">
-				<div class="col-xs-6">
+				<div class="col-6">
 					<input class="form-control input-sm" type="text" ng-model="field.name" value="" name="<?php echo $paramsResourceRepeat['scope']?>_name[{{field.hash}}]" />
 				</div>
-				<div class="col-xs-6">
+				<div class="col-6">
 					<input type="file" class="form-control input-sm" name="<?php echo $paramsResourceRepeat['scope']?>_file_{{field.hash}}" />
 				</div>
 			</div>
@@ -25,14 +25,14 @@
 
 <?php /* list with files */ ?>
 <div class="row">
-	<div ng-repeat="field in cform.<?php echo $paramsResourceRepeat['attr']?>" class="col-xs-12" ng-if="field.file">
+	<div ng-repeat="field in cform.<?php echo $paramsResourceRepeat['attr']?>" class="col-12" ng-if="field.file">
 		<div class="form-group">
 			<label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Resource name for replacement');?></label>
 			<div class="row">
-				<div class="col-xs-6">
+				<div class="col-6">
 					<input class="form-control input-sm" type="text" ng-model="field.name" value="" name="<?php echo $paramsResourceRepeat['scope']?>_name[{{field.hash}}]" />
 				</div>
-				<div class="col-xs-6">
+				<div class="col-6">
 					<input type="file" class="form-control input-sm" name="<?php echo $paramsResourceRepeat['scope']?>_file_{{field.hash}}" />
 				</div>
 			</div>

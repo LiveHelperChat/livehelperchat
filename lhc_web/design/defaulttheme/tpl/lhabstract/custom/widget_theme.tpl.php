@@ -436,7 +436,7 @@
                     <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text content before user fields')?></h4>
 
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['bot_id']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('bot_id', $fields['bot_id'], $object)?>
@@ -447,7 +447,7 @@
                                 <div id="trigger-list-id"></div>
                             </div>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Preview')?></label>
                             <div id="trigger-preview-window">
 
@@ -472,13 +472,13 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['bot_button_text_color']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('bot_button_text_color', $fields['bot_button_text_color'], $object)?>
                             </div>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['bot_button_fs']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('bot_button_fs', $fields['bot_button_fs'], $object)?>
@@ -492,13 +492,13 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['bot_button_padding']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('bot_button_padding', $fields['bot_button_padding'], $object)?>
                             </div>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['bot_button_padding_left_right']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('bot_button_padding_left_right', $fields['bot_button_padding_left_right'], $object)?>

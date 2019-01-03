@@ -18,7 +18,7 @@ if (is_array($customAdminfields)) : ?>
         <?php elseif ($adminField['fieldtype'] == 'dropdown') : ?>
             <?php if (!isset($adminField['showcondition']) || $adminField['showcondition'] == 'always' || ($adminField['showcondition'] == 'uempty' && ($input_data->username == '' || isset($_POST['show_admin_item'][$key])))) : ?>
             <input type="hidden" name="show_admin_item[<?php echo $key?>]" value="true" />
-            <div class="col-xs-<?php echo htmlspecialchars($adminField['size'])?>">
+            <div class="col-<?php echo htmlspecialchars($adminField['size'])?>">
                 <div class="form-group<?php if (isset($errors['additional_admin_'.$key])) : ?> has-error<?php endif;?>">
                     <label class="control-label" id="label-<?php echo htmlspecialchars('additional_admin_'.$key)?>"><?php echo htmlspecialchars($adminField['fieldname'])?>&nbsp;<?php $adminField['isrequired'] == 'true' ? print '*' : ''?></label>
                     <select name="value_items_admin[<?php echo $key?>]" class="form-control">
@@ -33,7 +33,7 @@ if (is_array($customAdminfields)) : ?>
         <?php else : $hasExtraField = true; ?>
             <?php if (!isset($adminField['showcondition']) || $adminField['showcondition'] == 'always' || ($adminField['showcondition'] == 'uempty' && ($input_data->username == '' || isset($_POST['show_admin_item'][$key])))) : ?>
             <input type="hidden" name="show_admin_item[<?php echo $key?>]" value="true" />
-            <div class="col-xs-<?php echo htmlspecialchars($adminField['size'])?>">
+            <div class="col-<?php echo htmlspecialchars($adminField['size'])?>">
                 <div class="form-group<?php if (isset($errors['additional_admin_'.$key])) : ?> has-error<?php endif;?>">
                     <label class="control-label" id="label-<?php echo htmlspecialchars('additional_admin_'.$key)?>"><?php echo htmlspecialchars($adminField['fieldname'])?>&nbsp;<?php $adminField['isrequired'] == 'true' ? print '*' : ''?></label>
                     <input class="form-control" aria-labelledby="label-<?php echo htmlspecialchars('additional_admin_'.$key)?>" type="text" name="value_items_admin[<?php echo $key?>]" <?php $adminField['isrequired'] == 'true' ? print 'aria-required="true" required' : ''?> value="<?php isset($input_data->value_items_admin[$key]) ? print htmlspecialchars($input_data->value_items_admin[$key]) : print htmlspecialchars($adminField['defaultvalue'])?>" />

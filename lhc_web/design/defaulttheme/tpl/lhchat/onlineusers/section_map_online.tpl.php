@@ -1,12 +1,12 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_map_online_pre.tpl.php')); ?>
 <?php if ($chat_onlineusers_section_map_online_enabled == true) : ?>
 <div class="row form-group">
-	<div class="col-xs-6">
+	<div class="col-6">
 		<img data-toggle="tooltip" data-placement="bottom" class="tip-right" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User is chatting');?>" src="<?php echo erLhcoreClassDesign::design('images/icons/home-chat.png')?>" />
 		<img data-toggle="tooltip" data-placement="bottom" class="tip-right" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any message from operator');?>" src="<?php echo erLhcoreClassDesign::design('images/icons/home-unsend.png')?>" />
 		<img data-toggle="tooltip" data-placement="bottom" class="tip-right" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has message from operator');?>" src="<?php echo erLhcoreClassDesign::design('images/icons/home-send.png')?>" />
 	</div>
-	<div class="col-xs-3">
+	<div class="col-3">
 	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                     'input_name'     => 'department_map_id',
 					'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select department'),
@@ -15,7 +15,7 @@
                     'list_function'  => 'erLhcoreClassModelDepartament::getList'
     )); ?>
     </div>
-	<div class="col-xs-3">
+	<div class="col-3">
 		<select class="form-control input-sm" id="markerTimeout" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Marker timeout before it dissapears from map');?>">
 			<option value="30" <?php echo $omapMarkerTimeout == 30 ? 'selected="selected"' : ''?> >30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>
 			<option value="60" <?php echo $omapMarkerTimeout == 60 ? 'selected="selected"' : ''?> >1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minute');?></option>

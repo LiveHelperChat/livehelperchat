@@ -3,13 +3,13 @@
 <div ng-controller="StartChatFormURLCtrl as startChatURL" <?php if (isset($start_chat_data['custom_fields_url']) && $start_chat_data['custom_fields_url'] != '') : ?> ng-init='startChatURL.startchatfields = <?php echo $start_chat_data['custom_fields_url']?>'<?php endif;?>>
 
 <div class="row">
-    <div class="col-xs-3">
+    <div class="col-3">
         <div class="form-group">
             <label>Argument identifier</label>
             <input type="text" ng-model="startChatURL.fieldidentifier" placeholder="id" value="" class="form-control" />
         </div>
     </div>
-    <div class="col-xs-3">
+    <div class="col-3">
         <div class="form-group">
             <label>Argument name</label>
             <input type="text" name="" ng-model="startChatURL.fieldname" placeholder="ID" value="" class="form-control" />
@@ -18,15 +18,15 @@
 </div>
 
 <div class="row">
-    <div class="col-xs-6">
-        <input type="button" class="btn btn-default col-xs-12" ng-click="startChatURL.addField()" value="Add a field">
+    <div class="col-6">
+        <input type="button" class="btn btn-default col-xs" ng-click="startChatURL.addField()" value="Add a field">
     </div>
 </div>
 
 <hr>
 
 <div class="row">
-    <div ng-repeat="field in startChatURL.startchatfields" class="col-xs-6">
+    <div ng-repeat="field in startChatURL.startchatfields" class="col-6">
         <div class="form-group">
             <div class="btn-group pull-right" role="group" aria-label="...">
                 <button ng-if="$index > 0" type="button" class="btn btn-default btn-xs" ng-click="startChatURL.moveLeftField(field)">&laquo; <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','left')?></button>
@@ -37,13 +37,13 @@
         </div>
 
         <div class="row">
-            <div class="col-xs-6">
+            <div class="col-6">
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Argument identifier')?></label>
                     <input ng-model="field.fieldidentifier" class="form-control" ng-model="" type="text" name="customFieldURLIdentifier[]" value="" />
                 </div>
             </div>
-            <div class="col-xs-6">
+            <div class="col-6">
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Argument name')?></label>
                     <input ng-model="field.fieldname" class="form-control" ng-model="" type="text" name="customFieldURLName[]" value="" />

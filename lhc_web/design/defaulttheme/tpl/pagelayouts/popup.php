@@ -8,7 +8,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xs-12 pt10">
+        <div class="col-12 pt10">
             <?php echo $Result['content']; ?>
         </div>
     </div>
