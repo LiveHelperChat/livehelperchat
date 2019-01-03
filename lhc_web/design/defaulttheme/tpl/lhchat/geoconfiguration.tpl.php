@@ -13,11 +13,9 @@
 
 	<!-- Nav tabs -->
 	<ul class="nav nav-tabs" role="tablist">
-		<li role="presentation" class="active"><a href="#geoconfiguration" aria-controls="geoconfiguration" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','GEO detection configuration');?></a></li>
-		<li role="presentation"><a id="map-activator" href="#mapoptions" aria-controls="mapoptions" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Map location')?></a></li>
+		<li role="presentation" class="nav-item"><a class="active nav-link" href="#geoconfiguration" aria-controls="geoconfiguration" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','GEO detection configuration');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link" id="map-activator" href="#mapoptions" aria-controls="mapoptions" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Map location')?></a></li>
 	</ul>
-
-	
 
 	<!-- Tab panes -->
 	<div class="tab-content">

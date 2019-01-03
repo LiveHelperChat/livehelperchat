@@ -19,7 +19,7 @@
 
 <div class="row">
     <div class="col-6">
-        <input type="button" class="btn btn-default col-xs" ng-click="startChatURL.addField()" value="Add a field">
+        <input type="button" class="btn btn-default col-12" ng-click="startChatURL.addField()" value="Add a field">
     </div>
 </div>
 

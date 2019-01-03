@@ -12,8 +12,8 @@
 
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist">
-			<li role="presentation" class="active"><a href="#autologinsettings" aria-controls="autologinsettings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Auto login settings');?></a></li>	
-			<li role="presentation"><a href="#autologincustom" aria-controls="autologincustom" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Custom auto logins');?></a></li>
+			<li role="presentation" class="nav-item"><a class="nav-link active" href="#autologinsettings" aria-controls="autologinsettings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Auto login settings');?></a></li>
+			<li role="presentation" class="nav-item"><a class="nav-link" href="#autologincustom" aria-controls="autologincustom" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Custom auto logins');?></a></li>
 		</ul>
 
 		<!-- Tab panes -->

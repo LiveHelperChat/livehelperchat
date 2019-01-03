@@ -6,12 +6,12 @@
     <div role="tabpanel">
     	<!-- Nav tabs -->
     	<ul class="nav nav-tabs" role="tablist">
-    		<li role="presentation" class="active"><a href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Visitor')?></a></li>
+    		<li role="presentation" class="nav-item" ><a class="active nav-link" href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Visitor')?></a></li>
     		
     		<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/footprint_tab_tab_pre.tpl.php')); ?>
     		
     		<?php if ($chat_chat_tabs_footprint_tab_tab_enabled == true && erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) : ?>
-    		<li role="presentation"><a href="#panel2" aria-controls="panel2" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Footprint')?></a></li>
+    		<li role="presentation" class="nav-item"><a class="nav-link" href="#panel2" aria-controls="panel2" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Footprint')?></a></li>
     		<?php endif;?>
     		
     		<?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/user_chats_tab.tpl.php')); ?>
@@ -21,8 +21,7 @@
     		<?php if ($operator_screenshot_enabled == true) : ?>
     		  <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/screenshot_tab.tpl.php')); ?>
     		<?php endif;?>
-    		
-    		    		
+
     		<?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/notes_tab.tpl.php')); ?>
     	</ul>
     

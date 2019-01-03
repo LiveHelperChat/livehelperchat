@@ -16,8 +16,8 @@
 
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist">
-			<li role="presentation" class="active"><a href="#mailsettings" aria-controls="mailsettings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Mail settings');?></a></li>
-			<li role="presentation"><a href="#SMTP" aria-controls="SMTP" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','SMTP');?></a></li>
+			<li role="presentation" class="nav-item"><a class="active nav-link" href="#mailsettings" aria-controls="mailsettings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Mail settings');?></a></li>
+			<li role="presentation" class="nav-item"><a class="nav-link" href="#SMTP" aria-controls="SMTP" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','SMTP');?></a></li>
 		</ul>
 
 

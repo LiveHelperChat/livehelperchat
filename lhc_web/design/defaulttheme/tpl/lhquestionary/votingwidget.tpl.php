@@ -2,7 +2,7 @@
 
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist">
-			<li role="presentation" class="active"><a href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','Questionary');?></a></li>
+			<li role="presentation" class="active nav-item"><a class="nav-link" href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','Questionary');?></a></li>
 		</ul>
 
 		<!-- Tab panes -->

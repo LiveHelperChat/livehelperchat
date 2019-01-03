@@ -58,8 +58,8 @@
 
 <div role="tabpanel" ng-show="enable_translations">
 	<ul class="nav nav-tabs" role="tablist">
-		<li role="presentation" class="<?php if ( (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'bing') ) : ?>active<?php endif;?>"><a href="#bing" aria-controls="bing" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Bing');?></a></li>
-		<li role="presentation" <?php if (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'google' ) : ?>class="active"<?php endif;?>><a href="#google" aria-controls="google" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Google');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link <?php if ( (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'bing') ) : ?>active<?php endif;?>" href="#bing" aria-controls="bing" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Bing');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link <?php if (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'google' ) : ?>active<?php endif;?>" href="#google" aria-controls="google" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Google');?></a></li>
 	</ul>
 
 	<div class="tab-content">
