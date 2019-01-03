@@ -7,7 +7,7 @@
         <?php $chat_id = $chat->id;$chat_to_load = $chat;?>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/single.tpl.php')); ?>        
     </div>
-    <div class="columns col-xs-9 h100proc">        
+    <div class="columns col-9 h100proc">        
         	<div id="center-layout">
                 <iframe id="content" name="content" src="<?php echo erLhcoreClassDesign::baseurl('cobrowse/mirror')?>" frameborder="0"></iframe>
             </div>       

@@ -47,32 +47,32 @@ class NodeGroupTriggerEvent extends Component {
         } else if (this.props.event.get('type') == 2) {
             typeRender =
                 <div className="row">
-                    <div className="col-xs-12">
+                    <div className="col-12">
                         <div className="form-group">
                             <label>Should include any of these words</label>
                             <input type="text" placeholder="yes, thanks" className="form-control input-sm" onChange={this.textChange} value={this.props.event.get('pattern')} />
                         </div>
                     </div>
-                    <div className="col-xs-12">
+                    <div className="col-12">
                         <div className="form-group">
                             <label>But not any of these</label>
                             <input type="text" placeholder="no, nop" className="form-control input-sm" onChange={this.textChangeExc} value={this.props.event.get('pattern_exc')} />
                         </div>
                     </div>
-                    <div className="col-xs-6">
+                    <div className="col-6">
                         <div className="form-group">
                             <label>Number of typos allowed</label>
                             <input type="text" placeholder="0" className="form-control input-sm" onChange={(e) => this.onchangeAttr({'path' : ['configuration_array','words_typo'],'value' : e.target.value})} defaultValue={this.props.event.getIn(['configuration_array','words_typo'])} />
                         </div>
                     </div>
-                    <div className="col-xs-6">
+                    <div className="col-6">
                         <div className="form-group">
                             <label>Number of typos allowed</label>
                             <input type="text" placeholder="0" className="form-control input-sm" onChange={(e) => this.onchangeAttr({'path' : ['configuration_array','exc_words_typo'],'value' : e.target.value})} defaultValue={this.props.event.getIn(['configuration_array','exc_words_typo'])} />
                         </div>
                     </div>
 
-                    <div className="col-xs-12">
+                    <div className="col-12">
                         <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['configuration_array','only_these'],'value' : e.target.checked})} defaultChecked={this.props.event.getIn(['configuration_array','only_these'])} /> Should include only words from above, not any.</label>
                     </div>
                 </div>
@@ -82,14 +82,14 @@ class NodeGroupTriggerEvent extends Component {
 
         return (
             <div className="row">
-                <div className="col-xs-12">
+                <div className="col-12">
                     <div className="form-group">
 
                         <div className="row">
-                            <div className="col-xs-10">
+                            <div className="col-10">
                                 <label>Type</label>
                             </div>
-                            <div className="col-xs-2">
+                            <div className="col-2">
                                 <a className="pull-right" onClick={this.deleteEvent}><i className="material-icons mr-0">delete</i></a>
                             </div>
                         </div>
@@ -101,10 +101,10 @@ class NodeGroupTriggerEvent extends Component {
                         </select>
                     </div>
                 </div>
-                <div className="col-xs-12">
+                <div className="col-12">
                         {typeRender}
                 </div>
-                <div className="col-xs-12">
+                <div className="col-12">
                     <hr/>
                 </div>
             </div>

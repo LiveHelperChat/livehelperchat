@@ -1,7 +1,7 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_online_users_pre.tpl.php')); ?>
 <?php if ($chat_onlineusers_section_online_users_enabled == true && $currentUser->hasAccessTo('lhchat', 'use_onlineusers') == true) : ?>
 <div class="row">
-	<div class="col-sm-2 form-group col-xs-6 pr5">
+	<div class="col-sm-2 form-group col-6 pr5">
 		<label id="online-users-count" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','online users');?>">{{online.onlineusers.length}}</label>
 		
 		<div class="pull-right">
@@ -9,10 +9,10 @@
 	    </div>
 	
 	</div>
-	<div class="col-sm-2 form-group col-xs-6 pl5 pr5">
+	<div class="col-sm-2 form-group col-6 pl5 pr5">
 		<input class="form-control input-sm" ng-model="query" type="text" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search')?>">
 	</div>
-	<div class="col-sm-1 form-group col-xs-6 pl5 pr5">
+	<div class="col-sm-1 form-group col-6 pl5 pr5">
 		<select class="form-control input-sm" ng-model="groupByField" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Group list by');?>">
 		    	<option value="none"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Group by');?></option>
 		    	<option value="user_country_name"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User country');?></option>
@@ -23,7 +23,7 @@
 		    	<option value="dep_id"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Department');?></option>
 		</select>
 	</div>	
-	<div class="col-sm-2 form-group col-xs-6 pl5 pr5">
+	<div class="col-sm-2 form-group col-6 pl5 pr5">
 		<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
 	                    'input_name'     => 'department_id',
 						'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select department'),
@@ -41,7 +41,7 @@
     <?php $columnCountrySize = 1?>
     <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/time_on_site_filter.tpl.php')); ?>
 
-	<div class="col-sm-1 form-group col-xs-6 pl5 pr5">
+	<div class="col-sm-1 form-group col-6 pl5 pr5">
 		<select class="form-control input-sm" id="updateTimeout" ng-model="online.updateTimeout" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Refresh list every');?>">
 		    	<option value="1">1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','second');?></option>		    	
 		    	<option value="3">3 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>		    	
@@ -49,7 +49,7 @@
 		    	<option value="10">10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>		    	
 		</select>
 	</div>
-	<div class="col-sm-1 form-group col-xs-6 pl5 pr5">
+	<div class="col-sm-1 form-group col-6 pl5 pr5">
 		<select class="form-control input-sm" id="userTimeout" ng-model="online.userTimeout" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Show visitors who visited site in the past');?>">
 		    	<option value="30">30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>
 		    	<option value="60">1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minute');?></option>
@@ -64,7 +64,7 @@
 		    	<option value="2678400">31 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','day');?></option>
 		</select>
 	</div>
-	<div class="col-sm-1 form-group col-xs-12 pl5">
+	<div class="col-sm-1 form-group col-12 pl5">
 		<select class="form-control input-sm" id="maxRows" ng-model="online.maxRows" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Max records to return');?>">
 		    	<option value="50">50</option>
 		    	<option value="100">100</option>

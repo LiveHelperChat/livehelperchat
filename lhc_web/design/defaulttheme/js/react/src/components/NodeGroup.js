@@ -82,14 +82,14 @@ class NodeGroup extends Component {
 
 
             <div className="row">
-                <div className="col-xs-12">
+                <div className="col-12">
                     <hr/>
 
                     <div className="row">
-                        <div className="col-xs-10">
+                        <div className="col-10">
                             <input className="form-control gbot-group-name" value={this.props.group.get('name')} onChange={this.handleChange.bind(this)} />
                         </div>
-                        <div className="col-xs-2">
+                        <div className="col-2">
                             <a className="pull-right" onClick={this.deleteGroup.bind(this)}><i className="material-icons mr-0">delete</i></a>
                         </div>
                     </div>

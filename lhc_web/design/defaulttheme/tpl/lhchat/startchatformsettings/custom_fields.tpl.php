@@ -65,7 +65,7 @@
             </div>
         </div>
 		<div class="col-3">
-			<input type="button" class="btn btn-default col-xs-12" ng-click="startChat.addField()" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Add a field')?>" />
+			<input type="button" class="btn btn-default col-12" ng-click="startChat.addField()" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Add a field')?>" />
 		</div>
 	</div>
 	<hr>

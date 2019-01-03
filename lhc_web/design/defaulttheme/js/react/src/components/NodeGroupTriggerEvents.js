@@ -29,7 +29,7 @@ class NodeGroupTriggerEvents extends Component {
 
         return (
             <div className="row">
-                <div className="col-xs-12">
+                <div className="col-12">
 
                     <hr/>
                     {mappedEvents}

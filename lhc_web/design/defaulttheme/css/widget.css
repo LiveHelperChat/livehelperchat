@@ -95,7 +95,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 		font-size: 16px!important;
 	}
 
-	html,body,#widget-layout,#widget-layout > .col-xs-12,#widget-content-body{
+	html,body,#widget-layout,#widget-layout > .col-12,#widget-content-body{
 		height:100%;
 		margin-top:0px!important;
 		margin-bottom:0px!important;
@@ -103,7 +103,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 		padding-top:0px!important;
 	}
 
-	.embed-fixed > #widget-layout,.embed-fixed > #widget-layout > .col-xs-12,.embed-fixed #widget-content-body{
+	.embed-fixed > #widget-layout,.embed-fixed > #widget-layout > .col-12,.embed-fixed #widget-content-body{
 		height:auto;
 	}
 
@@ -172,7 +172,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 		bottom: auto;
 	}
 
-	#widget-layout > .col-xs-12 .operator-info{
+	#widget-layout > .col-12 .operator-info{
 		height:auto;
 		min-height: 61px;
 	}

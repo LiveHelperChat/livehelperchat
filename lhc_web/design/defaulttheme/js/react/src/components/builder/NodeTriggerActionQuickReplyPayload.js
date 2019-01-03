@@ -59,7 +59,7 @@ class NodeTriggerActionQuickReplyPayload extends Component {
 
         if (this.props.payloadType == 'button') {
             controlPayload =
-                <div className="col-xs-9">
+                <div className="col-9">
                     <div className="form-group">
                         <label>Payload</label>
                         {this.state.addingPayload == false ? (
@@ -71,15 +71,15 @@ class NodeTriggerActionQuickReplyPayload extends Component {
                 </div>
         } else if (this.props.payloadType == 'url') {
             controlPayload =
-                <div className="col-xs-12">
+                <div className="col-12">
                     <div className="row">
-                        <div className="col-xs-6">
+                        <div className="col-6">
                             <div className="form-group">
                                 <label>URL</label>
                                 <input className="form-control input-sm" type="text" onChange={this.onChange.bind(this)} defaultValue={this.props.currentPayload.get('payload')} />
                             </div>
                         </div>
-                        <div className="col-xs-6">
+                        <div className="col-6">
                             <div className="form-group">
                                 <label>Payload</label>
                                 <select className="form-control input-sm" onChange={this.onChangeMessageToVisitor.bind(this)} value={this.props.currentPayload.get('payload_message')}><option value="">Select event</option>{list}</select>
@@ -89,7 +89,7 @@ class NodeTriggerActionQuickReplyPayload extends Component {
                 </div>
         } else if (this.props.payloadType == 'updatechat') {
             controlPayload =
-                <div className="col-xs-12">
+                <div className="col-12">
                     <div className="form-group">
                         <label>Select action</label>
                         <select className="form-control input-sm" value={this.props.currentPayload.get('payload')} onChange={this.onChange.bind(this)} >
@@ -108,7 +108,7 @@ class NodeTriggerActionQuickReplyPayload extends Component {
                     }
                 </div>
         } else if (this.props.payloadType == 'trigger') {
-            controlPayload = <div className="col-xs-12">
+            controlPayload = <div className="col-12">
                 <div className="form-group">
                    <label>Select what trigger to execute</label>
                    <NodeTriggerList onSetPayload={(e) => this.props.onPayloadChange(e)} payload={this.props.currentPayload.get('payload')} />
@@ -119,7 +119,7 @@ class NodeTriggerActionQuickReplyPayload extends Component {
         return (
             <div className="row">
 
-                <div className="col-xs-12">
+                <div className="col-12">
                     <div className="form-group">
                         <label>Type</label>
                         <select className="form-control input-sm" defaultValue={this.props.payloadType} onChange={this.onChangeType.bind(this)} >
@@ -135,7 +135,7 @@ class NodeTriggerActionQuickReplyPayload extends Component {
                 {controlPayload}
 
                 {this.props.payloadType == 'button' &&
-                <div className="col-xs-3">
+                <div className="col-3">
                     <div className="form-group">
                         <label>&nbsp;</label>
                         <div>

@@ -27,17 +27,17 @@ class NodeTriggerActionTyping extends Component {
         return (
             <div>
                 <div className="row">
-                    <div className="col-xs-2">
+                    <div className="col-2">
                         <div className="btn-group pull-left" role="group" aria-label="Trigger actions">
                             <button disabled="disabled" className="btn btn-xs btn-info">{this.props.id + 1}</button>
                             {this.props.isFirst == false && <a className="btn btn-default btn-xs" onClick={(e) => this.props.upField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_up</i></a>}
                             {this.props.isLast == false && <a className="btn btn-default btn-xs" onClick={(e) => this.props.downField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_down</i></a>}
                         </div>
                     </div>
-                    <div className="col-xs-9">
+                    <div className="col-9">
                         <NodeTriggerActionType onChange={this.changeType} type={this.props.action.get('type')} />
                     </div>
-                    <div className="col-xs-1">
+                    <div className="col-1">
                         <button onClick={this.removeAction} type="button" className="btn btn-danger btn-sm pull-right">
                             <i className="material-icons mr-0">delete</i>
                         </button>
@@ -45,19 +45,19 @@ class NodeTriggerActionTyping extends Component {
                 </div>
 
                 <div className="row">
-                    <div className="col-xs-6">
+                    <div className="col-6">
                         <div className="form-group">
                             <label>Show typing for n seconds</label>
                             <input type="text" placeholder="Value in seconds" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['duration'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','duration'])}/>
                         </div>
                     </div>
-                    <div className="col-xs-6">
+                    <div className="col-6">
                         <div className="form-group">
                             <label>Default typing text</label>
                             <input placeholder="Typing..." type="text" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['text'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','text'])}/>
                         </div>
                     </div>
-                    <div className="col-xs-12">
+                    <div className="col-12">
                         <div role="group">
                             <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['on_start_chat'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','on_start_chat'])} /> Send typing only at chat start.</label> <i className="material-icons" title="Typing will be send only on chat start event.">info</i>
                         </div>

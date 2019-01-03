@@ -56,20 +56,20 @@ class NodeTriggerActionQuickReply extends Component {
 
         return (
             <div className="row">
-                <div className="col-xs-5">
+                <div className="col-5">
                     <div className="form-group">
                         <label>Name</label>
                         <input type="text" onChange={this.onNameChange} defaultValue={this.props.reply.getIn(['content','name'])} className="form-control input-sm" />
                     </div>
 
                     <div className="row">
-                        <div className="col-xs-6">
+                        <div className="col-6">
                             <div className="form-group">
                                 <label>Precheck event</label>
                                 <input type="text" onChange={this.onPrecheckChange} defaultValue={this.props.reply.getIn(['content','render_precheck_function'])} className="form-control input-sm" />
                             </div>
                         </div>
-                        <div className="col-xs-6">
+                        <div className="col-6">
                             <div className="form-group">
                                 <label>Arguments</label>
                                 <input type="text" onChange={this.onRenderArgsChange} defaultValue={this.props.reply.getIn(['content','render_args'])} className="form-control input-sm" />
@@ -78,10 +78,10 @@ class NodeTriggerActionQuickReply extends Component {
                     </div>
 
                 </div>
-                <div className="col-xs-5">
+                <div className="col-5">
                     <NodeTriggerActionQuickReplyPayload onPayloadAttrChange={this.onPayloadAttrChange} onPayloadTypeChange={this.onPayloadTypeChange} onPayloadChange={this.onPayloadChange} payloadType={this.props.reply.get('type')} currentPayload={this.props.reply.getIn(['content'])} />
                 </div>
-                <div className="col-xs-2">
+                <div className="col-2">
                     <div className="form-group">
                         <label>&nbsp;</label>
                         <div>

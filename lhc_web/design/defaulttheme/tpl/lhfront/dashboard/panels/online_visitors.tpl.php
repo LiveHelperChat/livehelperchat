@@ -8,11 +8,11 @@
        <div class="p10">
            <div class="row">
 
-               <div class="col-sm-3 form-group col-xs-6 pl5 pr5">
+               <div class="col-sm-3 form-group col-6 pl5 pr5">
                     <input class="form-control input-sm" ng-model="query" type="text" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search')?>">
                </div>
 
-                <div class="col-sm-3 form-group col-xs-6 pl5 pr5">
+                <div class="col-sm-3 form-group col-6 pl5 pr5">
                     <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                         'input_name'     => 'department_id',
                         'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select department'),

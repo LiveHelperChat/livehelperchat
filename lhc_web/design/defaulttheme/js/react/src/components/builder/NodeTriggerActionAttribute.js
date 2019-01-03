@@ -27,10 +27,10 @@ class NodeTriggerActionAttribute extends Component {
         return (
             <div>
                 <div className="row">
-                    <div className="col-xs-11">
+                    <div className="col-11">
                         <NodeTriggerActionType onChange={this.changeType} type={this.props.action.get('type')} />
                     </div>
-                    <div className="col-xs-1">
+                    <div className="col-1">
                         <button onClick={this.removeAction} type="button" className="btn btn-danger btn-sm pull-right">
                             <i className="material-icons mr-0">delete</i>
                         </button>
@@ -38,80 +38,80 @@ class NodeTriggerActionAttribute extends Component {
                 </div>
 
                 <div className="row">
-                    <div className="col-xs-6">
+                    <div className="col-6">
                         <div className="form-group">
                             <label>Attribute identifier</label>
                             <input type="text" placeholder="Attribute identifier" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','identifier'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','attr_options','identifier'])} />
                         </div>
                     </div>
-                    <div className="col-xs-6">
+                    <div className="col-6">
                         <div className="form-group">
                             <label>Attribute name</label>
                             <input type="text" placeholder="Attribute name" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','name'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','attr_options','name'])} />
                         </div>
                     </div>
-                    <div className="col-xs-6">
+                    <div className="col-6">
                         <div className="form-group">
                             <label>Preg match rule</label>
                             <input type="text" placeholder="Attribute name" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['preg_match'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','preg_match'])} />
                         </div>
                     </div>
-                    <div className="col-xs-6">
+                    <div className="col-6">
                         <div className="form-group">
                             <label>Custom event to validate</label>
                             <input type="text" placeholder="Event name" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['event'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','event'])} />
                         </div>
                     </div>
 
-                    <div className="col-xs-6">
+                    <div className="col-6">
                         <div className="form-group">
                             <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','cancel_button_enabled'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','cancel_button_enabled'])} />Cancel button enabled on failed validation</label>
                         </div>
                     </div>
 
-                    <div className="col-xs-6">
+                    <div className="col-6">
                         <div className="form-group">
                             <label>Cancel button text</label>
                             <input type="text" placeholder="Cancel" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['cancel_button'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','cancel_button'])} />
                         </div>
                     </div>
 
-                    <div className="col-xs-6">
+                    <div className="col-6">
                         <div className="form-group">
                             <label>Intro message</label>
                             <textarea className="form-control" defaultValue={this.props.action.getIn(['content','intro_message'])} onChange={(e) => this.onchangeAttr({'path' : ['intro_message'], 'value' : e.target.value})}></textarea>
                         </div>
                     </div>
-                    <div className="col-xs-6">
+                    <div className="col-6">
                         <div className="form-group">
                             <label>Confirmation message</label>
                             <textarea className="form-control" defaultValue={this.props.action.getIn(['content','success_message'])} onChange={(e) => this.onchangeAttr({'path' : ['success_message'], 'value' : e.target.value})}></textarea>
                         </div>
                     </div>
-                    <div className="col-xs-6">
+                    <div className="col-6">
                         <div className="form-group">
                             <label>Validation error message</label>
                             <textarea className="form-control" defaultValue={this.props.action.getIn(['content','validation_error'])} onChange={(e) => this.onchangeAttr({'path' : ['validation_error'], 'value' : e.target.value})}></textarea>
                         </div>
                     </div>
-                    <div className="col-xs-6">
+                    <div className="col-6">
                         <div className="form-group">
                             <label>Execute trigger on success</label>
                             <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','collection_callback_pattern'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','collection_callback_pattern'])} />
                         </div>
                     </div>
 
-                    <div className="col-xs-12">
+                    <div className="col-12">
 
                         <div className="row">
-                            <div className="col-xs-6">
+                            <div className="col-6">
                                 <div className="form-group">
                                     <label>Execute trigger on cancelation, overrides message on cancelation</label>
                                     <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','collection_callback_cancel'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','collection_callback_cancel'])} />
                                 </div>
                             </div>
 
-                            <div className="col-xs-6">
+                            <div className="col-6">
                                 <div className="form-group">
                                     <label>Message on cancelation</label>
                                     <textarea className="form-control" defaultValue={this.props.action.getIn(['content','cancel_message'])} onChange={(e) => this.onchangeAttr({'path' : ['cancel_message'], 'value' : e.target.value})}></textarea>

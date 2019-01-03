@@ -7,7 +7,7 @@
 					<input type="text" class="form-control" ng-model="cform.<?php echo $paramsResourceAdd['scope']?>_name" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Please enter resource identifier')?>" value="" />
 				</div>
 				<div class="col-6">
-					<input type="button" class="btn btn-default col-xs-12" ng-click="cform.<?php echo $paramsResourceAdd['add_function']?>()" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Add resource')?>" />
+					<input type="button" class="btn btn-default col-12" ng-click="cform.<?php echo $paramsResourceAdd['add_function']?>()" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Add resource')?>" />
 				</div>
 			</div>
 		</div>
