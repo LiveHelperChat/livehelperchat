@@ -11,6 +11,7 @@ $departmentParams = array();
 $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
 if ($userDepartments !== true){
 	$departmentParams['filterin']['department_id'] = $userDepartments;
+    $departmentParams['filterin']['department_id'][] = 0;
 }
 
 if (is_numeric($Params['user_parameters_unordered']['id']) && $Params['user_parameters_unordered']['action'] == 'delete') {
