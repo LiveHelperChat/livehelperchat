@@ -30,8 +30,8 @@
 	<?php if ( !empty($queries) ) : ?>
 	<div class="col-md-12">	
 		<div class="panel panel-default">
-          <div class="panel-heading"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Queries which will be executed on update')?></div>
-          <div class="panel-body">
+          <div class="card-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Queries which will be executed on update')?></div>
+          <div class="card-body">
             <ul>
         		<?php foreach ($queries as $query) : ?>
         			<li><?php echo $query;?></li>

@@ -2,8 +2,8 @@
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 
 <ul class="nav nav-pills" role="tablist">
-	<li role="presentation" class="active"><a href="#survey-<?php echo $chat->id?>" aria-controls="survey-<?php echo $chat->id?>" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/choosesurvey','Survey');?></a></li>
-	<li role="presentation" ><a href="#collected-<?php echo $chat->id?>" aria-controls="collected-<?php echo $chat->id?>" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/choosesurvey','Collected information');?></a></li>
+	<li role="presentation" class="nav-item"><a class="active nav-link" href="#survey-<?php echo $chat->id?>" aria-controls="survey-<?php echo $chat->id?>" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/choosesurvey','Survey');?></a></li>
+	<li role="presentation" class="nav-item"><a class="nav-link" href="#collected-<?php echo $chat->id?>" aria-controls="collected-<?php echo $chat->id?>" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/choosesurvey','Collected information');?></a></li>
 </ul>
 
 <div class="tab-content">

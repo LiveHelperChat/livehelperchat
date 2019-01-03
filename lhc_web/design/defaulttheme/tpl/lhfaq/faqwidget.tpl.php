@@ -11,15 +11,15 @@
     			  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
             	  <?php foreach ($items as $item) : ?>
             	  <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="heading-faq-<?php echo $item->id ?>">
-                      <h4 class="panel-title">
+                    <div class="card-header" role="tab" id="heading-faq-<?php echo $item->id ?>">
+                      <h4 class="card-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse-faq-<?php echo $item->id ?>" aria-expanded="true" aria-controls="collapse-faq-<?php echo $item->id ?>">
                           <?php echo htmlspecialchars($item->question); ?>
                         </a>
                       </h4>
                     </div>
                     <div id="collapse-faq-<?php echo $item->id ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-faq-<?php echo $item->id ?>">
-                      <div class="panel-body">
+                      <div class="card-body">
                         <p><?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($item->answer));?></p>
                       </div>
                     </div>

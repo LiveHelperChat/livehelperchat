@@ -1,4 +1,4 @@
-<div class="pl10 pr10 pt10">
+<div class="pl10 pr10 pt10 pb10">
 	<div class="row">
 		<div class="col-<?php isset($optinsPanel['userid']) ? print 6 : print 10?>">
 			<div class="btn-group btn-block btn-block-department">

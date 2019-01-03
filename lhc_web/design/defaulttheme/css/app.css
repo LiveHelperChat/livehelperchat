@@ -21,8 +21,25 @@ body {
 	border-radius : .2rem;
 }
 
+.panel-default {
+	border: 1px solid #ddd;
+	margin-bottom: 20px;
+}
+
+#tabs > .nav-pills{
+	padding-bottom: 10px;
+	border-bottom: 1px solid #ddd;
+}
+#tabs > .tab-content{
+	margin-top: 15px;
+}
+
 *:focus {
     outline: 0;
+}
+
+.hide {
+	display: none!important;
 }
 
 .container-fluid,
@@ -1234,6 +1251,18 @@ input[type="file"]{
 
 #wrapper.toggledr > #page-content-wrapper > .row > #middle-column-page {
 	width: 100%;
+	flex: 0 0 100%;
+	max-width: 100%;
+}
+
+.nav-pills .nav-link{
+	position:relative;
+}
+
+.nav-pills>li>a {
+	border: 1px solid #F4F4F4;
+	margin-bottom: 5px;
+	margin-right: 3px;
 }
 
 #sidebar-wrapper {

@@ -1,5 +1,5 @@
 <div class="panel panel-default panel-dashboard" data-panel-id="transfered_chats" ng-init="lhc.getToggleWidget('trchats_widget_exp')">
-	<div class="panel-heading">
+	<div class="card-header">
 		<i class="material-icons chat-pending">chat</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/transfered_chats.tpl.php'));?> ({{transfer_dep_chats.list.length}})</a>
 		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('trchats_widget_exp')" class="fs24 float-right material-icons exp-cntr">{{lhc.toggleWidgetData['trchats_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
 	</div>

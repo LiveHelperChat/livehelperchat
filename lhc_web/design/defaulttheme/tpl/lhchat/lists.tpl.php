@@ -1,6 +1,6 @@
 <div role="tabpanel" id="tabs" ng-cloak>
         <ul class="nav nav-pills" role="tablist">
-             <li role="presentation" class="active"><a href="#chatlist" aria-controls="chatlist" role="tab" data-toggle="tab" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Chat list');?>"><i class="material-icons mr-0">info_outline</i></a></li>
+             <li role="presentation" class="active nav-item"><a class="nav-link" href="#chatlist" aria-controls="chatlist" role="tab" data-toggle="tab" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Chat list');?>"><i class="material-icons mr-0">info_outline</i></a></li>
         </ul>
         
         <div class="tab-content" ng-cloak> 
