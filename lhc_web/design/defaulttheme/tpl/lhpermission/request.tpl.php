@@ -16,5 +16,5 @@
     <?php endforeach;?>	
 	</ul>
 	<input type="hidden" value="<?php echo htmlspecialchars($permission)?>" name="Permissions" />
-	<input type="submit" class="btn btn-default" name="RequestPermissionAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/request','Request permissions');?>" />
+	<input type="submit" class="btn btn-secondary" name="RequestPermissionAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/request','Request permissions');?>" />
 </form>

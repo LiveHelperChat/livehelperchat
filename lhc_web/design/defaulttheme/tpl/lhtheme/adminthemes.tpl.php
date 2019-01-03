@@ -26,4 +26,4 @@
 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Empty...');?></p>
 <?php endif;?>
 
-<a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('theme/adminnewtheme')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>
+<a class="btn btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('theme/adminnewtheme')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>

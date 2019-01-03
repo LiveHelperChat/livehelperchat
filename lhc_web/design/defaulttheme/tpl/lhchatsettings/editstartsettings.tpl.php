@@ -17,7 +17,7 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/startchatformsettings/form.tpl.php'));?>
 
 	<div class="btn-group" role="group" aria-label="...">
-		<input type="submit" class="btn btn-default" name="SaveConfig" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Save');?>" /> <input type="submit" class="btn btn-default" name="UpdateConfig" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Update');?>" /> <input type="submit" class="btn btn-default" name="CancelConfig" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Cancel');?>" />
+		<input type="submit" class="btn btn-secondary" name="SaveConfig" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Save');?>" /> <input type="submit" class="btn btn-secondary" name="UpdateConfig" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Update');?>" /> <input type="submit" class="btn btn-secondary" name="CancelConfig" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Cancel');?>" />
 	</div>
 
 </form>

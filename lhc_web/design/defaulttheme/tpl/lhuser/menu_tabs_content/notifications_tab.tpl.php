@@ -63,7 +63,7 @@
                 </div>	
              </div>	
                 	     
-    	     <input type="submit" class="btn btn-default" name="UpdateNotifications_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
+    	     <input type="submit" class="btn btn-secondary" name="UpdateNotifications_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
          </form>
          
 	 </div>	

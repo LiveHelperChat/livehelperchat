@@ -34,7 +34,7 @@
 </table>
 <br>
 
-<input type="submit" value="Next" class="btn btn-default" name="Install">
+<input type="submit" value="Next" class="btn btn-secondary" name="Install">
 <br /><br />
 
 </form>

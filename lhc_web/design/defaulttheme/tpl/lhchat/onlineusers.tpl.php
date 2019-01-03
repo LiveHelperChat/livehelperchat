@@ -2,7 +2,7 @@
 
 <div class="btn-group pull-right" role="group" aria-label="...">
       <?php if ($currentUser->hasAccessTo('lhchat','administrateconfig')) : ?>
-      <a href="<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>" class="btn btn-default btn-xs"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','GEO detection configuration');?></a></li>
+      <a href="<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>" class="btn btn-secondary btn-xs"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','GEO detection configuration');?></a></li>
       <?php endif; ?>
       <?php if ($currentUser->hasAccessTo('lhchat','allowclearonlinelist')) : ?>
       <a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('chat/onlineusers')?>/(clear_list)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Clear list');?></a></li>

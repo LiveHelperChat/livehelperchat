@@ -94,19 +94,19 @@
 	   </div>
 	</div>
 	<div class="btn-group" role="group" aria-label="...">
-		<input type="submit"  name="doSearch" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
+		<input type="submit"  name="doSearch" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
 		
 		<?php if ($pages->items_total > 0) : ?>
-		<a target="_blank" class="btn btn-default" href="<?php echo $pages->serverURL?>/(print)/1"><i class="material-icons">print</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Print');?></a>
+		<a target="_blank" class="btn btn-secondary" href="<?php echo $pages->serverURL?>/(print)/1"><i class="material-icons">print</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Print');?></a>
 		
 		<?php if ($input->group_results == true) : ?>
-            <a target="_blank" class="btn btn-default" href="<?php echo $pages->serverURL?>/(xls)/1"><i class="material-icons">&#xE2C4;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS');?></a>
+            <a target="_blank" class="btn btn-secondary" href="<?php echo $pages->serverURL?>/(xls)/1"><i class="material-icons">&#xE2C4;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS');?></a>
         <?php else : ?>
-            <a target="_blank" class="btn btn-default" href="<?php echo $pages->serverURL?>/(xlslist)/1"><i class="material-icons">&#xE2C4;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS');?></a>
+            <a target="_blank" class="btn btn-secondary" href="<?php echo $pages->serverURL?>/(xlslist)/1"><i class="material-icons">&#xE2C4;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS');?></a>
 
-            <a target="_blank" class="btn btn-default" href="<?php echo $pages->serverURL?>/(xml)/1"><i class="material-icons">&#xE2C4;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XML');?></a>
+            <a target="_blank" class="btn btn-secondary" href="<?php echo $pages->serverURL?>/(xml)/1"><i class="material-icons">&#xE2C4;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XML');?></a>
 
-            <a target="_blank" class="btn btn-default" href="<?php echo $pages->serverURL?>/(json)/1"><i class="material-icons">&#xE2C4;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','JSON');?></a>
+            <a target="_blank" class="btn btn-secondary" href="<?php echo $pages->serverURL?>/(json)/1"><i class="material-icons">&#xE2C4;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','JSON');?></a>
         <?php endif;?>
 		
 		<?php endif; ?>

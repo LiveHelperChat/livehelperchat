@@ -1,7 +1,7 @@
 <?php $events = $object->events;?>
 <div ng-controller="ProactiveEventsFormCtrl as proev" <?php if (!empty($events)) : ?> ng-init='proev.events = <?php echo erLhcoreClassChatEvent::getEventJson($events)?>'<?php endif;?>>
 
-    <input type="button" class="btn btn-default" ng-click="proev.addEvent()" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Add event')?>" />
+    <input type="button" class="btn btn-secondary" ng-click="proev.addEvent()" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Add event')?>" />
     
     <?php /*
     <p>All conditions has to be met for invitation to be triggered.</p>

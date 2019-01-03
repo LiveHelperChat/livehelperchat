@@ -98,8 +98,8 @@
 				</div>
 				
 				<div class="btn-group" role="group" aria-label="...">
-				  <input type="submit" class="btn btn-default" name="StoreXMPSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
-				  <input type="submit" class="btn btn-default" name="StoreXMPSettingsTest" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Test message will be send to your account e-mail'); ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Send test message'); ?>" />
+				  <input type="submit" class="btn btn-secondary" name="StoreXMPSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
+				  <input type="submit" class="btn btn-secondary" name="StoreXMPSettingsTest" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Test message will be send to your account e-mail'); ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Send test message'); ?>" />
 				</div>
 				
 		</div>
@@ -134,13 +134,13 @@
 				<?php endif;?>
 									
 				<div class="btn-group" role="group" aria-label="...">
-				  <input type="submit" class="btn btn-default" name="StoreXMPGTalkSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
+				  <input type="submit" class="btn btn-secondary" name="StoreXMPGTalkSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 				  					  
 				  <?php if (erLhcoreClassXMP::getAccessToken() !== false) : ?>					  
-				  	<input type="submit" class="btn btn-default" name="StoreXMPGTalkRevokeToken" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Revoke access token'); ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Revoke permission to send a message'); ?>" />
+				  	<input type="submit" class="btn btn-secondary" name="StoreXMPGTalkRevokeToken" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Revoke access token'); ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Revoke permission to send a message'); ?>" />
 				  <?php else : ?>
 					  <?php if (isset($xmp_data['gtalk_client_secret']) && (!empty($xmp_data['gtalk_client_secret']))) : ?>
-					  		<input type="submit" class="btn btn-default" name="StoreXMPGTalkSettingsTest" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Authentificate and grant permission to send a message'); ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Grant permission to send a message'); ?>" />
+					  		<input type="submit" class="btn btn-secondary" name="StoreXMPGTalkSettingsTest" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Authentificate and grant permission to send a message'); ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Grant permission to send a message'); ?>" />
 					  <?php endif;?>
 				  <?php endif;?>
 				</div>

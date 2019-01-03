@@ -18,7 +18,7 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-<input type="submit" class="btn btn-default" name="AssignGroups" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roleassigngroup','Assign');?>" />
+<input type="submit" class="btn btn-secondary" name="AssignGroups" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roleassigngroup','Assign');?>" />
 
 </form>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>

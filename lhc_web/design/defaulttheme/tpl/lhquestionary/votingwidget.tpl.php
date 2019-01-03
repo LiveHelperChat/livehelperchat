@@ -33,12 +33,12 @@
 			<label><input type="radio" name="Option" value="<?php echo $option->id?>" />&nbsp;<?php echo htmlspecialchars($option->option_name)?></label>&nbsp;
 		<?php endforeach;?>
 		<br>
-		<input type="submit" class="btn btn-default btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','Vote');?>" name="VoteActionButton">
+		<input type="submit" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','Vote');?>" name="VoteActionButton">
 		<input type="hidden" value="1" name="VoteAction"/>
 		<?php else : ?>
 		<textarea class="form-control form-group" name="feedBack"><?php echo htmlspecialchars($answer->answer)?></textarea>
 
-		<input type="submit" class="btn btn-default btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','Send');?>" name="VoteActionButton">
+		<input type="submit" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','Send');?>" name="VoteActionButton">
 		<input type="hidden" value="1" name="FeedBackAction"/>
 		<?php endif;?>
 

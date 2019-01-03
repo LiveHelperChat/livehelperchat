@@ -98,7 +98,7 @@
 </table>
 <br>
 
-<input type="submit" class="btn btn-default" value="Next" name="Install">
+<input type="submit" class="btn btn-secondary" value="Next" name="Install">
 <br /><br />
 
 </form>

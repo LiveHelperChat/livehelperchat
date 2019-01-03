@@ -54,7 +54,7 @@ setTimeout(function(){
 
 	<input type="hidden" name="SendMessage" value="1" />
 	<hr>      
-	<input type="submit" class="btn btn-default" name="SendMessage" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send the message');?>" />
+	<input type="submit" class="btn btn-secondary" name="SendMessage" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send the message');?>" />
 
 </form>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>

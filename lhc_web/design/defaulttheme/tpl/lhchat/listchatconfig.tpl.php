@@ -306,6 +306,6 @@
 
   
 <?php if ($currentUser->hasAccessTo('lhchat','administrateconfig')) : ?>
-<input type="submit" class="btn btn-default" name="UpdateConfig" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Update')?>"/>
+<input type="submit" class="btn btn-secondary" name="UpdateConfig" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Update')?>"/>
 <?php endif; ?>
 </form>

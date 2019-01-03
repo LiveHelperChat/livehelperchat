@@ -12,7 +12,7 @@
         <?php include(erLhcoreClassDesign::designtpl('lhspeech/speech_form_fields.tpl.php'));?>
     </div>      
     <div class="columns col-md-12"> 
-          <a class="btn btn-default" onclick="return lhc.methodCall('lhc.speak','setChatLanguageRecognition',{'chat_id':'<?php echo $chat->id?>','lhinst':lhinst})"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save')?></a>
+          <a class="btn btn-secondary" onclick="return lhc.methodCall('lhc.speak','setChatLanguageRecognition',{'chat_id':'<?php echo $chat->id?>','lhinst':lhinst})"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save')?></a>
     </div>
 </div>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>

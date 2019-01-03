@@ -53,7 +53,7 @@
 			     <textarea class="form-control" rows="3" name="question"><?= isset($item_new->question) ?  htmlspecialchars($item_new->question) : null ?></textarea>
               </div>
 
-			  <input type="submit" class="btn btn-default btn-sm" name="sendAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Send your question');?>"/>
+			  <input type="submit" class="btn btn-secondary btn-sm" name="sendAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Send your question');?>"/>
               <br/>
               <br/>
 			  <input type="hidden" value="<?php echo htmlspecialchars($referer);?>" name="url" />

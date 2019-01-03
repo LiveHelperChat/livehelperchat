@@ -162,9 +162,9 @@
     		<?php include(erLhcoreClassDesign::designtpl('lhuser/account/below_account_edit_multiinclude.tpl.php'));?>
 
     		<div class="btn-group" role="group" aria-label="..." <?php if (empty($groupsRequired)) :?>ng-init="accval.validForm=true"<?php endif?> >
-        		<input type="submit" class="btn btn-default" ng-disabled="!accval.validForm" name="Save_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Save');?>"/>
-    		    <input type="submit" class="btn btn-default" ng-disabled="!accval.validForm" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Update');?>"/>
-    		    <input type="submit" class="btn btn-default" name="Cancel_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Cancel');?>"/>
+        		<input type="submit" class="btn btn-secondary" ng-disabled="!accval.validForm" name="Save_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Save');?>"/>
+    		    <input type="submit" class="btn btn-secondary" ng-disabled="!accval.validForm" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Update');?>"/>
+    		    <input type="submit" class="btn btn-secondary" name="Cancel_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Cancel');?>"/>
         	</div>	
 	
 	   </form>
@@ -187,7 +187,7 @@
 		
 		    <?php include(erLhcoreClassDesign::designtpl('lhuser/account/departments_assignment.tpl.php'));?>
 		    
-		    <input type="submit" class="btn btn-default" name="UpdateDepartaments_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Update');?>"/>
+		    <input type="submit" class="btn btn-secondary" name="UpdateDepartaments_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Update');?>"/>
 		</form> 
     </div>
 	
@@ -213,12 +213,12 @@
            <input type="text" class="form-control" name="maximumChats" value="<?php echo $user->max_active_chats?>" />
         </div>
 
-		<input type="submit" class="btn btn-default" name="UpdatePending_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>"/>
+		<input type="submit" class="btn btn-secondary" name="UpdatePending_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>"/>
 	   </form>
     </div>
     <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhpermission','see_permissions_users')) : ?>
     <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_permission') : ?>active<?php endif;?>" id="permission">
-        <input type="button" class="btn btn-default" name="UpdateSpeech_account" onclick="lhinst.showMyPermissions('<?php echo $user->id?>')" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Show permissions');?>" />
+        <input type="button" class="btn btn-secondary" name="UpdateSpeech_account" onclick="lhinst.showMyPermissions('<?php echo $user->id?>')" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Show permissions');?>" />
 		<div id="permissions-summary"></div>		
     </div>
 	<?php endif;?>
@@ -243,7 +243,7 @@
 
             <?php include(erLhcoreClassDesign::designtpl('lhspeech/my_languages.tpl.php'));?>
 
-            <input type="submit" class="btn btn-default" name="UpdateSpeech_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
+            <input type="submit" class="btn btn-secondary" name="UpdateSpeech_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
 
         </form>
     </div>

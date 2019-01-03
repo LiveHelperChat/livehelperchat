@@ -34,7 +34,7 @@
 				<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 				 
 				<div class="btn-group" role="group" aria-label="...">
-					<input type="submit" class="btn btn-default" name="StoreAutologinSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
+					<input type="submit" class="btn btn-secondary" name="StoreAutologinSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 				</div>
 			</div>
             <div role="tabpanel" class="tab-pane" id="autologincustom">
@@ -118,7 +118,7 @@
                 <?php endfor; ?>
 
                 <div class="btn-group" role="group" aria-label="...">
-                    <input type="submit" class="btn btn-default" name="StoreAutologinSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
+                    <input type="submit" class="btn btn-secondary" name="StoreAutologinSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
                 </div>
 
             </div>

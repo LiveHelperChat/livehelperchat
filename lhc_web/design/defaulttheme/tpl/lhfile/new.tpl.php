@@ -27,5 +27,5 @@ setTimeout(function(){
 	   <input type="file" name="files" />
 	</div>
 	
-	<input type="submit" class="btn btn-default" name="UploadFileAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/new','Upload');?>" />
+	<input type="submit" class="btn btn-secondary" name="UploadFileAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/new','Upload');?>" />
 </form>

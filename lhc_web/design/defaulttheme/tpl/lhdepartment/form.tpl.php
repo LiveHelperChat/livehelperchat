@@ -137,7 +137,7 @@
 								</div>
 							</div>
 							<div class="col-4">
-								<a class="btn btn-default btn-block mt25" ng-click="dcpc.add()"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Add');?></a>
+								<a class="btn btn-secondary btn-block mt25" ng-click="dcpc.add()"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Add');?></a>
 							</div>
 						</div>
 						<div class="row">

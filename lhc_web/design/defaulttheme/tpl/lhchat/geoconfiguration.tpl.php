@@ -178,7 +178,7 @@
 					</div>
 				</div>
 				
-				<input type="submit" class="btn btn-default" name="StoreGeoIPConfiguration" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Save'); ?>" />
+				<input type="submit" class="btn btn-secondary" name="StoreGeoIPConfiguration" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Save'); ?>" />
 
 			</form>
 		</div>

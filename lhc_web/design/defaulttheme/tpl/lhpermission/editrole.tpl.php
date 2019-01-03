@@ -13,8 +13,8 @@
 	    </div>
 	      
 	    <div class="btn-group" role="group" aria-label="...">
-			<input type="submit" class="btn btn-default" name="Update_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Update');?>"/>
-		    <input type="submit" class="btn btn-default" name="Cancel_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Cancel');?>"/>
+			<input type="submit" class="btn btn-secondary" name="Update_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Update');?>"/>
+		    <input type="submit" class="btn btn-secondary" name="Cancel_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Cancel');?>"/>
 		</div>
 			
 	    <hr>
@@ -39,8 +39,8 @@
 		</table>
 		
 		<div class="btn-group" role="group" aria-label="...">
-			 <input type="submit" class="btn btn-default" name="Delete_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Remove selected policy');?>"/>
-		     <input type="submit" class="btn btn-default" name="New_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','New policy');?>" />
+			 <input type="submit" class="btn btn-secondary" name="Delete_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Remove selected policy');?>"/>
+		     <input type="submit" class="btn btn-secondary" name="New_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','New policy');?>" />
 		</div>
 		
 	</form>
@@ -65,8 +65,8 @@
 	     <?php endforeach; ?>
 	</table>
 	<div class="btn-group" role="group" aria-label="...">
-        <input type="submit" class="btn btn-default" name="Remove_group_from_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Remove selected role');?>"/>
-	    <input type="button" class="btn btn-default" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('permission/roleassigngroup')?>/<?php echo $role->id?>'});" name="Assign_group_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Assign a group');?>"/>
+        <input type="submit" class="btn btn-secondary" name="Remove_group_from_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Remove selected role');?>"/>
+	    <input type="button" class="btn btn-secondary" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('permission/roleassigngroup')?>/<?php echo $role->id?>'});" name="Assign_group_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Assign a group');?>"/>
 	</div>
 </form>
 

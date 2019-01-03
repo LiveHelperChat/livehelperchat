@@ -80,7 +80,7 @@
         </div>
     </div>
 
-    <input type="submit" class="btn btn-default" name="StoreFileConfiguration" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
+    <input type="submit" class="btn btn-secondary" name="StoreFileConfiguration" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 
 </form>
 

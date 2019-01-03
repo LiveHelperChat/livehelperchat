@@ -17,7 +17,7 @@
         </div>
         
         <br/>
-        <input type="submit" value="Request user" class="btn btn-default" onclick="lhinst.chooseSurvey('<?php echo $chat->id;?>')" />
+        <input type="submit" value="Request user" class="btn btn-secondary" onclick="lhinst.chooseSurvey('<?php echo $chat->id;?>')" />
 	</div>
 	<div role="tabpanel" class="tab-pane" id="collected-<?php echo $chat->id?>">
 	   <?php include(erLhcoreClassDesign::designtpl('lhsurvey/forms/fields_names.tpl.php'));?>

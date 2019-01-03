@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-<?php isset($optinsPanel['userid']) ? print 6 : print 10?>">
 			<div class="btn-group btn-block btn-block-department">
-				<button type="button" class="btn btn-default btn-block btn-sm dropdown-toggle btn-department-dropdown" data-toggle="dropdown" aria-expanded="false">
+				<button type="button" class="btn btn-secondary btn-block btn-sm dropdown-toggle btn-department-dropdown" data-toggle="dropdown" aria-expanded="false">
 					{{lhc.<?php echo $optinsPanel['panelid']?>.length == 0 ? "<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','All departments');?>" : lhc.<?php echo $optinsPanel['panelid']?>Names.join(", ")}} <span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu" role="menu">
@@ -27,7 +27,7 @@
 		<?php if (isset($optinsPanel['userid'])) : ?>
 		<div class="col-4">
             <div class="btn-group btn-block btn-block-department">
-                <button type="button" class="btn btn-default btn-block btn-sm dropdown-toggle btn-department-dropdown" data-toggle="dropdown" aria-expanded="false">
+                <button type="button" class="btn btn-secondary btn-block btn-sm dropdown-toggle btn-department-dropdown" data-toggle="dropdown" aria-expanded="false">
                     <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Users')?> <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu dropdown-lhc" role="menu">

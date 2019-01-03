@@ -9,7 +9,7 @@
             <?php $attribute = 'product_show_departament'; $boolValue = true; ?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
             
-            <input type="submit" class="btn btn-default" name="UpdateProductModule" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
+            <input type="submit" class="btn btn-secondary" name="UpdateProductModule" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
         </div>
         <div class="col-6">
             <ul>

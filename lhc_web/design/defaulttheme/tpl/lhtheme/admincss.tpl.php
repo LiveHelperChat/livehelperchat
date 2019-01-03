@@ -157,7 +157,7 @@ a {
 <?php endif; ?>
 
 <?php if (isset($cssAttributes['btnd_clr']) || isset($cssAttributes['btnd_bc']) || isset($cssAttributes['btnd_boc'])) : ?>
-.btn-default {
+.btn-secondary {
     <?php if (isset($cssAttributes['btnd_clr'])) : ?>color: #<?php echo $cssAttributes['btnd_clr']?>;<?php endif;?>
     <?php if (isset($cssAttributes['btnd_bc'])) : ?>background-color: #<?php echo $cssAttributes['btnd_bc']?>;<?php endif;?>
     <?php if (isset($cssAttributes['btnd_boc'])) : ?>border-color: #<?php echo $cssAttributes['btnd_boc']?>;<?php endif;?>
@@ -165,7 +165,7 @@ a {
 <?php endif; ?>
 
 <?php if (isset($cssAttributes['btnda_clr']) || isset($cssAttributes['btnda_bc']) || isset($cssAttributes['btnda_boc'])) : ?>
-.btn-default:hover,.btn-default.active.focus,.btn-default.active:focus,.btn-default.active:hover,.btn-default:active.focus,.btn-default:active:focus,.btn-default:active:hover{
+.btn-secondary:hover,.btn-secondary.active.focus,.btn-secondary.active:focus,.btn-secondary.active:hover,.btn-secondary:active.focus,.btn-secondary:active:focus,.btn-secondary:active:hover{
     <?php if (isset($cssAttributes['btnda_clr'])) : ?>color: #<?php echo $cssAttributes['btnda_clr']?>;<?php endif;?>
     <?php if (isset($cssAttributes['btnda_bc'])) : ?>background-color: #<?php echo $cssAttributes['btnda_bc']?>;<?php endif;?>
     <?php if (isset($cssAttributes['btnda_boc'])) : ?>border-color: #<?php echo $cssAttributes['btnda_boc']?>;<?php endif;?>

@@ -121,7 +121,7 @@
 	        				
 			<div class="btn-group" role="group" aria-label="...">
 				<input type="submit" name="Update" class="btn btn-primary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>"> 
-				<a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl()?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Return');?></a>
+				<a class="btn btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl()?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Return');?></a>
 			</div>
 
 		</form>
@@ -138,7 +138,7 @@
     	<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>#departments" method="post" enctype="multipart/form-data">
             <?php include(erLhcoreClassDesign::designtpl('lhuser/account/departments_assignment.tpl.php'));?>
             
-            <input type="submit" class="btn btn-default" name="UpdateDepartaments_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
+            <input type="submit" class="btn btn-secondary" name="UpdateDepartaments_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
             
 		</form>
     	<?php } else {?>
@@ -169,7 +169,7 @@
             <label><input type="checkbox" name="mychatsTabEnabled" value="1" <?php erLhcoreClassModelUserSetting::getSetting('enable_mchats_list',0) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','My pending and active chats list enabled');?></label><br>
 			<label><input type="checkbox" name="botchatsTabEnabled" value="1" <?php erLhcoreClassModelUserSetting::getSetting('enable_bot_list',0) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Bot chats list enabled');?></label><br>
 
-			<input type="submit" class="btn btn-default" name="UpdateTabsSettings_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
+			<input type="submit" class="btn btn-secondary" name="UpdateTabsSettings_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
 		</form>
 	</div>
     <?php endif; ?>
@@ -209,7 +209,7 @@
                 <input type="text" class="form-control" name="maximumChats" value="<?php echo $user->max_active_chats?>" />
             </div>
 
-			<input type="submit" class="btn btn-default" name="UpdatePending_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
+			<input type="submit" class="btn btn-secondary" name="UpdatePending_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
 
 		</form>
 
@@ -233,7 +233,7 @@
 
 		<?php include(erLhcoreClassDesign::designtpl('lhspeech/my_languages.tpl.php'));?>
 
-		<input type="submit" class="btn btn-default" name="UpdateSpeech_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
+		<input type="submit" class="btn btn-secondary" name="UpdateSpeech_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
 
 		</form>
 	</div>
@@ -241,7 +241,7 @@
   
     <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhpermission','see_permissions')) : ?>
     <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_permission') : ?>active<?php endif;?>" id="permission">
-        <input type="button" class="btn btn-default" name="UpdateSpeech_account" onclick="lhinst.showMyPermissions('<?php echo $user->id?>')" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Show permissions');?>" />
+        <input type="button" class="btn btn-secondary" name="UpdateSpeech_account" onclick="lhinst.showMyPermissions('<?php echo $user->id?>')" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Show permissions');?>" />
 		<div id="permissions-summary"></div>		
     </div>
 	<?php endif;?>

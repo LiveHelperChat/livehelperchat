@@ -360,9 +360,9 @@
     <div class="row">
         <div class="col-2">
             <div class="btn-group" role="group" aria-label="...">
-                <input type="submit" name="doSearch" class="btn btn-default btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
+                <input type="submit" name="doSearch" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
                 <?php if ($pages->items_total > 0) : ?>
-                    <a target="_blank" class="btn btn-default btn-sm" href="<?php echo $pages->serverURL?>/(print)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Print');?></a>
+                    <a target="_blank" class="btn btn-secondary btn-sm" href="<?php echo $pages->serverURL?>/(print)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Print');?></a>
                 <?php endif; ?>
             </div>
         </div>
@@ -377,7 +377,7 @@
             </div>
         </div>
         <div class="col-2">
-            <button onclick="window.open($('#export-type').val())" class="btn btn-default btn-sm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export')?></button>
+            <button onclick="window.open($('#export-type').val())" class="btn btn-secondary btn-sm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export')?></button>
         </div>
     </div>
 	

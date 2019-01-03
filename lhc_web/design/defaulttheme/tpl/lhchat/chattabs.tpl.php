@@ -32,28 +32,28 @@ $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_lis
 	    <?php if ($pendingTabEnabled == true) : ?>
 		<div role="tabpanel" class="tab-pane active" id="panel1">
 		      <div id="pending-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_pending_list.tpl.php'));?></div>
-			  <a class="btn btn-default btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(chat_status)/0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All pending chats');?></a>
+			  <a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(chat_status)/0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All pending chats');?></a>
 		</div>
 		<?php endif;?>
 		
 		<?php if ($activeTabEnabled == true) : ?>
 		<div role="tabpanel" class="tab-pane" id="panel2">
 		     <div id="active-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_active_list.tpl.php'));?></div>
-			 <a class="btn btn-default btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(chat_status)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All active chats');?></a>
+			 <a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(chat_status)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All active chats');?></a>
 		</div>
 		<?php endif;?>
 		
 		<?php if ($unreadTabEnabled == true) : ?>
 		<div role="tabpanel" class="tab-pane" id="panel3">
 		     <div id="unread-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_unread_list.tpl.php'));?></div>
-			 <a class="btn btn-default btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(hum)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All unread chats');?></a>
+			 <a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(hum)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All unread chats');?></a>
 		</div>
 		<?php endif;?>
 		
 		<?php if ($closedTabEnabled == true) : ?>
 		<div role="tabpanel" class="tab-pane" id="panel4">
 		     <div id="closed-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_closed_list.tpl.php'));?></div>
-			 <a class="btn btn-default btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(chat_status)/2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All closed chats');?></a>
+			 <a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(chat_status)/2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All closed chats');?></a>
 		</div>
 		<?php endif;?>
 	</div>

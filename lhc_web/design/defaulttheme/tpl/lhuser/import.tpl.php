@@ -101,6 +101,6 @@
             <?php endforeach; ?>
         </div>
 
-        <input type="submit" class="btn btn-default" name="ImportAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/import','Import');?>"/>
+        <input type="submit" class="btn btn-secondary" name="ImportAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/import','Import');?>"/>
     </form>
 </div>

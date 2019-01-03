@@ -4,7 +4,7 @@
 
 <?php if ($hasExtraField === true) : ?>
 <div class="btn-group" role="group" aria-label="...">
-<input type="submit" name="askQuestionAction" id="idaskQuestionAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send');?>" class="btn btn-default btn-sm"/>
+<input type="submit" name="askQuestionAction" id="idaskQuestionAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send');?>" class="btn btn-secondary btn-sm"/>
 <?php endif;?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/readoperatormessage_button_multiinclude.tpl.php'));?>

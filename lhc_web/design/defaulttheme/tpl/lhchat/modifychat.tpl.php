@@ -39,7 +39,7 @@ setTimeout(function() {
 
             <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-            <input type="submit" class="btn btn-default" name="UpdateChat" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Update chat');?>" />
+            <input type="submit" class="btn btn-secondary" name="UpdateChat" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Update chat');?>" />
         </form>
     </div>
     <div role="tabpanel" class="tab-pane" id="mainchatcore">
@@ -62,7 +62,7 @@ setTimeout(function() {
 
             <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-             <input type="submit" class="btn btn-default" name="UpdateChatCore" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Update chat');?>" />
+             <input type="submit" class="btn btn-secondary" name="UpdateChatCore" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Update chat');?>" />
         </form>
     </div>
 </div>

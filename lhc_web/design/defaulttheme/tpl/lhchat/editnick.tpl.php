@@ -36,8 +36,8 @@ setTimeout(function(){
 	</div>
 
 	<div class="btn-group" role="group" aria-label="...">
-		<input type="submit" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save')?>" class="btn btn-default btn-sm">
-		<input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel')?>" class="btn btn-default btn-sm" onclick="$('#myModal').modal('hide')">
+		<input type="submit" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save')?>" class="btn btn-secondary btn-sm">
+		<input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel')?>" class="btn btn-secondary btn-sm" onclick="$('#myModal').modal('hide')">
 	</div>
 
 </form>

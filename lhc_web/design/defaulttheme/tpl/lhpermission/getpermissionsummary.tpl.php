@@ -38,4 +38,4 @@
 		lhc.revealModal({'iframe':true,'height':400,'url':'<?php echo erLhcoreClassDesign::baseurl('permission/request')?>/'+checked.join(',')})
 	}
 }</script>
-<input type="button" class="btn btn-default" name="requestPermission" onclick="return getSelectedPermissions();" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/getpermissionssummary','Request permission')?>">
+<input type="button" class="btn btn-secondary" name="requestPermission" onclick="return getSelectedPermissions();" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/getpermissionssummary','Request permission')?>">

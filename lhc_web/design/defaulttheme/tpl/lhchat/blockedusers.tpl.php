@@ -15,7 +15,7 @@
 		<input type="text" class="form-control" name="IPToBlock" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','IP');?>" />
 	</div>	
 	<div class="col-8">
-		<input type="submit" class="btn btn-default" name="AddBlock" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>" />
+		<input type="submit" class="btn btn-secondary" name="AddBlock" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>" />
 	</div>
 </div>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>

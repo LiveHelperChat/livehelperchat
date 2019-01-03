@@ -16,7 +16,7 @@
 	   <input type="file" name="themefile" value="" />
 	</div>
 	
-	<input type="submit" name="ImportTheme" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('theme/import','Import')?>" />
+	<input type="submit" name="ImportTheme" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('theme/import','Import')?>" />
 	
 </form>
 	

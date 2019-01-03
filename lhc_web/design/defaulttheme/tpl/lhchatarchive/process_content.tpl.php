@@ -21,14 +21,14 @@
 		</div>
 
         <?php if ($archive->potential_chats_count > 0) : ?>
-		    <input type="submit" onclick="chatArchive.startArchive();" class="btn btn-default radius success right" name="Start_archive_progress" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Start archiving');?>"/>
+		    <input type="submit" onclick="chatArchive.startArchive();" class="btn btn-secondary radius success right" name="Start_archive_progress" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Start archiving');?>"/>
         <?php endif; ?>
 
 		<div class="btn-group" role="group" aria-label="...">
 		  <?php if ($archive->id > 0) : ?>
-		  <a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/edit')?>/<?php echo $archive->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit')?></a>
+		  <a class="btn btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/edit')?>/<?php echo $archive->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit')?></a>
 		  <?php endif;?>
-		  <a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/list')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel')?></a>
+		  <a class="btn btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/list')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel')?></a>
 		</div>
 
 	</div>

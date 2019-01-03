@@ -135,14 +135,14 @@
 						
 		<?php include(erLhcoreClassDesign::designtpl('lhuser/account/below_new_account_multiinclude.tpl.php'));?>
 		
-		<input <?php if (empty($groupsRequired)) :?>ng-init="accval.validForm=true"<?php endif?> type="submit" class="btn btn-default" ng-disabled="!accval.validForm" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Save');?>" />
+		<input <?php if (empty($groupsRequired)) :?>ng-init="accval.validForm=true"<?php endif?> type="submit" class="btn btn-secondary" ng-disabled="!accval.validForm" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Save');?>" />
 	</div>
 	
 	<div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_departments') : ?>active<?php endif;?>" id="departments">
 	    
 	    <?php include(erLhcoreClassDesign::designtpl('lhuser/account/departments_assignment.tpl.php'));?>
 	    		
-		<input type="submit" class="btn btn-default" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Save');?>" />
+		<input type="submit" class="btn btn-secondary" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Save');?>" />
 	</div>
 	
 	<div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_pending') : ?>active<?php endif;?>" id="pending">
@@ -159,7 +159,7 @@
             <input type="text" class="form-control" name="maximumChats" value="<?php echo $user->max_active_chats?>" />
         </div>
 
- 		<input type="submit" class="btn btn-default" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Save');?>" />
+ 		<input type="submit" class="btn btn-secondary" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Save');?>" />
 	</div>
 	
 	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs_content/custom_multiinclude_tab.tpl.php'));?>

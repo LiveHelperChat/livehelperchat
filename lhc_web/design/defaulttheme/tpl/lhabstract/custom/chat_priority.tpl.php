@@ -15,7 +15,7 @@
     <textarea class="hide" name="AbstractInput_value">{{pchat.value | json : 0}}</textarea>
 
     <div class="form-group">
-        <input type="button" ng-click="pchat.addFilter()" class="btn btn-default" value="Add condition">
+        <input type="button" ng-click="pchat.addFilter()" class="btn btn-secondary" value="Add condition">
     </div>
 
     <div class="row" ng-show="pchat.value.length > 0">
@@ -66,7 +66,7 @@
 </div>
 
 <div class="btn-group" role="group" aria-label="...">
-    <input type="submit" class="btn btn-default" name="SaveClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
-    <input type="submit" class="btn btn-default" name="UpdateClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
-    <input type="submit" class="btn btn-default" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
+    <input type="submit" class="btn btn-secondary" name="SaveClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
+    <input type="submit" class="btn btn-secondary" name="UpdateClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
+    <input type="submit" class="btn btn-secondary" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
 </div>

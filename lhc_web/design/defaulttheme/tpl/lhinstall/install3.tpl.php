@@ -39,7 +39,7 @@
     </tr>
 </table>
 <br>
-<input type="submit" class="btn btn-default" value="Finish installation" name="Install">
+<input type="submit" class="btn btn-secondary" value="Finish installation" name="Install">
 <br /><br />
 
 </form>

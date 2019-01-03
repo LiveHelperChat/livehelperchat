@@ -42,8 +42,8 @@ $titleOptions = array (
 	    			<label><?php echo erLhcoreClassAbstract::renderInput($sortOption['field'] . '_enabled', $fields[$sortOption['field'] . '_enabled'], $object)?> <?php echo $titleOptions[$sortOption['type']]?></label>
 
 	        	    <div class="btn-group pull-right" role="group" aria-label="...">
-						<button type="button" class="btn btn-default btn-xs" onclick="adminSurvey.moveUp('<?php echo $sortOption['field']?>')"><i class="material-icons">trending_up</i></button>
-						<button type="button" class="btn btn-default btn-xs" onclick="adminSurvey.moveDown('<?php echo $sortOption['field']?>')"><i class="material-icons">trending_down</i></button>
+						<button type="button" class="btn btn-secondary btn-xs" onclick="adminSurvey.moveUp('<?php echo $sortOption['field']?>')"><i class="material-icons">trending_up</i></button>
+						<button type="button" class="btn btn-secondary btn-xs" onclick="adminSurvey.moveDown('<?php echo $sortOption['field']?>')"><i class="material-icons">trending_down</i></button>
 				    </div>
 
 	        		<?php if ($sortOption['type'] == 'stars') : ?>
@@ -84,7 +84,7 @@ $titleOptions = array (
 	            				        <?php echo erLhcoreClassAbstract::renderInput($sortOption['field'], $fields[$sortOption['field']], $object)?>
 	            					</div>
 	                    			<div class="col-4">
-	                    			    <input type="button" class="btn btn-default btn-block" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/form','Add option')?>" onclick="adminSurvey.addOptionAnswer('<?php echo $sortOption['field']?>')"/>
+	                    			    <input type="button" class="btn btn-secondary btn-block" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/form','Add option')?>" onclick="adminSurvey.addOptionAnswer('<?php echo $sortOption['field']?>')"/>
 	                    			</div>
 	                			</div>
 	            			</div>
@@ -102,7 +102,7 @@ $titleOptions = array (
 </div>
 
 <div class="btn-group" role="group" aria-label="...">
-	<input type="submit" class="btn btn-default" name="SaveClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
-	<input type="submit" class="btn btn-default" name="UpdateClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
-	<input type="submit" class="btn btn-default" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
+	<input type="submit" class="btn btn-secondary" name="SaveClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
+	<input type="submit" class="btn btn-secondary" name="UpdateClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
+	<input type="submit" class="btn btn-secondary" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
 </div>

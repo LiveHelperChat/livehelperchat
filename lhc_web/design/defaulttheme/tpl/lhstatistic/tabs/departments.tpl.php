@@ -151,10 +151,10 @@
     </div>
 
     <div class="btn-group" role="group" aria-label="...">
-        <input type="submit" name="doSearch" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
+        <input type="submit" name="doSearch" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
 
         <?php if (!empty($departmentstats)) : ?>
-            <a href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(xls)/1/(tab)/departments<?php echo $input_append?>" class="btn btn-default">XLS</a>
+            <a href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(xls)/1/(tab)/departments<?php echo $input_append?>" class="btn btn-secondary">XLS</a>
         <?php endif; ?>
     </div>
 

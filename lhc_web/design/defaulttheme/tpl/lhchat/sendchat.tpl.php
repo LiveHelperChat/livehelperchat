@@ -4,8 +4,8 @@
 			<input class="form-control form-group" type="text" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendchat','Enter your e-mail')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendchat','Enter your e-mail')?>" name="UserEmail" value="<?php echo htmlspecialchars($chat->email)?>" />
 			
 			<div class="btn-group" role="group" aria-label="...">
-				<input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Send')?>" class="btn btn-default btn-xs" onclick="lhinst.sendemail()">
-				<input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel')?>" class="btn btn-default btn-xs" onclick="$('#myModal').modal('hide')">
+				<input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Send')?>" class="btn btn-secondary btn-xs" onclick="lhinst.sendemail()">
+				<input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel')?>" class="btn btn-secondary btn-xs" onclick="$('#myModal').modal('hide')">
 			</div>
 	</form>
 </div>

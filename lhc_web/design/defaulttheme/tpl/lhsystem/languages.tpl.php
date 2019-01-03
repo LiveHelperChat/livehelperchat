@@ -39,7 +39,7 @@
     				</div>
     				
     				<input type="hidden" name="StoreUserSettings" value="1" /> 
-    				<input type="submit" class="btn btn-default" name="StoreUserSettingsAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
+    				<input type="submit" class="btn btn-secondary" name="StoreUserSettingsAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 			</form>
 		</div>
 	  <?php endif;?>
@@ -96,7 +96,7 @@
 						</div>
 					</div>
 				
-				<input type="hidden" name="StoreLanguageSettings" value="1" /> <input type="submit" class="btn btn-default" name="StoreLanguageSettingsAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
+				<input type="hidden" name="StoreLanguageSettings" value="1" /> <input type="submit" class="btn btn-secondary" name="StoreLanguageSettingsAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 
 			</form>
 

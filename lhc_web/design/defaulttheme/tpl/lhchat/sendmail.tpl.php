@@ -49,8 +49,8 @@ setTimeout(function(){
     <textarea class="form-control form-group" name="Message" id="MailMessage" style="height:100px" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Type your message to the user');?>"><?php echo isset($_POST['Message']) ? htmlspecialchars($_POST['Message']) : ''?></textarea>
     
     <div class="btn-group" role="group" aria-label="...">
-        <input type="submit" class="btn btn-default" name="SendMail" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Send the mail');?>" />
-        <input type="button" class="btn btn-default" onclick="return lhc.revealModal({'iframe':true,'height':350,'url':WWW_DIR_JAVASCRIPT +'file/attatchfilemail'})" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Embed link to file');?>" />
+        <input type="submit" class="btn btn-secondary" name="SendMail" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Send the mail');?>" />
+        <input type="button" class="btn btn-secondary" onclick="return lhc.revealModal({'iframe':true,'height':350,'url':WWW_DIR_JAVASCRIPT +'file/attatchfilemail'})" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Embed link to file');?>" />
     </div>
 
 </form>
