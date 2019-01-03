@@ -39,7 +39,7 @@
 		</div>
 		<?php endif; ?>
 		<div class="col-2">
-			<select class="form-control input-sm" ng-model="lhc.<?php echo $optinsPanel['limitid']?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Number of elements in list');?>">
+			<select class="form-control form-control-sm" ng-model="lhc.<?php echo $optinsPanel['limitid']?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Number of elements in list');?>">
 				<option value="5">5</option>
 				<option value="10">10</option>
 				<option value="25">25</option>

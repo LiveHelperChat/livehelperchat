@@ -5,10 +5,10 @@
 			<label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Resource name for replacement');?></label>
 			<div class="row">
 				<div class="col-6">
-					<input class="form-control input-sm" type="text" ng-model="field.name" value="" name="<?php echo $paramsResourceRepeat['scope']?>_name[{{field.hash}}]" />
+					<input class="form-control form-control-sm" type="text" ng-model="field.name" value="" name="<?php echo $paramsResourceRepeat['scope']?>_name[{{field.hash}}]" />
 				</div>
 				<div class="col-6">
-					<input type="file" class="form-control input-sm" name="<?php echo $paramsResourceRepeat['scope']?>_file_{{field.hash}}" />
+					<input type="file" class="form-control form-control-sm" name="<?php echo $paramsResourceRepeat['scope']?>_file_{{field.hash}}" />
 				</div>
 			</div>
 		</div>
@@ -30,10 +30,10 @@
 			<label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Resource name for replacement');?></label>
 			<div class="row">
 				<div class="col-6">
-					<input class="form-control input-sm" type="text" ng-model="field.name" value="" name="<?php echo $paramsResourceRepeat['scope']?>_name[{{field.hash}}]" />
+					<input class="form-control form-control-sm" type="text" ng-model="field.name" value="" name="<?php echo $paramsResourceRepeat['scope']?>_name[{{field.hash}}]" />
 				</div>
 				<div class="col-6">
-					<input type="file" class="form-control input-sm" name="<?php echo $paramsResourceRepeat['scope']?>_file_{{field.hash}}" />
+					<input type="file" class="form-control form-control-sm" name="<?php echo $paramsResourceRepeat['scope']?>_file_{{field.hash}}" />
 				</div>
 			</div>
 		</div>

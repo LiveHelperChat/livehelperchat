@@ -19,7 +19,7 @@
                                 'input_name'     => 'event_variable[]',
                 				'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select event'),
                                 'selected_id'    => "",
-                	            'css_class'      => 'form-control input-sm',
+                	            'css_class'      => 'form-control form-control-sm',
                 	            'display_name'   => 'name',
                                 'ng-model'       => 'event.event_type',
                                 'list_function'  => 'erLhAbstractModelProactiveChatVariables::getList'
@@ -29,13 +29,13 @@
                 <div class="col-3">
                     <div class="form-group">
                         <label>Min number of times.</label>
-                        <input type="text" class="form-control input-sm" name="min_number[]" value="" ng-model="event.min_number" />
+                        <input type="text" class="form-control form-control-sm" name="min_number[]" value="" ng-model="event.min_number" />
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="form-group">
                         <label>During last N seconds.</label>
-                        <input type="text" class="form-control input-sm" name="during_seconds[]" value="" ng-model="event.during_seconds" />
+                        <input type="text" class="form-control form-control-sm" name="during_seconds[]" value="" ng-model="event.during_seconds" />
                     </div>
                 </div>
                 <div class="col-2">

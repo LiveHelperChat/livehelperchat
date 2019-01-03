@@ -9,7 +9,7 @@
            <div class="row">
 
                <div class="col-sm-3 form-group col-6 pl5 pr5">
-                    <input class="form-control input-sm" ng-model="query" type="text" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search')?>">
+                    <input class="form-control form-control-sm" ng-model="query" type="text" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search')?>">
                </div>
 
                 <div class="col-sm-3 form-group col-6 pl5 pr5">
@@ -17,7 +17,7 @@
                         'input_name'     => 'department_id',
                         'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select department'),
                         'selected_id'    => 0,
-                        'css_class'      => 'form-control input-sm',
+                        'css_class'      => 'form-control form-control-sm',
                         'ng-model'		 => 'online.department',
                         'list_function'  => 'erLhcoreClassModelDepartament::getList',
                         'list_function_params' => $departmentParams

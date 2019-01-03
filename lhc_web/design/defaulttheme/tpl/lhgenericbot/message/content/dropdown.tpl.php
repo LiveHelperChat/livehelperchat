@@ -5,7 +5,7 @@
                 'input_name'     => 'generic_list-' . $messageId,
                 'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Please choose'),
                 'selected_id'    => (isset($metaMessage['provider_default']) ? $metaMessage['provider_default'] : 0),
-                'css_class'      => 'form-control input-sm',
+                'css_class'      => 'form-control form-control-sm',
                 'attr_id'        => $metaMessage['provider_id'],
                 'display_name'   => $metaMessage['provider_name'],
                 'list_function'  => $metaMessage['provider_dropdown'],
