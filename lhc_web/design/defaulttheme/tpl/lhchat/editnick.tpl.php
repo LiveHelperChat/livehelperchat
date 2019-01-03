@@ -23,15 +23,15 @@ setTimeout(function(){
 <?php else  : ?>
 <form action="<?php echo erLhcoreClassDesign::baseurl('chat/editnick')?>/<?php echo $chat->id,'/',$chat->hash?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
 	<div class="form-group">
-		<label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?></label> <input maxlength="50" type="text" name="UserNick" class="form-control form-control-sm" value="<?php echo htmlspecialchars($chat->nick)?>" />
+		<label class="col-form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?></label> <input maxlength="50" type="text" name="UserNick" class="form-control form-control-sm" value="<?php echo htmlspecialchars($chat->nick)?>" />
 	</div>
 
 	<div class="row form-group">
 		<div class="col-6 pr5">
-			<label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?></label> <input type="text" name="Email" class="form-control form-control-sm" value="<?php echo htmlspecialchars($chat->email)?>" />
+			<label class="col-form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?></label> <input type="text" name="Email" class="form-control form-control-sm" value="<?php echo htmlspecialchars($chat->email)?>" />
 		</div>
 		<div class="col-6 pl5">
-			<label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone');?></label> <input type="text" maxlength="50" name="UserPhone" class="form-control form-control-sm" value="<?php echo htmlspecialchars($chat->phone)?>" />
+			<label class="col-form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone');?></label> <input type="text" maxlength="50" name="UserPhone" class="form-control form-control-sm" value="<?php echo htmlspecialchars($chat->phone)?>" />
 		</div>
 	</div>
 
