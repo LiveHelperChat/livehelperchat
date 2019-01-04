@@ -339,6 +339,12 @@
                 )); ?>
             </div>
         </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','IP');?></label>
+                <input type="text" class="form-control input-sm" name="ip" value="<?php echo htmlspecialchars($input->ip)?>" />
+            </div>
+        </div>
 		<div class="col-md-2">
     		<div class="form-group">
         	   <label class="control-label"><input type="checkbox" name="hum" <?php $input->hum == 1 ? print ' checked="checked" ' : ''?> value="on" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Has unread messages')?></label>

@@ -26,6 +26,18 @@ $fieldsSearch['nick'] = array (
     )
 );
 
+$fieldsSearch['ip'] = array (
+    'type' => 'text',
+    'trans' => 'Nick',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'ip',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+    )
+);
+
 $fieldsSearch['chat_id'] = array (
     'type' => 'text',
     'trans' => 'id',
