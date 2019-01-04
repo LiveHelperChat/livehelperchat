@@ -2,7 +2,7 @@
 	<div class="form-group" id="action-block-row-<?php echo $chat->id?>">
 		<div class="send-row<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?> hide<?php endif;?>">
 		
-		<div class="btn-group btn-group-justified">
+		<div class="btn-group d-flex">
 			
 			<?php include(erLhcoreClassDesign::designtpl('lhchat/part/send_message_button.tpl.php')); ?>
 			
