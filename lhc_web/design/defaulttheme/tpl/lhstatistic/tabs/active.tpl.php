@@ -223,7 +223,7 @@
 	function drawChart() {
 	  <?php if (!empty($userStats['thumbsup'])) : ?>
         var barChartData = {
-            labels: [<?php foreach ($userStats['thumbsup'] as $key => $data) : echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars(erLhcoreClassModelUser::fetch($data['user_id'],true)->name_official,ENT_QUOTES).'\''; endforeach;?>],
+            labels: [<?php foreach ($userStats['thumbsup'] as $key => $data) : $nameUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars((is_object($nameUser) ? $nameUser->name_official : '-'),ENT_QUOTES).'\''; endforeach;?>],
             datasets: [{
                 label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Thumbs up')?>',
                 backgroundColor: '#109618',

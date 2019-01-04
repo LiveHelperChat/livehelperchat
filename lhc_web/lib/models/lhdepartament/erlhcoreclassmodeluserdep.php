@@ -116,6 +116,19 @@ class erLhcoreClassModelUserDep
 
         $filter = array_merge_recursive($filter, $params);
 
+        $filter['ignore_fields'] = array('id','dep_id','hide_online_ts','hide_online','last_activity','last_accepted','active_chats','pending_chats','inactive_chats');
+
+        $filter['select_columns'] = '
+        max(`id`) as `id`, 
+        max(`dep_id`) as `dep_id`,
+        max(`hide_online_ts`) as `hide_online_ts`,
+        max(`hide_online`) as `hide_online`,
+        max(`last_activity`) as `last_activity`, 
+        max(`last_accepted`) as `last_accepted`,
+        max(`active_chats`) as `active_chats`,
+        max(`pending_chats`) as `pending_chats`,
+        max(`inactive_chats`) as `inactive_chats`';
+
         return self::getList($filter);
     }
 

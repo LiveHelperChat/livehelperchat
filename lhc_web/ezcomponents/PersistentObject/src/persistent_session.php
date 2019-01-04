@@ -733,11 +733,16 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
     public function getColumnsFromDefinition( ezcPersistentObjectDefinition $def, $prefixTableName = true, $ignoreColumns = array() )
     {
         $hasIgnoreColumns = !empty($ignoreColumns);
-        
+
         $columns = array();
-        $columns[] = ( $prefixTableName 
-            ? $this->database->quoteIdentifier( $def->table ) . '.' . $this->database->quoteIdentifier( $def->idProperty->columnName )
-            : $this->database->quoteIdentifier( $def->idProperty->columnName ) );
+
+        if (!in_array($def->idProperty->columnName,$ignoreColumns))
+        {
+            $columns[] = ( $prefixTableName
+                ? $this->database->quoteIdentifier( $def->table ) . '.' . $this->database->quoteIdentifier( $def->idProperty->columnName )
+                : $this->database->quoteIdentifier( $def->idProperty->columnName ) );
+        }
+
         foreach ( $def->properties as $property )
         {
             if ( $hasIgnoreColumns === false || !in_array( $property->columnName, $ignoreColumns ) ) 
@@ -747,6 +752,7 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
                     : $this->database->quoteIdentifier( $property->columnName ) );
             }
         }
+
         return $columns;
     }
 
