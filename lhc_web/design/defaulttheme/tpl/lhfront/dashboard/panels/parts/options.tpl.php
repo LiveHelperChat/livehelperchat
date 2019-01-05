@@ -3,7 +3,7 @@
 		<div class="col-<?php isset($optinsPanel['userid']) ? print 6 : print 10?>">
 			<div class="btn-group btn-block btn-block-department">
 				<button type="button" class="btn btn-secondary btn-block btn-sm dropdown-toggle btn-department-dropdown" data-toggle="dropdown" aria-expanded="false">
-					{{lhc.<?php echo $optinsPanel['panelid']?>.length == 0 ? "<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','All departments');?>" : lhc.<?php echo $optinsPanel['panelid']?>Names.join(", ")}} <span class="caret"></span>
+					{{lhc.<?php echo $optinsPanel['panelid']?>.length == 0 ? "<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','All departments');?>" : lhc.<?php echo $optinsPanel['panelid']?>Names.join(", ")}}
 				</button>
 				<ul class="dropdown-menu" role="menu">
 				    <li><label><input type="checkbox" ng-change="lhc.allDepartmentsChanged('<?php echo $optinsPanel['panelid']?>',true)" ng-model="lhc.<?php echo $optinsPanel['panelid']?>_all_departments"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Check all')?></label></li>
@@ -28,7 +28,7 @@
 		<div class="col-4">
             <div class="btn-group btn-block btn-block-department">
                 <button type="button" class="btn btn-secondary btn-block btn-sm dropdown-toggle btn-department-dropdown" data-toggle="dropdown" aria-expanded="false">
-                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Users')?> <span class="caret"></span>
+                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Users')?>
                 </button>
                 <ul class="dropdown-menu dropdown-lhc" role="menu">
                     <li ng-repeat="userGroup in lhc.userGroups" data-stopPropagation="true"><label><input type="checkbox" checklist-model="lhc.<?php echo $optinsPanel['panelid']?>_ugroups" checklist-change="lhc.productChanged('<?php echo $optinsPanel['panelid']?>_ugroups')" checklist-value="userGroup.id"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','User group')?>" class="material-icons">people</i>{{userGroup.name}}</label></li>

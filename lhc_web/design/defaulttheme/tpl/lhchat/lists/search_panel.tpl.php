@@ -342,7 +342,7 @@
         <div class="col-md-2">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','IP');?></label>
-                <input type="text" class="form-control input-sm" name="ip" value="<?php echo htmlspecialchars($input->ip)?>" />
+                <input type="text" class="form-control form-control-sm" name="ip" value="<?php echo htmlspecialchars($input->ip)?>" />
             </div>
         </div>
 		<div class="col-md-2">

@@ -31,7 +31,7 @@
                     <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <ul class="nav nav-pills nav-pills-bbcode" role="tablist">
                         <?php foreach ($icons as $index => $iconGroup) : ?>
-                            <li role="presentation" <?php if ($index == 0) : ?>class="active"<?php endif;?> ><a href="#bbcode-smiley-<?php echo $index?>" aria-controls="bbcode-smiley-<?php echo $index?>" role="tab" data-toggle="tab"><?php echo htmlspecialchars($iconGroup['title'])?></a></li>
+                            <li class="nav-item" role="presentation" ><a class="nav-link <?php if ($index == 0) : ?>active<?php endif;?>" href="#bbcode-smiley-<?php echo $index?>" aria-controls="bbcode-smiley-<?php echo $index?>" role="tab" data-toggle="tab"><?php echo htmlspecialchars($iconGroup['title'])?></a></li>
                         <?php endforeach; ?>
                     </ul>
                     <div class="tab-content nav-pills-bbcode-content">
@@ -40,13 +40,13 @@
 
                                 <ul class="list-inline">
                                     <?php if ($index == 0) : ?>
-                                        <li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Image'); ?>" data-promt="img" data-bb-code="img"><i class="material-icons mr-0">image</i></a></li>
-                                        <li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Link'); ?>" data-promt="url" data-bb-code=" [url=http://example.com]<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Link title'); ?>[/url] "><i class="material-icons mr-0">link</i></a></li>
-                                        <li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Bold'); ?>" data-bb-code=" [b][/b] "><strong>B</strong></a></li>
-                                        <li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Italic'); ?>" data-bb-code=" [i][/i] "><em>I</em></a></li>
+                                        <li class="list-inline-item"><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Image'); ?>" data-promt="img" data-bb-code="img"><i class="material-icons mr-0">image</i></a></li>
+                                        <li class="list-inline-item"><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Link'); ?>" data-promt="url" data-bb-code=" [url=http://example.com]<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Link title'); ?>[/url] "><i class="material-icons mr-0">link</i></a></li>
+                                        <li class="list-inline-item"><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Bold'); ?>" data-bb-code=" [b][/b] "><strong>B</strong></a></li>
+                                        <li class="list-inline-item"><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Italic'); ?>" data-bb-code=" [i][/i] "><em>I</em></a></li>
                                     <?php endif; ?>
                                     <?php foreach ($iconGroup['icons'] as $icon) : ?>
-                                        <li><a href="#" class="emoji-icons" data-bb-code="<?php echo $icon ?>"><?php echo $icon ?></a></li>
+                                        <li class="list-inline-item"><a href="#" class="emoji-icons" data-bb-code="<?php echo $icon ?>"><?php echo $icon ?></a></li>
                                     <?php endforeach; ?>
                                 </ul>
 

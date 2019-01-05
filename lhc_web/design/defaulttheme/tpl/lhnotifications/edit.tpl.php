@@ -10,8 +10,8 @@
 
 <form action="" method="post">
     <ul class="nav nav-pills" role="tablist">
-        <li role="presentation" <?php if ($tab == '') : ?> class="active" <?php endif;?>><a href="#edit" aria-controls="edit" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/edit','Main');?></a></li>
-        <li role="presentation" <?php if ($tab == 'tab_notification') : ?>class="active"<?php endif;?>><a href="#notification" aria-controls="notification" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/edit','Test notification');?></a></li>
+        <li class="nav-item" role="presentation"><a class="nav-link <?php if ($tab == '') : ?> active<?php endif;?>" href="#edit" aria-controls="edit" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/edit','Main');?></a></li>
+        <li class="nav-item" role="presentation" ><a class="nav-link<?php if ($tab == 'tab_notification') : ?> active<?php endif;?>" href="#notification" aria-controls="notification" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/edit','Test notification');?></a></li>
     </ul>
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane <?php if ($tab == '') : ?>active<?php endif;?>" id="edit">

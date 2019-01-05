@@ -1078,9 +1078,12 @@ ul.mb0 {
 
 .f-dropdown-lang li {
 	float:left;
-	width:50%;		
+	width:50%;
+	padding-left: 15px;
 }
-
+.back-logo > img{
+	height:30px;
+}
 .bb-list ul li{
 	padding:0;
 	margin:0;
@@ -1318,6 +1321,7 @@ input[type="file"]{
 
 .sidebar ul li {
     border-bottom: 1px solid #e7e7e7;
+	flex:100%;
 }
 .sidebar ul li a{
 	padding:10px;
@@ -1420,7 +1424,7 @@ input[type="file"]{
 
 .sortable-column-dashboard:after{content:"-";height:1px;font-size:0;visibility:hidden;display:block;}
 
-.sortable-column-dashboard .panel-heading {
+.sortable-column-dashboard .card-header {
 	cursor:move;
 }
 
@@ -1461,6 +1465,12 @@ input[type="file"]{
 
 .navbar-lhc .navbar-collapse ul.navbar-inline > li {
     float: left;
+}
+
+.navbar-lhc-top{
+	padding-top:0.17em;
+	padding-bottom:0.17em;
+	border-bottom:1px solid #ddd;
 }
 
 .form-control-warning:focus {

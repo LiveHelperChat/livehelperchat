@@ -30,7 +30,7 @@ $( document ).ready(function() {
     panelList.sortable({
         connectWith:".sortable-column-dashboard",
         opacity: 0.7,       
-        handle: ".panel-heading",         
+        handle: ".card-header",
         items: '> div',
         update: function() {
         	if (savingSettings == false)

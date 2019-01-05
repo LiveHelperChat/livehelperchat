@@ -9,11 +9,11 @@
         </a>
         <ul role="menu" data-dropdown-content class="dropdown-menu dropup list-inline text-edit-menu">
     		<?php if (erLhcoreClassModelChatConfig::fetch('bbc_button_visible')->current_value == 1) : ?>
-    		<li role="menuitem"><a href="#" onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/bbcodeinsert')?>'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','BB Code')?>"><i class="material-icons mat-100 mr-0">&#xE24E;</i></a></li>
+    		<li role="menuitem" class="list-inline-item"><a href="#" onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/bbcodeinsert')?>'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','BB Code')?>"><i class="material-icons mat-100 mr-0">&#xE24E;</i></a></li>
     		<?php endif; ?>
     		
     		<?php if (isset($chat_embed_mode) && $chat_embed_mode == true) : ?>
-    		<li role="menuitem"><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" ><i class="material-icons mat-100 mr-0">close</i></a></li>
+    		<li role="menuitem" class="list-inline-item"><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" ><i class="material-icons mat-100 mr-0">close</i></a></li>
     		<?php endif;?>
     		
     	</ul>
