@@ -118,7 +118,7 @@
 						</div>
 					<?php endforeach; ?>
 
-					<hr class="mt10 mb10">
+					<hr class="mt-1 mb-1">
 					
 					<div ng-controller="DepartmentCustomPeriodCtrl as dcpc" ng-init='dcpc.customPeriods = <?php echo $departamentCustomWorkHours; ?>'>
 						<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Custom period');?></h4>
@@ -137,7 +137,7 @@
 								</div>
 							</div>
 							<div class="col-4">
-								<a class="btn btn-secondary btn-block mt25" ng-click="dcpc.add()"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Add');?></a>
+								<a class="btn btn-secondary btn-block mt-2" ng-click="dcpc.add()"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Add');?></a>
 							</div>
 						</div>
 						<div class="row">

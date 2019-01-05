@@ -1,6 +1,6 @@
 <div class="meta-message meta-message-<?php echo $messageId?>">
-    <div class="p5 meta-auto-hide p5 pl0">
-        <div class="form-group mb5">
+    <div class="meta-auto-hide pt-1 pb-1 pr-1 pl-2">
+        <div class="form-group mb-1">
             <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                 'input_name'     => 'generic_list-' . $messageId,
                 'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Please choose'),

@@ -1,5 +1,5 @@
 <?php 
-$modalHeaderClass = 'small-modal-header';
+$modalHeaderClass = 'pt-1 pb-1 pl-2 pr-2';
 $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/editnick','Your information');
 $modalSize = 'md';
 ?>

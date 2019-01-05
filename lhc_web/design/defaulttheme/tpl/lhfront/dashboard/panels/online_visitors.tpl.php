@@ -5,7 +5,7 @@
 	</div>
 	<div ng-if="lhc.toggleWidgetData['onvisitors_widget_exp'] !== true">
 
-       <div class="p10">
+       <div class="p-1">
            <div class="row">
 
                <div class="col-sm-3 form-group col-6">

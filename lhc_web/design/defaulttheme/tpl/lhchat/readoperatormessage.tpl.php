@@ -13,7 +13,7 @@
 </div>
 
 <?php if (isset($errors)) : ?>
-<div class="pt10">
+<div class="pt-1">
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 </div>
 <?php endif; ?>

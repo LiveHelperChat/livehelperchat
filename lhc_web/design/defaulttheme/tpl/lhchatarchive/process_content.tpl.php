@@ -34,7 +34,7 @@
 	</div>
 	<div class="col-6 end">
 		<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Archive progress')?></h3>
-		<div id="archive-progress" class="mx170 fs12 p10"><div class="radius secondary label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Pending for action...')?></div></div>
+		<div id="archive-progress" class="mx170 fs12 p-1"><div class="radius secondary label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Pending for action...')?></div></div>
 
 		<hr>
 		<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Terms dictionary')?></h3>

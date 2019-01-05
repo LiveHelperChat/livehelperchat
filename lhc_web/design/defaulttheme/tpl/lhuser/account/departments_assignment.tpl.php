@@ -1,6 +1,6 @@
 <label><input type="checkbox" value="on" name="all_departments" <?php echo $user->all_departments == 1 ? 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','All departments')?></label><br>
              
-<hr class="mt10 mb10">      
+<hr class="mt-1 mb-1">      
   
 <div class="row">
     <div class="col-6">

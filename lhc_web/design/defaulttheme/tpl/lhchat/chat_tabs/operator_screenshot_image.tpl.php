@@ -6,5 +6,5 @@ $('.screnshot-container').zoom();
 </script>		
 <?php else : ?>
 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot')?>.</p>
-<input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Refresh')?>" class="button tiny round" onclick="lhinst.updateScreenshot('<?php echo $chat->id?>')" />
+<input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Refresh')?>" class="btn btn-secondary btn-sm" onclick="lhinst.updateScreenshot('<?php echo $chat->id?>')" />
 <?php endif;?>

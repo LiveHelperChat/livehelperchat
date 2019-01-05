@@ -43,9 +43,8 @@
 		</div>
 	</div>
 
-	<div class="container-fluid">
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer_user.tpl.php'));?>
-</div>
+
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/userchat/after_userchat.tpl.php'));?>
 <?php
 

@@ -1,3 +1,8 @@
+<?php
+$modalHeaderClass = 'pt-1 pb-1 pl-2 pr-2';
+$modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatpreview','Send chat');
+$modalSize = 'md';
+?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 <div class="mb-0" style="padding:0px 0 10px 0;">
 	<form id="user-action">

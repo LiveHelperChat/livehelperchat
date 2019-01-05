@@ -18,7 +18,7 @@
 	<?php else : ?>
 	<form action="<?php echo erLhcoreClassDesign::baseurl('questionary/votingwidget')?><?php echo $append_mode?>" method="post" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
 	<?php if ($voting !== false) : ?>
-	<h4 class="mt0 mb5"><?php echo htmlspecialchars($voting->question)?></h4>
+	<h4 class="mt-0 mb-1"><?php echo htmlspecialchars($voting->question)?></h4>
 
 	<?php if ($voting->question_intro != '') : ?>
 	<p><?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($voting->question_intro))?></p>

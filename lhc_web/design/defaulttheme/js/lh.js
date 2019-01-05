@@ -215,7 +215,7 @@ function lh(){
 
          selected = e.data.that.getSelectedText();
 
-         $('.popover-copy').popover('destroy');
+         $('.popover-copy').popover('dispose');
 
          if (selected.text.length && (e.data.that.selection === null || e.data.that.selection.text !== selected.text)) {
 
@@ -227,7 +227,7 @@ function lh(){
                  animation:false,
                  html:true,
                  container:'#chat-id-'+e.data.chat_id,
-                 template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-content popover-quote"></div></div>',
+                 template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>',
                  content:'<a href="#" onclick="lhinst.quateSelection('+e.data.chat_id+')"><i class="material-icons">&#xE244;</i>quote</a>'
              }).popover('show');
 
@@ -247,7 +247,7 @@ function lh(){
     }
 
     this.quateSelection = function (chat_id) {
-        $('.popover-copy').popover('destroy');
+        $('.popover-copy').popover('dispose');
 
         var textToPaste = this.selection.text.replace(/[\uD7AF\uD7C7-\uD7CA\uD7FC-\uF8FF\uFA6E\uFA6F\uFADA]/g,'');
 
@@ -282,7 +282,7 @@ function lh(){
         } else {
             if (this.popoverShown === true) {
                 this.popoverShown = false;
-                $('.popover-copy').popover('destroy');
+                $('.popover-copy').popover('dispose');
             }
         }
     };
@@ -583,13 +583,13 @@ function lh(){
     this.saveRemarks = function(chat_id) {
     	clearTimeout(this.remarksTimeout);
     	
-    	$('#remarks-status-'+chat_id).addClass('warning-color');
+    	$('#remarks-status-'+chat_id).addClass('text-warning');
     	$('#main-user-info-remarks-'+chat_id+' .alert').remove();
     	var inst = this;
     	this.remarksTimeout = setTimeout(function(){
     		$.postJSON(inst.wwwDir + 'chat/saveremarks/' + chat_id,{'data':$('#ChatRemarks-'+chat_id).val()}, function(data){
 				if(data.error == 'false') {
-					$('#remarks-status-'+chat_id).removeClass('warning-color');
+					$('#remarks-status-'+chat_id).removeClass('text-warning');
 				} else {
 					$('#main-user-info-remarks-'+chat_id).prepend(data.result);
 				}
@@ -599,11 +599,11 @@ function lh(){
     
     this.saveNotes = function(chat_id) {
     	clearTimeout(this.remarksTimeout);    	    	
-    	$('#remarks-status-online-'+chat_id).addClass('warning-color');
+    	$('#remarks-status-online-'+chat_id).addClass('text-warning');
     	var inst = this;
     	this.remarksTimeout = setTimeout(function(){
     		$.postJSON(inst.wwwDir + 'chat/saveonlinenotes/' + chat_id,{'data':$('#OnlineRemarks-'+chat_id).val()}, function(data){
-    			$('#remarks-status-online-'+chat_id).removeClass('warning-color');
+    			$('#remarks-status-online-'+chat_id).removeClass('text-warning');
             });
     	},500);    	
     };
@@ -2498,9 +2498,9 @@ function lh(){
     	$.getJSON(this.wwwDir + 'chat/getmessage/' + this.chat_id + '/' + this.hash + '/'+ msgid + modeWindow, function(data) {  
     		if (data.error == 'f') {
     			$('#msg-'+msgid).replaceWith(data.msg);
-    			$('#msg-'+msgid).addClass('edit-mode-done');
+    			$('#msg-'+msgid).addClass('bg-success');
     			setTimeout(function(){
-    				$('#msg-'+msgid).removeClass('edit-mode-done');
+    				$('#msg-'+msgid).removeClass('bg-success');
     			},2000);
     		}
     	});
@@ -2510,9 +2510,9 @@ function lh(){
     	$.getJSON(this.wwwDir + 'chat/getmessageadmin/' + chat_id + '/' + msgid, function(data) {    	
     		if (data.error == 'f') {
     			$('#msg-'+msgid).replaceWith(data.msg);
-    			$('#msg-'+msgid).addClass('edit-mode-done');
+    			$('#msg-'+msgid).addClass('bg-success');
     			setTimeout(function(){
-    				$('#msg-'+msgid).removeClass('edit-mode-done');
+    				$('#msg-'+msgid).removeClass('bg-success');
     			},2000);
     		}
 		});

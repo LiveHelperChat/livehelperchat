@@ -19,7 +19,7 @@
 		
 		<button type="button" class="btn btn-danger btn-sm" ng-click="cform.<?php echo $paramsResourceRepeat['delete']?>('<?php echo $form->id?>',field)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Remove')?></button>
 		<input type="hidden" name="<?php echo $paramsResourceRepeat['scope']?>_hash[{{field.hash}}]" value="{{field.hash}}" />					
-		<hr class="mt5 mb5" style="margin-top: 5px">
+		<hr class="mt5 mb-1" style="margin-top: 5px">
 	</div>
 </div>
 
@@ -44,6 +44,6 @@
 		
 		<button type="button" class="btn btn-danger btn-sm" ng-click="cform.<?php echo $paramsResourceRepeat['delete']?>('<?php echo $form->id?>',field)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Remove')?></button>
 		<input type="hidden" name="<?php echo $paramsResourceRepeat['scope']?>_hash[{{field.hash}}]" value="{{field.hash}}" />					
-		<hr class="mt5 mb5" style="margin-top: 5px">
+		<hr class="mt5 mb-1" style="margin-top: 5px">
 	</div>
 </div>

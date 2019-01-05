@@ -3,7 +3,7 @@
 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
 </button>
-<ul class="validation-ul">
+<ul class="pl-1 m-0">
 <?php foreach ($errors as $err) : ?>
     <li><?php echo $err?></li>
 <?php endforeach;?>
