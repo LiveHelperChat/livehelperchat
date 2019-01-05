@@ -13,7 +13,7 @@ var LHCSpeechToTextCallbackListener = (function() {
 	{
 		$('#CSChatMessage-'+this.chat_id).addClass('admin-chat-mic');
 		$('#user-chat-status-'+this.chat_id).removeClass('icon-user').addClass('icon-mic');
-		$('#mic-chat-'+this.chat_id).addClass('icon-mic-recording').html(this.recognition.lang);
+		$('#mic-chat-'+this.chat_id).addClass('text-danger').html(this.recognition.lang);
 		$('#user-is-typing-'+this.chat_id).html('Speak now.').css("visibility","visible");
 	}
 	
@@ -21,7 +21,7 @@ var LHCSpeechToTextCallbackListener = (function() {
 	{
 		$('#user-chat-status-'+this.chat_id).addClass('icon-user').removeClass('icon-mic');
 		$('#CSChatMessage-'+this.chat_id).removeClass('admin-chat-mic');
-		$('#mic-chat-'+this.chat_id).removeClass('icon-mic-recording').html('');
+		$('#mic-chat-'+this.chat_id).removeClass('text-danger').html('');
 		$('#user-is-typing-'+this.chat_id).html('');
 		
 		if (this.startOnEnd == true) {			

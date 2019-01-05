@@ -48,16 +48,9 @@ body {
 	padding-right:7.5px;
 }
 
-.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header,.row{
+.row{
 	margin-left:-7.5px;
 	margin-right:-7.5px;
-}
-
-@media (min-width: 768px) {
-	.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
-	  margin-right: 0;
-	  margin-left: 0;
-	}
 }
 
 .absolute-language-top-right{
@@ -108,10 +101,6 @@ h1 {
 
 .no-wrap{
 	white-space: nowrap;
-}
-
-a.icon-mic-recording {
-	color:red!important;
 }
 
 a:hover{
@@ -1413,7 +1402,7 @@ input[type="file"]{
 }
 
 .btn-block-department-filter{
-	padding: 0px 4px 4px 4px;
+	padding: 4px 4px 4px 4px;
 	border-bottom: 1px solid #CCC;
 }
 
