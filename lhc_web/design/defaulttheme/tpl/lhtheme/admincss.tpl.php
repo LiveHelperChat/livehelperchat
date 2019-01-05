@@ -16,25 +16,25 @@ a {
 <?php endif;?>
 
 <?php if (isset($cssAttributes['panel_background_color']) || isset($cssAttributes['panel_border_color'])) : ?>
-.panel-default>.card-header{
+.card>.card-header{
     <?php if (isset($cssAttributes['panel_background_color'])) : ?>background-color:#<?php echo $cssAttributes['panel_background_color']?>;<?php endif;?>
     <?php if (isset($cssAttributes['panel_border_color'])) : ?>border-color:#<?php echo $cssAttributes['panel_border_color']?>;<?php endif;?>
 }
 
-.panel-default{
+.card{
     <?php if (isset($cssAttributes['panel_border_color'])) : ?>border-color:#<?php echo $cssAttributes['panel_border_color']?>;<?php endif;?>
 }
 <?php endif;?>
 
 <?php if (isset($cssAttributes['panel_background_color']) || isset($cssAttributes['panel_border_color'])) : ?>
-.panel-default>.card-header{
+.card>.card-header{
     <?php if (isset($cssAttributes['panel_background_color'])) : ?>background-color:#<?php echo $cssAttributes['panel_background_color']?>;<?php endif;?>
     <?php if (isset($cssAttributes['panel_border_color'])) : ?>border-color:#<?php echo $cssAttributes['panel_border_color']?>;<?php endif;?>
 }
 <?php endif;?>
 
 <?php if (isset($cssAttributes['panel_mbc'])) : ?>
-.panel {
+.card {
     background-color:#<?php echo $cssAttributes['panel_mbc'];?>
 }
 <?php endif; ?>

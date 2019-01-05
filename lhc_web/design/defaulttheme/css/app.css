@@ -21,8 +21,7 @@ body {
 	border-radius : .2rem;
 }
 
-.panel-default {
-	border: 1px solid #ddd;
+.card-dashboard {
 	margin-bottom: 20px;
 }
 
@@ -30,6 +29,7 @@ body {
 	padding-bottom: 10px;
 	border-bottom: 1px solid #ddd;
 }
+
 #tabs > .tab-content{
 	margin-top: 15px;
 }
@@ -66,6 +66,7 @@ body {
 	right:0;
 	z-index:9999;
 }
+
 .absolute-language-top-right .btn-default{
 	border-top:0;
 	border-right:0;
@@ -77,10 +78,11 @@ body {
 	margin:10px;
 }
 
-#myModal,
+/*#myModal,
 .modal-open{
 	padding-right:0px !important;
-}
+}*/
+
 #screenshotImage{
 	max-width:100%;
 }
@@ -99,13 +101,16 @@ img{max-height:100%}
 	padding-left:15px;
 }
 
-#widget-layout .validation-ul{
+#widget-layout .validation-ul {
 	font-size:12px;
 }
 
+
+/*
+B4
 .form-control{
 	padding:6px;	
-}
+}*/
 
 .group-by-user_country_name,
 .up-case-first{
@@ -158,21 +163,11 @@ h1 {
 	color: #4A4A4A;
 }
 
-.navbar-lhc-right{
-	background: none;
-}
-.navbar-lhc-right .navbar-toggle{
-	padding: 2px 3px;
-	margin:6px 10px;
-}
-
 .breadcrumb {
 	margin-bottom:0px;
 	border-radius:0;
 	padding:10px 15px 10px;
 	border-bottom: 1px solid #e7e7e7;
-	/*z-index:2;
-	position:relative;*/
 }
 
 .no-wrap{

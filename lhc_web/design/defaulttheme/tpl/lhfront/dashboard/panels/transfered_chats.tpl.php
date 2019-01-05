@@ -1,4 +1,4 @@
-<div class="panel panel-default panel-dashboard" data-panel-id="transfered_chats" ng-init="lhc.getToggleWidget('trchats_widget_exp')">
+<div class="card card-dashboard" data-panel-id="transfered_chats" ng-init="lhc.getToggleWidget('trchats_widget_exp')">
 	<div class="card-header">
 		<i class="material-icons chat-pending">chat</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/transfered_chats.tpl.php'));?> ({{transfer_dep_chats.list.length}})</a>
 		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('trchats_widget_exp')" class="fs24 float-right material-icons exp-cntr">{{lhc.toggleWidgetData['trchats_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
@@ -9,8 +9,8 @@
     		
     			<!-- Nav tabs -->
     			<ul class="nav nav-pills p10" role="tablist">
-    				<li role="presentation" class="active"><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chats transferred to you directly');?>" href="#transferedperson-widget" aria-controls="transferedperson-widget" role="tab" data-toggle="tab"><i class="material-icons">account_box</i><span class="tru-cnt"></span></a></li>
-    				<li role="presentation"><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Transferred to your department');?>" href="#transfereddep-widget" aria-controls="transfereddep-widget" role="tab" data-toggle="tab"><i class="material-icons">account_box</i><span class="trd-cnt"></span></a></li>
+    				<li role="presentation" class="nav-item"><a class="nav-link active" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chats transferred to you directly');?>" href="#transferedperson-widget" aria-controls="transferedperson-widget" role="tab" data-toggle="tab"><i class="material-icons">account_box</i><span class="tru-cnt"></span></a></li>
+    				<li role="presentation" class="nav-item"><a class="nav-link" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Transferred to your department');?>" href="#transfereddep-widget" aria-controls="transfereddep-widget" role="tab" data-toggle="tab"><i class="material-icons">account_box</i><span class="trd-cnt"></span></a></li>
     			</ul>
     			
     			<!-- Tab panes -->

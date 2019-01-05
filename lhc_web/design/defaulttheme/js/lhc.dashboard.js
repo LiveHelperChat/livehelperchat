@@ -42,7 +42,7 @@ $( document ).ready(function() {
 
         			var items = [];        			        			
            	                    
-                	$(panelListColumn).find('.panel-dashboard').each(function(index, elem) { 
+                	$(panelListColumn).find('.card-dashboard').each(function(index, elem) {
                 		items.push($(elem).attr('data-panel-id'));
                     });
             	
