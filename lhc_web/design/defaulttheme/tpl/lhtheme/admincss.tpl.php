@@ -52,9 +52,9 @@ a {
 <?php endif;?>
 
 <?php if (isset($cssAttributes['tab_bc'])) : ?>
-.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover,
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li>a.active:hover,
 .nav-pills>li>a:hover,
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover,.nav-tabs>li>a:hover {
+.nav-tabs>li>a.active, .nav-tabs>li>a.active:focus, .nav-tabs>li>a.active:hover,.nav-tabs>li>a:hover {
     background-color:#<?php echo $cssAttributes['tab_bc'];?>
 }
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
@@ -64,7 +64,7 @@ a {
 
 <?php if (isset($cssAttributes['tab_boc'])) : ?>
 .nav-pills>li>a,
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+.nav-tabs>li>a.active, .nav-tabs>li>a.active:focus, .nav-tabs>li>a.active:hover{
     border-color:#<?php echo $cssAttributes['tab_boc'];?>;
 }
 <?php endif; ?>
@@ -77,8 +77,8 @@ a {
 <?php endif; ?>
 
 <?php if (isset($cssAttributes['tab_atc'])) : ?>
-.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover,
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+.nav-pills>li>a.active, .nav-pills>li>a.active:focus, .nav-pills>li>a.active:hover,
+.nav-tabs>li>a.active, .nav-tabs>li>a.active:focus, .nav-tabs>li>a.active:hover{
     color:#<?php echo $cssAttributes['tab_atc'];?>;
 }
 <?php endif; ?>
@@ -91,7 +91,7 @@ a {
 <?php endif; ?>
 
 <?php if (isset($cssAttributes['drpdown_hbgc'])) : ?>
-.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
+.dropdown-menu > li.dropdown-item > a:focus, .dropdown-menu>li.dropdown-item>a:hover{
     background-color:#<?php echo $cssAttributes['drpdown_hbgc']?>;
 }
 <?php endif; ?>
@@ -133,25 +133,25 @@ a {
 <?php endif;?>
 
 <?php if (isset($cssAttributes['nvb_tgl_bgc'])) : ?>
-.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+.navbar-light .navbar-toggler:focus, .navbar-default .navbar-toggler:hover {
     background-color: #<?php echo $cssAttributes['nvb_tgl_bgc']?>;
 }
 <?php endif;?>
 
 <?php if (isset($cssAttributes['nvb_tgl_bc'])) : ?>
-.navbar-default .navbar-toggle{
+.navbar-light .navbar-toggler{
     border-color: #<?php echo $cssAttributes['nvb_tgl_bc']?>;
 }
 <?php endif;?>
 
 <?php if (isset($cssAttributes['nvb_li_clr'])) : ?>
-.navbar-default .navbar-nav>li>a{
+.navbar-light .navbar-nav>li>a{
     color: #<?php echo $cssAttributes['nvb_li_clr']?>;
 }
 <?php endif; ?>
 
 <?php if (isset($cssAttributes['nvb_lih_clr'])) : ?>
-.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+.navbar-light .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
     color: #<?php echo $cssAttributes['nvb_lih_clr']?>;
 }
 <?php endif; ?>
