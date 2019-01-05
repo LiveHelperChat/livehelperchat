@@ -19,7 +19,7 @@
     $pageURL = $i > 1 ? '/(page)/'.$i : '';
     $needNoBolder = true;
     	if ($i == $pages->current_page) : ?>
-    	   <li class="current no-b page-item"><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Go to page')?> <?php echo $i?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>" href="#"><?php echo $i?></a></li>
+    	   <li class="active no-b page-item"><a class="page-link" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Go to page')?> <?php echo $i?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>" href="#"><?php echo $i?></a></li>
     	<?php else : ?>
            <li class="page-item"><a class="page-link no-b" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Go to page')?> <?php echo $i?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>" href="<?php echo $pages->serverURL,$pageURL,$pages->querystring?>"><?php echo $i?></a></li>
         <?php endif;
@@ -59,7 +59,7 @@
    $noBolderClass = ($i == 1) ? ' no-b' : '';
    $pageURL = $i > 1 ? '/(page)/'.$i : '';
 		if ($i == $pages->current_page) :?>
-            <li class="active page-item<?php echo $noBolderClass?>"><a href="#"><?php echo $i?></a></li>
+            <li class="active page-item<?php echo $noBolderClass?>"><a class="page-link" href="#"><?php echo $i?></a></li>
 		<?php else : ?>
 		    <li class="page-item"><a class="paginate page-link" href="<?php echo $pages->serverURL,$pageURL,$pages->querystring;?>"><?php echo $i?></a></li>
     <?php endif; endfor; endif;

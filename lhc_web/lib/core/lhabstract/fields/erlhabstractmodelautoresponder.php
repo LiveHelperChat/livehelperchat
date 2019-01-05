@@ -442,7 +442,7 @@ return array(
                     'type' => 'action',
                     'link' => 'abstract/copyautoresponder',
                     'is_modal' => true,
-                    'link_class' => 'btn btn-default btn-xs',
+                    'link_class' => 'btn btn-secondary btn-xs',
                     'link_title' => 'Copy',
                     'width' => '1%',
                     'trans' => '',
