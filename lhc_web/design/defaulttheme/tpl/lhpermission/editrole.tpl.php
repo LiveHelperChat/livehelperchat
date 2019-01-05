@@ -32,7 +32,7 @@
 		</thead>
 		     <?php foreach (erLhcoreClassRoleFunction::getRoleFunctions($role->id) as $Function) : ?>
 		     <tr>
-			     <td><input type="checkbox" class="mb0" name="PolicyID[]" value="<?php echo $Function['id']?>" /></td>
+			     <td><input type="checkbox" class="mb-0" name="PolicyID[]" value="<?php echo $Function['id']?>" /></td>
 			     <?php include(erLhcoreClassDesign::designtpl('lhpermission/role_row.tpl.php'));?>
 		     </tr>
 		     <?php endforeach; ?>
@@ -59,7 +59,7 @@
 	</thead>
 	     <?php foreach (erLhcoreClassGroupRole::getRoleGroups($role->id) as $Group) : ?>
 	     <tr>
-		     <td><input class="mb0" type="checkbox" name="AssignedID[]" value="<?php echo $Group['assigned_id']?>" /></td>
+		     <td><input class="mb-0" type="checkbox" name="AssignedID[]" value="<?php echo $Group['assigned_id']?>" /></td>
 		     <td><?php echo htmlspecialchars($Group['name'])?></td>
 	     </tr>
 	     <?php endforeach; ?>

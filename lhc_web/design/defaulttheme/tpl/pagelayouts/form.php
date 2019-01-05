@@ -14,7 +14,7 @@
         <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_logo.tpl.php'));?>
     </div>
     <?php if (!isset($Result['hide_close_window'])) : ?>
-    <div class="col-2 pt20">
+    <div class="col-2">
 		<input type="button" class="btn btn-defaut float-right closebutton" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatandbrowser();" />
 	</div>
 	<?php endif;?>

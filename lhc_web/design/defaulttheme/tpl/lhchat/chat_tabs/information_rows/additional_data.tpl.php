@@ -5,7 +5,7 @@
         </td>
         <td id="custom-data-td-<?php echo $chat->id?>">
             <?php if (is_array($chat->additional_data_array)) : ?>
-                <ul class="circle mb0">
+                <ul class="circle mb-0">
                     <?php foreach ($chat->additional_data_array as $addItem) : ?>
                         <li<?php if (isset($addItem['identifier'])): ?> title="<?php echo htmlspecialchars($addItem['identifier'])?>"<?php endif;?>><?php echo htmlspecialchars($addItem['key'])?> - <?php echo htmlspecialchars($addItem['value'])?>
                             <?php if (isset($addItem['h']) && $addItem['h'] == true) : ?>&nbsp;<i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Hidden field')?>">visibility_off</i><?php endif;?>

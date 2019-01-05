@@ -11,7 +11,7 @@
 			<?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/options.tpl.php'));?>
 
 			<div ng-if="my_chats.list.length > 0" class="panel-list">
-				<table class="table table-sm mb0 table-small table-fixed">
+				<table class="table table-sm mb-0 table-small table-fixed">
 					<thead>
 						<tr>
 							<th width="60%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Visitor');?>" class="material-icons">face</i></th>

@@ -18,7 +18,7 @@
                     <table cellpadding="0" cellspacing="0" class="table<?php echo $appendTableClass?>" width="100%">
                         <thead>
                             <tr>
-                            	<th width="1%"><input class="mb0" type="checkbox" ng-model="check_all_items" /></th>
+                            	<th width="1%"><input class="mb-0" type="checkbox" ng-model="check_all_items" /></th>
                                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Information');?></th>
                                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Operator');?></th>
                                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Department');?></th>
@@ -28,7 +28,7 @@
                         </thead>
                         <?php foreach ($items as $chat) : ?>
                         <tr>
-                        	<td><?php if ($chat->can_edit_chat == true) : ?><input ng-checked="check_all_items" class="mb0" type="checkbox" name="ChatID[]" value="<?php echo $chat->id?>" /><?php endif;?></td>
+                        	<td><?php if ($chat->can_edit_chat == true) : ?><input ng-checked="check_all_items" class="mb-0" type="checkbox" name="ChatID[]" value="<?php echo $chat->id?>" /><?php endif;?></td>
                             <td>        
                               <span title="<?php echo $chat->id;?>" class="material-icons fs12 mr-0<?php echo $chat->user_status_front == 2 ? ' icon-user-away' : ($chat->user_status_front == 0 ? ' icon-user-online' : ' icon-user-offline')?>" class="">&#xE3A6;</span>&nbsp;
                             

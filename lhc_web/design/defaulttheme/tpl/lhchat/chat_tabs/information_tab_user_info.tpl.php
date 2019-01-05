@@ -1,6 +1,6 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information/information_top.tpl.php'));?>
 
-<div class="float-right operator-info pt5">
+<div class="float-right operator-info">
 
     <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information/thumbs.tpl.php'));?>
 	

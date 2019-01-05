@@ -40,7 +40,7 @@
     		
     		<?php if ( $chat_chat_tabs_footprint_tab_tab_enabled == true && erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) : ?>
     		<div role="tabpanel" class="tab-pane" id="panel2">
-        		<ul class="foot-print-content list-unstyled mb0" style="max-height: 170px;">
+        		<ul class="foot-print-content list-unstyled mb-0" style="max-height: 170px;">
         		<?php foreach (erLhcoreClassModelChatOnlineUserFootprint::getList(array('filter' => array('online_user_id' => $online_user->id))) as $footprintItems) : ?>
         		<li>
         		<a target="_blank" rel="noopener" href="<?php echo htmlspecialchars($footprintItems->page);?>"><?php echo $footprintItems->time_ago?> | <?php echo htmlspecialchars($footprintItems->page);?></a>

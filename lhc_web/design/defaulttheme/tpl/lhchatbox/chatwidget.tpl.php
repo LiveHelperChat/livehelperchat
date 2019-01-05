@@ -23,13 +23,13 @@
 
             <div>
                 <?php if (isset($_GET['dnc']) && $_GET['dnc'] == 'true') : ?>
-                    <input type="hidden" class="mt5 mb0" value="<?php echo htmlspecialchars(erLhcoreClassChatbox::getVisitorName(),ENT_QUOTES); ?>" id="CSChatNick" />
+                    <input type="hidden" class="mt5 mb-0" value="<?php echo htmlspecialchars(erLhcoreClassChatbox::getVisitorName(),ENT_QUOTES); ?>" id="CSChatNick" />
                 <?php else : ?>
-                    <input class="form-control" type="text" class="mt5 mb0" placholder="Nick" title="Nick" value="<?php echo htmlspecialchars(erLhcoreClassChatbox::getVisitorName(),ENT_QUOTES); ?>" id="CSChatNick" />
+                    <input class="form-control" type="text" class="mt5 mb-0" placholder="Nick" title="Nick" value="<?php echo htmlspecialchars(erLhcoreClassChatbox::getVisitorName(),ENT_QUOTES); ?>" id="CSChatNick" />
                 <?php endif;?>
             </div>
 
-            <div class="pt5">
+            <div>
                 <?php if (isset($_GET['dnc']) && $_GET['dnc'] == 'true') : ?>
                     <span><?php echo htmlspecialchars(erLhcoreClassChatbox::getVisitorName(),ENT_QUOTES); ?></span>
                 <?php endif;?>
@@ -43,7 +43,7 @@
                 </script>
             </div>
 
-            <div class="pt5">
+            <div>
                 <input type="button" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguserchatbox()" />
                 <input type="button" class="btn btn-secondary btn-sm float-right" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','BB Code')?>" onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/bbcodeinsert')?>'})" />
             </div>

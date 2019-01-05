@@ -8,7 +8,7 @@
 <div class="row" style="max-height:500px;overflow-y:auto;">
         <?php $depIds = $departament_group->departments_ids; foreach (erLhcoreClassModelDepartament::getList() as $department) : ?>
         <div class="col-6">
-            <div class="form-group mb0">
+            <div class="form-group mb-0">
                 <label><input type="checkbox" name="departaments[]" value="<?php echo $department->id?>" <?php if (in_array($department->id, $depIds)) : ?>checked="checked"<?php endif;?>> <?php echo htmlspecialchars($department->name)?> </label>
             </div>
         </div>

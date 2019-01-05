@@ -12,7 +12,7 @@
 <?php else : ?>
 
 <?php if (!isset($start_data_fields['show_operator_profile']) || $start_data_fields['show_operator_profile'] == false) : ?>
-<div class="pl10 max-width-180 float-right absolute-language-top-right">
+<div class="pl-1 max-width-180 float-right absolute-language-top-right">
 	<?php $rightLanguage = true;?>
 	<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/switch_language.tpl.php'));?>
 </div>
@@ -187,7 +187,7 @@ if ($theme !== false && $theme->explain_text != '' && $onlyBotOnline == false) :
 <?php if ($hasExtraField === false) : ?>
 <script>
 <?php if ($canReopen == false) : ?>
-jQuery('#id_Question').addClass('mb0');
+jQuery('#id_Question').addClass('mb-0');
 <?php endif;?>
 
 <?php if ($hasExtraField == false && isset($start_data_fields['message_auto_start']) && $start_data_fields['message_auto_start'] == true && isset($start_data_fields['message_auto_start_key_press']) && $start_data_fields['message_auto_start_key_press'] == true) : ?>
@@ -223,7 +223,7 @@ jQuery('#id_Question').bind('keydown', 'return', function (evt){
 
 	<?php if (isset($start_data_fields['show_operator_profile']) && $start_data_fields['show_operator_profile'] == true) : ?>
 	
-		<div class="pl10 pos-rel max-width-180 float-right">
+		<div class="pl-1 pos-rel max-width-180 float-right">
 		<?php $rightLanguage = true;?>
 		<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/switch_language.tpl.php'));?>
 		</div>

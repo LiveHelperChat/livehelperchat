@@ -1,4 +1,4 @@
-<table class="table table-sm mb0 table-small table-fixed">
+<table class="table table-sm mb-0 table-small table-fixed">
 	<thead>
 		<tr>
 			<th width="40%">

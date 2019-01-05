@@ -9,7 +9,7 @@
 </thead>
 <?php foreach (erLhcoreClassGroupRole::getRoleNotAssignedGroups($role_id) as $group) : ?>
     <tr>
-        <td><input class="mb0" type="checkbox" name="GroupID[]" value="<?php echo $group['id']?>"></td>
+        <td><input class="mb-0" type="checkbox" name="GroupID[]" value="<?php echo $group['id']?>"></td>
         <td><?php echo htmlspecialchars($group['name'])?></td>
     </tr>
 <?php endforeach; ?>

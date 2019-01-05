@@ -8,11 +8,11 @@
        <div class="p10">
            <div class="row">
 
-               <div class="col-sm-3 form-group col-6 pl5 pr5">
+               <div class="col-sm-3 form-group col-6">
                     <input class="form-control form-control-sm" ng-model="query" type="text" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search')?>">
                </div>
 
-                <div class="col-sm-3 form-group col-6 pl5 pr5">
+                <div class="col-sm-3 form-group col-6">
                     <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                         'input_name'     => 'department_id',
                         'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select department'),
@@ -34,7 +34,7 @@
        </div>
 
 	   <div class="panel-list" ng-if="online.onlineusers.length > 0">
-			<table ng-cloak class="table table-sm mb0 table-small table-fixed" cellpadding="0" cellspacing="0" ng-init='trans = <?php echo json_encode(array('third' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has not seen a message from the operator, or the message window is still open.'),'msg_seen' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Seen'),'msg_not_seen' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Unseen'),'second' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has seen the message from the operator.'),'first' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any messages from the operator')),JSON_HEX_APOS)?>'>
+			<table ng-cloak class="table table-sm mb-0 table-small table-fixed" cellpadding="0" cellspacing="0" ng-init='trans = <?php echo json_encode(array('third' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has not seen a message from the operator, or the message window is still open.'),'msg_seen' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Seen'),'msg_not_seen' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Unseen'),'second' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has seen the message from the operator.'),'first' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any messages from the operator')),JSON_HEX_APOS)?>'>
 				<thead>
                     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Main information')?></th>
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/additional_column_header_online.tpl.php'));?>
@@ -62,10 +62,10 @@
         	                        <li><i class="material-icons">&#xE1B1;</i>{{ou.user_agent}} | IP: {{ou.ip}}
 								</ul>
 							</div>
-							<div class="abbr-list pt5" ng-if="ou.page_title || ou.current_page">
+							<div class="abbr-list" ng-if="ou.page_title || ou.current_page">
 								<i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page');?>">&#xE8A0;</i><a target="_blank" rel="noopener" href="{{ou.current_page}}" title="{{ou.current_page}}">{{ou.page_title || ou.current_page}}</a>
 							</div>
-							<div class="abbr-list pt5" ng-if="ou.referrer">
+							<div class="abbr-list" ng-if="ou.referrer">
 								<i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','From');?>">&#xE8A0;</i><a target="_blank" rel="noopener" href="http:{{ou.referrer}}" title="{{ou.referrer}}">{{ou.referrer}}</a>
 							</div>
 						</td>

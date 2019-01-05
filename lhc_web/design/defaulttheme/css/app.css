@@ -201,10 +201,6 @@ a:hover{
 	min-height:150px;
 }
 
-.mb0{
-	margin-bottom:0 !important;
-}
-
 .p10 {
 	padding:10px;
 }
@@ -698,23 +694,8 @@ div.message-row.response+div.message-row.response:hover .msg-date,
     text-align:right;
 }
 
-
-.button.very-tiny {
-	padding:3px 5px;
-}
-
-.pt20 {
-	padding-top:20px;
-}
-
 .admin-chat-mic {
 	background:url(../images/icons/mic.gif) no-repeat center center;
-}
-
-.widget-options {
-	width:41px !important;
-	min-width:41px;
-	
 }
 
 .user-chatwidget-buttons{
@@ -752,26 +733,6 @@ div.message-row.response+div.message-row.response:hover .msg-date,
 	margin-left:2px;
 	margin-right:0px;
 	font-size: 15px;
-}
-
-.text-edit-menu{
-	min-width:100px;
-	text-align:center;
-	padding:0px;
-}
-.text-edit-menu>li>a{
-	padding:3px;
-}
-.text-edit-menu>li{
-	padding:0;
-}
-
-.text-edit-menu>li{
-	display:inline-block;
-}
-
-.widget-options li a {
-	padding-left:10px;
 }
 
 .pos-rel{
@@ -828,10 +789,6 @@ ul.user-settings-list li{
 	-moz-box-shadow:    3px 3px 12px rgba(50, 50, 50, 0.75);
 	box-shadow:         3px 3px 12px rgba(50, 50, 50, 0.75);
 	font-weight:bold;
-}
-
-ul.mb0 {
-	margin-bottom:0;
 }
 
 .overflow-x-scrollbar,
@@ -993,26 +950,6 @@ ul.mb0 {
 	color:#5da423;
 }
 
-.pt5{
-	padding-top:5px !important;
-}
-
-.pr5{
-	padding-right:5px;
-}
-
-.pl10{
-	padding-left:10px;
-}
-
-.pl20{
-	padding-left:20px;
-}
-
-.pl15{
-	padding-left:15px;
-}
-
 .icon-assistant{
 	font-size:50px;
 	color:#949494;
@@ -1022,11 +959,6 @@ ul.mb0 {
 .icon-skype{
 	font-size:14px;
 	color:#77C4DB;
-}
-
-#online-users-count{
-	
-	font-weight:bold;
 }
 
 .success-color,
