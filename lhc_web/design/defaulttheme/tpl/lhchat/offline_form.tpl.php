@@ -22,7 +22,7 @@
 				<?php if (in_array('username', $input_data->hattr)) : ?>
 					<input type="hidden" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
 				<?php else : ?>
-					<div class="col-6 form-group<?php if (isset($errors['nick'])) : ?> has-error<?php endif;?>">
+					<div class="col-6 form-group<?php if (isset($errors['nick'])) : ?> is-invalid<?php endif;?>">
 						<label class="col-form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?><?php if (isset($start_data_fields['offline_name_require_option']) && $start_data_fields['offline_name_require_option'] == 'required') : ?>*<?php endif;?></label>
 						<input autofocus="autofocus" class="form-control" <?php if (isset($start_data_fields['offline_name_require_option']) && $start_data_fields['offline_name_require_option'] == 'required') : ?>aria-required="true" required<?php endif;?> aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your name');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your name');?>" type="text" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
 					</div>
@@ -36,7 +36,7 @@
 			<?php if (in_array('email', $input_data->hattr)) : ?>
 				<input type="hidden" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 			<?php else : ?>
-				<div class="col-6 form-group<?php if (isset($errors['email'])) : ?> has-error<?php endif;?>">
+				<div class="col-6 form-group<?php if (isset($errors['email'])) : ?> is-invalid<?php endif;?>">
 					<label class="col-form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?>*</label>
 					<input autofocus="autofocus" class="form-control" aria-required="true" required aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your email address')?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your email address')?>" type="text" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 				</div>
@@ -51,7 +51,7 @@
 			<?php if (in_array('phone', $input_data->hattr)) : ?>
 				<input type="hidden" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
 			<?php else : ?>
-				<div class="form-group<?php if (isset($errors['phone'])) : ?> has-error<?php endif;?>">
+				<div class="form-group<?php if (isset($errors['phone'])) : ?> is-invalid<?php endif;?>">
 				   <label class="col-form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone');?><?php if (isset($start_data_fields['offline_phone_require_option']) && $start_data_fields['offline_phone_require_option'] == 'required') : ?>*<?php endif;?></label>
 				   <input autofocus="autofocus" class="form-control" <?php if (isset($start_data_fields['offline_phone_require_option']) && $start_data_fields['offline_phone_require_option'] == 'required') : ?>aria-required="true" required<?php endif;?> aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your phone')?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your phone')?>" type="text" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
 				</div>
@@ -70,7 +70,7 @@
 	<?php if (isset($start_data_fields['offline_message_hidden']) && $start_data_fields['offline_message_hidden'] == true) : ?>
 	<textarea class="hide" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
 	<?php else : ?>
-	<div class="form-group<?php if (isset($errors['question'])) : ?> has-error<?php endif;?>">
+	<div class="form-group<?php if (isset($errors['question'])) : ?> is-invalid<?php endif;?>">
 	   <label class="col-form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your question');?><?php if (isset($start_data_fields['offline_message_require_option']) && $start_data_fields['offline_message_require_option'] == 'required') : ?>*<?php endif;?></label>
 	   <textarea autofocus="autofocus" class="form-control" <?php if (isset($start_data_fields['offline_message_require_option']) && $start_data_fields['offline_message_require_option'] == 'required') : ?>aria-required="true" required<?php endif;?> aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
 	</div>

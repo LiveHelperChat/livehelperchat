@@ -1,4 +1,4 @@
-<div class="col-6 form-group<?php if (isset($errors['nick'])) : ?> has-error<?php endif;?>">
+<div class="col-6 form-group<?php if (isset($errors['nick'])) : ?> is-invalid<?php endif;?>">
     <label class="col-form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?><?php if (isset($start_data_fields['name_require_option']) && $start_data_fields['name_require_option'] == 'required') : ?>*<?php endif;?></label>
     <input type="text" <?php if (!(isset($is_embed_mode) && $is_embed_mode ==true)) :?>autofocus="autofocus"<?php endif;?> <?php if (isset($start_data_fields['name_require_option']) && $start_data_fields['name_require_option'] == 'required') : ?>aria-required="true" required<?php endif;?> aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your name');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your name');?>" class="form-control" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
 </div>

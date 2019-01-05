@@ -67,7 +67,7 @@ if (count($departments) > 1) : $hasExtraField = true;?>
 <?php endforeach; endif; ?>
 
 <?php if (!isset($departmentsOptions['hide_department']) || $departmentsOptions['hide_department'] == false) : ?>
-<div class="form-group<?php if (isset($errors['department'])) : ?> has-error<?php endif;?>">
+<div class="form-group<?php if (isset($errors['department'])) : ?> is-invalid<?php endif;?>">
     <label class="col-form-label" id="label-department">
     <?php if (isset($theme) && $theme !== false && $theme->department_title != '') : ?>
         <?php echo htmlspecialchars($theme->department_title)?>
