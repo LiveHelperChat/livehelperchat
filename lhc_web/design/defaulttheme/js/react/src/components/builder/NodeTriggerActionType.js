@@ -82,7 +82,7 @@ export default ({onChange, type}) => {
             </div>
             <div className="col-6">
                 <div className="form-group">
-                    <select onChange={(e) => onChange(e)} className="form-control input-sm" defaultValue={type}>
+                    <select onChange={(e) => onChange(e)} className="form-control form-control-sm" defaultValue={type}>
                         {list}
                     </select>
                 </div>

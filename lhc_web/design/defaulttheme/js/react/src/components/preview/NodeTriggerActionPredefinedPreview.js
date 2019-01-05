@@ -10,7 +10,7 @@ class NodeTriggerActionPredefinedPreview extends Component {
 
         return (
             <div>
-                <a className="btn btn-default"><i className="material-icons">play_arrow</i>Execute trigger - {this.props.action.getIn(['content','payload'])}</a>
+                <a className="btn btn-secondary"><i className="material-icons">play_arrow</i>Execute trigger - {this.props.action.getIn(['content','payload'])}</a>
             </div>
         );
     }

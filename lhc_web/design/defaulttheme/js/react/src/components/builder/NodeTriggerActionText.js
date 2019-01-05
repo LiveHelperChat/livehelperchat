@@ -127,17 +127,17 @@ class NodeTriggerActionText extends Component {
                 <div className="col-12">
                     <div className="row">
                         <div className="col-2">
-                            <div className="btn-group pull-left" role="group" aria-label="Trigger actions">
-                                <button disabled="disabled" className="btn btn-xs btn-info">{this.props.id + 1}</button>
-                                {this.props.isFirst == false && <a className="btn btn-default btn-xs" onClick={(e) => this.props.upField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_up</i></a>}
-                                {this.props.isLast == false && <a className="btn btn-default btn-xs" onClick={(e) => this.props.downField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_down</i></a>}
+                            <div className="btn-group float-left" role="group" aria-label="Trigger actions">
+                                <button disabled="disabled" className="btn btn-sm btn-info">{this.props.id + 1}</button>
+                                {this.props.isFirst == false && <a className="btn btn-secondary btn-sm" onClick={(e) => this.props.upField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_up</i></a>}
+                                {this.props.isLast == false && <a className="btn btn-secondary btn-sm" onClick={(e) => this.props.downField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_down</i></a>}
                             </div>
                         </div>
                         <div className="col-9">
                             <NodeTriggerActionType onChange={this.changeType} type={this.props.action.get('type')} />
                         </div>
                         <div className="col-1">
-                            <button onClick={this.removeAction} type="button" className="btn btn-danger btn-sm pull-right">
+                            <button onClick={this.removeAction} type="button" className="btn btn-danger btn-sm float-right">
                                 <i className="material-icons mr-0">delete</i>
                             </button>
                         </div>
@@ -145,7 +145,7 @@ class NodeTriggerActionText extends Component {
 
                     <div className="form-group">
                         <label>Enter text</label>
-                        <a title="Add answer variation" className="pull-right" onClick={this.addAnswerVariation}><i className="material-icons mr-0">question_answer</i></a>
+                        <a title="Add answer variation" className="float-right" onClick={this.addAnswerVariation}><i className="material-icons mr-0">question_answer</i></a>
                         <textarea rows="3" placeholder="Write your response here!" onChange={this.setText} ref={this.textMessageRef} defaultValue={this.props.action.getIn(['content','text'])} className="form-control"></textarea>
                     </div>
 
@@ -165,8 +165,8 @@ class NodeTriggerActionText extends Component {
                         </div>
                         <div className="col-6">
                             <div className="btn-group" role="group">
-                                <a onClick={this.addAction} className="btn btn-xs btn-default"><i className="material-icons mr-0">add</i> Add action on message</a>
-                                <a onClick={this.addQuickReply} className="btn btn-xs btn-default"><i className="material-icons mr-0">add</i> Add quick reply</a>
+                                <a onClick={this.addAction} className="btn btn-sm btn-secondary"><i className="material-icons mr-0">add</i> Add action on message</a>
+                                <a onClick={this.addQuickReply} className="btn btn-sm btn-secondary"><i className="material-icons mr-0">add</i> Add quick reply</a>
                             </div>
                         </div>
                     </div>

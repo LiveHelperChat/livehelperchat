@@ -63,9 +63,9 @@ class NodeTriggerActionQuickReplyPayload extends Component {
                     <div className="form-group">
                         <label>Payload</label>
                         {this.state.addingPayload == false ? (
-                            <select className="form-control input-sm" onChange={this.onChange.bind(this)} value={this.props.currentPayload.get('payload')}><option value="">Select event</option>{list}</select>
+                            <select className="form-control form-control-sm" onChange={this.onChange.bind(this)} value={this.props.currentPayload.get('payload')}><option value="">Select event</option>{list}</select>
                         ) : (
-                            <input className="form-control input-sm" type="text" onChange={this.onPayloadNameChange.bind(this)} defaultValue="" />
+                            <input className="form-control form-control-sm" type="text" onChange={this.onPayloadNameChange.bind(this)} defaultValue="" />
                         )}
                     </div>
                 </div>
@@ -76,13 +76,13 @@ class NodeTriggerActionQuickReplyPayload extends Component {
                         <div className="col-6">
                             <div className="form-group">
                                 <label>URL</label>
-                                <input className="form-control input-sm" type="text" onChange={this.onChange.bind(this)} defaultValue={this.props.currentPayload.get('payload')} />
+                                <input className="form-control form-control-sm" type="text" onChange={this.onChange.bind(this)} defaultValue={this.props.currentPayload.get('payload')} />
                             </div>
                         </div>
                         <div className="col-6">
                             <div className="form-group">
                                 <label>Payload</label>
-                                <select className="form-control input-sm" onChange={this.onChangeMessageToVisitor.bind(this)} value={this.props.currentPayload.get('payload_message')}><option value="">Select event</option>{list}</select>
+                                <select className="form-control form-control-sm" onChange={this.onChangeMessageToVisitor.bind(this)} value={this.props.currentPayload.get('payload_message')}><option value="">Select event</option>{list}</select>
                             </div>
                         </div>
                     </div>
@@ -92,7 +92,7 @@ class NodeTriggerActionQuickReplyPayload extends Component {
                 <div className="col-12">
                     <div className="form-group">
                         <label>Select action</label>
-                        <select className="form-control input-sm" value={this.props.currentPayload.get('payload')} onChange={this.onChange.bind(this)} >
+                        <select className="form-control form-control-sm" value={this.props.currentPayload.get('payload')} onChange={this.onChange.bind(this)} >
                             <option value="">Select event</option>
                             <option value="transferToOperator">Transfer to operator</option>
                             <option value="transferToBot">Transfer to bot</option>
@@ -103,7 +103,7 @@ class NodeTriggerActionQuickReplyPayload extends Component {
                     {(this.props.currentPayload.get('payload') == 'transferToOperator' || this.props.currentPayload.get('payload') == 'transferToBot') &&
                     <div className="form-group">
                         <label>Message to user after transfer</label>
-                        <input className="form-control input-sm" onChange={this.onChangeMessageToVisitor.bind(this)} defaultValue={this.props.currentPayload.get('payload_message')} type="text" placeholder="Message to visitor" />
+                        <input className="form-control form-control-sm" onChange={this.onChangeMessageToVisitor.bind(this)} defaultValue={this.props.currentPayload.get('payload_message')} type="text" placeholder="Message to visitor" />
                     </div>
                     }
                 </div>
@@ -122,7 +122,7 @@ class NodeTriggerActionQuickReplyPayload extends Component {
                 <div className="col-12">
                     <div className="form-group">
                         <label>Type</label>
-                        <select className="form-control input-sm" defaultValue={this.props.payloadType} onChange={this.onChangeType.bind(this)} >
+                        <select className="form-control form-control-sm" defaultValue={this.props.payloadType} onChange={this.onChangeType.bind(this)} >
                             <option value="none">No action</option>
                             <option value="url">URL</option>
                             <option value="button">Click</option>

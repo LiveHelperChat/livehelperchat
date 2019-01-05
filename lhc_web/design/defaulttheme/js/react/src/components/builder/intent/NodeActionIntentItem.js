@@ -42,25 +42,25 @@ class NodeActionIntentItem extends Component {
                 <div className="col-6">
                     <div className="form-group">
                         <label>Should include any of these words</label>
-                        <input type="text" placeholder="yes, thanks" className="form-control input-sm" onChange={(e) => this.onIncludeWordsChange(e.target.value)} defaultValue={this.props.action.getIn(['content','words'])} />
+                        <input type="text" placeholder="yes, thanks" className="form-control form-control-sm" onChange={(e) => this.onIncludeWordsChange(e.target.value)} defaultValue={this.props.action.getIn(['content','words'])} />
                     </div>
                 </div>
                 <div className="col-6">
                     <div className="form-group">
                         <label>But not any of these</label>
-                        <input type="text" placeholder="no, nop" className="form-control input-sm" onChange={(e) => this.onExcludeWordsChange(e.target.value)} defaultValue={this.props.action.getIn(['content','exc_words'])} />
+                        <input type="text" placeholder="no, nop" className="form-control form-control-sm" onChange={(e) => this.onExcludeWordsChange(e.target.value)} defaultValue={this.props.action.getIn(['content','exc_words'])} />
                     </div>
                 </div>
                 <div className="col-6">
                     <div className="form-group">
                         <label>Number of typos allowed</label>
-                        <input type="text" placeholder="0" className="form-control input-sm" onChange={(e) => this.onTypos(e.target.value)} defaultValue={this.props.action.getIn(['content','words_typo'])} />
+                        <input type="text" placeholder="0" className="form-control form-control-sm" onChange={(e) => this.onTypos(e.target.value)} defaultValue={this.props.action.getIn(['content','words_typo'])} />
                     </div>
                 </div>
                 <div className="col-6">
                     <div className="form-group">
                         <label>Number of typos allowed</label>
-                        <input type="text" placeholder="0" className="form-control input-sm" onChange={(e) => this.onTyposExc(e.target.value)} defaultValue={this.props.action.getIn(['content','exc_words_typo'])} />
+                        <input type="text" placeholder="0" className="form-control form-control-sm" onChange={(e) => this.onTyposExc(e.target.value)} defaultValue={this.props.action.getIn(['content','exc_words_typo'])} />
                     </div>
                 </div>
 
@@ -77,8 +77,8 @@ class NodeActionIntentItem extends Component {
                 </div>
 
                 <div className="col-12">
-                    <div className="btn-group pull-right" role="group" aria-label="Trigger actions">
-                        <a className="btn btn-warning btn-xs" onClick={this.deleteField.bind(this)}>Delete</a>
+                    <div className="btn-group float-right" role="group" aria-label="Trigger actions">
+                        <a className="btn btn-warning btn-sm" onClick={this.deleteField.bind(this)}>Delete</a>
                     </div>
                 </div>
 

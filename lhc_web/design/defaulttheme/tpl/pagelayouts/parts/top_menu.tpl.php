@@ -1,5 +1,5 @@
 <?php $currentUser = erLhcoreClassUser::instance(); ?>
-<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-lhc-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom p-0 pl-1">
     <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_logo_back_office.tpl.php'));?>
 
     <button class="btn btn-outline-light" type="button" ng-click="lhc.toggleList('lmtoggle')" title="Expand or collapse left menu" aria-expanded="true" aria-label="Toggle navigation">

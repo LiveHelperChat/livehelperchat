@@ -67,21 +67,12 @@ body {
 	z-index:9999;
 }
 
-.absolute-language-top-right .btn-default{
+.absolute-language-top-right .btn-secondary{
 	border-top:0;
 	border-right:0;
 	border-radius:0;
 	border-bottom-left-radius:3px;
 }
-
-.m10{
-	margin:10px;
-}
-
-/*#myModal,
-.modal-open{
-	padding-right:0px !important;
-}*/
 
 #screenshotImage{
 	max-width:100%;
@@ -99,15 +90,6 @@ body {
 
 #widget-layout textarea{
 	height:50px;
-}
-
-#widget-layout .form-group{
-	margin-bottom:5px;
-}
-
-#widget-layout .alert{
-	margin-bottom:10px;
-	font-size:12px;
 }
 
 h1 {
@@ -609,10 +591,6 @@ div.message-row.response+div.message-row.response:hover .msg-date,
 	font-size: 15px;
 }
 
-.pos-rel{
-	position:relative;
-}
-
 ul.user-settings-list {
 	margin-bottom:0;
 	margin-left:0;
@@ -830,10 +808,6 @@ ul.user-settings-list li{
 	transition: background-color 1000ms linear;	
 }
 
-.max-width-180{
-	max-width: 180px;
-}
-
 .f-dropdown-lang li {
 	float:left;
 	width:50%;
@@ -936,10 +910,6 @@ input[type="file"]{
 #wrapper {
     padding-left: 0;
     padding-right: 0;
-    /*-webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;*/
 }
 
 #wrapper.toggled {
@@ -1135,16 +1105,6 @@ input[type="file"]{
     max-height:300px;
     overflow-y:auto;
 	padding:0;
-}
-
-.navbar-lhc .navbar-collapse ul.navbar-inline > li {
-    float: left;
-}
-
-.navbar-lhc-top{
-	padding-top:0.17em;
-	padding-bottom:0.17em;
-	border-bottom:1px solid #ddd;
 }
 
 .form-control-warning:focus {

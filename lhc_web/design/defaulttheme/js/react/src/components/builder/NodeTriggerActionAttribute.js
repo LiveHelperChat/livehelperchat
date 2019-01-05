@@ -31,7 +31,7 @@ class NodeTriggerActionAttribute extends Component {
                         <NodeTriggerActionType onChange={this.changeType} type={this.props.action.get('type')} />
                     </div>
                     <div className="col-1">
-                        <button onClick={this.removeAction} type="button" className="btn btn-danger btn-sm pull-right">
+                        <button onClick={this.removeAction} type="button" className="btn btn-danger btn-sm float-right">
                             <i className="material-icons mr-0">delete</i>
                         </button>
                     </div>

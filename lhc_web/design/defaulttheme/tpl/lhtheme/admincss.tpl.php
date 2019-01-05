@@ -26,13 +26,6 @@ a {
 }
 <?php endif;?>
 
-<?php if (isset($cssAttributes['panel_background_color']) || isset($cssAttributes['panel_border_color'])) : ?>
-.card>.card-header{
-    <?php if (isset($cssAttributes['panel_background_color'])) : ?>background-color:#<?php echo $cssAttributes['panel_background_color']?>;<?php endif;?>
-    <?php if (isset($cssAttributes['panel_border_color'])) : ?>border-color:#<?php echo $cssAttributes['panel_border_color']?>;<?php endif;?>
-}
-<?php endif;?>
-
 <?php if (isset($cssAttributes['panel_mbc'])) : ?>
 .card {
     background-color:#<?php echo $cssAttributes['panel_mbc'];?>
@@ -52,7 +45,7 @@ a {
 <?php endif;?>
 
 <?php if (isset($cssAttributes['tab_bc'])) : ?>
-.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li>a.active:hover,
+.nav-pills>li>a.active, .nav-pills>li>a.active:focus, .nav-pills>li>a.active:hover,
 .nav-pills>li>a:hover,
 .nav-tabs>li>a.active, .nav-tabs>li>a.active:focus, .nav-tabs>li>a.active:hover,.nav-tabs>li>a:hover {
     background-color:#<?php echo $cssAttributes['tab_bc'];?>

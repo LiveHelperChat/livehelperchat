@@ -46,7 +46,7 @@ class NodeTriggerArgumentTemplate extends Component {
 
         return (
             <div>
-                <select className="form-control input-sm" onChange={this.onChange.bind(this)} value={argumentId}>
+                <select className="form-control form-control-sm" onChange={this.onChange.bind(this)} value={argumentId}>
                     {this.props.showOptional == true &&
                         <option value="">Choose argument</option>
                     }

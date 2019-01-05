@@ -12,7 +12,7 @@
 <?php else : ?>
 
 <?php if (!isset($start_data_fields['show_operator_profile']) || $start_data_fields['show_operator_profile'] == false) : ?>
-<div class="pl-1 max-width-180 float-right absolute-language-top-right">
+<div class="pl10 max-width-180 float-right absolute-language-top-right">
 	<?php $rightLanguage = true;?>
 	<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/switch_language.tpl.php'));?>
 </div>
@@ -87,9 +87,9 @@ if ($theme !== false && $theme->explain_text != '' && $onlyBotOnline == false) :
 		<?php if (in_array('email', $input_data->hattr)) : ?>
 			<input type="hidden" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 		<?php elseif (!($onlyBotOnline == true && isset($start_data_fields['email_hidden_bot']) && $start_data_fields['email_hidden_bot'] == true)) : ?>
-	    <div class="col-6 form-group<?php if (isset($errors['email'])) : ?> is-invalid<?php endif;?>">
+	    <div class="col-6 form-group">
 	        <label class="col-form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?><?php if (isset($start_data_fields['email_require_option']) && $start_data_fields['email_require_option'] == 'required') : ?>*<?php endif;?></label>
-	        <input <?php if (!(isset($is_embed_mode) && $is_embed_mode ==true)) :?>autofocus="autofocus"<?php endif;?> class="form-control" aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your email address')?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your email address')?>" <?php if (isset($start_data_fields['email_require_option']) && $start_data_fields['email_require_option'] == 'required') : ?>aria-required="true" required<?php endif;?> type="text" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
+	        <input <?php if (!(isset($is_embed_mode) && $is_embed_mode ==true)) :?>autofocus="autofocus"<?php endif;?> class="form-control<?php if (isset($errors['email'])) : ?> is-invalid<?php endif;?>" aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your email address')?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your email address')?>" <?php if (isset($start_data_fields['email_require_option']) && $start_data_fields['email_require_option'] == 'required') : ?>aria-required="true" required<?php endif;?> type="text" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 	    </div>
 	    <?php endif; ?>
     <?php endif; ?>
@@ -104,9 +104,9 @@ if ($theme !== false && $theme->explain_text != '' && $onlyBotOnline == false) :
 		<?php if (in_array('phone', $input_data->hattr)) : ?>
 		<input type="hidden" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
 		<?php elseif (!($onlyBotOnline == true && isset($start_data_fields['phone_hidden_bot']) && $start_data_fields['phone_hidden_bot'] == true)) : ?>
-		<div class="form-group<?php if (isset($errors['phone'])) : ?> is-invalid<?php endif;?>">
+		<div class="form-group">
 		  <label class="col-form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone');?><?php if (isset($start_data_fields['phone_require_option']) && $start_data_fields['phone_require_option'] == 'required') : ?>*<?php endif;?></label>
-		  <input <?php if (!(isset($is_embed_mode) && $is_embed_mode ==true)) :?>autofocus="autofocus"<?php endif;?> <?php if (isset($start_data_fields['phone_require_option']) && $start_data_fields['phone_require_option'] == 'required') : ?>aria-required="true" required<?php endif;?> aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your phone')?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your phone')?>" class="form-control" aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your phone')?>" type="text" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
+		  <input <?php if (!(isset($is_embed_mode) && $is_embed_mode ==true)) :?>autofocus="autofocus"<?php endif;?> <?php if (isset($start_data_fields['phone_require_option']) && $start_data_fields['phone_require_option'] == 'required') : ?>aria-required="true" required<?php endif;?> aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your phone')?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your phone')?>" class="form-control<?php if (isset($errors['phone'])) : ?> is-invalid<?php endif;?>" aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your phone')?>" type="text" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
 		</div>
 		<?php endif; ?>
 <?php endif; ?>
@@ -223,7 +223,7 @@ jQuery('#id_Question').bind('keydown', 'return', function (evt){
 
 	<?php if (isset($start_data_fields['show_operator_profile']) && $start_data_fields['show_operator_profile'] == true) : ?>
 	
-		<div class="pl-1 pos-rel max-width-180 float-right">
+		<div class="pl10 position-relative float-right">
 		<?php $rightLanguage = true;?>
 		<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/switch_language.tpl.php'));?>
 		</div>

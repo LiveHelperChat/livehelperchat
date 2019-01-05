@@ -59,20 +59,20 @@ class NodeTriggerActionQuickReply extends Component {
                 <div className="col-5">
                     <div className="form-group">
                         <label>Name</label>
-                        <input type="text" onChange={this.onNameChange} defaultValue={this.props.reply.getIn(['content','name'])} className="form-control input-sm" />
+                        <input type="text" onChange={this.onNameChange} defaultValue={this.props.reply.getIn(['content','name'])} className="form-control form-control-sm" />
                     </div>
 
                     <div className="row">
                         <div className="col-6">
                             <div className="form-group">
                                 <label>Precheck event</label>
-                                <input type="text" onChange={this.onPrecheckChange} defaultValue={this.props.reply.getIn(['content','render_precheck_function'])} className="form-control input-sm" />
+                                <input type="text" onChange={this.onPrecheckChange} defaultValue={this.props.reply.getIn(['content','render_precheck_function'])} className="form-control form-control-sm" />
                             </div>
                         </div>
                         <div className="col-6">
                             <div className="form-group">
                                 <label>Arguments</label>
-                                <input type="text" onChange={this.onRenderArgsChange} defaultValue={this.props.reply.getIn(['content','render_args'])} className="form-control input-sm" />
+                                <input type="text" onChange={this.onRenderArgsChange} defaultValue={this.props.reply.getIn(['content','render_args'])} className="form-control form-control-sm" />
                             </div>
                         </div>
                     </div>

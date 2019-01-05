@@ -58,9 +58,9 @@ class NodeGroupTrigger extends Component {
 
     render() {
 
-        var classNameCurrent = 'btn btn-default btn-xs';
+        var classNameCurrent = 'btn btn-secondary btn-sm';
         if (this.props.currenttrigger.get('currenttrigger').get('id') === this.props.trigger.get('id')) {
-            classNameCurrent = 'btn btn-default btn-xs btn-success';
+            classNameCurrent = 'btn btn-secondary btn-sm btn-success';
         }
 
         if (this.props.trigger.get('default') == 1) {
@@ -78,13 +78,12 @@ class NodeGroupTrigger extends Component {
                 <li>
                     <div class="btn-group trigger-btn">
                         <button onClick={this.loadTriggerActions.bind(this)} className={classNameCurrent}>{this.props.trigger.get('name')}</button>
-                        <button type="button" class="btn btn-xs btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="sr-only">Toggle Dropdown</span>
+                        <button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         </button>
                         <ul class="dropdown-menu dropdown-menu-trigger">
-                            <li><a href="#" onClick={this.removeTrigger}><i class="material-icons">delete</i> Delete</a></li>
-                            <li><label title="This message will be send tu visitor then chat starts"><input onChange={this.setDefaultTrigger} type="checkbox" checked={this.props.trigger.get('default')} />Default</label></li>
-                            <li><label title="This message will be send to visitor then we could dot determine what we should do"><input onChange={this.setDefaultUnknownTrigger} type="checkbox" checked={this.props.trigger.get('default_unknown')} />Default for unknown</label></li>
+                            <li className="dropdown-item"><a href="#" onClick={this.removeTrigger}><i class="material-icons">delete</i> Delete</a></li>
+                            <li className="dropdown-item"><label title="This message will be send tu visitor then chat starts"><input onChange={this.setDefaultTrigger} type="checkbox" checked={this.props.trigger.get('default')} />Default</label></li>
+                            <li className="dropdown-item"><label title="This message will be send to visitor then we could dot determine what we should do"><input onChange={this.setDefaultUnknownTrigger} type="checkbox" checked={this.props.trigger.get('default_unknown')} />Default for unknown</label></li>
                         </ul>
                     </div>
                 </li>

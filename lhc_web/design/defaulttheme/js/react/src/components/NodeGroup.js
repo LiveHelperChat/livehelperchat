@@ -90,14 +90,19 @@ class NodeGroup extends Component {
                             <input className="form-control gbot-group-name" value={this.props.group.get('name')} onChange={this.handleChange.bind(this)} />
                         </div>
                         <div className="col-2">
-                            <a className="pull-right" onClick={this.deleteGroup.bind(this)}><i className="material-icons mr-0">delete</i></a>
+                            <a className="float-right" onClick={this.deleteGroup.bind(this)}><i className="material-icons mr-0">delete</i></a>
                         </div>
                     </div>
 
-                    <ul className="gbot-trglist">
-                        {mappedNodeGroupTriggers}
-                        <li><a className="btn btn-xs btn-default" onClick={this.addTrigger.bind(this)} ><i className="material-icons mr-0">add</i></a></li>
-                    </ul>
+                    <div className="row">
+                        <div className="col-12">
+                            <ul className="gbot-trglist">
+                                {mappedNodeGroupTriggers}
+                                <li><a className="btn btn-sm btn-secondary" onClick={this.addTrigger.bind(this)} ><i className="material-icons mr-0">add</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
                     {triggerAction}
                 </div>
             </div>

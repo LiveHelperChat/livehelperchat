@@ -60,12 +60,12 @@ class NodeActionButton extends Component {
 
                 <div className="col-12">
                     <div className="btn-group float-left" role="group" aria-label="Trigger actions">
-                        {this.props.isFirst == false && <a className="btn btn-default btn-xs" onClick={this.upField.bind(this)}><i className="material-icons mr-0">keyboard_arrow_up</i></a>}
-                        {this.props.isLast == false && <a className="btn btn-default btn-xs" onClick={this.downField.bind(this)}><i className="material-icons mr-0">keyboard_arrow_down</i></a>}
+                        {this.props.isFirst == false && <a className="btn btn-secondary btn-sm" onClick={this.upField.bind(this)}><i className="material-icons mr-0">keyboard_arrow_up</i></a>}
+                        {this.props.isLast == false && <a className="btn btn-secondary btn-sm" onClick={this.downField.bind(this)}><i className="material-icons mr-0">keyboard_arrow_down</i></a>}
                     </div>
 
-                    <div className="btn-group pull-right" role="group" aria-label="Trigger actions">
-                        <a className="btn btn-warning btn-xs" onClick={this.deleteField.bind(this)}>Delete</a>
+                    <div className="btn-group float-right" role="group" aria-label="Trigger actions">
+                        <a className="btn btn-warning btn-sm" onClick={this.deleteField.bind(this)}>Delete</a>
                     </div>
                 </div>
 
