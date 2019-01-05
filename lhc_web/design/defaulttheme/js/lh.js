@@ -289,7 +289,7 @@ function lh(){
 
     this.addTab = function(tabs, url, name, chat_id, focusTab, position) {    
     	// If tab already exits return
-    	if (tabs.find('#chat-tab-link-'+chat_id).size() > 0) {
+    	if (tabs.find('#chat-tab-link-'+chat_id).length > 0) {
     		return ;
     	}
     	
@@ -1074,7 +1074,7 @@ function lh(){
     		var link = linkTab.find('> a');
     	} else {
     		linkTabRight = tabs.find('> ul > li:eq('+ (index)+')');
-    		if (linkTabRight.size() > 0) {
+    		if (linkTabRight.length > 0) {
     			var link = linkTabRight.find('> a');
     		} else {
     			var link = linkTab.find('> a');
@@ -1276,7 +1276,7 @@ function lh(){
 	        dataType: 'json'
 	    }).done(function(data){	  
 	    		    	
-	    	if ($('#tabs').size() > 0) {
+	    	if ($('#tabs').length > 0) {
     			window.focus();
     			inst.startChat(data.chat_id, $('#tabs'), nt);
     		} else {
@@ -1326,7 +1326,7 @@ function lh(){
 
         setTimeout(function(){
             $('#myModal').modal('hide');
-            if ($('#tabs').size() > 0) {
+            if ($('#tabs').length > 0) {
                 inst.removeDialogTab(chat_id,$('#tabs'),true)
             }
         },1000);
@@ -2028,7 +2028,7 @@ function lh(){
 				  				
 			notification.onclick = function () {
     	    	if (identifier == 'pending_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered') {
-    	    		if ($('#tabs').size() > 0) {
+    	    		if ($('#tabs').length > 0) {
     	    			window.focus();
     	    			inst.startChat(chat_id, $('#tabs'), nt);
     	    		} else {
@@ -2059,7 +2059,7 @@ function lh(){
 	    if (confLH.show_alert == 1) {	    	
     		if (confirm(confLH.transLation.new_chat+"\n\n"+message)) {
     			if (identifier == 'pending_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered') {
-    	    		if ($('#tabs').size() > 0) {
+    	    		if ($('#tabs').length > 0) {
     	    			window.focus();
     	    			inst.startChat(chat_id, $('#tabs'), nt);
     	    		} else {
@@ -2382,7 +2382,7 @@ function lh(){
                 	 
                 	 if (q != '') {
                 		 var options = $('#id_CannedMessage-'+chat_id).find('option');
-                		 if (options.size() > 1) {
+                		 if (options.length > 1) {
                 			 $(options[1]).attr('selected','selected');
                 		 }
                 	 }
@@ -2772,7 +2772,7 @@ function lh(){
     
     this.prestartChat = function(timestamp,inst) {
     	    	
-    	if (inst.find('.form-protected').size() == 0) {
+    	if (inst.find('.form-protected').length == 0) {
     		
     			if (inst.attr('lhc-captcha-submitted') != 1) {
     				inst.attr('lhc-captcha-submitted',1);    				
@@ -2796,7 +2796,7 @@ function lh(){
     		  		
     			} else {
     				// That means it's second submit, and that means user pressed enter
-    				if ($('#messagesBlock').size() > 0) {
+    				if ($('#messagesBlock').length > 0) {
     	            	jQuery('<div/>', {
     	    			    'class': 'message-row response',					   
     	    			    text: $('#id_Question').val()
@@ -2811,7 +2811,7 @@ function lh(){
 	  	} else {
 	  		
 	  		// Avoid users stupidity if they enable it but form has extra field
-	  		if (inst.find('#hasFormExtraField').size() == 1) {
+	  		if (inst.find('#hasFormExtraField').length == 1) {
 	  			return true;
 	  		}
 	  		
@@ -2866,7 +2866,7 @@ function lh(){
 		  		}
 		  		
 	  		} else {	  			
-	  			if ($('#messagesBlock').size() > 0) {
+	  			if ($('#messagesBlock').length > 0) {
 	            	jQuery('<div/>', {
 	    			    'class': 'message-row response',					   
 	    			    text: $('#id_Question').val()
@@ -2882,7 +2882,7 @@ function lh(){
     };
     
     this.addCaptcha = function(timestamp,inst) {
-    	if (inst.find('.form-protected').size() == 0){
+    	if (inst.find('.form-protected').length == 0){
     			 inst.find('input[type="submit"]').attr('disabled','disabled');
 		    	 $.getJSON(this.wwwDir + 'captcha/captchastring/form/'+timestamp, function(data) {
 		    		 inst.append('<input type="hidden" value="'+timestamp+'" name="captcha_'+data.result+'" /><input type="hidden" value="'+timestamp+'" name="tscaptcha" /><input type="hidden" class="form-protected" value="1" />');
@@ -2903,7 +2903,7 @@ function lh(){
     }
     
     this.addCaptchaSubmit = function(timestamp,inst) {
-        if (inst.find('.form-protected').size() == 0) {
+        if (inst.find('.form-protected').length == 0) {
             inst.find('input[type="submit"]').attr('disabled','disabled');
             $.getJSON(this.wwwDir + 'captcha/captchastring/form/'+timestamp, function(data) {
                 inst.append('<input type="hidden" value="'+timestamp+'" name="captcha_'+data.result+'" /><input type="hidden" value="'+timestamp+'" name="tscaptcha" /><input type="hidden" class="form-protected" value="1" />');

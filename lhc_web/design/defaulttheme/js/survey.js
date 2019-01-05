@@ -5,7 +5,7 @@ var adminSurvey = {
 		var currentElement = $('#position-id-'+positionCurrent);
 		var nextElement = $('#position-id-'+(positionCurrent-1));
 
-		if (nextElement.size() > 0) {
+		if (nextElement.length > 0) {
 			currentElement.insertBefore(currentElement.prev());
 			positionElement.val(positionCurrent-1);
 			currentElement.attr('id','position-id-'+positionElement.val());
@@ -21,7 +21,7 @@ var adminSurvey = {
 		var currentElement = $('#position-id-'+positionCurrent);
 		var nextElement = $('#position-id-'+(positionCurrent+1));
 
-		if (nextElement.size() > 0) {
+		if (nextElement.length > 0) {
 			currentElement.insertAfter(currentElement.next());
 			positionElement.val(positionCurrent+1);
 			currentElement.attr('id','position-id-'+positionElement.val());

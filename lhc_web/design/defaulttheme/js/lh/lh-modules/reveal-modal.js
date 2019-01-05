@@ -5,10 +5,10 @@ var revealM = {
 
 		initializeModal : function(selector) {
 			var modelSelector = selector != undefined ? selector : 'myModal';
-			if ($('#'+modelSelector).size() == 0) {
+			if ($('#'+modelSelector).length == 0) {
 
 				var prependTo = null;
-				if ($('#widget-layout').size() == 0) {
+				if ($('#widget-layout').length == 0) {
 					prependTo = $('body');
 				} else {
 					prependTo = $('#widget-layout');
