@@ -13,10 +13,6 @@ body.embed-widget {
 
 #widget-layout .row { min-width: 0;  }
 
-input.mb0 {
-	margin-bottom:0;
-}
-
 .widget-chat #widget-layout {
 	padding-top:0px;
 }

@@ -1,5 +1,5 @@
-<div class="operator-info d-flex<?php if (!isset($start_data_fields['remove_operator_space']) || $start_data_fields['remove_operator_space'] == false) : ?> mb-1 round-profile<?php else : ?><?php endif;?>">
-	<div class="p-1">
+<div class="operator-info d-flex<?php if (!isset($start_data_fields['remove_operator_space']) || $start_data_fields['remove_operator_space'] == false) : ?> mb10 round-profile<?php else : ?><?php endif;?>">
+	<div>
      	<?php if ($theme !== false && $theme->operator_image_url != '') : ?>
      			<img src="<?php echo $theme->operator_image_url?>" alt="" />
      	<?php else : ?>

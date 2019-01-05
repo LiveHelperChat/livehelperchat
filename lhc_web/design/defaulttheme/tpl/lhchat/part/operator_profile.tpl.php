@@ -1,5 +1,5 @@
 <div class="operator-info d-flex">
-	<div class="p-1">
+	<div>
 		<?php if ($user->has_photo) : ?>
      			<?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_name_support_img.tpl.php'));?>
      	<?php else : ?>

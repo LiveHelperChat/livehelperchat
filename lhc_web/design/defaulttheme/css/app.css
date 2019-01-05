@@ -130,10 +130,6 @@ a:hover{
 	border:1px solid #ccc;
 }
 
-option.offline-dep{
-	color:#970b0e;
-}
-
 .action-image {
     cursor:pointer;
 }
@@ -156,18 +152,6 @@ option.offline-dep{
 
 .fs12 {
 	font-size: 12px;
-}
-
-.fs14 {
-	font-size: 14px;
-}
-
-.fs16 {
-	font-size: 16px;
-}
-
-.fs18 {
-	font-size: 18px;
 }
 
 .fs24 {
@@ -200,15 +184,6 @@ option.offline-dep{
 	color:#FF4B4B;
 }
 
-/*User has done pageview in the last 5 minutes*/
-.icon-user-pageview {
-	
-}
-
-.mb5 {
-	margin-bottom: 5px;
-}
-
 .msgBlock,.msgBlock-inv{
 	height:120px;
 	overflow-y:auto;
@@ -216,8 +191,6 @@ option.offline-dep{
 	resize: vertical;
 	background-color:#FFF;
 }
-
-
 
 .msg-hide-ts .msg-date{
 	display: none!important;
@@ -1086,10 +1059,6 @@ input[type="file"]{
   width: 26px;
 }
 
-.border-bottom-grey{
-	border-bottom:1px solid #eee;
-}
-
 .btn-block-department .dropdown-menu {
     max-height:300px;
     overflow-y:auto;
@@ -1331,10 +1300,6 @@ input[type="file"]{
 	width: 100%;
 	-webkit-overflow-scrolling: touch;
 	-webkit-overflow-scrolling: touch;
-}
-
-.alert-small{
-	padding:5px;
 }
 
 .btn-bot:focus,.btn-bot:active:focus,.btn-bot.active:focus,
