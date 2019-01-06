@@ -1087,6 +1087,7 @@ input[type="file"]{
 	border:1px solid #ccc;
 	border-top:0;
 	border-right:0;
+	z-index:999;
 }
 
 .load-prev-btn:hover {

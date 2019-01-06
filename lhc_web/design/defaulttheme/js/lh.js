@@ -465,8 +465,8 @@ function lh(){
      	    	inst.syncadmininterfacestatic();
      	    },1000);
         } else {
-        	tabs.find('> ul > li.active').removeClass("active");
-    		tabs.find('> ul > #chat-tab-li-'+chat_id).addClass("active");
+        	tabs.find('> ul > li > a.active').removeClass("active");
+    		tabs.find('> ul > li#chat-tab-li-'+chat_id+' > a').addClass("active");
     		tabs.find('> div.tab-content > div.active').removeClass('active');
     		tabs.find('> div.tab-content > #chat-id-'+chat_id).addClass('active');  
     		window.location.hash = '#/chat-id-'+chat_id;
@@ -1081,7 +1081,7 @@ function lh(){
     		}
     	}
 
-    	if (!tabs.find('> ul > li.active').length) {
+    	if (!tabs.find('> ul > li > a.active').length) {
     		link.tab('show');
 
     		if (link.attr('id') !== undefined) {
@@ -1753,7 +1753,7 @@ function lh(){
 	
 	        		                  var mainElement = $('#chat-tab-link-'+item.chat_id);
 	
-	        		                  if (!mainElement.parent().hasClass('active')) {
+	        		                  if (!mainElement.hasClass('active')) {
 	        		                	  if (mainElement.find('span.msg-nm').length > 0) {
 	        		                		  var totalMsg = (parseInt(mainElement.find('span.msg-nm').attr('rel')) + item.mn);
 	        		                		  mainElement.find('span.msg-nm').html(' (' + totalMsg + ')' ).attr('rel',totalMsg);
@@ -3521,7 +3521,7 @@ function gMapsCallback(){
 
 	google.maps.event.addListener(map, 'idle', showMarkers);
 	
-	var mapTabSection = $('#map-activator').parent();
+	var mapTabSection = $('#map-activator');
 		
 	function showMarkers() {
 	    if ( processing == false) {	    		
