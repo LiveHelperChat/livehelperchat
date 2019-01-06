@@ -973,13 +973,13 @@ input[type="file"]{
 
 .dashboard-configuration{		
   position: absolute;
-  right: 6px;
+  right: 23px;
   z-index: 999;
-  margin-top: -18px;
+  margin-top: -30px;
 }
 
 .dashboard-configuration .material-icons {
-	font-size:14px;
+	font-size:18px;
 }
 
 .exp-cntr:hover{
