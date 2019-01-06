@@ -10,13 +10,15 @@
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu.tpl.php'));?>
 
-<div class="container-fluid" id="wrapper" ng-class="{toggled: lmtoggle, toggledr : lmtoggler}">
+<div id="wrapper" ng-class="{toggled: lmtoggle, toggledr : lmtoggler}">
 
 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/sidemenu/sidemenu.tpl.php'));?>
-<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/path.tpl.php'));?>
+
     <div id="page-content-wrapper">
-    
-    <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/can_use_chat.tpl.php'));?>
+
+        <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/path.tpl.php'));?>
+
+        <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/can_use_chat.tpl.php'));?>
     
         <div class="row">
         
