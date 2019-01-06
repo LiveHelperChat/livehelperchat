@@ -191,7 +191,7 @@ a:hover{
 .msgBlock,.msgBlock-inv{
 	height:120px;
 	overflow-y:auto;
-	border: 1px solid #ededed;
+	border: 1px solid #ced4da;
 	resize: vertical;
 	background-color:#FFF;
 	padding-bottom:3px;
@@ -219,16 +219,15 @@ textarea[name=ChatMessage]{
 
 .msg-date {
 	color: #171515;
-	background-color: #f0f0f1;
 	font-size:11px;
 	line-height:11px;
 	margin-top:0px;
-	border:1px solid #fff;
-	position:absolute;
+	/*position:absolute;
 	right:0;
-	top:-8px;
+	top:-8px;*/
 	padding:3px;
 	border-radius:10px;
+	font-style: italic;
 }
 
 .system-response .msg-date{
@@ -248,17 +247,16 @@ div.system-response {
 	padding:2px 0px;
 	border-radius: 7px;
 	display:block;
-	margin-top:-27px;
+	/*margin-top:-27px;*/
 	font-size:14px;
 }
 
 .sys-tit{
-	display:inline-block;
 	background-color:#CCC;
 	padding-left:3px;
 	padding-right:3px;
 	color:#fff;
-	
+	display: inline-block;
 }
 
 .op-tit{
@@ -270,35 +268,11 @@ div.system-response {
 }
 
 div.message-row {
-	padding:0px 2px 0px 0px;
+	padding:0px 0px 0px 0px;
 	line-height:140%;
 	margin-right:30px;
 	margin-left:0px;
 	position:relative;
-}
-
-.msgBlock .message-row.response:first-child,
-.msgBlock-admin .message-row.response:first-child,
-div.message-admin + div.message-row.response,
-div.system-response + div.message-row.response
-{
-	margin-top:20px;
-	margin-right:30px;
-	margin-left:0px;
-	padding-top:7px;
-}
-
-#messagesBlock .message-row.message-admin:first-child,
-.read-operator-message .message-row.message-admin:first-child,
-.message-row.message-admin + .message-row.message-admin.operator-changes,
-.msgBlock-admin .message-row.message-admin:first-child,
-div.message-row.operator-changes,
-div.system-response + div.message-admin,
-div.message-row.response+div.message-admin{
-	margin-top:20px;
-	margin-left:30px;
-	margin-right:0px;
-	padding-top:7px;
 }
 
 .message-row-typing {
@@ -335,8 +309,8 @@ div.message-admin{
 }
 
 div.message-admin .msg-date{
-	left:0;
-	right:auto;
+/*	left:0;
+	right:auto;*/
 }
 
 div.message-admin div.msg-body{
@@ -401,7 +375,7 @@ div.message-row.operator-changes .usr-tit{
 	height:auto!important;
 	margin-right:5px!important;
 	padding:0px 0px!important;
-	margin-top:-25px!important;
+	/*margin-top:-25px!important;*/
 	display:block!important;
 }
 
@@ -489,9 +463,9 @@ div.message-row.response+div.message-row.response:hover .msg-date,
 	/*display:inherit;*/
 }
 
-#messagesBlock .message-row:hover .msg-date{
+/*#messagesBlock .message-row:hover .msg-date{
 	display:inherit!important;
-}
+}*/
 
 #messages {
 	font-size: 13px;
