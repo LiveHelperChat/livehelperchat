@@ -191,8 +191,7 @@ a:hover{
 .msgBlock,.msgBlock-inv{
 	height:120px;
 	overflow-y:auto;
-	border-bottom: 1px solid #CCCCCC;
-	border-top: 1px solid #CCCCCC;
+	border: 1px solid #CCCCCC;
 	resize: vertical;
 	background-color:#FFF;
 	padding-bottom:3px;
