@@ -1079,7 +1079,7 @@ input[type="file"]{
 	white-space:nowrap;
 	text-overflow: ellipsis;
     overflow:hidden;
-    font-size:12px;
+    font-size:13px;
 }
 
 .canned-list li.current-item a,
