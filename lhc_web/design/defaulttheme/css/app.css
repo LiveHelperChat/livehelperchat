@@ -198,6 +198,10 @@ a:hover{
 	padding-bottom:3px;
 }
 
+.msgBlock-inv{
+	font-size:13px;
+}
+
 .msg-hide-ts .msg-date{
 	display: none!important;
 }
