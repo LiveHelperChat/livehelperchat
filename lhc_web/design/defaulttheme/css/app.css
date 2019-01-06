@@ -1001,6 +1001,10 @@ input[type="file"]{
 	padding:0;
 }
 
+.form-control{
+	padding:.375rem .375rem;
+}
+
 .form-control-warning:focus {
 	border-color: rgba(240, 173, 78, 0.8);
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(240, 173, 78, 0.6);
