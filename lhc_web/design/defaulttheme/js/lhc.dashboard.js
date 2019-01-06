@@ -1,8 +1,9 @@
 $( document ).ready(function() {
-	$('#dashboard-body, #onlineusers, #map').popover({
+	$('#map').popover({
 		  trigger:'hover',
 		  html : true, 
 		  selector: '[data-toggle="popover"]',
+		  template : '<div class="popover" role="tooltip"><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
 		  content: function () {
 			 if ($(this).is('[data-popover-content]')) {
 				 return $('#'+$(this).attr('data-popover-content')+'-'+$(this).attr('data-chat-id')).html();

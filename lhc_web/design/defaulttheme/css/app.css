@@ -312,11 +312,6 @@ div.message-admin{
 	text-align:right;
 }
 
-div.message-admin .msg-date{
-/*	left:0;
-	right:auto;*/
-}
-
 div.message-admin div.msg-body{
 	margin-right:0px;
 	background-color: #0a49df;
