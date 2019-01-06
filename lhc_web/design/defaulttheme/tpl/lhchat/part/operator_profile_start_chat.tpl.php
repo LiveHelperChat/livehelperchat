@@ -6,7 +6,7 @@
      		<i class="icon-assistant material-icons">account_box</i>
      	<?php endif;?> 
      </div>
-     <div class="p-1">
+     <div class="p-1 w-100">
      	<?php $rightLanguage = true;?>
 	 	<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/switch_language.tpl.php'));?>
 	    <span><i><?php if ($theme !== false && $theme->intro_operator_text != '') : ?><?php echo htmlspecialchars($theme->intro_operator_text); ?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Have a question? Ask us!');?>

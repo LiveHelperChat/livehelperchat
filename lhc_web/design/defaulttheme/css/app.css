@@ -38,6 +38,10 @@ body {
 	margin-bottom:0.5em;
 }
 
+.col-form-label{
+	font-size:.875rem;
+}
+
 *:focus {
     outline: 0;
 }
