@@ -471,10 +471,14 @@ div.message-admin+div.message-admin .msg-date,div.message-row.response+div.messa
 }
 
 .btn-block-department label{
-	font-size:12px;
+	font-size:13px;
 	padding:3px 2px 2px 3px;
 	display:block;
 	margin:0;
+}
+
+.btn-block-department label:hover{
+	background-color:#ececec;
 }
 
 div.message-row.response+div.message-row.response:hover .msg-date,
