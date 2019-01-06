@@ -76,7 +76,7 @@ if (count($departments) > 1) : $hasExtraField = true;?>
     <?php endif;?>
     </label>
     
-    <select aria-labelledby="label-department" class="form-control<?php if (isset($errors['department'])) : ?> is-invalid<?php endif;?>" name="DepartamentID" id="id_DepartamentID">
+    <select aria-labelledby="label-department" class="form-control form-control-sm<?php if (isset($errors['department'])) : ?> is-invalid<?php endif;?>" name="DepartamentID" id="id_DepartamentID">
         <?php if (isset($theme) && $theme !== false && $theme->department_select != '') : ?>
             <option value="-1"><?php echo htmlspecialchars($theme->department_select)?></option>
         <?php endif;?>

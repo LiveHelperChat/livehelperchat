@@ -34,6 +34,10 @@ body {
 	margin-top: 15px;
 }
 
+.form-group{
+	margin-bottom:0.5em;
+}
+
 *:focus {
     outline: 0;
 }
@@ -187,9 +191,11 @@ a:hover{
 .msgBlock,.msgBlock-inv{
 	height:120px;
 	overflow-y:auto;
-	border: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+	border-top: 1px solid #CCCCCC;
 	resize: vertical;
 	background-color:#FFF;
+	padding-bottom:3px;
 }
 
 .msg-hide-ts .msg-date{
@@ -209,15 +215,22 @@ textarea[name=ChatMessage]{
 }
 
 .msg-date {
-	float:right;
-	color:#525252;
+	color: #171515;
+	background-color: #f0f0f1;
 	font-size:11px;
 	line-height:11px;
-	margin-top:-20px;
+	margin-top:0px;
+	border:1px solid #fff;
+	position:absolute;
+	right:0;
+	top:-8px;
+	padding:3px;
+	border-radius:10px;
 }
 
 .system-response .msg-date{
 	margin-top:0;
+	top:0px;
 }
 
 div.system-response {
@@ -230,7 +243,7 @@ div.system-response {
 	color:#007693;
 	margin-right:5px;
 	padding:2px 0px;
-	border-bottom-right-radius: 7px;
+	border-radius: 7px;
 	display:block;
 	margin-top:-27px;
 	font-size:14px;
@@ -246,22 +259,20 @@ div.system-response {
 }
 
 .op-tit{
-	color:#007693;	
+	color:#5078d8;
 }
 
 .vis-tit{
-	color:#467000;
+	color:#888;
 }
 
 div.message-row {
 	padding:0px 2px 0px 0px;
 	line-height:140%;
-	transition: background-color 2000ms linear;	
 	margin-right:30px;
 	margin-left:0px;
+	position:relative;
 }
-
-/*style message according to senders*/
 
 .msgBlock .message-row.response:first-child,
 .msgBlock-admin .message-row.response:first-child,
@@ -273,7 +284,6 @@ div.system-response + div.message-row.response
 	margin-left:0px;
 	padding-top:7px;
 }
-
 
 #messagesBlock .message-row.message-admin:first-child,
 .read-operator-message .message-row.message-admin:first-child,
@@ -315,21 +325,27 @@ div.message-row.response+div.message-admin{
 	margin-left:0px;
 }
 
-.message-row.response.operator-changes{
-	border-top-left-radius: 0px;
-}
-
 div.message-admin{
 	margin-left:30px;
 	margin-right:0px;
+	text-align:right;
+}
+
+div.message-admin .msg-date{
+	left:0;
+	right:auto;
 }
 
 div.message-admin div.msg-body{
 	margin-right:0px;
-	background-color: #f0f4f8;
-	padding:3px 7px;	
+	background-color: #0a49df;
+	padding:8px 9px;
 	margin-top:0px;
-	margin-bottom:0px;
+	color:#FFF;
+	border-top-left-radius:20px;
+	border-bottom-left-radius:20px;
+	margin-bottom:3px;
+	display:inline-block;
 }
 
 div.message-row-typing div.msg-body {
@@ -339,10 +355,13 @@ div.message-row-typing div.msg-body {
 }
 
 div.message-row.response div.msg-body{
-	background-color: #c7edfc;
-	padding:3px 5px;	
+	background-color: #ededed;
+	padding:8px 9px;
 	margin-top:0px;
-	margin-bottom:0px;
+	border-top-right-radius:20px;
+	border-bottom-right-radius:20px;
+	margin-bottom:3px;
+	display:inline-block;
 }
 
 div.message-admin+div.system-response,
@@ -369,7 +388,6 @@ div.message-row.response+div.message-row.response .usr-tit{
 	white-space:no-wrap;
 	margin:0;
 }
-
 
 .msgBlock-admin .message-row.response:first-child .usr-tit,
 .msgBlock-admin .message-row.message-admin:first-child .usr-tit,

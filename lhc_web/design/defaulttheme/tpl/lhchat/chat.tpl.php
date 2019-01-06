@@ -77,7 +77,7 @@
 	    
 	    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/above_text_area_user.tpl.php'));?>	
 
-        <textarea autofocus="autofocus" class="form-control live-chat-message" rows="4" aria-required="true" required name="ChatMessage" aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" ></textarea>
+        <textarea autofocus="autofocus" class="form-control form-control-sm live-chat-message" rows="4" aria-required="true" required name="ChatMessage" aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" ></textarea>
 
         <script type="text/javascript">
         jQuery('#CSChatMessage').bind('keydown', 'return', function (evt){
@@ -139,7 +139,7 @@
     lhinst.scheduleSync();
 
     $( document ).ready(function() {
-        if (jQuery('#CSChatMessage').size() > 0) {
+        if (jQuery('#CSChatMessage').length > 0) {
         	jQuery('#CSChatMessage').focus();    
         	jQuery('#CSChatMessage')[0].setSelectionRange(1000,1000);
     	}

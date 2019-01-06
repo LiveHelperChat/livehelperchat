@@ -46,7 +46,7 @@ if ($hasExtraField == true) : ?><div class="row"><?php endif;?>
 	<?php else : $allHiddenFields = false; ?>
 	<div class="col-6 form-group">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?>*</label>
-		<input type="text" class="form-control" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
+		<input type="text" class="form-control form-control-sm" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
 	</div>
 	<?php endif; ?>
 <?php endif; ?>
@@ -57,18 +57,18 @@ if ($hasExtraField == true) : ?><div class="row"><?php endif;?>
 	<?php else : $allHiddenFields = false;?>
 	<div class="col-6 form-group">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone');?>*</label>
-		<input type="text" class="form-control" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" placeholder="Min <?php echo erLhcoreClassModelChatConfig::fetch('min_phone_length')->current_value?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','characters');?>" />
+		<input type="text" class="form-control form-control-sm" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" placeholder="Min <?php echo erLhcoreClassModelChatConfig::fetch('min_phone_length')->current_value?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','characters');?>" />
 	</div>
 	<?php endif; ?>
 <?php endif; ?>
 
 <?php if ($visitor->requires_email == 1) : ?>
 	<?php if (in_array('email', $input_data->hattr)) : ?>
-	<input type="hidden" class="form-control" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
+	<input type="hidden" class="form-control form-control-sm" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 	<?php else : $allHiddenFields = false;?>
 	<div class="col-6 form-group">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?>*</label>
-		<input type="text" class="form-control" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
+		<input type="text" class="form-control form-control-sm" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 	</div>
 	<?php endif; ?>
 <?php endif; ?>
