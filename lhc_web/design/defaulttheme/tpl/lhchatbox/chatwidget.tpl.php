@@ -55,7 +55,7 @@
                 lhinst.setWidgetMode(true);
                 lhinst.setSyncUserURL('chatbox/syncuser/');
 
-                $( window ).load(function() {
+                $( window ).on('load',function() {
                     setTimeout(function(){
                         $('#messagesBlock').scrollTop($('#messagesBlock').prop('scrollHeight'));
                     },100);
