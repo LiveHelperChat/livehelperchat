@@ -352,11 +352,6 @@ class erLhAbstractModelAutoResponder {
 	public $wait_timeout_hold_4 = 0;
 	public $wait_timeout_hold_5 = 0;
 
-	// Not replying attributes
-	/* const CHAT_NOT_CLOSED = 0;
-	const EXPLICITLY_NOT_CLOSED = 1;
-	public $required_chat_status = self::CHAT_NOT_CLOSED; */
-	
 	// 1 Message
 	public $wait_timeout_reply_1 = 0;
 	public $timeout_reply_message_1 = '';

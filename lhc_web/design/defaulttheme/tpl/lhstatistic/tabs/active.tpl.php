@@ -223,7 +223,7 @@
 	function drawChart() {
 	  <?php if (!empty($userStats['thumbsup'])) : ?>
         var barChartData = {
-            labels: [<?php foreach ($userStats['thumbsup'] as $key => $data) : echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars(erLhcoreClassModelUser::fetch($data['user_id'],true)->name_official,ENT_QUOTES).'\''; endforeach;?>],
+            labels: [<?php foreach ($userStats['thumbsup'] as $key => $data) : $nameUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars((is_object($nameUser) ? $nameUser->name_official : '-'),ENT_QUOTES).'\''; endforeach;?>],
             datasets: [{
                 label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Thumbs up')?>',
                 backgroundColor: '#109618',
@@ -674,10 +674,16 @@
                     borderColor: '#ff9900',
                     borderWidth: 1,
                     data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['msg_system']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Bot and Auto responder');?>',
+                    backgroundColor: 'green',
+                    borderColor: 'green',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['msg_bot']; $key++; endforeach;?>]
                 }
             ]
         };
-
 
         var ctx = document.getElementById("chart_type_div_msg_type").getContext("2d");
         var myBar = new Chart(ctx, {

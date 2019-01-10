@@ -124,13 +124,13 @@ class XMPPHP_XMLStream {
 	 */
 	protected $default_ns;
 	/**
-	 * @var string
+	 * @var array
 	 */
-	protected $until = '';
+	protected $until = array();
 	/**
-	 * @var string
+	 * @var array
 	 */
-	protected $until_count = '';
+	protected $until_count = array();
 	/**
 	 * @var array
 	 */

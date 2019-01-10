@@ -34,11 +34,19 @@
     	<?php endif; ?>	
     </h4>
     <?php elseif ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) : ?>
-        <h4><?php if ($theme !== false  && $theme->bot_status_text != '') : ?>
-            <?php echo htmlspecialchars($theme->bot_status_text)?>
+
+        <?php $user = erLhcoreClassModelGenericBotBot::fetch($chat->chat_variables_array['gbot_id']); ?>
+        <?php if ($user instanceof erLhcoreClassModelGenericBotBot) : $extraMessage = ($theme !== false ? htmlspecialchars($theme->bot_status_text) : ''); ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_main_pre.tpl.php')); ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile.tpl.php'));?>
         <?php else : ?>
-           <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/bot_chat.tpl.php'));?>
-        <?php endif; ?></h4>
+            <h4><?php if ($theme !== false  && $theme->bot_status_text != '') : ?>
+                <?php echo htmlspecialchars($theme->bot_status_text)?>
+            <?php else : ?>
+               <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/bot_chat.tpl.php'));?>
+            <?php endif; ?></h4>
+        <?php endif; ?>
+
     <?php elseif ($is_online == true) : ?>
     <h4>
          <?php if ($chat->number_in_queue > 1) : ?>

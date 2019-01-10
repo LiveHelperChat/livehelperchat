@@ -43,7 +43,8 @@ if (ezcInputForm::hasPostData()) {
                     $triggerObj->name = $trigger['trigger']['name'];
                     $triggerObj->default = $trigger['trigger']['default'];
                     $triggerObj->default_unknown = $trigger['trigger']['default_unknown'];
-                    $triggerObj->actions = $trigger['trigger']['actions'];
+
+                    $triggerObj->actions = preg_replace("/\"type\":\"predefined\",\"content\":\{(.*?)\"payload\":\"(.*?)\"/",'"type":"predefined","content":{"text":"","payload":"\2"', $trigger['trigger']['actions']);
                     $triggerObj->saveThis();
 
                     $triggersArray[] = $triggerObj;
@@ -54,6 +55,8 @@ if (ezcInputForm::hasPostData()) {
                         $eventObj->trigger_id = $triggerObj->id;
                         $eventObj->bot_id = $bot->id;
                         $eventObj->pattern = $event['pattern'];
+                        $eventObj->pattern_exc = $event['pattern_exc'];
+                        $eventObj->configuration = $event['configuration'];
                         $eventObj->type = $event['type'];
                         $eventObj->saveThis();
                     }
@@ -76,11 +79,23 @@ if (ezcInputForm::hasPostData()) {
                 $replaceArraySearch[] = '"collection_callback_format":"' . $oldTriggerId . '"';
                 $replaceArrayReplace[] = '"collection_callback_format":"' . $newTriggerId . '"';
 
+                $replaceArraySearch[] = '"collection_callback_match":"' . $oldTriggerId . '"';
+                $replaceArrayReplace[] = '"collection_callback_match":"' . $newTriggerId . '"';
+
                 $replaceArraySearch[] = '"collection_callback_cancel":"' . $oldTriggerId . '"';
                 $replaceArrayReplace[] = '"collection_callback_cancel":"' . $newTriggerId . '"';
 
                 $replaceArraySearch[] = '"payload_online":"' . $oldTriggerId . '"';
                 $replaceArrayReplace[] = '"payload_online":"' . $newTriggerId . '"';
+
+                $replaceArraySearch[] = '"callback_reschedule":"' . $oldTriggerId . '"';
+                $replaceArrayReplace[] = '"callback_reschedule":"' . $newTriggerId . '"';
+
+                $replaceArraySearch[] = '"callback_match":"' . $oldTriggerId . '"';
+                $replaceArrayReplace[] = '"callback_match":"' . $newTriggerId . '"';
+
+                $replaceArraySearch[] = '"trigger_id":"' . $oldTriggerId . '"';
+                $replaceArrayReplace[] = '"trigger_id":"' . $newTriggerId . '"';
 
                 $replaceArraySearch[] = '"stopchat","payload":"' . $oldTriggerId . '"';
                 $replaceArrayReplace[] = '"stopchat","payload":"' . $newTriggerId . '"';

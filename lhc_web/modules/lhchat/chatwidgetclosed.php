@@ -72,7 +72,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 				            
 				            erLhcoreClassChat::getSession()->save($msg);
 		          				            
-				            $chat->last_user_msg_time = $msg->time;
+				            //$chat->last_user_msg_time = $msg->time;
 				            
 				            // Set last message ID
 				            if ($chat->last_msg_id < $msg->id) {
@@ -80,7 +80,12 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 				            }
 				            
 				            if ($chat->wait_time == 0) {
-				                $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
+				                if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT){
+                                    $chat->pnd_time = time();
+                                    $chat->wait_time = 2;
+                                } else {
+                                    $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
+                                }
 				            }
 				            
 				            $explicitClosed = true;
@@ -125,7 +130,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 
                     erLhcoreClassChat::getSession()->save($msg);
 
-                    $chat->last_user_msg_time = $msg->time;
+                    //$chat->last_user_msg_time = $msg->time;
 
                     // Set last message ID
                     if ($chat->last_msg_id < $msg->id) {

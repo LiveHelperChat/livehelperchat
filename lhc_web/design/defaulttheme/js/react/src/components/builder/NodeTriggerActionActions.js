@@ -38,7 +38,14 @@ class NodeTriggerActionActions extends Component {
         return (
             <div>
                 <div className="row">
-                    <div className="col-xs-11">
+                    <div className="col-xs-2">
+                        <div className="btn-group pull-left" role="group" aria-label="Trigger actions">
+                            <button disabled="disabled" className="btn btn-xs btn-info">{this.props.id + 1}</button>
+                            {this.props.isFirst == false && <a className="btn btn-default btn-xs" onClick={(e) => this.props.upField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_up</i></a>}
+                            {this.props.isLast == false && <a className="btn btn-default btn-xs" onClick={(e) => this.props.downField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_down</i></a>}
+                        </div>
+                    </div>
+                    <div className="col-xs-9">
                         <NodeTriggerActionType onChange={this.changeType} type={this.props.action.get('type')} />
                     </div>
                     <div className="col-xs-1">
@@ -68,6 +75,15 @@ class NodeTriggerActionActions extends Component {
                     </div>
                 </div>
 
+                <div className="form-group">
+                    <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['event_default'],'value' : e.target.checked})} defaultChecked={this.props.action.getIn(['content','event_default'])} /> Check for default matching text first.</label>
+                </div>
+
+                <div className="form-group">
+                    <label>Check for alternative scenario first executing this trigger</label>
+                    <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','collection_callback_match'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','collection_callback_match'])} />
+                </div>
+
                 <div className="row">
                     <div className="col-xs-8">
                         <div className="form-group">
@@ -81,21 +97,38 @@ class NodeTriggerActionActions extends Component {
                             <input type="text" placeholder="0" className="form-control input-sm" onChange={(e) => this.onchangeAttr({'path' : ['event_typos'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','event_typos'])} />
                         </div>
                     </div>
+                    <div className="col-xs-8">
+                        <div className="form-group">
+                            <label>Bot not any of</label>
+                            <input type="text" placeholder="no, not" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['event_validate_exc'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','event_validate_exc'])} />
+                        </div>
+                    </div>
+                    <div className="col-xs-4">
+                        <div className="form-group">
+                            <label>How many typos are allowed in a word?</label>
+                            <input type="text" placeholder="0" className="form-control input-sm" onChange={(e) => this.onchangeAttr({'path' : ['event_typos_exc'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','event_typos_exc'])} />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="form-group">
+                    <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','check_default'],'value' : e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','check_default'])} /> On failure check for default match trigger first.</label>
                 </div>
 
                 <div className="row">
-                    <div className="col-xs-6">
-                        <div className="form-group">
-                            <label>Execute trigger on fail</label>
-                            <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','collection_callback_cancel'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','collection_callback_cancel'])} />
-                        </div>
-                    </div>
                     <div className="col-xs-6">
                         <div className="form-group">
                             <label>Execute trigger on success</label>
                             <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','collection_callback_pattern'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','collection_callback_pattern'])} />
                         </div>
                     </div>
+                    <div className="col-xs-6">
+                        <div className="form-group">
+                            <label>Execute trigger on fail</label>
+                            <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','collection_callback_cancel'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','collection_callback_cancel'])} />
+                        </div>
+                    </div>
+
                     <div className="col-xs-12">
                         <div className="form-group">
                             <label>Execute trigger on failed format</label>

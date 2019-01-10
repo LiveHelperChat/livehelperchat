@@ -28,13 +28,13 @@ class NodeGroupTrigger extends Component {
     }
     
     setDefaultTrigger(e) {
-    	const value = e.target.checked;
-    	this.props.dispatch(setDefaultTrigger(this.props.trigger.set('default',value == true ? 1 : 0)));
+        const value = e.target.checked;
+        this.props.dispatch(setDefaultTrigger(this.props.trigger.set('default',value == true ? 1 : 0)));
     }
 
     setDefaultUnknownTrigger(e) {
-    	const value = e.target.checked;
-    	this.props.dispatch(setDefaultUnknownTrigger(this.props.trigger.set('default_unknown',value == true ? 1 : 0)));
+        const value = e.target.checked;
+        this.props.dispatch(setDefaultUnknownTrigger(this.props.trigger.set('default_unknown',value == true ? 1 : 0)));
     }
 
     shouldComponentUpdate(nextProps, nextState) {

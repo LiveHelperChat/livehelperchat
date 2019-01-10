@@ -21,7 +21,9 @@ import {
     ADD_SUBELEMENT,
     REMOVE_SUBELEMENT,
     MOVE_UP_SUBELEMENT,
-    MOVE_DOWN_SUBELEMENT
+    MOVE_DOWN_SUBELEMENT,
+    MOVE_UP,
+    MOVE_DOWN
 } from "../constants/action-types";
 
 import {fromJS} from 'immutable';
@@ -93,6 +95,21 @@ const nodeGroupTriggerReducer = (state = initialState, action) => {
 
              return state.setIn(['currenttrigger','actions',action.payload.id].concat(action.payload.path).concat([action.payload.index]),destination).setIn(['currenttrigger','actions',action.payload.id].concat(action.payload.path).concat([action.payload.index+1]),source);
          }
+
+        case MOVE_UP: {
+
+            let source = state.getIn(['currenttrigger','actions']).get(action.payload.index);
+            let destination = state.getIn(['currenttrigger','actions']).get(action.payload.index-1);
+
+            return state.setIn(['currenttrigger','actions'].concat([action.payload.index]),destination).setIn(['currenttrigger','actions'].concat([action.payload.index-1]),source);
+        }
+
+        case MOVE_DOWN:{
+            let source = state.getIn(['currenttrigger','actions']).get(action.payload.index);
+            let destination = state.getIn(['currenttrigger','actions']).get(action.payload.index+1);
+
+            return state.setIn(['currenttrigger','actions'].concat([action.payload.index]),destination).setIn(['currenttrigger','actions'].concat([action.payload.index+1]),source);
+        }
 
         case HANDLE_ADD_QUICK_REPLY: {
 

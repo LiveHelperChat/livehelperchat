@@ -7,7 +7,7 @@ class erLhcoreClassGenericBotActionCommand {
         if (isset($params['do_not_save']) && $params['do_not_save'] == true) {
             return;
         }
-        
+
         if ($action['content']['command'] == 'stopchat') {
 
             $isOnline = erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true));
@@ -83,6 +83,9 @@ class erLhcoreClassGenericBotActionCommand {
             }
         } elseif ($action['content']['command'] == 'closechat') {
 
+            $chat->pnd_time = time();
+            $chat->last_op_msg_time = time();
+
             $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_chat_command_transfer', array(
                 'action' => $action,
                 'chat' => & $chat,
@@ -94,6 +97,23 @@ class erLhcoreClassGenericBotActionCommand {
                     'bot' => true
                 ));
             }
+
+        } elseif ($action['content']['command'] == 'chatvariable') {
+
+                $variablesArray = (array)$chat->chat_variables_array;
+
+                $variablesAppend = json_decode($action['content']['payload'],true);
+
+                if (is_array($variablesAppend)) {
+                    foreach ($variablesAppend as $key => $value) {
+                        $variablesArray[$key] = $value;
+                    }
+                }
+
+                $chat->chat_variables = json_encode($variablesArray);
+                $chat->chat_variables_array = $variablesArray;
+                $chat->saveThis();
+
         }
     }
 }

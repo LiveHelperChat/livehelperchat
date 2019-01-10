@@ -71,7 +71,7 @@ class erLhAbstractModelProactiveChatInvitation {
 		$departmentParams = array();
 		$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
 		if ($userDepartments !== true) {
-			if (!in_array($this->dep_id, $userDepartments)) {
+			if (!in_array($this->dep_id, $userDepartments) && $this->dep_id != 0) {
 				return false;
 			}
 		}
@@ -84,6 +84,7 @@ class erLhAbstractModelProactiveChatInvitation {
 		$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
 		if ($userDepartments !== true){
 			$departmentParams['filterin']['dep_id'] = $userDepartments;
+            $departmentParams['filterin']['dep_id'][] = 0;
 		}
 		
 		return $departmentParams;

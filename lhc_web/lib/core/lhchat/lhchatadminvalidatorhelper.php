@@ -110,22 +110,17 @@ class erLhcoreClassAdminChatValidatorHelper {
         if ( $form->hasValidData( 'DepartmentID' )  ) {
             $cannedMessage->department_id = $form->DepartmentID;
             if ($userDepartments !== true) {
-                if (!in_array($cannedMessage->department_id, $userDepartments)) {
-                    $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please choose a department');
+                if ($cannedMessage->department_id != 0 && !in_array($cannedMessage->department_id, $userDepartments)) {
+                    $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please choose a department!');
                 }
             }
         } else {
             
             $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_canned_msg_user_departments',array('canned_msg' => & $cannedMessage, 'errors' => & $Errors));
-            
+
             // Perhaps extension did some internal validation and we don't need anymore validate internaly
             if ($response === false) {            
-                // User has to choose a department
-                if ($userDepartments !== true) {
-                    $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please choose a department');
-                } else {
-                    $cannedMessage->department_id = 0;
-                }
+                $cannedMessage->department_id = 0;
             }
         }
         
