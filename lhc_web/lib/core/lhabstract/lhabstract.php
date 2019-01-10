@@ -195,6 +195,10 @@ class erLhcoreClassAbstract
                 return '<p>' . htmlspecialchars($object->$name) . '</p>';
                 break;
 
+            case 'text_pre':
+                return '<pre>' . htmlspecialchars($object->$name) . '</pre>';
+                break;
+
             default:
                 break;
         }

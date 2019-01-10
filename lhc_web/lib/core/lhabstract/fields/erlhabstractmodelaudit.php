@@ -17,7 +17,7 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
     ),
     'message' => array(
-        'type' => 'text_display',
+        'type' => 'text_pre',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message'),
         'required' => false,
         'width' => '80',
