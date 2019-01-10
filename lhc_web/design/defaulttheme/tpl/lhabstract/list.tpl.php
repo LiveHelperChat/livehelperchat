@@ -4,13 +4,26 @@
 <div class="alert-box secondary round"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','If you want pro active chat invitation to work it has to be enabled in')?>&nbsp;<a href="<?php echo erLhcoreClassDesign::baseurl('chat/editchatconfig')?>/pro_active_invite"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','chat configuration')?></a>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','also online users tracking has to be')?>&nbsp;<a href="<?php echo erLhcoreClassDesign::baseurl('chat/editchatconfig')?>/track_online_visitors"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','enabled')?></a></div>
 <?php endif;?>
 
+<?php if ( isset($filter) ) : ?>
+    <?php switch ($filter) {
+        case 'audit': ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhabstract/filter/audit.tpl.php')); ?>
+            <?php ;
+            break;
+
+        default:
+            ;
+            break;
+    } ?>
+<?php endif;?>
+
 <?php if ($pages->items_total > 0) : ?>
-	<table cellpadding="0" class="table" cellspacing="0" width="100%">
+	<table cellpadding="0" class="table<?php if (isset($object_trans['table_class'])) : ?> <?php echo $object_trans['table_class']?><?php endif?>" cellspacing="0" width="100%">
 		<thead>
 			<tr>
 	    	<?php foreach ($fields as $field) : ?>
 	    		<?php if (!isset($field['hidden'])) : ?>
-	        		<th <?php echo isset($field['width']) ? "width=\"{$field['width']}%\"" : ''?>><?php echo $field['trans']?></th>
+	        		<th<?php echo isset($field['no_wrap']) ? " nowrap=\"nowrap\" " : ''?><?php echo isset($field['width']) ? " width=\"{$field['width']}%\" " : ''?>><?php echo $field['trans']?></th>
 	        	<?php endif;?>
 	    	<?php endforeach;?>
 	    	<th width="1%">&nbsp;</th>
@@ -36,7 +49,7 @@
 	        	<?php foreach ($fields as $key => $field) : ?>
 
 	        	<?php if (!isset($field['hidden'])) : ?>
-	        	<td>
+	        	<td<?php echo isset($field['no_wrap']) ? " nowrap=\"nowrap\" " : ''?>>
 	        	
 	        	<?php if (isset($field['link'])) : ?><a <?php if (isset($field['link_class'])) : ?>class="<?php echo $field['link_class']?>"<?php endif;?> <?php if (isset($field['is_modal'])) : ?>onclick="return lhc.revealModal({<?php if (!isset($field['is_iframe']) || $field['is_iframe'] == true) : ?>'iframe':true,<?php endif;?>'height':500,'url':WWW_DIR_JAVASCRIPT +'<?php echo $field['link']?>/<?php echo $item->id?>'})"<?php else : ?>href="<?php echo $field['link']?>/<?php echo $item->id?>"<?php endif;?>><?php endif;?>
 	        		        	

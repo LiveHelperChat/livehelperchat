@@ -87,9 +87,9 @@ class erLhcoreClassLog implements ezcBaseConfigurationInitializer {
  		$filter_audit->severity = ezcLog::SUCCESS_AUDIT | ezcLog::FAILED_AUDIT;
 		$db = ezcDbInstance::get();
 
-		$log->getMapper()->appendRule( new ezcLogFilterRule( $filter_audit, new ezcLogDatabaseWriter( $db, "audits" ), true ) );
-
+		$log->getMapper()->appendRule( new ezcLogFilterRule( $filter_audit, new ezcLogDatabaseWriter( $db, "lh_audits" ), true ) );
 	}
+
 }
 
 ezcBaseInit::setCallback ( 'ezcInitLog', 'erLhcoreClassLog' );

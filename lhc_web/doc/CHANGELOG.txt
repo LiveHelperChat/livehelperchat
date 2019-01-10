@@ -1,3 +1,9 @@
+3.15v
+
+1. Audit log functionality.
+
+execute doc/update_db/update_190.sql for update
+
 3.14v
 
 1. Various bot improvements. More flexible rules for triggers matching. Termination of bot workflow in the middle of sequence.

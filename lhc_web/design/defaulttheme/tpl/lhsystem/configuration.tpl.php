@@ -44,6 +44,8 @@
         		        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/recaptcha.tpl.php'));?>
 
         		        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/expirecache.tpl.php'));?>
+
+        		        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/audit_log.tpl.php'));?>
         			</ul>
 				</div>
 				

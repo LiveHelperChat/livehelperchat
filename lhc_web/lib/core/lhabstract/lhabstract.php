@@ -190,7 +190,10 @@ class erLhcoreClassAbstract
             case 'title':
                 return '<h3>' . $attr['trans'] . '</h3>';
                 break;
-
+                
+            case 'text_display':
+                return '<p>' . htmlspecialchars($object->$name) . '</p>';
+                break;
 
             default:
                 break;

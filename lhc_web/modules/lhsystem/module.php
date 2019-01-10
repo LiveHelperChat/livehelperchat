@@ -85,5 +85,6 @@ $FunctionList['generate_js_tab'] = array('explain' => 'User can see embed code t
 $FunctionList['transferconfiguration'] = array('explain' => 'User can configure transfer options');
 $FunctionList['offlinesettings'] = array('explain' => 'Allow user to change offline settings');
 $FunctionList['configurerecaptcha'] = array('explain' => 'Allow user to configure recaptcha');
+$FunctionList['auditlog'] = array('explain' => 'Allow user to see audit log');
 
 ?>
