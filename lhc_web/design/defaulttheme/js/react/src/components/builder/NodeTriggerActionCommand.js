@@ -48,7 +48,7 @@ class NodeTriggerActionCommand extends Component {
                     <div className="col-12">
                         <div className="form-group">
                             <label>Command</label>
-                            <select className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['command'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','command'])}>
+                            <select className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['command'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','command'])}>
                                 <option value="">Select action</option>
                                 <option value="stopchat">Stop chat and transfer to human</option>
                                 <option value="transfertobot">Transfer chat to bot</option>
@@ -83,7 +83,7 @@ class NodeTriggerActionCommand extends Component {
                 <div>
                     <div className="form-group">
                         <label>Set chat variables in json format.</label>
-                        <input className="form-control" type="text" placeholder="{&quot;bot_touched&quot;:true}" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
+                        <input className="form-control form-control-sm" type="text" placeholder="{&quot;bot_touched&quot;:true}" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
                     </div>
                 </div>}
 

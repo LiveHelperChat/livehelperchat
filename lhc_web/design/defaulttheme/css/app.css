@@ -284,6 +284,10 @@ div.message-row {
 	animation: blink 1500ms linear infinite;
 }
 
+div.message-row-typing div.msg-body{
+	color:#000!important;
+}
+
 @keyframes blink{
 	0%{opacity: 0.3;}
 	50%{opacity: .9;}
@@ -1000,7 +1004,7 @@ input[type="file"]{
 }
 
 .form-control{
-	padding:.375rem .375rem;
+	padding-left:.375rem;
 }
 
 .form-control-warning:focus {

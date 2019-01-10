@@ -146,12 +146,12 @@ class NodeTriggerActionText extends Component {
                     <div className="form-group">
                         <label>Enter text</label>
                         <a title="Add answer variation" className="float-right" onClick={this.addAnswerVariation}><i className="material-icons mr-0">question_answer</i></a>
-                        <textarea rows="3" placeholder="Write your response here!" onChange={this.setText} ref={this.textMessageRef} defaultValue={this.props.action.getIn(['content','text'])} className="form-control"></textarea>
+                        <textarea rows="3" placeholder="Write your response here!" onChange={this.setText} ref={this.textMessageRef} defaultValue={this.props.action.getIn(['content','text'])} className="form-control form-control-sm"></textarea>
                     </div>
 
                     <div className="form-group">
                         <label>Enter HTML</label>
-                        <textarea placeholder="Write your response here!" onChange={this.setHTML} defaultValue={this.props.action.getIn(['content','html'])} className="form-control"></textarea>
+                        <textarea placeholder="Write your response here!" onChange={this.setHTML} defaultValue={this.props.action.getIn(['content','html'])} className="form-control form-control-sm"></textarea>
                     </div>
 
                     <div className="row">

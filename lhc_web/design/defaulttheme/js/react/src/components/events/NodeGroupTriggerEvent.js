@@ -61,17 +61,16 @@ class NodeGroupTriggerEvent extends Component {
                     </div>
                     <div className="col-6">
                         <div className="form-group">
-                            <label>Number of typos allowed</label>
+                            <label>Typos number (include words)</label>
                             <input type="text" placeholder="0" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['configuration_array','words_typo'],'value' : e.target.value})} defaultValue={this.props.event.getIn(['configuration_array','words_typo'])} />
                         </div>
                     </div>
                     <div className="col-6">
                         <div className="form-group">
-                            <label>Number of typos allowed</label>
+                            <label>Typos number (exclude words)</label>
                             <input type="text" placeholder="0" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['configuration_array','exc_words_typo'],'value' : e.target.value})} defaultValue={this.props.event.getIn(['configuration_array','exc_words_typo'])} />
                         </div>
                     </div>
-
                     <div className="col-12">
                         <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['configuration_array','only_these'],'value' : e.target.checked})} defaultChecked={this.props.event.getIn(['configuration_array','only_these'])} /> Should include only words from above, not any.</label>
                     </div>

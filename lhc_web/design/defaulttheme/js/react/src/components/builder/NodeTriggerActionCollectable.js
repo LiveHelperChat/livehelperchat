@@ -104,60 +104,60 @@ class NodeTriggerActionCollectable extends Component {
                     <div className="col-12">
                         <div className="form-group">
                             <label>Checkbox value</label>
-                            <input type="text" className="form-control" onChange={(e) => this.onChangeMainAttr('show_summary_checkbox_name',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','show_summary_checkbox_name'])} />
+                            <input type="text" className="form-control form-control-sm" onChange={(e) => this.onChangeMainAttr('show_summary_checkbox_name',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','show_summary_checkbox_name'])} />
                         </div>
                     </div>
                     <div className="col-6">
                         <div className="form-group">
                             <label>Confirm button value</label>
-                            <input type="text" className="form-control" onChange={(e) => this.onChangeMainAttr('show_summary_confirm_name',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','show_summary_confirm_name'])} />
+                            <input type="text" className="form-control form-control-sm" onChange={(e) => this.onChangeMainAttr('show_summary_confirm_name',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','show_summary_confirm_name'])} />
                         </div>
                     </div>
                     <div className="col-6">
                         <div className="form-group">
                             <label>Cancel button value</label>
-                            <input type="text" className="form-control" onChange={(e) => this.onChangeMainAttr('show_summary_cancel_name',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','show_summary_cancel_name'])} />
+                            <input type="text" className="form-control form-control-sm" onChange={(e) => this.onChangeMainAttr('show_summary_cancel_name',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','show_summary_cancel_name'])} />
                         </div>
                     </div>
 
                     <div className="col-6">
                         <div className="form-group">
                             <label>Custom summary formation event</label>
-                            <input type="text" className="form-control" onChange={(e) => this.onChangeMainAttr('show_summary_callback',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','show_summary_callback'])} />
+                            <input type="text" className="form-control form-control-sm" onChange={(e) => this.onChangeMainAttr('show_summary_callback',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','show_summary_callback'])} />
                         </div>
                     </div>
                     <div className="col-6">
                         <div className="form-group">
                             <label>Dispatch this event then all steps are successfuly completed</label>
-                            <input type="text" className="form-control" onChange={(e) => this.onChangeMainAttr('collection_callback',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','collection_callback'])} />
+                            <input type="text" className="form-control form-control-sm" onChange={(e) => this.onChangeMainAttr('collection_callback',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','collection_callback'])} />
                         </div>
                     </div>
 
                     <div className="col-12">
                         <div className="form-group">
                             <label>Question to confirm collected information</label>
-                            <input type="text" className="form-control" onChange={(e) => this.onChangeMainAttr('collection_confirm',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','collection_confirm'])} />
+                            <input type="text" className="form-control form-control-sm" onChange={(e) => this.onChangeMainAttr('collection_confirm',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','collection_confirm'])} />
                         </div>
                     </div>
 
                     <div className="col-12">
                         <div className="form-group">
                             <label>Message if user types instead of clicking confirm button</label>
-                            <input type="text" className="form-control" onChange={(e) => this.onChangeMainAttr('collection_confirm_missing',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','collection_confirm_missing'])} />
+                            <input type="text" className="form-control form-control-sm" onChange={(e) => this.onChangeMainAttr('collection_confirm_missing',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','collection_confirm_missing'])} />
                         </div>
                     </div>
 
                     <div className="col-6">
                         <div className="form-group">
                             <label>Argument</label>
-                            <input type="text" className="form-control" onChange={(e) => this.onChangeMainAttr('collection_argument',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','collection_argument'])} />
+                            <input type="text" className="form-control form-control-sm" onChange={(e) => this.onChangeMainAttr('collection_argument',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','collection_argument'])} />
                         </div>
                     </div>
 
                     <div className="col-6">
                         <div className="form-group">
                             <label>Workflow from begining expires in n minutes, 0 for unlimited</label>
-                            <input type="number" className="form-control" onChange={(e) => this.onChangeMainAttr('expires_in',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','expires_in'])} />
+                            <input type="number" className="form-control form-control-sm" onChange={(e) => this.onChangeMainAttr('expires_in',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','expires_in'])} />
                         </div>
                     </div>
 
@@ -169,7 +169,7 @@ class NodeTriggerActionCollectable extends Component {
                             <div className="col-6">
                                 <div className="form-group">
                                     <label>Confirmation message</label>
-                                    <textarea className="form-control" onChange={(e) => this.onChangeMainAttr('confirmation_message',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','confirmation_message'])}></textarea>
+                                    <textarea className="form-control form-control-sm" onChange={(e) => this.onChangeMainAttr('confirmation_message',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','confirmation_message'])}></textarea>
                                 </div>
                             </div>
                             <div className="col-6">
@@ -186,7 +186,7 @@ class NodeTriggerActionCollectable extends Component {
                             <div className="col-6">
                                 <div className="form-group">
                                     <label>Cancel message</label>
-                                    <textarea className="form-control" onChange={(e) => this.onChangeMainAttr('cancel_message',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','cancel_message'])}></textarea>
+                                    <textarea className="form-control form-control-sm" onChange={(e) => this.onChangeMainAttr('cancel_message',e.target.value)} defaultValue={this.props.action.getIn(['content','collectable_options','cancel_message'])}></textarea>
                                 </div>
                             </div>
                             <div className="col-6">

@@ -40,7 +40,7 @@ class NodeTriggerArgumentTemplate extends Component {
             header = <div><hr/><h4>{this.props.payloads.getIn(['arguments',argumentId,'name'])}</h4></div>;
             var elements = this.props.payloads.getIn(['arguments',argumentId,'items']).map((option, index) => <div className="col-6"><div key={option.get('id')} className="form-group">
                 <label>{option.get('name')}</label>
-                <input type="text" defaultValue={this.props.argument.getIn(['args',option.get('id'),'value'])} onChange={(e) => this.onChangeMainAttr(['args',option.get('id'),'value'],e.target.value)} className="form-control" placeholder={option.get('placeholder')}/>
+                <input type="text" defaultValue={this.props.argument.getIn(['args',option.get('id'),'value'])} onChange={(e) => this.onChangeMainAttr(['args',option.get('id'),'value'],e.target.value)} className="form-control form-control-sm" placeholder={option.get('placeholder')}/>
             </div></div>);
         }
 

@@ -58,7 +58,7 @@ class NodeTriggerActionActions extends Component {
                 <div className="form-group">
                     <label>Message before dispatching event</label>
                     <a title="Add answer variation" className="float-right" onClick={this.addAnswerVariation}><i className="material-icons mr-0">question_answer</i></a>
-                    <textarea rows="3" className="form-control" ref={this.textMessageRef} defaultValue={this.props.action.getIn(['content','success_message'])} onChange={(e) => this.onchangeAttr({'path' : ['success_message'], 'value' : e.target.value})}></textarea>
+                    <textarea rows="3" className="form-control form-control-sm" ref={this.textMessageRef} defaultValue={this.props.action.getIn(['content','success_message'])} onChange={(e) => this.onchangeAttr({'path' : ['success_message'], 'value' : e.target.value})}></textarea>
                 </div>
 
                 <div className="row">
@@ -71,6 +71,9 @@ class NodeTriggerActionActions extends Component {
                     <div className="col-6">
                         <div>
                             <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['event_background'],'value' : e.target.checked})} defaultChecked={this.props.action.getIn(['content','event_background'])} /> Event is processed on next visitor message.</label>
+                        </div>
+                        <div>
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['event_background_inst'],'value' : e.target.checked})} defaultChecked={this.props.action.getIn(['content','event_background_inst'])} /> Event is processed instantly.</label>
                         </div>
                     </div>
                 </div>

@@ -1099,10 +1099,14 @@ class erLhcoreClassGenericBotWorkflow {
                 if (isset($messageNew['trigger_id'])) {
                     $trigger = erLhcoreClassModelGenericBotTrigger::fetch($messageNew['trigger_id']);
                     $response = self::processTrigger($chat, $trigger, $setLastMessageId, $params);
+
+
+                    
                     return array(
                         'status' => 'stop',
                         'response' => $response
                     );
+
                 } elseif (isset($messageNew['response']) && $messageNew['response'] instanceof erLhcoreClassModelmsg) {
                     $message = $messageNew['response'];
                 }

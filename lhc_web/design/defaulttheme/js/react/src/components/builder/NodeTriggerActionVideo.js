@@ -53,7 +53,7 @@ class NodeTriggerActionVideo extends Component {
                     <div className="col-12">
                         <div className="form-group">
                             <label>Video URL</label>
-                            <input type="text" placeholder="Video URL" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['payload'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])}/>
+                            <input type="text" placeholder="Video URL" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['payload'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])}/>
                         </div>
                     </div>
                 </div>
