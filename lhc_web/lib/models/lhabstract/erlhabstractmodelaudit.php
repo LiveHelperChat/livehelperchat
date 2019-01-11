@@ -54,7 +54,7 @@ class erLhAbstractModelAudit
                 'module' => 'lhsystem',
                 'function' => 'auditlog'
             ),
-            'table_class' => 'table-small',
+            'table_class' => 'table-condensed table-small',
             'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Audit log')
         );
 
