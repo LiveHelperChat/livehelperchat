@@ -17,7 +17,7 @@ if (trim($form->msg) != '')
 						
 	    // Has access to read, chat
 	    //FIXME create permission to add message...
-	    if ( erLhcoreClassChat::hasAccessToRead($Chat) )
+	    if ($Chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRead($Chat) )
 	    {
 	        $currentUser = erLhcoreClassUser::instance();
 	

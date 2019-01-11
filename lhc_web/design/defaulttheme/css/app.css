@@ -9,10 +9,10 @@ body {
 
 ::-webkit-scrollbar{width:0.7em;height:0.8em;background-color:#fff;}
 ::-webkit-scrollbar:hover{background-color:#ddd}
-::-webkit-scrollbar-thumb{min-height:0.8em;min-width:1em;background-color:#ddd; border-radius: 10px;    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);}
+::-webkit-scrollbar-thumb{min-height:0.8em;min-width:1em;background-color:#ddd;}
 ::-webkit-scrollbar-thumb:hover{background-color:#bbb}
 ::-webkit-scrollbar-thumb:active{background-color:#888}
-::-webkit-scrollbar-track{-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);    border-radius: 10px;}
+
 
 .btn-group-xs > .btn, .btn-xs {
 	padding  : .35rem .30rem;
@@ -199,10 +199,10 @@ a:hover{
 .msgBlock,.msgBlock-inv{
 	height:120px;
 	overflow-y:auto;
-	border: 1px solid #ced4da;
 	resize: vertical;
 	background-color:#FFF;
 	padding-bottom:3px;
+	padding-right:5px;
 }
 
 .msgBlock-inv{
@@ -324,19 +324,27 @@ div.message-admin div.msg-body{
 	padding:8px 9px;
 	margin-top:0px;
 	color:#FFF;
-	border-top-left-radius:20px;
-	border-bottom-left-radius:20px;
+	/*border-top-left-radius:20px;
+	border-bottom-left-radius:20px;*/
+	border-radius:20px;
 	margin-bottom:3px;
 	display:inline-block;
 }
+
+div.message-admin div.msg-body a.link{
+	color:#fff;
+	text-decoration:underline;
+}
+
 
 div.message-row-typing div.msg-body {
 	background-color: #d0d0d0;
 	border-radius: 3px;
 	display: inline-block;
 	color:#000!important;
-	border-top-left-radius:20px;
-	border-bottom-left-radius:20px;
+	border-radius:20px;
+	/*border-top-left-radius:20px;
+	border-bottom-left-radius:20px;*/
 }
 
 
@@ -344,8 +352,7 @@ div.message-row.response div.msg-body{
 	background-color: #ededed;
 	padding:8px 9px;
 	margin-top:0px;
-	border-top-right-radius:20px;
-	border-bottom-right-radius:20px;
+	border-radius:20px;
 	margin-bottom:3px;
 	display:inline-block;
 }
@@ -710,12 +717,7 @@ ul.user-settings-list li{
 	-webkit-box-shadow: inset 0px 1px 3px rgba(50, 50, 50, 0.2);
 	-moz-box-shadow: inset 0px 1px 3px rgba(50, 50, 50, 0.2);
 	box-shadow: inset 0px 1px 3px rgba(50, 50, 50, 0.2);
-	-webkit-border-top-left-radius: 6px;
-	-webkit-border-top-right-radius: 6px;
-	-moz-border-radius-topleft: 6px;
-	-moz-border-radius-topright: 6px;
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
+	border-radius:6px;
 }
 
 .round-profile{

@@ -7,7 +7,7 @@ $db->beginTransaction();
 
 $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
 
-if ( erLhcoreClassChat::hasAccessToRead($chat) )
+if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRead($chat) )
 {
 	$userData = $currentUser->getUserData();
 
@@ -110,7 +110,13 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
     	        	    
 	    } catch (Exception $e) {
 	        $db->rollback();
-	        echo $e->getMessage();
+
+            $tpl->setFile( 'lhchat/errors/adminchatnopermission.tpl.php');
+            $tpl->set('show_close_button',true);
+            $tpl->set('auto_close_dialog',true);
+            $tpl->set('chat_id',(int)$Params['user_parameters']['chat_id']);
+            echo $tpl->fetch();
+            exit;
 	    }
 	} else {
 	    $tpl->set('canEditChat',erLhcoreClassChat::hasAccessToWrite($chat));

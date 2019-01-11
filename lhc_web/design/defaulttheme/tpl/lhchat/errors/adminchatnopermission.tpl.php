@@ -1,6 +1,6 @@
 <div>
 <div class="alert alert-danger">
-<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/errors/adminchatnopermission','You do not have permission to access the current chat!')?>
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/errors/adminchatnopermission','You do not have permission to access the current chat or chat was merged/deleted!')?>
 </div>
 
 <?php if (isset($show_close_button) && $show_close_button == true) : ?>

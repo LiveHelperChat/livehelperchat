@@ -491,7 +491,7 @@ class erLhcoreClassFormRenderer {
     	}    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';
     	
-    	return "<textarea name=\"{$params['name']}\" {$placeholder}>" . htmlspecialchars($value) . "</textarea>";
+    	return "<textarea class=\"form-control\" name=\"{$params['name']}\" {$placeholder}>" . htmlspecialchars($value) . "</textarea>";
     }
     
     public static function renderAdditionalAtrributes($params) {

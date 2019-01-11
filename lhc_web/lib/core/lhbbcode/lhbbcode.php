@@ -694,7 +694,7 @@ class erLhcoreClassBBCode
         if ( empty($url) )
             return '[url='.$matches[1].']' . $matches[2] . '[/url]';
 				
-        return '<a class=\"link\" target=\"_blank\" rel=\"noopener\" href="'.$url.'">' . $matches[2] . '</a>';
+        return '<a class="link" target="_blank" rel="noopener" href="'.$url.'">' . $matches[2] . '</a>';
    }
       
    /**
