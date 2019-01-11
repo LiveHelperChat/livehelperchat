@@ -50,6 +50,7 @@ class NodeActionConditionItem extends Component {
                             <option value="eq">=</option>
                             <option value="neq">!=</option>
                             <option value="like">Text like</option>
+                            <option value="notlike">Text not like</option>
                         </select>
                     </div>
                 </div>
@@ -61,7 +62,7 @@ class NodeActionConditionItem extends Component {
                 </div>
                 <div className="col-2">
                     <div><label>&nbsp;</label></div>
-                    <a className="btn btn-block btn-warning btn-sm" onClick={this.deleteField.bind(this)}>Delete</a>
+                    <button className="btn btn-block btn-warning btn-sm" onClick={this.deleteField.bind(this)}>Delete</button>
                 </div>
 
             </div>

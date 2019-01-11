@@ -56,8 +56,8 @@ class NodeTriggerActionConditions extends Component {
                     <div className="col-2">
                         <div className="btn-group float-left" role="group" aria-label="Trigger actions">
                             <button disabled="disabled" className="btn btn-sm btn-info">{this.props.id + 1}</button>
-                            {this.props.isFirst == false && <a className="btn btn-secondary btn-sm" onClick={(e) => this.props.upField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_up</i></a>}
-                            {this.props.isLast == false && <a className="btn btn-secondary btn-sm" onClick={(e) => this.props.downField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_down</i></a>}
+                            {this.props.isFirst == false && <button className="btn btn-secondary btn-sm" onClick={(e) => this.props.upField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_up</i></button>}
+                            {this.props.isLast == false && <button className="btn btn-secondary btn-sm" onClick={(e) => this.props.downField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_down</i></button>}
                         </div>
                     </div>
                     <div className="col-9">
@@ -72,7 +72,7 @@ class NodeTriggerActionConditions extends Component {
                 <div className="row">
                     <div className="col-12">
                         <div className="btn-group float-right" role="group">
-                            <a onClick={this.addCondition} className="btn btn-sm btn-secondary"><i className="material-icons mr-0">add</i> Add condition</a>
+                            <button onClick={this.addCondition} className="btn btn-sm btn-secondary"><i className="material-icons mr-0">add</i> Add condition</button>
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@ class NodeTriggerActionConditions extends Component {
                         </div>
                     </div>
                 </div>
-                <hr/>
+                <hr className="hr-big" />
             </div>
         );
     }

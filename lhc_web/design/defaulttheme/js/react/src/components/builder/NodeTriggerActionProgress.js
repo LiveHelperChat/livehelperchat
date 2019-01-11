@@ -63,7 +63,7 @@ class NodeTriggerActionProgress extends Component {
                     <label>Argument template</label>
                     <NodeTriggerArgumentTemplate showOptional={true} onChange={this.onchangeAttr} argument={this.props.action.getIn(['content','argument_template'])} />
                 </div>
-                <hr/>
+                <hr className="hr-big" />
 
             </div>
         );

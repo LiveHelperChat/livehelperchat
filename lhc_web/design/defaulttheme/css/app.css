@@ -130,6 +130,10 @@ a:hover{
 	min-height:150px;
 }
 
+.hr-big{
+	border-top: 3px solid #cecece;
+}
+
 .live-chat-message,.live-chat-message:focus{
 	outline: none;
 	-webkit-box-shadow: none !important;
@@ -284,9 +288,7 @@ div.message-row {
 	animation: blink 1500ms linear infinite;
 }
 
-div.message-row-typing div.msg-body{
-	color:#000!important;
-}
+
 
 @keyframes blink{
 	0%{opacity: 0.3;}
@@ -329,10 +331,14 @@ div.message-admin div.msg-body{
 }
 
 div.message-row-typing div.msg-body {
-	background-color: #f3f3f3;
+	background-color: #d0d0d0;
 	border-radius: 3px;
 	display: inline-block;
+	color:#000!important;
+	border-top-left-radius:20px;
+	border-bottom-left-radius:20px;
 }
+
 
 div.message-row.response div.msg-body{
 	background-color: #ededed;

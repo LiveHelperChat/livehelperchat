@@ -179,7 +179,7 @@ class NodeTriggerActionText extends Component {
                     {quick_replies}
                 </div>
                 <div className="col-12">
-                    <hr/>
+                    <hr className="hr-big" />
                 </div>
             </div>
         );

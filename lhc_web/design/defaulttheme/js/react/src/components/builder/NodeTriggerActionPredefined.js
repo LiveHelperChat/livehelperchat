@@ -51,6 +51,7 @@ class NodeTriggerActionPredefined extends Component {
                         </div>
                     </div>
                  </div>
+                 <hr className="hr-big" />
             </div>
         )
     }

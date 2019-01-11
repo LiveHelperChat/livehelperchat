@@ -41,7 +41,7 @@ class NodeTriggerActionIntentCheck extends Component {
                 <div className="row">
                     <p>Check for pending intended actions. If atleast one pending actions will be found. None of the rest triggers will be executed.</p>
                 </div>
-                <hr/>
+                <hr className="hr-big" />
             </div>
         );
     }

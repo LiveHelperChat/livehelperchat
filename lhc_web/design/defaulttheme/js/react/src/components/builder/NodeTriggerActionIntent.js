@@ -76,9 +76,9 @@ class NodeTriggerActionIntent extends Component {
                         </div>
                     </div>
                 </div>
-                <hr/>
                 {button_list}
 
+                <hr className="hr-big" />
 
             </div>
         );

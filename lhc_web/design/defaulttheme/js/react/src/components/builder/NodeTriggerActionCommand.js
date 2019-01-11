@@ -86,8 +86,7 @@ class NodeTriggerActionCommand extends Component {
                         <input className="form-control form-control-sm" type="text" placeholder="{&quot;bot_touched&quot;:true}" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
                     </div>
                 </div>}
-
-                <hr/>
+                <hr className="hr-big" />
             </div>
         );
     }

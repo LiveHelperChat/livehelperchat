@@ -121,7 +121,7 @@ class NodeTriggerActionAttribute extends Component {
                     </div>
 
                 </div>
-                <hr/>
+                <hr className="hr-big" />
 
             </div>
         );

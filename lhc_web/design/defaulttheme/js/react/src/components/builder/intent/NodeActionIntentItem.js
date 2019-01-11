@@ -39,6 +39,9 @@ class NodeActionIntentItem extends Component {
     render() {
         return (
             <div className="row">
+                <div className="col-12">
+                    <hr/>
+                </div>
                 <div className="col-6">
                     <div className="form-group">
                         <label>Should include any of these words</label>
@@ -83,11 +86,6 @@ class NodeActionIntentItem extends Component {
                         <button className="btn btn-warning btn-sm" onClick={this.deleteField.bind(this)}>Delete</button>
                     </div>
                 </div>
-
-                <div className="col-12">
-                    <hr/>
-                </div>
-
             </div>
         );
     }

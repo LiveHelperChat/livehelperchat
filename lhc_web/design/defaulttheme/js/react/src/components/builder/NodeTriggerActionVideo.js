@@ -57,7 +57,7 @@ class NodeTriggerActionVideo extends Component {
                         </div>
                     </div>
                 </div>
-                <hr/>
+                <hr className="hr-big" />
 
             </div>
         );

@@ -232,7 +232,7 @@ class NodeTriggerActionCollectable extends Component {
                 <hr/>
                 {collectable_fields}
                 <a className="btn btn-info btn-sm" onClick={this.addField.bind(this)}>Add field</a>
-                <hr/>
+                <hr className="hr-big" />
             </div>
         );
     }

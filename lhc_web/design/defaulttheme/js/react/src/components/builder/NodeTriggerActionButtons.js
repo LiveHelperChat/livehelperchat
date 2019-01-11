@@ -98,7 +98,7 @@ class NodeTriggerActionButtons extends Component {
                 </div>
 
                 <a className="btn btn-info btn-sm" onClick={this.addField.bind(this)}>Add button</a>
-                <hr/>
+                <hr className="hr-big" />
             </div>
         );
     }
