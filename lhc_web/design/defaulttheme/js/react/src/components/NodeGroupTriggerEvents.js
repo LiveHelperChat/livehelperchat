@@ -31,10 +31,10 @@ class NodeGroupTriggerEvents extends Component {
             <div className="row">
                 <div className="col-12">
 
-                    <hr/>
+                    <br/>
                     {mappedEvents}
 
-                    <a onClick={this.addEvent} className="btn btn-info btn-sm">Add event</a>
+                    <button onClick={this.addEvent} className="btn btn-info btn-sm">Add event</button>
                 </div>
             </div>
         );

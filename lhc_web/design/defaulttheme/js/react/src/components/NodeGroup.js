@@ -78,9 +78,6 @@ class NodeGroup extends Component {
         }
 
         return (
-
-
-
             <div className="row">
                 <div className="col-12">
                     <hr/>
@@ -90,7 +87,7 @@ class NodeGroup extends Component {
                             <input className="form-control gbot-group-name" value={this.props.group.get('name')} onChange={this.handleChange.bind(this)} />
                         </div>
                         <div className="col-2">
-                            <a className="float-right" onClick={this.deleteGroup.bind(this)}><i className="material-icons mr-0">delete</i></a>
+                            <button className="btn btn-sm btn-secondary float-right" onClick={this.deleteGroup.bind(this)}><i className="material-icons mr-0">delete</i></button>
                         </div>
                     </div>
 
@@ -98,7 +95,7 @@ class NodeGroup extends Component {
                         <div className="col-12">
                             <ul className="gbot-trglist">
                                 {mappedNodeGroupTriggers}
-                                <li><a className="btn btn-sm btn-secondary" onClick={this.addTrigger.bind(this)} ><i className="material-icons mr-0">add</i></a></li>
+                                <li><button className="btn btn-sm btn-secondary" onClick={this.addTrigger.bind(this)} ><i className="material-icons mr-0">add</i></button></li>
                             </ul>
                         </div>
                     </div>

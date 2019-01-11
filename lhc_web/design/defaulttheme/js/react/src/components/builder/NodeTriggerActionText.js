@@ -129,8 +129,8 @@ class NodeTriggerActionText extends Component {
                         <div className="col-2">
                             <div className="btn-group float-left" role="group" aria-label="Trigger actions">
                                 <button disabled="disabled" className="btn btn-sm btn-info">{this.props.id + 1}</button>
-                                {this.props.isFirst == false && <a className="btn btn-secondary btn-sm" onClick={(e) => this.props.upField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_up</i></a>}
-                                {this.props.isLast == false && <a className="btn btn-secondary btn-sm" onClick={(e) => this.props.downField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_down</i></a>}
+                                {this.props.isFirst == false && <button className="btn btn-secondary btn-sm" onClick={(e) => this.props.upField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_up</i></button>}
+                                {this.props.isLast == false && <button className="btn btn-secondary btn-sm" onClick={(e) => this.props.downField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_down</i></button>}
                             </div>
                         </div>
                         <div className="col-9">
@@ -163,10 +163,10 @@ class NodeTriggerActionText extends Component {
                                 <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','on_start_chat'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','on_start_chat'])} /> Send message only at chat start.</label> <i className="material-icons" title="Message will be send only on chat start event.">info</i>
                             </div>
                         </div>
-                        <div className="col-6">
+                        <div className="col-6 text-right">
                             <div className="btn-group" role="group">
-                                <a onClick={this.addAction} className="btn btn-sm btn-secondary"><i className="material-icons mr-0">add</i> Add action on message</a>
-                                <a onClick={this.addQuickReply} className="btn btn-sm btn-secondary"><i className="material-icons mr-0">add</i> Add quick reply</a>
+                                <button onClick={this.addAction} className="btn btn-xs btn-secondary"><i className="material-icons mr-0">add</i> Add action on message</button>
+                                <button onClick={this.addQuickReply} className="btn btn-xs btn-secondary"><i className="material-icons mr-0">add</i> Add quick reply</button>
                             </div>
                         </div>
                     </div>

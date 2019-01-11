@@ -70,6 +70,8 @@ class NodeActionIntentItem extends Component {
 
                     <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['exec_insta'],'value' : e.target.checked})} defaultChecked={this.props.action.getIn(['content','exec_insta'])} /> Do not schedule execution of this but execute it instantly. Blocks execution of all other responses and checks.</label>
 
+                    <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['exec_cont'],'value' : e.target.checked})} defaultChecked={this.props.action.getIn(['content','exec_cont'])} /> Continue workflow if stop is returned from executed trigger.</label>
+
                     <div className="form-group">
                         <label>Schedule this trigger for execution</label>
                         <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['trigger_id'], value : e})} payload={this.props.action.getIn(['content','trigger_id'])} />
@@ -78,7 +80,7 @@ class NodeActionIntentItem extends Component {
 
                 <div className="col-12">
                     <div className="btn-group float-right" role="group" aria-label="Trigger actions">
-                        <a className="btn btn-warning btn-sm" onClick={this.deleteField.bind(this)}>Delete</a>
+                        <button className="btn btn-warning btn-sm" onClick={this.deleteField.bind(this)}>Delete</button>
                     </div>
                 </div>
 
