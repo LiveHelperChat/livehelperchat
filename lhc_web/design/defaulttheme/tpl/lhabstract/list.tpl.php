@@ -18,7 +18,7 @@
 <?php endif;?>
 
 <?php if ($pages->items_total > 0) : ?>
-	<table cellpadding="0" class="table<?php if (isset($object_trans['table_class'])) : ?> <?php echo $object_trans['table_class']?><?php endif?>" cellspacing="0" width="100%">
+	<table cellpadding="0" class="table <?php if (isset($object_trans['table_class'])) : ?><?php echo $object_trans['table_class']?><?php endif?>" cellspacing="0" width="100%">
 		<thead>
 			<tr>
 	    	<?php foreach ($fields as $field) : ?>
@@ -56,6 +56,9 @@
 	        	<?php if (isset($field['link_title'])) : ?>
 	        	  <?php echo $field['link_title']?>
 	        	<?php else : ?>
+
+                        <?php if (isset($field['wrap_start'])) : ?><?php echo $field['wrap_start']?><?php endif; ?>
+
     	        	<?php 
     	        	if (isset($field['frontend'])) {
     		            echo htmlspecialchars($item->{$field['frontend']});
@@ -63,6 +66,7 @@
     		            echo htmlspecialchars($item->$key);
     	        	}
     		        ?>
+                        <?php if (isset($field['wrap_end'])) : ?><?php echo $field['wrap_end']?><?php endif; ?>
 		        
 		        <?php endif;?>
 		        
