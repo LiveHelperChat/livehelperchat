@@ -710,13 +710,9 @@ ul.user-settings-list li{
 	background-color:#FFF;
 	border:1px solid #D3D3D3;
 	padding:5px;
-	border-bottom:0;
 	position: relative;
 	z-index: 1;
 	font-size: 12px;
-	-webkit-box-shadow: inset 0px 1px 3px rgba(50, 50, 50, 0.2);
-	-moz-box-shadow: inset 0px 1px 3px rgba(50, 50, 50, 0.2);
-	box-shadow: inset 0px 1px 3px rgba(50, 50, 50, 0.2);
 	border-radius:6px;
 }
 
