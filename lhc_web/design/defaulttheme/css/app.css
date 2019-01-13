@@ -874,7 +874,6 @@ input[type="file"]{
 #sidebar-wrapper {
 	min-width: 220px;
 	max-width: 220px;
-	color: #fff;
 	transition: all 0.3s;
 	border-right:1px solid #e7e7e7;
 }
