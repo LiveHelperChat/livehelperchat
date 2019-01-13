@@ -32,7 +32,7 @@
     	<?php else : ?>
     	   <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/closed_chat.tpl.php'));?>
     	<?php endif; ?>	
-    </h6 class="fs12">
+    </h6>
     <?php elseif ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) : ?>
 
         <?php $user = erLhcoreClassModelGenericBotBot::fetch($chat->chat_variables_array['gbot_id']); ?>
