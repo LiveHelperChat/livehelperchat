@@ -13,7 +13,7 @@
 <?php else : ?>
 <div class="form-group">
 <label class="col-form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?><?php if (isset($start_data_fields['offline_name_require_option']) && $start_data_fields['offline_name_require_option'] == 'required') : ?>*<?php endif;?></label>
-<input class="form-control<?php if (isset($errors['nick'])) : ?> is-invalid<?php endif;?>" type="text" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
+<input class="form-control form-control-sm<?php if (isset($errors['nick'])) : ?> is-invalid<?php endif;?>" type="text" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
 </div>
 <?php endif; ?>
 <?php endif; ?>
@@ -23,7 +23,7 @@
 <?php else : ?>
 <div class="form-group">
     <label class="col-form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?>*</label>
-    <input class="form-control<?php if (isset($errors['email'])) : ?> is-invalid<?php endif;?>" type="text" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
+    <input class="form-control form-control-sm<?php if (isset($errors['email'])) : ?> is-invalid<?php endif;?>" type="text" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 </div>
 <?php endif;?>
 
@@ -33,7 +33,7 @@
 <?php else : ?>
 <div class="form-group">
     <label class="col-form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone');?><?php if (isset($start_data_fields['offline_phone_require_option']) && $start_data_fields['offline_phone_require_option'] == 'required') : ?>*<?php endif;?></label>
-    <input class="form-control<?php if (isset($errors['phone'])) : ?> is-invalid<?php endif;?>" type="text" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
+    <input class="form-control form-control-sm<?php if (isset($errors['phone'])) : ?> is-invalid<?php endif;?>" type="text" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
 </div>
 <?php endif;?>
 <?php endif; ?>
@@ -41,7 +41,7 @@
 <?php if (isset($start_data_fields['offline_file_visible_in_popup']) && $start_data_fields['offline_file_visible_in_popup'] == true) : ?>
 <div class="form-group">
     <label class="col-form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','File');?></label>
-    <input type="file" name="File" value="" />
+    <input type="file" class="form-control form-control-sm" name="File" value="" />
 </div>
 <?php endif; ?>
 
@@ -51,7 +51,7 @@
 <?php else : ?>
 <div class="form-group">
     <label class="col-form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your question');?><?php if (isset($start_data_fields['offline_message_require_option']) && $start_data_fields['offline_message_require_option'] == 'required') : ?>*<?php endif;?></label>
-    <textarea class="form-control<?php if (isset($errors['question'])) : ?> is-invalid<?php endif;?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
+    <textarea class="form-control form-control-sm<?php if (isset($errors['question'])) : ?> is-invalid<?php endif;?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" name="Question"><?php echo htmlspecialchars($input_data->question);?></textarea>
 </div>
 <?php endif;?>
 <?php endif;?>
