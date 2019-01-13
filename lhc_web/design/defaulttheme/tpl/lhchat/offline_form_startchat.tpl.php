@@ -75,11 +75,11 @@
         $startChatText = htmlspecialchars($theme->bot_configuration_array['custom_start_button_offline']);
     } ?>
 
-    <input type="submit" class="btn btn-secondary leaveamessage" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Leave a message');?>" name="StartChatAction" />
+    <input type="submit" class="btn btn-secondary btn-sm leaveamessage" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Leave a message');?>" name="StartChatAction" />
 
   	<?php include(erLhcoreClassDesign::designtpl('lhchat/offline_form_startchat_button_multiinclude.tpl.php'));?>
   	<?php if ( erLhcoreClassModelChatConfig::fetch('reopen_chat_enabled')->current_value == 1 && ($reopenData = erLhcoreClassChat::canReopenDirectly(array('reopen_closed' => erLhcoreClassModelChatConfig::fetch('allow_reopen_closed')->current_value))) !== false ) : ?>
-		<input type="button" class="btn btn-secondary resumechat"  value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatnotexists','Resume chat');?>" onclick="document.location.replace('<?php echo erLhcoreClassDesign::baseurl('chat/reopen')?>/<?php echo $reopenData['id']?>/<?php echo $reopenData['hash']?><?php if ( isset($modeAppend) && $modeAppend != '' ) : ?>/(embedmode)/embed<?php endif;?>')">
+		<input type="button" class="btn btn-secondary btn-sm resumechat"  value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatnotexists','Resume chat');?>" onclick="document.location.replace('<?php echo erLhcoreClassDesign::baseurl('chat/reopen')?>/<?php echo $reopenData['id']?>/<?php echo $reopenData['hash']?><?php if ( isset($modeAppend) && $modeAppend != '' ) : ?>/(embedmode)/embed<?php endif;?>')">
 	<?php endif; ?>
 </div>
 
