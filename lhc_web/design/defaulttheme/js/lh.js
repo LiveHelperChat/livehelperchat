@@ -3665,6 +3665,8 @@ window.onfocus = window.onblur = function(e) {
     lhinst.focusChanged(focused);
 };
 
+window.lhcSelector = null;
+
 /*Helper functions*/
 function chatsyncuser()
 {

@@ -53,31 +53,41 @@
 
             <script>
                 $('.bb-list a').click(function () {
-                    var caretPos = document.getElementById("CSChatMessage<?php $chat_id !== null ? print '-' . $chat_id : null?>").selectionStart;
-                    var textAreaTxt = jQuery("#CSChatMessage<?php $chat_id !== null ? print '-' . $chat_id : null?>").val();
+
+                    <?php if ($mode == 'editor') : ?>
+                        var selectorInsert = window.lhcSelector;
+                    <?php else : ?>
+                        var selectorInsert = "#CSChatMessage<?php $chat_id !== null ? print '-' . $chat_id : null?>";
+                    <?php endif; ?>
+
+                    var textAreaElement = jQuery(selectorInsert);
+
+                    var caretPos = textAreaElement[0].selectionStart;
+                    var textAreaTxt = jQuery(selectorInsert).val();
+
                     var txtToAdd = $(this).attr('data-bb-code');
                     if (typeof $(this).attr('data-promt') != 'undefined' && $(this).attr('data-promt') == 'img') {
                         var link = prompt("<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Please enter link to an image')?>");
                         if (link) {
                             txtToAdd = '[' + txtToAdd + ']' + link + '[/' + txtToAdd + ']';
-                            jQuery("#CSChatMessage<?php $chat_id !== null ? print '-' . $chat_id : null?>").val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos));
+                            textAreaElement.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos));
                             $('#myModal').modal('hide');
                         }
                     } else if (typeof $(this).attr('data-promt') != 'undefined' && $(this).attr('data-promt') == 'url') {
                         var link = prompt("<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Please enter a link')?>");
                         if (link) {
                             txtToAdd = '[url=' + link + ']<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Here is a link')?>[/url]';
-                            jQuery("#CSChatMessage<?php $chat_id !== null ? print '-' . $chat_id : null?>").val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos));
+                            textAreaElement.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos));
                             $('#myModal').modal('hide');
                         }
                     } else {
-                        jQuery("#CSChatMessage<?php $chat_id !== null ? print '-' . $chat_id : null?>").val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos)).focus();
+                        textAreaElement.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos)).focus();
                         $('#myModal').modal('hide');
                         setTimeout(function () {
-                            jQuery("#CSChatMessage<?php $chat_id !== null ? print '-' . $chat_id : null?>").focus();
+                            textAreaElement.focus();
                         },500)
-                    }
-                    ;
+                    };
+
                     return false;
                 });</script>
         </div>
