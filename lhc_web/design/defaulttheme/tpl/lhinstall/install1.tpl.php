@@ -10,7 +10,7 @@
 
 <h2>Checking folders permission</h2>
 
-<table class="table">
+<table class="table table-sm">
     <tr>
         <td>I can write to &quot;cache/cacheconfig&quot; directory</td>
         <td><?php echo is_writable("cache/cacheconfig") ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>'?></td>

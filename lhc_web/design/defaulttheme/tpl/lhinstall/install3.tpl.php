@@ -8,7 +8,7 @@
 <?php endif; ?>
 
 <h2>Initial application settings</h2>
-<table class="table">
+<table class="table table-sm">
     <tr>
         <td>Admin username*</td>
         <td><input class="form-control" type="text" name="AdminUsername" value="<?php isset($admin_username) ? print htmlspecialchars($admin_username) : ''?>" /></td>
