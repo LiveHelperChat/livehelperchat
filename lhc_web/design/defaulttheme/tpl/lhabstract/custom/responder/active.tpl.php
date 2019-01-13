@@ -29,6 +29,10 @@
     <div class="col-9">
         <div class="form-group">		
         <label><?php echo $fields['timeout_reply_message_' . $i]['trans'];?></label>
+
+        <?php $bbcodeOptions = array('selector' => 'textarea[name=AbstractInput_timeout_reply_message_'.$i.']'); ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
+
         <?php echo erLhcoreClassAbstract::renderInput('timeout_reply_message_' . $i, $fields['timeout_reply_message_' . $i], $object)?>
         </div>
     </div>

@@ -16,7 +16,7 @@ body {
 
 .btn-group-xs > .btn, .btn-xs {
 	padding  : .35rem .30rem;
-	font-size  : .875rem;
+	font-size  : .75rem;
 	line-height  : .6;
 	border-radius : .2rem;
 }
@@ -582,8 +582,8 @@ ul.user-settings-list li{
 .page-url {
 	overflow:hidden;
 	position:relative;
-	height:15px;;
-	margin-top:5px;
+	height:20px;;
+	margin-top:0px;
 }
 
 .page-url span{

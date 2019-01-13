@@ -20,7 +20,9 @@
 
     <div class="form-group">
         <label><?php echo $fields['wait_message']['trans'];?></label>
-        <input type="text" class="form-control" ng-model="lang.wait_message" value="" name="wait_message[{{$index}}]">
+        <?php $bbcodeOptions = array('selector' => '#trans_wait_message_{{$index}}'); ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
+        <textarea class="form-control" id="trans_wait_message_{{$index}}" ng-model="lang.wait_message" name="wait_message[{{$index}}]"></textarea>
     </div>
 
     <div class="form-group">
@@ -34,14 +36,18 @@
         <div class="col-6">
             <div class="form-group">
                 <label><?php echo $fields['timeout_message']['trans'];?> [1]</label>
-                <input type="text" class="form-control" ng-model="lang.timeout_message" value="" name="timeout_message[{{$index}}]">
+                <?php $bbcodeOptions = array('selector' => '#trans_timeout_message_{{$index}}'); ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
+                <textarea class="form-control" id="trans_timeout_message_{{$index}}" ng-model="lang.timeout_message" name="timeout_message[{{$index}}]"></textarea>
             </div>
         </div>
         <?php for ($i = 2; $i <= 5; $i++) : ?>
         <div class="col-6">
             <div class="form-group">
                 <label><?php echo $fields['timeout_message_' . $i]['trans'];?> [<?php echo $i?>]</label>
-                <input type="text" class="form-control" ng-model="lang.timeout_message_<?php echo $i?>" value="" name="timeout_message_<?php echo $i?>[{{$index}}]">
+                <?php $bbcodeOptions = array('selector' => '#trans_timeout_message_{{$index}}_'.$i); ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
+                <textarea class="form-control" id="trans_timeout_message_{{$index}}_<?php echo $i?>" ng-model="lang.timeout_message_<?php echo $i?>" name="timeout_message_<?php echo $i?>[{{$index}}]"></textarea>
             </div>
         </div>
         <?php endfor;?>
@@ -54,7 +60,9 @@
             <div class="col-6">
                 <div class="form-group">
                     <label><?php echo $fields['timeout_reply_message_' . $i]['trans'];?></label>
-                    <input type="text" class="form-control" ng-model="lang.timeout_reply_message_<?php echo $i?>" value="" name="timeout_reply_message_<?php echo $i?>[{{$index}}]">
+                    <?php $bbcodeOptions = array('selector' => '#trans_timeout_reply_message_{{$index}}_'.$i); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
+                    <textarea class="form-control" id="trans_timeout_reply_message_{{$index}}_<?php echo $i?>" ng-model="lang.timeout_reply_message_<?php echo $i?>" name="timeout_reply_message_<?php echo $i?>[{{$index}}]"></textarea>
                  </div>
             </div>
     <?php endfor;?>
@@ -64,7 +72,9 @@
 
     <div class="form-group">
         <label><?php echo $fields['wait_timeout_hold']['trans'];?></label>
-        <input type="text" class="form-control" ng-model="lang.wait_timeout_hold" value="" name="wait_timeout_hold[{{$index}}]">
+        <?php $bbcodeOptions = array('selector' => '#trans_wait_timeout_hold_{{$index}}'); ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
+        <textarea class="form-control" id="trans_wait_timeout_hold_{{$index}}" ng-model="lang.wait_timeout_hold" value="" name="wait_timeout_hold[{{$index}}]"></textarea>
     </div>
 
     <div class="row">
@@ -72,8 +82,10 @@
         <div class="col-6">
             <div class="form-group">
                 <label><?php echo $fields['timeout_hold_message_' . $i]['trans'];?></label>
-                <input type="text" class="form-control" ng-model="lang.timeout_hold_message_<?php echo $i?>" value="" name="timeout_hold_message_<?php echo $i?>[{{$index}}]">
-            </div>
+                <?php $bbcodeOptions = array('selector' => '#trans_timeout_hold_message_{{$index}}_'.$i); ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
+                <textarea class="form-control" id="trans_timeout_hold_message_{{$index}}_<?php echo $i?>" ng-model="lang.timeout_hold_message_<?php echo $i?>" value="" name="timeout_hold_message_<?php echo $i?>[{{$index}}]"></textarea>
+              </div>
         </div>
     <?php endfor;?>
     </div>

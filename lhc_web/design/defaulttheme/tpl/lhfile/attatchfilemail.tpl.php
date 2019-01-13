@@ -6,7 +6,7 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhfile/parts/search_panel.tpl.php')); ?>
 
-<table class="table" cellpadding="0" cellspacing="0">
+<table class="table table-sm" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Upload name');?></th>

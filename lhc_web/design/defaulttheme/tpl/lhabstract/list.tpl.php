@@ -18,7 +18,7 @@
 <?php endif;?>
 
 <?php if ($pages->items_total > 0) : ?>
-	<table cellpadding="0" class="table <?php if (isset($object_trans['table_class'])) : ?><?php echo $object_trans['table_class']?><?php endif?>" cellspacing="0" width="100%">
+	<table cellpadding="0" class="table <?php if (isset($object_trans['table_class'])) : ?><?php echo $object_trans['table_class']?><?php else : ?>table-sm<?php endif?>" cellspacing="0" width="100%">
 		<thead>
 			<tr>
 	    	<?php foreach ($fields as $field) : ?>
@@ -51,7 +51,7 @@
 	        	<?php if (!isset($field['hidden'])) : ?>
 	        	<td<?php echo isset($field['no_wrap']) ? " nowrap=\"nowrap\" " : ''?>>
 	        	
-	        	<?php if (isset($field['link'])) : ?><a <?php if (isset($field['link_class'])) : ?>class="<?php echo $field['link_class']?>"<?php endif;?> <?php if (isset($field['is_modal'])) : ?>onclick="return lhc.revealModal({<?php if (!isset($field['is_iframe']) || $field['is_iframe'] == true) : ?>'iframe':true,<?php endif;?>'height':500,'url':WWW_DIR_JAVASCRIPT +'<?php echo $field['link']?>/<?php echo $item->id?>'})"<?php else : ?>href="<?php echo $field['link']?>/<?php echo $item->id?>"<?php endif;?>><?php endif;?>
+	        	<?php if (isset($field['link'])) : ?><a <?php if (isset($field['link_class'])) : ?>class="<?php echo $field['link_class']?>"<?php endif;?> <?php if (isset($field['is_modal'])) : ?>onclick="return lhc.revealModal({<?php if (!isset($field['is_iframe']) || $field['is_iframe'] == true) : ?>'iframe':true,<?php endif;?>'height':500,'url':WWW_DIR_JAVASCRIPT +'<?php echo $field['link']?>/<?php echo $item->id?>'})" href="#" <?php else : ?>href="<?php echo $field['link']?>/<?php echo $item->id?>"<?php endif;?>><?php endif;?>
 	        		        	
 	        	<?php if (isset($field['link_title'])) : ?>
 	        	  <?php echo $field['link_title']?>
@@ -96,7 +96,7 @@
 
 <?php if (!isset($hide_add)) : ?>
 
-	<a class="btn btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('abstract/new')?>/<?php echo $identifier?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>
+	<a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('abstract/new')?>/<?php echo $identifier?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>
 
 	<br>
 <?php endif;?>

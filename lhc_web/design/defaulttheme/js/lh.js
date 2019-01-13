@@ -1311,13 +1311,20 @@ function lh(){
 	this.sendLinkToMail = function( embed_code,file_id) {
 		var val = window.parent.$('#MailMessage').val();		
 		window.parent.$('#MailMessage').val(((val != '') ? val+"\n" : val)+embed_code);
-		$('#embed-button-'+file_id).addClass('success');	
+		$('#embed-button-'+file_id).addClass('btn-success');
 	};
 	
 	this.sendLinkToEditor = function(chat_id, embed_code,file_id) {
 		var val = window.parent.$('#CSChatMessage-'+chat_id).val();		
 		window.parent.$('#CSChatMessage-'+chat_id).val(((val != '') ? val+"\n" : val)+embed_code);
-		$('#embed-button-'+file_id).addClass('success');	
+		$('#embed-button-'+file_id).addClass('btn-success');
+	};
+
+	this.sendLinkToGeneralEditor = function(embed_code,file_id) {
+	    var editor = window.parent.$('.embed-into');
+		var val = editor.val();
+        editor.val(((val != '') ? val+"\n" : val)+embed_code);
+		$('#embed-button-'+file_id).addClass('btn-success');
 	};
 
 	this.hideTransferModal = function(chat_id)

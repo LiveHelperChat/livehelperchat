@@ -33,6 +33,7 @@ class erLhcoreClassFileUploadAdmin extends erLhcoreClassFileUpload {
         	$fileUpload->upload_name = (isset($this->options['file_name_manual']) && $this->options['file_name_manual'] != '') ? $this->options['file_name_manual'].' - '.$name : $name;;
         	$fileUpload->file_path = $this->options['upload_dir'];
         	$fileUpload->chat_id = 0;
+        	$fileUpload->persistent = (isset($this->options['persistent']) && $this->options['persistent'] == true) ? 1 : 0;
 
         	$matches = array();
         	if (strpos($name, '.') === false && preg_match('/^image\/(gif|jpe?g|png)/', $fileUpload->type, $matches)) {

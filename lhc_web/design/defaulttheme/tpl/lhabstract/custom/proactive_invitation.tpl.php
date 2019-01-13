@@ -9,7 +9,7 @@
 <?php $fields = $object->getFields();?>
 <div role="tabpanel">
     	<!-- Nav tabs -->
-    	<ul class="nav nav-tabs" role="tablist">
+    	<ul class="nav nav-tabs mb-2" role="tablist">
     		<li role="presentation" class="nav-item"><a class="active nav-link" href="#invitation" aria-controls="invitation" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Invitation');?></a></li>
     		<li role="presentation" class="nav-item"><a class="nav-link" href="#bot" aria-controls="bot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Bot');?></a></li>
     		<li role="presentation" class="nav-item"><a class="nav-link" href="#dynamic" aria-controls="dynamic" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Dynamic');?></a></li>

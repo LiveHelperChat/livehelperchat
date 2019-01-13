@@ -26,7 +26,10 @@ if ( method_exists($objectData,'getFilter') ) {
 }
 
 $tpl->set('filterObject',$filterObject);
-$tpl->set('input_form',$filterParams['input_form']);
+
+if (isset($filterParams['input_form'])) {
+    $tpl->set('input_form',$filterParams['input_form']);
+}
 
 $pages = new lhPaginator();
 $pages->items_total = call_user_func('erLhAbstractModel'.$Params['user_parameters']['identifier'].'::getCount',array_merge($filterParams['filter'],$filterObject));

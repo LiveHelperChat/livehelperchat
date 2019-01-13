@@ -1,5 +1,7 @@
 <div class="form-group">
     <label><?php echo $fields['wait_timeout_hold']['trans'];?></label>
+    <?php $bbcodeOptions = array('selector' => 'textarea[name=AbstractInput_wait_timeout_hold]'); ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
     <?php echo erLhcoreClassAbstract::renderInput('wait_timeout_hold', $fields['wait_timeout_hold'], $object)?>
 </div>
 
@@ -35,6 +37,8 @@
         <div class="col-9">
             <div class="form-group">
                 <label><?php echo $fields['timeout_hold_message_' . $i]['trans'];?></label>
+                <?php $bbcodeOptions = array('selector' => 'textarea[name=AbstractInput_timeout_hold_message_'.$i.']'); ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
                 <?php echo erLhcoreClassAbstract::renderInput('timeout_hold_message_' . $i, $fields['timeout_hold_message_' . $i], $object)?>
             </div>
         </div>

@@ -1,5 +1,5 @@
+<?php $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send a message to the user') ?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
-<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send a message to the user');?></h2>
 
 <?php if (isset($errors)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>

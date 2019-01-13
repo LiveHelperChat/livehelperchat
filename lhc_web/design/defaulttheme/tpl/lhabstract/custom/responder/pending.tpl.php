@@ -38,6 +38,8 @@
     <div class="col-9">
         <div class="form-group">		
         <label><?php echo $fields['timeout_message']['trans'];?> [1]</label>
+        <?php $bbcodeOptions = array('selector' => 'textarea[name=AbstractInput_timeout_message]'); ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
         <?php echo erLhcoreClassAbstract::renderInput('timeout_message', $fields['timeout_message'], $object)?>
         </div>
     </div>
@@ -54,6 +56,8 @@
     <div class="col-9">
         <div class="form-group">		
         <label><?php echo $fields['timeout_message_' . $i]['trans'];?> [<?php echo $i?>]</label>
+        <?php $bbcodeOptions = array('selector' => 'textarea[name=AbstractInput_timeout_message_'.$i.']'); ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
         <?php echo erLhcoreClassAbstract::renderInput('timeout_message_' . $i, $fields['timeout_message_' . $i], $object)?>
         </div>
     </div>

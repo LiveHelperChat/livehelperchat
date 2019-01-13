@@ -1,8 +1,8 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_titles/cannedmsg.tpl.php'));?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/search_panel.tpl.php')); ?>
-
-<table class="table" cellpadding="0" cellspacing="0">
+<br/>
+<table class="table table-sm" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
     <th width="1%">ID</th>

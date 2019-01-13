@@ -18,25 +18,38 @@ var revealM = {
 		},
 
 		revealModal : function(params) {
-			/*if (closePrevious !== undefined && closePrevious === true){
-				$('#myModal').remove();
-				$('.reveal-modal-bg').remove();
-			}*/
-
+			$('#myModal').modal('dispose');
 			revealM.initializeModal('myModal');
+
 			if (typeof params['iframe'] === 'undefined') {
-				jQuery.get(params['url'], function(data){
 
-					if (typeof params['showcallback'] !== 'undefined') {
-						$('#myModal').on('shown.bs.modal',params['showcallback']);
-					}
+				if (typeof params['loadmethod'] !== 'undefined' && params['loadmethod'] == 'post')
+				{
+					jQuery.post(params['url'], params['datapost'], function(data){
+						if (typeof params['showcallback'] !== 'undefined') {
+							$('#myModal').on('shown.bs.modal',params['showcallback']);
+						}
 
-					if (typeof params['hidecallback'] !== 'undefined') {
-						$('#myModal').on('hide.bs.modal',params['hidecallback']);
-					}
+						if (typeof params['hidecallback'] !== 'undefined') {
+							$('#myModal').on('hide.bs.modal',params['hidecallback']);
+						}
 
-					$('#myModal').html(data).modal('show')
-				});
+						$('#myModal').html(data).modal('show')
+					});
+				} else {
+					jQuery.get(params['url'], function(data){
+
+						if (typeof params['showcallback'] !== 'undefined') {
+							$('#myModal').on('shown.bs.modal',params['showcallback']);
+						}
+
+						if (typeof params['hidecallback'] !== 'undefined') {
+							$('#myModal').on('hide.bs.modal',params['hidecallback']);
+						}
+
+						$('#myModal').html(data).modal('show')
+					});
+				}
 			} else {
 				var header = '';
 				var prependeBody = '';
@@ -48,6 +61,15 @@ var revealM = {
 				var additionalModalBody = typeof params['modalbodyclass'] === 'undefined' ? '' : ' '+params['modalbodyclass'];
 
 				$('#myModal').html('<div class="modal-dialog modal-lg"><div class="modal-content">'+header+'<div class="modal-body'+additionalModalBody+'">'+prependeBody+'<iframe src="'+params['url']+'" frameborder="0" style="width:100%" height="'+params['height']+'" /></div></div></div>').modal('show')	;
+
+				if (typeof params['showcallback'] !== 'undefined') {
+					$('#myModal').on('shown.bs.modal',params['showcallback']);
+				}
+
+				if (typeof params['hidecallback'] !== 'undefined') {
+					$('#myModal').on('hide.bs.modal',params['hidecallback']);
+				}
+
 			}
 		}
 };
