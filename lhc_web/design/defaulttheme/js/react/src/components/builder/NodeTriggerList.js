@@ -26,7 +26,7 @@ class NodeTriggerList extends Component {
         </optgroup>);
 
         return (
-            <select className="form-control input-sm" onChange={this.onChange.bind(this)} value={this.props.payload}>
+            <select className="form-control form-control-sm" onChange={this.onChange.bind(this)} value={this.props.payload}>
                 <option value="">Choose a trigger</option>
                 {mappedNodeGroups}
             </select>

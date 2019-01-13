@@ -56,13 +56,19 @@ $ViewList['uploadfileadminonlineuser'] = array(
 
 $ViewList['new'] = array(
 		'params' => array(),
-		'uparams' => array('mode'),
+		'uparams' => array('mode','persistent'),
 		'functions' => array( 'upload_new_file' )
 );
 
 $ViewList['attatchfile'] = array(
 		'params' => array('chat_id'),
 		'uparams' => array('user_id'),
+		'functions' => array( 'use_operator' )
+);
+
+$ViewList['attatchfileimg'] = array(
+		'params' => array(),
+		'uparams' => array(),
 		'functions' => array( 'use_operator' )
 );
 

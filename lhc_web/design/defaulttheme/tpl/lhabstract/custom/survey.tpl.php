@@ -38,26 +38,26 @@ $titleOptions = array (
     	<?php foreach ($sortOptions as $keyOption => $sortOption) : ?>
     		<?php if ($object->{$keyOption . '_pos'} == $i) : ?>
     		<div class="row" id="position-id-<?php echo $counterPosition;?>">    			
-	    		<div class="col-xs-12">
+	    		<div class="col-12">
 	    			<label><?php echo erLhcoreClassAbstract::renderInput($sortOption['field'] . '_enabled', $fields[$sortOption['field'] . '_enabled'], $object)?> <?php echo $titleOptions[$sortOption['type']]?></label>
 
-	        	    <div class="btn-group pull-right" role="group" aria-label="...">
-						<button type="button" class="btn btn-default btn-xs" onclick="adminSurvey.moveUp('<?php echo $sortOption['field']?>')"><i class="material-icons">trending_up</i></button>
-						<button type="button" class="btn btn-default btn-xs" onclick="adminSurvey.moveDown('<?php echo $sortOption['field']?>')"><i class="material-icons">trending_down</i></button>
+	        	    <div class="btn-group float-right" role="group" aria-label="...">
+						<button type="button" class="btn btn-secondary btn-xs" onclick="adminSurvey.moveUp('<?php echo $sortOption['field']?>')"><i class="material-icons">trending_up</i></button>
+						<button type="button" class="btn btn-secondary btn-xs" onclick="adminSurvey.moveDown('<?php echo $sortOption['field']?>')"><i class="material-icons">trending_down</i></button>
 				    </div>
 
 	        		<?php if ($sortOption['type'] == 'stars') : ?>
 		        		<div class="row" ng-show="abstract_checked_<?php echo $sortOption['field'] . '_enabled'?>">
-		        		  <div class="col-xs-12">
+		        		  <div class="col-12">
 		        		        <label><?php echo erLhcoreClassAbstract::renderInput($keyOption . '_req', $fields[$keyOption. '_req'], $object)?> <?php echo $fields[$keyOption . '_req']['trans'];?></label>
 		        		  </div>
-		        		  <div class="col-xs-6">
+		        		  <div class="col-6">
 		        		      <div class="form-group">
 		        				<label><?php echo $fields[$keyOption . '_title']['trans'];?></label>
 		        				<?php echo erLhcoreClassAbstract::renderInput($keyOption . '_title', $fields[$keyOption. '_title'], $object)?>
 		        			  </div>
 		        		  </div>
-		        		  <div class="col-xs-6">
+		        		  <div class="col-6">
 		            		  <div class="form-group">
 		            			<label><?php echo $fields[$sortOption['field']]['trans'];?></label>
 		            			<?php echo erLhcoreClassAbstract::renderInput($sortOption['field'], $fields[$sortOption['field']], $object)?>
@@ -80,11 +80,11 @@ $titleOptions = array (
 	                    	<div class="form-group">
 	                			<label><?php echo $fields[$sortOption['field']]['trans'];?></label>
 	                    		<div class="row">
-	    		                    <div class="col-xs-8">
+	    		                    <div class="col-8">
 	            				        <?php echo erLhcoreClassAbstract::renderInput($sortOption['field'], $fields[$sortOption['field']], $object)?>
 	            					</div>
-	                    			<div class="col-xs-4">
-	                    			    <input type="button" class="btn btn-default btn-block" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/form','Add option')?>" onclick="adminSurvey.addOptionAnswer('<?php echo $sortOption['field']?>')"/>
+	                    			<div class="col-4">
+	                    			    <input type="button" class="btn btn-secondary btn-block" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/form','Add option')?>" onclick="adminSurvey.addOptionAnswer('<?php echo $sortOption['field']?>')"/>
 	                    			</div>
 	                			</div>
 	            			</div>
@@ -102,7 +102,7 @@ $titleOptions = array (
 </div>
 
 <div class="btn-group" role="group" aria-label="...">
-	<input type="submit" class="btn btn-default" name="SaveClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
-	<input type="submit" class="btn btn-default" name="UpdateClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
-	<input type="submit" class="btn btn-default" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
+	<input type="submit" class="btn btn-secondary" name="SaveClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
+	<input type="submit" class="btn btn-secondary" name="UpdateClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
+	<input type="submit" class="btn btn-secondary" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
 </div>

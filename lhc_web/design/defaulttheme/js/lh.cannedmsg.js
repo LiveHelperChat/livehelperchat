@@ -191,7 +191,7 @@ var LHCCannedMessageAutoSuggest = (function() {
 
             var element = $('#canned-hash-current-' + this.chat_id).parent().find('.canned-msg-preview');
 
-            if (element.size() == 0) {
+            if (element.length == 0) {
                 $('#canned-hash-current-' + this.chat_id).parent().append('<div class="canned-msg-preview"></div>');
                 element = $('#canned-hash-current-' + this.chat_id).parent().find('.canned-msg-preview');
 			}
@@ -347,7 +347,7 @@ var LHCCannedMessageAutoSuggest = (function() {
 		});
 		
 		// Show first canned message list if there is only one tag matched
-		if ($('#canned-hash-'+this.chat_id+' > li').size() == 1) {
+		if ($('#canned-hash-'+this.chat_id+' > li').length == 1) {
 			$('#canned-hash-'+this.chat_id+' > li > a').trigger( "click" );
 		} else {
             this.renderPreview(currentElement);

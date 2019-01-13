@@ -19,7 +19,7 @@ setTimeout(function(){
 	<?php endforeach; ?>
 
     <div class="btn-group" role="group" aria-label="...">
-        <input type="submit" class="btn btn-default" name="CopyAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/copyautoresponder','Copy');?>" />
+        <input type="submit" class="btn btn-secondary" name="CopyAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/copyautoresponder','Copy');?>" />
     </div>
 
 </form>

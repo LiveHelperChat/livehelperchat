@@ -33,8 +33,8 @@
 </div>
 
 <div class="btn-group" role="group" aria-label="...">
-	<input type="submit" class="btn btn-default" name="Save_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/newgroup','Save');?>"/>
-    <input type="submit" class="btn btn-default" name="Save_group_and_assign_user" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/newgroup','Save and assign the user');?>"/>
+	<input type="submit" class="btn btn-secondary" name="Save_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/newgroup','Save');?>"/>
+    <input type="submit" class="btn btn-secondary" name="Save_group_and_assign_user" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/newgroup','Save and assign the user');?>"/>
 </div>
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>

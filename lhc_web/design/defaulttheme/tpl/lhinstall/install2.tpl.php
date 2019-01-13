@@ -10,7 +10,7 @@
 
 <h2>Database settings</h2>
 
-<table class="table">
+<table class="table table-sm">
     <tr>
         <td>Username</td>
         <td><input class="form-control" type="text" name="DatabaseUsername" value="<?php echo isset($db_username) ? htmlspecialchars($db_username) : ''?>" /></td>
@@ -34,7 +34,7 @@
 </table>
 <br>
 
-<input type="submit" value="Next" class="btn btn-default" name="Install">
+<input type="submit" value="Next" class="btn btn-secondary" name="Install">
 <br /><br />
 
 </form>

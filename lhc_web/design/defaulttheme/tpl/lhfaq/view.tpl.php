@@ -14,8 +14,8 @@
 
 
 	<div class="btn-group" role="group" aria-label="...">
-      <input type="submit" class="btn btn-default" name="Update" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
-      <input type="submit" class="btn btn-default" name="Cancel" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
+      <input type="submit" class="btn btn-secondary" name="Update" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
+      <input type="submit" class="btn btn-secondary" name="Cancel" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
     </div>
 
 </form>

@@ -18,7 +18,7 @@
 <?php endforeach; ?>
 </table>
 
-<input type="submit" class="btn btn-default" name="AssignRoles" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/groupassignrole','Assign');?>" />
+<input type="submit" class="btn btn-secondary" name="AssignRoles" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/groupassignrole','Assign');?>" />
 
 </form>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>

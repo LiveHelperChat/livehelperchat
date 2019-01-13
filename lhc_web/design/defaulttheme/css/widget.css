@@ -13,30 +13,14 @@ body.embed-widget {
 
 #widget-layout .row { min-width: 0;  }
 
-input.mb0 {
-	margin-bottom:0;
-}
-
-input.mb5 {
-	margin-bottom:5px;
-}
-
-input.mt5 {
-	margin-top:5px;
-}
-
 .widget-chat #widget-layout {
 	padding-top:0px;
 }
 
-#widget-layout #status-chat h4{
+/*#widget-layout #status-chat h4{
 	font-size:12px;
 	margin:3px 0px 6px;
-}
-
-#widget-layout #CSChatMessage {
-	font-size:12px;
-}
+}*/
 
 ::-webkit-scrollbar {
 width: 0.7em;
@@ -44,45 +28,11 @@ height: 0.8em;
 background-color: #fff;
 }
 
-.chatbox-row{
-	padding-right:0!important;
-	margin-right:0!important;
-}
-
-.chatbox-row .usr-tit{
-	display:block;
-	border: 1px solid #dcdcdc;
-	border-left:0;
-	border-right:0;
-	padding:5px;
-	border-radius:6px;
-	margin-bottom: 4px;
-	font-size: 11px;
-	background:url(../images/icons/user_green.png) no-repeat 3px 2px;
-	padding-left: 20px;
-	color:#000;
-	margin-right:0!important;
-	border-radius:0;
-	box-shadow:none;
-	margin-top:0;
-}
-
-.chatbox-row-response .usr-tit{
-	background-image:url(../images/icons/user_suit.png);
-}
-
 ::-webkit-scrollbar-thumb {
 min-height: 0.8em;
 min-width: 0.7em;
 background-color: #ddd;
 }
-
-label,
-input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea
-{
-	font-size: 12px;
-}
-
 
 @media only screen and (max-device-width: 640px) {
 
@@ -95,7 +45,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 		font-size: 16px!important;
 	}
 
-	html,body,#widget-layout,#widget-layout > .col-xs-12,#widget-content-body{
+	html,body,#widget-layout,#widget-layout > .col-12,#widget-content-body{
 		height:100%;
 		margin-top:0px!important;
 		margin-bottom:0px!important;
@@ -103,10 +53,9 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 		padding-top:0px!important;
 	}
 
-	.embed-fixed > #widget-layout,.embed-fixed > #widget-layout > .col-xs-12,.embed-fixed #widget-content-body{
+	.embed-fixed > #widget-layout,.embed-fixed > #widget-layout > .col-12,.embed-fixed #widget-content-body{
 		height:auto;
 	}
-
 
 	body {
 		padding-top:7px!important;
@@ -172,7 +121,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 		bottom: auto;
 	}
 
-	#widget-layout > .col-xs-12 .operator-info{
+	#widget-layout > .col-12 .operator-info{
 		height:auto;
 		min-height: 61px;
 	}

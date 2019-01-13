@@ -31,7 +31,7 @@ class NodeGroups extends Component {
             <div>
                 {mappedNodeGroups}
                 <hr/>
-                <button className="btn btn-default" onClick={this.addGroup.bind(this)}>Add group</button>
+                <button className="btn btn-secondary" onClick={this.addGroup.bind(this)}>Add group</button>
             </div>
         );
     }

@@ -1,6 +1,6 @@
 <div class="row">
 
-	<div class="col-xs-9">
+	<div class="col-9">
 		<div id="status-chat">
 		<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
 			<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','This chat is closed.'); ?></h4>
@@ -13,18 +13,18 @@
 		</div>
 				
 		<?php if ( erLhcoreClassModelChatConfig::fetch('reopen_chat_enabled')->current_value == 1 && erLhcoreClassModelChatConfig::fetch('allow_reopen_closed')->current_value == 1 && erLhcoreClassChat::canReopen($chat) ) : ?>
-			<a href="<?php echo erLhcoreClassDesign::baseurl('chat/reopen')?>/<?php echo $chat->id?>/<?php echo $chat->hash?><?php if ( isset($chat_widget_mode) && $chat_widget_mode == true ) : ?>/(mode)/widget<?php endif; ?><?php if ( isset($chat_embed_mode) && $chat_embed_mode == true ) : ?>/(embedmode)/embed<?php endif;?>" class="btn btn-default" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatnotexists','Resume chat');?></a>
+			<a href="<?php echo erLhcoreClassDesign::baseurl('chat/reopen')?>/<?php echo $chat->id?>/<?php echo $chat->hash?><?php if ( isset($chat_widget_mode) && $chat_widget_mode == true ) : ?>/(mode)/widget<?php endif; ?><?php if ( isset($chat_embed_mode) && $chat_embed_mode == true ) : ?>/(embedmode)/embed<?php endif;?>" class="btn btn-secondary" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatnotexists','Resume chat');?></a>
 		<?php endif; ?>
 						
 		<?php /*if (!isset($paid_chat_params['allow_read']) || $paid_chat_params['allow_read'] == false) : ?>
     		<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && ( (isset($chat_widget_mode) && $chat_widget_mode == true && $chat->time < time()-1800)) ) : ?>
-    			<input type="button" class="btn btn-default mb10" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" />
+    			<input type="button" class="btn btn-secondary mb-1" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" />
     		<?php endif;?>
 		<?php endif;*/?>
 		
 	</div>
 
-	<div class="col-xs-3 mb5">
+	<div class="col-3 mb-1">
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings.tpl.php'));?>
 	</div>
 
@@ -77,7 +77,7 @@
 	    
 	    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/above_text_area_user.tpl.php'));?>	
 
-        <textarea autofocus="autofocus" class="form-control live-chat-message" rows="4" aria-required="true" required name="ChatMessage" aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" ></textarea>
+        <textarea autofocus="autofocus" class="form-control form-control-sm live-chat-message" rows="4" aria-required="true" required name="ChatMessage" aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" ></textarea>
 
         <script type="text/javascript">
         jQuery('#CSChatMessage').bind('keydown', 'return', function (evt){
@@ -139,7 +139,7 @@
     lhinst.scheduleSync();
 
     $( document ).ready(function() {
-        if (jQuery('#CSChatMessage').size() > 0) {
+        if (jQuery('#CSChatMessage').length > 0) {
         	jQuery('#CSChatMessage').focus();    
         	jQuery('#CSChatMessage')[0].setSelectionRange(1000,1000);
     	}

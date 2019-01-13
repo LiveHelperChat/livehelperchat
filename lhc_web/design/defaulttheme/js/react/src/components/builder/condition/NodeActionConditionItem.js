@@ -33,16 +33,16 @@ class NodeActionConditionItem extends Component {
     render() {
         return (
             <div className="row">
-                <div className="col-xs-4">
+                <div className="col-4">
                     <div className="form-group">
                         <label>Attribute</label>
-                        <input type="text" placeholder="yes, thanks" className="form-control input-sm" onChange={(e) => this.onAttrChange(e.target.value)} defaultValue={this.props.action.getIn(['content','attr'])} />
+                        <input type="text" placeholder="yes, thanks" className="form-control form-control-sm" onChange={(e) => this.onAttrChange(e.target.value)} defaultValue={this.props.action.getIn(['content','attr'])} />
                     </div>
                 </div>
-                <div className="col-xs-2">
+                <div className="col-2">
                     <div className="form-group">
                         <label>Condition</label>
-                        <select className="form-control input-sm" onChange={(e) => this.onConditionChange(e.target.value)} defaultValue={this.props.action.getIn(['content','comp'])} >
+                        <select className="form-control form-control-sm" onChange={(e) => this.onConditionChange(e.target.value)} defaultValue={this.props.action.getIn(['content','comp'])} >
                             <option value="gt">&gt;</option>
                             <option value="gte">&gt;=</option>
                             <option value="lt">&lt;</option>
@@ -50,18 +50,19 @@ class NodeActionConditionItem extends Component {
                             <option value="eq">=</option>
                             <option value="neq">!=</option>
                             <option value="like">Text like</option>
+                            <option value="notlike">Text not like</option>
                         </select>
                     </div>
                 </div>
-                <div className="col-xs-4">
+                <div className="col-4">
                     <div className="form-group">
                         <label>Value</label>
-                        <input type="text" placeholder="" className="form-control input-sm" onChange={(e) => this.onValChange(e.target.value)} defaultValue={this.props.action.getIn(['content','val'])} />
+                        <input type="text" placeholder="" className="form-control form-control-sm" onChange={(e) => this.onValChange(e.target.value)} defaultValue={this.props.action.getIn(['content','val'])} />
                     </div>
                 </div>
-                <div className="col-xs-2">
+                <div className="col-2">
                     <div><label>&nbsp;</label></div>
-                    <a className="btn btn-block btn-warning btn-sm" onClick={this.deleteField.bind(this)}>Delete</a>
+                    <button className="btn btn-block btn-warning btn-sm" onClick={this.deleteField.bind(this)}>Delete</button>
                 </div>
 
             </div>

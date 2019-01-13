@@ -10,8 +10,8 @@
 
 <form action="" method="post">
     <ul class="nav nav-pills" role="tablist">
-        <li role="presentation" <?php if ($tab == '') : ?> class="active" <?php endif;?>><a href="#edit" aria-controls="edit" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/edit','Main');?></a></li>
-        <li role="presentation" <?php if ($tab == 'tab_notification') : ?>class="active"<?php endif;?>><a href="#notification" aria-controls="notification" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/edit','Test notification');?></a></li>
+        <li class="nav-item" role="presentation"><a class="nav-link <?php if ($tab == '') : ?> active<?php endif;?>" href="#edit" aria-controls="edit" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/edit','Main');?></a></li>
+        <li class="nav-item" role="presentation" ><a class="nav-link<?php if ($tab == 'tab_notification') : ?> active<?php endif;?>" href="#notification" aria-controls="notification" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/edit','Test notification');?></a></li>
     </ul>
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane <?php if ($tab == '') : ?>active<?php endif;?>" id="edit">
@@ -20,15 +20,15 @@
             <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
             <div class="btn-group" role="group" aria-label="...">
-                <input type="submit" class="btn btn-default" name="Update_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
-                <input type="submit" class="btn btn-default" name="Save_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save & Exit');?>"/>
-                <input type="submit" class="btn btn-default" name="Cancel_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
+                <input type="submit" class="btn btn-secondary" name="Update_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
+                <input type="submit" class="btn btn-secondary" name="Save_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save & Exit');?>"/>
+                <input type="submit" class="btn btn-secondary" name="Cancel_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
             </div>
         </div>
         <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_notification') : ?>active<?php endif;?>" id="notification">
             <?php include(erLhcoreClassDesign::designtpl('lhnotifications/form_test_notification.tpl.php'));?>
             <div class="btn-group" role="group" aria-label="...">
-                <input type="submit" class="btn btn-default" name="Send_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Send test notification');?>"/>
+                <input type="submit" class="btn btn-secondary" name="Send_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Send test notification');?>"/>
             </div>
         </div>
     </div>

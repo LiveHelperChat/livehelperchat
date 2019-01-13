@@ -36,7 +36,7 @@
             <?php if (isset($userlist_stats[$user->id]['acrt']) && isset($userlist_stats[$user->id]['ac']) && $userlist_stats[$user->id]['ac'] != $userlist_stats[$user->id]['acrt']) : ?><i class="material-icons">&#xE002;</i><?php endif;?><?php echo isset($userlist_stats[$user->id]['acrt']) ? $userlist_stats[$user->id]['acrt'] : '-'?>
         </td>
         <?php include(erLhcoreClassDesign::designtpl('lhuser/userlist/column_data_multiinclude.tpl.php')); ?>
-        <?php if ($canEdit) : ?><td><a class="btn btn-default btn-xs" href="?ustats=<?php echo $user->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Update stats');?></a></td><?php endif;?>
+        <?php if ($canEdit) : ?><td><a class="btn btn-secondary btn-xs" href="?ustats=<?php echo $user->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Update stats');?></a></td><?php endif;?>
     </tr>
 <?php endforeach; ?>
 </table>

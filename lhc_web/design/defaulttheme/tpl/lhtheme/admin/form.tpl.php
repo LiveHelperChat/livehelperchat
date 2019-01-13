@@ -8,14 +8,14 @@
 
 	<!-- Nav tabs -->
 	<ul class="nav nav-tabs" role="tablist">
-		<li role="presentation" class="active"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Settings');?></a></li>
-        <li role="presentation"><a href="#mainattr" aria-controls="mainattr" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Main attributes');?></a></li>
-        <li role="presentation"><a href="#headersettings" aria-controls="headersettings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Header settings');?></a></li>
-		<li role="presentation"><a href="#headercss" aria-controls="headercss" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Header css');?></a></li>
+		<li role="presentation" class="nav-item"><a class="active nav-link" href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Settings');?></a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link" href="#mainattr" aria-controls="mainattr" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Main attributes');?></a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link" href="#headersettings" aria-controls="headersettings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Header settings');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link" href="#headercss" aria-controls="headercss" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Header css');?></a></li>
 		<?php if ($form->id !== null) : ?>
-		<li role="presentation"><a href="#static" aria-controls="static" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Static content');?></a></li>
-		<li role="presentation"><a href="#js" aria-controls="js" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','JS');?></a></li>
-		<li role="presentation"><a href="#css" aria-controls="css" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','CSS');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link" href="#static" aria-controls="static" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Static content');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link" href="#js" aria-controls="js" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','JS');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link" href="#css" aria-controls="css" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','CSS');?></a></li>
 		<?php endif; ?>
 	</ul>
 
@@ -99,25 +99,25 @@
             <h4>Main</h4>
 
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['main_background_color']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('main_background_color', $fields['main_background_color'], $form)?>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['link_tc']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('link_tc', $fields['link_tc'], $form)?>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['tbl_boc']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('tbl_boc', $fields['tbl_boc'], $form)?>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['default_tc']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('default_tc', $fields['default_tc'], $form)?>
@@ -127,13 +127,13 @@
 
             <h4>Navbar toggle</h4>
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['nvb_tgl_bgc']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('nvb_tgl_bgc', $fields['nvb_tgl_bgc'], $form)?>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['nvb_tgl_bc']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('nvb_tgl_bc', $fields['nvb_tgl_bc'], $form)?>
@@ -144,13 +144,13 @@
             <h4>Navigation bar list</h4>
 
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['nvb_li_clr']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('nvb_li_clr', $fields['nvb_li_clr'], $form)?>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['nvb_lih_clr']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('nvb_lih_clr', $fields['nvb_lih_clr'], $form)?>
@@ -160,19 +160,19 @@
 
             <h4>Dropdown</h4>
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['drpdown_bgc']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('drpdown_bgc', $fields['drpdown_bgc'], $form)?>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['drpdown_boc']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('drpdown_boc', $fields['drpdown_boc'], $form)?>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['drpdown_hbgc']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('drpdown_hbgc', $fields['drpdown_hbgc'], $form)?>
@@ -182,19 +182,19 @@
 
             <h4>Panels</h4>
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['panel_background_color']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('panel_background_color', $fields['panel_background_color'], $form)?>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['panel_border_color']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('panel_border_color', $fields['panel_border_color'], $form)?>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['panel_mbc']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('panel_mbc', $fields['panel_mbc'], $form)?>
@@ -205,13 +205,13 @@
             <h4>Menu</h4>
 
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['mactive_bc']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('mactive_bc', $fields['mactive_bc'], $form)?>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['men_col']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('men_col', $fields['men_col'], $form)?>
@@ -222,25 +222,25 @@
             <h4>Tabs</h4>
 
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['tab_bc']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('tab_bc', $fields['tab_bc'], $form)?>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['tab_tc']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('tab_tc', $fields['tab_tc'], $form)?>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['tab_atc']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('tab_atc', $fields['tab_atc'], $form)?>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['tab_boc']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('tab_boc', $fields['tab_boc'], $form)?>
@@ -249,22 +249,22 @@
             </div>
 
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-6">
                     <h4>Button default</h4>
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['btnd_bc']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('btnd_bc', $fields['btnd_bc'], $form)?>
                             </div>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['btnd_clr']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('btnd_clr', $fields['btnd_clr'], $form)?>
                             </div>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['btnd_boc']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('btnd_boc', $fields['btnd_boc'], $form)?>
@@ -272,22 +272,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-6">
                     <h4>Button default active</h4>
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['btnda_clr']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('btnda_clr', $fields['btnda_clr'], $form)?>
                             </div>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['btnda_bc']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('btnda_bc', $fields['btnda_bc'], $form)?>
                             </div>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['btnda_boc']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('btnda_boc', $fields['btnda_boc'], $form)?>
@@ -300,22 +300,22 @@
 
 
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-6">
                     <h4>Button primary</h4>
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['btnp_bc']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('btnp_bc', $fields['btnp_bc'], $form)?>
                             </div>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['btnp_clr']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('btnp_clr', $fields['btnp_clr'], $form)?>
                             </div>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['btnp_boc']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('btnp_boc', $fields['btnp_boc'], $form)?>
@@ -323,22 +323,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-6">
                     <h4>Button primary active</h4>
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['btnpa_clr']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('btnpa_clr', $fields['btnpa_clr'], $form)?>
                             </div>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['btnpa_bc']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('btnpa_bc', $fields['btnpa_bc'], $form)?>
                             </div>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['btnpa_boc']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('btnpa_boc', $fields['btnpa_boc'], $form)?>
@@ -352,13 +352,13 @@
 
             <h4>Breadcrumb</h4>
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['bcrumb_bgc']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('bcrumb_bgc', $fields['bcrumb_bgc'], $form)?>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['bcrumb_boc']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('bcrumb_boc', $fields['bcrumb_boc'], $form)?>
@@ -368,13 +368,13 @@
 
             <h4>Header</h4>
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['nvbar_bc']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('nvbar_bc', $fields['nvbar_bc'], $form)?>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['nvbar_pbc']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('nvbar_pbc', $fields['nvbar_pbc'], $form)?>
@@ -385,7 +385,7 @@
             <h4>Chat</h4>
 
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label><?php echo $fields['chat_onl_bc']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('chat_onl_bc', $fields['chat_onl_bc'], $form)?>

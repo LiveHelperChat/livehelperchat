@@ -179,14 +179,14 @@ class NodeTriggerBuilder extends Component {
                     {actions}
                     <div className="form-group">
                         <div className="btn-group" role="group" aria-label="Trigger actions">
-                            <a className="btn btn-info btn-xs" onClick={this.addResponse} >Add response</a>
-                            <a className="btn btn-info btn-xs" onClick={this.viewCode} ><i className="material-icons">code</i>{this.state.viewCode == true ? ('Hide code') : ('Show code')}</a>
+                            <button className="btn btn-info btn-sm" onClick={this.addResponse} >Add response</button>
+                            <button className="btn btn-info btn-sm" onClick={this.viewCode} ><i className="material-icons">code</i>{this.state.viewCode == true ? ('Hide code') : ('Show code')}</button>
                         </div>
                     </div>
 
                         {this.state.viewCode == true ? (
                             <div className="form-group">
-                                <div className="pull-right"><label><input type="checkbox" value="on" onChange={(e) => this.setState({compressCode : !this.state.compressCode})} defaultChecked={this.state.compressCode} />Compressed version</label></div>
+                                <div className="float-right"><label><input type="checkbox" value="on" onChange={(e) => this.setState({compressCode : !this.state.compressCode})} defaultChecked={this.state.compressCode} />Compressed version</label></div>
                                 <label>JSON body you can use for REST API</label>
                                 <textarea readOnly="readOnly" rows="10" className="form-control fs11" value={JSON.stringify(this.props.currenttrigger.getIn(['currenttrigger','actions']).toJSON(), null, (this.state.compressCode == false ? 4 : 0))}></textarea>
                                 <p><small><i>&quot;_id&quot; can be ignored</i></small></p>
@@ -196,8 +196,8 @@ class NodeTriggerBuilder extends Component {
 
                     <hr/>
                         <div className="btn-group" role="group" aria-label="Trigger actions">
-                            <a className="btn btn-success btn-sm" disabled={!this.state.dataChanged} onClick={this.saveResponse} >Save</a>
-                            <a className="btn btn-success btn-sm" onClick={this.cancelChanges} >Cancel</a>
+                            <button className="btn btn-success btn-sm" disabled={!this.state.dataChanged} onClick={this.saveResponse} >Save</button>
+                            <button className="btn btn-success btn-sm" onClick={this.cancelChanges} >Cancel</button>
                         </div>
                     </div>
             );

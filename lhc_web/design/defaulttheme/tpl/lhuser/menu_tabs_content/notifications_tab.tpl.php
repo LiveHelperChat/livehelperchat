@@ -1,6 +1,6 @@
 <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_notifications') : ?>active<?php endif;?>" id="notifications">
      <div class="form-group">
-         <div class="pull-left">
+         <div class="float-left">
             <?php include(erLhcoreClassDesign::designtpl('lhchat/user_settings.tpl.php'));?>
 		 </div>
 		 
@@ -16,7 +16,7 @@
              
              
              <div class="row">
-                <div class="col-xs-6">
+                <div class="col-6">
             	     <div class="form-group">
                         <label><input type="checkbox" name="ownntfonly" value="on" <?php erLhcoreClassModelUserSetting::getSetting('ownntfonly',0) == 1 ? print 'checked="checked"' : '' ?>> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Show notification only if I am an owner pending chat')?></label>
                         <br/><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','You will stop receive notifications for pending chats if you are not an owner')?></i></small>
@@ -38,7 +38,7 @@
             	     </div>
 
                 </div>
-                <div class="col-xs-6">
+                <div class="col-6">
                 
                      <?php if ((int)erLhcoreClassModelChatConfig::fetchCache('activity_track_all')->current_value == 1) : ?>
                      <div class="alert alert-warning"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Activity tracking is set at global level. Your settings will be be ignored. Timeout value still will be taken from your account settings.')?></div>
@@ -63,7 +63,7 @@
                 </div>	
              </div>	
                 	     
-    	     <input type="submit" class="btn btn-default" name="UpdateNotifications_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
+    	     <input type="submit" class="btn btn-secondary" name="UpdateNotifications_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
          </form>
          
 	 </div>	

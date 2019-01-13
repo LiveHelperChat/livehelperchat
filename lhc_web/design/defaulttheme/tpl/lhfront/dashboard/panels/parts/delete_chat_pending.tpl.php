@@ -1,1 +1,1 @@
-<a ng-show="chat.can_edit_chat" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Delete chat')?>" class="material-icons pull-right" ng-click="lhc.deleteChat(chat.id)">delete</a>
+<a ng-show="chat.can_edit_chat" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Delete chat')?>" class="material-icons float-right" ng-click="lhc.deleteChat(chat.id)">delete</a>

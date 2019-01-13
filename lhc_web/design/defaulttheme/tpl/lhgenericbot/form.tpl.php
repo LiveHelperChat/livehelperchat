@@ -28,7 +28,7 @@
                 'list_function' => 'erLhcoreClassModelGenericBotException::getList',
                 'selected_id' => (isset($item->configuration_array['exc_group_id']) ? $item->configuration_array['exc_group_id'] : array()),
                 'input_name' => 'exc_group_id[]',
-                'wrap_prepend' => '<div class="col-xs-4">',
+                'wrap_prepend' => '<div class="col-4">',
                 'wrap_append' => '</div>'
             ));
         ?>

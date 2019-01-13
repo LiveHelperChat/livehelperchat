@@ -7,7 +7,7 @@
 
 <div class="row">
 <?php foreach (erLhcoreClassModelSpeechLanguage::getList(array('sort' => 'name ASC')) as $speechLanguage) : ?>
-<div class="col-xs-4">
+<div class="col-4">
 <?php
     $dialectsLanguage = erLhcoreClassModelSpeechLanguageDialect::getList(array('filter' => array('language_id' => $speechLanguage->id)));
     $allChecked = true;
@@ -28,14 +28,14 @@
 
     <div class="row language-content-<?php echo htmlspecialchars($speechLanguage->id)?>" style="display: none">
     <?php foreach ($dialectsLanguage as $langDialect) : ?>
-        <div class="col-xs-6">
+        <div class="col-6">
             <label class="fs12">
                 <input class="speech-language-<?php echo $speechLanguage->id?>" name="userLanguages[]" <?php if (key_exists($langDialect->lang_code,$userLanguages)) : ?>checked="checked"<?php endif;?> type="checkbox" value="<?php echo htmlspecialchars($langDialect->lang_code)?>" > <?php echo htmlspecialchars($langDialect->language)?> [<?php echo htmlspecialchars($langDialect->lang_code)?>]
             </label>
         </div>
 
         <?php if ($langDialect->short_code != '') : ?>
-        <div class="col-xs-6">
+        <div class="col-6">
             <label class="fs12">
                 <input  class="speech-language-<?php echo $speechLanguage->id?>" name="userLanguages[]" <?php if (key_exists($langDialect->short_code,$userLanguages)) : ?>checked="checked"<?php endif;?> type="checkbox" value="<?php echo htmlspecialchars($langDialect->short_code)?>" > <?php echo htmlspecialchars($langDialect->language)?> [<?php echo htmlspecialchars($langDialect->short_code)?>]
             </label>

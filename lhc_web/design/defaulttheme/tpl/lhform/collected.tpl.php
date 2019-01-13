@@ -1,11 +1,11 @@
 <h1><?php echo htmlspecialchars($form)?></h1>
 
 <div class="row">
-	<div class="col-xs-6"><a href="<?php echo erLhcoreClassDesign::baseurl('form/downloadcollected')?>/<?php echo $form->id?>" class="btn btn-default"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Download XLS');?></a></div>
-	<div class="col-xs-6">
+	<div class="col-6"><a href="<?php echo erLhcoreClassDesign::baseurl('form/downloadcollected')?>/<?php echo $form->id?>" class="btn btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Download XLS');?></a></div>
+	<div class="col-6">
 	
 	<div class="input-group">
-      <div class="input-group-addon"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','URL');?></div>
+        <div class="input-group-prepend"><span class="input-group-text"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','URL');?></span></div>
       <input type="text" class="form-control" value="<?php echo erLhcoreClassXMP::getBaseHost(). $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect('form/fill')?>/<?php echo $form->id?>">
     </div>
     
@@ -37,8 +37,8 @@
 	        <div style="width:140px">
 	        
 	        	<div class="btn-group" role="group" aria-label="...">
-	            	<a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('form/viewcollected')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','View');?></a>
-	            	<a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('form/downloaditem')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Download');?></a>
+	            	<a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('form/viewcollected')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','View');?></a>
+	            	<a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('form/downloaditem')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Download');?></a>
 				</div>
 				
 	        </div>

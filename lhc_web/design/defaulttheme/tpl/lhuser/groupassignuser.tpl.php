@@ -33,6 +33,6 @@ setTimeout(function(){
 <?php endforeach; ?>
 </table>
 <br />
-<input type="submit" class="btn btn-default" name="AssignUsers" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/groupassignuser','Assign');?>" />
+<input type="submit" class="btn btn-secondary" name="AssignUsers" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/groupassignuser','Assign');?>" />
 
 </form>

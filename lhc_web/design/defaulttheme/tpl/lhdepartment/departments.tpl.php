@@ -24,7 +24,7 @@
         <td><?php if ($departament->disabled == 1) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
         <td><?php if ($departament->visible_if_online == 1) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
         <td><?php if ($departament->is_overloaded == true) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
-        <td nowrap><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('department/edit')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Edit department');?></a></td>
+        <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('department/edit')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Edit department');?></a></td>
     </tr>
 <?php endforeach; ?>
 </table>
@@ -34,5 +34,5 @@
 <?php endif;?>
 
 <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','create')) : ?>
-<a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('department/new')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','New department');?></a>
+<a class="btn btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('department/new')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','New department');?></a>
 <?php endif;?>

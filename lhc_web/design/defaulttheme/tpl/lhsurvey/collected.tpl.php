@@ -3,8 +3,8 @@
 <div role="tabpanel">
 	<!-- Nav tabs -->
 	<ul class="nav nav-tabs" role="tablist">
-	    <li role="presentation" <?php if ($tab == 'list' || $tab == '') : ?>class="active"<?php endif;?>><a href="#list" aria-controls="list" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','List')?></a></li>
-		<li role="presentation" <?php if ($tab == 'chart') : ?>class="active"<?php endif;?>><a href="#chart" aria-controls="chart" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Chart')?></a></li>
+	    <li role="presentation" class="nav-item"><a class="nav-link <?php if ($tab == 'list' || $tab == '') : ?>active<?php endif;?>" href="#list" aria-controls="list" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','List')?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link <?php if ($tab == 'chart') : ?>active<?php endif;?>" href="#chart" aria-controls="chart" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Chart')?></a></li>
 	</ul>
 
     <!-- Tab panes -->

@@ -29,8 +29,8 @@
          </div>
 
 	<div class="btn-group" role="group" aria-label="...">
-	 <input type="submit" class="btn btn-default" name="Store_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Save');?>"/>
-	 <input type="submit" class="btn btn-default" name="Cancel_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Cancel');?>"/>
+	 <input type="submit" class="btn btn-secondary" name="Store_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Save');?>"/>
+	 <input type="submit" class="btn btn-secondary" name="Cancel_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Cancel');?>"/>
 	</div>
 
 </form>

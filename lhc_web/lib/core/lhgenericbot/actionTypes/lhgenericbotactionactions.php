@@ -31,7 +31,7 @@ class erLhcoreClassGenericBotActionActions {
         }
 
         // Within next user message we will validate his username or anything else
-        if (isset($action['content']['event_background']) && $action['content']['event_background'] == true) {
+        if ((isset($action['content']['event_background']) && $action['content']['event_background'] == true) || (isset($action['content']['event_background_inst']) && $action['content']['event_background_inst'])) {
             $event = new erLhcoreClassModelGenericBotChatEvent();
             $event->chat_id = $chat->id;
             $event->ctime = time();
@@ -62,6 +62,11 @@ class erLhcoreClassGenericBotActionActions {
 
             if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
                 $event->saveThis();
+            }
+
+            if (isset($action['content']['event_background_inst']) && $action['content']['event_background_inst']) {
+                erLhcoreClassGenericBotWorkflow::processEvent($event, $chat, $params);
+                return;
             }
         }
 

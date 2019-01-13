@@ -46,30 +46,30 @@ class NodeActionButton extends Component {
     render() {
         return (
             <div className="row">
-                <div className="col-xs-6">
+                <div className="col-6">
                     <div className="form-group">
                         <label>{this.props.id + 1}. Button name*</label>
                         <input className="form-control" onChange={this.onChangeFieldName.bind(this)} type="text" defaultValue={this.props.button.getIn(['content','name'])}/>
                     </div>
                 </div>
-                <div className="col-xs-6">
+                <div className="col-6">
                     <div className="form-group">
                         <NodeTriggerActionQuickReplyPayload onPayloadAttrChange={this.onPayloadAttrChange} onPayloadTypeChange={this.onChangeFieldType} onPayloadChange={this.onPayloadChange} payloadType={this.props.button.get('type')} currentPayload={this.props.button.getIn(['content'])} />
                     </div>
                 </div>
 
-                <div className="col-xs-12">
-                    <div className="btn-group pull-left" role="group" aria-label="Trigger actions">
-                        {this.props.isFirst == false && <a className="btn btn-default btn-xs" onClick={this.upField.bind(this)}><i className="material-icons mr-0">keyboard_arrow_up</i></a>}
-                        {this.props.isLast == false && <a className="btn btn-default btn-xs" onClick={this.downField.bind(this)}><i className="material-icons mr-0">keyboard_arrow_down</i></a>}
+                <div className="col-12">
+                    <div className="btn-group float-left" role="group" aria-label="Trigger actions">
+                        {this.props.isFirst == false && <a className="btn btn-secondary btn-sm" onClick={this.upField.bind(this)}><i className="material-icons mr-0">keyboard_arrow_up</i></a>}
+                        {this.props.isLast == false && <a className="btn btn-secondary btn-sm" onClick={this.downField.bind(this)}><i className="material-icons mr-0">keyboard_arrow_down</i></a>}
                     </div>
 
-                    <div className="btn-group pull-right" role="group" aria-label="Trigger actions">
-                        <a className="btn btn-warning btn-xs" onClick={this.deleteField.bind(this)}>Delete</a>
+                    <div className="btn-group float-right" role="group" aria-label="Trigger actions">
+                        <a className="btn btn-warning btn-sm" onClick={this.deleteField.bind(this)}>Delete</a>
                     </div>
                 </div>
 
-                <div className="col-xs-12">
+                <div className="col-12">
                     <hr/>
                 </div>
 

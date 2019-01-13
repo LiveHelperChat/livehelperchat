@@ -17,14 +17,14 @@ var LHCSpeechToTextCallbackListener = (function() {
     LHCSpeechToTextCallbackListener.prototype.onstart = function() {
         $('#CSChatMessage-' + this.chat_id).addClass('admin-chat-mic');
         $('#user-chat-status-' + this.chat_id).removeClass('icon-user').addClass('icon-mic');
-        $('#mic-chat-' + this.chat_id).addClass('icon-mic-recording').find('.mic-lang').text(this.recognition.lang);
+        $('#mic-chat-' + this.chat_id).addClass('text-danger').find('.mic-lang').text(this.recognition.lang);
         $('#user-is-typing-' + this.chat_id).html('Speak now.').css("visibility", "visible");
     }
 
     LHCSpeechToTextCallbackListener.prototype.onend = function() {
         $('#user-chat-status-' + this.chat_id).addClass('icon-user').removeClass('icon-mic');
         $('#CSChatMessage-' + this.chat_id).removeClass('admin-chat-mic');
-        $('#mic-chat-' + this.chat_id).removeClass('icon-mic-recording').find('.mic-lang').text('');
+        $('#mic-chat-' + this.chat_id).removeClass('text-danger').find('.mic-lang').text('');
         $('#user-is-typing-' + this.chat_id).html('');
 
         if (this.startOnEnd === true) {

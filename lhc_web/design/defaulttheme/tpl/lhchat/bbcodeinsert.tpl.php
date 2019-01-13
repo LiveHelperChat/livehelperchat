@@ -1,7 +1,6 @@
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-body">
-
             <?php
             $icons = array(
                 array(
@@ -27,27 +26,23 @@
             ?>
 
             <div class="row">
-                <div class="col-xs-12">
-                    <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="col-12">
+                    <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <ul class="nav nav-pills nav-pills-bbcode" role="tablist">
                         <?php foreach ($icons as $index => $iconGroup) : ?>
-                            <li role="presentation" <?php if ($index == 0) : ?>class="active"<?php endif;?> ><a href="#bbcode-smiley-<?php echo $index?>" aria-controls="bbcode-smiley-<?php echo $index?>" role="tab" data-toggle="tab"><?php echo htmlspecialchars($iconGroup['title'])?></a></li>
+                            <li class="nav-item" role="presentation" ><a class="nav-link pl-2 pr-2 pb-1 pt-1 small <?php if ($index == 0) : ?>active<?php endif;?>" href="#bbcode-smiley-<?php echo $index?>" aria-controls="bbcode-smiley-<?php echo $index?>" role="tab" data-toggle="tab"><?php echo htmlspecialchars($iconGroup['title'])?></a></li>
                         <?php endforeach; ?>
                     </ul>
                     <div class="tab-content nav-pills-bbcode-content">
                         <?php foreach ($icons as $index => $iconGroup) : ?>
                             <div role="tabpanel" class="tab-pane bb-list<?php if ($index == 0) : ?> active<?php endif;?><?php if ($chat_id !== null) : ?> admin-emoji<?php endif;?>" id="bbcode-smiley-<?php echo $index?>">
-
-                                <ul class="list-inline">
                                     <?php if ($index == 0) : ?>
-                                        <li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Image'); ?>" data-promt="img" data-bb-code="img"><i class="material-icons mr-0">image</i></a></li>
-                                        <li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Link'); ?>" data-promt="url" data-bb-code=" [url=http://example.com]<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Link title'); ?>[/url] "><i class="material-icons mr-0">link</i></a></li>
-                                        <li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Bold'); ?>" data-bb-code=" [b][/b] "><strong>B</strong></a></li>
-                                        <li><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Italic'); ?>" data-bb-code=" [i][/i] "><em>I</em></a></li>
+                                        <a class="rounded d-inline-block badge-light p-1 m-1" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Image'); ?>" data-promt="img" data-bb-code="img"><i class="material-icons mr-0">image</i></a>
+                                        <a class="rounded d-inline-block badge-light p-1 m-1" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Link'); ?>" data-promt="url" data-bb-code=" [url=http://example.com]<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Link title'); ?>[/url] "><i class="material-icons mr-0">link</i></a>
+                                        <a class="rounded d-inline-block badge-light p-1 m-1" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Bold'); ?>" data-bb-code=" [b][/b] "><strong>B</strong></a>
+                                        <a class="rounded d-inline-block badge-light p-1 m-1" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Italic'); ?>" data-bb-code=" [i][/i] "><em>I</em></a>
                                     <?php endif; ?>
-                                    <?php foreach ($iconGroup['icons'] as $icon) : ?>
-                                        <li><a href="#" class="emoji-icons" data-bb-code="<?php echo $icon ?>"><?php echo $icon ?></a></li>
-                                    <?php endforeach; ?>
+                                    <?php foreach ($iconGroup['icons'] as $icon) : ?><a href="#" class="rounded d-inline-block badge-light p-1 m-1" data-bb-code="<?php echo $icon ?>"><?php echo $icon ?></a><?php endforeach; ?>
                                 </ul>
 
                             </div>
@@ -58,31 +53,41 @@
 
             <script>
                 $('.bb-list a').click(function () {
-                    var caretPos = document.getElementById("CSChatMessage<?php $chat_id !== null ? print '-' . $chat_id : null?>").selectionStart;
-                    var textAreaTxt = jQuery("#CSChatMessage<?php $chat_id !== null ? print '-' . $chat_id : null?>").val();
+
+                    <?php if ($mode == 'editor') : ?>
+                        var selectorInsert = window.lhcSelector;
+                    <?php else : ?>
+                        var selectorInsert = "#CSChatMessage<?php $chat_id !== null ? print '-' . $chat_id : null?>";
+                    <?php endif; ?>
+
+                    var textAreaElement = jQuery(selectorInsert);
+
+                    var caretPos = textAreaElement[0].selectionStart;
+                    var textAreaTxt = jQuery(selectorInsert).val();
+
                     var txtToAdd = $(this).attr('data-bb-code');
                     if (typeof $(this).attr('data-promt') != 'undefined' && $(this).attr('data-promt') == 'img') {
                         var link = prompt("<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Please enter link to an image')?>");
                         if (link) {
                             txtToAdd = '[' + txtToAdd + ']' + link + '[/' + txtToAdd + ']';
-                            jQuery("#CSChatMessage<?php $chat_id !== null ? print '-' . $chat_id : null?>").val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos));
+                            textAreaElement.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos));
                             $('#myModal').modal('hide');
                         }
                     } else if (typeof $(this).attr('data-promt') != 'undefined' && $(this).attr('data-promt') == 'url') {
                         var link = prompt("<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Please enter a link')?>");
                         if (link) {
                             txtToAdd = '[url=' + link + ']<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Here is a link')?>[/url]';
-                            jQuery("#CSChatMessage<?php $chat_id !== null ? print '-' . $chat_id : null?>").val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos));
+                            textAreaElement.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos));
                             $('#myModal').modal('hide');
                         }
                     } else {
-                        jQuery("#CSChatMessage<?php $chat_id !== null ? print '-' . $chat_id : null?>").val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos)).focus();
+                        textAreaElement.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos)).focus();
                         $('#myModal').modal('hide');
                         setTimeout(function () {
-                            jQuery("#CSChatMessage<?php $chat_id !== null ? print '-' . $chat_id : null?>").focus();
+                            textAreaElement.focus();
                         },500)
-                    }
-                    ;
+                    };
+
                     return false;
                 });</script>
         </div>

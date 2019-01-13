@@ -1,1 +1,3 @@
-<a href="#" class="btn btn-default material-icons" onclick="return lhinst.addmsgadmin('<?php echo $chat->id?>')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Send')?>">&#xE163;</a>
+<a href="#" class="w-100 btn btn-secondary " onclick="return lhinst.addmsgadmin('<?php echo $chat->id?>')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Send')?>">
+    <i class="material-icons">&#xE163;</i>
+</a>

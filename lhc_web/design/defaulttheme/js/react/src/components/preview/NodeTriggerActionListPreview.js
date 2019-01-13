@@ -28,7 +28,7 @@ class NodeTriggerActionListPreview extends Component {
                         <div className="element-background" style={{backgroundImage : `url(${item.getIn(['content','img'])})`}}>
                         </div>}
                         <div className="row element-description-row">
-                            <div className="col-xs-9">
+                            <div className="col-9">
                                 <div className="element-description">
                                     <h4>{item.getIn(['content','title'])}</h4>
                                     <div>{item.getIn(['content','subtitle'])}</div>
@@ -37,9 +37,9 @@ class NodeTriggerActionListPreview extends Component {
                                     }
                                 </div>
                             </div>
-                            <div className="col-xs-3">
+                            <div className="col-3">
                                 {item.getIn(['content','img']) != '' && (index !== 0 || compactStyle == true)  &&
-                                    <img className="pull-right img-responsive" src={item.getIn(['content','img'])} />
+                                    <img className="float-right img-fluid" src={item.getIn(['content','img'])} />
                                 }
                             </div>
                         </div>

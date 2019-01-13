@@ -37,7 +37,7 @@ class NodeTriggerCallbackItem extends Component {
         return (
             <div className="row">
 
-                <div className="col-xs-3">
+                <div className="col-3">
                     <div className="form-group">
                         <label>Type</label>
                         <select defaultValue={this.props.callback.getIn(['content','type'])} className="form-control" onChange={this.onChangeType.bind(this)}>
@@ -47,7 +47,7 @@ class NodeTriggerCallbackItem extends Component {
                     </div>
                 </div>
 
-                <div className="col-xs-3">
+                <div className="col-3">
                     <div className="form-group">
                         <label>Attribute</label>
                         <select defaultValue={this.props.callback.getIn(['content','field'])} className="form-control" onChange={this.onChangeField.bind(this)}>
@@ -58,14 +58,14 @@ class NodeTriggerCallbackItem extends Component {
                     </div>
                 </div>
 
-                <div className="col-xs-3">
+                <div className="col-3">
                     <div className="form-group">
                         <label>Custom event to validate</label>
                         <input type="text" defaultValue={this.props.callback.getIn(['content','event'])} onChange={this.onChangeEvent.bind(this)} className="form-control"/>
                     </div>
                 </div>
 
-                <div className="col-xs-3">
+                <div className="col-3">
                     <div className="form-group">
                         <label>&nbsp;</label>
                         <div>
@@ -74,14 +74,14 @@ class NodeTriggerCallbackItem extends Component {
                     </div>
                 </div>
 
-                <div className="col-xs-6">
+                <div className="col-6">
                     <div className="form-group">
                         <label>Confirmation message</label>
                         <textarea className="form-control" defaultValue={this.props.callback.getIn(['content','success_message'])} onChange={(e) => this.onChangeMainAttr('success_message',e.target.value)}></textarea>
                     </div>
                 </div>
 
-                <div className="col-xs-6">
+                <div className="col-6">
                     <div className="form-group">
                         <label>Choose payload to initialise after success</label>
                         <NodeTriggerPayloadList showOptional={true} onSetPayload={(e) => this.onChangeMainAttr('success_callback',e)} payload={this.props.callback.getIn(['content','success_callback'])} />

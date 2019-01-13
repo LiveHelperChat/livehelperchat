@@ -1095,18 +1095,30 @@ class erLhcoreClassGenericBotWorkflow {
 
             if ($messageNew instanceof erLhcoreClassModelmsg) {
                 $message = $messageNew;
-            } elseif (is_array($messageNew) && isset($messageNew['status']) && $messageNew['status'] == 'stop') {
-                if (isset($messageNew['trigger_id'])) {
+            } elseif (is_array($messageNew) && isset($messageNew['status']) && ($messageNew['status'] == 'stop' || $messageNew['status'] == 'continue')) {
+
+                $continue = false;
+                if (isset($messageNew['trigger_id']) && is_numeric($messageNew['trigger_id'])) {
                     $trigger = erLhcoreClassModelGenericBotTrigger::fetch($messageNew['trigger_id']);
                     $response = self::processTrigger($chat, $trigger, $setLastMessageId, $params);
-                    return array(
-                        'status' => 'stop',
-                        'response' => $response
-                    );
+
+                    if (is_array($response) && isset($response['status']) && $response['status'] == 'stop' && $messageNew['status'] == 'continue') {
+                        $continue = true;
+                    } else {
+                        return array(
+                            'status' => 'stop',
+                            'response' => $response
+                        );
+                    }
+
                 } elseif (isset($messageNew['response']) && $messageNew['response'] instanceof erLhcoreClassModelmsg) {
                     $message = $messageNew['response'];
                 }
-                break;
+
+                if ($continue == false) {
+                    return $messageNew;
+                    break;
+                }
             }
         }
 

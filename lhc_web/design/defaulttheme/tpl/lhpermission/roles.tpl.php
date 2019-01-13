@@ -16,7 +16,7 @@
     <tr>
         <td><?php echo $departament['id']?></td>
         <td><?php echo htmlspecialchars($departament['name'])?></td>
-        <?php if ($canEdit) : ?><td nowrap><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $departament['id']?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','Edit a role');?></a></td><?php endif;?>
+        <?php if ($canEdit) : ?><td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $departament['id']?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','Edit a role');?></a></td><?php endif;?>
         <?php if ($canDelete) : ?><td nowrap><?php if ($departament['id'] != 1 && erLhcoreClassRole::canDeleteRole($departament['id']) === true) : ?><a class="csfr-required btn btn-danger btn-xs" onclick="return confirm('Are you sure?')" href="<?php echo erLhcoreClassDesign::baseurl('permission/deleterole')?>/<?php echo $departament['id']?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','Delete a role');?></a><?php endif;?></td><?php endif;?>
     </tr>
 <?php endforeach; ?>
@@ -26,5 +26,5 @@
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
 
 <?php if ($currentUser->hasAccessTo('lhpermission','new')) : ?>
-<a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('permission/newrole')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','New role');?></a>
+<a class="btn btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('permission/newrole')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','New role');?></a>
 <?php endif;?>

@@ -21,7 +21,7 @@
 <body<?php isset($Result['pagelayout_css_append']) ? print ' class="'.$Result['pagelayout_css_append'].'" ' : ''?>>
 
 <div id="widget-layout" class="row<?php (isset($Result['chat'])) ? print ' has-chat' : '';?>">
-	<div class="col-xs-12">
+	<div class="col-12">
         <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/widget/before_widget_content.tpl.php'));?>
             <div id="widget-content-body"><?php echo $Result['content']; ?></div>
         <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/widget/after_widget_content.tpl.php'));?>

@@ -1,9 +1,9 @@
 <label><input type="checkbox" value="on" name="all_departments" <?php echo $user->all_departments == 1 ? 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','All departments')?></label><br>
              
-<hr class="mt10 mb10">      
+<hr class="mt-1 mb-1">      
   
 <div class="row">
-    <div class="col-xs-6">
+    <div class="col-6">
 	    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
     	
         <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Individual departments')?></h4>
@@ -18,7 +18,7 @@
     <?php $departmentsGroups = erLhcoreClassModelDepartamentGroup::getList(array('limit' => false)); ?>
     
     <?php if (!empty($departmentsGroups)) : ?>
-    <div class="col-xs-6">    	           
+    <div class="col-6">    	           
         <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Departments groups')?></h4>
        
         <?php foreach ($departmentsGroups as $departamentGroup) : ?>

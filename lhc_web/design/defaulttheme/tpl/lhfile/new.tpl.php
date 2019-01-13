@@ -26,6 +26,10 @@ setTimeout(function(){
 	<div class="form-group">
 	   <input type="file" name="files" />
 	</div>
-	
-	<input type="submit" class="btn btn-default" name="UploadFileAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/new','Upload');?>" />
+
+    <div class="form-group">
+        <label><input type="checkbox" name="persistent" value="on" <?php if (isset($persistent) && $persistent == true) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/new','Persistent');?></label>
+    </div>
+
+	<input type="submit" class="btn btn-secondary" name="UploadFileAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/new','Upload');?>" />
 </form>

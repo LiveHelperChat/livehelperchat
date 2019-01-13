@@ -11,11 +11,11 @@
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>"  method="post">
 <div class="row">
-	<div class="col-xs-4">
+	<div class="col-4">
 		<input type="text" class="form-control" name="IPToBlock" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','IP');?>" />
 	</div>	
-	<div class="col-xs-8">
-		<input type="submit" class="btn btn-default" name="AddBlock" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>" />
+	<div class="col-8">
+		<input type="submit" class="btn btn-secondary" name="AddBlock" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>" />
 	</div>
 </div>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>

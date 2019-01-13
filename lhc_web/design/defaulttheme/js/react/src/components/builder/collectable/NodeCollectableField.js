@@ -103,19 +103,19 @@ class NodeCollectableField extends Component {
 
         return (
             <div className="row">
-                <div className="col-xs-6">
+                <div className="col-6">
                     <div className="form-group">
                         <label>{this.props.id + 1}. Field name*</label>
                         <input className="form-control" onChange={this.onChangeFieldName.bind(this)} type="text" defaultValue={this.props.field.getIn(['content','name'])}/>
                     </div>
                 </div>
-                <div className="col-xs-6">
+                <div className="col-6">
                     <div className="form-group">
                         <label>Field store name*</label>
                         <input className="form-control" onChange={this.onChangeFieldStoreName.bind(this)} type="text" defaultValue={this.props.field.getIn(['content','field'])}/>
                     </div>
                 </div>
-                <div className="col-xs-6">
+                <div className="col-6">
                     <div className="form-group">
                         <label>Field type*</label>
                         <select className="form-control" onChange={this.onChangeFieldType.bind(this)} defaultValue={this.props.field.get('type')}>
@@ -131,7 +131,7 @@ class NodeCollectableField extends Component {
                 </div>
 
                 {this.props.field.get('type') == 'text' &&
-                <div className="col-xs-6">
+                <div className="col-6">
                     <div className="form-group">
                         <label>Validation preg match rule</label>
                         <input className="form-control" type="text" onChange={this.onChangeValidation.bind(this)} defaultValue={this.props.field.getIn(['content','validation'])}/>
@@ -139,21 +139,21 @@ class NodeCollectableField extends Component {
                 </div>}
 
                 {this.props.field.get('type') == 'text' &&
-                <div className="col-xs-12">
+                <div className="col-12">
                     <div className="row">
-                        <div className="col-xs-6">
+                        <div className="col-6">
                             <div className="form-group">
                                 <label>Custom event validation</label>
                                 <input className="form-control" type="text" onChange={this.onChangeValidationCallback.bind(this)} defaultValue={this.props.field.getIn(['content','validation_callback'])}/>
                             </div>
                         </div>
-                        <div className="col-xs-6">
+                        <div className="col-6">
                             <div className="form-group">
                                 <label>Validation error message</label>
                                 <input className="form-control" type="text" onChange={this.onChangeValidationError.bind(this)} defaultValue={this.props.field.getIn(['content','validation_error'])}/>
                             </div>
                         </div>
-                        <div className="col-xs-12">
+                        <div className="col-12">
                             <div className="form-group">
                                 <label>Argument</label>
                                 <input className="form-control" type="text" onChange={this.onChangeValidationArgument.bind(this)} defaultValue={this.props.field.getIn(['content','validation_argument'])}/>
@@ -163,34 +163,34 @@ class NodeCollectableField extends Component {
                 </div>}
 
                 {this.props.field.get('type') == 'dropdown' &&
-                <div className="col-xs-6">
+                <div className="col-6">
 
                     <div className="row">
-                        <div className="col-xs-4">
+                        <div className="col-4">
                             <div className="form-group">
                                 <label>Provider event</label>
                                 <input className="form-control" type="text" onChange={this.onChangeProvider.bind(this)} defaultValue={this.props.field.getIn(['content','provider_dropdown'])}/>
                             </div>
                         </div>
-                        <div className="col-xs-4">
+                        <div className="col-4">
                             <div className="form-group">
                                 <label>Name attribute</label>
                                 <input className="form-control" type="text" onChange={this.onChangeProviderName.bind(this)} defaultValue={this.props.field.getIn(['content','provider_name'])}/>
                             </div>
                         </div>
-                        <div className="col-xs-4">
+                        <div className="col-4">
                             <div className="form-group">
                                 <label>Id attribute</label>
                                 <input className="form-control" type="text" onChange={this.onChangeProviderId.bind(this)} defaultValue={this.props.field.getIn(['content','provider_id'])}/>
                             </div>
                         </div>
-                        <div className="col-xs-6">
+                        <div className="col-6">
                             <div className="form-group">
                                 <label>Default value</label>
                                 <input className="form-control" type="text" onChange={this.onChangeProviderDefault.bind(this)} defaultValue={this.props.field.getIn(['content','provider_default'])}/>
                             </div>
                         </div>
-                        <div className="col-xs-6">
+                        <div className="col-6">
                             <div className="form-group">
                                 <label>Argument</label>
                                 <input className="form-control" type="text" onChange={this.onChangeProviderArgument.bind(this)} defaultValue={this.props.field.getIn(['content','provider_argument'])}/>
@@ -201,27 +201,27 @@ class NodeCollectableField extends Component {
                 </div>}
 
                 {(this.props.field.get('type') == 'buttons' || this.props.field.get('type') == 'custom') &&
-                <div className="col-xs-6">
+                <div className="col-6">
                     <div className="row">
-                        <div className="col-xs-6">
+                        <div className="col-6">
                             <div className="form-group">
                                 <label>Precheck event</label>
                                 <input className="form-control" type="text" onChange={this.onChangePrecheckRenderFunction.bind(this)} defaultValue={this.props.field.getIn(['content','render_precheck_function'])}/>
                             </div>
                         </div>
-                        <div className="col-xs-6">
+                        <div className="col-6">
                             <div className="form-group">
                                 <label>Render event</label>
                                 <input className="form-control" type="text" onChange={this.onChangeRenderFunction.bind(this)} defaultValue={this.props.field.getIn(['content','render_function'])}/>
                             </div>
                         </div>
-                        <div className="col-xs-12">
+                        <div className="col-12">
                             <div className="form-group">
                                 <label>Validate event</label>
                                 <input className="form-control" type="text" onChange={this.onChangeRenderValidateFunction.bind(this)} defaultValue={this.props.field.getIn(['content','render_validate'])}/>
                             </div>
                         </div>
-                        <div className="col-xs-6">
+                        <div className="col-6">
                             <div className="form-group">
                                 <label>Arguments</label>
                                 <input className="form-control" type="text" onChange={this.onChangeRenderArgs.bind(this)} defaultValue={this.props.field.getIn(['content','render_args'])}/>
@@ -230,22 +230,22 @@ class NodeCollectableField extends Component {
                     </div>
                 </div>}
 
-                <div className="col-xs-12">
+                <div className="col-12">
 
                     <div className="row">
-                        <div className="col-xs-6">
+                        <div className="col-6">
                             <div className="form-group">
                                 <label>Message to user</label>
                                 <textarea onChange={this.onChangeMessage.bind(this)} defaultValue={this.props.field.getIn(['content','message'])} className="form-control"></textarea>
                             </div>
                         </div>
-                        <div className="col-xs-6">
+                        <div className="col-6">
                             <div className="form-group">
                                 <label>If something wrong in precheck send this</label>
                                 <textarea onChange={this.onChangePrecheckMessage.bind(this)} defaultValue={this.props.field.getIn(['content','message_precheck'])} className="form-control"></textarea>
                             </div>
                         </div>
-                        <div className="col-xs-6">
+                        <div className="col-6">
                             <div className="form-group">
                                 <label>Additional message to user</label>
                                 <textarea onChange={this.onChangeAdditionalMessage.bind(this)} defaultValue={this.props.field.getIn(['content','message_explain'])} className="form-control"></textarea>
@@ -254,14 +254,14 @@ class NodeCollectableField extends Component {
                     </div>
 
                     <div className="row">
-                        <div className="col-xs-12">
-                            <div className="btn-group pull-left" role="group" aria-label="Trigger actions">
-                                {this.props.isFirst == false && <a className="btn btn-default btn-xs" onClick={this.upField.bind(this)}><i className="material-icons mr-0">keyboard_arrow_up</i></a>}
-                                {this.props.isLast == false && <a className="btn btn-default btn-xs" onClick={this.downField.bind(this)}><i className="material-icons mr-0">keyboard_arrow_down</i></a>}
+                        <div className="col-12">
+                            <div className="btn-group float-left" role="group" aria-label="Trigger actions">
+                                {this.props.isFirst == false && <a className="btn btn-secondary btn-sm" onClick={this.upField.bind(this)}><i className="material-icons mr-0">keyboard_arrow_up</i></a>}
+                                {this.props.isLast == false && <a className="btn btn-secondary btn-sm" onClick={this.downField.bind(this)}><i className="material-icons mr-0">keyboard_arrow_down</i></a>}
                             </div>
 
-                            <div className="btn-group pull-right" role="group" aria-label="Trigger actions">
-                                <a className="btn btn-warning btn-xs" onClick={this.deleteField.bind(this)}>Delete</a>
+                            <div className="btn-group float-right" role="group" aria-label="Trigger actions">
+                                <a className="btn btn-warning btn-sm" onClick={this.deleteField.bind(this)}>Delete</a>
                             </div>
                         </div>
                     </div>

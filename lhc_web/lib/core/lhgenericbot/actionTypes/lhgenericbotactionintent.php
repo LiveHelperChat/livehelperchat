@@ -60,10 +60,16 @@ class erLhcoreClassGenericBotActionIntent {
 
                     if ($wordsFound == true) {
                         if (isset($intent['content']['exec_insta']) && $intent['content']['exec_insta'] == true) {
-                            return array(
-                                'status' => 'stop',
+
+                            $return = array(
+                                'status' => ((isset($intent['content']['exec_cont']) && $intent['content']['exec_cont'] == 1) ? 'continue' : 'stop'),
                                 'trigger_id' => $intent['content']['trigger_id']
                             );
+
+                            erLhcoreClassLog::write(print_r($return,true));
+
+                            return $return;
+
                         } else {
                             $pendingAction = new erLhcoreClassModelGenericBotPendingEvent();
                             $pendingAction->chat_id = $chat->id;

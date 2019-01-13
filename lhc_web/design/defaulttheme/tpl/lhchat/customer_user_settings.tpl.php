@@ -3,12 +3,12 @@
 $soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data;
 $soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',(int)($soundData['new_message_sound_user_enabled'])); ?>
 
-  <div class="btn-group pull-right" role="group">
+  <div class="btn-group float-right dropleft" role="group">
     <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings_multiinclude.tpl.php'));?>
     
     <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings/settings_applications.tpl.php'));?>
        
-    <ul role="menu" data-dropdown-content class="dropdown-menu widget-options">
+    <div role="menu" data-dropdown-content class="dropdown-menu">
 		 
 	     <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings/option_sound.tpl.php'));?>
 	     	     
@@ -34,7 +34,7 @@ $soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',
 		 
 		 <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings/option_last_multiinclude.tpl.php'));?>
 		 
-	</ul>
+	</div>
   </div>
 
 

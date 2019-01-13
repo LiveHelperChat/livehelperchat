@@ -104,11 +104,15 @@
 
 <div class="form-group">		
 <label><?php echo $fields['message']['trans'];?>*</label>
+<?php $bbcodeOptions = array('selector' => 'textarea[name=AbstractInput_message]'); ?>
+<?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
 <?php echo erLhcoreClassAbstract::renderInput('message', $fields['message'], $object)?>
 </div>
 
 <div class="form-group">		
 <label><?php echo $fields['message_returning']['trans'];?></label>
+<?php $bbcodeOptions = array('selector' => 'textarea[name=AbstractInput_message_returning]'); ?>
+<?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
 <?php echo erLhcoreClassAbstract::renderInput('message_returning', $fields['message_returning'], $object)?>
 </div>
 

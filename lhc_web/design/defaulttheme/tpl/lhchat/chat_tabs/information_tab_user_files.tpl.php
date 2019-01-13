@@ -1,5 +1,5 @@
 <div>
-    <input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('files/files','Refresh')?>" class="btn btn-default" onclick="lhinst.updateChatFiles('<?php echo $chat->id?>')" />
+    <input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('files/files','Refresh')?>" class="btn btn-secondary" onclick="lhinst.updateChatFiles('<?php echo $chat->id?>')" />
 
 	<ul id="chat-files-list-<?php echo $chat->id?>">
 		<?php foreach (erLhcoreClassChat::getList(array('filter' => array('chat_id' => $chat->id)),'erLhcoreClassModelChatFile','lh_chat_file') as $file) : ?>

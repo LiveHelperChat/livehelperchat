@@ -1,12 +1,12 @@
-<div class="operator-info float-break<?php if (!isset($start_data_fields['remove_operator_space']) || $start_data_fields['remove_operator_space'] == false) : ?> mb10 round-profile<?php else : ?><?php endif;?>">
-	<div class="pull-left pr5">		 
+<div class="operator-info d-flex<?php if (!isset($start_data_fields['remove_operator_space']) || $start_data_fields['remove_operator_space'] == false) : ?> mb10 round-profile<?php else : ?><?php endif;?>">
+	<div>
      	<?php if ($theme !== false && $theme->operator_image_url != '') : ?>
      			<img src="<?php echo $theme->operator_image_url?>" alt="" />
      	<?php else : ?>
      		<i class="icon-assistant material-icons">account_box</i>
      	<?php endif;?> 
      </div>
-     <div class="pl10">
+     <div class="p-1 w-100">
      	<?php $rightLanguage = true;?>
 	 	<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/switch_language.tpl.php'));?>
 	    <span><i><?php if ($theme !== false && $theme->intro_operator_text != '') : ?><?php echo htmlspecialchars($theme->intro_operator_text); ?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Have a question? Ask us!');?>

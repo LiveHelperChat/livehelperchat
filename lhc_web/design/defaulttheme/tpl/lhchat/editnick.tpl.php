@@ -1,5 +1,5 @@
 <?php 
-$modalHeaderClass = 'small-modal-header';
+$modalHeaderClass = 'pt-1 pb-1 pl-2 pr-2';
 $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/editnick','Your information');
 $modalSize = 'md';
 ?>
@@ -23,21 +23,21 @@ setTimeout(function(){
 <?php else  : ?>
 <form action="<?php echo erLhcoreClassDesign::baseurl('chat/editnick')?>/<?php echo $chat->id,'/',$chat->hash?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
 	<div class="form-group">
-		<label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?></label> <input maxlength="50" type="text" name="UserNick" class="form-control input-sm" value="<?php echo htmlspecialchars($chat->nick)?>" />
+		<label class="col-form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?></label> <input maxlength="50" type="text" name="UserNick" class="form-control form-control-sm" value="<?php echo htmlspecialchars($chat->nick)?>" />
 	</div>
 
 	<div class="row form-group">
-		<div class="col-xs-6 pr5">
-			<label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?></label> <input type="text" name="Email" class="form-control input-sm" value="<?php echo htmlspecialchars($chat->email)?>" />
+		<div class="col-6">
+			<label class="col-form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?></label> <input type="text" name="Email" class="form-control form-control-sm" value="<?php echo htmlspecialchars($chat->email)?>" />
 		</div>
-		<div class="col-xs-6 pl5">
-			<label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone');?></label> <input type="text" maxlength="50" name="UserPhone" class="form-control input-sm" value="<?php echo htmlspecialchars($chat->phone)?>" />
+		<div class="col-6">
+			<label class="col-form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone');?></label> <input type="text" maxlength="50" name="UserPhone" class="form-control form-control-sm" value="<?php echo htmlspecialchars($chat->phone)?>" />
 		</div>
 	</div>
 
 	<div class="btn-group" role="group" aria-label="...">
-		<input type="submit" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save')?>" class="btn btn-default btn-sm">
-		<input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel')?>" class="btn btn-default btn-sm" onclick="$('#myModal').modal('hide')">
+		<input type="submit" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save')?>" class="btn btn-secondary btn-sm">
+		<input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel')?>" class="btn btn-secondary btn-sm" onclick="$('#myModal').modal('hide')">
 	</div>
 
 </form>

@@ -558,7 +558,7 @@ var LHCCoBrowserOperator = (function() {
 		if (typeof this.iFrameDocument !== 'undefined') {	
 			
 			// Try to find element by id first	
-			if (jQuery(this.iFrameDocument).find(pos.hsh).size() > 0) {	
+			if (jQuery(this.iFrameDocument).find(pos.hsh).length > 0) {
 				this.scrollTopGS(jQuery(this.iFrameDocument).find(pos.hsh).offset().top);
 			} else {			
 				this.scrollTopGS(pos.t);
@@ -586,7 +586,7 @@ var LHCCoBrowserOperator = (function() {
 	
 	LHCCoBrowserOperator.prototype.changeSelectValueFromUser = function(msg) {
 		if (msg.selector != '') {
-			if ($(this.iFrameDocument).find(msg.selector).size() > 0) {
+			if ($(this.iFrameDocument).find(msg.selector).length > 0) {
 				$(this.iFrameDocument).find(msg.selector)[0].selectedIndex = msg.value;
 			}
 		}
@@ -594,7 +594,7 @@ var LHCCoBrowserOperator = (function() {
 	
 	LHCCoBrowserOperator.prototype.changeCheckboxValueFromUser = function(msg) {
 		if (msg.selector != '') {
-			if ($(this.iFrameDocument).find(msg.selector).size() > 0) {
+			if ($(this.iFrameDocument).find(msg.selector).length > 0) {
 				$(this.iFrameDocument).find(msg.selector)[0].checked = msg.value;
 			}
 		}

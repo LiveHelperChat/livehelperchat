@@ -23,7 +23,7 @@
         <td><?php echo $item->priority?></td>
         <td><?php if ($item->active == 1) : ?><b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/list','Y');?></b><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/list','N');?><?php endif;?></td>
         <td><?php echo $item->revote > 0 ? $item->revote : erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/list','Off') ; ?></td>
-        <td nowrap><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('questionary/edit')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/list','Edit the question');?></a></td>
+        <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('questionary/edit')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/list','Edit the question');?></a></td>
         <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('questionary/delete')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/list','Delete the question');?></a></td>
     </tr>
 <?php endforeach; ?>
@@ -39,4 +39,4 @@
 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/list','Empty...');?></p>
 <?php endif;?>
 
-<a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('questionary/newquestion')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/list','New question');?></a>
+<a class="btn btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('questionary/newquestion')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/list','New question');?></a>

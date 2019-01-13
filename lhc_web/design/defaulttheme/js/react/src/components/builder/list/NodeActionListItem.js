@@ -87,49 +87,49 @@ class NodeActionListItem extends Component {
 
         return (
             <div className="row">
-                <div className="col-xs-12">
+                <div className="col-12">
                     <div className="form-group">
                         <label>{this.props.id + 1}. Title*</label>
-                        <input className="form-control input-sm" onChange={(e) => this.onChangeMainAttr('title',e.target.value)} type="text" defaultValue={this.props.item.getIn(['content','title'])}/>
+                        <input className="form-control form-control-sm" onChange={(e) => this.onChangeMainAttr('title',e.target.value)} type="text" defaultValue={this.props.item.getIn(['content','title'])}/>
                     </div>
                 </div>
-                <div className="col-xs-12">
+                <div className="col-12">
                     <div className="form-group">
                         <label>Subtitle*</label>
-                        <input className="form-control input-sm" onChange={(e) => this.onChangeMainAttr('subtitle',e.target.value)} type="text" defaultValue={this.props.item.getIn(['content','subtitle'])}/>
+                        <input className="form-control form-control-sm" onChange={(e) => this.onChangeMainAttr('subtitle',e.target.value)} type="text" defaultValue={this.props.item.getIn(['content','subtitle'])}/>
                     </div>
                 </div>
 
-                <div className="col-xs-6">
+                <div className="col-6">
                     <div className="form-group">
                         <label>Image URL</label>
-                        <input className="form-control input-sm" onChange={(e) => this.onChangeMainAttr('img',e.target.value)} type="text" defaultValue={this.props.item.getIn(['content','img'])}/>
+                        <input className="form-control form-control-sm" onChange={(e) => this.onChangeMainAttr('img',e.target.value)} type="text" defaultValue={this.props.item.getIn(['content','img'])}/>
                     </div>
                 </div>
 
-                <div className="col-xs-6">
+                <div className="col-6">
                     <div className="form-group">
                         <NodeTriggerActionQuickReplyPayload onPayloadAttrChange={this.onPayloadAttrChange} onPayloadTypeChange={this.onChangeFieldType} onPayloadChange={this.onPayloadChange} payloadType={this.props.item.get('type')} currentPayload={this.props.item.getIn(['content'])} />
                     </div>
                 </div>
-                <div className="col-xs-12">
+                <div className="col-12">
                     {button_list}
                 </div>
 
-                <div className="col-xs-12">
-                    <div className="btn-group pull-left" role="group" aria-label="Trigger actions">
-                        {this.props.isFirst == false && <a className="btn btn-default btn-xs" onClick={this.upField.bind(this)}><i className="material-icons mr-0">keyboard_arrow_up</i></a>}
-                        {this.props.isLast == false && <a className="btn btn-default btn-xs" onClick={this.downField.bind(this)}><i className="material-icons mr-0">keyboard_arrow_down</i></a>}
+                <div className="col-12">
+                    <div className="btn-group float-left" role="group" aria-label="Trigger actions">
+                        {this.props.isFirst == false && <a className="btn btn-secondary btn-sm" onClick={this.upField.bind(this)}><i className="material-icons mr-0">keyboard_arrow_up</i></a>}
+                        {this.props.isLast == false && <a className="btn btn-secondary btn-sm" onClick={this.downField.bind(this)}><i className="material-icons mr-0">keyboard_arrow_down</i></a>}
                     </div>
 
-                    <div className="btn-group pull-right" role="group" aria-label="Trigger actions">
-                        <a className="btn btn-info btn-xs" onClick={this.addElementButton.bind(this)}>Add element button</a>
-                        <a className="btn btn-warning btn-xs" onClick={this.deleteField.bind(this)}>Delete</a>
+                    <div className="btn-group float-right" role="group" aria-label="Trigger actions">
+                        <a className="btn btn-info btn-sm" onClick={this.addElementButton.bind(this)}>Add element button</a>
+                        <a className="btn btn-warning btn-sm" onClick={this.deleteField.bind(this)}>Delete</a>
                     </div>
 
                 </div>
 
-                <div className="col-xs-12">
+                <div className="col-12">
                     <hr/>
                 </div>
 
