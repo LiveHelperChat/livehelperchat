@@ -1,6 +1,10 @@
 3.15v
 
 1. Audit log functionality.
+2. Bootstrap 4.1.2, this is quite still early release. So if notice any design issues, let me know.
+3. Canned messages now have toolbar for easier images insert.
+4. New messages styles
+5. Tooltip removed from dashboard items. You should click (i) icon to preview chat information.
 
 execute doc/update_db/update_190.sql for update
 
