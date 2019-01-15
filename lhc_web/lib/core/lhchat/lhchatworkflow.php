@@ -457,6 +457,19 @@ class erLhcoreClassChatWorkflow {
                                 $valueToCompare = $chat->chat_variables_array[$variableName];
                             }
                         }
+                    } else {
+
+                        $statusWorkflowPermit = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.autoassign_permit', array(
+                            'department' => & $department,
+                            'chat' => & $chat,
+                            'params' => & $params,
+                        ));
+
+                        if ($statusWorkflowPermit !== false) {
+                            if (isset($statusWorkflowPermit['stop']) && $statusWorkflowPermit['stop'] == true) {
+                                $valueToCompare = true;
+                            }
+                        }
                     }
 
                     // Variable was not found ignore chat for a while
