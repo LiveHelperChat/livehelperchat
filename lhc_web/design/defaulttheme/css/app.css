@@ -15,9 +15,9 @@ body {
 
 
 .btn-group-xs > .btn, .btn-xs {
-	padding  : .35rem .30rem;
+	padding  : .25rem .30rem 0.35rem 0.30rem;
 	font-size  : .75rem;
-	line-height  : .6;
+	line-height  : .9;
 	border-radius : .2rem;
 }
 
@@ -203,6 +203,7 @@ a:hover{
 	background-color:#FFF;
 	padding-bottom:3px;
 	padding-right:5px;
+	padding-left:5px;
 }
 
 .msgBlock-inv{
@@ -278,7 +279,7 @@ div.system-response {
 div.message-row {
 	padding:0px 0px 0px 0px;
 	line-height:140%;
-	margin-right:30px;
+	margin-right:0px;
 	margin-left:0px;
 	position:relative;
 }
@@ -287,8 +288,6 @@ div.message-row {
 	margin:4px 0px;
 	animation: blink 1500ms linear infinite;
 }
-
-
 
 @keyframes blink{
 	0%{opacity: 0.3;}
@@ -313,10 +312,11 @@ div.message-row {
 }
 
 div.message-admin{
-	margin-left:30px;
+	margin-left:0px;
 	margin-right:0px;
 	text-align:right;
 }
+
 
 div.message-admin div.msg-body{
 	margin-right:0px;
@@ -356,6 +356,39 @@ div.message-row.response div.msg-body{
 	margin-bottom:3px;
 	display:inline-block;
 }
+
+
+/**
+* Switch style for frontend visitors
+*/
+#messagesBlock div.message-admin{
+	text-align:left;
+}
+
+#messagesBlock div.response{
+	text-align:right;
+}
+
+#messagesBlock div.response .vis-tit{
+	color:#5078d8;
+}
+
+#messagesBlock div.message-admin .op-tit{
+	color: #888
+}
+
+#messagesBlock div.response div.msg-body{
+	background-color: #0a49df;
+	color:#FFF;
+}
+
+#messagesBlock div.message-admin div.msg-body{
+	background-color: #ededed;
+	color:#212529;
+}
+
+
+
 
 div.message-admin+div.system-response,
 div.message-row.response+div.system-response{
@@ -428,7 +461,8 @@ div.pending-storage {
 #messages{position:relative;}
 .message-block{
 	font-size: 13px;
-
+	border-bottom:1px solid #ced4da;
+	border-right:1px solid #ced4da;
 }
 
 div.message-admin+div.message-admin .msg-date,div.message-row.response+div.message-row.response .msg-date,

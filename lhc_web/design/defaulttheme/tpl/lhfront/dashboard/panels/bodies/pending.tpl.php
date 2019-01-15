@@ -1,4 +1,4 @@
-<table class="table table-sm mb-0 table-small table-fixed">
+<table class="table table-sm mb-0 table-small table-fixed" ng-if="pending_chats.list.length > 0">
     <thead>
     <tr>
         <th width="60%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Visitor')?>" class="material-icons">face</i><a ng-click="lhc.toggleWidget('pending_chats_sort',true)"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort')?>" class="material-icons">{{lhc.toggleWidgetData['pending_chats_sort'] == false ? 'trending_up' : 'trending_down'}}</i></a></th>

@@ -97,10 +97,6 @@ background-color: #ddd;
 	}
 
 	#messagesBlockWrap{
-		border: 1px solid #CCCCCC;
-		border-left:0;
-		border-right:0;
-		border-bottom: 0;
 		position:relative;
 	}
 

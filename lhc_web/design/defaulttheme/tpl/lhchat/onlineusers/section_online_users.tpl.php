@@ -9,10 +9,10 @@
 	    </div>
 	
 	</div>
-	<div class="col-sm-2 form-group col-6">
+	<div class="col-2 pr-0">
 		<input class="form-control form-control-sm" ng-model="query" type="text" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search')?>">
 	</div>
-	<div class="col-sm-1 form-group col-6">
+	<div class="col-1 pr-0">
 		<select class="form-control form-control-sm" ng-model="groupByField" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Group list by');?>">
 		    	<option value="none"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Group by');?></option>
 		    	<option value="user_country_name"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User country');?></option>
@@ -23,7 +23,7 @@
 		    	<option value="dep_id"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Department');?></option>
 		</select>
 	</div>	
-	<div class="col-sm-2 form-group col-6">
+	<div class="col-2 pr-0">
 		<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
 	                    'input_name'     => 'department_id',
 						'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select department'),
@@ -38,10 +38,13 @@
     <?php $columnCountrySize = 1?>
     <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/country_filter.tpl.php')); ?>
 
-    <?php $columnCountrySize = 1?>
+    <?php
+        $columnCountrySize = 1;
+        $prSet = ' pr-0';
+    ?>
     <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/time_on_site_filter.tpl.php')); ?>
 
-	<div class="col-sm-1 form-group col-6">
+	<div class="col-1 pr-0">
 		<select class="form-control form-control-sm" id="updateTimeout" ng-model="online.updateTimeout" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Refresh list every');?>">
 		    	<option value="1">1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','second');?></option>		    	
 		    	<option value="3">3 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>		    	
@@ -49,7 +52,7 @@
 		    	<option value="10">10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>		    	
 		</select>
 	</div>
-	<div class="col-sm-1 form-group col-6">
+	<div class="col-1 pr-0">
 		<select class="form-control form-control-sm" id="userTimeout" ng-model="online.userTimeout" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Show visitors who visited site in the past');?>">
 		    	<option value="30">30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','seconds');?></option>
 		    	<option value="60">1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','minute');?></option>
@@ -64,7 +67,7 @@
 		    	<option value="2678400">31 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','day');?></option>
 		</select>
 	</div>
-	<div class="col-sm-1 form-group col-12">
+	<div class="col-1">
 		<select class="form-control form-control-sm" id="maxRows" ng-model="online.maxRows" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Max records to return');?>">
 		    	<option value="50">50</option>
 		    	<option value="100">100</option>

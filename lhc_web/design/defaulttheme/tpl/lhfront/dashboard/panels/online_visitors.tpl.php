@@ -5,14 +5,12 @@
 	</div>
 	<div ng-if="lhc.toggleWidgetData['onvisitors_widget_exp'] !== true">
 
-       <div class="p-1">
+        <div class="p-2">
            <div class="row">
-
-               <div class="col-sm-3 form-group col-6">
+               <div class="col-3 pr-0">
                     <input class="form-control form-control-sm" ng-model="query" type="text" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search')?>">
                </div>
-
-                <div class="col-sm-3 form-group col-6">
+                <div class="col-3 pr-0">
                     <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                         'input_name'     => 'department_id',
                         'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select department'),
@@ -26,12 +24,10 @@
                <?php $columnCountrySize = 3?>
                <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/country_filter.tpl.php')); ?>
 
-               <?php $columnCountrySize = 3?>
+               <?php $columnCountrySize = 3;?>
                <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/time_on_site_filter.tpl.php')); ?>
-
-
            </div>
-       </div>
+        </div>
 
 	   <div class="panel-list" ng-if="online.onlineusers.length > 0">
 			<table ng-cloak class="table table-sm mb-0 table-small table-fixed" cellpadding="0" cellspacing="0" ng-init='trans = <?php echo json_encode(array('third' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has not seen a message from the operator, or the message window is still open.'),'msg_seen' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Seen'),'msg_not_seen' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Unseen'),'second' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has seen the message from the operator.'),'first' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any messages from the operator')),JSON_HEX_APOS)?>'>
