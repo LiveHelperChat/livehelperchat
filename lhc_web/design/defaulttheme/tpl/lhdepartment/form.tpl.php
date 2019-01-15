@@ -339,6 +339,16 @@
                         <label><input type="checkbox" name="assign_same_language" value="on" <?php if ($departament->assign_same_language == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Try to assign chats first to the same language speaking operators');?></label>
                     </div>
 
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Check for presence of variable');?></label>
+                        <input type="text" class="form-control" name="auto_delay_var" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['auto_delay_var']) ? $departament->bot_configuration_array['auto_delay_var'] : '');?>" />
+                    </div>
+
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Resume auto assign if chat remains pending for n seconds');?></label>
+                        <input type="text" class="form-control" name="auto_delay_timeout" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['auto_delay_timeout']) ? $departament->bot_configuration_array['auto_delay_timeout'] : '');?>" />
+                    </div>
+
 				</div> 
 		    </div>
 			<?php endif;?>
