@@ -1071,7 +1071,11 @@ class erLhcoreClassGenericBotWorkflow {
             }
 
             if ($reprocess == true) {
-                erLhcoreClassGenericBotActionCollectable::processStep($chat, $workflow->collected_data_array['current_step'], $metaError);
+                $message = erLhcoreClassGenericBotActionCollectable::processStep($chat, $workflow->collected_data_array['current_step'], $metaError);
+
+                if ($message instanceof erLhcoreClassModelmsg) {
+                    self::setLastMessageId($chat, $message->id);
+                }
             }
 
         }

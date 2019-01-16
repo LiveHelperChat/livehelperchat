@@ -387,7 +387,15 @@ div.message-row.response div.msg-body{
 	color:#212529;
 }
 
+#messagesBlock div.response div.msg-body a.link{
+	color:#fff;
+	text-decoration:underline;
+}
 
+#messagesBlock div.message-admin div.msg-body a.link{
+	color:#212529;
+	text-decoration:underline;
+}
 
 
 div.message-admin+div.system-response,
