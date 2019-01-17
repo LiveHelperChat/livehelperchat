@@ -33,21 +33,21 @@ a {
 <?php endif; ?>
 
 <?php if (isset($cssAttributes['mactive_bc']) || isset($cssAttributes['mactive_bc'])) : ?>
-.nav>li>a:focus, .nav>li>a:hover,.sidebar li.active > a{
+.nav>li>a.nav-link:focus, .nav>li>a.nav-link:hover,.sidebar li.active > a.nav-link{
     background-color:#<?php echo $cssAttributes['mactive_bc']?>;
 }
 <?php endif;?>
 
 <?php if (isset($cssAttributes['men_col'])) : ?>
-.sidebar .nav-second-level li a,.sidebar ul li a {
+.sidebar .nav-second-level li a,.sidebar ul li a.nav-link {
     color:#<?php echo $cssAttributes['men_col']?>;
 }
 <?php endif;?>
 
 <?php if (isset($cssAttributes['tab_bc'])) : ?>
-.nav-pills>li>a.active, .nav-pills>li>a.active:focus, .nav-pills>li>a.active:hover,
-.nav-pills>li>a:hover,
-.nav-tabs>li>a.active, .nav-tabs>li>a.active:focus, .nav-tabs>li>a.active:hover,.nav-tabs>li>a:hover {
+.nav-pills>li>a.nav-link.active, .nav-pills>li>a.nav-link.active:focus, .nav-pills>li>a.nav-link.active:hover,
+.nav-pills>li>a.nav-link:hover,
+.nav-tabs>li>a.nav-link.active, .nav-tabs>li>a.nav-link.active:focus, .nav-tabs>li>a.nav-link.active:hover,.nav-tabs>li>a.nav-link:hover {
     background-color:#<?php echo $cssAttributes['tab_bc'];?>
 }
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
@@ -84,22 +84,22 @@ a {
 <?php endif; ?>
 
 <?php if (isset($cssAttributes['drpdown_hbgc'])) : ?>
-.dropdown-menu > li.dropdown-item > a:focus, .dropdown-menu>li.dropdown-item>a:hover{
+.dropdown-menu > a.dropdown-item:focus, .dropdown-menu>a.dropdown-item:hover{
     background-color:#<?php echo $cssAttributes['drpdown_hbgc']?>;
 }
 <?php endif; ?>
 
 <?php if (isset($cssAttributes['nvbar_bc']) || isset($cssAttributes['nvbar_pbc'])) : ?>
-.navbar-default{
-    <?php if (isset($cssAttributes['nvbar_bc'])) : ?>background-color:#<?php echo $cssAttributes['nvbar_bc']?>;<?php endif;?>
-    <?php if (isset($cssAttributes['nvbar_pbc'])) : ?>border-color:#<?php echo $cssAttributes['nvbar_pbc']?>;<?php endif;?>
+.navbar-light{
+    <?php if (isset($cssAttributes['nvbar_bc'])) : ?>background-color:#<?php echo $cssAttributes['nvbar_bc']?>!important;<?php endif;?>
+    <?php if (isset($cssAttributes['nvbar_pbc'])) : ?>border-color:#<?php echo $cssAttributes['nvbar_pbc']?>!important;<?php endif;?>
 }
 <?php endif;?>
 
 <?php if (isset($cssAttributes['bcrumb_bgc']) || isset($cssAttributes['bcrumb_boc'])) : ?>
 .breadcrumb{
     <?php if (isset($cssAttributes['bcrumb_bgc'])) : ?>background-color: #<?php echo $cssAttributes['bcrumb_bgc']?>;<?php endif;?>
-    <?php if (isset($cssAttributes['bcrumb_boc'])) : ?>border-bottom: 1px solid #<?php echo $cssAttributes['bcrumb_boc']?>;<?php endif;?>
+    <?php if (isset($cssAttributes['bcrumb_boc'])) : ?>border-bottom: 1px solid #<?php echo $cssAttributes['bcrumb_boc']?>!important;<?php endif;?>
 }
 
 <?php if (isset($cssAttributes['bcrumb_bgc'])) : ?>
@@ -126,7 +126,7 @@ a {
 <?php endif;?>
 
 <?php if (isset($cssAttributes['nvb_tgl_bgc'])) : ?>
-.navbar-light .navbar-toggler:focus, .navbar-default .navbar-toggler:hover {
+.navbar-light .navbar-toggler:focus, .navbar .navbar-toggler:hover {
     background-color: #<?php echo $cssAttributes['nvb_tgl_bgc']?>;
 }
 <?php endif;?>
@@ -138,13 +138,13 @@ a {
 <?php endif;?>
 
 <?php if (isset($cssAttributes['nvb_li_clr'])) : ?>
-.navbar-light .navbar-nav>li>a{
+.navbar-light .navbar-nav>li>a.nav-link{
     color: #<?php echo $cssAttributes['nvb_li_clr']?>;
 }
 <?php endif; ?>
 
 <?php if (isset($cssAttributes['nvb_lih_clr'])) : ?>
-.navbar-light .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+.navbar-light .navbar-nav>li>a.nav-link:focus, .navbar-light .navbar-nav>li>a.nav-link:hover, .navbar-default .navbar-nav>li>a.nav-link:hover{
     color: #<?php echo $cssAttributes['nvb_lih_clr']?>;
 }
 <?php endif; ?>

@@ -795,16 +795,17 @@ class erLhcoreClassBBCode
                     if ($hash == md5($name . '_' . $file->chat_id)) {
                         $hash = md5($file->name . '_' . $file->chat_id);
 
-                        if ($displayType == 'img' && $file->extension == 'jpg' || $file->extension == 'jpeg' || $file->extension == 'png'){
+                        $fileExtension = strtolower($file->extension);
+                        if ($displayType == 'img' && $fileExtension == 'jpg' || $fileExtension == 'jpeg' || $fileExtension == 'png'){
                             return '<img id="img-file-' . $file->id . '" class="img-fluid" src="' . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />';
                         }
 
                         $audio = '';
-                        if ($file->extension == 'mp3' || $file->extension == 'wav' || $file->extension == 'ogg') {
+                        if ($fileExtension == 'mp3' || $fileExtension == 'wav' || $fileExtension == 'ogg') {
                             $audio = '<br/><audio controls><source src="' . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" type="' . $file->type . '"></audio>';
-                        } elseif ($file->extension == 'mp4' || $file->extension == 'avi' || $file->extension == 'mov' || $file->extension == 'ogg' || $file->extension == '3gpp') {
+                        } elseif ($fileExtension == 'mp4' || $fileExtension == 'avi' || $fileExtension == 'mov' || $fileExtension == 'ogg' || $fileExtension == '3gpp') {
                             $audio = '<br><div class="embed-responsive embed-responsive-16by9"><video class="embed-responsive-item" controls><source src="' . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '"></video></div>';
-                        } else if ($file->extension == 'jpg' || $file->extension == 'jpeg' || $file->extension == 'png') {
+                        } else if ($fileExtension == 'jpg' || $fileExtension == 'jpeg' || $fileExtension == 'png') {
                             $audio = ' <a class="link" onclick="$(\'#img-file-' . $file->id . '\').toggleClass(\'hide\')"><i class="material-icons mr-0">&#xE251;</i></a><br/><img id="img-file-' . $file->id . '" class="img-fluid hide" src="' . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />';
                         }
 
