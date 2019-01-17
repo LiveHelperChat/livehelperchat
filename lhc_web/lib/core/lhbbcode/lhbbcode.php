@@ -737,7 +737,7 @@ class erLhcoreClassBBCode
      */
    public static function _make_email_clickable_cb( $matches ) {
     	$email = $matches[2] . '@' . $matches[3];
-    	return $matches[1] . "<a href=\"mailto:$email\">$email</a>";
+    	return $matches[1] . "<a class=\"link\" href=\"mailto:$email\">$email</a>";
    }
 
    
@@ -805,7 +805,7 @@ class erLhcoreClassBBCode
                         } elseif ($file->extension == 'mp4' || $file->extension == 'avi' || $file->extension == 'mov' || $file->extension == 'ogg' || $file->extension == '3gpp') {
                             $audio = '<br><div class="embed-responsive embed-responsive-16by9"><video class="embed-responsive-item" controls><source src="' . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '"></video></div>';
                         } else if ($file->extension == 'jpg' || $file->extension == 'jpeg' || $file->extension == 'png') {
-                            $audio = ' <a onclick="$(\'#img-file-' . $file->id . '\').toggleClass(\'hide\')"><i class="material-icons mr-0">&#xE251;</i></a><br/><img id="img-file-' . $file->id . '" class="img-fluid hide" src="' . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />';
+                            $audio = ' <a class="link" onclick="$(\'#img-file-' . $file->id . '\').toggleClass(\'hide\')"><i class="material-icons mr-0">&#xE251;</i></a><br/><img id="img-file-' . $file->id . '" class="img-fluid hide" src="' . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />';
                         }
 
                         return "<a href=\"" . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}\" target=\"_blank\" rel=\"noopener\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file', 'Download file') . ' - ' . htmlspecialchars($file->upload_name) . ' [' . $file->extension . ']' . "</a>" . $audio;
