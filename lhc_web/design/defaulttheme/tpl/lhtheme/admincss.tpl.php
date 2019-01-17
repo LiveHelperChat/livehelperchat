@@ -181,5 +181,72 @@ a {
 }
 <?php endif; ?>
 
+<?php if (isset($cssAttributes['buble_operator_background']) || isset($cssAttributes['buble_operator_text_color'])) : ?>
+    div.message-admin div.msg-body,
+    div.message-admin div.msg-body a.link{
+        <?php if (isset($cssAttributes['buble_operator_background'])) : ?>background-color: #<?php echo $cssAttributes['buble_operator_background'];?>;<?php endif; ?>
+        <?php if (isset($cssAttributes['buble_operator_text_color'])) : ?>color: #<?php echo $cssAttributes['buble_operator_text_color'];?>;<?php endif; ?>
+    }
+<?php endif; ?>
+
+<?php if (isset($cssAttributes['buble_operator_title_color'])) : ?>
+    .op-tit{
+        color: #<?php echo $cssAttributes['buble_operator_title_color'];?>
+    }
+<?php endif; ?>
+
+<?php if (isset($cssAttributes['buble_visitor_text_color']) || isset($cssAttributes['buble_visitor_background'])) : ?>
+    div.message-row.response div.msg-body,
+    div.message-row.response div.msg-body a.link{
+        <?php if (isset($cssAttributes['buble_visitor_background'])) : ?>background-color: #<?php echo $cssAttributes['buble_visitor_background'];?>;<?php endif; ?>
+        <?php if (isset($cssAttributes['buble_visitor_text_color'])) : ?>color: #<?php echo $cssAttributes['buble_visitor_text_color'];?>;<?php endif; ?>
+    }
+<?php endif; ?>
+
+<?php if (isset($cssAttributes['buble_visitor_title_color'])) : ?>
+    .vis-tit{
+        color: #<?php echo $cssAttributes['buble_visitor_title_color'];?>
+    }
+<?php endif; ?>
+
+<?php if (isset($cssAttributes['chat_bg'])) : ?>
+    .msgBlock-admin{
+        background-color: #<?php echo $cssAttributes['chat_bg'];?>
+    }
+<?php endif; ?>
+
+<?php if (isset($cssAttributes['time_color'])) : ?>
+    .msg-date{
+        color: #<?php echo $cssAttributes['time_color'];?>
+    }
+<?php endif; ?>
 
 
+<?php if (isset($cssAttributes['buble_sys_background']) || isset($cssAttributes['buble_sys_title_color']) ) : ?>
+    .sys-tit{
+        <?php if (isset($cssAttributes['buble_sys_background'])) : ?>background-color: #<?php echo $cssAttributes['buble_sys_background'];?>;<?php endif; ?>
+        <?php if (isset($cssAttributes['buble_sys_title_color'])) : ?>color: #<?php echo $cssAttributes['buble_sys_title_color'];?>;<?php endif; ?>
+    }
+<?php endif; ?>
+
+<?php if (isset($cssAttributes['buble_sys_text_color'])) : ?>
+div.system-response div.msg-body,
+div.system-response div.msg-body a.link{
+    color: #<?php echo $cssAttributes['buble_sys_text_color'];?>
+}
+<?php endif; ?>
+
+
+<?php /*
+<div class="msgBlock" style="" id="messagesBlock">
+    <div class="message-row response" id="msg-10459" data-op-id="0">
+        <div class="msg-date">10:14:39</div>
+        <span style="color:#{{bactract_bg_color_buble_visitor_title_color}}" class="usr-tit vis-tit" role="button"><i class="material-icons chat-operators mi-fs15 mr-0">account_box</i>Operator</span>
+        <div class="msg-body" style="background-color: #{{bactract_bg_color_buble_visitor_background}};color:#{{bactract_bg_color_buble_visitor_text_color}}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+    </div>
+    <div class="message-row message-admin operator-changes" id="msg-10463" data-op-id="1">
+        <div class="msg-date">10:18:22</div>
+        <span style="color:#{{bactract_bg_color_buble_operator_title_color}}" class="usr-tit op-tit" ><i class="material-icons chat-operators mi-fs15 mr-0">face</i>Visitor</span>
+        <div class="msg-body" style="color:#{{bactract_bg_color_buble_operator_text_color}};background-color: #{{bactract_bg_color_buble_operator_background}};">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+    </div>
+</div>*/
