@@ -40,6 +40,7 @@ class erLhAbstractModelAdminTheme {
             'static_js_content' => $this->static_js_content,
             'static_css_content' => $this->static_css_content,
             'css_attributes' => $this->css_attributes,
+            'user_id' => $this->user_id,
 		);
 
 		return $stateArray;
@@ -165,6 +166,19 @@ class erLhAbstractModelAdminTheme {
                 }
                 return $this->header_content_front;
                 break;
+
+            case 'user':
+                $this->user = false;
+                if ($this->user_id > 0) {
+                    try {
+                        $this->user = erLhcoreClassModelUser::fetch($this->user_id,true);
+                    } catch (Exception $e) {
+                        $this->user = false;
+                    }
+                }
+                return $this->user;
+                break;
+
 	        default:
 	            ;
 	            break;
@@ -179,4 +193,5 @@ class erLhAbstractModelAdminTheme {
 	public $static_js_content = '';
 	public $static_css_content = '';
 	public $css_attributes = '';
+	public $user_id = 0;
 }

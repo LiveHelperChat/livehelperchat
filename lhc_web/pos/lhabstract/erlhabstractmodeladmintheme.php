@@ -50,4 +50,10 @@ $def->properties['css_attributes']->columnName   = 'css_attributes';
 $def->properties['css_attributes']->propertyName = 'css_attributes';
 $def->properties['css_attributes']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+// User ID
+$def->properties['user_id'] = new ezcPersistentObjectProperty();
+$def->properties['user_id']->columnName   = 'user_id';
+$def->properties['user_id']->propertyName = 'user_id';
+$def->properties['user_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
