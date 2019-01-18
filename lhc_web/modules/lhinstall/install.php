@@ -646,8 +646,10 @@ switch ((int)$Params['user_parameters']['step_id']) {
         	       `static_css_content` longtext NOT NULL,
         	       `css_attributes` longtext NOT NULL,
         	       `header_content` text NOT NULL,
+        	       `user_id` int(11) NOT NULL, 
         	       `header_css` text NOT NULL,
-        	       PRIMARY KEY (`id`)
+        	       PRIMARY KEY (`id`),
+        	       KEY `user_id` (`user_id`)
         	   ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
         	   $db->query("CREATE TABLE `lh_chat_paid` ( 
@@ -1951,6 +1953,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                     array('module' => 'lhspeech', 'function' => 'changedefaultlanguage'),
                     array('module' => 'lhspeech', 'function' => 'use'),
                     array('module' => 'lhcannedmsg', 'function' => 'use'),
+                    array('module' => 'lhtheme', 'function' => 'personaltheme'),
                     array('module' => 'lhspeech', 'function' => 'change_chat_recognition'),
                 );
                 

@@ -40,6 +40,7 @@ class erLhAbstractModelAdminTheme {
             'static_js_content' => $this->static_js_content,
             'static_css_content' => $this->static_css_content,
             'css_attributes' => $this->css_attributes,
+            'user_id' => $this->user_id,
 		);
 
 		return $stateArray;
@@ -179,4 +180,5 @@ class erLhAbstractModelAdminTheme {
 	public $static_js_content = '';
 	public $static_css_content = '';
 	public $css_attributes = '';
+	public $user_id = 0;
 }

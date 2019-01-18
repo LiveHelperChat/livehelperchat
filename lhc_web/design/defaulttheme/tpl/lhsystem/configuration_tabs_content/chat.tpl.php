@@ -27,7 +27,7 @@
                         <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/chat_column_settings.tpl.php'));?>
                         <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/chat_priority_settings.tpl.php'));?>
         		    <?php endif;?>
-        		    		    
+
          			<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/translation.tpl.php'));?>
         		    
                     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/cannedmsg.tpl.php'));?>
