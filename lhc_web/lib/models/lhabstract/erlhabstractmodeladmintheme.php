@@ -166,6 +166,19 @@ class erLhAbstractModelAdminTheme {
                 }
                 return $this->header_content_front;
                 break;
+
+            case 'user':
+                $this->user = false;
+                if ($this->user_id > 0) {
+                    try {
+                        $this->user = erLhcoreClassModelUser::fetch($this->user_id,true);
+                    } catch (Exception $e) {
+                        $this->user = false;
+                    }
+                }
+                return $this->user;
+                break;
+
 	        default:
 	            ;
 	            break;
