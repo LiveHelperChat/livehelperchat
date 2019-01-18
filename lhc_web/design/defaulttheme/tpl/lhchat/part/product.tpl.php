@@ -10,7 +10,7 @@ if (!empty($products) || erLhcoreClassModelChatConfig::fetch('product_show_depar
 <input type="hidden" name="ProductIDDefined[]" value="<?php echo $definedProduct?>" />
 <?php endforeach; endif; ?>
 
-<div class="form-group<?php if (isset($errors['ProductID'])) : ?> has-error<?php endif;?>" id="ProductContainer">
+<div class="form-group<?php if (isset($errors['ProductID'])) : ?> is-invalid<?php endif;?>" id="ProductContainer">
     <?php if (erLhcoreClassModelChatConfig::fetch('product_show_departament')->current_value == 0) : ?>
         <?php include(erLhcoreClassDesign::designtpl('lhproduct/part/product_container.tpl.php'));?>
     <?php endif;?>

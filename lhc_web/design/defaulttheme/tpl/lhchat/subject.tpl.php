@@ -1,7 +1,7 @@
 <?php $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Set a subject')?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 
-    <div role="alert" class="alert alert-info alert-dismissible fade in">
+    <div role="alert" class="alert alert-info alert-dismissible fade show">
         <div id="subject-message-<?php echo $chat->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Choose a subject')?></div>
     </div>
 
@@ -15,7 +15,7 @@
     ?>
     <div class="row">
     <?php foreach($subjects as $subject) : ?>
-        <div class="col-xs-3"><label><input type="checkbox" onchange="lhinst.setSubject($(this),<?php echo $chat->id?>)" name="subject" value="<?php echo $subject->subject_id?>" <?php if (in_array($subject->subject_id,$selectedSubjects)) : ?>checked="checked"<?php endif?> ><?php echo htmlspecialchars($subject)?></label></div>
+        <div class="col-3"><label><input type="checkbox" onchange="lhinst.setSubject($(this),<?php echo $chat->id?>)" name="subject" value="<?php echo $subject->subject_id?>" <?php if (in_array($subject->subject_id,$selectedSubjects)) : ?>checked="checked"<?php endif?> ><?php echo htmlspecialchars($subject)?></label></div>
     <?php endforeach; ?>
     </div>
 

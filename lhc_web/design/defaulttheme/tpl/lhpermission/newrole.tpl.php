@@ -24,12 +24,12 @@
 	</tr>
 	</thead>
 	</table>
-	<input type="submit" class="btn btn-default" name="New_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newrole','New policy');?>"/>
+	<input type="submit" class="btn btn-secondary" name="New_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newrole','New policy');?>"/>
 	<br /><br />
 
 	<div class="btn-group" role="group" aria-label="...">
-	   <input type="submit" class="btn btn-default" name="Save_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newrole','Save');?>"/>
-	   <input type="submit" class="btn btn-default" name="Cancel_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newrole','Cancel');?>"/>
+	   <input type="submit" class="btn btn-secondary" name="Save_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newrole','Save');?>"/>
+	   <input type="submit" class="btn btn-secondary" name="Cancel_role" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newrole','Cancel');?>"/>
 	</div>
 	
 </form>

@@ -22,18 +22,18 @@ class NodeTriggerActionIntentCheck extends Component {
         return (
             <div>
                 <div className="row">
-                    <div className="col-xs-2">
-                        <div className="btn-group pull-left" role="group" aria-label="Trigger actions">
-                            <button disabled="disabled" className="btn btn-xs btn-info">{this.props.id + 1}</button>
-                            {this.props.isFirst == false && <a className="btn btn-default btn-xs" onClick={(e) => this.props.upField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_up</i></a>}
-                            {this.props.isLast == false && <a className="btn btn-default btn-xs" onClick={(e) => this.props.downField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_down</i></a>}
+                    <div className="col-2">
+                        <div className="btn-group float-left" role="group" aria-label="Trigger actions">
+                            <button disabled="disabled" className="btn btn-sm btn-info">{this.props.id + 1}</button>
+                            {this.props.isFirst == false && <button className="btn btn-secondary btn-sm" onClick={(e) => this.props.upField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_up</i></button>}
+                            {this.props.isLast == false && <button className="btn btn-secondary btn-sm" onClick={(e) => this.props.downField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_down</i></button>}
                         </div>
                     </div>
-                    <div className="col-xs-9">
+                    <div className="col-9">
                         <NodeTriggerActionType onChange={this.changeType} type={this.props.action.get('type')} />
                     </div>
-                    <div className="col-xs-1">
-                        <button onClick={this.removeAction} type="button" className="btn btn-danger btn-sm pull-right">
+                    <div className="col-1">
+                        <button onClick={this.removeAction} type="button" className="btn btn-danger btn-sm float-right">
                             <i className="material-icons mr-0">delete</i>
                         </button>
                     </div>
@@ -41,7 +41,7 @@ class NodeTriggerActionIntentCheck extends Component {
                 <div className="row">
                     <p>Check for pending intended actions. If atleast one pending actions will be found. None of the rest triggers will be executed.</p>
                 </div>
-                <hr/>
+                <hr className="hr-big" />
             </div>
         );
     }

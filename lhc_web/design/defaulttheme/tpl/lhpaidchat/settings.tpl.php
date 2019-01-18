@@ -25,6 +25,6 @@
         <input class="form-control" type="text" name="SecretHash" value="<?php (isset($paidchat_data['paidchat_secret_hash']) && $paidchat_data['paidchat_secret_hash'] != '') ? print $paidchat_data['paidchat_secret_hash'] : print erLhcoreClassChat::generateHash() ?>" />
     </div>
 
-    <input type="submit" class="btn btn-default" name="StoreChatboxSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
+    <input type="submit" class="btn btn-secondary" name="StoreChatboxSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 
 </form>

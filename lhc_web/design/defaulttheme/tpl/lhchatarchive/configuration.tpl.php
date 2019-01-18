@@ -16,5 +16,5 @@
         <label><input type="radio" name="archive_strategy" value="2" <?php isset($ar_options['archive_strategy']) && $ar_options['archive_strategy'] == 2 ? print 'checked="checked"' : '' ?> >Create new archive If chat's number in last archive reaches defined number</label>
         <input type="text" class="form-control" name="max_chats" value="<?php isset($ar_options['max_chats']) ? print htmlspecialchars($ar_options['max_chats']) : ''?>" >
     </div>
-    <input type="submit" class="btn btn-default" name="StoreOptions" value="Save">
+    <input type="submit" class="btn btn-secondary" name="StoreOptions" value="Save">
 </form>

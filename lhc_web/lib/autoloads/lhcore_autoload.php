@@ -146,7 +146,8 @@ return array_merge(array (
 		// Subject
 	    'erLhAbstractModelSubject'	        => 'lib/models/lhabstract/erlhabstractmodelsubject.php',
 	    'erLhAbstractModelSubjectDepartment'=> 'lib/models/lhabstract/erlhabstractmodelsubjectdepartment.php',
-	    'erLhAbstractModelSubjectChat'=> 'lib/models/lhabstract/erlhabstractmodelsubjectchat.php',
+	    'erLhAbstractModelSubjectChat'      => 'lib/models/lhabstract/erlhabstractmodelsubjectchat.php',
+	    'erLhAbstractModelAudit'            => 'lib/models/lhabstract/erlhabstractmodelaudit.php',
 
 		// Chatbox
 		'erLhcoreClassChatbox'				=> 'lib/core/lhchatbox/lhchatbox.php',

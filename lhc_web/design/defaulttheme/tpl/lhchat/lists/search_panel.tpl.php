@@ -6,13 +6,13 @@
 		<div class="col-md-2">
 		   <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Nick');?></label>
-			<input type="text" class="form-control input-sm" name="nick" value="<?php echo htmlspecialchars($input->nick)?>" />
+			<input type="text" class="form-control form-control-sm" name="nick" value="<?php echo htmlspecialchars($input->nick)?>" />
 		   </div>
 		</div>
 		<div class="col-md-2">
 		  <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','E-mail');?></label>
-			<input type="text" class="form-control input-sm" name="email" value="<?php echo htmlspecialchars($input->email)?>" />
+			<input type="text" class="form-control form-control-sm" name="email" value="<?php echo htmlspecialchars($input->email)?>" />
 		  </div>
 		</div>
 		
@@ -116,7 +116,7 @@
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from');?></label>
     			<div class="row">
     				<div class="col-md-12">
-    					<input type="text" class="form-control input-sm" name="timefrom" id="id_timefrom" placeholder="E.g <?php echo date('Y-m-d',time()-7*24*3600)?>" value="<?php echo htmlspecialchars($input->timefrom)?>" />
+    					<input type="text" class="form-control form-control-sm" name="timefrom" id="id_timefrom" placeholder="E.g <?php echo date('Y-m-d',time()-7*24*3600)?>" value="<?php echo htmlspecialchars($input->timefrom)?>" />
     				</div>							
     			</div>
 			</div>
@@ -127,7 +127,7 @@
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hour and minute from');?></label>
 			<div class="row">				
 				<div class="col-md-6">
-				    <select name="timefrom_hours" class="form-control input-sm">
+				    <select name="timefrom_hours" class="form-control form-control-sm">
 				        <option value="">Select hour</option>
 				        <?php for ($i = 0; $i <= 23; $i++) : ?>
 				            <option value="<?php echo $i?>" <?php if (isset($input->timefrom_hours) && $input->timefrom_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
@@ -135,7 +135,7 @@
 				    </select>
 				</div>
 				<div class="col-md-6">
-				    <select name="timefrom_minutes" class="form-control input-sm">
+				    <select name="timefrom_minutes" class="form-control form-control-sm">
 				        <option value="">Select minute</option>
 				        <?php for ($i = 0; $i <= 59; $i++) : ?>
 				            <option value="<?php echo $i?>" <?php if (isset($input->timefrom_minutes) && $input->timefrom_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> m.</option>
@@ -151,7 +151,7 @@
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range to');?></label>
     			<div class="row">
     				<div class="col-md-12">
-    					<input type="text" class="form-control input-sm" name="timeto" id="id_timeto" placeholder="E.g <?php echo date('Y-m-d')?>" value="<?php echo htmlspecialchars($input->timeto)?>" />
+    					<input type="text" class="form-control form-control-sm" name="timeto" id="id_timeto" placeholder="E.g <?php echo date('Y-m-d')?>" value="<?php echo htmlspecialchars($input->timeto)?>" />
     				</div>							
     			</div>
 			</div>
@@ -162,7 +162,7 @@
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hour and minute to');?></label>
 		    <div class="row">				
 				<div class="col-md-6">
-				    <select name="timeto_hours" class="form-control input-sm">
+				    <select name="timeto_hours" class="form-control form-control-sm">
 				        <option value="">Select hour</option>
 				        <?php for ($i = 0; $i <= 23; $i++) : ?>
 				            <option value="<?php echo $i?>" <?php if (isset($input->timeto_hours) && $input->timeto_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
@@ -170,7 +170,7 @@
 				    </select>
 				</div>
 				<div class="col-md-6">
-				    <select name="timeto_minutes" class="form-control input-sm">
+				    <select name="timeto_minutes" class="form-control form-control-sm">
 				        <option value="">Select minute</option>
 				        <?php for ($i = 0; $i <= 59; $i++) : ?>
 				            <option value="<?php echo $i?>" <?php if (isset($input->timeto_minutes) && $input->timeto_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> m.</option>
@@ -185,8 +185,8 @@
               <div class="form-group">
                   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Wait time');?></label>
                   <div class="row">
-                      <div class="col-xs-6">
-                          <select class="form-control input-sm" name="wait_time_from">
+                      <div class="col-6">
+                          <select class="form-control form-control-sm" name="wait_time_from">
                               <option>More than</option>
                               <option value="0" <?php $input->wait_time_from === 0 ? print 'selected="selected"' : ''?>>0 seconds</option>
                               <option value="5" <?php $input->wait_time_from === 5 ? print 'selected="selected"' : ''?>>5 seconds</option>
@@ -207,8 +207,8 @@
                               <?php endfor ?>
                           </select>
                       </div>
-                      <div class="col-xs-6">
-                          <select class="form-control input-sm" name="wait_time_till">
+                      <div class="col-6">
+                          <select class="form-control form-control-sm" name="wait_time_till">
                               <option>Less than</option>
                               <option value="0" <?php $input->wait_time_till === 0 ? print 'selected="selected"' : ''?>>0 seconds</option>
                               <option value="5" <?php $input->wait_time_till === 5 ? print 'selected="selected"' : ''?>>5 seconds</option>
@@ -240,7 +240,7 @@
 		<div class="col-md-2">
 		   <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Vote status');?></label>
-			<select name="fbst" class="form-control input-sm">
+			<select name="fbst" class="form-control form-control-sm">
 				<option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any');?></option>
 				<option value="0" <?php if ($input->fbst === 0) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Not Voted');?></option>
 				<option value="1" <?php if ($input->fbst === 1) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Up Voted');?></option>
@@ -251,7 +251,7 @@
 		<div class="col-md-2">
 		   <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat status');?></label>
-			<select name="chat_status" class="form-control input-sm">
+			<select name="chat_status" class="form-control form-control-sm">
 				<option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any');?></option>
 				<option value="0" <?php if ($input->chat_status === erLhcoreClassModelChat::STATUS_PENDING_CHAT) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Pending chats');?></option>
 				<option value="1" <?php if ($input->chat_status === erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Active chats');?></option>
@@ -268,22 +268,22 @@
 	                    'input_name'     => 'product_id',
 						'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select product'),
 	                    'selected_id'    => $input->product_id,
-			            'css_class'      => 'form-control input-sm',
+			            'css_class'      => 'form-control form-control-sm',
 	                    'list_function'  => 'erLhAbstractModelProduct::getList'
 	         )); ?>
 		</div>
 		<div class="col-md-2">
 			<div class="form-group">
 		    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat ID');?></label>
-				<input type="text" class="form-control input-sm" name="chat_id" value="<?php echo htmlspecialchars($input->chat_id)?>" />
+				<input type="text" class="form-control form-control-sm" name="chat_id" value="<?php echo htmlspecialchars($input->chat_id)?>" />
 			</div>
 		</div>
         <div class="col-md-3">
 			<div class="form-group">
 		    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat duration');?></label>
                 <div class="row">
-                    <div class="col-xs-6">
-                        <select class="form-control input-sm" name="chat_duration_from" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat duration from');?>">
+                    <div class="col-6">
+                        <select class="form-control form-control-sm" name="chat_duration_from" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat duration from');?>">
                             <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','From');?></option>
                             <option value="1" <?php 1 === $input->chat_duration_from ? print 'selected="selected"' : ''?> >1 s.</option>
                             <?php for ($i = 1; $i < 10; $i++) : ?>
@@ -295,8 +295,8 @@
                             <?php endfor; ?>
                         </select>
                     </div>
-                    <div class="col-xs-6">
-                        <select class="form-control input-sm" name="chat_duration_till" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat duration till');?>">
+                    <div class="col-6">
+                        <select class="form-control form-control-sm" name="chat_duration_till" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat duration till');?>">
                             <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Till');?></option>
                             <?php for ($i = 1; $i < 10; $i++) : ?>
                                 <option value="<?php echo $i*60?>" <?php $i*60 === $input->chat_duration_till ? print 'selected="selected"' : ''?> ><?php echo $i?> m.</option>
@@ -320,7 +320,7 @@
                     'input_name'     => 'subject_id',
                     'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Subject'),
                     'selected_id'    => $input->subject_id,
-                    'css_class'      => 'form-control input-sm',
+                    'css_class'      => 'form-control form-control-sm',
                     'display_name'   => 'name',
                     'list_function'  => 'erLhAbstractModelSubject::getList'
                 )); ?>
@@ -333,7 +333,7 @@
                     'input_name'     => 'invitation_id',
                     'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose proactive invitation'),
                     'selected_id'    => $input->invitation_id,
-                    'css_class'      => 'form-control input-sm',
+                    'css_class'      => 'form-control form-control-sm',
                     'display_name'   => 'name',
                     'list_function'  => 'erLhAbstractModelProactiveChatInvitation::getList'
                 )); ?>
@@ -342,39 +342,39 @@
         <div class="col-md-2">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','IP');?></label>
-                <input type="text" class="form-control input-sm" name="ip" value="<?php echo htmlspecialchars($input->ip)?>" />
+                <input type="text" class="form-control form-control-sm" name="ip" value="<?php echo htmlspecialchars($input->ip)?>" />
             </div>
         </div>
 		<div class="col-md-2">
     		<div class="form-group">
-        	   <label class="control-label"><input type="checkbox" name="hum" <?php $input->hum == 1 ? print ' checked="checked" ' : ''?> value="on" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Has unread messages')?></label>
+        	   <label class="col-form-label"><input type="checkbox" name="hum" <?php $input->hum == 1 ? print ' checked="checked" ' : ''?> value="on" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Has unread messages')?></label>
         	</div>
 		</div>
         <div class="col-md-2">
     		<div class="form-group">
-        	   <label class="control-label"><input type="checkbox" name="una" <?php $input->una == 1 ? print ' checked="checked" ' : ''?> value="on" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Unanswered chat')?></label>
+        	   <label class="col-form-label"><input type="checkbox" name="una" <?php $input->una == 1 ? print ' checked="checked" ' : ''?> value="on" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Unanswered chat')?></label>
         	</div>
 		</div>
         <div class="col-md-2">
     		<div class="form-group">
-        	   <label class="control-label"><input type="checkbox" name="anonymized" <?php $input->anonymized == 1 ? print ' checked="checked" ' : ''?> value="on" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Anonymised')?></label>
+        	   <label class="col-form-label"><input type="checkbox" name="anonymized" <?php $input->anonymized == 1 ? print ' checked="checked" ' : ''?> value="on" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Anonymised')?></label>
         	</div>
 		</div>
     </div>
 
 
     <div class="row">
-        <div class="col-xs-2">
+        <div class="col-2">
             <div class="btn-group" role="group" aria-label="...">
-                <input type="submit" name="doSearch" class="btn btn-default btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
+                <input type="submit" name="doSearch" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
                 <?php if ($pages->items_total > 0) : ?>
-                    <a target="_blank" class="btn btn-default btn-sm" href="<?php echo $pages->serverURL?>/(print)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Print');?></a>
+                    <a target="_blank" class="btn btn-secondary btn-sm" href="<?php echo $pages->serverURL?>/(print)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Print');?></a>
                 <?php endif; ?>
             </div>
         </div>
-        <div class="col-xs-2">
+        <div class="col-2">
             <div class="form-group">
-                <select class="form-control input-sm" id="export-type">
+                <select class="form-control form-control-sm" id="export-type">
                     <option value="<?php echo $pages->serverURL?>/(xls)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS')?></option>
                     <option value="<?php echo $pages->serverURL?>/(xls)/2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS (with content)')?></option>
                     <option value="<?php echo $pages->serverURL?>/(xls)/3"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS (with survey)')?></option>
@@ -382,8 +382,8 @@
                 </select>
             </div>
         </div>
-        <div class="col-xs-2">
-            <button onclick="window.open($('#export-type').val())" class="btn btn-default btn-sm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export')?></button>
+        <div class="col-2">
+            <button onclick="window.open($('#export-type').val())" class="btn btn-secondary btn-sm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export')?></button>
         </div>
     </div>
 	

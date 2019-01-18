@@ -694,7 +694,7 @@ class erLhcoreClassBBCode
         if ( empty($url) )
             return '[url='.$matches[1].']' . $matches[2] . '[/url]';
 				
-        return '<a class=\"link\" target=\"_blank\" rel=\"noopener\" href="'.$url.'">' . $matches[2] . '</a>';
+        return '<a class="link" target="_blank" rel="noopener" href="'.$url.'">' . $matches[2] . '</a>';
    }
       
    /**
@@ -737,7 +737,7 @@ class erLhcoreClassBBCode
      */
    public static function _make_email_clickable_cb( $matches ) {
     	$email = $matches[2] . '@' . $matches[3];
-    	return $matches[1] . "<a href=\"mailto:$email\">$email</a>";
+    	return $matches[1] . "<a class=\"link\" href=\"mailto:$email\">$email</a>";
    }
 
    
@@ -778,7 +778,10 @@ class erLhcoreClassBBCode
    public static function _make_url_file($matches)
    {
    		if (isset($matches[1])){
-   			list($fileID,$hash) = explode('_',$matches[1]);
+   		    $parts = explode('_',$matches[1]);
+   			$fileID = $parts[0];
+   			$hash = $parts[1];
+   			$displayType = isset($parts[2]) ? $parts[2] : null;
    			try {
    				$file = erLhcoreClassModelChatFile::fetch($fileID);
 
@@ -792,13 +795,18 @@ class erLhcoreClassBBCode
                     if ($hash == md5($name . '_' . $file->chat_id)) {
                         $hash = md5($file->name . '_' . $file->chat_id);
 
+                        $fileExtension = strtolower($file->extension);
+                        if ($displayType == 'img' && $fileExtension == 'jpg' || $fileExtension == 'jpeg' || $fileExtension == 'png'){
+                            return '<img id="img-file-' . $file->id . '" class="img-fluid" src="' . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />';
+                        }
+
                         $audio = '';
-                        if ($file->extension == 'mp3' || $file->extension == 'wav' || $file->extension == 'ogg') {
+                        if ($fileExtension == 'mp3' || $fileExtension == 'wav' || $fileExtension == 'ogg') {
                             $audio = '<br/><audio controls><source src="' . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" type="' . $file->type . '"></audio>';
-                        } elseif ($file->extension == 'mp4' || $file->extension == 'avi' || $file->extension == 'mov' || $file->extension == 'ogg' || $file->extension == '3gpp') {
-                            $audio = '<br><div class="embed-responsive embed-responsive-16by9"><video class="class="embed-responsive-item" controls><source src="' . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '"></video></div>';
-                        } else if ($file->extension == 'jpg' || $file->extension == 'jpeg' || $file->extension == 'png') {
-                            $audio = ' <a onclick="$(\'#img-file-' . $file->id . '\').toggleClass(\'hide\')"><i class="material-icons mr-0">&#xE251;</i></a><br/><img id="img-file-' . $file->id . '" class="img-responsive hide" src="' . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />';
+                        } elseif ($fileExtension == 'mp4' || $fileExtension == 'avi' || $fileExtension == 'mov' || $fileExtension == 'ogg' || $fileExtension == '3gpp') {
+                            $audio = '<br><div class="embed-responsive embed-responsive-16by9"><video class="embed-responsive-item" controls><source src="' . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '"></video></div>';
+                        } else if ($fileExtension == 'jpg' || $fileExtension == 'jpeg' || $fileExtension == 'png') {
+                            $audio = ' <a class="link" onclick="$(\'#img-file-' . $file->id . '\').toggleClass(\'hide\')"><i class="material-icons mr-0">&#xE251;</i></a><br/><img id="img-file-' . $file->id . '" class="img-fluid hide" src="' . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />';
                         }
 
                         return "<a href=\"" . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}\" target=\"_blank\" rel=\"noopener\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file', 'Download file') . ' - ' . htmlspecialchars($file->upload_name) . ' [' . $file->extension . ']' . "</a>" . $audio;

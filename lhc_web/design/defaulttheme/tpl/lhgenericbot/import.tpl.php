@@ -16,6 +16,6 @@
         <input type="file" name="botfile" value="" />
     </div>
 
-    <input type="submit" name="ImportBot" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/import','Import')?>" />
+    <input type="submit" name="ImportBot" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/import','Import')?>" />
 
 </form>

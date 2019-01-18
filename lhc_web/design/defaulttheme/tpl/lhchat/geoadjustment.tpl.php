@@ -38,5 +38,5 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>		
 	</div>
 	
-	<input type="submit" class="btn btn-default" name="SaveGeoAdjustment" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save')?>" />
+	<input type="submit" class="btn btn-secondary" name="SaveGeoAdjustment" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save')?>" />
 </form>

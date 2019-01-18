@@ -145,6 +145,12 @@ class erLhcoreClassDepartament{
                 ),
                 'bot_only_offline' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+                ),
+                'auto_delay_timeout' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+                ),
+                'auto_delay_var' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 )
 	   	);
 
@@ -470,6 +476,18 @@ class erLhcoreClassDepartament{
            $botConfiguration['bot_only_offline'] = false;
        }
 
+       if ( $form->hasValidData( 'auto_delay_timeout' ) ) {
+           $botConfiguration['auto_delay_timeout'] = $form->auto_delay_timeout;
+       } else {
+           $botConfiguration['auto_delay_timeout'] = 0;
+       }
+
+       if ( $form->hasValidData( 'auto_delay_var' ) ) {
+           $botConfiguration['auto_delay_var'] = $form->auto_delay_var;
+       } else {
+           $botConfiguration['auto_delay_var'] = '';
+       }
+       
        $department->bot_configuration_array = $botConfiguration;
        $department->bot_configuration = json_encode($botConfiguration);
 

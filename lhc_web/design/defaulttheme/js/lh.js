@@ -215,7 +215,7 @@ function lh(){
 
          selected = e.data.that.getSelectedText();
 
-         $('.popover-copy').popover('destroy');
+         $('.popover-copy').popover('dispose');
 
          if (selected.text.length && (e.data.that.selection === null || e.data.that.selection.text !== selected.text)) {
 
@@ -227,7 +227,7 @@ function lh(){
                  animation:false,
                  html:true,
                  container:'#chat-id-'+e.data.chat_id,
-                 template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-content popover-quote"></div></div>',
+                 template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>',
                  content:'<a href="#" onclick="lhinst.quateSelection('+e.data.chat_id+')"><i class="material-icons">&#xE244;</i>quote</a>'
              }).popover('show');
 
@@ -247,7 +247,7 @@ function lh(){
     }
 
     this.quateSelection = function (chat_id) {
-        $('.popover-copy').popover('destroy');
+        $('.popover-copy').popover('dispose');
 
         var textToPaste = this.selection.text.replace(/[\uD7AF\uD7C7-\uD7CA\uD7FC-\uF8FF\uFA6E\uFA6F\uFADA]/g,'');
 
@@ -282,18 +282,18 @@ function lh(){
         } else {
             if (this.popoverShown === true) {
                 this.popoverShown = false;
-                $('.popover-copy').popover('destroy');
+                $('.popover-copy').popover('dispose');
             }
         }
     };
 
     this.addTab = function(tabs, url, name, chat_id, focusTab, position) {    
     	// If tab already exits return
-    	if (tabs.find('#chat-tab-link-'+chat_id).size() > 0) {
+    	if (tabs.find('#chat-tab-link-'+chat_id).length > 0) {
     		return ;
     	}
     	
-    	var contentLi = '<li role="presentation" id="chat-tab-li-'+chat_id+'" ><a href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">send</i><i id="user-chat-status-'+chat_id+'" class="'+this.tabIconClass+'">'+this.tabIconContent+'</i><span class="ntab" id="ntab-chat-'+chat_id+'">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span><span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>';
+    	var contentLi = '<li role="presentation" id="chat-tab-li-'+chat_id+'" class="nav-item"><a class="nav-link" href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">send</i><i id="user-chat-status-'+chat_id+'" class="'+this.tabIconClass+'">'+this.tabIconContent+'</i><span class="ntab" id="ntab-chat-'+chat_id+'">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span><span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>';
     	
     	if (typeof position === 'undefined' || parseInt(position) == 0) {
     		tabs.find('> ul').append(contentLi);
@@ -323,8 +323,8 @@ function lh(){
 
     	$.get(url, function(data) {
     		if (typeof focusTab === 'undefined' || focusTab === true || hash == '#chat-id-'+chat_id){
-	    		tabs.find('> ul > li.active').removeClass("active");
-	    		tabs.find('> ul > #chat-tab-li-'+chat_id).addClass("active");
+	    		tabs.find('> ul > li > a.active').removeClass("active");
+	    		tabs.find('> ul > #chat-tab-li-'+chat_id+' > a').addClass("active");
 	    		tabs.find('> div.tab-content > div.active').removeClass('active');
 	    		tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane active" id="chat-id-'+chat_id+'"></div>'); 
 	    		window.location.hash = '#/chat-id-'+chat_id;	
@@ -465,8 +465,8 @@ function lh(){
      	    	inst.syncadmininterfacestatic();
      	    },1000);
         } else {
-        	tabs.find('> ul > li.active').removeClass("active");
-    		tabs.find('> ul > #chat-tab-li-'+chat_id).addClass("active");
+        	tabs.find('> ul > li > a.active').removeClass("active");
+    		tabs.find('> ul > li#chat-tab-li-'+chat_id+' > a').addClass("active");
     		tabs.find('> div.tab-content > div.active').removeClass('active');
     		tabs.find('> div.tab-content > #chat-id-'+chat_id).addClass('active');  
     		window.location.hash = '#/chat-id-'+chat_id;
@@ -583,13 +583,13 @@ function lh(){
     this.saveRemarks = function(chat_id) {
     	clearTimeout(this.remarksTimeout);
     	
-    	$('#remarks-status-'+chat_id).addClass('warning-color');
+    	$('#remarks-status-'+chat_id).addClass('text-warning');
     	$('#main-user-info-remarks-'+chat_id+' .alert').remove();
     	var inst = this;
     	this.remarksTimeout = setTimeout(function(){
     		$.postJSON(inst.wwwDir + 'chat/saveremarks/' + chat_id,{'data':$('#ChatRemarks-'+chat_id).val()}, function(data){
 				if(data.error == 'false') {
-					$('#remarks-status-'+chat_id).removeClass('warning-color');
+					$('#remarks-status-'+chat_id).removeClass('text-warning');
 				} else {
 					$('#main-user-info-remarks-'+chat_id).prepend(data.result);
 				}
@@ -599,11 +599,11 @@ function lh(){
     
     this.saveNotes = function(chat_id) {
     	clearTimeout(this.remarksTimeout);    	    	
-    	$('#remarks-status-online-'+chat_id).addClass('warning-color');
+    	$('#remarks-status-online-'+chat_id).addClass('text-warning');
     	var inst = this;
     	this.remarksTimeout = setTimeout(function(){
     		$.postJSON(inst.wwwDir + 'chat/saveonlinenotes/' + chat_id,{'data':$('#OnlineRemarks-'+chat_id).val()}, function(data){
-    			$('#remarks-status-online-'+chat_id).removeClass('warning-color');
+    			$('#remarks-status-online-'+chat_id).removeClass('text-warning');
             });
     	},500);    	
     };
@@ -1074,14 +1074,14 @@ function lh(){
     		var link = linkTab.find('> a');
     	} else {
     		linkTabRight = tabs.find('> ul > li:eq('+ (index)+')');
-    		if (linkTabRight.size() > 0) {
+    		if (linkTabRight.length > 0) {
     			var link = linkTabRight.find('> a');
     		} else {
     			var link = linkTab.find('> a');
     		}
     	}
 
-    	if (!tabs.find('> ul > li.active').length) {
+    	if (!tabs.find('> ul > li > a.active').length) {
     		link.tab('show');
 
     		if (link.attr('id') !== undefined) {
@@ -1276,7 +1276,7 @@ function lh(){
 	        dataType: 'json'
 	    }).done(function(data){	  
 	    		    	
-	    	if ($('#tabs').size() > 0) {
+	    	if ($('#tabs').length > 0) {
     			window.focus();
     			inst.startChat(data.chat_id, $('#tabs'), nt);
     		} else {
@@ -1311,13 +1311,20 @@ function lh(){
 	this.sendLinkToMail = function( embed_code,file_id) {
 		var val = window.parent.$('#MailMessage').val();		
 		window.parent.$('#MailMessage').val(((val != '') ? val+"\n" : val)+embed_code);
-		$('#embed-button-'+file_id).addClass('success');	
+		$('#embed-button-'+file_id).addClass('btn-success');
 	};
 	
 	this.sendLinkToEditor = function(chat_id, embed_code,file_id) {
 		var val = window.parent.$('#CSChatMessage-'+chat_id).val();		
 		window.parent.$('#CSChatMessage-'+chat_id).val(((val != '') ? val+"\n" : val)+embed_code);
-		$('#embed-button-'+file_id).addClass('success');	
+		$('#embed-button-'+file_id).addClass('btn-success');
+	};
+
+	this.sendLinkToGeneralEditor = function(embed_code,file_id) {
+	    var editor = window.parent.$('.embed-into');
+		var val = editor.val();
+        editor.val(((val != '') ? val+"\n" : val)+embed_code);
+		$('#embed-button-'+file_id).addClass('btn-success');
 	};
 
 	this.hideTransferModal = function(chat_id)
@@ -1326,7 +1333,7 @@ function lh(){
 
         setTimeout(function(){
             $('#myModal').modal('hide');
-            if ($('#tabs').size() > 0) {
+            if ($('#tabs').length > 0) {
                 inst.removeDialogTab(chat_id,$('#tabs'),true)
             }
         },1000);
@@ -1753,7 +1760,7 @@ function lh(){
 	
 	        		                  var mainElement = $('#chat-tab-link-'+item.chat_id);
 	
-	        		                  if (!mainElement.parent().hasClass('active')) {
+	        		                  if (!mainElement.hasClass('active')) {
 	        		                	  if (mainElement.find('span.msg-nm').length > 0) {
 	        		                		  var totalMsg = (parseInt(mainElement.find('span.msg-nm').attr('rel')) + item.mn);
 	        		                		  mainElement.find('span.msg-nm').html(' (' + totalMsg + ')' ).attr('rel',totalMsg);
@@ -2028,7 +2035,7 @@ function lh(){
 				  				
 			notification.onclick = function () {
     	    	if (identifier == 'pending_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered') {
-    	    		if ($('#tabs').size() > 0) {
+    	    		if ($('#tabs').length > 0) {
     	    			window.focus();
     	    			inst.startChat(chat_id, $('#tabs'), nt);
     	    		} else {
@@ -2059,7 +2066,7 @@ function lh(){
 	    if (confLH.show_alert == 1) {	    	
     		if (confirm(confLH.transLation.new_chat+"\n\n"+message)) {
     			if (identifier == 'pending_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered') {
-    	    		if ($('#tabs').size() > 0) {
+    	    		if ($('#tabs').length > 0) {
     	    			window.focus();
     	    			inst.startChat(chat_id, $('#tabs'), nt);
     	    		} else {
@@ -2382,7 +2389,7 @@ function lh(){
                 	 
                 	 if (q != '') {
                 		 var options = $('#id_CannedMessage-'+chat_id).find('option');
-                		 if (options.size() > 1) {
+                		 if (options.length > 1) {
                 			 $(options[1]).attr('selected','selected');
                 		 }
                 	 }
@@ -2498,9 +2505,9 @@ function lh(){
     	$.getJSON(this.wwwDir + 'chat/getmessage/' + this.chat_id + '/' + this.hash + '/'+ msgid + modeWindow, function(data) {  
     		if (data.error == 'f') {
     			$('#msg-'+msgid).replaceWith(data.msg);
-    			$('#msg-'+msgid).addClass('edit-mode-done');
+    			$('#msg-'+msgid).addClass('bg-success');
     			setTimeout(function(){
-    				$('#msg-'+msgid).removeClass('edit-mode-done');
+    				$('#msg-'+msgid).removeClass('bg-success');
     			},2000);
     		}
     	});
@@ -2510,9 +2517,9 @@ function lh(){
     	$.getJSON(this.wwwDir + 'chat/getmessageadmin/' + chat_id + '/' + msgid, function(data) {    	
     		if (data.error == 'f') {
     			$('#msg-'+msgid).replaceWith(data.msg);
-    			$('#msg-'+msgid).addClass('edit-mode-done');
+    			$('#msg-'+msgid).addClass('bg-success');
     			setTimeout(function(){
-    				$('#msg-'+msgid).removeClass('edit-mode-done');
+    				$('#msg-'+msgid).removeClass('bg-success');
     			},2000);
     		}
 		});
@@ -2772,7 +2779,7 @@ function lh(){
     
     this.prestartChat = function(timestamp,inst) {
     	    	
-    	if (inst.find('.form-protected').size() == 0) {
+    	if (inst.find('.form-protected').length == 0) {
     		
     			if (inst.attr('lhc-captcha-submitted') != 1) {
     				inst.attr('lhc-captcha-submitted',1);    				
@@ -2796,7 +2803,7 @@ function lh(){
     		  		
     			} else {
     				// That means it's second submit, and that means user pressed enter
-    				if ($('#messagesBlock').size() > 0) {
+    				if ($('#messagesBlock').length > 0) {
     	            	jQuery('<div/>', {
     	    			    'class': 'message-row response',					   
     	    			    text: $('#id_Question').val()
@@ -2811,7 +2818,7 @@ function lh(){
 	  	} else {
 	  		
 	  		// Avoid users stupidity if they enable it but form has extra field
-	  		if (inst.find('#hasFormExtraField').size() == 1) {
+	  		if (inst.find('#hasFormExtraField').length == 1) {
 	  			return true;
 	  		}
 	  		
@@ -2866,7 +2873,7 @@ function lh(){
 		  		}
 		  		
 	  		} else {	  			
-	  			if ($('#messagesBlock').size() > 0) {
+	  			if ($('#messagesBlock').length > 0) {
 	            	jQuery('<div/>', {
 	    			    'class': 'message-row response',					   
 	    			    text: $('#id_Question').val()
@@ -2882,7 +2889,7 @@ function lh(){
     };
     
     this.addCaptcha = function(timestamp,inst) {
-    	if (inst.find('.form-protected').size() == 0){
+    	if (inst.find('.form-protected').length == 0){
     			 inst.find('input[type="submit"]').attr('disabled','disabled');
 		    	 $.getJSON(this.wwwDir + 'captcha/captchastring/form/'+timestamp, function(data) {
 		    		 inst.append('<input type="hidden" value="'+timestamp+'" name="captcha_'+data.result+'" /><input type="hidden" value="'+timestamp+'" name="tscaptcha" /><input type="hidden" class="form-protected" value="1" />');
@@ -2903,7 +2910,7 @@ function lh(){
     }
     
     this.addCaptchaSubmit = function(timestamp,inst) {
-        if (inst.find('.form-protected').size() == 0) {
+        if (inst.find('.form-protected').length == 0) {
             inst.find('input[type="submit"]').attr('disabled','disabled');
             $.getJSON(this.wwwDir + 'captcha/captchastring/form/'+timestamp, function(data) {
                 inst.append('<input type="hidden" value="'+timestamp+'" name="captcha_'+data.result+'" /><input type="hidden" value="'+timestamp+'" name="tscaptcha" /><input type="hidden" class="form-protected" value="1" />');
@@ -3521,7 +3528,7 @@ function gMapsCallback(){
 
 	google.maps.event.addListener(map, 'idle', showMarkers);
 	
-	var mapTabSection = $('#map-activator').parent();
+	var mapTabSection = $('#map-activator');
 		
 	function showMarkers() {
 	    if ( processing == false) {	    		
@@ -3657,6 +3664,8 @@ window.onfocus = window.onblur = function(e) {
     focused = (e || event).type === "focus";
     lhinst.focusChanged(focused);
 };
+
+window.lhcSelector = null;
 
 /*Helper functions*/
 function chatsyncuser()

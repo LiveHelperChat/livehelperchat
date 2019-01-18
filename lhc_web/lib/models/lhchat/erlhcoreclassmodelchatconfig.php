@@ -72,7 +72,11 @@ class erLhcoreClassModelChatConfig {
    {
    		switch ($variable) {
    			case 'data':
-   					$this->data = unserialize($this->value);
+   			        if ($this->value != '' && $this->value != '0'){
+                        $this->data = unserialize($this->value);
+                    } else {
+                        $this->data = array();
+                    }
    					return $this->data;
    				break;
    				

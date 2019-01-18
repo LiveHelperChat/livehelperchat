@@ -25,22 +25,21 @@
 <label><input type="checkbox" name="use_xmp" value="1" <?php isset($xmp_data['use_xmp']) && ($xmp_data['use_xmp'] == '1') ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','XMPP active'); ?></label>
 
 <div class="row form-group">
-	<div class="col-xs-6">
+	<div class="col-6">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','XMPP Message content');?></label>
 		<textarea class="form-control" name="XMPMessage" style="height:100px;"><?php echo htmlspecialchars($xmp_data['xmp_message'])?></textarea>
 	</div>
-	<div class="col-xs-6">
+	<div class="col-6">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','XMPP Message about accepted chat');?></label>
 		<textarea class="form-control" name="XMPAcceptedMessage" style="height:100px;"><?php echo htmlspecialchars($xmp_data['xmp_accepted_message'])?></textarea>
 	</div>
 </div>
 
-
 <div role="tabpanel">
 	<!-- Nav tabs -->
 	<ul class="nav nav-tabs" role="tablist">
-		<li role="presentation" class="<?php if ( (isset($xmp_data['use_standard_xmp']) && $xmp_data['use_standard_xmp'] == '0') || !isset($xmp_data['use_standard_xmp']) ) : ?>active<?php endif;?>"><a href="#xmp" aria-controls="xmp" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','XMPP');?></a></li>
-		<li role="presentation" <?php if (isset($xmp_data['use_standard_xmp']) && $xmp_data['use_standard_xmp'] == '1' ) : ?>class="active"<?php endif;?>><a href="#gtalk" aria-controls="gtalk" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','GTalk');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link <?php if ( (isset($xmp_data['use_standard_xmp']) && $xmp_data['use_standard_xmp'] == '0') || !isset($xmp_data['use_standard_xmp']) ) : ?>active<?php endif;?>" href="#xmp" aria-controls="xmp" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','XMPP');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link <?php if (isset($xmp_data['use_standard_xmp']) && $xmp_data['use_standard_xmp'] == '1' ) : ?>active<?php endif;?>" href="#gtalk" aria-controls="gtalk" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','GTalk');?></a></li>
 	</ul>
 
 	<!-- Tab panes -->
@@ -49,33 +48,33 @@
 		        <label><input type="radio" name="use_standard_xmp" value="0" <?php ( (isset($xmp_data['use_standard_xmp']) && $xmp_data['use_standard_xmp'] == '0') || !isset($xmp_data['use_standard_xmp']) ) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Use standard XMPP service'); ?></label>
 		
 				<div class="row form-group">
-					<div class="col-xs-6">
+					<div class="col-6">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Host');?></label>
 						<input class="form-control" type="text" name="host" placeholder="talk.google.com" value="<?php (isset($xmp_data['host']) && $xmp_data['host'] != '') ? print $xmp_data['host'] : print '' ?>" />
 					</div>
-					<div class="col-xs-6">
+					<div class="col-6">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Port');?></label>
 						<input class="form-control" type="text" name="port" value="<?php (isset($xmp_data['port']) && $xmp_data['port'] != '') ? print $xmp_data['port'] : print '5222' ?>" />
 					</div>
 				</div>
 				
 				<div class="row form-group">
-					<div class="col-xs-6">			
+					<div class="col-6">			
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Login');?></label>
 						<input class="form-control" type="text" name="username" autocomplete="new-password" value="<?php (isset($xmp_data['username']) && $xmp_data['username'] != '') ? print $xmp_data['username'] : print '' ?>" />
 					</div>
-					<div class="col-xs-6">
+					<div class="col-6">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Password');?></label>
 						<input class="form-control" type="password" name="password" autocomplete="new-password" value="" />
 					</div>
 				</div>
 				
 				<div class="row form-group">
-					<div class="col-xs-6">
+					<div class="col-6">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Resource');?></label>
 						<input class="form-control" type="text" name="resource" placeholder="xmpphp" value="<?php (isset($xmp_data['resource']) && $xmp_data['resource'] != '') ? print $xmp_data['resource'] : print '' ?>" />
 					</div>
-					<div class="col-xs-6">
+					<div class="col-6">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Server');?></label>
 						<input class="form-control" type="text" name="server" placeholder="gmail.com" value="<?php (isset($xmp_data['server']) && $xmp_data['server'] != '') ? print $xmp_data['server'] : print '' ?>" />
 					</div>
@@ -99,8 +98,8 @@
 				</div>
 				
 				<div class="btn-group" role="group" aria-label="...">
-				  <input type="submit" class="btn btn-default" name="StoreXMPSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
-				  <input type="submit" class="btn btn-default" name="StoreXMPSettingsTest" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Test message will be send to your account e-mail'); ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Send test message'); ?>" />
+				  <input type="submit" class="btn btn-secondary" name="StoreXMPSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
+				  <input type="submit" class="btn btn-secondary" name="StoreXMPSettingsTest" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Test message will be send to your account e-mail'); ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Send test message'); ?>" />
 				</div>
 				
 		</div>
@@ -131,17 +130,17 @@
 			    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Please enter to what gmail address test message should be send?');?></label>
 			    <input class="form-control" type="text" name="test_recipients_gtalk" value="<?php (isset($test_gmail_email) && $test_gmail_email != '') ? print htmlspecialchars($test_gmail_email) : print '' ?>" />
 				</div>			
-				<input type="submit" class="btn btn-primary pull-right" name="StoreXMPGTalkSendeMessage" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','This message will be send to test e-mail'); ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Send test message'); ?>" />
+				<input type="submit" class="btn btn-primary float-right" name="StoreXMPGTalkSendeMessage" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','This message will be send to test e-mail'); ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Send test message'); ?>" />
 				<?php endif;?>
 									
 				<div class="btn-group" role="group" aria-label="...">
-				  <input type="submit" class="btn btn-default" name="StoreXMPGTalkSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
+				  <input type="submit" class="btn btn-secondary" name="StoreXMPGTalkSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 				  					  
 				  <?php if (erLhcoreClassXMP::getAccessToken() !== false) : ?>					  
-				  	<input type="submit" class="btn btn-default" name="StoreXMPGTalkRevokeToken" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Revoke access token'); ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Revoke permission to send a message'); ?>" />
+				  	<input type="submit" class="btn btn-secondary" name="StoreXMPGTalkRevokeToken" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Revoke access token'); ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Revoke permission to send a message'); ?>" />
 				  <?php else : ?>
 					  <?php if (isset($xmp_data['gtalk_client_secret']) && (!empty($xmp_data['gtalk_client_secret']))) : ?>
-					  		<input type="submit" class="btn btn-default" name="StoreXMPGTalkSettingsTest" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Authentificate and grant permission to send a message'); ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Grant permission to send a message'); ?>" />
+					  		<input type="submit" class="btn btn-secondary" name="StoreXMPGTalkSettingsTest" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Authentificate and grant permission to send a message'); ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Grant permission to send a message'); ?>" />
 					  <?php endif;?>
 				  <?php endif;?>
 				</div>

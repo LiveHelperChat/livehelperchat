@@ -14,8 +14,8 @@
 </div>
 
 <div class="btn-group" role="group" aria-label="...">
-	<input type="submit" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Change chat status')?>" />
-	<input type="button" class="btn btn-default" onclick="$('#myModal').modal('hide');" name="CancelAlbum" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Cancel')?>"/>
+	<input type="submit" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Change chat status')?>" />
+	<input type="button" class="btn btn-secondary" onclick="$('#myModal').modal('hide');" name="CancelAlbum" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Cancel')?>"/>
 </div>
 
 </form>

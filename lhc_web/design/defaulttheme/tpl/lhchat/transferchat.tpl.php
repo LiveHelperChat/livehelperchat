@@ -4,11 +4,11 @@
 
 <div role="tabpanel">
 	<ul class="nav nav-tabs" role="tablist">
-		<li role="presentation" class="active"><a href="#transferusermodal" aria-controls="transferusermodal" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer to a user');?></a></li>
-		<li role="presentation"><a href="#transferdepmodal" aria-controls="transferdepmodal" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer to a department');?></a></li>
+		<li role="presentation" class="nav-item"><a class="active nav-link" href="#transferusermodal" aria-controls="transferusermodal" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer to a user');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link" href="#transferdepmodal" aria-controls="transferdepmodal" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer to a department');?></a></li>
 
         <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','changeowner')) : ?>
-            <li role="presentation"><a href="#changeowner" aria-controls="changeowner" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change owner');?></a></li>
+            <li role="presentation" class="nav-item"><a class="nav-link" href="#changeowner" aria-controls="changeowner" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change owner');?></a></li>
         <?php endif; ?>
 
 	</ul>
@@ -31,21 +31,21 @@
 
             </div>
 
-    		<input type="button" onclick="lhinst.transferChat('<?php echo $chat->id;?>')" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
+    		<input type="button" onclick="lhinst.transferChat('<?php echo $chat->id;?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
     		
 		</div>
 		<div role="tabpanel" class="tab-pane" id="transferdepmodal">
 
     		<div class="row">
-    		    <div class="col-xs-6">
+    		    <div class="col-6">
 
                     <div id="transfer-chat-list-refilter">
 
                     </div>
 
-            		<input type="button" onclick="lhinst.transferChatDep('<?php echo $chat->id;?>')" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
+            		<input type="button" onclick="lhinst.transferChatDep('<?php echo $chat->id;?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
         		</div>
-        		<div class="col-xs-6">
+        		<div class="col-6">
         		    <div class="checkbox">
         		      <label><input type="checkbox" onchange="updateTransferDepartments()" checked="checked" id="dep_transfer_only_explicit"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Only departments which are online and explicitly assigned operator are online');?></label>
         		    </div>
@@ -99,7 +99,7 @@
                     'list_function'  => 'erLhcoreClassModelUser::getUserList'
                 )); ?>
             </div>
-            <input type="button" onclick="lhinst.changeOwner('<?php echo $chat->id?>')" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change owner');?>">
+            <input type="button" onclick="lhinst.changeOwner('<?php echo $chat->id?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change owner');?>">
         </div>
         <?php endif; ?>
 

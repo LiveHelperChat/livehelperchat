@@ -9,12 +9,12 @@
 <?php $fields = $object->getFields();?>
 <div role="tabpanel">
     	<!-- Nav tabs -->
-    	<ul class="nav nav-tabs" role="tablist">
-    		<li role="presentation" class="active"><a href="#invitation" aria-controls="invitation" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Invitation');?></a></li>
-    		<li role="presentation"><a href="#bot" aria-controls="bot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Bot');?></a></li>
-    		<li role="presentation"><a href="#dynamic" aria-controls="dynamic" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Dynamic');?></a></li>
-    		<li role="presentation"><a href="#events" aria-controls="events" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Events');?></a></li>
-    		<li role="presentation"><a href="#design" aria-controls="design" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Design');?></a></li>
+    	<ul class="nav nav-tabs mb-2" role="tablist">
+    		<li role="presentation" class="nav-item"><a class="active nav-link" href="#invitation" aria-controls="invitation" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Invitation');?></a></li>
+    		<li role="presentation" class="nav-item"><a class="nav-link" href="#bot" aria-controls="bot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Bot');?></a></li>
+    		<li role="presentation" class="nav-item"><a class="nav-link" href="#dynamic" aria-controls="dynamic" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Dynamic');?></a></li>
+    		<li role="presentation" class="nav-item"><a class="nav-link" href="#events" aria-controls="events" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Events');?></a></li>
+    		<li role="presentation" class="nav-item"><a class="nav-link" href="#design" aria-controls="design" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Design');?></a></li>
     	</ul>
     
     	<!-- Tab panes -->
@@ -38,9 +38,9 @@
 </div>
 
 <div class="btn-group" role="group" aria-label="...">
-	<input type="submit" class="btn btn-default" name="SaveClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
-	<input type="submit" class="btn btn-default" name="UpdateClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
-	<input type="submit" class="btn btn-default" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
+	<input type="submit" class="btn btn-secondary" name="SaveClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
+	<input type="submit" class="btn btn-secondary" name="UpdateClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
+	<input type="submit" class="btn btn-secondary" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
 </div>
 
 <?php include(erLhcoreClassDesign::designtpl('lhabstract/parts/after_form.tpl.php'));?>

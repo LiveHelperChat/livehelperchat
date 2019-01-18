@@ -16,9 +16,9 @@
         <td><?php echo $item->id?></td>
         <td><?php echo htmlspecialchars($item->range_from_front)?> <?php if ($item->first_id > 0) : ?>[<?php echo $item->first_id?>]<?php endif;?></td>
         <td><?php echo htmlspecialchars($item->range_to_front)?> <?php if ($item->last_id > 0) : ?>[<?php echo $item->last_id?>]<?php endif;?></td>
-        <td nowrap="nowrap"><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/listarchivechats')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','List chats');?></a></td>
-        <td nowrap="nowrap"><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/process')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Process again');?></a></td>
-        <td nowrap="nowrap"><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/edit')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Edit');?></a></td>
+        <td nowrap="nowrap"><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/listarchivechats')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','List chats');?></a></td>
+        <td nowrap="nowrap"><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/process')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Process again');?></a></td>
+        <td nowrap="nowrap"><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/edit')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Edit');?></a></td>
     </tr>
 <?php endforeach; ?>
 </table>
@@ -27,4 +27,4 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
 <?php endif;?>
 
-<a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/newarchive')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/archive','New archive');?></a>
+<a class="btn btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/newarchive')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/archive','New archive');?></a>

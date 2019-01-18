@@ -12,7 +12,7 @@
             <?php endif ?>
 
             <div class="row element-description-row">
-                <div class="col-xs-9">
+                <div class="col-9">
                     <div class="element-description">
                         <h4><?php echo $linkData['start']?><?php echo htmlspecialchars($item['content']['title'])?><?php echo $linkData['end']?></h4>
                         <div><?php echo htmlspecialchars($item['content']['subtitle'])?></div>
@@ -37,9 +37,9 @@
                         <?php endif; ?>
                     </div>
                 </div>
-                <div class="col-xs-3">
+                <div class="col-3">
                     <?php if ($item['content']['img'] != '' && ($index != 0 || $listCompactStyle == true)) : ?>
-                        <?php echo $linkData['start']?><img class="pull-right img-responsive" src="<?php echo $item['content']['img']?>" /><?php echo $linkData['end']?>
+                        <?php echo $linkData['start']?><img class="float-right img-fluid" src="<?php echo $item['content']['img']?>" /><?php echo $linkData['end']?>
                     <?php endif; ?>
                 </div>
             </div>

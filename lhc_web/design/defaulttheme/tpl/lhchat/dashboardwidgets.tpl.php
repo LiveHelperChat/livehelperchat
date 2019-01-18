@@ -1,12 +1,12 @@
 <div class="modal-dialog modal-lg">
 	<div class="modal-content">
 		<div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">
+                <span class="material-icons">info_outline</span>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Choose what widgets you want to see')?>
+            </h4>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>
-			<h4 class="modal-title" id="myModalLabel">
-				<span class="material-icons">info_outline</span>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Choose what widgets you want to see')?>
-			</h4>
 		</div>
 		<div class="modal-body">
 
@@ -36,7 +36,7 @@
 			</div>
         <?php endforeach;?>
 
-        <input type="submit" class="btn btn-default" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update')?>">
+        <input type="submit" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update')?>">
         
         </form>
         

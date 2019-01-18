@@ -8,8 +8,8 @@
         </div> 
         <div class="modal-body">
               <div class="btn-group" role="group" aria-label="...">
-              	 <a href="#" class="btn btn-default btn-xs" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Go to leave a message form');?>" onclick="return lhinst.switchToOfflineForm();"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Leave a message');?></a>
-              	 <a href="#" class="btn btn-default btn-xs" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Cancel and choose another department');?>" onclick="closeRevealForm();return $('#offline-modal').modal('hide');"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?></a>
+              	 <a href="#" class="btn btn-secondary btn-xs" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Go to leave a message form');?>" onclick="return lhinst.switchToOfflineForm();"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Leave a message');?></a>
+              	 <a href="#" class="btn btn-secondary btn-xs" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Cancel and choose another department');?>" onclick="closeRevealForm();return $('#offline-modal').modal('hide');"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?></a>
               </div> 
        </div>
     </div>

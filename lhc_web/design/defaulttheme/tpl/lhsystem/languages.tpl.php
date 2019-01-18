@@ -12,11 +12,11 @@
 	<!-- Nav tabs -->
 	<ul class="nav nav-tabs" role="tablist">	
 	    <?php if ($currentUser->hasAccessTo('lhsystem','changelanguage')) : ?>
-		<li role="presentation" <?php if ($tab == '') : ?> class="active" <?php endif;?>><a href="#yourlanguage" aria-controls="yourlanguage" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Your language');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link <?php if ($tab == '') : ?>active<?php endif;?>" href="#yourlanguage" aria-controls="yourlanguage" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Your language');?></a></li>
 		<?php endif;?>
-				
+
 		<?php if ($currentUser->hasAccessTo('lhsystem','configurelanguages')) : ?>
-		<li role="presentation" <?php if ($tab == 'generalsettings') : ?> class="active" <?php endif;?>><a href="#generalsettings" aria-controls="generalsettings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','General language settings');?></a></li>
+		<li role="presentation" class="nav-item" ><a class="nav-link <?php if ($tab == 'generalsettings') : ?>active<?php endif;?>" href="#generalsettings" aria-controls="generalsettings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','General language settings');?></a></li>
 		<?php endif;?>		
 	</ul>
 
@@ -39,7 +39,7 @@
     				</div>
     				
     				<input type="hidden" name="StoreUserSettings" value="1" /> 
-    				<input type="submit" class="btn btn-default" name="StoreUserSettingsAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
+    				<input type="submit" class="btn btn-secondary" name="StoreUserSettingsAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 			</form>
 		</div>
 	  <?php endif;?>
@@ -96,7 +96,7 @@
 						</div>
 					</div>
 				
-				<input type="hidden" name="StoreLanguageSettings" value="1" /> <input type="submit" class="btn btn-default" name="StoreLanguageSettingsAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
+				<input type="hidden" name="StoreLanguageSettings" value="1" /> <input type="submit" class="btn btn-secondary" name="StoreLanguageSettingsAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 
 			</form>
 

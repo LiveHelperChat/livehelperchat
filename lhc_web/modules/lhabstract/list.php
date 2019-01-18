@@ -7,16 +7,17 @@ $objectData = new $objectClass;
 $object_trans = $objectData->getModuleTranslations();
 
 if (isset($object_trans['permission']) && !$currentUser->hasAccessTo($object_trans['permission']['module'],$object_trans['permission']['function'])) {
-	erLhcoreClassModule::redirect();
-	exit;
+    erLhcoreClassModule::redirect();
+    exit;
 }
 
 $append = '';
 $filterParams['filter'] = array();
+
 if ( isset($objectData->has_filter) &&  $objectData->has_filter === true ) {
-	$filterParams = erLhcoreClassSearchHandler::getParams(array('module_file' => erLhAbstractModelNewspaper::FILTER_NAME, 'format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
-	$append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
-	$tpl->set('filter',erLhAbstractModelNewspaper::FILTER_NAME);
+    $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'abstract', 'module_file' => $objectData->filter_name, 'format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+    $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
+    $tpl->set('filter', $objectData->filter_name);
 }
 
 $filterObject = array();
@@ -25,7 +26,11 @@ if ( method_exists($objectData,'getFilter') ) {
 }
 
 $tpl->set('filterObject',$filterObject);
-		
+
+if (isset($filterParams['input_form'])) {
+    $tpl->set('input_form',$filterParams['input_form']);
+}
+
 $pages = new lhPaginator();
 $pages->items_total = call_user_func('erLhAbstractModel'.$Params['user_parameters']['identifier'].'::getCount',array_merge($filterParams['filter'],$filterObject));
 $pages->translationContext = 'abstract/list';

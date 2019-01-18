@@ -51,7 +51,7 @@ if (typeof jQuery !== 'undefined' ) {
 	      };
 	
 	      Selectorator.prototype.hasParent = function() {
-	        return this.element && 0 < this.element.parent().size();
+	        return this.element && 0 < this.element.parent().length;
 	      };
 	
 	      Selectorator.prototype.isElement = function() {
@@ -69,12 +69,12 @@ if (typeof jQuery !== 'undefined' ) {
 	          isFirst = false;
 	        }
 	        element = this.query(selector);
-	        if (single && 1 < element.size() || !single && 0 === element.size()) {
+	        if (single && 1 < element.length || !single && 0 === element.length) {
 	          if (parentSelector && selector.indexOf(':') === -1) {
 	            delimiter = isFirst ? ' > ' : ' ';
 	            selector = parentSelector + delimiter + selector;
 	            element = this.query(selector);
-	            if (single && 1 < element.size() || !single && 0 === element.size()) {
+	            if (single && 1 < element.length || !single && 0 === element.length) {
 	              return null;
 	            }
 	          } else {

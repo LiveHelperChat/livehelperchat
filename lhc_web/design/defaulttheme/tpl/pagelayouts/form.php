@@ -10,18 +10,18 @@
 <div class="container-fluid">
 
 <div class="row">
-    <div class="col-xs-10">
+    <div class="col-10">
         <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_logo.tpl.php'));?>
     </div>
     <?php if (!isset($Result['hide_close_window'])) : ?>
-    <div class="col-xs-2 pt20">
-		<input type="button" class="btn btn-defaut pull-right closebutton" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatandbrowser();" />
+    <div class="col-2">
+		<input type="button" class="btn btn-secondary float-right closebutton" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatandbrowser();" />
 	</div>
 	<?php endif;?>
 </div>
 
 <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
     <?php echo $Result['content']; ?>
     </div>
 </div>

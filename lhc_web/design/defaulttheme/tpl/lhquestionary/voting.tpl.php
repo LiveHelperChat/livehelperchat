@@ -17,8 +17,8 @@
     </div>
     
 	<div class="btn-group" role="group" aria-label="...">
-      <input type="submit" class="btn btn-default" name="UpdateO" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Save');?>"/>
-      <input type="submit" class="btn btn-default" name="CancelO" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Cancel');?>"/>
+      <input type="submit" class="btn btn-secondary" name="UpdateO" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Save');?>"/>
+      <input type="submit" class="btn btn-secondary" name="CancelO" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Cancel');?>"/>
     </div>
 
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
@@ -41,7 +41,7 @@
         <td><?php echo $optionsItem->id?></td>
         <td><?php echo htmlspecialchars($optionsItem->option_name)?></td>
         <td><?php echo $optionsItem->priority?></td>
-        <td nowrap><a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('questionary/edit')?>/<?php echo $question->id?>/(option_id)/<?php echo $optionsItem->id?>/(tab)/voting"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Edit');?></a></td>
+        <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('questionary/edit')?>/<?php echo $question->id?>/(option_id)/<?php echo $optionsItem->id?>/(tab)/voting"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Edit');?></a></td>
         <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('questionary/deleteoption')?>/<?php echo $optionsItem->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Delete');?></a></td>
 </tr>
 <?php endforeach;?>

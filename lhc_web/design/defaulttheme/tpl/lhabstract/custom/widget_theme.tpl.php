@@ -1,5 +1,5 @@
 <?php if ($object->id != null) : ?>
-<a href="<?php echo erLhcoreClassDesign::baseurl('theme/export')?>/<?php echo $object->id?>" class="pull-right btn btn-success btn-md"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Download theme')?></a>
+<a href="<?php echo erLhcoreClassDesign::baseurl('theme/export')?>/<?php echo $object->id?>" class="float-right btn btn-success btn-md"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Download theme')?></a>
 <?php endif;?>
 
 <div class="row">
@@ -17,15 +17,15 @@
 		<div role="tabpanel">
         	<!-- Nav tabs -->
         	<ul class="nav nav-tabs" role="tablist">
-        		<li role="presentation" class="active"><a href="#statuswidget" aria-controls="statuswidget" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Status widget style');?></a></li>
-        		<li role="presentation"><a href="#widgetcontainer" aria-controls="widgetcontainer" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget container');?></a></li>
-        		<li role="presentation"><a href="#messagesstyle" aria-controls="messagesstyle" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Messages style');?></a></li>
-        		<li role="presentation"><a href="#needhelp" aria-controls="needhelp" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help widget');?></a></li>
-        		<li role="presentation"><a href="#widgettexts" aria-controls="widgettexts" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Chat widget');?></a></li>
-        		<li role="presentation"><a href="#customcontent" aria-controls="customcontent" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom content');?></a></li>
-        		<li role="presentation"><a href="#customcss" aria-controls="customcss" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom CSS');?></a></li>
-        		<li role="presentation"><a href="#custombot" aria-controls="custombot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom bot style');?></a></li>
-        		<li role="presentation"><a href="#customnotification" aria-controls="customnotification" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Notification');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="active nav-link" href="#statuswidget" aria-controls="statuswidget" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Status widget style');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="nav-link" href="#widgetcontainer" aria-controls="widgetcontainer" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget container');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="nav-link" href="#messagesstyle" aria-controls="messagesstyle" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Messages style');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="nav-link" href="#needhelp" aria-controls="needhelp" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help widget');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="nav-link" href="#widgettexts" aria-controls="widgettexts" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Chat widget');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="nav-link" href="#customcontent" aria-controls="customcontent" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom content');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="nav-link" href="#customcss" aria-controls="customcss" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom CSS');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="nav-link" href="#custombot" aria-controls="custombot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom bot style');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="nav-link" href="#customnotification" aria-controls="customnotification" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Notification');?></a></li>
         	</ul>
         
         	<!-- Tab panes -->
@@ -118,9 +118,16 @@
                 	   
             		    <div id="messages">
                             <div class="msgBlock" style="" id="messagesBlock">       
-                                <div class="message-row response" id="msg-10459" data-op-id="0"><div class="msg-date">10:14:39</div><span style="color:#{{bactract_bg_color_buble_visitor_title_color}}" class="usr-tit vis-tit" role="button"><i class="material-icons chat-operators mi-fs15 mr-0">face</i>Visitor</span> <div class="msg-body" style="background-color: #{{bactract_bg_color_buble_visitor_background}};color:#{{bactract_bg_color_buble_visitor_text_color}}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div></div>
-            		            <div class="message-row message-admin operator-changes" style="color:#{{bactract_bg_color_buble_operator_text_color}}" id="msg-10463" data-op-id="1">
-            		            <div class="msg-date">10:18:22</div><span style="color:#{{bactract_bg_color_buble_operator_title_color}}" class="usr-tit op-tit" ><i class="material-icons chat-operators mi-fs15 mr-0">account_box</i>Operator</span><div class="msg-body" style="background-color: #{{bactract_bg_color_buble_operator_background}};">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div></div>
+                                <div class="message-row response" id="msg-10459" data-op-id="0">
+                                    <div class="msg-date">10:14:39</div>
+                                    <span style="color:#{{bactract_bg_color_buble_visitor_title_color}}" class="usr-tit vis-tit" role="button"><i class="material-icons chat-operators mi-fs15 mr-0">face</i>Visitor</span>
+                                    <div class="msg-body" style="background-color: #{{bactract_bg_color_buble_visitor_background}};color:#{{bactract_bg_color_buble_visitor_text_color}}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                                </div>
+            		            <div class="message-row message-admin operator-changes" id="msg-10463" data-op-id="1">
+            		            <div class="msg-date">10:18:22</div>
+                                    <span style="color:#{{bactract_bg_color_buble_operator_title_color}}" class="usr-tit op-tit" ><i class="material-icons chat-operators mi-fs15 mr-0">account_box</i>Operator</span>
+                                    <div class="msg-body" style="color:#{{bactract_bg_color_buble_operator_text_color}};background-color: #{{bactract_bg_color_buble_operator_background}};">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                                </div>
             		        </div>
                         </div>
 		
@@ -436,7 +443,7 @@
                     <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text content before user fields')?></h4>
 
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['bot_id']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('bot_id', $fields['bot_id'], $object)?>
@@ -447,7 +454,7 @@
                                 <div id="trigger-list-id"></div>
                             </div>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Preview')?></label>
                             <div id="trigger-preview-window">
 
@@ -472,13 +479,13 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['bot_button_text_color']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('bot_button_text_color', $fields['bot_button_text_color'], $object)?>
                             </div>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['bot_button_fs']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('bot_button_fs', $fields['bot_button_fs'], $object)?>
@@ -492,13 +499,13 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['bot_button_padding']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('bot_button_padding', $fields['bot_button_padding'], $object)?>
                             </div>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="form-group">
                                 <label><?php echo $fields['bot_button_padding_left_right']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('bot_button_padding_left_right', $fields['bot_button_padding_left_right'], $object)?>
@@ -531,9 +538,9 @@
         </div>
 			  	
 	  	<div class="btn-group" role="group" aria-label="...">
-			<input type="submit" class="btn btn-default" name="SaveClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
-			<input type="submit" class="btn btn-default" name="UpdateClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
-			<input type="submit" class="btn btn-default" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
+			<input type="submit" class="btn btn-secondary" name="SaveClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
+			<input type="submit" class="btn btn-secondary" name="UpdateClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
+			<input type="submit" class="btn btn-secondary" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
 		</div>
 		
 	</div>

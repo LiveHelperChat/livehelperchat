@@ -49,7 +49,7 @@ class erLhcoreClassAbstract
                 } else {
                     $value = $object->$name;
                 }
-                return '<div class="input-group" ng-init=\'bactract_bg_color_' . $name . '=' . json_encode($value, JSON_HEX_APOS) . '\'><div class="input-group-addon" style="background-color:#{{bactract_bg_color_' . $name . '}}">#</div><input class="form-control" class="abstract_input" ng-model="bactract_bg_color_' . $name . '" id="id_AbstractInput_' . $name . '" name="AbstractInput_' . $name . '" type="text" value="' . htmlspecialchars($value) . '" /></div><script>$(\'#id_AbstractInput_' . $name . '\').ColorPicker({	onSubmit: function(hsb, hex, rgb, el) {		$(el).val(hex);	$(el).trigger(\'input\'); $(el).trigger(\'change\'); $(el).ColorPickerHide();	},	onBeforeShow: function () {		$(this).ColorPickerSetColor(this.value);	}});</script>';
+                return '<div class="input-group" ng-init=\'bactract_bg_color_' . $name . '=' . json_encode($value, JSON_HEX_APOS) . '\'><div class="input-group-prepend"><span style="background-color:#{{bactract_bg_color_' . $name . '}}" class="input-group-text">#</span></div><input class="form-control" class="abstract_input" ng-model="bactract_bg_color_' . $name . '" id="id_AbstractInput_' . $name . '" name="AbstractInput_' . $name . '" type="text" value="' . htmlspecialchars($value) . '" /></div><script>$(\'#id_AbstractInput_' . $name . '\').ColorPicker({	onSubmit: function(hsb, hex, rgb, el) {		$(el).val(hex);	$(el).trigger(\'input\'); $(el).trigger(\'change\'); $(el).ColorPickerHide();	},	onBeforeShow: function () {		$(this).ColorPickerSetColor(this.value);	}});</script>';
                 break;
 
             case 'textarea':
@@ -178,7 +178,7 @@ class erLhcoreClassAbstract
                 foreach ($items as $item) {
                     $selected = in_array($item->id, $object->$name) ? 'checked="checked"' : '';
                     $nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
-                    $return .= '<div class="col-xs-' . $attr['col_size'] . '"><label><input type="checkbox" name="AbstractInput_' . $name . '[]" ' . $selected . ' value="' . $item->id . '">' . htmlspecialchars($nameAttr) . '</label></div>';
+                    $return .= '<div class="col-' . $attr['col_size'] . '"><label><input type="checkbox" name="AbstractInput_' . $name . '[]" ' . $selected . ' value="' . $item->id . '">' . htmlspecialchars($nameAttr) . '</label></div>';
 
                     /*$nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
                     $return .= '<option value="'.$item->id.'" '.$selected.'>'.((string)$nameAttr).'</option>';*/
@@ -190,7 +190,14 @@ class erLhcoreClassAbstract
             case 'title':
                 return '<h3>' . $attr['trans'] . '</h3>';
                 break;
+                
+            case 'text_display':
+                return '<p>' . htmlspecialchars($object->$name) . '</p>';
+                break;
 
+            case 'text_pre':
+                return '<pre>' . htmlspecialchars($object->$name) . '</pre>';
+                break;
 
             default:
                 break;

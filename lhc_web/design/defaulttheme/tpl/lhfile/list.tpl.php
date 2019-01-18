@@ -2,7 +2,7 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhfile/parts/search_panel.tpl.php')); ?>
 
-<table class="table" cellpadding="0" cellspacing="0">
+<table class="table table-sm" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','User');?></th>
@@ -33,7 +33,7 @@
         <td nowrap><?php echo htmlspecialchars($file->extension)?></td>
         <td nowrap><?php echo htmlspecialchars($file->date_front)?></td>
         <td nowrap>
-            <a class="btn btn-default btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('file/edit')?>/<?php echo $file->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Edit');?></a>
+            <a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('file/edit')?>/<?php echo $file->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Edit');?></a>
             <a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('file/delete')?>/<?php echo $file->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Delete the file');?></a>
         </td>
     </tr>
@@ -46,4 +46,4 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
 <?php endif;?>
 
-<a href="<?php echo erLhcoreClassDesign::baseurl('file/new')?>" class="btn btn-default"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Upload a file');?></a>
+<a href="<?php echo erLhcoreClassDesign::baseurl('file/new')?>" class="btn btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Upload a file');?></a>

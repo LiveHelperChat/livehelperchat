@@ -1,8 +1,8 @@
 <div class="row">
 
-	<div class="col-xs-6">
+	<div class="col-6">
 		<div class="row">
-			<div class="col-xs-6">
+			<div class="col-6">
 				<ul>
 					<li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Date from')?> - <?php echo htmlspecialchars($archive->range_from_front);?></li>
 					<li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Date to')?> - <?php echo htmlspecialchars($archive->range_to_front);?></li>
@@ -10,7 +10,7 @@
 				<input type="hidden" value="<?php echo htmlspecialchars($archive->range_from_front);?>" name="RangeFrom" />
 				<input type="hidden" value="<?php echo htmlspecialchars($archive->range_to_front);?>" name="RangeTo" />
 			</div>
-			<div class="col-xs-6 end">
+			<div class="col-6 end">
 				<ul>
 					<li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Potential chats to archive')?> - <?php echo htmlspecialchars($archive->potential_chats_count);?></li>
 					<li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Archived chats')?> - <?php echo htmlspecialchars($archive->chats_in_archive);?></li>
@@ -21,20 +21,20 @@
 		</div>
 
         <?php if ($archive->potential_chats_count > 0) : ?>
-		    <input type="submit" onclick="chatArchive.startArchive();" class="btn btn-default radius success right" name="Start_archive_progress" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Start archiving');?>"/>
+		    <input type="submit" onclick="chatArchive.startArchive();" class="btn btn-secondary radius success right" name="Start_archive_progress" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Start archiving');?>"/>
         <?php endif; ?>
 
 		<div class="btn-group" role="group" aria-label="...">
 		  <?php if ($archive->id > 0) : ?>
-		  <a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/edit')?>/<?php echo $archive->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit')?></a>
+		  <a class="btn btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/edit')?>/<?php echo $archive->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit')?></a>
 		  <?php endif;?>
-		  <a class="btn btn-default" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/list')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel')?></a>
+		  <a class="btn btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('chatarchive/list')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel')?></a>
 		</div>
 
 	</div>
-	<div class="col-xs-6 end">
+	<div class="col-6 end">
 		<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Archive progress')?></h3>
-		<div id="archive-progress" class="mx170 fs12 p10"><div class="radius secondary label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Pending for action...')?></div></div>
+		<div id="archive-progress" class="mx170 fs12 p-1"><div class="radius secondary label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Pending for action...')?></div></div>
 
 		<hr>
 		<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process_content','Terms dictionary')?></h3>

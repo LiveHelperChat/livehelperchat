@@ -22,12 +22,12 @@
 	
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-    <input type="submit" class="btn btn-danger pull-right" name="Delete_archive" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?>"/>
+    <input type="submit" class="btn btn-danger float-right" name="Delete_archive" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?>"/>
 
 	<div class="btn-group" role="group" aria-label="...">
-      <input type="submit" class="btn btn-default" name="Save_archive" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
-      <input type="submit" class="btn btn-default" name="Save_and_continue_archive" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save and continue');?>"/>
-      <input type="submit" class="btn btn-default" name="Cancel_archive" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
+      <input type="submit" class="btn btn-secondary" name="Save_archive" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
+      <input type="submit" class="btn btn-secondary" name="Save_and_continue_archive" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save and continue');?>"/>
+      <input type="submit" class="btn btn-secondary" name="Cancel_archive" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
     </div>
 
 </form>

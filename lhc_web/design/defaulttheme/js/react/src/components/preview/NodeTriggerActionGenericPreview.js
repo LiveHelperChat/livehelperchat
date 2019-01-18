@@ -16,7 +16,7 @@ class NodeTriggerActionGenericPreview extends Component {
                 {this.props.action.getIn(['content','list']).map((item, index) =>
                 <div className="generic-bubble-item" key={index}>
                     <div className="generic-bubble-content">
-                    {item.getIn(['content','img']) != '' && <img className="img-responsive" src={item.getIn(['content','img'])} />}
+                    {item.getIn(['content','img']) != '' && <img className="img-fluid" src={item.getIn(['content','img'])} />}
 
                     <h4>{item.getIn(['content','title'])}</h4>
 

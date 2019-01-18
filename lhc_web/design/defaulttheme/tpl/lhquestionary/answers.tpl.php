@@ -16,7 +16,7 @@
 	        <td><?php echo htmlspecialchars(erLhcoreClassDesign::shrt($item->answer))?></td>
 	        <td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$item->ctime)?></td>
 	        <td><?php echo htmlspecialchars($item->ip_front)?></td>
-	        <td nowrap><a class="btn btn-default btn-xs" onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('questionary/previewanswer')?>/<?php echo $item->id?>','height':'500','iframe':true})" href="#"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/answers','View');?></a></td>
+	        <td nowrap><a class="btn btn-secondary btn-xs" onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('questionary/previewanswer')?>/<?php echo $item->id?>','height':'500','iframe':true})" href="#"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/answers','View');?></a></td>
 	        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('questionary/deleteanswer')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/answers','Delete the answer');?></a></td>
 	    </tr>
 	<?php endforeach; ?>

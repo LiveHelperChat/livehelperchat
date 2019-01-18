@@ -12,7 +12,7 @@ class NodeTriggerActionQuickReplyListPreview extends Component {
             return (
                 <div className="gen-btn-list">
                     {this.props.items.map((item, index) =>
-                        <a key={index} className="btn btn-default btn-xs">{item.get('type') == 'url' &&
+                        <a key={index} className="btn btn-secondary btn-sm">{item.get('type') == 'url' &&
                         <i className="material-icons">open_in_new</i>
                         }{item.getIn(['content','name'])}</a>
                     )}

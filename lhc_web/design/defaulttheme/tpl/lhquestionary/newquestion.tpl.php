@@ -9,8 +9,8 @@
 <?php include(erLhcoreClassDesign::designtpl('lhquestionary/question_form.tpl.php'));?>
 
 <div class="btn-group" role="group" aria-label="...">
-    <input type="submit" class="btn btn-default" name="SaveAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/newquestion','Save');?>"/>
-	<input type="submit" class="btn btn-default" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/newquestion','Cancel');?>"/>
+    <input type="submit" class="btn btn-secondary" name="SaveAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/newquestion','Save');?>"/>
+	<input type="submit" class="btn btn-secondary" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/newquestion','Cancel');?>"/>
 </div>
 
 </form>

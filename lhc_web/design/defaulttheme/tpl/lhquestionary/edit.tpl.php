@@ -3,9 +3,9 @@
 <div role="tabpanel">
 	<!-- Nav tabs -->
 	<ul class="nav nav-tabs" role="tablist">
-		<li role="presentation" class="<?php if ($tab == '') : ?>active<?php endif;?>"><a href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Question');?></a></li>
-		<li role="presentation" class="<?php if ($tab == 'voting') : ?>active<?php endif;?>"><a href="#panel2" aria-controls="panel2" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Voting options');?></a></li>
-		<li role="presentation" class="<?php if ($tab == 'answers') : ?>active<?php endif;?>"><a href="#panel3" aria-controls="panel3" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Answers');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link <?php if ($tab == '') : ?>active<?php endif;?>" href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Question');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link <?php if ($tab == 'voting') : ?>active<?php endif;?>" href="#panel2" aria-controls="panel2" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Voting options');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link <?php if ($tab == 'answers') : ?>active<?php endif;?>" href="#panel3" aria-controls="panel3" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Answers');?></a></li>
 	</ul>
 
 	<!-- Tab panes -->
@@ -24,9 +24,9 @@
 		    <?php include(erLhcoreClassDesign::designtpl('lhquestionary/question_form.tpl.php'));?>
 		    
 			<div class="btn-group" role="group" aria-label="...">
-		      <input type="submit" class="btn btn-default" name="SaveAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Save');?>"/>
-		      <input type="submit" class="btn btn-default" name="UpdateAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Update');?>"/>
-		      <input type="submit" class="btn btn-default" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Cancel');?>"/>
+		      <input type="submit" class="btn btn-secondary" name="SaveAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Save');?>"/>
+		      <input type="submit" class="btn btn-secondary" name="UpdateAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Update');?>"/>
+		      <input type="submit" class="btn btn-secondary" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Cancel');?>"/>
 		    </div>
 		    
 		</form>		

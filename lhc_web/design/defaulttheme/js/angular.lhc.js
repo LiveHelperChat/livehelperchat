@@ -825,7 +825,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 						$scope[key] = item;
 
-                        if (tabs.size() > 0) {
+                        if (tabs.length > 0) {
 							if (key == 'pending_chat' || key == 'my_chats') {
 								item.list.forEach(function (chat) {
 									if (typeof chat.user_id !== 'undefined' && chat.user_id == confLH.user_id && confLH.accept_chats == 1 && chat.status !== 1) {
@@ -1013,7 +1013,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	};
 	
 	this.startChat = function (chat_id,name) {	
-		if ($('#tabs').size() > 0){
+		if ($('#tabs').length > 0){
 			return lhinst.startChat(chat_id,$('#tabs'),LiveHelperChatFactory.truncate(name,10));	
 		} else {
 			lhinst.startChatNewWindow(chat_id,name);	
@@ -1202,7 +1202,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		var appendURL = '';
 		var openedChats = this.getOpenedChatIds();
 
-		if ($('#tabs').size() > 0 && lhinst.disableremember == false && openedChats.length > 0) {
+		if ($('#tabs').length > 0 && lhinst.disableremember == false && openedChats.length > 0) {
             appendURL = '/(chatopen)/' + openedChats.join('/');
 		}
 

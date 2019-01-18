@@ -1,8 +1,8 @@
 <div role="tabpanel" class="tab-pane" id="screenshot"> 
 
 <div class="btn-group" role="group" aria-label="...">
-  <input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Take user screenshot')?>" class="btn btn-default" onclick="lhinst.addExecutionCommand('<?php echo $online_user->id?>','lhc_screenshot')" />
-  <input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Refresh')?>" class="btn btn-default" onclick="lhinst.updateScreenshotOnline('<?php echo $online_user->id?>')" />
+  <input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Take user screenshot')?>" class="btn btn-secondary" onclick="lhinst.addExecutionCommand('<?php echo $online_user->id?>','lhc_screenshot')" />
+  <input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Refresh')?>" class="btn btn-secondary" onclick="lhinst.updateScreenshotOnline('<?php echo $online_user->id?>')" />
 </div>
 
 <div id="user-screenshot-container">

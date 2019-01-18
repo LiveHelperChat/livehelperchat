@@ -18,13 +18,13 @@
         </div>
 
         <div class="row">
-            <div class="col-xs-6">
+            <div class="col-6">
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','New password');?></label>
                     <input type="password" autocomplete="new-password" class="form-control" name="NewPassword" value="" />
                 </div>
             </div>
-            <div class="col-xs-6">
+            <div class="col-6">
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Repeat password');?></label>
                     <input type="password" autocomplete="new-password" class="form-control" name="NewPassword1" value="" />

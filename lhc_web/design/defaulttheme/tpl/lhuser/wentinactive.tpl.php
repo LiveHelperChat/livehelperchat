@@ -5,6 +5,6 @@
 
 <button type="button" class="btn btn-success" data-dismiss="modal" aria-label="Close"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/wentinactive','Continue');?></button>
 
-<a class="btn btn-default btn-warning pull-right" href="<?php echo erLhcoreClassDesign::baseurl('user/logout')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/wentinactive','Logout');?></a>
+<a class="btn btn-secondary btn-warning float-right" href="<?php echo erLhcoreClassDesign::baseurl('user/logout')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/wentinactive','Logout');?></a>
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>
