@@ -1,12 +1,12 @@
-<div class="operator-info d-flex">
-	<div>
+<div class="operator-info float-break">
+	<div class="pull-left pr5">
 		<?php if ($user->has_photo) : ?>
      			<?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_name_support_img.tpl.php'));?>
      	<?php else : ?>
      		<i class="icon-assistant material-icons">account_box</i>
      	<?php endif;?>
      </div>
-     <div class="p-1">
+     <div class="pl10">        
 	    
 	    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_name_support.tpl.php'));?>
 

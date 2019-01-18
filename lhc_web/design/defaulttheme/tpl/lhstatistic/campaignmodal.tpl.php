@@ -1,5 +1,5 @@
 <?php
-$modalHeaderClass = 'pt-1 pb-1 pl-2 pr-2';
+$modalHeaderClass = 'small-modal-header';
 $modalHeaderTitle = htmlspecialchars($invitation->name);
 $modalSize = 'md';
 ?>

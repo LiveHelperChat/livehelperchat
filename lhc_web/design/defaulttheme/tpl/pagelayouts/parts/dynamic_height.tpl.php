@@ -4,11 +4,12 @@
  * */
 if (isset($Result['dynamic_height'])) : ?>
 <script>
-$( window ).on('load',function() {
-	if (window.opener && $('#user-popup-window').length > 0) {
-		var windowHeight = $('#user-popup-window').height()+60<?php if (isset($Result['dynamic_height_adjust'])) {echo $Result['dynamic_height_adjust'];}?>;
-		// Don't do anything like popup is bigger than our screen
-		if (screen.availHeight > (windowHeight+60)){
+$( window ).load(function() {
+	if (window.opener && $('#user-popup-window').size() > 0) {
+		var windowHeight = $('#user-popup-window').height()+90<?php if (isset($Result['dynamic_height_adjust'])) {echo $Result['dynamic_height_adjust'];}?>;	
+
+		// Don't do anything like popup is bigger than our screen		
+		if (screen.availHeight > (windowHeight+90)){		
 			  window.resizeBy(0, windowHeight - $( window ).height());
 		}
 	}

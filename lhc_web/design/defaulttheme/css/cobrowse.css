@@ -14,18 +14,12 @@ html, body {
 #cobrose-chat-window .nav,
 #cobrose-chat-window .icon-right-circled,
 #cobrose-chat-window .chat-main-right-column{
-	display:none!important;
+	display:none;
 }
 
 #cobrose-chat-window .chat-main-left-column{
 	width:100%;
-    flex:100%;
 }
-
-#cobrose-chat-window .user-settings-list{
-	display:none;
-}
-
 
 .pr-0{
 	padding-right:0;
@@ -60,13 +54,12 @@ html, body {
     width: 100%;
     margin-bottom:0;
 }
-
 #center-layout{
 	height:100%;
 	margin:0 auto;
 	-webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.75);
-    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.75);
 }
 #contentWrap {
     border: 0;
