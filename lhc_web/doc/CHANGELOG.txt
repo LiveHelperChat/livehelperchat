@@ -1,5 +1,12 @@
 3.15v
 
+1. Operators now will have ability to have their own personal themes. To operators role has to be assigned (Themes) "lhtheme" (Allow operators have their own personal back office theme)"personaltheme"
+2. Various other changes related to bootstrap 4 migration.
+
+execute doc/update_db/update_191.sql for update
+
+3.15v
+
 1. Audit log functionality.
 2. Bootstrap 4.1.2, this is quite still early release. So if notice any design issues, let me know.
 3. Canned messages now have toolbar for easier images insert.
