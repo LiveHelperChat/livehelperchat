@@ -49,9 +49,6 @@ class erLhcoreClassGenericBotActionConditions {
                     } else if ($condition['content']['comp'] == 'like' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$condition['content']['val']),$attr,0) == false) {
                         $conditionsMet = false;
                         break;
-                    } else if ($condition['content']['comp'] == 'notlike' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$condition['content']['val']),$attr,0) == true) {
-                        $conditionsMet = false;
-                        break;
                     }
                 }
             }
@@ -64,8 +61,6 @@ class erLhcoreClassGenericBotActionConditions {
                     $pendingAction->trigger_id = $action['content']['attr_options']['callback_reschedule'];
                     $pendingAction->saveThis();
                 }
-
-                erLhcoreClassLog::write(print_r('CONDITOON',true));
 
                 return array(
                     'status' => 'stop',

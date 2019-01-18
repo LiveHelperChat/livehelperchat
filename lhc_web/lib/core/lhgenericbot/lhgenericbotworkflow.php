@@ -1071,11 +1071,7 @@ class erLhcoreClassGenericBotWorkflow {
             }
 
             if ($reprocess == true) {
-                $message = erLhcoreClassGenericBotActionCollectable::processStep($chat, $workflow->collected_data_array['current_step'], $metaError);
-
-                if ($message instanceof erLhcoreClassModelmsg) {
-                    self::setLastMessageId($chat, $message->id);
-                }
+                erLhcoreClassGenericBotActionCollectable::processStep($chat, $workflow->collected_data_array['current_step'], $metaError);
             }
 
         }
@@ -1099,30 +1095,18 @@ class erLhcoreClassGenericBotWorkflow {
 
             if ($messageNew instanceof erLhcoreClassModelmsg) {
                 $message = $messageNew;
-            } elseif (is_array($messageNew) && isset($messageNew['status']) && ($messageNew['status'] == 'stop' || $messageNew['status'] == 'continue')) {
-
-                $continue = false;
-                if (isset($messageNew['trigger_id']) && is_numeric($messageNew['trigger_id'])) {
+            } elseif (is_array($messageNew) && isset($messageNew['status']) && $messageNew['status'] == 'stop') {
+                if (isset($messageNew['trigger_id'])) {
                     $trigger = erLhcoreClassModelGenericBotTrigger::fetch($messageNew['trigger_id']);
                     $response = self::processTrigger($chat, $trigger, $setLastMessageId, $params);
-
-                    if (is_array($response) && isset($response['status']) && $response['status'] == 'stop' && $messageNew['status'] == 'continue') {
-                        $continue = true;
-                    } else {
-                        return array(
-                            'status' => 'stop',
-                            'response' => $response
-                        );
-                    }
-
+                    return array(
+                        'status' => 'stop',
+                        'response' => $response
+                    );
                 } elseif (isset($messageNew['response']) && $messageNew['response'] instanceof erLhcoreClassModelmsg) {
                     $message = $messageNew['response'];
                 }
-
-                if ($continue == false) {
-                    return $messageNew;
-                    break;
-                }
+                break;
             }
         }
 

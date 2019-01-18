@@ -1,11 +1,12 @@
  <?php 
-$modalHeaderClass = 'pt-1 pb-1 pl-2 pr-2';
+$modalHeaderClass = 'small-modal-header';
 $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatpreview','Chat preview');
 $modalSize = 'md';
-$modalBodyClass = 'p-1'
+$modalBodyClass = 'widget-modal-body'
 ?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
-<div id="messages" class="mt-4">
+
+<div id="messages" class="pt20">
     <div id="messagesBlock"><?php
     $lastMessageID = 0;
     $lastOperatorChanged = false;

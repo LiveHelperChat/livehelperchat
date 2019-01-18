@@ -1,5 +1,5 @@
 <div class="meta-message">
-    <div class="p-1">
+    <div class="p5 ">
         <ul class="quick-replies list-unstyled">
             <?php foreach ($metaMessage as $item) : ?>
                 <li>

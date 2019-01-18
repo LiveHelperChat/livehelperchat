@@ -113,11 +113,6 @@ $ViewList['previewchat'] = array(
     'functions' => array( 'use' )
 );
 
-$ViewList['previewmessage'] = array(
-    'params' => array(),
-    'functions' => array( 'use' )
-);
-
 $ViewList['closechatadmin'] = array(
     'params' => array('chat_id'),
     'functions' => array( 'use' )
@@ -451,8 +446,7 @@ $ViewList['chatpreview'] = array(
 );
 
 $ViewList['bbcodeinsert'] = array(
-	'params' => array('chat_id'),
-	'uparams' => array('mode')
+	'params' => array('chat_id')
 );
 
 $ViewList['chatwidgetchat'] = array(
