@@ -1,3 +1,7 @@
+3.16v
+
+1. Now in options you can set should be cookie set only for domain where javascript is embeded or also subdomains. Default behaviour does not change. This can be controlled also from js embed code directly also.
+
 3.15v
 
 1. Operators now will have ability to have their own personal themes. To operators role has to be assigned (Themes) "lhtheme" (Allow operators have their own personal back office theme)"personaltheme"
