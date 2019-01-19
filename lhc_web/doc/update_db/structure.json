@@ -7830,7 +7830,7 @@
                 "identifier": "no_wildcard_cookie",
                 "value": "0",
                 "type": "0",
-                "explain": "Cookie should be valid only for domain where Javascript is embedded",
+                "explain": "Cookie should be valid only for domain where Javascript is embedded (excludes subdomains)",
                 "hidden": "0"
             },
             {

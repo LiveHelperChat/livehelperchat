@@ -1310,6 +1310,7 @@ switch ((int)$Params['user_parameters']['step_id']) {
                 ('disable_live_autoassign','0','0','Disable live auto assign','0'),
                 ('tracked_footprint_cleanup','90','0','How many days keep records of users footprint.','0'),
                 ('cleanup_cronjob','0','0','Cleanup should be done only using cronjob.','0'),         
+                ('no_wildcard_cookie','0','0','Cookie should be valid only for domain where Javascript is embedded (excludes subdomains)','0'),
                 ('cduration_timeout_user','4','0','How long operator can wait for message from visitor before time between messages are ignored. Values in minutes.','0'),
                 ('cduration_timeout_operator','10','0','How long visitor can wait for message from operator before time between messages are ignored. Values in minutes.','0'),       
                 ('assign_workflow_timeout','0','0','Chats waiting in pending line more than n seconds should be auto assigned first. Time in seconds','0'),

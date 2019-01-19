@@ -1,6 +1,7 @@
 3.16v
 
 1. Now in options you can set should be cookie set only for domain where javascript is embeded or also subdomains. Default behaviour does not change. This can be controlled also from js embed code directly also.
+2. Updated PHPMailer
 
 3.15v
 
