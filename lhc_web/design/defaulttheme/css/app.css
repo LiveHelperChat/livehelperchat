@@ -220,10 +220,12 @@ a:hover{
 }
 
 textarea[name=ChatMessage]{
-	min-height:50px;
-	overflow:hidden;
-	resize: none;
+	min-height:90px;
+	overflow:visible;
+	resize: both;
 	padding-right:60px;
+	max-width: 100%;
+    min-width: 100%;
 }
 
 .msg-date {
