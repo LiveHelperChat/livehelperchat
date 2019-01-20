@@ -42,12 +42,20 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation>Son gösterimden kaç gün sonra oy pusula kutusu açılmamalı?</translation>
+      <translation>Son gösteriminden kaç gün sonra oy kullanma kutucuğu açılmamalı?</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation>Güvenli çerez kullanın, her zaman SSL kullanımını kontrol et</translation>
+      <translation>Güvenli çerezleri kullan. SSL ile şifrelemeyi her zaman kullanmak için bu ayarı etkinleştirin.</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
@@ -71,7 +79,7 @@
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
-      <translation type="unfinished"/>
+      <translation>Kullanıcıların ayak izini takip et. Ayni zamanda çevrimiçi ziyaretçi takibini etkinleştir.</translation>
     </message>
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
@@ -87,11 +95,11 @@
     </message>
     <message>
       <source>How many days keep records of users footprint.</source>
-      <translation type="unfinished"/>
+      <translation>Kullanıcıların gezinti kayıtları kaç gün saklansın?</translation>
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
-      <translation type="unfinished"/>
+      <translation>Kullanıcıya departman seçebilmesi mesaj bırakmasını önerin.</translation>
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
@@ -99,19 +107,19 @@
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
-      <translation type="unfinished"/>
+      <translation>Widget dilini değiştirmek için kullanıcı seçeneğini göster</translation>
     </message>
     <message>
       <source>Between what languages user should be able to switch</source>
-      <translation type="unfinished"/>
+      <translation>Kullanıcı hangi diller arasında geçiş yapabilmeli.</translation>
     </message>
     <message>
       <source>Host where NodeJs is running</source>
-      <translation type="unfinished"/>
+      <translation>NodeJs &apos;nin çalıştığı sunucu</translation>
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
-      <translation type="unfinished"/>
+      <translation>SocketIO JS kütüphanesinin konumu</translation>
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
@@ -131,7 +139,7 @@
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
-      <translation type="unfinished"/>
+      <translation>Captcha doğrulaması oturumunu kullanın. LHC aynı alan adına (domain) veya alt alan adına yüklenmelidir.</translation>
     </message>
     <message>
       <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
@@ -162,8 +170,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>On chat close exit chat</source>
+      <source>How many seconds customer has to open already closed chat.</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On chat close exit chat</source>
+      <translation>Sohbetten çıkıldığında konuşma sonlandırılsın.</translation>
     </message>
     <message>
       <source/>
@@ -198,7 +210,15 @@
       <translation>Karakter olarak maksimum mesaj uzunluğu</translation>
     </message>
     <message>
+      <source>List unread chats, disabled for high performance</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List closed chats, disabled for high performance</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -266,6 +286,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Disable live auto assign</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
       <translation type="unfinished"/>
     </message>
@@ -275,6 +299,10 @@
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How long department availability statistic should be kept? (days)</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -319,6 +347,18 @@
     </message>
     <message>
       <source>Automatically reopen chat on widget open</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic pending chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic bot chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic active chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -490,6 +530,14 @@
       <translation>Olaylar</translation>
     </message>
     <message>
+      <source>Choose what bot trigger element append after auto responder message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Preview</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Temayı yükle</translation>
     </message>
@@ -554,7 +602,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Preview</source>
+      <source>Choose a bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum time in second how long sync has to be stopped before allowing reset auto responder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum time in seconds how long sync has to be stopped before we do not reset auto responder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable reset auto responder if visitor was redirected to survey</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -711,14 +775,6 @@
     </message>
     <message>
       <source>Start chat button text, bot chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a bot</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a trigger</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1208,6 +1264,30 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fallback message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departman</translation>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select department</source>
+      <translation>Seçili departman</translation>
+    </message>
+    <message>
       <source>Close selected</source>
       <translation type="unfinished"/>
     </message>
@@ -1222,10 +1302,6 @@
     <message>
       <source>E-mail</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departman</translation>
     </message>
     <message>
       <source>Department group</source>
@@ -1336,6 +1412,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Has unread messages</source>
       <translation type="unfinished"/>
     </message>
@@ -1345,10 +1425,6 @@
     </message>
     <message>
       <source>Anonymised</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Search</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1364,10 +1440,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Select department</source>
-      <translation>Seçili departman</translation>
-    </message>
-    <message>
       <source>Choose department group</source>
       <translation type="unfinished"/>
     </message>
@@ -1381,6 +1453,10 @@
     </message>
     <message>
       <source>Select product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose proactive invitation</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1413,6 +1489,10 @@
     </message>
     <message>
       <source>Please choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1473,6 +1553,10 @@
     </message>
     <message>
       <source>Date range from to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2803,6 +2887,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Custom attribute 1</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom attribute 2</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom attribute 3</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Nick, what should be operator nick. E.g Support Bot</source>
       <translation type="unfinished"/>
     </message>
@@ -3456,6 +3552,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Select campaign</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select a canned message</source>
       <translation>Arşivlenmiş bir mesaj seçin</translation>
     </message>
@@ -3730,6 +3830,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Set referrer, usefull if want to limit calls to specific referrer.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Settings updated</source>
       <translation>Ayarlar güncellendi</translation>
     </message>
@@ -3971,6 +4075,10 @@
   <context>
     <name>chat/dashboardwidgets</name>
     <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose what widgets you want to see</source>
       <translation type="unfinished"/>
     </message>
@@ -3999,15 +4107,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Unread chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Transfered chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Closed chats</source>
+      <source>Unread chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4335,6 +4439,10 @@
       <translation>Bu servisi kullan</translation>
     </message>
     <message>
+      <source>API Key</source>
+      <translation>API Anahtarı</translation>
+    </message>
+    <message>
       <source>Use mod_geoip2</source>
       <translation>mod_geoip2&apos;yi kullan</translation>
     </message>
@@ -4405,10 +4513,6 @@
     <message>
       <source>Requests will be comming from</source>
       <translation>&apos;dan gelen istekler</translation>
-    </message>
-    <message>
-      <source>API Key</source>
-      <translation>API Anahtarı</translation>
     </message>
     <message>
       <source>Username</source>
@@ -4781,6 +4885,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Please enter API Key!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
       <translation>Ayar servis sağlayıcı başarısız oldu, lütfen servis sağlayıcınızın dolaylı sayfalara giriş talebinde bulunmanıza izin verip vermediğini kontrol edin!</translation>
     </message>
@@ -4986,6 +5094,10 @@
     <message>
       <source>Pro active chat invitations</source>
       <translation>Pro aktif konuşma davetiyeleri</translation>
+    </message>
+    <message>
+      <source>Pro active chat campaigns</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pro active chat events</source>
@@ -5266,6 +5378,10 @@
   <context>
     <name>chat/pendingchats</name>
     <message>
+      <source>Bot list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Information</source>
       <translation>Bilgi</translation>
     </message>
@@ -5318,7 +5434,7 @@
       <translation>Konuşmalar listesi</translation>
     </message>
     <message>
-      <source>Bot list</source>
+      <source>Bots</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -5520,6 +5636,10 @@
     </message>
     <message>
       <source>Expand or collapse left menu</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This window will be automatically refreshed in {{lhc.lhcVersionCounter}} seconds due to a version update.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6050,6 +6170,14 @@
       <translation>Kullanıcıya mesajınızı yazın</translation>
     </message>
     <message>
+      <source>Assign the chat to me if the visitor replies</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not send automated messages if the customer replies</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Requires e-mail</source>
       <translation>E-posta gerektirir</translation>
     </message>
@@ -6060,6 +6188,14 @@
     <message>
       <source>Requires phone</source>
       <translation>Telefon gerekli</translation>
+    </message>
+    <message>
+      <source>Campaign</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Canned message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send the message</source>
@@ -6228,6 +6364,14 @@
       <translation>Güncelle</translation>
     </message>
     <message>
+      <source>What languages you speak?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If pending chats comes in the same language as chosen one. To you will be assigned same language chats first.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Updating...</source>
       <translation>Güncelleştiriliyor...</translation>
     </message>
@@ -6365,6 +6509,10 @@
     </message>
     <message>
       <source>Auto preload previous visitor chat messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto uppercase sentences</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6863,6 +7011,10 @@
       <translation>E-posta</translation>
     </message>
     <message>
+      <source>Login As</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New user</source>
       <translation>Yeni kullanıcı</translation>
     </message>
@@ -7043,6 +7195,10 @@
     </message>
     <message>
       <source>Pending and active chats which visitors has closed chats explicitly or visitors being redirected to survey will be excluded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Try to assign chats first to the same language speaking operators</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -8435,6 +8591,10 @@
       <source>Auto login module is not enabled</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Invalid hash or user</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>system/languages</name>
@@ -9554,6 +9714,10 @@
       <translation>Bağlantı</translation>
     </message>
     <message>
+      <source>Additional data</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat content</source>
       <translation type="unfinished"/>
     </message>
@@ -10219,6 +10383,53 @@
     <name>notifications/index</name>
     <message>
       <source>Subscribers list</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>statistic/campaign</name>
+    <message>
+      <source>Parameter</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Explanation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation was assigned to online visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>widget was opened with invitation content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget was shown but visitor closed it without starting a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat started</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor started chat by online invitation</source>
       <translation type="unfinished"/>
     </message>
   </context>

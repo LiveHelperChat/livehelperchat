@@ -42,6 +42,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>多少天投票窗口小部件不应扩大后最后的展示</translation>
     </message>
@@ -162,6 +170,10 @@
       <translation>激话聊天邀请。在线用户跟踪也必须被启用</translation>
     </message>
     <message>
+      <source>How many seconds customer has to open already closed chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>On chat close exit chat</source>
       <translation type="unfinished"/>
     </message>
@@ -198,7 +210,15 @@
       <translation>最大消息长度，以字符计数，一个汉字占2字节</translation>
     </message>
     <message>
+      <source>List unread chats, disabled for high performance</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List closed chats, disabled for high performance</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -266,6 +286,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Disable live auto assign</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
       <translation>在共同浏览操作窗口禁用JS的执行</translation>
     </message>
@@ -276,6 +300,10 @@
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation>禁用hmtl5存储，检查这个禁用在网站在HTTP和HTTPS之间切换的时候</translation>
+    </message>
+    <message>
+      <source>How long department availability statistic should be kept? (days)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Home page dashboard widgets order</source>
@@ -320,6 +348,18 @@
     <message>
       <source>Automatically reopen chat on widget open</source>
       <translation>当部件打开自动重新打开聊天窗口</translation>
+    </message>
+    <message>
+      <source>Automatic pending chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic bot chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic active chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
@@ -490,6 +530,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Choose what bot trigger element append after auto responder message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Preview</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>下载主题</translation>
     </message>
@@ -554,7 +602,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Preview</source>
+      <source>Choose a bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum time in second how long sync has to be stopped before allowing reset auto responder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum time in seconds how long sync has to be stopped before we do not reset auto responder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable reset auto responder if visitor was redirected to survey</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -711,14 +775,6 @@
     </message>
     <message>
       <source>Start chat button text, bot chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a bot</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a trigger</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1208,6 +1264,30 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fallback message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>部门</translation>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation>搜索</translation>
+    </message>
+    <message>
+      <source>Select department</source>
+      <translation>选择部门</translation>
+    </message>
+    <message>
       <source>Close selected</source>
       <translation type="unfinished"/>
     </message>
@@ -1222,10 +1302,6 @@
     <message>
       <source>E-mail</source>
       <translation>电子邮件</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>部门</translation>
     </message>
     <message>
       <source>Department group</source>
@@ -1336,6 +1412,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Has unread messages</source>
       <translation type="unfinished"/>
     </message>
@@ -1348,10 +1428,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Search</source>
-      <translation>搜索</translation>
-    </message>
-    <message>
       <source>Print</source>
       <translation>打印</translation>
     </message>
@@ -1362,10 +1438,6 @@
     <message>
       <source>XLS (with content)</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Select department</source>
-      <translation>选择部门</translation>
     </message>
     <message>
       <source>Choose department group</source>
@@ -1381,6 +1453,10 @@
     </message>
     <message>
       <source>Select product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose proactive invitation</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1413,6 +1489,10 @@
     </message>
     <message>
       <source>Please choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1474,6 +1554,10 @@
     <message>
       <source>Date range from to</source>
       <translation>日期范围从到</translation>
+    </message>
+    <message>
+      <source>Average</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total number of chats</source>
@@ -2803,6 +2887,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Custom attribute 1</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom attribute 2</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom attribute 3</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Nick, what should be operator nick. E.g Support Bot</source>
       <translation type="unfinished"/>
     </message>
@@ -3456,6 +3552,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Select campaign</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select a canned message</source>
       <translation>选择罐头讯息</translation>
     </message>
@@ -3730,6 +3830,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Set referrer, usefull if want to limit calls to specific referrer.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Settings updated</source>
       <translation type="unfinished"/>
     </message>
@@ -3971,6 +4075,10 @@
   <context>
     <name>chat/dashboardwidgets</name>
     <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose what widgets you want to see</source>
       <translation type="unfinished"/>
     </message>
@@ -3999,15 +4107,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Unread chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Transfered chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Closed chats</source>
+      <source>Unread chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4335,6 +4439,10 @@
       <translation>使用此服务</translation>
     </message>
     <message>
+      <source>API Key</source>
+      <translation>API 關鍵</translation>
+    </message>
+    <message>
       <source>Use mod_geoip2</source>
       <translation>用途 mod_geoip2</translation>
     </message>
@@ -4405,10 +4513,6 @@
     <message>
       <source>Requests will be comming from</source>
       <translation>请求将被来自</translation>
-    </message>
-    <message>
-      <source>API Key</source>
-      <translation>API 關鍵</translation>
     </message>
     <message>
       <source>Username</source>
@@ -4779,6 +4883,10 @@
       <translation>請輸入經度變量！</translation>
     </message>
     <message>
+      <source>Please enter API Key!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
       <translation>设置服务提供商失败，请检查您的服务提供商允许您远程页面请求！</translation>
     </message>
@@ -4984,6 +5092,10 @@
     <message>
       <source>Pro active chat invitations</source>
       <translation>临主动聊天邀请</translation>
+    </message>
+    <message>
+      <source>Pro active chat campaigns</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pro active chat events</source>
@@ -5264,6 +5376,10 @@
   <context>
     <name>chat/pendingchats</name>
     <message>
+      <source>Bot list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Information</source>
       <translation>信息</translation>
     </message>
@@ -5316,7 +5432,7 @@
       <translation>聊天列表</translation>
     </message>
     <message>
-      <source>Bot list</source>
+      <source>Bots</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -5518,6 +5634,10 @@
     </message>
     <message>
       <source>Expand or collapse left menu</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This window will be automatically refreshed in {{lhc.lhcVersionCounter}} seconds due to a version update.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6048,6 +6168,14 @@
       <translation>输入您的信息给用户</translation>
     </message>
     <message>
+      <source>Assign the chat to me if the visitor replies</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not send automated messages if the customer replies</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Requires e-mail</source>
       <translation>要求电子邮件</translation>
     </message>
@@ -6057,6 +6185,14 @@
     </message>
     <message>
       <source>Requires phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Campaign</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Canned message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6226,6 +6362,14 @@
       <translation>更新</translation>
     </message>
     <message>
+      <source>What languages you speak?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If pending chats comes in the same language as chosen one. To you will be assigned same language chats first.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Updating...</source>
       <translation>正在更新...</translation>
     </message>
@@ -6363,6 +6507,10 @@
     </message>
     <message>
       <source>Auto preload previous visitor chat messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto uppercase sentences</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6861,6 +7009,10 @@
       <translation>电子邮件</translation>
     </message>
     <message>
+      <source>Login As</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New user</source>
       <translation>新用户</translation>
     </message>
@@ -7041,6 +7193,10 @@
     </message>
     <message>
       <source>Pending and active chats which visitors has closed chats explicitly or visitors being redirected to survey will be excluded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Try to assign chats first to the same language speaking operators</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -8433,6 +8589,10 @@
       <source>Auto login module is not enabled</source>
       <translation>自动登录模块当前不可用</translation>
     </message>
+    <message>
+      <source>Invalid hash or user</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>system/languages</name>
@@ -9552,6 +9712,10 @@
       <translation>链接</translation>
     </message>
     <message>
+      <source>Additional data</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat content</source>
       <translation type="unfinished"/>
     </message>
@@ -10217,6 +10381,53 @@
     <name>notifications/index</name>
     <message>
       <source>Subscribers list</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>statistic/campaign</name>
+    <message>
+      <source>Parameter</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Explanation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation was assigned to online visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>widget was opened with invitation content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget was shown but visitor closed it without starting a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat started</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor started chat by online invitation</source>
       <translation type="unfinished"/>
     </message>
   </context>

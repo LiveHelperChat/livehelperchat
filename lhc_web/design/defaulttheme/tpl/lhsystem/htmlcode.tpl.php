@@ -38,7 +38,12 @@
     			<div>
     				<label><input type="checkbox" id="id_disable_online_tracking" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Disable online tracking (this overrides the system configuration)');?></label>
     			</div>
-			</div>			
+			</div>
+            <div class="col-md-6">
+    			<div>
+    				<label><input type="checkbox" id="id_disable_subdomain" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Cookie is valid only for domain where javascript embedded (excludes subdomains)');?></label>
+    			</div>
+			</div>
 		</div>	
 			<hr>
 				<div class="row">
@@ -248,7 +253,9 @@ function generateEmbedCode(){
         alert(<?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Please do not enter protocol, only domain name is required'),ENT_QUOTES))?>);
         return;
     };
-    
+
+    var id_disable_subdomain =  $('#id_disable_subdomain').is(':checked') ? ',subdomain:true' : '';
+
     var uaArguments = '';
     
     <?php include(erLhcoreClassDesign::designtpl('lhsystem/htmlcode_custom_generation_multiinclude.tpl.php'));?>
@@ -275,7 +282,7 @@ function generateEmbedCode(){
     }
 
     var script = '<script type="text/javascript">'+"\n"+"var <?php echo $chatOptionsVariable?> = {};\n"+
-      '<?php echo $chatOptionsVariable?>.opt = {widget_height:'+$('#id_widget_height').val()+',widget_width:'+$('#id_widget_width').val()+',popup_height:'+$('#id_popup_height').val()+',popup_width:'+$('#id_popup_width').val()+id_embed_domain+'};\n'+
+      '<?php echo $chatOptionsVariable?>.opt = {widget_height:'+$('#id_widget_height').val()+',widget_width:'+$('#id_widget_width').val()+',popup_height:'+$('#id_popup_height').val()+',popup_width:'+$('#id_popup_width').val()+id_embed_domain+id_disable_subdomain+'};\n'+
       '(function() {'+"\n"+langDetectScript+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'var referrer = (document.referrer) ? encodeURIComponent(document.referrer.substr(document.referrer.indexOf(\'://\')+1)) : \'\';'+"\n"+
@@ -288,7 +295,7 @@ function generateEmbedCode(){
     $('#HMLTContent').text(id_tag+script);
 };
 
-$('#LocaleID,#id_embed_domain,#DetectLanguage,#id_product_id,#id_disable_online_tracking,#MinimizeID,#id_operator,#DepartmentID,#HttpMode,#ThemeID,#id_Survey,#id_disable_pro_active_invitations,#id_site_identifier,#id_internal_popup,#id_position_bottom,#PositionID,#id_show_leave_form,#id_hide_then_offline,#id_check_operator_message,#UnitsTop,#id_top_text,#id_popup_width,#id_popup_height,#id_widget_width,#id_widget_height').change(function(){
+$('#id_disable_subdomain,#LocaleID,#id_embed_domain,#DetectLanguage,#id_product_id,#id_disable_online_tracking,#MinimizeID,#id_operator,#DepartmentID,#HttpMode,#ThemeID,#id_Survey,#id_disable_pro_active_invitations,#id_site_identifier,#id_internal_popup,#id_position_bottom,#PositionID,#id_show_leave_form,#id_hide_then_offline,#id_check_operator_message,#UnitsTop,#id_top_text,#id_popup_width,#id_popup_height,#id_widget_width,#id_widget_height').change(function(){
     generateEmbedCode();
 });
 

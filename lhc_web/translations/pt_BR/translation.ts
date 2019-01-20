@@ -42,6 +42,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por quantos dias o widget de votação não deve ser exibido após última exibição</translation>
     </message>
@@ -162,6 +170,10 @@
       <translation>Existem convites de chat pro-ativos ativos. O mapeamento de usuários online também deve estar ativado.</translation>
     </message>
     <message>
+      <source>How many seconds customer has to open already closed chat.</source>
+      <translation>Quantos segundos o cliente tem para reabrir um bate papo fechado.</translation>
+    </message>
+    <message>
       <source>On chat close exit chat</source>
       <translation>Sair do chat ao fechar</translation>
     </message>
@@ -198,8 +210,16 @@
       <translation>Comprimento máximo de mensagem em caracteres</translation>
     </message>
     <message>
+      <source>List unread chats, disabled for high performance</source>
+      <translation>Listar bate papos não lidos, desabilitado para melhor performance</translation>
+    </message>
+    <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
       <translation>Listar operadores online, 0 - não, 1 - sim.</translation>
+    </message>
+    <message>
+      <source>List closed chats, disabled for high performance</source>
+      <translation>Listar bate papos fechados, desabilitado para melhor performance</translation>
     </message>
     <message>
       <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
@@ -266,6 +286,10 @@
       <translation>Ocultar a opção &apos;Nova janela&apos; no conector Widget</translation>
     </message>
     <message>
+      <source>Disable live auto assign</source>
+      <translation>Desabilitar atribuição automática ao vivo</translation>
+    </message>
+    <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
       <translation>Desabilitar a execução de JS na janela de operador Co-Browsing</translation>
     </message>
@@ -276,6 +300,10 @@
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
       <translation>Desativar armazenamento HMTL5, confira se o seu site alterna entre http e https</translation>
+    </message>
+    <message>
+      <source>How long department availability statistic should be kept? (days)</source>
+      <translation>Por quanto tempo deve ser mantido as estatísticas de departamento? (dias)</translation>
     </message>
     <message>
       <source>Home page dashboard widgets order</source>
@@ -320,6 +348,18 @@
     <message>
       <source>Automatically reopen chat on widget open</source>
       <translation>Reabrir automaticamente chat quando widget abrir</translation>
+    </message>
+    <message>
+      <source>Automatic pending chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
+      <translation>Fechar automaticamente bate papos pendentes. 0 - desabilitado, n &gt; 0 tempo em minutos antes do chat ser automaticamente fechado</translation>
+    </message>
+    <message>
+      <source>Automatic bot chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
+      <translation>Fechar robôs de atendimento automaticamente. 0 - desabilitado, n &gt; 0 tempo em minutos antes do chat ser fechado automaticamente</translation>
+    </message>
+    <message>
+      <source>Automatic active chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
+      <translation>Automaticamente fechar chats ativos. 0 - desabilitado, n &gt; 0 tempo em minutos antes do chat ser fechado automaticamente.</translation>
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
@@ -490,6 +530,14 @@
       <translation>Eventos</translation>
     </message>
     <message>
+      <source>Choose what bot trigger element append after auto responder message</source>
+      <translation>Escolha qual o gatilho deve ser anexado após a mensagem de auto resposta</translation>
+    </message>
+    <message>
+      <source>Preview</source>
+      <translation>Visualizar</translation>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation>Baixar tema</translation>
     </message>
@@ -515,7 +563,7 @@
     </message>
     <message>
       <source>Custom content</source>
-      <translation type="unfinished"/>
+      <translation>Conteúdo customizado</translation>
     </message>
     <message>
       <source>Custom CSS</source>
@@ -523,7 +571,7 @@
     </message>
     <message>
       <source>Custom bot style</source>
-      <translation type="unfinished"/>
+      <translation>Customizar estilo do robô</translation>
     </message>
     <message>
       <source>Notification</source>
@@ -551,11 +599,27 @@
     </message>
     <message>
       <source>Text content before user fields</source>
-      <translation type="unfinished"/>
+      <translation>Conteúdo do texto antes dos campos do usuário</translation>
     </message>
     <message>
-      <source>Preview</source>
-      <translation type="unfinished"/>
+      <source>Choose a bot</source>
+      <translation>Escolha um robô</translation>
+    </message>
+    <message>
+      <source>Choose a trigger</source>
+      <translation>Escolha um gatilho</translation>
+    </message>
+    <message>
+      <source>Minimum time in second how long sync has to be stopped before allowing reset auto responder</source>
+      <translation>Tempo mínimo em segundos para a sincronização se interrompida antes de habilitar a auto resposta</translation>
+    </message>
+    <message>
+      <source>Maximum time in seconds how long sync has to be stopped before we do not reset auto responder</source>
+      <translation>Tempo máximo em segundos para quanto tempo a sincronização precisa ser interrompida antes de não redefinir o respondedor automático</translation>
+    </message>
+    <message>
+      <source>Disable reset auto responder if visitor was redirected to survey</source>
+      <translation>Desativar a resposta automática de redefinição se o visitante foi redirecionado para a pesquisa</translation>
     </message>
     <message>
       <source>Do not send messages to pending chat if chat is assigned to operator.</source>
@@ -691,7 +755,7 @@
     </message>
     <message>
       <source>Custom html before start chat form fields, popup</source>
-      <translation type="unfinished"/>
+      <translation>Html personalizado antes de iniciar campos de formulário de bate-papo, pop-up</translation>
     </message>
     <message>
       <source>Custom html before start chat form fields, widget</source>
@@ -712,14 +776,6 @@
     <message>
       <source>Start chat button text, bot chat</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a bot</source>
-      <translation>Escolha um robô</translation>
-    </message>
-    <message>
-      <source>Choose a trigger</source>
-      <translation>Escolha um gatilho</translation>
     </message>
     <message>
       <source>Leave a message button text</source>
@@ -1208,6 +1264,30 @@
       <translation>Selecionar o evento</translation>
     </message>
     <message>
+      <source>Title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fallback message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departamento</translation>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation>Pesquisar</translation>
+    </message>
+    <message>
+      <source>Select department</source>
+      <translation>Selecionar departamento</translation>
+    </message>
+    <message>
       <source>Close selected</source>
       <translation>Fechar seleção</translation>
     </message>
@@ -1222,10 +1302,6 @@
     <message>
       <source>E-mail</source>
       <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departamento</translation>
     </message>
     <message>
       <source>Department group</source>
@@ -1336,6 +1412,10 @@
       <translation>Assunto</translation>
     </message>
     <message>
+      <source>Proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Has unread messages</source>
       <translation>Possui mensagens não lidas</translation>
     </message>
@@ -1348,10 +1428,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Search</source>
-      <translation>Pesquisar</translation>
-    </message>
-    <message>
       <source>Print</source>
       <translation>Imprimir</translation>
     </message>
@@ -1362,10 +1438,6 @@
     <message>
       <source>XLS (with content)</source>
       <translation>XLS (com conteúdo)</translation>
-    </message>
-    <message>
-      <source>Select department</source>
-      <translation>Selecionar departamento</translation>
     </message>
     <message>
       <source>Choose department group</source>
@@ -1382,6 +1454,10 @@
     <message>
       <source>Select product</source>
       <translation>Selecionar produto</translation>
+    </message>
+    <message>
+      <source>Choose proactive invitation</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Type to search</source>
@@ -1414,6 +1490,10 @@
     <message>
       <source>Please choose</source>
       <translation>Por favor escolha</translation>
+    </message>
+    <message>
+      <source>Invitation</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Exclude offline request from charts.</source>
@@ -1474,6 +1554,10 @@
     <message>
       <source>Date range from to</source>
       <translation>Intervalo de datas de para</translation>
+    </message>
+    <message>
+      <source>Average</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total number of chats</source>
@@ -2803,6 +2887,18 @@
       <translation>Máximo de chats pendentes</translation>
     </message>
     <message>
+      <source>Custom attribute 1</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom attribute 2</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom attribute 3</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Nick, what should be operator nick. E.g Support Bot</source>
       <translation type="unfinished"/>
     </message>
@@ -3456,6 +3552,10 @@
       <translation>Prioridade</translation>
     </message>
     <message>
+      <source>Select campaign</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select a canned message</source>
       <translation>Selecione uma mensagem predefinida</translation>
     </message>
@@ -3730,6 +3830,10 @@
       <translation>Chave API, chave nunca é mostrada para fins de segurança</translation>
     </message>
     <message>
+      <source>Set referrer, usefull if want to limit calls to specific referrer.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Settings updated</source>
       <translation>Configurações atualizadas</translation>
     </message>
@@ -3971,6 +4075,10 @@
   <context>
     <name>chat/dashboardwidgets</name>
     <message>
+      <source>Closed chats</source>
+      <translation>Chats fechados</translation>
+    </message>
+    <message>
       <source>Choose what widgets you want to see</source>
       <translation>Escolher quais widgets você deseja ver</translation>
     </message>
@@ -3999,16 +4107,12 @@
       <translation>Chats pendentes</translation>
     </message>
     <message>
-      <source>Unread chats</source>
-      <translation>Chats não lidos</translation>
-    </message>
-    <message>
       <source>Transfered chats</source>
       <translation>chats transferidos</translation>
     </message>
     <message>
-      <source>Closed chats</source>
-      <translation>Chats fechados</translation>
+      <source>Unread chats</source>
+      <translation>Chats não lidos</translation>
     </message>
     <message>
       <source>My active and pending chats</source>
@@ -4335,6 +4439,10 @@
       <translation>Usar este serviço</translation>
     </message>
     <message>
+      <source>API Key</source>
+      <translation>API Key</translation>
+    </message>
+    <message>
       <source>Use mod_geoip2</source>
       <translation>Usar mod_geoip2</translation>
     </message>
@@ -4405,10 +4513,6 @@
     <message>
       <source>Requests will be comming from</source>
       <translation>Requisições virão de</translation>
-    </message>
-    <message>
-      <source>API Key</source>
-      <translation>API Key</translation>
     </message>
     <message>
       <source>Username</source>
@@ -4779,6 +4883,10 @@
       <translation>Por favor insira a variável longitude!</translation>
     </message>
     <message>
+      <source>Please enter API Key!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
       <translation>A definição do provedor de serviço falhou, por favor, verifique se seu provedor de serviço permite que faça solicitações para páginas remotas!</translation>
     </message>
@@ -4985,6 +5093,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Pro active chat invitations</source>
       <translation>Convites de chat pró ativos</translation>
+    </message>
+    <message>
+      <source>Pro active chat campaigns</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pro active chat events</source>
@@ -5265,6 +5377,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>chat/pendingchats</name>
     <message>
+      <source>Bot list</source>
+      <translation>Lista de robôs</translation>
+    </message>
+    <message>
       <source>Information</source>
       <translation>Informação</translation>
     </message>
@@ -5317,8 +5433,8 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Lista de chats</translation>
     </message>
     <message>
-      <source>Bot list</source>
-      <translation>Lista de robôs</translation>
+      <source>Bots</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -5520,6 +5636,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Expand or collapse left menu</source>
       <translation>Expandir ou recolher o menu a esquerda</translation>
+    </message>
+    <message>
+      <source>This window will be automatically refreshed in {{lhc.lhcVersionCounter}} seconds due to a version update.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat tabs</source>
@@ -6049,6 +6169,14 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Digite sua mensagem para o usuário</translation>
     </message>
     <message>
+      <source>Assign the chat to me if the visitor replies</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not send automated messages if the customer replies</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Requires e-mail</source>
       <translation>E-mail requerido</translation>
     </message>
@@ -6059,6 +6187,14 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Requires phone</source>
       <translation>Telefone requerido</translation>
+    </message>
+    <message>
+      <source>Campaign</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Canned message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send the message</source>
@@ -6227,6 +6363,14 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Atualizar</translation>
     </message>
     <message>
+      <source>What languages you speak?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If pending chats comes in the same language as chosen one. To you will be assigned same language chats first.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Updating...</source>
       <translation>Atualizando...</translation>
     </message>
@@ -6365,6 +6509,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Auto preload previous visitor chat messages</source>
       <translation>Carregar automaticamente as conversas anteriores do visitante</translation>
+    </message>
+    <message>
+      <source>Auto uppercase sentences</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Maximum active chats</source>
@@ -6862,6 +7010,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>E-mail</translation>
     </message>
     <message>
+      <source>Login As</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New user</source>
       <translation>Novo usuário</translation>
     </message>
@@ -7043,6 +7195,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Pending and active chats which visitors has closed chats explicitly or visitors being redirected to survey will be excluded</source>
       <translation>Os bate-papos pendentes e ativos que os visitantes fecharam nos bate-papos explicitamente ou que os visitantes foram redirecionados para a pesquisa serão excluídos</translation>
+    </message>
+    <message>
+      <source>Try to assign chats first to the same language speaking operators</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -8434,6 +8590,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <source>Auto login module is not enabled</source>
       <translation>O módulo Auto Login não está habilitado</translation>
     </message>
+    <message>
+      <source>Invalid hash or user</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>system/languages</name>
@@ -9554,6 +9714,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Link</translation>
     </message>
     <message>
+      <source>Additional data</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat content</source>
       <translation>Conteúdo do chat</translation>
     </message>
@@ -10219,6 +10383,53 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>notifications/index</name>
     <message>
       <source>Subscribers list</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>statistic/campaign</name>
+    <message>
+      <source>Parameter</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Explanation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation was assigned to online visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>widget was opened with invitation content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget was shown but visitor closed it without starting a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat started</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor started chat by online invitation</source>
       <translation type="unfinished"/>
     </message>
   </context>
