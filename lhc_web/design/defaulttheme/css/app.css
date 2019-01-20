@@ -397,6 +397,9 @@ div.message-row.response div.msg-body{
 	text-decoration:underline;
 }
 
+#messagesBlock{
+	padding-top: 5px;
+}
 
 div.message-admin+div.system-response,
 div.message-row.response+div.system-response{

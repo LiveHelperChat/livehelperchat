@@ -2,7 +2,7 @@
 
 <form action="" id="ReadOperatorMessage" method="post" onsubmit="return <?php if (isset($start_data_fields['message_auto_start']) && $start_data_fields['message_auto_start'] == true) : ?>lhinst.prestartChat('<?php echo time()?>',$(this))<?php else : ?>lhinst.addCaptchaSubmit('<?php echo time()?>',$(this))<?php endif?>">
 
-<div class="read-operator-message<?php if($fullheight) : ?> fullheight<?php endif ?>">
+<div id="messagesBlock" class="read-operator-message<?php if($fullheight) : ?> fullheight<?php endif ?>">
     <div class="msgBlock-inv<?php if (isset($theme) && $theme !== false && $theme->hide_ts == 1) : ?> msg-hide-ts<?php endif?>">
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/operator_message_row.tpl.php'));?>
         <?php if (isset($start_data_fields['show_messages_box']) && $start_data_fields['show_messages_box'] == true) : ?>
