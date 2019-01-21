@@ -102,9 +102,9 @@ class erLhcoreClassChatMail {
     	$Errors = array();
 
     	if (isset($params['archive_mode']) && $params['archive_mode'] == true){
-    		$messages = array_reverse(erLhcoreClassChat::getList(array('limit' => 100, 'sort' => 'id DESC','customfilter' => array('user_id != -1'), 'filter' => array('chat_id' => $chat->id)),'erLhcoreClassModelChatArchiveMsg',erLhcoreClassModelChatArchiveRange::$archiveMsgTable));
+    		$messages = array_reverse(erLhcoreClassChat::getList(array('limit' => false, 'sort' => 'id DESC','customfilter' => array('user_id != -1'), 'filter' => array('chat_id' => $chat->id)),'erLhcoreClassModelChatArchiveMsg',erLhcoreClassModelChatArchiveRange::$archiveMsgTable));
     	} else {
-    		$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 100,'sort' => 'id DESC','customfilter' => array('user_id != -1'), 'filter' => array('chat_id' => $chat->id))));
+    		$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC','customfilter' => array('user_id != -1'), 'filter' => array('chat_id' => $chat->id))));
     	}
     	
     	// Fetch chat messages
