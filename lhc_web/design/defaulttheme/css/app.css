@@ -225,7 +225,7 @@ textarea[name=ChatMessage]{
 	resize: both;
 	padding-right:60px;
 	max-width: 100%;
-    min-width: 100%;
+        min-width: 100%;
 }
 
 .msg-date {
