@@ -1964,7 +1964,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Langauge</source>
+      <source>Language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8873,7 +8873,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Langauge</source>
+      <source>Language</source>
       <translation type="unfinished"/>
     </message>
     <message>
