@@ -4,7 +4,7 @@
     <thead>
     <tr>
         <th width="1%">ID</th>
-        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('speech/language','Langauge');?></th>
+        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('speech/language','Language');?></th>
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('speech/language','Dialect');?></th>
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('speech/language','Language Code');?></th>
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('speech/language','Short Code');?></th>

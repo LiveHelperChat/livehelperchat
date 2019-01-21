@@ -4,7 +4,7 @@
     <thead>
     <tr>
         <th width="1%">ID</th>
-        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Langauge');?></th>
+        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Language');?></th>
         <th width="1%">&nbsp;</th>
         <th width="1%">&nbsp;</th>
     </tr>
