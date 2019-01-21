@@ -90,6 +90,8 @@ var lh_inst  = {
         return this.iswildcard;
     },
 
+    updateVarsTimeout : null,
+
     appendArg : function(args) {
         var tt = args.length/2;
         for (i = 0; i < tt; i++) {
@@ -1136,6 +1138,33 @@ function preloadDataLHC() {
     <?php elseif ($track_online_users == true) : ?>
         lh_inst.logPageView();
     <?php endif;?>
+
+    // Try to monitor variable if it's lhc_var
+    try {
+        if (typeof lhc_var !== 'undefined')
+        {
+            var validator = {
+                set: function(obj, prop, value) {
+                    // The default behavior to store the value
+                    obj[prop] = value;
+
+                    clearTimeout(lh_inst.updateVarsTimeout);
+
+                    lh_inst.updateVarsTimeout = setTimeout(function(){
+                        lh_inst.logPageView();
+                    },1000);
+
+                    // Indicate success
+                    return true;
+                }
+            };
+            lhc_var = new Proxy(lhc_var,validator);
+        }
+    } catch(err) {
+
+    };
+
+
 
     lh_inst.checkStatusChat();
     lh_inst.attatchActivityListeners();
