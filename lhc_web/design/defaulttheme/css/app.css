@@ -416,6 +416,7 @@ div.message-row.response div.msg-body{
 	padding-right:0!important;
 	padding-left:0!important;
 	padding-bottom:10px!important;
+	background:none!important;
 }
 
 div.message-admin+div.system-response,
