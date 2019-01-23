@@ -18,7 +18,7 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                          $db->query("SET NAMES 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'");
                      } catch (Exception $e){
                          error_log($e);
-                         throw $e;
+                         throw new Exception($e->getMessage());
                      }
                      return $db;
                  } else {
@@ -31,7 +31,7 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                         return $db;
                     } catch (Exception $e) {
                       error_log($e);
-                      throw $e;
+                      throw new Exception($e->getMessage());
                     }
                  }
                  break;
@@ -43,7 +43,7 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                     return $db;
                  } catch (Exception $e) {
                      error_log($e);
-                     throw $e;
+                     throw new Exception($e->getMessage());
                  }
                  break;
 
@@ -62,8 +62,10 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                 		exit;
                   	}
                     error_log($e);
-                    throw $e;
+                    throw new Exception($e->getMessage());
                 }
+
+
              }
 
              case 'sqlite':
