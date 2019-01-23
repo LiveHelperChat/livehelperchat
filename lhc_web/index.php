@@ -37,7 +37,7 @@ ezcBaseInit::setCallback(
 );
 
 set_exception_handler( array('erLhcoreClassModule', 'defaultExceptionHandler') );
-set_error_handler (  array('erLhcoreClassModule', 'defaultWarningHandler'), E_WARNING );
+set_error_handler (  array('erLhcoreClassModule', 'defaultWarningHandler') );
 
 try {
 
