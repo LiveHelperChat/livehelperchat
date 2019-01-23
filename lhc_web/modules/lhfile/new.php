@@ -17,7 +17,7 @@ if (isset($_POST['UploadFileAction'])) {
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.new.file_path', array('path' => & $path));
 
-            $upload_handler = new erLhcoreClassFileUploadAdmin(array('user_id' => $currentUser->getUserID(), 'persistent' => (isset($_POST['persistent']) && $_POST['persistent'] == 'on'), 'file_name_manual' => $_POST['Name'], 'upload_dir' => $path, 'download_via_php' => true, 'max_file_size' => $data['fs_max'] * 1024, 'accept_file_types_lhc' => '/\.(' . $data['ft_op'] . ')$/i'));
+            $upload_handler = new erLhcoreClassFileUploadAdmin(array('remove_meta' => (isset($data['remove_meta']) ? $data['remove_meta'] : false), 'user_id' => $currentUser->getUserID(), 'persistent' => (isset($_POST['persistent']) && $_POST['persistent'] == 'on'), 'file_name_manual' => $_POST['Name'], 'upload_dir' => $path, 'download_via_php' => true, 'max_file_size' => $data['fs_max'] * 1024, 'accept_file_types_lhc' => '/\.(' . $data['ft_op'] . ')$/i'));
 
             if ($upload_handler->uploadedFile instanceof erLhcoreClassModelChatFile) {
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.file_new_admin.file_store', array('chat_file' => $upload_handler->uploadedFile));

@@ -320,7 +320,7 @@ div.message-admin{
 
 div.message-admin div.msg-body{
 	margin-right:0px;
-	background-color: #0a49df;
+	background-color: #3267e4;
 	padding:8px 9px;
 	margin-top:0px;
 	color:#FFF;
@@ -350,7 +350,7 @@ div.message-row-typing div.msg-body {
 
 div.message-row.response div.msg-body{
 	background-color: #ededed;
-	padding:8px 9px;
+	padding:6px 9px;
 	margin-top:0px;
 	border-radius:20px;
 	margin-bottom:3px;
@@ -378,7 +378,7 @@ div.message-row.response div.msg-body{
 }
 
 #messagesBlock div.response div.msg-body{
-	background-color: #0a49df;
+	background-color: #3267e4;
 	color:#FFF;
 }
 
@@ -399,6 +399,23 @@ div.message-row.response div.msg-body{
 
 #messagesBlock{
 	padding-top: 5px;
+}
+
+.msg-body-media,
+.msg-body-emoji{
+	background:none!important;
+}
+
+.msg-body-media img{
+	border-radius:10px;
+}
+
+.msg-body-emoji{
+	font-size:32px!important;
+	line-height:80%;
+	padding-right:0!important;
+	padding-left:0!important;
+	padding-bottom:10px!important;
 }
 
 div.message-admin+div.system-response,

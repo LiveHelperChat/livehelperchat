@@ -23,6 +23,8 @@ class erLhAbstractModelChatColumn
             'conditions' => $this->conditions,
             'column_icon' => $this->column_icon,
             'column_identifier' => $this->column_identifier,
+            'chat_enabled' => $this->chat_enabled,
+            'online_enabled' => $this->online_enabled,
         );
 
         return $stateArray;
@@ -86,9 +88,13 @@ class erLhAbstractModelChatColumn
 
     public $position = '';
 
-    public $enabled = '';
+    public $enabled = 1;
 
     public $conditions = '';
+
+    public $chat_enabled = 1;
+
+    public $online_enabled = 1;
 
     public $hide_delete = false;
 }

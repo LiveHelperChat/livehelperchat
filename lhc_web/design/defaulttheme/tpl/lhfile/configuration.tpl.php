@@ -9,13 +9,24 @@
 <?php endif; ?>
 
 <form action="" method="post">
-<div class="form-group">
-    <label><input type="checkbox" name="ActiveFileUploadUser" value="on" <?php isset($file_data['active_user_upload']) && ($file_data['active_user_upload'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Files upload for users is active'); ?></label>
-</div>
 
-<div class="form-group">
-    <label><input type="checkbox" name="ActiveFileUploadAdmin" value="on" <?php isset($file_data['active_admin_upload']) && ($file_data['active_admin_upload'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Files upload for operators is active'); ?></label>
-</div>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label><input type="checkbox" name="ActiveFileUploadUser" value="on" <?php isset($file_data['active_user_upload']) && ($file_data['active_user_upload'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Files upload for users is active'); ?></label>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label><input type="checkbox" name="ActiveFileUploadAdmin" value="on" <?php isset($file_data['active_admin_upload']) && ($file_data['active_admin_upload'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Files upload for operators is active'); ?></label>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label><input type="checkbox" name="removeMetaTag" value="on" <?php isset($file_data['remove_meta']) && ($file_data['remove_meta'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Remove meta information from images'); ?></label>
+            </div>
+        </div>
+    </div>
 
 <div class="row form-group">
 	<div class="col-md-6">

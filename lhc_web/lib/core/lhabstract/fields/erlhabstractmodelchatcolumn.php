@@ -39,6 +39,22 @@ return array(
         'required' => false,
         'hide_optional' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
+    ),
+    'chat_enabled' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Visible in chat list'),
+        'hidden' => true,
+        'required' => false,
+        'hide_optional' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
+    ),
+    'online_enabled' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Visible in online visitors list'),
+        'hidden' => true,
+        'required' => false,
+        'hide_optional' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
     )
 );
 
