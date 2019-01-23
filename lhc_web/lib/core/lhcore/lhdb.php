@@ -18,7 +18,7 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                          $db->query("SET NAMES 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'");
                      } catch (Exception $e){
                          error_log($e);
-                         die('Cannot connect to database.') ;
+                         throw new Exception($e->getMessage());
                      }
                      return $db;
                  } else {
@@ -31,7 +31,7 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                         return $db;
                     } catch (Exception $e) {
                       error_log($e);
-                      die('Cannot connect to database.....') ;
+                      throw new Exception($e->getMessage());
                     }
                  }
                  break;
@@ -42,8 +42,8 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                     $db = ezcDbFactory::create( "mongodb://{$cfg->getSetting( 'dbmongo', 'user' )}:{$cfg->getSetting( 'dbmongo', 'password' )}@{$cfg->getSetting( 'dbmongo', 'host' )}:{$cfg->getSetting( 'dbmongo', 'port' )}/{$cfg->getSetting( 'dbmongo', 'database' )}" );
                     return $db;
                  } catch (Exception $e) {
-                    error_log($e);
-                    die('Cannot connect to mongo database.') ;
+                     error_log($e);
+                     throw new Exception($e->getMessage());
                  }
                  break;
 
@@ -62,8 +62,10 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                 		exit;
                   	}
                     error_log($e);
-                  	die('Cannot connect to database. If you are installing application please use /index.php/install/install url. If you keep getting this error please check that application can write to cache folder and cgi.fix_pathinfo = 1') ;
+                    throw new Exception($e->getMessage());
                 }
+
+
              }
 
              case 'sqlite':

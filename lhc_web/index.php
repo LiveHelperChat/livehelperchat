@@ -32,20 +32,46 @@ erLhcoreClassSystem::init();
 
 // your code here
 ezcBaseInit::setCallback(
- 'ezcInitDatabaseInstance',
- 'erLhcoreClassLazyDatabaseConfiguration'
+    'ezcInitDatabaseInstance',
+    'erLhcoreClassLazyDatabaseConfiguration'
 );
 
-$Result = erLhcoreClassModule::moduleInit();
+set_exception_handler( array('erLhcoreClassModule', 'defaultExceptionHandler') );
+set_error_handler (  array('erLhcoreClassModule', 'defaultWarningHandler') );
 
-$tpl = erLhcoreClassTemplate::getInstance('pagelayouts/main.php');
-$tpl->set('Result',$Result);
-if (isset($Result['pagelayout']))
-{
-	$tpl->setFile('pagelayouts/'.$Result['pagelayout'].'.php');
+try {
+
+    $Result = erLhcoreClassModule::moduleInit();
+
+    $tpl = erLhcoreClassTemplate::getInstance('pagelayouts/main.php');
+    $tpl->set('Result',$Result);
+    if (isset($Result['pagelayout']))
+    {
+        $tpl->setFile('pagelayouts/'.$Result['pagelayout'].'.php');
+    }
+
+    echo $tpl->fetch();
+
+} catch (Exception $e) {
+
+    if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
+        echo "<pre>";
+        print_r($e);
+        echo "</pre>";
+        exit;
+    }
+
+    error_log($e);
+
+    header('HTTP/1.1 503 Service Temporarily Unavailable');
+    header('Status: 503 Service Temporarily Unavailable');
+    header('Retry-After: 300');
+
+    include_once('design/defaulttheme/tpl/lhkernel/fatal_error.tpl.php');
+
+    erLhcoreClassLog::write(print_r($e,true));
 }
 
-echo $tpl->fetch();
 
 flush();
 session_write_close();
