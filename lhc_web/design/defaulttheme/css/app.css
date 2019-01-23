@@ -30,6 +30,10 @@ body {
 	border-bottom: 1px solid #ddd;
 }
 
+a.link {
+	text-decoration: underline;
+}
+
 #tabs > .tab-content{
 	margin-top: 15px;
 }
