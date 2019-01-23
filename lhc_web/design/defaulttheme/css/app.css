@@ -329,6 +329,7 @@ div.message-admin div.msg-body{
 	border-radius:20px;
 	margin-bottom:3px;
 	display:inline-block;
+	text-align: left;
 }
 
 div.message-admin div.msg-body a.link{
@@ -355,6 +356,7 @@ div.message-row.response div.msg-body{
 	border-radius:20px;
 	margin-bottom:3px;
 	display:inline-block;
+	text-align: left;
 }
 
 
