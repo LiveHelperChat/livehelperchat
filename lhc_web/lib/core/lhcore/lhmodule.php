@@ -126,16 +126,22 @@ class erLhcoreClassModule{
 					echo "</pre>";
 					exit;
 				}
-				
+
 				if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'installed' ) == false) {
 					header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin/install/install') );
 					exit;
 				}
-				
+
+                error_log($e);
+
             	header('HTTP/1.1 503 Service Temporarily Unavailable');
             	header('Status: 503 Service Temporarily Unavailable');
             	header('Retry-After: 300');
-            	exit;
+
+                include_once('design/defaulttheme/tpl/lhkernel/fatal_error.tpl.php');
+
+                erLhcoreClassLog::write(print_r($e,true));
+                exit;
             }
 
             if (isset($Params['module']['pagelayout']) && !isset($Result['pagelayout'])) {
@@ -164,7 +170,49 @@ class erLhcoreClassModule{
         
         return self::moduleInit(array('ignore_extensions' => false));
     }
-    
+
+    public static function defaultExceptionHandler($e)
+    {
+        if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
+            echo "<pre>";
+            print_r($e);
+            echo "</pre>";
+            exit;
+        }
+
+        error_log($e);
+
+        header('HTTP/1.1 503 Service Temporarily Unavailable');
+        header('Status: 503 Service Temporarily Unavailable');
+        header('Retry-After: 300');
+
+        include_once('design/defaulttheme/tpl/lhkernel/fatal_error.tpl.php');
+
+        if (file_exists('cache/default.log') && (filesize('cache/default.log')/1000) > 200){
+            file_put_contents('cache/default.log', date('M j H:i:s') . ' [Warning] [default] [default] '. print_r($e,true));
+        } else {
+            file_put_contents('cache/default.log',date('M j H:i:s') . ' [Warning] [default] [default] '. print_r($e,true), FILE_APPEND);
+        }
+    }
+
+    public static function defaultWarningHandler($errno, $errstr, $errfile, $errline) {
+
+        if ($errno == E_USER_ERROR || $errno == E_COMPILE_ERROR || $errno == E_PARSE || $errno == E_ERROR || $errno ==  E_RECOVERABLE_ERROR) {
+            $msg = 'Unexpected error, the message was : ' . $errstr . ' in ' . $errfile . ' on line ' . $errline;
+            error_log('Unexpected error, the message was : ' . $errstr . ' in ' . $errfile . ' on line ' . $errline);
+            erLhcoreClassLog::write($msg);
+            include_once('design/defaulttheme/tpl/lhkernel/fatal_error.tpl.php');
+            exit(1);
+            return true;
+        }
+
+        if ($errno == E_WARNING && strpos($errstr,'include(): Failed opening \'cache/')) {
+            erLhcoreClassLog::write('Unexpected warning, the message was : ' . $errstr . ' in ' . $errfile . ' on line ' . $errline);
+        }
+
+        return false;
+    }
+
     public static function attatchExtensionListeners(){
     	$cfg = erConfigClassLhConfig::getInstance();
     	$extensions = $cfg->getOverrideValue('site','extensions');
