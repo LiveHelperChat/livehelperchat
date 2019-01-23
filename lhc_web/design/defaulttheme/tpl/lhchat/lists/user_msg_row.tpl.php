@@ -4,13 +4,17 @@
     } else if (isset($metaMessageData)) {
         unset($metaMessageData);
     }
+
+    $msgRendered = erLhcoreClassBBCode::make_clickable(htmlspecialchars($msg['msg']));
+    $msgRenderedMedia = strip_tags($msgRendered);
+    $emojiMessage = trim(preg_replace('#(x1F642|[\x{1F600}-\x{1F64F}]|[\x{1F300}-\x{1F5FF}]|[\x{1F680}-\x{1F6FF}]|[\x{2600}-\x{26FF}]|[\x{2700}-\x{27BF}])#u','', $msgRendered)) == '';
 ?>
 
 <?php if ($msg['user_id'] > -1 || $msg['user_id'] == -2) : ?>
 	<?php if ($msg['user_id'] == 0) { ?>
 	        <div class="message-row response<?php if (isset($hideNextMessages) && $hideNextMessages == true) : ?> hide<?php endif;?>" id="msg-<?php echo $msg['id']?>" data-op-id="<?php echo $msg['user_id']?>"><div class="msg-date"><?php if (date('Ymd') == date('Ymd',$msg['time'])) {	echo  date(erLhcoreClassModule::$dateHourFormat,$msg['time']);} else { echo date(erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?></div><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/user_msg_row_nick.tpl.php'));?>
                 <?php if ($msg['msg'] != '') : ?>
-                <div class="msg-body">
+                <div class="msg-body<?php ($msgRenderedMedia == '') ? print ' msg-body-media' : ''?><?php ($emojiMessage == true) ? print ' msg-body-emoji' : ''?>">
                     <?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($msg['msg']))?>
 
                     <?php if (isset($metaMessageData['content_static']['message_explain'])) : ?>
@@ -27,7 +31,7 @@
 	        <div class="message-row message-admin<?php (isset($lastOperatorChanged) && $lastOperatorChanged == true ? print ' operator-changes' : '') ?><?php if (isset($hideNextMessages) && $hideNextMessages == true) : ?> hide<?php endif;?>" id="msg-<?php echo $msg['id']?>" data-op-id="<?php echo $msg['user_id']?>" title="<?php if (date('Ymd') == date('Ymd',$msg['time'])) { echo  date(erLhcoreClassModule::$dateHourFormat,$msg['time']);} else {	echo date(erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?>"><span class="usr-tit<?php echo $msg['user_id'] == 0 ? ' vis-tit' : ' op-tit'?>"><i class="material-icons chat-operators mi-fs15 mr-0">account_box</i><?php echo htmlspecialchars($msg['name_support'])?></span>
 
                 <?php if ($msg['msg'] != '') : ?>
-                    <div class="msg-body">
+                    <div class="msg-body<?php ($msgRenderedMedia == '') ? print ' msg-body-media' : ''?><?php ($emojiMessage == true) ? print ' msg-body-emoji' : ''?>">
                         <?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($msg['msg']))?>
 
                         <?php if (isset($metaMessageData['content_static']['message_explain'])) : ?>

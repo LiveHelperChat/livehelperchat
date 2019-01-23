@@ -1,3 +1,11 @@
+3.18v
+
+1. Option in file upload configurator to setup meta tag clean up. Upon files upload from operators meta tag information for images can be removed.
+2. Updated messages style so that images won't have bubble background if message is only smile it also won't have bubble background.
+3. Additional chat columns now support object attributes. Additional can be turned of separately for chat and online visitors.
+
+execute doc/update_db/update_193.sql for update
+
 3.17v
 
 1. Now in options you can set should be cookie set only for domain where javascript is embeded or also subdomains. Default behaviour does not change. This can be controlled also from js embed code directly also.

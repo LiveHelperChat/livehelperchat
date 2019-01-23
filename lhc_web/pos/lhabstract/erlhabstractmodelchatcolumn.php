@@ -44,6 +44,16 @@ $def->properties['conditions']->columnName   = 'conditions';
 $def->properties['conditions']->propertyName = 'conditions';
 $def->properties['conditions']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['chat_enabled'] = new ezcPersistentObjectProperty();
+$def->properties['chat_enabled']->columnName   = 'chat_enabled';
+$def->properties['chat_enabled']->propertyName = 'chat_enabled';
+$def->properties['chat_enabled']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['online_enabled'] = new ezcPersistentObjectProperty();
+$def->properties['online_enabled']->columnName   = 'online_enabled';
+$def->properties['online_enabled']->propertyName = 'online_enabled';
+$def->properties['online_enabled']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

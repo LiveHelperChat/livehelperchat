@@ -1410,7 +1410,7 @@ class erLhcoreClassChat {
 
             if (isset($params['additional_columns']) && is_array($params['additional_columns']) && !empty($params['additional_columns'])) {
                 foreach ($params['additional_columns'] as $column) {
-                    if (strpos($column->variable,'additional_data') !== false) {
+                    if (strpos($column->variable,'additional_data.') !== false) {
                         $additionalDataArray = $object->additional_data_array;
                         if (is_array($additionalDataArray)) {
                             foreach ($additionalDataArray as $additionalItem) {
@@ -1429,13 +1429,18 @@ class erLhcoreClassChat {
                                 }
                             }
                         }
-                    } elseif (strpos($column->variable,'chat_variable') !== false) {
+                    } elseif (strpos($column->variable,'chat_variable.') !== false) {
                         $additionalDataArray = $object->chat_variables_array;
                         if (is_array($additionalDataArray)) {
                             $variableName = str_replace('chat_variable.','', $column->variable);
                             if (isset($object->chat_variables_array[$variableName]) && $object->chat_variables_array[$variableName] != '') {
                                 $object->{'cc_'.$column->id} = $object->chat_variables_array[$variableName];
                             }
+                        }
+                    } elseif (strpos($column->variable,'lhc.') !== false) {
+                        $variableName = str_replace('lhc.','', $column->variable);
+                        if (isset($object->{$variableName}) && $object->{$variableName} != '') {
+                            $object->{'cc_'.$column->id} = $object->{$variableName};
                         }
                     }
                 }

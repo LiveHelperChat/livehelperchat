@@ -17,7 +17,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhf
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfileadmin.file_path', array('path' => & $path, 'storage_id' => $chat->id));
 
-        $upload_handler = new erLhcoreClassFileUpload(array('name_support' => $userData->name_support, 'user_id' => $currentUser->getUserID(), 'max_file_size' => $data['fs_max'] * 1024, 'accept_file_types_lhc' => '/\.(' . $data['ft_op'] . ')$/i', 'chat' => $chat, 'download_via_php' => true, 'upload_dir' => $path));
+        $upload_handler = new erLhcoreClassFileUpload(array('remove_meta' => (isset($data['remove_meta']) ? $data['remove_meta'] : false), 'name_support' => $userData->name_support, 'user_id' => $currentUser->getUserID(), 'max_file_size' => $data['fs_max'] * 1024, 'accept_file_types_lhc' => '/\.(' . $data['ft_op'] . ')$/i', 'chat' => $chat, 'download_via_php' => true, 'upload_dir' => $path));
 
         if ($upload_handler->uploadedFile instanceof erLhcoreClassModelChatFile) {
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfileadmin.file_store', array('chat_file' => $upload_handler->uploadedFile));
