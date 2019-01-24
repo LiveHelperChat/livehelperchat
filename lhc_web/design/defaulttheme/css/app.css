@@ -299,7 +299,7 @@ div.message-row {
 	*word-wrap: break-word;
 }
 
-div.message-row > div,div.message-row > span {
+div.message-row > div,div.message-row > span,div.message-row > i {
 	line-height:140%;
 	white-space:normal;
 }
