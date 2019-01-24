@@ -86,6 +86,18 @@ abstract class ezcLogFileWriter implements ezcLogWriter
     protected $maxFiles;
 
     /**
+     *
+     * @var string
+     */
+    protected $defaultGroup = null;
+
+    /**
+     *
+     * @var string
+     */
+    protected $defaultUser = null;
+
+    /**
      * Constructs an ezcLogFileWriter.
      *
      * The log files will be placed in the directory $logDirectory.
@@ -105,12 +117,14 @@ abstract class ezcLogFileWriter implements ezcLogWriter
      * @param int $maxLogRotationSize
      * @param int $maxLogFiles
      */
-    public function __construct( $logDirectory, $defaultFile = null, $maxLogRotationSize = 204800, $maxLogFiles = 3 )
+    public function __construct( $logDirectory, $defaultFile = null, $maxLogRotationSize = 204800, $maxLogFiles = 3, $defaultUser = null, $defaultGroup = null)
     {
         $this->maxSize = $maxLogRotationSize;
         $this->maxFiles = $maxLogFiles;
         $this->logDirectory = $logDirectory;
         $this->defaultFile = $defaultFile;
+        $this->defaultUser = $defaultUser;
+        $this->defaultGroup = $defaultGroup;
 
         if ( !is_null( $defaultFile ) )
         {
@@ -214,6 +228,15 @@ abstract class ezcLogFileWriter implements ezcLogWriter
             {
                 throw new ezcBaseFilePermissionException( $path, ezcBaseFilePermissionException::WRITE );
             }
+        } else {
+
+            if ($this->defaultUser != '') {
+                chown($path, $this->defaultUser);
+            }
+
+            if ($this->defaultGroup != '') {
+                chgrp($path, $this->defaultGroup);
+            }
         }
 
         $this->openFiles[$path] = $fh;
@@ -243,6 +266,14 @@ abstract class ezcLogFileWriter implements ezcLogWriter
                 {
                     $newLogRotateName = $file . '.' . ( $i + 1 );
                     rename( $logRotateName, $newLogRotateName );
+
+                    if ($this->defaultUser != '') {
+                        chown($newLogRotateName, $this->defaultUser);
+                    }
+
+                    if ($this->defaultGroup != '') {
+                        chgrp($newLogRotateName, $this->defaultGroup);
+                    }
                 }
             }
         }
@@ -250,6 +281,15 @@ abstract class ezcLogFileWriter implements ezcLogWriter
         {
             $newLogRotateName =  $file . '.' . 1;
             rename( $file, $newLogRotateName );
+
+            if ($this->defaultUser != '') {
+                chown($newLogRotateName, $this->defaultUser);
+            }
+
+            if ($this->defaultGroup != '') {
+                chgrp($newLogRotateName, $this->defaultGroup);
+            }
+
             return true;
         }
         return false;

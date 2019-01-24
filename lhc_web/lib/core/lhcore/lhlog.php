@@ -77,7 +77,11 @@ class erLhcoreClassLog implements ezcBaseConfigurationInitializer {
 		$filter = new ezcLogFilter();
   		$filter->severity = ezcLog::INFO | ezcLog::NOTICE | ezcLog::WARNING | ezcLog::ERROR | ezcLog::FATAL | ezcLog::DEBUG;
 
-		$writeAll = new ezcLogUnixFileWriter ( "cache", "default.log" );
+		$cfg = erConfigClassLhConfig::getInstance();
+		$defaultGroup = $cfg->getSetting( 'site', 'default_group', false );
+		$defaultUser = $cfg->getSetting( 'site', 'default_user', false );
+
+		$writeAll = new ezcLogUnixFileWriter ( "cache", "default.log",204800, 5, $defaultUser, $defaultGroup);
 
 		$log->getMapper ()->appendRule ( new ezcLogFilterRule ( $filter, $writeAll, true ) );
 
