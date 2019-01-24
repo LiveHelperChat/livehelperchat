@@ -58,7 +58,7 @@ class erLhAbstractModelAdminTheme {
 
     public function beforeSave()
     {
-        $this->css_attributes = json_encode($this->css_attributes_array);
+        $this->css_attributes = json_encode(array_filter($this->css_attributes_array));
     }
 
 	/**
