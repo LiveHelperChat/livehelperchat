@@ -182,7 +182,7 @@ a {
 <?php endif; ?>
 
 <?php if (isset($cssAttributes['buble_operator_background']) || isset($cssAttributes['buble_operator_text_color'])) : ?>
-    div.message-admin div.msg-body
+    div.message-admin div.msg-body{
         <?php if (isset($cssAttributes['buble_operator_background'])) : ?>background-color: #<?php echo $cssAttributes['buble_operator_background'];?>;<?php endif; ?>
         <?php if (isset($cssAttributes['buble_operator_text_color'])) : ?>color: #<?php echo $cssAttributes['buble_operator_text_color'];?>;<?php endif; ?>
     }
