@@ -11,7 +11,13 @@
 </thead>
 <?php foreach ($items as $item) : ?>
     <tr>
-        <td><a href="<?php echo erLhcoreClassDesign::baseurl('theme/adminthemeedit')?>/<?php echo $item->id?>"><?php echo htmlspecialchars($item->name)?></a></td>
+        <td><a href="<?php echo erLhcoreClassDesign::baseurl('theme/adminthemeedit')?>/<?php echo $item->id?>">
+                <?php if ($item->name == '') : ?>
+                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('theme/index','My theme'); ?>
+                <?php else : ?>
+                    <?php echo htmlspecialchars($item->name)?>
+                <?php endif; ?>
+            </a></td>
         <td><?php echo htmlspecialchars($item->user)?></td>
         <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('theme/adminthemedelete')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></a></td>
     </tr>

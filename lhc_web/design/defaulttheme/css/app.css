@@ -334,6 +334,7 @@ div.message-admin div.msg-body{
 	margin-bottom:3px;
 	display:inline-block;
 	text-align: left;
+	max-width:90%;
 }
 
 div.message-admin div.msg-body a.link{
@@ -361,6 +362,7 @@ div.message-row.response div.msg-body{
 	margin-bottom:3px;
 	display:inline-block;
 	text-align: left;
+	max-width:90%;
 }
 
 

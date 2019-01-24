@@ -12,6 +12,10 @@ if (!($form instanceof erLhAbstractModelAdminTheme)) {
     $form->saveThis();
 }
 
+if ($form->name == '') {
+    $form->name = erTranslationClassLhTranslation::getInstance()->getTranslation('theme/index','My theme');
+}
+
 $fields = include 'lib/core/lhabstract/fields/erlhabstractmodeladmintheme.php';
 
 if ( isset($_POST['CancelAction']) ) {
