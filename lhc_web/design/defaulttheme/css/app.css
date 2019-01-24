@@ -288,6 +288,22 @@ div.message-row {
 	position:relative;
 }
 
+div.message-row {
+	padding:0px 0px 0px 0px;
+	margin-right:0px;
+	margin-left:0px;
+	position:relative;
+	white-space: pre-line;
+	line-height:0;
+	*white-space: pre;
+	*word-wrap: break-word;
+}
+
+div.message-row > div,div.message-row > span {
+	line-height:140%;
+	white-space:normal;
+}
+
 .message-row-typing {
 	margin:4px 0px;
 	animation: blink 1500ms linear infinite;
@@ -421,9 +437,7 @@ div.message-row.response div.msg-body{
 .msg-body-emoji{
 	font-size:32px!important;
 	line-height:80%;
-	padding-right:0!important;
-	padding-left:0!important;
-	padding-bottom:10px!important;
+	padding:0!important;
 }
 
 div.message-admin+div.system-response,

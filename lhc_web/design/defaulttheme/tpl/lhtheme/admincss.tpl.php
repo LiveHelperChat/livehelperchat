@@ -182,11 +182,17 @@ a {
 <?php endif; ?>
 
 <?php if (isset($cssAttributes['buble_operator_background']) || isset($cssAttributes['buble_operator_text_color'])) : ?>
-    div.message-admin div.msg-body,
-    div.message-admin div.msg-body a.link{
+    div.message-admin div.msg-body
         <?php if (isset($cssAttributes['buble_operator_background'])) : ?>background-color: #<?php echo $cssAttributes['buble_operator_background'];?>;<?php endif; ?>
         <?php if (isset($cssAttributes['buble_operator_text_color'])) : ?>color: #<?php echo $cssAttributes['buble_operator_text_color'];?>;<?php endif; ?>
     }
+
+    <?php if (isset($cssAttributes['buble_operator_text_color'])) : ?>
+    div.message-admin div.msg-body a.link{
+        color: #<?php echo $cssAttributes['buble_operator_text_color'];?>;
+    }
+    <?php endif; ?>
+
 <?php endif; ?>
 
 <?php if (isset($cssAttributes['buble_operator_title_color'])) : ?>
@@ -196,11 +202,17 @@ a {
 <?php endif; ?>
 
 <?php if (isset($cssAttributes['buble_visitor_text_color']) || isset($cssAttributes['buble_visitor_background'])) : ?>
-    div.message-row.response div.msg-body,
-    div.message-row.response div.msg-body a.link{
+    div.message-row.response div.msg-body{
         <?php if (isset($cssAttributes['buble_visitor_background'])) : ?>background-color: #<?php echo $cssAttributes['buble_visitor_background'];?>;<?php endif; ?>
         <?php if (isset($cssAttributes['buble_visitor_text_color'])) : ?>color: #<?php echo $cssAttributes['buble_visitor_text_color'];?>;<?php endif; ?>
     }
+
+    <?php if (isset($cssAttributes['buble_visitor_text_color'])) : ?>
+    div.message-row.response div.msg-body a.link{
+        <?php if (isset($cssAttributes['buble_visitor_text_color'])) : ?>color: #<?php echo $cssAttributes['buble_visitor_text_color'];?>;<?php endif; ?>
+    }
+    <?php endif; ?>
+
 <?php endif; ?>
 
 <?php if (isset($cssAttributes['buble_visitor_title_color'])) : ?>
