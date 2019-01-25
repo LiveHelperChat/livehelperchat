@@ -945,6 +945,14 @@ var lh_inst  = {
 	    xhr.send(this.parseOptions());
     },
 
+    invitationUrl  :  '',
+
+    showBasicInvitation : function(url) {
+        lh_inst.isProactivePending = 1;
+        lh_inst.invitationUrl = url;
+        this.addClass(document.getElementById('<?php echo $chatCSSPrefix?>_status_container'),'<?php echo $chatCSSPrefix?>_invitation-mode');
+    },
+
     attatchActivityListeners : function() {
         <?php if ((int)erLhcoreClassModelChatConfig::fetch('track_activity')->current_value > 0) : ?>
         var resetTimeout = function() {

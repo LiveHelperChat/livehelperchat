@@ -109,6 +109,11 @@ background-color: #ddd;
 		max-height:100%;
 	}
 
+	#messagesBlock.read-operator-message{
+		position:relative;
+		bottom: auto;
+	}
+
 	.widget-modal-body #messages,.widget-modal-body #messagesBlock{
 		position:relative;
 		height:auto!important;

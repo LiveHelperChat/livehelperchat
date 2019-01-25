@@ -12,7 +12,13 @@ showStartWindow : function(url_to_open,delayShow) {
       this.removeById('<?php echo $chatCSSLayoutOptions['container_id']?>');
       	  
 	  var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
-	  
+
+    if (this.isProactivePending == 1 && this.invitationUrl != ''){
+        url_to_open = this.invitationUrl;
+        this.invitationUrl = '';
+        this.removeClass(document.getElementById('<?php echo $chatCSSPrefix?>_status_container'),'<?php echo $chatCSSPrefix?>_invitation-mode');
+    };
+
       if ( url_to_open != undefined ) {
        		this.chatOpenedCallback('internal_invitation');	
             this.initial_iframe_url = url_to_open+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments()+'&dt='+encodeURIComponent(document.title);
