@@ -1,4 +1,4 @@
-<?php
+1<?php
 header('content-type: application/json; charset=utf-8');
 /**
  * These operations are executed directly in an iframe. Most of the time it's postMessage
@@ -40,6 +40,8 @@ if (trim($form->operation) != '')
 
             $Chat->operation .= $form->operation . "\n";
             $Chat->updateThis();
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.added_operation',array('chat' => & $Chat));
 
             echo json_encode(array('error' => 'false'));
         }

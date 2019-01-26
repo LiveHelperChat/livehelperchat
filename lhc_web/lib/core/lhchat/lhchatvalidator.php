@@ -727,6 +727,118 @@ class erLhcoreClassChatValidator {
         return $Errors;
     }
 
+    public static function validateJSVarsVisitor($visitor, $data) {
+
+        $onlineAttr = $visitor->online_attr_array;
+
+        foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$visitor->dep_id))) as $jsVar) {
+
+            if (isset($onlineAttr[$jsVar->var_identifier])) {
+                unset($onlineAttr[$jsVar->var_identifier]);
+            }
+
+            if (isset($data[str_replace('lhc_var.','',$jsVar->js_variable)]) && !empty(str_replace('lhc_var.','',$jsVar->js_variable))) {
+                $val = $data[str_replace('lhc_var.','',$jsVar->js_variable)];
+                if ($jsVar->type == 0) {
+                    $val = (string)$val;
+                } elseif ($jsVar->type == 1) {
+                    $val = (int)$val;
+                } elseif ($jsVar->type == 2) {
+                    $val = (real)$val;
+                }
+                $onlineAttr[$jsVar->var_identifier] =  array('h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
+            }
+        }
+
+        $visitor->online_attr = json_encode($onlineAttr);
+        $visitor->saveThis();
+
+    }
+
+    public static function validateJSVarsChat($chat, $data) {
+
+        $additionalDataArray = $chat->additional_data_array;
+
+        if ( !empty($data))
+        {
+            $needUpdate = false;
+            $stringParts = array();
+
+            foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
+                if (isset($data[str_replace('lhc_var.','',$jsVar->js_variable)]) && !empty(str_replace('lhc_var.','',$jsVar->js_variable))) {
+                    if ($jsVar->var_identifier == 'lhc.nick') {
+                        if ($chat->nick != $data[str_replace('lhc_var.','',$jsVar->js_variable)] && $data[str_replace('lhc_var.','',$jsVar->js_variable)] != '') {
+                            $chat->nick = $data[str_replace('lhc_var.','',$jsVar->js_variable)];
+                            $needUpdate = true;
+                        }
+                    } else {
+                        $val = $data[str_replace('lhc_var.','',$jsVar->js_variable)];
+                        if ($jsVar->type == 0) {
+                            $val = (string)$val;
+                        } elseif ($jsVar->type == 1) {
+                            $val = (int)$val;
+                        } elseif ($jsVar->type == 2) {
+                            $val = (real)$val;
+                        }
+                        $stringParts[] = array('h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
+                    }
+                }
+            }
+
+            $identifiersUpdated = array();
+            foreach ($additionalDataArray as  & $item) {
+                foreach ($stringParts as $newItem) {
+                    if ($item['identifier'] == $newItem['identifier']) {
+                        if ( $newItem['value'] != $item['value'] ) {
+                            $item['value'] = $newItem['value'];
+                            $needUpdate = true;
+                        }
+                        $identifiersUpdated[] = $newItem['identifier'];
+                    }
+                }
+            }
+
+            foreach ($stringParts as $newItem) {
+                if (!in_array($newItem['identifier'],$identifiersUpdated)){
+                    $additionalDataArray[] = $newItem;
+                    $needUpdate = true;
+                }
+            }
+
+            if ($needUpdate == true) {
+                $chat->additional_data_array = $additionalDataArray;
+                $chat->additional_data = json_encode($additionalDataArray);
+
+                // Set priority if we find new after fetching additional data
+                $priority = erLhcoreClassChatValidator::getPriorityByAdditionalData($chat);
+
+                if ($priority !== false && $priority > $chat->priority) {
+                    $chat->priority = $priority;
+                }
+
+                $db = ezcDbInstance::get();
+                $db->beginTransaction();
+
+                erLhcoreClassModelChat::fetchAndLock($chat->id);
+
+                $stmt = $db->prepare("UPDATE lh_chat SET nick = :nick, additional_data = :additional_data, priority = :priority, operation_admin = :operation_admin WHERE id = :chat_id");
+                $stmt->bindValue(':chat_id',$chat->id,PDO::PARAM_INT);
+                $stmt->bindValue(':priority',$chat->priority,PDO::PARAM_INT);
+                $stmt->bindValue(':operation_admin','lhinst.updateVoteStatus(' . $chat->id . ');',PDO::PARAM_STR);
+                $stmt->bindValue(':additional_data',$chat->additional_data,PDO::PARAM_STR);
+                $stmt->bindValue(':nick',$chat->nick,PDO::PARAM_STR);
+
+                $stmt->execute();
+
+                $db->commit();
+
+                // Perhaps someone is listening for chat modifications
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.modified', array('chat' => & $chat, 'params' => array()));
+            }
+        }
+    }
+
+
     public static function updateAdditionalVariables($chat) {
 
         $validationFields = array();
@@ -748,9 +860,11 @@ class erLhcoreClassChatValidator {
 
             foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
                 if (isset($form->jsvar[$jsVar->id]) && !empty($form->jsvar[$jsVar->id])) {
-                    if ($jsVar->var_identifier == 'lhc.nick' && $chat->nick != $form->jsvar[$jsVar->id] && $form->jsvar[$jsVar->id] != '') {
-                        $chat->nick = $form->jsvar[$jsVar->id];
-                        $needUpdate = true;
+                    if ($jsVar->var_identifier == 'lhc.nick') {
+                        if ($chat->nick != $form->jsvar[$jsVar->id] && $form->jsvar[$jsVar->id] != '') {
+                            $chat->nick = $form->jsvar[$jsVar->id];
+                            $needUpdate = true;
+                        }
                     } else {
                         $val = $form->jsvar[$jsVar->id];
                         if ($jsVar->type == 0) {
@@ -789,6 +903,7 @@ class erLhcoreClassChatValidator {
 
                 $chat->additional_data_array = $additionalDataArray;
                 $chat->additional_data = json_encode($additionalDataArray);
+                $chat->operation_admin = 'lhinst.updateVoteStatus(' . $chat->id . ');';
 
                 // Set priority if we find new after fetching additional data
                 $priority = erLhcoreClassChatValidator::getPriorityByAdditionalData($chat);
@@ -800,7 +915,7 @@ class erLhcoreClassChatValidator {
                 $db = ezcDbInstance::get();
                 $db->beginTransaction();
 
-                $chat = erLhcoreClassModelChat::fetchAndLock($chat->id);
+                erLhcoreClassModelChat::fetchAndLock($chat->id);
 
                 $stmt = $db->prepare("UPDATE lh_chat SET nick = :nick, additional_data = :additional_data, priority = :priority, operation_admin = :operation_admin WHERE id = :chat_id");
                 $stmt->bindValue(':chat_id',$chat->id,PDO::PARAM_INT);
@@ -946,10 +1061,16 @@ class erLhcoreClassChatValidator {
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
                 null,
                 FILTER_REQUIRE_ARRAY
-            )            
+            ),
+            'jsvar' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'string',
+                null,
+                FILTER_REQUIRE_ARRAY
+            )
         );
-            
-        
+
+
+
         $form = new ezcInputForm( INPUT_POST, $definition );
         $Errors = array();
         $inputForm = new stdClass();
@@ -1107,7 +1228,55 @@ class erLhcoreClassChatValidator {
                 }
             }
         }
-        
+
+        // Update variables from jsvar
+        if ( $form->hasValidData( 'jsvar' ) && !empty($form->jsvar))
+        {
+            $stringParts = array();
+
+            foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
+                if (isset($form->jsvar[$jsVar->id]) && !empty($form->jsvar[$jsVar->id])) {
+                    if ($jsVar->var_identifier == 'lhc.nick') {
+                        if ($chat->nick != $form->jsvar[$jsVar->id] && $form->jsvar[$jsVar->id] != ''){
+                            $chat->nick = $form->jsvar[$jsVar->id];
+                        }
+                    } else {
+                        $val = $form->jsvar[$jsVar->id];
+                        if ($jsVar->type == 0) {
+                            $val = (string)$val;
+                        } elseif ($jsVar->type == 1) {
+                            $val = (int)$val;
+                        } elseif ($jsVar->type == 2) {
+                            $val = (real)$val;
+                        }
+                        $stringParts[] = array('h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
+                    }
+                }
+            }
+
+            if (!isset($currentChatData)) {
+                $currentChatData = array();
+            }
+
+            $identifiersUpdated = array();
+            foreach ($currentChatData as  & $item) {
+                foreach ($stringParts as $newItem) {
+                    if ($item['identifier'] == $newItem['identifier']) {
+                        if ( $newItem['value'] != $item['value'] ) {
+                            $item['value'] = $newItem['value'];
+                        }
+                        $identifiersUpdated[] = $newItem['identifier'];
+                    }
+                }
+            }
+
+            foreach ($stringParts as $newItem) {
+                if (!in_array($newItem['identifier'],$identifiersUpdated)){
+                    $currentChatData[] = $newItem;
+                }
+            }
+        }
+
         // To reset index
         $currentChatData = array_values($currentChatData);
         
