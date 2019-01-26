@@ -1908,7 +1908,9 @@ function lh(){
                 var cache = $(this).children();
                 $(this).text(' '+data.nick).prepend(cache);
             });
-            
+
+            $('#ntab-chat-'+chat_id).text(data.nick);
+
             ee.emitEvent('chatTabInfoReload', [chat_id]);
 		});
 	};
