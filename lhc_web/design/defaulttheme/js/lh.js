@@ -1903,6 +1903,12 @@ function lh(){
 	this.updateVoteStatus = function(chat_id) {
 		$.getJSON(this.wwwDir + 'chat/updatechatstatus/'+chat_id ,{ }, function(data){
 			$('#main-user-info-tab-'+chat_id).html(data.result);
+
+            $('#messagesBlock-'+chat_id+' span.vis-tit').each(function(i) {
+                var cache = $(this).children();
+                $(this).text(' '+data.nick).prepend(cache);
+            });
+            
             ee.emitEvent('chatTabInfoReload', [chat_id]);
 		});
 	};

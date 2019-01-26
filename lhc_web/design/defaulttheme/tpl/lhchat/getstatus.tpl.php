@@ -647,6 +647,13 @@ var lh_inst  = {
         th.appendChild(s);
     },
 
+    updateJSVars : function(vars){
+        var xhr = new XMLHttpRequest();
+        xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/updatejsvars'+this.getAppendCookieArguments(), true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send( "data=" + encodeURIComponent( this.JSON.stringify(vars) ) );
+    },
+
     storeEvents : function() {
         if (typeof <?php echo $chatOptionsVariable?>.events != 'undefined') {
             if (<?php echo $chatOptionsVariable?>.events.length > 0) {
@@ -1159,7 +1166,7 @@ function preloadDataLHC() {
                     clearTimeout(lh_inst.updateVarsTimeout);
 
                     lh_inst.updateVarsTimeout = setTimeout(function(){
-                        lh_inst.logPageView();
+                        lh_inst.updateJSVars(obj);
                     },1000);
 
                     // Indicate success
