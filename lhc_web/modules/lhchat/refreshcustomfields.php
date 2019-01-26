@@ -48,7 +48,7 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_chat', array(
                     'chat' => & $chat
                 ));
-            }       
+            }
             echo json_encode(array('stored' => 'true'));
             exit;
         }

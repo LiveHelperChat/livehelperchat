@@ -1158,7 +1158,7 @@ class erLhcoreClassChatValidator {
             if (!isset($currentChatData)) {
                 $currentChatData = json_decode($chat->additional_data,true);
                 
-                if (is_array($currentChatData)) {
+                if (!is_array($currentChatData)) {
                     $currentChatData = array();
                 }
             }
@@ -1255,7 +1255,10 @@ class erLhcoreClassChatValidator {
             }
 
             if (!isset($currentChatData)) {
-                $currentChatData = array();
+                $currentChatData = json_decode($chat->additional_data,true);
+                if (!is_array($currentChatData)) {
+                    $currentChatData = array();
+                }
             }
 
             $identifiersUpdated = array();
