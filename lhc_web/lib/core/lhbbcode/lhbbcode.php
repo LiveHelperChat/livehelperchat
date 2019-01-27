@@ -1008,7 +1008,7 @@ class erLhcoreClassBBCode
                $messagesDataItem['flags'] = [];
 
                $msgRenderedMedia = strip_tags($msgRendered);
-               $emojiMessage = trim(preg_replace('#(x1F642|[\x{1F600}-\x{1F64F}]|[\x{1F910}-\x{1F9FF}]|[\x{1F300}-\x{1F5FF}]|[\x{1F680}-\x{1F6FF}]|[\x{2600}-\x{26FF}]|[\x{2700}-\x{27BF}])#u','', $msgRendered));
+               $emojiMessage = trim(preg_replace('#([\x{2B50}-\x{2B55}]|[\x{23F0}-\x{23F3}]|[\x{231A}-\x{231B}]|[\x{1F600}-\x{1F64F}]|[\x{1F910}-\x{1F9FF}]|[\x{1F300}-\x{1F5FF}]|[\x{1F680}-\x{1F6FF}]|[\x{2600}-\x{26FF}]|[\x{2700}-\x{27BF}])#u','', $msgRendered));
 
                if ($msgRenderedMedia == '') {
                    $messagesDataItem['flags'][] = 'img';
