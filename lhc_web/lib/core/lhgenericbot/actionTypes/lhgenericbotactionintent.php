@@ -60,7 +60,6 @@ class erLhcoreClassGenericBotActionIntent {
                         }
                     }
 
-                    //
                     $validationArgs = array();
                     if (isset($intent['content']['words_match']) && $intent['content']['words_match'] != '') {
                         $rule = str_replace("\r","\n",$intent['content']['words_match']);
@@ -68,7 +67,6 @@ class erLhcoreClassGenericBotActionIntent {
                         foreach ($rules as $ruleItem) {
                             $ruleItemData = explode('==>',$ruleItem);
                             $matches = array();
-                            // /*'/(^|\s)(RS[0-9]{10})($|\s)/is'*/
                             preg_match($ruleItemData[0], $messageText,$matches);
                             if (!empty($matches) && isset($matches[$ruleItemData[1]]) && trim($matches[$ruleItemData[1]]) != '') {
                                 $validationArgs[$ruleItemData[2]] = trim($matches[$ruleItemData[1]]);

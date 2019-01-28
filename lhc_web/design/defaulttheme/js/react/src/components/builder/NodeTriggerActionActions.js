@@ -96,7 +96,7 @@ class NodeTriggerActionActions extends Component {
                     </div>
                     <div className="col-4">
                         <div className="form-group">
-                            <label>How many typos are allowed in a word?</label>
+                            <label>Typos per word?</label>
                             <input type="text" placeholder="0" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['event_typos'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','event_typos'])} />
                         </div>
                     </div>
@@ -108,10 +108,18 @@ class NodeTriggerActionActions extends Component {
                     </div>
                     <div className="col-4">
                         <div className="form-group">
-                            <label>How many typos are allowed in a word?</label>
+                            <label>Typos per word?</label>
                             <input type="text" placeholder="0" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['event_typos_exc'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','event_typos_exc'])} />
                         </div>
                     </div>
+
+                    <div className="col-12">
+                        <div className="form-group">
+                            <label>Extract arguments from visitor message</label>
+                            <textarea className="form-control form-control-sm" placeholder="Match rule ==> Matched item number to use ==> identifier" onChange={(e) => this.onchangeAttr({'path' : ['event_arg_match'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','event_arg_match'])}></textarea>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div className="form-group">
