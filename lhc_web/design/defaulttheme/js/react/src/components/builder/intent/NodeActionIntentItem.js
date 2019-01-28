@@ -16,6 +16,10 @@ class NodeActionIntentItem extends Component {
         this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content', 'words'], value :  payload});
     }
 
+    onMatchIncludeWordsChange(payload) {
+        this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content', 'words_match'], value :  payload});
+    }
+
     onExcludeWordsChange(payload) {
         this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content', 'exc_words'], value : payload});
     }
@@ -52,6 +56,12 @@ class NodeActionIntentItem extends Component {
                     <div className="form-group">
                         <label>But not any of these</label>
                         <input type="text" placeholder="no, nop" className="form-control form-control-sm" onChange={(e) => this.onExcludeWordsChange(e.target.value)} defaultValue={this.props.action.getIn(['content','exc_words'])} />
+                    </div>
+                </div>
+                <div className="col-12">
+                    <div className="form-group">
+                        <label>Or preg match, new match per line</label>
+                        <textarea className="form-control form-control-sm" placeholder="Match rule ==> Matched item number to use ==> identifier" onChange={(e) => this.onMatchIncludeWordsChange(e.target.value)} defaultValue={this.props.action.getIn(['content','words_match'])}></textarea>
                     </div>
                 </div>
                 <div className="col-6">

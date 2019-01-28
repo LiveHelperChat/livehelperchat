@@ -54,7 +54,8 @@ class erLhcoreClassGenericBotActionActions {
                             'format' => (isset($action['content']['attr_options']['collection_callback_format']) ? $action['content']['attr_options']['collection_callback_format'] : null),
                             'valid_alt' => (isset($action['content']['attr_options']['collection_callback_alternative']) ? $action['content']['attr_options']['collection_callback_alternative'] : null),
                             'callback_match' => (isset($action['content']['attr_options']['collection_callback_match']) ? $action['content']['attr_options']['collection_callback_match'] : null),
-                            'check_default' => (isset($action['content']['attr_options']['check_default']) && $action['content']['attr_options']['check_default'] == true)
+                            'check_default' => (isset($action['content']['attr_options']['check_default']) && $action['content']['attr_options']['check_default'] == true),
+                            'validation_args' => (isset($params['validation_args']) ? $params['validation_args'] : array())
                         )
                     )
                 )

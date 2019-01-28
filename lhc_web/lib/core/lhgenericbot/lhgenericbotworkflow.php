@@ -1104,6 +1104,16 @@ class erLhcoreClassGenericBotWorkflow {
                 $continue = false;
                 if (isset($messageNew['trigger_id']) && is_numeric($messageNew['trigger_id'])) {
                     $trigger = erLhcoreClassModelGenericBotTrigger::fetch($messageNew['trigger_id']);
+
+                    // Pass custom arguments if any
+                    if (isset($messageNew['validation_args']) && !empty($messageNew['validation_args'])) {
+                        if (isset($params['args']['validation_args'])) {
+                            $params['args']['validation_args'] = array_merge($params['args']['validation_args'],$messageNew['validation_args']);
+                        } else {
+                            $params['args']['validation_args'] = $messageNew['validation_args'];
+                        }
+                    }
+
                     $response = self::processTrigger($chat, $trigger, $setLastMessageId, $params);
 
                     if (is_array($response) && isset($response['status']) && $response['status'] == 'stop' && $messageNew['status'] == 'continue') {
