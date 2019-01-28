@@ -332,9 +332,35 @@ class erLhcoreClassGenericBotWorkflow {
                         }
 
                         if ($responseTrigger === null) {
+
+                            $renderArgs = (isset($eventData['content']['event_args']) ? $eventData['content']['event_args'] : array());
+
+                            // Extract arguments if any
+                            if (isset($eventData['content']['validation']['validation_args']) && $eventData['content']['validation']['validation_args'] != '') {
+                                $validationArgs = array();
+                                $rule = str_replace("\r","\n",$eventData['content']['validation']['validation_args']);
+                                $rules = array_filter(explode("\n",$rule));
+                                foreach ($rules as $ruleItem) {
+                                    $ruleItemData = explode('==>',$ruleItem);
+                                    $matches = array();
+                                    preg_match($ruleItemData[0], $payload,$matches);
+                                    if (!empty($matches) && isset($matches[$ruleItemData[1]]) && trim($matches[$ruleItemData[1]]) != '') {
+                                        $validationArgs[$ruleItemData[2]] = trim($matches[$ruleItemData[1]]);
+                                    }
+                                }
+
+                                if (!empty($validationArgs)) {
+                                    if (isset($renderArgs['validation_args'])) {
+                                        $renderArgs['validation_args'] = array_merge($renderArgs['validation_args'],$validationArgs);
+                                    } else {
+                                        $renderArgs['validation_args'] = $validationArgs;
+                                    }
+                                }
+                            }
+
                             $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_event_handler', array(
                                 'render' => $eventData['content']['event'],
-                                'render_args' => (isset($eventData['content']['event_args']) ? $eventData['content']['event_args'] : array()),
+                                'render_args' => $renderArgs,
                                 'chat' => & $chat,
                                 'event' => & $chatEvent,
                                 'event_data' => $eventData,
@@ -1104,6 +1130,16 @@ class erLhcoreClassGenericBotWorkflow {
                 $continue = false;
                 if (isset($messageNew['trigger_id']) && is_numeric($messageNew['trigger_id'])) {
                     $trigger = erLhcoreClassModelGenericBotTrigger::fetch($messageNew['trigger_id']);
+
+                    // Pass custom arguments if any
+                    if (isset($messageNew['validation_args']) && !empty($messageNew['validation_args'])) {
+                        if (isset($params['args']['validation_args'])) {
+                            $params['args']['validation_args'] = array_merge($params['args']['validation_args'],$messageNew['validation_args']);
+                        } else {
+                            $params['args']['validation_args'] = $messageNew['validation_args'];
+                        }
+                    }
+
                     $response = self::processTrigger($chat, $trigger, $setLastMessageId, $params);
 
                     if (is_array($response) && isset($response['status']) && $response['status'] == 'stop' && $messageNew['status'] == 'continue') {

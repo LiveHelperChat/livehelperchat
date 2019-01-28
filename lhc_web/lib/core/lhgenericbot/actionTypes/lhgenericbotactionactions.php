@@ -46,6 +46,7 @@ class erLhcoreClassGenericBotActionActions {
                             'words_exc' => (isset($action['content']['event_validate_exc']) ? $action['content']['event_validate_exc'] : null),
                             'typos_exc' => (isset($action['content']['event_typos_exc']) ? $action['content']['event_typos_exc'] : null),
                             'words_alt' => (isset($action['content']['event_in_validate']) ? $action['content']['event_in_validate'] : null),
+                            'validation_args' => (isset($action['content']['event_arg_match']) ? $action['content']['event_arg_match'] : null),
                         ),
                         'event' => (isset($action['content']['event']) ? $action['content']['event'] : null),
                         'event_args' => array(
@@ -54,7 +55,8 @@ class erLhcoreClassGenericBotActionActions {
                             'format' => (isset($action['content']['attr_options']['collection_callback_format']) ? $action['content']['attr_options']['collection_callback_format'] : null),
                             'valid_alt' => (isset($action['content']['attr_options']['collection_callback_alternative']) ? $action['content']['attr_options']['collection_callback_alternative'] : null),
                             'callback_match' => (isset($action['content']['attr_options']['collection_callback_match']) ? $action['content']['attr_options']['collection_callback_match'] : null),
-                            'check_default' => (isset($action['content']['attr_options']['check_default']) && $action['content']['attr_options']['check_default'] == true)
+                            'check_default' => (isset($action['content']['attr_options']['check_default']) && $action['content']['attr_options']['check_default'] == true),
+                            'validation_args' => (isset($params['validation_args']) ? $params['validation_args'] : array())
                         )
                     )
                 )
