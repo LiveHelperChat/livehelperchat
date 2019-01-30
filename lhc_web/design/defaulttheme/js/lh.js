@@ -3650,7 +3650,6 @@ $.fn.makeDropdown = function() {
 
     this.on("click", "[data-stopPropagation]", function(e) {
         e.stopPropagation();
-        filterInput.focus();
     })
 
     filterInput.keyup(function(){
