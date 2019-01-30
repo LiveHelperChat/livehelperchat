@@ -1484,7 +1484,7 @@ class erLhcoreClassGenericBotWorkflow {
     public static function translateMessage($message, $depId)
     {
         $matches = array();
-        preg_match_all('/\{(.*?)__(.*?)\}/',$message,$matches);
+        preg_match_all('/\{((.*?)__([^>]*?))\}/m',$message,$matches);
 
         if (isset($matches[0]) && !empty($matches[0]))
         {
@@ -1492,7 +1492,7 @@ class erLhcoreClassGenericBotWorkflow {
 
             $identifiers = array();
             foreach ($matches[0] as $key => $match) {
-                $identifiers[$matches[1][$key]] = array('search' => $matches[0][$key], 'replace' => $matches[2][$key]);
+                $identifiers[$matches[2][$key]] = array('search' => $matches[0][$key], 'replace' => $matches[3][$key]);
             }
 
             if ($department instanceof erLhcoreClassModelDepartament) {
