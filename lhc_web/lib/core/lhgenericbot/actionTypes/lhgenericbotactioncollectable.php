@@ -49,9 +49,9 @@ class erLhcoreClassGenericBotActionCollectable {
                 if ($validationResult !== false && isset($validationResult['content']['valid']) && $validationResult['content']['valid'] === false) {
 
                     if (isset($stepData['content']['message_precheck']) && $stepData['content']['message_precheck'] != '') {
-                        $stepData['content']['message'] = $stepData['content']['message_precheck'];
+                        $stepData['content']['message'] = erLhcoreClassGenericBotWorkflow::translateMessage($stepData['content']['message_precheck'], $chat->dep_id);
                     } else if (isset($validationResult['content']['message']) && !empty($validationResult['content']['message'])){
-                        $stepData['content']['message'] = $validationResult['content']['message'];
+                        $stepData['content']['message'] = erLhcoreClassGenericBotWorkflow::translateMessage($validationResult['content']['message'], $chat->dep_id);
                     } else {
                         $stepData['content']['message'] = 'Sorry but we could not handle your request!';
                     }
@@ -125,7 +125,7 @@ class erLhcoreClassGenericBotActionCollectable {
             }
 
             if (isset($stepData['content']['message_explain']) && !empty($stepData['content']['message_explain'])) {
-                $metaMessage['content_static']['message_explain'] = $stepData['content']['message_explain'];
+                $metaMessage['content_static']['message_explain'] = erLhcoreClassGenericBotWorkflow::translateMessage($stepData['content']['message_explain'], $chat->dep_id);
             }
 
             if (isset($errorMeta['meta_error'])) {
@@ -133,7 +133,7 @@ class erLhcoreClassGenericBotActionCollectable {
             }
 
             $msg = new erLhcoreClassModelmsg();
-            $msg->msg = $stepData['content']['message'];
+            $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage($stepData['content']['message'], $chat->dep_id);
             $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';
             $msg->chat_id = $chat->id;
             $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);

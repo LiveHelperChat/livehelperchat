@@ -7,7 +7,7 @@ class erLhcoreClassGenericBotActionActions {
 
         if (isset($action['content']['success_message']) && $action['content']['success_message'] != '') {
 
-            $msgData = explode('|||',(isset($action['content']['success_message']) ? trim($action['content']['success_message']) : ''));
+            $msgData = explode('|||',erLhcoreClassGenericBotWorkflow::translateMessage(trim($action['content']['success_message']),$chat->dep_id));
 
             $item = $msgData[0];
             if (count($msgData) > 0){

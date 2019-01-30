@@ -42,7 +42,7 @@
 <div role="tabpanel" class="form-group">
 
 		<!-- Nav tabs -->
-		<ul class="nav nav-tabs" role="tablist">
+		<ul class="nav nav-tabs mb-2" role="tablist">
 			<li role="presentation" class="nav-item"><a class="nav-link active" href="#onlinehours" aria-controls="onlinehours" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Automate online hours');?></a></li>
 			<li role="presentation" class="nav-item"><a class="nav-link" href="#notifications" aria-controls="notifications" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Notifications');?></a></li>
 			

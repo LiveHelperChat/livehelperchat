@@ -37,7 +37,14 @@ class erLhcoreClassGenericBotActionAttribute {
                 }
             }
 
-            $msg->msg = (isset($action['content']['intro_message']) ? $action['content']['intro_message'] : '');
+            $msgText = (isset($action['content']['intro_message']) ? trim($action['content']['intro_message']) : '');
+
+            if ($msgText != '') {
+                erLhcoreClassGenericBotWorkflow::translateMessage($msgText,$chat->dep_id);
+            }
+
+            $msg->msg = $msgText;
+
             $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';
             $msg->chat_id = $chat->id;
             $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);

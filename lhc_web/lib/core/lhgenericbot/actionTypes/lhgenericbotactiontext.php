@@ -87,13 +87,15 @@ class erLhcoreClassGenericBotActionText {
 
         if (isset($action['content']['html']) && !empty($action['content']['html']))
         {
-            $metaMessage['content']['html']['content'] = $action['content']['html'];
+            $metaMessage['content']['html']['content'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['html'],$chat->dep_id);
         }
 
         if (isset($action['content']['attr_options']) && !empty($action['content']['attr_options']))
         {
             $metaMessage['content']['attr_options'] = $action['content']['attr_options'];
         }
+
+        $action['content']['text'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['text'],$chat->dep_id);
 
         $msgData = explode('|||',(isset($action['content']['text']) ? trim($action['content']['text']) : ''));
 

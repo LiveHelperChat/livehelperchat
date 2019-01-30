@@ -1,3 +1,11 @@
+3.19v
+
+1. Bot now can have translations. Usefull if you want have one bot, but a little bit different texts by department.
+2. Copy messages now can include or exclude system messages.
+3. Mobile invitations. On mobile devices icon will be shown that there is unread messages.
+
+execute doc/update_db/update_194.sql for update
+
 3.18v
 
 1. Option in file upload configurator to setup meta tag clean up. Upon files upload from operators meta tag information for images can be removed.
