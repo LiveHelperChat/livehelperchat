@@ -65,8 +65,6 @@ class erLhcoreClassGenericBotActionConditions {
                     $pendingAction->saveThis();
                 }
 
-                erLhcoreClassLog::write(print_r('CONDITOON',true));
-
                 return array(
                     'status' => 'stop',
                     'trigger_id' => ((isset($action['content']['attr_options']['callback_match']) && is_numeric($action['content']['attr_options']['callback_match'])) ? $action['content']['attr_options']['callback_match'] : null)

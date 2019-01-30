@@ -254,6 +254,8 @@ return array_merge(array (
         'erLhcoreClassModelGenericBotChatWorkflow'  => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotchatworkflow.php',
         'erLhcoreClassModelGenericBotChatEvent'     => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotchatevent.php',
         'erLhcoreClassModelGenericBotPendingEvent'  => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotpendingevent.php',
+        'erLhcoreClassModelGenericBotTrItem'        => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbottritem.php',
+        'erLhcoreClassModelGenericBotTrGroup'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbottrgroup.php',
 
         'erLhcoreClassGenericBot'                   => 'lib/core/lhgenericbot/lhgenericbot.php',
         'erLhcoreClassGenericBotWorkflow'           => 'lib/core/lhgenericbot/lhgenericbotworkflow.php',
@@ -269,13 +271,14 @@ return array_merge(array (
         'erLhcoreClassGenericBotActionCommand'      => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactioncommand.php',
         'erLhcoreClassGenericBotActionPredefined'   => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionpredefined.php',
         'erLhcoreClassGenericBotActionTyping'       => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactiontyping.php',
-		'erLhcoreClassGenericBotActionProgress'     => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionprogress.php',
-		'erLhcoreClassGenericBotActionVideo'        => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionvideo.php',
-		'erLhcoreClassGenericBotActionAttribute'    => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionattribute.php',
-		'erLhcoreClassGenericBotActionActions'      => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionactions.php',
-		'erLhcoreClassGenericBotActionIntent'       => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionintent.php',
+        'erLhcoreClassGenericBotActionProgress'     => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionprogress.php',
+        'erLhcoreClassGenericBotActionVideo'        => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionvideo.php',
+        'erLhcoreClassGenericBotActionAttribute'    => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionattribute.php',
+        'erLhcoreClassGenericBotActionActions'      => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionactions.php',
+        'erLhcoreClassGenericBotActionIntent'       => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionintent.php',
         'erLhcoreClassGenericBotActionIntentcheck'  => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionintentcheck.php',
         'erLhcoreClassGenericBotActionConditions'   => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionconditions.php',
+
 
         // Notifications
         'erLhcoreClassNotifications'                => 'lib/core/lhnotifications/lhnotifications.php',

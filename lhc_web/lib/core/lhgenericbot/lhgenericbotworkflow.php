@@ -1481,6 +1481,42 @@ class erLhcoreClassGenericBotWorkflow {
         }
     }
 
+    public static function translateMessage($message, $depId)
+    {
+        $matches = array();
+        preg_match_all('/\{(.*?)__(.*?)\}/',$message,$matches);
+
+        if (isset($matches[0]) && !empty($matches[0]))
+        {
+            $department = erLhcoreClassModelDepartament::fetch($depId,true);
+
+            $identifiers = array();
+            foreach ($matches[0] as $key => $match) {
+                $identifiers[$matches[1][$key]] = array('search' => $matches[0][$key], 'replace' => $matches[2][$key]);
+            }
+
+            if ($department instanceof erLhcoreClassModelDepartament) {
+                $configuration = $department->bot_configuration_array;
+                if (isset($configuration['bot_tr_id']) && $configuration['bot_tr_id'] > 0 && !empty($identifiers)) {
+                    $items = erLhcoreClassModelGenericBotTrItem::getList(array('filterin' => array('identifier' => array_keys($identifiers)),'filter' => array('group_id' => $configuration['bot_tr_id'])));
+                    foreach ($items as $item) {
+                        $identifiers[$item->identifier]['replace'] = $item->translation;
+                    }
+                }
+            }
+
+            $replaceArray = array();
+            foreach ($identifiers as $data) {
+                $replaceArray[$data['search']] = $data['replace'];
+            }
+
+            $message = str_replace(array_keys($replaceArray), array_values($replaceArray), $message);
+        }
+
+        return $message;
+
+    }
+
     public static function sendAsBot($chat, $message, $metaMessage = array())
     {      
         $msg = new erLhcoreClassModelmsg();

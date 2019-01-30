@@ -130,6 +130,64 @@ class erLhcoreClassGenericBot {
         return $Errors;
     }
 
+    public static function validateBotTranslationGroup(& $botTranslation)
+    {
+        $definition = array(
+            'name' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = array();
+
+        if ( !$form->hasValidData( 'name' ) || $form->name == '' ) {
+            $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter translation group name!');
+        } else {
+            $botTranslation->name = $form->name;
+        }
+
+        return $Errors;
+    }
+
+    public static function validateBotTranslationItem(& $botTranslationItem)
+    {
+        $definition = array(
+            'identifier' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'translation' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'group_id' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+            )
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = array();
+
+        if ( !$form->hasValidData( 'identifier' ) || $form->identifier == '' ) {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter translation group name!');
+        } else {
+            $botTranslationItem->identifier = $form->identifier;
+        }
+
+        if ( !$form->hasValidData( 'translation' ) || $form->translation == '' ) {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter translation!');
+        } else {
+            $botTranslationItem->translation = $form->translation;
+        }
+
+        if ( $form->hasValidData( 'group_id' ) ) {
+            $botTranslationItem->group_id = $form->group_id;
+        } else {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please choose a group!');
+        }
+
+        return $Errors;
+    }
+
     public static function validateBotException(& $botException)
     {
         $definition = array(
