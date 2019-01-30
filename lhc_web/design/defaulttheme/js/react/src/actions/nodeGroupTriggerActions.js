@@ -108,6 +108,17 @@ export function addTrigger(obj) {
         }
 }
 
+export function loadUseCases(obj) {
+    return function(dispatch) {
+        axios.get(WWW_DIR_JAVASCRIPT + "genericbot/loadusecases/" + obj.get('id'))
+        .then((response) => {
+            dispatch({type: "LOAD_USE_CASES_TRIGGER_FULFILLED", payload: response.data})
+        }).catch((err) => {
+            dispatch({type: "LOAD_USE_CASES_TRIGGER_FULFILLED", payload: err})
+        })
+    }
+}
+
 export function addTriggerEvent(obj) {
     return function(dispatch) {
         dispatch({type: "ADD_TRIGGER_EVENT", payload : obj});
