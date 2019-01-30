@@ -19,7 +19,7 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
     		$operatorAccepted = false;
     		$chatDataChanged = false;
     		
-    	    if ($chat->user_id == 0 && $chat->status != erLhcoreClassModelChat::STATUS_BOT_CHAT) {
+    	    if ($chat->user_id == 0 && $chat->status != erLhcoreClassModelChat::STATUS_BOT_CHAT && $chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
     	        $currentUser = erLhcoreClassUser::instance();
     	        $chat->user_id = $currentUser->getUserID();	     
     	        $chatDataChanged = true;
