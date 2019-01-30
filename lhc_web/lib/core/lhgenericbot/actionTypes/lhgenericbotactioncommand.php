@@ -35,7 +35,9 @@ class erLhcoreClassGenericBotActionCommand {
                 $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
                 $chat->status_sub_sub = 2; // Will be used to indicate that we have to show notification for this chat if it appears on list
                 $chat->pnd_time = time();
-                $chat->last_op_msg_time = time();
+                // We do not have to set this
+                // Because it triggers auto responder of not replying
+                // $chat->last_op_msg_time = time();
                 $chat->saveThis();
 
                 $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_chat_command_transfer', array(
