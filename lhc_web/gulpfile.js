@@ -103,7 +103,7 @@ gulp.task('react-js',  function() {
         .on('error', gutil.log)
         .pipe(source('all.js'))
         .pipe(buffer())
-        //.pipe(uglify({ mangle: false }))
+        .pipe(uglify({ mangle: false }))
         .pipe(gulp.dest('design/defaulttheme/js/react/build'))
 });
 

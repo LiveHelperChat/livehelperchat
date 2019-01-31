@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { updateTriggerName, updateTriggerType, addResponse, updateTriggerContent, saveTrigger, initBot, loadUseCases} from "../actions/nodeGroupTriggerActions"
+import { updateTriggerName, updateTriggerType, addResponse, updateTriggerContent, saveTrigger, initBot, loadUseCases, fetchNodeGroupTriggerAction} from "../actions/nodeGroupTriggerActions"
 import NodeTriggerActionText from './builder/NodeTriggerActionText';
 import NodeTriggerActionList from './builder/NodeTriggerActionList';
 import NodeTriggerActionGeneric from './builder/NodeTriggerActionGeneric';
@@ -28,7 +28,6 @@ class NodeTriggerBuilder extends Component {
     constructor(props) {
         super(props);
         this.state = {dataChanged : false, value : '', viewCode : false, viewUseCases : false, compressCode : false};
-
         this.handleChange = this.handleChange.bind(this);
         this.handleTypeChange = this.handleTypeChange.bind(this);
         this.handleContentChange = this.handleContentChange.bind(this);
@@ -44,6 +43,7 @@ class NodeTriggerBuilder extends Component {
         this.moveDownSubelement = this.moveDownSubelement.bind(this);
         this.viewCode = this.viewCode.bind(this);
         this.viewUseCases = this.viewUseCases.bind(this);
+        this.navigateToTrigger = this.navigateToTrigger.bind(this);
 
 
         this.upField = this.upField.bind(this);
@@ -136,6 +136,11 @@ class NodeTriggerBuilder extends Component {
         this.props.dispatch({'type' : 'MOVE_DOWN','payload' : {'index' : fieldIndex}});
     }
 
+    navigateToTrigger(obj) {
+        this.setState({viewUseCases : false});
+        this.props.dispatch(fetchNodeGroupTriggerAction(obj.get('id')))
+    }
+
     render() {
 
         var actions = [];
@@ -176,6 +181,13 @@ class NodeTriggerBuilder extends Component {
             });
         }
 
+        var usecases = [];
+        if (this.props.currenttrigger.get('currenttrigger').has('use_cases')) {
+            usecases = this.props.currenttrigger.get('currenttrigger').get('use_cases').map((use_case, index) => {
+                return <button onClick={(e) => this.navigateToTrigger(use_case)} className="btn btn-secondary btn-xs m-1">{use_case.get('name')}</button>
+            })
+        }
+
         if (this.props.currenttrigger.hasIn(['currenttrigger','name']))
         {
             return (
@@ -202,7 +214,7 @@ class NodeTriggerBuilder extends Component {
 
                         {this.state.viewUseCases == true ? (
                             <div className="form-group">
-                                <p>Loading...</p>
+                                {usecases}
                             </div>
                         ) : ''}
 

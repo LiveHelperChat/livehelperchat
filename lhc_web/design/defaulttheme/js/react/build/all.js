@@ -1054,7 +1054,6 @@ var NodeTriggerBuilder = (_dec = (0, _reactRedux.connect)(function (store) {
         var _this = _possibleConstructorReturn(this, (NodeTriggerBuilder.__proto__ || Object.getPrototypeOf(NodeTriggerBuilder)).call(this, props));
 
         _this.state = { dataChanged: false, value: '', viewCode: false, viewUseCases: false, compressCode: false };
-
         _this.handleChange = _this.handleChange.bind(_this);
         _this.handleTypeChange = _this.handleTypeChange.bind(_this);
         _this.handleContentChange = _this.handleContentChange.bind(_this);
@@ -1070,6 +1069,7 @@ var NodeTriggerBuilder = (_dec = (0, _reactRedux.connect)(function (store) {
         _this.moveDownSubelement = _this.moveDownSubelement.bind(_this);
         _this.viewCode = _this.viewCode.bind(_this);
         _this.viewUseCases = _this.viewUseCases.bind(_this);
+        _this.navigateToTrigger = _this.navigateToTrigger.bind(_this);
 
         _this.upField = _this.upField.bind(_this);
         _this.downField = _this.downField.bind(_this);
@@ -1180,6 +1180,12 @@ var NodeTriggerBuilder = (_dec = (0, _reactRedux.connect)(function (store) {
             this.props.dispatch({ 'type': 'MOVE_DOWN', 'payload': { 'index': fieldIndex } });
         }
     }, {
+        key: "navigateToTrigger",
+        value: function navigateToTrigger(obj) {
+            this.setState({ viewUseCases: false });
+            this.props.dispatch((0, _nodeGroupTriggerActions.fetchNodeGroupTriggerAction)(obj.get('id')));
+        }
+    }, {
         key: "render",
         value: function render() {
             var _this2 = this;
@@ -1219,6 +1225,19 @@ var NodeTriggerBuilder = (_dec = (0, _reactRedux.connect)(function (store) {
                     } else if (action.get('type') == 'conditions') {
                         return _react2.default.createElement(_NodeTriggerActionConditions2.default, { upField: _this2.upField, downField: _this2.downField, isFirst: index == 0, isLast: index + 1 == totalTriggers, key: index + '-' + _this2.props.currenttrigger.get('currenttrigger').get('id'), id: index, onChangeContent: _this2.handleContentChange, onChangeType: _this2.handleTypeChange, action: action, removeAction: _this2.removeAction, deleteSubelement: _this2.deleteSubelement, addSubelement: _this2.addSubelement });
                     }
+                });
+            }
+
+            var usecases = [];
+            if (this.props.currenttrigger.get('currenttrigger').has('use_cases')) {
+                usecases = this.props.currenttrigger.get('currenttrigger').get('use_cases').map(function (use_case, index) {
+                    return _react2.default.createElement(
+                        "button",
+                        { onClick: function onClick(e) {
+                                return _this2.navigateToTrigger(use_case);
+                            }, className: "btn btn-secondary btn-xs m-1" },
+                        use_case.get('name')
+                    );
                 });
             }
 
@@ -1300,11 +1319,7 @@ var NodeTriggerBuilder = (_dec = (0, _reactRedux.connect)(function (store) {
                     this.state.viewUseCases == true ? _react2.default.createElement(
                         "div",
                         { className: "form-group" },
-                        _react2.default.createElement(
-                            "p",
-                            null,
-                            "Loading..."
-                        )
+                        usecases
                     ) : '',
                     _react2.default.createElement("hr", null),
                     _react2.default.createElement(
