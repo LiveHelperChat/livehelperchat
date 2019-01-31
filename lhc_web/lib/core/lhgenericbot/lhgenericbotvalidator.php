@@ -129,6 +129,94 @@ class erLhcoreClassGenericBotValidator {
 
         return $formatedExceptions;
     }
+
+    public static function getUseCasesTrigger(erLhcoreClassModelGenericBotTrigger $trigger) {
+
+        $useCases = array();
+
+        $triggersId = array();
+
+        $actions = $trigger->actions_front;
+
+        foreach ($actions as $action) {
+            if ($action['type'] == 'command') {
+
+                if (isset($action['content']['payload']) && is_numeric($action['content']['payload']) && $action['content']['payload'] > 0) {
+                    $triggersId[] = (int)$action['content']['payload'];
+                }
+
+                if (isset($action['content']['payload_online']) && is_numeric($action['content']['payload_online']) && $action['content']['payload_online'] > 0) {
+                    $triggersId[] = (int)$action['content']['payload_online'];
+                }
+
+            } else if ($action['type'] == 'predefined') {
+
+                if (isset($action['content']['payload']) && is_numeric($action['content']['payload']) && $action['content']['payload'] > 0) {
+                    $triggersId[] = (int)$action['content']['payload'];
+                }
+
+            } else if ($action['type'] == 'actions') {
+
+                if (isset($action['content']['attr_options']['collection_callback_pattern']) && is_numeric($action['content']['attr_options']['collection_callback_pattern']) && $action['content']['attr_options']['collection_callback_pattern'] > 0) {
+                    $triggersId[] = (int)$action['content']['attr_options']['collection_callback_pattern'];
+                }
+
+                if (isset($action['content']['attr_options']['collection_callback_cancel']) && is_numeric($action['content']['attr_options']['collection_callback_cancel']) && $action['content']['attr_options']['collection_callback_cancel'] > 0) {
+                    $triggersId[] = (int)$action['content']['attr_options']['collection_callback_cancel'];
+                }
+
+                if (isset($action['content']['attr_options']['collection_callback_alternative']) && is_numeric($action['content']['attr_options']['collection_callback_alternative']) && $action['content']['attr_options']['collection_callback_alternative'] > 0) {
+                    $triggersId[] = (int)$action['content']['attr_options']['collection_callback_alternative'];
+                }
+
+            } else if ($action['type'] == 'intent') {
+
+                if (isset($action['content']['intents']) && is_array($action['content']['intents'])) {
+                    foreach ($action['content']['intents'] as $item) {
+                        if (isset($item['content']['trigger_id']) && is_numeric($item['content']['trigger_id']) && $item['content']['trigger_id'] > 0) {
+                            $triggersId[] = (int)$item['content']['trigger_id'];
+                        }
+                    }
+                }
+            } else if ($action['type'] == 'conditions') {
+
+                if (isset($action['content']['attr_options']['callback_match']) && is_numeric($action['content']['attr_options']['callback_match']) && $action['content']['attr_options']['callback_match'] > 0) {
+                    $triggersId[] = (int)$action['content']['attr_options']['callback_match'];
+                }
+
+                if (isset($action['content']['attr_options']['callback_reschedule']) && is_numeric($action['content']['attr_options']['callback_reschedule']) && $action['content']['attr_options']['callback_reschedule'] > 0) {
+                    $triggersId[] = (int)$action['content']['attr_options']['callback_reschedule'];
+                }
+            }
+        }
+
+        if (!empty($triggersId)){
+            return erLhcoreClassModelGenericBotTrigger::getList(array('filterin' => array('id' => $triggersId)));
+        }
+
+        return $useCases;
+    }
+
+    public static function getUseCases(erLhcoreClassModelGenericBotTrigger $trigger)
+    {
+        $useCases = array();
+
+        $triggers = erLhcoreClassModelGenericBotTrigger::getList(array('filter' => array('bot_id' => $trigger->bot_id)));
+
+        foreach ($triggers as $triggerCompare) {
+            if ($triggerCompare->id != $trigger->id) {
+                $triggersUses = self::getUseCasesTrigger($triggerCompare);
+                if (key_exists($trigger->id,$triggersUses)) {
+                    $useCases[] = array(
+                        'id' => $triggerCompare->id,
+                        'name' => $triggerCompare->name,
+                    );
+                }
+            }
+        }
+
+        return $useCases;
+    }
 }
 
 ?>

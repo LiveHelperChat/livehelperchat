@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { updateTriggerName, updateTriggerType, addResponse, updateTriggerContent, saveTrigger, initBot } from "../actions/nodeGroupTriggerActions"
+import { updateTriggerName, updateTriggerType, addResponse, updateTriggerContent, saveTrigger, initBot, loadUseCases, fetchNodeGroupTriggerAction} from "../actions/nodeGroupTriggerActions"
 import NodeTriggerActionText from './builder/NodeTriggerActionText';
 import NodeTriggerActionList from './builder/NodeTriggerActionList';
 import NodeTriggerActionGeneric from './builder/NodeTriggerActionGeneric';
@@ -27,8 +27,7 @@ class NodeTriggerBuilder extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {dataChanged : false, value : '', viewCode : false, compressCode : false};
-
+        this.state = {dataChanged : false, value : '', viewCode : false, viewUseCases : false, compressCode : false};
         this.handleChange = this.handleChange.bind(this);
         this.handleTypeChange = this.handleTypeChange.bind(this);
         this.handleContentChange = this.handleContentChange.bind(this);
@@ -43,6 +42,8 @@ class NodeTriggerBuilder extends Component {
         this.moveUpSubelement = this.moveUpSubelement.bind(this);
         this.moveDownSubelement = this.moveDownSubelement.bind(this);
         this.viewCode = this.viewCode.bind(this);
+        this.viewUseCases = this.viewUseCases.bind(this);
+        this.navigateToTrigger = this.navigateToTrigger.bind(this);
 
 
         this.upField = this.upField.bind(this);
@@ -120,6 +121,13 @@ class NodeTriggerBuilder extends Component {
         this.setState({viewCode : !this.state.viewCode});
     }
 
+    viewUseCases() {
+        this.setState({viewUseCases : !this.state.viewUseCases});
+        if (this.state.viewUseCases == false) {
+            this.props.dispatch(loadUseCases(this.props.currenttrigger.get('currenttrigger')));
+        }
+    }
+
     upField(fieldIndex) {
         this.setState({dataChanged : true});
         this.props.dispatch({'type' : 'MOVE_UP','payload' : {'index' : fieldIndex}});
@@ -128,6 +136,11 @@ class NodeTriggerBuilder extends Component {
     downField(fieldIndex) {
         this.setState({dataChanged : true});
         this.props.dispatch({'type' : 'MOVE_DOWN','payload' : {'index' : fieldIndex}});
+    }
+
+    navigateToTrigger(obj) {
+        this.setState({viewUseCases : false});
+        this.props.dispatch(fetchNodeGroupTriggerAction(obj.get('id')))
     }
 
     render() {
@@ -170,17 +183,25 @@ class NodeTriggerBuilder extends Component {
             });
         }
 
+        var usecases = [];
+        if (this.props.currenttrigger.get('currenttrigger').has('use_cases')) {
+            usecases = this.props.currenttrigger.get('currenttrigger').get('use_cases').map((use_case, index) => {
+                return <button onClick={(e) => this.navigateToTrigger(use_case)} className="btn btn-secondary btn-xs m-1">{use_case.get('name')}</button>
+            })
+        }
+
         if (this.props.currenttrigger.hasIn(['currenttrigger','name']))
         {
             return (
                     <div>
-                    <input className="form-control gbot-group-name" value={this.props.currenttrigger.getIn(['currenttrigger','name'])} onChange={this.handleChange} />
+                        <input className="form-control gbot-group-name" value={this.props.currenttrigger.getIn(['currenttrigger','name'])} onChange={this.handleChange} />
                     <hr/>
                     {actions}
                     <div className="form-group">
                         <div className="btn-group" role="group" aria-label="Trigger actions">
                             <button className="btn btn-info btn-sm" onClick={this.addResponse} >Add response</button>
                             <button className="btn btn-info btn-sm" onClick={this.viewCode} ><i className="material-icons">code</i>{this.state.viewCode == true ? ('Hide code') : ('Show code')}</button>
+                            <button className="btn btn-info btn-sm" onClick={this.viewUseCases} ><i className="material-icons">info</i>{this.state.viewUseCases == true ? ('Hide use cases') : ('Show use cases')}</button>
                         </div>
                     </div>
 
@@ -193,6 +214,14 @@ class NodeTriggerBuilder extends Component {
                             </div>
                         ) : ''}
 
+                        {this.state.viewUseCases == true ? (
+                            <div className="form-group">
+                                {(!this.props.currenttrigger.get('currenttrigger').has('use_cases') || this.props.currenttrigger.getIn(['currenttrigger','use_cases']).size == 0) ? (
+                                    <p>No use cases were found</p>
+                                ) : ''}
+                                {usecases}
+                            </div>
+                        ) : ''}
 
                     <hr/>
                         <div className="btn-group" role="group" aria-label="Trigger actions">

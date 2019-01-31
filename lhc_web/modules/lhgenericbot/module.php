@@ -23,6 +23,12 @@ $ViewList['addpayload'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['loadusecases'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['downloadbot'] = array(
     'params' => array('id'),
     'uparams' => array(),
