@@ -123,7 +123,9 @@ class NodeTriggerBuilder extends Component {
 
     viewUseCases() {
         this.setState({viewUseCases : !this.state.viewUseCases});
-        this.props.dispatch(loadUseCases(this.props.currenttrigger.get('currenttrigger')));
+        if (this.state.viewUseCases == true) {
+            this.props.dispatch(loadUseCases(this.props.currenttrigger.get('currenttrigger')));
+        }
     }
 
     upField(fieldIndex) {
