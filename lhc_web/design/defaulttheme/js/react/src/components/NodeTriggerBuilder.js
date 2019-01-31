@@ -123,7 +123,7 @@ class NodeTriggerBuilder extends Component {
 
     viewUseCases() {
         this.setState({viewUseCases : !this.state.viewUseCases});
-        if (this.state.viewUseCases == true) {
+        if (this.state.viewUseCases == false) {
             this.props.dispatch(loadUseCases(this.props.currenttrigger.get('currenttrigger')));
         }
     }
@@ -216,6 +216,9 @@ class NodeTriggerBuilder extends Component {
 
                         {this.state.viewUseCases == true ? (
                             <div className="form-group">
+                                {(!this.props.currenttrigger.get('currenttrigger').has('use_cases') || this.props.currenttrigger.getIn(['currenttrigger','use_cases']).size == 0) ? (
+                                    <p>No use cases were found</p>
+                                ) : ''}
                                 {usecases}
                             </div>
                         ) : ''}
