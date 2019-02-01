@@ -52,6 +52,10 @@
         <td><?php echo is_writable("var/botphoto") ? '<span class="badge badge-success">Yes</span>' : '<span class="badge badge-danger">No</span>'?></td>
     </tr>
     <tr>
+        <td>I can write to &quot;var/bottrphoto&quot; directory</td>
+        <td><?php echo is_writable("var/bottrphoto") ? '<span class="badge badge-success">Yes</span>' : '<span class="badge badge-danger">No</span>'?></td>
+    </tr>
+    <tr>
         <td>I can write to &quot;var/storageinvitation&quot; directory</td>
         <td><?php echo is_writable("var/storageinvitation") ? '<span class="badge badge-success">Yes</span>' : '<span class="badge badge-danger">No</span>'?></td>
     </tr>

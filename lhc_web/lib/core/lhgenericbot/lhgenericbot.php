@@ -92,9 +92,11 @@ class erLhcoreClassGenericBot {
 
             $Errors = array();
 
-            $dir = 'var/botphoto/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $userData->id . '/';
+            $path = isset($params['path']) ? $params['path'] : 'var/botphoto/';
 
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_path',array('dir' => & $dir,'storage_id' => $userData->id));
+            $dir = $path . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $userData->id . '/';
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_path',array('dir' => & $dir, 'storage_id' => $userData->id));
 
             $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_store', array('file_post_variable' => 'UserPhoto', 'dir' => & $dir, 'storage_id' => $userData->id));
 
@@ -135,7 +137,10 @@ class erLhcoreClassGenericBot {
         $definition = array(
             'name' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-            )
+            ),
+            'Nick' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
         );
 
         $form = new ezcInputForm( INPUT_POST, $definition );
@@ -145,6 +150,12 @@ class erLhcoreClassGenericBot {
             $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter translation group name!');
         } else {
             $botTranslation->name = $form->name;
+        }
+
+        if ( $form->hasValidData( 'Nick' )  ) {
+            $botTranslation->nick = $form->Nick;
+        } else {
+            $botTranslation->nick = '';
         }
 
         return $Errors;

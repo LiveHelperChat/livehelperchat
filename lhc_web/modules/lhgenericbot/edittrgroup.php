@@ -9,6 +9,10 @@ if ( isset($_POST['Cancel_bot']) ) {
     exit;
 }
 
+if (isset($_POST['DeletePhoto'])) {
+    $bot->removeFile();
+}
+
 if (isset($_POST['Update_bot']) || isset($_POST['Save_bot'])  )
 {
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -17,6 +21,12 @@ if (isset($_POST['Update_bot']) || isset($_POST['Save_bot'])  )
     }
 
     $Errors = erLhcoreClassGenericBot::validateBotTranslationGroup($bot);
+
+    $userPhotoErrors = erLhcoreClassGenericBot::validateBotPhoto($bot, array('path' => 'var/bottrphoto/'));
+
+    if ($userPhotoErrors !== false) {
+        $Errors = array_merge($Errors, $userPhotoErrors);
+    }
 
     if (count($Errors) == 0)
     {

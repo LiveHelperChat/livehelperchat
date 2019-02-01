@@ -21,6 +21,9 @@ if ( isset($_POST['Delete_bot']) ) {
     exit;
 }
 
+if (isset($_POST['DeletePhoto'])) {
+    $bot->removeFile();
+}
 
 if (isset($_POST['Update_bot']) || isset($_POST['Save_bot'])  )
 {

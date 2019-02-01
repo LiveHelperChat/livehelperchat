@@ -125,13 +125,58 @@ class erLhcoreClassGenericBotWorkflow {
         $nameSupport = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
 
         if (isset($chatVariables['gbot_id']) && $chatVariables['gbot_id'] > 0) {
-            $bot = erLhcoreClassModelGenericBotBot::fetch($chatVariables['gbot_id']);
-            if ($bot instanceof erLhcoreClassModelGenericBotBot && $bot->nick != '') {
-                $nameSupport = $bot->nick;
+
+            $department = $chat->department;
+            $nameSet = false;
+            if ($department !== false) {
+                $configuration = $department->bot_configuration_array;
+                if (isset($configuration['bot_tr_id']) && $configuration['bot_tr_id'] > 0) {
+                    $trGroup = erLhcoreClassModelGenericBotTrGroup::fetch($configuration['bot_tr_id']);
+                    if ($trGroup instanceof erLhcoreClassModelGenericBotTrGroup && $trGroup->nick != '') {
+                        $nameSupport = $trGroup->nick;
+                        $nameSet = true;
+                    }
+                }
+            }
+
+            if ($nameSet == false) {
+                $bot = erLhcoreClassModelGenericBotBot::fetch($chatVariables['gbot_id']);
+                if ($bot instanceof erLhcoreClassModelGenericBotBot && $bot->nick != '') {
+                    $nameSupport = $bot->nick;
+                }
             }
         }
 
         return $nameSupport;
+    }
+
+    /**
+     *
+     * @desc Overrides bot frontend attributes by chat.
+     *
+     * @param $chat
+     * @param $bot
+     */
+    public static function setDefaultPhotoNick($chat, $bot)
+    {
+        $department = $chat->department;
+        if ($department !== false) {
+            $configuration = $department->bot_configuration_array;
+            if (isset($configuration['bot_tr_id']) && $configuration['bot_tr_id'] > 0) {
+                $trGroup = erLhcoreClassModelGenericBotTrGroup::fetch($configuration['bot_tr_id']);
+                if ($trGroup instanceof erLhcoreClassModelGenericBotTrGroup) {
+
+                    if ($trGroup->nick != '') {
+                        $bot->name_support = $trGroup->nick;
+                    }
+
+                    if ($trGroup->has_photo == true) {
+                        $bot->has_photo = true;
+                        $bot->photo_path = $trGroup->photo_path;
+                    }
+                }
+            }
+        }
     }
 
     // Send default message if there is any

@@ -1,5 +1,11 @@
 3.19v
 
+1. Bot translations now can have separate images. So bot identity can be fully overridden now.
+
+execute doc/update_db/update_195.sql for update
+
+3.19v
+
 1. Bot now can have translations. Usefull if you want have one bot, but a little bit different texts by department.
 2. Copy messages now can include or exclude system messages.
 3. Mobile invitations. On mobile devices icon will be shown that there is unread messages.
