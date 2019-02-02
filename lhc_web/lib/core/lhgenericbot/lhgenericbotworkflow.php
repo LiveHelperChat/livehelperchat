@@ -1529,16 +1529,23 @@ class erLhcoreClassGenericBotWorkflow {
     public static function translateMessage($message, $depId)
     {
         $matches = array();
-        preg_match_all('/\{((.*?)__([^>]*?))\}/m',$message,$matches);
+        preg_match_all('~\{((?:[^\{\}]++|(?R))*)\}~',$message,$matches);
 
         if (isset($matches[0]) && !empty($matches[0]))
         {
-            $department = erLhcoreClassModelDepartament::fetch($depId,true);
-
             $identifiers = array();
             foreach ($matches[0] as $key => $match) {
-                $identifiers[$matches[2][$key]] = array('search' => $matches[0][$key], 'replace' => $matches[3][$key]);
+                if (strpos($matches[1][$key],'__') !== false) {
+                    $parts = explode('__',$matches[1][$key]);
+                    $identifiers[$parts[0]] = array('search' => $matches[0][$key], 'replace' => $parts[1]);
+                }
             }
+
+            if (empty($identifiers)) {
+                return $message;
+            }
+
+            $department = erLhcoreClassModelDepartament::fetch($depId,true);
 
             if ($department instanceof erLhcoreClassModelDepartament) {
                 $configuration = $department->bot_configuration_array;

@@ -61,6 +61,8 @@ class NodeTriggerActionCommand extends Component {
 
                 {this.props.action.getIn(['content','command']) == 'stopchat' &&
                 <div>
+                    <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['payload_ignore_status'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','payload_ignore_status'])} /> Ignore department status and always transfer to operator.</label>
+
                     <div className="form-group">
                         <label>If there is no online operators send this trigger to user</label>
                         <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path':['payload'],'value':e})} payload={this.props.action.getIn(['content','payload'])} />
