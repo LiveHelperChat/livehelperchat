@@ -1,4 +1,4 @@
-3.19v
+3.20v
 
 1. Bot translations now can have separate images. So bot identity can be fully overridden now.
 
