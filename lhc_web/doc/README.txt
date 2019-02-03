@@ -1,7 +1,7 @@
 /*************************
 Live helper chat
 ************************
-  Copyright (c) 2015 Remigijus Kiminas
+  Copyright (c) 2019 Remigijus Kiminas
   Written by Remigijus Kiminas
 
   License:
