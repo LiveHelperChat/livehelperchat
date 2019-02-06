@@ -613,7 +613,7 @@ class erLhcoreClassGenericBotWorkflow {
                      if (isset($configurationArray['exc_group_id']) && !empty($configurationArray['exc_group_id'])){
                          $exceptionMessage = erLhcoreClassModelGenericBotExceptionMessage::findOne(array('limit' => 1, 'sort' => 'priority ASC', 'filter' => array('active' => 1, 'code' => $e->getCode()), 'filterin' => array('exception_group_id' => $configurationArray['exc_group_id'])));
                          if ($exceptionMessage instanceof erLhcoreClassModelGenericBotExceptionMessage && $exceptionMessage->message != '') {
-                             $message = $exceptionMessage->message;
+                             $message = erLhcoreClassGenericBotWorkflow::translateMessage($exceptionMessage->message, $chat->dep_id);
                          }
                      }
                  }
@@ -1126,7 +1126,7 @@ class erLhcoreClassGenericBotWorkflow {
                     if (isset($configurationArray['exc_group_id']) && !empty($configurationArray['exc_group_id'])){
                         $exceptionMessage = erLhcoreClassModelGenericBotExceptionMessage::findOne(array('limit' => 1, 'sort' => 'priority ASC', 'filter' => array('active' => 1, 'code' => $e->getCode()), 'filterin' => array('exception_group_id' => $configurationArray['exc_group_id'])));
                         if ($exceptionMessage instanceof erLhcoreClassModelGenericBotExceptionMessage && $exceptionMessage->message != '') {
-                            $message = $exceptionMessage->message;
+                            $message = erLhcoreClassGenericBotWorkflow::translateMessage($exceptionMessage->message, $chat->dep_id);
                         }
                     }
                 }
