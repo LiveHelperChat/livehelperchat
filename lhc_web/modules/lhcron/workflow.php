@@ -84,6 +84,9 @@ erLhcoreClassChatCleanup::onlineOperatorsCleanup(array('cronjob' => true));
 // Cleanup online operators sessions
 erLhcoreClassChatCleanup::departmentAvailabilityCleanup(array('cronjob' => true));
 
+// Update footprints table if required
+erLhcoreClassChatCleanup::updateFootprintBackground();
+
 echo "Ended chat/workflow\n";
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow',array());
