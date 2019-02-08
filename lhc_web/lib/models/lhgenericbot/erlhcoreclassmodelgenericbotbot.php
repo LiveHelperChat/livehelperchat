@@ -94,6 +94,19 @@ class erLhcoreClassModelGenericBotBot {
         }
     }
 
+    public function getBotIds() {
+
+        $ids = array($this->id);
+
+        $configurationArray = $this->configuration_array;
+
+        if (isset($configurationArray['bot_id']) && !empty($configurationArray['bot_id'])) {
+            $ids = array_merge($ids,$configurationArray['bot_id']);
+        }
+
+        return $ids;
+    }
+
     public function removeFile()
     {
         if ($this->filename != '') {

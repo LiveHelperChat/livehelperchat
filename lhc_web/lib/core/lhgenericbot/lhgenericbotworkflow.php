@@ -6,13 +6,16 @@ class erLhcoreClassGenericBotWorkflow {
     
     public static function findEvent($text, $botId, $type = 0)
     {
-        $event = erLhcoreClassModelGenericBotTriggerEvent::findOne(array('filter' => array('bot_id' => $botId, 'type' => $type),'filterlikeright' => array('pattern' => $text)));
+        $bot = erLhcoreClassModelGenericBotBot::fetch($botId);
+        $event = erLhcoreClassModelGenericBotTriggerEvent::findOne(array('filterin' => array('bot_id' => $bot->getBotIds()),'filter' => array('type' => $type),'filterlikeright' => array('pattern' => $text)));
         return $event;
     }
 
     public static function findTextMatchingEvent($messageText, $botId)
     {
-        $rulesMatching = erLhcoreClassModelGenericBotTriggerEvent::getList(array('filter' => array('bot_id' => $botId, 'type' => 2)));
+        $bot = erLhcoreClassModelGenericBotBot::fetch($botId);
+
+        $rulesMatching = erLhcoreClassModelGenericBotTriggerEvent::getList(array('filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => array('type' => 2)));
 
         foreach ($rulesMatching as $ruleMatching) {
 
@@ -182,7 +185,9 @@ class erLhcoreClassGenericBotWorkflow {
     // Send default message if there is any
     public static function sendDefault(& $chat, $botId, $msg = null)
     {
-        $trigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filter' => array('bot_id' => $botId, 'default_unknown' => 1)));
+        $bot = erLhcoreClassModelGenericBotBot::fetch($botId);
+
+        $trigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => array('default_unknown' => 1)));
 
         if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
             $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('msg' => $msg)));

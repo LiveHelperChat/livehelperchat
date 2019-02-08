@@ -1519,12 +1519,12 @@ class erLhcoreClassChatValidator {
                 if (isset($params['trigger_id']) && $params['trigger_id'] > 0) {
                     $botTrigger = erLhcoreClassModelGenericBotTrigger::fetch($params['trigger_id']);
                 } else {
+                    $botIds = $bot->getBotIds();
                     // Find default messages if there are any
-                    $botTrigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filter' => array('bot_id' => $bot->id, 'default' => 1)));
+                    $botTrigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $botIds), 'filter' => array('default' => 1)));
                 }
 
                 if ($botTrigger instanceof erLhcoreClassModelGenericBotTrigger) {
-
 
                     // set flag that we are executing everthing in start chat mode
                     erLhcoreClassGenericBotWorkflow::$startChat = true;

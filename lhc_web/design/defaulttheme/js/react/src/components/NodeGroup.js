@@ -77,6 +77,12 @@ class NodeGroup extends Component {
             var triggerAction = "";
         }
 
+        var classNameCurrent = "material-icons chat-active";
+
+        if (this.props.group.get('bot_id') != this.props.botId) {
+            classNameCurrent = "material-icons chat-unread";
+        }
+
         return (
             <div className="row">
                 <div className="col-12">
@@ -84,7 +90,12 @@ class NodeGroup extends Component {
 
                     <div className="row">
                         <div className="col-10">
-                            <input className="form-control gbot-group-name" value={this.props.group.get('name')} onChange={this.handleChange.bind(this)} />
+                            <div className="input-group">
+                                <div className="input-group-prepend">
+                                    <span><i className={classNameCurrent} title={'Bot Id - '+this.props.group.get('bot_id')}>home</i></span>
+                                </div>
+                                <input className="form-control form-control-sm gbot-group-name" value={this.props.group.get('name')} onChange={this.handleChange.bind(this)} />
+                            </div>
                         </div>
                         <div className="col-2">
                             <button className="btn btn-sm btn-secondary float-right" onClick={this.deleteGroup.bind(this)}><i className="material-icons mr-0">delete</i></button>
