@@ -79,6 +79,14 @@
             "format": "int32"
           },
           {
+            "name": "delay",
+            "in": "query",
+            "description": "How many seconds has to be passed from chat start. It's usefull if you want to fetch chats older than n seconds. It's time in seconds from chat start.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
             "name": "offset",
             "in": "query",
             "description": "Offset",
