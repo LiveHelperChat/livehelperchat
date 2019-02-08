@@ -278,6 +278,7 @@ return array_merge(array (
         'erLhcoreClassGenericBotActionIntent'       => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionintent.php',
         'erLhcoreClassGenericBotActionIntentcheck'  => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionintentcheck.php',
         'erLhcoreClassGenericBotActionConditions'   => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionconditions.php',
+        'erLhcoreClassGenericBotActionMatch_actions'=> 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionmatch_actions.php',
 
 
         // Notifications

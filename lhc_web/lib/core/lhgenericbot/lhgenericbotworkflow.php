@@ -4,18 +4,18 @@ class erLhcoreClassGenericBotWorkflow {
 
     public static $startChat = false;
     
-    public static function findEvent($text, $botId, $type = 0)
+    public static function findEvent($text, $botId, $type = 0, $paramsFilter = array())
     {
         $bot = erLhcoreClassModelGenericBotBot::fetch($botId);
-        $event = erLhcoreClassModelGenericBotTriggerEvent::findOne(array('filterin' => array('bot_id' => $bot->getBotIds()),'filter' => array('type' => $type),'filterlikeright' => array('pattern' => $text)));
+        $event = erLhcoreClassModelGenericBotTriggerEvent::findOne(array_merge_recursive(array('sort' => 'priority ASC', 'filterin' => array('bot_id' => $bot->getBotIds()),'filter' => array('type' => $type),'filterlikeright' => array('pattern' => $text)),$paramsFilter));
         return $event;
     }
 
-    public static function findTextMatchingEvent($messageText, $botId)
+    public static function findTextMatchingEvent($messageText, $botId, $paramsFilter = array())
     {
         $bot = erLhcoreClassModelGenericBotBot::fetch($botId);
 
-        $rulesMatching = erLhcoreClassModelGenericBotTriggerEvent::getList(array('filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => array('type' => 2)));
+        $rulesMatching = erLhcoreClassModelGenericBotTriggerEvent::getList(array_merge_recursive(array('sort' => 'priority ASC', 'filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => array('type' => 2)), $paramsFilter));
 
         foreach ($rulesMatching as $ruleMatching) {
 
@@ -1175,7 +1175,7 @@ class erLhcoreClassGenericBotWorkflow {
 
             if ($messageNew instanceof erLhcoreClassModelmsg) {
                 $message = $messageNew;
-            } elseif (is_array($messageNew) && isset($messageNew['status']) && ($messageNew['status'] == 'stop' || $messageNew['status'] == 'continue')) {
+            } elseif (is_array($messageNew) && isset($messageNew['status']) && ($messageNew['status'] == 'stop' || $messageNew['status'] == 'continue' || $messageNew['status'] == 'continue_all')) {
 
                 $continue = false;
                 if (isset($messageNew['trigger_id']) && is_numeric($messageNew['trigger_id'])) {
@@ -1192,7 +1192,7 @@ class erLhcoreClassGenericBotWorkflow {
 
                     $response = self::processTrigger($chat, $trigger, $setLastMessageId, $params);
 
-                    if (is_array($response) && isset($response['status']) && $response['status'] == 'stop' && $messageNew['status'] == 'continue') {
+                    if ($messageNew['status'] == 'continue_all' || (is_array($response) && isset($response['status']) && $response['status'] == 'stop' && $messageNew['status'] == 'continue')) {
                         $continue = true;
                     } else {
                         return array(
