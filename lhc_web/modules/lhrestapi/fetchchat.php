@@ -3,19 +3,22 @@
 try {
     erLhcoreClassRestAPIHandler::validateRequest();
 
-    $chat = erLhcoreClassModelChat::fetch((int)$_GET['chat_id']);
+    try {
+        $chat = erLhcoreClassModelChat::fetch((int)$_GET['chat_id'],true,true);
+        $chat->archive = null;
+    } catch (ezcPersistentObjectNotFoundException $e) {
+        try {
+            $chatData = erLhcoreClassChatArcive::fetchChatById((int)$_GET['chat_id']);
 
-    // Try to find chat in archive
-    if (!($chat instanceof erLhcoreClassModelChat)) {
-        $chatData = erLhcoreClassChatArcive::fetchChatById((int)$_GET['chat_id']);
-        if (!($chatData['chat'] instanceof erLhcoreClassModelChatArchive)) {
-            throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Could not find chat by chat_id!'));
-        } else {
+            if ($chatData === null) {
+                throw new Exception('Could not find chat by chat_id in archive!');
+            }
+
             $chat = $chatData['chat'];
             $chat->archive = $chatData['archive'];
+        } catch (ezcPersistentObjectNotFoundException $e) {
+            throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Could not find chat by chat_id!'));
         }
-    } else {
-        $chat->archive = null;
     }
 
     if (($chat instanceof erLhcoreClassModelChat || $chat instanceof erLhcoreClassModelChatArchive) && erLhcoreClassRestAPIHandler::hasAccessToRead($chat) == true) {

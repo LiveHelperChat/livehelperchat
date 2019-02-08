@@ -18,7 +18,7 @@ class erLhcoreClassChatArcive
 
             if ($archive instanceof erLhcoreClassModelChatArchiveRange) {
                 $archive->setTables();
-                $chat = erLhcoreClassModelChatArchive::fetch($chatId);
+                $chat = erLhcoreClassModelChatArchive::fetch($chatId,true,true);
                 return array('archive' => $archive, 'chat' => $chat);
             }
         }
