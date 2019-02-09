@@ -13,10 +13,10 @@ class erLhcoreClassGenericBotActionMatch_actions {
                 $payload = $params['msg_text'];
             }
 
-            $event = erLhcoreClassGenericBotWorkflow::findTextMatchingEvent($payload, $trigger->bot_id, array('filter' => array('on_start_type' => $action['content']['on_start_type'])));
+            $event = erLhcoreClassGenericBotWorkflow::findTextMatchingEvent($payload, $chat->chat_variables_array['gbot_id'], array('filter' => array('on_start_type' => $action['content']['on_start_type'])));
 
             if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent)) {
-                $event = erLhcoreClassGenericBotWorkflow::findEvent($payload, $trigger->bot_id,0, array('filter' => array('on_start_type' => $action['content']['on_start_type'])));
+                $event = erLhcoreClassGenericBotWorkflow::findEvent($payload, $chat->chat_variables_array['gbot_id'],0, array('filter' => array('on_start_type' => $action['content']['on_start_type'])));
             }
 
             if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent){
