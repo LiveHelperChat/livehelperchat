@@ -1649,7 +1649,7 @@ try {
 
                     $db->query("CREATE TABLE `lh_speech_user_language` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `user_id` bigint(20) NOT NULL, `language` varchar(20) NOT NULL, PRIMARY KEY (`id`), KEY `user_id_language` (`user_id`,`language`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
                     $db->query("CREATE TABLE `lh_audits` (`id` bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY, `category` varchar(255) NOT NULL, `file` varchar(255), `object_id` bigint(20) DEFAULT '0', `line` bigint(20), `message` longtext NOT NULL, `severity` varchar(255) NOT NULL, `source` varchar(255) NOT NULL, `time` timestamp NOT NULL, KEY `object_id` (`object_id`), KEY `source` (`source`(191)), KEY `category` (`category`(191))) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
-                    $db->query("CREATE TABLE `lh_chat_online_user_footprint_update` (`online_user_id` bigint(20) NOT NULL,  `command` varchar(20) NOT NULL,  `args` varchar(250) NOT NULL,  `ctime` int(11) NOT NULL, KEY `online_user_id` (`online_user_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+                    $db->query("CREATE TABLE `lh_chat_online_user_footprint_update` (`online_user_id` bigint(20) NOT NULL,  `command` varchar(20) NOT NULL,  `args` varchar(250) NOT NULL,  `ctime` int(11) NOT NULL, KEY `online_user_id` (`online_user_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4_unicode_ci;");
 
                     $Departament = new erLhcoreClassModelDepartament();
                     $Departament->name = $form->DefaultDepartament;
