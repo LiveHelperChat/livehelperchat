@@ -22,6 +22,8 @@ class erLhcoreClassModelGenericBotTriggerEvent {
             'configuration' => $this->configuration,
             'bot_id' => $this->bot_id,
             'type' => $this->type,
+            'on_start_type' => $this->on_start_type,
+            'priority' => $this->priority,
         );
 
         return $stateArray;
@@ -66,4 +68,6 @@ class erLhcoreClassModelGenericBotTriggerEvent {
     public $configuration = '';
     public $type = 0;
     public $bot_id = 0;
+    public $on_start_type = 0;
+    public $priority = 0;
 }

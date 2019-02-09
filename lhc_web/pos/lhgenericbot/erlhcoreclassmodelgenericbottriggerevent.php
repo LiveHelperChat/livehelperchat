@@ -40,6 +40,20 @@ $def->properties['type']->columnName   = 'type';
 $def->properties['type']->propertyName = 'type';
 $def->properties['type']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+// Do not check on chat start
+// Instant (Executes and continues workflow)
+// Instant block (Executes and blocks workflow)
+// Schedule (Just schedules for futher execution)
+$def->properties['on_start_type'] = new ezcPersistentObjectProperty();
+$def->properties['on_start_type']->columnName   = 'on_start_type';
+$def->properties['on_start_type']->propertyName = 'on_start_type';
+$def->properties['on_start_type']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['priority'] = new ezcPersistentObjectProperty();
+$def->properties['priority']->columnName   = 'priority';
+$def->properties['priority']->propertyName = 'priority';
+$def->properties['priority']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

@@ -70,6 +70,10 @@ export default ({onChange, type}) => {
         {
             'value': 'conditions',
             'text' : 'Check for conditions to proceed',
+        },
+        {
+            'value': 'match_actions',
+            'text' : 'Search for default actions on message',
         }
     ]);
 

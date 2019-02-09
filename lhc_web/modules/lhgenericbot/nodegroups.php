@@ -2,8 +2,10 @@
 
 header ( 'content-type: application/json; charset=utf-8' );
 
+$bot = erLhcoreClassModelGenericBotBot::fetch((int)$Params['user_parameters']['id']);
+
 $groups = erLhcoreClassModelGenericBotGroup::getList(array(
-    'filter' => array('bot_id' => (int)$Params['user_parameters']['id']),
+    'filterin' => array('bot_id' => $bot->getBotIds()),
     'sort' => 'id ASC'
 ));
 

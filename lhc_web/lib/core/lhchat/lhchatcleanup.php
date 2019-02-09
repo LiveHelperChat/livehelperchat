@@ -162,6 +162,32 @@ class erLhcoreClassChatCleanup {
             }
         }
     }
+
+    public static function updateFootprintBackground()
+    {
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare("SELECT * FROM lh_chat_online_user_footprint_update ORDER BY ctime ASC LIMIT 1000 ");
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Delete instantly, because commands can take longer.
+        // These commands are not dead must so they can fail time from time
+        foreach ($rows as $row) {
+            $stmt = $db->prepare('DELETE FROM lh_chat_online_user_footprint_update WHERE online_user_id = :online_user_id AND ctime = :ctime');
+            $stmt->bindValue(':ctime',(int)$row['ctime'],PDO::PARAM_INT);
+            $stmt->bindValue(':online_user_id',(int)$row['online_user_id'],PDO::PARAM_INT);
+            $stmt->execute();
+        }
+
+        foreach ($rows as $row) {
+            if ($row['command'] == 'set_chat') {
+                $stmt = $db->prepare('UPDATE LOW_PRIORITY lh_chat_online_user_footprint SET chat_id = :chat_id WHERE online_user_id = :online_user_id');
+                $stmt->bindValue(':chat_id',(int)$row['args'],PDO::PARAM_INT);
+                $stmt->bindValue(':online_user_id',(int)$row['online_user_id'],PDO::PARAM_INT);
+                $stmt->execute();
+            }
+        }
+    }
 }
 
 ?>

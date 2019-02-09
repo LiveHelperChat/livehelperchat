@@ -102,12 +102,29 @@ class erLhcoreClassModelChatOnlineUserFootprint {
    		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlinefootprint.created', array('item' => & $item));
    }
 
-   public static function assignChatToPageviews(erLhcoreClassModelChatOnlineUser $onlineUser) {
-   		$db = ezcDbInstance::get();
-   		$stmt = $db->prepare('UPDATE lh_chat_online_user_footprint SET chat_id = :chat_id WHERE online_user_id = :online_user_id');
-   		$stmt->bindValue(':chat_id',(int)$onlineUser->chat_id,PDO::PARAM_INT);
-   		$stmt->bindValue(':online_user_id',(int)$onlineUser->id,PDO::PARAM_INT);
-   		$stmt->execute();
+   public static function assignChatToPageviews(erLhcoreClassModelChatOnlineUser $onlineUser, $backgroundJob = false) {
+       // No extension has overridden this
+       // Perhaps background worker does this?
+       $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('online.assign_chat_to_pageviews',array('online_user' => & $onlineUser));
+
+       if ($statusWorkflow === false) {
+           if ($backgroundJob === false) {
+               // Update instantly
+               $db = ezcDbInstance::get();
+               $stmt = $db->prepare('UPDATE lh_chat_online_user_footprint SET chat_id = :chat_id WHERE online_user_id = :online_user_id');
+               $stmt->bindValue(':chat_id',(int)$onlineUser->chat_id,PDO::PARAM_INT);
+               $stmt->bindValue(':online_user_id',(int)$onlineUser->id,PDO::PARAM_INT);
+               $stmt->execute();
+           } else {
+               // Background will process event
+               $db = ezcDbInstance::get();
+               $stmt = $db->prepare("INSERT INTO lh_chat_online_user_footprint_update (online_user_id,command,args,ctime) VALUES (:online_user_id, 'set_chat',:chat_id,:ctime)");
+               $stmt->bindValue(':online_user_id',(int)$onlineUser->id,PDO::PARAM_INT);
+               $stmt->bindValue(':chat_id',(int)$onlineUser->chat_id,PDO::PARAM_STR);
+               $stmt->bindValue(':ctime',time(),PDO::PARAM_STR);
+               $stmt->execute();
+           }
+       }
    }
 
    public static function getList($paramsSearch = array())

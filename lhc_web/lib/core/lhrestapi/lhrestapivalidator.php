@@ -227,6 +227,10 @@ class erLhcoreClassRestAPIHandler
         if (isset($_GET['filtergt']['id']) && is_numeric($_GET['filtergt']['id'])){
             $filter['filtergt']['id'] = (int)$_GET['filtergt']['id'];
         }
+
+        if (isset($_GET['delay']) && is_numeric($_GET['delay'])) {
+            $filter['filterlte']['time'] = time()-(int)$_GET['delay'];
+        }
         
         $limitation = self::getLimitation();
         
@@ -237,7 +241,7 @@ class erLhcoreClassRestAPIHandler
                 'list_count' => 0
             );
         }
-                
+
         if ($limitation !== true) {
             $filter['customfilter'][] = $limitation;
         }

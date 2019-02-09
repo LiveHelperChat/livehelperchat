@@ -35,6 +35,9 @@ class erLhcoreClassGenericBot {
             'exc_group_id' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int',null, FILTER_REQUIRE_ARRAY
             ),
+            'bot_id' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',null, FILTER_REQUIRE_ARRAY
+            ),
         );
 
         $form = new ezcInputForm( INPUT_POST, $definition );
@@ -76,6 +79,12 @@ class erLhcoreClassGenericBot {
             $configurationArray['exc_group_id'] = $form->exc_group_id;
         } else {
             $configurationArray['exc_group_id'] = array();
+        }
+
+        if ( $form->hasValidData( 'bot_id' ) && !empty($form->bot_id)) {
+            $configurationArray['bot_id'] = $form->bot_id;
+        } else {
+            $configurationArray['bot_id'] = array();
         }
 
         $bot->configuration_array = $configurationArray;

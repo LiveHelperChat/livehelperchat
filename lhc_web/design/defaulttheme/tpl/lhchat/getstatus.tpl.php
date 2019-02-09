@@ -455,7 +455,7 @@ var lh_inst  = {
                     argumentsQuery.push('jsvar['+this.js_variables[index].id+']='+encodeURIComponent(currentVar));
                 }
             } catch(err) {
-                console.log(err.message);
+                //console.log(err.message);
             }
         }
 

@@ -360,9 +360,9 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     
     	                $chat->online_user_id = $userInstance->id;
     	                $chat->saveThis();
-    	                
+
     	                if ( erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) {
-    	            		erLhcoreClassModelChatOnlineUserFootprint::assignChatToPageviews($userInstance);
+    	            		erLhcoreClassModelChatOnlineUserFootprint::assignChatToPageviews($userInstance, erLhcoreClassModelChatConfig::fetch('footprint_background')->current_value == 1);
     	            	}
     	            }
     	       }

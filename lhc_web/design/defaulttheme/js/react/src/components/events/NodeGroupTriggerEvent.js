@@ -83,7 +83,6 @@ class NodeGroupTriggerEvent extends Component {
             <div className="row">
                 <div className="col-12">
                     <div className="form-group">
-
                         <div className="row">
                             <div className="col-10">
                                 <label>Type</label>
@@ -92,16 +91,32 @@ class NodeGroupTriggerEvent extends Component {
                                 <a className="float-right" onClick={this.deleteEvent}><i className="material-icons mr-0">delete</i></a>
                             </div>
                         </div>
-
                         <select className="form-control form-control-sm" defaultValue={this.props.event.get('type')} onChange={this.typeChange}>
                             <option value="0">Text</option>
                             <option value="1">Click</option>
                             <option value="2">Custom text matching</option>
                         </select>
                     </div>
+
+                    <div className="form-group">
+                        <label>Chat start behaviour</label>
+                        <select className="form-control form-control-sm" defaultValue={this.props.event.get('on_start_type')} onChange={(e) => this.onchangeAttr({'path' : ['on_start_type'],'value' : e.target.value})}>
+                            <option value="0">Do not check on chat start</option>
+                            <option value="1">Instant execution (Executes and continues workflow)</option>
+                            <option value="2">Instant execution and block (executes and blocks further triggers execution)</option>
+                            <option value="3">Instant execution and continue if stop is returned from this trigger</option>
+                            <option value="4">Schedule (schedules for further execution trigger)</option>
+                        </select>
+                    </div>
+
+                    <div className="form-group">
+                        <label>Priority of start check</label>
+                        <input title="Lowest rank events will be checked first" type="text" placeholder="0" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['priority'],'value' : e.target.value})} defaultValue={this.props.event.getIn(['priority'])} />
+                    </div>
+
                 </div>
                 <div className="col-12">
-                        {typeRender}
+                       {typeRender}
                 </div>
                 <div className="col-12">
                     <hr/>

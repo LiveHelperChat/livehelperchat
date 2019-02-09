@@ -142,7 +142,7 @@ try {
                 $chat->saveThis();
                  
                 if ( erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) {
-                    erLhcoreClassModelChatOnlineUserFootprint::assignChatToPageviews($userInstance);
+                    erLhcoreClassModelChatOnlineUserFootprint::assignChatToPageviews($userInstance, erLhcoreClassModelChatConfig::fetch('footprint_background')->current_value == 1);
                 }
             }
         }
