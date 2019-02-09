@@ -6274,7 +6274,7 @@
                 "extra": ""
             },
             {
-                "field": "on_start",
+                "field": "on_start_type",
                 "type": "tinyint(1)",
                 "null": "NO",
                 "key": "",

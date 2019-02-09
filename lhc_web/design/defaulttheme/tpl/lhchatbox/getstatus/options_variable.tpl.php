@@ -1,1 +1,1 @@
-<?php $chatboxOptionsVariable = 'LHCChatboxOptions'?>
+<?php $chatboxOptionsVariable = 'LHCChatboxOptions';$chatCSSPrefix = 'lhc';?>

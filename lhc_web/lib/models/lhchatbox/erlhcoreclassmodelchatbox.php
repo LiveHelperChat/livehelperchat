@@ -35,7 +35,10 @@ class erLhcoreClassModelChatbox {
    }
 
    public function removeThis() {
-   		$this->chat->removeThis();
+
+       if (is_object($this->chat)){
+           $this->chat->removeThis();
+       }
    		erLhcoreClassChatbox::getSession()->delete($this);
    }
 
