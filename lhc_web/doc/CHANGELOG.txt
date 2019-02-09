@@ -1,3 +1,13 @@
+3.21v
+
+1. Now in bot configuration you can select what bot logic it should include. So one bot can combine multiple bot's logic.
+2. Option to have background worker for footprint updates. Usefull if footprint table is huge.
+3. Rest api chat's fetching methods has delay attribute which can be used. To fetch chats only older than x seconds.
+4. Bot now have new element which can search on chat start event. Usefull conbining various chat start logic.
+5. Sort in bot fixed if two elements one by another is same type.
+
+execute doc/update_db/update_196.sql for update
+
 3.20v
 
 1. Bot translations now can have separate images. So bot identity can be fully overridden now.
