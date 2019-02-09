@@ -62,7 +62,7 @@ class NodeActionConditionItem extends Component {
                 </div>
                 <div className="col-2">
                     <div><label>&nbsp;</label></div>
-                    <button className="btn btn-block btn-warning btn-sm" onClick={this.deleteField.bind(this)}>Delete</button>
+                    <button type="button" className="btn btn-block btn-warning btn-sm" onClick={this.deleteField.bind(this)}>Delete</button>
                 </div>
 
             </div>
