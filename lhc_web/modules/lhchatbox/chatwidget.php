@@ -33,6 +33,7 @@ if (($Result = $cache->restore($cacheKey)) === false)
     if (empty($errors)) {
         $chatbox = erLhcoreClassChatbox::getInstance((string)$Params['user_parameters_unordered']['identifier'],(string)$Params['user_parameters_unordered']['hashchatbox']);
         $tpl->set('chatbox',$chatbox);
+        $Result['chat'] = $chatbox->chat;
     } else {
         $tpl->set('errors', $errors);
     }
@@ -71,7 +72,7 @@ if (($Result = $cache->restore($cacheKey)) === false)
 
     $Result['content'] = $tpl->fetch();
     $Result['pagelayout'] = 'widget';
-    $Result['pagelayout_css_append'] = 'widget-chat';
+    $Result['pagelayout_css_append'] = 'widget-chat widget-chat-box';
     $Result['dynamic_height'] = true;
     $Result['dynamic_height_message'] = 'lhc_sizing_chatbox';
     $Result['additional_post_message'] = 'lhc_chb:nick:'.htmlspecialchars($visitorName,ENT_QUOTES);

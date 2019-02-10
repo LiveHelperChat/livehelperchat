@@ -140,6 +140,14 @@ background-color: #ddd;
 		height:45px;
 	}
 
+    .widget-chat-box #ChatMessageContainer{
+        height:145px;
+    }
+
+    .widget-chat-box #messages{
+        bottom:145px;
+    }
+
 	#id-operator-typing{
 		position: absolute;
 		bottom: 45px;
