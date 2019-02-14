@@ -415,7 +415,6 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 
 	       // Redirect user
 	       erLhcoreClassModule::redirect('chat/chat/' . $chat->id . '/' . $chat->hash . $themeAppend . '/(cstarted)/online_chat_started_cb');
-           return;
 	       exit;
 	   	}
     } else {
