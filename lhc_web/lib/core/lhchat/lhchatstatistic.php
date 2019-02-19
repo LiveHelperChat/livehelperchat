@@ -1765,6 +1765,8 @@ class erLhcoreClassChatStatistic {
                     $filterTimeout['filterlte']['wait_time'] = $rangeData['to'];
                 }
 
+                $filterTimeout['filtergt']['user_id'] = 0;
+
                 if ((isset($filterParams['input']->timefrom_include_hours) && is_numeric($filterParams['input']->timefrom_include_hours)) && (isset($filterParams['input']->timeto_include_hours) && is_numeric($filterParams['input']->timeto_include_hours))) {  
 
                     if ($filterParams['input']->timefrom_include_hours <= $filterParams['input']->timeto_include_hours){
