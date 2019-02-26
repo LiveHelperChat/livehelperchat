@@ -470,6 +470,32 @@ class erLhcoreClassGenericBotWorkflow {
                                 }
                             }
                         }
+                    } else if (isset($eventData['content']['type']) && $eventData['content']['type'] == 'default_actions') {
+
+                        $args = array();
+                        $args['args']['msg_text'] = $payload;
+
+                        $filter = array();
+
+                        if (isset($eventData['content']['event_args']['on_start_type']) && is_numeric($eventData['content']['event_args']['on_start_type']) && $eventData['content']['event_args']['on_start_type'] != 5) {
+                            $filter = array('filter' => array('on_start_type' => $eventData['content']['event_args']['on_start_type']));
+                        }
+
+                        $event = self::findTextMatchingEvent($payload, $chat->chat_variables_array['gbot_id'], $filter);
+
+                        if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent)) {
+                            $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'],0, $filter);
+                        }
+
+                        if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
+                            erLhcoreClassGenericBotWorkflow::processTrigger($chat, $event->trigger, true, $args);
+                        } elseif (isset($eventData['content']['event_args']['alternative_callback']) && is_numeric($eventData['content']['event_args']['alternative_callback'])) {
+                            $trigger = erLhcoreClassModelGenericBotTrigger::fetch($eventData['content']['event_args']['alternative_callback']);
+                            if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                                erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, $args);
+                            }
+                        }
+
                     } else if (isset($eventData['content']['type']) && $eventData['content']['type'] == 'chat') {
                         if ($eventData['content']['field'] == 'email') {
                             if (filter_var($payload, FILTER_VALIDATE_EMAIL)) {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NodeTriggerActionType from './NodeTriggerActionType';
+import NodeTriggerList from './NodeTriggerList';
 
 class NodeTriggerActionMatchActions extends Component {
 
@@ -42,18 +43,30 @@ class NodeTriggerActionMatchActions extends Component {
                         </button>
                     </div>
                 </div>
-
-                <div className="form-group">
-                    <label>For what start chat actions to search</label>
-                    <select className="form-control form-control-sm" defaultValue={this.props.action.getIn(['content','on_start_type'])} onChange={(e) => this.onchangeAttr({'path' : ['on_start_type'], 'value' : e.target.value})}>
-                        <option value="0">Do not check on chat start</option>
-                        <option value="1">Instant execution (Executes and continues workflow)</option>
-                        <option value="2">Instant execution and block (executes and blocks further triggers execution)</option>
-                        <option value="3">Instant execution and continue if stop is returned from this trigger</option>
-                        <option value="4">Schedule (schedules for further execution trigger)</option>
-                    </select>
+                <div className="row">
+                    <div className="col-12">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['event_background'],'value' : e.target.checked})} defaultChecked={this.props.action.getIn(['content','event_background'])} /> Event is processed on next visitor message.</label>
+                    </div>
+                    <div className="col-6">
+                        <div className="form-group">
+                            <label>For what start chat actions to search</label>
+                            <select className="form-control form-control-sm" defaultValue={this.props.action.getIn(['content','on_start_type'])} onChange={(e) => this.onchangeAttr({'path' : ['on_start_type'], 'value' : e.target.value})}>
+                                <option value="0">Do not check on chat start</option>
+                                <option value="1">Instant execution (Executes and continues workflow)</option>
+                                <option value="2">Instant execution and block (executes and blocks further triggers execution)</option>
+                                <option value="3">Instant execution and continue if stop is returned from this trigger</option>
+                                <option value="4">Schedule (schedules for further execution trigger)</option>
+                                <option value="5">Any</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div className="col-6">
+                        <div className="form-group">
+                            <label>If no trigger was found execute this</label>
+                            <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['alternative_callback'], 'value' : e})} payload={this.props.action.getIn(['content','alternative_callback'])} />
+                        </div>
+                    </div>
                 </div>
-
                 <hr className="hr-big" />
             </div>
         );

@@ -6,6 +6,30 @@ class erLhcoreClassGenericBotActionMatch_actions {
     {
         if (isset($action['content']['on_start_type']) && is_numeric($action['content']['on_start_type']) && $action['content']['on_start_type'] > 0) {
 
+            if (isset($action['content']['event_background']) && $action['content']['event_background'] == true) {
+                $event = new erLhcoreClassModelGenericBotChatEvent();
+                $event->chat_id = $chat->id;
+                $event->ctime = time();
+                $event->content = json_encode(array('callback_list' => array(
+                    array(
+                        'content' => array(
+                            'type' => 'default_actions',
+                            'event' => (isset($action['content']['event']) ? $action['content']['event'] : null),
+                            'event_args' => array(
+                                'alternative_callback' => (isset($action['content']['alternative_callback']) ? $action['content']['alternative_callback'] : null),
+                                'on_start_type' => (isset($action['content']['on_start_type']) ? $action['content']['on_start_type'] : null)
+                            )
+                        )
+                    )
+                )));
+
+                if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
+                    $event->saveThis();
+                }
+
+                return;
+            }
+
             $payload = '';
             if (isset($params['msg']) && $params['msg'] instanceof erLhcoreClassModelmsg) {
                 $payload = $params['msg']->msg;
@@ -13,13 +37,21 @@ class erLhcoreClassGenericBotActionMatch_actions {
                 $payload = $params['msg_text'];
             }
 
-            $event = erLhcoreClassGenericBotWorkflow::findTextMatchingEvent($payload, $chat->chat_variables_array['gbot_id'], array('filter' => array('on_start_type' => $action['content']['on_start_type'])));
+            $filter = array();
 
-            if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent)) {
-                $event = erLhcoreClassGenericBotWorkflow::findEvent($payload, $chat->chat_variables_array['gbot_id'],0, array('filter' => array('on_start_type' => $action['content']['on_start_type'])));
+            if (isset($action['content']['on_start_type']) && is_numeric($action['content']['on_start_type']) && $action['content']['on_start_type'] != 5) {
+                $filter = array('filter' => array('on_start_type' => $action['content']['on_start_type']));
             }
 
-            if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent){
+
+
+            $event = erLhcoreClassGenericBotWorkflow::findTextMatchingEvent($payload, $chat->chat_variables_array['gbot_id'], $filter);
+
+            if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent)) {
+                $event = erLhcoreClassGenericBotWorkflow::findEvent($payload, $chat->chat_variables_array['gbot_id'], 0, $filter);
+            }
+
+            if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
                 if (isset($action['content']['on_start_type']) && $action['content']['on_start_type'] == 1) {
                     return array(
                         'status' => 'continue_all',
@@ -40,6 +72,11 @@ class erLhcoreClassGenericBotActionMatch_actions {
                     $pendingAction->chat_id = $chat->id;
                     $pendingAction->trigger_id = $event->trigger_id;
                     $pendingAction->saveThis();
+                } elseif (isset($action['content']['on_start_type']) && $action['content']['on_start_type'] == 5) {
+                    return array(
+                        'status' => 'continue_all',
+                        'trigger_id' => $event->trigger_id
+                    );
                 }
             }
         }
