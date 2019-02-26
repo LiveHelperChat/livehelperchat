@@ -231,7 +231,7 @@ function lh(){
                 content:'<a href="#" onclick="lhinst.quateSelection('+e.data.chat_id+')"><i class="material-icons">&#xE244;</i>quote</a>'
             }
 
-            ee.emitEvent('quoteAction', [quoteParams]);
+            ee.emitEvent('quoteAction', [quoteParams,e.data.chat_id]);
 
             $(this).popover(quoteParams).popover('show');
 
