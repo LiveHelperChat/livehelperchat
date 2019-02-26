@@ -250,15 +250,22 @@ function lh(){
         $('#messagesBlock-'+chat_id+' .message-row').on('mouseup',{chat_id:chat_id, that : this}, lhinst.mouseClicked);
     }
 
-    this.quateSelection = function (chat_id) {
-        $('.popover-copy').popover('dispose');
-
+    this.getSelectedTextPlain = function() {
         var textToPaste = this.selection.text.replace(/[\uD7AF\uD7C7-\uD7CA\uD7FC-\uF8FF\uFA6E\uFA6F\uFADA]/g,'');
 
         textToPaste = textToPaste.replace(/^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}(.*)/gm,'');
         textToPaste = textToPaste.replace(/^[0-9]{2}:[0-9]{2}:[0-9]{2}(.*)/gm,'');
         textToPaste = textToPaste.replace(/^\s*\n/gm, "");
         textToPaste = textToPaste.replace(/^ /gm, "");
+
+        return textToPaste;
+    }
+
+    this.quateSelection = function (chat_id) {
+        $('.popover-copy').popover('dispose');
+
+        var textToPaste = this.getSelectedTextPlain();
+
         window.textreplace = textToPaste;
 
         var textArea = $('#CSChatMessage-'+chat_id);
