@@ -90,12 +90,14 @@ class erLhcoreClassModule{
             	} elseif (self::$defaultTimeZone != '') {            	
             		date_default_timezone_set(self::$defaultTimeZone);
             	}
-          	            	
-            	if (self::$debugEnabled == false) {
-            	    $includeStatus = @include(self::getModuleFile());
-            	} else {              	    
-            	    $includeStatus = include(self::getModuleFile());
-            	}
+
+                $fileLocation = self::getModuleFile();
+                if (file_exists($fileLocation)){
+                    $includeStatus = include($fileLocation);
+                } else {
+                    $includeStatus = false;
+                }
+
             	            	
             	// Inclusion failed
             	if ($includeStatus === false) {
