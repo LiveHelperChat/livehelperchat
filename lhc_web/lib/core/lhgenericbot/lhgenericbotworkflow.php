@@ -282,6 +282,7 @@ class erLhcoreClassGenericBotWorkflow {
     }
 
     public static function splitWord($word){
+        $word = str_replace(array("\r\n","\n")," ",$word);
         $len = mb_strlen($word, 'UTF-8');
         $result = [];
         for ($i = 0; $i < $len; $i++) {
