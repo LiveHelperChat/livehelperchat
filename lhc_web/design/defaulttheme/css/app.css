@@ -13,6 +13,16 @@ body {
 ::-webkit-scrollbar-thumb:hover{background-color:#bbb}
 ::-webkit-scrollbar-thumb:active{background-color:#888}
 
+.chats-column{
+    flex: 0 0 25%;
+    max-width: 420px;
+    min-width: 240px;
+}
+
+.chat-list-row:hover,.chat-list-row.active-chat-row{
+    background-color:#f7f6f6;
+    cursor:pointer;
+}
 
 .btn-group-xs > .btn, .btn-xs {
 	padding  : .25rem .30rem 0.35rem 0.30rem;
@@ -168,6 +178,10 @@ a:hover{
 
 .fs12 {
 	font-size: 12px;
+}
+
+.fs13 {
+	font-size: 13px;
 }
 
 .fs24 {
@@ -741,17 +755,6 @@ ul.user-settings-list li{
 	padding: 0 !important;
 	color:#CCC !important;
 	font-size: 14px !important;
-}
-
-.send-status-icon{
-	position: absolute;
-	margin-left: 2px;
-	display: inline !important;
-	width: auto !important;
-	left: 0;
-	margin-top: -6px;
-	padding: 0 !important;
-	font-size: 12px !important;
 }
 
 .icon-close-chat:hover{

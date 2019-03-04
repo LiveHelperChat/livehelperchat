@@ -34,8 +34,9 @@
 
         <div role="tabpanel" id="tabs" ng-cloak>
             <ul class="nav nav-pills" role="tablist">
-                
-                
+
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/chats_dashboard_list_tab.tpl.php')); ?>
+
                 <?php foreach ($frontTabsOrder as $frontTab) : ?>
                     <?php if (trim($frontTab) == 'online_users' && $online_visitors_enabled_pre == true) : ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_online_users_tab.tpl.php')); ?>
@@ -72,6 +73,11 @@
             </ul>
 
             <div class="tab-content" ng-cloak>
+
+                <div role="tabpanel" class="tab-pane form-group" id="chatdashboard">
+                    <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/chats_dashboard_list.tpl.php')); ?>
+                </div>
+
                 <?php foreach ($frontTabsOrder as $frontTab) : ?>
                     <?php if (trim($frontTab) == 'online_users' && $online_visitors_enabled_pre == true) : ?>
                         <div role="tabpanel" class="tab-pane form-group" id="onlineusers">

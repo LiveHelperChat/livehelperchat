@@ -220,7 +220,7 @@ if ($myChatsEnabled == true) {
         }
     }
     
-    $filter['filter']['user_id'] = (int)$currentUser->getUserID();
+    $filter['filter_custom'][] = array('((status = 0) OR (status = 1 AND user_id = ' . (int)$currentUser->getUserID().'))');
     
     $myChats = erLhcoreClassChat::getMyChats($limitList,0,$filter);
 

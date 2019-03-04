@@ -226,7 +226,7 @@ function lh(){
                 trigger:'manual',
                 animation:false,
                 html:true,
-                container:'#chat-id-'+e.data.chat_id,
+                container:'#chat-content-'+e.data.chat_id,
                 template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>',
                 content:'<a href="#" onclick="lhinst.quateSelection('+e.data.chat_id+')"><i class="material-icons">&#xE244;</i>quote</a>'
             }
@@ -300,6 +300,7 @@ function lh(){
 
     this.addTab = function(tabs, url, name, chat_id, focusTab, position) {    
     	// If tab already exits return
+        /*
     	if (tabs.find('#chat-tab-link-'+chat_id).length > 0) {
     		return ;
     	}
@@ -353,10 +354,11 @@ function lh(){
             inst.loadMainData(chat_id);
             ee.emitEvent('chatTabLoaded', [chat_id]);
     	});
+    	*/
     };
 
     this.rememberTab = function(chat_id) {
-        if (localStorage) {
+        /*if (localStorage) {
             try{
                 chat_id = parseInt(chat_id);
 
@@ -375,11 +377,11 @@ function lh(){
             } catch (e) {
                 console.log(e);
             }
-        }
+        }*/
     };
     
     this.forgetChat = function (chat_id) {
-        if (localStorage) {
+        /*if (localStorage) {
             try {
                 chat_id = parseInt(chat_id);
 
@@ -399,14 +401,14 @@ function lh(){
                 console.log(e);
             }
 
-        }
+        }*/
     };
     
     this.attachTabNavigator = function() {
-    	$('#tabs > ul.nav > li > a').click(function(){
+    	/*$('#tabs > ul.nav > li > a').click(function(){
     		$(this).find('.msg-nm').remove();
     		$(this).removeClass('has-pm');
-    	});
+    	});*/
     };
 
     this.holdAction = function(chat_id, inst) {
@@ -464,7 +466,7 @@ function lh(){
 
     this.startChat = function (chat_id,tabs,name,focusTab,position) {
     	    	
-    	this.removeBackgroundChat(chat_id);
+    	/*this.removeBackgroundChat(chat_id);
     	this.hideNotification(chat_id);
     	
         if ( this.chatUnderSynchronization(chat_id) == false ) {        	
@@ -483,13 +485,14 @@ function lh(){
     		window.location.hash = '#/chat-id-'+chat_id;
         }
         
-        ee.emitEvent('chatStartTab', [chat_id]);	
+        ee.emitEvent('chatStartTab', [chat_id]);
+        */
     };
 
     this.backgroundChats = [];
     
     this.startChatBackground = function (chat_id,tabs,name) {
-    	if ( this.chatUnderSynchronization(chat_id) == false ) {  
+    	/*if ( this.chatUnderSynchronization(chat_id) == false ) {
     		this.backgroundChats.push(parseInt(chat_id));
 	    	var rememberAppend = this.disableremember == false ? '/(remember)/true' : '';
 	    	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend+'/(arg)/background', name, chat_id, false); 
@@ -497,7 +500,7 @@ function lh(){
 	    	return true;
     	}
     	
-    	return false;
+    	return false;*/
     };
     
     this.protectCSFR = function()
@@ -518,17 +521,17 @@ function lh(){
 
     this.addSynchroChat = function (chat_id,message_id)
     {
-        this.chatsSynchronising.push(chat_id);
+        /*this.chatsSynchronising.push(chat_id);
         this.chatsSynchronisingMsg.push(chat_id + ',' +message_id);
         
         if (LHCCallbacks.addSynchroChat) {
         	LHCCallbacks.addSynchroChat(chat_id,message_id);
-        }
+        }*/
     };
 
     this.removeSynchroChat = function (chat_id)
     {
-        var j = 0;
+        /*var j = 0;
 
         while (j < this.chatsSynchronising.length) {
 
@@ -546,7 +549,7 @@ function lh(){
 
         if (LHCCallbacks.removeSynchroChat) {
         	LHCCallbacks.removeSynchroChat(chat_id);
-        }
+        }*/
 
     };
 
@@ -816,7 +819,7 @@ function lh(){
 
     this.chatUnderSynchronization = function(chat_id)
     {
-        var j = 0;
+        /*var j = 0;
 
         while (j < this.chatsSynchronising.length) {
 
@@ -827,12 +830,12 @@ function lh(){
             } else { j++; }
         }
 
-        return false;
+        return false;*/
     };
 
     this.getChatIndex = function(chat_id)
     {
-        var j = 0;
+        /*var j = 0;
 
         while (j < this.chatsSynchronising.length) {
 
@@ -843,7 +846,7 @@ function lh(){
             } else { j++; }
         }
 
-        return false;
+        return false;*/
     };
 
     this.updateUserSyncInterface = function(inst,data)
@@ -1064,6 +1067,9 @@ function lh(){
 
                 that.removeSynchroChat(chat_id);
                 that.syncadmininterfacestatic();
+
+                var lhcController = angular.element('body').scope();
+                lhcController.removeOpenedChat(parseInt(chat_id));
 
             } else {
 	            alert(data.result);
@@ -1732,7 +1738,7 @@ function lh(){
 
     this.syncadmincall = function()
 	{
-	    if (this.chatsSynchronising.length > 0)
+	    /*if (this.chatsSynchronising.length > 0)
 	    {
 	        if (this.underMessageAdd == false && this.syncroRequestSend == false)
 	        {
@@ -1908,7 +1914,7 @@ function lh(){
 
 	    } else {
 	        this.isSinchronizing = false;
-	    }
+	    }*/
 	};
 
 	this.updateVoteStatus = function(chat_id) {
@@ -1920,7 +1926,7 @@ function lh(){
                 $(this).text(' '+data.nick).prepend(cache);
             });
 
-            $('#ntab-chat-'+chat_id).text(data.nick);
+            //$('#ntab-chat-'+chat_id).text(data.nick);
 
             ee.emitEvent('chatTabInfoReload', [chat_id]);
 		});
@@ -1928,7 +1934,7 @@ function lh(){
 	
 	this.updateChatLastMessageID = function(chat_id,message_id)
 	{
-	    this.chatsSynchronisingMsg[this.getChatIndex(chat_id)] = chat_id+','+message_id;
+	    //this.chatsSynchronisingMsg[this.getChatIndex(chat_id)] = chat_id+','+message_id;
 	};
 
 	this.requestNotificationPermission = function() {
@@ -2325,7 +2331,7 @@ function lh(){
 	};
 		
 	this.addAdminChatFinished = function(chat_id, last_message_id, arg) {
-		
+
 		var _that = this;
 		
 		var $textarea = jQuery('#CSChatMessage-'+chat_id);
@@ -2386,12 +2392,12 @@ function lh(){
 		
 		this.afterAdminChatInit(chat_id);
 		
-		this.addSynchroChat(chat_id,last_message_id);
+		//this.addSynchroChat(chat_id,last_message_id);
 
-		$('#messagesBlock-'+chat_id).animate({ scrollTop: $('#messagesBlock-'+chat_id).prop('scrollHeight') }, 1000);
+		$('#messagesBlock-'+chat_id).animate({ scrollTop: $('#messagesBlock-'+chat_id).prop('scrollHeight') }, 5);
 
 		// Start synchronisation
-		this.startSyncAdmin();	
+		//this.startSyncAdmin();
 		
 		jQuery('#id_CannedMessageSearch-'+chat_id).keyup(function(evt) {
 			
@@ -2419,13 +2425,8 @@ function lh(){
 		// Hide notification only if chat was not started in background
 		if (arg === null || typeof arg !== 'object' || arg.indexOf('background') === -1) {
 			this.hideNotification(chat_id);
-		} else {
-			$('#chat-tab-link-'+chat_id).click(function() {
-				_that.removeBackgroundChat(parseInt(chat_id));
-				_that.hideNotification(parseInt(chat_id));
-			});
 		}
-	
+
 		try {
 			if (localStorage) {			
 				if (localStorage.getItem('lhc_rch') == 1) {
@@ -2442,10 +2443,10 @@ function lh(){
 	};
 	
 	this.removeBackgroundChat = function(chat_id) {
-		var index = this.backgroundChats.indexOf(parseInt(chat_id));
+		/*var index = this.backgroundChats.indexOf(parseInt(chat_id));
 		if (index !== -1) {
 			delete this.backgroundChats[index];
-		};
+		};*/
 	};
 	
 	this.getLocalValue = function(variable,defaultValue) {

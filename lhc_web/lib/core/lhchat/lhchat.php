@@ -27,7 +27,7 @@ class erLhcoreClassChat {
 			'operation',			
 			'operation_admin',			
 			'screenshot_id',			
-			'last_msg_id',
+			//'last_msg_id',
 			'mail_send',
 			'lat',
 			'lon',
@@ -124,8 +124,8 @@ class erLhcoreClassChat {
         $filter['limit'] = $limit;
         $filter['offset'] = $offset;
         $filter['smart_select'] = true;
-        $filter['sort'] = 'status ASC, id DESC';
-        
+        $filter['sort'] = '`status` ASC,`last_msg_id` DESC, `id` DESC';
+
         if (!empty($filterAdditional)) {
             $filter = array_merge_recursive($filter,$filterAdditional);
         }
