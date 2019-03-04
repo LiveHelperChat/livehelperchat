@@ -601,6 +601,9 @@ $FunctionList['sendmail'] = array('explain' => 'Allow operator to send e-mail to
 $FunctionList['redirectcontact'] = array('explain' => 'Allow operator to redirect visitor to contact form');
 $FunctionList['holduse'] = array('explain' => 'Allow operator to use hold/unhold functionality');
 $FunctionList['setsubject'] = array('explain' => 'Allow operator to use set chat subject');
+$FunctionList['administratecolumn'] = array('explain' => 'Allow operator to configure chat columns');
+$FunctionList['administratechatvariable'] = array('explain' => 'Allow operator to configure chat custom variables');
+$FunctionList['administratechatpriority'] = array('explain' => 'Allow operator to configure chat priority by custom variables');
 
 
 ?>

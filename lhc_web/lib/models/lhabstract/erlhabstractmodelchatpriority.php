@@ -45,11 +45,11 @@ class erLhAbstractModelChatPriority
         $metaData = array(
             'permission_delete' => array(
                 'module' => 'lhchat',
-                'function' => 'administrateconfig'
+                'function' => 'administratechatpriority'
             ),
             'permission' => array(
                 'module' => 'lhchat',
-                'function' => 'administrateconfig'
+                'function' => 'administratechatpriority'
             ),
             'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Chat priority')
         );

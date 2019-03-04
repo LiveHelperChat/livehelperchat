@@ -50,11 +50,11 @@ class erLhAbstractModelChatColumn
         $metaData = array(
             'permission_delete' => array(
                 'module' => 'lhchat',
-                'function' => 'administrateconfig'
+                'function' => 'administratecolumn'
             ),
             'permission' => array(
                 'module' => 'lhchat',
-                'function' => 'administrateconfig'
+                'function' => 'administratecolumn'
             ),
             'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Chat columns')
         );

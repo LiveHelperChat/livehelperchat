@@ -70,18 +70,14 @@ class erLhAbstractModelChatVariable
         $metaData = array(
             'permission_delete' => array(
                 'module' => 'lhchat',
-                'function' => 'administrateinvitations'
+                'function' => 'administratechatvariable'
             ),
             'permission' => array(
                 'module' => 'lhchat',
-                'function' => 'administrateinvitations'
+                'function' => 'administratechatvariable'
             ),
             'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Chat variables')
         );
-
-        /*erLhcoreClassChatEventDispatcher::getInstance()->dispatch('feature.can_use_proactive', array(
-            'object_meta_data' => & $metaData
-        ));*/
 
         return $metaData;
     }
