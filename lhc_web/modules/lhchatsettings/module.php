@@ -26,6 +26,16 @@ $ViewList['deletestartsettings'] = array(
     'functions' => array( 'administrate' )
 );
 
+$ViewList['startchatformsettings'] = array(
+    'params' => array(),
+    'functions' => array( 'administrate' )
+);
+
+$ViewList['startchatformsettingsindex'] = array(
+    'params' => array(),
+    'functions' => array( 'administrate' )
+);
+
 $FunctionList['administrate'] = array('explain' => 'General permission to use chat module');
 
 ?>

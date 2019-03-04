@@ -50,7 +50,7 @@ $Result['path'] = array(
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments', 'System configuration')
     ),
     array(
-        'url' => erLhcoreClassDesign::baseurl('chat/startchatformsettingsindex'),
+        'url' => erLhcoreClassDesign::baseurl('chatsettings/startchatformsettingsindex'),
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('lhchatsettings/startchat', 'Start chat form settings')
     ),
     array(
