@@ -138,14 +138,46 @@ a:hover{
 	border-top: 3px solid #cecece;
 }
 
+
 .live-chat-message,.live-chat-message:focus{
 	outline: none;
 	-webkit-box-shadow: none !important;
 	-moz-box-shadow: none !important;
 	box-shadow: none !important;
-	border:1px solid #ccc;
+	border-radius: 50px 50px 50px 50px;
+	height: 25px;
+	width: 714px;
+	border: 1px solid #ccc;
+	margin-left: 50px;
 }
 
+.settings{
+	font-size: 40px;
+	opacity: 0.3;
+	border-radius: 5px 5px 5px 5px;
+}
+.smile {
+	font-size: 40px;
+	opacity: 0.3;
+	margin-left:12px;
+}
+
+.chart-settings{
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	width: 50%;
+	margin-bottom:20px;
+	border-radius: 10px 10px 10px 10px;
+	height:80px;
+	padding-left:20px;
+	padding-top:20px;
+}
+
+.chart-setting-item{
+	font-size:40px;
+	width:18.5%;
+}
 .action-image {
     cursor:pointer;
 }
@@ -228,6 +260,9 @@ textarea[name=ChatMessage]{
 	overflow:hidden;
 	resize: none;
 	padding-right:60px;
+	padding-left: 50px;
+	padding-top: 12px;
+	margin-top: -42px;
 }
 
 .msg-date {
@@ -637,6 +672,7 @@ div.message-row.response+div.message-row.response:hover .msg-date,
 	display: inline-block;
 	margin-right: 2px;
 	opacity: 0.5;
+	margin-top: 95px
 }
 
 .dropdown-toggle-widget:hover,
@@ -766,12 +802,14 @@ ul.user-settings-list li{
 
 .file-uploader input {
 	position: absolute;
-	top: 0;
+	top: 0px;
 	right: 0;
+	left:15px;
 	margin: 0;
 	opacity: 0;
 	-ms-filter: 'alpha(opacity=0)';
 	font-size: 200px;
+	width:20px;
 	direction: ltr;
 	cursor: pointer;
 }
