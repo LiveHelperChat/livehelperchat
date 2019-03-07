@@ -1,4 +1,9 @@
-   <div class="chat-settings">
+<?php
+$soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data;
+$soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',(int)($soundData['new_message_sound_user_enabled']));
+?>
+
+<div class="chat-settings">
         <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_user_settings/option_sound.tpl.php'));?>
 
         <?php if (isset($chat)) : ?>
