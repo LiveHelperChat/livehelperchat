@@ -1,7 +1,6 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings/user_file_upload_pre.tpl.php'));?>
 
 <?php if ($user_file_upload_enabled == true) : ?>
-
 <?php $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data ?>
 <?php if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] == true) : ?>
 <a class="file-uploader text-muted" href="#"><i class="material-icons chart-setting-item">attach_file</i>
