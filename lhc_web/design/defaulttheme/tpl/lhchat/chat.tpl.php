@@ -23,11 +23,6 @@
 		<?php endif;*/?>
 		
 	</div>
-
-	<div class="col-3 mb-1">
-		<?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings.tpl.php'));?>
-	</div>
-
 </div>
 
 <?php if (
@@ -74,11 +69,16 @@
  
     <?php if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
     <div id="ChatMessageContainer">    
-	    
-	    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/above_text_area_user.tpl.php'));?>	
 
-        <textarea autofocus="autofocus" class="form-control form-control-sm live-chat-message" rows="4" aria-required="true" required name="ChatMessage" aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage" ></textarea>
-
+	    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/above_text_area_user.tpl.php'));?>
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/chart_user_settings.tpl.php'));?>
+        <div>
+           <i class="material-icons settings">settings</i>
+            <a class="text-muted" href="#" onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/bbcodeinsert')?>'})" title="BB Code">
+                <i class="material-icons smile">face</i>
+            </a>
+           <textarea autofocus="autofocus" class="form-control form-control-sm live-chat-message" rows="1" aria-required="true" required name="ChatMessage" aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Type your message here...');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Type your message here...')?>" id="CSChatMessage" ></textarea>
+        </div>
         <script type="text/javascript">
         jQuery('#CSChatMessage').bind('keydown', 'return', function (evt){
         	 lhinst.addmsguser();
