@@ -69,6 +69,7 @@
  
     <?php if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
     <div id="ChatMessageContainer">
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/part/above_text_area_user.tpl.php'));?>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_user_settings.tpl.php'));?>
         <div>
            <i class="material-icons settings">settings</i>
