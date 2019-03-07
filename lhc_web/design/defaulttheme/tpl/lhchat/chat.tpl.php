@@ -23,11 +23,6 @@
 		<?php endif;*/?>
 		
 	</div>
-
-<!--	<div class="col-3 mb-1">-->
-<!--		--><?php //include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings.tpl.php'));?>
-<!--	</div>-->
-
 </div>
 
 <?php if (
@@ -79,7 +74,7 @@
         <?php include(erLhcoreClassDesign::designtpl('lhchat/chart_user_settings.tpl.php'));?>
         <div>
            <i class="material-icons settings">settings</i>
-            <a class="text-muted" href="#" onclick="return lhc.revealModal({'url':'/test_task/livehelperchat-master/lhc_web/index.php/chat/bbcodeinsert'})" title="BB Code">
+            <a class="text-muted" href="#" onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/bbcodeinsert')?>'})" title="BB Code">
                 <i class="material-icons smile">face</i>
             </a>
            <textarea autofocus="autofocus" class="form-control form-control-sm live-chat-message" rows="1" aria-required="true" required name="ChatMessage" aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Type your message here...');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Type your message here...')?>" id="CSChatMessage" ></textarea>
