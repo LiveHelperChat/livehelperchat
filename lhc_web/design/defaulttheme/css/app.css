@@ -162,7 +162,7 @@ a:hover{
 	margin-left:12px;
 }
 
-.chart-settings{
+.chat-settings{
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 	-webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5);
 	-moz-box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -174,7 +174,7 @@ a:hover{
 	padding-top:20px;
 }
 
-.chart-setting-item{
+.chat-setting-item{
 	font-size:40px;
 	width:18.5%;
 }
