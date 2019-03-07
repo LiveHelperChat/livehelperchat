@@ -1,0 +1,1 @@
+<?php $user_file_upload_enabled = true;?>

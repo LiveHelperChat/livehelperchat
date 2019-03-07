@@ -1,0 +1,1 @@
+<a href="#" class="text-muted" onclick="return lhinst.disableChatSoundUser($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new messages from the operator');?>"><i class="material-icons chart-setting-item"><?php $soundMessageEnabled == 0 ? print 'volume_off' : print 'volume_up'?></i></a>
