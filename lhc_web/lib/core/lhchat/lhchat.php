@@ -97,6 +97,32 @@ class erLhcoreClassChat {
     	return self::getList($filter);
     }
 
+    // Get external chats
+    public static function getExternalChats($limit = 50, $offset = 0, $filterAdditional = array(), $filterAdditionalMainAttr = array(), $limitationDepartment = array())
+    {
+    	$limitation = self::getDepartmentLimitation('lh_chat', $limitationDepartment);
+
+    	// Does not have any assigned department
+    	if ($limitation === false) { return array(); }
+
+    	$filter = array();
+
+    	if ($limitation !== true) {
+    		$filter['customfilter'][] = $limitation;
+    	}
+
+    	$filter['limit'] = $limit;
+    	$filter['offset'] = $offset;
+    	$filter['smart_select'] = true;
+    	$filter['sort'] = '`last_msg_id` DESC, `id` DESC';;
+
+    	if (!empty($filterAdditional)) {
+    		$filter = array_merge_recursive($filter,$filterAdditional);
+    	}
+    	
+    	return self::getList($filter);
+    }
+
     /**
      * @desc returns chats list for my active chats
      * 

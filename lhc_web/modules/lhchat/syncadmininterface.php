@@ -236,6 +236,33 @@ if ($myChatsEnabled == true) {
     $chatsList[] = & $ReturnMessages['my_chats']['list'];
 }
 
+if (is_array($Params['user_parameters_unordered']['exchat']) && !empty($Params['user_parameters_unordered']['exchat'])) {
+
+    erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['exchat']);
+
+    $additionalFilter = array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField);
+
+    $additionalFilter['filterin']['id'] = $Params['user_parameters_unordered']['exchat'];
+
+    $limitList = is_numeric($Params['user_parameters_unordered']['limitmec']) ? (int)$Params['user_parameters_unordered']['limitmec'] : 10;
+
+    /**
+     * My External Chats
+     * */
+    $myExternalChats = erLhcoreClassChat::getExternalChats($limitList, 0, $additionalFilter);
+
+    $chatsListAll = $chatsListAll+$myExternalChats;
+
+    /**
+     * Get last pending chat
+     * */
+    erLhcoreClassChat::prefillGetAttributes($myExternalChats,array('time_created_front','product_name','department_name','wait_time_pending','wait_time_seconds','plain_user_name'), array('product_id','product','department','time','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
+
+    $ReturnMessages['my_open_chats'] = array('list' => array_values($myExternalChats));
+
+    $chatsList[] = & $ReturnMessages['my_open_chats']['list'];
+}
+
 if ($closedTabEnabled == true) {
 
     $limitList = is_numeric($Params['user_parameters_unordered']['limitc']) ? (int)$Params['user_parameters_unordered']['limitc'] : 10;

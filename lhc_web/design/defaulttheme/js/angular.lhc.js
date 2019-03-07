@@ -582,6 +582,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$locatio
 
         filter += _that.custom_extension_filter;
 
+        var openedChats = _that.getOpenedChatIds();
+
+        if (openedChats.length > 0) {
+            filter += '/(exchat)/' + openedChats.join('/');
+        }
+
         return filter;
     }
 
@@ -590,7 +596,6 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$locatio
             _that.storeLocalSetting('limita', newVal);
             $scope.loadChatList();
         }
-        ;
     });
 
     this.manualFilterByFilter = function (listId) {
@@ -813,6 +818,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$locatio
         }
         return false;
     };
+
+
 
     // Notifications attributes
     this.notificationsArrayMessages = [];
@@ -1184,13 +1191,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$locatio
         return lhinst.deleteChat(chat_id, tabs, hidetab);
     };
 
-    this.startChat = function (chat_id, name) {
-        if ($('#tabs').length > 0) {
-            return lhinst.startChat(chat_id, $('#tabs'), LiveHelperChatFactory.truncate(name, 10));
-        } else {
-            lhinst.startChatNewWindow(chat_id, name);
-        }
-    };
+
 
     this.startChatNewWindowTransfer = function (chat_id, name, transfer_id) {
         return lhinst.startChatNewWindowTransfer(chat_id, name, transfer_id);
@@ -1311,7 +1312,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$locatio
                 if (achat_id !== null && achat_id !== '') {
                     return achat_id_array = achat_id.split(',');
                 }
-            } catch (e) {
+            } catch(e) {
 
             }
         }
@@ -1403,12 +1404,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$locatio
                 _that.setupActivityMonitoring();
             }
 
-            angular.forEach(data.copen, function (chatOpen) {
+            /*angular.forEach(data.copen, function (chatOpen) {
                 lhinst.startChat(chatOpen.id, $('#tabs'), LiveHelperChatFactory.truncate(chatOpen.nick, 10), false);
-            });
+            });*/
 
             angular.forEach(data.cdel, function (chatOpen) {
-                lhinst.forgetChat(chatOpen);
+                _that.forgetChat(chatOpen);
             });
 
             ee.emitEvent('eventLoadInitialData', [data, $scope, _that]);
@@ -1461,17 +1462,97 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$locatio
         var index = _that.syncChatsOpen.indexOf(chat_id);
         if (index !== -1) {
             _that.syncChatsOpen.splice(index, 1);
-            console.log('closing active chat');
+        }
+
+        var index = _that.syncChats.indexOf(chat_id);
+
+        if (index !== -1) {
+            _that.syncChats.splice(index, 1);
+            _that.syncChatsMsg.splice(index, 1);
         }
     }
 
+    this.forgetChat = function (chat_id) {
+        if (localStorage) {
+            try {
+                chat_id = parseInt(chat_id);
+
+                var achat_id = localStorage.getItem('achat_id');
+                var achat_id_array = new Array();
+
+                if (achat_id !== null) {
+                    achat_id_array = achat_id.split(',').map(Number);
+                }
+
+                if (achat_id_array.indexOf(chat_id) !== -1){
+                    achat_id_array.splice(achat_id_array.indexOf(chat_id), 1);
+                }
+
+                localStorage.setItem('achat_id',achat_id_array.join(','));
+            } catch (e) {
+                console.log(e);
+            }
+        }
+    };
+
+    this.rememberTab = function(chat_id) {
+        if (localStorage) {
+            try{
+                chat_id = parseInt(chat_id);
+
+                var achat_id = localStorage.getItem('achat_id');
+                var achat_id_array = new Array();
+
+                if (achat_id !== null) {
+                    var achat_id_array = achat_id.split(',').map(Number);
+                }
+
+                if (achat_id_array.indexOf(chat_id) === -1) {
+                    achat_id_array.push(chat_id);
+                }
+
+                localStorage.setItem('achat_id',achat_id_array.join(','));
+            } catch (e) {
+                console.log(e);
+            }
+        }
+    }
+
+    this.startChat = function (chat_id, name) {
+        if ($('#tabs').length > 0) {
+            this.startChatDashboard(chat_id,{'remember' : true});
+            return;
+            //return lhinst.startChat(chat_id, $('#tabs'), LiveHelperChatFactory.truncate(name, 10));
+        } else {
+            //lhinst.startChatNewWindow(chat_id, name);
+            console.log('not implemented');
+        }
+    }
+
+    this.closeExternalChat = function(chat) {
+        _that.forgetChat(chat.id);
+        $scope.removeOpenedChat(chat.id);
+        $scope.loadChatList();
+    }
+
+    $scope.debugLists = function() {
+        console.log(localStorage.getItem('achat_id'));
+        console.log(_that.syncChatsOpen);
+        console.log(_that.syncChats);
+        console.log(_that.syncChatsMsg);
+    }
+
     this.startChatDashboard = function (chat_id, params) {
+
+        chat_id = parseInt(chat_id);
 
         if (typeof params === 'undefined') {
             var params = {};
         }
 
-        chat_id = parseInt(chat_id);
+        if (typeof params['remember'] !== 'undefined' && params['remember'] == true) {
+            this.rememberTab(chat_id);
+        }
 
         var args = '';
 
@@ -1480,7 +1561,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$locatio
             this.hideNotification(chat_id);
             this.current_chat_id = chat_id;
             this.setMetaData(chat_id, 'mn', 0);
-            window.location.hash = '#chat-id-'+chat_id;
+            window.location.hash = '#chatdashboard';
         } else if (typeof params['background'] !== 'undefined' && params['background'] === true) {
             args = '/(arg)/background';
         }
@@ -1524,20 +1605,19 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$locatio
     }
 
     this.startSyncChats = function () {
-        if (typeof $scope['my_chats'] !== 'undefined' && Array.isArray($scope['my_chats'].list)) {
 
-            var syncChats = [];
-            var syncChatsMsg = [];
+        angular.forEach(['my_open_chats','my_chats'],function (listIdentifier) {
+            if (typeof $scope[listIdentifier] !== 'undefined' && Array.isArray($scope[listIdentifier].list)) {
+                angular.forEach($scope[listIdentifier].list, function (val, index) {
+                    if (_that.syncChats.indexOf(val.id) === -1) {
+                        _that.syncChats.push(val.id);
+                        _that.syncChatsMsg.push(val.id + ',' + val.last_msg_id);
+                    }
+                });
+            }
+        });
 
-            angular.forEach($scope['my_chats'].list, function (val, index) {
-                if (_that.syncChats.indexOf(val.id) === -1) {
-                    _that.syncChats.push(val.id);
-                    _that.syncChatsMsg.push(val.id + ',' + val.last_msg_id);
-                }
-            });
-
-            this.syncChatsProcess();
-        }
+        this.syncChatsProcess();
     }
 
     this.syncChatsProcess = function () {
