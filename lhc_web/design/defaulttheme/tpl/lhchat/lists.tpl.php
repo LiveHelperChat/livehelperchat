@@ -1,6 +1,7 @@
 <div role="tabpanel" id="tabs" ng-cloak>
         <ul class="nav nav-pills" role="tablist">
              <li role="presentation" class="active nav-item"><a class="nav-link" href="#chatlist" aria-controls="chatlist" role="tab" data-toggle="tab" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Chat list');?>"><i class="material-icons mr-0">info_outline</i></a></li>
+             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/chats_dashboard_list_tab.tpl.php')); ?>
         </ul>
         
         <div class="tab-content" ng-cloak> 
@@ -109,7 +110,12 @@
                     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Empty...');?></p>
                     <?php } ?>
                        
-                </div>   
+                </div>
+
+                <div role="tabpanel" class="tab-pane form-group" id="chatdashboard">
+                    <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/chats_dashboard_list.tpl.php')); ?>
+                </div>
+
         </div>
 </div>
 

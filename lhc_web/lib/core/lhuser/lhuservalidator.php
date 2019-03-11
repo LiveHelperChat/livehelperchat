@@ -470,9 +470,6 @@ class erLhcoreClassUserValidator {
 			'unreadTabEnabled' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			),
-			'mychatsTabEnabled' => new ezcInputFormDefinitionElement(
-				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-			),
             'botchatsTabEnabled' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			)
@@ -490,8 +487,6 @@ class erLhcoreClassUserValidator {
 		
 		$data['enable_unread_list'] = ( $form->hasValidData( 'unreadTabEnabled' ) && $form->unreadTabEnabled == true ) ? 1 : 0;
 		
-		$data['enable_mchats_list'] = ( $form->hasValidData( 'mychatsTabEnabled' ) && $form->mychatsTabEnabled == true ) ? 1 : 0;
-
 		$data['enable_bot_list'] = ( $form->hasValidData( 'botchatsTabEnabled' ) && $form->botchatsTabEnabled == true ) ? 1 : 0;
 
 		return $data;

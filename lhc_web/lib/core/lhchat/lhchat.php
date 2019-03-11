@@ -50,7 +50,7 @@ class erLhcoreClassChat {
 			//'chat_variables',
 			// Angular remake
 			'referrer',
-			'last_op_msg_time',
+			//'last_op_msg_time',
 			'has_unread_op_messages',
 			'unread_op_messages_informed',
 			'tslasign',
@@ -141,11 +141,11 @@ class erLhcoreClassChat {
         if ($limitation === false) { return array(); }
         
         $filter = array();
-        $filter['filterin'] = array('status' => array(0,1));
+        //$filter['filterin'] = array('status' => array(0,1));
 
-        if ($limitation !== true) {
+        /*if ($limitation !== true) {
             $filter['customfilter'][] = $limitation;
-        }
+        }*/
         
         $filter['limit'] = $limit;
         $filter['offset'] = $offset;
@@ -155,7 +155,7 @@ class erLhcoreClassChat {
         if (!empty($filterAdditional)) {
             $filter = array_merge_recursive($filter,$filterAdditional);
         }
-                
+
         return self::getList($filter);
     }
     

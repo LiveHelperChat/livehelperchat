@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-sm-8 chat-main-left-column" id="chat-main-column-<?php echo $chat->id;?>">
+	<div class="col-md-7 chat-main-left-column" id="chat-main-column-<?php echo $chat->id;?>">
 
         <span class="last-user-msg" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Last visitor message time')?>"><i class="material-icons">access_time</i><span id="last-msg-chat-<?php echo $chat->id?>">...</span></span>
 
@@ -35,7 +35,7 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/after_text_area_block.tpl.php')); ?>
 
 	</div>
-	<div class="col-sm-4 chat-main-right-column" id="chat-right-column-<?php echo $chat->id;?>">
+	<div class="col-md-5 chat-main-right-column" id="chat-right-column-<?php echo $chat->id;?>">
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/chat_tabs_container.tpl.php')); ?>
 	</div>
 </div>

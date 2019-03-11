@@ -85,15 +85,16 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 
                 if (!empty($Messages)) {
 
+
                     // If chat had flag that it contains unread messages set to 0
-                    if (!in_array($chat->id,$chatsIdStatus) && ($Chat->user_id == $currentUser->getUserID()) && ($Chat->has_unread_messages == 1 || $Chat->unread_messages_informed == 1)) {
+                    if (!in_array($Chat->id,$chatsIdStatus) && ($Chat->user_id == $currentUser->getUserID()) && ($Chat->has_unread_messages == 1 || $Chat->unread_messages_informed == 1)) {
                         $Chat->has_unread_messages = 0;
                         $Chat->unread_messages_informed = 0;
                         $Chat->saveThis();
                     }
 
                     // Auto accept transfered chats if I have opened this chat
-                    if (!in_array($chat->id,$chatsIdStatus) && $Chat->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) {
+                    if (!in_array($Chat->id,$chatsIdStatus) && $Chat->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) {
 
                         $q = $db->createDeleteQuery();
 
@@ -146,7 +147,7 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
                     $ReturnStatuses[$Chat->id] = array('cs' => $Chat->status, 'lmsgtxt' => $lsgm, 'co' => $Chat->user_id, 'cdur' => $Chat->chat_duration_front, 'lmsg' => erLhcoreClassChat::formatSeconds(time() - ($Chat->last_user_msg_time > 0 ? $Chat->last_user_msg_time : $Chat->time)), 'chat_id' => $Chat->id, 'lp' => $lp, 'um' => $Chat->has_unread_op_messages, 'us' => $Chat->user_status_front, 'tp' => 'false');
                 }
 
-                if ($Chat->operation_admin != '' && !in_array($chat->id,$chatsIdStatus)) {
+                if ($Chat->operation_admin != '' && !in_array($Chat->id,$chatsIdStatus)) {
                     $ReturnStatuses[$Chat->id]['oad'] = $Chat->operation_admin;
                     $Chat->operation_admin = '';
                     $Chat->saveThis();

@@ -11,8 +11,11 @@ $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_lis
 
 	<!-- Nav tabs -->
 	<ul class="nav nav-pills" role="tablist">
+
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/chats_dashboard_list_tab.tpl.php')); ?>
+
 	    <?php if ($pendingTabEnabled == true) : ?>
-		<li role="presentation" class="nav-item"><a class="nav-link active" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Pending confirm');?>" href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><i class="material-icons chat-pending mr-0">chat</i><span>{{pending_chats.list.length != false && pending_chats.list.length > 0 ? ' ('+pending_chats.list.length+')' : ''}}</span></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Pending confirm');?>" href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><i class="material-icons chat-pending mr-0">chat</i><span>{{pending_chats.list.length != false && pending_chats.list.length > 0 ? ' ('+pending_chats.list.length+')' : ''}}</span></a></li>
 		<?php endif;?>
 		<?php if ($activeTabEnabled == true) : ?>
 		<li role="presentation" class="nav-item"><a class="nav-link" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Active chats');?>" href="#panel2" aria-controls="panel2" role="tab" data-toggle="tab"><i class="material-icons chat-active mr-0">chat</i><span>{{active_chats.list.length != false && active_chats.list.length > 0 ? ' ('+active_chats.list.length+')' : ''}}</span></a></li>
@@ -29,8 +32,13 @@ $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_lis
 
 	<!-- Tab panes -->
 	<div class="tab-content">
+
+        <div role="tabpanel" class="tab-pane active form-group" id="chatdashboard">
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/chats_dashboard_list.tpl.php')); ?>
+        </div>
+
 	    <?php if ($pendingTabEnabled == true) : ?>
-		<div role="tabpanel" class="tab-pane active" id="panel1">
+		<div role="tabpanel" class="tab-pane" id="panel1">
 		      <div id="pending-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_pending_list.tpl.php'));?></div>
 			  <a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(chat_status)/0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All pending chats');?></a>
 		</div>
@@ -65,6 +73,4 @@ function addChat(chat_id,name)
     lhinst.startChat(chat_id,$('#tabs'),name);
     window.focus();
 };
-
-lhinst.attachTabNavigator();
 </script>

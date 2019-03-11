@@ -72,11 +72,7 @@ $columnSize = 12 / $columnsTotal;
                     <?php endif;?>
                     
                 <?php elseif ($wiget == 'my_chats') : ?>  
-                  
-                    <?php if ($mchatsTabEnabled == true) : ?>             
-                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/my_chats.tpl.php'));?>
-                    <?php endif;?>
-                    
+                    <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/my_chats.tpl.php'));?>
                 <?php else : ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/extension_panel_multiinclude.tpl.php'));?>
                 <?php endif;?>

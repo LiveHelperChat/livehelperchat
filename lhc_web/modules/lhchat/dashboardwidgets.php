@@ -33,6 +33,7 @@ if (erLhcoreClassModelChatConfig::fetchCache('list_closed')->current_value == 1)
 }
 
 $supportedWidgets['my_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','My active and pending chats');
+
 $supportedWidgets['bot_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Bot chats');
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.dashboardwidgets',array('supported_widgets' => & $supportedWidgets));
