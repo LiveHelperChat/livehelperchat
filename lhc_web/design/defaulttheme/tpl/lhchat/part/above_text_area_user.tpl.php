@@ -2,7 +2,7 @@
 
     <a href="#" onclick="lhinst.addmsguser(true)"
        title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat', 'Send') ?>">
-        <i class="material-icons text-muted  chat-setting-item">send</i>
+        <i class="material-icons text-muted  settings pt-2">send</i>
     </a>
 
     <div class="btn-group float-right dropleft" role="group">

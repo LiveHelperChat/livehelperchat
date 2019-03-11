@@ -149,7 +149,7 @@ a:hover{
 }
 
 .settings{
-	font-size: 40px;
+	font-size: 25px;
 	border-radius: 5px 5px 5px 5px;
 	cursor: pointer;
 }
@@ -158,10 +158,10 @@ a:hover{
 	top: 43px;
 }
 .smile{
-	font-size: 40px;
+	font-size: 32px;
 }
 .chat-setting-item{
-	font-size:40px;
+	font-size:32px;
 }
 .action-image {
     cursor:pointer;
