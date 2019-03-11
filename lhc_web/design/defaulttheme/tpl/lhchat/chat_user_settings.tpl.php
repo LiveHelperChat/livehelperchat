@@ -2,12 +2,14 @@
 $soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data;
 $soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message', (int)($soundData['new_message_sound_user_enabled']));
 ?>
-<div class="btn-group dropup">
-     <button type="button" class="btn btn-secondary dropdown-toggle chat-settings" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-        <i class="material-icons settings">settings</i>
-    </button>
-    <div class="dropdown-menu shadow p-1 mb-2 bg-white rounded">
+<div class="btn-group dropup topi">
+    <i class="material-icons settings" data-toggle="dropdown" aria-haspopup="true"
+       aria-expanded="false">settings</i>
+    <a class="text-muted" href="#" onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/bbcodeinsert')?>'})" title="BB Code">
+        <i class="material-icons smile">face</i>
+    </a>
+
+    <div class="dropdown-menu shadow bg-white rounded">
         <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_user_settings/option_sound.tpl.php')); ?>
 
         <?php if (isset($chat)) : ?>
