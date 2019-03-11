@@ -162,10 +162,6 @@ a:hover{
 	font-size: 40px;
 	opacity: 0.3;
 }
-.topi{
-	position: absolute;
-	top: 7px;
-}
 .chat-setting-item{
 	font-size:40px;
 }
@@ -250,8 +246,7 @@ textarea[name=ChatMessage]{
 	min-height:50px;
 	overflow:hidden;
 	resize: none;
-	padding-left: 17%;
-	padding-top: 1.5%;
+	padding-top: 14px;
 }
 
 .msg-date {
@@ -1003,10 +998,6 @@ input[type="file"]{
 	}
 	#wrapper.toggled #sidebar-wrapper {
 		margin-left: 0;
-	}
-	textarea[name=ChatMessage]{
-		padding-left: 32%;
-		padding-top: 4.5%;
 	}
 }
 
