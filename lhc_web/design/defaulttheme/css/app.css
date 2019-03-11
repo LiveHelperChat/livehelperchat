@@ -150,7 +150,6 @@ a:hover{
 
 .settings{
 	font-size: 40px;
-	opacity: 0.3;
 	border-radius: 5px 5px 5px 5px;
 	cursor: pointer;
 }
@@ -160,7 +159,6 @@ a:hover{
 }
 .smile{
 	font-size: 40px;
-	opacity: 0.3;
 }
 .chat-setting-item{
 	font-size:40px;
