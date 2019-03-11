@@ -72,8 +72,7 @@
         <?php include(erLhcoreClassDesign::designtpl('lhchat/part/above_text_area_user.tpl.php'));?>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_user_settings.tpl.php'));?>
         <div>
-           <i class="material-icons settings">settings</i>
-            <a class="text-muted" href="#" onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/bbcodeinsert')?>'})" title="BB Code">
+            <a class="text-muted smaila" href="#" onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/bbcodeinsert')?>'})" title="BB Code">
                 <i class="material-icons smile">face</i>
             </a>
            <textarea autofocus="autofocus" class="form-control form-control-sm live-chat-message" rows="1" aria-required="true" required name="ChatMessage" aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Type your message here...');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Type your message here...')?>" id="CSChatMessage" ></textarea>
