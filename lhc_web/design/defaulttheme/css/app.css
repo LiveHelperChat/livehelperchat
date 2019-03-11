@@ -146,27 +146,26 @@ a:hover{
 	box-shadow: none !important;
 	border-radius: 50px 50px 50px 50px;
 	border: 1px solid #ccc;
-	margin-left: 15%;
-	width: 85%;
 }
 
 .settings{
 	font-size: 40px;
 	opacity: 0.3;
 	border-radius: 5px 5px 5px 5px;
-}
-.smile {
-	font-size: 40px;
-	opacity: 0.3;
-}
-.smaila{
-	margin-left: 17%;
+	cursor: pointer;
 }
 
 .chat-settings{
 	top: 43px;
 }
-
+.smile{
+	font-size: 40px;
+	opacity: 0.3;
+}
+.topi{
+	position: absolute;
+	top: 7px;
+}
 .chat-setting-item{
 	font-size:40px;
 }
@@ -251,9 +250,8 @@ textarea[name=ChatMessage]{
 	min-height:50px;
 	overflow:hidden;
 	resize: none;
-	padding-left: 10%;
-	padding-top: 2%;
-	margin-top: -42px;
+	padding-left: 17%;
+	padding-top: 1.5%;
 }
 
 .msg-date {
@@ -664,7 +662,6 @@ div.message-row.response+div.message-row.response:hover .msg-date,
 	display: inline-block;
 	margin-right: 2px;
 	opacity: 0.5;
-	margin-top: 45px
 }
 
 .dropdown-toggle-widget:hover,
@@ -1007,7 +1004,12 @@ input[type="file"]{
 	#wrapper.toggled #sidebar-wrapper {
 		margin-left: 0;
 	}
+	textarea[name=ChatMessage]{
+		padding-left: 32%;
+		padding-top: 4.5%;
+	}
 }
+
 
 #path-container{
 	margin-top:-15px;
