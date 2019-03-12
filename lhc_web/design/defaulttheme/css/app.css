@@ -241,10 +241,9 @@ a:hover{
 }
 
 textarea[name=ChatMessage]{
-	min-height:50px;
+	min-height:30px;
 	overflow:hidden;
 	resize: none;
-	padding-top: 14px;
 }
 
 .msg-date {
@@ -638,7 +637,7 @@ div.message-row.response+div.message-row.response:hover .msg-date,
 
 .user-chatwidget-buttons{
 	position:absolute;
-	top: 7px;
+	top: 3px;
 	right: 3px;
 	height: 10px;
 }
