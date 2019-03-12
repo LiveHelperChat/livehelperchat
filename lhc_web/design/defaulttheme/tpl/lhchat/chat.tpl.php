@@ -23,11 +23,6 @@
 		<?php endif;*/?>
 		
 	</div>
-
-	<div class="col-3 mb-1">
-		<?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings.tpl.php'));?>
-	</div>
-
 </div>
 
 <?php if (
@@ -74,7 +69,9 @@
  
     <?php if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
     <div id="ChatMessageContainer">
-        <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_user_settings.tpl.php')); ?>
+
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings.tpl.php'));?>
+
         <script type="text/javascript">
         jQuery('#CSChatMessage').bind('keydown', 'return', function (evt){
         	 lhinst.addmsguser();
