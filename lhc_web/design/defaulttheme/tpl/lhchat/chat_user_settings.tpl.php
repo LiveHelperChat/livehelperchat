@@ -32,9 +32,7 @@ $soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',
                         <?php endif; ?>
 
 
-                        <a class="text-muted" href="#"
-                           onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/bbcodeinsert') ?>'})"
-                           title="BB Code">
+                        <a class="text-muted" href="#" onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/bbcodeinsert') ?>'})" title="BB Code">
                             <i class="material-icons smile">face</i>
                         </a>
 
@@ -50,13 +48,7 @@ $soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',
         </div>
 
     <div class="mx-auto pb-1">
-               <textarea autofocus="autofocus" class="form-control form-control-sm  live-chat-message pb-1" rows="1"
-                         cols="120"
-                         aria-required="true" required name="ChatMessage"
-                         aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', trim('Type your message here...')); ?>"
-                         placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat', trim('Type your message here...')); ?>"
-                         id="CSChatMessage">
-               </textarea>
+               <textarea autofocus="autofocus" class="form-control form-control-sm  live-chat-message pb-1" rows="1" cols="120" aria-required="true" required name="ChatMessage"  aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Type your message here...'); ?>"  placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat', 'Type your message here...'); ?>" id="CSChatMessage"></textarea>
     </div>
     <div>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/part/above_text_area_user.tpl.php')); ?>
