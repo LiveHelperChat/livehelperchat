@@ -142,6 +142,6 @@ sendNotification : function() {
 readNotification : function(chat_id, hash) {
     <?php $notificationsSettings = erLhcoreClassModelChatConfig::fetch('notifications_settings')->data_value;?>
     <?php if (isset($notificationsSettings['enabled']) && $notificationsSettings['enabled'] == 1) : ?>
-        this.showStartWindow("<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>"+this.lang+"/notifications/read/<?php $theme !== false ? print '/(theme)/'.$theme->id : ''?>/(id)/"+chat_id+"/(hashread)/"+hash+"/(mode)/widget");
+        this.showStartWindow("<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>"+this.lang+"/notifications/read/<?php $theme !== false ? print '/(theme)/'.(is_object($theme) ? $theme->id : $theme) : ''?>/(id)/"+chat_id+"/(hashread)/"+hash+"/(mode)/widget");
     <?php endif; ?>
 },
