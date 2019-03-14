@@ -419,9 +419,8 @@ class erLhcoreClassRestAPIHandler
                 $hasKey    = is_string($key);
                 $isString  = is_string($value) || is_numeric($value);
                 $isArray   = is_array($value);
-                $count     = count($value);
-                $isIndexed = $isArray && $count > 1 && array_keys($value) === range(0, $count - 1);
-                $isKeyed   = $isArray && $count && !$isIndexed;
+                $isIndexed = $isArray && count($value) > 1 && array_keys($value) === range(0, count($value) - 1);
+                $isKeyed   = $isArray && count($value) && !$isIndexed;
                 switch (true) {
                     case $isString && $hasKey:
                                                 
