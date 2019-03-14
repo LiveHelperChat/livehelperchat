@@ -44,7 +44,7 @@ $showField = ($input_data->value_show[$key] == $modeUserVariables || $input_data
 <?php if ($hasVisibleField == true) : ?><div class="row"><?php endif;?>
 <?php foreach ($input_data->value_items as $key => $item) : 
 
-$showField = ($input_data->value_show[$key] == $modeUserVariables || $input_data->value_show[$key] == 'b');
+$showField = ((isset($input_data->value_show[$key]) && $input_data->value_show[$key] == $modeUserVariables) || (isset($input_data->value_show[$key]) && $input_data->value_show[$key] == 'b'));
 
 $visibleItem = (isset($input_data->value_types[$key]) && $input_data->value_types[$key] == 'text' && isset($input_data->name_items[$key])); ?>
 
