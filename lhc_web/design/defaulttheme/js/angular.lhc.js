@@ -1666,6 +1666,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$locatio
                         _that.syncChats.push(val.id);
                         _that.syncChatsMsg.push(val.id + ',' + val.last_msg_id);
                     }
+                    var data = new Identicon('d3b07384d113edec49eaa6238ad5ff00', 450).toString();
+                    var image =  "data:image/png;base64," + data;
+                    _that.setMetaData(val.id, 'icon', image);
                     currentChatsId.push(val.id);
                 });
             }

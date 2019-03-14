@@ -48,7 +48,7 @@ gulp.task('js-cobrowse-visitor', function() {
 });
 
 gulp.task('js-angular-main', function() {
-	var stylePath = ['design/defaulttheme/js/angular.lhc.js'];
+	var stylePath = ['design/defaulttheme/js/identicon.js-master/pnglib.js', 'design/defaulttheme/js/identicon.js-master/identicon.js', 'design/defaulttheme/js/angular.lhc.js'];
 	
 	return gulp.src(stylePath)
 	.pipe(concat('angular.lhc.min.js'))
