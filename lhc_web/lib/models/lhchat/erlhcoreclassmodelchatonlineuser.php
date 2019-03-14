@@ -416,8 +416,8 @@ class erLhcoreClassModelChatOnlineUser
                     $reader = new GeoIp2\Database\Reader('var/external/geoip/GeoLite2-Country.mmdb');
                     $countryData = $reader->country($ip);
                     $normalizedObject = new stdClass();
-                    $normalizedObject->country_code = strtolower($countryData->raw['country']['iso_code']);
-                    $normalizedObject->country_name = $countryData->raw['country']['names']['en'];
+                    $normalizedObject->country_code = isset($countryData->raw['country']) ? strtolower($countryData->raw['country']['iso_code']) : '';
+                    $normalizedObject->country_name = isset($countryData->raw['country']) ? $countryData->raw['country']['names']['en'] : '';
                     $normalizedObject->city = '';
                     $normalizedObject->lat = '';
                     $normalizedObject->lon = '';

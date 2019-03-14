@@ -76,7 +76,7 @@ sendNotification : function() {
         });
 
         var xhr = new XMLHttpRequest();
-        xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+that.lang+'/notifications/subscribe<?php $theme !== false ? print '/(theme)/'.$theme->id : ''?>' + (subscribe == true ? '/(action)/sub' : '/(action)/unsub') + that.getAppendCookieArguments(), true);
+        xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+that.lang+'/notifications/subscribe<?php $theme !== false ? print '/(theme)/' . (is_object($theme) ? $theme->id : $theme) : ''?>' + (subscribe == true ? '/(action)/sub' : '/(action)/unsub') + that.getAppendCookieArguments(), true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.send( "data=" + encodeURIComponent( payload ) );
     }
