@@ -144,6 +144,13 @@ try {
 	    }
 	    
 	    $tpl->set('chat', $chat);
+    } else {
+        $responseArray['error'] = 'false';
+        $responseArray['result'] = '';
+        $responseArray['activated'] = 'true';
+        $responseArray['closed'] = true;
+        echo json_encode($responseArray);
+        exit;
     }
     
     $db->commit();
