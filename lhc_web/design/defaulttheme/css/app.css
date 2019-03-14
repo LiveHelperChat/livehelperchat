@@ -1421,3 +1421,10 @@ input[type="file"]{
 		transform: rotate(359deg);
 	}
 }
+
+.face {
+	width:30px;
+	-webkit-border-radius: 20px 20px 20px 20px;
+	-moz-border-radius:20px 20px 20px 20px;
+	border-radius: 20px 20px 20px 20px;
+}

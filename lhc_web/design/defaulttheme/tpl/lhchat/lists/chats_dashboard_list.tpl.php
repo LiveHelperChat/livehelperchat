@@ -7,7 +7,6 @@
         <div class="overflow-auto" style="max-height: 300px;">
             <div class="chat-list-row border-bottom" ng-repeat="chat in my_chats.list track by chat.id" ng-click="lhc.startChatDashboard(chat.id,chat.last_msg_id)" ng-class="{'active-chat-row' : chat.id == lhc.current_chat_id,'user-away-row': chat.user_status_front == 2, 'user-online-row': chat.user_status_front == 0}">
                 <div class="pt-1">
-
                     <i id="msg-send-status-{{chat.id}}" ng-class="{'icon-user-offline' : lhc.chatMetaData[chat.id]['um'] == 1}" title="Last message send status" class="pt-1 fs12 material-icons icon-user-online float-right">send</i>
 
                     <span class="float-right fs11 d-none d-lg-inline pr-1">
@@ -18,9 +17,10 @@
                         <span title="Close time" ng-if="chat.status == 2" title="Close time - {{chat.cls_time_front}}">{{lhc.getCreateTime(chat.last_action_ago)}}</span>
                     </span>
 
-                    <div class="fs13">
 
-                        <i id="user-chat-status-{{chat.id}}" ng-class="{'icon-user-online' : lhc.chatMetaData[chat.id]['ucs'] == 0,'icon-user-away' : lhc.chatMetaData[chat.id]['ucs'] == 2,'icon-user-pageview' : lhc.chatMetaData[chat.id]['ucs'] == 3}" class="icon-user-status material-icons"><img width=30 height=30 src="{{lhc.chatMetaData[chat.id]['icon']}}"/></i>
+                    <div class="fs13">
+                        <i class="fs11 pt-2 text-secondary d-none d-lg-inline ng-binding"><img class = "face" src="{{lhc.chatMetaData[chat.id]['icon']}}"/></i>
+                        <i id="user-chat-status-{{chat.id}}" ng-class="{'icon-user-online' : lhc.chatMetaData[chat.id]['ucs'] == 0,'icon-user-away' : lhc.chatMetaData[chat.id]['ucs'] == 2,'icon-user-pageview' : lhc.chatMetaData[chat.id]['ucs'] == 3}" class="icon-user-status material-icons">face</i>
                         <span ng-if="chat.country_code != undefined">
                             <img ng-src="<?php echo erLhcoreClassDesign::design('images/flags');?>/{{chat.country_code}}.png" alt="{{chat.country_name}}" title="{{chat.country_name}}" />&nbsp;
                         </span>
