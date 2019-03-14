@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <script src="pnglib.js"></script>
+    <script src="identicon.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <h1>Identicon.js</h1>
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Basic Usage</h4>
+          <p>Specify just a hash, use default background color, margins, and size.</p>
+<pre>
+  var hash = 'd6fe8c82fb0abac17a702fd2a94eff37';
+  var data = new Identicon(hash).toString();
+  document.write('&lt;img src="data:image/png;base64,' + data + '"&gt;');</pre>
+            <script type="text/javascript">
+              hashes = [
+                {id: 'stewartlord', hash: 'd6fe8c82fb0abac17a702fd2a94eff37'},
+                {id: 'jasonlong',   hash: '46384036044a604b6b3316fc167fc15f'},
+                {id: 'infusion',    hash: '373ff2375be91ebc97501e67d24ccd4d'},
+                {id: 'ppuleo',      hash: '001000101000000000000000099fff86'}
+              ];
+
+              var i,
+              data;
+              for (i = 0; i < hashes.length; i++) {
+                data = new Identicon(hashes[i].hash).toString();
+                document.write(
+                  hashes[i].id + '<br><img src="data:image/png;base64,' + data + '"><br><br>'
+                );
+              }
+            </script>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h4>SVG Output</h4>
+          <p>To generate SVGs, set the 'format' option to 'svg'.</p>
+<pre>
+  var hash = 'd6fe8c82fb0abac17a702fd2a94eff37';
+  var data = new Identicon(hash, {format: 'svg'}).toString();
+  document.write('&lt;img src="data:image/svg+xml;base64,' + data + '"&gt;');</pre>
+            <script type="text/javascript">
+              hashes = [
+                {id: 'stewartlord', hash: 'd6fe8c82fb0abac17a702fd2a94eff37'},
+                {id: 'jasonlong',   hash: '46384036044a604b6b3316fc167fc15f'},
+                {id: 'infusion',    hash: '373ff2375be91ebc97501e67d24ccd4d'},
+                {id: 'ppuleo',      hash: '001000101000000000000000099fff86'}
+              ];
+
+              var i,
+              data;
+              for (i = 0; i < hashes.length; i++) {
+                data = new Identicon(hashes[i].hash, {format: 'svg'}).toString();
+                document.write(
+                  hashes[i].id + '<br><img src="data:image/svg+xml;base64,' + data + '"><br><br>'
+                );
+              }
+            </script>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Options</h4>
+          <p>Specify a hash and an options object to customize background color, margins, size and format.</p>
+<pre>
+  var hash = 'd6fe8c82fb0abac17a702fd2a94eff37';
+  var options = {
+    foreground: [255, 255, 255, 255],
+    background: [0, 0, 0, 255],
+    margin: 0.2,
+    size: 128,
+    format: 'svg'
+  };
+  var data = new Identicon(hash, options).toString();
+  document.write('&lt;img src="data:image/svg+xml;base64,' + data + '"&gt;');</pre>
+          <script type="text/javascript">
+            var data;
+            hash = 'd6fe8c82fb0abac17a702fd2a94eff37',
+            options = {
+              foreground: [255, 255, 255, 255],
+              background: [0, 0, 0, 255],
+              margin: 0.2,
+              size: 128,
+              format: 'svg'
+            };
+            data = new Identicon(hash, options).toString();
+            document.write(
+              '<br><img src="data:image/svg+xml;base64,' + data + '"><br><br>'
+            );
+            </script>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Raw (Smaller)</h4>
+          <p>The toString() method accepts an optional boolean argument that when set to true will return unencoded image data which is slightly smaller than the default base64 output. In the case of SVG this is still safe to use in a data URI provided that the attribute is double-quoted.</p>
+<pre>
+  var data = new Identicon(hash, options).toString(true);
+  document.write('&lt;img src="data:image/svg+xml;utf8,' + data + '"&gt;');</pre>
+          <script type="text/javascript">
+            var data;
+            hash = 'd6fe8c82fb0abac17a702fd2a94eff37',
+            options = {
+              foreground: [255, 255, 255, 255],
+              background: [0, 0, 0, 255],
+              margin: 0.2,
+              size: 128,
+              format: 'svg'
+            };
+            // Raw argument set to true outputs raw xml
+            data = new Identicon(hash, options).toString(true);
+            document.write('<br><img src="data:image/svg+xml;utf8,' + data + '"><br><br>');
+            </script>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
