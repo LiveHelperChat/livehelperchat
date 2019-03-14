@@ -6,7 +6,7 @@ $items = array();
 
 $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
 
-if ( erLhcoreClassChat::hasAccessToRead($chat) ) {
+if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRead($chat) ) {
 
     $messages = erLhcoreClassChat::getChatMessages($chat->id, erLhcoreClassChat::$limitMessages);
 
