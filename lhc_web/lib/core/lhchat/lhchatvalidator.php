@@ -591,7 +591,7 @@ class erLhcoreClassChatValidator {
         		    }
         		}
         		
-        		$stringParts[] = array('h' => ($inputForm->value_types[$key] && $inputForm->value_types[$key] == 'hidden' ? true : false), 'key' => $name_item, 'value' => $valueStore);
+        		$stringParts[] = array('h' => (isset($inputForm->value_types[$key]) && $inputForm->value_types[$key] == 'hidden' ? true : false), 'key' => $name_item, 'value' => $valueStore);
         	}
         }
 
