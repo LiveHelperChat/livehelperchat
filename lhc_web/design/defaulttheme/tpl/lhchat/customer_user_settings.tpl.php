@@ -20,9 +20,7 @@ $soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',
 							 <?php endif;?>
 							 <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings/user_file_upload.tpl.php'));?>
 							 <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings/smile.tpl.php'));?>
-							 <?php if ((int)erLhcoreClassModelChatConfig::fetch('hide_button_dropdown')->current_value == 0 && isset($chat_widget_mode) && $chat_widget_mode == true) : ?>
-								  <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings/option_close.tpl.php'));?>
-							 <?php endif;?>
+							 <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings/option_close.tpl.php'));?>
 						 <?php endif; ?>
 						 <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings/option_last_multiinclude.tpl.php'));?>
 					</div>
