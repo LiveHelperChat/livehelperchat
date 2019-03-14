@@ -70,7 +70,7 @@ if (isset($_POST['Login']))
 
         $valid = true;
 
-        if (is_array($recaptchaData) && $recaptchaData['enabled'] == 1) {
+        if (is_array($recaptchaData) && isset($recaptchaData['enabled']) && $recaptchaData['enabled'] == 1) {
            $params = [
                 'secret' 	=> $recaptchaData['secret_key'],
                 'response' 	=> $_POST['g-recaptcha']
