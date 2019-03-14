@@ -1666,9 +1666,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$locatio
                         _that.syncChats.push(val.id);
                         _that.syncChatsMsg.push(val.id + ',' + val.last_msg_id);
                     }
-                    var data = new Identicon('d3b07384d113edec49eaa6238ad5ff00', 30).toString();
-                    var image =  "data:image/svg;base64," + data;
-                    _that.setMetaData(val.id, 'icon', image);
+                    var hash = 'd3b07384d113edec49eaa6238ad5ff00';
+                    _that.getIcon(val.id, hash);
                     currentChatsId.push(val.id);
                 });
             }
@@ -1726,6 +1725,15 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$locatio
             this.chatMetaData[chat_id][attr] = val;
         }
     }
+
+    //for identicon of charts
+    this.getIconImage = {};
+    this.getIcon = function(chat_id, hash){
+        var data = new Identicon(hash, 30).toString();
+        var image =  "data:image/svg;base64," + data;
+        this.getIconImage[chat_id] = image;
+    }
+
 
     this.getMetaData = function (chat_id, attr) {
         if (typeof this.chatMetaData[chat_id] === 'undefined') {

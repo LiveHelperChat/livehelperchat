@@ -1423,8 +1423,13 @@ input[type="file"]{
 }
 
 .face {
-	width:30px;
-	-webkit-border-radius: 20px 20px 20px 20px;
-	-moz-border-radius:20px 20px 20px 20px;
-	border-radius: 20px 20px 20px 20px;
+	width:50px;
+	height: 50px;
+	-webkit-border-radius: 50px 50px 50px 50px;
+	-moz-border-radius:50px 50px 50px 50px;
+	border-radius: 50px 50px 50px 50px;
+}
+.divfacesvg{
+	float:left;
+	width:50px;
 }
