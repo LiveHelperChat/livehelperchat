@@ -1422,12 +1422,13 @@ input[type="file"]{
 	}
 }
 
+.icon-svg-status {
+	border:1px solid #BB474A;
+}
+
 .icon-svg-online, .icon-svg-online a {
 	border:1px solid #5da423;
 }
 .icon-svg-away, .icon-svg-away a {
 	border:1px solid #EDC21A;
-}
-.icon-svg-status {
-	border:1px solid #BB474A;
 }

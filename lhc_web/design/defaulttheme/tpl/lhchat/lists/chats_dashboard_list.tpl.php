@@ -4,11 +4,11 @@
 
         <h6 class="border-bottom pb-2 mb-0"><span class="text-secondary float-left fs13 pr-2">[{{my_chats.list.length}}]</span> <span class="text-truncate">My chats</span></h6>
         <div class="overflow-auto" style="max-height: 300px;">
-            <div class="chat-list-row border-bottom" ng-repeat="chat in my_chats.list track by chat.id" ng-click="lhc.startChatDashboard(chat.id,chat.last_msg_id)" ng-class="{'active-chat-row' : chat.id == lhc.current_chat_id,'user-away-row': chat.user_status_front == 2, 'user-online-row': chat.user_status_front == 0}">
-                <div class="float-left w-30 icon-svg-status" ng-class="{'icon-svg-online' : lhc.chatMetaData[chat.id]['ucs'] == 0,'icon-svg-away' : lhc.chatMetaData[chat.id]['ucs'] == 2,'icon-svg-pageview' : lhc.chatMetaData[chat.id]['ucs'] == 3}">
-                    <i><img class = "img-fluid w-100 align-self-center rounded" src="{{lhc.getIcon(chat.id)}}"/></i>
+            <div class="chat-list-row border-bottom row" ng-repeat="chat in my_chats.list track by chat.id" ng-click="lhc.startChatDashboard(chat.id,chat.last_msg_id)" ng-class="{'active-chat-row' : chat.id == lhc.current_chat_id,'user-away-row': chat.user_status_front == 2, 'user-online-row': chat.user_status_front == 0}">
+                <div  class="col-2 align-self-center p-1 ml-1">
+                    <i><img ng-class="{'icon-svg-online' : lhc.chatMetaData[chat.id]['ucs'] == 0,'icon-svg-away' : lhc.chatMetaData[chat.id]['ucs'] == 2,'icon-svg-pageview' : lhc.chatMetaData[chat.id]['ucs'] == 3}"  class = "img-fluid w-100 align-self-center rounded  icon-svg-status" src="{{lhc.getIcon(chat.id)}}"/></i>
                 </div>
-                <div class="pt-1">
+                <div class="col-8">
                     <i id="msg-send-status-{{chat.id}}" ng-class="{'icon-user-offline' : lhc.chatMetaData[chat.id]['um'] == 1}" title="Last message send status" class="pt-1 fs12 material-icons icon-user-online float-right">send</i>
 
                     <span class="float-right fs11 d-none d-lg-inline pr-1">
