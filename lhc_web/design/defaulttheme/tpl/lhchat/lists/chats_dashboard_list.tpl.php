@@ -5,8 +5,8 @@
         <h6 class="border-bottom pb-2 mb-0"><span class="text-secondary float-left fs13 pr-2">[{{my_chats.list.length}}]</span> <span class="text-truncate">My chats</span></h6>
         <div class="overflow-auto" style="max-height: 300px;">
             <div class="chat-list-row border-bottom" ng-repeat="chat in my_chats.list track by chat.id" ng-click="lhc.startChatDashboard(chat.id,chat.last_msg_id)" ng-class="{'active-chat-row' : chat.id == lhc.current_chat_id,'user-away-row': chat.user_status_front == 2, 'user-online-row': chat.user_status_front == 0}">
-                <div class="fs11 text-secondary d-none d-lg-inline ng-binding divfacesvg">
-                    <i><img class = "face" src="{{lhc.getIconImage[chat.id]}}"/></i>
+                <div class="float-left w-30 icon-svg-status" ng-class="{'icon-svg-online' : lhc.chatMetaData[chat.id]['ucs'] == 0,'icon-svg-away' : lhc.chatMetaData[chat.id]['ucs'] == 2,'icon-svg-pageview' : lhc.chatMetaData[chat.id]['ucs'] == 3}">
+                    <i><img class = "img-fluid w-100 align-self-center rounded" src="{{lhc.getIcon(chat.id)}}"/></i>
                 </div>
                 <div class="pt-1">
                     <i id="msg-send-status-{{chat.id}}" ng-class="{'icon-user-offline' : lhc.chatMetaData[chat.id]['um'] == 1}" title="Last message send status" class="pt-1 fs12 material-icons icon-user-online float-right">send</i>
@@ -21,14 +21,16 @@
 
 
                     <div class="fs13">
-                        <i id="user-chat-status-{{chat.id}}" ng-class="{'icon-user-online' : lhc.chatMetaData[chat.id]['ucs'] == 0,'icon-user-away' : lhc.chatMetaData[chat.id]['ucs'] == 2,'icon-user-pageview' : lhc.chatMetaData[chat.id]['ucs'] == 3}" class="icon-user-status material-icons">face</i>
-                        <span ng-if="chat.country_code != undefined">
-                            <img ng-src="<?php echo erLhcoreClassDesign::design('images/flags');?>/{{chat.country_code}}.png" alt="{{chat.country_name}}" title="{{chat.country_name}}" />&nbsp;
-                        </span>
+                        <div  class="fs11 pt-2 text-secondary d-none d-lg-inline">
+                                <i id="user-chat-status-{{chat.id}}" ng-class="{'icon-user-online' : lhc.chatMetaData[chat.id]['ucs'] == 0,'icon-user-away' : lhc.chatMetaData[chat.id]['ucs'] == 2,'icon-user-pageview' : lhc.chatMetaData[chat.id]['ucs'] == 3}" class="icon-user-status material-icons">face</i>
+                        </div>
+                                <span ng-if="chat.country_code != undefined">
+                                    <img ng-src="<?php echo erLhcoreClassDesign::design('images/flags');?>/{{chat.country_code}}.png" alt="{{chat.country_name}}" title="{{chat.country_name}}" />&nbsp;
+                                </span>
 
-                        <span title="{{chat.id}}" class="fs12" ng-class="{'chat-pending font-weight-bold': !chat.status, 'chat-unread': chat.status == 2,'font-weight-bold' : lhc.chatMetaData[chat.id]['mn'] > 0}">{{lhc.truncateScope(chat.nick,10)}}</span>
+                                <span title="{{chat.id}}" class="fs12" ng-class="{'chat-pending font-weight-bold': !chat.status, 'chat-unread': chat.status == 2,'font-weight-bold' : lhc.chatMetaData[chat.id]['mn'] > 0}">{{lhc.truncateScope(chat.nick,10)}}</span>
 
-                        <span ng-if="lhc.chatMetaData[chat.id]['mn'] > 0" class="msg-nm">({{lhc.chatMetaData[chat.id]['mn']}})</span>
+                                <span ng-if="lhc.chatMetaData[chat.id]['mn'] > 0" class="msg-nm">({{lhc.chatMetaData[chat.id]['mn']}})</span>
                     </div>
 
                     <div class="fs11 pt-2 text-secondary d-none d-lg-inline">
