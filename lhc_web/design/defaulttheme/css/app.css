@@ -19,8 +19,16 @@ body {
 }
 
 .chat-list-row:hover,.chat-list-row.active-chat-row{
-    background-color:#f7f6f6;
+    background-color: #f8f9fa;
     cursor:pointer;
+}
+
+@media only screen and (max-width: 640px) {
+    .chats-column{
+        width: 80px;
+        flex: 0 0 25%;
+        max-width: 80px;
+    }
 }
 
 .btn-group-xs > .btn, .btn-xs {
@@ -1423,12 +1431,12 @@ input[type="file"]{
 }
 
 .icon-svg-status {
-	border:1px solid #BB474A;
+	border:2px solid #BB474A;
 }
 
 .icon-svg-online, .icon-svg-online a {
-	border:1px solid #5da423;
+	border:2px solid #5da423;
 }
 .icon-svg-away, .icon-svg-away a {
-	border:1px solid #EDC21A;
+	border:2px solid #EDC21A;
 }

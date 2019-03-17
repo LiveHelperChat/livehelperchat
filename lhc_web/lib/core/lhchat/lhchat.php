@@ -1833,7 +1833,7 @@ class erLhcoreClassChat {
                    }
 
                    if (isset($chat->online_user_id)){
-                       unset($chat->online_user_id);
+                       //unset($chat->online_user_id);
                    }
 
                    if (isset($chat->uagent)){

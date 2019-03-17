@@ -1665,6 +1665,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$locatio
                     if (_that.syncChats.indexOf(val.id) === -1) {
                         _that.syncChats.push(val.id);
                         _that.syncChatsMsg.push(val.id + ',' + val.last_msg_id);
+                        _that.setImage(val);
                     }
                     currentChatsId.push(val.id);
                 });
@@ -1687,6 +1688,15 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$locatio
 
             this.syncChatsProcess();
         }
+    }
+
+    this.setImage = function(val) {
+        setTimeout(function(){
+            var element = document.getElementById('chat-icon-img-'+val.id);
+            if (element !== null) {
+                element.src = _that.getIcon(val);
+            }
+        },500);
     }
 
     this.syncChatsProcess = function () {
@@ -1724,14 +1734,18 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$locatio
         }
     }
 
-    //for identicon of charts
-    this.getIcon = function(chat_id){
-        var hash = 'd3b07384d113edec49eaa6238ad5ff00';
+    this.getIcon = function(chat){
+
+        var hash = ((typeof chat.online_user_id !== 'undefined') ? chat.online_user_id + '_' + chat.online_user_id + '_' + chat.online_user_id : '') + chat.nick + '_' + chat.nick + '_' + chat.nick + '_' + chat.nick;
+
+        if (hash.length < 15) {
+            hash = hash + '_AAAAAAAAAAA';
+        }
+
         var data = new Identicon(hash, 30).toString();
         var image =  "data:image/svg;base64," + data;
         return image;
     }
-
 
     this.getMetaData = function (chat_id, attr) {
         if (typeof this.chatMetaData[chat_id] === 'undefined') {
