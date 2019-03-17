@@ -1680,6 +1680,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$locatio
             }
         })
 
+        angular.forEach(_that.chatMetaData, function(index, chat_id){
+            if (_that.syncChats.indexOf(parseInt(chat_id)) === -1) {
+                delete _that.chatMetaData[chat_id];
+            }
+        });
+
         if (initial === false) {
 
             angular.forEach(this.syncChats, function(chat_id){
