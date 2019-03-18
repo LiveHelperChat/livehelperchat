@@ -87,17 +87,29 @@ class erLhcoreClassGroupRole{
             }
        }
    }
-   
+
    public static function getGroupsAccessedByUser($userEditing)
    {
        $groups = $userEditing->user_groups_id;
        $groupsAccessed = erLhcoreClassModelGroupWork::getList(array('filterin' => array('group_id' => $groups)));
-       
+
+       $groupsReadOnly = array();
+       $groupsWorkGroup= array();
        foreach ($groupsAccessed as $groupAccessed) {
-           $groups[] = $groupAccessed->group_work_id;
+           if ( $groupAccessed->group_work_id > 0){
+               $groupsWorkGroup[] = $groupAccessed->group_work_id;
+           } elseif ($groupAccessed->group_work_id == -1) {
+               $groupsReadOnly[] = $groupAccessed->group_id;
+           }
        }
-       
-       return array_unique($groups);
+
+       foreach ($groupsReadOnly as $index => $groupId) {
+           if (in_array($groupId,$groupsWorkGroup)) {
+               unset($groupsReadOnly[$index]);
+           }
+       }
+
+       return array('groups' => array_unique(array_merge($groups,$groupsWorkGroup)),'read' => $groupsReadOnly);
    }
    
    public static function canEditUserGroups($userEditing, $userToEdit)
@@ -109,10 +121,10 @@ class erLhcoreClassGroupRole{
            return true;
        }
        
-       // Returns list of agroups user can work with
+       // Returns list of groups user can work with
        $groups = self::getGroupsAccessedByUser($userEditing);
-       
-       $groupsDifferences = array_diff($userToEdit->user_groups_id, $groups);
+
+       $groupsDifferences = array_diff($userToEdit->user_groups_id, $groups['groups']);
        
        // If user can access all groups
        if (empty($groupsDifferences)){

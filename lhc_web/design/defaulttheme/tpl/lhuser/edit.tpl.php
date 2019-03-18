@@ -113,8 +113,8 @@
     			<label><input type="checkbox" name="DeletePhoto" value="1" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Delete')?></label>
     		</div>
     		<?php endif;?>
-    		
-    		<?php if ($can_edit_groups === true) : ?>
+
+            <?php if ($can_edit_groups === true) : ?>
 
             <?php $user_groups_filter['filter']['required'] = 0; if (erLhcoreClassModelGroup::getcount($user_groups_filter) > 0) : ?>
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','User group')?></label>
@@ -127,7 +127,8 @@
                     'wrap_prepend'   => '<div class="col-3">',
                     'wrap_append'    => '</div>',
                     'list_function'  => 'erLhcoreClassModelGroup::getList',
-                    'list_function_params'  => $user_groups_filter
+                    'list_function_params'  => $user_groups_filter,
+                    'read_only_list' => $groups_read_only
                 )); ?>
             </div>
             <?php endif; ?>
