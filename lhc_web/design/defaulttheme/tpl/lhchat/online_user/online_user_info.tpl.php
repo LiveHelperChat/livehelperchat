@@ -13,7 +13,7 @@
 <?php if ($online_user->online_attr != '') : ?>
 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Additional information')?></h5>
     <ul class="circle">
-        <?php foreach (json_decode($online_user->online_attr,true) as $addItem) : ?>
+        <?php foreach (json_decode($online_user->online_attr,true) as $attrKey => $addItem) : ?>
         <?php if (isset($addItem['key'])) : ?>
             <li<?php if (isset($addItem['identifier'])): ?> title="<?php echo htmlspecialchars($addItem['identifier'])?>"<?php endif;?>><?php echo htmlspecialchars($addItem['key'])?> - <?php echo htmlspecialchars($addItem['value'])?>
                 <?php if (isset($addItem['h']) && $addItem['h'] == true) : ?>&nbsp;<i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Hidden field')?>">visibility_off</i><?php endif;?>
@@ -21,10 +21,8 @@
             </li>
         <?php else : ?>
         <li>
-            <pre>
-               <?php echo htmlspecialchars(json_encode($addItem,JSON_PRETTY_PRINT));?>
-            </pre>
-        </li>
+            <?php if (!is_numeric($attrKey)) :?><?php echo htmlspecialchars($attrKey)?> - <?php endif?><?php echo htmlspecialchars(json_encode($addItem,JSON_PRETTY_PRINT));?>
+         </li>
         <?php endif; ?>
     <?php endforeach; ?>
     </ul>
