@@ -146,7 +146,8 @@ class erLhcoreClassChatValidator {
         $validationFields['user_timezone'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int');
         $validationFields['HasProductID'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean');
         $validationFields['keyUpStarted'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1));
-        
+        $validationFields['tag'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'string');
+
         $validationFields['name_items'] = new ezcInputFormDefinitionElement(
         		ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
         		null,
@@ -703,6 +704,12 @@ class erLhcoreClassChatValidator {
 
                 }
             }
+        }
+
+        if ( $form->hasValidData( 'tag' ) && !empty($form->tag))
+        {
+            $stringParts[] = array('h' => false, 'identifier' => 'tag', 'key' => 'Tags', 'value' => $form->tag);
+            $inputForm->tag = $form->tag;
         }
 
         if (!empty($stringParts)) {
