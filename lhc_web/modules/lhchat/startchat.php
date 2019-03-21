@@ -185,6 +185,7 @@ $inputData->hattr = array();
 $inputData->hash_resume = false;
 $inputData->vid = false;
 $inputData->only_bot_online = isset($_POST['onlyBotOnline']) ? (int)$_POST['onlyBotOnline'] : 0;
+$inputData->tag = isset($_GET['tag']) ? (string)$_GET['tag'] : '';
 
 // Perhaps it's direct argument
 if ((string)$Params['user_parameters_unordered']['hash_resume'] != '') {

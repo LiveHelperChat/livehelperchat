@@ -421,6 +421,10 @@ var lh_inst  = {
     	   paramsReturn = paramsReturn + '&' + 'prefillMsg=' + encodeURIComponent(this.prefillMessage);
     	}
 
+        if (this.tag != '') {
+            paramsReturn = paramsReturn + this.tag;
+        }
+
         paramsReturn = paramsReturn + '&' + 'tzuser=' + encodeURIComponent(this.getTimeZone());
 
     	return paramsReturn;

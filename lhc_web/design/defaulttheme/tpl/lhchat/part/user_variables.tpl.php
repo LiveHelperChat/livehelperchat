@@ -2,6 +2,10 @@
     <input type="hidden" name="jsvar[<?php echo $index?>]" value="<?php echo htmlspecialchars($item)?>" />
 <?php endforeach;endif;?>
 
+<?php if (isset($input_data->tag) && !empty($input_data->tag)) : $tag = implode(',',array_unique(explode(',',$input_data->tag))); ?>
+    <input type="hidden" name="tag" value="<?php echo htmlspecialchars($tag)?>" />
+<?php endif; ?>
+
 <?php
 $modeUserVariables = isset($modeUserVariables) ? $modeUserVariables : 'on';
 
