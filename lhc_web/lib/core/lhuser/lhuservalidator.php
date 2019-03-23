@@ -375,7 +375,9 @@ class erLhcoreClassUserValidator {
 				$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_resize_150', array('mime_type' => $file["data"]['mime_type'],'user' => $userData));
 			
 				if ($response === false) {
-					erLhcoreClassImageConverter::getInstance()->converter->transform( 'photow_150', $userData->file_path_server, $userData->file_path_server );
+				    if ($file["data"]['mime_type'] != 'image/svg+xml') {
+                        erLhcoreClassImageConverter::getInstance()->converter->transform( 'photow_150', $userData->file_path_server, $userData->file_path_server );
+                    }
 					chmod($userData->file_path_server, 0644);
 				}
 				

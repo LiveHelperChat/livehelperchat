@@ -39,6 +39,7 @@ var lh_inst  = {
     },
     js_variables : <?php echo json_encode($jsVars);?>,
     rendered : false,
+    pos : <?php echo json_encode($position)?>,
     isOnline : <?php echo $isOnlineHelp == true ? 'true' : 'false'?>,
     disabledGeo : <?php echo (isset($disableByGeoAdjustment) && $disableByGeoAdjustment == true) ? 'true' : 'false' ?>,
     checkOperatorMessage : <?php echo $check_operator_messages == true ? 'true' : 'false'?>,
@@ -961,7 +962,10 @@ var lh_inst  = {
     showBasicInvitation : function(url) {
         lh_inst.isProactivePending = 1;
         lh_inst.invitationUrl = url;
-        this.addClass(document.getElementById('<?php echo $chatCSSPrefix?>_status_container'),'<?php echo $chatCSSPrefix?>_invitation-mode');
+        var elm = document.getElementById('<?php echo $chatCSSPrefix?>_status_container');
+        if (elm !== null){
+            this.addClass(elm,'<?php echo $chatCSSPrefix?>_invitation-mode');
+        }
     },
 
     attatchActivityListeners : function() {

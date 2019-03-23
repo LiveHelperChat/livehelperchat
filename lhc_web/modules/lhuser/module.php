@@ -122,19 +122,19 @@ $ViewList['setoffline'] = array (
 		'params' => array('status')
 );
 
-$ViewList['setinvisible'] = array (
-		'functions' => array( 'changevisibility' ),
-		'params' => array('status')
-);
-
 $ViewList['setinactive'] = array (
-		'functions' => array( 'changevisibility' ),
-		'params' => array('status')
+    'functions' => array( 'changeonlinestatus' ),
+    'params' => array('status')
 );
 
 $ViewList['wentinactive'] = array (
+    'functions' => array( 'changeonlinestatus' ),
+    'params' => array()
+);
+
+$ViewList['setinvisible'] = array (
 		'functions' => array( 'changevisibility' ),
-		'params' => array()
+		'params' => array('status')
 );
 
 $ViewList['autologinconfig'] = array(

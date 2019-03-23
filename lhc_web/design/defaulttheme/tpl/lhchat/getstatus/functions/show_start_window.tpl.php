@@ -16,7 +16,10 @@ showStartWindow : function(url_to_open,delayShow) {
     if (this.isProactivePending == 1 && this.invitationUrl != ''){
         url_to_open = this.invitationUrl;
         this.invitationUrl = '';
-        this.removeClass(document.getElementById('<?php echo $chatCSSPrefix?>_status_container'),'<?php echo $chatCSSPrefix?>_invitation-mode');
+        var elm = document.getElementById('<?php echo $chatCSSPrefix?>_status_container');
+        if (elm !== null) {
+            this.removeClass(document.getElementById('<?php echo $chatCSSPrefix?>_status_container'),'<?php echo $chatCSSPrefix?>_invitation-mode');
+        }
     };
 
       if ( url_to_open != undefined ) {

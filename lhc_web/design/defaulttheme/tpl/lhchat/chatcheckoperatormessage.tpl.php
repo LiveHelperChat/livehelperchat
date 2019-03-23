@@ -35,12 +35,16 @@ lh_inst.stopCheckNewMessage();
             lh_inst.toggleStatusWidget(true);
 
         <?php else : ?>
+            <?php if (isset($visitor->invitation->design_data_array['api_do_not_show']) && $visitor->invitation->design_data_array['api_do_not_show'] == 1) : ?>
+                lh_inst.showBasicInvitation(invitationURL);
+            <?php else : ?>
             if (window.innerWidth > 700) {
                 lh_inst.isProactivePending = 1;
                 lh_inst.showStartWindow(invitationURL,true);
             } else {
                 lh_inst.showBasicInvitation(invitationURL);
             }
+            <?php endif; ?>
         <?php endif; ?>
 
     <?php if (($visitor->invitation_assigned == false && $visitor->invitation->delay > 0) || $visitor->invitation->delay_init > 0) : ?>

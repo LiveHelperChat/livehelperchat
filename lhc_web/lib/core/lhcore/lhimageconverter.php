@@ -68,13 +68,17 @@ class erLhcoreClassImageConverter {
        {
            try {
                $image = new ezcImageAnalyzer( $_FILES[$file]['tmp_name'] );
-               if ($image->data->size < ((int)2000*1024) && $image->data->width > 10 && $image->data->height > 10)
-               {
+
+               if ($image->mime == 'image/svg+xml') {
+                    return true;
+               }
+
+               if ($image->data->size < ((int)2000*1024) && $image->data->width > 10 && $image->data->height > 10) {
                    return true;
+               } else {
+                   return false;
+               }
 
-               } else
-
-               return false;
            } catch (Exception $e) {
                return false;
            }
@@ -301,7 +305,7 @@ class qqFileUploader {
 
    		// Settings
 		$max_file_size_in_bytes = 2147483647; // 2GB in bytes
-		$extension_whitelist = array('jpg','jpeg','png'); // Allowed file extensions
+		$extension_whitelist = array('jpg','jpeg','png','svg'); // Allowed file extensions
 		$valid_chars_regex = '.A-Z0-9_ !@#$%^&()+={}\[\]\',~`-'; // Characters allowed in the file name (in a Regular Expression format)
 
 		// Other variables
@@ -405,7 +409,8 @@ class qqFileUploader {
 		$minetypes = array( 'jpg' => 'image/jpeg',
 							'gif' => 'image/gif',
 							'swf' => 'application/x-shockwave-flash',
-							'png' => 'image/png');
+							'png' => 'image/png',
+                            'svg' => 'image/svg+xml');
 
 		if (key_exists($fileSuffix,$minetypes)) {
 			$mimeType = $minetypes[$fileSuffix];
