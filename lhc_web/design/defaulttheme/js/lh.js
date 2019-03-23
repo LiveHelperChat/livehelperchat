@@ -796,30 +796,6 @@ function lh(){
          });
     };
 
-    this.processCollapse = function(chat_id)
-    {
-    	if ($('#chat-main-column-'+chat_id+' .collapse-right').text() == 'chevron_right'){
-	    	$('#chat-right-column-'+chat_id).hide();
-	    	$('#chat-main-column-'+chat_id).removeClass('col-sm-7').addClass('col-sm-12');
-	    	$('#chat-main-column-'+chat_id+' .collapse-right').text('chevron_left');
-	    	try {
-		    	if (localStorage) {
-					localStorage.setItem('lhc_rch',1);				
-				}
-	    	} catch(e) {}
-    	} else {
-    		$('#chat-right-column-'+chat_id).show();
-	    	$('#chat-main-column-'+chat_id).removeClass('col-sm-12').addClass('col-sm-7');
-	    	$('#chat-main-column-'+chat_id+' .collapse-right').text('chevron_right');
-	    	
-	    	try {
-		    	if (localStorage) {
-					localStorage.removeItem('lhc_rch');				
-				}
-	    	} catch(e) {}
-    	};
-    };
-
     this.chatUnderSynchronization = function(chat_id)
     {
         /*var j = 0;
@@ -2450,14 +2426,6 @@ function lh(){
 		if (arg === null || typeof arg !== 'object' || arg.indexOf('background') === -1) {
 			this.hideNotification(chat_id);
 		}
-
-		try {
-			if (localStorage) {			
-				if (localStorage.getItem('lhc_rch') == 1) {
-					this.processCollapse(chat_id);
-				}
-			}
-		} catch(e) {};
 
         $('#chat-tab-items-' + chat_id+' > li > a').click(function(){
             ee.emitEvent('adminChatTabSubtabClicked', [chat_id,$(this)]);

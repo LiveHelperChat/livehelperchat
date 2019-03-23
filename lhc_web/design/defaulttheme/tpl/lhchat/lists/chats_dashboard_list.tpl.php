@@ -1,9 +1,12 @@
-<div class="row">
+<div class="row border-top">
     <div class="col chats-column border-right pr-0 pl-2">
+
+
+
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/dashboard_my_chats_options.tpl.php'));?>
 
-        <h6 class="border-bottom pb-2 mb-0 clearfix"><span class="text-secondary float-left fs13 pr-2">[{{my_chats.list.length}}]</span> <span class="d-none d-sm-block text-truncate">My chats</span></h6>
-        <div class="overflow-auto" style="max-height: 500px;">
+        <h6 class="border-bottom pb-1 mb-0 pt-1 clearfix"><span class="text-secondary float-left fs13 pr-2">[{{my_chats.list.length}}]</span> <span class="d-none d-sm-block text-truncate">My chats</span></h6>
+        <div class="overflow-auto">
             <div class="chat-list-row border-bottom d-flex" ng-repeat="chat in my_chats.list track by chat.id" ng-click="lhc.startChatDashboard(chat.id,chat.last_msg_id)" ng-class="{'active-chat-row' : chat.id == lhc.current_chat_id,'user-away-row': chat.user_status_front == 2, 'user-online-row': chat.user_status_front == 0}">
                 <div  class="col-12 col-sm-3 col-lg-2 align-self-center p-1">
 
@@ -90,7 +93,6 @@
                 <p class="pb-1 pl-1 mb-0 fs12 text-secondary text-truncate">{{lhc.chatMetaData[chat.id]['lmsg']}}</p>
             </div>
         </div>
-
 
     </div>
     <div class="col">

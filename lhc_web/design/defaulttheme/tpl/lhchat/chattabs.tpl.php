@@ -3,7 +3,7 @@
 <?php
 $pendingTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_pending_list',1);
 $activeTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_active_list',1);
-$closedTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);
+$closedTabEnabled = 0;//erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);
 $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1);
 ?>
 
@@ -29,6 +29,7 @@ $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_lis
 		<li role="presentation" class="nav-item"><a class="nav-link" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Closed chats');?>" href="#panel4" aria-controls="panel4" role="tab" data-toggle="tab"><i class="material-icons chat-closed mr-0">chat</i><span>{{closed_chats.list.length != false && closed_chats.list.length > 0 ? ' ('+closed_chats.list.length+')' : ''}}</span></a></li>
 		<?php endif;?>
 	</ul>
+
 
 	<!-- Tab panes -->
 	<div class="tab-content">

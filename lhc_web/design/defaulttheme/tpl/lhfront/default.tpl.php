@@ -50,21 +50,21 @@
 
             <div class="tab-content" ng-cloak>
 
-                <div role="tabpanel" class="tab-pane form-group" id="chatdashboard">
+                <div role="tabpanel" class="tab-pane" id="chatdashboard">
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/chats_dashboard_list.tpl.php')); ?>
                 </div>
 
                 <?php foreach ($frontTabsOrder as $frontTab) : ?>
                     <?php if (trim($frontTab) == 'online_users' && $online_visitors_enabled_pre == true) : ?>
-                        <div role="tabpanel" class="tab-pane form-group" id="onlineusers">
+                        <div role="tabpanel" class="tab-pane" id="onlineusers">
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_online_users.tpl.php')); ?>
                         </div>
                     <?php elseif (trim($frontTab) == 'online_map' && $online_visitors_enabled_pre == true) : ?>
-                        <div role="tabpanel" class="tab-pane form-group" id="map">
+                        <div role="tabpanel" class="tab-pane" id="map">
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_map_online.tpl.php')); ?>
                         </div>
                     <?php elseif (trim($frontTab) == 'dashboard' && $online_chat_enabled_pre == true) : ?>
-                        <div role="tabpanel" class="tab-pane form-group" id="dashboard">
+                        <div role="tabpanel" class="tab-pane" id="dashboard">
                             <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/index.tpl.php')); ?>
                         </div>
 

@@ -159,7 +159,7 @@ services.factory('LiveHelperChatFactory', ['$http', '$q', function ($http, $q) {
 }]);
 
 
-lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$location', '$rootScope', '$log', '$interval', 'LiveHelperChatFactory', function ($scope, $http, $location, $rootScope, $log, $interval, LiveHelperChatFactory) {
+lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http', '$location', '$rootScope', '$log', '$interval', 'LiveHelperChatFactory', function ($compile, $scope, $http, $location, $rootScope, $log, $interval, LiveHelperChatFactory) {
 
     $scope.predicate = 'last_visit';
     $scope.pending_chats = {};
@@ -177,6 +177,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$locatio
     $scope.setTimeoutEnabled = true;
     $scope.lmtoggle = false;
     $scope.lmtoggler = false;
+    $scope.cmtoggle = false;
 
     // Just for extension reserved keywords
     $scope.custom_list_1_expanded = true;
@@ -234,6 +235,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$locatio
     // Main left menu of pagelayout
     $scope.lmtoggle = this.restoreLocalSetting('lmtoggle', 'false', false) != 'false';
     $scope.lmtoggler = this.restoreLocalSetting('lmtoggler', 'false', false) != 'false';
+    $scope.cmtoggle = this.restoreLocalSetting('cmtoggle', 'false', false) != 'false';
 
     this.lhcVersion = 0;
     this.lhcVersionCounter = 8;
@@ -376,7 +378,6 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$locatio
                 localStorage.setItem(variable, $scope[variable]);
             } catch (err) {
             }
-            ;
         }
     };
 
@@ -1620,7 +1621,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$scope', '$http', '$locatio
 
             LiveHelperChatFactory.loadChat(chat_id + args).then(function (data) {
 
-                $('#chat-content-' + chat_id).html(data);
+                var cHtml = $compile(data)($scope);
+
+                $('#chat-content-' + chat_id).html(cHtml);
 
                 if (typeof params['background'] === 'undefined' || params['background'] === false) {
                     setTimeout(function(){
