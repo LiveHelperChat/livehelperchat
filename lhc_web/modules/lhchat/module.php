@@ -557,6 +557,7 @@ $ViewList['transferchatrefilter'] = array(
 );
 
 $FunctionList['use'] = array('explain' => 'General permission to use chat module');
+$FunctionList['open_all'] = array('explain' => 'Allow operator to open all chats, not only assigned to him');
 $FunctionList['changeowner'] = array('explain' => 'Allow operator to change chat owner');
 $FunctionList['singlechatwindow'] = array('explain' =>'Allow operator to use single chat window functionality');
 $FunctionList['allowchattabs'] = array('explain' =>'Allow operator to user chat rooms functionality');

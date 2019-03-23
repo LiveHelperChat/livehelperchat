@@ -1932,6 +1932,7 @@ try {
                         array('module' => 'lhuser',  'function' => 'see_assigned_departments'),
                         array('module' => 'lhuser',  'function' => 'canseedepartmentstats'),
                         array('module' => 'lhchat',  'function' => 'use'),
+                        array('module' => 'lhchat',  'function' => 'open_all'),
                         array('module' => 'lhchat',  'function' => 'chattabschrome'),
                         array('module' => 'lhchat',  'function' => 'singlechatwindow'),
                         array('module' => 'lhchat',  'function' => 'allowopenremotechat'),
