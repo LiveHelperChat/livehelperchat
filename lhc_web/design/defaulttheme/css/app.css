@@ -432,8 +432,34 @@ div.message-row.response div.msg-body{
 
 .msg-body-media img{
 	border-radius:10px;
+	transition: 1s;
 }
 
+.msg-body-media{
+	position: relative;
+}
+.msg-body-media:hover .hidden-download::after{
+	display: block;
+}
+.hidden-download{
+	position: absolute;
+	right: 20px;
+	top: 20px;
+}
+.hidden-download::after{
+	font-family: 'Material Icons';
+	content:'\e2c0';
+	font-size: 25px;
+	color: #007bff;
+	display: none;
+	background: #FFFFFF;
+	padding: 5px;
+	border-radius: 5px;
+}
+.msg-body-media:hover > img
+{
+	filter: contrast(50%);
+}
 .msg-body-emoji{
 	font-size: 32px!important;
 	line-height: 80%;
