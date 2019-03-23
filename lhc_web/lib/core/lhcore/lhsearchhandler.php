@@ -504,7 +504,7 @@ class erLhcoreClassSearchHandler
 
     public static $lastError = null;
 
-    public static function isFile($fileName, $supportedExtensions = array ('zip','doc','docx','pdf','xls','gif','xlsx','jpg','jpeg','png','bmp','rar','7z'), $maxFileSize = false)
+    public static function isFile($fileName, $supportedExtensions = array ('zip','doc','docx','pdf','xls','gif','xlsx','jpg','jpeg','png','bmp','rar','7z','svg'), $maxFileSize = false)
     {
         if (isset($_FILES[$fileName]) && is_uploaded_file($_FILES[$fileName]["tmp_name"]) && $_FILES[$fileName]["error"] == 0) {
             $fileNameAray = explode('.', $_FILES[$fileName]['name']);
@@ -540,9 +540,10 @@ class erLhcoreClassSearchHandler
             'jpg',
             'jpeg',
             'png',
-            'gif'
+            'gif',
+            'svg'
         );
-        
+
         if (isset($_FILES[$fileName]) && is_uploaded_file($_FILES[$fileName]["tmp_name"]) && $_FILES[$fileName]["error"] == 0 && erLhcoreClassImageConverter::isPhoto($fileName)) {
             $fileNameAray = explode('.', $_FILES[$fileName]['name']);
             end($fileNameAray);

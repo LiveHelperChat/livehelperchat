@@ -255,6 +255,13 @@ return array(
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
+    'api_do_not_show' => array(
+        'type' => 'checkbox',
+        'main_attr' => 'design_data_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Do not show widget automatically'),
+        'required' => false,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
+    ),
     'mobile_html' => array(
         'type' => 'textarea',
         'main_attr' => 'design_data_array',
