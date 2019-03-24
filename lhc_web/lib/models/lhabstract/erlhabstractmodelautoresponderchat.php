@@ -40,7 +40,7 @@ class erLhAbstractModelAutoResponderChat
 
                 if ($this->auto_responder->ignore_pa_chat == 0 || ($this->auto_responder->ignore_pa_chat == 1 && $this->chat->user_id == 0)) { // Do not send messages to assigned pending chats
 
-                    if ($this->wait_timeout_send <= 0 && $this->auto_responder->wait_timeout > 0 && ! empty($this->auto_responder->timeout_message) && (time() - ($this->chat->last_op_msg_time > 0 ? $this->chat->last_op_msg_time : $this->chat->time)) > ($this->auto_responder->wait_timeout * ($this->auto_responder->repeat_number - (abs($this->wait_timeout_send))))) {
+                    if ($this->wait_timeout_send <= 0 && $this->auto_responder->wait_timeout > 0 && ! empty($this->auto_responder->timeout_message) && (time() - ($this->chat->last_op_msg_time > 0 ? $this->chat->last_op_msg_time : ($this->chat->pnd_time > 0 ? $this->chat->pnd_time : $this->chat->time))) > ($this->auto_responder->wait_timeout * ($this->auto_responder->repeat_number - (abs($this->wait_timeout_send))))) {
 
                         $errors = array();
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_triggered', array(
@@ -75,7 +75,7 @@ class erLhAbstractModelAutoResponderChat
                         }
                     } elseif ($this->pending_send_status >= 1 && $this->pending_send_status < 5) {
                         for ($i = 5; $i >= 2; $i --) {
-                            if ($this->pending_send_status < $i && $this->auto_responder->{'wait_timeout_' . $i} > 0 && $this->auto_responder->{'wait_timeout_' . $i} < (time() - ($this->chat->last_op_msg_time > 0 ? $this->chat->last_op_msg_time : $this->chat->time)) && ! empty($this->auto_responder->{'timeout_message_' . $i})) {
+                            if ($this->pending_send_status < $i && $this->auto_responder->{'wait_timeout_' . $i} > 0 && $this->auto_responder->{'wait_timeout_' . $i} < (time() - ($this->chat->last_op_msg_time > 0 ? $this->chat->last_op_msg_time : ($this->chat->pnd_time > 0 ? $this->chat->pnd_time : $this->chat->time))) && ! empty($this->auto_responder->{'timeout_message_' . $i})) {
 
                                 $this->pending_send_status = $i;
                                 $this->saveThis();
