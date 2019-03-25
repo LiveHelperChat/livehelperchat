@@ -1582,6 +1582,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
         }
     }
 
+    this.currentPanel = null;
+
     this.startChatDashboard = function (chat_id, params) {
 
         chat_id = parseInt(chat_id);
@@ -1606,6 +1608,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
             this.removeBackgroundChat(chat_id);
             this.hideNotification(chat_id);
             this.current_chat_id = chat_id;
+            this.currentPanel = null;
             this.setMetaData(chat_id, 'mn', 0);
             $('#tabs a[href="#chatdashboard"]').tab('show');
         } else if (typeof params['background'] !== 'undefined' && params['background'] === true) {
