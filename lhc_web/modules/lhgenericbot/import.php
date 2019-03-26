@@ -58,6 +58,8 @@ if (ezcInputForm::hasPostData()) {
                         $eventObj->pattern_exc = $event['pattern_exc'];
                         $eventObj->configuration = $event['configuration'];
                         $eventObj->type = $event['type'];
+                        $eventObj->on_start_type = $event['on_start_type'];
+                        $eventObj->priority = $event['priority'];
                         $eventObj->saveThis();
                     }
                 }
@@ -72,6 +74,9 @@ if (ezcInputForm::hasPostData()) {
 
                 $replaceArraySearch[] = '"collection_callback_pattern":"' . $oldTriggerId . '"';
                 $replaceArrayReplace[] = '"collection_callback_pattern":"' . $newTriggerId . '"';
+
+                $replaceArraySearch[] = '"alternative_callback":"' . $oldTriggerId . '"';
+                $replaceArrayReplace[] = '"alternative_callback":"' . $newTriggerId . '"';
 
                 $replaceArraySearch[] = '"collection_callback_alternative":"' . $oldTriggerId . '"';
                 $replaceArrayReplace[] = '"collection_callback_alternative":"' . $newTriggerId . '"';

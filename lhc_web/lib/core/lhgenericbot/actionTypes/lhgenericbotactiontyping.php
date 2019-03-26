@@ -25,7 +25,9 @@ class erLhcoreClassGenericBotActionTyping {
                 $triggersProcessed[] = $trigger->id;
             }
 
-            $metaMessage['content']['typing'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content'], $chat->dep_id);
+            $action['content']['text'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['text'],$chat->dep_id);
+
+            $metaMessage['content']['typing'] = $action['content'];
 
             $msg->msg = "";
             $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';

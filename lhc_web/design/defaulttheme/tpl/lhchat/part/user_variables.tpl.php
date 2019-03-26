@@ -2,6 +2,10 @@
     <input type="hidden" name="jsvar[<?php echo $index?>]" value="<?php echo htmlspecialchars($item)?>" />
 <?php endforeach;endif;?>
 
+<?php if (isset($input_data->tag) && !empty($input_data->tag)) : $tag = implode(',',array_unique(explode(',',$input_data->tag))); ?>
+    <input type="hidden" name="tag" value="<?php echo htmlspecialchars($tag)?>" />
+<?php endif; ?>
+
 <?php
 $modeUserVariables = isset($modeUserVariables) ? $modeUserVariables : 'on';
 
@@ -44,7 +48,7 @@ $showField = ($input_data->value_show[$key] == $modeUserVariables || $input_data
 <?php if ($hasVisibleField == true) : ?><div class="row"><?php endif;?>
 <?php foreach ($input_data->value_items as $key => $item) : 
 
-$showField = ($input_data->value_show[$key] == $modeUserVariables || $input_data->value_show[$key] == 'b');
+$showField = ((isset($input_data->value_show[$key]) && $input_data->value_show[$key] == $modeUserVariables) || (isset($input_data->value_show[$key]) && $input_data->value_show[$key] == 'b'));
 
 $visibleItem = (isset($input_data->value_types[$key]) && $input_data->value_types[$key] == 'text' && isset($input_data->name_items[$key])); ?>
 

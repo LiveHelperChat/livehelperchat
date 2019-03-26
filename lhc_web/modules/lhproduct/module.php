@@ -7,7 +7,7 @@ $ViewList = array();
 
 $ViewList['index'] = array(
     'params' => array(),
-    'functions' => array( 'administratethemes' )
+    'functions' => array( 'manage_product' )
 );
 
 $ViewList['getproducts'] = array(

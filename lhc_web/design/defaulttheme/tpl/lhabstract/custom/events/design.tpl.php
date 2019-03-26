@@ -28,6 +28,13 @@ for ($i = 1; $i < 5; $i++) {
 
     <div class="col-12">
         <div class="form-group">
+            <label><?php echo erLhcoreClassAbstract::renderInput('api_do_not_show', $fields['api_do_not_show'], $object)?> <?php echo $fields['api_do_not_show']['trans'];?></label>
+        </div>
+    </div>
+
+
+    <div class="col-12">
+        <div class="form-group">
             <label><?php echo erLhcoreClassAbstract::renderInput('mobile_html_only', $fields['mobile_html_only'], $object)?> <?php echo $fields['mobile_html_only']['trans'];?></label>
         </div>
     </div>

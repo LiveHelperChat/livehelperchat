@@ -53,6 +53,7 @@ $inputData->hattr = array();
 $inputData->encattr = array();
 $inputData->via_encrypted = array();
 $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
+$inputData->tag = isset($_GET['tag']) ? (string)$_GET['tag'] : (isset($Params['user_parameters_unordered']['tag']) ? $Params['user_parameters_unordered']['tag'] : '');
 
 // If chat was started based on key up, we do not need to store a message
 //  because user is still typing it. We start chat in the background just.
@@ -130,6 +131,7 @@ if (isset($_POST['askQuestion']))
     $validationFields['Email'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'validate_email' );
     $validationFields['Username'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['Phone'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
+    $validationFields['tag'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
     $validationFields['user_timezone'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int');
     
     // Additional attributes
@@ -291,6 +293,13 @@ if (isset($_POST['askQuestion']))
 			);
 		}
 	}
+
+    if ( $form->hasValidData( 'tag' ) && !empty($form->tag))
+    {
+        $stringParts[] = array('h' => false, 'identifier' => 'tag', 'key' => 'Tags', 'value' => $form->tag);
+        $inputData->tag = $form->tag;
+    }
+
 		
 	// Admin custom fields
 	if (isset($startDataFields['custom_fields']) && $startDataFields['custom_fields'] != '') {

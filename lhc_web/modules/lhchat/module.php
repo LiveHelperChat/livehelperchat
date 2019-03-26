@@ -412,7 +412,7 @@ $ViewList['reopen'] = array(
 
 $ViewList['readoperatormessage'] = array(
     'params' => array(),
-    'uparams' => array('operator','theme','priority','vid','department','playsound','ua','survey','fullheight','inv'),
+    'uparams' => array('operator','theme','priority','vid','department','playsound','ua','survey','fullheight','inv','tag'),
 	'multiple_arguments' => array ( 'department', 'ua' )
 );
 
@@ -502,7 +502,7 @@ $ViewList['geoconfiguration'] = array(
 
 $ViewList['listchatconfig'] = array(
     'params' => array(),
-    'functions' => array( 'use' )
+    'functions' => array( 'administrateconfig' )
 );
 
 $ViewList['editchatconfig'] = array(
@@ -512,17 +512,7 @@ $ViewList['editchatconfig'] = array(
 
 $ViewList['syncandsoundesetting'] = array(
     'params' => array(),
-    'functions' => array( 'administrateconfig' )
-);
-
-$ViewList['startchatformsettings'] = array(
-    'params' => array(),
-    'functions' => array( 'administrateconfig' )
-);
-
-$ViewList['startchatformsettingsindex'] = array(
-    'params' => array(),
-    'functions' => array( 'administrateconfig' )
+    'functions' => array( 'administratesyncsound' )
 );
 
 $ViewList['cannedmsg'] = array(
@@ -567,6 +557,7 @@ $ViewList['transferchatrefilter'] = array(
 );
 
 $FunctionList['use'] = array('explain' => 'General permission to use chat module');
+$FunctionList['open_all'] = array('explain' => 'Allow operator to open all chats, not only assigned to him');
 $FunctionList['changeowner'] = array('explain' => 'Allow operator to change chat owner');
 $FunctionList['singlechatwindow'] = array('explain' =>'Allow operator to use single chat window functionality');
 $FunctionList['allowchattabs'] = array('explain' =>'Allow operator to user chat rooms functionality');
@@ -601,6 +592,10 @@ $FunctionList['sendmail'] = array('explain' => 'Allow operator to send e-mail to
 $FunctionList['redirectcontact'] = array('explain' => 'Allow operator to redirect visitor to contact form');
 $FunctionList['holduse'] = array('explain' => 'Allow operator to use hold/unhold functionality');
 $FunctionList['setsubject'] = array('explain' => 'Allow operator to use set chat subject');
+$FunctionList['administratecolumn'] = array('explain' => 'Allow operator to configure chat columns');
+$FunctionList['administratechatvariable'] = array('explain' => 'Allow operator to configure chat custom variables');
+$FunctionList['administratechatpriority'] = array('explain' => 'Allow operator to configure chat priority by custom variables');
+$FunctionList['administratesyncsound'] = array('explain' => 'Allow operator to configure chat sound and sync settings');
 
 
 ?>

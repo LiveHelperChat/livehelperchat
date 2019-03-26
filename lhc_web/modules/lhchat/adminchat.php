@@ -14,6 +14,10 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
 	if ($userData->invisible_mode == 0 && erLhcoreClassChat::hasAccessToWrite($chat)) {
 	    try {
 
+            if ($chat->user_id != $userData->id && !$currentUser->hasAccessTo('lhchat','open_all')) {
+                throw new Exception('You do not have permission to open all pending chats.');
+            }
+
 	        $db->beginTransaction();
 	        
     		$operatorAccepted = false;
@@ -115,6 +119,7 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
             $tpl->set('show_close_button',true);
             $tpl->set('auto_close_dialog',true);
             $tpl->set('chat_id',(int)$Params['user_parameters']['chat_id']);
+            $tpl->set('chat',$chat);
             echo $tpl->fetch();
             exit;
 	    }
