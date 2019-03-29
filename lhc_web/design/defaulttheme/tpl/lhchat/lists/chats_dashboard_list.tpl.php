@@ -9,15 +9,19 @@
             <h6 class="border-bottom pb-1 mb-0 pt-1 clearfix"><span class="text-secondary float-left fs13 pr-2">[{{my_chats.list.length}}]</span> <span class="d-none d-sm-block text-truncate">My chats</span></h6>
             <div class="overflow-auto">
                 <div class="chat-list-row border-bottom d-flex" ng-repeat="chat in my_chats.list track by chat.id" ng-click="lhc.startChatDashboard(chat.id,chat.last_msg_id)" ng-class="{'active-chat-row' : chat.id == lhc.current_chat_id,'user-away-row': chat.user_status_front == 2, 'user-online-row': chat.user_status_front == 0}">
-                    <div  class="col-12 col-sm-3 col-lg-2 align-self-center p-1">
+                    <div  class="col-12 col-sm-3 col-lg-2 align-self-center p-0">
 
-                        <div class="clearfix pb-1">
-                            <i id="msg-send-status-{{chat.id}}" ng-class="{'icon-user-offline' : lhc.chatMetaData[chat.id]['um'] == 1}" title="Last message send status" class="pt-1 mr-0 fs12 material-icons icon-user-online float-left">send</i>
+                        <div class="clearfix pb-0 position-absolute status-avatar">
+                            <i id="msg-send-status-{{chat.id}}" ng-class="{'icon-user-offline' : lhc.chatMetaData[chat.id]['um'] == 1}" title="Last message send status" class="mr-0 fs12 material-icons icon-user-online float-left">send</i>
                             <span ng-if="lhc.chatMetaData[chat.id]['mn'] > 0" class="msg-nm pl-1 float-left d-inline d-sm-none fs11">({{lhc.chatMetaData[chat.id]['mn']}})</span>
                             <i id="user-chat-status-{{chat.id}}" ng-class="{'icon-user-online' : lhc.chatMetaData[chat.id]['ucs'] == 0,'icon-user-away' : lhc.chatMetaData[chat.id]['ucs'] == 2,'icon-user-pageview' : lhc.chatMetaData[chat.id]['ucs'] == 3}" class="icon-user-status mr-0 material-icons float-right">face</i>
                         </div>
 
+                        <?php /*
                         <img id="chat-icon-img-{{chat.id}}" ng-class="{'icon-svg-online' : lhc.chatMetaData[chat.id]['ucs'] == 0,'icon-svg-away' : lhc.chatMetaData[chat.id]['ucs'] == 2,'icon-svg-pageview' : lhc.chatMetaData[chat.id]['ucs'] == 3}"  class="img-fluid w-100 align-self-center rounded icon-svg-status" src="<?php echo erLhcoreClassDesign::design('images/general/logo.png')?>" />
+                        */ ?>
+                        <svg width="100%" height="100%" ng-class="{'icon-svg-online' : lhc.chatMetaData[chat.id]['ucs'] == 0,'icon-svg-away' : lhc.chatMetaData[chat.id]['ucs'] == 2,'icon-svg-pageview' : lhc.chatMetaData[chat.id]['ucs'] == 3}" id="chat-icon-img-{{chat.id}}" data-jdenticon-value="{{chat.nick}}"></svg>
+
                     </div>
                     <div class="col-8 col-sm-9 col-lg-10 d-none d-sm-block pr-0 pl-0">
 
@@ -60,7 +64,12 @@
 
                     <i id="user-chat-status-{{chat.id}}" ng-class="{'icon-user-online' : lhc.chatMetaData[chat.id]['ucs'] == 0,'icon-user-away' : lhc.chatMetaData[chat.id]['ucs'] == 2,'icon-user-pageview' : lhc.chatMetaData[chat.id]['ucs'] == 3}" class="icon-user-status mr-0 material-icons float-right">face</i>
                 </div>
+
+                <?php /*
                 <img id="chat-icon-img-{{chat.id}}" ng-class="{'icon-svg-online' : lhc.chatMetaData[chat.id]['ucs'] == 0,'icon-svg-away' : lhc.chatMetaData[chat.id]['ucs'] == 2,'icon-svg-pageview' : lhc.chatMetaData[chat.id]['ucs'] == 3}"  class = "img-fluid w-100 align-self-center rounded  icon-svg-status" src="<?php echo erLhcoreClassDesign::design('images/general/logo.png')?>"/>
+                */ ?>
+
+                <svg width="100%" height="100%" ng-class="{'icon-svg-online' : lhc.chatMetaData[chat.id]['ucs'] == 0,'icon-svg-away' : lhc.chatMetaData[chat.id]['ucs'] == 2,'icon-svg-pageview' : lhc.chatMetaData[chat.id]['ucs'] == 3}" id="chat-icon-img-{{chat.id}}" data-jdenticon-value="{{chat.nick}}"></svg>
             </div>
             <div class="col-8 col-sm-9 col-lg-10 d-none d-sm-block pr-0 pl-0">
 
@@ -98,7 +107,7 @@
     </div>
     <div class="col">
 
-        <div ng-repeat="chat in lhc.syncChatsOpen" ng-show="chat == lhc.current_chat_id" id="chat-content-{{chat}}"></div>
+        <div ng-repeat="chat in lhc.syncChatsOpen" ng-show="chat == lhc.current_chat_id" class="chat-content-dashboard" id="chat-content-{{chat}}"></div>
 
         <?php if ($showChatsLists == true) : ?>
             <?php if ($pendingTabEnabled == true) : ?>

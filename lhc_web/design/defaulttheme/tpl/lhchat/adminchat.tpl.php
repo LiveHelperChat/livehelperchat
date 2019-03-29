@@ -5,7 +5,7 @@
     <div class="pt-1"><small><span class="text-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Last visitor message time')?>"><i class="material-icons">access_time</i><span id="last-msg-chat-<?php echo $chat->id?>">...</span></span></small></div>
 </div>
 
-<div class="row" ng-class="{ctoggled: cmtoggle}">
+<div class="row chat-messages-body" ng-class="{ctoggled: cmtoggle}">
 	<div class="col-md-7 chat-main-left-column" id="chat-main-column-<?php echo $chat->id;?>">
 
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/above_messages_block.tpl.php')); ?>
@@ -38,7 +38,7 @@
             </div>
             <div class="col-2 d-block d-md-none pl-0">
                 <nav class="navbar navbar-light bg-white p-0">
-                    <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#chat-admin-control-<?php echo $chat->id?>" aria-controls="chat-admin-control-<?php echo $chat->id?>" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler mx-auto" onclick="$(this).attr('aria-expanded') == 'false' ? $('#chat-main-column-<?php echo $chat->id?>').addClass('bottom-expanded') : $('#chat-main-column-<?php echo $chat->id?>').removeClass('bottom-expanded')" type="button" data-toggle="collapse" data-target="#chat-admin-control-<?php echo $chat->id?>" aria-controls="chat-admin-control-<?php echo $chat->id?>" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </nav>

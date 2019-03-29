@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 
-<html lang="<?php echo erConfigClassLhConfig::getInstance()->getDirLanguage('content_language')?>" dir="<?php echo erConfigClassLhConfig::getInstance()->getDirLanguage('dir_language')?>" ng-app="lhcApp">
+<html class="h-100" lang="<?php echo erConfigClassLhConfig::getInstance()->getDirLanguage('content_language')?>" dir="<?php echo erConfigClassLhConfig::getInstance()->getDirLanguage('dir_language')?>" ng-app="lhcApp">
 <head>
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head.tpl.php'));?>
 </head>
-<body ng-controller="LiveHelperChatCtrl as lhc">
+<body class="h-100" ng-controller="LiveHelperChatCtrl as lhc">
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <div class="col-md-12 h-100">
             <?php echo $Result['content']; ?>
         </div>
     </div>

@@ -6,6 +6,6 @@ $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_lis
 $showChatsLists = true;
 ?>
 
-<div ng-cloak id="tabs">
+<div ng-cloak id="tabs" class="h-100 chat-tabs-container">
     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/chats_dashboard_list.tpl.php')); ?>
 </div>

@@ -1706,7 +1706,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
         setTimeout(function(){
             var element = document.getElementById('chat-icon-img-'+val.id);
             if (element !== null) {
-                element.src = _that.getIcon(val);
+                $(element).attr('data-jdenticon-value',_that.getIcon(val)).jdenticon();
             }
         },500);
     }
@@ -1747,16 +1747,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
     }
 
     this.getIcon = function(chat){
-
-        var hash = ((typeof chat.online_user_id !== 'undefined') ? chat.online_user_id + '_' + chat.online_user_id + '_' + chat.online_user_id : '') + chat.nick + '_' + chat.nick + '_' + chat.nick + '_' + chat.nick;
-
-        if (hash.length < 15) {
-            hash = hash + '_AAAAAAAAAAA';
-        }
-
-        var data = new Identicon(hash, 30).toString();
-        var image =  "data:image/svg;base64," + data;
-        return image;
+        var hash = ((typeof chat.online_user_id !== 'undefined') ? chat.online_user_id : '') + chat.nick;
+        return hash;
     }
 
     this.getMetaData = function (chat_id, attr) {

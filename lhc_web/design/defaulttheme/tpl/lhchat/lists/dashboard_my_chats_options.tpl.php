@@ -6,6 +6,12 @@
                 <li class="dropdown-item fs12"><a href="#" ng-click="lhc.toggleWidget('only_user')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Show chats only assigned to me')?>"><i class="material-icons" id="group-chats-status" ng-class="{'chat-active': lhc.toggleWidgetData['only_user'] === true, 'chat-closed': lhc.toggleWidgetData['only_user'] !== true}">done</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Show chats only assigned to me'); ?></a></li>
 
                 <?php if (isset($showChatsLists) && $showChatsLists == true) : ?>
+                    <li class="dropdown-item fs12"><a href="<?php echo erLhcoreClassDesign::baseurl('/')?>"><i class="material-icons">home</i>Return to dashboard</a></li>
+                <?php else : ?>
+                <li class="dropdown-item fs12"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/chattabs')?>"><i class="material-icons">fullscreen</i>Fullscreen window</a></li>
+                <?php endif; ?>
+
+                <?php if (isset($showChatsLists) && $showChatsLists == true) : ?>
                     <li class="dropdown-divider"></li>
                     <?php if ($pendingTabEnabled == true) : ?>
                         <li role="presentation" class="dropdown-item"><a ng-click="lhc.currentPanel = 'pending-chats';lhc.current_chat_id = 0" class="fs12" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Pending confirm');?>" href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><i class="material-icons chat-pending">chat</i>Pending chats <span>{{pending_chats.list.length != false && pending_chats.list.length > 0 ? ' ('+pending_chats.list.length+')' : ''}}</span></a></li>
