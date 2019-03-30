@@ -2215,6 +2215,9 @@ function lh(){
 	        	},50);
 			}
 		}
+
+        textArea.focus();
+		return false;
 	};
 	
 	this.addDelayedMessageAdmin = function()
@@ -2696,8 +2699,9 @@ function lh(){
         }
     };
     
-    this.disableChatSoundAdmin = function(inst)
+    this.disableChatSoundAdmin = function(instLink)
     {
+        var inst = instLink.find('i');
     	if (inst.text() == 'volume_off'){
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/1');
     		confLH.new_message_sound_admin_enabled = 1;
@@ -2710,8 +2714,9 @@ function lh(){
     	return false;
     };
 
-    this.disableNewChatSoundAdmin = function(inst)
+    this.disableNewChatSoundAdmin = function(instLink)
     {
+        var inst = instLink.find('i');
     	if (inst.text() == 'volume_off'){
     		$.get(this.wwwDir+  'user/setsettingajax/new_chat_sound/1');
     		confLH.new_chat_sound_enabled = 1;

@@ -37,11 +37,17 @@
 		        <textarea <?php !erLhcoreClassChat::hasAccessToWrite($chat) ? print 'readonly="readonly"' : '' ?> placeholder="<?php if ($chat->user_id != erLhcoreClassUser::instance()->getUserID()) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You are not chat owner, type with caution')?><?php endif;?>" class="form-control form-control-sm form-group<?php if ($chat->user_id != erLhcoreClassUser::instance()->getUserID()) : ?> form-control-warning<?php endif;?>" rows="2" <?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>readonly="readonly"<?php endif;?> name="ChatMessage" id="CSChatMessage-<?php echo $chat->id?>"></textarea>
             </div>
             <div class="col-2 d-block d-md-none pl-0">
+
+                <a onclick="return lhinst.addmsgadmin(<?php echo $chat->id?>)" title="Send" class="d-block text-center">
+                    <i class="material-icons">send</i>
+                </a>
+
                 <nav class="navbar navbar-light bg-white p-0">
-                    <button class="navbar-toggler mx-auto" onclick="$(this).attr('aria-expanded') == 'false' ? $('#chat-main-column-<?php echo $chat->id?>').addClass('bottom-expanded') : $('#chat-main-column-<?php echo $chat->id?>').removeClass('bottom-expanded')" type="button" data-toggle="collapse" data-target="#chat-admin-control-<?php echo $chat->id?>" aria-controls="chat-admin-control-<?php echo $chat->id?>" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                    <button class="navbar-toggler p-0 m-auto" onclick="$(this).attr('aria-expanded') == 'false' ? $('#chat-main-column-<?php echo $chat->id?>').addClass('bottom-expanded') : $('#chat-main-column-<?php echo $chat->id?>').removeClass('bottom-expanded')" type="button" data-toggle="collapse" data-target="#chat-admin-control-<?php echo $chat->id?>" aria-controls="chat-admin-control-<?php echo $chat->id?>" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon nav-bar-toggler-sm"></span>
                     </button>
                 </nav>
+
             </div>
         </div>
 

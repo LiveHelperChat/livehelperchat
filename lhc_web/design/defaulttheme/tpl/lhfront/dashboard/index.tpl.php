@@ -13,9 +13,9 @@ $columnSize = 12 / $columnsTotal;
 
 ?>
 <div class="row" id="dashboard-body">
-     <a class="dashboard-configuration" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT +'chat/dashboardwidgets'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Configure dashboard')?>"><i class="material-icons mr-0">&#xE871;</i></a>
+     
      <?php foreach ($dashboardOrder as $widgets) : ?>
-        <div class="col-md-<?php echo $columnSize+2?> col-lg-<?php echo $columnSize?> sortable-column-dashboard">
+        <div class="col-lg-<?php echo $columnSize?> sortable-column-dashboard">
             <?php foreach ($widgets as $wiget) : ?>
                 <?php if ($wiget == 'online_operators') : ?>
                  

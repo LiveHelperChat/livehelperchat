@@ -21,7 +21,10 @@ body {
     filter: alpha(opacity=75);
     background-color:#F0F0F0;
 }
-
+.nav-bar-toggler-sm{
+    width:1em;
+    height:1em;
+}
 .chat-tabs-container > .row,.chat-tabs-container > .row > .col, .chat-tabs-container > .row > .col > .chat-content-dashboard{
     height:100%;
 }
@@ -46,26 +49,8 @@ body {
 }
 
 .chat-list-row:hover,.chat-list-row.active-chat-row{
-    background-color: #f8f9fa;
+    background-color: #ececec;
     cursor:pointer;
-}
-
-.dashboard-left-column{
-    position: fixed;
-    top:0;
-    max-width: 420px;
-    width:24.95%;
-    left:0;
-    z-index: 1;
-    bottom:0;
-    overflow-y: auto;
-}
-
-.cog-dashboard-settings{
-    position:fixed;
-    top:0;
-    z-index:2;
-    left:20.5%;
 }
 
 @media only screen and (max-width: 768px) {
@@ -74,20 +59,50 @@ body {
     }
 }
 
-@media only screen and (max-width: 640px) {
+.home-dashboard-left-column {
+    z-index: 1;
+    overflow-y: auto;
+    height: calc(100% - 42px);
+}
+
+.home-dashboard-left-column::-webkit-scrollbar-track
+{
+    background-color: #F5F5F5;
+}
+
+.home-dashboard-left-column::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+.home-dashboard-left-column::-webkit-scrollbar-thumb
+{
+    background-color: #ebebeb;
+}
+
+
+@media only screen and (max-width: 768px) {
     .chats-column{
-        width: 60px;
-        flex: 0 0 25%;
-        max-width: 60px;
+        width: 200px;
+        flex: 0 0 80%;
+        max-width: 200px;
     }
-    .dashboard-left-column{
-        max-width: 59px;
-        width:59px;
-    }
-    .cog-dashboard-settings{
-        left:25px;
+
+    #navbarSupportedContent .dropright{
+        margin-left:0!important;
     }
 }
+
+@media only screen and (max-width: 576px) {
+    .chats-column{
+        width: 60px;
+        flex: 0 0 80%;
+        max-width: 60px;
+    }
+}
+
+
 
 .btn-group-xs > .btn, .btn-xs {
 	padding  : .25rem .30rem 0.35rem 0.30rem;
@@ -294,7 +309,7 @@ a:hover{
 
 .msgBlock-admin{
 	height:200px;
-	min-height:200px;
+	min-height:20px;
 }
 
 textarea[name=ChatMessage]{
@@ -1014,12 +1029,24 @@ input[type="file"]{
 #sidebar-wrapper {
 	min-width: 220px;
 	max-width: 220px;
-	transition: all 0.3s;
 	border-right:1px solid #e7e7e7;
 }
 
 #wrapper.toggled #sidebar-wrapper {
-	margin-left: -220px;
+	margin-left: 0px;
+    max-width: 52px;
+    min-width:52px;
+
+}
+
+#wrapper.toggled .nav-link-text,
+#wrapper.toggled .arrow{
+    display: none;
+}
+#wrapper.toggled .sidebar li a{
+    padding-left:0!important;
+    padding-right:0!important;
+    text-align: center;
 }
 
 .ctoggled .chat-main-left-column{
@@ -1032,15 +1059,44 @@ input[type="file"]{
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 787px) {
 	#sidebar-wrapper {
-		margin-left: -220px;
+        max-width: 51px;
+        min-width:51px;
 	}
+
+    .sidebar li a{
+        padding-left:0!important;
+        padding-right:0!important;
+        text-align: center;
+    }
+
+    #sidebar-wrapper .nav-link-text,
+    #sidebar-wrapper .arrow{
+        display: none;
+    }
 
 	#wrapper.toggled #sidebar-wrapper {
-		margin-left: 0;
+        max-width: 220px;
+        min-width:220px;
 	}
 
+    #wrapper.toggled #sidebar-wrapper .nav-link-text,
+    #wrapper.toggled #sidebar-wrapper .arrow{
+        display: inline;
+    }
+
+    #wrapper.toggled #sidebar-wrapper .sidebar li a{
+        text-align: left;
+        padding-left:10px!important;
+    }
+
+    #wrapper.toggled #sidebar-wrapper .sidebar .nav-second-level li a{
+        padding-left:25px!important;
+    }
+}
+
+@media (max-width: 992px) {
     .ctoggled .chat-main-left-column {
         width:100%;
         flex: 0 0 100%;
@@ -1064,14 +1120,12 @@ input[type="file"]{
     .chat-main-right-column{
         display:none;
     }
-
 }
 
 
 #path-container{
-	margin-top:-15px;
-	margin-right:-15px;
-	margin-left:-15px;
+	margin-right:-7.5px;
+	margin-left:-7.5px;
 	margin-bottom:15px;
 }
 
@@ -1088,10 +1142,9 @@ input[type="file"]{
 #page-content-wrapper {
 	width: 100%;
 	position: relative;
-	padding: 7.5px;
+    padding:0 7.5px;
 	z-index:2;
 	background-color:#FFF;
-    padding-bottom: 0;
 }
 
 .nav-pills .nav-link{
@@ -1152,17 +1205,6 @@ input[type="file"]{
 
 .sortable-column-dashboard .card-header {
 	cursor:move;
-}
-
-.dashboard-configuration{		
-  position: absolute;
-  right: 23px;
-  z-index: 999;
-  margin-top: -30px;
-}
-
-.dashboard-configuration .material-icons {
-	font-size:18px;
 }
 
 .exp-cntr:hover{

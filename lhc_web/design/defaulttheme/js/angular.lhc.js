@@ -1582,7 +1582,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
         }
     }
 
-    this.currentPanel = null;
+    this.currentPanel = 'dashboard';
 
     this.startChatDashboard = function (chat_id, params) {
 
@@ -1661,6 +1661,21 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
         this.syncChatsProcess();
     }
 
+    this.toHex = function(string) {
+        var hash = 0;
+        if (string.length === 0) return hash;
+        for (var i = 0; i < string.length; i++) {
+            hash = string.charCodeAt(i) + ((hash << 5) - hash);
+            hash = hash & hash;
+        }
+        var color = '#';
+        for (var i = 0; i < 3; i++) {
+            var value = (hash >> (i * 8)) & 255;
+            color += ('00' + value.toString(16)).substr(-2);
+        }
+        return color;
+    }
+
     this.startSyncChats = function (initial) {
 
         var currentChatsId = [];
@@ -1671,7 +1686,17 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
                     if (_that.syncChats.indexOf(val.id) === -1) {
                         _that.syncChats.push(val.id);
                         _that.syncChatsMsg.push(val.id + ',' + val.last_msg_id);
-                        _that.setImage(val);
+
+                        var nickParts = val.nick.split(' ');
+                        if (nickParts.length == 1) {
+                            _that.setMetaData(val.id, 'ctit', nickParts[0].substr(0,2).toUpperCase());
+                        } else {
+                            _that.setMetaData(val.id, 'ctit', nickParts[0].substr(0,1).toUpperCase() + nickParts[1].substr(0,1).toUpperCase());
+                        }
+
+                        _that.setMetaData(val.id, 'cbg', _that.toHex(((typeof val.online_user_id !== 'undefined') ? val.online_user_id : '') + val.nick));
+
+                        //_that.setImage(val);
                     }
                     currentChatsId.push(val.id);
                 });
