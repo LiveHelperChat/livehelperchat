@@ -34,7 +34,7 @@ if ( $currentUser->hasAccessTo('lhuser','changevisibility') ) {
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
 <?php endif;?>
-            <?php include_once(erLhcoreClassDesign::designtpl('lhchat/user_settings_sound.tpl.php'));?>
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/user_settings_sound.tpl.php'));?>
             <?php if ($canChangeVisibilityMode == true) : ?>
                 <li class="list-inline-item nav-item"><a href="#" class="nav-link"><i id="vi-in-user" class="material-icons ng-cloak" ng-click="lhc.changeVisibility()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my visibility to visible/invisible');?>" >{{lhc.hideInvisible == true ? 'visibility_off' : 'visibility'}}</i>On/Off visibility</a></li>
             <?php endif;?>

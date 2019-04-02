@@ -30,7 +30,7 @@ $UserData = $currentUser->getUserData(true); ?>
         ?>
 
         <?php if ($currentUser->hasAccessTo('lhchat','use') ) : ?>
-            <?php include_once(erLhcoreClassDesign::designtpl('lhchat/user_settings_sound.tpl.php'));?>
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/user_settings_sound.tpl.php'));?>
 
             <?php if ($canChangeVisibilityMode == true) : ?>
                 <li class="nav-item"><a href="#" class="nav-link" ng-click="lhc.changeVisibility()"><i id="vi-in-user" class="material-icons ng-cloak" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my visibility to visible/invisible');?>" >{{lhc.hideInvisible == true ? 'visibility_off' : 'visibility'}}</i><span class="nav-link-text">Visible/Invisible</span></a></li>

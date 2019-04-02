@@ -22,7 +22,7 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
 
 <div class="row">
     <div class="col-6">
-        <label><input type="checkbox" name="ForceLeaveMessage" value="on" <?php (isset($start_chat_data['force_leave_a_message']) && $start_chat_data['force_leave_a_message'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Enable leave a message functionality automatically if there are no online operators');?></label><br/>
+        <label><input type="checkbox" name="ForceLeaveMessage" value="on" <?php (isset($start_chat_data['force_leave_a_message']) && $start_chat_data['force_leave_a_message'] == true) ? print 'checked="checked"' : ''?> />&nbsp;<b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Leave a message');?></b>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Displayed automatically if there are no online operators (overridden if set in embed code)');?></label>
     </div>
     <div class="col-6">
         <label><input type="checkbox" name="AutoStartChat" value="on" <?php (isset($start_chat_data['auto_start_chat']) && $start_chat_data['auto_start_chat'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Auto start chat if there is no required fields. Usefull in case bot handles chat.');?></label>

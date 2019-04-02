@@ -5,9 +5,43 @@
 
             <div ng-cloak class="version-updated float-right" ng-if="lhc.lhcPendingRefresh == true"><i class="material-icons">update</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','This window will be automatically refreshed in {{lhc.lhcVersionCounter}} seconds due to a version update.');?></div>
 
-            <button class="btn btn-outline-light mr-auto" type="button" ng-click="lhc.toggleList('lmtoggle')" title="Expand or collapse left menu" aria-expanded="true" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <div class="row border-bottom">
+
+            <div class="col-12 col-md-6">
+                <button class="btn btn-outline-light mr-auto" type="button" ng-click="lhc.toggleList('lmtoggle')" title="Expand or collapse left menu" aria-expanded="true" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <?php
+
+            $canChangeOnlineStatus = false;
+
+            $currentUser = erLhcoreClassUser::instance();
+            if ( $currentUser->hasAccessTo('lhuser','changeonlinestatus') ) {
+                $canChangeOnlineStatus = true;
+            }
+
+            $canChangeVisibilityMode = false;
+            if ( $currentUser->hasAccessTo('lhuser','changevisibility') ) {
+                $canChangeVisibilityMode = true;
+            }
+            ?>
+
+            <?php if ($currentUser->hasAccessTo('lhchat','use') ) : ?>
+            <div class="col-12 col-md-6 text-center text-md-right pb-1 pt-1">
+                <?php if ($canChangeVisibilityMode == true) : ?>
+                    <a href="#" class="p1-1 pr-1"><i id="vi-in-user" class="material-icons ng-cloak" ng-click="lhc.changeVisibility()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my visibility to visible/invisible');?>" >{{lhc.hideInvisible == true ? 'visibility_off' : 'visibility'}}</i></a>
+                <?php endif;?>
+
+                <?php if ($canChangeOnlineStatus == true) : ?>
+                    <a href="#" class="p1-1 pr-1"><i id="online-offline-user" class="material-icons ng-cloak" ng-click="lhc.changeOnline()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my status to online/offline');?>" >{{lhc.hideOnline == true ? 'flash_off' : 'flash_on'}}</i></a>
+                <?php endif;?>
+            </div>
+            <?php endif;?>
+
+            </div>
+
 
             <ul class="nav" id="side-menu">
 
