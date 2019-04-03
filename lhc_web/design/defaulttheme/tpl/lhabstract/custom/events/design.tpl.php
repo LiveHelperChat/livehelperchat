@@ -93,7 +93,7 @@ for ($i = 1; $i < 5; $i++) {
         </style>
 
         <div id="lhc-mobile-invitation" ng-bind-html="prdesign.plainHtml">
-            sff
+            
         </div>
     </div>
 </div>

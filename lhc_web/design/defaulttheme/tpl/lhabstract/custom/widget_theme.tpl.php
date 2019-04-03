@@ -660,6 +660,33 @@
                 $('#trigger-preview-window').html('');
             });
         }
+
+        $(function() {
+            ace.config.set('basePath', '<?php echo erLhcoreClassDesign::design('js/ace')?>');
+            $('textarea[data-editor]').each(function() {
+                var textarea = $(this);
+                var mode = textarea.data('editor');
+                var editDiv = $('<div>', {
+                    width: '100%',
+                    height: '200px'
+                }).insertBefore(textarea);
+                textarea.css('display', 'none');
+                var editor = ace.edit(editDiv[0]);
+                editor.renderer.setShowGutter(true);
+                editor.getSession().setValue(textarea.val());
+                editor.getSession().setMode("ace/mode/"+mode);
+                editor.setOptions({
+                    autoScrollEditorIntoView: true,
+                    copyWithEmptySelection: true,
+                });
+                editor.setTheme("ace/theme/github");
+                // copy back to textarea on form submit...
+                textarea.closest('form').submit(function() {
+                    textarea.val(editor.getSession().getValue());
+                })
+            });
+        });
+
 	    </script>
 	</div>
 </div>
