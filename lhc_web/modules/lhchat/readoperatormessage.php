@@ -46,7 +46,6 @@ $inputData->value_types = array();
 $inputData->value_sizes = array();
 $inputData->jsvar = array();
 $inputData->ua = $Params['user_parameters_unordered']['ua'];
-$inputData->hattr = array();
 $inputData->value_items_admin = array(); // These variables get's filled from start chat form settings
 $inputData->via_hidden = array(); // These variables get's filled from start chat form settings
 $inputData->hattr = array();
@@ -89,6 +88,21 @@ if (is_numeric($inputData->departament_id) && $inputData->departament_id > 0 && 
 	// Start chat field options
 	$startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
 	$startDataFields = (array)$startData->data;
+}
+
+if (isset($startDataFields['name_hidden']) && $startDataFields['name_hidden'] == 1) {
+    $inputData->hattr[] = 'username';
+    $userInstance->requires_username = true;
+}
+
+if (isset($startDataFields['email_hidden']) && $startDataFields['email_hidden'] == 1) {
+    $inputData->hattr[] = 'email';
+    $userInstance->requires_email = true;
+}
+
+if (isset($startDataFields['phone_hidden']) && $startDataFields['phone_hidden'] == 1) {
+    $inputData->hattr[] = 'phone';
+    $userInstance->requires_phone = true;
 }
 
 // Allow extension override start chat fields
