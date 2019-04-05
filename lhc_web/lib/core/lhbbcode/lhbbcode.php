@@ -1111,7 +1111,9 @@ class erLhcoreClassBBCode
            ' ',
        );
 
-    	$ret = preg_replace($in, $out, $ret);
+        $ret = preg_replace($in, $out, $ret);
+       
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.make_plain',array('msg' => & $ret));
 
         $ret = trim($ret);
         return $ret;

@@ -127,7 +127,7 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
                     end($Messages);
                     $LastMessageIDs = current($Messages);
 
-                    $lsgm = $LastMessageIDs['msg'];
+                    $lsgm = erLhcoreClassBBCode::make_plain($LastMessageIDs['msg']);
 
                     // Fetch content
                     $templateResult = $tpl->fetch();
