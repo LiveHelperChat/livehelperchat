@@ -35,7 +35,7 @@ class erLhcoreClassAbstract
                     if (isset($attr['placeholder'])) {
                         $ngModel .= " placeholder=\"{$attr['placeholder']}\" ";
                     };
-                    return '<input class="form-control" ' . $ngModel . ' name="AbstractInput_' . $name . '" type="' . $attr['type'] . '" value="' . htmlspecialchars($value) . '" />';
+                    return '<input class="form-control' . (isset($attr['css_class']) ? ' '.$attr['css_class'] : '') . '" ' . $ngModel . ' name="AbstractInput_' . $name . '" type="' . $attr['type'] . '" value="' . htmlspecialchars($value) . '" />';
                 }
                 break;
 
@@ -60,7 +60,7 @@ class erLhcoreClassAbstract
                     $returnString = '';
 
                     foreach (erConfigClassLhConfig::getInstance()->getSetting('site', 'available_locales') as $locale) {
-                        $returnString .= '<textarea ng-non-bindable style="height:' . $height . ';"  class="form-control" name="AbstractInput_' . $name . '_' . $locale . '">' . htmlspecialchars($object->{$name . '_' . strtolower($locale)}) . '</textarea>' . $locale . '<br/>';
+                        $returnString .= '<textarea ng-non-bindable style="height:' . $height . ';"  class="form-control' . (isset($attr['css_class']) ? ' '.$attr['css_class'] : '') . '" name="AbstractInput_' . $name . '_' . $locale . '">' . htmlspecialchars($object->{$name . '_' . strtolower($locale)}) . '</textarea>' . $locale . '<br/>';
                     }
 
                     return $returnString;
@@ -79,7 +79,7 @@ class erLhcoreClassAbstract
 
                     $ngModel = isset($attr['nginit']) ? ' ng-init=\'ngModelAbstractInput_' . $name . '=' . json_encode($value, JSON_HEX_APOS) . '\' ng-model="ngModelAbstractInput_' . $name . '" ' : 'ng-non-bindable';
 
-                    return '<textarea  style="height:' . $height . ';" ' . $placeholder . ' ' . $ngModel . ' class="form-control" name="AbstractInput_' . $name . '">' . htmlspecialchars($value) . '</textarea>';
+                    return '<textarea  style="height:' . $height . ';" ' . $placeholder . ' ' . $ngModel . ' class="form-control' . (isset($attr['css_class']) ? ' '.$attr['css_class'] : '') . '" name="AbstractInput_' . $name . '">' . htmlspecialchars($value) . '</textarea>';
                 }
                 break;
 
