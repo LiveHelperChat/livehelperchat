@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col chats-column border-right pr-0 pl-0">
+    <div class="col chats-column border-right pr-0 pl-0" ng-cloak>
         <nav class="navbar navbar-expand-lg navbar-light bg-white p-0 pb-1 pt-1 border-bottom home-cog-dashboard-settings" style="z-index: 2">
             <button class="navbar-toggler pl-2 pr-2 pt-1 pb-1 m-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon nav-bar-toggler-sm"></span>

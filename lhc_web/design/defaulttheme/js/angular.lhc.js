@@ -1482,7 +1482,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
             ee.emitEvent('removeSynchroChat', [chat_id]);
         }
 
-        if (chat_id = _that.current_chat_id) {
+        if (chat_id == _that.current_chat_id) {
             _that.current_chat_id = 0;
             if ( _that.syncChats.length > 0) {
                 _that.startChatDashboard(_that.syncChats[0]);
@@ -1680,9 +1680,18 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
 
         var currentChatsId = [];
 
-        angular.forEach(['my_open_chats','my_chats'],function (listIdentifier) {
+        angular.forEach(['my_chats','my_open_chats'],function (listIdentifier) {
             if (typeof $scope[listIdentifier] !== 'undefined' && Array.isArray($scope[listIdentifier].list)) {
                 angular.forEach($scope[listIdentifier].list, function (val, index) {
+
+                    if (listIdentifier == 'my_open_chats' && currentChatsId.indexOf(val.id) !== -1) {
+                        _that.forgetChat(val.id);
+                        $scope.removeOpenedChat(val.id);
+                        $scope.loadChatList();
+                        _that.startChatDashboard(val.id,val.last_msg_id);
+                        return ;
+                    }
+
                     if (_that.syncChats.indexOf(val.id) === -1) {
                         _that.syncChats.push(val.id);
                         _that.syncChatsMsg.push(val.id + ',' + val.last_msg_id);
@@ -1700,6 +1709,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
                 });
             }
         })
+
 
         // Remove chats which are gone from list
         angular.forEach(_that.syncChats, function (chat_id, index) {
