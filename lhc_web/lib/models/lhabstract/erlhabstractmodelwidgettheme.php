@@ -391,7 +391,7 @@ class erLhAbstractModelWidgetTheme {
 
 	public function dependJs()
     {
-		return '<script type="text/javascript" src="'.erLhcoreClassDesign::design('js/colorpicker.js').'"></script>';
+		return '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/colorpicker.js;js/ace/ace.js').'"></script>';
 	}
 	
 	public function customForm()

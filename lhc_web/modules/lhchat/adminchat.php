@@ -14,7 +14,7 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
 	if ($userData->invisible_mode == 0 && erLhcoreClassChat::hasAccessToWrite($chat)) {
 	    try {
 
-            if ($chat->user_id != $userData->id && !$currentUser->hasAccessTo('lhchat','open_all')) {
+            if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->user_id != $userData->id && !$currentUser->hasAccessTo('lhchat','open_all')) {
                 throw new Exception('You do not have permission to open all pending chats.');
             }
 
