@@ -100,6 +100,30 @@ if ($tab == 'active') {
 } else if ($tab == 'last24') {
     
     if (isset($_GET['doSearch'])) {
+        switch ($_GET['doSearch']) {
+            case 'Today':
+                $_GET['timefrom'] = date('Y-m-d', time());
+                $_GET['timefrom_hours'] = 0;
+                $_GET['timefrom_minutes'] = 0;
+                break;
+            case 'Week':
+                $_GET['timefrom'] = date('Y-m-d', strtotime('this week'));
+                $_GET['timefrom_hours'] = 0;
+                $_GET['timefrom_minutes'] = 0;
+                break;
+            case 'Month':
+                $_GET['timefrom'] = date('Y-m-d', strtotime('first day of this month'));
+                $_GET['timefrom_hours'] = 0;
+                $_GET['timefrom_minutes'] = 0;
+                break;
+            case 'Year':
+                $_GET['timefrom'] = date('Y-01-01');
+                $_GET['timefrom_hours'] = 0;
+                $_GET['timefrom_minutes'] = 0;
+                break;
+            default:
+                break;
+        }
         $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'last24statistic','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
     } else {
         $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'last24statistic','format_filter' => true, 'uparams' => array()));
