@@ -7,7 +7,7 @@
 
             <div class="row border-bottom">
 
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 quick-options-toggler">
                 <button class="btn btn-outline-light mr-auto" type="button" ng-click="lhc.toggleList('lmtoggle')" title="Expand or collapse left menu" aria-expanded="true" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -29,13 +29,13 @@
             ?>
 
             <?php if ($currentUser->hasAccessTo('lhchat','use') ) : ?>
-            <div class="col-12 col-md-6 text-center text-md-right pb-1 pt-1">
+            <div class="col-12 col-md-6 text-center text-md-right pb-1 pt-1 quick-options">
                 <?php if ($canChangeVisibilityMode == true) : ?>
-                    <a href="#" class="p1-1 pr-1"><i id="vi-in-user" class="material-icons ng-cloak" ng-click="lhc.changeVisibility()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my visibility to visible/invisible');?>" >{{lhc.hideInvisible == true ? 'visibility_off' : 'visibility'}}</i></a>
+                    <a href="#" class="pl-1 pr-1"><i id="vi-in-user" class="material-icons ng-cloak" ng-click="lhc.changeVisibility()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my visibility to visible/invisible');?>" >{{lhc.hideInvisible == true ? 'visibility_off' : 'visibility'}}</i></a>
                 <?php endif;?>
 
                 <?php if ($canChangeOnlineStatus == true) : ?>
-                    <a href="#" class="p1-1 pr-1"><i id="online-offline-user" class="material-icons ng-cloak" ng-click="lhc.changeOnline()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my status to online/offline');?>" >{{lhc.hideOnline == true ? 'flash_off' : 'flash_on'}}</i></a>
+                    <a href="#" class="pl-1 pr-1"><i id="online-offline-user" class="material-icons ng-cloak" ng-click="lhc.changeOnline()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my status to online/offline');?>" >{{lhc.hideOnline == true ? 'flash_off' : 'flash_on'}}</i></a>
                 <?php endif;?>
             </div>
             <?php endif;?>

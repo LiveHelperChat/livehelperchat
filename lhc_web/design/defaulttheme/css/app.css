@@ -1039,6 +1039,17 @@ input[type="file"]{
 
 }
 
+#wrapper.toggled .quick-options{
+    flex: 0 0 100%;
+    max-width: 100%;
+
+}
+
+#wrapper.toggled .quick-options a{
+    text-align: center;
+    display: block;
+}
+
 #wrapper.toggled .nav-link-text,
 #wrapper.toggled .arrow{
     display: none;
@@ -1093,6 +1104,22 @@ input[type="file"]{
 
     #wrapper.toggled #sidebar-wrapper .sidebar .nav-second-level li a{
         padding-left:25px!important;
+    }
+
+    #wrapper.toggled .quick-options{
+        flex: 0 0 50%;
+        max-width: 50%;
+
+    }
+
+    #wrapper.toggled .quick-options-toggler{
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    #wrapper.toggled .quick-options a{
+        text-align: center;
+        display: inline;
     }
 }
 

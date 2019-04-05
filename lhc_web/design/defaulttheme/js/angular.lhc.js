@@ -1694,9 +1694,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
                             _that.setMetaData(val.id, 'ctit', nickParts[0].substr(0,1).toUpperCase() + nickParts[1].substr(0,1).toUpperCase());
                         }
 
-                        _that.setMetaData(val.id, 'cbg', _that.toHex(((typeof val.online_user_id !== 'undefined') ? val.online_user_id : '') + val.nick));
-
-                        //_that.setImage(val);
+                        _that.setMetaData(val.id, 'cbg', _that.toHex(((typeof val.online_user_id !== 'undefined') ? val.online_user_id.toString().split('').reverse().join('') : '') + val.nick));
                     }
                     currentChatsId.push(val.id);
                 });
