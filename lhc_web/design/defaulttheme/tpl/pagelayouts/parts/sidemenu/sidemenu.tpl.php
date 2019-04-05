@@ -54,7 +54,7 @@
     	        <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu_modules_container.tpl.php.tpl.php'));?>	
     	        <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/sidemenu/menu_item_multiinclude.tpl.php'));?>
 
-                <?php if ($canUseChat == true && (!isset($Result['hide_right_column']) || $Result['hide_right_column'] == false)) :?>
+                <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','use') == true && (!isset($Result['hide_right_column']) || $Result['hide_right_column'] == false)) :?>
                 <li class="nav-item">
                     <a class="nav-link" href="#" ng-click="lhc.toggleList('lmtoggler')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Expand or collapse right menu')?>"><i class="material-icons">menu</i><span class="nav-link-text">Hide show right column</span></a>
                 </li>
