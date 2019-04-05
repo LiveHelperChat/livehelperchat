@@ -1092,6 +1092,7 @@ class erLhcoreClassBBCode
            '/\[\/quote\]/ms',
            '/\[fs(.*?)\](.*?)\[\/fs(.*?)\]/ms',
            '/\n/ms',
+           '/\[br\]/ms',
        );
 
        // And replace them by...
@@ -1106,6 +1107,7 @@ class erLhcoreClassBBCode
            '',
            '',
            '\2',
+           ' ',
            ' ',
        );
 
