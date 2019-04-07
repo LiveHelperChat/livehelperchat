@@ -25,7 +25,7 @@ class NodeTriggerActionGenericPreview extends Component {
                     {item.hasIn(['buttons']) && <ul className="bot-btn-list">
                         {item.getIn(['buttons']).map((item, index) =>
                             <li key={index}>
-                                <a href="#">{item.get('type') == 'url' && <i className="material-icons">open_in_new</i>}{item.getIn(['content','name'])}</a>
+                                <a href="#">{item.get('type') == 'url' && <i className="material-icons">&#xf3cc;</i>}{item.getIn(['content','name'])}</a>
                             </li>
                         )}
                     </ul>}

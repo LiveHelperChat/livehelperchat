@@ -3,7 +3,7 @@
 		<?php if ($user->has_photo) : ?>
      			<?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_name_support_img.tpl.php'));?>
      	<?php else : ?>
-     		<i class="icon-assistant material-icons">account_box</i>
+     		<i class="icon-assistant material-icons">&#xf004;</i>
      	<?php endif;?>
      </div>
      <div class="p-1">

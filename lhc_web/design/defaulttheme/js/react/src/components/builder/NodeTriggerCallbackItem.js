@@ -69,7 +69,7 @@ class NodeTriggerCallbackItem extends Component {
                     <div className="form-group">
                         <label>&nbsp;</label>
                         <div>
-                            <a onClick={this.deleteField.bind(this)}><i className="material-icons mr-0">delete</i></a>
+                            <a onClick={this.deleteField.bind(this)}><i className="material-icons mr-0">&#xf1c0;</i></a>
                         </div>
                     </div>
                 </div>

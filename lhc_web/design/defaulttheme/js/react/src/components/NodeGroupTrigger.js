@@ -81,7 +81,7 @@ class NodeGroupTrigger extends Component {
                         <button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         </button>
                         <ul class="dropdown-menu dropdown-menu-trigger">
-                            <li className="dropdown-item"><a href="#" onClick={this.removeTrigger}><i class="material-icons">delete</i> Delete</a></li>
+                            <li className="dropdown-item"><a href="#" onClick={this.removeTrigger}><i class="material-icons">&#xf1c0;</i> Delete</a></li>
                             <li className="dropdown-item"><label title="This message will be send tu visitor then chat starts"><input onChange={this.setDefaultTrigger} type="checkbox" checked={this.props.trigger.get('default')} />Default</label></li>
                             <li className="dropdown-item"><label title="This message will be send to visitor then we could dot determine what we should do"><input onChange={this.setDefaultUnknownTrigger} type="checkbox" checked={this.props.trigger.get('default_unknown')} />Default for unknown</label></li>
                         </ul>

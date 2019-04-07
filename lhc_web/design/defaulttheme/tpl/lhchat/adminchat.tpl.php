@@ -2,7 +2,7 @@
     <button class="navbar-toggler navbar-light float-right" ng-click="lhc.toggleList('cmtoggle')" type="button" aria-expanded="true" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon bg-light border rounded"></span>
     </button>
-    <div class="pt-1"><small><span class="text-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Last visitor message time')?>"><i class="material-icons">access_time</i><span id="last-msg-chat-<?php echo $chat->id?>">...</span></span></small></div>
+    <div class="pt-1"><small><span class="text-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Last visitor message time')?>"><i class="material-icons">&#xf150;</i><span id="last-msg-chat-<?php echo $chat->id?>">...</span></span></small></div>
 </div>
 
 <div class="row chat-messages-body" ng-class="{ctoggled: cmtoggle}">

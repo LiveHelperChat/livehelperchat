@@ -1,6 +1,6 @@
 <?php if ($useFm || $useBo || $useChatbox || $useFaq || $useQuestionary || $hasExtensionModule) : ?>
      <li class="nav-item">
-         <a href="#" class="nav-link"><i class="material-icons">info_outline</i><span class="nav-link-text"><?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/extra_modules_title.tpl.php'));?></span><i class="material-icons arrow md-18">chevron_right</i></a>
+         <a href="#" class="nav-link"><i class="material-icons">&#xf2fd;</i><span class="nav-link-text"><?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/extra_modules_title.tpl.php'));?></span><i class="material-icons arrow md-18">&#xf142</i></a>
            <ul class="nav nav-second-level">
                 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/modules_menu/questionary.tpl.php'));?>
   			  

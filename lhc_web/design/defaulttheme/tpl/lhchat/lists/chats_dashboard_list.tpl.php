@@ -64,8 +64,8 @@
                         </div>
 
                         <div class="fs11 pt-1 text-secondary">
-                            <i title="Department" class="material-icons">home</i>{{chat.department_name}}
-                            <span class="d-none d-md-inline"><i title="Operator" class="material-icons">account_box</i>{{chat.plain_user_name}}</span>
+                            <i title="Department" class="material-icons">&#xf2dc;</i>{{chat.department_name}}
+                            <span class="d-none d-md-inline"><i title="Operator" class="material-icons">&#xf004;</i>{{chat.plain_user_name}}</span>
                         </div>
 
                         <p class="pb-1 pl-1 mb-0 fs12 text-secondary text-truncate">{{lhc.chatMetaData[chat.id]['lmsg']}}</p>
@@ -115,8 +115,8 @@
                 </div>
 
                 <div class="fs11 pt-1 text-secondary ">
-                    <i title="Department" class="material-icons">home</i>{{chat.department_name}}
-                    <span class="d-none d-md-inline"><i title="Operator" class="material-icons">account_box</i>{{chat.plain_user_name}}</span>
+                    <i title="Department" class="material-icons">&#xf2dc;</i>{{chat.department_name}}
+                    <span class="d-none d-md-inline"><i title="Operator" class="material-icons">&#xf004;</i>{{chat.plain_user_name}}</span>
                 </div>
                 <p class="pb-1 pl-1 mb-0 fs12 text-secondary text-truncate">{{lhc.chatMetaData[chat.id]['lmsg']}}</p>
             </div>

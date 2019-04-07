@@ -121,7 +121,7 @@
     		</div>
     		<?php if (!empty($agentStatistic)) : ?>
     		<div class="col-md-1">
-    			<a id="xmlagentstatistic" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','All operators statistic will be downloaded')?>"><i class="material-icons mr-0">file_download</i></a>
+    			<a id="xmlagentstatistic" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','All operators statistic will be downloaded')?>"><i class="material-icons mr-0">&#xf964;</i></a>
     		</div>
     		<?php endif;?>
     	</div>		

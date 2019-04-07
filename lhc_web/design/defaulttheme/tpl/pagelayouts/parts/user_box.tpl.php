@@ -3,7 +3,7 @@ $currentUser = erLhcoreClassUser::instance();
 if ($currentUser->isLogged()) :
 $UserData = $currentUser->getUserData(true); ?>
 <li class="nav-item">
-    <a href="#" class="nav-link"><i class="material-icons">account_box</i><span class="nav-link-text"><?php echo htmlspecialchars($UserData->name),' ',htmlspecialchars($UserData->surname)?></span><i class="material-icons arrow">chevron_right</i></a>
+    <a href="#" class="nav-link"><i class="material-icons">&#xf004;</i><span class="nav-link-text"><?php echo htmlspecialchars($UserData->name),' ',htmlspecialchars($UserData->surname)?></span><i class="material-icons arrow">&#xf142</i></a>
     <ul class="nav nav-second-level collapse" role="menu">
         <?php
         $soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data;
@@ -41,7 +41,7 @@ $UserData = $currentUser->getUserData(true); ?>
             <?php endif;?>
         <?php endif;?>
 
-        <li class="nav-item"><a class="nav-link" href="<?php echo erLhcoreClassDesign::baseurl('user/account')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Account')?>"><i class="material-icons">account_box</i><span class="nav-link-text"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Account')?></span></a></li>
+        <li class="nav-item"><a class="nav-link" href="<?php echo erLhcoreClassDesign::baseurl('user/account')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Account')?>"><i class="material-icons">&#xf004;</i><span class="nav-link-text"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Account')?></span></a></li>
         <li class="nav-item"><a class="nav-link" href="<?php echo erLhcoreClassDesign::baseurl('user/logout')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Logout');?>"><i class="material-icons">exit_to_app</i><span class="nav-link-text"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Logout');?></span></a></li>
 
     </ul>

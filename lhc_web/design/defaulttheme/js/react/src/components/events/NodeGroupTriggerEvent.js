@@ -88,7 +88,7 @@ class NodeGroupTriggerEvent extends Component {
                                 <label>Type</label>
                             </div>
                             <div className="col-2">
-                                <a className="float-right" onClick={this.deleteEvent}><i className="material-icons mr-0">delete</i></a>
+                                <a className="float-right" onClick={this.deleteEvent}><i className="material-icons mr-0">&#xf1c0;</i></a>
                             </div>
                         </div>
                         <select className="form-control form-control-sm" defaultValue={this.props.event.get('type')} onChange={this.typeChange}>

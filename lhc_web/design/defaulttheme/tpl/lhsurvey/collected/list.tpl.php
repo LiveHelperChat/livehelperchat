@@ -20,12 +20,12 @@
 </thead>
 <?php foreach ($items as $item) : ?>
     <tr>
-    	<td nowrap="nowrap"><a class="material-icons" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('survey/collecteditem')?>/<?php echo $item->id?>'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','View information');?>">info_outline</a></td>
+    	<td nowrap="nowrap"><a class="material-icons" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('survey/collecteditem')?>/<?php echo $item->id?>'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','View information');?>">&#xf2fd;</a></td>
     	<td nowrap="nowrap">
     	<?php if ($input->group_results == true) : ?>
     	   <?php echo $item->virtual_chats_number?>
     	<?php else : ?>
-    	   <a class="material-icons" data-title="<?php echo htmlspecialchars($item->chat->nick,ENT_QUOTES);?>" onclick="lhinst.startChatNewWindow('<?php echo $item->chat_id;?>',$(this).attr('data-title'))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Open in a new window');?>">open_in_new</a><a href="#" onclick="return lhc.previewChat(<?php echo $item->chat_id?>)"><?php echo htmlspecialchars($item->chat_id)?></a>
+    	   <a class="material-icons" data-title="<?php echo htmlspecialchars($item->chat->nick,ENT_QUOTES);?>" onclick="lhinst.startChatNewWindow('<?php echo $item->chat_id;?>',$(this).attr('data-title'))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Open in a new window');?>">&#xf3cc;</a><a href="#" onclick="return lhc.previewChat(<?php echo $item->chat_id?>)"><?php echo htmlspecialchars($item->chat_id)?></a>
     	<?php endif;?>
     	</td>
     	<td><?php echo htmlspecialchars($item->department_name)?></td>
