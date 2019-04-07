@@ -31,11 +31,12 @@
             <?php if ($currentUser->hasAccessTo('lhchat','use') ) : ?>
             <div class="col-12 col-md-6 text-center text-md-right pb-1 pt-1 quick-options">
                 <?php if ($canChangeVisibilityMode == true) : ?>
-                    <a href="#" class="pl-1 pr-1"><i id="vi-in-user" class="material-icons ng-cloak" ng-click="lhc.changeVisibility()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my visibility to visible/invisible');?>" >{{lhc.hideInvisible == true ? 'visibility_off' : 'visibility'}}</i></a>
+                    <a href="#" class="pl-1 pr-1"><i id="vi-in-user" class="material-icons ng-cloak" ng-click="lhc.changeVisibility()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my visibility to visible/invisible');?>" >{{lhc.hideInvisible == true ? '&#xf209' : '&#xf208'}};</i>
+                    </a>
                 <?php endif;?>
 
                 <?php if ($canChangeOnlineStatus == true) : ?>
-                    <a href="#" class="pl-1 pr-1"><i id="online-offline-user" class="material-icons ng-cloak" ng-click="lhc.changeOnline()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my status to online/offline');?>" >{{lhc.hideOnline == true ? 'flash_off' : 'flash_on'}}</i></a>
+                    <a href="#" class="pl-1 pr-1"><i id="online-offline-user" class="material-icons ng-cloak" ng-click="lhc.changeOnline()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my status to online/offline');?>" >{{lhc.hideOnline == true ? '&#xf243' : '&#xf241'}}</i></a>
                 <?php endif;?>
             </div>
             <?php endif;?>
