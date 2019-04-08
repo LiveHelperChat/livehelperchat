@@ -92,7 +92,7 @@
             <div class="col-8 col-sm-9 col-lg-10 d-none d-sm-block pr-0 pl-0">
 
                 <span class="float-right fs11">
-                    <span ng-click="lhc.closeExternalChat(chat); $event.stopPropagation();" title="Stop monitoring, chat status won't be changed" class="material-icons text-danger font-weight-bold mr-0">close</span>
+                    <span ng-click="lhc.closeExternalChat(chat); $event.stopPropagation();" title="Stop monitoring, chat status won't be changed" class="material-icons text-danger font-weight-bold mr-0">&#xf156;</span>
                 </span>
 
                 <span class="float-right fs11 d-none d-md-inline pr-1">

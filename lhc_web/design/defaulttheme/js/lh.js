@@ -308,7 +308,7 @@ function lh(){
     		return ;
     	}
     	
-    	var contentLi = '<li role="presentation" id="chat-tab-li-'+chat_id+'" class="nav-item"><a class="nav-link" href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">send</i><i id="user-chat-status-'+chat_id+'" class="'+this.tabIconClass+'">'+this.tabIconContent+'</i><span class="ntab" id="ntab-chat-'+chat_id+'">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span><span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>';
+    	var contentLi = '<li role="presentation" id="chat-tab-li-'+chat_id+'" class="nav-item"><a class="nav-link" href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">&#xf48a;</i><i id="user-chat-status-'+chat_id+'" class="'+this.tabIconClass+'">'+this.tabIconContent+'</i><span class="ntab" id="ntab-chat-'+chat_id+'">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span><span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">&#xf156;</span></a></li>';
     	
     	if (typeof position === 'undefined' || parseInt(position) == 0) {
     		tabs.find('> ul').append(contentLi);
@@ -2038,70 +2038,7 @@ function lh(){
 	};
 	
 	this.playSoundNewAction = function(identifier,chat_id,nick,message,nt) {
-		
-		/*if (this.backgroundChats.indexOf(parseInt(chat_id)) != -1) {
-			return ;
-		}
-		
-		if (confLH.new_chat_sound_enabled == 1 && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && (identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered')) {
-	    	this.soundPlayedTimes = 0;
-	        this.playNewChatAudio();
-	    };
-    
-	    if(!$("textarea[name=ChatMessage]").is(":focus") && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && (identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered')) {
-	    	this.startBlinking();
-    	};
 
-	    var inst = this;
-	    
-	    if ( (identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered') && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && window.Notification && window.Notification.permission == 'granted') {
-    		
-			var notification = new Notification(nick, { icon: WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png', body: message, requireInteraction : true });
-				  				
-			notification.onclick = function () {
-    	    	if (identifier == 'pending_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered') {
-    	    		if ($('#tabs').length > 0) {
-    	    			window.focus();
-    	    			inst.startChat(chat_id, $('#tabs'), nt);
-    	    		} else {
-    	    			inst.startChatNewWindow(chat_id,'ChatRequest');
-    	    		}
-    	    	} else {    	    		
-    	    		inst.startChatNewWindowTransferByTransfer(chat_id, nt);
-    	    	};
-    	        notification.close();
-    	    };
-    	   	    	        	    
-    	    if (identifier != 'pending_transfered') {
-    	    	if (this.notificationsArray[chat_id] !== 'undefined') {
-    	    		 notification.close();
-    	    	}
-    	    	
-    	    	this.notificationsArray[chat_id] = notification;	
-			};
-	    };
-
-        if (identifier == 'transfer_chat' && confLH.show_alert_transfer == 1) {
-            if (confirm(confLH.transLation.transfered + "\n\n" + message)) {
-                inst.startChatNewWindowTransferByTransfer(chat_id, nt);
-			}
-        }
-
-
-	    if (confLH.show_alert == 1) {	    	
-    		if (confirm(confLH.transLation.new_chat+"\n\n"+message)) {
-    			if (identifier == 'pending_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered') {
-    	    		if ($('#tabs').length > 0) {
-    	    			window.focus();
-    	    			inst.startChat(chat_id, $('#tabs'), nt);
-    	    		} else {
-    	    			inst.startChatNewWindow(chat_id,'ChatRequest');
-    	    		}
-    	    	} else {
-    	    		inst.startChatNewWindowTransferByTransfer(chat_id, nt);
-    	    	};
-    		};
-	    };*/
 	};
 		
 	this.syncadmininterfacestatic = function()
@@ -2698,37 +2635,7 @@ function lh(){
             this.syncadmincall();
         }
     };
-    
-    this.disableChatSoundAdmin = function(instLink)
-    {
-        var inst = instLink.find('i');
-    	if (inst.text() == 'volume_off'){
-    		$.get(this.wwwDir+  'user/setsettingajax/chat_message/1');
-    		confLH.new_message_sound_admin_enabled = 1;
-    		inst.text('volume_up');
-    	} else {
-    		$.get(this.wwwDir+  'user/setsettingajax/chat_message/0');
-    		confLH.new_message_sound_admin_enabled = 0;
-    		inst.text('volume_off');
-    	}
-    	return false;
-    };
 
-    this.disableNewChatSoundAdmin = function(instLink)
-    {
-        var inst = instLink.find('i');
-    	if (inst.text() == 'volume_off'){
-    		$.get(this.wwwDir+  'user/setsettingajax/new_chat_sound/1');
-    		confLH.new_chat_sound_enabled = 1;
-    		inst.text('volume_up');
-    	} else {
-    		$.get(this.wwwDir+  'user/setsettingajax/new_chat_sound/0');
-    		confLH.new_chat_sound_enabled = 0;
-    		inst.text('volume_off');
-    	}
-    	return false;
-    };
-    
     this.changeUserSettings = function(attr,value){
     	$.get(this.wwwDir+  'user/setsettingajax/'+attr+'/'+value);
     }; 
@@ -2771,18 +2678,20 @@ function lh(){
 
     this.disableChatSoundUser = function(inst)
     {
-    	if (inst.find('> i').text() == 'volume_off') {
+    	if (inst.attr('data-sound-enabled') == 'false') {
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/1');
     		confLH.new_message_sound_user_enabled = 1;
-    		inst.find('> i').text('volume_up');
+    		inst.find('> i').html('&#xf57e;');
+    		inst.attr('data-sound-enabled','true');
     	} else {
     		$.get(this.wwwDir+  'user/setsettingajax/chat_message/0');
     		confLH.new_message_sound_user_enabled = 0;
-    		inst.find('> i').text('volume_off');
+    		inst.find('> i').html('&#xf581;');
+            inst.attr('data-sound-enabled','false');
     	};
 
     	if (!!window.postMessage && parent) {
-    		if (inst.find('> i').text() == 'volume_off') {
+    		if (inst.attr('data-sound-enabled') == 'false') {
     			parent.postMessage("lhc_ch:s:0", '*');
     		} else {
     			parent.postMessage("lhc_ch:s:1", '*');

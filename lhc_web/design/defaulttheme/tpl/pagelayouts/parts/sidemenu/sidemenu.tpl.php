@@ -8,8 +8,8 @@
             <div class="row border-bottom">
 
             <div class="col-12 col-md-6 quick-options-toggler">
-                <button class="btn btn-outline-light mr-auto" type="button" ng-click="lhc.toggleList('lmtoggle')" title="Expand or collapse left menu" aria-expanded="true" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="btn mr-auto" type="button" ng-click="lhc.toggleList('lmtoggle')" title="Expand or collapse left menu" aria-expanded="true" aria-label="Toggle navigation">
+                    <i class="material-icons">&#xf1d8;</i>
                 </button>
             </div>
 
@@ -57,7 +57,7 @@
 
                 <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','use') == true && (!isset($Result['hide_right_column']) || $Result['hide_right_column'] == false)) :?>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" ng-click="lhc.toggleList('lmtoggler')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Expand or collapse right menu')?>"><i class="material-icons">menu</i><span class="nav-link-text">Hide show right column</span></a>
+                    <a class="nav-link" href="#" ng-click="lhc.toggleList('lmtoggler')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Expand or collapse right menu')?>"><i class="material-icons">&#xf1d9;</i><span class="nav-link-text">Hide show right column</span></a>
                 </li>
                 <?php endif; ?>
             </ul>

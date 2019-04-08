@@ -155,6 +155,20 @@ services.factory('LiveHelperChatFactory', ['$http', '$q', function ($http, $q) {
         return deferred.promise;
     };
 
+    this.setSettingAjax = function (attr, val) {
+        var deferred = $q.defer();
+        $http.get(WWW_DIR_JAVASCRIPT + 'user/setsettingajax/' + attr + '/' + val).then(function (data) {
+            if (typeof data.error_url !== 'undefined') {
+                document.location = data.data.error_url;
+            } else {
+                deferred.resolve(data.data);
+            }
+        }, function () {
+            deferred.reject('error');
+        });
+        return deferred.promise;
+    };
+
     return this;
 }]);
 
@@ -341,6 +355,14 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
             }
         }, function (error) {
             alert('We could not change your status!');
+        });
+    };
+
+    this.setSettingAjax = function (attr, val, attrObj) {
+        LiveHelperChatFactory.setSettingAjax(attr,val).then(function (data) {
+            _that[attrObj] = val;
+        }, function (error) {
+            alert('We could not change your sound settings!');
         });
     };
 
@@ -909,16 +931,16 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
             return;
         }
 
-        if (confLH.new_chat_sound_enabled == 1 && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && (identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered')) {
+        if (_that.n_chat_snd == 1 && (confLH.sn_off == 1 || _that.hideOnline == false) && (identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered')) {
             this.soundPlayedTimes = 0;
             this.playNewChatAudio();
         }
 
-        if (!$("textarea[name=ChatMessage]").is(":focus") && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && (identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered')) {
+        if (!$("textarea[name=ChatMessage]").is(":focus") && (confLH.sn_off == 1 || _that.hideOnline == false) && (identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered')) {
             this.startBlinking();
         }
 
-        if ((identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered') && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && window.Notification && window.Notification.permission == 'granted') {
+        if ((identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered') && (confLH.sn_off == 1 || _that.hideOnline == false) && window.Notification && window.Notification.permission == 'granted') {
 
             var notification = new Notification(nick, {
                 icon: WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png',
@@ -1399,6 +1421,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
             _that.hideOnline = data.ho;
             _that.lhcVersion = data.v;
             _that.additionalColumns = data.col;
+            _that.n_chat_snd = data.n_chat_snd;
+            _that.n_msg_snd = data.n_msg_snd;
 
             angular.forEach(_that.widgetsItems, function (listId) {
                 _that.setDepartmentNames(listId);
@@ -1938,7 +1962,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
                                     ee.emitEvent('eventSyncAdmin', [item, i]);
                                 });
 
-                                if (confLH.new_message_sound_admin_enabled == 1 && data.uw == 'false' && playSound == true) {
+                                if (_that.n_msg_snd == 1 && data.uw == 'false' && playSound == true) {
                                     _that.playNewMessageSound();
                                 }
                             }

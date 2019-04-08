@@ -137,7 +137,15 @@ foreach ($columns as $column) {
     $columnsAdd[$column->column_identifier]['oenabl'] = $column->online_enabled == 1;
 }
 
-$response = array('col' => array_values($columnsAdd), 'v' => erLhcoreClassUpdate::LHC_RELEASE, 'ho' => $userData->hide_online == 1, 'im' => $userData->invisible_mode == 1, 'user_list' => array_values($userList), 'user_groups' => array_values(erLhcoreClassModelGroup::getList(array('sort' => 'name ASC', 'filter' => array('disabled' => 0)))), 'track_activity' => $trackActivity, 'cdel' => $chatDel, 'copen' => $chatOpen, 'timeout_activity' => $activityTimeout, 'pr_names' => $productsNames, 'dp_groups' => $depGroupsList, 'dp_names' => $departmentNames, 'dep_list' => $departmentList);
+$soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data;
+
+$soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',(int)($soundData['new_message_sound_admin_enabled']));
+$soundNewChatEnabled = erLhcoreClassModelUserSetting::getSetting('new_chat_sound',(int)($soundData['new_chat_sound_enabled']));
+
+$response = array(
+    'n_msg_snd' => $soundMessageEnabled,
+    'n_chat_snd' => $soundNewChatEnabled,
+    'col' => array_values($columnsAdd), 'v' => erLhcoreClassUpdate::LHC_RELEASE, 'ho' => $userData->hide_online == 1, 'im' => $userData->invisible_mode == 1, 'user_list' => array_values($userList), 'user_groups' => array_values(erLhcoreClassModelGroup::getList(array('sort' => 'name ASC', 'filter' => array('disabled' => 0)))), 'track_activity' => $trackActivity, 'cdel' => $chatDel, 'copen' => $chatOpen, 'timeout_activity' => $activityTimeout, 'pr_names' => $productsNames, 'dp_groups' => $depGroupsList, 'dp_names' => $departmentNames, 'dep_list' => $departmentList);
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.loadinitialdata',array('lists' => & $response));
 

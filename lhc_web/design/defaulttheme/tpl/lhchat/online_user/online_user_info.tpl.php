@@ -17,7 +17,7 @@
         <?php if (isset($addItem['key'])) : ?>
             <li<?php if (isset($addItem['identifier'])): ?> title="<?php echo htmlspecialchars($addItem['identifier'])?>"<?php endif;?>><?php echo htmlspecialchars($addItem['key'])?> - <?php echo htmlspecialchars($addItem['value'])?>
                 <?php if (isset($addItem['h']) && $addItem['h'] == true) : ?>&nbsp;<i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Hidden field')?>">visibility_off</i><?php endif;?>
-                <?php if (isset($addItem['url']) && $addItem['url'] == true) : ?>&nbsp;<i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Identifier')?> - <?php echo htmlspecialchars($addItem['identifier'])?>">link</i><?php endif;?>
+                <?php if (isset($addItem['url']) && $addItem['url'] == true) : ?>&nbsp;<i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Identifier')?> - <?php echo htmlspecialchars($addItem['identifier'])?>">&#xf337;</i><?php endif;?>
             </li>
         <?php else : ?>
         <li>
@@ -59,5 +59,5 @@
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Total time on site');?> - <?php echo $online_user->tt_time_on_site_front?></li>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Current page');?> - <a target="_blank" rel="noopener" href="<?php echo htmlspecialchars($online_user->current_page)?>" title="<?php echo htmlspecialchars($online_user->current_page)?>"><?php echo erLhcoreClassDesign::shrt($online_user->current_page,100,100);?></a></li>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Came from');?> - <a target="_blank" rel="noopener" href="<?php echo htmlspecialchars($online_user->referrer)?>"><?php echo htmlspecialchars($online_user->referrer)?></a></li>
-    <li class="fs11"><i class="material-icons">language</i><?php echo htmlspecialchars($online_user->user_agent)?></li>
+    <li class="fs11"><i class="material-icons">&#xf5ca;</i><?php echo htmlspecialchars($online_user->user_agent)?></li>
 </ul>

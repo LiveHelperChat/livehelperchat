@@ -1,1 +1,1 @@
-<a class="material-icons" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT +'chat/copymessages/<?php echo $chat->id?>'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Copy messages to clipboard')?>">&#xE14D;</a>
+<a class="material-icons" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT +'chat/copymessages/<?php echo $chat->id?>'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Copy messages to clipboard')?>">&#xf18f;</a>

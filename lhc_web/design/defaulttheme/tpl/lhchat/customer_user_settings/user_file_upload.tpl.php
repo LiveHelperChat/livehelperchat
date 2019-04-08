@@ -4,7 +4,7 @@
 
 <?php $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data ?>
 <?php if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] == true) : ?>
-<a class="dropdown-item file-uploader text-dark" href="#"><i class="material-icons">attach_file</i>
+<a class="dropdown-item file-uploader text-dark" href="#"><i class="material-icons">&#xf066;</i>
         <!-- The file input field used as target for the file upload widget -->
         <input id="fileupload" type="file" name="files[]" multiple>
 </a>

@@ -9,7 +9,7 @@
         <li class="dropdown-item fs12"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/chattabs')?>"><i class="material-icons">&#xf293;</i>Fullscreen window</a></li>
         <?php endif; ?>
 
-        <li class="dropdown-item fs12"><a href="#" class="nav-item" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT +'chat/dashboardwidgets'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Configure dashboard')?>"><i class="material-icons">&#xE871;</i>Dashboard configuration</a></li>
+        <li class="dropdown-item fs12"><a href="#" class="nav-item" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT +'chat/dashboardwidgets'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Configure dashboard')?>"><i class="material-icons">&#xfa06;</i>Dashboard configuration</a></li>
 
         <?php if (isset($showChatsLists) && $showChatsLists == true) : ?>
             <li class="dropdown-divider"></li>
@@ -35,11 +35,6 @@
         <li class="dropdown-divider"></li>
         <?php
 
-        $soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data;
-
-        $soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',(int)($soundData['new_message_sound_admin_enabled']));
-        $soundNewChatEnabled = erLhcoreClassModelUserSetting::getSetting('new_chat_sound',(int)($soundData['new_chat_sound_enabled']));
-
         $canChangeOnlineStatus = false;
         $currentUser = erLhcoreClassUser::instance();
         if ( $currentUser->hasAccessTo('lhuser','changeonlinestatus') ) {
@@ -60,16 +55,15 @@
 
         <?php if ($currentUser->hasAccessTo('lhchat','use') ) : ?>
 
-            <li class="dropdown-item"><a href="#" onclick="return lhinst.disableChatSoundAdmin($(this))"><i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new messages from users');?>"><?php $soundMessageEnabled == 0 ? print 'volume_off' : print 'volume_up'?></i>New messages</a></li>
-
-            <li class="dropdown-item"><a href="#" onclick="return lhinst.disableNewChatSoundAdmin($(this))"><i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new pending chats');?>"><?php $soundNewChatEnabled == 0 ? print 'volume_off' : print 'volume_up'?></i>New chats</a></li>
+            <li class="dropdown-item"><a href="#" ng-click="lhc.setSettingAjax('chat_message',lhc.n_msg_snd == 1 ? 0 : 1,'n_msg_snd')"><i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new messages from users');?>">{{lhc.n_msg_snd == true ? '&#xf57e;' : '&#xf581;'}}</i><span class="nav-link-text">New messages</span></a></li>
+            <li class="dropdown-item"><a href="#" ng-click="lhc.setSettingAjax('new_chat_sound',lhc.n_chat_snd == 1 ? 0 : 1,'n_chat_snd')"><i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new pending chats');?>">{{lhc.n_chat_snd == true ? '&#xf57e;' : '&#xf581;'}}</i><span class="nav-link-text">New chats</span></a></li>
 
             <?php if ($canChangeVisibilityMode == true) : ?>
-                <li class="dropdown-item"><a href="#" ng-click="lhc.changeVisibility()"><i id="vi-in-user" class="material-icons ng-cloak" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my visibility to visible/invisible');?>" >{{lhc.hideInvisible == true ? 'visibility_off' : 'visibility'}}</i>Visible/Invisible</a></li>
+                <li class="dropdown-item"><a href="#" ng-click="lhc.changeVisibility()"><i id="vi-in-user" class="material-icons ng-cloak" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my visibility to visible/invisible');?>" >{{lhc.hideInvisible == true ? '&#xf209' : '&#xf208'}}</i>Visible/Invisible</a></li>
             <?php endif;?>
 
             <?php if ($canChangeOnlineStatus == true) : ?>
-                <li class="dropdown-item"><a href="#" ng-click="lhc.changeOnline()"><i id="online-offline-user" class="material-icons ng-cloak" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my status to online/offline');?>" >{{lhc.hideOnline == true ? 'flash_off' : 'flash_on'}}</i>Online/Offline</a></li>
+                <li class="dropdown-item"><a href="#" ng-click="lhc.changeOnline()"><i id="online-offline-user" class="material-icons ng-cloak" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my status to online/offline');?>" >{{lhc.hideOnline == true ? '&#xf243' : '&#xf241'}}</i>Online/Offline</a></li>
             <?php endif;?>
 
         <?php endif;?>

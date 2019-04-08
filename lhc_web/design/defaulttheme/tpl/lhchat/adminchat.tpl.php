@@ -39,7 +39,7 @@
             <div class="col-2 d-block d-md-none pl-0">
 
                 <a onclick="return lhinst.addmsgadmin(<?php echo $chat->id?>)" title="Send" class="d-block text-center">
-                    <i class="material-icons">send</i>
+                    <i class="material-icons">&#xf48a;</i>
                 </a>
 
                 <nav class="navbar navbar-light bg-white p-0">

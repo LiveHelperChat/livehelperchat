@@ -97,7 +97,7 @@
 		<input type="submit"  name="doSearch" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
 		
 		<?php if ($pages->items_total > 0) : ?>
-		<a target="_blank" class="btn btn-secondary" href="<?php echo $pages->serverURL?>/(print)/1"><i class="material-icons">print</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Print');?></a>
+		<a target="_blank" class="btn btn-secondary" href="<?php echo $pages->serverURL?>/(print)/1"><i class="material-icons">&#xf42a;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Print');?></a>
 		
 		<?php if ($input->group_results == true) : ?>
             <a target="_blank" class="btn btn-secondary" href="<?php echo $pages->serverURL?>/(xls)/1"><i class="material-icons">&#xE2C4;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS');?></a>
