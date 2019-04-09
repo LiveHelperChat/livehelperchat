@@ -59,7 +59,9 @@
 			<li role="presentation"><a href="#miscellaneous" aria-controls="miscellaneous" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Miscellaneous');?></a></li>
 
             <li role="presentation"><a href="#genericbot" aria-controls="genericbot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Bot configuration');?></a></li>
-       
+
+            <li role="presentation"><a href="#survey" aria-controls="survey" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Survey');?></a></li>
+
 			<?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/tab_multiinclude.tpl.php'));?>
 		</ul>
 		
@@ -345,6 +347,10 @@
 
 			<div role="tabpanel" class="tab-pane" id="genericbot">
                 <?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/bot_configuration.tpl.php'));?>
+		    </div>
+
+			<div role="tabpanel" class="tab-pane" id="survey">
+                <?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/survey_configuration.tpl.php'));?>
 		    </div>
 
 			<div role="tabpanel" class="tab-pane" id="miscellaneous">

@@ -145,7 +145,10 @@ class erLhcoreClassDepartament{
                 ),
                 'bot_only_offline' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-                )
+                ),
+                'survey_id' => new ezcInputFormDefinitionElement(
+                    ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+                ),
 	   	);
 
         foreach (self::getWeekDays() as $dayShort => $dayLong) {
@@ -462,6 +465,13 @@ class erLhcoreClassDepartament{
            $botConfiguration['bot_id'] = $form->bot_id;
        } else {
            $botConfiguration['bot_id'] = 0;
+       }
+       
+       if ( $form->hasValidData( 'survey_id' ) )
+       {
+           $botConfiguration['survey_id'] = $form->survey_id;
+       } else {
+           $botConfiguration['survey_id'] = 0;
        }
 
        if ( $form->hasValidData( 'bot_only_offline' ) ) {
