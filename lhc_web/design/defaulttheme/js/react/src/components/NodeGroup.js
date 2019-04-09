@@ -106,7 +106,7 @@ class NodeGroup extends Component {
                         <div className="col-12">
                             <ul className="gbot-trglist">
                                 {mappedNodeGroupTriggers}
-                                <li><button className="btn btn-sm btn-secondary" onClick={this.addTrigger.bind(this)} ><i className="material-icons mr-0">add</i></button></li>
+                                <li><button className="btn btn-sm btn-secondary" onClick={this.addTrigger.bind(this)} ><i className="material-icons mr-0">&#xf415;</i></button></li>
                             </ul>
                         </div>
                     </div>

@@ -145,7 +145,7 @@ class NodeTriggerActionText extends Component {
 
                     <div className="form-group">
                         <label>Enter text</label>
-                        <a title="Add answer variation" className="float-right" onClick={this.addAnswerVariation}><i className="material-icons mr-0">question_answer</i></a>
+                        <a title="Add answer variation" className="float-right" onClick={this.addAnswerVariation}><i className="material-icons mr-0">&#xf183;</i></a>
                         <textarea rows="3" placeholder="Write your response here!" onChange={this.setText} ref={this.textMessageRef} defaultValue={this.props.action.getIn(['content','text'])} className="form-control form-control-sm"></textarea>
                     </div>
 
@@ -157,16 +157,16 @@ class NodeTriggerActionText extends Component {
                     <div className="row">
                         <div className="col-6">
                             <div role="group">
-                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','hide_text_area'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','hide_text_area'])} /> Hide text area on response.</label> <i className="material-icons" title="Textarea to enter user message will be disabled. Make sure you include buttons for user to click.">info</i>
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','hide_text_area'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','hide_text_area'])} /> Hide text area on response.</label> <i className="material-icons" title="Textarea to enter user message will be disabled. Make sure you include buttons for user to click.">&#xf2fd;</i>
                             </div>
                             <div role="group">
-                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','on_start_chat'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','on_start_chat'])} /> Send message only at chat start.</label> <i className="material-icons" title="Message will be send only on chat start event.">info</i>
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','on_start_chat'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','on_start_chat'])} /> Send message only at chat start.</label> <i className="material-icons" title="Message will be send only on chat start event.">&#xf2fd;</i>
                             </div>
                         </div>
                         <div className="col-6 text-right">
                             <div className="btn-group" role="group">
-                                <button onClick={this.addAction} className="btn btn-xs btn-secondary"><i className="material-icons mr-0">add</i> Add action on message</button>
-                                <button onClick={this.addQuickReply} className="btn btn-xs btn-secondary"><i className="material-icons mr-0">add</i> Add quick reply</button>
+                                <button onClick={this.addAction} className="btn btn-xs btn-secondary"><i className="material-icons mr-0">&#xf415;</i> Add action on message</button>
+                                <button onClick={this.addQuickReply} className="btn btn-xs btn-secondary"><i className="material-icons mr-0">&#xf415;</i> Add quick reply</button>
                             </div>
                         </div>
                     </div>

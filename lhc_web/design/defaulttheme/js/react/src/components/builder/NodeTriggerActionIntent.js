@@ -72,7 +72,7 @@ class NodeTriggerActionIntent extends Component {
                 <div className="row">
                     <div className="col-12">
                         <div className="btn-group float-right" role="group">
-                            <button onClick={this.addIntent} className="btn btn-sm btn-secondary"><i className="material-icons mr-0">add</i> Add intent detection</button>
+                            <button onClick={this.addIntent} className="btn btn-sm btn-secondary"><i className="material-icons mr-0">&#xf415;</i> Add intent detection</button>
                         </div>
                     </div>
                 </div>

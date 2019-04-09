@@ -119,7 +119,7 @@ class NodeTriggerActionList extends Component {
                     <div className="float-right">
                           <label><input type="checkbox" onChange={(e) => this.onChangeMainAttr('no_highlight',e.target.checked)} defaultChecked={this.props.action.getIn(['content','list_options','no_highlight'])} /> No Highlight Top Element</label>
                     </div>
-                          <label><input type="checkbox" onChange={(e) => this.onChangeMainAttr('hide_text_area',e.target.checked)} defaultChecked={this.props.action.getIn(['content','list_options','hide_text_area'])} /> Hide text area on response.</label> <i className="material-icons" title="Textarea to enter user message will be disabled. Make sure you include buttons for user to click.">info</i>
+                          <label><input type="checkbox" onChange={(e) => this.onChangeMainAttr('hide_text_area',e.target.checked)} defaultChecked={this.props.action.getIn(['content','list_options','hide_text_area'])} /> Hide text area on response.</label> <i className="material-icons" title="Textarea to enter user message will be disabled. Make sure you include buttons for user to click.">&#xf2fd;</i>
 
                     </div>
                 </div>
