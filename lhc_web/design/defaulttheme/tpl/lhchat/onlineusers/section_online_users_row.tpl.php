@@ -18,17 +18,17 @@
     				<li>{{ou.notes_intro}}
     				<li><i class="material-icons">&#xf150;</i>{{ou.first_visit_front}} - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','first visit');?>
     				<li><i class="material-icons">&#xf150;</i>{{ou.last_visit_front}} - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','last visit');?>
-                    <li><i class="material-icons">&#xE8A0;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Pageviews');?> - {{ou.pages_count}} {{ou.identifier != '' ? ' Identifier - '+ou.identifier : ''}} | <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Last activity');?> {{ou.lastactivity_ago}} <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','ago');?> | <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Time on site');?> <span class="fs-11">{{ou.time_on_site_front}}</span>
-                    <li><i class="material-icons">&#xE1B1;</i>{{ou.user_agent}} | IP: {{ou.ip}}
+                    <li><i class="material-icons">&#xf59f;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Pageviews');?> - {{ou.pages_count}} {{ou.identifier != '' ? ' Identifier - '+ou.identifier : ''}} | <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Last activity');?> {{ou.lastactivity_ago}} <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','ago');?> | <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Time on site');?> <span class="fs-11">{{ou.time_on_site_front}}</span>
+                    <li><i class="material-icons">&#xf4f6;</i>{{ou.user_agent}} | IP: {{ou.ip}}
     			</ul>
     		</div>
         	
         	<div class="abbr-list" ng-if="ou.page_title || ou.current_page">
-				<i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page');?>">&#xE8A0;</i><a target="_blank" href="{{ou.current_page}}" title="{{ou.current_page}}">{{ou.page_title || ou.current_page}}</a>
+				<i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page');?>">&#xf59f;</i><a target="_blank" href="{{ou.current_page}}" title="{{ou.current_page}}">{{ou.page_title || ou.current_page}}</a>
 			</div>
 			
 			<div class="abbr-list" ng-if="ou.referrer">
-				<i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','From');?>">&#xE8A0;</i><a target="_blank" href="http:{{ou.referrer}}" title="{{ou.referrer}}">{{ou.referrer}}</a>
+				<i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','From');?>">&#xf70e;</i><a target="_blank" href="http:{{ou.referrer}}" title="{{ou.referrer}}">{{ou.referrer}}</a>
 			</div>
 				
         	</td>

@@ -13,7 +13,7 @@
     <?php foreach ($items as $item) : ?>
         <tr>
             <td>
-                <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Download')?>" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/downloadbot')?>/<?php echo $item->id?>"><i class="material-icons">cloud_download</i></a>
+                <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Download')?>" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/downloadbot')?>/<?php echo $item->id?>"><i class="material-icons">&#xf162;</i></a>
                 <a title="<?php echo $item->id?>" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/bot')?>/<?php echo $item->id?>"><?php echo htmlspecialchars($item->name)?></a>
             </td>
             <td><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/edit')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Edit');?></a></td>

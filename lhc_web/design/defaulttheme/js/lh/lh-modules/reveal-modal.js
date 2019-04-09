@@ -95,7 +95,7 @@ var revealM = {
 				var header = '';
 				var prependeBody = '';
 				if (typeof params['hideheader'] === 'undefined') {
-					header = '<div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="material-icons">info</span>'+(typeof params['title'] === 'undefined' ? '' : params['title'])+'</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+					header = '<div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="material-icons">&#xf2fd;</span>'+(typeof params['title'] === 'undefined' ? '' : params['title'])+'</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
 				} else {
 					prependeBody = (typeof params['title'] === 'undefined' ? '' : '<b>'+params['title']+'</b>') + '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
 				}

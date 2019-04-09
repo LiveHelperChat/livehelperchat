@@ -58,6 +58,6 @@
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Time on site');?> - <?php echo $online_user->time_on_site_front?></li>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Total time on site');?> - <?php echo $online_user->tt_time_on_site_front?></li>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Current page');?> - <a target="_blank" rel="noopener" href="<?php echo htmlspecialchars($online_user->current_page)?>" title="<?php echo htmlspecialchars($online_user->current_page)?>"><?php echo erLhcoreClassDesign::shrt($online_user->current_page,100,100);?></a></li>
-    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Came from');?> - <a target="_blank" rel="noopener" href="<?php echo htmlspecialchars($online_user->referrer)?>"><?php echo htmlspecialchars($online_user->referrer)?></a></li>
+    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Came from');?> - <a target="_blank" rel="noopener" href="<?php echo htmlspecialchars($online_user->referrer)?>"><?php echo htmlspecialchars(erLhcoreClassDesign::shrt($online_user->referrer,100,100))?></a></li>
     <li class="fs11"><i class="material-icons">&#xf5ca;</i><?php echo htmlspecialchars($online_user->user_agent)?></li>
 </ul>

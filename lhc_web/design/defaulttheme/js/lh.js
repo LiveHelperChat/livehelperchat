@@ -231,7 +231,7 @@ function lh(){
                 html:true,
                 container:'#chat-content-'+e.data.chat_id,
                 template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>',
-                content:'<a href="#" onclick="lhinst.quateSelection('+e.data.chat_id+')"><i class="material-icons">&#xE244;</i>quote</a>'
+                content:'<a href="#" onclick="lhinst.quateSelection('+e.data.chat_id+')"><i class="material-icons">&#xf27e;</i>quote</a>'
             }
 
             ee.emitEvent('quoteAction', [quoteParams,e.data.chat_id]);
