@@ -50,13 +50,18 @@ try {
 
     if ($chat->hash == $Params['user_parameters']['hash'])
     {
+        $survey = is_numeric($Params['user_parameters_unordered']['survey']) ? (int)$Params['user_parameters_unordered']['survey'] : false;
         $tpl->set('chat_id',$Params['user_parameters']['chat_id']);
         $tpl->set('hash',$Params['user_parameters']['hash']);
         $tpl->set('chat',$chat);
         $tpl->set('chat_widget_mode',true);
         $tpl->set('chat_embed_mode',$embedMode);
-        $tpl->set('survey',is_numeric($Params['user_parameters_unordered']['survey']) ? (int)$Params['user_parameters_unordered']['survey'] : false);
-                
+        $tpl->set('survey',$survey);
+
+        if ($survey > 0) {
+            $Result['parent_messages'][] = 'lhc_chat_survey:' . $survey;
+        }
+
         $Result['chat'] = $chat;
 
         // If survey send parent message instantly

@@ -1451,9 +1451,11 @@ function lh(){
 	{
 		this.explicitClose = true;
 		
-		if (this.isWidgetMode && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {		   			 
+		if (this.isWidgetMode && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {
+		     console.log('main');
 	 		 parent.postMessage('lhc_chat_closed_explicit', '*');
-		} else {			
+		} else {
+            console.log('subdmoe');
 			if (this.chatClosed() == false) {
 				window.close();
 			}
