@@ -466,12 +466,14 @@ class erLhcoreClassDepartament{
        } else {
            $botConfiguration['bot_id'] = 0;
        }
-       
-       if ( $form->hasValidData( 'survey_id' ) )
-       {
-           $botConfiguration['survey_id'] = $form->survey_id;
-       } else {
-           $botConfiguration['survey_id'] = 0;
+
+       if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment', 'managesurvey')) {
+           if ( $form->hasValidData( 'survey_id' ) )
+           {
+               $botConfiguration['survey_id'] = $form->survey_id;
+           } else {
+               $botConfiguration['survey_id'] = 0;
+           }
        }
 
        if ( $form->hasValidData( 'bot_only_offline' ) ) {

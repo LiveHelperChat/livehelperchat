@@ -32,8 +32,11 @@ var lh_inst_page  = {
             s.setAttribute('type','text/javascript');
             s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidgetclosed')?>/(eclose)/t'+this.getAppendCookieArguments());
             th.appendChild(s);
-            this.removeCookieAttr('hash');
-            this.showStartWindow();
+            s.onreadystatechange = s.onload = function(){
+                lh_inst_page.removeCookieAttr('hash');
+                lh_inst_page.showStartWindow();
+                lh_inst_page.surveyShown = false;
+            };
         } else {
             this.showSurvey();
         }
