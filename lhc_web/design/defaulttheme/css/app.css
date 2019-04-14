@@ -94,7 +94,11 @@ a.link {
 }
 
 #widget-layout textarea{
-	height:30px;
+	height:50px;
+}
+
+#widget-layout.has-chat textarea{
+    height:30px;
 }
 
 h1 {
