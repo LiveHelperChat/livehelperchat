@@ -59,7 +59,11 @@
 			<li role="presentation" class="nav-item"><a class="nav-link" href="#miscellaneous" aria-controls="miscellaneous" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Miscellaneous');?></a></li>
 
             <li role="presentation" class="nav-item"><a class="nav-link" href="#genericbot" aria-controls="genericbot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Bot configuration');?></a></li>
-       
+
+            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','managesurvey')) : ?>
+            <li role="presentation"><a href="#survey" aria-controls="survey" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Survey');?></a></li>
+            <?php endif; ?>
+
 			<?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/tab_multiinclude.tpl.php'));?>
 		</ul>
 		
@@ -356,6 +360,12 @@
 			<div role="tabpanel" class="tab-pane" id="genericbot">
                 <?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/bot_configuration.tpl.php'));?>
 		    </div>
+
+            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','managesurvey')) : ?>
+			<div role="tabpanel" class="tab-pane" id="survey">
+                <?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/survey_configuration.tpl.php'));?>
+		    </div>
+            <?php endif; ?>
 
 			<div role="tabpanel" class="tab-pane" id="miscellaneous">
 			   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.');?></label>

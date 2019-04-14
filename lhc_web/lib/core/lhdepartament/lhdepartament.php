@@ -154,8 +154,11 @@ class erLhcoreClassDepartament{
                 ),
                 'auto_delay_var' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                ),
+                'survey_id' => new ezcInputFormDefinitionElement(
+                    ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
                 )
-	   	);
+        );
 
         foreach (self::getWeekDays() as $dayShort => $dayLong) {
             $definition[$dayShort] = new ezcInputFormDefinitionElement(
@@ -473,9 +476,18 @@ class erLhcoreClassDepartament{
            $botConfiguration['bot_id'] = 0;
        }
 
+
        if ( $form->hasValidData( 'bot_tr_id' ) )
        {
            $botConfiguration['bot_tr_id'] = $form->bot_tr_id;
+       }
+
+       if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment', 'managesurvey')) {
+           if ($form->hasValidData('survey_id')) {
+               $botConfiguration['survey_id'] = $form->survey_id;
+           } else {
+               $botConfiguration['survey_id'] = 0;
+           }
        }
 
        if ( $form->hasValidData( 'bot_only_offline' ) ) {

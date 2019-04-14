@@ -7,13 +7,16 @@ $embedMode = false;
 $fullHeight = (isset($Params['user_parameters_unordered']['fullheight']) && $Params['user_parameters_unordered']['fullheight'] == 'true') ? true : false;
 
 $modeAppend = '';
+$modeAppendDisplay = '';
 if ((string)$Params['user_parameters_unordered']['mode'] == 'embed') {
 	$embedMode = true;
 	$modeAppend = '/(mode)/embed';
+    $modeAppendDisplay = '/(embedmode)/embed';
 }
 
 if (is_array($Params['user_parameters_unordered']['ua']) && !empty($Params['user_parameters_unordered']['ua'])) {
     $modeAppend .= '/(ua)/'.implode('/', $Params['user_parameters_unordered']['ua']);
+    $modeAppendDisplay .= '/(ua)/'.implode('/', $Params['user_parameters_unordered']['ua']);
 }
 
 $theme = false;
@@ -77,19 +80,20 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '' && (!isset($paidC
     		    	
     			// Reopen chat automatically if possible
     			if ( erLhcoreClassModelChatConfig::fetch('automatically_reopen_chat')->current_value == 1 && erLhcoreClassModelChatConfig::fetch('reopen_chat_enabled')->current_value == 1 && erLhcoreClassModelChatConfig::fetch('allow_reopen_closed')->current_value == 1 && erLhcoreClassChat::canReopen($chat) !== false ) {
-    				
     				$sound = is_numeric($Params['user_parameters_unordered']['sound']) ? '/(sound)/'.$Params['user_parameters_unordered']['sound'] : '';
-    				erLhcoreClassModule::redirect('chat/reopen','/' .$chatID . '/' . $hash . '/(mode)/widget' . $modeAppend . $modeAppendTheme . $sound );
+    				erLhcoreClassModule::redirect('chat/reopen','/' .$chatID . '/' . $hash . '/(mode)/widget' . $modeAppendDisplay . $modeAppendTheme . $sound );
     				exit;
     			}
     		} 
     		
     		if (isset($Params['user_parameters_unordered']['survey']) && is_numeric($Params['user_parameters_unordered']['survey'])){
     		    $modeAppendTheme .= '/(survey)/' . $Params['user_parameters_unordered']['survey'];
-    		}
+            } else if (isset($chat->department->bot_configuration_array['survey_id']) && $chat->department->bot_configuration_array['survey_id'] > 0) {
+                $modeAppendTheme .= '/(survey)/' . $chat->department->bot_configuration_array['survey_id'];
+            };
 
             erLhcoreClassChatValidator::updateAdditionalVariables($chat);
-						
+
     		// Rerun module
     		$Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat') . '/' . $chatID . '/' . $hash . $modeAppend . $modeAppendTheme . $sound);
     		return true;
@@ -245,8 +249,8 @@ if ((string)$Params['user_parameters_unordered']['vid'] != '') {
 
 // Reopen chat automatically if possible
 if ( erLhcoreClassModelChatConfig::fetch('automatically_reopen_chat')->current_value == 1 && erLhcoreClassModelChatConfig::fetch('reopen_chat_enabled')->current_value == 1 && ($reopenData = erLhcoreClassChat::canReopenDirectly(array('reopen_closed' => erLhcoreClassModelChatConfig::fetch('allow_reopen_closed')->current_value))) !== false ) {
-	$sound = is_numeric($Params['user_parameters_unordered']['sound']) ? '/(sound)/'.$Params['user_parameters_unordered']['sound'] : '';
-	erLhcoreClassModule::redirect('chat/reopen','/' . $reopenData['id'] . '/' . $reopenData['hash'] . '/(mode)/widget' . $modeAppend . $modeAppendTheme . $sound );
+    $sound = is_numeric($Params['user_parameters_unordered']['sound']) ? '/(sound)/'.$Params['user_parameters_unordered']['sound'] : '';
+    erLhcoreClassModule::redirect('chat/reopen','/' . $reopenData['id'] . '/' . $reopenData['hash'] . '/(mode)/widget' . $modeAppendDisplay . $modeAppendTheme . $sound );
 	exit;
 }
 
@@ -471,6 +475,10 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	          throw $e;
 	       }
 
+            if ((!isset($Params['user_parameters_unordered']['survey']) || !is_numeric($Params['user_parameters_unordered']['survey'])) && isset($chat->department->bot_configuration_array['survey_id']) && $chat->department->bot_configuration_array['survey_id'] > 0) {
+                $modeAppendTheme .= '/(survey)/' . $chat->department->bot_configuration_array['survey_id'];
+            };
+	       
            if ($Params['user_parameters_unordered']['ajaxmode'] == 'true') {
                header ( 'content-type: application/json; charset=utf-8' );
                echo json_encode(array('location' => erLhcoreClassDesign::baseurl('chat/chatwidgetchat') . '/' . $chat->id . '/' . $chat->hash . $modeAppend . $modeAppendTheme . '/(cstarted)/online_chat_started_cb'));
