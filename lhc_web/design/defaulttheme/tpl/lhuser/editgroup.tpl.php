@@ -16,17 +16,21 @@
 
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Member of this group can work with the following groups');?></label>
-            <select multiple="multiple" size="5" class="form-control" name="MemberGroup[]">
-                <?php 
-                
+            <select multiple="multiple" size="10" class="form-control form-control-sm" name="MemberGroup[]">
+                <?php
                 $assignedGrupsIds = array();
                 foreach ($group_work as $groupId) {
                     $assignedGrupsIds[] = $groupId->group_work_id;
                 }
-                
-                foreach (erLhcoreClassModelGroup::getList() as $groupMember) : ?>
-                    <option value="<?php echo $groupMember->id?>"<?php in_array($groupMember->id, $assignedGrupsIds) ? print ' selected="selected" ' : ''?>><?php echo htmlspecialchars($groupMember->name)?></option>
-                <?php endforeach; ?>
+                ?>
+                <optgroup label="Other options">
+                    <option value="-1" <?php in_array(-1, $assignedGrupsIds) ? print ' selected="selected" ' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Direct members of this group cannot assign this group to other operators.');?></option>
+                </optgroup>
+                <optgroup label="Groups">
+                    <?php foreach (erLhcoreClassModelGroup::getList() as $groupMember) : ?>
+                        <option value="<?php echo $groupMember->id?>"<?php in_array($groupMember->id, $assignedGrupsIds) ? print ' selected="selected" ' : ''?>><?php echo htmlspecialchars($groupMember->name)?></option>
+                    <?php endforeach; ?>
+                </optgroup>
             </select>
         </div>
         
