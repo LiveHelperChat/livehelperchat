@@ -1,0 +1,1 @@
+<a href="#" onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/bbcodeinsert') ?>'})" title="BB Code"><i class="material-icons chat-setting-item text-muted">&#xf1f5;</i></a>

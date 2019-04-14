@@ -15,6 +15,11 @@ $can_edit_groups = erLhcoreClassGroupRole::canEditUserGroups(erLhcoreClassUser::
 
 $groups_can_edit = erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'editusergroupall') == true ? true : erLhcoreClassGroupRole::getGroupsAccessedByUser(erLhcoreClassUser::instance()->getUserData());
 
+$userDataGroupsRead = array();
+if ($groups_can_edit !== true) {
+    $userDataGroupsRead = erLhcoreClassGroupRole::getGroupsAccessedByUser($UserData)['read'];
+}
+
 if (isset($_POST['Update_account']) || isset($_POST['Save_account'])) {
 	
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -22,7 +27,7 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account'])) {
 		exit;
 	}
 	
-	$params = array('can_edit_groups' => $can_edit_groups, 'groups_can_edit' => $groups_can_edit);
+	$params = array('can_edit_groups' => $can_edit_groups, 'groups_can_read' => $userDataGroupsRead, 'groups_can_edit' => ($groups_can_edit === true ? true : $groups_can_edit['groups']));
 	
 	$Errors = erLhcoreClassUserValidator::validateUserEdit($UserData, $params);
 	
@@ -139,10 +144,12 @@ if (isset($_POST['UpdateSpeech_account'])) {
     $tpl->set('tab','tab_speech');
 }
 
-$userGroupFilter = $groups_can_edit === true ? array() : array('filterin' => array('id' => $groups_can_edit));
+$userGroupFilter = $groups_can_edit === true ? array() : array('filterin' => array('id' => $groups_can_edit['groups']));
 
 $tpl->set('user_groups_filter',$userGroupFilter);
 $tpl->set('can_edit_groups',$can_edit_groups);
+$tpl->set('groups_read_only',$groups_can_edit === true ? true : $groups_can_edit['read']);
+
 $tpl->set('user',$UserData);
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit_user_window',array('userData' => & $UserData, 'tpl' => & $tpl, 'params' => $Params));

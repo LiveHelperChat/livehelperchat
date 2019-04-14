@@ -819,6 +819,9 @@ class erLhcoreClassBBCode
                                         $append = '</a>';
                                     }
                                 }
+                            } else {
+                                $prepend = '';
+                                $append = '<a class="hidden-download" href="'.erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}".'"></a>';
                             }
                             return $prepend . '<img id="img-file-' . $file->id . '" class="img-fluid" src="' . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />' . $append;
                         }

@@ -76,5 +76,6 @@ $FunctionList['actworkflow'] = array('explain' => 'Allow user to change transfer
 $FunctionList['actautoassignment'] = array('explain' => 'Allow user to change auto assignment');
 $FunctionList['manageall'] = array('explain' => 'Allow user to manage all departments, not only assigned to him');
 $FunctionList['managegroups'] = array('explain' => 'Allow user to manage all departments, not only assigned to him');
+$FunctionList['managesurvey'] = array('explain' => 'Allow operator to change department surveys');
 
 ?>

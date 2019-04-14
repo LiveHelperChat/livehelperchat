@@ -102,12 +102,13 @@
                 <?php echo erLhcoreClassRenderHelper::renderCheckbox( array (
                     'input_name'     => 'DefaultGroup[]',
                     'selected_id'    => $user->user_groups_id,
-                    'multiple' 		 => true,
+                    'multiple'       => true,
                     'css_class'      => 'form-control',
                     'wrap_prepend'   => '<div class="col-3">',
                     'wrap_append'    => '</div>',
                     'list_function'  => 'erLhcoreClassModelGroup::getList',
-                    'list_function_params'  => $user_groups_filter
+                    'list_function_params'  => $user_groups_filter,
+                    'read_only_list' => $groups_read_only
                 )); ?>
             </div>
         <?php endif; ?>

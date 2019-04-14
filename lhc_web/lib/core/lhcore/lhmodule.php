@@ -458,6 +458,8 @@ class erLhcoreClassModule{
             $ViewListCompiled = array_merge($ViewListCompiled,$ViewList);
         }
 
+        $extensionViewList = array();
+
         // Is it extension module
         foreach ($extensions as $extension)
         {
@@ -466,7 +468,12 @@ class erLhcoreClassModule{
                 include('extension/'.$extension.'/modules/lh'.$module.'/module.php');
 
                 foreach ($ViewList as $view => $params){
-                    $ViewList[$view]['script_path'] = 'extension/'.$extension.'/modules/lh'.$module.'/'.$view.'.php';
+                    if (!in_array($view,$extensionViewList)){
+                        $ViewList[$view]['script_path'] = 'extension/'.$extension.'/modules/lh'.$module.'/'.$view.'.php';
+                        $extensionViewList[] = $view;
+                    } else {
+                        unset($ViewList[$view]);
+                    }
                 }
 
                 $ViewListCompiled = array_merge($ViewListCompiled,$ViewList);
