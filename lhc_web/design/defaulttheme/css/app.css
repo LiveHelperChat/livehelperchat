@@ -94,7 +94,7 @@ a.link {
 }
 
 #widget-layout textarea{
-	height:50px;
+	height:30px;
 }
 
 h1 {
@@ -138,14 +138,23 @@ a:hover{
 	border-top: 3px solid #cecece;
 }
 
+
 .live-chat-message,.live-chat-message:focus{
 	outline: none;
 	-webkit-box-shadow: none !important;
 	-moz-box-shadow: none !important;
 	box-shadow: none !important;
-	border:1px solid #ccc;
+	border-radius: 50px 50px 50px 50px;
+	border: 1px solid #ccc;
 }
 
+.settings{
+	font-size: 25px;
+	cursor: pointer;
+}
+.chat-setting-item{
+	font-size:32px;
+}
 .action-image {
     cursor:pointer;
 }
@@ -224,10 +233,9 @@ a:hover{
 }
 
 textarea[name=ChatMessage]{
-	min-height:50px;
+	min-height:30px;
 	overflow:hidden;
 	resize: none;
-	padding-right:60px;
 }
 
 .msg-date {
@@ -621,8 +629,9 @@ div.message-row.response+div.message-row.response:hover .msg-date,
 
 .user-chatwidget-buttons{
 	position:absolute;
-	top: 7px;
+	top: 3px;
 	right: 3px;
+	height: 10px;
 }
 
 .dropdown-toggle-widget,
@@ -766,12 +775,14 @@ ul.user-settings-list li{
 
 .file-uploader input {
 	position: absolute;
-	top: 0;
+	top: 0px;
 	right: 0;
+	left:15px;
 	margin: 0;
 	opacity: 0;
 	-ms-filter: 'alpha(opacity=0)';
 	font-size: 200px;
+	width:20px;
 	direction: ltr;
 	cursor: pointer;
 }
@@ -978,6 +989,7 @@ input[type="file"]{
 		margin-left: 0;
 	}
 }
+
 
 #path-container{
 	margin-top:-15px;
