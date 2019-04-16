@@ -1733,13 +1733,14 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
                         _that.syncChats.push(val.id);
                         _that.syncChatsMsg.push(val.id + ',' + val.last_msg_id);
 
-                        var nickParts = val.nick.split(' ');
+                        /*var nickParts = val.nick.split(' ');
                         if (nickParts.length == 1) {
                             _that.setMetaData(val.id, 'ctit', nickParts[0].substr(0,2).toUpperCase());
                         } else {
                             _that.setMetaData(val.id, 'ctit', nickParts[0].substr(0,1).toUpperCase() + nickParts[1].substr(0,1).toUpperCase());
-                        }
+                        }*/
 
+                        _that.setMetaData(val.id, 'ctit', _that.getChatShortNick(val));
                         _that.setMetaData(val.id, 'cbg', _that.toHex(val));
                     }
                     currentChatsId.push(val.id);
@@ -1769,6 +1770,24 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
             });
 
             this.syncChatsProcess();
+        }
+    }
+
+    this.getChatShortNick = function(val) {
+
+        var chatSettings = {nick: null};
+
+        ee.emitEvent('setCircleNick', [val, chatSettings]);
+
+        if (chatSettings.nick !== null) {
+            return chatSettings.nick
+        }
+
+        var nickParts = val.nick.split(' ');
+        if (nickParts.length == 1) {
+           return nickParts[0].substr(0,2).toUpperCase();
+        } else {
+           return nickParts[0].substr(0,1).toUpperCase() + nickParts[1].substr(0,1).toUpperCase();
         }
     }
 
