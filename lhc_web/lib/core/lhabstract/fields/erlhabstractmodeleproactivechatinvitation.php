@@ -2,6 +2,7 @@
 
 return array(
     'name' => array(
+        'link' => erLhcoreClassDesign::baseurl('abstract/edit') . '/ProactiveChatInvitation',
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Name'),
         'required' => true,
