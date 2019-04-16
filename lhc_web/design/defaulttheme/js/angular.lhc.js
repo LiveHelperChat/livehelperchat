@@ -1687,11 +1687,11 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
 
     this.toHex = function(val) {
 
-        var color = null;
+        var colorSettings = {color: null};
 
-        ee.emitEvent('setCircleColor', [val,color]);
+        ee.emitEvent('setCircleColor', [val, colorSettings]);
 
-        if (color === null) {
+        if (colorSettings.color === null) {
             string = (((typeof val.online_user_id !== 'undefined') ? val.online_user_id.toString().split('').reverse().join('') : '') + val.nick);
 
             var hash = 0;
@@ -1706,6 +1706,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
                 var value = (hash >> (i * 8)) & 255;
                 color += ('00' + value.toString(16)).substr(-2);
             }
+        } else {
+            color = colorSettings.color;
         }
 
         return color;
