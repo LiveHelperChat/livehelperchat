@@ -1685,18 +1685,29 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
         this.syncChatsProcess();
     }
 
-    this.toHex = function(string) {
-        var hash = 0;
-        if (string.length === 0) return hash;
-        for (var i = 0; i < string.length; i++) {
-            hash = string.charCodeAt(i) + ((hash << 5) - hash);
-            hash = hash & hash;
+    this.toHex = function(val) {
+
+        var color = null;
+
+        ee.emitEvent('setCircleColor', [val,color]);
+
+        if (color === null) {
+            string = (((typeof val.online_user_id !== 'undefined') ? val.online_user_id.toString().split('').reverse().join('') : '') + val.nick);
+
+            var hash = 0;
+            if (string.length === 0) return hash;
+            for (var i = 0; i < string.length; i++) {
+                hash = string.charCodeAt(i) + ((hash << 5) - hash);
+                hash = hash & hash;
+            }
+
+            color = '#';
+            for (var i = 0; i < 3; i++) {
+                var value = (hash >> (i * 8)) & 255;
+                color += ('00' + value.toString(16)).substr(-2);
+            }
         }
-        var color = '#';
-        for (var i = 0; i < 3; i++) {
-            var value = (hash >> (i * 8)) & 255;
-            color += ('00' + value.toString(16)).substr(-2);
-        }
+
         return color;
     }
 
@@ -1727,7 +1738,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
                             _that.setMetaData(val.id, 'ctit', nickParts[0].substr(0,1).toUpperCase() + nickParts[1].substr(0,1).toUpperCase());
                         }
 
-                        _that.setMetaData(val.id, 'cbg', _that.toHex(((typeof val.online_user_id !== 'undefined') ? val.online_user_id.toString().split('').reverse().join('') : '') + val.nick));
+                        _that.setMetaData(val.id, 'cbg', _that.toHex(val));
                     }
                     currentChatsId.push(val.id);
                 });
