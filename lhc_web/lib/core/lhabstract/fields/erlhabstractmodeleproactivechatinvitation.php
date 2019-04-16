@@ -3,7 +3,7 @@
 return array(
     'name' => array(
         'type' => 'text',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Name for personal purposes'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Name'),
         'required' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
     ),
@@ -58,6 +58,7 @@ return array(
     ),
     'pageviews' => array(
         'type' => 'text',
+        'col_class' => 'd-none d-xl-table-cell',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Pageviews'),
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
@@ -78,24 +79,28 @@ return array(
     ),
     'requires_email' => array(
         'type' => 'checkbox',
+        'col_class' => 'd-none d-xl-table-cell',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Requires e-mail'),
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
     ),
     'requires_username' => array(
         'type' => 'checkbox',
+        'col_class' => 'd-none d-xl-table-cell',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Requires name'),
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
     ),
     'show_on_mobile' => array(
         'type' => 'checkbox',
+        'col_class' => 'd-none d-xl-table-cell',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Show on mobile'),
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
     ),
     'requires_phone' => array(
         'type' => 'checkbox',
+        'col_class' => 'd-none d-xl-table-cell',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Requires phone'),
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
@@ -250,12 +255,14 @@ return array(
     ),
     'mobile_html_only' => array(
         'type' => 'checkbox',
+        'col_class' => 'd-none d-xl-table-cell',
         'main_attr' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Apply HTML invitation only to mobile devices'),
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'api_do_not_show' => array(
+        'col_class' => 'd-none d-xl-table-cell',
         'type' => 'checkbox',
         'main_attr' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Do not show widget automatically'),
