@@ -4,7 +4,7 @@ $soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data;
 $soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',(int)($soundData['new_message_sound_user_enabled'])); ?>
 
 	<div class="d-flex flex-row">
-			<div class="btn-group dropup pt-1">
+			<div class="btn-group dropup pt-1 disable-select">
 				<i class="material-icons settings text-muted" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">settings</i>
 				<div class="dropdown-menu shadow bg-white rounded">
 					<div class="d-flex flex-row">

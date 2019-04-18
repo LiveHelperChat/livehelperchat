@@ -693,7 +693,10 @@ function lh(){
         			 sessionStorage.setItem('lhc_ttxt',$(this).val());
         		 } catch(e) {}
          	 };
-        	
+            var element = $(this)[0];
+            element.style.height = "5px";
+            element.style.height = ((element.scrollHeight)+3)+"px";
+
             if (inst.is_typing == false) {
 
                 clearTimeout(inst.typing_timeout);

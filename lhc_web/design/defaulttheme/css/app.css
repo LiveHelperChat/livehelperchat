@@ -98,7 +98,7 @@ a.link {
 }
 
 #widget-layout.has-chat textarea{
-    height:30px;
+    height:32px;
 }
 
 h1 {
@@ -142,14 +142,20 @@ a:hover{
 	border-top: 3px solid #cecece;
 }
 
+.disable-select{
+    user-select: none;
+}
 
 .live-chat-message,.live-chat-message:focus{
 	outline: none;
 	-webkit-box-shadow: none !important;
 	-moz-box-shadow: none !important;
 	box-shadow: none !important;
-	border-radius: 50px 50px 50px 50px;
+	border-radius: 15px;
 	border: 1px solid #ccc;
+    padding-right: 30px;
+    max-height: 60px;
+    overflow-y:hidden;
 }
 
 .settings{
