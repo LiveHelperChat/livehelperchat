@@ -27,7 +27,7 @@ class erLhcoreClassChat {
 			'operation',			
 			'operation_admin',			
 			'screenshot_id',			
-			'last_msg_id',
+			//'last_msg_id',
 			'mail_send',
 			'lat',
 			'lon',
@@ -50,7 +50,7 @@ class erLhcoreClassChat {
 			//'chat_variables',
 			// Angular remake
 			'referrer',
-			'last_op_msg_time',
+			//'last_op_msg_time',
 			'has_unread_op_messages',
 			'unread_op_messages_informed',
 			'tslasign',
@@ -97,6 +97,32 @@ class erLhcoreClassChat {
     	return self::getList($filter);
     }
 
+    // Get external chats
+    public static function getExternalChats($limit = 50, $offset = 0, $filterAdditional = array(), $filterAdditionalMainAttr = array(), $limitationDepartment = array())
+    {
+    	$limitation = self::getDepartmentLimitation('lh_chat', $limitationDepartment);
+
+    	// Does not have any assigned department
+    	if ($limitation === false) { return array(); }
+
+    	$filter = array();
+
+    	if ($limitation !== true) {
+    		$filter['customfilter'][] = $limitation;
+    	}
+
+    	$filter['limit'] = $limit;
+    	$filter['offset'] = $offset;
+    	$filter['smart_select'] = true;
+    	$filter['sort'] = '`last_msg_id` DESC, `id` DESC';;
+
+    	if (!empty($filterAdditional)) {
+    		$filter = array_merge_recursive($filter,$filterAdditional);
+    	}
+    	
+    	return self::getList($filter);
+    }
+
     /**
      * @desc returns chats list for my active chats
      * 
@@ -115,21 +141,21 @@ class erLhcoreClassChat {
         if ($limitation === false) { return array(); }
         
         $filter = array();
-        $filter['filterin'] = array('status' => array(0,1));
+        //$filter['filterin'] = array('status' => array(0,1));
 
-        if ($limitation !== true) {
+        /*if ($limitation !== true) {
             $filter['customfilter'][] = $limitation;
-        }
+        }*/
         
         $filter['limit'] = $limit;
         $filter['offset'] = $offset;
         $filter['smart_select'] = true;
-        $filter['sort'] = 'status ASC, id DESC';
-        
+        $filter['sort'] = '`status` ASC,`last_msg_id` DESC, `id` DESC';
+
         if (!empty($filterAdditional)) {
             $filter = array_merge_recursive($filter,$filterAdditional);
         }
-                
+
         return self::getList($filter);
     }
     
@@ -1807,7 +1833,7 @@ class erLhcoreClassChat {
                    }
 
                    if (isset($chat->online_user_id)){
-                       unset($chat->online_user_id);
+                       //unset($chat->online_user_id);
                    }
 
                    if (isset($chat->uagent)){

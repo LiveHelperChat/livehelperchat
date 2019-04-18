@@ -23,7 +23,7 @@
 ?>
     <div>
         <label><input type="checkbox" <?php if ($allChecked == true) : ?>checked="checked"<?php endif?>  onchange="changeLanguage($(this))" value="<?php echo htmlspecialchars($speechLanguage->id)?>" ><?php echo htmlspecialchars($speechLanguage)?></label>
-        <a onclick="$('.language-content-<?php echo htmlspecialchars($speechLanguage->id)?>').toggle()"><i class="material-icons mr-0">visibility</i> </a>
+        <a onclick="$('.language-content-<?php echo htmlspecialchars($speechLanguage->id)?>').toggle()"><i class="material-icons mr-0">&#xf208;</i> </a>
     </div>
 
     <div class="row language-content-<?php echo htmlspecialchars($speechLanguage->id)?>" style="display: none">

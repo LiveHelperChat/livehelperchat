@@ -23,7 +23,7 @@
 			<tr>
 	    	<?php foreach ($fields as $field) : ?>
 	    		<?php if (!isset($field['hidden'])) : ?>
-	        		<th<?php echo isset($field['no_wrap']) ? " nowrap=\"nowrap\" " : ''?><?php echo isset($field['width']) ? " width=\"{$field['width']}%\" " : ''?>><?php echo $field['trans']?></th>
+	        		<th<?php if (isset($field['col_class'])) : ?> class="<?php echo $field['col_class']?>"<?php endif;?><?php echo isset($field['no_wrap']) ? " nowrap=\"nowrap\" " : ''?><?php echo isset($field['width']) ? " width=\"{$field['width']}%\" " : ''?>><?php echo $field['trans']?></th>
 	        	<?php endif;?>
 	    	<?php endforeach;?>
 	    	<th width="1%">&nbsp;</th>
@@ -49,7 +49,7 @@
 	        	<?php foreach ($fields as $key => $field) : ?>
 
 	        	<?php if (!isset($field['hidden'])) : ?>
-	        	<td<?php echo isset($field['no_wrap']) ? " nowrap=\"nowrap\" " : ''?>>
+	        	<td<?php if (isset($field['col_class'])) : ?> class="<?php echo $field['col_class']?>" <?php endif;?><?php echo isset($field['no_wrap']) ? " nowrap=\"nowrap\" " : ''?>>
 	        	
 	        	<?php if (isset($field['link'])) : ?><a <?php if (isset($field['link_class'])) : ?>class="<?php echo $field['link_class']?>"<?php endif;?> <?php if (isset($field['is_modal'])) : ?>onclick="return lhc.revealModal({<?php if (!isset($field['is_iframe']) || $field['is_iframe'] == true) : ?>'iframe':true,<?php endif;?>'height':500,'url':WWW_DIR_JAVASCRIPT +'<?php echo $field['link']?>/<?php echo $item->id?>'})" href="#" <?php else : ?>href="<?php echo $field['link']?>/<?php echo $item->id?>"<?php endif;?>><?php endif;?>
 	        		        	
@@ -75,10 +75,10 @@
 	       		<?php endif;?>
 
 	        <?php endforeach;?>
-	        <td><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('abstract/edit')?>/<?php echo $identifier.'/'.$item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit');?></a></td>
+	        <td><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('abstract/edit')?>/<?php echo $identifier.'/'.$item->id?>"><i class="material-icons mr-0">&#xf3ea;</i></a></td>
 
 	         <?php if (!isset($hide_delete)) : ?>
-	         	<td><a class="csfr-required btn btn-danger btn-xs" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/list','Are you sure?')?>')" href="<?php echo erLhcoreClassDesign::baseurl('abstract/delete')?>/<?php echo $identifier.'/'.$item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></a></td>
+	         	<td><a class="csfr-required btn btn-danger btn-xs" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/list','Are you sure?')?>')" href="<?php echo erLhcoreClassDesign::baseurl('abstract/delete')?>/<?php echo $identifier.'/'.$item->id?>"><i class="material-icons mr-0">&#xfa78;</i></a></td>
 	         <?php endif;?>
 
 	    </tr>

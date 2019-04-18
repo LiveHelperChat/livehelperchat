@@ -37,7 +37,7 @@
                     <div class="msgBlock msgBlock-admin" style="height:300px;background-color: #{{bactract_bg_color_chat_bg}}">
                         <div class="message-row response">
                             <div class="msg-date" style="color:#{{bactract_bg_color_time_color}}">10:14:39</div>
-                            <span style="color:#{{bactract_bg_color_buble_visitor_title_color}}" class="usr-tit vis-tit" role="button"><i class="material-icons chat-operators mi-fs15 mr-0">face</i>Visitor</span>
+                            <span style="color:#{{bactract_bg_color_buble_visitor_title_color}}" class="usr-tit vis-tit" role="button"><i class="material-icons chat-operators mi-fs15 mr-0">&#xf643;</i>Visitor</span>
                             <div class="msg-body" style="background-color: #{{bactract_bg_color_buble_visitor_background}};color:#{{bactract_bg_color_buble_visitor_text_color}}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
                         </div>
                         <div class="message-row system-response">
@@ -47,7 +47,7 @@
                         </div>
                         <div class="message-row message-admin operator-changes">
                             <div class="msg-date" style="color:#{{bactract_bg_color_time_color}}">10:18:22</div>
-                            <span style="color:#{{bactract_bg_color_buble_operator_title_color}}" class="usr-tit op-tit" ><i class="material-icons chat-operators mi-fs15 mr-0">account_box</i>Operator</span>
+                            <span style="color:#{{bactract_bg_color_buble_operator_title_color}}" class="usr-tit op-tit" ><i class="material-icons chat-operators mi-fs15 mr-0">&#xf004;</i>Operator</span>
                             <div class="msg-body" style="color:#{{bactract_bg_color_buble_operator_text_color}};background-color: #{{bactract_bg_color_buble_operator_background}};">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
                         </div>
                     </div>

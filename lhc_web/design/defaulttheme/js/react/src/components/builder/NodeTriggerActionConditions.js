@@ -65,14 +65,14 @@ class NodeTriggerActionConditions extends Component {
                     </div>
                     <div className="col-1">
                         <button onClick={this.removeAction} type="button" className="btn btn-danger btn-sm float-right">
-                            <i className="material-icons mr-0">delete</i>
+                            <i className="material-icons mr-0">&#xf1c0;</i>
                         </button>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-12">
                         <div className="btn-group float-right" role="group">
-                            <button type="button" onClick={this.addCondition} className="btn btn-sm btn-secondary"><i className="material-icons mr-0">add</i> Add condition</button>
+                            <button type="button" onClick={this.addCondition} className="btn btn-sm btn-secondary"><i className="material-icons mr-0">&#xf415;</i> Add condition</button>
                         </div>
                     </div>
                 </div>

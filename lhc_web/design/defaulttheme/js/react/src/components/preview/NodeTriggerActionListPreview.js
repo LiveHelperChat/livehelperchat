@@ -48,7 +48,7 @@ class NodeTriggerActionListPreview extends Component {
                     {this.props.action.hasIn(['content','quick_replies']) && this.props.action.getIn(['content','quick_replies']).map((item, index) =>
                         <div className={listClass + " button-item"} key={index}>
                             <a key={index}>{item.get('type') == 'url' &&
-                            <i className="material-icons">open_in_new</i>
+                            <i className="material-icons">&#xf3cc;</i>
                             }{item.getIn(['content','name'])}</a>
                         </div>
                     )}

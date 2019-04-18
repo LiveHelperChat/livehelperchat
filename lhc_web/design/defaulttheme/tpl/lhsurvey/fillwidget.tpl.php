@@ -14,7 +14,7 @@
                 <?php if ($survey_item->is_filled == false) : ?>
                     <input type="submit" class="btn btn-success btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Submit')?>" name="Vote" />
                 <?php endif;?>
-                <button type="button" class="btn btn-info btn-sm" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/chatpreview/<?php echo $chat->id?>/<?php echo $chat->hash?>'})"><i class="material-icons">chat</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Preview chat')?></button>
+                <button type="button" class="btn btn-info btn-sm" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/chatpreview/<?php echo $chat->id?>/<?php echo $chat->hash?>'})"><i class="material-icons">&#xfb55;</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Review chat')?></button>
             </div>
             
             <?php if ($survey_item->is_filled == true && !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_SURVEY_COLLECTED))) : ?>

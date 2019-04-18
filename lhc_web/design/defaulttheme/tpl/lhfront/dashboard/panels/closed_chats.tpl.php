@@ -1,7 +1,7 @@
 <div class="card card-dashboard" data-panel-id="closed_chats" ng-init="lhc.getToggleWidget('closedc_widget_exp');lhc.getToggleWidgetSort('closed_chats_sort')">
 	<div class="card-header">
-		<a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(chat_status)/2"><i class="material-icons chat-closed">chat</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/closed_chats.tpl.php'));?> ({{closed_chats.list.length}}{{closed_chats.list.length == lhc.limitc ? '+' : ''}})</a>
-		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('closedc_widget_exp')" class="fs24 float-right material-icons exp-cntr">{{lhc.toggleWidgetData['closedc_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
+		<a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(chat_status)/2"><i class="material-icons chat-closed">&#xfb55;</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/closed_chats.tpl.php'));?> ({{closed_chats.list.length}}{{closed_chats.list.length == lhc.limitc ? '+' : ''}})</a>
+		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('closedc_widget_exp')" class="fs24 float-right material-icons exp-cntr">{{lhc.toggleWidgetData['closedc_widget_exp'] == false ? '&#xf143;' : '&#xf140;'}}</a>
 	</div>
 	<div ng-if="lhc.toggleWidgetData['closedc_widget_exp'] !== true">           
           <?php $optinsPanel = array('panelid' => 'closedd','limitid' => 'limitc'); ?>
@@ -12,23 +12,23 @@
 				<thead>
 					<tr>
 						<th width="40%">
-                            <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Visitor');?>" class="material-icons">face</i>
+                            <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Visitor');?>" class="material-icons">&#xf643;</i>
                             <a ng-click="lhc.toggleWidgetSort('closed_chats_sort','id_dsc','id_asc',true)">
-                                <i ng-class="{'text-muted' : (lhc.toggleWidgetData['closed_chats_sort'] != 'id_asc' && lhc.toggleWidgetData['closed_chats_sort'] != 'id_dsc')}" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort')?>" class="material-icons">{{lhc.toggleWidgetData['closed_chats_sort'] == 'id_dsc' || lhc.toggleWidgetData['closed_chats_sort'] != 'id_asc' ? 'trending_up' : 'trending_down'}}</i>
+                                <i ng-class="{'text-muted' : (lhc.toggleWidgetData['closed_chats_sort'] != 'id_asc' && lhc.toggleWidgetData['closed_chats_sort'] != 'id_dsc')}" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort')?>" class="material-icons">{{lhc.toggleWidgetData['closed_chats_sort'] == 'id_dsc' || lhc.toggleWidgetData['closed_chats_sort'] != 'id_asc' ? '&#xf535;' : '&#xf533;'}}</i>
                             </a>
                         </th>
                         <th width="20%">
                             <a ng-click="lhc.toggleWidgetSort('closed_chats_sort','cst_dsc','cst_asc',true)">
-                                <i ng-class="{'text-muted' : (lhc.toggleWidgetData['closed_chats_sort'] != 'cst_asc' && lhc.toggleWidgetData['closed_chats_sort'] != 'cst_dsc')}" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort by close time')?>" class="material-icons">{{lhc.toggleWidgetData['closed_chats_sort'] == 'cst_dsc' || lhc.toggleWidgetData['closed_chats_sort'] != 'cst_asc' ? 'trending_up' : 'trending_down'}}</i>
+                                <i ng-class="{'text-muted' : (lhc.toggleWidgetData['closed_chats_sort'] != 'cst_asc' && lhc.toggleWidgetData['closed_chats_sort'] != 'cst_dsc')}" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort by close time')?>" class="material-icons">{{lhc.toggleWidgetData['closed_chats_sort'] == 'cst_dsc' || lhc.toggleWidgetData['closed_chats_sort'] != 'cst_asc' ? '&#xf535;' : '&#xf533;'}}</i>
                             </a>
                         </th>
-						<th width="20%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Operator');?>" class="material-icons">account_box</i></th>
-						<th width="20%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Department');?>" class="material-icons">home</i></th>
+						<th width="20%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Operator');?>" class="material-icons">&#xf004;</i></th>
+						<th width="20%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Department');?>" class="material-icons">&#xf2dc;</i></th>
 					</tr>
 				</thead>
 				<tr ng-repeat="chat in closed_chats.list track by chat.id" ng-class="{'user-away-row': chat.user_status_front == 2, 'user-online-row': chat.user_status_front == 0}">
 					<td>
-						<div class="abbr-list" ><span ng-if="chat.country_code != undefined"><img ng-src="<?php echo erLhcoreClassDesign::design('images/flags');?>/{{chat.country_code}}.png" alt="{{chat.country_name}}" title="{{chat.country_name}}" />&nbsp;</span><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>" class="material-icons" ng-click="lhc.startChatNewWindow(chat.id,chat.nick)">open_in_new</a><a ng-click="lhc.previewChat(chat.id)" class="material-icons">info_outline</a><a ng-click="lhc.startChat(chat.id,chat.nick)" title="{{chat.nick}}"> {{chat.nick}} </a></div>
+						<div class="abbr-list" ><span ng-if="chat.country_code != undefined"><img ng-src="<?php echo erLhcoreClassDesign::design('images/flags');?>/{{chat.country_code}}.png" alt="{{chat.country_name}}" title="{{chat.country_name}}" />&nbsp;</span><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>" class="material-icons" ng-click="lhc.startChatNewWindow(chat.id,chat.nick)">&#xf3cc;</a><a ng-click="lhc.previewChat(chat.id)" class="material-icons">&#xf2fd;</a><a ng-click="lhc.startChat(chat.id,chat.nick)" title="{{chat.nick}}"> {{chat.nick}} </a></div>
 					</td>
 
                     <td>
@@ -46,7 +46,7 @@
 			</table>
 		</div>
 		
-		<div ng-if="closed_chats.list.length == 0" class="m-1 alert alert-info"><i class="material-icons">search</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Nothing found')?>...</div>
+		<div ng-if="closed_chats.list.length == 0" class="m-1 alert alert-info"><i class="material-icons">&#xfa3c;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Nothing found')?>...</div>
 		
 		
 	</div>

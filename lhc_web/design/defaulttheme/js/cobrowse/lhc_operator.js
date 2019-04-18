@@ -469,13 +469,13 @@ var LHCCoBrowserOperator = (function() {
 	};
 
 	LHCCoBrowserOperator.prototype.userLeft = function(chat_id) {
-		$('#status-icon-sharing').text('visibility_off');
+		$('#status-icon-sharing').html('&#xf209;');
 		this.clearPage();
 		
 	};
 
 	LHCCoBrowserOperator.prototype.userJoined = function(chat_id) {
-		$('#status-icon-sharing').text('visibility');
+		$('#status-icon-sharing').html('&#xf208;');
 		var _this = this;
 	};
 
@@ -616,9 +616,9 @@ var LHCCoBrowserOperator = (function() {
 		} else if (msg.finished) {
 			$('#status-icon-sharing').attr('title', msg.finished.text);
 			if (msg.finished.status == false) {
-				$('#status-icon-sharing').text('visibility');
+				$('#status-icon-sharing').html('&#xf208;');
 			} else {
-				$('#status-icon-sharing').text('visibility_off');
+				$('#status-icon-sharing').html('&#xf209;');
 			}
 		} else if (msg.url) {
 			this.$awesomebar.value = msg.url;

@@ -1,7 +1,21 @@
 <h2><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/last_24h_statistic.tpl.php'));?></h2>
 
-<form action="" method="get" autocomplete="off">
-
+<form action="" method="get" autocomplete="off" class="pb-2">
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Show statistics for')?>:</label>
+    <div class="row form-group">
+        <div class="col-md-1">
+            <input type="submit" name="doSearch" class="btn <?php echo $_GET['doSearch'] == 'Today' ? 'btn-primary' : 'btn-secondary' ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel', 'Today'); ?>"/>
+        </div>
+        <div class="col-md-1">
+            <input type="submit" name="doSearch" class="btn <?php echo $_GET['doSearch'] == 'Week' ? 'btn-primary' : 'btn-secondary' ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel', 'Week'); ?>"/>
+        </div>
+        <div class="col-md-1">
+            <input type="submit" name="doSearch" class="btn <?php echo $_GET['doSearch'] == 'Month' ? 'btn-primary' : 'btn-secondary' ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel', 'Month'); ?>"/>
+        </div>
+        <div class="col-md-1">
+            <input type="submit" name="doSearch" class="btn <?php echo $_GET['doSearch'] == 'Year' ? 'btn-primary' : 'btn-secondary' ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel', 'Year'); ?>"/>
+        </div>
+    </div>
 <div class="form-group">
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from to');?></label>
 <div class="row">

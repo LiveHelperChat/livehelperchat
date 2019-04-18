@@ -50,14 +50,14 @@ class NodeTriggerActionActions extends Component {
                     </div>
                     <div className="col-1">
                         <button onClick={this.removeAction} type="button" className="btn btn-danger btn-sm float-right">
-                            <i className="material-icons mr-0">delete</i>
+                            <i className="material-icons mr-0">&#xf1c0;</i>
                         </button>
                     </div>
                 </div>
 
                 <div className="form-group">
                     <label>Message before dispatching event</label>
-                    <a title="Add answer variation" className="float-right" onClick={this.addAnswerVariation}><i className="material-icons mr-0">question_answer</i></a>
+                    <a title="Add answer variation" className="float-right" onClick={this.addAnswerVariation}><i className="material-icons mr-0">&#xf183;</i></a>
                     <textarea rows="3" className="form-control form-control-sm" ref={this.textMessageRef} defaultValue={this.props.action.getIn(['content','success_message'])} onChange={(e) => this.onchangeAttr({'path' : ['success_message'], 'value' : e.target.value})}></textarea>
                 </div>
 

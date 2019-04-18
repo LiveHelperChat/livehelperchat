@@ -84,12 +84,12 @@ class NodeTriggerActionGeneric extends Component {
                         <NodeTriggerActionType onChange={this.changeType} type={this.props.action.get('type')} />
                     </div>
                     <div className="col-1">
-                        <button onClick={this.removeAction} type="button" className="btn btn-danger btn-sm float-right"><i className="material-icons mr-0">delete</i></button>
+                        <button onClick={this.removeAction} type="button" className="btn btn-danger btn-sm float-right"><i className="material-icons mr-0">&#xf1c0;</i></button>
                     </div>
                 </div>
 
                 <div className="float-left" role="group">
-                    <label><input type="checkbox" onChange={(e) => this.onChangeMainAttr('hide_text_area',e.target.checked)} defaultChecked={this.props.action.getIn(['content','list_options','hide_text_area'])} /> Hide text area on response.</label> <i className="material-icons" title="Textarea to enter user message will be disabled. Make sure you include buttons for user to click.">info</i>
+                    <label><input type="checkbox" onChange={(e) => this.onChangeMainAttr('hide_text_area',e.target.checked)} defaultChecked={this.props.action.getIn(['content','list_options','hide_text_area'])} /> Hide text area on response.</label> <i className="material-icons" title="Textarea to enter user message will be disabled. Make sure you include buttons for user to click.">&#xf2fd;</i>
                 </div>
 
                 <div className="bot-elements">

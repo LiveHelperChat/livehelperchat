@@ -3,7 +3,7 @@
 		<?php if ($user->has_photo) : ?>
      			<?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_name_support_img.tpl.php'));?>
      	<?php else : ?>
-     		<i class="icon-assistant material-icons">account_box</i>
+     		<i class="icon-assistant material-icons">&#xf004;</i>
      	<?php endif;?>
      </div>
      <div class="p-1">
@@ -21,7 +21,7 @@
         <?php include(erLhcoreClassDesign::designtpl('lhchat/part/notifications_subscribe.tpl.php'));?>
 
      	<?php if ($user->skype != '') : ?>
-     		<a href="skype:<?php echo htmlspecialchars($user->skype)?>?call" class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/part/operator_profile','Skype call'); ?>">phone_in_talk</a>
+     		<a href="skype:<?php echo htmlspecialchars($user->skype)?>?call" class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/part/operator_profile','Skype call'); ?>">&#xf4b0;</a>
      	<?php endif;?>
 
      	<?php endif;?>

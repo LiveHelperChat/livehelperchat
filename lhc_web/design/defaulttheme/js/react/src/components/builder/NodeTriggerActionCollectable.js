@@ -80,7 +80,7 @@ class NodeTriggerActionCollectable extends Component {
                     </div>
                     <div className="col-1">
                         <button onClick={this.removeAction} type="button" className="btn btn-danger btn-sm float-right">
-                            <i className="material-icons mr-0">delete</i>
+                            <i className="material-icons mr-0">&#xf1c0;</i>
                         </button>
                     </div>
                 </div>

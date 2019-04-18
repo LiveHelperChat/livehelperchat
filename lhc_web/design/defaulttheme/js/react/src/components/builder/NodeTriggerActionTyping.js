@@ -39,7 +39,7 @@ class NodeTriggerActionTyping extends Component {
                     </div>
                     <div className="col-1">
                         <button onClick={this.removeAction} type="button" className="btn btn-danger btn-sm float-right">
-                            <i className="material-icons mr-0">delete</i>
+                            <i className="material-icons mr-0">&#xf1c0;</i>
                         </button>
                     </div>
                 </div>
@@ -59,7 +59,7 @@ class NodeTriggerActionTyping extends Component {
                     </div>
                     <div className="col-12">
                         <div role="group">
-                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['on_start_chat'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','on_start_chat'])} /> Send typing only at chat start.</label> <i className="material-icons" title="Typing will be send only on chat start event.">info</i>
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['on_start_chat'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','on_start_chat'])} /> Send typing only at chat start.</label> <i className="material-icons" title="Typing will be send only on chat start event.">&#xf2fd;</i>
                         </div>
                     </div>
                 </div>

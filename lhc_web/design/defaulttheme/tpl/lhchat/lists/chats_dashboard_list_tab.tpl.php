@@ -1,0 +1,1 @@
+<li role="presentation" class="nav-item"><a class="nav-link" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Chats dashboard');?>" href="#chatdashboard" aria-controls="chatdashboard" role="tab" data-toggle="tab"><i class="material-icons chat-active mr-0">&#xf2dc;</i><span></span></a></li>

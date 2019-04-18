@@ -22,6 +22,6 @@ function copyMessageContent(inst) {
 }
 </script>
 
-<button class="btn btn-info" data-success="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Copied!')?>" onclick="lhinst.copyMessages($(this))"><i class="material-icons">&#xE14D;</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Copy to clipboard')?></button>
+<button class="btn btn-info" data-success="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Copied!')?>" onclick="lhinst.copyMessages($(this))"><i class="material-icons">&#xf18f;</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Copy to clipboard')?></button>
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>

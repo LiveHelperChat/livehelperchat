@@ -140,7 +140,7 @@ class NodeTriggerActionQuickReplyPayload extends Component {
                         <label>&nbsp;</label>
                         <div>
                             {this.state.addingPayload == false ? (
-                                <a title="Add new payload" onClick={this.addPayload.bind(this)}><i class="material-icons mr-0">add</i></a>
+                                <a title="Add new payload" onClick={this.addPayload.bind(this)}><i class="material-icons mr-0">&#xf415;</i></a>
                             ) : (
                                 <div>
                                     <a title="Save" onClick={this.savePayload.bind(this)}><i class="material-icons mr-0">check</i></a>

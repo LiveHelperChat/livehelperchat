@@ -204,8 +204,8 @@ class NodeTriggerBuilder extends Component {
                     <div className="form-group">
                         <div className="btn-group" role="group" aria-label="Trigger actions">
                             <button className="btn btn-info btn-sm" onClick={this.addResponse} >Add response</button>
-                            <button className="btn btn-info btn-sm" onClick={this.viewCode} ><i className="material-icons">code</i>{this.state.viewCode == true ? ('Hide code') : ('Show code')}</button>
-                            <button className="btn btn-info btn-sm" onClick={this.viewUseCases} ><i className="material-icons">info</i>{this.state.viewUseCases == true ? ('Hide use cases') : ('Show use cases')}</button>
+                            <button className="btn btn-info btn-sm" onClick={this.viewCode} ><i className="material-icons">&#xf174;</i>{this.state.viewCode == true ? ('Hide code') : ('Show code')}</button>
+                            <button className="btn btn-info btn-sm" onClick={this.viewUseCases} ><i className="material-icons">&#xf2fd;</i>{this.state.viewUseCases == true ? ('Hide use cases') : ('Show use cases')}</button>
                         </div>
                     </div>
 

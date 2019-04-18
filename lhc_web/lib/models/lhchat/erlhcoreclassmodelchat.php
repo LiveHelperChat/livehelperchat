@@ -208,6 +208,24 @@ class erLhcoreClassModelChat {
        			return $this->time_created_front;
        		break;
 
+       	case 'last_action_ago':
+                $time = max($this->last_user_msg_time,$this->last_op_msg_time,$this->time,$this->cls_time);
+                $this->last_action_ago = array('v' => '','f' => 0);
+                if (date('Ymd') == date('Ymd',$time)) {
+                    $this->last_action_ago['v'] = date('H:i',$time);
+                } elseif (time()-$time < 7*24*3600) {
+                    $this->last_action_ago['v'] = date('N',$time);
+                    $this->last_action_ago['f'] = 1;
+                } elseif (date('Y') == date('Y',$time)) {
+                    $this->last_action_ago['v'] = date('m-d',$time);
+                    $this->last_action_ago['f'] = 2;
+                } else {
+                    $this->last_action_ago['v'] = date('Y-m-d',$time);
+                    $this->last_action_ago['f'] = 3;
+                }
+                return $this->last_action_ago;
+            break;
+
        	case 'pnd_time_front':
        	        if ($this->pnd_time == 0) {
                     $this->pnd_time = $this->time;

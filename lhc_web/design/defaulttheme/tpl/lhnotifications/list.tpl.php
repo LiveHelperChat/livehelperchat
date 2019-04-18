@@ -27,7 +27,7 @@
                     <?php echo htmlspecialchars($item->theme)?>
                 </td>
                 <td nowrap="nowrap">
-                    <i class="material-icons" title="<?php echo htmlspecialchars($item->uagent)?>"><?php echo ($item->device_type == 0 ? 'computer' : ($item->device_type == 1 ? 'smartphone' : 'tablet')) ?></i><?php echo ($item->device_type == 0 ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Computer') : ($item->device_type == 1 ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Smartphone') : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Tablet'))) ?>
+                    <i class="material-icons" title="<?php echo htmlspecialchars($item->uagent)?>">&#x<?php echo ($item->device_type == 0 ? 'f1c5' : ($item->device_type == 1 ? 'f11c' : 'f4f6')) ?>;</i><?php echo ($item->device_type == 0 ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Computer') : ($item->device_type == 1 ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Smartphone') : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Tablet'))) ?>
                 </td>
                 <td nowrap="nowrap">
                     <?php echo $item->ip?>
