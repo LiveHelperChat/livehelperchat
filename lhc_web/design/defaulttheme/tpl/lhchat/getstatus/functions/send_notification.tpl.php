@@ -86,16 +86,16 @@ sendNotification : function() {
     function subscribeUser() {
         var applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
         swRegistration.pushManager.subscribe({
-            userVisibleOnly: true,
-            applicationServerKey: applicationServerKey
+            'userVisibleOnly': true,
+            'applicationServerKey': applicationServerKey
         }).then(function(subscription) {
             <?php /*console.log('User just subscribed subscribed.');*/ ?>
             updateSubscriptionOnServer(subscription, true);
             that.isNotificationsSubscribed = true;
             <?php /*alert('You have subscribed!');*/ ?>
-        }).catch(function(err) {
-            <?php /*console.log('Failed to subscribe the user: ', err);*/ ?>
-        });
+        })<?php /*.catch(function(err) {
+            console.log('Failed to subscribe the user: ', err);
+        })*/ ?>;
     }
 
     function unsubscribeUser() {
@@ -104,9 +104,9 @@ sendNotification : function() {
                 updateSubscriptionOnServer(subscription,false);
                 return subscription.unsubscribe();
             }
-        }).catch(function(error) {
-            <?php /*console.log('Error unsubscribing', error);*/ ?>
-        }).then(function() {
+        })<?php /*.catch(function(error) {
+            console.log('Error unsubscribing', error);
+        })*/ ?>.then(function() {
         <?php /*console.log('User is unsubscribed.');*/ ?>
                 alert('You have unsubscribed!');
             that.isNotificationsSubscribed = false;
@@ -133,9 +133,9 @@ sendNotification : function() {
         <?php /*console.log('Service Worker is registered', swReg);*/ ?>
         swRegistration = swReg;
         initializeUI();
-    }).catch(function(error) {
-        <?php /*console.error('Service Worker Error', error);*/ ?>
-    });
+    })<?php /*.catch(function(error) {
+        console.error('Service Worker Error', error);
+    })*/ ?>;
     <?php endif; ?>
 },
 

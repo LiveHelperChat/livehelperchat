@@ -1,6 +1,5 @@
 <div class="row">
-
-	<div class="col-9">
+	<div class="col-12">
 		<div id="status-chat">
 		<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
 			<h6 class="fs12"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','This chat is closed.'); ?></h6>
