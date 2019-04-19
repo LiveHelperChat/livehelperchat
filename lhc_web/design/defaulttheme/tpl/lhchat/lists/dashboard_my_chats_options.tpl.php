@@ -1,5 +1,5 @@
-<li class="nav-item dropright ml-auto" ng-init="lhc.getToggleWidget('only_user',true);">
-    <a class="nav-link dropdown-toggle pl-2 pr-2 pt-0 pb-0" data-toggle="dropdown" role="button" aria-expanded="false"><i class="material-icons mr-0">&#xf493;</i></a>
+<div class="nav-item dropright text-center" ng-init="lhc.getToggleWidget('only_user',true);">
+    <a class="pl-2 pr-2 pt-0 pb-0" data-toggle="dropdown" role="button" aria-expanded="false"><i class="material-icons mr-0 fs24">&#xfb87;</i></a>
     <ul class="dropdown-menu" role="menu">
         <li class="dropdown-item fs12"><a href="#" ng-click="lhc.toggleWidget('only_user')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Show chats only assigned to me')?>"><i class="material-icons" id="group-chats-status" ng-class="{'chat-active': lhc.toggleWidgetData['only_user'] === true, 'chat-closed': lhc.toggleWidgetData['only_user'] !== true}">&#xf12c;</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Show chats only assigned to me'); ?></a></li>
 
@@ -70,4 +70,4 @@
 
 
     </ul>
-</li>
+</div>

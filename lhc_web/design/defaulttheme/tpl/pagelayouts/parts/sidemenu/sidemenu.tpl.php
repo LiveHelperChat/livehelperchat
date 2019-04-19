@@ -7,11 +7,14 @@
 
             <div class="row border-bottom">
 
-            <div class="col-12 col-md-6 quick-options-toggler">
-                <button class="btn mr-auto" type="button" ng-click="lhc.toggleList('lmtoggle')" title="Expand or collapse left menu" aria-expanded="true" aria-label="Toggle navigation">
-                    <i class="material-icons">&#xf1d8;</i>
+            <div class="col-12 col-md-6 quick-options-toggler text-center text-md-left">
+                <button class="btn mr-auto pr-0 pl-1" type="button" ng-click="lhc.toggleList('lmtoggle')" title="Expand or collapse left menu" aria-expanded="true" aria-label="Toggle navigation">
+                    <i class="material-icons d-none d-md-block fs24">{{lmtoggle ? '&#xf142' : '&#xf141'}}</i>
+                    <i class="material-icons d-block d-md-none fs24">{{lmtoggle ? '&#xf141' : '&#xf142'}}</i>
                 </button>
+                <a ng-click="lhc.activateDashboard()" class="mr-auto"><i class="material-icons">&#xf56e;</i></a>
             </div>
+
 
             <?php
 

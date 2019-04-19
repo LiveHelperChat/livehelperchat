@@ -3,7 +3,7 @@
     <tr>
         <th width="30%">
             <a ng-click="lhc.toggleWidgetSort('onop_sort','onl_dsc','onl_asc',true)">
-                <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Operator');?>" class="material-icons">&#xf004;</i>
+                <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Operator');?>" class="material-icons">&#xfd4c;</i>
                 <i ng-class="{'text-muted' : (lhc.toggleWidgetData['onop_sort'] != 'onl_dsc' && lhc.toggleWidgetData['onop_sort'] != 'onl_asc')}" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort by online status')?>" class="material-icons">{{lhc.toggleWidgetData['onop_sort'] == 'onl_dsc' || lhc.toggleWidgetData['onop_sort'] != 'onl_asc' ? '&#xf535;' : '&#xf533;'}}</i>
             </a>
         </th>

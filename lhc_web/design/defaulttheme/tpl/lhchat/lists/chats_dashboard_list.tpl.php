@@ -6,7 +6,9 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav w-100">
+                <ul class="navbar-nav w-100 mr-auto">
+                    <li role="presentation" class="nav-item text-center d-none d-sm-block"><a class="nav-link pl-1 pr-0 pt-0 pb-0" ng-click="lhc.toggleList('chatmlist')" href="#" role="tab" data-toggle="tab"><i class="material-icons mr-0 fs24">{{chatmlist ? '&#xf142' : '&#xf141'}}</i></a></li>
+
                     <?php if (isset($frontTabsOrder)) : foreach ($frontTabsOrder as $frontTab) : ?>
                         <?php if (trim($frontTab) == 'online_users' && $online_visitors_enabled_pre == true) : ?>
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_online_users_tab.tpl.php')); ?>
@@ -14,15 +16,18 @@
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_map_online_tab.tpl.php')); ?>
                         <?php elseif (trim($frontTab) == 'dashboard') : ?>
                             <?php if ($online_chat_enabled_pre == true) : ?>
-                                <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_dashboard_tab.tpl.php')); ?>
+                                <?php //include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_dashboard_tab.tpl.php')); ?>
                             <?php endif; ?>
                         <?php else : ?>
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_custom_list_tab_multiinclude.tpl.php')); ?>
                         <?php endif; ?>
                     <?php endforeach; endif;?>
 
-                    <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/dashboard_my_chats_options.tpl.php'));?>
+
                 </ul>
+
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/dashboard_my_chats_options.tpl.php'));?>
+
             </div>
         </nav>
 
@@ -30,10 +35,10 @@
 
             <div class="overflow-auto">
                 <div class="chat-list-row d-flex" ng-repeat="chat in my_chats.list track by chat.id" ng-click="lhc.startChatDashboard(chat.id,chat.last_msg_id)" ng-class="{'active-chat-row' : chat.id == lhc.current_chat_id,'user-away-row': chat.user_status_front == 2, 'user-online-row': chat.user_status_front == 0}">
-                    <div class="col-12 col-sm-3 col-lg-2 align-self-center pl-1 pr-1">
+                    <div class="col-12 col-sm-3 col-lg-2 align-self-center pl-1 pr-1 details-chat-circle">
                          <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/part/circle.tpl.php'));?>
                     </div>
-                    <div class="col-8 col-sm-9 col-lg-10 d-none d-sm-block pr-0 pl-0">
+                    <div class="col-8 col-sm-9 col-lg-10 d-none d-sm-block pr-0 pl-0 details-chat">
 
                         <span class="float-right fs11 d-none d-md-inline pr-1">
                             <span title="Wait time" ng-if="!chat.status">{{chat.wait_time_pending}}</span>
@@ -47,7 +52,7 @@
                                     <span ng-if="chat.country_code != undefined">
                                         <img ng-src="<?php echo erLhcoreClassDesign::design('images/flags');?>/{{chat.country_code}}.png" alt="{{chat.country_name}}" title="{{chat.country_name}}" />&nbsp;
                                     </span>
-                                    <span title="{{chat.id}}" class="fs12" ng-class="{'chat-pending font-weight-bold': !chat.status, 'chat-unread': chat.status == 2 || lhc.chatMetaData[chat.id]['mn'] > 0}">{{lhc.truncateScope(chat.nick,10)}}</span>
+                                    <span title="{{chat.id}}" class="fs12" ng-class="{'chat-pending font-weight-bold': !chat.status, 'chat-unread': chat.status == 2 || lhc.chatMetaData[chat.id]['mn'] > 0}">{{chat.nick}}</span>
                         </div>
 
                         <div class="fs11 pt-1 text-secondary">
@@ -62,10 +67,10 @@
 
             <div class="chat-list-row d-flex" ng-repeat="chat in my_open_chats.list track by chat.id" ng-click="lhc.startChatDashboard(chat.id,chat.last_msg_id)" ng-class="{'active-chat-row' : chat.id == lhc.current_chat_id,'user-away-row': chat.user_status_front == 2, 'user-online-row': chat.user_status_front == 0}">
 
-            <div class="col-12 col-sm-3 col-lg-2 align-self-center pl-1 pr-1">
+            <div class="col-12 col-sm-3 col-lg-2 align-self-center pl-1 pr-1 details-chat-circle">
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/part/circle.tpl.php'));?>
             </div>
-            <div class="col-8 col-sm-9 col-lg-10 d-none d-sm-block pr-0 pl-0">
+            <div class="col-8 col-sm-9 col-lg-10 d-none d-sm-block pr-0 pl-0 details-chat">
 
                 <span class="float-right fs11">
                     <span ng-click="lhc.closeExternalChat(chat); $event.stopPropagation();" title="Stop monitoring, chat status won't be changed" class="material-icons text-danger font-weight-bold mr-0">&#xf156;</span>
@@ -85,7 +90,7 @@
                         <img ng-src="<?php echo erLhcoreClassDesign::design('images/flags');?>/{{chat.country_code}}.png" alt="{{chat.country_name}}" title="{{chat.country_name}}" />&nbsp;
                     </span>
 
-                    <span title="{{chat.id}}" class="fs12" ng-class="{'chat-pending font-weight-bold': !chat.status, 'chat-unread': chat.status == 2,'font-weight-bold' : lhc.chatMetaData[chat.id]['mn'] > 0}">{{lhc.truncateScope(chat.nick,10)}}</span>
+                    <span title="{{chat.id}}" class="fs12" ng-class="{'chat-pending font-weight-bold': !chat.status, 'chat-unread': chat.status == 2,'font-weight-bold' : lhc.chatMetaData[chat.id]['mn'] > 0}">{{chat.nick}}</span>
 
                     <span ng-if="lhc.chatMetaData[chat.id]['mn'] > 0" class="msg-nm">({{lhc.chatMetaData[chat.id]['mn']}})</span>
                 </div>

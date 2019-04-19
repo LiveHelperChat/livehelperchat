@@ -30,7 +30,7 @@ body {
 }
 
 .chat-tabs-container .chat-messages-body {
-    height:calc(100% - 41px);
+    height:calc(100% - 42px);
 }
 
 .chat-tabs-container .bottom-expanded .message-block, .chat-tabs-container .message-block{
@@ -63,6 +63,10 @@ body {
     z-index: 1;
     overflow-y: auto;
     height: calc(100% - 42px);
+}
+
+.toggledcm .home-dashboard-left-column{
+    height: calc(100% - 116px);
 }
 
 .home-dashboard-left-column::-webkit-scrollbar-track
@@ -252,6 +256,11 @@ a:hover{
 }
 .action-image {
     cursor:pointer;
+}
+
+.right-column-page-general{
+    max-height: 100%;
+    overflow-y:auto;
 }
 
 /*Hide elements which should not be visible in right column*/
@@ -1067,6 +1076,45 @@ input[type="file"]{
 	float:none;
 }
 
+
+.toggledcm .details-chat{
+    display:none!important;
+}
+
+.toggledcm .details-chat-circle{
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.toggledcm .chats-column{
+    width: 60px;
+    flex: 0 0 80%;
+    max-width: 60px;
+}
+
+.toggledcm #navbarSupportedContent {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-align: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.toggledcm #navbarSupportedContent .navbar-nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    flex: 0 0 100%;
+}
+
+
+
 #wrapper {
 	display: flex;
 	width: 100%;
@@ -1086,10 +1134,15 @@ input[type="file"]{
 
 }
 
+#wrapper.toggled #sidebar-wrapper .quick-options-toggler{
+    text-align: center!important;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
 #wrapper.toggled .quick-options{
     flex: 0 0 100%;
     max-width: 100%;
-
 }
 
 #wrapper.toggled .quick-options a{
@@ -1122,6 +1175,12 @@ input[type="file"]{
         max-width: 51px;
         min-width:51px;
 	}
+
+    #wrapper.toggled #sidebar-wrapper .quick-options-toggler{
+        text-align: left!important;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
 
     .sidebar li a{
         padding-left:0!important;

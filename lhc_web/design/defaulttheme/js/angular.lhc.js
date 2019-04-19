@@ -250,6 +250,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
     $scope.lmtoggle = this.restoreLocalSetting('lmtoggle', 'false', false) != 'false';
     $scope.lmtoggler = this.restoreLocalSetting('lmtoggler', 'false', false) != 'false';
     $scope.cmtoggle = this.restoreLocalSetting('cmtoggle', 'false', false) != 'false';
+    $scope.chatmlist = this.restoreLocalSetting('chatmlist', 'false', false) != 'false';
 
     this.lhcVersion = 0;
     this.lhcVersionCounter = 8;
@@ -1192,6 +1193,17 @@ lhcAppControllers.controller('LiveHelperChatCtrl', ['$compile','$scope', '$http'
         return lhinst.redirectContact(chat_id, message);
     };
 
+    this.isDashboard = false;
+
+    this.activateDashboard = function() {
+        if (this.isDashboard == true) {
+            this.currentPanel = 'dashboard';
+            this.current_chat_id = 0;
+        } else {
+            document.location = WWW_DIR_JAVASCRIPT;
+        }
+    };
+    
     this.deleteChat = function (chat_id, tabs, hidetab) {
         return lhinst.deleteChat(chat_id, tabs, hidetab);
     };

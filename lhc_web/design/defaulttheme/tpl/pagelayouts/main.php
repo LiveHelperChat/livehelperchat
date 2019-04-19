@@ -4,11 +4,11 @@
 	<head>
 		<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head.tpl.php'));?>
 	</head>
-<body ng-controller="LiveHelperChatCtrl as lhc" class="h-100" ng-init="lhc.getToggleWidget('lmtoggle','false');lhc.getToggleWidget('pending_chats_sort',<?php (int)erLhcoreClassModelChatConfig::fetchCache('reverse_pending')->current_value == 1 ? print "'true'" : print "'false'"?>);">
+<body ng-controller="LiveHelperChatCtrl as lhc" class="h-100" ng-init="lhc.getToggleWidget('chatmlist','false');lhc.getToggleWidget('lmtoggle','false');lhc.getToggleWidget('pending_chats_sort',<?php (int)erLhcoreClassModelChatConfig::fetchCache('reverse_pending')->current_value == 1 ? print "'true'" : print "'false'"?>);">
 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_top_content_multiinclude.tpl.php'));?>
 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_head_multiinclude.tpl.php'));?>
 
-<div id="wrapper" ng-class="{toggled: lmtoggle, toggledr : lmtoggler}" class="h-100">
+<div id="wrapper" ng-class="{toggled: lmtoggle, toggledr : lmtoggler,toggledcm : chatmlist}" class="h-100">
 
 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/sidemenu/sidemenu.tpl.php'));?>
 
