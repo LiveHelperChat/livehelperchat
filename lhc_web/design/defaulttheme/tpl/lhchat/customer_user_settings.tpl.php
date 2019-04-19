@@ -4,8 +4,8 @@ $soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data;
 $soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',(int)($soundData['new_message_sound_user_enabled'])); ?>
 
 	<div class="d-flex flex-row">
-			<div class="btn-group dropup pt-1">
-				<i class="material-icons settings text-muted" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#xf493;</i>
+			<div class="btn-group dropup pt-1 disable-select">
+				<i class="material-icons settings text-muted" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">settings</i>
 				<div class="dropdown-menu shadow bg-white rounded">
 					<div class="d-flex flex-row">
 						 <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings_multiinclude.tpl.php'));?>
@@ -32,7 +32,7 @@ $soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',
 		<div class="mx-auto pb-1 w-100">
 			<textarea autofocus="autofocus" class="form-control form-control-sm live-chat-message pb-1" rows="1" cols="120" aria-required="true" required name="ChatMessage"  aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Type your message here...'); ?>"  placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat', 'Type your message here...'); ?>" id="CSChatMessage"></textarea>
 		</div>
-		<div>
+		<div class="disable-select">
 			<?php include(erLhcoreClassDesign::designtpl('lhchat/part/above_text_area_user.tpl.php')); ?>
 		</div>
   </div>
