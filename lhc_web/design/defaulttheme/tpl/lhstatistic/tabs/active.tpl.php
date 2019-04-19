@@ -604,6 +604,20 @@
                     borderColor: '#36c',
                     borderWidth: 1,
                     data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['chatinitdefault']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Bot proactive responded');?>',
+                    backgroundColor: '#73cc3a',
+                    borderColor: '#73cc3a',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['chatinitproactbot']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Bot proactive un-responded');?>',
+                    backgroundColor: '#c8cc53',
+                    borderColor: '#c8cc53',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['chatinitproactbotunresponded']; $key++; endforeach;?>]
                 }
             ]
         };

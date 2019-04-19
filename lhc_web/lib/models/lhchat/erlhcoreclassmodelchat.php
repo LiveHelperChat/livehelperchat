@@ -579,6 +579,7 @@ class erLhcoreClassModelChat {
 
    const CHAT_INITIATOR_DEFAULT = 0;
    const CHAT_INITIATOR_PROACTIVE = 1;
+   const CHAT_INITIATOR_BOT = 2;
 
    const STATUS_SUB_DEFAULT = 0;
    const STATUS_SUB_OWNER_CHANGED = 1;

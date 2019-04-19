@@ -96,7 +96,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
 	    {
 	        // Invitation...
 	        // We have to apply proactive invitation rules
-	        if ($chat->chat_initiator == erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE && $chat->online_user !== false && $chat->online_user->invitation !== false) {
+	        if (in_array($chat->chat_initiator,array(erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE,erLhcoreClassModelChat::CHAT_INITIATOR_BOT)) && $chat->online_user !== false && $chat->online_user->invitation !== false) {
 	            
 	            if ($chat->online_user->invitation->wait_message != '') {
 	                $msg = new erLhcoreClassModelmsg();

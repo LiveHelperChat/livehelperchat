@@ -1574,7 +1574,7 @@ class erLhcoreClassChatValidator {
                 $paramsExecution['bot_id'] = $invitation->bot_id;
                 $paramsExecution['trigger_id'] = $invitation->trigger_id;
 
-                $params['chat']->chat_initiator = erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE;
+                $params['chat']->chat_initiator = erLhcoreClassModelChat::CHAT_INITIATOR_BOT;
             }
         }
 

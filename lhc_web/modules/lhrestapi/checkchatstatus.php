@@ -105,7 +105,7 @@ try {
 	        $is_online = false;
 	    }
 
-	    if ( $chat->chat_initiator == erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE ) {
+	    if (in_array($chat->chat_initiator,array(erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE,erLhcoreClassModelChat::CHAT_INITIATOR_BOT))) {
 	        $is_proactive_based = true;
 	    } else {
 	        $is_proactive_based = false;
