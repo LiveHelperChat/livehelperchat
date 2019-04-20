@@ -113,124 +113,186 @@ class erLhcoreClassTranslate
             $translationData = $translationConfig->data;
         }
         
-        if (isset($translationData['translation_handler']) && $translationData['translation_handler'] == 'bing') {
+        if (isset($translationData['translation_handler'])) {
+
+            if($translationData['translation_handler'] == 'bing') {
             
-            $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_bing_token', array(
-                'translation_config' => & $translationConfig,
-                'translation_data' => & $translationData
-            ));
-            if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
-                // Do nothing
-            } else {
-                self::getBingAccessToken($translationConfig, $translationData);
-            }
-            
-            // Only last 10 messages are translated
-            $msgs = erLhcoreClassModelmsg::getList(array(
-                'filter' => array(
-                    'chat_id' => $chat->id
-                ),
-                'limit' => 10,
-                'sort' => 'id DESC'
-            ));
-            
-            foreach ($msgs as $msg) {
-                
-                if ($msg->user_id != - 1) {
-                    // Visitor message
-                    // Remove old Translation
-                    $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
-                    
-                    if ($msg->user_id == 0) {
-                        $msgTranslated = erLhcoreClassTranslateBing::translate($translationData['bing_access_token'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to);
-                    } else { // Operator message
-                        $msgTranslated = erLhcoreClassTranslateBing::translate($translationData['bing_access_token'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale);
-                    }
-                    
-                    // If translation was successfull store it
-                    if (! empty($msgTranslated)) {
-                        
-                        $msgTranslated = str_ireplace(array(
-                            '[/ ',
-                            'Url = http: //',
-                            '[IMG] ',
-                            ' [/img]',
-                            '[/ url]',
-                            '[/ i]',
-                            '[Img]'
-                        ), array(
-                            '[/',
-                            'url=http://',
-                            '[img]',
-                            '[/img]',
-                            '[/url]',
-                            '[/i]',
-                            '[img]'
-                        ), $msgTranslated);
-                        
-                        $msg->msg .= "[translation]{$msgTranslated}[/translation]";
-                        $msg->saveThis();
-                    }
-                }
-            }
-        } else {
-            // Only last 10 messages are translated
-            $msgs = erLhcoreClassModelmsg::getList(array(
-                'filter' => array(
-                    'chat_id' => $chat->id
-                ),
-                'limit' => 10,
-                'sort' => 'id DESC'
-            ));
-            
-            $length = 0;
-            
-            foreach ($msgs as $msg) {
-                if ($msg->user_id != - 1) {
-                    // Visitor message
-                    // Remove old Translation
-                    $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
-                    
-                    if ($msg->user_id == 0) {
-                        $msgTranslated = erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
-                    } else { // Operator message
-                        $msgTranslated = erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
-                    }
-                    
-                    $length += mb_strlen($msgTranslated);
-                    
-                    // If translation was successfull store it
-                    if (! empty($msgTranslated)) {
-                        
-                        $msgTranslated = str_ireplace(array(
-                            '[/ ',
-                            'Url = http: //',
-                            '[IMG] ',
-                            ' [/img]',
-                            '[/ url]',
-                            '[/ i]',
-                            '[Img]'
-                        ), array(
-                            '[/',
-                            'url=http://',
-                            '[img]',
-                            '[/img]',
-                            '[/url]',
-                            '[/i]',
-                            '[img]'
-                        ), $msgTranslated);
-                        
-                        $msg->msg .= "[translation]{$msgTranslated}[/translation]";
-                        $msg->saveThis();
-                    }
-                }
-            }
-            
-            if ($length > 0) {
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translate.messagetranslated', array(
-                    'length' => $length,
-                    'chat' => & $chat
+                $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_bing_token', array(
+                    'translation_config' => & $translationConfig,
+                    'translation_data' => & $translationData
                 ));
+                if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+                    // Do nothing
+                } else {
+                    self::getBingAccessToken($translationConfig, $translationData);
+                }
+                
+                // Only last 10 messages are translated
+                $msgs = erLhcoreClassModelmsg::getList(array(
+                    'filter' => array(
+                        'chat_id' => $chat->id
+                    ),
+                    'limit' => 10,
+                    'sort' => 'id DESC'
+                ));
+                
+                foreach ($msgs as $msg) {
+                    
+                    if ($msg->user_id != - 1) {
+                        // Visitor message
+                        // Remove old Translation
+                        $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
+                        
+                        if ($msg->user_id == 0) {
+                            $msgTranslated = erLhcoreClassTranslateBing::translate($translationData['bing_access_token'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to);
+                        } else { // Operator message
+                            $msgTranslated = erLhcoreClassTranslateBing::translate($translationData['bing_access_token'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale);
+                        }
+                        
+                        // If translation was successfull store it
+                        if (! empty($msgTranslated)) {
+                            
+                            $msgTranslated = str_ireplace(array(
+                                '[/ ',
+                                'Url = http: //',
+                                '[IMG] ',
+                                ' [/img]',
+                                '[/ url]',
+                                '[/ i]',
+                                '[Img]'
+                            ), array(
+                                '[/',
+                                'url=http://',
+                                '[img]',
+                                '[/img]',
+                                '[/url]',
+                                '[/i]',
+                                '[img]'
+                            ), $msgTranslated);
+                            
+                            $msg->msg .= "[translation]{$msgTranslated}[/translation]";
+                            $msg->saveThis();
+                        }
+                    }
+                }
+            } elseif ($translationData['translation_handler'] == 'google') {
+                // Only last 10 messages are translated
+                $msgs = erLhcoreClassModelmsg::getList(array(
+                    'filter' => array(
+                        'chat_id' => $chat->id
+                    ),
+                    'limit' => 10,
+                    'sort' => 'id DESC'
+                ));
+                
+                $length = 0;
+                
+                foreach ($msgs as $msg) {
+                    if ($msg->user_id != - 1) {
+                        // Visitor message
+                        // Remove old Translation
+                        $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
+                        
+                        if ($msg->user_id == 0) {
+                            $msgTranslated = erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
+                        } else { // Operator message
+                            $msgTranslated = erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
+                        }
+                        
+                        $length += mb_strlen($msgTranslated);
+                        
+                        // If translation was successfull store it
+                        if (! empty($msgTranslated)) {
+                            
+                            $msgTranslated = str_ireplace(array(
+                                '[/ ',
+                                'Url = http: //',
+                                '[IMG] ',
+                                ' [/img]',
+                                '[/ url]',
+                                '[/ i]',
+                                '[Img]'
+                            ), array(
+                                '[/',
+                                'url=http://',
+                                '[img]',
+                                '[/img]',
+                                '[/url]',
+                                '[/i]',
+                                '[img]'
+                            ), $msgTranslated);
+                            
+                            $msg->msg .= "[translation]{$msgTranslated}[/translation]";
+                            $msg->saveThis();
+                        }
+                    }
+                }
+                
+                if ($length > 0) {
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translate.messagetranslated', array(
+                        'length' => $length,
+                        'chat' => & $chat
+                    ));
+                }
+            } elseif ($translationData['translation_handler'] == 'yandex') {
+                // Only last 10 messages are translated
+                $msgs = erLhcoreClassModelmsg::getList(array(
+                    'filter' => array(
+                        'chat_id' => $chat->id
+                    ),
+                    'limit' => 10,
+                    'sort' => 'id DESC'
+                ));
+                
+                $length = 0;
+                
+                foreach ($msgs as $msg) {
+                    if ($msg->user_id != - 1) {
+                        // Visitor message
+                        // Remove old Translation
+                        $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
+                        
+                        if ($msg->user_id == 0) {
+                            $msgTranslated = erLhcoreClassTranslateYandex::translate($translationData['yandex_api_key'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to);
+                        } else { // Operator message
+                            $msgTranslated = erLhcoreClassTranslateYandex::translate($translationData['yandex_api_key'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale);
+                        }
+                        
+                        $length += mb_strlen($msgTranslated);
+                        
+                        // If translation was successfull store it
+                        if (! empty($msgTranslated)) {
+                            
+                            $msgTranslated = str_ireplace(array(
+                                '[/ ',
+                                'Url = http: //',
+                                '[IMG] ',
+                                ' [/img]',
+                                '[/ url]',
+                                '[/ i]',
+                                '[Img]'
+                            ), array(
+                                '[/',
+                                'url=http://',
+                                '[img]',
+                                '[/img]',
+                                '[/url]',
+                                '[/i]',
+                                '[img]'
+                            ), $msgTranslated);
+                            
+                            $msg->msg .= "[translation]{$msgTranslated}[/translation]";
+                            $msg->saveThis();
+                        }
+                    }
+                }
+                
+                if ($length > 0) {
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translate.messagetranslated', array(
+                        'length' => $length,
+                        'chat' => & $chat
+                    ));
+                }
             }
         }
     }
@@ -263,118 +325,219 @@ class erLhcoreClassTranslate
         $translationData = self::getTranslationConfig();
         $options = array();
         
-        if (isset($translationData['translation_handler']) && $translationData['translation_handler'] == 'bing') {
+        if (isset($translationData['translation_handler'])) {
+
+            if ($translationData['translation_handler'] == 'bing') {
             
-            $options['ar'] = 'Arabic';
-            $options['bg'] = 'Bulgarian';
-            $options['ca'] = 'Catalan';
-            $options['zh-CHS'] = 'Chinese Simplified';
-            $options['zh-CHT'] = 'Chinese Traditional';
-            $options['cs'] = 'Czech';
-            $options['da'] = 'Danish';
-            $options['nl'] = 'Dutch';
-            $options['en'] = 'English';
-            $options['et'] = 'Estonian';
-            $options['fi'] = 'Finnish';
-            $options['fr'] = 'French';
-            $options['de'] = 'German';
-            $options['ht'] = 'Haitian Creole';
-            $options['he'] = 'Hebrew';
-            $options['hi'] = 'Hindi';
-            $options['mww'] = 'Hmong Daw';
-            $options['hu'] = 'Hungarian';
-            $options['id'] = 'Indonesian';
-            $options['it'] = 'Italian';
-            $options['ja'] = 'Japanese';
-            $options['tlh'] = 'Klingon';
-            $options['tlh-Qaak'] = 'Klingon (pIqaD)';
-            $options['ko'] = 'Korean';
-            $options['lv'] = 'Latvian';
-            $options['lt'] = 'Lithuanian';
-            $options['ms'] = 'Malay';
-            $options['mt'] = 'Maltese';
-            $options['no'] = 'Norwegian';
-            $options['fa'] = 'Persian';
-            $options['pl'] = 'Polish';
-            $options['pt'] = 'Portuguese';
-            $options['ro'] = 'Romanian';
-            $options['ru'] = 'Russian';
-            $options['sk'] = 'Slovak';
-            $options['sl'] = 'Slovenian';
-            $options['es'] = 'Spanish';
-            $options['sv'] = 'Swedish';
-            $options['th'] = 'Thai';
-            $options['tr'] = 'Turkish';
-            $options['uk'] = 'Ukrainian';
-            $options['ur'] = 'Urdu';
-            $options['vi'] = 'Vietnamese';
-            $options['cy'] = 'Urdu';
-            $options['yi'] = 'Welsh';
-        } elseif (isset($translationData['translation_handler']) && $translationData['translation_handler'] == 'google') {
-            $options['af'] = 'Afrikaans';
-            $options['sq'] = 'Albanian';
-            $options['ar'] = 'Arabic';
-            $options['az'] = 'Azerbaijani';
-            $options['eu'] = 'Basque';
-            $options['bn'] = 'Bengali';
-            $options['be'] = 'Belarusian';
-            $options['bg'] = 'Bulgarian';
-            $options['ca'] = 'Catalan';
-            $options['zh-CN'] = 'Chinese Simplified';
-            $options['zh-TW'] = 'Chinese Traditional';
-            $options['hr'] = 'Croatian';
-            $options['cs'] = 'Czech';
-            $options['da'] = 'Danish';
-            $options['nl'] = 'Dutch';
-            $options['en'] = 'English';
-            $options['eo'] = 'Esperanto';
-            $options['et'] = 'Estonian';
-            $options['tl'] = 'Filipino';
-            $options['fi'] = 'Finnish';
-            $options['fr'] = 'French';
-            $options['gl'] = 'Galician';
-            $options['ka'] = 'Georgian';
-            $options['de'] = 'German';
-            $options['el'] = 'Greek';
-            $options['gu'] = 'Gujarati';
-            $options['ht'] = 'Haitian Creole';
-            $options['iw'] = 'Hebrew';
-            $options['hi'] = 'Hindi';
-            $options['hu'] = 'Hungarian';
-            $options['is'] = 'Icelandic';
-            $options['id'] = 'Indonesian';
-            $options['ga'] = 'Irish';
-            $options['it'] = 'Italian';
-            $options['ja'] = 'Japanese';
-            $options['kn'] = 'Kannada';
-            $options['ko'] = 'Korean';
-            $options['la'] = 'Latin';
-            $options['lv'] = 'Latvian';
-            $options['lt'] = 'Lithuanian';
-            $options['mk'] = 'Macedonian';
-            $options['ms'] = 'Malay';
-            $options['mt'] = 'Maltese';
-            $options['no'] = 'Norwegian';
-            $options['fa'] = 'Persian';
-            $options['pl'] = 'Polish';
-            $options['pt'] = 'Portuguese';
-            $options['ro'] = 'Romanian';
-            $options['ru'] = 'Russian';
-            $options['sr'] = 'Serbian';
-            $options['sk'] = 'Slovak';
-            $options['sl'] = 'Slovenian';
-            $options['es'] = 'Spanish';
-            $options['sw'] = 'Swahili';
-            $options['sv'] = 'Swedish';
-            $options['ta'] = 'Tamil';
-            $options['te'] = 'Telugu';
-            $options['th'] = 'Thai';
-            $options['tr'] = 'Turkish';
-            $options['uk'] = 'Ukrainian';
-            $options['ur'] = 'Urdu';
-            $options['vi'] = 'Vietnamese';
-            $options['cy'] = 'Urdu';
-            $options['yi'] = 'Welsh';
+                $options['ar'] = 'Arabic';
+                $options['bg'] = 'Bulgarian';
+                $options['ca'] = 'Catalan';
+                $options['zh-CHS'] = 'Chinese Simplified';
+                $options['zh-CHT'] = 'Chinese Traditional';
+                $options['cs'] = 'Czech';
+                $options['da'] = 'Danish';
+                $options['nl'] = 'Dutch';
+                $options['en'] = 'English';
+                $options['et'] = 'Estonian';
+                $options['fi'] = 'Finnish';
+                $options['fr'] = 'French';
+                $options['de'] = 'German';
+                $options['ht'] = 'Haitian Creole';
+                $options['he'] = 'Hebrew';
+                $options['hi'] = 'Hindi';
+                $options['mww'] = 'Hmong Daw';
+                $options['hu'] = 'Hungarian';
+                $options['id'] = 'Indonesian';
+                $options['it'] = 'Italian';
+                $options['ja'] = 'Japanese';
+                $options['tlh'] = 'Klingon';
+                $options['tlh-Qaak'] = 'Klingon (pIqaD)';
+                $options['ko'] = 'Korean';
+                $options['lv'] = 'Latvian';
+                $options['lt'] = 'Lithuanian';
+                $options['ms'] = 'Malay';
+                $options['mt'] = 'Maltese';
+                $options['no'] = 'Norwegian';
+                $options['fa'] = 'Persian';
+                $options['pl'] = 'Polish';
+                $options['pt'] = 'Portuguese';
+                $options['ro'] = 'Romanian';
+                $options['ru'] = 'Russian';
+                $options['sk'] = 'Slovak';
+                $options['sl'] = 'Slovenian';
+                $options['es'] = 'Spanish';
+                $options['sv'] = 'Swedish';
+                $options['th'] = 'Thai';
+                $options['tr'] = 'Turkish';
+                $options['uk'] = 'Ukrainian';
+                $options['ur'] = 'Urdu';
+                $options['vi'] = 'Vietnamese';
+                $options['cy'] = 'Urdu';
+                $options['yi'] = 'Welsh';
+
+            } elseif ($translationData['translation_handler'] == 'google') {
+
+                $options['af'] = 'Afrikaans';
+                $options['sq'] = 'Albanian';
+                $options['ar'] = 'Arabic';
+                $options['az'] = 'Azerbaijani';
+                $options['eu'] = 'Basque';
+                $options['bn'] = 'Bengali';
+                $options['be'] = 'Belarusian';
+                $options['bg'] = 'Bulgarian';
+                $options['ca'] = 'Catalan';
+                $options['zh-CN'] = 'Chinese Simplified';
+                $options['zh-TW'] = 'Chinese Traditional';
+                $options['hr'] = 'Croatian';
+                $options['cs'] = 'Czech';
+                $options['da'] = 'Danish';
+                $options['nl'] = 'Dutch';
+                $options['en'] = 'English';
+                $options['eo'] = 'Esperanto';
+                $options['et'] = 'Estonian';
+                $options['tl'] = 'Filipino';
+                $options['fi'] = 'Finnish';
+                $options['fr'] = 'French';
+                $options['gl'] = 'Galician';
+                $options['ka'] = 'Georgian';
+                $options['de'] = 'German';
+                $options['el'] = 'Greek';
+                $options['gu'] = 'Gujarati';
+                $options['ht'] = 'Haitian Creole';
+                $options['iw'] = 'Hebrew';
+                $options['hi'] = 'Hindi';
+                $options['hu'] = 'Hungarian';
+                $options['is'] = 'Icelandic';
+                $options['id'] = 'Indonesian';
+                $options['ga'] = 'Irish';
+                $options['it'] = 'Italian';
+                $options['ja'] = 'Japanese';
+                $options['kn'] = 'Kannada';
+                $options['ko'] = 'Korean';
+                $options['la'] = 'Latin';
+                $options['lv'] = 'Latvian';
+                $options['lt'] = 'Lithuanian';
+                $options['mk'] = 'Macedonian';
+                $options['ms'] = 'Malay';
+                $options['mt'] = 'Maltese';
+                $options['no'] = 'Norwegian';
+                $options['fa'] = 'Persian';
+                $options['pl'] = 'Polish';
+                $options['pt'] = 'Portuguese';
+                $options['ro'] = 'Romanian';
+                $options['ru'] = 'Russian';
+                $options['sr'] = 'Serbian';
+                $options['sk'] = 'Slovak';
+                $options['sl'] = 'Slovenian';
+                $options['es'] = 'Spanish';
+                $options['sw'] = 'Swahili';
+                $options['sv'] = 'Swedish';
+                $options['ta'] = 'Tamil';
+                $options['te'] = 'Telugu';
+                $options['th'] = 'Thai';
+                $options['tr'] = 'Turkish';
+                $options['uk'] = 'Ukrainian';
+                $options['ur'] = 'Urdu';
+                $options['vi'] = 'Vietnamese';
+                $options['cy'] = 'Urdu';
+                $options['yi'] = 'Welsh';
+
+            } elseif ($translationData['translation_handler'] == 'yandex') {
+
+                $options['az'] = 'Azerbaijan';
+                $options['sq'] = 'Albanian';
+                $options['am'] = 'Amharic';
+                $options['en'] = 'English';
+                $options['ar'] = 'Arabic';
+                $options['hy'] = 'Armenian';
+                $options['af'] = 'Afrikaans';
+                $options['eu'] = 'Basque';
+                $options['ba'] = 'Bashkir';
+                $options['be'] = 'Belarusian';
+                $options['bn'] = 'Bengali';
+                $options['my'] = 'Burmese';
+                $options['bg'] = 'Bulgarian';
+                $options['bs'] = 'Bosnian';
+                $options['cy'] = 'Welsh';
+                $options['hu'] = 'Hungarian';
+                $options['vi'] = 'Vietnamese';
+                $options['ht'] = 'Haitian (Creole)';
+                $options['gl'] = 'Galician';
+                $options['nl'] = 'Dutch';
+                $options['mrj'] = 'Hill Mari';
+                $options['el'] = 'Greek';
+                $options['ka'] = 'Georgian';
+                $options['gu'] = 'Gujarati';
+                $options['da'] = 'Danish';
+                $options['he'] = 'Hebrew';
+                $options['yi'] = 'Yiddish';
+                $options['id'] = 'Indonesian';
+                $options['ga'] = 'Irish';
+                $options['it'] = 'Italian';
+                $options['is'] = 'Icelandic';
+                $options['es'] = 'Spanish';
+                $options['kk'] = 'Kazakh';
+                $options['kn'] = 'Kannada';
+                $options['ca'] = 'Catalan';
+                $options['ky'] = 'Kyrgyz';
+                $options['zh'] = 'Chinese';
+                $options['ko'] = 'Korean';
+                $options['xh'] = 'Xhosa';
+                $options['km'] = 'Khmer';
+                $options['lo'] = 'Laotian';
+                $options['la'] = 'Latin';
+                $options['lv'] = 'Latvian';
+                $options['lt'] = 'Lithuanian';
+                $options['lb'] = 'Luxembourgish';
+                $options['mg'] = 'Malagasy';
+                $options['ms'] = 'Malay';
+                $options['ml'] = 'Malayalam';
+                $options['mt'] = 'Maltese';
+                $options['mk'] = 'Macedonian';
+                $options['mi'] = 'Maori';
+                $options['mr'] = 'Marathi';
+                $options['mhr'] = 'Mari';
+                $options['mn'] = 'Mongolian';
+                $options['de'] = 'German';
+                $options['ne'] = 'Nepali';
+                $options['no'] = 'Norwegian';
+                $options['pa'] = 'Punjabi';
+                $options['pap'] = 'Papiamento';
+                $options['fa'] = 'Persian';
+                $options['pl'] = 'Polish';
+                $options['pt'] = 'Portuguese';
+                $options['ro'] = 'Romanian';
+                $options['ru'] = 'Russian';
+                $options['ceb'] = 'Cebuano';
+                $options['sr'] = 'Serbian';
+                $options['si'] = 'Sinhala';
+                $options['sk'] = 'Slovakian';
+                $options['sl'] = 'Slovenian';
+                $options['sw'] = 'Swahili';
+                $options['su'] = 'Sundanese';
+                $options['tg'] = 'Tajik';
+                $options['th'] = 'Thai';
+                $options['tl'] = 'Tagalog';
+                $options['ta'] = 'Tamil';
+                $options['tt'] = 'Tatar';
+                $options['te'] = 'Telugu';
+                $options['tr'] = 'Turkish';
+                $options['udm'] = 'Udmurt';
+                $options['uz'] = 'Uzbek';
+                $options['uk'] = 'Ukrainian';
+                $options['ur'] = 'Urdu';
+                $options['fi'] = 'Finnish';
+                $options['fr'] = 'French';
+                $options['hi'] = 'Hindi';
+                $options['hr'] = 'Croatian';
+                $options['cs'] = 'Czech';
+                $options['sv'] = 'Swedish';
+                $options['gd'] = 'Scottish';
+                $options['et'] = 'Estonian';
+                $options['eo'] = 'Esperanto';
+                $options['jv'] = 'Javanese';
+                $options['ja'] = 'Japanese';
+            }
         }
         
         if ($returnOptions == true) {
@@ -412,21 +575,25 @@ class erLhcoreClassTranslate
             $translationData = $translationConfig->data;
         }
         
-        if (isset($translationData['translation_handler']) && $translationData['translation_handler'] == 'bing') {
+        if (isset($translationData['translation_handler'])) {
+            if($translationData['translation_handler'] == 'bing') {
             
-            $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_bing_token', array(
-                'translation_config' => & $translationConfig,
-                'translation_data' => & $translationData
-            ));
-            if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
-                // Do nothing
-            } else {
-                self::getBingAccessToken($translationConfig, $translationData);
+                $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_bing_token', array(
+                    'translation_config' => & $translationConfig,
+                    'translation_data' => & $translationData
+                ));
+                if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+                    // Do nothing
+                } else {
+                    self::getBingAccessToken($translationConfig, $translationData);
+                }
+                
+                return erLhcoreClassTranslateBing::detectLanguage($translationData['bing_access_token'], $text);
+            } elseif ($translationData['translation_handler'] == 'google') {
+                return erLhcoreClassTranslateGoogle::detectLanguage($translationData['google_api_key'], $text, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
+            } elseif($translationData['translation_handler'] == 'yandex'){
+                return erLhcoreClassTranslateYandex::detectLanguage($translationData['yandex_api_key'], $text);
             }
-            
-            return erLhcoreClassTranslateBing::detectLanguage($translationData['bing_access_token'], $text);
-        } elseif (isset($translationData['translation_handler']) && $translationData['translation_handler'] == 'google') {
-            return erLhcoreClassTranslateGoogle::detectLanguage($translationData['google_api_key'], $text, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
         }
     }
 
@@ -451,30 +618,38 @@ class erLhcoreClassTranslate
             $translationData = $translationConfig->data;
         }
         
-        if (isset($translationData['translation_handler']) && $translationData['translation_handler'] == 'bing') {
+        if (isset($translationData['translation_handler'])) {
+            if ($translationData['translation_handler'] == 'bing') {
             
-            $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_bing_token', array(
-                'translation_config' => & $translationConfig,
-                'translation_data' => & $translationData
-            ));
-            if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
-                // Do nothing
-            } else {
-                self::getBingAccessToken($translationConfig, $translationData);
+                $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_bing_token', array(
+                    'translation_config' => & $translationConfig,
+                    'translation_data' => & $translationData
+                ));
+                if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+                    // Do nothing
+                } else {
+                    self::getBingAccessToken($translationConfig, $translationData);
+                }
+                
+                if ($translateFrom == false) {
+                    $translateFrom = self::detectLanguage($text);
+                }
+                
+                return erLhcoreClassTranslateBing::translate($translationData['bing_access_token'], $text, $translateFrom, $translateTo);
+            } elseif ($translationData['translation_handler'] == 'google') {
+            
+                if ($translateFrom == false) {
+                    $translateFrom = self::detectLanguage($text, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
+                }
+            
+                return erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $text, $translateFrom, $translateTo, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
+            } elseif ($translationData['translation_handler'] == 'yandex') {
+
+                if($translateFrom == false) {
+                    $translateFrom = self::detectLanguage($text);
+                }
+                return erLhcoreClassTranslateYandex::translate($translationData['yandex_api_key'], $text, $translateFrom, $translateTo);
             }
-            
-            if ($translateFrom == false) {
-                $translateFrom = self::detectLanguage($text);
-            }
-            
-            return erLhcoreClassTranslateBing::translate($translationData['bing_access_token'], $text, $translateFrom, $translateTo);
-        } else {
-            
-            if ($translateFrom == false) {
-                $translateFrom = self::detectLanguage($text, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
-            }
-            
-            return erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $text, $translateFrom, $translateTo, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
         }
     }
 
