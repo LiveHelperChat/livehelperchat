@@ -8,10 +8,10 @@
     <th width="1%">ID</th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Title/Message');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Department');?></th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','User');?></th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delay');?></th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?></th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Auto send');?></th>
+    <th class="d-none d-xl-table-cell"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','User');?></th>
+    <th class="d-none d-xl-table-cell"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delay');?></th>
+    <th class="d-none d-xl-table-cell"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?></th>
+    <th class="d-none d-xl-table-cell"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Auto send');?></th>
     <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/custom_column_multiinclude.tpl.php'));?>
     <th width="1%">&nbsp;</th>
     <th width="1%">&nbsp;</th>
@@ -22,13 +22,13 @@
         <td><?php echo $item->id?></td>
         <td><?php echo nl2br(htmlspecialchars($item->title != '' ? $item->title : $item->msg))?></td>
         <td><?php if ($item->department !== false) : ?><?php echo htmlspecialchars($item->department)?><?php else : ?>-<?php endif;?></td>
-        <td><?php echo htmlspecialchars($item->user)?></td>
-        <td><?php echo $item->delay?></td>
-        <td><?php echo $item->position?></td>
-        <td><?php echo $item->auto_send?></td>
+        <td class="d-none d-xl-table-cell"><?php echo htmlspecialchars($item->user)?></td>
+        <td class="d-none d-xl-table-cell"><?php echo $item->delay?></td>
+        <td class="d-none d-xl-table-cell"><?php echo $item->position?></td>
+        <td class="d-none d-xl-table-cell"><?php echo $item->auto_send?></td>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/custom_column_content_multiinclude.tpl.php'));?>
-        <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsgedit')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Edit message');?></a></td>
-        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsg')?>/(action)/delete/(id)/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete message');?></a></td>
+        <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsgedit')?>/<?php echo $item->id?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Edit message');?>"><i class="material-icons mr-0">&#xf3ea;</i></a></td>
+        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsg')?>/(action)/delete/(id)/<?php echo $item->id?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete message');?>"><i class="material-icons mr-0">&#xfa78;</i></a></td>
     </tr>
 <?php endforeach; ?>
 </table>
