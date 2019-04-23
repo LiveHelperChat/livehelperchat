@@ -8489,7 +8489,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>survey/fill</name>
     <message>
       <source>Preview chat</source>
-      <translation>Pé-visualizar o chat </translation>
+      <translation>Pré-visualizar o chat </translation>
     </message>
     <message>
       <source>star</source>
