@@ -721,10 +721,51 @@ class erLhcoreClassModelChatOnlineUser
                             } elseif ($jsVar->type == 2) {
                                 $val = (real)$val;
                             }
-
                             $onlineAttr[$jsVar->var_identifier] =  array('h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
                         }
                     }
+                }
+
+                /*
+                 * Parse standard passed arguments
+                 * */
+                if (isset($_GET['name']) && is_array($_GET['name']) && ! empty ( $_GET['name'] )) {
+                    $valuesArray = array ();
+
+                    if (isset($_GET['value']) && is_array($_GET['value']) && ! empty ( $_GET['value'] )) {
+                       $valuesArray = $_GET['value'];
+                    }
+
+                    foreach ( $_GET['name'] as $key => $name_item ) {
+
+                        $valueStore = isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '';
+
+                        if (isset($_GET['encattr'][$key]) && $_GET['encattr'][$key] == 't' && $valueStore != '') {
+                            try {
+                                $chat = new stdClass();
+                                $chat->dep_id = $item->dep_id;
+                                $valueStore = erLhcoreClassChatValidator::decryptAdditionalField($valueStore, $chat);
+                            } catch (Exception $e) {
+                                $valueStore = $e->getMessage();
+                            }
+                        }
+
+                        $onlineAttr[$name_item] = array (
+                            'key' => $name_item,
+                            'value' => $valueStore,
+                            'h' => (isset($_GET['type'][$key]) && $_GET['type'][$key] == 'hidden' ? true : false),
+                        );
+                    }
+                }
+
+                if (isset($_GET['prefill'])) {
+                    foreach ($_GET['prefill'] as $key => $value) {
+                        $onlineAttr[$key] = $value;
+                    }
+                }
+
+                if ($paramsHandle['tag'] && $paramsHandle['tag'] != '') {
+                    $onlineAttr['tag'] = array('h' => false, 'identifier' => 'tag', 'key' => 'Tags', 'value' => implode(',',array_unique(explode(',',$paramsHandle['tag']))));
                 }
 
                 if (!empty($onlineAttr)) {

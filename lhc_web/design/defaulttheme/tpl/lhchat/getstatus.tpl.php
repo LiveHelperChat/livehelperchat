@@ -450,20 +450,6 @@ var lh_inst  = {
 	    	};
     	};
 
-        var js_args = [];
-        var currentVar = null;
-
-        for (var index in this.js_variables) {
-            try {
-                var currentVar = eval(this.js_variables[index].var);
-                if (typeof currentVar !== 'undefined' && currentVar !== null && currentVar !== '') {
-                    argumentsQuery.push('jsvar['+this.js_variables[index].id+']='+encodeURIComponent(currentVar));
-                }
-            } catch(err) {
-                //console.log(err.message);
-            }
-        }
-
         if (argumentsQuery.length > 0) {
             return '&'+argumentsQuery.join('&');
         };
@@ -635,7 +621,7 @@ var lh_inst  = {
 
             s.setAttribute('id','lhc_operator_message');
             s.setAttribute('type','text/javascript');
-            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ?  '/(fullheight)/true' : '/(fullheight)/false' ?>/(tz)/' + tzOffset + this.survey_id + '/(count_page)/1/(vid)/'+vid+'/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+dynamic+'?l='+locationCurrent+this.tag+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title)+'&ts='+Date.now());
+            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ?  '/(fullheight)/true' : '/(fullheight)/false' ?>/(tz)/' + tzOffset + this.survey_id + '/(count_page)/1/(vid)/'+vid+'/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+dynamic+'?l='+locationCurrent+this.tag+this.parseStorageArguments()+this.parseOptionsOnline()+this.parseOptions()+'&dt='+encodeURIComponent(document.title)+'&ts='+Date.now());
             th.appendChild(s);
         }
     },
