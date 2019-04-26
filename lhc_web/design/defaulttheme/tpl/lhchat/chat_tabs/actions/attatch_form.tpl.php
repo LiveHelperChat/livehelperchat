@@ -1,0 +1,1 @@
+<a class="material-icons mr-0" onclick="return lhc.revealModal({'iframe':true,'height':500,'url':WWW_DIR_JAVASCRIPT +'form/attatchform/<?php echo $chat->id?>'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Attach form')?>">attach_file</a>
