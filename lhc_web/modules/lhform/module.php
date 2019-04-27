@@ -30,6 +30,11 @@ $ViewList['embedcode'] = array(
 		'functions' => array('generate_js')
 );
 
+$ViewList['attatchform'] = array(
+	'params' => array('chat_id'),
+	'functions' => array( 'use_operator' )
+);
+
 /*
  * XLS file with all files
 *
