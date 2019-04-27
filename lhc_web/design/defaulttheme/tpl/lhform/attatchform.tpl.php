@@ -14,7 +14,7 @@
     <tr>         
         <td nowrap><?php echo $form->name; ?></td>
         <td><input type="text" class="form-control" value="<?php echo $link ?>"></td>
-        <td nowrap><a id="embed-button-<?php echo $form->id?>" onclick="return lhinst.sendLinkToEditor('<?php echo $chat->id?>','<?php echo $link ?>','<?php echo $form->id?>')" href="#" class="csfr-required btn btn-secondary btn-xs"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Embed Form link');?></a></td>
+        <td nowrap><a id="embed-button-<?php echo $form->id?>" onclick="return lhinst.sendLinkToEditor('<?php echo $chat->id?>','<?php echo '[url='.$link.']'.$form->name.'[/url]' ?>','<?php echo $form->id?>')" href="#" class="csfr-required btn btn-secondary btn-xs"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Embed Form link');?></a></td>
     </tr>
 <?php endforeach; ?>
 </table>
