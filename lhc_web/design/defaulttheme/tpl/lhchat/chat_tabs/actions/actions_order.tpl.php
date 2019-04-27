@@ -53,10 +53,6 @@
             'enabled' => !isset($hideActionBlock)
         ),
         array(
-            'item' => 'attatch_form',
-            'enabled' => !isset($hideActionBlock)
-        ),
-        array(
             'item' => 'redirect_user',
             'enabled' => !isset($hideActionBlock)
         ),
