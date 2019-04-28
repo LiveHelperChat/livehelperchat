@@ -764,7 +764,7 @@ class erLhcoreClassModelChatOnlineUser
                     }
                 }
 
-                if ($paramsHandle['tag'] && $paramsHandle['tag'] != '') {
+                if (isset($paramsHandle['tag']) && $paramsHandle['tag'] != '') {
                     $onlineAttr['tag'] = array('h' => false, 'identifier' => 'tag', 'key' => 'Tags', 'value' => implode(',',array_unique(explode(',',$paramsHandle['tag']))));
                 }
 
