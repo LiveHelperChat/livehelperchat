@@ -43,8 +43,8 @@ if (ezcInputForm::hasPostData()) {
                     $triggerObj->name = $trigger['trigger']['name'];
                     $triggerObj->default = $trigger['trigger']['default'];
                     $triggerObj->default_unknown = $trigger['trigger']['default_unknown'];
-
-                    $triggerObj->actions = preg_replace("/\"type\":\"predefined\",\"content\":\{(.*?)\"payload\":\"(.*?)\"/",'"type":"predefined","content":{"text":"","payload":"\2"', $trigger['trigger']['actions']);
+                    $triggerObj->actions = $trigger['trigger']['actions'];
+                    //$triggerObj->actions = preg_replace("/\"type\":\"predefined\",\"content\":\{(.*?)\"payload\":\"(.*?)\"/",'"type":"predefined","content":{"text":"","payload":"\2"', $trigger['trigger']['actions']);
                     $triggerObj->saveThis();
 
                     $triggersArray[] = $triggerObj;
@@ -69,8 +69,8 @@ if (ezcInputForm::hasPostData()) {
             $replaceArrayReplace = array();
             foreach ($replaceTriggerIds as $oldTriggerId => $newTriggerId){
 
-                $replaceArraySearch[] = '"type":"predefined","content":{"text":"","payload":"' . $oldTriggerId . '"';
-                $replaceArrayReplace[] = '"type":"predefined","content":{"text":"","payload":"' . $newTriggerId . '"';
+                $replaceArraySearch[] = '"payload":"' . $oldTriggerId . '"';
+                $replaceArrayReplace[] = '"payload":"' . $newTriggerId . '"';
 
                 $replaceArraySearch[] = '"collection_callback_pattern":"' . $oldTriggerId . '"';
                 $replaceArrayReplace[] = '"collection_callback_pattern":"' . $newTriggerId . '"';
@@ -102,8 +102,6 @@ if (ezcInputForm::hasPostData()) {
                 $replaceArraySearch[] = '"trigger_id":"' . $oldTriggerId . '"';
                 $replaceArrayReplace[] = '"trigger_id":"' . $newTriggerId . '"';
 
-                $replaceArraySearch[] = '"stopchat","payload":"' . $oldTriggerId . '"';
-                $replaceArrayReplace[] = '"stopchat","payload":"' . $newTriggerId . '"';
             }
 
             foreach ($triggersArray as $trigger) {
