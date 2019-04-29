@@ -84,6 +84,7 @@ class erLhcoreClassGenericBotActionActions {
             'chat' => & $chat
         ));
 
+
         if (isset($handler['trigger'])) {
             return erLhcoreClassGenericBotWorkflow::processTrigger($chat, $handler['trigger'], true, array('args' => $params));
         }
