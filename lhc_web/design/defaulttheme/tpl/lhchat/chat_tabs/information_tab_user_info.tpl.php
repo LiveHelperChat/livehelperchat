@@ -46,6 +46,8 @@
         	   <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/actions/print.tpl.php'));?>
         	<?php elseif ($buttonData['item'] == 'attatch_file' && $canEditChat == true) : ?>
         	   <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/actions/attatch_file.tpl.php'));?>
+               <?php elseif ($buttonData['item'] == 'attatch_form') : ?>
+        	   <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/actions/attatch_form.tpl.php'));?>
         	<?php elseif ($buttonData['item'] == 'redirect_user' && $canEditChat == true) : ?>
         	   <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/actions/redirect_user.tpl.php'));?>
         	<?php elseif ($buttonData['item'] == 'speech' && $canEditChat == true) : ?>
