@@ -6,7 +6,7 @@
                 array(
                     'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Positive'),
                     'icons' => array(
-                        '&#x1F600', '&#x1F601', '&#x1F602', '&#x1F923', '&#x1F603', '&#x1F604', '&#x1F605', '&#x1F606', '&#x1F609', '&#x1F60A', '&#x1F60B', '&#x1F60E', '&#x1F60D', '&#x1F618', '&#x1F617', '&#x1F619', '&#x1F61A', '&#x1F642', '&#x1F917', '&#x1F929', '&#x1F607', '&#x1F920', '&#x1F925', '&#x1F92B', '&#x1F92D', '&#x1F9D0', '&#x1F913', '&#x1F635', '&#x1F44D', '&#x1F44E', '&#x1F44C', '&#x270C', '&#x1F44B', '&#x1F446', '&#x1F447', '&#x1F449', '&#x1F448', '&#x261D', '&#x1F44F', '&#x1F4AA')
+                        '&#x1F600', '&#x1F601', '&#x1F602', '&#x1F923', '&#x1F603', '&#x1F604', '&#x1F605', '&#x1F606', '&#x1F609', '&#x1F60A', '&#x1F60B', '&#x1F60E', '&#x1F60D', '&#x1F618', '&#x1F617', '&#x1F619', '&#x1F61A', '&#x1F642', '&#x1F917', '&#x1F929', '&#x1F607', '&#x1F920', '&#x1F925', '&#x1F92B', '&#x1F92D', '&#x1F9D0', '&#x1F913', '&#x1F635', '&#x1F44D', '&#x1F44E', '&#x1F44C', '&#x270C', '&#x1F44B', '&#x1F446', '&#x1F447', '&#x1F449', '&#x1F448', '&#x261D', '&#x1F44F', '&#x1F4AA','&#x1F91E')
                 ),
                 array(
                     'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Neutral'),
@@ -20,7 +20,11 @@
                 ),
                 array(
                     'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Things'),
-                    'icons' => array('&#x1F4A4', '&#x1F30F', '&#x1F319', '&#x2B50', '&#x2600', '&#x26C5', '&#x2601', '&#x26A1', '&#x2614', '&#x2744', '&#x26C4', '&#x1F525', '&#x2764', '&#x1F48B', '&#x1F389', '&#x270F', '&#x1F4DA', '&#x1F4F0', '&#x1F453', '&#x1F302', '&#x1F680', '&#x1F3C1', '&#x1F3AC', '&#x1F4AC', '&#x1F4BB', '&#x1F4F1', '&#x1F4DE', '&#x231B', '&#x23F0', '&#x231A', '&#x1F513', '&#x1F512', '&#x1F50E', '&#x1F4CE', '&#x1F4A1', '&#x1F527', '&#x1F3C6', '&#x1F4B0', '&#x1F4B3', '&#x2709', '&#x1F4E6', '&#x1F4DD', '&#x1F4C5', '&#x1F4C2', '&#x2702', '&#x1F4CC', '&#x270F', '&#x1F374', '&#x1F37A', '&#x1F37B', '&#x1F378', '&#x1F379', '&#x1F377', '&#x1F355', '&#x1F354', '&#x1F366', '&#x1F382', '&#x1F370', '&#x1F35F', '&#x1F36B', '&#x1F34F', '&#x1F34A', '&#x1F353', '&#x1F34C', '&#x1F340', '&#x1F339', '&#x1F33B', '&#x1F334', '&#x1F383', '&#x1F47B', '&#x1F384', '&#x1F381', '&#x2708', '&#x1F684', '&#x1F68C', '&#x1F697', '&#x1F3C3', '&#x1F3C2', '&#x1F3CA', '&#x1F3C4', '&#x1F3BF', '&#x26BD', '&#x1F3C8', '&#x1F3C0')
+                    'icons' => array('&#x1F4A4', '&#x1F30F', '&#x1F319', '&#x2B50', '&#x2600', '&#x26C5', '&#x2601', '&#x26A1', '&#x2614', '&#x2744', '&#x26C4', '&#x1F525', '&#x2764', '&#x1F48B', '&#x1F389', '&#x270F', '&#x1F4DA', '&#x1F4F0', '&#x1F453', '&#x1F302', '&#x1F680', '&#x1F3C1', '&#x1F3AC', '&#x1F4AC', '&#x1F4BB', '&#x1F4F1', '&#x1F4DE', '&#x231B', '&#x23F0', '&#x231A', '&#x1F513', '&#x1F512', '&#x1F50E', '&#x1F4CE', '&#x1F4A1', '&#x1F527', '&#x1F3C6', '&#x1F4B0', '&#x1F4B3', '&#x2709', '&#x1F4E6', '&#x1F4DD', '&#x1F4C5', '&#x1F4C2', '&#x2702', '&#x1F4CC', '&#x270F', '&#x1F374', '&#x1F37A', '&#x1F37B', '&#x1F378', '&#x1F379', '&#x1F377', '&#x1F355', '&#x1F354', '&#x1F366', '&#x1F382', '&#x1F370', '&#x1F35F', '&#x1F36B', '&#x1F34F', '&#x1F34A', '&#x1F353', '&#x1F34C', '&#x1F340', '&#x1F339', '&#x1F33B', '&#x1F334', '&#x1F383', '&#x1F47B', '&#x1F384', '&#x1F381', '&#x2708', '&#x1F684', '&#x1F68C', '&#x1F697', '&#x1F3C3', '&#x1F3C2', '&#x1F3CA', '&#x1F3C4', '&#x1F3BF', '&#x26BD', '&#x1F3C8', '&#x1F3C0','&#x1F941')
+                ),
+                array(
+                    'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Money'),
+                    'icons' => array('&#x1F4B0','&#x1F4B5','&#x1F4B3','&#x1F4B2')
                 )
             );
             ?>
