@@ -17,6 +17,7 @@ import NodeTriggerActionIntent from './builder/NodeTriggerActionIntent';
 import NodeTriggerActionIntentCheck from './builder/NodeTriggerActionIntentCheck';
 import NodeTriggerActionConditions from './builder/NodeTriggerActionConditions';
 import NodeTriggerActionMatchActions from './builder/NodeTriggerActionMatchActions';
+import NodeTriggerActionEventType from './builder/NodeTriggerActionEventType';
 
 @connect((store) => {
     return {
@@ -183,6 +184,8 @@ class NodeTriggerBuilder extends Component {
                     return <NodeTriggerActionConditions upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} />
                 } else if (action.get('type') == 'match_actions') {
                     return <NodeTriggerActionMatchActions upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
+                } else if (action.get('type') == 'event_type') {
+                    return <NodeTriggerActionEventType upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} />
                 }
             });
         }
