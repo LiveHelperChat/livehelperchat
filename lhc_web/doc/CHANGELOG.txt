@@ -1,3 +1,9 @@
+3.22v
+
+1. New element in bot to restrict execute specific trigger defined number of times.
+
+execute doc/update_db/update_197.sql for update
+
 3.21v
 
 1. Now in bot configuration you can select what bot logic it should include. So one bot can combine multiple bot's logic.

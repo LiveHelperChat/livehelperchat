@@ -254,6 +254,8 @@ return array_merge(array (
         'erLhcoreClassModelGenericBotChatWorkflow'  => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotchatworkflow.php',
         'erLhcoreClassModelGenericBotChatEvent'     => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotchatevent.php',
         'erLhcoreClassModelGenericBotPendingEvent'  => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotpendingevent.php',
+        'erLhcoreClassModelGenericBotRepeatRestrict'=> 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotrepeatrestrict.php',
+
         'erLhcoreClassModelGenericBotTrItem'        => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbottritem.php',
         'erLhcoreClassModelGenericBotTrGroup'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbottrgroup.php',
 
@@ -280,6 +282,7 @@ return array_merge(array (
         'erLhcoreClassGenericBotActionConditions'   => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionconditions.php',
         'erLhcoreClassGenericBotActionMatch_actions'=> 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionmatch_actions.php',
         'erLhcoreClassGenericBotActionEvent_type'   => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionevent_type.php',
+        'erLhcoreClassGenericBotActionRepeat_restrict'   => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionrepeat_restrict.php',
 
 
         // Notifications

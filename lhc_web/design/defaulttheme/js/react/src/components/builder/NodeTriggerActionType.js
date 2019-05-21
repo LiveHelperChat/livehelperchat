@@ -78,6 +78,10 @@ export default ({onChange, type}) => {
         {
             'value': 'event_type',
             'text' : 'Trigger to execute by response',
+        },
+        {
+            'value': 'repeat_restrict',
+            'text' : 'Restrict execution more than defined times',
         }
     ]);
 

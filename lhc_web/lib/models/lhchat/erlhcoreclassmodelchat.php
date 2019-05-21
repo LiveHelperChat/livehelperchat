@@ -171,6 +171,11 @@ class erLhcoreClassModelChat {
        $q->deleteFrom( 'lh_abstract_auto_responder_chat' )->where( $q->expr->eq( 'chat_id', $this->id ) );
        $stmt = $q->prepare();
        $stmt->execute();
+
+       // Repeat counter remove
+       $q->deleteFrom( 'lh_generic_bot_repeat_restrict' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+       $stmt = $q->prepare();
+       $stmt->execute();
        
        erLhcoreClassModelChatFile::deleteByChatId($this->id);
    }
