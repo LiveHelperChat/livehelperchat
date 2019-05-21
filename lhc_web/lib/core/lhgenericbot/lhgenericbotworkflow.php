@@ -1368,10 +1368,15 @@ class erLhcoreClassGenericBotWorkflow {
                             }
                             $messageContext->meta_msg = json_encode($messageContext->meta_msg_array);
                             $messageContext->saveThis();
-                            self::sendAsUser($chat, $messageClick);
+                            $message = self::sendAsUser($chat, $messageClick);
                         }
 
-                        $message = self::processTrigger($chat, $trigger);
+                        $messageTrigger = self::processTrigger($chat, $trigger);
+
+                        if ($messageTrigger instanceof erLhcoreClassModelmsg)
+                        {
+                            $message = $messageTrigger;
+                        }
 
                         if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
                             self::setLastMessageId($chat, $message->id);
@@ -1444,7 +1449,7 @@ class erLhcoreClassGenericBotWorkflow {
                             }
                             $messageContext->meta_msg = json_encode($messageContext->meta_msg_array);
                             $messageContext->saveThis();
-                            self::sendAsUser($chat, $messageClick);
+                            $message = self::sendAsUser($chat, $messageClick);
                         }
 
                         if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
