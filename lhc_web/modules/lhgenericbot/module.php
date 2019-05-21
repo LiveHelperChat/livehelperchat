@@ -35,8 +35,20 @@ $ViewList['downloadbot'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['downloadbotgroup'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['import'] = array(
     'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['botimportgroup'] = array(
+    'params' => array('id'),
     'uparams' => array(),
     'functions' => array( 'use' )
 );

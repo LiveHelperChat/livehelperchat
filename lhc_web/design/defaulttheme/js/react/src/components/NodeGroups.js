@@ -20,6 +20,10 @@ class NodeGroups extends Component {
         this.props.dispatch(addNodeGroup(this.props.botId))
     }
 
+    importGroup() {
+        lhc.revealModal({'iframe':true,'height':500,'url':WWW_DIR_JAVASCRIPT + '/genericbot/botimportgroup/' + this.props.botId});
+    }
+
     changeTitle(obj) {
         this.props.dispatch(updateNodeGroup(obj))
     }
@@ -31,7 +35,10 @@ class NodeGroups extends Component {
             <div>
                 {mappedNodeGroups}
                 <hr/>
-                <button className="btn btn-secondary" onClick={this.addGroup.bind(this)}>Add group</button>
+                <div className="btn-group" role="group" aria-label="Basic example">
+                    <button className="btn btn-sm btn-secondary" onClick={this.addGroup.bind(this)}><i class="material-icons">add</i>Add group</button>
+                    <button className="btn btn-sm btn-secondary" onClick={this.importGroup.bind(this)}><i class="material-icons">cloud_upload</i>Import group</button>
+                </div>
             </div>
         );
     }
