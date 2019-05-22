@@ -22,10 +22,17 @@ class erLhcoreClassGenericBotActionRepeat_restrict {
                 return null;
             }
 
-            return array(
-                'status' => 'stop',
-                'trigger_id' => $action['content']['alternative_callback']
-            );
+            if (is_numeric($action['content']['alternative_callback']) && $action['content']['alternative_callback'] > 0){
+                return array(
+                    'status' => 'stop',
+                    'trigger_id' => $action['content']['alternative_callback']
+                );
+            } else {
+                return array(
+                    'status' => 'stop',
+                    'ignore_trigger' => true
+                );
+            }
         }
 
         return null;

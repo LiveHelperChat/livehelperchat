@@ -113,8 +113,10 @@ class erLhcoreClassGenericBotWorkflow {
             }
 
             if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
-                self::processTrigger($chat, $event->trigger, false, array('args' => array('msg' => $msg)));
-                return;
+                $responseTrigger = self::processTrigger($chat, $event->trigger, false, array('args' => array('msg' => $msg)));
+                if (!is_array($responseTrigger) || !isset($responseTrigger['ignore_trigger']) || $responseTrigger['ignore_trigger'] === false) {
+                    return;
+                }
             }
 
             self::sendDefault($chat, $chat->chat_variables_array['gbot_id'], $msg);
@@ -1230,6 +1232,11 @@ class erLhcoreClassGenericBotWorkflow {
 
                 } elseif (isset($messageNew['response']) && $messageNew['response'] instanceof erLhcoreClassModelmsg) {
                     $message = $messageNew['response'];
+                } elseif (isset($messageNew['ignore_trigger']) && $messageNew['ignore_trigger'] == true) {
+                    return array(
+                        'status' => 'stop',
+                        'ignore_trigger' => true
+                    );
                 }
 
                 if ($continue == false) {
