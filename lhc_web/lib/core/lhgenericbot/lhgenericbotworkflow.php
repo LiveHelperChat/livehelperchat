@@ -4,14 +4,43 @@ class erLhcoreClassGenericBotWorkflow {
 
     public static $startChat = false;
     
-    public static function findEvent($text, $botId, $type = 0, $paramsFilter = array())
+    public static function findEvent($text, $botId, $type = 0, $paramsFilter = array(), $paramsExecution = array())
     {
         $bot = erLhcoreClassModelGenericBotBot::fetch($botId);
-        $event = erLhcoreClassModelGenericBotTriggerEvent::findOne(array_merge_recursive(array('sort' => 'priority ASC', 'filterin' => array('bot_id' => $bot->getBotIds()),'filter' => array('type' => $type),'filterlikeright' => array('pattern' => $text)),$paramsFilter));
-        return $event;
+        $events = erLhcoreClassModelGenericBotTriggerEvent::getList(array_merge_recursive(array('sort' => 'priority ASC', 'filterin' => array('bot_id' => $bot->getBotIds()),'filter' => array('type' => $type),'filterlikeright' => array('pattern' => $text)),$paramsFilter));
+
+        foreach ($events as $event) {
+            $configurationMatching = $event->configuration_array;
+
+            if (!is_array($configurationMatching)) {
+                $configurationMatching = array();
+            }
+
+            $wordsFound = true;
+
+            if (isset($paramsExecution['dep_id']) && is_numeric($paramsExecution['dep_id']) && isset($configurationMatching['dep_inc']) && !empty($configurationMatching['dep_inc'])) {
+                $depIds = explode(',', str_replace(' ', '', $configurationMatching['dep_inc']));
+                if (!in_array($paramsExecution['dep_id'], $depIds)) {
+                    $wordsFound = false;
+                }
+            }
+
+            if ($wordsFound == true && isset($paramsExecution['dep_id']) && is_numeric($paramsExecution['dep_id']) && isset($configurationMatching['dep_exc']) && !empty($configurationMatching['dep_exc'])) {
+                $depIds = explode(',', str_replace(' ', '', $configurationMatching['dep_exc']));
+                if (in_array($paramsExecution['dep_id'], $depIds)) {
+                    $wordsFound = false;
+                }
+            }
+
+            if ($wordsFound == true) {
+                return $event;
+            }
+        }
+
+        return null;
     }
 
-    public static function findTextMatchingEvent($messageText, $botId, $paramsFilter = array())
+    public static function findTextMatchingEvent($messageText, $botId, $paramsFilter = array(), $paramsExecution = array())
     {
         $bot = erLhcoreClassModelGenericBotBot::fetch($botId);
 
@@ -21,53 +50,67 @@ class erLhcoreClassGenericBotWorkflow {
 
             if ($ruleMatching->pattern != '') {
 
-                 $configurationMatching = $ruleMatching->configuration_array;
+                $configurationMatching = $ruleMatching->configuration_array;
 
-                 if (!is_array($configurationMatching)) {
-                     $configurationMatching = array();
-                 }
+                if (!is_array($configurationMatching)) {
+                    $configurationMatching = array();
+                }
 
-                 $wordsFound = true;
+                $wordsFound = true;
 
-                 $wordsTypo = isset($configurationMatching['words_typo']) && is_numeric($configurationMatching['words_typo']) ? (int)$configurationMatching['words_typo'] : 0;
-                 $wordsTypoExc = isset($configurationMatching['exc_words_typo']) && is_numeric($configurationMatching['exc_words_typo']) ? (int)$configurationMatching['exc_words_typo'] : 0;
+                if (isset($paramsExecution['dep_id']) && is_numeric($paramsExecution['dep_id']) && isset($configurationMatching['dep_inc']) && !empty($configurationMatching['dep_inc'])) {
+                    $depIds = explode(',', str_replace(' ', '', $configurationMatching['dep_inc']));
+                    if (!in_array($paramsExecution['dep_id'], $depIds)) {
+                        $wordsFound = false;
+                    }
+                }
 
-                 // // We should include at-least one word from group
-                 if (isset($configurationMatching['only_these']) && $configurationMatching['only_these'] == true) {
-                     $words = explode(' ',$messageText);
-                     $mustCombinations = explode('&&',$ruleMatching->pattern);
-                     foreach ($words as $messageWord) {
-                         foreach ($mustCombinations as $mustCombination) {
-                             if (!self::checkPresence(explode(',',$mustCombination),$messageWord,$wordsTypo)) {
-                                 $wordsFound = false;
-                                 break;
-                             }
-                         }
-                     }
-                 } else if (isset($ruleMatching->pattern) && $ruleMatching->pattern != '') {
-                     $mustCombinations = explode('&&',$ruleMatching->pattern);
-                     foreach ($mustCombinations as $mustCombination) {
-                         if (!self::checkPresence(explode(',',$mustCombination),$messageText,$wordsTypo)) {
-                             $wordsFound = false;
-                             break;
-                         }
-                     }
-                 }
+                if ($wordsFound == true && isset($paramsExecution['dep_id']) && is_numeric($paramsExecution['dep_id']) && isset($configurationMatching['dep_exc']) && !empty($configurationMatching['dep_exc'])) {
+                    $depIds = explode(',', str_replace(' ', '', $configurationMatching['dep_exc']));
+                    if (in_array($paramsExecution['dep_id'], $depIds)) {
+                        $wordsFound = false;
+                    }
+                }
 
-                 // We should NOT include any of these words
-                 if ($wordsFound == true && isset($ruleMatching->pattern_exc) && $ruleMatching->pattern_exc != '') {
-                     $mustCombinations = explode('&&',$ruleMatching->pattern_exc);
-                     foreach ($mustCombinations as $mustCombination) {
-                         if (self::checkPresence(explode(',',$mustCombination),$messageText,$wordsTypoExc) == true) {
-                             $wordsFound = false;
-                             break;
-                         }
-                     }
-                 }
+                $wordsTypo = isset($configurationMatching['words_typo']) && is_numeric($configurationMatching['words_typo']) ? (int)$configurationMatching['words_typo'] : 0;
+                $wordsTypoExc = isset($configurationMatching['exc_words_typo']) && is_numeric($configurationMatching['exc_words_typo']) ? (int)$configurationMatching['exc_words_typo'] : 0;
 
-                 if ($wordsFound == true) {
-                     return $ruleMatching;
-                 }
+                // // We should include at-least one word from group
+                if ($wordsFound == true && isset($configurationMatching['only_these']) && $configurationMatching['only_these'] == true) {
+                    $words = explode(' ', $messageText);
+                    $mustCombinations = explode('&&', $ruleMatching->pattern);
+                    foreach ($words as $messageWord) {
+                        foreach ($mustCombinations as $mustCombination) {
+                            if (!self::checkPresence(explode(',', $mustCombination), $messageWord, $wordsTypo)) {
+                                $wordsFound = false;
+                                break;
+                            }
+                        }
+                    }
+                } else if (isset($ruleMatching->pattern) && $ruleMatching->pattern != '') {
+                    $mustCombinations = explode('&&', $ruleMatching->pattern);
+                    foreach ($mustCombinations as $mustCombination) {
+                        if (!self::checkPresence(explode(',', $mustCombination), $messageText, $wordsTypo)) {
+                            $wordsFound = false;
+                            break;
+                        }
+                    }
+                }
+
+                // We should NOT include any of these words
+                if ($wordsFound == true && isset($ruleMatching->pattern_exc) && $ruleMatching->pattern_exc != '') {
+                    $mustCombinations = explode('&&', $ruleMatching->pattern_exc);
+                    foreach ($mustCombinations as $mustCombination) {
+                        if (self::checkPresence(explode(',', $mustCombination), $messageText, $wordsTypoExc) == true) {
+                            $wordsFound = false;
+                            break;
+                        }
+                    }
+                }
+
+                if ($wordsFound == true) {
+                    return $ruleMatching;
+                }
             }
         }
     }
@@ -105,11 +148,11 @@ class erLhcoreClassGenericBotWorkflow {
                 $event = $handler['event'];
             } else {
                 // There is no current workflow in progress
-                $event = self::findEvent($msg->msg, $chat->chat_variables_array['gbot_id']);
+                $event = self::findEvent($msg->msg, $chat->chat_variables_array['gbot_id'], 0, array(), array('dep_id' => $chat->dep_id));
             }
 
             if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent)){
-                $event = self::findTextMatchingEvent($msg->msg, $chat->chat_variables_array['gbot_id']);
+                $event = self::findTextMatchingEvent($msg->msg, $chat->chat_variables_array['gbot_id'], array(), array('dep_id' => $chat->dep_id));
             }
 
             if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
@@ -447,7 +490,7 @@ class erLhcoreClassGenericBotWorkflow {
 
                                     $trigger = null;
                                     if (isset($eventData['content']['event_args']['check_default']) && $eventData['content']['event_args']['check_default'] == true) {
-                                        $triggerEvent = self::findTextMatchingEvent(mb_strtolower($payload), $chat->chat_variables_array['gbot_id']);
+                                        $triggerEvent = self::findTextMatchingEvent(mb_strtolower($payload), $chat->chat_variables_array['gbot_id'], array(), array('dep_id' => $chat->dep_id));
                                         if ($triggerEvent instanceof erLhcoreClassModelGenericBotTriggerEvent) {
                                             $trigger = $triggerEvent->trigger;
                                         }
@@ -484,10 +527,10 @@ class erLhcoreClassGenericBotWorkflow {
                             $filter = array('filter' => array('on_start_type' => $eventData['content']['event_args']['on_start_type']));
                         }
 
-                        $event = self::findTextMatchingEvent($payload, $chat->chat_variables_array['gbot_id'], $filter);
+                        $event = self::findTextMatchingEvent($payload, $chat->chat_variables_array['gbot_id'], $filter, array('dep_id' => $chat->dep_id));
 
                         if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent)) {
-                            $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'],0, $filter);
+                            $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'],0, $filter, array('dep_id' => $chat->dep_id));
                         }
 
                         if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
@@ -669,7 +712,7 @@ class erLhcoreClassGenericBotWorkflow {
         if ($handler !== false) {
             $event = $handler['event'];
         } else {
-            $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'], $type);
+            $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'], $type, array(), array('dep_id' => $chat->dep_id));
         }
 
         if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
@@ -1445,7 +1488,7 @@ class erLhcoreClassGenericBotWorkflow {
                         if ($handler !== false) {
                             $event = $handler['event'];
                         } else {
-                            $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'], 1);
+                            $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'], 1, array(), array('dep_id' => $chat->dep_id));
                         }
 
                         $messageClick = self::getClickName($messageContext->meta_msg_array, $payload);

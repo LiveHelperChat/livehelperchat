@@ -114,6 +114,21 @@ class NodeGroupTriggerEvent extends Component {
                         <input title="Lowest rank events will be checked first" type="text" placeholder="0" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['priority'],'value' : e.target.value})} defaultValue={this.props.event.getIn(['priority'])} />
                     </div>
 
+                    <div className="row">
+                        <div className="col-6">
+                            <div className="form-group">
+                                <label>Available for these departments</label>
+                                <input title="Separated by commas E.g 1,2,3" type="text" placeholder="Separated by commas E.g 1,2,3" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['configuration_array','dep_inc'],'value' : e.target.value})} defaultValue={this.props.event.getIn(['configuration_array','dep_inc'])} />
+                            </div>
+                        </div>
+                        <div className="col-6">
+                            <div className="form-group">
+                                <label>Disabled for these departments</label>
+                                <input title="Separated by commas E.g 1,2,3" type="text" placeholder="Separated by commas E.g 1,2,3" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['configuration_array','dep_exc'],'value' : e.target.value})} defaultValue={this.props.event.getIn(['configuration_array','dep_exc'])} />
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <div className="col-12">
                        {typeRender}
