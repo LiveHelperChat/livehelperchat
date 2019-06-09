@@ -1,0 +1,1 @@
+ALTER TABLE `lh_canned_msg` ADD `html_snippet` longtext NOT NULL, COMMENT='';
