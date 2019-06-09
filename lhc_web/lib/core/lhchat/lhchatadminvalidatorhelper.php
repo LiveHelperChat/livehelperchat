@@ -20,6 +20,9 @@ class erLhcoreClassAdminChatValidatorHelper {
             'ExplainHover' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'HTMLSnippet' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
             'Position' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int',array()
             ),
@@ -73,6 +76,13 @@ class erLhcoreClassAdminChatValidatorHelper {
         if ( $form->hasValidData( 'Title' ) )
         {
             $cannedMessage->title = $form->Title;
+        }
+
+        if ( $form->hasValidData( 'HTMLSnippet' ) )
+        {
+            $cannedMessage->html_snippet = $form->HTMLSnippet;
+        } else {
+            $cannedMessage->html_snippet = '';
         }
         
         if ( $form->hasValidData( 'ExplainHover' ) )

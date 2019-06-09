@@ -381,6 +381,12 @@ $ViewList['getstatus'] = array(
 	'multiple_arguments' => array ( 'department', 'ua' )
 );
 
+$ViewList['htmlsnippet'] = array(
+    'params' => array('message_id','canned_id'),
+    'uparams' => array('hash'),
+	'multiple_arguments' => array ( 'department', 'ua' )
+);
+
 $ViewList['chatcheckstatus'] = array(
     'params' => array(),
     'uparams' => array('status','department','vid','uactiv','wopen','uaction','hash','hash_resume','dot','hide_offline','isproactive'),

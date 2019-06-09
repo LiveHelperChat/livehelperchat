@@ -977,6 +977,16 @@ var lh_inst  = {
         <?php endif;?>
     },
 
+    sendHTMLSnippet : function(messageId, cannedId) {
+        var hashAppend = this.cookieData.hash ? '/(hash)/'+this.cookieData.hash : '';
+        var hashResume = this.cookieData.hash_resume ? '/(hash_resume)/'+this.cookieData.hash_resume : '';
+        var th = document.getElementsByTagName('head')[0];
+        var s = document.createElement('script');
+        s.setAttribute('type','text/javascript');
+        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/htmlsnippet/'+messageId+'/'+cannedId+'<?php $department !== false ? print '/(department)/'.$department : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?php $disable_online_tracking === true ? print '/(dot)/true' : ''?><?php $hide_offline == 'true' ? print '/(hide_offline)/true' : ''?>/(status)/' + this.isOnline + this.survey_id + (this.cookieDataPers.vid ? '/(vid)/'+this.cookieDataPers.vid : '')+ hashAppend + hashResume + '/(uactiv)/'+this.userActive+'/(wopen)/'+this.timeoutStatusWidgetOpen + '/(isproactive)/'+this.isProactivePending+'/?ts='+Date.now());
+        th.appendChild(s);
+    },
+
     <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/functions/send_notification.tpl.php')); ?>
 
     handleMessage : function(e) {
@@ -1019,6 +1029,8 @@ var lh_inst  = {
     		lh_inst.lh_openchatWindow();
     	} else if (action == 'lhc_continue_chat') {
     		lh_inst.showStartWindow();
+        } else if (action == 'lhc_html_snippet') {
+            lh_inst.sendHTMLSnippet(e.data.split(':')[1],e.data.split(':')[2]);
     	} else if (action == 'lhc_add_tag') {
     		lh_inst.addTag({tag:e.data.split(':')[1]});
     	} else if (action == 'lhc_cfrefresh') {

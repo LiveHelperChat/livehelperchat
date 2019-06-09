@@ -23,6 +23,9 @@
 		
 	</div>
 </div>
+<?php if ( isset($chat_widget_mode) && $chat_widget_mode == true ) : ?>
+    <script>lhinst.setWidgetMode(true);</script>
+<?php endif; ?>
 
 <?php if (
     $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT ||
@@ -93,7 +96,6 @@
     lhinst.setLastUserMessageID('<?php echo $lastMessageID;?>');
 
     <?php if ( isset($chat_widget_mode) && $chat_widget_mode == true ) : ?>
-        lhinst.setWidgetMode(true);
         <?php if (isset($fullheight) && $fullheight == true) : ?>
             var fullHeightFunction = function() {
                 var bodyHeight = $(document.body).outerHeight();

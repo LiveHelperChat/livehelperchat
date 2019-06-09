@@ -1139,6 +1139,7 @@ try {
         	   	  `user_id` int(11) NOT NULL,
   				  `delay` int(11) NOT NULL,
         	   	  `auto_send` tinyint(1) NOT NULL,
+        	   	  `html_snippet` longtext NOT NULL,
         	   	  `attr_int_1` int(11) NOT NULL,
         	   	  `attr_int_2` int(11) NOT NULL,
         	   	  `attr_int_3` int(11) NOT NULL,
