@@ -1,11 +1,19 @@
 <?php
 
+header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
+header('Content-type: text/javascript');
+header('Expires: Sat, 26 Jul 1997 05:00:00 GMT' );
+header('Last-Modified: ' . gmdate( 'D, d M Y H:i:s',time()+60*60*8 ) . ' GMT' );
+header('Cache-Control: no-store, no-cache, must-revalidate' );
+header('Cache-Control: post-check=0, pre-check=0', false );
+header('Pragma: no-cache' );
+
 if (isset($Params['user_parameters_unordered']['hash']) && !empty($Params['user_parameters_unordered']['hash'])) {
+    $canned = erLhcoreClassModelCannedMsg::fetch($Params['user_parameters']['canned_id']);
     $parts = explode('_',$Params['user_parameters_unordered']['hash']);
     $chat = erLhcoreClassModelChat::fetch($parts[0]);
     $message = erLhcoreClassModelmsg::fetch($Params['user_parameters']['message_id']);
     if ($chat instanceof erLhcoreClassModelChat && $chat->hash == $parts[1] && $chat->id == $message->chat_id) {
-        $canned = erLhcoreClassModelCannedMsg::fetch($Params['user_parameters']['canned_id']);
         $metaMsgArray = $message->meta_msg_array;
         $metaMsgArray['processed'] = true;
         $message->meta_msg = json_encode($metaMsgArray);
