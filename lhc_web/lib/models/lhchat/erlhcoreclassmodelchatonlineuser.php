@@ -602,7 +602,12 @@ class erLhcoreClassModelChatOnlineUser
     {    
         return erLhAbstractModelProactiveChatInvitation::processProActiveInvitationDynamic($paramsHandle['online_user'], array('tag' => isset($paramsHandle['tag']) ? $paramsHandle['tag'] : ''));
     }
-    
+
+    public static function getInjectHTMLInvitation($paramsHandle = array())
+    {
+        return erLhAbstractModelProactiveChatInvitation::processInjectHTMLInvitation($paramsHandle['online_user'], array('tag' => isset($paramsHandle['tag']) ? $paramsHandle['tag'] : ''));
+    }
+
     public static function handleRequest($paramsHandle = array())
     {
         if (isset($_SERVER['HTTP_USER_AGENT']) && !self::isBot($_SERVER['HTTP_USER_AGENT'])) {
@@ -907,6 +912,8 @@ class erLhcoreClassModelChatOnlineUser
     // 0 - do not reopen
     // 1 - reopen chat
     public $reopen_chat = 0;
+
+    public $inject_html = array();
 
     // Logical attributes
     public $store_chat = false;

@@ -19,6 +19,11 @@ $def->properties['time_on_site']->columnName   = 'time_on_site';
 $def->properties['time_on_site']->propertyName = 'time_on_site';
 $def->properties['time_on_site']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['inject_only_html'] = new ezcPersistentObjectProperty();
+$def->properties['inject_only_html']->columnName   = 'inject_only_html';
+$def->properties['inject_only_html']->propertyName = 'inject_only_html';
+$def->properties['inject_only_html']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['delay'] = new ezcPersistentObjectProperty();
 $def->properties['delay']->columnName   = 'delay';
 $def->properties['delay']->propertyName = 'delay';

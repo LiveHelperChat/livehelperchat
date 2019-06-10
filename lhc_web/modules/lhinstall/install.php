@@ -1479,6 +1479,7 @@ try {
 				  `show_instant` int(11) NOT NULL,
 				  `autoresponder_id` int(11) NOT NULL,
 				  `disabled` int(11) NOT NULL,
+				  `inject_only_html` tinyint(1) NOT NULL,
 				  `name` varchar(50) NOT NULL,
 				  `operator_ids` varchar(100) NOT NULL,				 
 				  `message_returning_nick` varchar(250) NOT NULL,

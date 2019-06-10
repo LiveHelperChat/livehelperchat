@@ -22,4 +22,8 @@ jQuery('#id_Question').bind('keydown', 'return', function (evt){
 <?php if ($playsound == true) : ?>
 $(function() {lhinst.playInvitationSound();});
 <?php endif; ?>
+
+<?php if ($visitor->invitation instanceof erLhAbstractModelProactiveChatInvitation && isset($visitor->invitation->design_data_array['inject_html']) && $visitor->invitation->design_data_array['inject_html'] != ''): ?>
+lhinst.sendHTML(<?php echo $visitor->invitation->id?>,{'type':'inv','id':0});
+<?php endif; ?>
 </script>

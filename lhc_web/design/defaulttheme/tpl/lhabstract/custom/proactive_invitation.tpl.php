@@ -15,6 +15,7 @@
     		<li role="presentation" class="nav-item"><a class="nav-link" href="#dynamic" aria-controls="dynamic" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Dynamic');?></a></li>
     		<li role="presentation" class="nav-item"><a class="nav-link" href="#events" aria-controls="events" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Events');?></a></li>
     		<li role="presentation" class="nav-item"><a class="nav-link" href="#design" aria-controls="design" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Design');?></a></li>
+    		<li role="presentation" class="nav-item"><a class="nav-link" href="#injecthtml" aria-controls="design" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Inject HTML');?></a></li>
     	</ul>
     
     	<!-- Tab panes -->
@@ -33,6 +34,9 @@
     		</div>
             <div role="tabpanel" class="tab-pane" id="design">
     		  <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/events/design.tpl.php'));?>
+    		</div>
+            <div role="tabpanel" class="tab-pane" id="injecthtml">
+    		  <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/events/injecthtml.tpl.php'));?>
     		</div>
 		</div>
 </div>

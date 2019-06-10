@@ -2398,6 +2398,14 @@
                 "extra": ""
             },
             {
+                "field": "inject_only_html",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "key": "MUL",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "campaign_id",
                 "type": "int(11)",
                 "null": "NO",
