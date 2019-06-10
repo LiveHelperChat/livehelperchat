@@ -383,7 +383,6 @@
                     <label><?php echo $fields['custom_popup_css']['trans'];?></label>
                     <?php echo erLhcoreClassAbstract::renderInput('custom_popup_css', $fields['custom_popup_css'], $object)?>
                     </div>
-						
         		</div>
 
                 <div role="tabpanel" class="tab-pane" id="customcontent">
@@ -422,6 +421,11 @@
                         <label><?php echo $fields['custom_html_status']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('custom_html_status', $fields['custom_html_status'], $object)?>
                     </div>
+                    
+                    <div class="form-group">
+                        <label><?php echo $fields['inject_html']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('inject_html', $fields['inject_html'], $object)?>
+                    </div>
 
                     <div class="form-group">
                         <label><?php echo $fields['custom_start_button']['trans'];?></label>
@@ -437,8 +441,6 @@
                         <label><?php echo $fields['custom_start_button_offline']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('custom_start_button_offline', $fields['custom_start_button_offline'], $object)?>
                     </div>
-
-
 
                     <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text content before user fields')?></h4>
 

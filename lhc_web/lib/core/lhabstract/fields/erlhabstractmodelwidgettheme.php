@@ -270,6 +270,17 @@ $fields = array(
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
+                    'inject_html' => array(
+   						'type' => 'textarea',
+   						'height' => '50px',
+                        'ace_editor' => 'html',
+                        'main_attr' => 'bot_configuration_array',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Inject HTML on widget open'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
                 'custom_html_widget' => array(
    						'type' => 'textarea',
    						'height' => '50px',

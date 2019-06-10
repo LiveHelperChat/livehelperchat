@@ -382,7 +382,7 @@ $ViewList['getstatus'] = array(
 );
 
 $ViewList['htmlsnippet'] = array(
-    'params' => array('message_id','canned_id'),
+    'params' => array('id','type','sub_id'),
     'uparams' => array('hash'),
 	'multiple_arguments' => array ( 'department', 'ua' )
 );
