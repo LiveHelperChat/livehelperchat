@@ -30,6 +30,7 @@
 
             lh_inst.sendHTMLSnippet(<?php echo $injectInvitation->id?>,'inv_0');
 
+            <?php if (!isset($injectInvitation->design_data_array['dynamic_everytime']) ||  $injectInvitation->design_data_array['dynamic_everytime'] == 0) : ?>
             ['mousemove','mousedown','click','scroll','keypress','load'].forEach(function(element) {
             lh_inst.removeEvent(window,element,lh_inst.resetTimeoutIddleInject);
             });
@@ -37,6 +38,10 @@
             ['mousemove','scroll','touchstart','touchend'].forEach(function(element) {
             lh_inst.removeEvent(document,element,lh_inst.resetTimeoutIddleInject);
             });
+            <?php endif; ?>
+
+
+
 
             }, <?php echo $injectInvitation->iddle_for *1000?>);
             };
