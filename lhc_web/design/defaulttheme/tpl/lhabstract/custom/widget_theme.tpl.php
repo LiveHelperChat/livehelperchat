@@ -169,6 +169,10 @@
         		            <label><?php echo erLhcoreClassAbstract::renderInput('hide_ts', $fields['hide_ts'], $object)?> <?php echo $fields['hide_ts']['trans'];?></label>
     				    </div>
 
+        		        <div class="form-group">
+        		            <label><?php echo erLhcoreClassAbstract::renderInput('disable_edit_prev', $fields['disable_edit_prev'], $object)?> <?php echo $fields['disable_edit_prev']['trans'];?></label>
+    				    </div>
+
         		</div>
         		<div role="tabpanel" class="tab-pane" id="widgetcontainer">
         		

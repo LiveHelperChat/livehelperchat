@@ -819,6 +819,16 @@ $fields = array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 )),
+                'disable_edit_prev' => array(
+                    'type' => 'checkbox',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Do not allow visitor to edit previous message by pressing up arrow'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
                 'notification_enabled' => array(
                     'type' => 'checkbox',
                     'main_attr' => 'notification_configuration_array',
