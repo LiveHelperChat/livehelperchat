@@ -77,9 +77,11 @@
         	 return false;
         }); 
 
+        <?php if (!(isset($theme) && $theme !== false && isset($theme->bot_configuration_array['disable_edit_prev']) && $theme->bot_configuration_array['disable_edit_prev'] == true)) : ?>
         jQuery('#CSChatMessage').bind('keyup', 'up', function (evt){
-        	 lhinst.editPreviousUser();
-		});
+            lhinst.editPreviousUser();
+        });
+        <?php endif; ?>
 
         lhinst.initTypingMonitoringUser('<?php echo $chat_id?>');
         lhinst.afterUserChatInit();
