@@ -137,7 +137,24 @@ class erLhcoreClassChatHelper
                 erLhcoreClassChat::getSession()->save($msg);
 
                 $params['chat']->updateThis();
-            
+
+                $q = $db->createDeleteQuery();
+
+                // Auto responder chats
+                $q->deleteFrom( 'lh_abstract_auto_responder_chat' )->where( $q->expr->eq( 'chat_id', $params['chat']->id ) );
+                $stmt = $q->prepare();
+                $stmt->execute();
+
+                // Repeat counter remove
+                $q->deleteFrom( 'lh_generic_bot_repeat_restrict' )->where( $q->expr->eq( 'chat_id', $params['chat']->id ) );
+                $stmt = $q->prepare();
+                $stmt->execute();
+    
+                // Repeat counter remove
+                $q->deleteFrom( 'lh_generic_bot_chat_event' )->where( $q->expr->eq( 'chat_id', $params['chat']->id ) );
+                $stmt = $q->prepare();
+                $stmt->execute();
+
             $db->commit();
 
             if (!isset($params['bot']) || $params['bot'] == false) {
