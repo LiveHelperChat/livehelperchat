@@ -619,7 +619,6 @@ class erLhcoreClassGenericBotWorkflow {
                             }
                         }
 
-
                         if (!empty($chat->additional_data)){
                             $chatAttributes = (array)json_decode($chat->additional_data,true);
                         } else {
