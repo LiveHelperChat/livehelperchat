@@ -53,6 +53,10 @@ if ($theme !== false && $theme->explain_text != '' && $onlyBotOnline == false) :
     <?php include(erLhcoreClassDesign::designtpl('lhchat/part/render_intro.tpl.php'));?>
 <?php endif;?>
 
+<?php if (isset($theme) && $theme !== false && isset($theme->bot_configuration_array['inject_html']) && !empty($theme->bot_configuration_array['inject_html'])) : ?>
+            <script>lhinst.sendHTML(<?php echo $theme->id?>,{'type':'theme','id':0});</script>
+<?php endif; ?>
+
 <form method="post" id="form-start-chat" action="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php echo $append_mode?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $input_data->priority !== false ? print '/(priority)/'.$input_data->priority : ''?><?php $input_data->vid !== false ? print '/(vid)/'.htmlspecialchars($input_data->vid) : ''?><?php $input_data->hash_resume !== false ? print '/(hash_resume)/'.htmlspecialchars($input_data->hash_resume) : ''?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $forceoffline == true ? print '/(offline)/true' : ''?><?php echo $append_mode_theme?>" onsubmit="return <?php if (isset($start_data_fields['message_auto_start']) && $start_data_fields['message_auto_start'] == true) : ?>lhinst.prestartChat('<?php echo time()?>',$(this))<?php else : ?>lhinst.addCaptchaSubmit('<?php echo time()?>',$(this))<?php endif?>">
 
 <?php if (isset($start_data_fields['message_visible_in_page_widget']) && $start_data_fields['message_visible_in_page_widget'] == true && isset($start_data_fields['show_messages_box']) && $start_data_fields['show_messages_box'] == true) : ?>

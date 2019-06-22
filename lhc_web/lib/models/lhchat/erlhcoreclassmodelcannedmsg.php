@@ -30,6 +30,7 @@ class erLhcoreClassModelCannedMsg
             'fallback_msg' => $this->fallback_msg,
             'languages' => $this->languages,
             'additional_data' => $this->additional_data,
+            'html_snippet' => $this->html_snippet,
         );
     }
 
@@ -69,7 +70,11 @@ class erLhcoreClassModelCannedMsg
                     {
                         $this->msg_to_user = str_replace(array_keys($this->replaceData), array_values($this->replaceData), $this->fallback_msg);
                     }
-                    
+
+                    if ($this->html_snippet != '') {
+                        $this->msg_to_user .= '[html_snippet]'.$this->id.'[/html_snippet]';
+                    }
+
                     return $this->msg_to_user;
                 break;
                 
@@ -335,6 +340,8 @@ class erLhcoreClassModelCannedMsg
     public $fallback_msg = '';
 
     public $additional_data = '';
+
+    public $html_snippet = '';
 
     public $position = 0;
 

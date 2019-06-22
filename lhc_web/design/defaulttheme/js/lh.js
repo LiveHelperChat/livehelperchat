@@ -3420,6 +3420,12 @@ function lh(){
         }
     }
 
+    this.sendHTML = function (id, options) {
+        if (typeof(parent) !== 'undefined' && window.location !== window.parent.location) {
+            parent.postMessage('lhc_html_snippet:' + id + ':' + options.type + '_' + options.id, '*');
+        }
+    }
+
     this.unhideDelayed = function (id) {
 
         var msg = $('#messagesBlock > #msg-'+id);
