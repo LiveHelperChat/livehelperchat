@@ -689,7 +689,7 @@ class erLhcoreClassGenericBotWorkflow {
                      if (isset($configurationArray['exc_group_id']) && !empty($configurationArray['exc_group_id'])){
                          $exceptionMessage = erLhcoreClassModelGenericBotExceptionMessage::findOne(array('limit' => 1, 'sort' => 'priority ASC', 'filter' => array('active' => 1, 'code' => $e->getCode()), 'filterin' => array('exception_group_id' => $configurationArray['exc_group_id'])));
                          if ($exceptionMessage instanceof erLhcoreClassModelGenericBotExceptionMessage && $exceptionMessage->message != '') {
-                             $message = erLhcoreClassGenericBotWorkflow::translateMessage($exceptionMessage->message, $chat->dep_id);
+                             $message = erLhcoreClassGenericBotWorkflow::translateMessage($exceptionMessage->message, array('chat' => $chat));
                          }
                      }
                  }
@@ -1202,7 +1202,7 @@ class erLhcoreClassGenericBotWorkflow {
                     if (isset($configurationArray['exc_group_id']) && !empty($configurationArray['exc_group_id'])){
                         $exceptionMessage = erLhcoreClassModelGenericBotExceptionMessage::findOne(array('limit' => 1, 'sort' => 'priority ASC', 'filter' => array('active' => 1, 'code' => $e->getCode()), 'filterin' => array('exception_group_id' => $configurationArray['exc_group_id'])));
                         if ($exceptionMessage instanceof erLhcoreClassModelGenericBotExceptionMessage && $exceptionMessage->message != '') {
-                            $message = erLhcoreClassGenericBotWorkflow::translateMessage($exceptionMessage->message, $chat->dep_id);
+                            $message = erLhcoreClassGenericBotWorkflow::translateMessage($exceptionMessage->message, array('chat' => $chat));
                         }
                     }
                 }
@@ -1612,8 +1612,42 @@ class erLhcoreClassGenericBotWorkflow {
         }
     }
 
-    public static function translateMessage($message, $depId)
+    public static function translateMessage($message, $params = array())
     {
+        $depId = 0;
+        
+        if (isset($params['chat'])) {
+            $depId = $params['chat']->dep_id;
+        }
+
+        if (isset($params['chat'])) {
+
+            $replaceArray = array(
+                '{lhc.nick}' => $params['chat']->nick,
+                '{lhc.email}' => $params['chat']->email,
+                '{lhc.department}' => (string)$params['chat']->department,
+            );
+
+            foreach ($params['chat']->additional_data_array as $keyItem => $addItem) {
+                if (!is_string($addItem) || (is_string($addItem) && ($addItem != ''))) {
+                    if (isset($addItem['identifier'])) {
+                        $replaceArray['{lhc.add.' . $addItem['identifier'] . '}'] = $addItem['value'];
+                    } else if (isset($addItem['key'])) {
+                        $replaceArray['{lhc.add.' . $addItem['key'] . '}'] = $addItem['value'];
+                    }
+                }
+            }
+
+            foreach ($params['chat']->chat_variables_array as $keyItem => $addItem) {
+                    $replaceArray['{lhc.var.' . $keyItem . '}'] = $addItem;
+            }
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.replace_message_bot', array('msg' => & $message, 'chat' => & $params['chat']));
+
+            $message = str_replace(array_keys($replaceArray), array_values($replaceArray), $message);
+        }
+
+
         $matches = array();
         preg_match_all('~\{((?:[^\{\}]++|(?R))*)\}~',$message,$matches);
 

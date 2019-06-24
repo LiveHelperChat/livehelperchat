@@ -49,9 +49,9 @@ class erLhcoreClassGenericBotActionCollectable {
                 if ($validationResult !== false && isset($validationResult['content']['valid']) && $validationResult['content']['valid'] === false) {
 
                     if (isset($stepData['content']['message_precheck']) && $stepData['content']['message_precheck'] != '') {
-                        $stepData['content']['message'] = erLhcoreClassGenericBotWorkflow::translateMessage($stepData['content']['message_precheck'], $chat->dep_id);
+                        $stepData['content']['message'] = erLhcoreClassGenericBotWorkflow::translateMessage($stepData['content']['message_precheck'], array('chat' => $chat));
                     } else if (isset($validationResult['content']['message']) && !empty($validationResult['content']['message'])){
-                        $stepData['content']['message'] = erLhcoreClassGenericBotWorkflow::translateMessage($validationResult['content']['message'], $chat->dep_id);
+                        $stepData['content']['message'] = erLhcoreClassGenericBotWorkflow::translateMessage($validationResult['content']['message'], array('chat' => $chat));
                     } else {
                         $stepData['content']['message'] = 'Sorry but we could not handle your request!';
                     }

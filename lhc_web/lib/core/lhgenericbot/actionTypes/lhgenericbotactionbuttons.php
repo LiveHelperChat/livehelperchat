@@ -19,7 +19,7 @@ class erLhcoreClassGenericBotActionButtons {
         $msgText = isset($action['content']['buttons_options']['message']) && !empty($action['content']['buttons_options']['message']) ? $action['content']['buttons_options']['message'] : '';
 
         if ($msgText != '') {
-            $msgText = erLhcoreClassGenericBotWorkflow::translateMessage($msgText,$chat->dep_id);
+            $msgText = erLhcoreClassGenericBotWorkflow::translateMessage($msgText, array('chat' => $chat));
         }
 
         $msg->msg = $msgText;
