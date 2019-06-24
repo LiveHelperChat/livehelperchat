@@ -2,54 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Πόσες ημέρες ψηφοφορίας widget δεν θα πρέπει να επεκταθεί μετά από την τελευταία εμφάνιση</translation>
     </message>
@@ -60,6 +12,10 @@
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
       <translation>Ποια ip θα πρέπει να ενημερώσει το DB με την εκτέλεση της αίτησης http, διαχωρίστε με κόμμα;</translation>
+    </message>
+    <message>
+      <source>How long keep operators online sessions data? (days)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
@@ -150,6 +106,10 @@
       <translation>Πρέπει να cronjob τρέξει τμήματα μεταφορά ροής εργασίας, ακόμη και αν ο χρήστης αφήνει μια συνομιλία</translation>
     </message>
     <message>
+      <source>Make default pending chats order from old to new</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Reopen chat functionality enabled</source>
       <translation>Ανοίξτε πάλι κουβέντα functionality ενεργοποιημένη</translation>
     </message>
@@ -186,6 +146,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Cookie should be valid only for domain where Javascript is embedded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
       <translation>Χρειάζεστε βοήθεια tooltip χρονικό όριο, μετά από πόσες ώρες και πάλι εμφάνιση συμβουλής εργαλείου;</translation>
     </message>
@@ -196,6 +160,10 @@
     <message>
       <source>Minimum phone number length</source>
       <translation>Ελάχιστη τηλέφωνο αριθμός μήκος</translation>
+    </message>
+    <message>
+      <source>Messages box height for operator</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Messages box height</source>
@@ -219,6 +187,10 @@
     </message>
     <message>
       <source>List closed chats, disabled for high performance</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default number of online operators to show</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -461,6 +433,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Submit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Test</source>
       <translation>Δοκιμή</translation>
     </message>
@@ -527,6 +503,10 @@
     </message>
     <message>
       <source>Events</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Design</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -602,31 +582,195 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Choose a bot</source>
+      <source>System assistant messages style</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Choose a trigger</source>
+      <source>General</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Minimum time in second how long sync has to be stopped before allowing reset auto responder</source>
+      <source>Buble background color</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Maximum time in seconds how long sync has to be stopped before we do not reset auto responder</source>
+      <source>Title color</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Disable reset auto responder if visitor was redirected to survey</source>
+      <source>Text color</source>
+      <translation>Χρώμα κειμένου</translation>
+    </message>
+    <message>
+      <source>Chat background color</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Do not send messages to pending chat if chat is assigned to operator.</source>
+      <source>Time text color</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>This auto responder applies only to proactive invitations.</source>
+      <source>Title text colorr</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Main background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link default text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dropdown background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Navigation bar icons text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Navigation bar icons hover text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tab border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button active text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button active background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button active border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dropdown hover background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dropdown border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Panel header background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Panel header border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Panel background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active tab background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Breadcrumb background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Breadcrumb border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Menu active background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Menu text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tab text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Table border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Navbar toggle background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Navbar toggle border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tab active text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button border radius</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mobile HTML</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mobile style</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom image 1</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom image 2</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom image 3</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom image 4</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom image 5</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -706,10 +850,6 @@
       <translation>Κατάσταση widget χρώμα περιγράμματος</translation>
     </message>
     <message>
-      <source>Text color</source>
-      <translation>Χρώμα κειμένου</translation>
-    </message>
-    <message>
       <source>Operator image in chat widget</source>
       <translation>Φορέα εικόνας σε chat widget</translation>
     </message>
@@ -770,11 +910,31 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Custom html before standard widget header</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom html inside standard widget header</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom html before standard widget status header</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Start chat button text, standard chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Start chat button text, bot chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a trigger</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -822,8 +982,12 @@
       <translation>Κείμενο όταν κλείνει μια συνομιλία με χειριστή</translation>
     </message>
     <message>
-      <source>Text when user starts a chat and is waiting for operator to join a chat</source>
-      <translation>Κείμενο όταν ο χρήστης ξεκινά ένα chat και είναι σε αναμονή για το φορέα εκμετάλλευσης να ενταχθούν σε μια συνομιλία</translation>
+      <source>Text when user starts a chat and is waiting for operator to join a chat. Only if queue is 1</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text when user starts a chat and is waiting for operator to join a chat. Only if queue is &gt;= 1</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text when user starts a chat but department is offline</source>
@@ -926,23 +1090,7 @@
       <translation>Διάλεξε Τμήμα</translation>
     </message>
     <message>
-      <source>Button border color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Button background color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Button background hover color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Button text color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Button border radius</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -968,6 +1116,69 @@
     <message>
       <source>Widget themes</source>
       <translation>Θέματα widget</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/proactivechatinvitation</name>
+    <message>
+      <source>You can also use 5 images using keywords as {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}. You can use these events. These events should be used on onclick event.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you want pro active chat invitation to work it has to be enabled in</source>
+      <translation>Αν θέλετε η pro active chat να δουλευει πρέπει να είναι ενεργοποιημένη στο</translation>
+    </message>
+    <message>
+      <source>chat configuration</source>
+      <translation>διαμόρφωση συνομιλίας</translation>
+    </message>
+    <message>
+      <source>also online users tracking has to be</source>
+      <translation>επίσης σε απευθείας σύνδεση χρήστες παρακολούθησης πρέπει να είναι</translation>
+    </message>
+    <message>
+      <source>enabled</source>
+      <translation>ενεργοποιημένη</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Τμήμα</translation>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation>Αυτόματη απάντηση</translation>
+    </message>
+    <message>
+      <source>String</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Integer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Decimal</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mouse leaves a browser window</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor idle N seconds on site</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pro active chat invitations</source>
+      <translation>Προσκλήσεις Pro active chat</translation>
+    </message>
+    <message>
+      <source>Pro active chat variables</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -1101,6 +1312,14 @@
       <translation>Προσαρμοσμένα πεδία</translation>
     </message>
     <message>
+      <source>URL Arguments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pre chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Όνομα</translation>
     </message>
@@ -1209,8 +1428,12 @@
       <translation>Μήκος min κρυπτογράφηση κλειδιού, 40</translation>
     </message>
     <message>
-      <source>Additional encryption key, min length 40</source>
-      <translation>Μήκος κλειδιού, λεπτά επιπλέον κρυπτογράφησης 40</translation>
+      <source>Argument identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Argument name</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>List of start chat settings</source>
@@ -1237,18 +1460,6 @@
       <translation>Τουλάχιστον 40 χαρακτήρες για το κλειδί κρυπτογράφησης!</translation>
     </message>
     <message>
-      <source>Minimum 40 characters for additional encryption key!</source>
-      <translation>Τουλάχιστον 40 χαρακτήρες για το κλειδί κρυπτογράφησης επιπλέον!</translation>
-    </message>
-    <message>
-      <source>Please choose at least one field for a popup</source>
-      <translation>Παρακαλώ επιλέξτε τουλάχιστον ένα πεδίο για ένα αναδυόμενο παράθυρο</translation>
-    </message>
-    <message>
-      <source>Please choose at least one field for a page widget</source>
-      <translation>Παρακαλώ επιλέξτε τουλάχιστον ένα πεδίο για μια σελίδα widget</translation>
-    </message>
-    <message>
       <source>Start chat form settings</source>
       <translation>Έναρξη συνομιλίας μορφή ρυθμίσεις</translation>
     </message>
@@ -1256,11 +1467,19 @@
   <context>
     <name>chat/lists/search_panel</name>
     <message>
-      <source>Anonymized</source>
+      <source>Select event</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Select event</source>
+      <source>Object ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Category</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Source</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1416,6 +1635,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Has unread messages</source>
       <translation>Έχει μη αναγνωσθέντα μηνύματα</translation>
     </message>
@@ -1438,6 +1661,22 @@
     <message>
       <source>XLS (with content)</source>
       <translation>Μετατρέψτε το έγγραφο ΛΈΞΗΣ (με περιεχόμενο)</translation>
+    </message>
+    <message>
+      <source>XLS (with survey)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XLS (with content and survey)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Export</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose department</source>
+      <translation>Επιλέξτε τμήμα</translation>
     </message>
     <message>
       <source>Choose department group</source>
@@ -1496,20 +1735,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Exclude offline request from charts.</source>
+      <source>Exclude offline requests from charts</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Show only offline request</source>
+      <source>Show only offline requests</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Compare to past</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose department</source>
-      <translation>Επιλέξτε τμήμα</translation>
     </message>
     <message>
       <source>Agent</source>
@@ -1667,6 +1902,10 @@
       <translation>Νέο προκαθορισμένο μήνυμα</translation>
     </message>
     <message>
+      <source>This change will be applied to all departments that use this canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Messages</source>
       <translation type="unfinished"/>
     </message>
@@ -1723,7 +1962,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Langauge</source>
+      <source>Language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1739,8 +1978,12 @@
       <translation>Παρακαλώ εισάγετε ένα προκαθορισμένο μήνυμα</translation>
     </message>
     <message>
-      <source>Please choose a department</source>
-      <translation>Παρακαλώ επιλέξτε ένα τμήμα</translation>
+      <source>Canned message tags should not contain # character</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a department!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter language name!</source>
@@ -1869,141 +2112,349 @@
     </message>
   </context>
   <context>
-    <name>abstract/proactivechatinvitation</name>
+    <name>abstract/list</name>
     <message>
-      <source>If you want pro active chat invitation to work it has to be enabled in</source>
-      <translation>Αν θέλετε η pro active chat να δουλευει πρέπει να είναι ενεργοποιημένη στο</translation>
+      <source>Are you sure?</source>
+      <translation>Είστε σίγουρος;</translation>
     </message>
+  </context>
+  <context>
+    <name>chat/adminchat</name>
     <message>
-      <source>chat configuration</source>
-      <translation>διαμόρφωση συνομιλίας</translation>
-    </message>
-    <message>
-      <source>also online users tracking has to be</source>
-      <translation>επίσης σε απευθείας σύνδεση χρήστες παρακολούθησης πρέπει να είναι</translation>
-    </message>
-    <message>
-      <source>enabled</source>
-      <translation>ενεργοποιημένη</translation>
-    </message>
-    <message>
-      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation>Γλώσσα, αφήστε κενό για όλους. Π.χ. φωτισμό, rus, ger κλπ...</translation>
-    </message>
-    <message>
-      <source>Name</source>
+      <source>Insert image or file</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator. Visitor will see this operator nick.</source>
+      <source>Preview</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Position</source>
-      <translation>Θέση</translation>
+      <source>Attach uploaded file</source>
+      <translation>Επισυνάψετε το αρχείο</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Είστε σίγουρος;</translation>
+    </message>
+    <message>
+      <source>Block user</source>
+      <translation>Μπλοκάρισμα χρήστη</translation>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>Κλείσιμο συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Οθόνη μοιράζομαι</translation>
+    </message>
+    <message>
+      <source>Copy messages to clipboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Διαγραφή συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Modify chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit chat information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>Εκτύπωση</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Ανακατεύθυνση χρήστη για την φόρμα επικοινωνίας.</translation>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation>Πληκτρολογήστε μια διεύθυνση URL</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation>Ανακατευθύνει το χρήστη σε ένα άλλο url</translation>
+    </message>
+    <message>
+      <source>Mail was send</source>
+      <translation>Το email στάλθηκε</translation>
+    </message>
+    <message>
+      <source>Send mail</source>
+      <translation>Αποστολή μηνύματος</translation>
+    </message>
+    <message>
+      <source>Redirect user to survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose other than default recognition language</source>
+      <translation>Επιλέξτε εκτός από την προεπιλεγμένη γλώσσα αναγνώρισης</translation>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>Μεταφορά συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Footprint</source>
+      <translation>Αποτύπωμα</translation>
+    </message>
+    <message>
+      <source>Refresh</source>
+      <translation>Ανανέωση</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>Πρόσθετα δεδομένα</translation>
+    </message>
+    <message>
+      <source>Hidden field</source>
+      <translation>Κρυφό πεδίο</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>Διάρκεια συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Chat owner</source>
+      <translation>Κάτοχος συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Chat between operators, chat initializer</source>
+      <translation>Συνομιλία μεταξύ των φορέων, να συνομιλήσετε σύνολο αρχικών τιμών</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Πόλη</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Χώρα</translation>
+    </message>
+    <message>
+      <source>Created at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Started at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed at</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
       <translation>Τμήμα</translation>
     </message>
     <message>
-      <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
-      <translation>Περιμένει μήνυμα. Ορατά, όταν οι χρήστες αρχίζει συνομιλία και περιμένει κάποιος να δεχθεί μια συνομιλία.</translation>
-    </message>
-    <message>
-      <source>Wait timeout.</source>
+      <source>This is offline message</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Show visitor this message when wait timeout passes</source>
-      <translation>Επισκέπτης εμφάνιση αυτό το μήνυμα όταν περιμένετε χρονικού ορίου περάσματα</translation>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
     </message>
     <message>
-      <source>How many times repeat message? Applied only to first message.</source>
+      <source>Phone</source>
+      <translation>Τηλέφωνο</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Προϊόντος</translation>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Σελίδα</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Προήλθε από</translation>
+    </message>
+    <message>
+      <source>Device</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Redirect visitor to survey if visitor does not responds within N seconds</source>
+      <source>Computer</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Survey</source>
+      <source>Smartphone</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Timeout. [1]</source>
+      <source>Tablet</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Default on hold message</source>
+      <source>User left</source>
+      <translation>Χρήστη αριστερά</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Ζώνη ώρας</translation>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>Περιμένετε</translation>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>Επισκέπτης</translation>
+    </message>
+    <message>
+      <source>Files</source>
+      <translation>Αρχεία</translation>
+    </message>
+    <message>
+      <source>Click to change chat status</source>
+      <translation>Κάντε κλικ για να αλλάξετε την κατάστασής της συζήτησής</translation>
+    </message>
+    <message>
+      <source>Pending chat</source>
+      <translation>Σε εκκρεμότητα συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation>Ενεργή συνομιλία</translation>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation>Κλειστό συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation>Chatbox chat</translation>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation>Φορείς συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Bot chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Message for timeout [1]</source>
+      <source>Could not detect. Make sure that GEO detection is enabled.</source>
+      <translation>Δεν θα μπορούσα να ανιχνεύσει. Βεβαιωθείτε ότι είναι ενεργοποιημένος ο εντοπισμός GEO.</translation>
+    </message>
+    <message>
+      <source>Map</source>
+      <translation>Χάρτης</translation>
+    </message>
+    <message>
+      <source>User browsing information</source>
+      <translation>Πληροφορίες περιήγησης χρήστη</translation>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation>Συνομιλίες</translation>
+    </message>
+    <message>
+      <source>Remarks</source>
+      <translation>Παρατηρήσεις</translation>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation>Μηνύματα</translation>
+    </message>
+    <message>
+      <source>Copied!</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Message for timeout [2]</source>
+      <source>Copy to clipboard</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Message for timeout [3]</source>
+      <source>Copy messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Message for timeout [4]</source>
+      <source>Close dialog</source>
+      <translation>Κλείσιμο διαλόγου</translation>
+    </message>
+    <message>
+      <source>Notes</source>
+      <translation>Σημειώσεις</translation>
+    </message>
+    <message>
+      <source>Reopen chat</source>
+      <translation>Ανοίξτε πάλι το chat</translation>
+    </message>
+    <message>
+      <source>BB Code</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Message for timeout [5]</source>
+      <source>Type to search</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Timeout. [2]</source>
+      <source>Fill textarea with canned message</source>
+      <translation>Γεμίζουν το κονσερβοποιημένο μήνυμα textarea</translation>
+    </message>
+    <message>
+      <source>Hold/Un-Hold chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Timeout. [3]</source>
+      <source>Send delayed canned message instantly</source>
+      <translation>Στείλτε την καθυστερημένη κονσερβοποιημένο μήνυμα αμέσως</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Αποστολή</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Δημιουργήθηκε</translation>
+    </message>
+    <message>
+      <source>Priority</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Timeout. [4]</source>
+      <source>Select campaign</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Timeout. [5]</source>
+      <source>Select a canned message</source>
+      <translation>Επιλέξτε ένα προκαθορισμένο μήνυμα</translation>
+    </message>
+    <message>
+      <source>Are you sure you want to delete this chat?</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Auto responder</source>
-      <translation>Αυτόματη απάντηση</translation>
+      <source>Auto responder got error</source>
+      <translation>Αυτόματος αποκριτής πήρε λάθος</translation>
     </message>
     <message>
-      <source>Mouse leaves a browser window</source>
+      <source>has accepted the chat!</source>
+      <translation>έχει αποδεχθεί το chat!</translation>
+    </message>
+    <message>
+      <source>Hold removed!</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Visitor idle N seconds on site</source>
-      <translation type="unfinished"/>
+      <source>Form data not valid</source>
+      <translation>Δεδομένα φόρμας δεν είναι έγκυρη</translation>
     </message>
     <message>
-      <source>Pro active chat invitations</source>
-      <translation>Προσκλήσεις Pro active chat</translation>
-    </message>
-    <message>
-      <source>Pro active chat variables</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Subject</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>abstract/list</name>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Είστε σίγουρος;</translation>
+      <source>Has no access to this chat</source>
+      <translation>Δεν έχει πρόσβαση σε αυτή τη συζήτηση</translation>
     </message>
   </context>
   <context>
@@ -2217,6 +2668,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Operator ID</source>
+      <translation>Τελεστής αναγνωριστικό</translation>
+    </message>
+    <message>
+      <source>To what operator chat should be assigned automatically?</source>
+      <translation>Τι χειριστή πρέπει να εκχωρούνται αυτόματα με chat;</translation>
+    </message>
+    <message>
       <source>General</source>
       <translation>Γενική</translation>
     </message>
@@ -2229,8 +2688,8 @@
       <translation>Απόκρυψη status, όταν είναι εκτός σύνδεσης</translation>
     </message>
     <message>
-      <source>Show a leave a message form when there are no online operators</source>
-      <translation>Δείχνουν μια άδεια ένα μήνυμα μορφή, όταν δεν υπάρχουν καμία σε απευθείας σύνδεση φορείς</translation>
+      <source>Show a ‘leave a message form’ when there are no online operators</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
@@ -2239,14 +2698,6 @@
     <message>
       <source>Any</source>
       <translation>Κάθε</translation>
-    </message>
-    <message>
-      <source>Operator ID</source>
-      <translation>Τελεστής αναγνωριστικό</translation>
-    </message>
-    <message>
-      <source>To what operator chat should be assigned automatically?</source>
-      <translation>Τι χειριστή πρέπει να εκχωρούνται αυτόματα με chat;</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
@@ -2261,24 +2712,20 @@
       <translation>Θέση αυτής της ετικέτας μετά την ετικέτα Live Helper Plugin.</translation>
     </message>
     <message>
-      <source>On a mouse click show the page widget</source>
-      <translation>Σχετικά με ένα κλικ του ποντικιού για να δείτε τα widget σελίδα</translation>
+      <source>Show the page widget when a mouse is clicked</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Automatically check for messages from the operator/invitation messages</source>
-      <translation>Αυτόματος έλεγχος για μηνύματα από το χειριστή/πρόσκληση μηνύματα</translation>
+      <source>Disable proactive invitations</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>It increases server load, because every 15 seconds is checked for operator message or invitation message.</source>
-      <translation>Αυξάνει το φορτίο server, επειδή κάθε 15 δευτερόλεπτα ελέγχεται για μήνυμα τηλεφωνητή ή μήνυμα πρόσκλησης.</translation>
+      <source>Disable online tracking (this overrides the system configuration)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Disable pro active invitations, usefull if you want disable them from site part.</source>
-      <translation>Απενεργοποιήσετε προορατικού προσκλήσεις, χρήσιμο αν θέλετε να απενεργοποιήσετε από τμήμα τοποθεσίας.</translation>
-    </message>
-    <message>
-      <source>Disable online tracking, overrides system configuration</source>
-      <translation>Απενεργοποιήσετε την online παρακολούθηση, υπερισχύει η διαμόρφωση του συστήματος</translation>
+      <source>Cookie is valid only for domain where javascript embedded (excludes subdomains)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Try to detect language automatically</source>
@@ -2329,10 +2776,6 @@
       <translation>Αναδυόμενο παράθυρο πλάτος σε pixel</translation>
     </message>
     <message>
-      <source>height</source>
-      <translation>ύψος</translation>
-    </message>
-    <message>
       <source>Popup window height in pixels</source>
       <translation>Αναδυόμενο παράθυρο ύψος, σε pixel</translation>
     </message>
@@ -2347,6 +2790,18 @@
     <message>
       <source>Widget height in pixels</source>
       <translation>Widget ύψος, σε pixel</translation>
+    </message>
+    <message>
+      <source>Position from the top, only used if the middle left or the middle right side is chosen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Percentage</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier – enter a unique identifier here. This is useful for separating messages and proactive chat invitations from different domains/web pages. Enter a string without special characters or spaces such as “homepage” or “website1”.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>no survey</source>
@@ -2458,10 +2913,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Change chat status</source>
-      <translation>Αλλαγή κατάστασης του chat</translation>
-    </message>
-    <message>
       <source>Pending</source>
       <translation>Σε εκκρεμότητα</translation>
     </message>
@@ -2484,6 +2935,10 @@
     <message>
       <source>Bot chat</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Change chat status</source>
+      <translation>Αλλαγή κατάστασης του chat</translation>
     </message>
     <message>
       <source>Cancel</source>
@@ -2512,6 +2967,14 @@
     <message>
       <source>BB Code</source>
       <translation>BB κώδικα</translation>
+    </message>
+    <message>
+      <source>Decrease height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Increase height</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Load more...</source>
@@ -2903,6 +3366,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Exception groups to apply</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Monday</source>
       <translation>Δευτέρα</translation>
     </message>
@@ -3258,333 +3733,6 @@
     </message>
   </context>
   <context>
-    <name>chat/adminchat</name>
-    <message>
-      <source>Attach uploaded file</source>
-      <translation>Επισυνάψετε το αρχείο</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Είστε σίγουρος;</translation>
-    </message>
-    <message>
-      <source>Block user</source>
-      <translation>Μπλοκάρισμα χρήστη</translation>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>Κλείσιμο συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Screen sharing</source>
-      <translation>Οθόνη μοιράζομαι</translation>
-    </message>
-    <message>
-      <source>Copy messages to clipboard</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Διαγραφή συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Modify chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit main chat information</source>
-      <translation>Επεξεργαστείτε πληροφορίες κύρια συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Εκτύπωση</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Ανακατεύθυνση χρήστη για την φόρμα επικοινωνίας.</translation>
-    </message>
-    <message>
-      <source>Please enter a URL</source>
-      <translation>Πληκτρολογήστε μια διεύθυνση URL</translation>
-    </message>
-    <message>
-      <source>Redirect user to another url</source>
-      <translation>Ανακατευθύνει το χρήστη σε ένα άλλο url</translation>
-    </message>
-    <message>
-      <source>Mail was send</source>
-      <translation>Το email στάλθηκε</translation>
-    </message>
-    <message>
-      <source>Send mail</source>
-      <translation>Αποστολή μηνύματος</translation>
-    </message>
-    <message>
-      <source>Redirect user to survey</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
-      <translation>Επιλέξτε εκτός από την προεπιλεγμένη γλώσσα αναγνώρισης</translation>
-    </message>
-    <message>
-      <source>Transfer chat</source>
-      <translation>Μεταφορά συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Footprint</source>
-      <translation>Αποτύπωμα</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>Ανανέωση</translation>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation>Πρόσθετα δεδομένα</translation>
-    </message>
-    <message>
-      <source>Hidden field</source>
-      <translation>Κρυφό πεδίο</translation>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation>Διάρκεια συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Chat owner</source>
-      <translation>Κάτοχος συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Chat between operators, chat initializer</source>
-      <translation>Συνομιλία μεταξύ των φορέων, να συνομιλήσετε σύνολο αρχικών τιμών</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Πόλη</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Χώρα</translation>
-    </message>
-    <message>
-      <source>Created at</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Started at</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Closed at</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Τμήμα</translation>
-    </message>
-    <message>
-      <source>This is offline message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Τηλέφωνο</translation>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation>Προϊόντος</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>Σελίδα</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>Προήλθε από</translation>
-    </message>
-    <message>
-      <source>Device</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Computer</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Smartphone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Tablet</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation>Χρήστη αριστερά</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>Ζώνη ώρας</translation>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>Περιμένετε</translation>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>Επισκέπτης</translation>
-    </message>
-    <message>
-      <source>Files</source>
-      <translation>Αρχεία</translation>
-    </message>
-    <message>
-      <source>Click to change chat status</source>
-      <translation>Κάντε κλικ για να αλλάξετε την κατάστασής της συζήτησής</translation>
-    </message>
-    <message>
-      <source>Pending chat</source>
-      <translation>Σε εκκρεμότητα συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Active chat</source>
-      <translation>Ενεργή συνομιλία</translation>
-    </message>
-    <message>
-      <source>Closed chat</source>
-      <translation>Κλειστό συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Chatbox chat</source>
-      <translation>Chatbox chat</translation>
-    </message>
-    <message>
-      <source>Operators chat</source>
-      <translation>Φορείς συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Bot chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not detect. Make sure that GEO detection is enabled.</source>
-      <translation>Δεν θα μπορούσα να ανιχνεύσει. Βεβαιωθείτε ότι είναι ενεργοποιημένος ο εντοπισμός GEO.</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Χάρτης</translation>
-    </message>
-    <message>
-      <source>User browsing information</source>
-      <translation>Πληροφορίες περιήγησης χρήστη</translation>
-    </message>
-    <message>
-      <source>Chats</source>
-      <translation>Συνομιλίες</translation>
-    </message>
-    <message>
-      <source>Remarks</source>
-      <translation>Παρατηρήσεις</translation>
-    </message>
-    <message>
-      <source>Messages</source>
-      <translation>Μηνύματα</translation>
-    </message>
-    <message>
-      <source>Copied!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copy to clipboard</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Copy messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Close dialog</source>
-      <translation>Κλείσιμο διαλόγου</translation>
-    </message>
-    <message>
-      <source>Notes</source>
-      <translation>Σημειώσεις</translation>
-    </message>
-    <message>
-      <source>Reopen chat</source>
-      <translation>Ανοίξτε πάλι το chat</translation>
-    </message>
-    <message>
-      <source>BB Code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type to search</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Fill textarea with canned message</source>
-      <translation>Γεμίζουν το κονσερβοποιημένο μήνυμα textarea</translation>
-    </message>
-    <message>
-      <source>Hold/Un-Hold chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>Στείλτε την καθυστερημένη κονσερβοποιημένο μήνυμα αμέσως</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Αποστολή</translation>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>Δημιουργήθηκε</translation>
-    </message>
-    <message>
-      <source>Priority</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Select campaign</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Select a canned message</source>
-      <translation>Επιλέξτε ένα προκαθορισμένο μήνυμα</translation>
-    </message>
-    <message>
-      <source>Are you sure you want to delete this chat?</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Auto responder got error</source>
-      <translation>Αυτόματος αποκριτής πήρε λάθος</translation>
-    </message>
-    <message>
-      <source>has accepted the chat!</source>
-      <translation>έχει αποδεχθεί το chat!</translation>
-    </message>
-    <message>
-      <source>Hold removed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Form data not valid</source>
-      <translation>Δεδομένα φόρμας δεν είναι έγκυρη</translation>
-    </message>
-    <message>
-      <source>Has no access to this chat</source>
-      <translation>Δεν έχει πρόσβαση σε αυτή τη συζήτηση</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/syncadmininterface</name>
     <message>
       <source>Open in a new window</source>
@@ -3619,20 +3767,16 @@
       <translation>Προσθέστε το chat</translation>
     </message>
     <message>
-      <source>Pending chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Accept chat</source>
-      <translation>Δεχθεί συνομιλίας</translation>
-    </message>
-    <message>
       <source>Start chat</source>
       <translation>ΖΩΝΤΑΝΗ ΣΥΝΔΕΣΗ</translation>
     </message>
     <message>
       <source>Last activity</source>
       <translation>Τελευταία δραστηριότητα</translation>
+    </message>
+    <message>
+      <source>Accept chat</source>
+      <translation>Δεχθεί συνομιλίας</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -3671,6 +3815,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Τμήμα</translation>
+    </message>
+    <message>
+      <source>Pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Operator</source>
       <translation>Τελεστής</translation>
     </message>
@@ -3691,10 +3847,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Department</source>
-      <translation>Τμήμα</translation>
-    </message>
-    <message>
       <source>Sort</source>
       <translation>Είδος</translation>
     </message>
@@ -3703,16 +3855,16 @@
       <translation>Χρόνος αναμονής</translation>
     </message>
     <message>
-      <source>Delete chat</source>
-      <translation>Διαγραφή συνομιλίας</translation>
-    </message>
-    <message>
       <source>Redirect user to contact form.</source>
       <translation>Ανακατεύθυνση χρήστη για την φόρμα επικοινωνίας.</translation>
     </message>
     <message>
       <source>Are you sure?</source>
       <translation>Είσαι σίγουρος?</translation>
+    </message>
+    <message>
+      <source>Time ago</source>
+      <translation>Πριν από καιρό</translation>
     </message>
     <message>
       <source>Please enable bot chats list in your account!</source>
@@ -3727,8 +3879,8 @@
       <translation>Συνομιλίες σε εκκρεμότητα</translation>
     </message>
     <message>
-      <source>Status</source>
-      <translation type="unfinished"/>
+      <source>Delete chat</source>
+      <translation>Διαγραφή συνομιλίας</translation>
     </message>
     <message>
       <source>Created</source>
@@ -3737,10 +3889,6 @@
     <message>
       <source>Transfer time</source>
       <translation>Χρόνος μεταφοράς</translation>
-    </message>
-    <message>
-      <source>Time ago</source>
-      <translation>Πριν από καιρό</translation>
     </message>
   </context>
   <context>
@@ -3926,6 +4074,10 @@
       <source>Chat preview</source>
       <translation>Chat προεπισκόπηση</translation>
     </message>
+    <message>
+      <source>Send chat</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>front/default</name>
@@ -3989,10 +4141,6 @@
   <context>
     <name>chat/checkchatstatus</name>
     <message>
-      <source>You are talking with out bot now.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>You are talking with our bot now.</source>
       <translation type="unfinished"/>
     </message>
@@ -4033,8 +4181,23 @@
       <translation>Εν αναμονή της ένα μέλος του προσωπικού υποστήριξης να συμμετάσχουν, μπορείτε να γράψετε τις ερωτήσεις σας και από τη στιγμή που ένα μέλος του προσωπικού υποστήριξης επιβεβαιώνει αυτήν τη συζήτηση, θα πάρουν τα μηνύματα σας</translation>
     </message>
     <message>
+      <source>You are number {number} in the queue. Please wait...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor has been redirected to contact form</source>
       <translation>Επισκέπτης έχει ανακατευθυνθεί σε φόρμα επικοινωνίας</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/part/operator_profile</name>
+    <message>
+      <source>Subscribe/Unsubscribe for notifications</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skype call</source>
+      <translation>Κλήση skype</translation>
     </message>
   </context>
   <context>
@@ -4075,12 +4238,12 @@
   <context>
     <name>chat/dashboardwidgets</name>
     <message>
-      <source>Closed chats</source>
-      <translation>Κλειστό συνομιλίες</translation>
-    </message>
-    <message>
       <source>Choose what widgets you want to see</source>
       <translation>Επιλέξτε τι θέλετε να δείτε τα widgets</translation>
+    </message>
+    <message>
+      <source>Column number</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Settings updated</source>
@@ -4160,8 +4323,8 @@
   <context>
     <name>chat/errors/adminchatnopermission</name>
     <message>
-      <source>You do not have permission to access the current chat!</source>
-      <translation>Δεν έχετε δικαίωμα πρόσβασης της τρέχουσας συνομιλίας!</translation>
+      <source>You do not have permission to access the current chat or chat was merged/deleted!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -4171,12 +4334,12 @@
       <translation>Υποστήριξη υπάλληλος έχει κλείσει αυτήν τη συζήτηση</translation>
     </message>
     <message>
-      <source>Edit nick</source>
-      <translation>Επεξεργαστείτε Νικ</translation>
-    </message>
-    <message>
       <source>Read more</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit nick</source>
+      <translation>Επεξεργαστείτε Νικ</translation>
     </message>
     <message>
       <source>Typing...</source>
@@ -4843,6 +5006,10 @@
       <translation>Από</translation>
     </message>
     <message>
+      <source>+20 (More than 20 seconds spend on site) 20 (Less than 20 seconds spend on site)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Files upload for users is active</source>
       <translation>Φορτώσετε τα αρχεία για τους χρήστες είναι ενεργή</translation>
     </message>
@@ -4990,6 +5157,10 @@
       <translation>Ρύθμιση παραμέτρων ανίχνευσης GEO</translation>
     </message>
     <message>
+      <source>Audit Logs</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Auto responder</source>
       <translation>Αυτόματη απάντηση</translation>
     </message>
@@ -5006,6 +5177,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Bot exceptions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Browse offers embed code</source>
       <translation>Αναζήτηση προσφορές ενσωματώνει τον κώδικα</translation>
     </message>
@@ -5018,6 +5193,10 @@
       <translation>Αρχείο συνομιλίας</translation>
     </message>
     <message>
+      <source>Additional chat columns</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat configuration</source>
       <translation>Διαμόρφωση συνομιλίας</translation>
     </message>
@@ -5028,6 +5207,14 @@
     <message>
       <source>Chats list</source>
       <translation>Λίστα συνομιλίες</translation>
+    </message>
+    <message>
+      <source>Chat priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional chat variables</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chatbox embed code</source>
@@ -5114,6 +5301,10 @@
       <translation>Ενσωματώστε τον κώδικα Questionary</translation>
     </message>
     <message>
+      <source>Re-captcha settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Rest API</source>
       <translation>Rest API</translation>
     </message>
@@ -5166,6 +5357,14 @@
       <translation>Θέμα το admin προεπιλογή</translation>
     </message>
     <message>
+      <source>Personal theming</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat transfer configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -5187,6 +5386,10 @@
     </message>
     <message>
       <source>Import users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password requirements</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5376,10 +5579,6 @@
   <context>
     <name>chat/pendingchats</name>
     <message>
-      <source>Bot list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Information</source>
       <translation>Πληροφορία</translation>
     </message>
@@ -5477,6 +5676,10 @@
       <translation>Άδειο...</translation>
     </message>
     <message>
+      <source>Nothing found...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>collapse/expand</source>
       <translation>Σύμπτυξη/έκταση</translation>
     </message>
@@ -5511,6 +5714,10 @@
     <message>
       <source>Download XLS</source>
       <translation>Κατεβάστε το XLS</translation>
+    </message>
+    <message>
+      <source>Main information</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>All departments</source>
@@ -5629,14 +5836,6 @@
       <translation>Ρυθμίσεις</translation>
     </message>
     <message>
-      <source>Menu</source>
-      <translation>Μενού</translation>
-    </message>
-    <message>
-      <source>Expand or collapse left menu</source>
-      <translation>Αναπτύξετε ή να συμπτύξετε το αριστερό μενού</translation>
-    </message>
-    <message>
       <source>This window will be automatically refreshed in {{lhc.lhcVersionCounter}} seconds due to a version update.</source>
       <translation type="unfinished"/>
     </message>
@@ -5718,38 +5917,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Country</source>
-      <translation>Χώρα</translation>
-    </message>
-    <message>
-      <source>Chats</source>
-      <translation>Συνομιλίες</translation>
-    </message>
-    <message>
-      <source>User</source>
-      <translation>Χρήστη</translation>
-    </message>
-    <message>
-      <source>Average in seconds</source>
-      <translation>Κατά μέσο όρο σε δευτερόλεπτα</translation>
-    </message>
-    <message>
-      <source>Wait time</source>
-      <translation>Χρόνος αναμονής</translation>
-    </message>
-    <message>
-      <source>Messages</source>
-      <translation>Μηνύματα</translation>
-    </message>
-    <message>
-      <source>Month</source>
-      <translation>Μήνα</translation>
-    </message>
-    <message>
-      <source>Closed</source>
-      <translation>Κλειστά</translation>
-    </message>
-    <message>
       <source>Active</source>
       <translation>Ενεργό</translation>
     </message>
@@ -5762,16 +5929,16 @@
       <translation>Σε εκκρεμότητα</translation>
     </message>
     <message>
-      <source>Time</source>
-      <translation>Χρόνος</translation>
-    </message>
-    <message>
-      <source>Visitors initiated</source>
-      <translation>Επισκέπτες που ξεκίνησε</translation>
+      <source>Closed</source>
+      <translation>Κλειστά</translation>
     </message>
     <message>
       <source>Proactive</source>
       <translation>Προληπτική</translation>
+    </message>
+    <message>
+      <source>Visitors initiated</source>
+      <translation>Επισκέπτες που ξεκίνησε</translation>
     </message>
     <message>
       <source>Visitors</source>
@@ -5780,6 +5947,10 @@
     <message>
       <source>System</source>
       <translation>Σύστημα</translation>
+    </message>
+    <message>
+      <source>Bot and Auto responder</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Average chats</source>
@@ -5796,10 +5967,6 @@
     <message>
       <source>Please choose statistic parameters first!</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number</source>
-      <translation>Αριθμός</translation>
     </message>
     <message>
       <source>Online</source>
@@ -5832,6 +5999,10 @@
     <message>
       <source>Value</source>
       <translation>Αξία</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Χρήστη</translation>
     </message>
     <message>
       <source>Total chats</source>
@@ -5878,19 +6049,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Average chat duration by user</source>
-      <translation>Διάρκεια μέση συνομιλίας από το χρήστης</translation>
+      <source>Average chat duration by user in seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>AVG visitor wait time by operator</source>
       <translation>AVG επισκέπτης περιμένω ώρα από χειριστή</translation>
     </message>
     <message>
-      <source>AVG wait time in seconds, max 10 mininutes</source>
-      <translation>AVG περιμένετε χρόνος σε δευτερόλεπτα, max 10 mininutes</translation>
-    </message>
-    <message>
-      <source>Chats subjects statistic</source>
+      <source>Average wait time in seconds (maximum of 10 minutes)</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5898,24 +6065,16 @@
       <translation>Συνομιλίες chatbox</translation>
     </message>
     <message>
-      <source>Chats number by statuses</source>
-      <translation>Αριθμός συνομιλίες από καταστάσεις</translation>
+      <source>Chat numbers by status</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>Συνομιλίες στατιστικής</translation>
+      <source>Last 24h statistics</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Country statistic</source>
-      <translation>Χώρα στατιστικής</translation>
-    </message>
-    <message>
-      <source>Last 24h statistic</source>
-      <translation>Στατιστικά τελευταίων 24 ωρών</translation>
-    </message>
-    <message>
-      <source>Messages types</source>
-      <translation>Τύποι μηνυμάτων</translation>
+      <source>Message types</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of chats by country</source>
@@ -5958,20 +6117,24 @@
       <translation>Προληπτική συνομιλίες αριθμός vs επισκέπτες ξεκίνησε</translation>
     </message>
     <message>
-      <source>Agents statistic</source>
+      <source>Agents statistics</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation>Συνομιλίες στατιστικής</translation>
     </message>
     <message>
       <source>Departments</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Last 24 hours statistic</source>
-      <translation>Τελευταία στατιστική 24 ώρες</translation>
+      <source>Last 24 hours statistics</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Total statistic</source>
-      <translation>Συνολικά στατιστικά</translation>
+      <source>Total statistics</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total active chats</source>
@@ -6006,12 +6169,8 @@
       <translation>Αναπάντητα συνομιλίες</translation>
     </message>
     <message>
-      <source>Unanswered chats numbers</source>
-      <translation>Αναπάντητα συνομιλίες αριθμούς</translation>
-    </message>
-    <message>
-      <source>Users statisic</source>
-      <translation>Statisic χρήστες</translation>
+      <source>Unanswered chat numbers</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>more than 10 min.</source>
@@ -6020,10 +6179,6 @@
   </context>
   <context>
     <name>chat/modifychat</name>
-    <message>
-      <source>Modify chat</source>
-      <translation>Τροποποιήσετε το chat</translation>
-    </message>
     <message>
       <source>User attribute</source>
       <translation type="unfinished"/>
@@ -6063,24 +6218,6 @@
     <message>
       <source>Chat information was updated</source>
       <translation>Ενημερώθηκε chat πληροφορίες</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/part/operator_profile</name>
-    <message>
-      <source>Subscribe/Unsubscribe for notifications</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Skype call</source>
-      <translation>Κλήση skype</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/previewchat</name>
-    <message>
-      <source>Last 100 messages rows</source>
-      <translation>Τελευταία μηνύματα 100 σειρές</translation>
     </message>
   </context>
   <context>
@@ -6156,10 +6293,6 @@
   <context>
     <name>chat/sendnotice</name>
     <message>
-      <source>Send a message to the user</source>
-      <translation>Αποστολή μηνύματος στον χρήστη</translation>
-    </message>
-    <message>
       <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
       <translation>Εάν το μήνυμα έχει σταλεί ήδη, αυτό θα επισημάνετε ως παραδοθείς και ο χρήστης θα εμφανιστεί μήνυμα συνομιλίας και πάλι.</translation>
     </message>
@@ -6198,6 +6331,10 @@
     <message>
       <source>Send the message</source>
       <translation>Αποστολή μηνύματος</translation>
+    </message>
+    <message>
+      <source>Send a message to the user</source>
+      <translation>Αποστολή μηνύματος στον χρήστη</translation>
     </message>
     <message>
       <source>Message was sent to the user</source>
@@ -6358,6 +6495,14 @@
       <translation>Ενημέρωση</translation>
     </message>
     <message>
+      <source>Delete</source>
+      <translation>Διαγραφή</translation>
+    </message>
+    <message>
+      <source>Updated!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Update</source>
       <translation>Ενημέρωση</translation>
     </message>
@@ -6460,10 +6605,6 @@
     <message>
       <source>Photo</source>
       <translation>Φωτογραφία</translation>
-    </message>
-    <message>
-      <source>Delete</source>
-      <translation>Διαγραφή</translation>
     </message>
     <message>
       <source>Return</source>
@@ -6585,12 +6726,20 @@
       <source>Add translation</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Password was updated. Now you can go to back office.</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/transferchat</name>
     <message>
       <source>Online</source>
       <translation>Σε απευθείας σύνδεση</translation>
+    </message>
+    <message>
+      <source>current</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Offline</source>
@@ -6775,6 +6924,13 @@
     <message>
       <source>Information</source>
       <translation>Πληροφορίες</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/previewchat</name>
+    <message>
+      <source>Last 100 messages rows</source>
+      <translation>Τελευταία μηνύματα 100 σειρές</translation>
     </message>
   </context>
   <context>
@@ -7199,6 +7355,14 @@
       <source>Try to assign chats first to the same language speaking operators</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Check for presence of variable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Resume auto assign if chat remains pending for n seconds</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>gallery/album_list_admin</name>
@@ -7223,6 +7387,10 @@
     </message>
     <message>
       <source>New bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New exception group</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7644,6 +7812,171 @@
     </message>
   </context>
   <context>
+    <name>user/edit</name>
+    <message>
+      <source>Photo</source>
+      <translation>Φωτογραφία</translation>
+    </message>
+    <message>
+      <source>Server default time zone</source>
+      <translation>Διακομιστή προεπιλεγμένη ζώνη ώρας</translation>
+    </message>
+    <message>
+      <source>Edit user</source>
+      <translation>Επεξεργαστείτε το χρήστη</translation>
+    </message>
+    <message>
+      <source>Do not enter a password unless you want to change it</source>
+      <translation>Μην εισάγετε έναν κωδικό πρόσβασης, αν δεν θέλετε να το αλλάξετε</translation>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation>Όνομα χρήστη</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>Κωδικός πρόσβασης</translation>
+    </message>
+    <message>
+      <source>Repeat the new password</source>
+      <translation>Επαναλάβετε τον νέο κωδικό πρόσβασης</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Chat nickname</source>
+      <translation>Ψευδώνυμο συνομιλίας</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Όνομα</translation>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation>Επώνυμο</translation>
+    </message>
+    <message>
+      <source>Save</source>
+      <translation>Αποθήκευση</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Ενημέρωση</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Ακύρωση</translation>
+    </message>
+    <message>
+      <source>Assigned departments</source>
+      <translation>Εκχωρημένα τμήματα</translation>
+    </message>
+    <message>
+      <source>User time zone</source>
+      <translation>Ζώνη ώρας του χρήστη</translation>
+    </message>
+    <message>
+      <source>Application default time zone</source>
+      <translation>Εφαρμογή προεπιλεγμένη ζώνη ώρας</translation>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation>Λάθος διεύθυνση ηλεκτρονικού ταχυδρομείου</translation>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation>Διακριτικό δεν είναι έγκυρο: CSRF!</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Παραμετροποίηση συστήματος</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>Χρήστες</translation>
+    </message>
+    <message>
+      <source>User edit</source>
+      <translation>Επεξεργασία χρήστη</translation>
+    </message>
+  </context>
+  <context>
+    <name>genericbot/import</name>
+    <message>
+      <source>Import bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot imported</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>genericbot/list</name>
+    <message>
+      <source>Bot list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot exceptions groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not execute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>with args</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Confirm</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Function is not callable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bots</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>kernel/nopermission</name>
     <message>
       <source>Go back</source>
@@ -7669,20 +8002,215 @@
   <context>
     <name>core/paginator</name>
     <message>
-      <source>Go to page</source>
-      <translation>Μεταβείτε στη σελίδα</translation>
+      <source>Page</source>
+      <translation>Σελίδα</translation>
     </message>
     <message>
       <source>of</source>
       <translation>του</translation>
     </message>
     <message>
-      <source>Page</source>
-      <translation>Σελίδα</translation>
-    </message>
-    <message>
       <source>Found</source>
       <translation>Βρέθηκαν</translation>
+    </message>
+    <message>
+      <source>Go to page</source>
+      <translation>Μεταβείτε στη σελίδα</translation>
+    </message>
+  </context>
+  <context>
+    <name>notifications/edit</name>
+    <message>
+      <source>Main</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test notification</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User Agent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online Visitor ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last error</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subscriber endpoint settings</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>notifications/admin</name>
+    <message>
+      <source>Notifications</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subscribers list</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>notifications/list</name>
+    <message>
+      <source>Subscribers list</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>notification/list</name>
+    <message>
+      <source>Chat ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Registration time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update time</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>notifications/notifications</name>
+    <message>
+      <source>Notifications settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For more information see</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can generate your private and public key here</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Explains were taken from:</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download Service Worker</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>you will have to put this file in your domain root folder.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable notifications</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On desktop, a notification is only displayed for a short period of time. On Android, notifications are shown until the user interacts with it.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To get the same behaviour on desktop and mobile you can set the &quot;require-interaction&quot; option to true, which means the user must click or dismiss the notification.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>When you use the tag option, the default behavior of a new notification replacing an existing one is that there is no sound, vibration and the screen is kept asleep.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>With `renotify: true` a new notification will play a sound, vibrate and wake up the users device. This means replacing notifications have the same behavior as a completely new notification.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Note</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>There is no visible affect on desktop, but on mobile, vibration and sound will be affected.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject*</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You must provide a subject that is either a mailto: or a URL.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTTP Host*</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default Icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Badge Icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notification badges are only being used on mobile, at least at the time of writing. It is used to replace the browser icon that is shown by default.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Vibrate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Public key*</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Private key*</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Private key is not shown after save</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -7726,6 +8254,14 @@
   <context>
     <name>permission/editrole</name>
     <message>
+      <source>Edit function</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Limitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Edit role</source>
       <translation>Επεξεργαστείτε το ρόλο</translation>
     </message>
@@ -7752,10 +8288,6 @@
     <message>
       <source>Function</source>
       <translation>Λειτουργία</translation>
-    </message>
-    <message>
-      <source>Limitation</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Remove selected policy</source>
@@ -7786,6 +8318,14 @@
       <translation>Όλες τις λειτουργίες</translation>
     </message>
     <message>
+      <source>System configuration</source>
+      <translation>Παραμετροποίηση συστήματος</translation>
+    </message>
+    <message>
+      <source>List of roles</source>
+      <translation>Λίστα των ρόλων</translation>
+    </message>
+    <message>
       <source>Please enter role name</source>
       <translation>Παρακαλούμε εισάγετε το όνομα ρόλου</translation>
     </message>
@@ -7796,14 +8336,6 @@
     <message>
       <source>Please choose module function</source>
       <translation>Παρακαλώ επιλέξτε ενότητα λειτουργίας</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>Παραμετροποίηση συστήματος</translation>
-    </message>
-    <message>
-      <source>List of roles</source>
-      <translation>Λίστα των ρόλων</translation>
     </message>
     <message>
       <source>Role edit</source>
@@ -8040,8 +8572,16 @@
       <translation>Θέματα</translation>
     </message>
     <message>
+      <source>Import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Import theme</source>
       <translation>Θέμα εισαγωγής</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -8319,6 +8859,10 @@
       <source>Rest API Keys</source>
       <translation>Κλειδιά υπόλοιπα API</translation>
     </message>
+    <message>
+      <source>Rest API Remote Keys</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>speech/language</name>
@@ -8327,8 +8871,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Langauge</source>
-      <translation type="unfinished"/>
+      <source>Language</source>
+      <translation>Γλώσσα</translation>
     </message>
     <message>
       <source>Dialect</source>
@@ -8396,6 +8940,53 @@
     <message>
       <source>Use application default recognition dialect</source>
       <translation>Χρησιμοποιήστε την προεπιλεγμένη εφαρμογή αναγνώρισης διάλεκτο</translation>
+    </message>
+  </context>
+  <context>
+    <name>statistic/campaign</name>
+    <message>
+      <source>Parameter</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Explanation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation was assigned to online visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>widget was opened with invitation content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget was shown but visitor closed it without starting a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat started</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor started chat by online invitation</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -8570,6 +9161,26 @@
       <translation>Ρυθμίσεις ενημέρωση</translation>
     </message>
     <message>
+      <source>User has to change password every n days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimal password length</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Uppercase letter required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Special character required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Autologin hash has expired</source>
       <translation>AutoLogin hash έχει λήξει</translation>
     </message>
@@ -8591,6 +9202,14 @@
     </message>
     <message>
       <source>Invalid hash or user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password requirements</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update password</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -8683,6 +9302,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Enable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time zone settings</source>
       <translation>Οι ρυθμίσεις ζώνης ώρας</translation>
     </message>
@@ -8758,99 +9381,39 @@
       <translation>Λιμάνι</translation>
     </message>
     <message>
+      <source>Re-captcha settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Transfer configuration</source>
       <translation type="unfinished"/>
     </message>
   </context>
   <context>
-    <name>user/edit</name>
+    <name>system/recaptcha</name>
     <message>
-      <source>Server default time zone</source>
-      <translation>Διακομιστή προεπιλεγμένη ζώνη ώρας</translation>
+      <source>Re-captcha settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Edit user</source>
-      <translation>Επεξεργαστείτε το χρήστη</translation>
+      <source>This works with V3 re-captcha.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Do not enter a password unless you want to change it</source>
-      <translation>Μην εισάγετε έναν κωδικό πρόσβασης, αν δεν θέλετε να το αλλάξετε</translation>
+      <source>Get Re-captcha keys</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Username</source>
-      <translation>Όνομα χρήστη</translation>
+      <source>Site key</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Password</source>
-      <translation>Κωδικός πρόσβασης</translation>
+      <source>Secret key</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Repeat the new password</source>
-      <translation>Επαναλάβετε τον νέο κωδικό πρόσβασης</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Chat nickname</source>
-      <translation>Ψευδώνυμο συνομιλίας</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Όνομα</translation>
-    </message>
-    <message>
-      <source>Surname</source>
-      <translation>Επώνυμο</translation>
-    </message>
-    <message>
-      <source>Photo</source>
-      <translation>Φωτογραφία</translation>
-    </message>
-    <message>
-      <source>Save</source>
-      <translation>Αποθήκευση</translation>
-    </message>
-    <message>
-      <source>Update</source>
-      <translation>Ενημέρωση</translation>
-    </message>
-    <message>
-      <source>Cancel</source>
-      <translation>Ακύρωση</translation>
-    </message>
-    <message>
-      <source>Assigned departments</source>
-      <translation>Εκχωρημένα τμήματα</translation>
-    </message>
-    <message>
-      <source>User time zone</source>
-      <translation>Ζώνη ώρας του χρήστη</translation>
-    </message>
-    <message>
-      <source>Application default time zone</source>
-      <translation>Εφαρμογή προεπιλεγμένη ζώνη ώρας</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>Λάθος διεύθυνση ηλεκτρονικού ταχυδρομείου</translation>
-    </message>
-    <message>
-      <source>Invalid CSRF token!</source>
-      <translation>Διακριτικό δεν είναι έγκυρο: CSRF!</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>Παραμετροποίηση συστήματος</translation>
-    </message>
-    <message>
-      <source>Users</source>
-      <translation>Χρήστες</translation>
-    </message>
-    <message>
-      <source>User edit</source>
-      <translation>Επεξεργασία χρήστη</translation>
+      <source>Secret key is not shown!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -9016,6 +9579,14 @@
       <translation>Ρυθμίσεις</translation>
     </message>
     <message>
+      <source>Chat attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Main attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Header settings</source>
       <translation>Κεφαλίδα ρυθμίσεις</translation>
     </message>
@@ -9079,12 +9650,20 @@
       <translation>Όνομα</translation>
     </message>
     <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Default admin theme</source>
       <translation>Θέμα το admin προεπιλογή</translation>
     </message>
     <message>
       <source>Edit admin theme</source>
       <translation>Επεξεργασία θέμα admin</translation>
+    </message>
+    <message>
+      <source>Personal theme</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -9096,6 +9675,10 @@
     <message>
       <source>Updated</source>
       <translation>Ενημέρωση</translation>
+    </message>
+    <message>
+      <source>Personal theme</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -9437,8 +10020,36 @@
       <translation>Αποσυνδεθήκατε επειδή κάποιος άλλος χρήστης συνδεδεμένος στο ίδιο λογαριασμό</translation>
     </message>
     <message>
+      <source>Your password has expired. Please update it</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Go to back office</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Old password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Repeat password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>CSFR token is invalid, try to resubmit form</source>
       <translation>Το διακριτικό CSFR είναι έγκυρη, προσπαθήστε να υποβάλετε ξανά την φόρμα</translation>
+    </message>
+    <message>
+      <source>Google re-captcha validation failed</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Incorrect username or password</source>
@@ -9570,6 +10181,10 @@
     <message>
       <source>API Key</source>
       <translation>Κλειδί API</translation>
+    </message>
+    <message>
+      <source>Rest API Remote Keys</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -9712,7 +10327,15 @@
       <translation>Σύνδεση</translation>
     </message>
     <message>
+      <source>Remarks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Additional data</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey data</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9814,6 +10437,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Please enter exception group name!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter chat id!</source>
       <translation type="unfinished"/>
     </message>
@@ -9870,6 +10497,38 @@
     <message>
       <source>Please choose a default user group</source>
       <translation>Παρακαλώ επιλέξτε μια προεπιλεγμένη ομάδα χρηστών</translation>
+    </message>
+    <message>
+      <source>Password has to be atleast</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>characters length</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password has to have at-least one uppercase letter</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password has to have at-least one number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password has to have at-least one special character</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Old password incorrect!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Passwords mismatch!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Old and new password has to be different!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -10111,24 +10770,6 @@
     </message>
   </context>
   <context>
-    <name>statistic/onlinehours</name>
-    <message>
-      <source>Online Hours</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>genericbot/edit</name>
-    <message>
-      <source>System configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bots</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>genericbot/new</name>
     <message>
       <source>System configuration</source>
@@ -10144,236 +10785,17 @@
     </message>
   </context>
   <context>
-    <name>genericbot/list</name>
+    <name>genericbot/edit</name>
     <message>
-      <source>Could not call</source>
+      <source>System configuration</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Bot list</source>
+      <source>Bots</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>New</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not execute</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>with args</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Confirm</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Cancel</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Function is not callable</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>notifications/edit</name>
-    <message>
-      <source>Main</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Test notification</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Device</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User Agent</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online Visitor ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last error</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Updated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Subscriber endpoint settings</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>notifications/admin</name>
-    <message>
-      <source>Notifications</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Subscribers list</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>notifications/list</name>
-    <message>
-      <source>Subscribers list</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>notification/list</name>
-    <message>
-      <source>Chat ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Theme</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Device</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Registration time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Update time</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>notifications/notifications</name>
-    <message>
-      <source>Notifications settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>For more information see</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You can generate your private and public key here</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Explains were taken from:</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Download Service Worker</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>you will have to put this file in your domain root folder.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enable notifications</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>On desktop, a notification is only displayed for a short period of time. On Android, notifications are shown until the user interacts with it.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>To get the same behaviour on desktop and mobile you can set the &quot;require-interaction&quot; option to true, which means the user must click or dismiss the notification.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>When you use the tag option, the default behavior of a new notification replacing an existing one is that there is no sound, vibration and the screen is kept asleep.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>With `renotify: true` a new notification will play a sound, vibrate and wake up the users device. This means replacing notifications have the same behavior as a completely new notification.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Note</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>There is no visible affect on desktop, but on mobile, vibration and sound will be affected.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Subject*</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You must provide a subject that is either a mailto: or a URL.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>HTTP Host*</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default Icon</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Badge Icon</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Notification badges are only being used on mobile, at least at the time of writing. It is used to replace the browser icon that is shown by default.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Vibrate</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Public key*</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Private key*</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Private key is not shown after save</source>
+      <source>Exceptions</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -10385,49 +10807,9 @@
     </message>
   </context>
   <context>
-    <name>statistic/campaign</name>
+    <name>statistic/onlinehours</name>
     <message>
-      <source>Parameter</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Value</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Explanation</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Total send</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invitation was assigned to online visitor</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Total shown</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>widget was opened with invitation content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Total seen</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget was shown but visitor closed it without starting a chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat started</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor started chat by online invitation</source>
+      <source>Online Hours</source>
       <translation type="unfinished"/>
     </message>
   </context>
