@@ -2,6 +2,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por quantos dias o widget de votação não deve ser exibido após última exibição</translation>
     </message>
@@ -220,6 +228,10 @@
     <message>
       <source>Home page tabs order</source>
       <translation>Ordem das tabs da homepage</translation>
+    </message>
+    <message>
+      <source>Footprint updates should be processed in the background. Make sure you are running workflow background cronjob.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
@@ -508,6 +520,10 @@
     <message>
       <source>Design</source>
       <translation>Design</translation>
+    </message>
+    <message>
+      <source>Inject HTML</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose what bot trigger element append after auto responder message</source>
@@ -898,6 +914,10 @@
       <translation>Html personalizado antes de iniciar campos de formulário de bate-papo, pop-up</translation>
     </message>
     <message>
+      <source>Inject HTML on widget open</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom html before start chat form fields, widget</source>
       <translation type="unfinished"/>
     </message>
@@ -1103,6 +1123,10 @@
     </message>
     <message>
       <source>Button font size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not allow visitor to edit previous message by pressing up arrow</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1711,6 +1735,10 @@
       <translation>Selecionar robô</translation>
     </message>
     <message>
+      <source>Select translations</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nome</translation>
     </message>
@@ -1725,6 +1753,14 @@
     <message>
       <source>Disabled</source>
       <translation>Desativado</translation>
+    </message>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select survey</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose</source>
@@ -1866,6 +1902,10 @@
       <translation>Linguagem</translation>
     </message>
     <message>
+      <source>Language</source>
+      <translation>Linguagem</translation>
+    </message>
+    <message>
       <source>Title/Message</source>
       <translation>Titulo/Mensagem</translation>
     </message>
@@ -1946,6 +1986,10 @@
       <translation>Mensagem de contingência</translation>
     </message>
     <message>
+      <source>HTML Snippet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Tag&apos;s</source>
       <translation>Tags</translation>
     </message>
@@ -1962,8 +2006,8 @@
       <translation>Nome</translation>
     </message>
     <message>
-      <source>Language</source>
-      <translation>Linguagem</translation>
+      <source>Group</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Personal canned message</source>
@@ -2363,6 +2407,10 @@
     <message>
       <source>Remarks</source>
       <translation>Observações</translation>
+    </message>
+    <message>
+      <source>Include system messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Messages</source>
@@ -2957,18 +3005,6 @@
       <translation>Fechar</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Digite sua mensagem</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Enviar</translation>
-    </message>
-    <message>
-      <source>BB Code</source>
-      <translation>Código BB</translation>
-    </message>
-    <message>
       <source>Decrease height</source>
       <translation>Reduzir altura</translation>
     </message>
@@ -2979,6 +3015,18 @@
     <message>
       <source>Load more...</source>
       <translation>Carregar mais...</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Digite sua mensagem</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Enviar</translation>
+    </message>
+    <message>
+      <source>BB Code</source>
+      <translation>Código BB</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -3156,6 +3204,10 @@
     <message>
       <source>Bot configuration</source>
       <translation>Configuração do robô</translation>
+    </message>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
@@ -3370,12 +3422,28 @@
       <translation>Grupos para aplicar exceção</translation>
     </message>
     <message>
+      <source>These bot logic applies also</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Priority</source>
       <translation>Prioridade</translation>
     </message>
     <message>
       <source>Custom message</source>
       <translation>Mensagem personalizada</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Monday</source>
@@ -3440,10 +3508,6 @@
   <context>
     <name>chat/startchat</name>
     <message>
-      <source>Enter your message</source>
-      <translation>Digite sua mensagem</translation>
-    </message>
-    <message>
       <source>Department is disabled</source>
       <translation>Departamento está desabilitado</translation>
     </message>
@@ -3462,6 +3526,10 @@
     <message>
       <source>Enter your phone</source>
       <translation>Informe o seu telefone</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Digite sua mensagem</translation>
     </message>
     <message>
       <source>Your question</source>
@@ -5018,6 +5086,10 @@
       <translation>Envio de arquivos para operadores está ativo</translation>
     </message>
     <message>
+      <source>Remove meta information from images</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Uploaded files from visitors are scanned</source>
       <translation>Arquivos de upload de visitantes são scanneados</translation>
     </message>
@@ -5105,6 +5177,10 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>File configuration</source>
+      <translation>Configuração de arquivo</translation>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Requisitar permissão de notificação</translation>
     </message>
@@ -5179,6 +5255,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Bot exceptions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translations groups</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5482,10 +5562,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>minutos</translation>
     </message>
     <message>
-      <source>File configuration</source>
-      <translation>Configuração de arquivo</translation>
-    </message>
-    <message>
       <source>Edit file</source>
       <translation>Editar arquivo</translation>
     </message>
@@ -5633,6 +5709,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Bots</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translations groups</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -7118,6 +7198,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Nome</translation>
     </message>
     <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Username</source>
       <translation>Nome de usuário</translation>
     </message>
@@ -7364,6 +7448,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <source>Resume auto assign if chat remains pending for n seconds</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Hide send button for operators</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>gallery/album_list_admin</name>
@@ -7393,6 +7481,14 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>New exception group</source>
       <translation>Novo grupo para exceção</translation>
+    </message>
+    <message>
+      <source>New translation group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New translation item</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -7609,6 +7705,14 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>file/configuration</name>
     <message>
+      <source>Please enter valid file type!</source>
+      <translation>Por favor informe um tipo de arquivo válido!</translation>
+    </message>
+    <message>
+      <source>Please enter valid maximum file size!</source>
+      <translation>Por favor informe um tamanho máximo de arquivo válido!</translation>
+    </message>
+    <message>
       <source>Allowed files types for operators</source>
       <translation>Tipos de arquivos permitidos para operadores</translation>
     </message>
@@ -7663,14 +7767,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>File configuration</source>
       <translation>Configuração de arquivo</translation>
-    </message>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>Por favor informe um tipo de arquivo válido!</translation>
-    </message>
-    <message>
-      <source>Please enter valid maximum file size!</source>
-      <translation>Por favor informe um tamanho máximo de arquivo válido!</translation>
     </message>
   </context>
   <context>
@@ -7906,7 +8002,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>genericbot/import</name>
     <message>
-      <source>Import bot</source>
+      <source>Import group</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7916,6 +8012,14 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Import</source>
       <translation>Importar</translation>
+    </message>
+    <message>
+      <source>Group imported</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import bot</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Bot imported</source>
@@ -7946,6 +8050,14 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Bot exceptions groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translations groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translations items</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8537,6 +8649,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Produtos</translation>
     </message>
     <message>
+      <source>My theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Default theme</source>
       <translation>Tema padrão</translation>
     </message>
@@ -8868,6 +8984,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>speech/language</name>
     <message>
+      <source>Language</source>
+      <translation>Idioma</translation>
+    </message>
+    <message>
       <source>Dialects</source>
       <translation>Dialetos</translation>
     </message>
@@ -8898,10 +9018,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Edit language</source>
       <translation>Editar linguagem</translation>
-    </message>
-    <message>
-      <source>Language</source>
-      <translation>Idioma</translation>
     </message>
     <message>
       <source>Dialect name</source>
@@ -9740,6 +9856,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Membros deste grupo podem operar com os seguintes grupos</translation>
     </message>
     <message>
+      <source>Direct members of this group cannot assign this group to other operators.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disabled</source>
       <translation>Desativado</translation>
     </message>
@@ -10439,6 +10559,18 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Please enter translation group name!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter translation!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a group!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter exception group name!</source>
       <translation type="unfinished"/>
     </message>
@@ -10785,6 +10917,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <source>New</source>
       <translation>Novo</translation>
     </message>
+    <message>
+      <source>Translations groups</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>genericbot/edit</name>
@@ -10799,6 +10935,18 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Exceptions</source>
       <translation>Exceção</translation>
+    </message>
+    <message>
+      <source>Translations groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translations items</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

@@ -2,6 +2,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Son gösteriminden kaç gün sonra oy kullanma kutucuğu açılmamalı?</translation>
     </message>
@@ -220,6 +228,10 @@
     <message>
       <source>Home page tabs order</source>
       <translation>Anasayfa sekme sırası</translation>
+    </message>
+    <message>
+      <source>Footprint updates should be processed in the background. Make sure you are running workflow background cronjob.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
@@ -507,6 +519,10 @@
     </message>
     <message>
       <source>Design</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inject HTML</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -898,6 +914,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Inject HTML on widget open</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom html before start chat form fields, widget</source>
       <translation type="unfinished"/>
     </message>
@@ -1103,6 +1123,10 @@
     </message>
     <message>
       <source>Button font size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not allow visitor to edit previous message by pressing up arrow</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1711,6 +1735,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Select translations</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>İsim</translation>
     </message>
@@ -1724,6 +1752,14 @@
     </message>
     <message>
       <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select survey</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1866,6 +1902,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Title/Message</source>
       <translation type="unfinished"/>
     </message>
@@ -1946,6 +1986,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>HTML Snippet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Tag&apos;s</source>
       <translation type="unfinished"/>
     </message>
@@ -1962,7 +2006,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Language</source>
+      <source>Group</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2363,6 +2407,10 @@
     <message>
       <source>Remarks</source>
       <translation>Düşünceler</translation>
+    </message>
+    <message>
+      <source>Include system messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Messages</source>
@@ -2957,18 +3005,6 @@
       <translation>Kapat</translation>
     </message>
     <message>
-      <source>Enter your message</source>
-      <translation>Mesajınızı girin</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Gönder</translation>
-    </message>
-    <message>
-      <source>BB Code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Decrease height</source>
       <translation type="unfinished"/>
     </message>
@@ -2978,6 +3014,18 @@
     </message>
     <message>
       <source>Load more...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Mesajınızı girin</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Gönder</translation>
+    </message>
+    <message>
+      <source>BB Code</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3155,6 +3203,10 @@
     </message>
     <message>
       <source>Bot configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3370,11 +3422,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>These bot logic applies also</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Priority</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Custom message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3440,10 +3508,6 @@
   <context>
     <name>chat/startchat</name>
     <message>
-      <source>Enter your message</source>
-      <translation>Mesajınızı girin</translation>
-    </message>
-    <message>
       <source>Department is disabled</source>
       <translation type="unfinished"/>
     </message>
@@ -3462,6 +3526,10 @@
     <message>
       <source>Enter your phone</source>
       <translation>Telefonunuzu girin</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Mesajınızı girin</translation>
     </message>
     <message>
       <source>Your question</source>
@@ -5020,6 +5088,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Remove meta information from images</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Uploaded files from visitors are scanned</source>
       <translation type="unfinished"/>
     </message>
@@ -5107,6 +5179,10 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>File configuration</source>
+      <translation>Dosya ayarı</translation>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>İstek bildirim izni</translation>
     </message>
@@ -5180,6 +5256,10 @@
     </message>
     <message>
       <source>Bot exceptions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translations groups</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5483,10 +5563,6 @@
       <translation>dakikalar</translation>
     </message>
     <message>
-      <source>File configuration</source>
-      <translation>Dosya ayarı</translation>
-    </message>
-    <message>
       <source>Edit file</source>
       <translation type="unfinished"/>
     </message>
@@ -5634,6 +5710,10 @@
     </message>
     <message>
       <source>Bots</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translations groups</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -7119,6 +7199,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Username</source>
       <translation>Kullanıcı adı</translation>
     </message>
@@ -7365,6 +7449,10 @@
       <source>Resume auto assign if chat remains pending for n seconds</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Hide send button for operators</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>gallery/album_list_admin</name>
@@ -7393,6 +7481,14 @@
     </message>
     <message>
       <source>New exception group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New translation group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New translation item</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7610,6 +7706,14 @@
   <context>
     <name>file/configuration</name>
     <message>
+      <source>Please enter valid file type!</source>
+      <translation>Lütfen geçerli bir dosya türü girin!</translation>
+    </message>
+    <message>
+      <source>Please enter valid maximum file size!</source>
+      <translation>Lütfen geçerli en büyük dosya boyutunu girin.</translation>
+    </message>
+    <message>
       <source>Allowed files types for operators</source>
       <translation type="unfinished"/>
     </message>
@@ -7664,14 +7768,6 @@
     <message>
       <source>File configuration</source>
       <translation>Dosya yapılandırma</translation>
-    </message>
-    <message>
-      <source>Please enter valid file type!</source>
-      <translation>Lütfen geçerli bir dosya türü girin!</translation>
-    </message>
-    <message>
-      <source>Please enter valid maximum file size!</source>
-      <translation>Lütfen geçerli en büyük dosya boyutunu girin.</translation>
     </message>
   </context>
   <context>
@@ -7907,7 +8003,7 @@
   <context>
     <name>genericbot/import</name>
     <message>
-      <source>Import bot</source>
+      <source>Import group</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7916,6 +8012,14 @@
     </message>
     <message>
       <source>Import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group imported</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import bot</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7947,6 +8051,14 @@
     </message>
     <message>
       <source>Bot exceptions groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translations groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translations items</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8538,6 +8650,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>My theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Default theme</source>
       <translation>Varsayılan tema</translation>
     </message>
@@ -8869,6 +8985,10 @@
   <context>
     <name>speech/language</name>
     <message>
+      <source>Language</source>
+      <translation>Dil</translation>
+    </message>
+    <message>
       <source>Dialects</source>
       <translation type="unfinished"/>
     </message>
@@ -8899,10 +9019,6 @@
     <message>
       <source>Edit language</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Language</source>
-      <translation>Dil</translation>
     </message>
     <message>
       <source>Dialect name</source>
@@ -9740,6 +9856,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Direct members of this group cannot assign this group to other operators.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disabled</source>
       <translation type="unfinished"/>
     </message>
@@ -10439,6 +10559,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Please enter translation group name!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter translation!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a group!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter exception group name!</source>
       <translation type="unfinished"/>
     </message>
@@ -10785,6 +10917,10 @@
       <source>New</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Translations groups</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>genericbot/edit</name>
@@ -10798,6 +10934,18 @@
     </message>
     <message>
       <source>Exceptions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translations groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translations items</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
       <translation type="unfinished"/>
     </message>
   </context>

@@ -19,7 +19,7 @@ foreach ($filesToCheck as $filePath)
     $contentFile = file_get_contents($filePath);
 
     $Matches = array();
-	preg_match_all('/<\?php echo erTranslationClassLhTranslation::getInstance\(\)->getTranslation\(\'(.*?)\',\'(.*?)\'\)(.*?)\?\>/i',$contentFile,$Matches);
+	preg_match_all('/<\?php echo erTranslationClassLhTranslation::getInstance\(\)->getTranslation\(\'(.*?)\',(.*?)\'(.*?)\'\)(.*?)\?\>/i',$contentFile,$Matches);
 
 	foreach ($Matches[1] as $key => $section)
 	{
@@ -27,15 +27,15 @@ foreach ($filesToCheck as $filePath)
 	        $arrayTranslationsProcess[$section] = array();
 	    }
 
-	    if (!in_array($Matches[2][$key],$arrayTranslationsProcess[$section])){
-	        $arrayTranslationsProcess[$section][] = $Matches[2][$key];
+	    if (!in_array($Matches[3][$key],$arrayTranslationsProcess[$section])){
+	        $arrayTranslationsProcess[$section][] = $Matches[3][$key];
 	    }
 
 	    $contentFile = str_replace($Matches[0][$key],'',$contentFile);
 	}
 
 	$Matches = array();
-	preg_match_all('/erTranslationClassLhTranslation::getInstance\(\)->getTranslation\(\'(.*?)\',\'(.*?)\'\)/i',$contentFile,$Matches);
+	preg_match_all('/erTranslationClassLhTranslation::getInstance\(\)->getTranslation\(\'(.*?)\',(.*?)\'(.*?)\'\)/i',$contentFile,$Matches);
 
 	foreach ($Matches[1] as $key => $section)
 	{
@@ -43,8 +43,8 @@ foreach ($filesToCheck as $filePath)
 	        $arrayTranslationsProcess[$section] = array();
 	    }
 
-	    if (!in_array($Matches[2][$key],$arrayTranslationsProcess[$section])){
-	        $arrayTranslationsProcess[$section][] = $Matches[2][$key];
+	    if (!in_array($Matches[3][$key],$arrayTranslationsProcess[$section])){
+	        $arrayTranslationsProcess[$section][] = $Matches[3][$key];
 	    }
 	}
 
