@@ -1620,6 +1620,41 @@ class erLhcoreClassGenericBotWorkflow {
             $depId = $params['chat']->dep_id;
         }
 
+        $matches = array();
+        preg_match_all('~\{((?:[^\{\}]++|(?R))*)\}~',$message,$matches);
+
+        if (isset($matches[0]) && !empty($matches[0]))
+        {
+            $identifiers = array();
+            foreach ($matches[0] as $key => $match) {
+                if (strpos($matches[1][$key],'__') !== false) {
+                    $parts = explode('__',$matches[1][$key]);
+                    $identifiers[$parts[0]] = array('search' => $matches[0][$key], 'replace' => $parts[1]);
+                }
+            }
+
+            if (!empty($identifiers)) {
+                $department = erLhcoreClassModelDepartament::fetch($depId,true);
+
+                if ($department instanceof erLhcoreClassModelDepartament) {
+                    $configuration = $department->bot_configuration_array;
+                    if (isset($configuration['bot_tr_id']) && $configuration['bot_tr_id'] > 0 && !empty($identifiers)) {
+                        $items = erLhcoreClassModelGenericBotTrItem::getList(array('filterin' => array('identifier' => array_keys($identifiers)),'filter' => array('group_id' => $configuration['bot_tr_id'])));
+                        foreach ($items as $item) {
+                            $identifiers[$item->identifier]['replace'] = $item->translation;
+                        }
+                    }
+                }
+
+                $replaceArray = array();
+                foreach ($identifiers as $data) {
+                    $replaceArray[$data['search']] = $data['replace'];
+                }
+
+                $message = str_replace(array_keys($replaceArray), array_values($replaceArray), $message);
+            }
+        }
+
         if (isset($params['chat'])) {
 
             $replaceArray = array(
@@ -1639,48 +1674,10 @@ class erLhcoreClassGenericBotWorkflow {
             }
 
             foreach ($params['chat']->chat_variables_array as $keyItem => $addItem) {
-                    $replaceArray['{lhc.var.' . $keyItem . '}'] = $addItem;
+                $replaceArray['{lhc.var.' . $keyItem . '}'] = $addItem;
             }
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.replace_message_bot', array('msg' => & $message, 'chat' => & $params['chat']));
-
-            $message = str_replace(array_keys($replaceArray), array_values($replaceArray), $message);
-        }
-
-
-        $matches = array();
-        preg_match_all('~\{((?:[^\{\}]++|(?R))*)\}~',$message,$matches);
-
-        if (isset($matches[0]) && !empty($matches[0]))
-        {
-            $identifiers = array();
-            foreach ($matches[0] as $key => $match) {
-                if (strpos($matches[1][$key],'__') !== false) {
-                    $parts = explode('__',$matches[1][$key]);
-                    $identifiers[$parts[0]] = array('search' => $matches[0][$key], 'replace' => $parts[1]);
-                }
-            }
-
-            if (empty($identifiers)) {
-                return $message;
-            }
-
-            $department = erLhcoreClassModelDepartament::fetch($depId,true);
-
-            if ($department instanceof erLhcoreClassModelDepartament) {
-                $configuration = $department->bot_configuration_array;
-                if (isset($configuration['bot_tr_id']) && $configuration['bot_tr_id'] > 0 && !empty($identifiers)) {
-                    $items = erLhcoreClassModelGenericBotTrItem::getList(array('filterin' => array('identifier' => array_keys($identifiers)),'filter' => array('group_id' => $configuration['bot_tr_id'])));
-                    foreach ($items as $item) {
-                        $identifiers[$item->identifier]['replace'] = $item->translation;
-                    }
-                }
-            }
-
-            $replaceArray = array();
-            foreach ($identifiers as $data) {
-                $replaceArray[$data['search']] = $data['replace'];
-            }
 
             $message = str_replace(array_keys($replaceArray), array_values($replaceArray), $message);
         }
