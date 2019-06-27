@@ -45,16 +45,25 @@ class NodeTriggerActionTyping extends Component {
                 </div>
 
                 <div className="row">
-                    <div className="col-6">
+                    <div className="col-12">
                         <div className="form-group">
-                            <label>Show typing for n seconds</label>
+                            <label>Show typing for N seconds</label>
                             <input type="text" placeholder="Value in seconds" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['duration'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','duration'])}/>
+                        </div>
+                        <div className="form-group">
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['untill_message'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','untill_message'])} />OR untill next operator message</label> <i className="material-icons" title="Usefull if some background job posts a message.">info</i>
                         </div>
                     </div>
                     <div className="col-6">
                         <div className="form-group">
                             <label>Default typing text</label>
                             <input placeholder="Typing..." type="text" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['text'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','text'])}/>
+                        </div>
+                    </div>
+                    <div className="col-6">
+                        <div className="form-group">
+                            <label>Delay typing appearance for n seconds</label>
+                            <input placeholder="Value in seconds" type="text" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['delay'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','delay'])}/>
                         </div>
                     </div>
                     <div className="col-12">

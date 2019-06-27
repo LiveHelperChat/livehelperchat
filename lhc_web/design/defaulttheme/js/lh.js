@@ -3402,22 +3402,82 @@ function lh(){
 
     this.delayQueue = [];
     this.delayed = false;
+    this.intervalPending = null;
 
-    this.setDelay = function(id, delay) {
 
-        $('#msg-'+id).addClass('meta-hider message-row-typing').nextUntil('meta-hider').addClass('hide');
+    this.setDelay = function(params) {
 
-        if (lhinst.delayed == false) {
+        var id = params['id'];
+        var duration = params['duration'];
+        var delay = params['delay'];
+        var untillMessage = params['untill_message'];
 
-            lhinst.delayed = true;
-            setTimeout(function () {
-                lhinst.unhideDelayed(id);
-            }, delay * 1000);
-            $('#msg-'+id).removeClass('hide');
-            $('#msg-'+id+' .msg-body').removeClass('hide');
-        } else {
-            lhinst.delayQueue.push({'id' : id, 'delay' : delay});
+        if (delay > 0) {
+            $('#msg-'+id).addClass('hide');
         }
+
+        if (untillMessage == true && $('#msg-'+id).nextUntil('message-admin').length > 0) {
+            return;
+        }
+
+        setTimeout(function () {
+
+            if (lhinst.delayed == false) {
+
+                if (untillMessage == true) {
+                    clearInterval(lhinst.intervalPending);
+                    lhinst.intervalPending = setInterval(function() {
+                        if ($('#msg-'+id).nextUntil('message-admin').length > 0) {
+                            lhinst.unhideDelayed(id);
+                            $('#messagesBlock > #msg-'+id).remove();
+                            clearInterval(lhinst.intervalPending);
+                        } else {
+                            if (!$('#msg-'+id).hasClass('meta-hider'))
+                            {
+                                $('#msg-'+id).addClass('meta-hider message-row-typing');
+                                $('#msg-'+id).removeClass('hide');
+                                $('#msg-'+id+' .msg-body').removeClass('hide');
+
+                                var messageBlock = $('#messagesBlock');
+
+                                var scrollHeight = messageBlock.prop("scrollHeight");
+                                messageBlock.find('.meta-auto-hide').hide();
+                                messageBlock.find('.message-row').last().find('.meta-auto-hide').show();
+                                scrollHeight = messageBlock.prop("scrollHeight");
+
+                                messageBlock.find('.pending-storage').remove();
+                                messageBlock.stop(true, false).animate({scrollTop: scrollHeight + 2000}, 500);
+                            }
+                        }
+                    },500);
+
+                } else {
+                    lhinst.delayed = true;
+
+                    $('#msg-'+id).addClass('meta-hider message-row-typing').nextUntil('meta-hider').addClass('hide');
+                    setTimeout(function () {
+                        lhinst.unhideDelayed(id);
+                    }, duration * 1000);
+                    $('#msg-'+id).removeClass('hide');
+                    $('#msg-'+id+' .msg-body').removeClass('hide');
+
+                    if (delay > 0) {
+                        var messageBlock = $('#messagesBlock');
+
+                        var scrollHeight = messageBlock.prop("scrollHeight");
+                        messageBlock.find('.meta-auto-hide').hide();
+                        messageBlock.find('.message-row').last().find('.meta-auto-hide').show();
+                        scrollHeight = messageBlock.prop("scrollHeight");
+
+                        messageBlock.find('.pending-storage').remove();
+                        messageBlock.stop(true, false).animate({scrollTop: scrollHeight + 2000}, 500);
+                    }
+                }
+
+            } else {
+                lhinst.delayQueue.push({'id' : id, 'delay' : duration});
+            }
+        },delay*1000);
     }
 
     this.sendHTML = function (id, options) {
