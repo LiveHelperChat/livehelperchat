@@ -133,7 +133,7 @@ class erLhcoreClassModelChatOnlineUser
                 break;
 
             case 'operator_message_front':
-                    $this->operator_message_front = $this->operator_message . 'Just replaced';
+                    $this->operator_message_front = $this->operator_message;
                     $replaceArray = array();
                     foreach ($this->chat_variables_array as $keyItem => $addItem) {
                         $replaceArray['{lhc.var.' . $keyItem . '}'] = $addItem;
