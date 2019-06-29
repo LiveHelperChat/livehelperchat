@@ -132,6 +132,30 @@ class erLhcoreClassModelChatOnlineUser
                 return $this->chat;
                 break;
 
+            case 'operator_message_front':
+                    $this->operator_message_front = $this->operator_message . 'Just replaced';
+                    $replaceArray = array();
+                    foreach ($this->chat_variables_array as $keyItem => $addItem) {
+                        $replaceArray['{lhc.var.' . $keyItem . '}'] = $addItem;
+                    }
+
+                    foreach ($this->online_attr_array as $keyItem => $addItem) {
+                        if (!is_string($addItem) || (is_string($addItem) && ($addItem != ''))) {
+                            if (isset($addItem['identifier'])) {
+                                $replaceArray['{lhc.add.' . $addItem['identifier'] . '}'] = $addItem['value'];
+                            } else if (isset($addItem['key'])) {
+                                $replaceArray['{lhc.add.' . $addItem['key'] . '}'] = $addItem['value'];
+                            }
+                        }
+                    }
+ 
+                    if (!empty($replaceArray)){
+                        $this->operator_message_front = str_replace(array_keys($replaceArray), array_values($replaceArray), $this->operator_message_front);
+                    }
+
+                    return $this->operator_message_front;
+                break;
+
             case 'can_view_chat':
                 $this->can_view_chat = false;
                 $currentUser = erLhcoreClassUser::instance();
