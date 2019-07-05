@@ -77,7 +77,7 @@ if (!!window.postMessage) {
         <?php endif; ?>
         setTimeout(function () {
             parent.postMessage("lhc_widget_loaded", '*');
-        },50);
+        },300);
     });
 };
 </script>
