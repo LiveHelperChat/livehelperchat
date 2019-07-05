@@ -81,10 +81,10 @@ showStartWindow : function(url_to_open,delayShow) {
       var lhc_obj = this;
       
  		this.addClass(document.getElementById('<?php echo $chatCSSLayoutOptions['container_id']?>'),'<?php echo $chatCSSPrefix?>-delayed');
- 		setTimeout(function(){
- 			lhc_obj.removeClass(document.getElementById('<?php echo $chatCSSLayoutOptions['container_id']?>'),'<?php echo $chatCSSPrefix?>-delayed');
- 			lhc_obj.toggleStatusWidget(true);
- 		},(typeof delayShow !== 'undefined') ? 1300 : 290);
+ 		//setTimeout(function(){
+ 			//lhc_obj.removeClass(document.getElementById('<?php echo $chatCSSLayoutOptions['container_id']?>'),'<?php echo $chatCSSPrefix?>-delayed');
+ 			//lhc_obj.toggleStatusWidget(true);
+ 		//},(typeof delayShow !== 'undefined') ? 1300 : 290);
       
       <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/functions/part/close_handler.tpl.php')); ?>		
       

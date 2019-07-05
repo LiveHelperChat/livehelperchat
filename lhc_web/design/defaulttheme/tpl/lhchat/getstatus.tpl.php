@@ -1028,6 +1028,9 @@ var lh_inst  = {
     		}
     	} else if (action == 'lhc_open_restore') {
     		lh_inst.lh_openchatWindow();
+        } else if (action == 'lhc_widget_loaded') {
+            lh_inst.toggleStatusWidget(true);
+            lh_inst.removeClass(document.getElementById('<?php echo $chatCSSLayoutOptions['container_id']?>'),'<?php echo $chatCSSPrefix?>-delayed');
     	} else if (action == 'lhc_continue_chat') {
     		lh_inst.showStartWindow();
         } else if (action == 'lhc_html_snippet') {

@@ -50,6 +50,7 @@ if (!!window.postMessage) {
                 };
             };
         },200);
+
     <?php endif; ?>
 	<?php if (isset($Result['chat']) && is_numeric($Result['chat']->id)) : ?>
 	parent.postMessage("lhc_ch:hash:<?php echo $Result['chat']->id,'_',$Result['chat']->hash?>", '*');
@@ -62,6 +63,20 @@ if (!!window.postMessage) {
 	foreach ($Result['parent_messages'] as $msgPArent) : ?>
 	parent.postMessage("<?php echo $msgPArent?>", '*');
 	<?php endforeach;endif;?>
+    $(window).on('load',function() {
+        var currentHeight = heightElement.height();
+        if (heightContent != currentHeight){
+            heightContent = currentHeight;
+            try {
+                parent.postMessage('<?php echo $Result['dynamic_height_message']?>:'+(parseInt(heightContent)+<?php (isset($Result['dynamic_height_append'])) ? print $Result['dynamic_height_append'] : print 15?>), '*');
+            } catch(e) {
+
+            };
+        };
+        setTimeout(function () {
+            parent.postMessage("lhc_widget_loaded", '*');
+        },50);
+    });
 };
 </script>
 <?php endif;?>
