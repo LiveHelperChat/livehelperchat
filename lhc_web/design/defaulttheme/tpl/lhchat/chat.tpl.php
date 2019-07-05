@@ -125,11 +125,9 @@
 	<?php if (isset($chat_embed_mode) && $chat_embed_mode == true) : ?>
 	lhinst.setEmbedMode(true);
     <?php endif;?>
-	
-	setTimeout(function(){
-			$('#messagesBlock').scrollTop($('#messagesBlock').prop('scrollHeight'));
-	},100);
-	
+
+	$('#messagesBlock').scrollTop($('#messagesBlock').prop('scrollHeight'));
+
     // Start user chat synchronization
     lhinst.chatsyncuserpending();    
     lhinst.scheduleSync();
