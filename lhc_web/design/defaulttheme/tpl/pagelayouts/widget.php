@@ -64,6 +64,7 @@ if (!!window.postMessage) {
 	parent.postMessage("<?php echo $msgPArent?>", '*');
 	<?php endforeach;endif;?>
     $(window).on('load',function() {
+        <?php if (!isset($Result['fullheight']) || (isset($Result['fullheight']) && !$Result['fullheight'])) : ?>
         var currentHeight = heightElement.height();
         if (heightContent != currentHeight){
             heightContent = currentHeight;
@@ -73,6 +74,7 @@ if (!!window.postMessage) {
 
             };
         };
+        <?php endif; ?>
         setTimeout(function () {
             parent.postMessage("lhc_widget_loaded", '*');
         },50);
