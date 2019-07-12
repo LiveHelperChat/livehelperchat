@@ -1343,6 +1343,7 @@ try {
                 ('on_close_exit_chat', '0', 0, 'On chat close exit chat', 0),
                 ('activity_timeout', '5', 0, 'How long operator should go offline automatically because of inactivity. Value in minutes', 0),
                 ('product_enabled_module','0','0','Product module is enabled', '1'),
+                ('preload_iframes','0','0','Preload widget. It will avoid loading delay after clicking widget','0'),
                 ('product_show_departament','0','0','Enable products show by departments', '1'),
                 ('paidchat_data','','0','Paid chat configuration','1'),
                 ('mheight_op','200','0','Messages box height for operator','0'),

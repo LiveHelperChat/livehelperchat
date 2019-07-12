@@ -2,6 +2,7 @@ iframePreloaded : false,
 iframeCustomUrl : false,
 
 preloadWidget : function() {
+    <?php if ((int)erLhcoreClassModelChatConfig::fetch('preload_iframes')->current_value == 1) : ?>
     var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
     var widgetWidth = (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.widget_width != 'undefined') ? parseInt(<?php echo $chatOptionsVariable?>.opt.widget_width) : 300;
     var widgetHeight = (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.widget_height != 'undefined') ? parseInt(<?php echo $chatOptionsVariable?>.opt.widget_height) : 340;
@@ -45,6 +46,7 @@ preloadWidget : function() {
 
     this.addClass(document.getElementById('<?php echo $chatCSSLayoutOptions['container_id']?>'),'<?php echo $chatCSSPrefix?>-delayed');
     this.iframeCustomUrl = false;
+    <?php endif; ?>
 },
 
 showStartWindow : function(url_to_open,delayShow) {
