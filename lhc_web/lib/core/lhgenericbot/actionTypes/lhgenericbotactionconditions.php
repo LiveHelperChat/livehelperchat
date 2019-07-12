@@ -10,6 +10,17 @@ class erLhcoreClassGenericBotActionConditions {
 
             $chatVariables = $chat->chat_variables_array;
 
+            if (!empty($chat->additional_data)){
+                $chatAttributes = (array)json_decode($chat->additional_data,true);
+            } else {
+                $chatAttributes = array();
+            }
+
+            $chatAttributesFrontend = array();
+            foreach ($chatAttributes as $attr) {
+                $chatAttributesFrontend[$attr['identifier']] = $attr['value'];
+            }
+
             foreach ($action['content']['conditions'] as $condition) {
                 if (isset($condition['content']['attr']) && $condition['content']['attr'] != '' &&
                     isset($condition['content']['val']) && $condition['content']['val'] != '' &&
@@ -21,6 +32,8 @@ class erLhcoreClassGenericBotActionConditions {
                         $attr = $chat->nick;
                     } elseif (isset($chatVariables[$condition['content']['attr']])) {
                         $attr = $chatVariables[$condition['content']['attr']];
+                    } elseif ($chatAttributesFrontend[$condition['content']['attr']]) {
+                        $attr = $chatAttributesFrontend[$condition['content']['attr']];
                     }
 
                     if ($attr === null) {

@@ -34,6 +34,14 @@ $def->properties['msg']->propertyName = 'msg';
 $def->properties['msg']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 /**
+ * Main message text
+ * */
+$def->properties['html_snippet'] = new ezcPersistentObjectProperty();
+$def->properties['html_snippet']->columnName   = 'html_snippet';
+$def->properties['html_snippet']->propertyName = 'html_snippet';
+$def->properties['html_snippet']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+/**
  * If some of the main message replacable variables is not found this one is used
  * */
 $def->properties['fallback_msg'] = new ezcPersistentObjectProperty();

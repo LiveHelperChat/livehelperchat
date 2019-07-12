@@ -384,6 +384,12 @@ class erLhAbstractModelWidgetTheme {
         $this->notification_configuration = json_encode($this->notification_configuration_array);
     }
 
+    public function beforeSave()
+    {
+        $this->bot_configuration = json_encode($this->bot_configuration_array);
+        $this->notification_configuration = json_encode($this->notification_configuration_array);
+    }
+    
 	public function dependCss()
     {
 		return '<link rel="stylesheet" type="text/css" href="'.erLhcoreClassDesign::design('css/colorpicker.css').'" />';

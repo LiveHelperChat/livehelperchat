@@ -23,6 +23,9 @@
 		
 	</div>
 </div>
+<?php if ( isset($chat_widget_mode) && $chat_widget_mode == true ) : ?>
+    <script>lhinst.setWidgetMode(true);</script>
+<?php endif; ?>
 
 <?php if (
     $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT ||
@@ -77,9 +80,11 @@
         	 return false;
         }); 
 
+        <?php if (!(isset($theme) && $theme !== false && isset($theme->bot_configuration_array['disable_edit_prev']) && $theme->bot_configuration_array['disable_edit_prev'] == true)) : ?>
         jQuery('#CSChatMessage').bind('keyup', 'up', function (evt){
-        	 lhinst.editPreviousUser();
-		});
+            lhinst.editPreviousUser();
+        });
+        <?php endif; ?>
 
         lhinst.initTypingMonitoringUser('<?php echo $chat_id?>');
         lhinst.afterUserChatInit();
@@ -93,7 +98,6 @@
     lhinst.setLastUserMessageID('<?php echo $lastMessageID;?>');
 
     <?php if ( isset($chat_widget_mode) && $chat_widget_mode == true ) : ?>
-        lhinst.setWidgetMode(true);
         <?php if (isset($fullheight) && $fullheight == true) : ?>
             var fullHeightFunction = function() {
                 var bodyHeight = $(document.body).outerHeight();
@@ -121,11 +125,9 @@
 	<?php if (isset($chat_embed_mode) && $chat_embed_mode == true) : ?>
 	lhinst.setEmbedMode(true);
     <?php endif;?>
-	
-	setTimeout(function(){
-			$('#messagesBlock').scrollTop($('#messagesBlock').prop('scrollHeight'));
-	},100);
-	
+
+	$('#messagesBlock').scrollTop($('#messagesBlock').prop('scrollHeight'));
+
     // Start user chat synchronization
     lhinst.chatsyncuserpending();    
     lhinst.scheduleSync();

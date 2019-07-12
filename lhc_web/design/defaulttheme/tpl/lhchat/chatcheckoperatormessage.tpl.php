@@ -74,6 +74,11 @@ lh_inst.stopCheckNewMessage();
 <?php elseif (isset($dynamic)) : ?>
     <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/dynamic_events.tpl.php')); ?>	
 <?php endif; ?>
+
+<?php if (isset($inject_html)) : ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/inject_events.tpl.php')); ?>
+<?php endif; ?>
+
 <?php if (isset($operation)) : ?><?php echo $operation;?><?php endif;?>
 
 <?php if ($visitor->next_reschedule > 0) : ?>

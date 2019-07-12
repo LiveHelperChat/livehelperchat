@@ -1,3 +1,16 @@
+3.23v
+
+1. Proactive invitations now support Injecting HTML directly in website. Usefull if you want to show let say some custom modal window then mouse leaves a page.
+2. Canned messages now supports HTML Injection also. So you can send like HTML body to website.
+
+execute doc/update_db/update_198.sql for update
+
+3.22v
+
+1. New element in bot to restrict execute specific trigger defined number of times.
+
+execute doc/update_db/update_197.sql for update
+
 3.21v
 
 1. Now in bot configuration you can select what bot logic it should include. So one bot can combine multiple bot's logic.

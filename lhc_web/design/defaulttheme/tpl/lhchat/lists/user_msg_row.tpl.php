@@ -1,8 +1,18 @@
 <?php
+
+    $metaMessageDataByBBCode = erLhcoreClassBBCode::extractMetaByMessage($msg['msg']);
+
     if ($msg['meta_msg'] != '') {
         $metaMessageData = json_decode($msg['meta_msg'], true); $messageId = $msg['id'];
     } else if (isset($metaMessageData)) {
         unset($metaMessageData);
+    }
+
+    if (is_array($metaMessageDataByBBCode) && !empty($metaMessageDataByBBCode)) {
+        if (!isset($metaMessageData)) {
+            $metaMessageData = array();
+        }
+        $metaMessageData['content'] = $metaMessageDataByBBCode;
     }
 ?>
 

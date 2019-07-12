@@ -132,6 +132,32 @@ class erLhcoreClassModelChatOnlineUser
                 return $this->chat;
                 break;
 
+            case 'operator_message_front':
+                    $this->operator_message_front = $this->operator_message;
+                    $replaceArray = array();
+                    foreach ($this->chat_variables_array as $keyItem => $addItem) {
+                        $replaceArray['{lhc.var.' . $keyItem . '}'] = $addItem;
+                    }
+
+                    foreach ($this->online_attr_array as $keyItem => $addItem) {
+                        if (!is_string($addItem) || (is_string($addItem) && ($addItem != ''))) {
+                            if (isset($addItem['identifier'])) {
+                                $replaceArray['{lhc.add.' . $addItem['identifier'] . '}'] = $addItem['value'];
+                            } else if (isset($addItem['key'])) {
+                                $replaceArray['{lhc.add.' . $addItem['key'] . '}'] = $addItem['value'];
+                            }
+                        }
+                    }
+ 
+                    if (!empty($replaceArray)){
+                        $this->operator_message_front = str_replace(array_keys($replaceArray), array_values($replaceArray), $this->operator_message_front);
+                    }
+                    
+                    $this->operator_message_front =  preg_replace('/{lhc.add.(.*)}/','',$this->operator_message_front);
+
+                    return $this->operator_message_front;
+                break;
+
             case 'can_view_chat':
                 $this->can_view_chat = false;
                 $currentUser = erLhcoreClassUser::instance();
@@ -602,7 +628,12 @@ class erLhcoreClassModelChatOnlineUser
     {    
         return erLhAbstractModelProactiveChatInvitation::processProActiveInvitationDynamic($paramsHandle['online_user'], array('tag' => isset($paramsHandle['tag']) ? $paramsHandle['tag'] : ''));
     }
-    
+
+    public static function getInjectHTMLInvitation($paramsHandle = array())
+    {
+        return erLhAbstractModelProactiveChatInvitation::processInjectHTMLInvitation($paramsHandle['online_user'], array('tag' => isset($paramsHandle['tag']) ? $paramsHandle['tag'] : ''));
+    }
+
     public static function handleRequest($paramsHandle = array())
     {
         if (isset($_SERVER['HTTP_USER_AGENT']) && !self::isBot($_SERVER['HTTP_USER_AGENT'])) {
@@ -721,10 +752,51 @@ class erLhcoreClassModelChatOnlineUser
                             } elseif ($jsVar->type == 2) {
                                 $val = (real)$val;
                             }
-
                             $onlineAttr[$jsVar->var_identifier] =  array('h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
                         }
                     }
+                }
+
+                /*
+                 * Parse standard passed arguments
+                 * */
+                if (isset($_GET['name']) && is_array($_GET['name']) && ! empty ( $_GET['name'] )) {
+                    $valuesArray = array ();
+
+                    if (isset($_GET['value']) && is_array($_GET['value']) && ! empty ( $_GET['value'] )) {
+                       $valuesArray = $_GET['value'];
+                    }
+
+                    foreach ( $_GET['name'] as $key => $name_item ) {
+
+                        $valueStore = isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '';
+
+                        if (isset($_GET['encattr'][$key]) && $_GET['encattr'][$key] == 't' && $valueStore != '') {
+                            try {
+                                $chat = new stdClass();
+                                $chat->dep_id = $item->dep_id;
+                                $valueStore = erLhcoreClassChatValidator::decryptAdditionalField($valueStore, $chat);
+                            } catch (Exception $e) {
+                                $valueStore = $e->getMessage();
+                            }
+                        }
+
+                        $onlineAttr[$name_item] = array (
+                            'key' => $name_item,
+                            'value' => $valueStore,
+                            'h' => (isset($_GET['type'][$key]) && $_GET['type'][$key] == 'hidden' ? true : false),
+                        );
+                    }
+                }
+
+                if (isset($_GET['prefill'])) {
+                    foreach ($_GET['prefill'] as $key => $value) {
+                        $onlineAttr[$key] = $value;
+                    }
+                }
+
+                if (isset($paramsHandle['tag']) && $paramsHandle['tag'] != '') {
+                    $onlineAttr['tag'] = array('h' => false, 'identifier' => 'tag', 'key' => 'Tags', 'value' => implode(',',array_unique(explode(',',$paramsHandle['tag']))));
                 }
 
                 if (!empty($onlineAttr)) {
@@ -866,6 +938,8 @@ class erLhcoreClassModelChatOnlineUser
     // 0 - do not reopen
     // 1 - reopen chat
     public $reopen_chat = 0;
+
+    public $inject_html = array();
 
     // Logical attributes
     public $store_chat = false;

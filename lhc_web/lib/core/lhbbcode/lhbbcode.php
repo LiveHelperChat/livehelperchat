@@ -984,6 +984,19 @@ class erLhcoreClassBBCode
        }
    }
 
+   public static function extractMetaByMessage(& $msg) {
+       $meta = array();
+       if (strpos($msg,'[html_snippet]') !== false) {
+           $matches = array();
+           preg_match_all('/\[html_snippet\](.*?)\[\/html_snippet\]/is',$msg,$matches);
+           foreach ($matches[0] as $index => $match) {
+               $msg = str_replace($match,'',$msg);
+               $meta['html_snippet'][] = $matches[1][$index];
+           }
+       }
+       return $meta;
+   }
+
    public static function makeSubmessages($msg) {
 
        // Links wraps images

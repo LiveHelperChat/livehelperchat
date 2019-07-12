@@ -139,6 +139,9 @@ class erLhcoreClassDepartament{
                 'assign_same_language' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
+                'hide_send_email' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
                 // Bot attributes
                 'bot_id' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
@@ -338,7 +341,7 @@ class erLhcoreClassDepartament{
 	   	} else {
 	   		$department->inform_close_all = 0;
 	   	}
-	   		   	
+
 	   	if ( $form->hasValidData( 'inform_close_all_email' ) ) {
 	   		$department->inform_close_all_email = $form->inform_close_all_email;
 	   	} else {
@@ -507,7 +510,13 @@ class erLhcoreClassDepartament{
        } else {
            $botConfiguration['auto_delay_var'] = '';
        }
-       
+
+       if ( $form->hasValidData( 'hide_send_email' ) && $form->hide_send_email === true ) {
+           $botConfiguration['hide_send_email'] = true;
+       } else {
+           $botConfiguration['hide_send_email'] = false;
+       }
+
        $department->bot_configuration_array = $botConfiguration;
        $department->bot_configuration = json_encode($botConfiguration);
 

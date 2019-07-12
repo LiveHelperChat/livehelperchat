@@ -7,7 +7,7 @@ class erLhcoreClassGenericBotActionActions {
 
         if (isset($action['content']['success_message']) && $action['content']['success_message'] != '') {
 
-            $msgData = explode('|||',erLhcoreClassGenericBotWorkflow::translateMessage(trim($action['content']['success_message']),$chat->dep_id));
+            $msgData = explode('|||',erLhcoreClassGenericBotWorkflow::translateMessage(trim($action['content']['success_message']), array('chat' => $chat)));
 
             $item = $msgData[0];
             if (count($msgData) > 0){
@@ -83,6 +83,7 @@ class erLhcoreClassGenericBotActionActions {
             ),
             'chat' => & $chat
         ));
+
 
         if (isset($handler['trigger'])) {
             return erLhcoreClassGenericBotWorkflow::processTrigger($chat, $handler['trigger'], true, array('args' => $params));

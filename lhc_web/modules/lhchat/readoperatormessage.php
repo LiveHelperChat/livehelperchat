@@ -362,7 +362,6 @@ if (isset($_POST['askQuestion']))
     // Javascript variables
     if ( $form->hasValidData( 'jsvar' ) && !empty($form->jsvar))
     {
-        $inputForm->jsvar = $form->jsvar;
         foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
             if (isset($form->jsvar[$jsVar->id]) && !empty($form->jsvar[$jsVar->id])) {
                 if ($jsVar->var_identifier == 'lhc.nick') {

@@ -4,14 +4,43 @@ class erLhcoreClassGenericBotWorkflow {
 
     public static $startChat = false;
     
-    public static function findEvent($text, $botId, $type = 0, $paramsFilter = array())
+    public static function findEvent($text, $botId, $type = 0, $paramsFilter = array(), $paramsExecution = array())
     {
         $bot = erLhcoreClassModelGenericBotBot::fetch($botId);
-        $event = erLhcoreClassModelGenericBotTriggerEvent::findOne(array_merge_recursive(array('sort' => 'priority ASC', 'filterin' => array('bot_id' => $bot->getBotIds()),'filter' => array('type' => $type),'filterlikeright' => array('pattern' => $text)),$paramsFilter));
-        return $event;
+        $events = erLhcoreClassModelGenericBotTriggerEvent::getList(array_merge_recursive(array('sort' => 'priority ASC', 'filterin' => array('bot_id' => $bot->getBotIds()),'filter' => array('type' => $type),'filterlikeright' => array('pattern' => $text)),$paramsFilter));
+
+        foreach ($events as $event) {
+            $configurationMatching = $event->configuration_array;
+
+            if (!is_array($configurationMatching)) {
+                $configurationMatching = array();
+            }
+
+            $wordsFound = true;
+
+            if (isset($paramsExecution['dep_id']) && is_numeric($paramsExecution['dep_id']) && isset($configurationMatching['dep_inc']) && !empty($configurationMatching['dep_inc'])) {
+                $depIds = explode(',', str_replace(' ', '', $configurationMatching['dep_inc']));
+                if (!in_array($paramsExecution['dep_id'], $depIds)) {
+                    $wordsFound = false;
+                }
+            }
+
+            if ($wordsFound == true && isset($paramsExecution['dep_id']) && is_numeric($paramsExecution['dep_id']) && isset($configurationMatching['dep_exc']) && !empty($configurationMatching['dep_exc'])) {
+                $depIds = explode(',', str_replace(' ', '', $configurationMatching['dep_exc']));
+                if (in_array($paramsExecution['dep_id'], $depIds)) {
+                    $wordsFound = false;
+                }
+            }
+
+            if ($wordsFound == true) {
+                return $event;
+            }
+        }
+
+        return null;
     }
 
-    public static function findTextMatchingEvent($messageText, $botId, $paramsFilter = array())
+    public static function findTextMatchingEvent($messageText, $botId, $paramsFilter = array(), $paramsExecution = array())
     {
         $bot = erLhcoreClassModelGenericBotBot::fetch($botId);
 
@@ -21,53 +50,67 @@ class erLhcoreClassGenericBotWorkflow {
 
             if ($ruleMatching->pattern != '') {
 
-                 $configurationMatching = $ruleMatching->configuration_array;
+                $configurationMatching = $ruleMatching->configuration_array;
 
-                 if (!is_array($configurationMatching)) {
-                     $configurationMatching = array();
-                 }
+                if (!is_array($configurationMatching)) {
+                    $configurationMatching = array();
+                }
 
-                 $wordsFound = true;
+                $wordsFound = true;
 
-                 $wordsTypo = isset($configurationMatching['words_typo']) && is_numeric($configurationMatching['words_typo']) ? (int)$configurationMatching['words_typo'] : 0;
-                 $wordsTypoExc = isset($configurationMatching['exc_words_typo']) && is_numeric($configurationMatching['exc_words_typo']) ? (int)$configurationMatching['exc_words_typo'] : 0;
+                if (isset($paramsExecution['dep_id']) && is_numeric($paramsExecution['dep_id']) && isset($configurationMatching['dep_inc']) && !empty($configurationMatching['dep_inc'])) {
+                    $depIds = explode(',', str_replace(' ', '', $configurationMatching['dep_inc']));
+                    if (!in_array($paramsExecution['dep_id'], $depIds)) {
+                        $wordsFound = false;
+                    }
+                }
 
-                 // // We should include at-least one word from group
-                 if (isset($configurationMatching['only_these']) && $configurationMatching['only_these'] == true) {
-                     $words = explode(' ',$messageText);
-                     $mustCombinations = explode('&&',$ruleMatching->pattern);
-                     foreach ($words as $messageWord) {
-                         foreach ($mustCombinations as $mustCombination) {
-                             if (!self::checkPresence(explode(',',$mustCombination),$messageWord,$wordsTypo)) {
-                                 $wordsFound = false;
-                                 break;
-                             }
-                         }
-                     }
-                 } else if (isset($ruleMatching->pattern) && $ruleMatching->pattern != '') {
-                     $mustCombinations = explode('&&',$ruleMatching->pattern);
-                     foreach ($mustCombinations as $mustCombination) {
-                         if (!self::checkPresence(explode(',',$mustCombination),$messageText,$wordsTypo)) {
-                             $wordsFound = false;
-                             break;
-                         }
-                     }
-                 }
+                if ($wordsFound == true && isset($paramsExecution['dep_id']) && is_numeric($paramsExecution['dep_id']) && isset($configurationMatching['dep_exc']) && !empty($configurationMatching['dep_exc'])) {
+                    $depIds = explode(',', str_replace(' ', '', $configurationMatching['dep_exc']));
+                    if (in_array($paramsExecution['dep_id'], $depIds)) {
+                        $wordsFound = false;
+                    }
+                }
 
-                 // We should NOT include any of these words
-                 if ($wordsFound == true && isset($ruleMatching->pattern_exc) && $ruleMatching->pattern_exc != '') {
-                     $mustCombinations = explode('&&',$ruleMatching->pattern_exc);
-                     foreach ($mustCombinations as $mustCombination) {
-                         if (self::checkPresence(explode(',',$mustCombination),$messageText,$wordsTypoExc) == true) {
-                             $wordsFound = false;
-                             break;
-                         }
-                     }
-                 }
+                $wordsTypo = isset($configurationMatching['words_typo']) && is_numeric($configurationMatching['words_typo']) ? (int)$configurationMatching['words_typo'] : 0;
+                $wordsTypoExc = isset($configurationMatching['exc_words_typo']) && is_numeric($configurationMatching['exc_words_typo']) ? (int)$configurationMatching['exc_words_typo'] : 0;
 
-                 if ($wordsFound == true) {
-                     return $ruleMatching;
-                 }
+                // // We should include at-least one word from group
+                if ($wordsFound == true && isset($configurationMatching['only_these']) && $configurationMatching['only_these'] == true) {
+                    $words = explode(' ', $messageText);
+                    $mustCombinations = explode('&&', $ruleMatching->pattern);
+                    foreach ($words as $messageWord) {
+                        foreach ($mustCombinations as $mustCombination) {
+                            if (!self::checkPresence(explode(',', $mustCombination), $messageWord, $wordsTypo)) {
+                                $wordsFound = false;
+                                break;
+                            }
+                        }
+                    }
+                } else if (isset($ruleMatching->pattern) && $ruleMatching->pattern != '') {
+                    $mustCombinations = explode('&&', $ruleMatching->pattern);
+                    foreach ($mustCombinations as $mustCombination) {
+                        if (!self::checkPresence(explode(',', $mustCombination), $messageText, $wordsTypo)) {
+                            $wordsFound = false;
+                            break;
+                        }
+                    }
+                }
+
+                // We should NOT include any of these words
+                if ($wordsFound == true && isset($ruleMatching->pattern_exc) && $ruleMatching->pattern_exc != '') {
+                    $mustCombinations = explode('&&', $ruleMatching->pattern_exc);
+                    foreach ($mustCombinations as $mustCombination) {
+                        if (self::checkPresence(explode(',', $mustCombination), $messageText, $wordsTypoExc) == true) {
+                            $wordsFound = false;
+                            break;
+                        }
+                    }
+                }
+
+                if ($wordsFound == true) {
+                    return $ruleMatching;
+                }
             }
         }
     }
@@ -105,16 +148,18 @@ class erLhcoreClassGenericBotWorkflow {
                 $event = $handler['event'];
             } else {
                 // There is no current workflow in progress
-                $event = self::findEvent($msg->msg, $chat->chat_variables_array['gbot_id']);
+                $event = self::findEvent($msg->msg, $chat->chat_variables_array['gbot_id'], 0, array(), array('dep_id' => $chat->dep_id));
             }
 
             if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent)){
-                $event = self::findTextMatchingEvent($msg->msg, $chat->chat_variables_array['gbot_id']);
+                $event = self::findTextMatchingEvent($msg->msg, $chat->chat_variables_array['gbot_id'], array(), array('dep_id' => $chat->dep_id));
             }
 
             if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
-                self::processTrigger($chat, $event->trigger, false, array('args' => array('msg' => $msg)));
-                return;
+                $responseTrigger = self::processTrigger($chat, $event->trigger, false, array('args' => array('msg' => $msg)));
+                if (!is_array($responseTrigger) || !isset($responseTrigger['ignore_trigger']) || $responseTrigger['ignore_trigger'] === false) {
+                    return;
+                }
             }
 
             self::sendDefault($chat, $chat->chat_variables_array['gbot_id'], $msg);
@@ -454,7 +499,7 @@ class erLhcoreClassGenericBotWorkflow {
 
                                     $trigger = null;
                                     if (isset($eventData['content']['event_args']['check_default']) && $eventData['content']['event_args']['check_default'] == true) {
-                                        $triggerEvent = self::findTextMatchingEvent(mb_strtolower($payload), $chat->chat_variables_array['gbot_id']);
+                                        $triggerEvent = self::findTextMatchingEvent(mb_strtolower($payload), $chat->chat_variables_array['gbot_id'], array(), array('dep_id' => $chat->dep_id));
                                         if ($triggerEvent instanceof erLhcoreClassModelGenericBotTriggerEvent) {
                                             $trigger = $triggerEvent->trigger;
                                         }
@@ -491,10 +536,10 @@ class erLhcoreClassGenericBotWorkflow {
                             $filter = array('filter' => array('on_start_type' => $eventData['content']['event_args']['on_start_type']));
                         }
 
-                        $event = self::findTextMatchingEvent($payload, $chat->chat_variables_array['gbot_id'], $filter);
+                        $event = self::findTextMatchingEvent($payload, $chat->chat_variables_array['gbot_id'], $filter, array('dep_id' => $chat->dep_id));
 
                         if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent)) {
-                            $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'],0, $filter);
+                            $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'],0, $filter, array('dep_id' => $chat->dep_id));
                         }
 
                         if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
@@ -583,7 +628,6 @@ class erLhcoreClassGenericBotWorkflow {
                             }
                         }
 
-
                         if (!empty($chat->additional_data)){
                             $chatAttributes = (array)json_decode($chat->additional_data,true);
                         } else {
@@ -654,7 +698,7 @@ class erLhcoreClassGenericBotWorkflow {
                      if (isset($configurationArray['exc_group_id']) && !empty($configurationArray['exc_group_id'])){
                          $exceptionMessage = erLhcoreClassModelGenericBotExceptionMessage::findOne(array('limit' => 1, 'sort' => 'priority ASC', 'filter' => array('active' => 1, 'code' => $e->getCode()), 'filterin' => array('exception_group_id' => $configurationArray['exc_group_id'])));
                          if ($exceptionMessage instanceof erLhcoreClassModelGenericBotExceptionMessage && $exceptionMessage->message != '') {
-                             $message = erLhcoreClassGenericBotWorkflow::translateMessage($exceptionMessage->message, $chat->dep_id);
+                             $message = erLhcoreClassGenericBotWorkflow::translateMessage($exceptionMessage->message, array('chat' => $chat));
                          }
                      }
                  }
@@ -676,7 +720,7 @@ class erLhcoreClassGenericBotWorkflow {
         if ($handler !== false) {
             $event = $handler['event'];
         } else {
-            $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'], $type);
+            $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'], $type, array(), array('dep_id' => $chat->dep_id));
         }
 
         if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
@@ -1167,7 +1211,7 @@ class erLhcoreClassGenericBotWorkflow {
                     if (isset($configurationArray['exc_group_id']) && !empty($configurationArray['exc_group_id'])){
                         $exceptionMessage = erLhcoreClassModelGenericBotExceptionMessage::findOne(array('limit' => 1, 'sort' => 'priority ASC', 'filter' => array('active' => 1, 'code' => $e->getCode()), 'filterin' => array('exception_group_id' => $configurationArray['exc_group_id'])));
                         if ($exceptionMessage instanceof erLhcoreClassModelGenericBotExceptionMessage && $exceptionMessage->message != '') {
-                            $message = erLhcoreClassGenericBotWorkflow::translateMessage($exceptionMessage->message, $chat->dep_id);
+                            $message = erLhcoreClassGenericBotWorkflow::translateMessage($exceptionMessage->message, array('chat' => $chat));
                         }
                     }
                 }
@@ -1239,6 +1283,11 @@ class erLhcoreClassGenericBotWorkflow {
 
                 } elseif (isset($messageNew['response']) && $messageNew['response'] instanceof erLhcoreClassModelmsg) {
                     $message = $messageNew['response'];
+                } elseif (isset($messageNew['ignore_trigger']) && $messageNew['ignore_trigger'] == true) {
+                    return array(
+                        'status' => 'stop',
+                        'ignore_trigger' => true
+                    );
                 }
 
                 if ($continue == false) {
@@ -1377,10 +1426,15 @@ class erLhcoreClassGenericBotWorkflow {
                             }
                             $messageContext->meta_msg = json_encode($messageContext->meta_msg_array);
                             $messageContext->saveThis();
-                            self::sendAsUser($chat, $messageClick);
+                            $message = self::sendAsUser($chat, $messageClick);
                         }
 
-                        $message = self::processTrigger($chat, $trigger);
+                        $messageTrigger = self::processTrigger($chat, $trigger);
+
+                        if ($messageTrigger instanceof erLhcoreClassModelmsg)
+                        {
+                            $message = $messageTrigger;
+                        }
 
                         if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
                             self::setLastMessageId($chat, $message->id);
@@ -1442,7 +1496,7 @@ class erLhcoreClassGenericBotWorkflow {
                         if ($handler !== false) {
                             $event = $handler['event'];
                         } else {
-                            $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'], 1);
+                            $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'], 1, array(), array('dep_id' => $chat->dep_id));
                         }
 
                         $messageClick = self::getClickName($messageContext->meta_msg_array, $payload);
@@ -1453,7 +1507,7 @@ class erLhcoreClassGenericBotWorkflow {
                             }
                             $messageContext->meta_msg = json_encode($messageContext->meta_msg_array);
                             $messageContext->saveThis();
-                            self::sendAsUser($chat, $messageClick);
+                            $message = self::sendAsUser($chat, $messageClick);
                         }
 
                         if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
@@ -1567,8 +1621,14 @@ class erLhcoreClassGenericBotWorkflow {
         }
     }
 
-    public static function translateMessage($message, $depId)
+    public static function translateMessage($message, $params = array())
     {
+        $depId = 0;
+        
+        if (isset($params['chat'])) {
+            $depId = $params['chat']->dep_id;
+        }
+
         $matches = array();
         preg_match_all('~\{((?:[^\{\}]++|(?R))*)\}~',$message,$matches);
 
@@ -1582,26 +1642,51 @@ class erLhcoreClassGenericBotWorkflow {
                 }
             }
 
-            if (empty($identifiers)) {
-                return $message;
+            if (!empty($identifiers)) {
+                $department = erLhcoreClassModelDepartament::fetch($depId,true);
+
+                if ($department instanceof erLhcoreClassModelDepartament) {
+                    $configuration = $department->bot_configuration_array;
+                    if (isset($configuration['bot_tr_id']) && $configuration['bot_tr_id'] > 0 && !empty($identifiers)) {
+                        $items = erLhcoreClassModelGenericBotTrItem::getList(array('filterin' => array('identifier' => array_keys($identifiers)),'filter' => array('group_id' => $configuration['bot_tr_id'])));
+                        foreach ($items as $item) {
+                            $identifiers[$item->identifier]['replace'] = $item->translation;
+                        }
+                    }
+                }
+
+                $replaceArray = array();
+                foreach ($identifiers as $data) {
+                    $replaceArray[$data['search']] = $data['replace'];
+                }
+
+                $message = str_replace(array_keys($replaceArray), array_values($replaceArray), $message);
             }
+        }
 
-            $department = erLhcoreClassModelDepartament::fetch($depId,true);
+        if (isset($params['chat'])) {
 
-            if ($department instanceof erLhcoreClassModelDepartament) {
-                $configuration = $department->bot_configuration_array;
-                if (isset($configuration['bot_tr_id']) && $configuration['bot_tr_id'] > 0 && !empty($identifiers)) {
-                    $items = erLhcoreClassModelGenericBotTrItem::getList(array('filterin' => array('identifier' => array_keys($identifiers)),'filter' => array('group_id' => $configuration['bot_tr_id'])));
-                    foreach ($items as $item) {
-                        $identifiers[$item->identifier]['replace'] = $item->translation;
+            $replaceArray = array(
+                '{lhc.nick}' => $params['chat']->nick,
+                '{lhc.email}' => $params['chat']->email,
+                '{lhc.department}' => (string)$params['chat']->department,
+            );
+
+            foreach ($params['chat']->additional_data_array as $keyItem => $addItem) {
+                if (!is_string($addItem) || (is_string($addItem) && ($addItem != ''))) {
+                    if (isset($addItem['identifier'])) {
+                        $replaceArray['{lhc.add.' . $addItem['identifier'] . '}'] = $addItem['value'];
+                    } else if (isset($addItem['key'])) {
+                        $replaceArray['{lhc.add.' . $addItem['key'] . '}'] = $addItem['value'];
                     }
                 }
             }
 
-            $replaceArray = array();
-            foreach ($identifiers as $data) {
-                $replaceArray[$data['search']] = $data['replace'];
+            foreach ($params['chat']->chat_variables_array as $keyItem => $addItem) {
+                $replaceArray['{lhc.var.' . $keyItem . '}'] = $addItem;
             }
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.replace_message_bot', array('msg' => & $message, 'chat' => & $params['chat']));
 
             $message = str_replace(array_keys($replaceArray), array_values($replaceArray), $message);
         }
