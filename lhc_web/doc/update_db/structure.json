@@ -7355,7 +7355,14 @@
                 "type": "0",
                 "explain": "Home page tabs order",
                 "hidden": "0"
-            }, 
+            },
+            {
+                "identifier": "preload_iframes",
+                "value": "0",
+                "type": "0",
+                "explain": "Preload widget. It will avoid loading delay after clicking widget",
+                "hidden": "0"
+            },
             {
                 "identifier": "min_phone_length",
                 "value": "8",
