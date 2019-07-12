@@ -1,0 +1,1 @@
+INSERT INTO `lh_chat_config` (`identifier`,`value`,`type`,`explain`,`hidden`) VALUES ('preload_iframes','0','0','Preload widget. It will avoid loading delay after clicking widget','0');
