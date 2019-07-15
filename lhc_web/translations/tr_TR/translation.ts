@@ -47,7 +47,7 @@
     </message>
     <message>
       <source>How long keep operators online sessions data? (days)</source>
-      <translation type="unfinished"/>
+      <translation>Operatörlerin online session verileri kaç gün tutulsun?</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
@@ -163,11 +163,11 @@
     </message>
     <message>
       <source>How many seconds customer has to open already closed chat.</source>
-      <translation type="unfinished"/>
+      <translation>Ziyaretçi kapatılan aktif sohbet ekranına kaç saniyeye kadar ulaşabilsin?</translation>
     </message>
     <message>
       <source>On chat close exit chat</source>
-      <translation>Sohbetten çıkıldığında konuşma sonlandırılsın.</translation>
+      <translation>Sohbet sonlandığında konuşma kapatılsın.</translation>
     </message>
     <message>
       <source/>
@@ -195,7 +195,7 @@
     </message>
     <message>
       <source>Messages box height for operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatör ekranındaki mesaj kutusu yüksekliği</translation>
     </message>
     <message>
       <source>Messages box height</source>
@@ -211,15 +211,15 @@
     </message>
     <message>
       <source>List unread chats, disabled for high performance</source>
-      <translation type="unfinished"/>
+      <translation>Okunmamış sohbetleri listele, yüksek performans için kapatın</translation>
     </message>
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
-      <translation type="unfinished"/>
+      <translation>Online operatörleri listele, 0 - kapalı, 1 - açık</translation>
     </message>
     <message>
       <source>List closed chats, disabled for high performance</source>
-      <translation type="unfinished"/>
+      <translation>Kapanmış sohbetleri listele, yüksek performans için kapalı</translation>
     </message>
     <message>
       <source>Default number of online operators to show</source>
