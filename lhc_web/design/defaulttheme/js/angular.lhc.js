@@ -1143,6 +1143,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
         return [];
     };
 
+    $scope.loadchatMessagesScope = function(){
+        lhinst.syncadmincall();
+    };
+
 	this.verifyFilters = function () {
 
 		var userList = [], userGroups = [], userDepartmentsGroups = [], userProductNames = [];
