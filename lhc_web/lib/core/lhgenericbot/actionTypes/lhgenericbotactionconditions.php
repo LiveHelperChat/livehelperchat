@@ -18,7 +18,9 @@ class erLhcoreClassGenericBotActionConditions {
 
             $chatAttributesFrontend = array();
             foreach ($chatAttributes as $attr) {
-                $chatAttributesFrontend[$attr['identifier']] = $attr['value'];
+                if (isset($attr['identifier'])) {
+                    $chatAttributesFrontend[$attr['identifier']] = $attr['value'];
+                }
             }
 
             foreach ($action['content']['conditions'] as $condition) {
