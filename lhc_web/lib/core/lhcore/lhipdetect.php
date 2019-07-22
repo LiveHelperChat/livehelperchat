@@ -128,7 +128,7 @@ class erLhcoreClassIPDetect {
 			// IPV4: Update the REMOTE_ADDR value if the current REMOTE_ADDR value is in the specified range.
 			foreach ($cf_ip_ranges as $range) {
 				if (self::ipv4_in_range($_SERVER["REMOTE_ADDR"], $range)) {
-					if ($_SERVER["HTTP_CF_CONNECTING_IP"]) {
+					if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
 						$_SERVER["REMOTE_ADDR"] = $_SERVER["HTTP_CF_CONNECTING_IP"];
 					}
 					break;
@@ -139,7 +139,7 @@ class erLhcoreClassIPDetect {
 			$ipv6 = self::get_ipv6_full($_SERVER["REMOTE_ADDR"]);
 			foreach ($cf_ip_ranges as $range) {
 				if (self::ipv6_in_range($ipv6, $range)) {
-					if ($_SERVER["HTTP_CF_CONNECTING_IP"]) {
+					if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
 						$_SERVER["REMOTE_ADDR"] = $_SERVER["HTTP_CF_CONNECTING_IP"];
 					}
 					break;

@@ -1,4 +1,4 @@
-<?php if ((isset($async_call) && $async_call == true) || (isset($chat_started_now) && isset($chat_started_now) == true)) : if (isset($chat_started_now) && isset($chat_started_now) == true && (!isset($metaMessage['untill_message']) && $metaMessage['untill_message'] == false)) {$hideNextMessages = true;}?>
+<?php if ((isset($async_call) && $async_call == true) || (isset($chat_started_now) && isset($chat_started_now) == true)) : if (isset($chat_started_now) && isset($chat_started_now) == true && (!isset($metaMessage['untill_message']) || $metaMessage['untill_message'] == false)) {$hideNextMessages = true;}?>
 <script>
     lhinst.setDelay({'delay':<?php echo isset($metaMessage['delay']) ? $metaMessage['delay']  : 0 ?>, 'untill_message' : <?php echo (isset($metaMessage['untill_message']) && $metaMessage['untill_message'] == true) ? 'true' : 'false' ?>,'id' : <?php echo $msg['id']?>, 'duration' : <?php echo isset($metaMessage['duration']) ? $metaMessage['duration'] : 0?>});
 </script>
