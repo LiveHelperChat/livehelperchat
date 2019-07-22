@@ -889,7 +889,7 @@ class erLhcoreClassChatValidator {
             $identifiersUpdated = array();
             foreach ($additionalDataArray as  & $item) {
                 foreach ($stringParts as $newItem) {
-                    if ($item['identifier'] == $newItem['identifier']) {
+                    if (isset($item['identifier']) && $item['identifier'] == $newItem['identifier']) {
                         if ( $newItem['value'] != $item['value'] ) {
                             $item['value'] = $newItem['value'];
                             $needUpdate = true;
