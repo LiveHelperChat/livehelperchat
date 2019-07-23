@@ -1629,7 +1629,7 @@ class erLhcoreClassGenericBotWorkflow {
             foreach ($matches[0] as $key => $match) {
                 if (strpos($matches[1][$key],'__') !== false) {
                     $parts = explode('__',$matches[1][$key]);
-                    $identifiers[$parts[0]] = array('search' => $matches[0][$key], 'replace' => $parts[1]);
+                    $identifiers[$parts[0]] = array('search' => $matches[0][$key], 'replace' => $parts[1], 'args' => array_slice($parts,2));
                 }
             }
 
@@ -1648,6 +1648,25 @@ class erLhcoreClassGenericBotWorkflow {
 
                 $replaceArray = array();
                 foreach ($identifiers as $data) {
+                    foreach ($data['args'] as $arg) {
+                        $partArg = explode('[',$arg);
+
+                        // Should we print this message
+                        if ($partArg[0] == 't') {
+                            $startEnd = explode(':',str_replace(']','',$partArg[1]));
+
+                            if (isset($params['chat']) && $params['chat']->user_tz_identifier != '') {
+                                $date = new DateTime(null, new DateTimeZone($params['chat']->user_tz_identifier));
+                            } else {
+                                $date = new DateTime();
+                            }
+
+                            if (!($startEnd[0] <= $date->format('H') && $startEnd[1] > $date->format('H'))) {
+                                $data['replace'] = '';
+                            }
+                        }
+                    }
+
                     $replaceArray[$data['search']] = $data['replace'];
                 }
 

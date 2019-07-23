@@ -23,6 +23,7 @@ class NodeTriggerActionText extends Component {
         this.onDeleteQuickReply = this.onDeleteQuickReply.bind(this);
         this.onQuickReplyPayloadTypeChange = this.onQuickReplyPayloadTypeChange.bind(this);
         this.onPayloadAttrChange = this.onPayloadAttrChange.bind(this);
+        this.showHelp = this.showHelp.bind(this);
 
 
         // Abstract methods
@@ -42,6 +43,7 @@ class NodeTriggerActionText extends Component {
     }
 
     addAnswerVariation() {
+        console.log('add answer validation');
         var newVal = this.props.action.getIn(['content','text'])+" |||\n";
         this.props.onChangeContent({id : this.props.id, 'path' : ['content','text'], value : newVal});
         this.textMessageRef.current.focus();
@@ -104,6 +106,10 @@ class NodeTriggerActionText extends Component {
         this.props.onChangeContent({id : this.props.id, 'path' : ['content'].concat(e.path), value : e.value});
     }
 
+    showHelp(e) {
+        lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/'+e});
+    }
+
     render() {
 
         var quick_replies = [];
@@ -143,9 +149,13 @@ class NodeTriggerActionText extends Component {
                         </div>
                     </div>
 
+                    <a title="Need help?" className="float-right" onClick={(e) => this.showHelp('text')}><i className="material-icons mr-0">help</i></a>
+
                     <div className="form-group">
                         <label>Enter text</label>
+
                         <a title="Add answer variation" className="float-right" onClick={this.addAnswerVariation}><i className="material-icons mr-0">question_answer</i></a>
+
                         <textarea rows="3" placeholder="Write your response here!" onChange={this.setText} ref={this.textMessageRef} defaultValue={this.props.action.getIn(['content','text'])} className="form-control form-control-sm"></textarea>
                     </div>
 
