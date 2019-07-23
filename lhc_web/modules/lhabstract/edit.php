@@ -79,7 +79,11 @@ if (method_exists($ObjectData,'dependFooterJs')) {
 }
 
 if (isset($object_trans['path'])){
-	$Result['path'][] = $object_trans['path'];
+    if (isset($object_trans['path']['url'])) {
+        $Result['path'][] = $object_trans['path'];
+    } else {
+        $Result['path'] = $object_trans['path'];
+    }
 	$Result['path'][] = array('url' => erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'], 'title' => $object_trans['name']);
 	$Result['path'][] = array('title' =>erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit'));
 } else {
