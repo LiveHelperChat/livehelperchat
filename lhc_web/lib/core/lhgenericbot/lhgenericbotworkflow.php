@@ -1661,7 +1661,7 @@ class erLhcoreClassGenericBotWorkflow {
                                 $date = new DateTime();
                             }
 
-                            if (!($startEnd[0] <= $date->format('H') && $startEnd[1] > $date->format('H'))) {
+                            if (!((int)$startEnd[0] <= $date->format('H') && (int)$startEnd[1] > $date->format('H'))) {
                                 $data['replace'] = '';
                             }
                         }
