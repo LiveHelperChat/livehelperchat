@@ -1620,6 +1620,10 @@ class erLhcoreClassGenericBotWorkflow {
             $depId = $params['chat']->dep_id;
         }
 
+        if (isset($params['chat'])) {
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.replace_before_message_bot', array('msg' => & $message, 'chat' => & $params['chat']));
+        }
+
         $matches = array();
         preg_match_all('~\{((?:[^\{\}]++|(?R))*)\}~',$message,$matches);
 
