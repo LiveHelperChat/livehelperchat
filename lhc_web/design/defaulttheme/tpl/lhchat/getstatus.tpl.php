@@ -1023,8 +1023,6 @@ var lh_inst  = {
         if (typeof e.data !== 'string') { return; }
     	var action = e.data.split(':')[0];
 
-console.log(e);
-
         if (action == 'lhc_newopmsg') {
             if ( lh_inst.isMinimized == true) {
                 var msgNum = document.getElementById('<?php echo $chatCSSPrefix?>-msg-number');
