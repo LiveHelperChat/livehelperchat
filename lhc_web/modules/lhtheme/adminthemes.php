@@ -20,6 +20,7 @@ $tpl->set('pages', $pages);
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
+    array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','System configuration')),
     array(
         'url' => erLhcoreClassDesign::baseurl('theme/index'),
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('theme/index', 'Themes')

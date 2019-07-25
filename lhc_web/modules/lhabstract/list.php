@@ -60,8 +60,15 @@ if ($objectData->hide_delete === true) {
 $Result['content'] = $tpl->fetch();
 
 if (isset($object_trans['path'])){
-	$Result['path'][] =  $object_trans['path'];
-	$Result['path'][] = array('title' => $object_trans['name']);	
+
+    if (isset($object_trans['path']['url'])) {
+        $Result['path'][] = $object_trans['path'];
+    } else {
+        $Result['path'] = $object_trans['path'];
+    }
+
+    $Result['path'][] = array('title' => $object_trans['name']);
+
 } else {
 	$Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','System configuration')),
 			array('title' => $object_trans['name'])

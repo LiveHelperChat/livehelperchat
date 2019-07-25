@@ -54,6 +54,7 @@ class NodeTriggerActionCommand extends Component {
                                 <option value="transfertobot">Transfer chat to bot</option>
                                 <option value="closechat">Close chat</option>
                                 <option value="chatvariable">Set chat variable</option>
+                                <option value="dispatchevent">Dispatch Event</option>
                             </select>
                         </div>
                     </div>
@@ -88,6 +89,19 @@ class NodeTriggerActionCommand extends Component {
                         <input className="form-control form-control-sm" type="text" placeholder="{&quot;bot_touched&quot;:true}" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
                     </div>
                 </div>}
+
+                {this.props.action.getIn(['content','command']) == 'dispatchevent' &&
+                <div>
+                    <div className="form-group">
+                        <label>Event Name</label>
+                        <input className="form-control form-control-sm" type="text" placeholder="SetSubjectExtension" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
+                    </div>
+                    <div className="form-group">
+                        <label>Event argument</label>
+                        <input className="form-control form-control-sm" type="text" onChange={(e) => this.onchangeAttr({'path':['payload_arg'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg'])} />
+                    </div>
+                </div>}
+
                 <hr className="hr-big" />
             </div>
         );

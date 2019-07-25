@@ -7,7 +7,7 @@
 <?php endif; ?>
 
 <?php $fields = $object->getFields();?>
-<div ng-controller="AutoResponderCtrl as cmsg"  ng-init='<?php if ($object->languages != '') : ?>cmsg.languages = <?php echo $object->languages?>;<?php endif;?>cmsg.dialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getList()))?>'>
+<div ng-controller="AutoResponderCtrl as cmsg"  ng-init='<?php if ($object->languages != '') : ?>cmsg.languages = <?php echo json_encode(json_decode($object->languages,true),JSON_HEX_APOS)?>;<?php endif;?>cmsg.dialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getList()))?>'>
 
 <div class="form-group">
 <label><?php echo $fields['name']['trans'];?></label>

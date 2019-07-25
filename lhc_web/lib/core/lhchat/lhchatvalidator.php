@@ -889,7 +889,7 @@ class erLhcoreClassChatValidator {
             $identifiersUpdated = array();
             foreach ($additionalDataArray as  & $item) {
                 foreach ($stringParts as $newItem) {
-                    if ($item['identifier'] == $newItem['identifier']) {
+                    if (isset($item['identifier']) && $item['identifier'] == $newItem['identifier']) {
                         if ( $newItem['value'] != $item['value'] ) {
                             $item['value'] = $newItem['value'];
                             $needUpdate = true;
@@ -1454,6 +1454,8 @@ class erLhcoreClassChatValidator {
             $params['chat']->lsync = time();
             $params['chat']->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
             $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST;
+            $params['chat']->chat_initiator = erLhcoreClassModelChat::CHAT_INITIATOR_OFFLINE_MESSAGE;
+
             $params['chat']->hash = erLhcoreClassChat::generateHash();
             $params['chat']->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
             $params['chat']->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
@@ -1508,15 +1510,27 @@ class erLhcoreClassChatValidator {
                 $bot = erLhcoreClassModelGenericBotBot::fetch($botConfiguration['bot_id']);
             }
 
+            $offlineStarted = false;
+
             if (
                 $bot instanceof erLhcoreClassModelGenericBotBot && ((isset($params['bot_id']) && isset($params['trigger_id'])) ||
                     (
                         (!isset($botConfiguration['bot_only_offline']) || $botConfiguration['bot_only_offline'] == false) ||
-                        (isset($botConfiguration['bot_only_offline']) && $botConfiguration['bot_only_offline'] == true && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true)) == false)
+                        (isset($botConfiguration['bot_only_offline']) && $botConfiguration['bot_only_offline'] == true && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true)) == false && $offlineStarted = true)
                     )
                 )) {
+
                 $chat->status = erLhcoreClassModelChat::STATUS_BOT_CHAT;
-                
+
+                if ($chat->chat_initiator != erLhcoreClassModelChat::CHAT_INITIATOR_BOT)
+                {
+                    if ($offlineStarted == true) {
+                        $chat->chat_initiator = erLhcoreClassModelChat::CHAT_INITIATOR_BOT_OFFLINE;
+                    } else {
+                        $chat->chat_initiator = erLhcoreClassModelChat::CHAT_INITIATOR_BOT_DEFAULT;
+                    }
+                }
+
                 $variablesArray = $chat->chat_variables_array;
                 $variablesArray['gbot_id'] = $bot->id;
 
@@ -1601,6 +1615,10 @@ class erLhcoreClassChatValidator {
                 $chat->status = 0;
                 $chat->hash = erLhcoreClassChat::generateHash();
 
+                if (isset($params['preload']) && $params['preload'] == true) {
+                    $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_PRELOAD;
+                }
+
                 if ( $params['inputData']->priority !== false && is_numeric($params['inputData']->priority) ) {
                     $chat->priority = (int)$params['inputData']->priority;
                 } else {
@@ -1641,8 +1659,12 @@ class erLhcoreClassChatValidator {
                         if ($userInstance !== false) {
                             $userInstance->chat_id = $chat->id;
                             $userInstance->dep_id = $chat->dep_id;
-                            $userInstance->message_seen = 1;
-                            $userInstance->message_seen_ts = time();
+
+                            if (!(isset($params['preload']) && $params['preload'] == true)) {
+                                $userInstance->message_seen = 1;
+                                $userInstance->message_seen_ts = time();
+                            }
+
                             $userInstance->saveThis();
 
                             $chat->online_user_id = $userInstance->id;

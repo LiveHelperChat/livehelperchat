@@ -662,7 +662,6 @@ if (isset($_POST['askQuestion']))
        $chat->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
        
        $chat->last_msg_id = $msg->id;
-       $chat->last_user_msg_time = time();
        $chat->saveThis();
 
        if ($chat->user_id > 0) {

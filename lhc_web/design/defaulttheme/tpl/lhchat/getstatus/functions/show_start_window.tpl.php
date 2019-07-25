@@ -2,6 +2,11 @@ iframePreloaded : false,
 iframeCustomUrl : false,
 
 preloadWidget : function() {
+
+    if (this.chat_started == true){
+        return;
+    }
+
     <?php if ((int)erLhcoreClassModelChatConfig::fetch('preload_iframes')->current_value == 1) : ?>
     var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
     var widgetWidth = (typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.widget_width != 'undefined') ? parseInt(<?php echo $chatOptionsVariable?>.opt.widget_width) : 300;
@@ -18,7 +23,7 @@ preloadWidget : function() {
     this.iframePreloaded = true;
 
     this.iframe_html = '<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/before_iframe_container.tpl.php')); ?>'+'<div id="<?php echo $chatCSSPrefix?>_iframe_container" <?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ? 'style="height: calc(100% - 25px);"' : '' ?>><iframe id="<?php echo $chatCSSPrefix?>_iframe" allowTransparency="true" scrolling="no" class="<?php echo $chatCSSPrefix?>-loading" frameborder="0" ' +
-        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
+        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '{preload}"' : '' ) +
         ' width="'+widgetWidth+'"' +
         ' height="'+widgetHeight+'"' +
         ' style="width: '+widgetWidth+'px;height: '+widgetHeight+widgetHeightUnit+';" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live Help')?>"></iframe></div>';
@@ -30,7 +35,7 @@ preloadWidget : function() {
         this.addCss(raw_css<?php ($theme !== false && $theme->custom_container_css !== '') ? print '+\''.str_replace(array("\n","\r"), '', $theme->custom_container_css).'\'' : '' ?>);
     };
 
-    var fragment = this.appendHTML(this.iframe_html);
+    var fragment = this.appendHTML(this.iframe_html.replace('{preload}','&prif=1'));
 
     var parentElement = document.body;
 
@@ -46,16 +51,30 @@ preloadWidget : function() {
 
     this.addClass(document.getElementById('<?php echo $chatCSSLayoutOptions['container_id']?>'),'<?php echo $chatCSSPrefix?>-delayed');
     this.iframeCustomUrl = false;
+
+    if (this.cookieData.m) {
+    if (this.cookieData.hash) {
+    this.min(true);
+    }
+    };
     <?php endif; ?>
 },
 
 showStartWindow : function(url_to_open,delayShow) {
-		  
+
 	  if (this.isOnline == false && typeof <?php echo $chatOptionsVariable?> != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt != 'undefined' && typeof <?php echo $chatOptionsVariable?>.opt.offline_redirect != 'undefined'){
 			window.open(<?php echo $chatOptionsVariable?>.opt.offline_redirect,"_blank");
 			return;
 	  };	
 	  this.lhc_need_help_hide();
+
+      var chatPreloaded = false;
+      if (!(typeof this.cookieData.prl === 'undefined' || this.cookieData.prl == '0')){
+        chatPreloaded = true;
+        this.chat_started = true;
+      }
+
+      this.removeCookieAttr('prl');
 
       // Do not check for new messages
       this.stopCheckNewMessage();
@@ -75,6 +94,7 @@ showStartWindow : function(url_to_open,delayShow) {
        		this.chatOpenedCallback('internal_invitation');	
             this.initial_iframe_url = url_to_open+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments()+'&dt='+encodeURIComponent(document.title);
             this.iframeCustomUrl = true;
+            this.chat_started = true;
       } else {
       		this.chatOpenedCallback(this.isOnline == false ? 'internal_offline' : 'internal');	
             this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>"+this.lang+"/chat/chatwidget<?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ?  '/(fullheight)/true' : '/(fullheight)/false' ?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?>"+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments()+'&dt='+encodeURIComponent(document.title);
@@ -105,14 +125,15 @@ showStartWindow : function(url_to_open,delayShow) {
       var iframe_html_source = this.iframe_html;
 
        this.iframe_html = '<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/before_iframe_container.tpl.php')); ?>'+'<div id="<?php echo $chatCSSPrefix?>_iframe_container" <?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ? 'style="height: calc(100% - 25px);"' : '' ?>><iframe id="<?php echo $chatCSSPrefix?>_iframe" allowTransparency="true" scrolling="no" class="<?php echo $chatCSSPrefix?>-loading" frameborder="0" ' +
-                   ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
+                   ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '{preload}"' : '' ) +
                    ' width="'+widgetWidth+'"' +
                    ' height="'+widgetHeight+'"' +
                    ' style="width: '+widgetWidth+'px;height: '+widgetHeight+widgetHeightUnit+';" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live Help')?>"></iframe></div>';
 
       <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/container.tpl.php')); ?>
 
-        if (iframe_html_source != this.iframe_html) {
+
+        if ((iframe_html_source != this.iframe_html && chatPreloaded == false) || this.iframeCustomUrl == true) {
             this.removeById('<?php echo $chatCSSLayoutOptions['container_id']?>');
         } else {
             needLoading = false;
@@ -127,7 +148,7 @@ showStartWindow : function(url_to_open,delayShow) {
 
         this.iframePreloaded = false;
 
-        var fragment = this.appendHTML(this.iframe_html);
+        var fragment = this.appendHTML(this.iframe_html.replace('{preload}',''));
 
         var parentElement = document.body;
 

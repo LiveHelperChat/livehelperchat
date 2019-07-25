@@ -42,6 +42,7 @@ $Result['additional_header_css'] = '<link rel="stylesheet" type="text/css" href=
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
+        array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','System configuration')),
 		array('url' => erLhcoreClassDesign::baseurl('theme/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('theme/index','Themes')),
 		array('url' => erLhcoreClassDesign::baseurl('theme/adminthemes'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('lhtheme/admin','Admin themes')),
 		array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('lhtheme/admin','Edit admin theme')))

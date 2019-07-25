@@ -53,6 +53,11 @@ if (!!window.postMessage) {
 
     <?php endif; ?>
 	<?php if (isset($Result['chat']) && is_numeric($Result['chat']->id)) : ?>
+    <?php if ($Result['chat']->status_sub == erLhcoreClassModelChat::STATUS_SUB_PRELOAD) : ?>
+    parent.postMessage("lhc_ch:prl:1", '*');
+    <?php else : ?>
+    parent.postMessage("lhc_chat", '*');
+    <?php endif; ?>
 	parent.postMessage("lhc_ch:hash:<?php echo $Result['chat']->id,'_',$Result['chat']->hash?>", '*');
 	parent.postMessage("lhc_ch:hash_resume:<?php echo $Result['chat']->id,'_',$Result['chat']->hash?>", '*');	
 	<?php endif; ?>
@@ -66,17 +71,16 @@ if (!!window.postMessage) {
     $(window).on('load',function() {
         <?php if (!isset($Result['fullheight']) || (isset($Result['fullheight']) && !$Result['fullheight'])) : ?>
         var currentHeight = heightElement.height();
-        if (heightContent != currentHeight){
-            heightContent = currentHeight;
-            try {
-                parent.postMessage('<?php echo $Result['dynamic_height_message']?>:'+(parseInt(heightContent)+<?php (isset($Result['dynamic_height_append'])) ? print $Result['dynamic_height_append'] : print 15?>), '*');
-            } catch(e) {
+        heightContent = currentHeight;
+        try {
+            parent.postMessage('<?php echo $Result['dynamic_height_message']?>:'+(parseInt(heightContent)+<?php (isset($Result['dynamic_height_append'])) ? print $Result['dynamic_height_append'] : print 15?>), '*');
+        } catch(e) {
 
-            };
         };
         <?php endif; ?>
         setTimeout(function () {
             parent.postMessage("lhc_widget_loaded", '*');
+
         },300);
     });
 };

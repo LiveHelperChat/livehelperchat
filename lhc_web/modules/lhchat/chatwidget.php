@@ -658,6 +658,7 @@ $autoStartResult = erLhcoreClassChatValidator::validateAutoStart(array(
     'startDataFields' => $startDataFields,
     'modeAppend' => $modeAppend,
     'modeAppendTheme' => $modeAppendTheme,
+    'preload' => isset($_GET['prif']) && $_GET['prif'] == 1 ? true : false
 ));
 
 if ($autoStartResult !== false) {

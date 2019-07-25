@@ -63,12 +63,29 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
                 erLhcoreClassGenericBotWorkflow::userMessageAdded($chat, $msg);
             }
 
-	        $stmt = $db->prepare('UPDATE lh_chat SET last_user_msg_time = :last_user_msg_time, lsync = :lsync, last_msg_id = :last_msg_id, has_unread_messages = :has_unread_messages, unanswered_chat = :unanswered_chat WHERE id = :id');
+            $statusSub = $chat->status_sub;
+            $pnd_time = $chat->pnd_time;
+
+            if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_PRELOAD) {
+                $statusSub = 0;
+                $pnd_time = time();
+
+                if ($chat->online_user_id > 0) {
+                    $stmt = $db->prepare('UPDATE lh_chat_online_user SET message_seen = 1, message_seen_ts = :message_seen_ts WHERE id = :id');
+                    $stmt->bindValue(':id', $chat->online_user_id, PDO::PARAM_INT);
+                    $stmt->bindValue(':message_seen_ts', time(),PDO::PARAM_INT);
+                    $stmt->execute();
+                }
+            }
+
+	        $stmt = $db->prepare('UPDATE lh_chat SET last_user_msg_time = :last_user_msg_time, lsync = :lsync, pnd_time = :pnd_time, status_sub = :status_sub, last_msg_id = :last_msg_id, has_unread_messages = :has_unread_messages, unanswered_chat = :unanswered_chat WHERE id = :id');
 	        $stmt->bindValue(':id', $chat->id, PDO::PARAM_INT);
 	        $stmt->bindValue(':has_unread_messages', ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT ? 0 : 1),PDO::PARAM_INT);
 	        $stmt->bindValue(':lsync', time(), PDO::PARAM_INT);
 	        $stmt->bindValue(':last_user_msg_time', $msg->time, PDO::PARAM_INT);
 	        $stmt->bindValue(':unanswered_chat',($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT ? 1 : 0), PDO::PARAM_INT);
+	        $stmt->bindValue(':status_sub',$statusSub, PDO::PARAM_INT);
+	        $stmt->bindValue(':pnd_time',$pnd_time, PDO::PARAM_INT);
 
 	        // Set last message ID
 	        if ($chat->last_msg_id < $msg->id) {	        

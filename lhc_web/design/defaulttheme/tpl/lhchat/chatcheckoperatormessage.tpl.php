@@ -40,6 +40,7 @@ lh_inst.stopCheckNewMessage();
             <?php else : ?>
             if (window.innerWidth > 700) {
                 lh_inst.isProactivePending = 1;
+                lh_inst.removeCookieAttr('hash');
                 lh_inst.showStartWindow(invitationURL,true);
             } else {
                 lh_inst.showBasicInvitation(invitationURL);
@@ -61,6 +62,7 @@ lh_inst.stopCheckNewMessage();
             <?php else : ?>
                 if (window.innerWidth > 700) {
                         lh_inst.isProactivePending = 1;
+                        lh_inst.removeCookieAttr('hash');
                         lh_inst.showStartWindow(urlInvitation,true);
                     } else {
                         lh_inst.showBasicInvitation(urlInvitation);

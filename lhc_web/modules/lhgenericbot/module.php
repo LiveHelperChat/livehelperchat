@@ -17,6 +17,12 @@ $ViewList['initbot'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['help'] = array(
+    'params' => array('context'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['addpayload'] = array(
     'params' => array('id'),
     'uparams' => array(),

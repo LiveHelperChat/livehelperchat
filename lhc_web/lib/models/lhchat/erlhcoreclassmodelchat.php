@@ -587,9 +587,19 @@ class erLhcoreClassModelChat {
    const STATUS_OPERATORS_CHAT = 4;
    const STATUS_BOT_CHAT = 5;
 
-   const CHAT_INITIATOR_DEFAULT = 0;
-   const CHAT_INITIATOR_PROACTIVE = 1;
-   const CHAT_INITIATOR_BOT = 2;
+   // Normal
+   const CHAT_INITIATOR_DEFAULT = 0;        // Chat started normally
+
+    // Proactive
+   const CHAT_INITIATOR_PROACTIVE = 1;      // Proactive, chat started as normal chat
+   const CHAT_INITIATOR_BOT = 2;            // Proactive, chat went to bot
+
+    // Normal bot
+   const CHAT_INITIATOR_BOT_OFFLINE = 3;    // Chat went to bot because there was no online operators
+   const CHAT_INITIATOR_BOT_DEFAULT = 5;    // Chat went to bot, because all chats goes to bot
+
+    // Normal offline
+   const CHAT_INITIATOR_OFFLINE_MESSAGE = 4;// Offline message was left
 
    const STATUS_SUB_DEFAULT = 0;
    const STATUS_SUB_OWNER_CHANGED = 1;
@@ -600,6 +610,7 @@ class erLhcoreClassModelChat {
    const STATUS_SUB_SURVEY_COLLECTED = 6;
    const STATUS_SUB_OFFLINE_REQUEST = 7;
    const STATUS_SUB_ON_HOLD = 8;
+   const STATUS_SUB_PRELOAD = 9;
 
    const STATUS_SUB_SUB_DEFAULT = 0;
    const STATUS_SUB_SUB_TRANSFERED = 1;
