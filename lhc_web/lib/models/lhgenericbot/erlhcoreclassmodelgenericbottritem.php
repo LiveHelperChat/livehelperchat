@@ -29,6 +29,29 @@ class erLhcoreClassModelGenericBotTrItem {
         return $this->name;
     }
 
+    public function __get($var)
+    {
+        switch ($var) {
+            case 'translation_array':
+                $attr = str_replace('_array','',$var);
+                if (!empty($this->{$attr})) {
+                    $jsonData = json_decode($this->{$attr},true);
+                    if ($jsonData !== null) {
+                        $this->{$var} = $jsonData;
+                    } else {
+                        $this->{$var} = array('default' => ($this->{$attr} != '' ? $this->{$attr} : null), 'items' => array());
+                    }
+                } else {
+                    $this->{$var} = array('default' => '', 'items' => array());
+                }
+                return $this->{$var};
+                break;
+
+            default:
+                break;
+        }
+    }
+
     public $id = null;
     public $name = '';
     public $identifier = '';
