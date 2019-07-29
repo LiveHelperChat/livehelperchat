@@ -13,8 +13,7 @@ try {
         $hold = false;
 
         $chat->status_sub = 0;
-        $chat->last_op_msg_time = time();
-        $chat->last_user_msg_time = time()-1;
+        $chat->last_op_msg_time = $chat->last_user_msg_time;
         $chat->saveThis();
 
         if ($chat->auto_responder !== false) {
@@ -56,7 +55,6 @@ try {
         }
 
         $chat->last_op_msg_time = time();
-        $chat->last_user_msg_time = time()-1;
         $chat->saveThis();
     }
 

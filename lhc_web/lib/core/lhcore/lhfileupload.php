@@ -100,7 +100,11 @@ class erLhcoreClassFileUpload extends UploadHandler
                 if ($msg->user_id > 0 && isset($this->options['name_support'])) {
                     $msg->name_support = (string)$this->options['name_support'];
                 }
-                $chat->last_user_msg_time = $msg->time = time();
+                $msg->time = time();
+
+                if ($chat->last_op_msg_time > 0) {
+                    $chat->last_user_msg_time = $msg->time;
+                }
 
                 erLhcoreClassChat::getSession()->save($msg);
 

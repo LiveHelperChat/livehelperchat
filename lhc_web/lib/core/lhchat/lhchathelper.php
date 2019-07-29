@@ -13,7 +13,12 @@ class erLhcoreClassChatHelper
         $msg->chat_id = $params['chat']->id;
         $msg->user_id = - 1;
         
-        $params['chat']->last_user_msg_time = $msg->time = time();
+        $msg->time = time();
+
+        if ($params['chat']->last_op_msg_time > 0) {
+            $params['chat']->last_user_msg_time = $msg->time;
+        }
+
         erLhcoreClassChat::getSession()->save($msg);
         
         // Set last message ID
@@ -45,7 +50,12 @@ class erLhcoreClassChatHelper
         $msg->chat_id = $params['chat']->id;
         $msg->user_id = - 1;
         
-        $params['chat']->last_user_msg_time = $msg->time = time();
+        $msg->time = time();
+
+        if ($params['chat']->last_op_msg_time > 0) {
+            $params['chat']->last_user_msg_time = $msg->time;
+        }
+
         erLhcoreClassChat::getSession()->save($msg);
         
         $surveyItem = erLhAbstractModelSurveyItem::findOne(array('filter' => array('chat_id' => $params['chat']->id)));
@@ -131,7 +141,12 @@ class erLhcoreClassChatHelper
                 $msg->chat_id = $params['chat']->id;
                 $msg->user_id = - 1;
                 
-                $params['chat']->last_user_msg_time = $msg->time = time();
+                $msg->time = time();
+
+                if ($params['chat']->last_op_msg_time > 0) {
+                    $params['chat']->last_user_msg_time = $msg->time;
+                }
+
                 $params['chat']->cls_time = time();
 
                 erLhcoreClassChat::getSession()->save($msg);
@@ -212,8 +227,12 @@ class erLhcoreClassChatHelper
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
         
-                $chat->last_user_msg_time = $msg->time = time();
-        
+                $msg->time = time();
+
+                if ($chat->last_op_msg_time > 0) {
+                    $chat->last_user_msg_time = $msg->time;
+                }
+
                 erLhcoreClassChat::getSession()->save($msg);
         
                 $chat->updateThis();

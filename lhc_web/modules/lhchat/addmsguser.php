@@ -82,7 +82,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
 	        $stmt->bindValue(':id', $chat->id, PDO::PARAM_INT);
 	        $stmt->bindValue(':has_unread_messages', ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT ? 0 : 1),PDO::PARAM_INT);
 	        $stmt->bindValue(':lsync', time(), PDO::PARAM_INT);
-	        $stmt->bindValue(':last_user_msg_time', $msg->time, PDO::PARAM_INT);
+	        $stmt->bindValue(':last_user_msg_time', ($chat->last_op_msg_time > 0 ? $msg->time : 0), PDO::PARAM_INT);
 	        $stmt->bindValue(':unanswered_chat',($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT ? 1 : 0), PDO::PARAM_INT);
 	        $stmt->bindValue(':status_sub',$statusSub, PDO::PARAM_INT);
 	        $stmt->bindValue(':pnd_time',$pnd_time, PDO::PARAM_INT);

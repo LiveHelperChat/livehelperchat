@@ -436,7 +436,7 @@ class erLhcoreClassModelChat {
        		
        	case 'unread_time':
        		
-	       		$diff = time()-$this->last_user_msg_time;
+	       		$diff = time()-($this->last_user_msg_time > 0 ? $this->last_user_msg_time : $this->time);
 	       		$hours = floor($diff/3600);
 	       		$minits = floor(($diff - ($hours * 3600))/60);
 	       		$seconds = ($diff - ($hours * 3600) - ($minits * 60));

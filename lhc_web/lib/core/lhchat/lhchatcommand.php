@@ -137,7 +137,7 @@ class erLhcoreClassChatCommand
         }
 
         // Update last user msg time so auto responder work's correctly
-        $params['chat']->last_op_msg_time = $params['chat']->last_user_msg_time = time();
+        $params['chat']->last_op_msg_time = time();
 
         // All ok, we can make changes
         erLhcoreClassChat::getSession()->update($params['chat']);

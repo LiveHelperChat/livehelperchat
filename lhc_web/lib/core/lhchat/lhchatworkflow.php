@@ -40,7 +40,7 @@ class erLhcoreClassChatWorkflow {
             $msg->chat_id = $chat->id;
             $msg->user_id = -1;
 
-            $chat->last_user_msg_time = $msg->time = time();
+            $msg->time = time();
 
             erLhcoreClassChat::getSession()->save($msg);
 
@@ -213,7 +213,7 @@ class erLhcoreClassChatWorkflow {
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
 
-                $chat->last_user_msg_time = $msg->time = time();
+                $msg->time = time();
 
                 erLhcoreClassChat::getSession()->save($msg);
 
@@ -247,7 +247,7 @@ class erLhcoreClassChatWorkflow {
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
 
-                $chat->last_user_msg_time = $msg->time = time();
+                $msg->time = time();
 
                 erLhcoreClassChat::getSession()->save($msg);
 
@@ -284,7 +284,7 @@ class erLhcoreClassChatWorkflow {
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
 
-                $chat->last_user_msg_time = $msg->time = time();
+                $msg->time = time();
 
                 erLhcoreClassChat::getSession()->save($msg);
 
@@ -320,7 +320,7 @@ class erLhcoreClassChatWorkflow {
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
 
-                $chat->last_user_msg_time = $msg->time = time();
+                $msg->time = time();
 
                 erLhcoreClassChat::getSession()->save($msg);
 
@@ -356,7 +356,7 @@ class erLhcoreClassChatWorkflow {
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
 
-                $chat->last_user_msg_time = $msg->time = time();
+                $msg->time = time();
 
                 erLhcoreClassChat::getSession()->save($msg);
 
@@ -667,7 +667,7 @@ class erLhcoreClassChatWorkflow {
             $msg->user_id = $chat->user_id;
             $msg->name_support = $chat->user->name_support;
 
-            $chat->last_op_msg_time = $chat->last_user_msg_time = $msg->time = time();
+            $chat->last_op_msg_time = $msg->time = time();
             $chat->has_unread_op_messages = 1;
             $chat->unread_op_messages_informed = 0;
 

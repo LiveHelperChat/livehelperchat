@@ -43,8 +43,12 @@ try {
             $msg->chat_id = $chat->id;
             $msg->user_id = - 1;
             
-            $chat->last_user_msg_time = $msg->time = time();
+            $msg->time = time();
             
+            if ($chat->last_op_msg_time > 0) {
+                $chat->last_user_msg_time = $msg->time;
+            }
+
             erLhcoreClassChat::getSession()->save($msg);
                                     
             // Set last message ID

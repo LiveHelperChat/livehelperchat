@@ -45,9 +45,11 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
     	        $msg->time = time();
     	    
     	        erLhcoreClassChat::getSession()->save($msg);
-    	    
-    	        $chat->last_user_msg_time = $msg->time;
-    	    
+    	        
+                if ($chat->last_op_msg_time > 0) {
+                    $chat->last_user_msg_time = $msg->time;
+                }
+
     	        // Set last message ID
     	        if ($chat->last_msg_id < $msg->id) {
     	            $chat->last_msg_id = $msg->id;

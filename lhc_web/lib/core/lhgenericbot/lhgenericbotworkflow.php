@@ -156,7 +156,7 @@ class erLhcoreClassGenericBotWorkflow {
             }
 
             if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
-                $responseTrigger = self::processTrigger($chat, $event->trigger, false, array('args' => array('msg' => $msg)));
+                $responseTrigger = self::processTrigger($chat, $event->trigger, true, array('args' => array('msg' => $msg)));
                 if (!is_array($responseTrigger) || !isset($responseTrigger['ignore_trigger']) || $responseTrigger['ignore_trigger'] === false) {
                     return;
                 }
@@ -1298,7 +1298,7 @@ class erLhcoreClassGenericBotWorkflow {
         }
 
         if ($setLastMessageId == true && isset($message) && $message instanceof erLhcoreClassModelmsg) {
-            if ($message->id > 0) {
+            if ($message->id > 0 && $message->user_id == -2 && $message->id > $chat->last_msg_id) {
                 self::setLastMessageId($chat, $message->id, true);
             }
         }
@@ -1756,13 +1756,21 @@ class erLhcoreClassGenericBotWorkflow {
 
         $attrLastMessageTime = $isBot === false ? 'last_user_msg_time' : 'last_op_msg_time';
 
-        $chat->{$attrLastMessageTime} = time();
+        $timeValue = time();
+        if ($attrLastMessageTime == 'last_user_msg_time' && $chat->last_op_msg_time == 0){
+            $timeValue = 0;
+            $chat->{$attrLastMessageTime} = 0;
+        } else {
+            $chat->{$attrLastMessageTime} = time();
+        }
+
+        $chat->last_msg_id = $messageId;
 
         $stmt = $db->prepare("UPDATE lh_chat SET {$attrLastMessageTime} = :last_user_msg_time, lsync = :lsync, last_msg_id = :last_msg_id, has_unread_messages = :has_unread_messages, unanswered_chat = :unanswered_chat WHERE id = :id");
         $stmt->bindValue(':id', $chat->id, PDO::PARAM_INT);
         $stmt->bindValue(':lsync', time(), PDO::PARAM_INT);
         $stmt->bindValue(':has_unread_messages', ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT ? 0 : 1), PDO::PARAM_INT);
-        $stmt->bindValue(':last_user_msg_time', time(), PDO::PARAM_INT);
+        $stmt->bindValue(':last_user_msg_time', $timeValue, PDO::PARAM_INT);
         $stmt->bindValue(':unanswered_chat', 0, PDO::PARAM_INT);
         $stmt->bindValue(':last_msg_id',$messageId,PDO::PARAM_INT);
         $stmt->execute();

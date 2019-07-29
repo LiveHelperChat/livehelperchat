@@ -81,7 +81,7 @@ if (trim($form->msg) != '')
 
     	            $statusSub = '';
     	            if ($Chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_ON_HOLD && $messageUserId !== -1) {
-                        $statusSub = ',status_sub = 0, last_user_msg_time = ' . (time() - 1);
+                        $statusSub = ',status_sub = 0';
                         $tpl = erLhcoreClassTemplate::getInstance('lhchat/lists/assistance_message.tpl.php');
                         $tpl->set('msg', array('msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat', 'Hold removed!'), 'time' => time()));
                         $returnBody .= $tpl->fetch();
