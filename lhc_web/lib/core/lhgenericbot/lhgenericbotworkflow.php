@@ -1615,9 +1615,10 @@ class erLhcoreClassGenericBotWorkflow {
     public static function translateMessage($message, $params = array())
     {
         $depId = 0;
-        
+        $locale = null;
         if (isset($params['chat'])) {
             $depId = $params['chat']->dep_id;
+            $locale = $params['chat']->chat_locale;
         }
 
         if (isset($params['chat'])) {
@@ -1645,7 +1646,8 @@ class erLhcoreClassGenericBotWorkflow {
                     if (isset($configuration['bot_tr_id']) && $configuration['bot_tr_id'] > 0 && !empty($identifiers)) {
                         $items = erLhcoreClassModelGenericBotTrItem::getList(array('filterin' => array('identifier' => array_keys($identifiers)),'filter' => array('group_id' => $configuration['bot_tr_id'])));
                         foreach ($items as $item) {
-                            $identifiers[$item->identifier]['replace'] = $item->translation;
+                            $item->translateByChat($locale);
+                            $identifiers[$item->identifier]['replace'] = $item->translation_front;
                         }
                     }
                 }

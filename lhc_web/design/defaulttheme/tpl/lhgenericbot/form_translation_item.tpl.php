@@ -33,7 +33,7 @@
         <div role="tabpanel" class="tab-pane active" id="defaulttr">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Translation');?></label>
-                <textarea class="form-control form-control-sm" name="translation"><?php echo htmlspecialchars($item->translation_array['default']);?></textarea>
+                <textarea class="form-control form-control-sm" name="default_message"><?php echo htmlspecialchars($item->translation_array['default']);?></textarea>
             </div>
         </div>
         <div ng-repeat="lang in cmsg.languages" role="tabpanel" class="tab-pane" id="lang-{{$index}}">
@@ -48,7 +48,7 @@
                         </label>
                         <br ng-if="langDialtect.short_code"/>
                         <label class="fs12" ng-if="langDialtect.short_code">
-                            <input name="languages[{{$parent.$index}}][]" type="checkbox" value="{{langDialtect.short_code}}" ng-checked="lang.languages.indexOf(langDialtect.short_code) > -1" ng-click="cmsg.toggleSelection(lang,langDialtect.short_code)"> {{langDialtect.lang_name}} [{{langDialtect.short_code}}]
+                            <input name="languages[{{$parent.$parent.$index}}][]" type="checkbox" value="{{langDialtect.short_code}}" ng-checked="lang.languages.indexOf(langDialtect.short_code) > -1" ng-click="cmsg.toggleSelection(lang,langDialtect.short_code)"> {{langDialtect.lang_name}} [{{langDialtect.short_code}}]
                         </label>
                         <br/>
                     </div>
@@ -58,7 +58,7 @@
                 <label>Message</label>
                 <?php $bbcodeOptions = array('selector' => '#message_{{$index}}'); ?>
                 <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
-                <textarea class="form-control" id="message_{{$index}}" ng-model="lang.message" name="message[{{$index}}]"></textarea>
+                <textarea class="form-control" id="message_{{$index}}" ng-model="lang.message" name="message_item[{{$index}}]"></textarea>
             </div>
         </div>
     </div>

@@ -52,9 +52,41 @@ class erLhcoreClassModelGenericBotTrItem {
         }
     }
 
+    /**
+     * @desc translate auto responder if translation by chat exists
+     *
+     * @param $locale
+     */
+    public function translateByChat($locale) {
+
+        $this->translation_front = $this->translation_array['default'];
+
+        if ($locale === null) {
+            return;
+        }
+
+        // Try to find exact match
+        foreach ($this->translation_array['items'] as $data) {
+            if (in_array($locale, $data['languages'])) {
+                $this->translation_front = $data['message'];
+                return;
+            }
+        }
+
+        // Try to match general match by first two letters
+        $localeShort = explode('-',$locale)[0];
+        foreach ($this->translation_array['items'] as $data) {
+            if (in_array($localeShort, $data['languages'])) {
+                $this->translation_front = $data['message'];
+                return;
+            }
+        }
+    }
+
     public $id = null;
     public $name = '';
     public $identifier = '';
     public $translation = '';
     public $group_id = 0;
+    public $translation_front = '';
 }
