@@ -47,6 +47,48 @@ class erLhcoreClassChatCleanup {
         }
     }
 
+    public static function cleanupAuditLog()
+    {
+        $lastCleanup = erLhcoreClassModelChatConfig::fetch('audit_cleanup_last');
+
+        // Do not clean more often that once per hour
+        if ((int)$lastCleanup->current_value < time()-3600) {
+
+            $lastCleanup->identifier = 'audit_cleanup_last';
+            $lastCleanup->type = 0;
+            $lastCleanup->explain = 'Track last audit cleanup';
+            $lastCleanup->hidden = 1;
+            $lastCleanup->value = time();
+            $lastCleanup->saveThis();
+
+            $auditOptions = erLhcoreClassModelChatConfig::fetch('audit_configuration');
+            $data = (array)$auditOptions->data;
+
+            if (isset($data['days_log']) && $data['days_log'] > 0) {
+
+                $timeout = $data['days_log'];
+
+                $db = ezcDbInstance::get();
+
+                for ($i = 0; $i < 100; $i++)
+                {
+                    $stmt = $db->prepare("SELECT `id`, `time` FROM lh_audits ORDER BY id ASC LIMIT 1 OFFSET 500");
+                    $stmt->execute();
+                    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                    if (isset($data['time']) && strtotime($data['time']) < (int)(time() - ($timeout * 24 * 3600))) {
+                        $stmt = $db->prepare('DELETE FROM lh_audits WHERE id < :id');
+                        $stmt->bindValue(':id', $data['id'], PDO::PARAM_INT);
+                        $stmt->execute();
+                    } else {
+                        // No more records found to remove
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
     /**
      * @desc Department availability cleanup
      */
