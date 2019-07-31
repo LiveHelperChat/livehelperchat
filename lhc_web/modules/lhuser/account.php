@@ -216,10 +216,36 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 				
 		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.canned_msg_before_save',array('errors' => & $Errors, 'msg' => & $cannedMessage, 'scope' => 'user'));
 		
-		if (count($Errors) == 0) {		
+		if (count($Errors) == 0) {
+
+		    $isNew = $cannedMessage->id == null;
+
+            $previousState = $cannedMessage->getState();
+
 			$cannedMessage->user_id = $UserData->id;
-			$cannedMessage->saveThis();	
-			
+			$cannedMessage->saveThis();
+
+			if ($isNew == true){
+                erLhcoreClassLog::logObjectChange(array(
+                    'object' => $cannedMessage,
+                    'check_log' => true,
+                    'msg' => array(
+                        'new' => $cannedMessage->getState(),
+                        'user_id' => $currentUser->getUserID()
+                    )
+                ));
+            } else {
+                erLhcoreClassLog::logObjectChange(array(
+                    'object' => $cannedMessage,
+                    'check_log' => true,
+                    'msg' => array(
+                        'prev' => $previousState,
+                        'curr' => $cannedMessage->getState(),
+                        'user_id' => $currentUser->getUserID()
+                    )
+                ));
+            }
+
 			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.canned_msg_after_save',array('msg' => & $cannedMessage));
 			
 			$tpl->set('updated_canned',true);
@@ -245,6 +271,16 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 			if ($cannedToDelete->user_id == $UserData->id){
 				$cannedToDelete->removeThis();
 			}
+
+            erLhcoreClassLog::logObjectChange(array(
+                'object' => $cannedToDelete,
+                'check_log' => true,
+                'msg' => array(
+                    'delete' => $cannedToDelete->getState(),
+                    'user_id' => $currentUser->getUserID()
+                )
+            ));
+
 		} catch (Exception $e) {
 			
 		}	

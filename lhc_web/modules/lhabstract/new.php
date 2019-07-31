@@ -43,6 +43,15 @@ if ( isset($_POST['SaveClient']) || isset($_POST['UpdateClient']) ) {
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.created.'.strtolower($objectClass),array('object' => & $objectData));
 
+        erLhcoreClassLog::logObjectChange(array(
+            'object' => $objectData,
+            'check_log' => true,
+            'msg' => array(
+                'new' => $objectData->getState(),
+                'user_id' => $currentUser->getUserID()
+            )
+        ));
+
         if ( isset($_POST['SaveClient']) ) {
         	erLhcoreClassModule::redirect('abstract/list','/'.$Params['user_parameters']['identifier']);
         	exit;

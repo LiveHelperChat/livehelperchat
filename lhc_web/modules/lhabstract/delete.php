@@ -23,6 +23,15 @@ if ( method_exists($ObjectData,'checkPermission') ) {
 
 $ObjectData->removeThis();
 
+erLhcoreClassLog::logObjectChange(array(
+    'object' => $ObjectData,
+    'check_log' => true,
+    'msg' => array(
+        'delete' => $ObjectData->getState(),
+        'user_id' => $currentUser->getUserID()
+    )
+));
+
 $cache = CSCacheAPC::getMem();
 $cache->increaseCacheVersion('site_attributes_version');
 
