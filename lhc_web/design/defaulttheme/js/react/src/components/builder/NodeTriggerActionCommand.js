@@ -55,6 +55,7 @@ class NodeTriggerActionCommand extends Component {
                                 <option value="closechat">Close chat</option>
                                 <option value="chatvariable">Set chat variable</option>
                                 <option value="dispatchevent">Dispatch Event</option>
+                                <option value="setchatattribute">Update Chat Attribute</option>
                             </select>
                         </div>
                     </div>
@@ -87,6 +88,18 @@ class NodeTriggerActionCommand extends Component {
                     <div className="form-group">
                         <label>Set chat variables in json format.</label>
                         <input className="form-control form-control-sm" type="text" placeholder="{&quot;bot_touched&quot;:true}" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
+                    </div>
+                </div>}
+
+                {this.props.action.getIn(['content','command']) == 'setchatattribute' &&
+                <div>
+                    <div className="form-group">
+                        <label>Chat attribute name (nick,remarks,email,dep_id).</label>
+                        <input className="form-control form-control-sm" type="text" placeholder="remarks" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
+                    </div>
+                    <div className="form-group">
+                        <label>Chat attribute value.</label>
+                        <textarea className="form-control form-control-sm" type="text" placeholder="" onChange={(e) => this.onchangeAttr({'path':['payload_arg'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg'])} ></textarea>
                     </div>
                 </div>}
 

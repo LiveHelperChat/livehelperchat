@@ -116,6 +116,9 @@ class erLhcoreClassGenericBotActionCommand {
                 $chat->chat_variables_array = $variablesArray;
                 $chat->saveThis();
 
+        } elseif ($action['content']['command'] == 'setchatattribute') {
+                $chat->{$action['content']['payload']} = $action['content']['payload_arg'];
+                $chat->saveThis();
         } elseif ($action['content']['command'] == 'dispatchevent') {
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_chat_command_dispatch_event', array(
