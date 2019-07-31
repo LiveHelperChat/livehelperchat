@@ -21,8 +21,8 @@ return array(
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message'),
         'required' => false,
         'width' => '80',
-        'wrap_start' => '<pre style="max-height:100px;overflow:auto;white-space: pre-wrap;white-space: -moz-pre-wrap !important;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;">',
-        'wrap_end' => '</pre>',
+        'wrap_start' => '<textarea class="form-control fs11">',
+        'wrap_end' => '</textarea>',
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
     ),
     'file' => array(
