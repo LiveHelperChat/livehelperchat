@@ -170,7 +170,7 @@ if ($votingRelative !== false) {
 			}
 			
 			if (erLhcoreClassQuestionary::getCount($baseFilter,'lh_question_answer') > 0) {
-				$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','You have already send your feedback!');
+				$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/votingwidget','You have already sent your feedback!');
 			}
 		}
 
