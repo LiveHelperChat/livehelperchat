@@ -9089,7 +9089,7 @@
     </message>
     <message>
       <source>Please choose a user!</source>
-      <translation>Kérlek válassz egy felhasználót!</translation>
+      <translation>Kérem, válasszon egy felhasználót!</translation>
     </message>
     <message>
       <source>This user can not receive permision request!</source>
@@ -11184,7 +11184,7 @@
     </message>
     <message>
       <source>Please choose a default user group</source>
-      <translation>Kérlek válassz egy alapértelmezett felhasználó csoportot</translation>
+      <translation>Kérem, válasszon egy alapértelmezett felhasználói csoportot</translation>
     </message>
     <message>
       <source>Password has to be atleast</source>
