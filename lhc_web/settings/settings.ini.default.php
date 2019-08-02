@@ -60,7 +60,8 @@ return array (
                             27 => 'alb',
                             28 => 'heb',
                             29 => 'cat',
-                            30 => 'site_admin'
+                            30 => 'hun',
+                            31 => 'site_admin'
                         ),
                 ),
             'default_url' =>
@@ -655,6 +656,24 @@ return array (
                                 'view' => 'startchat'
                             ),
                     ),
+                    'hun' =>
+                        array (
+                            'locale' => 'hu_HU',
+                            'content_language' => 'hu',
+                            'dir_language' => 'ltr',
+                            'title' => '',
+                            'description' => '',
+                            'theme' =>
+                                array (
+                                    0 => 'customtheme',
+                                    1 => 'defaulttheme'
+                                ),
+                            'default_url' =>
+                                array (
+                                    'module' => 'chat',
+                                    'view' => 'startchat'
+                                ),
+                        ),
                     'site_admin' =>
                         array (
                             'locale' => 'en_EN',

@@ -173,15 +173,12 @@ class erLhcoreClassGenericBot {
     public static function validateBotTranslationItem(& $botTranslationItem)
     {
         $definition = array(
-            'identifier' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-            ),
-            'translation' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-            ),
-            'group_id' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
-            )
+            'identifier' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'),
+            'translation' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY ),
+            'default_message' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' ),
+            'message_item' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY ),
+            'languages' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'group_id' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1))
         );
 
         $form = new ezcInputForm( INPUT_POST, $definition );
@@ -193,11 +190,29 @@ class erLhcoreClassGenericBot {
             $botTranslationItem->identifier = $form->identifier;
         }
 
-        if ( !$form->hasValidData( 'translation' ) || $form->translation == '' ) {
-            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter translation!');
-        } else {
-            $botTranslationItem->translation = $form->translation;
+        $data = array('default' => '', 'items' => array());
+
+        $languagesData = array();
+        if ( $form->hasValidData( 'languages' ) && !empty($form->languages) )
+        {
+            foreach ($form->languages as $index => $languages) {
+                $languagesData[] = array(
+                    'languages' => $form->languages[$index],
+                    'message' => $form->message_item[$index]
+                );
+            }
         }
+
+        $data['items'] = $languagesData;
+
+        if ( !$form->hasValidData( 'default_message' ) || $form->default_message == '' ) {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter default translation!');
+        } else {
+            $data['default'] = $form->default_message;
+        }
+
+        $botTranslationItem->translation_array = $data;
+        $botTranslationItem->translation = json_encode($data);
 
         if ( $form->hasValidData( 'group_id' ) ) {
             $botTranslationItem->group_id = $form->group_id;

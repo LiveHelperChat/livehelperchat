@@ -24,7 +24,16 @@ if (isset($_POST['Save_action']))
     if (count($Errors) == 0)
     {
         $CannedMessage->saveThis();
-        
+
+        erLhcoreClassLog::logObjectChange(array(
+            'object' => $CannedMessage,
+            'check_log' => true,
+            'msg' => array(
+                'new' => $CannedMessage->getState(),
+                'user_id' => $currentUser->getUserID()
+            )
+        ));
+
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.newcannedmsg_saved', array('msg' => & $CannedMessage));
 
         erLhcoreClassModule::redirect('chat/cannedmsg');

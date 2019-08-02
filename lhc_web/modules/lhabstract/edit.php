@@ -29,6 +29,8 @@ if (isset($_POST['SaveClient']) || isset($_POST['UpdateClient']))
 		exit;
 	}
 
+	$previousState = $ObjectData->getState();
+
     $Errors = erLhcoreClassAbstract::validateInput($ObjectData);
     if (count($Errors) == 0)
     {
@@ -41,10 +43,22 @@ if (isset($_POST['SaveClient']) || isset($_POST['UpdateClient']))
         $cache = CSCacheAPC::getMem();
         $cache->increaseCacheVersion('site_attributes_version');
 
-		if (isset($_POST['SaveClient'])){
+        $currentState = $ObjectData->getState();
+
+        erLhcoreClassLog::logObjectChange(array(
+            'object' => $ObjectData,
+            'check_log' => true,
+            'msg' => array(
+                'prev' => $previousState,
+                'curr' => $currentState,
+                'user_id' => $currentUser->getUserID()
+            )
+        ));
+
+        if (isset($_POST['SaveClient'])){
 	        erLhcoreClassModule::redirect('abstract/list','/'.$Params['user_parameters']['identifier']);
 	        exit;
-		}
+        }
 
 		$tpl->set('updated',true);
 

@@ -94,6 +94,31 @@ class erLhcoreClassLog implements ezcBaseConfigurationInitializer {
 		$log->getMapper()->appendRule( new ezcLogFilterRule( $filter_audit, new ezcLogDatabaseWriter( $db, "lh_audits" ), true ) );
 	}
 
+	public static function logObjectChange($params)
+    {
+
+        $className = str_replace(array('erLhcoreClassModel','erLhAbstractModel'),'',get_class($params['object']));
+
+        if (isset($params['check_log']) && $params['check_log'] == true) {
+            $auditOptions = erLhcoreClassModelChatConfig::fetch('audit_configuration');
+            $data = (array)$auditOptions->data;
+
+            if (!(isset($data['log_objects']) && is_array($data['log_objects']) && in_array($className,$data['log_objects']))){
+                return;
+            }
+        }
+        
+        erLhcoreClassLog::write(print_r($params['msg'],true),
+            ezcLog::SUCCESS_AUDIT,
+            array(
+                'source' => 'lhc',
+                'category' => $className,
+                'line' => __LINE__,
+                'file' => __FILE__,
+                'object_id' => $params['object']->id
+            )
+        );
+    }
 }
 
 ezcBaseInit::setCallback ( 'ezcInitLog', 'erLhcoreClassLog' );

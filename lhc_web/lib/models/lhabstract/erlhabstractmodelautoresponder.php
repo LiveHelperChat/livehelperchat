@@ -205,6 +205,38 @@ class erLhAbstractModelAutoResponder {
         return '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/angular.lhc.autoresponder.js').'"></script>';
     }
 
+    public function setTranslationData($data)
+    {
+        if (isset($data['timeout_message']) && $data['timeout_message'] != '') {
+            $this->timeout_message = $data['timeout_message'];
+        }
+
+        if (isset($data['wait_timeout_hold']) && $data['wait_timeout_hold'] != '') {
+            $this->wait_timeout_hold = $data['wait_timeout_hold'];
+        }
+
+        if (isset($data['wait_message']) && $data['wait_message'] != '') {
+            $this->wait_message = $data['wait_message'];
+        }
+
+        if (isset($data['operator']) && $data['operator'] != '') {
+            $this->operator = $data['operator'];
+        }
+
+        for ($i = 1; $i <= 5; $i++) {
+            if (isset($data['timeout_message_' . $i]) && $data['timeout_message_' . $i] != '') {
+                $this->{'timeout_message_' . $i} = $data['timeout_message_' . $i];
+            }
+
+            if (isset($data['timeout_reply_message_' . $i]) && $data['timeout_reply_message_' . $i] != '') {
+                $this->{'timeout_reply_message_' . $i} = $data['timeout_reply_message_' . $i];
+            }
+
+            if (isset($data['timeout_hold_message_' . $i]) && $data['timeout_hold_message_' . $i] != '') {
+                $this->{'timeout_hold_message_' . $i} = $data['timeout_hold_message_' . $i];
+            }
+        }
+    }
     /**
      * @desc translate auto responder if translation by chat exists
      *
@@ -215,39 +247,20 @@ class erLhAbstractModelAutoResponder {
             $languages = json_decode($this->languages, true);
 
             if (is_array($languages)) {
+
+                // Try to find exact match
                 foreach ($languages as $data) {
                     if (in_array($locale, $data['languages'])) {
+                        $this->setTranslationData($data);
+                        return ;
+                    }
+                }
 
-                        if (isset($data['timeout_message']) && $data['timeout_message'] != '') {
-                            $this->timeout_message = $data['timeout_message'];
-                        }
-
-                        if (isset($data['wait_timeout_hold']) && $data['wait_timeout_hold'] != '') {
-                            $this->wait_timeout_hold = $data['wait_timeout_hold'];
-                        }
-
-                        if (isset($data['wait_message']) && $data['wait_message'] != '') {
-                            $this->wait_message = $data['wait_message'];
-                        }
-
-                        if (isset($data['operator']) && $data['operator'] != '') {
-                            $this->operator = $data['operator'];
-                        }
-
-                        for ($i = 1; $i <= 5; $i++) {
-                            if (isset($data['timeout_message_' . $i]) && $data['timeout_message_' . $i] != '') {
-                                $this->{'timeout_message_' . $i} = $data['timeout_message_' . $i];
-                            }
-
-                            if (isset($data['timeout_reply_message_' . $i]) && $data['timeout_reply_message_' . $i] != '') {
-                                $this->{'timeout_reply_message_' . $i} = $data['timeout_reply_message_' . $i];
-                            }
-
-                            if (isset($data['timeout_hold_message_' . $i]) && $data['timeout_hold_message_' . $i] != '') {
-                                $this->{'timeout_hold_message_' . $i} = $data['timeout_hold_message_' . $i];
-                            }
-                        }
-
+                // Try to match general match by first two letters
+                $localeShort = explode('-',$locale)[0];
+                foreach ($languages as $data) {
+                    if (in_array($localeShort, $data['languages'])) {
+                        $this->setTranslationData($data);
                         return ;
                     }
                 }

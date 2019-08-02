@@ -44,12 +44,22 @@
         		        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/recaptcha.tpl.php'));?>
 
         		        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/expirecache.tpl.php'));?>
-
-        		        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/audit_log.tpl.php'));?>
         			</ul>
+
+                    <?php if ($currentUser->hasAccessTo('lhabstract','use') && $currentUser->hasAccessTo('lhsystem','auditlog')) : ?>
+                            <h4>Audit</h4>
+                            <ul>
+                                <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/audit_log.tpl.php'));?>
+                            </ul>
+                    <?php endif; ?>
+
 				</div>
+
+
 				
 				<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/users_section.tpl.php'));?>
+
+
       	         
 			</div>
 

@@ -28,6 +28,15 @@ if (is_numeric($Params['user_parameters_unordered']['id']) && $Params['user_para
         if ($userDepartments === true || in_array($Msg->department_id, $userDepartments)) {
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.cannedmsg_before_remove',array('msg' => & $Msg));
         	$Msg->removeThis();
+
+            erLhcoreClassLog::logObjectChange(array(
+                'object' => $Msg,
+                'check_log' => true,
+                'msg' => array(
+                    'delete' => $Msg->getState(),
+                    'user_id' => $currentUser->getUserID()
+                )
+            ));
         }
         
     } catch (Exception $e) {

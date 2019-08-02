@@ -87,6 +87,9 @@ erLhcoreClassChatCleanup::departmentAvailabilityCleanup(array('cronjob' => true)
 // Update footprints table if required
 erLhcoreClassChatCleanup::updateFootprintBackground();
 
+// Cleanup Audit table if required
+erLhcoreClassChatCleanup::cleanupAuditLog();
+
 echo "Ended chat/workflow\n";
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow',array());
