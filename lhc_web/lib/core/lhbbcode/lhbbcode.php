@@ -1057,7 +1057,14 @@ class erLhcoreClassBBCode
 
         if (isset($paramsMessage['render_html']) && $paramsMessage['render_html'] == true){
             $ret = preg_replace_callback('/\[html\](.*?)\[\/html\]/ms', function ($matches) {
-                return htmlspecialchars_decode($matches[1]);
+                $html = htmlspecialchars_decode($matches[1]);
+
+                $html = preg_replace_callback('/"window\.parent\.(.*)"/ms',function ($matches){
+                    return "'lhinst.executeRemoteCommands([\"lhc_eval:" . $matches[1] . "\"])'";
+                },$html);
+
+                return $html;
+
             }, $ret);
         }
 
