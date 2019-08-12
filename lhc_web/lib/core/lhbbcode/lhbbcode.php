@@ -1055,18 +1055,21 @@ class erLhcoreClassBBCode
 
         $ret = preg_replace_callback('/\[url\="?(.*?)"?\](.*?)\[\/url\]/ms', "erLhcoreClassBBCode::_make_url_embed", $ret);
 
-        if (isset($paramsMessage['render_html']) && $paramsMessage['render_html'] == true){
-            $ret = preg_replace_callback('/\[html\](.*?)\[\/html\]/ms', function ($matches) {
-                $html = htmlspecialchars_decode($matches[1]);
-
-                $html = preg_replace_callback('/"window\.parent\.(.*)"/ms',function ($matches){
-                    return "'lhinst.executeRemoteCommands([\"lhc_eval:" . $matches[1] . "\"])'";
-                },$html);
-
-                return $html;
-
-            }, $ret);
+        if (isset($paramsMessage['sender']) && $paramsMessage['sender'] == 0) {
+            $ret = preg_replace('/\[html\](.*?)\[\/html\]/ms','',$ret);
         }
+
+        $ret = preg_replace_callback('/\[html\](.*?)\[\/html\]/ms', function ($matches) {
+            $html = htmlspecialchars_decode($matches[1]);
+
+            $html = preg_replace_callback('/"window\.parent\.(.*)"/ms',function ($matches){
+                return "'lhinst.executeRemoteCommands([\"lhc_eval:" . $matches[1] . "\"])'";
+            },$html);
+
+            return $html;
+
+        }, $ret);
+
 
         if ($makeLinksClickable) {
             $ret = self::make_clickable_text($ret);           

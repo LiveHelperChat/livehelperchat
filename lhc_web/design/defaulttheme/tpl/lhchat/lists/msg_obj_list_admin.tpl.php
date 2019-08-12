@@ -22,7 +22,7 @@ $lastOperatorId = $msg->user_id;
 <?php else : ?>
     <?php if ($msg->msg != '') : ?>
         <div class="message-row<?php echo $msg->user_id == 0 ? ' response' : ' message-admin'.($lastOperatorChanged == true ? ' operator-changes' : '')?>" id="msg-<?php echo $msg->id?>"><div class="msg-date"><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$msg->time);?></div><span class="usr-tit<?php echo $msg->user_id == 0 ? ' vis-tit' : ' op-tit'?>"><?php if ($msg->user_id == 0) : ?><i class="material-icons"><?php echo ($chat->device_type == 0 ? 'computer' : ($chat->device_type == 1 ? 'smartphone' : 'tablet'))?></i><?php endif;?><?php echo $msg->user_id == 0 ? htmlspecialchars($chat->nick) : htmlspecialchars($msg->name_support) ?></span>
-            <?php $msgBody = $msg->msg; ?>
+            <?php $msgBody = $msg->msg; $paramsMessageRender = array('sender' => $msg->user_id);?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?>
         </div>
     <?php endif;?>

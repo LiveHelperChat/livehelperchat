@@ -41,7 +41,7 @@
 
                 <?php if ($msg['msg'] != '') : ?>
 
-                        <?php $msgBody = $msg['msg']; $paramsMessageRender = array('render_html' => true); ?>
+                        <?php $msgBody = $msg['msg']; $paramsMessageRender = array('sender' => $msg['user_id']); ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?>
 
                         <?php if (isset($metaMessageData['content_static']['message_explain'])) : ?>
