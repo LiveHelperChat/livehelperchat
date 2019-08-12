@@ -29,8 +29,11 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validstatus_chat',array('chat' => & $chat, 'valid_statuses' => & $validStatuses));
 
 	    if ($chat->hash == $Params['user_parameters']['hash'] && (in_array($chat->status,$validStatuses)) && !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) // Allow add messages only if chat is active
-	    {	        	        
-	        $messagesToStore = explode('[[msgitm]]', trim($form->msg));
+	    {
+
+	        $msgText = preg_replace('/\[html\](.*?)\[\/html\]/ms','',$form->msg);
+
+	        $messagesToStore = explode('[[msgitm]]', trim($msgText));
 	        
 	        foreach ($messagesToStore as $messageText)
 	        {

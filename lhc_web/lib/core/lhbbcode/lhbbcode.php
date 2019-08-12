@@ -997,7 +997,7 @@ class erLhcoreClassBBCode
        return $meta;
    }
 
-   public static function makeSubmessages($msg) {
+   public static function makeSubmessages($msg, $paramsMessage = array()) {
 
        // Links wraps images
        $msg = preg_replace('#\[url\="?(.*?)"?\]\[file="?(.*?)_img"?\]\[\/url\]#is','[file=\2_img link=\1]',$msg);
@@ -1018,7 +1018,7 @@ class erLhcoreClassBBCode
            $message = trim($message);
            if ($message != '')
            {
-               $msgRendered = erLhcoreClassBBCode::make_clickable(htmlspecialchars($message));
+               $msgRendered = erLhcoreClassBBCode::make_clickable(htmlspecialchars($message), $paramsMessage);
 
                $messagesDataItem['body'] = $msgRendered;
                $messagesDataItem['flags'] = [];
@@ -1042,7 +1042,7 @@ class erLhcoreClassBBCode
    }
 
    // Converts bbcode and general links to hmtl code
-   public static function make_clickable($ret) {
+   public static function make_clickable($ret, $paramsMessage = array()) {
         $ret = ' ' . $ret;
 
         $makeLinksClickable = true;
@@ -1054,7 +1054,13 @@ class erLhcoreClassBBCode
         $ret = preg_replace_callback('/\[loc\](.*?)\[\/loc\]/ms', "erLhcoreClassBBCode::_make_embed_map", $ret);
 
         $ret = preg_replace_callback('/\[url\="?(.*?)"?\](.*?)\[\/url\]/ms', "erLhcoreClassBBCode::_make_url_embed", $ret);
-        
+
+        if (isset($paramsMessage['render_html']) && $paramsMessage['render_html'] == true){
+            $ret = preg_replace_callback('/\[html\](.*?)\[\/html\]/ms', function ($matches) {
+                return htmlspecialchars_decode($matches[1]);
+            }, $ret);
+        }
+
         if ($makeLinksClickable) {
             $ret = self::make_clickable_text($ret);           
         }

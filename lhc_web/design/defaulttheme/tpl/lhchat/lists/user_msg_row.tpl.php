@@ -21,7 +21,7 @@
 	        <div class="message-row response<?php if (isset($hideNextMessages) && $hideNextMessages == true) : ?> hide<?php endif;?>" id="msg-<?php echo $msg['id']?>" data-op-id="<?php echo $msg['user_id']?>"><div class="msg-date"><?php if (date('Ymd') == date('Ymd',$msg['time'])) {	echo  date(erLhcoreClassModule::$dateHourFormat,$msg['time']);} else { echo date(erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?></div><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/user_msg_row_nick.tpl.php'));?>
                 <?php if ($msg['msg'] != '') : ?>
 
-                    <?php $msgBody = $msg['msg']; ?>
+                    <?php $msgBody = $msg['msg']; $paramsMessageRender = array('render_html' => true);?>
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?>
 
                     <?php if (isset($metaMessageData['content_static']['message_explain'])) : ?>
@@ -41,7 +41,7 @@
 
                 <?php if ($msg['msg'] != '') : ?>
 
-                        <?php $msgBody = $msg['msg']; ?>
+                        <?php $msgBody = $msg['msg']; $paramsMessageRender = array('render_html' => true); ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?>
 
                         <?php if (isset($metaMessageData['content_static']['message_explain'])) : ?>
