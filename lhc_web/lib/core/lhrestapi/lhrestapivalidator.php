@@ -340,6 +340,16 @@ class erLhcoreClassRestAPIHandler
             ));
         }
 
+        if (isset($_GET['include_department']) && $_GET['include_department'] == 'true') {
+            erLhcoreClassChat::prefillObjects($campaignsConversions,array(
+                array(
+                    'department_id',
+                    'department',
+                    'erLhcoreClassModelDepartament::getList'
+                ),
+            ));
+        }
+
 
 
         // Chats list

@@ -282,6 +282,14 @@
             "type": "boolean",
             "default": false,
             "in": "query"
+          },
+          {
+            "name": "include_department",
+            "description": "Include department object",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
           }
         ],
         "responses": {
