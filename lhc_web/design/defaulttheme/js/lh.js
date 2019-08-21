@@ -2326,7 +2326,27 @@ function lh(){
 			LHCCallbacks.afterChatWidgetInit();
 		};
 	};
-		
+
+    this.getInputSelection = function(elem) {
+        if (typeof elem != "undefined") {
+            s = elem[0].selectionStart;
+            e = elem[0].selectionEnd;
+            return elem.val().substring(s, e);
+        } else {
+            return '';
+        }
+    }
+    
+	this.handleBBCode = function(inst) {
+        var str = $(inst.attr('data-selector')).val();
+        var selection = this.getInputSelection($(inst.attr('data-selector')));
+        if (selection.length > 0) {
+            $(inst.attr('data-selector')).val(str.replace(selection, "[" + inst.attr("data-bbcode") + "]" + selection + "[/" + inst.attr("data-bbcode") + "]"));
+        } else {
+            $(inst.attr('data-selector')).val(str + "[" + inst.attr("data-bbcode") + "]" + "[/" + inst.attr("data-bbcode") + "]");
+        }
+    }
+
 	this.addAdminChatFinished = function(chat_id, last_message_id, arg) {
 		
 		var _that = this;

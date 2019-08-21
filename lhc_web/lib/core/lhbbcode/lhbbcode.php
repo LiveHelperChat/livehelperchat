@@ -773,7 +773,7 @@ class erLhcoreClassBBCode
          if (isset($data['query'])){
              parse_str($data['query'],$query);
              if (stristr($data['host'],'youtube.com') && isset($query['v']) && ($query['v'] != '')) {
-                 return '<iframe class="youtube-frame" title="YouTube video player" width="480" height="300" src="http://www.youtube.com/embed/'.urlencode($query['v']).'" frameborder="0" allowfullscreen></iframe>';
+                 return '<iframe class="youtube-frame" title="YouTube video player" width="480" height="300" src="https://www.youtube.com/embed/'.urlencode($query['v']).'" frameborder="0" allowfullscreen></iframe>';
              } else {
                  return $matches[0];
              }
