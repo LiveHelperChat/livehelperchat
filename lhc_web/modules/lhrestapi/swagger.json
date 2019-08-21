@@ -18,7 +18,7 @@
   "basePath": "/",
   "tags": [
     {
-      "name": "api",
+      "name": "chat",
       "description": "API Related to chats"
     },
     {
@@ -28,6 +28,10 @@
     {
       "name": "online",
       "description": "API Related to online status"
+    },
+    {
+      "name": "online_user",
+      "description": "API Related to online users"
     }
   ],
   "schemes": [
@@ -38,7 +42,7 @@
     "/restapi/chats": {
       "get": {
         "tags": [
-          "api"
+          "chat"
         ],
         "summary": "Fetch chats list",
         "description": "",
@@ -122,10 +126,187 @@
         ]
       }
     },
+    "/restapi/campaignsconversions": {
+      "get": {
+        "tags": [
+          "online_user"
+        ],
+        "summary": "Search for campaign conversions",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "department_id",
+            "in": "query",
+            "description": "Department ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "campaign_id",
+            "in": "query",
+            "description": "Campaign id",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "invitation_id",
+            "in": "query",
+            "description": "Invitation id",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "chat_id",
+            "in": "query",
+            "description": "Chat id",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "ctime",
+            "in": "query",
+            "description": "Create time greater than. Unix timestamp",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id greater than",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "con_time",
+            "in": "query",
+            "description": "Conversion time greater than. Unix timestamp",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "invitation_status",
+            "in": "query",
+            "description": "Invitation status.",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "send",
+                "shown",
+                "seen",
+                "chat_started"
+              ]
+            }
+          },
+
+          {
+            "name": "invitation_type",
+            "in": "query",
+            "description": "Invitation type",
+            "required": false,
+            "type": "string",
+            "format": "int32",
+            "enum": [
+              "operator",
+              "system"
+            ]
+          },
+          {
+            "name": "device_type",
+            "in": "query",
+            "description": "Device type",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "pc",
+                "mobile",
+                "tablet"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit",
+            "required": false,
+            "type": "string",
+            "format": "int32",
+            "default": "20"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Offset",
+            "required": false,
+            "type": "string",
+            "format": "int32",
+            "default": "0"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "sort order for id",
+            "required": false,
+            "default": "asc",
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          {
+            "name": "include_onlinevisitor",
+            "description": "Include online visitor record data",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
+            "name": "include_invitation",
+            "description": "Include invitation object",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search for campaign conversions",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
     "/restapi/fetchchat": {
       "get": {
         "tags": [
-          "api"
+          "chat"
         ],
         "summary": "Fetch chat information",
         "description": "",
@@ -172,7 +353,7 @@
     "/restapi/fetchchatmessages": {
       "get": {
         "tags": [
-          "api"
+          "chat"
         ],
         "summary": "Fetch chat messages",
         "description": "",
@@ -235,7 +416,7 @@
     "/restapi/updatechatattributes": {
       "post": {
         "tags": [
-          "api"
+          "chat"
         ],
         "summary": "Updates chat attributes",
         "description": "Updates chat attributes.",
@@ -287,7 +468,7 @@
     "/restapi/addmsguser": {
       "post": {
         "tags": [
-          "api"
+          "chat"
         ],
         "summary": "Add message to chat as a user",
         "description": "",
@@ -334,7 +515,7 @@
     "/restapi/addmsgadmin": {
       "post": {
         "tags": [
-          "api"
+          "chat"
         ],
         "summary": "Add message to chat as an admin",
         "description": "",
@@ -404,7 +585,7 @@
     "/restapi/setchatstatus": {
       "post": {
         "tags": [
-          "api"
+          "chat"
         ],
         "summary": "Set chat status",
         "description": "Changes chat status to provided one. Related logic is also executed in the background.",

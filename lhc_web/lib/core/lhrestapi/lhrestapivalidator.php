@@ -161,6 +161,8 @@ class erLhcoreClassRestAPIHandler
                 if ($form->hasValidData($userAttribute)) {
                     if ($definitionField['type'] == 'filter') {
                         $filter['filter'][$definitionField['field']] = $form->$userAttribute;
+                    } else if ($definitionField['type'] == 'filtergt') {
+                        $filter['filtergt'][$definitionField['field']] = $form->$userAttribute;
                     } elseif ($definitionField['type'] == 'general') {
                         $filter[$definitionField['field']] = $form->$userAttribute;
                     }
@@ -173,6 +175,179 @@ class erLhcoreClassRestAPIHandler
         $filter['smart_select'] = true;
         
         return $filter;
+    }
+
+    public static function validateCampaignConversionList()
+    {
+        $validAttributes = array(
+            'int' => array(
+                'department_id' => array(
+                    'type' => 'filter',
+                    'field' => 'department_id',
+                    'validator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array(
+                        'min_range' => 1
+                    ))
+                ),
+                'campaign_id' => array(
+                    'type' => 'filter',
+                    'field' => 'campaign_id',
+                    'validator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array(
+                        'min_range' => 1
+                    ))
+                ),
+                'invitation_id' => array(
+                    'type' => 'filter',
+                    'field' => 'invitation_id',
+                    'validator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array(
+                        'min_range' => 1
+                    ))
+                ),
+                'chat_id' => array(
+                    'type' => 'filter',
+                    'field' => 'chat_id',
+                    'validator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array(
+                        'min_range' => 1
+                    ))
+                ),
+                'ctime' => array(
+                    'type' => 'filtergt',
+                    'field' => 'ctime',
+                    'validator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array(
+                        'min_range' => 1
+                    ))
+                ),
+                'con_time' => array(
+                    'type' => 'filtergt',
+                    'field' => 'con_time',
+                    'validator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array(
+                        'min_range' => 1
+                    ))
+                ),
+                'id' => array(
+                    'type' => 'filtergt',
+                    'field' => 'id',
+                    'validator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array(
+                        'min_range' => 1
+                    ))
+                ),
+                'limit' => array(
+                    'type' => 'general',
+                    'field' => 'limit',
+                    'validator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array(
+                        'min_range' => 1
+                    ))
+                ),
+                'offset' => array(
+                    'type' => 'general',
+                    'field' => 'offset',
+                    'validator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array(
+                        'min_range' => 1
+                    ))
+                )
+            )
+        );
+
+        $filter = self::formatFilter($validAttributes);
+
+        if (isset($_GET['invitation_status']) && $_GET['invitation_status'] != '') {
+            $statusLiteral = explode(',',$_GET['invitation_status']);
+            $statusMap = array(
+                'send' => erLhAbstractModelProactiveChatCampaignConversion::INV_SEND,
+                'shown' => erLhAbstractModelProactiveChatCampaignConversion::INV_SHOWN,
+                'seen' => erLhAbstractModelProactiveChatCampaignConversion::INV_SEEN,
+                'chat_started' => erLhAbstractModelProactiveChatCampaignConversion::INV_CHAT_STARTED
+            );
+
+            $statuses = array();
+            foreach ($statusLiteral as $item){
+                if (isset($statusMap[$item])){
+                    $statuses[] = $statusMap[$item];
+                }
+            }
+
+            if (!empty($statuses)) {
+                $filter['filterin']['invitation_status'] = $statuses;
+            }
+        }
+        // 0 - PC, 1 - mobile, 2 - tablet
+        if (isset($_GET['device_type']) && $_GET['device_type'] != '') {
+            $statusLiteral = explode(',',$_GET['device_type']);
+            $statusMap = array(
+                'pc' => 0,
+                'mobile' => 1,
+                'tablet' => 2,
+            );
+
+            $statuses = array();
+            foreach ($statusLiteral as $item){
+                if (isset($statusMap[$item])){
+                    $statuses[] = $statusMap[$item];
+                }
+            }
+
+            if (!empty($statuses)) {
+                $filter['filterin']['device_type'] = $statuses;
+            }
+        }
+
+        if (isset($_GET['invitation_type']) && $_GET['invitation_type'] != '') {
+            $statusLiteral = $_GET['invitation_type'];
+            $statusMap = array(
+                'operator' => 2,
+                'system' => 1,
+            );
+
+            if (isset($statusMap[$statusLiteral])){
+                $filter['filter']['invitation_type'] = $statusMap[$statusLiteral];
+            }
+        }
+
+        $filter['sort'] = 'id ' . ((isset($_GET['sort']) && $_GET['sort'] == 'desc') ? 'DESC' : 'ASC');
+
+        // Get chats list
+        $campaignsConversions = erLhAbstractModelProactiveChatCampaignConversion::getList($filter);
+
+        // Get chats count
+        $chatsCount = erLhAbstractModelProactiveChatCampaignConversion::getCount($filter);
+
+        if (isset($_GET['include_invitation']) && $_GET['include_invitation'] == 'true') {
+            erLhcoreClassChat::prefillObjects($campaignsConversions,array(
+                array(
+                    'invitation_id',
+                    'invitation',
+                    'erLhAbstractModelProactiveChatInvitation::getList'
+                ),
+            ));
+        }
+
+        if (isset($_GET['include_invitation']) && $_GET['include_invitation'] == 'true') {
+            erLhcoreClassChat::prefillObjects($campaignsConversions,array(
+                array(
+                    'invitation_id',
+                    'invitation',
+                    'erLhAbstractModelProactiveChatInvitation::getList'
+                ),
+            ));
+        }
+
+        if (isset($_GET['include_onlinevisitor']) && $_GET['include_onlinevisitor'] == 'true') {
+            erLhcoreClassChat::prefillObjects($campaignsConversions,array(
+                array(
+                    'vid_id',
+                    'vid',
+                    'erLhcoreClassModelChatOnlineUser::getList'
+                ),
+            ));
+        }
+
+
+
+        // Chats list
+        return array(
+            'list' => array_values($campaignsConversions),
+            'list_count' => $chatsCount,
+            'error' => false
+        );
     }
 
     /**
