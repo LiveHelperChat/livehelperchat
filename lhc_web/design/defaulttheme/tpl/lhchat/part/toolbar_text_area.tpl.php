@@ -29,7 +29,7 @@
             <div class="dropdown-menu keepopen downdown-menu-color-<?php echo $chat->id?>" style="width: 128px;">
                 <div id="color-picker-chat-<?php echo $chat->id?>"></div>
                 <div class="pr-2 pl-2">
-                    <button class="btn btn-outline-secondary w-100 btn-xs" id="color-apply-<?php echo $chat->id?>" data-selector="<?php echo $bbcodeOptions['selector']?>" onclick="lhinst.handleBBCode($(this))" data-bbcode-end="color" data-bbcode="fs<?php echo 10+$i;?>" >Apply</button>
+                    <button class="btn btn-outline-secondary w-100 btn-xs" id="color-apply-<?php echo $chat->id?>" data-selector="<?php echo $bbcodeOptions['selector']?>" onclick="lhinst.handleBBCode($(this))" data-bbcode-end="color" data-bbcode="fs<?php echo 10+$i;?>" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Apply')?></button>
                 </div>
             </div>
         </div>
