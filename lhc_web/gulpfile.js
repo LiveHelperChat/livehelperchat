@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
 gutil    = require('gulp-util'),
-uglify   = require('gulp-uglify'),
+uglify   = require('gulp-uglify-es').default,
 concat   = require('gulp-concat'),
 watch 	 = require('gulp-watch'),
 webpack = require('webpack'),
@@ -20,7 +20,7 @@ gulp.task('js-hotkeys', function() {
 
 	return gulp.src(stylePath)
 		.pipe(concat('jquery.hotkeys.min.js'))
-		.pipe(uglify({preserveComments: 'some'}))
+		.pipe(uglify())
 		.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -32,7 +32,7 @@ gulp.task('js-cobrowse-operator', function() {
 	
 	return gulp.src(stylePath)
 	.pipe(concat('cobrowse.operator.min.js'))
-	.pipe(uglify({preserveComments: 'some'}))
+	.pipe(uglify())
 	.pipe(gulp.dest('design/defaulttheme/js/cobrowse/compiled'));
 });
 
@@ -43,7 +43,7 @@ gulp.task('js-cobrowse-visitor', function() {
 	
 	return gulp.src(stylePath)
 	.pipe(concat('cobrowse.visitor.min.js'))
-	.pipe(uglify({preserveComments: 'some'}))
+	.pipe(uglify())
 	.pipe(gulp.dest('design/defaulttheme/js/cobrowse/compiled'));
 });
 
@@ -52,7 +52,7 @@ gulp.task('js-angular-main', function() {
 	
 	return gulp.src(stylePath)
 	.pipe(concat('angular.lhc.min.js'))
-	.pipe(uglify({preserveComments: 'some'}))
+	.pipe(uglify())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -62,7 +62,7 @@ gulp.task('js-angular-online', function() {
 	
 	return gulp.src(stylePath)
 	.pipe(concat('angular.lhc.online.min.js'))
-	.pipe(uglify({preserveComments: 'some'}))
+	.pipe(uglify())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -122,7 +122,7 @@ gulp.task('js-angular-checkmodel', function() {
 	
 	return gulp.src(stylePath)
 	.pipe(concat('checklist-model.min.js'))
-	.pipe(uglify({preserveComments: 'some'}))
+	.pipe(uglify())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -135,7 +135,7 @@ gulp.task('js-main-fileupload', function() {
 	
 	return gulp.src(stylePath)
 	.pipe(concat('jquery.fileupload.min.js'))
-	.pipe(uglify({preserveComments: 'some'}))
+	.pipe(uglify())
 	.pipe(gulp.dest('design/defaulttheme/js/fileupload'));
 });
 
@@ -144,7 +144,7 @@ gulp.task('js-datepicker', function() {
 	
 	return gulp.src(stylePath)
 	.pipe(concat('datepicker.min.js'))
-	.pipe(uglify({preserveComments: 'some'}))
+	.pipe(uglify())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -153,7 +153,7 @@ gulp.task('js-lhc-speak-js', function() {
 	
 	return gulp.src(stylePath)
 	.pipe(concat('lhc.speak.min.js'))
-	.pipe(uglify({preserveComments: 'some'}))
+	.pipe(uglify())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -162,7 +162,7 @@ gulp.task('js-lh', function() {
 	
 	return gulp.src(stylePath)
 	.pipe(concat('lh.min.js'))
-	.pipe(uglify({preserveComments: 'some'}))
+	.pipe(uglify())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -171,17 +171,23 @@ gulp.task('js-lh-canned', function() {
 	
 	return gulp.src(stylePath)
 	.pipe(concat('lh.cannedmsg.min.js'))
-	.pipe(uglify({preserveComments: 'some'}))
+	.pipe(uglify())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
-
-
 
 gulp.task('js-lh-dashboard', function() {
 	var stylePath = ['design/defaulttheme/js/lhc.dashboard.js'];	
 	return gulp.src(stylePath)
 	.pipe(concat('lhc.dashboard.min.js'))
-	.pipe(uglify({preserveComments: 'some'}))
+	.pipe(uglify())
+	.pipe(gulp.dest('design/defaulttheme/js'));
+});
+
+gulp.task('js-colorpicker', function() {
+	var stylePath = ['design/defaulttheme/js/color-picker.js'];
+	return gulp.src(stylePath)
+	.pipe(concat('color-picker.min.js'))
+	.pipe(uglify())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -235,7 +241,7 @@ gulp.task('js-cobrowse',gulp.series('js-cobrowse-operator','js-cobrowse-visitor'
 //bower setup
 gulp.task('bower-setup');
 
-gulp.task('default', gulp.series('js-lh-dashboard','js-cobrowse-operator','js-cobrowse-visitor','js-angular-main','js-main-fileupload','js-datepicker','js-lhc-speak-js','js-lh','js-lh-canned','js-angular-checkmodel','js-angular-online','js-lh-npm', function() {
+gulp.task('default', gulp.series('js-lh-dashboard','js-cobrowse-operator','js-cobrowse-visitor','js-angular-main','js-main-fileupload','js-datepicker','js-colorpicker','js-lhc-speak-js','js-lh','js-lh-canned','js-angular-checkmodel','js-angular-online','js-lh-npm', function() {
 	// Just execute all the tasks	
 }));
 

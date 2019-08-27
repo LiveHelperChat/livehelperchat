@@ -23,6 +23,7 @@
     "gulp-react": "^3.1.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^1.5.4",
+    "gulp-uglify-es": "^1.0.4",
     "gulp-util": "~3.0.3",
     "gulp-watch": "^4.3.11",
     "immutable": "^3.8.2",
@@ -38,6 +39,7 @@
     "requirejs-babel-jsx": "^1.0.0",
     "shortid": "^2.2.8",
     "style-loader": "~0.8.3",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "webpack": "^1.15.0"

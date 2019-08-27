@@ -620,7 +620,8 @@ class erLhcoreClassBBCode
     					 '/\[list\=(.*?)\](.*?)\[\/list\]/ms',
     					 '/\[list\](.*?)\[\/list\]/ms',
     					 '/\[\*\]\s?(.*?)\n/ms',
-    					 '/\[fs(.*?)\](.*?)\[\/fs(.*?)\]/ms'
+    					 '/\[fs(.*?)\](.*?)\[\/fs(.*?)\]/ms',
+    					 '/\[color\=(.*?)\](.*?)\[\/color\]/ms'
     	);
 
     	// And replace them by...
@@ -632,7 +633,8 @@ class erLhcoreClassBBCode
     					 '<ol start="\1">\2</ol>',
     					 '<ul>\1</ul>',
     					 '<li>\1</li>',
-    					 '<span style="font-size:\1px">\2</span>'
+    					 '<span style="font-size:\1pt">\2</span>',
+    					 '<span style="color:#\1">\2</span>'
     	);
 
     	$text = preg_replace($in, $out, $text);

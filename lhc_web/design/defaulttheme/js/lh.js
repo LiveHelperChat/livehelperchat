@@ -667,7 +667,7 @@ function lh(){
              if (data.error == 'true') {
             	 alert(data.result);
              } else {
-            	 $('#action-block-row-'+ inst.attr('data-id')+' .send-row').removeClass('hide');
+            	 $('#action-block-row-'+ inst.attr('data-id')).removeClass('hide');
             	 $('#CSChatMessage-'+inst.attr('data-id')).removeAttr('readonly').focus();
             	 $('#chat-status-text-'+inst.attr('data-id')).text(data.status);
             	 inst.remove();
@@ -2340,11 +2340,15 @@ function lh(){
 	this.handleBBCode = function(inst) {
         var str = $(inst.attr('data-selector')).val();
         var selection = this.getInputSelection($(inst.attr('data-selector')));
+
+        var bbcodeend = typeof inst.attr("data-bbcode-end") !== 'undefined' ?  inst.attr("data-bbcode-end") : inst.attr("data-bbcode");
+
         if (selection.length > 0) {
-            $(inst.attr('data-selector')).val(str.replace(selection, "[" + inst.attr("data-bbcode") + "]" + selection + "[/" + inst.attr("data-bbcode") + "]"));
+            $(inst.attr('data-selector')).val(str.replace(selection, "[" + inst.attr("data-bbcode") + "]" + selection + "[/" + bbcodeend + "]"));
         } else {
-            $(inst.attr('data-selector')).val(str + "[" + inst.attr("data-bbcode") + "]" + "[/" + inst.attr("data-bbcode") + "]");
+            $(inst.attr('data-selector')).val(str + "[" + inst.attr("data-bbcode") + "]" + "[/" + bbcodeend + "]");
         }
+        return false;
     }
 
 	this.addAdminChatFinished = function(chat_id, last_message_id, arg) {
@@ -2354,7 +2358,27 @@ function lh(){
 		var $textarea = jQuery('#CSChatMessage-'+chat_id);
 		
 		var cannedMessageSuggest = new LHCCannedMessageAutoSuggest({'chat_id': chat_id,'uppercase_enabled': confLH.auto_uppercase});
-		
+
+        var colorP = new ColorPicker({
+                dom: document.getElementById('color-picker-chat-' + chat_id),
+                value: '#0F0'
+        });
+
+        colorP.addEventListener('change', function (colorItem) {
+            $('#color-apply-'+chat_id).attr('data-bbcode','color='+colorP.getValue('hex'));
+        });
+
+        $('.downdown-menu-color-'+chat_id).on('click', function (e) {
+            if ($(this).parent().is(".show")) {
+                var target = $(e.target);
+                if (target.hasClass("keepopen") || target.parents(".keepopen").length){
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        });
+
 		$textarea.bind('keydown', 'return', function (evt){			
 				_that.addmsgadmin(chat_id);
 				ee.emitEvent('afterAdminMessageSent',[chat_id]);
