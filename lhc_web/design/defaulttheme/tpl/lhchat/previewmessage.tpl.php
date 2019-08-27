@@ -6,9 +6,13 @@
         </div>
         <div class="modal-body">
         <small>
-            <div class="message-row message-admin operator-changes"><span class="usr-tit op-tit"><i class="material-icons chat-operators mi-fs15 mr-0">account_box</i></span>
-                <?php $msgBody = $msg; ?>
-                <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?>
+            <div id="messagesBlockWrap">
+                <div id="messagesBlock">
+                    <div class="message-row message-admin operator-changes"><span class="usr-tit op-tit"><i class="material-icons chat-operators mi-fs15 mr-0">account_box</i>Operator</span>
+                        <?php $msgBody = $msg; ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?>
+                    </div>
+                </div>
             </div>
         </small>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>

@@ -2379,6 +2379,10 @@ function lh(){
             }
         });
 
+        $('.downdown-menu-color-'+chat_id+' .color-item').on('click',function () {
+            colorP.setValue($(this).attr('data-color'));
+        });
+
 		$textarea.bind('keydown', 'return', function (evt){			
 				_that.addmsgadmin(chat_id);
 				ee.emitEvent('afterAdminMessageSent',[chat_id]);

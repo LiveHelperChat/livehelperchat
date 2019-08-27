@@ -26,6 +26,17 @@
             </button>
             <div class="dropdown-menu keepopen downdown-menu-color-<?php echo md5($bbcodeOptions['selector'])?>" style="width: 128px;">
                 <div id="color-picker-chat-<?php echo md5($bbcodeOptions['selector'])?>"></div>
+
+                <?php $colorItems = array('c00000','cf4c6d','ff0000','ffc000','ffff00','89c748','00b050','48c3c7','00b0f0','0070c0','002060','5c2585'); ?>
+
+                <div class="row">
+                    <div class="col-12 text-center ml-2 pb-0 pr-2">
+                        <?php foreach ($colorItems as $colorItem) : ?>
+                            <div class="float-left ml-1 mb-1 color-item" data-color="<?php echo $colorItem?>" style="background-color: #<?php echo $colorItem?>"></div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
                 <div class="pr-2 pl-2">
                     <button class="btn btn-outline-secondary w-100 btn-xs" id="color-apply-<?php echo md5($bbcodeOptions['selector'])?>" data-selector="<?php echo $bbcodeOptions['selector']?>" onclick="lhinst.handleBBCode($(this))" data-bbcode-end="color" data-bbcode="fs<?php echo 10+$i;?>" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Apply')?></button>
                 </div>
@@ -54,6 +65,11 @@
                     }
                 }
             });
+
+            $('.downdown-menu-color-<?php echo md5($bbcodeOptions['selector'])?> .color-item').on('click',function () {
+                colorP.setValue($(this).attr('data-color'));
+            });
+
         })()
     </script>
 

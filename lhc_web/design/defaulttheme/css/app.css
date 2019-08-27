@@ -1467,3 +1467,14 @@ input[type="file"]{
 		transform: rotate(359deg);
 	}
 }
+
+.color-item:hover{
+    -moz-box-shadow: 0 0 4px #454545;
+    -webkit-box-shadow: 0 0 4px #454545;
+    box-shadow: 0 0 4px #454545;
+}
+
+.color-item{
+    width: 20px;height: 20px;
+    cursor: pointer;
+}
