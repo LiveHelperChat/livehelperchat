@@ -26,6 +26,7 @@ if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value
             }
         }
 
+        // @todo add here
         $userInstance->conversion_id = 0;
         $userInstance->message_seen = 1;
         $userInstance->message_seen_ts = time();

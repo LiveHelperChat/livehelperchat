@@ -73,6 +73,11 @@
 </div>
 
 <div class="form-group">		
+<label><?php echo $fields['show_everytime']['trans'];?></label>
+<?php echo erLhcoreClassAbstract::renderInput('show_everytime', $fields['show_everytime'], $object)?>
+</div>
+
+<div class="form-group">
 <label><?php echo $fields['show_random_operator']['trans'];?></label>
 <?php echo erLhcoreClassAbstract::renderInput('show_random_operator', $fields['show_random_operator'], $object)?>
 </div>
