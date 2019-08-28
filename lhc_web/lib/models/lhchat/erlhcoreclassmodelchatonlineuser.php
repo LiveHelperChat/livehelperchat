@@ -85,6 +85,22 @@ class erLhcoreClassModelChatOnlineUser
     public function __get($var)
     {
         switch ($var) {
+
+            case 'nick':
+                $this->nick = 'V' . $this->id;
+                if (isset($this->online_attr_system_array['username']) && $this->online_attr_system_array['username'] != ''){
+                    $this->nick = $this->online_attr_system_array['username'];
+                    $this->has_nick = true;
+                } else if (isset($this->online_attr_array['lhc.nick']['value']) && $this->online_attr_array['lhc.nick']['value'] != '') {
+                    $this->nick = $this->online_attr_array['lhc.nick']['value'];
+                    $this->has_nick = true;
+                } elseif (isset($this->online_attr_array['username']) && $this->online_attr_array['username'] != ''){
+                    $this->nick = $this->online_attr_array['username'];
+                    $this->has_nick = true;
+                }
+                return $this->nick;
+                break;
+
             case 'last_visit_front':
                 return $this->last_visit_front = date(erLhcoreClassModule::$dateDateHourFormat, $this->last_visit);
                 break;
@@ -750,8 +766,14 @@ class erLhcoreClassModelChatOnlineUser
 
                 // Hide invitation message after n times if required
                 if ($item->has_message_from_operator == true && $item->invitation !== false && $item->invitation->hide_after_ntimes > 0 && $item->invitation_seen_count > $item->invitation->hide_after_ntimes) {
-                    $item->message_seen = 1;
-                    $item->message_seen_ts = time();
+                    if (isset($item->invitation->design_data_array['show_everytime']) && $item->invitation->design_data_array['show_everytime'] == true) {
+                        $item->operator_message = '';
+                        $item->message_seen = 0;
+                        $item->message_seen_ts = 0;
+                    } else {
+                        $item->message_seen = 1;
+                        $item->message_seen_ts = time();
+                    }
                 }
             }
 
@@ -872,6 +894,8 @@ class erLhcoreClassModelChatOnlineUser
     public $last_check_time = 0;
     public $user_active = 0;
     public $conversion_id = 0;
+
+    public $has_nick = false;
 
     // 0 - do not reopen
     // 1 - reopen chat

@@ -80,7 +80,16 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhc
 
             $chat->saveThis();
 
-	  		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.modified', array('chat' => & $chat, 'params' => $Params));
+            $userInstance = $chat->online_user;
+
+            if ($userInstance instanceof erLhcoreClassModelChatOnlineUser && $chat->nick != erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor')) {
+                $onlineAttr = $userInstance->online_attr_system_array;
+                $onlineAttr['username'] = $chat->nick;
+                $userInstance->online_attr_system = json_encode($onlineAttr);
+                $userInstance->saveThis();
+            }
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.modified', array('chat' => & $chat, 'params' => $Params));
 
 	  		$tpl->set('chat_updated',true);
 	  	} else {

@@ -507,6 +507,19 @@ if (isset($_POST['askQuestion']))
        $userInstance->message_seen_ts = time();
        $userInstance->chat_id = $chat->id;
        $userInstance->conversion_id = 0;
+
+        if ($chat->nick != erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor')) {
+            $onlineAttr = $userInstance->online_attr_system_array;
+            if (!isset($onlineAttr['username'])){
+                $onlineAttr['username'] = $chat->nick;
+                $userInstance->online_attr_system = json_encode($onlineAttr);
+            }
+        } elseif ($chat->nick == erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor')){
+            if ($userInstance->nick && $userInstance->has_nick) {
+                $chat->nick = $userInstance->nick;
+            }
+        }
+
        $userInstance->saveThis();
 
        $chat->online_user_id = $userInstance->id;

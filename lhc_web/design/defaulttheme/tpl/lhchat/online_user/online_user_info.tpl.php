@@ -10,6 +10,11 @@
 <?php if (!empty($online_user->identifier)) : ?><br/><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Identifier');?> - <?php echo htmlspecialchars($online_user->identifier)?><?php endif;?>
 </p>
 
+<?php if ($online_user->nick != '' && $online_user->has_nick) : ?>
+    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Nick')?></h5>
+    <p><?php echo htmlspecialchars($online_user->nick)?></p>
+<?php endif; ?>
+
 <?php if ($online_user->online_attr != '') : ?>
 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Additional information')?></h5>
     <ul class="circle">
