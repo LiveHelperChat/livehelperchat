@@ -311,7 +311,7 @@ class erLhAbstractModelProactiveChatInvitation {
 
 	    $item->operator_user_proactive = $message->operator_name;
 	    $item->invitation_id = $message->id;
-	    $item->invitation_seen_count = 0;
+	    $item->invitation_seen_count = 1;
 	    $item->requires_email = $message->requires_email;
 	    $item->requires_username = $message->requires_username;
 	    $item->requires_phone = $message->requires_phone;
@@ -398,7 +398,7 @@ class erLhAbstractModelProactiveChatInvitation {
 
                 $item->operator_user_proactive = $message->operator_name;
                 $item->invitation_id = $message->id;
-                $item->invitation_seen_count = 0;
+                $item->invitation_seen_count = 1;
                 $item->requires_email = $message->requires_email;
                 $item->requires_username = $message->requires_username;
                 $item->requires_phone = $message->requires_phone;
