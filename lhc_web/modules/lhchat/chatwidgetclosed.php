@@ -26,10 +26,16 @@ if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value
             }
         }
 
-        // @todo add here
+        if ($userInstance->invitation !== false && isset($userInstance->invitation->design_data_array['show_everytime']) && $userInstance->invitation->design_data_array['show_everytime'] == true) {
+            $userInstance->operator_message = '';
+            $userInstance->message_seen = 0;
+            $userInstance->message_seen_ts = 0;
+        } else {
+            $userInstance->message_seen = 1;
+            $userInstance->message_seen_ts = time();
+        }
+
         $userInstance->conversion_id = 0;
-        $userInstance->message_seen = 1;
-        $userInstance->message_seen_ts = time();
         $userInstance->saveThis();
     }
 }
