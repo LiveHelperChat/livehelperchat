@@ -1158,6 +1158,7 @@ input[type="file"]{
 	bottom:54px;
 	border:1px solid #ddd;
 	font-size:12px;
+    z-index:999;
 }
 
 .current-hash-content{
