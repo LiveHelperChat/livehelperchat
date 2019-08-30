@@ -186,8 +186,12 @@ gulp.task('js-lh-dashboard', function() {
 gulp.task('js-colorpicker', function() {
 	var stylePath = ['design/defaulttheme/js/color-picker.js'];
 	return gulp.src(stylePath)
+
 	.pipe(concat('color-picker.min.js'))
-	.pipe(uglify())
+    .pipe(babel({
+            presets: ['es2015']
+        }))
+	.pipe(uglify({mangle: false, ecma: 5}))
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
