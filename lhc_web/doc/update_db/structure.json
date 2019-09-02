@@ -4652,7 +4652,7 @@
             },
             {
                 "field": "user_agent",
-                "type": "varchar(250)",
+                "type": "text",
                 "null": "NO",
                 "key": "",
                 "default": null,

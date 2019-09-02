@@ -1431,7 +1431,7 @@ try {
         	   	  `invitation_count` int(11) NOT NULL,
         	   	  `last_check_time` int(11) NOT NULL,
         	   	  `dep_id` int(11) NOT NULL,        	   	 
-                  `user_agent` varchar(250) NOT NULL,
+                  `user_agent` text NOT NULL,
                   `notes` varchar(250) NOT NULL,
                   `user_country_code` varchar(50) NOT NULL,
                   `user_country_name` varchar(50) NOT NULL,
