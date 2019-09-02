@@ -13,7 +13,7 @@
 	<div class="col-2 sub-action-chat" id="sub-action-chat-<?php echo $chat->id?>">
         <div class="row d-flex">
             <div class="col pl-0 pr-2">
-                <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Fill textarea with canned message')?>" href="#" onclick="$('#CSChatMessage-<?php echo $chat->id?>').val(($('#id_CannedMessage-<?php echo $chat->id?>').val() > 0) ? $('#id_CannedMessage-<?php echo $chat->id?>').find(':selected').attr('data-msg') : '');return false;" class="btn btn-secondary w-100 btn-sm"><i class="material-icons mr-0">mode_edit</i></a>
+                <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Fill textarea with canned message')?>" href="#" onclick="$('#CSChatMessage-<?php echo $chat->id?>').val(($('#id_CannedMessage-<?php echo $chat->id?>').val() > 0) ? $('#id_CannedMessage-<?php echo $chat->id?>').find(':selected').attr('data-msg') : '');return false;" class="btn btn-secondary w-100 btn-sm fill-editor-canned"><i class="material-icons mr-0">mode_edit</i></a>
             </div>
             <div class="col pl-0 pr-2">
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/send_delayed_canned_action.tpl.php')); ?>
