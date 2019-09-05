@@ -602,6 +602,10 @@ div.message-admin+div.message-admin .msg-date,div.message-row.response+div.messa
 	margin:0;
 }
 
+.btn-block-department .dropdown-menu{
+    min-width: 15rem;
+}
+
 .btn-block-department label:hover{
 	background-color:#ececec;
 }

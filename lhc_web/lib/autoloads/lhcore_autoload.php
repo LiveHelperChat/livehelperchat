@@ -218,7 +218,9 @@ return array_merge(array (
 		'MaxMind\Db\Reader'							=> 'lib/core/lhexternal/MaxMind/Db/Reader.php',		
 		'MaxMind\Db\Reader\Decoder'					=> 'lib/core/lhexternal/MaxMind/Db/Reader/Decoder.php',		
 		'MaxMind\Db\Reader\Metadata'				=> 'lib/core/lhexternal/MaxMind/Db/Reader/Metadata.php',		
-		'JsonSerializable'							=> 'lib/core/lhexternal/GeoIp2/Record/JsonSerializable.php',	
+		'JsonSerializable'							=> 'lib/core/lhexternal/GeoIp2/Record/JsonSerializable.php',
+
+		'lhCountries'						    	=> 'lib/core/lhexternal/lhcountries.php',
 
         // Speech
         'erLhcoreClassSpeech'                       => 'lib/core/lhspeech/lhspeech.php',

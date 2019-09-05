@@ -1494,6 +1494,12 @@ class erLhcoreClassChat {
    			$param = (int)$param;
    		}
    }
+
+   public static function validateFilterInString(& $params) {
+   		foreach ($params as & $param) {
+   			$param =  preg_replace('/[^a-zA-Z0-9]/', '', $param );
+   		}
+   }
    
    /*
     * Example of call

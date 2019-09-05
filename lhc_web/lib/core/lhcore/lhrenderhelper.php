@@ -179,8 +179,9 @@ class erLhcoreClassRenderHelper {
                         </button>
                         <ul class="dropdown-menu" role="menu">
                         <li class="btn-block-department-filter">
-                        <input type="text" class="form-control input-sm" value="" />
-</li>
+                            <input type="text" class="form-control input-sm" value="" />
+                            <div class="selected-items-filter"></div>
+                        </li>
                         ';
 
         $items = call_user_func($params['list_function'],isset($params['list_function_params']) ? $params['list_function_params'] : array());

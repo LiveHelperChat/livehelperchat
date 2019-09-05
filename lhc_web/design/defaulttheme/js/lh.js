@@ -3774,6 +3774,56 @@ $.fn.makeDropdown = function() {
         e.stopPropagation();
     })
 
+    var selectedItems = [];
+
+    var _this = this;
+
+    _this.each(function () {
+        var selectedItems = $(this).find('.selected-items-filter');
+        selectedItems.html('');
+
+        $(this).find('.btn-department-dropdown').attr('data-text',$(this).find('.btn-department-dropdown').text());
+
+        var itemsSelectedCount = 0;
+        $(this).find('li input:checked').each(function () {
+            selectedItems.prepend('<div class="fs12"><a data-stoppropagation="true" class="delete-item" data-value="'+$(this).val()+'"><i class="material-icons chat-unread">delete</i>' + $(this).parent().text() + "</a></div>");
+            itemsSelectedCount++;
+        })
+
+        if (itemsSelectedCount > 0) {
+            $(this).find('.btn-department-dropdown').text('['+itemsSelectedCount+'] '+$(this).find('.btn-department-dropdown').attr('data-text'));
+        }
+
+        var _thisItem = $(this);
+        _thisItem.find('li input').change(function() {
+            selectedItems.html('');
+            var itemsSelectedCount = 0;
+            _thisItem.find('li input:checked').each(function () {
+                selectedItems.prepend('<div class="fs12"><a data-stoppropagation="true" class="delete-item" data-value="'+$(this).val()+'"><i class="material-icons chat-unread">delete</i>' + $(this).parent().text() + "</a></div>");
+                itemsSelectedCount++;
+            })
+
+            if (itemsSelectedCount > 0) {
+                _thisItem.find('.btn-department-dropdown').text('['+itemsSelectedCount+'] '+_thisItem.find('.btn-department-dropdown').attr('data-text'));
+            } else {
+                _thisItem.find('.btn-department-dropdown').text(_thisItem.find('.btn-department-dropdown').attr('data-text'));
+            }
+        });
+        $(this).on('click','.delete-item',function () {
+            _thisItem.find('input[value='+$(this).attr('data-value')+']').prop('checked',false);
+            $(this).parent().remove();
+
+            var itemsSelectedCount = _thisItem.find('li input:checked').length;
+
+            if (itemsSelectedCount > 0) {
+                _thisItem.find('.btn-department-dropdown').text('['+itemsSelectedCount+'] '+_thisItem.find('.btn-department-dropdown').attr('data-text'));
+            } else {
+                _thisItem.find('.btn-department-dropdown').text(_thisItem.find('.btn-department-dropdown').attr('data-text'));
+            }
+        });
+    });
+
+
     filterInput.keyup(function(){
         var filter = $(this).val();
         $(this).parent().parent().children('li').each(function(i) {
