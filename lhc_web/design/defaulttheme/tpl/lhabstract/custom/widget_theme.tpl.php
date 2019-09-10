@@ -330,6 +330,11 @@
         		    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text changes')?></h3>
         		
             		<div class="form-group">										
+    				<label><?php echo $fields['placeholder_message']['trans'];?></label>
+    				<?php echo erLhcoreClassAbstract::renderInput('placeholder_message', $fields['placeholder_message'], $object)?>
+    				</div>
+
+                    <div class="form-group">
     				<label><?php echo $fields['bot_status_text']['trans'];?></label>
     				<?php echo erLhcoreClassAbstract::renderInput('bot_status_text', $fields['bot_status_text'], $object)?>
     				</div>
