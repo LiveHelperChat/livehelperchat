@@ -585,8 +585,8 @@ $autoStartResult = erLhcoreClassChatValidator::validateAutoStart(array(
     'inputData' => $inputData,
     'chat' => $chat,
     'startDataFields' => $startDataFields,
-    'modeAppend' => $modeAppend,
-    'modeAppendTheme' => $modeAppendTheme,
+    'modeAppend' => '',
+    'modeAppendTheme' => $themeAppend,
     'popup' => true
 ));
 
