@@ -1609,6 +1609,22 @@ class erLhcoreClassChatValidator {
                     }
                 }
 
+                if ($chat->product_id > 0) {
+                    $department = $chat->product->departament;
+                } elseif ($chat->department !== false) {
+                    $department = $chat->department;
+                }
+                
+                if ($department !== false && $department->department_transfer_id > 0) {
+                    $chat->transfer_if_na = 1;
+                    $chat->transfer_timeout_ts = time();
+                    $chat->transfer_timeout_ac = $department->transfer_timeout;
+                }
+
+                if ($department !== false && $department->inform_unread == 1) {
+                    $chat->reinform_timeout = $department->inform_unread_delay;
+                }
+
                 if (isset($_GET['URLReferer']))
                 {
                     $chat->referrer = $_GET['URLReferer'];
