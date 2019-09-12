@@ -1809,16 +1809,22 @@ class erLhcoreClassChatValidator {
                     $db->rollback();
                 }
 
-                 if (isset($params['invitation_mode']) && $params['invitation_mode'] == 1){
+                 if (isset($params['invitation_mode']) && $params['invitation_mode'] == 1) {
                      $callBack = '/(cstarted)/chat_started_by_invitation_cb';
                  } else {
                      $callBack = '/(cstarted)/online_chat_started_cb';
                  }
 
-                 // Redirect user
-                 $Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat') . '/' . $chat->id . '/' . $chat->hash . (isset($params['modeAppend']) ? $params['modeAppend'] : null) . $params['modeAppendTheme'] . $callBack);
+                 if (isset($params['popup']) && $params['popup'] == true) {
+                     $baseURL = erLhcoreClassDesign::baseurlRerun('chat/chat');
+                 } else {
+                     $baseURL = erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat');
+                 }
 
-                 return $Result;
+                 // Redirect user
+                 $Result = erLhcoreClassModule::reRun($baseURL . '/' . $chat->id . '/' . $chat->hash . (isset($params['modeAppend']) ? $params['modeAppend'] : null) . $params['modeAppendTheme'] . $callBack);
+
+                return $Result;
             }
         }
 

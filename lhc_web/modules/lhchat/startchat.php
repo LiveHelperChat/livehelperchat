@@ -579,6 +579,22 @@ if (isset($_POST['r']))
 	$tpl->set('referer_site',$_POST['r']);
 }
 
+// Auto start chat
+$autoStartResult = erLhcoreClassChatValidator::validateAutoStart(array(
+    'params' => $Params,
+    'inputData' => $inputData,
+    'chat' => $chat,
+    'startDataFields' => $startDataFields,
+    'modeAppend' => $modeAppend,
+    'modeAppendTheme' => $modeAppendTheme,
+    'popup' => true
+));
+
+if ($autoStartResult !== false) {
+    $Result = $autoStartResult;
+    return;
+}
+
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.startchat',array('result' => & $Result,'tpl' => & $tpl, 'params' => & $Params, 'inputData' => & $inputData));
 
 $Result['content'] = $tpl->fetch();
