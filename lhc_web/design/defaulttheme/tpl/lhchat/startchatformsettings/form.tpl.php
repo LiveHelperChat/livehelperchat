@@ -27,6 +27,9 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
     <div class="col-6">
         <label><input type="checkbox" name="AutoStartChat" value="on" <?php (isset($start_chat_data['auto_start_chat']) && $start_chat_data['auto_start_chat'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Auto start chat if there is no required fields. Usefull in case bot handles chat.');?></label>
     </div>
+    <div class="col-6">
+        <label><input type="checkbox" name="MobilePopup" value="on" <?php (isset($start_chat_data['mobile_popup']) && $start_chat_data['mobile_popup'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Open popup on mobile devices using mobile layout.');?></label>
+    </div>
 </div>
 
 <div role="tabpanel">

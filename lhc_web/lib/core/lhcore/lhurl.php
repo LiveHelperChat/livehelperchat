@@ -41,14 +41,15 @@ class erLhcoreClassURL extends ezcUrl {
             $urlCfgDefault->addOrderedParameter( 'siteaccess' );
             $urlCfgDefault->addOrderedParameter( 'module' );
             $urlCfgDefault->addOrderedParameter( 'function' );
-            
+
             $cfgSite = erConfigClassLhConfig::getInstance();
             
             $baseUrl =  ($cfgSite->getSetting( 'site', 'force_virtual_host', false) === false ? 'index.php' : '');
             
             $urlInstance = new erLhcoreClassURL($baseUrl . $sysConfiguration->RequestURI, $urlCfgDefault);
             $urlInstance->baseUrl = $baseUrl;
-            
+            $urlInstance->setQuery(ezcUrlTools::parseQueryString(ltrim($sysConfiguration->QueryString,'?')));
+
             $siteaccess = $urlInstance->getParam( 'siteaccess' );
 
             $availableSiteaccess = $cfgSite->getSetting( 'site', 'available_site_access' );

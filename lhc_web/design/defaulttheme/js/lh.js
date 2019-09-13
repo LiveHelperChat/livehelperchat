@@ -2670,9 +2670,6 @@ function lh(){
 	        }
         }
 
-		if (typeof focusArea !== 'undefined' && focusArea == true) {
-            textArea.focus();
-        }
     };
 
     this.addMessagesToStore = function(messages)

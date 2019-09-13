@@ -663,6 +663,10 @@ if (isset($_POST['r']))
     $tpl->set('referer_site',$_POST['r']);
 }
 
+if (isset($Params['user_parameters_unordered']['survey']) && is_numeric($Params['user_parameters_unordered']['survey'])){
+    $modeAppendTheme .= '/(survey)/' . $Params['user_parameters_unordered']['survey'];
+}
+
 // Auto start chat
 $autoStartResult = erLhcoreClassChatValidator::validateAutoStart(array(
     'params' => $Params,
