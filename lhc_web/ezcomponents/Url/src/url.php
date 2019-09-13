@@ -443,6 +443,44 @@ class ezcUrl
         return $result;
     }
 
+    public function buildUrlParams($excludeParams = true)
+    {
+        $url = '';
+
+        if ($excludeParams == false)
+        {
+            if ( $this->params && count( $this->params ) != 0 )
+            {
+                $url .= '/' . implode( '/', $this->params );
+            }
+        }
+
+        if ( $this->uparams && count( $this->uparams ) != 0 )
+        {
+            foreach ( $this->properties['uparams'] as $key => $encounters )
+            {
+                foreach ( $encounters as $encounter => $values )
+                {
+                    $url .= '/(' . $key . ')/' . implode( '/', $values );
+                }
+            }
+        }
+
+        return $url;
+    }
+
+    public function buildUrlQuery()
+    {
+        $url = '';
+
+        if ( $this->query )
+        {
+            $url .= '?' . http_build_query( $this->query );
+        }
+
+        return $url;
+    }
+
     /**
      * Returns this URL as a string.
      *

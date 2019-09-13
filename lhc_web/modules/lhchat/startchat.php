@@ -129,6 +129,14 @@ if (is_numeric($inputData->departament_id) && $inputData->departament_id > 0 && 
     $startDataFields = (array)$startData->data;
 }
 
+if (isset($startDataFields['mobile_popup']) && $startDataFields['mobile_popup'] == true){
+    $detect = new Mobile_Detect;
+    if ($detect->isMobile()) {
+        $Result = erLhcoreClassModule::reRun(erLhcoreClassDesign::baseurlRerun('chat/chatwidget') . erLhcoreClassURL::getInstance()->buildUrlParams() . erLhcoreClassURL::getInstance()->buildUrlQuery());
+        return true;
+    }
+}
+
 // Allow extension override start chat fields
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.startchat_data_fields',array('data_fields' => & $startDataFields, 'params' => $Params));
 

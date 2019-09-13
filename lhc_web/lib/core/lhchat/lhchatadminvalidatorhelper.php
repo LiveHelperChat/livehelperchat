@@ -297,6 +297,9 @@ class erLhcoreClassAdminChatValidatorHelper {
             'AutoStartChat' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
+            'MobilePopup' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
 	    
 	        // TOS
 	        'OfflineTOSVisibleInPopup' => new ezcInputFormDefinitionElement(
@@ -389,6 +392,12 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        $data['auto_start_chat'] = false;
 	    }
 
+	    if ( $form->hasValidData( 'MobilePopup' ) && $form->MobilePopup == true ) {
+	        $data['mobile_popup'] = true;
+	    } else {
+	        $data['mobile_popup'] = false;
+	    }
+	    
 	    // TOS
 	    if ( $form->hasValidData( 'TOSVisibleInPopup' ) && $form->TOSVisibleInPopup == true ) {
 	        $data['tos_visible_in_popup'] = true;
