@@ -2,38 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Berapa hari widget pemungutan suara tidak harus diperluas setelah pertunjukan yang terakhir</translation>
     </message>
@@ -160,6 +128,10 @@
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
       <translation>Apakah undangan percakapan pro aktif diaktifkan. Pengguna Online pelacakan juga harus diaktifkan</translation>
+    </message>
+    <message>
+      <source>Preload iframes. It will avoid loading delay after clicking widget</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>How many seconds customer has to open already closed chat.</source>
@@ -619,6 +591,10 @@
     </message>
     <message>
       <source>Text content before user fields</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2310,10 +2286,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Title/Message</source>
       <translation>Judul/Pesan</translation>
     </message>
@@ -2568,6 +2540,29 @@
     <message>
       <source>Are you sure?</source>
       <translation>Apakah kamu yakin?</translation>
+    </message>
+  </context>
+  <context>
+    <name>audit/options</name>
+    <message>
+      <source>Audit Configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many days keep log?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>What objects changes log?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Options</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3494,6 +3489,61 @@
     </message>
   </context>
   <context>
+    <name>chat/bbcodeinsert</name>
+    <message>
+      <source>Image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bold</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Italic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter link to an image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Here is a link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Positive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Neutral</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Negative</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Things</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Money</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/blockedusers</name>
     <message>
       <source>IP</source>
@@ -3927,317 +3977,6 @@
     <message>
       <source>Survey not exist please check embed code options</source>
       <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/startchat</name>
-    <message>
-      <source>Department is disabled</source>
-      <translation>Departemen nonaktif</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Enter your email address</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telepon</translation>
-    </message>
-    <message>
-      <source>Enter your phone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Masukkan pesan anda</translation>
-    </message>
-    <message>
-      <source>Your question</source>
-      <translation>Pertanyaan anda</translation>
-    </message>
-    <message>
-      <source>Please enter a message...</source>
-      <translation>Silakan masukkan pesan...</translation>
-    </message>
-    <message>
-      <source>Please provide a department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Nama</translation>
-    </message>
-    <message>
-      <source>Enter your name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message here...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live support is not available in your country</source>
-      <translation>Dukungan Langsung tidak tersedia di negara Anda</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>Dukungan langsung</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave a message</source>
-      <translation>Saat ini tidak ada operator yang online, silakan tinggalkan pesan</translation>
-    </message>
-    <message>
-      <source>File</source>
-      <translation>File</translation>
-    </message>
-    <message>
-      <source>Your request was sent!</source>
-      <translation>Permintaan anda telah terkirim!</translation>
-    </message>
-    <message>
-      <source>Leave a message</source>
-      <translation>Tinggalkan pesan</translation>
-    </message>
-    <message>
-      <source>Send message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>I accept my personal data will be handled according to</source>
-      <translation>Saya menerima data pribadi saya akan ditangani sesuai dengan</translation>
-    </message>
-    <message>
-      <source>our terms and to the Law</source>
-      <translation>syarat dan ketentuan hukum kami</translation>
-    </message>
-    <message>
-      <source>Start chat</source>
-      <translation>Mulai percakapan</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departemen</translation>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation>Offline</translation>
-    </message>
-    <message>
-      <source>Have a question? Ask us!</source>
-      <translation>Ada pertanyaan? Tanyakan kepada kami!</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Ketik pesan Anda di sini dan tekan enter untuk mengirim..</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Kirim</translation>
-    </message>
-    <message>
-      <source>Department is offline</source>
-      <translation>Departemen sedang offline</translation>
-    </message>
-    <message>
-      <source>Go to leave a message form</source>
-      <translation>Pergi ke formulir tinggalkan pesan</translation>
-    </message>
-    <message>
-      <source>Cancel and choose another department</source>
-      <translation>Batalkan dan pilih departemen lainnya</translation>
-    </message>
-    <message>
-      <source>characters</source>
-      <translation>Karakter</translation>
-    </message>
-    <message>
-      <source>Personal assistant</source>
-      <translation>Asisten pribadi</translation>
-    </message>
-    <message>
-      <source>Fill out this form to start a chat</source>
-      <translation>Isikan formulir ini untuk memulai percakapan</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave your message</source>
-      <translation>Saat ini tidak ada operator yang online, silakan tinggalkan pesan anda</translation>
-    </message>
-    <message>
-      <source>Me</source>
-      <translation>Saya</translation>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation>Produk</translation>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation>Pilih produk</translation>
-    </message>
-    <message>
-      <source>Choose your language</source>
-      <translation>Pilih bahasa Anda</translation>
-    </message>
-    <message>
-      <source>Invalid CSRF token!</source>
-      <translation>Token CSRF tidak sah</translation>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation>Silakan masukkan alamat email yang sah</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>Maksimal 50 karakter</translation>
-    </message>
-    <message>
-      <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>Anda tidak memiliki izin untuk memulai percakapan! Silakan hubungi pemilik situs.</translation>
-    </message>
-    <message>
-      <source>Please enter your name</source>
-      <translation>Silakan masukkan nama anda</translation>
-    </message>
-    <message>
-      <source>Maximum 100 characters</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter your message</source>
-      <translation>Silakan masukkan pesan anda</translation>
-    </message>
-    <message>
-      <source>Maximum</source>
-      <translation>Maximal</translation>
-    </message>
-    <message>
-      <source>characters for a message</source>
-      <translation>karakter untuk sebuah pesan</translation>
-    </message>
-    <message>
-      <source>You have to accept our Terms Of Service</source>
-      <translation>Anda harus menerima syarat dan ketentuan kami</translation>
-    </message>
-    <message>
-      <source>Please enter your phone</source>
-      <translation>Silakan masukkan telepon anda</translation>
-    </message>
-    <message>
-      <source>Maximum 100 characters for phone</source>
-      <translation>Maksimal 100 karakter untuk telepon</translation>
-    </message>
-    <message>
-      <source>Invalid file</source>
-      <translation>File tidak valid</translation>
-    </message>
-    <message>
-      <source>Please choose department!</source>
-      <translation>Silahkan pilih departemen</translation>
-    </message>
-    <message>
-      <source>Could not find a product!</source>
-      <translation>Tidak dapat menemukan produk!</translation>
-    </message>
-    <message>
-      <source>Please choose</source>
-      <translation>Silahkan pilih</translation>
-    </message>
-    <message>
-      <source>Could not determine a default department!</source>
-      <translation>Tidak dapat menentukan departemen default!</translation>
-    </message>
-    <message>
-      <source>Please choose a product!</source>
-      <translation>Silakan pilih produk!</translation>
-    </message>
-    <message>
-      <source>At the moment department is overloaded, please choose a different department or try again later!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>is required</source>
-      <translation>diperlukan</translation>
-    </message>
-    <message>
-      <source>Could not decrypt data!</source>
-      <translation>Tidak dapat decrypt data!</translation>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>Pengunjung</translation>
-    </message>
-    <message>
-      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid file extension</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was transferred to operator!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was transferred to bot!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Button action could not be found!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Trigger could not be found!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Update actions could not be found!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a message, max characters</source>
-      <translation>Silahkan masukkan sebuah pesan, max karakter</translation>
-    </message>
-    <message>
-      <source>You cannot send messages to this chat. Please refresh your browser.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pending Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unread message</source>
-      <translation>Pesan belum terbaca</translation>
-    </message>
-    <message>
-      <source>New message from operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Transfer Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Assigned Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Fill in the form to start a chat</source>
-      <translation>Isi formulir untuk memulai percakapan</translation>
     </message>
   </context>
   <context>
@@ -4692,6 +4431,317 @@
     <message>
       <source>Expand or collapse right menu</source>
       <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/startchat</name>
+    <message>
+      <source>Department is disabled</source>
+      <translation>Departemen nonaktif</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Enter your email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telepon</translation>
+    </message>
+    <message>
+      <source>Enter your phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Masukkan pesan anda</translation>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>Pertanyaan anda</translation>
+    </message>
+    <message>
+      <source>Please enter a message...</source>
+      <translation>Silakan masukkan pesan...</translation>
+    </message>
+    <message>
+      <source>Please provide a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nama</translation>
+    </message>
+    <message>
+      <source>Enter your name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type your message here...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live support is not available in your country</source>
+      <translation>Dukungan Langsung tidak tersedia di negara Anda</translation>
+    </message>
+    <message>
+      <source>Live Support</source>
+      <translation>Dukungan langsung</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave a message</source>
+      <translation>Saat ini tidak ada operator yang online, silakan tinggalkan pesan</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation>File</translation>
+    </message>
+    <message>
+      <source>Your request was sent!</source>
+      <translation>Permintaan anda telah terkirim!</translation>
+    </message>
+    <message>
+      <source>Leave a message</source>
+      <translation>Tinggalkan pesan</translation>
+    </message>
+    <message>
+      <source>Send message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>I accept my personal data will be handled according to</source>
+      <translation>Saya menerima data pribadi saya akan ditangani sesuai dengan</translation>
+    </message>
+    <message>
+      <source>our terms and to the Law</source>
+      <translation>syarat dan ketentuan hukum kami</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>Mulai percakapan</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departemen</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation>Offline</translation>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation>Ada pertanyaan? Tanyakan kepada kami!</translation>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Ketik pesan Anda di sini dan tekan enter untuk mengirim..</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Kirim</translation>
+    </message>
+    <message>
+      <source>Department is offline</source>
+      <translation>Departemen sedang offline</translation>
+    </message>
+    <message>
+      <source>Go to leave a message form</source>
+      <translation>Pergi ke formulir tinggalkan pesan</translation>
+    </message>
+    <message>
+      <source>Cancel and choose another department</source>
+      <translation>Batalkan dan pilih departemen lainnya</translation>
+    </message>
+    <message>
+      <source>characters</source>
+      <translation>Karakter</translation>
+    </message>
+    <message>
+      <source>Personal assistant</source>
+      <translation>Asisten pribadi</translation>
+    </message>
+    <message>
+      <source>Fill out this form to start a chat</source>
+      <translation>Isikan formulir ini untuk memulai percakapan</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave your message</source>
+      <translation>Saat ini tidak ada operator yang online, silakan tinggalkan pesan anda</translation>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation>Saya</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Produk</translation>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation>Pilih produk</translation>
+    </message>
+    <message>
+      <source>Choose your language</source>
+      <translation>Pilih bahasa Anda</translation>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation>Token CSRF tidak sah</translation>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation>Silakan masukkan alamat email yang sah</translation>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>Maksimal 50 karakter</translation>
+    </message>
+    <message>
+      <source>You do not have permission to chat! Please contact site owner.</source>
+      <translation>Anda tidak memiliki izin untuk memulai percakapan! Silakan hubungi pemilik situs.</translation>
+    </message>
+    <message>
+      <source>Please enter your name</source>
+      <translation>Silakan masukkan nama anda</translation>
+    </message>
+    <message>
+      <source>Maximum 100 characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter your message</source>
+      <translation>Silakan masukkan pesan anda</translation>
+    </message>
+    <message>
+      <source>Maximum</source>
+      <translation>Maximal</translation>
+    </message>
+    <message>
+      <source>characters for a message</source>
+      <translation>karakter untuk sebuah pesan</translation>
+    </message>
+    <message>
+      <source>You have to accept our Terms Of Service</source>
+      <translation>Anda harus menerima syarat dan ketentuan kami</translation>
+    </message>
+    <message>
+      <source>Please enter your phone</source>
+      <translation>Silakan masukkan telepon anda</translation>
+    </message>
+    <message>
+      <source>Maximum 100 characters for phone</source>
+      <translation>Maksimal 100 karakter untuk telepon</translation>
+    </message>
+    <message>
+      <source>Invalid file</source>
+      <translation>File tidak valid</translation>
+    </message>
+    <message>
+      <source>Please choose department!</source>
+      <translation>Silahkan pilih departemen</translation>
+    </message>
+    <message>
+      <source>Could not find a product!</source>
+      <translation>Tidak dapat menemukan produk!</translation>
+    </message>
+    <message>
+      <source>Please choose</source>
+      <translation>Silahkan pilih</translation>
+    </message>
+    <message>
+      <source>Could not determine a default department!</source>
+      <translation>Tidak dapat menentukan departemen default!</translation>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation>Silakan pilih produk!</translation>
+    </message>
+    <message>
+      <source>At the moment department is overloaded, please choose a different department or try again later!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>diperlukan</translation>
+    </message>
+    <message>
+      <source>Could not decrypt data!</source>
+      <translation>Tidak dapat decrypt data!</translation>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>Pengunjung</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was transferred to operator!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was transferred to bot!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button action could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trigger could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update actions could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a message, max characters</source>
+      <translation>Silahkan masukkan sebuah pesan, max karakter</translation>
+    </message>
+    <message>
+      <source>You cannot send messages to this chat. Please refresh your browser.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unread message</source>
+      <translation>Pesan belum terbaca</translation>
+    </message>
+    <message>
+      <source>New message from operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fill in the form to start a chat</source>
+      <translation>Isi formulir untuk memulai percakapan</translation>
     </message>
   </context>
   <context>
@@ -5722,6 +5772,10 @@
     </message>
     <message>
       <source>Audit Logs</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Configuration</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7853,6 +7907,10 @@
       <source>Archive configuration</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Departments list</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>cobrowse/browse</name>
@@ -7992,10 +8050,6 @@
     <message>
       <source>System configuration</source>
       <translation>Konfigurasi sistem</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>Departemen</translation>
     </message>
   </context>
   <context>
@@ -8408,6 +8462,37 @@
     </message>
   </context>
   <context>
+    <name>genericbot/import</name>
+    <message>
+      <source>Import group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group imported</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot imported</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>user/edit</name>
     <message>
       <source>Photo</source>
@@ -8496,37 +8581,6 @@
     <message>
       <source>User edit</source>
       <translation>Edit pengguna</translation>
-    </message>
-  </context>
-  <context>
-    <name>genericbot/import</name>
-    <message>
-      <source>Import group</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>File</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Import</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Group imported</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Import bot</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bot imported</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid file!</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -9469,8 +9523,8 @@
       <translation>Silakan masukkan umpan balikmu!</translation>
     </message>
     <message>
-      <source>You have already send your feedback!</source>
-      <translation>Anda sudah mengirimkan umpan balik anda!</translation>
+      <source>You have already sent your feedback!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -9490,10 +9544,6 @@
   </context>
   <context>
     <name>speech/language</name>
-    <message>
-      <source>Language</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Dialects</source>
       <translation type="unfinished"/>
@@ -10870,6 +10920,109 @@
     </message>
   </context>
   <context>
+    <name>chat/chatcommand</name>
+    <message>
+      <source>Nick changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status changed on-hold!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was transferred to bot!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You do not have permission to transfer chat directly!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User was redirected!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Screenshot was scheduled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User was redirected to contact form!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User was blocked!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Started chat from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Refered from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Current page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was closed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You do not have permission to close a chat!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was deleted!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You do not have permission to delete a chat!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status was changed to pending!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat status was changed to active!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remarks were saved!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/accepttrasnfer</name>
     <message>
       <source>Chat has been transfered to</source>
@@ -11117,7 +11270,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please enter translation!</source>
+      <source>Please enter default translation!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -11145,6 +11298,25 @@
     <name>departament/editgroup</name>
     <message>
       <source>Please enter a department group name</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/validation</name>
+    <message>
+      <source>Authorization failed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Authorization header is missing!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find chat by chat_id!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You do not have permission to read this chat!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -11437,6 +11609,33 @@
     </message>
   </context>
   <context>
+    <name>chat/transferuser</name>
+    <message>
+      <source>has changed owner to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat owner was changed to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has transferred chat to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was assigned to selected department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was assigned to selected user</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/updatemsguser</name>
     <message>
       <source>User has edited his last message</source>
@@ -11448,6 +11647,25 @@
     <message>
       <source>View archived chat</source>
       <translation>Tampilkan percakapan terarsip</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhchatsettings/startchat</name>
+    <message>
+      <source>Start chat form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat settings list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit start chat settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New start chat settings</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -11522,229 +11740,6 @@
     <name>statistic/onlinehours</name>
     <message>
       <source>Online Hours</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/bbcodeinsert</name>
-    <message>
-      <source>Image</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Link</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Link title</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bold</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Italic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter link to an image</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a link</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Here is a link</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Positive</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Neutral</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Negative</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Things</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Money</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/chatcommand</name>
-    <message>
-      <source>Nick changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat status changed on-hold!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was transferred to bot!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You do not have permission to transfer chat directly!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User could not be found!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone changed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was redirected!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Screenshot was scheduled!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was redirected to contact form!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User was blocked!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Started chat from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Refered from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Current page</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was closed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You do not have permission to close a chat!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was deleted!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You do not have permission to delete a chat!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat status was changed to pending!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat status was changed to active!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Remarks were saved!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>lhrestapi/validation</name>
-    <message>
-      <source>Authorization failed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Authorization header is missing!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not find chat by chat_id!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You do not have permission to read this chat!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/transferuser</name>
-    <message>
-      <source>has changed owner to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat owner was changed to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>has transferred chat to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was assigned to selected department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was assigned to selected user</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>lhchatsettings/startchat</name>
-    <message>
-      <source>Start chat form settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Start chat settings list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit start chat settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New start chat settings</source>
       <translation type="unfinished"/>
     </message>
   </context>

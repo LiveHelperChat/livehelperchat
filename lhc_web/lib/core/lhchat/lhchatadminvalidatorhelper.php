@@ -300,6 +300,9 @@ class erLhcoreClassAdminChatValidatorHelper {
             'MobilePopup' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
+            'DontAutoProcess' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
 	    
 	        // TOS
 	        'OfflineTOSVisibleInPopup' => new ezcInputFormDefinitionElement(
@@ -396,6 +399,12 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        $data['mobile_popup'] = true;
 	    } else {
 	        $data['mobile_popup'] = false;
+	    }
+
+	    if ( $form->hasValidData( 'DontAutoProcess' ) && $form->DontAutoProcess == true ) {
+	        $data['dont_auto_process'] = true;
+	    } else {
+	        $data['dont_auto_process'] = false;
 	    }
 	    
 	    // TOS

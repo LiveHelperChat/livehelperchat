@@ -30,6 +30,9 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
     <div class="col-6">
         <label><input type="checkbox" name="MobilePopup" value="on" <?php (isset($start_chat_data['mobile_popup']) && $start_chat_data['mobile_popup'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Open popup on mobile devices using mobile layout.');?></label>
     </div>
+    <div class="col-6">
+        <label><input type="checkbox" name="DontAutoProcess" value="on" <?php (isset($start_chat_data['dont_auto_process']) && $start_chat_data['dont_auto_process'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Do not process internal pages and use redirects.');?></label>
+    </div>
 </div>
 
 <div role="tabpanel">

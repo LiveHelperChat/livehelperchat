@@ -1831,14 +1831,23 @@ class erLhcoreClassChatValidator {
                      $callBack = '/(cstarted)/online_chat_started_cb';
                  }
 
+                 $baseURLBasic = '';
                  if (isset($params['popup']) && $params['popup'] == true) {
                      $baseURL = erLhcoreClassDesign::baseurlRerun('chat/chat');
+                     $baseURLBasic = 'chat/chat';
                  } else {
                      $baseURL = erLhcoreClassDesign::baseurlRerun('chat/chatwidgetchat');
+                     $baseURLBasic = 'chat/chatwidgetchat';
                  }
 
-                 // Redirect user
-                 $Result = erLhcoreClassModule::reRun($baseURL . '/' . $chat->id . '/' . $chat->hash . (isset($params['modeAppend']) ? $params['modeAppend'] : null) . $params['modeAppendTheme'] . $callBack);
+                 if (isset($params['startDataFields']['dont_auto_process']) && $params['startDataFields']['dont_auto_process'] == true) {
+                     erLhcoreClassModule::redirect($baseURLBasic, '/' . $chat->id . '/' . $chat->hash . (isset($params['modeAppend']) ? $params['modeAppend'] : null) . $params['modeAppendTheme'] . $callBack);
+                     exit;
+                 } else {
+                     // Redirect user
+                     $Result = erLhcoreClassModule::reRun($baseURL . '/' . $chat->id . '/' . $chat->hash . (isset($params['modeAppend']) ? $params['modeAppend'] : null) . $params['modeAppendTheme'] . $callBack);
+                 }
+
 
                 return $Result;
             }
