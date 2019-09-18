@@ -1483,3 +1483,14 @@ input[type="file"]{
     width: 20px;height: 20px;
     cursor: pointer;
 }
+
+.survey-star-item svg{
+    opacity: 0.5;
+    color:#0575a2;
+    cursor: pointer;
+}
+
+.survey-stars-row .survey-selected-item svg, .survey-stars-row .hover svg {
+    transform: scale(1.3);
+    opacity: 1;
+}
