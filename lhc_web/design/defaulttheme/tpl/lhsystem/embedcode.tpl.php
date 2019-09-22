@@ -105,7 +105,9 @@ function generateEmbedCode() {
       '<?php echo $chatOptionsVariablePage?>.opt = {};\n'+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatusembed<?php isset($userArgument) ? print $userArgument : ''?>'+uaArguments+id_hide_then_offline+id_theme+id_operator+id_show_leave_form+id_department+'\';'+"\n"+
+        'var referrer = (document.referrer) ? encodeURIComponent(document.referrer.substr(document.referrer.indexOf(\'://\')+1)) : \'\';'+"\n"+
+        'var location  = (document.location) ? encodeURIComponent(window.location.href.substring(window.location.protocol.length)) : \'\';'+"\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatusembed<?php isset($userArgument) ? print $userArgument : ''?>'+uaArguments+id_hide_then_offline+id_theme+id_operator+id_show_leave_form+id_department+'?r=\'+referrer+\'&l=\'+location;'+"\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';

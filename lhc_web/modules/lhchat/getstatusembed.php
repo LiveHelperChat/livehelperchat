@@ -46,7 +46,7 @@ if (is_array($Params['user_parameters_unordered']['ua'])){
 } else {
     $tpl->set('uarguments',false);
 }
-
+$tpl->set('referrer',isset($_GET['r']) ? rawurldecode($_GET['r']) : '');
 $tpl->set('priority',is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false);
 $tpl->set('theme',is_numeric($Params['user_parameters_unordered']['theme']) ? (int)$Params['user_parameters_unordered']['theme'] : false);
 $tpl->set('operator',is_numeric($Params['user_parameters_unordered']['operator']) ? (int)$Params['user_parameters_unordered']['operator'] : false);
