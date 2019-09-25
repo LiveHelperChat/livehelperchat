@@ -2,6 +2,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -1146,6 +1154,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Placeholder for message text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
       <translation type="unfinished"/>
     </message>
@@ -1433,6 +1445,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Show everytime it is matched</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Requires phone</source>
       <translation type="unfinished"/>
     </message>
@@ -1701,6 +1717,10 @@
     </message>
     <message>
       <source>Auto start chat if there is no required fields. Usefull in case bot handles chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Open popup on mobile devices using mobile layout.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2568,6 +2588,46 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Strike</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Quote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Youtube</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTML Code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bold</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Italic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Underline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Font Size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Apply</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Insert image or file</source>
       <translation type="unfinished"/>
     </message>
@@ -3408,20 +3468,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>This chat is closed.</source>
-      <translation>هذه المحادثة مغلقة.</translation>
-    </message>
-    <message>
-      <source>Pending confirm</source>
-      <translation>بانتظار الموافقة</translation>
+      <source>Type your message here...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Close</source>
       <translation>أغلق</translation>
-    </message>
-    <message>
-      <source>Type your message here...</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send</source>
@@ -3434,6 +3486,14 @@
     <message>
       <source>Increase height</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This chat is closed.</source>
+      <translation>هذه المحادثة مغلقة.</translation>
+    </message>
+    <message>
+      <source>Pending confirm</source>
+      <translation>بانتظار الموافقة</translation>
     </message>
     <message>
       <source>Load more...</source>
@@ -3967,15 +4027,15 @@
   <context>
     <name>chat/chatnotexists</name>
     <message>
-      <source>Resume chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Chat was deleted</source>
       <translation>أُزِيلَت المحادثة</translation>
     </message>
     <message>
       <source>Survey not exist please check embed code options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Resume chat</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -4436,6 +4496,10 @@
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>Please enter a message...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation type="unfinished"/>
     </message>
@@ -4464,7 +4528,7 @@
       <translation>سؤالك</translation>
     </message>
     <message>
-      <source>Please enter a message...</source>
+      <source>Type your message here and hit enter to send...</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4533,10 +4597,6 @@
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4788,6 +4848,10 @@
     </message>
     <message>
       <source>You are number {number} in the queue. Please wait...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5341,6 +5405,10 @@
     </message>
     <message>
       <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick</source>
       <translation type="unfinished"/>
     </message>
     <message>

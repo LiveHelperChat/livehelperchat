@@ -2,6 +2,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por cuantos días el widget de votación no será expandido después de mostrarlo la última vez</translation>
     </message>
@@ -1146,6 +1154,10 @@
       <translation>Tamaño de letra del botón</translation>
     </message>
     <message>
+      <source>Placeholder for message text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
       <translation>No permita que el visitante edite el mensaje anterior presionando la flecha hacia arriba</translation>
     </message>
@@ -1433,6 +1445,10 @@
       <translation>Mostrar en móvil</translation>
     </message>
     <message>
+      <source>Show everytime it is matched</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Requires phone</source>
       <translation>Requiere teléfono</translation>
     </message>
@@ -1702,6 +1718,10 @@
     <message>
       <source>Auto start chat if there is no required fields. Usefull in case bot handles chat.</source>
       <translation>Iniciar automáticamente el chat si no hay campos obligatorios. Útil en caso de no manejar el chat.</translation>
+    </message>
+    <message>
+      <source>Open popup on mobile devices using mobile layout.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online form settings</source>
@@ -2568,6 +2588,46 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Strike</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Quote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Youtube</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTML Code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bold</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Italic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Underline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Font Size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Apply</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Insert image or file</source>
       <translation>Insertar imagen o archivo</translation>
     </message>
@@ -3408,20 +3468,12 @@
       <translation>Cancelar</translation>
     </message>
     <message>
-      <source>This chat is closed.</source>
-      <translation>Este chat está cerrado.</translation>
-    </message>
-    <message>
-      <source>Pending confirm</source>
-      <translation>En espera de confirmación</translation>
+      <source>Type your message here...</source>
+      <translation>Escribe tu mensaje aquí...</translation>
     </message>
     <message>
       <source>Close</source>
       <translation>Cerrar</translation>
-    </message>
-    <message>
-      <source>Type your message here...</source>
-      <translation>Escribe tu mensaje aquí...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3434,6 +3486,14 @@
     <message>
       <source>Increase height</source>
       <translation>Aumentar altura</translation>
+    </message>
+    <message>
+      <source>This chat is closed.</source>
+      <translation>Este chat está cerrado.</translation>
+    </message>
+    <message>
+      <source>Pending confirm</source>
+      <translation>En espera de confirmación</translation>
     </message>
     <message>
       <source>Load more...</source>
@@ -3967,16 +4027,16 @@
   <context>
     <name>chat/chatnotexists</name>
     <message>
-      <source>Resume chat</source>
-      <translation>Reanudar el chat</translation>
-    </message>
-    <message>
       <source>Chat was deleted</source>
       <translation>El chat ha sido eliminado</translation>
     </message>
     <message>
       <source>Survey not exist please check embed code options</source>
       <translation>La encuesta no existe, por favor verifique las opciones de código de inserción</translation>
+    </message>
+    <message>
+      <source>Resume chat</source>
+      <translation>Reanudar el chat</translation>
     </message>
   </context>
   <context>
@@ -4436,6 +4496,10 @@
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>Please enter a message...</source>
+      <translation>Por favor ingrese su mensaje...</translation>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation>El departamento esta deshabilitado</translation>
     </message>
@@ -4464,8 +4528,8 @@
       <translation>Su pregunta</translation>
     </message>
     <message>
-      <source>Please enter a message...</source>
-      <translation>Por favor ingrese su mensaje...</translation>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Escriba su mensaje aquí y presione enter para enviar...</translation>
     </message>
     <message>
       <source>Please provide a department</source>
@@ -4534,10 +4598,6 @@
     <message>
       <source>Have a question? Ask us!</source>
       <translation>¿Tiene alguna duda? Escribanos</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Escriba su mensaje aquí y presione enter para enviar...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -4789,6 +4849,10 @@
     <message>
       <source>You are number {number} in the queue. Please wait...</source>
       <translation>Eres el número {number} en la cola. Por favor espere...</translation>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
@@ -5342,6 +5406,10 @@
     <message>
       <source>Identifier</source>
       <translation>Identificador</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Additional information</source>

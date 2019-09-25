@@ -22,6 +22,7 @@ class erLhcoreClassModelGenericBotTrigger {
             'actions' => $this->actions,
         	'default' => $this->default,
         	'default_unknown' => $this->default_unknown,
+        	'default_always' => $this->default_always,
         );
 
         return $stateArray;
@@ -78,4 +79,5 @@ class erLhcoreClassModelGenericBotTrigger {
     public $bot_id = 0;
     public $default = 0;
     public $default_unknown = 0;
+    public $default_always = 0;
 }

@@ -2,6 +2,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Wie viele Tage lang soll das Bewertungs-Widget seit der letzten Anzeige nicht erweitert werden</translation>
     </message>
@@ -1146,6 +1154,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Placeholder for message text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
       <translation type="unfinished"/>
     </message>
@@ -1433,6 +1445,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Show everytime it is matched</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Requires phone</source>
       <translation type="unfinished"/>
     </message>
@@ -1701,6 +1717,10 @@
     </message>
     <message>
       <source>Auto start chat if there is no required fields. Usefull in case bot handles chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Open popup on mobile devices using mobile layout.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2568,6 +2588,46 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Strike</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Quote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Youtube</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTML Code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bold</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Italic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Underline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Font Size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Apply</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Insert image or file</source>
       <translation type="unfinished"/>
     </message>
@@ -3408,20 +3468,12 @@
       <translation>Abbrechen</translation>
     </message>
     <message>
-      <source>This chat is closed.</source>
-      <translation>Dieser Chat wurde geschlossen.</translation>
-    </message>
-    <message>
-      <source>Pending confirm</source>
-      <translation>Warte auf Bestätigung</translation>
+      <source>Type your message here...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Close</source>
       <translation>Schließen</translation>
-    </message>
-    <message>
-      <source>Type your message here...</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send</source>
@@ -3434,6 +3486,14 @@
     <message>
       <source>Increase height</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This chat is closed.</source>
+      <translation>Dieser Chat wurde geschlossen.</translation>
+    </message>
+    <message>
+      <source>Pending confirm</source>
+      <translation>Warte auf Bestätigung</translation>
     </message>
     <message>
       <source>Load more...</source>
@@ -3967,16 +4027,16 @@
   <context>
     <name>chat/chatnotexists</name>
     <message>
-      <source>Resume chat</source>
-      <translation>Chat fortsetzen</translation>
-    </message>
-    <message>
       <source>Chat was deleted</source>
       <translation>Chat wurde gelöscht</translation>
     </message>
     <message>
       <source>Survey not exist please check embed code options</source>
       <translation>Umfrage existiert nicht. Bitte prüfen Sie die Einbettungscode-Optionen</translation>
+    </message>
+    <message>
+      <source>Resume chat</source>
+      <translation>Chat fortsetzen</translation>
     </message>
   </context>
   <context>
@@ -4436,6 +4496,10 @@
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>Please enter a message...</source>
+      <translation>Bitte Nachricht eingeben...</translation>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation>Abteilung wurde deaktiviert</translation>
     </message>
@@ -4464,8 +4528,8 @@
       <translation>Ihre Frage</translation>
     </message>
     <message>
-      <source>Please enter a message...</source>
-      <translation>Bitte Nachricht eingeben...</translation>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Hier die Nachricht eingeben und für das Senden auf Enter drücken...</translation>
     </message>
     <message>
       <source>Please provide a department</source>
@@ -4534,10 +4598,6 @@
     <message>
       <source>Have a question? Ask us!</source>
       <translation>Sie haben eine Frage? Fragen Sie uns!</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Hier die Nachricht eingeben und für das Senden auf Enter drücken...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -4788,6 +4848,10 @@
     </message>
     <message>
       <source>You are number {number} in the queue. Please wait...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5342,6 +5406,10 @@
     <message>
       <source>Identifier</source>
       <translation>Kennzeichnung</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Additional information</source>

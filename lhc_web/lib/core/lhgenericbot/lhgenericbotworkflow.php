@@ -7,6 +7,12 @@ class erLhcoreClassGenericBotWorkflow {
     public static function findEvent($text, $botId, $type = 0, $paramsFilter = array(), $paramsExecution = array())
     {
         $bot = erLhcoreClassModelGenericBotBot::fetch($botId);
+
+        // Avoid double execution
+        if (self::$currentAlwaysEvent !== null) {
+            $paramsFilter['filternot']['id'] = self::$currentAlwaysEvent->id;
+        }
+
         $events = erLhcoreClassModelGenericBotTriggerEvent::getList(array_merge_recursive(array('sort' => 'priority ASC', 'filterin' => array('bot_id' => $bot->getBotIds()),'filter' => array('type' => $type),'filterlikeright' => array('pattern' => $text)),$paramsFilter));
 
         foreach ($events as $event) {
@@ -43,6 +49,11 @@ class erLhcoreClassGenericBotWorkflow {
     public static function findTextMatchingEvent($messageText, $botId, $paramsFilter = array(), $paramsExecution = array())
     {
         $bot = erLhcoreClassModelGenericBotBot::fetch($botId);
+
+        // Avoid double execution
+        if (self::$currentAlwaysEvent !== null) {
+            $paramsFilter['filternot']['id'] = self::$currentAlwaysEvent->id;
+        }
 
         $rulesMatching = erLhcoreClassModelGenericBotTriggerEvent::getList(array_merge_recursive(array('sort' => 'priority ASC', 'filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => array('type' => 2)), $paramsFilter));
 
@@ -117,7 +128,24 @@ class erLhcoreClassGenericBotWorkflow {
 
     public static $currentEvent = null;
 
+    public static $currentAlwaysEvent = null;
+
     public static function userMessageAdded(& $chat, $msg) {
+
+        // Execute rest workflow if chat is in full bot mode
+        if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT)
+        {
+            $response = self::sendAlwaysDefault($chat, $chat->chat_variables_array['gbot_id'], $msg);
+
+            if ($response === true) {
+
+                $chatEvent = erLhcoreClassModelGenericBotChatEvent::findOne(array('filter' => array('chat_id' => $chat->id)));
+                if ($chatEvent instanceof erLhcoreClassModelGenericBotChatEvent) {
+                    $chatEvent->removeThis();
+                }
+                return;
+            }
+        }
 
         // Try to find current callback handler just
         $chatEvent = erLhcoreClassModelGenericBotChatEvent::findOne(array('filter' => array('chat_id' => $chat->id)));
@@ -241,6 +269,38 @@ class erLhcoreClassGenericBotWorkflow {
                 self::setLastMessageId($chat, $message->id, true);
             }
         }
+    }
+
+    // Send default always message if there is any
+    public static function sendAlwaysDefault(& $chat, $botId, $msg = null)
+    {
+        $bot = erLhcoreClassModelGenericBotBot::fetch($botId);
+
+        $trigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => array('default_always' => 1)));
+
+        if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+
+            $event = self::findTextMatchingEvent($msg->msg, $chat->chat_variables_array['gbot_id'], array('filter' => array('trigger_id' => $trigger->id)), array('dep_id' => $chat->dep_id));
+
+            if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent)){
+                $event = self::findEvent($msg->msg, $chat->chat_variables_array['gbot_id'], 0, array('filter' => array('trigger_id' => $trigger->id)), array('dep_id' => $chat->dep_id));
+            }
+
+            if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
+                
+                self::processTrigger($chat, $event->trigger, true, array('args' => array('msg' => $msg)));
+
+                self::$currentAlwaysEvent = $event;
+
+                if ($event->on_start_type == 2) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        return false;
     }
 
     public static function getWordParams($word){
