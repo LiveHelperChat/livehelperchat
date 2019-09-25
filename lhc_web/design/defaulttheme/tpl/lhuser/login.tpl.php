@@ -9,7 +9,7 @@
 <?php endif;?>
 
 <?php if (isset($session_ended)) : ?>
-    <?php $errors = array(erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','You session has ended. Please login!')); ?>
+    <?php $errors = array(erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Your session has ended. Please login!')); ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif;?>
 
