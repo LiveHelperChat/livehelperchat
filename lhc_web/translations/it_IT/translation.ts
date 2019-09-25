@@ -2,6 +2,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -1146,6 +1154,10 @@
       <translation>Dimensione testo Pulsante </translation>
     </message>
     <message>
+      <source>Placeholder for message text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
       <translation>Non consentire al visitatore di modificare il messaggio precedente premendo la freccia su</translation>
     </message>
@@ -1434,6 +1446,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Mostra sui dispositivi mobili</translation>
     </message>
     <message>
+      <source>Show everytime it is matched</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Requires phone</source>
       <translation>Telefono richiesto</translation>
     </message>
@@ -1705,6 +1721,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Auto start chat if there is no required fields. Usefull in case bot handles chat.</source>
       <translation>Avvia automaticamente la chat se non ci sono campi obbligatori. Utile nel caso in cui bot gestisca la chat.</translation>
+    </message>
+    <message>
+      <source>Open popup on mobile devices using mobile layout.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online form settings</source>
@@ -2571,6 +2591,46 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Strike</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Quote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Youtube</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTML Code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bold</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Italic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Underline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Font Size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Apply</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Insert image or file</source>
       <translation>Inserisci immagine o file</translation>
     </message>
@@ -3411,20 +3471,12 @@ Icona colonna, testo icone materiale</translation>
       <translation>Annulla</translation>
     </message>
     <message>
-      <source>This chat is closed.</source>
-      <translation>Questa chat è chiusa.</translation>
-    </message>
-    <message>
-      <source>Pending confirm</source>
-      <translation>In attesa di conferma</translation>
+      <source>Type your message here...</source>
+      <translation>Scrivi il tuo messaggio qui...</translation>
     </message>
     <message>
       <source>Close</source>
       <translation>Chiudi</translation>
-    </message>
-    <message>
-      <source>Type your message here...</source>
-      <translation>Scrivi il tuo messaggio qui...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -3437,6 +3489,14 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Increase height</source>
       <translation>Aumentare l&apos;altezza</translation>
+    </message>
+    <message>
+      <source>This chat is closed.</source>
+      <translation>Questa chat è chiusa.</translation>
+    </message>
+    <message>
+      <source>Pending confirm</source>
+      <translation>In attesa di conferma</translation>
     </message>
     <message>
       <source>Load more...</source>
@@ -3970,16 +4030,16 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>chat/chatnotexists</name>
     <message>
-      <source>Resume chat</source>
-      <translation>Riprendi chat</translation>
-    </message>
-    <message>
       <source>Chat was deleted</source>
       <translation>La chat è stata cancellata</translation>
     </message>
     <message>
       <source>Survey not exist please check embed code options</source>
       <translation>Sondaggio non esistente, controlla le opzioni del codice di incorporamento</translation>
+    </message>
+    <message>
+      <source>Resume chat</source>
+      <translation>Riprendi chat</translation>
     </message>
   </context>
   <context>
@@ -4439,6 +4499,10 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>Please enter a message...</source>
+      <translation>Si prega di inserire un messaggio ...</translation>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation>Dipartimento disattivato</translation>
     </message>
@@ -4467,8 +4531,8 @@ Icona colonna, testo icone materiale</translation>
       <translation>La tua domanda</translation>
     </message>
     <message>
-      <source>Please enter a message...</source>
-      <translation>Si prega di inserire un messaggio ...</translation>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Digita qui il tuo messaggio e premi INVIO per inviare...</translation>
     </message>
     <message>
       <source>Please provide a department</source>
@@ -4537,10 +4601,6 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Have a question? Ask us!</source>
       <translation>Hai una domanda? Chiedi a noi!</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Digita qui il tuo messaggio e premi INVIO per inviare...</translation>
     </message>
     <message>
       <source>Send</source>
@@ -4792,6 +4852,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>You are number {number} in the queue. Please wait...</source>
       <translation>Sei il numero {numero} in coda. Attendere prego...</translation>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
@@ -5345,6 +5409,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Identifier</source>
       <translation>Identificatore</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Additional information</source>
