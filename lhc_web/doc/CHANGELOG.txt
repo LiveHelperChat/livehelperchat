@@ -1,3 +1,36 @@
+3.25v
+
+1. Embeded live help widget also will track referrer page.
+2. Toolbar above messages area.
+3. Survey stars will be shown as stars.
+4. Option to use redirect instead of internal load during start chat. This will avoid refreshing page and starting new chat each time. Can be set in start chat form settings.
+5. Avoid invalid character shown if quates is used in translation for operator typing text.
+6. Popup opening in widget will automatically load mobile layout. Possible to set this in start chat form settings.
+7. Theme was not passed in auto start chat behaviour.
+8. Automatic transfer between departments was not handled in auto start environment.
+9. Option to change placeholder text in widget from themes.
+10. Improve multiselect dropdown behaviour. Selected items will be shown at top.
+11. Changed penging save message design to match chat style.
+12. Toolbar for operator admin.
+13. Once you set visitor nick it will be remembered for next chat sessions also.
+14. Removed autofocus in widgets.
+15. Hungarian language.
+16. Autoresponder multi-language support fixes. Was not saving correctly checked languages.
+17. New bot trigger type, execute always. This will allow specific trigger to be executed at any moment on bot chat conversation. Usefull to have it for visitor quickly switch to human.
+It supports two "Chat start behaviour"
+"Instant execution (Executes and continues workflow)" - this will execute trigger always and continue normal workflow.
+"Instant execution and block (executes and blocks further triggers execution)" - this will execute trigger and will not continue normal workflow.
+You can use second one to transfer chat to operator. This type of trigger has to have event defined.
+
+
+execute doc/update_db/update_200.sql for update
+
+3.24v
+
+1. You can preload now widgets whcih will eliminate loading delay of widgets. (System configuration -> Chat Configuration -> Misc -> Preload widget. It will avoid loading delay after clicking widget)
+
+execute doc/update_db/update_199.sql for update
+
 3.23v
 
 1. Proactive invitations now support Injecting HTML directly in website. Usefull if you want to show let say some custom modal window then mouse leaves a page.
