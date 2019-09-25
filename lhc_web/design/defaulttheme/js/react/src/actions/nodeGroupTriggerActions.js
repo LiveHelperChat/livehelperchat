@@ -223,6 +223,19 @@ export function setDefaultUnknownTrigger(obj) {
     }
 }
 
+export function setDefaultAlwaysTrigger(obj) {
+    return function(dispatch) {
+        dispatch({type: "SET_DEFAULT_ALWAYS_TRIGGER", payload : obj});
+
+        axios.post(WWW_DIR_JAVASCRIPT + "genericbot/setdefaultalwaystrigger/" + obj.get('id') + '/' +  obj.get('default_always'))
+                .then((response) => {
+                dispatch({type: "SET_DEFAULT_ALWAYS_FULFILLED", payload: response.data})
+        }).catch((err) => {
+                dispatch({type: "SET_DEFAULT_ALWAYS_REJECTED", payload: err})
+        })
+    }
+}
+
 export function initBot(botId) {
     return function(dispatch) {
         dispatch({type: "INIT_BOT", payload : botId});

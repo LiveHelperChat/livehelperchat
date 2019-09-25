@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { fetchNodeGroupTriggerAction, removeTrigger, setDefaultTrigger, setDefaultUnknownTrigger } from "../actions/nodeGroupTriggerActions"
+import { fetchNodeGroupTriggerAction, removeTrigger, setDefaultTrigger, setDefaultUnknownTrigger, setDefaultAlwaysTrigger } from "../actions/nodeGroupTriggerActions"
 import { connect } from "react-redux";
 
 @connect((store) => {
@@ -17,6 +17,7 @@ class NodeGroupTrigger extends Component {
         this.removeTrigger = this.removeTrigger.bind(this);
         this.setDefaultTrigger = this.setDefaultTrigger.bind(this);
         this.setDefaultUnknownTrigger = this.setDefaultUnknownTrigger.bind(this);
+        this.setDefaultAlwaysTrigger = this.setDefaultAlwaysTrigger.bind(this);
     }
 
     loadTriggerActions() {
@@ -35,6 +36,11 @@ class NodeGroupTrigger extends Component {
     setDefaultUnknownTrigger(e) {
         const value = e.target.checked;
         this.props.dispatch(setDefaultUnknownTrigger(this.props.trigger.set('default_unknown',value == true ? 1 : 0)));
+    }
+
+    setDefaultAlwaysTrigger(e) {
+        const value = e.target.checked;
+        this.props.dispatch(setDefaultAlwaysTrigger(this.props.trigger.set('default_always',value == true ? 1 : 0)));
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -71,6 +77,10 @@ class NodeGroupTrigger extends Component {
             classNameCurrent = classNameCurrent + ' btn-warning';
         }
 
+        if (this.props.trigger.get('default_always') == 1) {
+            classNameCurrent = classNameCurrent + ' btn-info';
+        }
+
         //<li><a href="#" ng-click="changeGroup(trigger)"><i class="material-icons">&#xE8D2;</i>Change Group</a></li>
         //<li><a href="#" ng-click="duplicateTrigger(trigger)"><i class="material-icons">&#xE14D;</i>Duplicate</a></li>
 
@@ -84,6 +94,7 @@ class NodeGroupTrigger extends Component {
                             <li className="dropdown-item"><a href="#" onClick={this.removeTrigger}><i class="material-icons">delete</i> Delete</a></li>
                             <li className="dropdown-item"><label title="This message will be send tu visitor then chat starts"><input onChange={this.setDefaultTrigger} type="checkbox" checked={this.props.trigger.get('default')} />Default</label></li>
                             <li className="dropdown-item"><label title="This message will be send to visitor then we could dot determine what we should do"><input onChange={this.setDefaultUnknownTrigger} type="checkbox" checked={this.props.trigger.get('default_unknown')} />Default for unknown</label></li>
+                            <li className="dropdown-item"><label title="This trigger will be always checking independently in what process we are"><input onChange={this.setDefaultAlwaysTrigger} type="checkbox" checked={this.props.trigger.get('default_always')} />Execute always</label></li>
                         </ul>
                     </div>
                 </li>
