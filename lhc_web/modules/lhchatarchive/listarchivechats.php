@@ -14,6 +14,12 @@ if (isset($_GET['doSearch'])) {
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
+// Chat id has to be replaced to table one
+if (isset($filterParams['filter']['filter']['`lh_chat`.`id`'])) {
+    $filterParams['filter']['filter']['`lh_chat_archive_' . $Params['user_parameters']['id'] . '`.`id`'] = $filterParams['filter']['filter']['`lh_chat`.`id`'];
+    unset($filterParams['filter']['filter']['`lh_chat`.`id`']);
+}
+
 // Set correct archive tables
 $archive->setTables();
 
