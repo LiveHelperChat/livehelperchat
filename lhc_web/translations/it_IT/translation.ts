@@ -10761,7 +10761,7 @@ Icona colonna, testo icone materiale</translation>
       <translation>Recupera password</translation>
     </message>
     <message>
-      <source>You session has ended. Please login!</source>
+      <source>Your session has ended. Please login!</source>
       <translation>La vostra sessione è terminata. Prego eseguire l&apos;accesso.</translation>
     </message>
     <message>
