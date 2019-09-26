@@ -1,4 +1,5 @@
-<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Send mail to the user');?></h2>
+<?php $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Send mail to the user');?>
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 
 <?php if (isset($errors)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
@@ -7,14 +8,14 @@
 <?php if (isset($message_saved) && $message_saved == 'true') : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Mail was sent to the user'); ?>
 <script>
 setTimeout(function(){
-	parent.lhinst.updateVoteStatus('<?php echo $chat->id?>');
-    parent.$('#myModal').modal('hide');
+	lhinst.updateVoteStatus('<?php echo $chat->id?>');
+    $('#myModal').modal('hide');
 },3000);
 </script>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('chat/sendmail')?>/<?php echo $chat->id?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
 
 	<div class="form-group">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Recipient');?></label>
@@ -47,10 +48,14 @@ setTimeout(function(){
 	<?php endif;?>
 
     <textarea class="form-control form-group" name="Message" id="MailMessage" style="height:100px" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Type your message to the user');?>"><?php echo isset($_POST['Message']) ? htmlspecialchars($_POST['Message']) : ''?></textarea>
-    
+
+    <input type="hidden" value="on" name="SendMail" />
+
     <div class="btn-group" role="group" aria-label="...">
         <input type="submit" class="btn btn-secondary" name="SendMail" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Send the mail');?>" />
-        <input type="button" class="btn btn-secondary" onclick="return lhc.revealModal({'iframe':true,'height':350,'url':WWW_DIR_JAVASCRIPT +'file/attatchfilemail'})" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Embed link to file');?>" />
+        <?php /*<input type="button" class="btn btn-secondary" onclick="return lhc.revealModal({'iframe':true,'height':350,'url':WWW_DIR_JAVASCRIPT +'file/attatchfilemail'})" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Embed link to file');?>" />*/ ?>
     </div>
 
 </form>
+
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>

@@ -34,8 +34,8 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 
   $tpl->set('mail_template',$mailTemplate);
   $tpl->set('chat',$chat);
-  $Result['content'] = $tpl->fetch();
-  $Result['pagelayout'] = 'popup';
+  echo $tpl->fetch();
+  exit;
 
 } else {
 	exit;
