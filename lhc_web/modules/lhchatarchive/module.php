@@ -11,22 +11,22 @@ $ViewList['archive'] = array(
 
 $ViewList['newarchive'] = array(
     'params' => array(),
-    'functions' => array( 'archive' )
+    'functions' => array( 'configuration' )
 );
 
 $ViewList['configuration'] = array(
     'params' => array(),
-    'functions' => array( 'archive' )
+    'functions' => array( 'configuration' )
 );
 
 $ViewList['startarchive'] = array(
     'params' => array(),
-    'functions' => array( 'archive' )
+    'functions' => array( 'configuration' )
 );
 
 $ViewList['archivechats'] = array(
     'params' => array(),
-    'functions' => array( 'archive' )
+    'functions' => array( 'configuration' )
 );
 
 $ViewList['list'] = array(
@@ -42,7 +42,7 @@ $ViewList['listarchivechats'] = array(
 
 $ViewList['edit'] = array(
     'params' => array('id'),
-    'functions' => array( 'archive' )
+    'functions' => array( 'configuration' )
 );
 
 $ViewList['viewarchivedchat'] = array(
@@ -69,14 +69,15 @@ $ViewList['sendmail'] = array(
 $ViewList['deletearchivechat'] = array(
     'params' => array('archive_id','chat_id'),
     'uparams' => array('csfr'),
-    'functions' => array( 'archive' )
+    'functions' => array( 'configuration' )
 );
 
 $ViewList['process'] = array(
     'params' => array('id'),
-    'functions' => array( 'archive' )
+    'functions' => array( 'configuration' )
 );
 
 $FunctionList['archive'] = array('explain' => 'Allow user to use archive functionality');
+$FunctionList['configuration'] = array('explain' => 'Allow user to configure archive');
 
 ?>
