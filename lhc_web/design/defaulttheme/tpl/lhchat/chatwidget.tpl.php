@@ -21,7 +21,14 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/widget_geo_adjustment.tpl.php'));?>
 <?php if ($exitTemplate == true) return; ?>
 
-<?php if ($leaveamessage == false || ($forceoffline === false && erLhcoreClassChat::isOnline($department, false, array('ignore_user_status'=> (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value, 'online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'])) === true)) : ?>
+<?php $isOnlineGeneral = erLhcoreClassChat::isOnline($department, false, array('ignore_user_status'=> (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value, 'online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout']))?>
+
+<?php if ($leaveamessage == false || ($forceoffline === false && $isOnlineGeneral === true)) : ?>
+
+
+<?php if ($isOnlineGeneral === false) : ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_not_available.tpl.php'));?>
+<?php else : ?>
 
 <?php if (isset($start_data_fields['pre_chat_html']) && $start_data_fields['pre_chat_html'] != '') : ?>
     <?php include(erLhcoreClassDesign::designtpl('lhchat/chatwidget/pre_chat_html.tpl.php'));?>
@@ -218,6 +225,8 @@ jQuery('#id_Question').bind('keydown', 'return', function (evt){
 <?php endif;?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/chatwidget/chatwidget_post_multiinclude.tpl.php'));?>
+
+<?php endif;?>
 
 <?php else : ?>
 

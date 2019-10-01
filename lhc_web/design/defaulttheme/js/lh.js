@@ -2648,6 +2648,7 @@ function lh(){
 
 			        	inst.syncusercall();
 		        	} else {
+                        $('.pending-storage').remove();
 		        		$('#CSChatMessage').val(pdata.msg);
 		        		var instStatus = $('#id-operator-typing');
 						instStatus.html(data.r);

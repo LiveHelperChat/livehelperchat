@@ -1,0 +1,2 @@
+<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Offline')?></h4>
+<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Chat is currently unavailable');?>. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please try again later.');?></p>

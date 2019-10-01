@@ -7,7 +7,7 @@
 
 <?php elseif (isset($department_invalid) && $department_invalid === true) : ?>
 
-<?php $errors[] =erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please provide a department');?>
+<?php $errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please provide a department');?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 
 <?php else : ?>
@@ -19,7 +19,13 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<?php if ($leaveamessage == false || ($forceoffline === false && erLhcoreClassChat::isOnline($department,false,array('ignore_user_status'=> (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value, 'online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout']))) === true) : ?>
+    <?php $isOnlineGeneral = erLhcoreClassChat::isOnline($department,false,array('ignore_user_status'=> (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value, 'online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'])); ?>
+
+<?php if ($leaveamessage == false || ($forceoffline === false && $isOnlineGeneral === true)) : ?>
+
+<?php if ($isOnlineGeneral === false) : ?>
+          <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_not_available.tpl.php'));?>
+<?php else : ?>
 
 <?php
     $onlyBotOnline = erLhcoreClassChat::isOnlyBotOnline($department);
@@ -141,6 +147,8 @@
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/switch_to_offline.tpl.php'));?>
 
 </form>
+<?php endif; ?>
+
 <?php else : ?>
 	<h4>
 	<?php if (isset($theme) && $theme !== false && $theme->noonline_operators_offline) : ?>
