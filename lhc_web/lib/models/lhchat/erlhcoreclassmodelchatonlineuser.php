@@ -410,8 +410,8 @@ class erLhcoreClassModelChatOnlineUser
                     $reader = new GeoIp2\Database\Reader((isset($params['city_file']) && $params['city_file'] != '') ? $params['city_file'] : 'var/external/geoip/GeoLite2-City.mmdb');
                     $countryData = $reader->city($ip);
                     $normalizedObject = new stdClass();
-                    $normalizedObject->country_code = strtolower($countryData->raw['country']['iso_code']);
-                    $normalizedObject->country_name = $countryData->raw['country']['names']['en'];
+                    $normalizedObject->country_code = isset($countryData->raw['country']) ? strtolower($countryData->raw['country']['iso_code']) : '';
+                    $normalizedObject->country_name = isset($countryData->raw['country']) ? $countryData->raw['country']['names']['en'] : '';
                     $normalizedObject->lat = isset($countryData->raw['location']['latitude']) ? $countryData->raw['location']['latitude'] : '0';
                     $normalizedObject->lon = isset($countryData->raw['location']['longitude']) ? $countryData->raw['location']['longitude'] : '0';
 
