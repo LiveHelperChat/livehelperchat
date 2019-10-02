@@ -1751,15 +1751,21 @@ class erLhcoreClassGenericBotWorkflow {
             foreach ($params['chat']->additional_data_array as $keyItem => $addItem) {
                 if (!is_string($addItem) || (is_string($addItem) && ($addItem != ''))) {
                     if (isset($addItem['identifier'])) {
-                        $replaceArray['{lhc.add.' . $addItem['identifier'] . '}'] = $addItem['value'];
+                        if (is_string($addItem['value']) || is_numeric($addItem['value'])) {
+                            $replaceArray['{lhc.add.' . $addItem['identifier'] . '}'] = $addItem['value'];
+                        }
                     } else if (isset($addItem['key'])) {
-                        $replaceArray['{lhc.add.' . $addItem['key'] . '}'] = $addItem['value'];
+                        if (is_string($addItem['value']) || is_numeric($addItem['value'])) {
+                            $replaceArray['{lhc.add.' . $addItem['key'] . '}'] = $addItem['value'];
+                        }
                     }
                 }
             }
 
             foreach ($params['chat']->chat_variables_array as $keyItem => $addItem) {
-                $replaceArray['{lhc.var.' . $keyItem . '}'] = $addItem;
+                if (is_string($addItem) || is_numeric($addItem)) {
+                    $replaceArray['{lhc.var.' . $keyItem . '}'] = $addItem;
+                }
             }
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.replace_message_bot', array('msg' => & $message, 'chat' => & $params['chat']));
