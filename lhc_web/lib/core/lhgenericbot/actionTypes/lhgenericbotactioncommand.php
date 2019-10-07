@@ -4,9 +4,9 @@ class erLhcoreClassGenericBotActionCommand {
 
     public static function process($chat, $action, $trigger, $params)
     {
-        if (isset($params['do_not_save']) && $params['do_not_save'] == true) {
+/*        if (isset($params['do_not_save']) && $params['do_not_save'] == true) {
             return;
-        }
+        }*/
 
         if ($action['content']['command'] == 'stopchat') {
 

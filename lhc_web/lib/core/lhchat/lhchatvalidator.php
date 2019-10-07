@@ -235,8 +235,13 @@ class erLhcoreClassChatValidator {
             null,
             FILTER_REQUIRE_ARRAY
         );
-        
-        $form = new ezcInputForm( INPUT_POST, $validationFields );
+
+        if (isset($additionalParams['payload_data'])) {
+            $form = new erLhcoreClassInputForm(INPUT_GET, $validationFields, null, $additionalParams['payload_data']);
+        } else {
+            $form = new ezcInputForm( INPUT_POST, $validationFields );
+        }
+
         $Errors = array();
 
         if (erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('ip' => erLhcoreClassIPDetect::getIP()))) > 0) {

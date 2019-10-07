@@ -185,6 +185,32 @@ class erLhAbstractModelAutoResponderChat
                             }
                         }
 
+                    } elseif (($this->chat->last_op_msg_time < $this->chat->last_user_msg_time && $this->chat->last_user_msg_time > 0) || ($this->chat->last_op_msg_time < $this->chat->time && $this->chat->last_user_msg_time == 0)) {
+
+
+                        for ($i = 5; $i >= 1; $i--) {
+                            $this->auto_responder->{'timeout_op_reply_message_' . $i};
+                            $this->auto_responder->{'wait_op_timeout_reply_' . $i};
+
+                            if ($this->active_send_status < $i && !empty($this->auto_responder->{'timeout_op_reply_message_' . $i}) && $this->auto_responder->{'wait_op_timeout_reply_' . $i} > 0 && (time() - $this->chat->last_op_msg_time > $this->auto_responder->{'wait_op_timeout_reply_' . $i}) ) {
+
+                                $this->active_send_status = $i;
+                                $this->saveThis();
+
+                                $msg = new erLhcoreClassModelmsg();
+                                $msg->msg = trim($this->auto_responder->{'timeout_op_reply_message_' . $i});
+                                $msg->meta_msg = $this->auto_responder->getMeta($this->chat, 'nreply_op', $i);
+                                $msg->chat_id = $this->chat->id;
+                                $msg->name_support = $this->chat->user !== false ? $this->chat->user->name_support : ($this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support'));
+                                $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
+                                $msg->time = time();
+                                erLhcoreClassChat::getSession()->save($msg);
+
+                                $this->chat->last_msg_id = $msg->id;
+                                $this->chat->updateThis();
+                            }
+                        }
+
                     } elseif ($this->active_send_status > 0) {
                         $this->active_send_status = 0;
                         $this->saveThis();
