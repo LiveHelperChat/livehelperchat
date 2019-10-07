@@ -187,12 +187,11 @@ class erLhAbstractModelAutoResponderChat
 
                     } elseif (($this->chat->last_op_msg_time < $this->chat->last_user_msg_time && $this->chat->last_user_msg_time > 0) || ($this->chat->last_op_msg_time < $this->chat->time && $this->chat->last_user_msg_time == 0)) {
 
-
                         for ($i = 5; $i >= 1; $i--) {
                             $this->auto_responder->{'timeout_op_reply_message_' . $i};
                             $this->auto_responder->{'wait_op_timeout_reply_' . $i};
 
-                            if ($this->active_send_status < $i && !empty($this->auto_responder->{'timeout_op_reply_message_' . $i}) && $this->auto_responder->{'wait_op_timeout_reply_' . $i} > 0 && (time() - $this->chat->last_op_msg_time > $this->auto_responder->{'wait_op_timeout_reply_' . $i}) ) {
+                            if ($this->active_send_status < $i && !empty($this->auto_responder->{'timeout_op_reply_message_' . $i}) && $this->auto_responder->{'wait_op_timeout_reply_' . $i} > 0 && (time() - $this->chat->last_user_msg_time > $this->auto_responder->{'wait_op_timeout_reply_' . $i}) ) {
 
                                 $this->active_send_status = $i;
                                 $this->saveThis();
