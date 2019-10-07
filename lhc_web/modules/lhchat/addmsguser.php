@@ -66,6 +66,14 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
                 erLhcoreClassGenericBotWorkflow::userMessageAdded($chat, $msg);
             }
 
+            // Reset active counter if visitor send new message and now user is the last message
+            if ($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_ON_HOLD && $chat->auto_responder !== false) {
+                if ($chat->auto_responder->active_send_status != 0 && $chat->last_user_msg_time < $chat->last_op_msg_time) {
+                    $chat->auto_responder->active_send_status = 0;
+                    $chat->auto_responder->saveThis();
+                }
+            }
+
 	        $stmt = $db->prepare('UPDATE lh_chat SET last_user_msg_time = :last_user_msg_time, lsync = :lsync, last_msg_id = :last_msg_id, has_unread_messages = :has_unread_messages, unanswered_chat = :unanswered_chat WHERE id = :id');
 	        $stmt->bindValue(':id', $chat->id, PDO::PARAM_INT);
 	        $stmt->bindValue(':has_unread_messages', ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT ? 0 : 1),PDO::PARAM_INT);

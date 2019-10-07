@@ -68,7 +68,8 @@
     	<!-- Nav tabs -->
     	<ul class="nav nav-tabs mb-2" role="tablist" id="autoresponder-tabs">
     		<li role="presentation" class="nav-item"><a class="nav-link active" href="#pending" aria-controls="pending" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Pending chat messaging');?></a></li>
-    		<li role="presentation" class="nav-item"><a class="nav-link" href="#active" aria-controls="active" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Not replying messaging');?></a></li>
+    		<li role="presentation" class="nav-item"><a class="nav-link" href="#active" aria-controls="active" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Visitor not replying messaging');?></a></li>
+    		<li role="presentation" class="nav-item"><a class="nav-link" href="#operatornotreply" aria-controls="active" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator not replying messaging');?></a></li>
     		<li role="presentation" class="nav-item"><a class="nav-link" href="#onhold" aria-controls="onhold" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','On-hold chat messaging');?></a></li>
     		<li role="presentation" class="nav-item"><a class="nav-link" href="#survey" aria-controls="survey" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Survey');?></a></li>
             <li ng-repeat="lang in cmsg.languages" class="nav-item" role="presentation"><a class="nav-link" href="#lang-{{$index}}" aria-controls="lang-{{$index}}" role="tab" data-toggle="tab" ><i class="material-icons mr-0">&#xE894;</i></a></li>
@@ -82,6 +83,9 @@
     		</div>
     		<div role="tabpanel" class="tab-pane" id="active">
     		  <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/active.tpl.php'));?>
+    		</div>
+            <div role="tabpanel" class="tab-pane" id="operatornotreply">
+    		  <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/operatornotreply.tpl.php'));?>
     		</div>
             <div role="tabpanel" class="tab-pane" id="onhold">
     		  <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/onhold.tpl.php'));?>
@@ -104,7 +108,8 @@
 </div>
 
 <script>
-$('select[name="AbstractInput_pending_bot_id"],select[name="AbstractInput_nreply_bot_id"],select[name="AbstractInput_onhold_bot_id"]').change(function(){
+
+$('select[name*="AbstractInput_nreply_op_bot_id"],select[name="AbstractInput_nreply_op_bot_id_1"],select[name="AbstractInput_pending_bot_id"],select[name="AbstractInput_nreply_bot_id"],select[name="AbstractInput_onhold_bot_id"]').change(function(){
     var identifier = $(this).attr('name').replace(/AbstractInput_|_bot_id/g,"");
     $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $(this).val() + '/0/(preview)/1/(element)/'+identifier+'_trigger_id', { }, function(data) {
         $('#'+identifier+'-trigger-list-id').html(data);
@@ -114,11 +119,18 @@ $('select[name="AbstractInput_pending_bot_id"],select[name="AbstractInput_nreply
     });
 });
 
-$.each([ {'id':'pending','val' : <?php echo (isset($object->bot_configuration_array['pending_trigger_id'])) ? $object->bot_configuration_array['pending_trigger_id'] : 0 ?>}, {'id':'nreply','val':<?php echo (isset($object->bot_configuration_array['nreply_trigger_id'])) ? $object->bot_configuration_array['nreply_trigger_id'] : 0 ?>}, {'id':'onhold','val': <?php echo (isset($object->bot_configuration_array['onhold_trigger_id'])) ? $object->bot_configuration_array['onhold_trigger_id'] : 0 ?>}], function( index, value ) {
-    $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $('select[name="AbstractInput_'+value.id+'_bot_id"]').val() + '/'+value.val+'/(preview)/1/(element)/'+value.id+'_trigger_id', { }, function(data) {
-        $('#' + value.id +'-trigger-list-id').html(data);
+var responderItems = [{'id':'pending_bot_id','val' : <?php echo (isset($object->bot_configuration_array['pending_trigger_id'])) ? $object->bot_configuration_array['pending_trigger_id'] : 0 ?>},{'id':'nreply_bot_id','val':<?php echo (isset($object->bot_configuration_array['nreply_trigger_id'])) ? $object->bot_configuration_array['nreply_trigger_id'] : 0 ?>},{'id':'onhold_bot_id','val': <?php echo (isset($object->bot_configuration_array['onhold_trigger_id'])) ? $object->bot_configuration_array['onhold_trigger_id'] : 0 ?>}];
+
+<?php for ($i = 1; $i <= 5; $i++)  : ?>
+responderItems.push({'id':'nreply_op_bot_id_<?php echo $i?>','val' : <?php echo (isset($object->bot_configuration_array['nreply_op_' . $i .'_trigger_id'])) ? $object->bot_configuration_array['nreply_op_' . $i .'_trigger_id'] : 0 ?>});
+<?php endfor; ?>
+
+$.each(responderItems, function( index, value ) {
+    var identifier = value.id.replace(/AbstractInput_|_bot_id/g,"");
+    $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $('select[name="AbstractInput_'+value.id+'"]').val() + '/'+value.val+'/(preview)/1/(element)/'+identifier+'_trigger_id', { }, function(data) {
+        $('#' + identifier +'-trigger-list-id').html(data);
         if (parseInt(value.val) > 0){
-            renderPreview($('select[name="AbstractInput_' + value.id +'_trigger_id"]'));
+            renderPreview($('select[name="AbstractInput_' + identifier +'_trigger_id"]'));
         }
     }).fail(function() {
 
@@ -126,9 +138,7 @@ $.each([ {'id':'pending','val' : <?php echo (isset($object->bot_configuration_ar
 });
 
 function renderPreview(inst) {
-
     var identifier = inst.attr('name').replace(/AbstractInput_|_trigger_id/g,"");
-
     $.get(WWW_DIR_JAVASCRIPT + 'theme/renderpreview/' + inst.val(), { }, function(data) {
         $('#'+identifier+'-trigger-preview-window').html(data);
     }).fail(function() {

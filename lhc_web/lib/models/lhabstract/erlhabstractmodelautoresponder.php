@@ -112,6 +112,23 @@ class erLhAbstractModelAutoResponder {
 	   		   return $this->dep;
 	   		break;
 
+           case 'wait_op_timeout_reply_1':
+           case 'wait_op_timeout_reply_2':
+           case 'wait_op_timeout_reply_3':
+           case 'wait_op_timeout_reply_4':
+           case 'wait_op_timeout_reply_5':
+           case 'timeout_op_reply_message_1':
+           case 'timeout_op_reply_message_2':
+           case 'timeout_op_reply_message_3':
+           case 'timeout_op_reply_message_4':
+           case 'timeout_op_reply_message_5':
+               $this->{$var} = null;
+               if (isset($this->bot_configuration_array[$var])) {
+                   $this->{$var} = $this->bot_configuration_array[$var];
+               }
+               return $this->{$var};
+               break;
+
         case 'bot_configuration_array':
            $attr = str_replace('_array','',$var);
            if (!empty($this->{$attr})) {
@@ -174,15 +191,18 @@ class erLhAbstractModelAutoResponder {
 		return false;
 	}
 
-	public function getMeta(& $chat, $type)
+	public function getMeta(& $chat, $type, $counter = null)
     {
-        if (isset($this->bot_configuration_array[$type . '_bot_id']) && $this->bot_configuration_array[$type . '_bot_id'] > 0 &&
-            isset($this->bot_configuration_array[$type . '_trigger_id']) && $this->bot_configuration_array[$type . '_trigger_id'] > 0) {
 
-            $trigger = erLhcoreClassModelGenericBotTrigger::fetch($this->bot_configuration_array[$type . '_trigger_id']);
+        $botCounter = $counter !== null ? '_' . $counter : '';
+
+        if (isset($this->bot_configuration_array[$type . '_bot_id' . $botCounter]) && $this->bot_configuration_array[$type . '_bot_id' . $botCounter] > 0 &&
+            isset($this->bot_configuration_array[$type . $botCounter . '_trigger_id']) && $this->bot_configuration_array[$type . $botCounter . '_trigger_id'] > 0) {
+
+            $trigger = erLhcoreClassModelGenericBotTrigger::fetch($this->bot_configuration_array[$type . $botCounter . '_trigger_id']);
 
             if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
-                $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger,false, array('args' => array('do_not_save' => true)));
+                $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('do_not_save' => true)));
 
                 // Set chat bot
                 $variablesArray = $chat->chat_variables_array;
