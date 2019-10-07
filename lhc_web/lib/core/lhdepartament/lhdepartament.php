@@ -2,11 +2,6 @@
 
 class erLhcoreClassDepartament{
 
-   function __construct()
-   {
-
-   }
-
    public static function getDepartaments()
    {
          $db = ezcDbInstance::get();
