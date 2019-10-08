@@ -1,6 +1,6 @@
 <?php
     $chat = new erLhcoreClassModelChat();
-    $messages = erLhcoreClassGenericBotWorkflow::processTriggerPreview($chat, $trigger, array('args' => array('do_not_save' => true)));
+    $messages = erLhcoreClassGenericBotWorkflow::processTriggerPreview($chat, $trigger, array('args' => array('presentation' => true, 'do_not_save' => true)));
 ?>
 <br/>
 <?php foreach ($messages as $msgObject) : ?>

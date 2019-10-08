@@ -29,6 +29,8 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhc
                 $msg->time = time();
                 $msg->saveThis();
 
+                erLhAbstractModelAutoResponder::updateAutoResponder($chat);
+
                 $chat->last_msg_id = $msg->id;
             }
 

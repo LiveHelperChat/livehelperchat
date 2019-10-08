@@ -4,9 +4,9 @@ class erLhcoreClassGenericBotActionCommand {
 
     public static function process($chat, $action, $trigger, $params)
     {
-/*        if (isset($params['do_not_save']) && $params['do_not_save'] == true) {
+        if (isset($params['presentation']) && $params['presentation'] == true) {
             return;
-        }*/
+        }
 
         if ($action['content']['command'] == 'stopchat') {
 
@@ -117,8 +117,24 @@ class erLhcoreClassGenericBotActionCommand {
                 $chat->saveThis();
 
         } elseif ($action['content']['command'] == 'setchatattribute') {
+
+                $eventArgs = array('old' => $chat->{$action['content']['payload']}, 'attr' => $action['content']['payload'], 'new' => $action['content']['payload_arg']);
                 $chat->{$action['content']['payload']} = $action['content']['payload_arg'];
+
+                if ($eventArgs['attr'] == 'dep_id' && $eventArgs['old'] != $action['content']['payload_arg']) {
+                    erLhAbstractModelAutoResponder::updateAutoResponder($chat);
+                }
+
+                if ($eventArgs['attr'] == 'status' && $eventArgs['old'] != $action['content']['payload_arg']) {
+                    $chat->pnd_time = time();
+                }
+
+                if ($eventArgs['attr'] == 'user_id' && $eventArgs['old'] != $action['content']['payload_arg']) {
+                    $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+                }
+
                 $chat->saveThis();
+
         } elseif ($action['content']['command'] == 'dispatchevent') {
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_chat_command_dispatch_event', array(

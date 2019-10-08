@@ -191,6 +191,36 @@ class erLhAbstractModelAutoResponder {
 		return false;
 	}
 
+	public static function updateAutoResponder(erLhcoreClassModelChat & $chat)
+    {
+        $responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
+
+        if ($responder instanceof erLhAbstractModelAutoResponder) {
+            if (($responderChat = $chat->auto_responder) !== false) {
+                $responderChat->auto_responder_id = $responder->id;
+                $responderChat->wait_timeout_send = 1 - $responder->repeat_number;
+                $responderChat->active_send_statu = 0;
+                $responderChat->pending_send_status = 0;
+                $responderChat->wait_timeout_send = 0;
+                $responderChat->saveThis();
+
+                $responderChat->auto_responder = $responder;
+            } else {
+                $responderChat = new erLhAbstractModelAutoResponderChat();
+                $responderChat->auto_responder_id = $responder->id;
+                $responderChat->chat_id = $chat->id;
+                $responderChat->wait_timeout_send = 1 - $responder->repeat_number;
+
+                $responderChat->saveThis();
+
+                $chat->auto_responder_id = $responderChat->id;
+            }
+        } elseif (($responderChat = $chat->auto_responder) !== false) {
+            $responderChat->removeThis();
+            $chat->auto_responder_id = 0;
+        }
+    }
+
 	public function getMeta(& $chat, $type, $counter = null)
     {
 

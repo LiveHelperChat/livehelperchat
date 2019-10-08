@@ -158,7 +158,7 @@ class erLhAbstractModelAutoResponderChat
                             if ($this->chat->user_id > 0) {
                                 erLhcoreClassChat::updateActiveChats($this->chat->user_id);
                             }
-                            
+
                             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.redirected_to_survey_by_autoresponder',array('chat' => & $this->chat));
 
                             // Survey redirected, end workflow
@@ -185,23 +185,25 @@ class erLhAbstractModelAutoResponderChat
                             }
                         }
 
-                    } elseif (($this->chat->last_op_msg_time < $this->chat->last_user_msg_time && $this->chat->last_user_msg_time > 0) || ($this->chat->last_op_msg_time < $this->chat->time && $this->chat->last_user_msg_time == 0)) {
+                    } elseif ($this->chat->last_op_msg_time < $this->chat->last_user_msg_time && $this->chat->last_user_msg_time > 0 && $this->chat->last_op_msg_time > $this->chat->pnd_time ) {
+
+                        $lastMessageTime = self::getLastVisitorMessageTime($this->chat);
 
                         for ($i = 5; $i >= 1; $i--) {
                             $this->auto_responder->{'timeout_op_reply_message_' . $i};
                             $this->auto_responder->{'wait_op_timeout_reply_' . $i};
 
-                            if ($this->active_send_status < $i && !empty($this->auto_responder->{'timeout_op_reply_message_' . $i}) && $this->auto_responder->{'wait_op_timeout_reply_' . $i} > 0 && (time() - $this->chat->last_user_msg_time > $this->auto_responder->{'wait_op_timeout_reply_' . $i}) ) {
+                            if ($this->active_send_status < $i && !empty($this->auto_responder->{'timeout_op_reply_message_' . $i}) && $this->auto_responder->{'wait_op_timeout_reply_' . $i} > 0 && (time() - $lastMessageTime > $this->auto_responder->{'wait_op_timeout_reply_' . $i}) ) {
 
                                 $this->active_send_status = $i;
                                 $this->saveThis();
 
                                 $msg = new erLhcoreClassModelmsg();
                                 $msg->msg = trim($this->auto_responder->{'timeout_op_reply_message_' . $i});
-                                $msg->meta_msg = $this->auto_responder->getMeta($this->chat, 'nreply_op', $i);
                                 $msg->chat_id = $this->chat->id;
                                 $msg->name_support = $this->chat->user !== false ? $this->chat->user->name_support : ($this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support'));
                                 $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
+                                $msg->meta_msg = $this->auto_responder->getMeta($this->chat, 'nreply_op', $i);
                                 $msg->time = time();
                                 erLhcoreClassChat::getSession()->save($msg);
 
@@ -238,6 +240,34 @@ class erLhAbstractModelAutoResponderChat
                 }
             }
         }
+    }
+
+    public static function getLastVisitorMessageTime($chat) {
+        $messages = erLhcoreClassModelmsg::getList(array('limit' => 10, 'sort' => 'id DESC', 'filter' => array('chat_id' => $chat->id)));
+
+        $prevMessage = null;
+        foreach ($messages as $msg) {
+            if ($prevMessage === null) {
+                if ($msg->user_id == 0){
+                    $prevMessage = $msg;
+                }
+                continue;
+            }
+
+            if ($msg->user_id > 0 && $msg->time <= $chat->last_op_msg_time) {
+                return $prevMessage->time;
+            }
+
+            if ($msg->user_id == 0) {
+                $prevMessage = $msg;
+            }
+        }
+
+        if ($prevMessage instanceof erLhcoreClassModelmsg){
+            return $prevMessage->time;
+        }
+
+        return $chat->last_user_msg_time;
     }
 
     public function __get($var)

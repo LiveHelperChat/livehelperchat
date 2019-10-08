@@ -67,6 +67,8 @@ class erLhcoreClassChatWorkflow {
                 $chat->na_cb_executed = 0;
             }
 
+            erLhAbstractModelAutoResponder::updateAutoResponder($chat);
+
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_assigned_department',array('chat' => & $chat));
         }
 

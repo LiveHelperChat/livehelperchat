@@ -28,6 +28,8 @@ $userData = $currentUser->getUserData(true);
 if  ($chatTransfer->dep_id > 0) {
 	$chat->dep_id = $chatTransfer->dep_id;
 
+	erLhAbstractModelAutoResponder::updateAutoResponder($chat);
+
 	// User does not have access to chat in this department, that mean we do not have to do anything
 	if (!erLhcoreClassChat::hasAccessToRead($chat)){
 		exit;
@@ -68,6 +70,8 @@ if ($chatTransfer->transfer_to_user_id == $currentUser->getUserID()){
 		if ($dep_id > 0) {
 			$chat->dep_id = $dep_id;
 			$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+
+            erLhAbstractModelAutoResponder::updateAutoResponder($chat);
 		}
 	}
 }
@@ -79,6 +83,8 @@ if ( !erLhcoreClassChat::hasAccessToRead($chat) )
 		if ($dep_id > 0) {
 			$chat->dep_id = $dep_id;
 			$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+
+            erLhAbstractModelAutoResponder::updateAutoResponder($chat);
 		}
 	} else {
 		exit; // User does not have permission to assign chat to himself
