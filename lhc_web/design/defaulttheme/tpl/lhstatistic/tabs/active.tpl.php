@@ -145,6 +145,26 @@
         <label><input type="checkbox" name="exclude_offline" value="<?php echo erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ?>" <?php $input->exclude_offline == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ? print 'checked="checked"' : ''?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Exclude offline requests from charts')?></label>&nbsp;&nbsp;<label><input type="checkbox" name="online_offline" value="<?php echo erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ?>" <?php $input->online_offline == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ? print 'checked="checked"' : ''?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Show only offline requests')?></label>
     </div>
 
+    <div class="col-md-12">
+        <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','What charts to display')?></h6>
+        <div class="row">
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="active" <?php if (in_array('active',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chat numbers by status')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="unanswered" <?php if (in_array('unanswered',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Unanswered chat numbers')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="msgtype" <?php if (in_array('msgtype',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Message types')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="proactivevsdefault" <?php if (in_array('proactivevsdefault',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Proactive chats number vs visitors initiated')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="subject" <?php if (in_array('subject',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats by subject')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="thumbs" <?php if (in_array('thumbs',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of Thumbs Up/Down')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="country" <?php if (in_array('country',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats by country')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="usermsg" <?php if (in_array('usermsg',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages by user')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="avgduration" <?php if (in_array('avgduration',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats per hour, average chat duration')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="waitmonth" <?php if (in_array('waitmonth',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average wait time in seconds (maximum of 10 minutes)')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="chatbyuser" <?php if (in_array('chatbyuser',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats by user')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="chatbydep" <?php if (in_array('chatbydep',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats by department')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="waitbyoperator" <?php if (in_array('waitbyoperator',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','AVG visitor wait time by operator')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="avgdurationop" <?php if (in_array('avgdurationop',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average chat duration by user in seconds')?></label></div>
+        </div>
+
+    </div>
 	<?php 
 	/**
 	 * Not implemented at the moment 
@@ -449,6 +469,9 @@
 				
 	function drawChartPerMonth() {	
 
+	    <?php if (isset($numberOfChatsPerMonth) && !empty($numberOfChatsPerMonth)) : ?>
+
+        <?php if (in_array('active',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
 		  // Chats number by statuses
 		var barChartData = {
             labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date('Y.m',$monthUnix).'\'';$key++; endforeach;?>],
@@ -521,8 +544,9 @@
                 }
             }
         });
+        <?php endif; ?>
 
-
+        <?php if (in_array('unanswered',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
 		  // Chats number by unanswered chats
             var barChartData = {
                 labels: [<?php $dataRange = array(); $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : $dataRange[] = '/(timefrom)/' . date('Y-m-d',$monthUnix) . '/(timeto)/' . date('Y-m-d',mktime(0,0,0,date('m',$monthUnix)+1,1,date('Y',$monthUnix))); echo ($key > 0 ? ',' : ''),'\''.date('Y.m',$monthUnix).'\'';$key++; endforeach;?>],
@@ -574,20 +598,9 @@
                     }
                 }
             });
+            <?php endif; ?>
 
-		  // AVG Wait time
-        var barChartData = {
-            labels: [<?php $key = 0; foreach ($numberOfChatsPerWaitTimeMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date('Y.m',$monthUnix).'\'';$key++; endforeach;?>],
-            datasets: [{
-                backgroundColor: '#36c',
-                borderColor: '#36c',
-                borderWidth: 1,
-                data: [<?php $key = 0; foreach ($numberOfChatsPerWaitTimeMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data; $key++; endforeach;?>]
-            }]
-        };
-
-        drawBasicChart(barChartData,'chart_div_per_month_wait_time');
-
+        <?php if (in_array('proactivevsdefault',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
         var barChartData = {
             labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date('Y.m',$monthUnix).'\'';$key++; endforeach;?>],
             datasets: [
@@ -650,7 +663,9 @@
                 }
             }
         });
+        <?php endif;?>
 
+        <?php if (in_array('msgtype',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
         var barChartData = {
             labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date('Y.m',$monthUnix).'\'';$key++; endforeach;?>],
             datasets: [
@@ -722,9 +737,27 @@
                 }
             }
         });
+        <?php endif; ?>
+
+        <?php endif; ?>
+
+		  // AVG Wait time
+		<?php if (isset($numberOfChatsPerWaitTimeMonth) && !empty($numberOfChatsPerWaitTimeMonth)) : ?>
+        var barChartData = {
+            labels: [<?php $key = 0; foreach ($numberOfChatsPerWaitTimeMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date('Y.m',$monthUnix).'\'';$key++; endforeach;?>],
+            datasets: [{
+                backgroundColor: '#36c',
+                borderColor: '#36c',
+                borderWidth: 1,
+                data: [<?php $key = 0; foreach ($numberOfChatsPerWaitTimeMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data; $key++; endforeach;?>]
+            }]
+        };
+        drawBasicChart(barChartData,'chart_div_per_month_wait_time');
+        <?php endif; ?>
 	}
 	
 	function drawChartWorkload() {
+	    <?php if (isset($numberOfChatsPerHour['total'])) : ?>
         var barChartData = {
             labels: [<?php $key = 0; foreach ($numberOfChatsPerHour['total'] as $hour => $chatsNumber) : echo ($key > 0 ? ',' : ''),'\''.$hour.'\'';$key++; endforeach;?>],
             datasets: [{
@@ -735,6 +768,7 @@
             }]
         };
         drawBasicChart(barChartData,'chart_div_per_hour');
+        <?php endif; ?>
 	}
 
 	function drawBasicChart(data, id) {
@@ -777,6 +811,7 @@
 
 	function drawChartWorkloadHourly() {
 
+	    <?php if (isset($numberOfChatsPerHour['byday'])) : ?>
         var barChartData = {
             labels: [<?php $key = 0; foreach ($numberOfChatsPerHour['byday'] as $hour => $chatsNumber) : echo ($key > 0 ? ',' : ''),'\''.$hour.'\'';$key++; endforeach;?>],
             datasets: [{
@@ -843,6 +878,7 @@
                 }
             }
         });
+        <?php endif; ?>
 	}
 
 	$( document ).ready(function() {
@@ -853,25 +889,38 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/statistic_active_content_multiinclude.tpl.php'));?>
 
+
+<?php if (in_array('active',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
 <hr>
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_number_by_statuses.tpl.php'));?></h5>
 <canvas id="chart_div_per_month"></canvas>
+<?php endif;?>
 
+<?php if (in_array('proactivevsdefault',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
 <hr>
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/proactive_chats_number_vs_visitors_initiated.tpl.php'));?></h5>
 <canvas id="chart_type_div_per_month"></canvas>
+<?php endif;?>
 
+<?php if (in_array('msgtype',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
 <hr>
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/messages_types.tpl.php'));?></h5>
 <canvas id="chart_type_div_msg_type"></canvas>
+<?php endif;?>
 
+<?php if (isset($numberOfChatsPerWaitTimeMonth) && !empty($numberOfChatsPerWaitTimeMonth)) : ?>
 <hr>
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/avg_wait_time_in_seconds_max_10_mininutes.tpl.php'));?></h5>
 <canvas id="chart_div_per_month_wait_time"></canvas>
+<?php endif; ?>
 
+<?php if (in_array('unanswered',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
 <hr>
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/unanswered_chats_numbers.tpl.php'));?></h5>
 <canvas id="chart_div_per_month_unanswered"></canvas>
+<?php endif; ?>
+
+<?php if (isset($numberOfChatsPerHour['byday'])) : ?>
 <hr>
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_per_hour_average_chat_duration_hour.tpl.php'));?><h5>
 <canvas id="chart_div_per_hour_by_hour"></canvas>
@@ -879,11 +928,13 @@
 <hr>
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_per_hour_average_chat_duration.tpl.php'));?>&nbsp;<?php echo $averageChatTime != null ? erLhcoreClassChat::formatSeconds($averageChatTime) : '(-)';?></h5>
 <canvas id="chart_div_per_hour"></canvas>
+<?php endif; ?>
 
+<?php if (!empty($countryStats)) : ?>
 <hr>
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_country.tpl.php'));?></h5>
 <canvas id="chart_div_country"></canvas>
-
+<?php endif;?>
 
 <?php if (!empty($userChatsStats)) : ?>
 <hr>

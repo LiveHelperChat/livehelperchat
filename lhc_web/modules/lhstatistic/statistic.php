@@ -39,18 +39,27 @@ if ($tab == 'active') {
     if (isset($_GET['doSearch'])) {
 
         $activeStats = array(
-            'userStats' => erLhcoreClassChatStatistic::getRatingByUser(30,$filterParams['filter']),
-            'countryStats' => erLhcoreClassChatStatistic::getTopChatsByCountry(30,$filterParams['filter']),
-            'userChatsStats' => erLhcoreClassChatStatistic::numberOfChatsDialogsByUser(30,$filterParams['filter']),
-            'depChatsStats' => erLhcoreClassChatStatistic::numberOfChatsDialogsByDepartment(30,$filterParams['filter']),
-            'userChatsAverageStats' => erLhcoreClassChatStatistic::averageOfChatsDialogsByUser(30,$filterParams['filter']),
-            'userWaitTimeByOperator' => erLhcoreClassChatStatistic::avgWaitTimeyUser(30,$filterParams['filter']),
-            'numberOfChatsPerMonth' => erLhcoreClassChatStatistic::getNumberOfChatsPerMonth($filterParams['filter'], array('comparetopast' => $filterParams['input']->comparetopast)),
-            'numberOfChatsPerWaitTimeMonth' => erLhcoreClassChatStatistic::getNumberOfChatsWaitTime($filterParams['filter']),
-            'numberOfChatsPerHour' => erLhcoreClassChatStatistic::getWorkLoadStatistic(30, $filterParams['filter']),
-            'averageChatTime' => erLhcoreClassChatStatistic::getAverageChatduration(30,$filterParams['filter']),
-            'numberOfMsgByUser' => erLhcoreClassChatStatistic::numberOfMessagesByUser(30,$filterParams['filter']),
-            'subjectsStatistic' => erLhcoreClassChatStatistic::subjectsStatistic(30,$filterParams['filter']),
+            'userStats' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('thumbs',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getRatingByUser(30,$filterParams['filter']) : array()),
+            'countryStats' => ((is_array($filterParams['input_form']->chart_type) && in_array('country',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getTopChatsByCountry(30,$filterParams['filter']) : array()),
+            'userChatsStats' => ((is_array($filterParams['input_form']->chart_type) && in_array('chatbyuser',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::numberOfChatsDialogsByUser(30,$filterParams['filter']) : array()),
+            'depChatsStats' => ((is_array($filterParams['input_form']->chart_type) && in_array('chatbydep',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::numberOfChatsDialogsByDepartment(30,$filterParams['filter']) : array()),
+            'userChatsAverageStats' => ((is_array($filterParams['input_form']->chart_type) && in_array('avgdurationop',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::averageOfChatsDialogsByUser(30,$filterParams['filter']) : array()),
+            'userWaitTimeByOperator' => ((is_array($filterParams['input_form']->chart_type) && in_array('waitbyoperator',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::avgWaitTimeyUser(30,$filterParams['filter']) : array()),
+
+            'numberOfChatsPerMonth' => (
+                (is_array($filterParams['input_form']->chart_type) && (
+                    in_array('active',$filterParams['input_form']->chart_type) ||
+                    in_array('proactivevsdefault',$filterParams['input_form']->chart_type) ||
+                    in_array('msgtype',$filterParams['input_form']->chart_type) ||
+                    in_array('unanswered',$filterParams['input_form']->chart_type)
+                )
+            ) ? erLhcoreClassChatStatistic::getNumberOfChatsPerMonth($filterParams['filter'], array('charttypes' => $filterParams['input_form']->chart_type, 'comparetopast' => $filterParams['input']->comparetopast)) : array()),
+
+            'numberOfChatsPerWaitTimeMonth' => ((is_array($filterParams['input_form']->chart_type) && in_array('waitmonth',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getNumberOfChatsWaitTime($filterParams['filter']) : array()),
+            'numberOfChatsPerHour' => ((is_array($filterParams['input_form']->chart_type) && in_array('avgduration',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getWorkLoadStatistic(30, $filterParams['filter']) : array()),
+            'averageChatTime' => ((is_array($filterParams['input_form']->chart_type) && in_array('avgduration',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getAverageChatduration(30,$filterParams['filter']) : array()),
+            'numberOfMsgByUser' => ((is_array($filterParams['input_form']->chart_type) && in_array('usermsg',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::numberOfMessagesByUser(30,$filterParams['filter']) : array()),
+            'subjectsStatistic' => ((is_array($filterParams['input_form']->chart_type) && in_array('subject',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::subjectsStatistic(30,$filterParams['filter']) : array()),
             'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
         );
 
@@ -78,20 +87,41 @@ if ($tab == 'active') {
     if (isset($_GET['doSearch'])) {                    
         if ($filterParams['input_form']->groupby == 1) {
             $tpl->setArray(array(
-                'numberOfChatsPerMonth' => erLhcoreClassChatStatistic::getNumberOfChatsPerDay($filterParams['filter']),
-                'numberOfChatsPerWaitTimeMonth' => erLhcoreClassChatStatistic::getNumberOfChatsWaitTimePerDay($filterParams['filter']),
+                'numberOfChatsPerMonth' => (
+                (is_array($filterParams['input_form']->chart_type) && (
+                        in_array('active',$filterParams['input_form']->chart_type) ||
+                        in_array('proactivevsdefault',$filterParams['input_form']->chart_type) ||
+                        in_array('msgtype',$filterParams['input_form']->chart_type) ||
+                        in_array('unanswered',$filterParams['input_form']->chart_type)
+                    )
+                ) ? erLhcoreClassChatStatistic::getNumberOfChatsPerDay($filterParams['filter'], array('charttypes' => $filterParams['input_form']->chart_type)) : array()),
+                'numberOfChatsPerWaitTimeMonth' => ((is_array($filterParams['input_form']->chart_type) && in_array('waitmonth',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getNumberOfChatsWaitTimePerDay($filterParams['filter']): array()),
                 'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
             ));
         } elseif ($filterParams['input_form']->groupby == 2) {
             $tpl->setArray(array(
-                'numberOfChatsPerMonth' => erLhcoreClassChatStatistic::getNumberOfChatsPerWeek($filterParams['filter']),
-                'numberOfChatsPerWaitTimeMonth' => erLhcoreClassChatStatistic::getNumberOfChatsWaitTimePerWeek($filterParams['filter']),
+                'numberOfChatsPerMonth' => (
+                (is_array($filterParams['input_form']->chart_type) && (
+                        in_array('active',$filterParams['input_form']->chart_type) ||
+                        in_array('proactivevsdefault',$filterParams['input_form']->chart_type) ||
+                        in_array('msgtype',$filterParams['input_form']->chart_type) ||
+                        in_array('unanswered',$filterParams['input_form']->chart_type)
+                    )
+                ) ? erLhcoreClassChatStatistic::getNumberOfChatsPerWeek($filterParams['filter'], array('charttypes' => $filterParams['input_form']->chart_type)): array()),
+                'numberOfChatsPerWaitTimeMonth' => ((is_array($filterParams['input_form']->chart_type) && in_array('waitmonth',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getNumberOfChatsWaitTimePerWeek($filterParams['filter']): array()),
                 'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
             ));
         } else {
             $tpl->setArray(array(
-                'numberOfChatsPerMonth' => erLhcoreClassChatStatistic::getNumberOfChatsPerMonth($filterParams['filter']),
-                'numberOfChatsPerWaitTimeMonth' => erLhcoreClassChatStatistic::getNumberOfChatsWaitTime($filterParams['filter']),
+                'numberOfChatsPerMonth' => (
+                (is_array($filterParams['input_form']->chart_type) && (
+                        in_array('active',$filterParams['input_form']->chart_type) ||
+                        in_array('proactivevsdefault',$filterParams['input_form']->chart_type) ||
+                        in_array('msgtype',$filterParams['input_form']->chart_type) ||
+                        in_array('unanswered',$filterParams['input_form']->chart_type)
+                    )
+                ) ? erLhcoreClassChatStatistic::getNumberOfChatsPerMonth($filterParams['filter'], array('charttypes' => $filterParams['input_form']->chart_type)) : array()),
+                'numberOfChatsPerWaitTimeMonth' => ((is_array($filterParams['input_form']->chart_type) && in_array('waitmonth',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getNumberOfChatsWaitTime($filterParams['filter']) : array()),
                 'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
             ));
         }

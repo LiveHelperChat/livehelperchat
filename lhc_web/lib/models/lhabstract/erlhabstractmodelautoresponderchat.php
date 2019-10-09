@@ -203,7 +203,7 @@ class erLhAbstractModelAutoResponderChat
                                 $msg->chat_id = $this->chat->id;
                                 $msg->name_support = $this->chat->user !== false ? $this->chat->user->name_support : ($this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support'));
                                 $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
-                                $msg->meta_msg = $this->auto_responder->getMeta($this->chat, 'nreply_op', $i);
+                                $msg->meta_msg = (string)$this->auto_responder->getMeta($this->chat, 'nreply_op', $i);
                                 $msg->time = time();
                                 erLhcoreClassChat::getSession()->save($msg);
 

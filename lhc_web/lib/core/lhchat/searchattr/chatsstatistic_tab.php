@@ -2,6 +2,18 @@
 
 $fieldsSearch = array();
 
+$fieldsSearch['chart_type'] = array (
+    'type' => 'text',
+    'trans' => 'Department',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => false,
+    'filter_table_field' => 'chart_type',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'string', array(), FILTER_REQUIRE_ARRAY
+    )
+);
+
 $fieldsSearch['timefrom'] = array (
     'type' => 'text',
     'trans' => 'Timefrom',

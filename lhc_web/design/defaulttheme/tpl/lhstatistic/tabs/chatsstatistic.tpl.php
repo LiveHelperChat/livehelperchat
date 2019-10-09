@@ -152,11 +152,20 @@
 	  </div>
 	</div>
 
+    <div class="col-md-6">
+        <label><input type="checkbox" name="exclude_offline" value="<?php echo erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ?>" <?php $input->exclude_offline == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ? print 'checked="checked"' : ''?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Exclude offline requests from charts')?></label>&nbsp;&nbsp;<label><input type="checkbox" name="online_offline" value="<?php echo erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ?>" <?php $input->online_offline == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ? print 'checked="checked"' : ''?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Show only offline requests')?></label>
+    </div>
 
-
-        <div class="col-md-6">
-            <label><input type="checkbox" name="exclude_offline" value="<?php echo erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ?>" <?php $input->exclude_offline == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ? print 'checked="checked"' : ''?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Exclude offline requests from charts')?></label>&nbsp;&nbsp;<label><input type="checkbox" name="online_offline" value="<?php echo erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ?>" <?php $input->online_offline == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ? print 'checked="checked"' : ''?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Show only offline requests')?></label>
+    <div class="col-md-12">
+        <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','What charts to display')?></h6>
+        <div class="row">
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="active" <?php if (in_array('active',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chat numbers by status')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="unanswered" <?php if (in_array('unanswered',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Unanswered chat numbers')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="msgtype" <?php if (in_array('msgtype',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Message types')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="proactivevsdefault" <?php if (in_array('proactivevsdefault',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Proactive chats number vs visitors initiated')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="waitmonth" <?php if (in_array('waitmonth',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average wait time in seconds (maximum of 10 minutes)')?></label></div>
         </div>
+    </div>
 
 </div>
 	
@@ -254,6 +263,8 @@
     }
 
 	function drawChartPerMonth() {
+
+        <?php if (in_array('active',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
         var barChartData = {
             labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date($groupby,$monthUnix).'\'';$key++; endforeach;?>],
             datasets: [
@@ -325,7 +336,9 @@
                 }
             }
         });
+        <?php endif; ?>
 
+        <?php if (in_array('unanswered',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
         var barChartData = {
             labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : ; echo ($key > 0 ? ',' : ''),'\''.date($groupby,$monthUnix).'\'';$key++; endforeach;?>],
             datasets: [{
@@ -336,8 +349,9 @@
             }]
         };
         drawBasicChart(barChartData,'chart_div_per_month_unanswered');
+        <?php endif; ?>
 
-
+        <?php if (in_array('waitmonth',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
         var barChartData = {
             labels: [<?php $key = 0; foreach ($numberOfChatsPerWaitTimeMonth as $monthUnix => $data) : ; echo ($key > 0 ? ',' : ''),'\''.date($groupby,$monthUnix).'\'';$key++; endforeach;?>],
             datasets: [{
@@ -348,7 +362,9 @@
             }]
         };
         drawBasicChart(barChartData,'chart_div_per_month_wait_time');
+        <?php endif; ?>
 
+        <?php if (in_array('proactivevsdefault',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
         var barChartData = {
             labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date($groupby,$monthUnix).'\'';$key++; endforeach;?>],
             datasets: [
@@ -368,7 +384,6 @@
                 }
             ]
         };
-
         var ctx = document.getElementById("chart_type_div_per_month").getContext("2d");
         var myBar = new Chart(ctx, {
             type: 'bar',
@@ -407,7 +422,9 @@
                 }
             }
         });
+        <?php endif; ?>
 
+        <?php if (in_array('msgtype',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
         var barChartData = {
             labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date($groupby,$monthUnix).'\'';$key++; endforeach;?>],
             datasets: [
@@ -434,7 +451,6 @@
                 }
             ]
         };
-
         var ctx = document.getElementById("chart_type_div_msg_type").getContext("2d");
         var myBar = new Chart(ctx, {
             type: 'bar',
@@ -473,6 +489,7 @@
                 }
             }
         });
+        <?php endif; ?>
 	}
 	
 
@@ -483,26 +500,35 @@
 </script> 
 
 
+<?php if (in_array('active',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
 <hr>
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_number_by_statuses.tpl.php'));?></h5>
 <canvas id="chart_div_per_month"></canvas>
+<?php endif; ?>
 
+<?php if (in_array('proactivevsdefault',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
 <hr>
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/proactive_chats_number_vs_visitors_initiated.tpl.php'));?></h5>
 <canvas id="chart_type_div_per_month"></canvas>
+<?php endif; ?>
 
+<?php if (in_array('msgtype',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
 <hr>
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/messages_types.tpl.php'));?></h5>
 <canvas id="chart_type_div_msg_type"></canvas>
+<?php endif; ?>
 
+<?php if (in_array('waitmonth',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
 <hr>
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/avg_wait_time_in_seconds_max_10_mininutes.tpl.php'));?></h5>
 <canvas id="chart_div_per_month_wait_time"></canvas>
+<?php endif; ?>
 
+<?php if (in_array('unanswered',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
 <hr>
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/unanswered_chats_numbers.tpl.php'));?></h5>
 <canvas id="chart_div_per_month_unanswered"></canvas>
-
+<?php endif; ?>
 
 <?php else : ?>
 <br/>
