@@ -2357,29 +2357,33 @@ function lh(){
 
 		var cannedMessageSuggest = new LHCCannedMessageAutoSuggest({'chat_id': chat_id,'uppercase_enabled': confLH.auto_uppercase});
 
-        var colorP = new ColorPicker({
+		var colorPickerDom = document.getElementById('color-picker-chat-' + chat_id);
+
+		if (colorPickerDom !== null) {
+            var colorP = new ColorPicker({
                 dom: document.getElementById('color-picker-chat-' + chat_id),
                 value: '#0F0'
-        });
+            });
 
-        colorP.addEventListener('change', function (colorItem) {
-            $('#color-apply-'+chat_id).attr('data-bbcode','color='+colorP.getValue('hex'));
-        });
+            colorP.addEventListener('change', function (colorItem) {
+                $('#color-apply-'+chat_id).attr('data-bbcode','color='+colorP.getValue('hex'));
+            });
 
-        $('.downdown-menu-color-'+chat_id).on('click', function (e) {
-            if ($(this).parent().is(".show")) {
-                var target = $(e.target);
-                if (target.hasClass("keepopen") || target.parents(".keepopen").length){
-                    return false;
-                } else {
-                    return true;
+            $('.downdown-menu-color-'+chat_id).on('click', function (e) {
+                if ($(this).parent().is(".show")) {
+                    var target = $(e.target);
+                    if (target.hasClass("keepopen") || target.parents(".keepopen").length){
+                        return false;
+                    } else {
+                        return true;
+                    }
                 }
-            }
-        });
+            });
 
-        $('.downdown-menu-color-'+chat_id+' .color-item').on('click',function () {
-            colorP.setValue($(this).attr('data-color'));
-        });
+            $('.downdown-menu-color-'+chat_id+' .color-item').on('click',function () {
+                colorP.setValue($(this).attr('data-color'));
+            });
+        }
 
 		$textarea.bind('keydown', 'return', function (evt){
 				_that.addmsgadmin(chat_id);
