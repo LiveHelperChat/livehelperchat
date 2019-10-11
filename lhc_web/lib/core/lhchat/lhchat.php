@@ -1721,35 +1721,36 @@ class erLhcoreClassChat {
            }
        }
    }
-   
-   /**
-    * Sets chat's status by online visitors records in efficient way
-    * */
-   public static function setOnlineStatus($chatLists, $chatListOriginal) {
-       $onlineUserId = array();
-       foreach ($chatLists as $chatList) {
-           foreach ($chatList as $chat) {               
-               if (isset($chat->online_user_id) && $chat->online_user_id > 0) {
-                   $onlineUserId[] = (int)$chat->online_user_id;
-               }
-           }
-       }
 
-       if (!empty($onlineUserId)) {
-           
-           $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.setonlinestatus',array('list' => & $chatLists, 'online_users_id' => $onlineUserId));
-           
-           // Event listener has done it's job
-           if (isset($response['status']) && $response['status'] === erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
-               return ;
-           }
-           
-           $onlineVisitors = erLhcoreClassModelChatOnlineUser::getList( array (
+    /**
+     * Sets chat's status by online visitors records in efficient way
+     * */
+    public static function setOnlineStatus($chatLists, $chatListOriginal) {
+        $onlineUserId = array();
+        foreach ($chatLists as $chatList) {
+            foreach ($chatList as $chat) {
+                if (isset($chat->online_user_id) && $chat->online_user_id > 0) {
+                    $onlineUserId[] = (int)$chat->online_user_id;
+                }
+            }
+        }
+
+        $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.setonlinestatus',array('list' => & $chatLists, 'online_users_id' => $onlineUserId));
+
+        // Event listener has done it's job
+        if (isset($response['status']) && $response['status'] === erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+            return ;
+        }
+
+        $onlineVisitors = array();
+
+        if (!empty($onlineUserId)) {
+            $onlineVisitors = erLhcoreClassModelChatOnlineUser::getList(array(
                 'sort' => false,
-                'filterin' => array (
+                'filterin' => array(
                     'id' => $onlineUserId
                 )
-            ), array (
+            ), array(
                 'vid',
                 'current_page',
                 'invitation_seen_count',
@@ -1790,47 +1791,47 @@ class erLhcoreClassChat {
                 'visitor_tz',
                 'notes'
             ));
+        }
 
-           foreach ($chatLists as & $chatList) {
-               foreach ($chatList as & $chat) {
-                   if (isset($chatListOriginal[$chat->id]) && $chatListOriginal[$chat->id]->lsync > 0) {
+        foreach ($chatLists as & $chatList) {
+            foreach ($chatList as & $chat) {
+                if (isset($chatListOriginal[$chat->id]) && $chatListOriginal[$chat->id]->lsync > 0) {
 
-                       // Because mobile devices freezes background tabs we need to have bigger timeout
-                       $timeout = 60;
+                    // Because mobile devices freezes background tabs we need to have bigger timeout
+                    $timeout = 60;
 
-                       if ($chatListOriginal[$chat->id]->device_type != 0 && (strpos($chatListOriginal[$chat->id]->uagent,'iPhone') !== false || strpos($chatListOriginal[$chat->id]->uagent,'iPad') !== false)) {
-                           $timeout = 240;
-                       }
+                    if ($chatListOriginal[$chat->id]->device_type != 0 && (strpos($chatListOriginal[$chat->id]->uagent,'iPhone') !== false || strpos($chatListOriginal[$chat->id]->uagent,'iPad') !== false)) {
+                        $timeout = 240;
+                    }
 
-                       $chat->user_status_front =  (time() - $timeout > $chatListOriginal[$chat->id]->lsync || in_array($chatListOriginal[$chat->id]->status_sub,array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT))) ? 1 : 0;
+                    $chat->user_status_front =  (time() - $timeout > $chatListOriginal[$chat->id]->lsync || in_array($chatListOriginal[$chat->id]->status_sub,array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT))) ? 1 : 0;
 
-                       unset($chat->lsync);
+                    unset($chat->lsync);
 
-                   } elseif (isset($chat->online_user_id) && $chat->online_user_id > 0 && isset($onlineVisitors[$chat->online_user_id])) {
-                       $chat->user_status_front = self::setActivityByChatAndOnlineUser($chat, $onlineVisitors[$chat->online_user_id]);
-                   } else {
-                       $chat->user_status_front = (isset($chat->user_status) && $chat->user_status == erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT) ? 1 : 0;
-                   }
+                } elseif (isset($chat->online_user_id) && $chat->online_user_id > 0 && isset($onlineVisitors[$chat->online_user_id])) {
+                    $chat->user_status_front = self::setActivityByChatAndOnlineUser($chat, $onlineVisitors[$chat->online_user_id]);
+                } else {
+                    $chat->user_status_front = (isset($chat->user_status) && $chat->user_status == erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT) ? 1 : 0;
+                }
 
-                   if (isset($chat->online_user_id)){
-                       unset($chat->online_user_id);
-                   }
+                if (isset($chat->online_user_id)){
+                    unset($chat->online_user_id);
+                }
 
-                   if (isset($chat->uagent)){
-                       unset($chat->uagent);
-                   }
+                if (isset($chat->uagent)){
+                    unset($chat->uagent);
+                }
 
-                   if (isset($chat->user_status)){
-                       unset($chat->user_status);
-                   }
+                if (isset($chat->user_status)){
+                    unset($chat->user_status);
+                }
 
-                   if (isset($chat->last_user_msg_time)){
-                       unset($chat->last_user_msg_time);
-                   }
-               }
-           }           
-       }
-   }
+                if (isset($chat->last_user_msg_time)){
+                    unset($chat->last_user_msg_time);
+                }
+            }
+        }
+    }
    
    /**
     * @desc Returns user status based on the following logic
