@@ -1595,10 +1595,14 @@ function lh(){
 
 	this.theme = null;
 
+	this.checkChatStatusTimeout = null;
+
 	this.chatsyncuserpending = function ()
 	{
 		var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
 		var themeWindow = this.theme !== null ? '/(theme)/'+this.theme : '';
+
+		clearTimeout(this.checkChatStatusTimeout);
 
 		var inst = this;
 	    $.getJSON(this.wwwDir + this.checkchatstatus + this.chat_id + '/' + this.hash + modeWindow + themeWindow,{}, function(data) {
@@ -1619,7 +1623,7 @@ function lh(){
 	            	   document.location.replace(data.ru);
 	               }
 
-	               setTimeout(chatsyncuserpending,confLH.chat_message_sinterval);
+                    inst.checkChatStatusTimeout = setTimeout(chatsyncuserpending,confLH.chat_message_sinterval);
 
 	            } else {
 	            	$('#status-chat').html(data.result);
