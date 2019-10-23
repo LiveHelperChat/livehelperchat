@@ -29,7 +29,7 @@ class erLhcoreClassDepartament{
 	   	return array_merge($onlineDep,$offlineDep);
    }
 
-   public static function validateDepartment(erLhcoreClassModelDepartament & $department) {
+   public static function validateDepartment(erLhcoreClassModelDepartament & $department, $additionalParams = array()) {
    	
 	   	$definition = array(
 	   			'Name' => new ezcInputFormDefinitionElement(
@@ -183,9 +183,13 @@ class erLhcoreClassDepartament{
                 ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 60)
             );
         }
-		   	
-	   	
-	   	$form = new ezcInputForm( INPUT_POST, $definition );
+
+	   	 if (isset($additionalParams['payload_data'])) {
+            $form = new erLhcoreClassInputForm(INPUT_GET, $definition, null, $additionalParams['payload_data']);
+        } else {
+	   	    $form = new ezcInputForm( INPUT_POST, $definition );
+	   	 }
+
 	   	$Errors = array();
 	   	
 	   	if ( !$form->hasValidData( 'Name' ) || $form->Name == '' )

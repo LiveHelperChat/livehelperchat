@@ -77,6 +77,22 @@ $ViewList['listofobjectid'] = array(
     'params' => array('user_id','type')
 );
 
+$ViewList['bots'] = array(
+    'params' => array()
+);
+
+$ViewList['bot'] = array(
+    'params' => array('id')
+);
+
+$ViewList['departments'] = array(
+    'params' => array()
+);
+
+$ViewList['department'] = array(
+    'params' => array('id')
+);
+
 $ViewList['getuser'] = array(
     'params' => array()
 );

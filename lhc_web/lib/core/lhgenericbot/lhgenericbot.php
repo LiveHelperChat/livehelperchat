@@ -14,13 +14,13 @@ class erLhcoreClassGenericBot {
         return self::$persistentSession;
     }
 
-    public static function validateBot(& $bot) {
+    public static function validateBot(& $bot, $additionalParams = array()) {
 
         $definition = array(
-            'Name' => new ezcInputFormDefinitionElement(
+            'name' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
-            'Nick' => new ezcInputFormDefinitionElement(
+            'nick' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
             'attr_str_1' => new ezcInputFormDefinitionElement(
@@ -39,20 +39,25 @@ class erLhcoreClassGenericBot {
                 ezcInputFormDefinitionElement::OPTIONAL, 'int',null, FILTER_REQUIRE_ARRAY
             ),
         );
-
-        $form = new ezcInputForm( INPUT_POST, $definition );
+        
+        if (isset($additionalParams['payload_data'])) {
+            $form = new erLhcoreClassInputForm(INPUT_GET, $definition, null, $additionalParams['payload_data']);
+        } else {
+            $form = new ezcInputForm( INPUT_POST, $definition );
+        }
+        
         $Errors = array();
 
-        if ( !$form->hasValidData( 'Name' ) || $form->Name == '' ) {
+        if ( !$form->hasValidData( 'name' ) || $form->name == '' ) {
             $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter bot name!');
         } else {
-            $bot->name = $form->Name;
+            $bot->name = $form->name;
         }
 
-        if ( !$form->hasValidData( 'Nick' ) || $form->Nick == '' ) {
+        if ( !$form->hasValidData( 'nick' ) || $form->nick == '' ) {
             $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter bot nick!');
         } else {
-            $bot->nick = $form->Nick;
+            $bot->nick = $form->nick;
         }
 
         if ( $form->hasValidData( 'attr_str_1' ) ) {

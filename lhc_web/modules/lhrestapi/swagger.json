@@ -1287,6 +1287,318 @@
           }
         }
       }
+    },
+    "/restapi/bots": {
+      "get": {
+        "tags": [
+          "bot"
+        ],
+        "summary": "Bot list",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns list of bots",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/departments": {
+      "get": {
+        "tags": [
+          "department"
+        ],
+        "summary": "Departments list",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns list of departments",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/department": {
+      "post": {
+        "tags": [
+          "department"
+        ],
+        "summary": "Create a new department",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Department object that needs to be added to the lhc",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Department"
+              }
+            }
+        ],
+        "responses": {
+          "200": {
+            "description": "Creates a department with provided attributes",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/department/{department_id}": {
+      "put": {
+        "tags": [
+          "department"
+        ],
+        "summary": "Update a department",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Bot object that needs to be added to the lhc",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Department"
+            }
+          },
+          {
+            "name": "department_id",
+            "in": "path",
+            "description": "Department to update",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates department with specified attributes",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "department"
+        ],
+        "summary": "Deletes specified department",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "department_id",
+            "in": "path",
+            "description": "Department to delete",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deletes specified department",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/bot": {
+      "post": {
+        "tags": [
+          "bot"
+        ],
+        "summary": "Create a bot",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Bot object that needs to be added to the lhc",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Bot"
+              }
+            }
+        ],
+        "responses": {
+          "200": {
+            "description": "Creates a bot with provided attributes",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/bot/{bot_id}": {
+      "put": {
+        "tags": [
+          "bot"
+        ],
+        "summary": "Update a bot",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Bot object that needs to be added to the lhc",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Bot"
+              }
+            },
+            {
+              "name": "bot_id",
+              "in": "path",
+              "description": "Bot ID to update",
+              "required": true,
+              "type": "string",
+              "format": "int32"
+            }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates bot with specified attributes",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "bot"
+        ],
+        "summary": "Deletes specified bot",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "bot_id",
+            "in": "path",
+            "description": "Bot ID to update",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deletes specified bot",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
     }
   },
   "securityDefinitions": {
@@ -1296,6 +1608,265 @@
     }
   },
   "definitions": {
+    "Bot": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "default": "name",
+          "required": true,
+          "description": "Name of the bot"
+        },
+        "nick": {
+          "type": "string",
+          "default": "nick",
+          "required": true,
+          "description": "Nick visible by customer"
+        },
+        "configuration": {
+          "type": "string",
+          "description": "Configuration attributes. Leave it empty just.",
+          "example": null
+        },
+        "attr_str_1": {
+          "type": "string",
+          "description": "Field can be used by extensions",
+          "example": null
+        },
+        "attr_str_2": {
+          "type": "string",
+          "description": "Field can be used by extensions",
+          "example": null
+        },
+        "attr_str_3": {
+          "type": "string",
+          "description": "Field can be used by extensions",
+          "example": null
+        },
+        "image": {
+          "type": "string",
+          "format": "byte",
+          "description": "Image content encoded with base64_encode"
+        }
+      },
+      "example" : {
+        "name" : "Name of the bot",
+        "nick" : "Nick of the bot"
+      }
+    },
+    "Department": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string",
+          "default": "Name",
+          "example" : "Department name",
+          "required": true,
+          "description": "Name of the department"
+        },
+        "Email": {
+          "type": "string",
+          "format": "email",
+          "nullable": true,
+          "required": false,
+          "example": null,
+          "description": "E-mail"
+        },
+        "XMPPRecipients": {
+          "type": "string",
+          "nullable": true,
+          "example": null
+        },
+        "XMPPRecipientsGroup": {
+          "type": "string",
+          "nullable": true,
+          "example": null
+        },
+        "Identifier": {
+          "type": "string",
+          "nullable": true,
+          "example": null
+        },
+        "Priority": {
+          "type": "integer",
+          "nullable": true,
+          "example": 0
+        },
+        "SortPriority": {
+          "type": "integer",
+          "nullable": true,
+          "example": null
+        },
+        "TansferDepartmentID": {
+          "type": "integer",
+          "nullable": true,
+          "example": null,
+          "min" : 1
+        },
+        "TransferTimeout": {
+          "type": "integer",
+          "nullable": true,
+          "example": null,
+          "min" : 5
+        },
+        "delay_lm": {
+          "type": "integer",
+          "nullable": true,
+          "example": null,
+          "min" : 5
+        },
+        "OnlineHoursActive": {
+          "type": "boolean",
+          "nullable": true,
+          "example": true
+        },
+        "Disabled": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "Hidden": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "inform_close": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "inform_unread": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "nc_cb_execute": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "AutoAssignActive": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "VisibleIfOnline": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "ExcludeInactiveChats": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "MaxNumberActiveChats": {
+          "type": "integer",
+          "nullable": true,
+          "example": 0
+        },
+        "MaxWaitTimeoutSeconds": {
+          "type": "integer",
+          "nullable": true,
+          "example": 0
+        },
+        "MaxNumberActiveDepChats": {
+          "type": "integer",
+          "nullable": true,
+          "example": 0
+        },
+        "pending_max": {
+          "type": "integer",
+          "nullable": true,
+          "example": 0
+        },
+        "delay_before_assign": {
+          "type": "integer",
+          "nullable": true,
+          "example": 0
+        },
+        "inform_unread_delay": {
+          "type": "integer",
+          "nullable": true,
+          "example": 0,
+          "min": 5
+        },
+        "inform_delay": {
+          "type": "integer",
+          "nullable": true,
+          "example": 0,
+          "min": 0
+        },
+        "inform_close_all": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "inform_close_all_email": {
+          "type": "string",
+          "nullable": true,
+          "example": ""
+        },
+        "products_enabled": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "products_required": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "assign_same_language": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "hide_send_email": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "bot_only_offline": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "auto_delay_timeout": {
+          "type": "integer",
+          "nullable": true,
+          "example": null,
+          "min" : 1
+        },
+        "auto_delay_var": {
+          "type": "string",
+          "nullable": true,
+          "example": null,
+          "min" : 1
+        },
+        "survey_id": {
+          "type": "integer",
+          "nullable": true,
+          "example": null,
+          "min" : 1
+        },
+        "bot_id": {
+          "type": "integer",
+          "nullable": true,
+          "example": null,
+          "min" : 1
+        },
+        "bot_tr_id": {
+          "type": "integer",
+          "nullable": true,
+          "example": null,
+          "min" : 1
+        }
+      },
+      "example" : {
+        "Name" : "Name of department"
+      }
+    }
   },
   "externalDocs": {
     "description": "Find out more about Live Helper Chat",
