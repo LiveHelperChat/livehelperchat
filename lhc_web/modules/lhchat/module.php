@@ -377,7 +377,7 @@ $ViewList['blockedusers'] = array(
 
 $ViewList['getstatus'] = array(
     'params' => array(),
-    'uparams' => array('ua','ma','operator','theme','priority','disable_pro_active','click','position','hide_offline','check_operator_messages','top','units','leaveamessage','department','identifier','survey','dot'),
+    'uparams' => array('fresh','ua','ma','operator','theme','priority','disable_pro_active','click','position','hide_offline','check_operator_messages','top','units','leaveamessage','department','identifier','survey','dot','bot_id'),
 	'multiple_arguments' => array ( 'department', 'ua' )
 );
 
@@ -395,7 +395,7 @@ $ViewList['chatcheckstatus'] = array(
 
 $ViewList['getstatusembed'] = array (
     'params' => array(),
-    'uparams' => array('ua','operator','theme','hide_offline','leaveamessage','department','priority','survey'),
+    'uparams' => array('fresh','ua','operator','theme','hide_offline','leaveamessage','department','priority','survey','bot_id'),
 	'multiple_arguments' => array ( 'department','ua' )
 );
 
@@ -407,7 +407,7 @@ $ViewList['startchat'] = array (
 
 $ViewList['chatwidget'] = array (
     'params' => array(),
-    'uparams' => array('ua','switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill','survey','sdemo','prod','phash','pvhash','fullheight','ajaxmode'),
+    'uparams' => array('bot_id','ua','switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill','survey','sdemo','prod','phash','pvhash','fullheight','ajaxmode'),
 	'multiple_arguments' => array ( 'department', 'ua', 'prod' )
 );
 
