@@ -98,6 +98,82 @@ class erLhcoreClassGenericBot {
         return $Errors;
     }
 
+    public static function validateBotPhotoPayload(& $userData, $params = array()) {
+        $Errors = false;
+
+        if (isset($params["payload"]['image']) && !empty($params["payload"]['image'])) {
+
+            $imgDataItem = base64_decode($params["payload"]['image']);
+
+            $imagesize = getimagesizefromstring($imgDataItem);
+
+            if ($imagesize !== false && isset($imagesize['mime'])){
+                $mimetype = $imagesize['mime'];
+            } elseif(class_exists('finfo')) {
+                $finfo    = new finfo(FILEINFO_MIME);
+                $mimetype = $finfo->buffer($imgDataItem);
+            }
+
+            $extensionMimetype = array(
+                'image/jpeg' => 'jpg',
+                'image/jpg' => 'jpg',
+                'image/png' => 'png'
+            );
+
+            if (!key_exists($mimetype,$extensionMimetype)){
+                return;
+            }
+
+            $dir = 'var/tmpfiles/';
+            $fileName = 'data' . '.' . $extensionMimetype[$mimetype];
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.temppath',array('dir' => & $dir));
+
+            erLhcoreClassFileUpload::mkdirRecursive( $dir );
+
+            $imgPath = $dir . $fileName;
+            file_put_contents($imgPath, $imgDataItem);
+
+            if (erLhcoreClassImageConverter::isPhotoLocal($imgPath)) {
+
+                $Errors = array();
+
+                $path = isset($params['path']) ? $params['path'] : 'var/botphoto/';
+
+                $dir = $path . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $userData->id . '/';
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_path',array('dir' => & $dir, 'storage_id' => $userData->id));
+
+                erLhcoreClassFileUpload::mkdirRecursive( $dir );
+
+                $fileName = erLhcoreClassSearchHandler::moveLocalFile($imgPath, $dir . '/','.' );
+
+                if ( !empty($file["errors"]) ) {
+                    foreach ($file["errors"] as $err) {
+                        $Errors[] = $err;
+                    }
+                } else {
+                    $userData->removeFile();
+                    $userData->filename	= $fileName;
+                    $userData->filepath	= $dir;
+
+                    $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_resize_150', array('mime_type' => $extensionMimetype[$mimetype], 'user' => $userData));
+
+                    if ($response === false) {
+                        erLhcoreClassImageConverter::getInstance()->converter->transform( 'photow_150', $userData->file_path_server, $userData->file_path_server);
+                        chmod($userData->file_path_server, 0644);
+                    }
+                }
+
+            } else {
+                unlink($imgPath);
+            }
+
+        }
+
+        return $Errors;
+    }
+
     public static function validateBotPhoto(& $userData, $params = array()) {
 
         $Errors = false;

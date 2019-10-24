@@ -30,6 +30,8 @@ if (erLhcoreClassModelChatConfig::fetch('hide_disabled_department')->current_val
 $tpl = erLhcoreClassTemplate::getInstance('lhchat/getstatusembed.tpl.php');
 $tpl->set('leaveamessage',(string)$Params['user_parameters_unordered']['leaveamessage'] == 'true');
 $tpl->set('hide_offline',$Params['user_parameters_unordered']['hide_offline']);
+$tpl->set('bot_id',is_numeric($Params['user_parameters_unordered']['bot_id']) ? $Params['user_parameters_unordered']['bot_id'] : null);
+$tpl->set('fresh',is_numeric($Params['user_parameters_unordered']['fresh']) ? true : false);
 
 if (is_array($Params['user_parameters_unordered']['department'])){
 	erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);

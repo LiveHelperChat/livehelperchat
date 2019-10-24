@@ -32,6 +32,13 @@ try
 
     if (count($Errors) == 0) {
         $bot->saveThis();
+
+        $userPhotoErrors = erLhcoreClassGenericBot::validateBotPhotoPayload($bot, array('payload' => $requestBody));
+
+        if ($userPhotoErrors !== false && count($userPhotoErrors) == 0) {
+            $bot->saveThis();
+        }
+
     } else {
         throw new Exception(implode("\n",$Errors));
     }

@@ -232,6 +232,7 @@ $inputData->ua = $Params['user_parameters_unordered']['ua'];
 $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
 $inputData->only_bot_online = isset($_POST['onlyBotOnline']) ? (int)$_POST['onlyBotOnline'] : 0;
 $inputData->tag = isset($_GET['tag']) ? (string)$_GET['tag'] : '';
+$inputData->bot_id = is_numeric($Params['user_parameters_unordered']['bot_id']) ? (int)$Params['user_parameters_unordered']['bot_id'] : null;
 
 // If chat was started based on key up, we do not need to store a message
 //  because user is still typing it. We start chat in the background just.
@@ -407,6 +408,10 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     	               $chat->saveThis();
     	           }
     	       }
+
+               if (is_numeric($inputData->bot_id)) {
+                   $paramsExecution['bot_id'] = $inputData->bot_id;
+               }
 
                // Set bot workflow if required
                erLhcoreClassChatValidator::setBot($chat, $paramsExecution);
@@ -675,6 +680,7 @@ $autoStartResult = erLhcoreClassChatValidator::validateAutoStart(array(
     'startDataFields' => $startDataFields,
     'modeAppend' => $modeAppend,
     'modeAppendTheme' => $modeAppendTheme,
+    'bot_id' => $inputData->bot_id
 ));
 
 if ($autoStartResult !== false) {
