@@ -3269,13 +3269,14 @@ function lh(){
 
     this.enableVisitorEditor = function()
     {
-        $('#CSChatMessage').prop('readonly',false);
+        $('#ChatMessageContainer').removeClass('hide');
+        $('#CSChatMessage').focus();
     }
 
     this.disableVisitorEditor = function()
     {
         setTimeout(function(){
-            $('#CSChatMessage').prop('readonly',true);
+            $('#ChatMessageContainer').addClass('hide');
         },300);
     }
 

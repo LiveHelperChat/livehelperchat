@@ -47,7 +47,7 @@
     <div id="id-operator-typing"></div>
  
     <?php if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
-    <div id="ChatMessageContainer">
+    <div id="ChatMessageContainer" class="<?php if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT && $chat->bot !== null && isset($chat->bot->configuration_array['profile_hide']) && $chat->bot->configuration_array['profile_hide'] == true) : ?>hide<?php endif;?>">
 
         <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings.tpl.php'));?>
 

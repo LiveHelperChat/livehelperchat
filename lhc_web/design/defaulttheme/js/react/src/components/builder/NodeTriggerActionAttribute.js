@@ -9,6 +9,7 @@ class NodeTriggerActionAttribute extends Component {
         this.changeType = this.changeType.bind(this);
         this.removeAction = this.removeAction.bind(this);
         this.onchangeAttr = this.onchangeAttr.bind(this);
+        this.showHelp = this.showHelp.bind(this);
     }
 
     changeType(e) {
@@ -21,6 +22,10 @@ class NodeTriggerActionAttribute extends Component {
 
     onchangeAttr(e) {
         this.props.onChangeContent({id : this.props.id, 'path' : ['content'].concat(e.path), value : e.value});
+    }
+    
+    showHelp(e) {
+        lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/'+e});
     }
 
     render() {
@@ -52,7 +57,7 @@ class NodeTriggerActionAttribute extends Component {
                     </div>
                     <div className="col-6">
                         <div className="form-group">
-                            <label>Preg match rule</label>
+                            <label>Preg match rule. <a title="Need help?" className="float-right" onClick={(e) => this.showHelp('preg_match')}><i className="material-icons mr-0">help</i></a></label>
                             <input type="text" placeholder="Attribute name" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['preg_match'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','preg_match'])} />
                         </div>
                     </div>

@@ -471,7 +471,7 @@ class erLhcoreClassModelChat {
        	        }
        			return $this->chat_variables_array;
        		break;
-       		
+
        	case 'user_status_front':
 
        	    if ($this->lsync > 0) {
@@ -492,7 +492,19 @@ class erLhcoreClassModelChat {
        		}
 
        		return $this->user_status_front;
-       	break;	
+       	break;
+
+       	case 'bot':
+            $chatVariables = $this->chat_variables_array;
+            $bot = null;
+
+            if (isset($chatVariables['gbot_id']) && $chatVariables['gbot_id'] > 0) {
+                $bot = erLhcoreClassModelGenericBotBot::fetch($chatVariables['gbot_id']);
+            }
+
+            $this->bot = $bot;
+            return $this->bot;
+       	break;
        		
        	default:
        		break;

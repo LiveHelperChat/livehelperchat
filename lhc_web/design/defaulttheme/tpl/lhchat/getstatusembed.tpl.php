@@ -243,8 +243,13 @@ var lh_inst_page  = {
     	if (action == 'lhc_sizing_chat_page') {
     		var height = e.data.split(':')[1];
     		var elementObject = document.getElementById('<?php echo $chatCSSPrefix?>_iframe_page');
-    		elementObject.height = height;
-    		elementObject.style.height = height+'px';
+            if (parseInt(height) < 400) {
+                elementObject.height = 400;
+                elementObject.style.height = '400px';
+            } else {
+                elementObject.height = height;
+                elementObject.style.height = height+'px';
+            }
     	} else if (action == 'lhc_ch') {
     		var parts = e.data.split(':');
     		if (parts[1] != '' && parts[2] != '') {

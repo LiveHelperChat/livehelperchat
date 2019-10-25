@@ -38,6 +38,12 @@ class erLhcoreClassGenericBot {
             'bot_id' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int',null, FILTER_REQUIRE_ARRAY
             ),
+            'profile_hide' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+            'msg_hide' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
         );
         
         if (isset($additionalParams['payload_data'])) {
@@ -90,6 +96,18 @@ class erLhcoreClassGenericBot {
             $configurationArray['bot_id'] = $form->bot_id;
         } else {
             $configurationArray['bot_id'] = array();
+        }
+
+        if ( $form->hasValidData( 'profile_hide' ) ) {
+            $configurationArray['profile_hide'] = true;
+        } else {
+            $configurationArray['profile_hide'] = false;
+        }
+
+        if ( $form->hasValidData( 'msg_hide' ) ) {
+            $configurationArray['msg_hide'] = true;
+        } else {
+            $configurationArray['msg_hide'] = false;
         }
 
         $bot->configuration_array = $configurationArray;
