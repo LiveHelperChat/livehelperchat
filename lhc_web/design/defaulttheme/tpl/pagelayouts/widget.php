@@ -9,7 +9,12 @@
         </style>
     <?php  endif; ?>
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_user.tpl.php'));?>
-<link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/widget.css;css/widget_override.css');?>" />
+
+    <?php if (isset($Result['no_mobile_css'])) : ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/no_mobile_widget.css;css/no_mobile_widget_override.css');?>" />
+    <?php else : ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/widget.css;css/widget_override.css');?>" />
+    <?php endif; ?>
 
 <?php if (isset($Result['theme']) && $Result['theme']->custom_widget_css != '') : ?>
 <style type="text/css">

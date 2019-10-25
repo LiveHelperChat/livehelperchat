@@ -79,6 +79,9 @@
         <div class="form-group">
             <label><input type="checkbox" name="msg_hide" value="1" <?php (isset($item->configuration_array['msg_hide']) && $item->configuration_array['msg_hide'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Start chat with hidden message box')?></label>
         </div>
+        <div class="form-group">
+            <label><input type="checkbox" name="msg_expand" value="1" <?php (isset($item->configuration_array['msg_expand']) && $item->configuration_array['msg_expand'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Use expanding message area')?></label>
+        </div>
     </div>
 </div>
 

@@ -12,7 +12,7 @@
     (isset($paid_chat_params['allow_read']) && $paid_chat_params['allow_read'] == true)) : ?>
     <div id="messages"<?php if (isset($fullheight) && $fullheight == true) : ?> class="fullheight"<?php endif ?>>
         <div id="messagesBlockWrap">
-            <div class="msgBlock<?php if (isset($theme) && $theme !== false && $theme->hide_ts == 1) : ?> msg-hide-ts<?php endif?>" <?php if (erLhcoreClassModelChatConfig::fetch('mheight')->current_value > 0) : ?>style="height:<?php echo (int)erLhcoreClassModelChatConfig::fetch('mheight')->current_value?>px"<?php endif?> id="messagesBlock"><?php
+            <div class="msgBlock<?php if (isset($theme) && $theme !== false && $theme->hide_ts == 1) : ?> msg-hide-ts<?php endif?>" <?php if (erLhcoreClassModelChatConfig::fetch('mheight')->current_value > 0) : ?>style="<?php if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT && $chat->bot !== null && isset($chat->bot->configuration_array['msg_expand']) && $chat->bot->configuration_array['msg_expand'] == true) : ?>max-<?php endif;?>height:<?php echo (int)erLhcoreClassModelChatConfig::fetch('mheight')->current_value?>px"<?php endif?> id="messagesBlock"><?php
             $lastMessageID = 0;
             $lastOperatorChanged = false;
             $lastOperatorId = false;
@@ -47,7 +47,8 @@
     <div id="id-operator-typing"></div>
  
     <?php if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
-    <div id="ChatMessageContainer" class="<?php if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT && $chat->bot !== null && isset($chat->bot->configuration_array['profile_hide']) && $chat->bot->configuration_array['profile_hide'] == true) : ?>hide<?php endif;?>">
+
+    <div id="ChatMessageContainer" class="<?php if (isset($chat_started_now) && $chat_started_now === true && $chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT && $chat->bot !== null && isset($chat->bot->configuration_array['msg_hide']) && $chat->bot->configuration_array['msg_hide'] == true) : ?>hide<?php endif;?>">
 
         <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings.tpl.php'));?>
 

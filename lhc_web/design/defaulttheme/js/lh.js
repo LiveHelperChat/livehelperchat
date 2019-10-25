@@ -3275,9 +3275,7 @@ function lh(){
 
     this.disableVisitorEditor = function()
     {
-        setTimeout(function(){
-            $('#ChatMessageContainer').addClass('hide');
-        },300);
+        $('#ChatMessageContainer').addClass('hide');
     }
 
     this.buttonClicked = function(payload, id, btn, notHide) {

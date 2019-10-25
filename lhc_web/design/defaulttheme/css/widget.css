@@ -34,7 +34,7 @@ min-width: 0.7em;
 background-color: #ddd;
 }
 
-@media only screen and (max-device-width: 640px) {
+@media only screen and (max-width: 640px) {
 
 	input[type='text'],
 	select,
@@ -106,7 +106,7 @@ background-color: #ddd;
 		bottom:0px;
 		right:0px;
 		left:0px;
-		max-height:100%;
+		max-height:100%!important;
 	}
 
 	#messagesBlock.read-operator-message{

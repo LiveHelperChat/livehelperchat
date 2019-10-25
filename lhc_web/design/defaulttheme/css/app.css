@@ -220,7 +220,6 @@ a:hover{
 }
 
 .msgBlock,.msgBlock-inv{
-	height:120px;
 	overflow-y:auto;
 	resize: vertical;
 	padding-bottom:3px;
