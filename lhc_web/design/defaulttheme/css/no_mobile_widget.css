@@ -34,7 +34,7 @@ body.embed-widget {
     background-color: #ddd;
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-device-width: 640px) {
 
     input[type='text'],
     select,
