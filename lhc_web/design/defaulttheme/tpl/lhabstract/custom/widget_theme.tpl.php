@@ -115,17 +115,26 @@
         		</div>        		
         		<div role="tabpanel" class="tab-pane" id="messagesstyle">
                 	    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Live preview')?></h3>
-                	   
-            		    <div id="messages">
+
+            		    <div id="messages" ng-class="{'bubble-messages': abstract_checked_bubble_style_profile, 'hide-visitor-profile' : abstract_checked_hide_visitor_profile}">
                             <div class="msgBlock" style="" id="messagesBlock">       
                                 <div class="message-row response" id="msg-10459" data-op-id="0">
                                     <div class="msg-date">10:14:39</div>
-                                    <span style="color:#{{bactract_bg_color_buble_visitor_title_color}}" class="usr-tit vis-tit" role="button"><i class="material-icons chat-operators mi-fs15 mr-0">face</i>Visitor</span>
+                                    <span style="color:#{{bactract_bg_color_buble_visitor_title_color}}" class="usr-tit vis-tit" role="button"><i class="material-icons chat-operators mi-fs15 mr-0">face</i>
+                                        <span ng-hide="abstract_checked_bubble_style_profile">Visitor</span>
+                                    </span>
                                     <div class="msg-body" style="background-color: #{{bactract_bg_color_buble_visitor_background}};color:#{{bactract_bg_color_buble_visitor_text_color}}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
                                 </div>
             		            <div class="message-row message-admin operator-changes" id="msg-10463" data-op-id="1">
             		            <div class="msg-date">10:18:22</div>
-                                    <span style="color:#{{bactract_bg_color_buble_operator_title_color}}" class="usr-tit op-tit" ><i class="material-icons chat-operators mi-fs15 mr-0">account_box</i>Operator</span>
+                                    <span style="color:#{{bactract_bg_color_buble_operator_title_color}}" class="usr-tit op-tit" >
+                                        <i ng-hide="abstract_checked_bubble_style_profile" class="material-icons chat-operators mi-fs15 mr-0">account_box</i>
+                                        <span ng-hide="abstract_checked_bubble_style_profile" class="op-nick-title">Operator</span>
+
+                                        <i ng-show="abstract_checked_bubble_style_profile" title="<?php echo htmlspecialchars($msg['name_support'])?>" class="chat-operators mi-fs15 mr-0">
+                                            <img class="profile-msg-pic" src="<?php echo erLhcoreClassDesign::design('images/general/logo.png');?>" alt="">
+                                        </i>
+                                    </span>
                                     <div class="msg-body" style="color:#{{bactract_bg_color_buble_operator_text_color}};background-color: #{{bactract_bg_color_buble_operator_background}};">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
                                 </div>
             		        </div>
@@ -134,8 +143,20 @@
         		        <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Visitor messages style')?></h3>
         		        
         		        <div class="form-group">
+                            <label><?php echo erLhcoreClassAbstract::renderInput('bubble_style_profile', $fields['bubble_style_profile'], $object)?> <?php echo $fields['bubble_style_profile']['trans'];?></label>
+    				    </div>
+
+        		        <div class="form-group">
+                            <label><?php echo erLhcoreClassAbstract::renderInput('hide_visitor_profile', $fields['hide_visitor_profile'], $object)?> <?php echo $fields['hide_visitor_profile']['trans'];?></label>
+    				    </div>
+
+        		        <div class="form-group">
+                            <label><?php echo erLhcoreClassAbstract::renderInput('msg_expand', $fields['msg_expand'], $object)?> <?php echo $fields['msg_expand']['trans'];?></label>
+    				    </div>
+
+        		        <div class="form-group">
         		        <label><?php echo $fields['buble_visitor_background']['trans'];?></label>
-    					<?php echo erLhcoreClassAbstract::renderInput('buble_visitor_background', $fields['buble_visitor_background'], $object)?>		
+    					<?php echo erLhcoreClassAbstract::renderInput('buble_visitor_background', $fields['buble_visitor_background'], $object)?>
     				    </div>
         		
         		        <div class="form-group">

@@ -43,10 +43,7 @@ class erLhcoreClassGenericBot {
             ),
             'msg_hide' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-            ),
-            'msg_expand' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-            ),
+            )
         );
         
         if (isset($additionalParams['payload_data'])) {
@@ -111,12 +108,6 @@ class erLhcoreClassGenericBot {
             $configurationArray['msg_hide'] = true;
         } else {
             $configurationArray['msg_hide'] = false;
-        }
-
-        if ( $form->hasValidData( 'msg_expand' ) ) {
-            $configurationArray['msg_expand'] = true;
-        } else {
-            $configurationArray['msg_expand'] = false;
         }
 
         $bot->configuration_array = $configurationArray;
