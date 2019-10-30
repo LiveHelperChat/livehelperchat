@@ -39,9 +39,16 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		        $chat->auto_responder->chat = $chat;
 		        $chat->auto_responder->process();
 		    }
-		    		    		
-			if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->transfer_if_na == 1 && $chat->transfer_timeout_ts < (time()-$chat->transfer_timeout_ac) ) {
-		
+
+			if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->transfer_if_na == 1 &&
+                (
+			        (
+			            $chat->transfer_timeout_ts < (time()-$chat->transfer_timeout_ac)
+                    ) || (
+                        ($department = $chat->department) && $offlineDepartmentOperators = true && $department !== false && isset($department->bot_configuration_array['off_op_exec']) && $department->bot_configuration_array['off_op_exec'] == 1 && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true, 'exclude_online_hours' => true)) === false
+                    )
+                ) ) {
+
 				$canExecuteWorkflow = true;
 		
 				if (erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value >= 0) {
@@ -51,7 +58,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 				}
 		
 				if ($canExecuteWorkflow == true) {
-					erLhcoreClassChatWorkflow::transferWorkflow($chat);
+					erLhcoreClassChatWorkflow::transferWorkflow($chat, array('offline_operators' => isset($offlineDepartmentOperators)));
 				}
 			}
 		

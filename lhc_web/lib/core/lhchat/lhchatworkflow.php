@@ -27,7 +27,7 @@ class erLhcoreClassChatWorkflow {
     /**
      * Transfer workflow between departments
      * */
-    public static function transferWorkflow(erLhcoreClassModelChat & $chat)
+    public static function transferWorkflow(erLhcoreClassModelChat & $chat, $params = array())
     {
         $chat->transfer_if_na = 0;
         $chat->transfer_timeout_ts = time();
@@ -36,9 +36,16 @@ class erLhcoreClassChatWorkflow {
             $chat->dep_id = $departmentTransfer->id;
 
             $msg = new erLhcoreClassModelmsg();
-            $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was automatically transferred to').' "'.$departmentTransfer.'" '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','from').' "'.$chat->department.'"';
+
+            if (isset($params['offline_operators']) && $params['offline_operators'] == true) {
+                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Transferred to').' "'.$departmentTransfer.'" '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','as no operators online in').' "'.$chat->department.'"';
+            } else {
+                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was automatically transferred to').' "'.$departmentTransfer.'" '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','from').' "'.$chat->department.'"';
+            }
+
             $msg->chat_id = $chat->id;
             $msg->user_id = -1;
+
 
             $chat->last_user_msg_time = $msg->time = time();
 

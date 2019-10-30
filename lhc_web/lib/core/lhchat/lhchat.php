@@ -757,7 +757,7 @@ class erLhcoreClassChat {
 				$rowsNumber = $stmt->fetchColumn();	
        		}
 
-			if ($rowsNumber == 0) { // Perhaps auto active is turned on for some of departments
+			if ($rowsNumber == 0 && (!isset($params['exclude_online_hours']) || $params['exclude_online_hours'] == false)) { // Perhaps auto active is turned on for some of departments
                 if (is_numeric($dep_id)) {
                     $stmt = $db->prepare("SELECT lh_departament_custom_work_hours.start_hour, lh_departament_custom_work_hours.end_hour FROM lh_departament_custom_work_hours INNER JOIN lh_departament ON lh_departament.id = lh_departament_custom_work_hours.dep_id WHERE (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND date_from <= :date_from AND date_to >= :date_to AND dep_id = :dep_id");
                     $stmt->bindValue(':dep_id',$dep_id);
