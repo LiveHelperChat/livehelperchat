@@ -60,7 +60,11 @@ class erLhcoreClassModelChatFile {
    			break;
 
    			case 'security_hash':
-   					$this->security_hash = md5($this->name.'_'.$this->chat_id);
+   					// AWS plugin changes file name, but we always use original name
+   					$parts = explode('/', $this->name);
+   					end($parts);
+   					$name = end($parts);
+   					$this->security_hash = md5($name.'_'.$this->chat_id);
    				return $this->security_hash;
    			;
    			break;
