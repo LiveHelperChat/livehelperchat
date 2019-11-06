@@ -77,7 +77,10 @@ class erLhcoreClassDepartament{
 	   			'inform_unread' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
-	   			'nc_cb_execute' => new ezcInputFormDefinitionElement(
+	   			'off_op_exec' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
+                'nc_cb_execute' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
 	   			'na_cb_execute' => new ezcInputFormDefinitionElement(
@@ -242,7 +245,9 @@ class erLhcoreClassDepartament{
 		   		$department->max_ac_dep_chats = 0;
 		   	}
 	   	}
-	   	
+
+        $botConfiguration = $department->bot_configuration_array;
+
 	   	if ( erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actworkflow') ) {
 		   	if ( $form->hasValidData( 'TansferDepartmentID' ) )
 		   	{
@@ -263,8 +268,15 @@ class erLhcoreClassDepartament{
 		   		$department->nc_cb_execute = 1;
 		   	} else {
 		   		$department->nc_cb_execute = 0;
+		   	}		   	
+
+		   	if ( $form->hasValidData( 'off_op_exec' ) && $form->off_op_exec == true )
+		   	{
+		   		$botConfiguration['off_op_exec'] = 1;
+		   	} else {
+                $botConfiguration['off_op_exec'] = 0;
 		   	}
-		   	
+
 		   	if ( $form->hasValidData( 'na_cb_execute' ) && $form->na_cb_execute == true )
 		   	{
 		   		$department->na_cb_execute = 1;
@@ -469,8 +481,6 @@ class erLhcoreClassDepartament{
            $department->departament_products_id = array();
        }
 
-       $botConfiguration = array();
-
        if ( $form->hasValidData( 'bot_id' ) )
        {
            $botConfiguration['bot_id'] = $form->bot_id;
@@ -478,10 +488,11 @@ class erLhcoreClassDepartament{
            $botConfiguration['bot_id'] = 0;
        }
 
-
        if ( $form->hasValidData( 'bot_tr_id' ) )
        {
            $botConfiguration['bot_tr_id'] = $form->bot_tr_id;
+       } else {
+           $botConfiguration['bot_tr_id'] = 0;
        }
 
        if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment', 'managesurvey')) {

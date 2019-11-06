@@ -4,7 +4,7 @@ try {
 	$file = erLhcoreClassModelChatFile::fetch((int)$Params['user_parameters']['file_id']);
 	$hash = $Params['user_parameters']['hash'];
 
-	if ( $hash == md5($file->name.'_'.$file->chat_id) ) {
+	if ( $hash == $file->security_hash ) {
 		header('Content-type: '.$file->type);
 				
 		if (!isset($Params['user_parameters_unordered']['inline']) || $Params['user_parameters_unordered']['inline'] != 'true') {
