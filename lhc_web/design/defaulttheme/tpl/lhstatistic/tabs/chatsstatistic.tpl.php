@@ -152,6 +152,17 @@
 	  </div>
 	</div>
 
+    <div class="col-md-2">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Group field');?></label>
+            <select class="form-control form-control-sm" name="group_field">
+                <option value="nick" <?php $input->group_field == '' || $input->group_field == 'nick' ? print 'selected="selected"' : '' ?>>Nick</option>
+                <option value="uagent" <?php $input->group_field == 'uagent' ? print 'selected="selected"' : '' ?>>User Agent</option>
+                <option value="device_type" <?php $input->group_field == 'device_type' ? print 'selected="selected"' : '' ?>>Device type</option>
+            </select>
+        </div>
+    </div>
+
     <div class="col-md-6">
         <label><input type="checkbox" name="exclude_offline" value="<?php echo erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ?>" <?php $input->exclude_offline == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ? print 'checked="checked"' : ''?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Exclude offline requests from charts')?></label>&nbsp;&nbsp;<label><input type="checkbox" name="online_offline" value="<?php echo erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ?>" <?php $input->online_offline == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ? print 'checked="checked"' : ''?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Show only offline requests')?></label>
     </div>
@@ -164,6 +175,8 @@
             <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="msgtype" <?php if (in_array('msgtype',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Message types')?></label></div>
             <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="proactivevsdefault" <?php if (in_array('proactivevsdefault',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Proactive chats number vs visitors initiated')?></label></div>
             <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="waitmonth" <?php if (in_array('waitmonth',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average wait time in seconds (maximum of 10 minutes)')?></label></div>
+            <div class="col-4"><label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Usefull if you prefill usernames always')?>"><input type="checkbox" name="chart_type[]" value="nickgroupingdate" <?php if (in_array('nickgroupingdate',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Unique group field records grouped by date')?></label></div>
+            <div class="col-4"><label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Usefull if you prefill usernames always')?>"><input type="checkbox" name="chart_type[]" value="nickgroupingdatenick" <?php if (in_array('nickgroupingdatenick',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chats number grouped by date and group field')?></label></div>
         </div>
     </div>
 
@@ -185,6 +198,7 @@
 <script type="text/javascript">
 	function redrawAllCharts(){
 			drawChartPerMonth();
+            drawChartByNickMonth();
 	};
 
     // Define a plugin to provide data labels
@@ -260,6 +274,131 @@
                 }
             }
         });
+    }
+
+    function drawChartByNickMonth() {
+        <?php if (isset($nickgroupingdate) && !empty($nickgroupingdate)) : ?>
+        <?php if (in_array('nickgroupingdate',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
+        var barChartData = {
+            labels: [<?php $key = 0; foreach ($nickgroupingdate as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date($groupby,$monthUnix).'\'';$key++; endforeach;?>],
+            datasets: [
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Unique records');?>',
+                    backgroundColor: '#3366cc',
+                    borderColor: '#3366cc',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($nickgroupingdate as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['unique']; $key++; endforeach;?>]
+                }
+            ]
+        };
+
+        var ctx = document.getElementById("chart_nickgroupingdate").getContext("2d");
+        var myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                tooltips: {
+                    mode: 'index',
+                    intersect: false
+                },
+                layout: {
+                    padding: {
+                        top: 20
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        stacked: true,
+                        ticks: {
+                            fontSize: 11,
+                            stepSize: 1,
+                            min: 0,
+                            autoSkip: false
+                        }
+                    }],
+                    yAxes: [{
+                        stacked: true,
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                title: {
+                    display: false
+                }
+            }
+        });
+        <?php endif; ?>
+        <?php endif; ?>
+
+        <?php if (isset($nickgroupingdatenick) && !empty($nickgroupingdatenick)) : ?>
+
+        <?php if (in_array('nickgroupingdatenick',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
+        var barChartData = {
+            labels: [<?php $key = 0; foreach ($nickgroupingdatenick['labels'] as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date($groupby,$monthUnix).'\'';$key++; endforeach;?>],
+            datasets: [
+                <?php foreach ($nickgroupingdatenick['data'] as $data) : ?>
+                {
+                    data: [<?php echo implode(',',$data['data'])?>],
+                    backgroundColor: [<?php echo implode(',',$data['color'])?>],
+                    labels: [<?php echo implode(',',$data['nick'])?>]
+                },
+                <?php endforeach; ?>
+            ]
+        };
+
+        var ctx = document.getElementById("chart_nickgroupingdatenick").getContext("2d");
+        var myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            var dataset = data.datasets[tooltipItem.datasetIndex];
+                            var index = tooltipItem.index;
+                            if (dataset.data[index] != 0) {
+                                return  dataset.data[index] + ': ' + (dataset.labels[index] == '' ? 'Unknown' : dataset.labels[index]);
+                            }
+                        }
+                    }
+                },
+                legend: {
+                    display: false,
+                },
+                layout: {
+                    padding: {
+                        top: 20
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        //stacked: true,
+                        ticks: {
+                            fontSize: 11,
+                            stepSize: 1,
+                            min: 0,
+                            autoSkip: false
+                        }
+                    }],
+                    yAxes: [{
+                        //stacked: true,
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                title: {
+                    display: false
+                }
+            }
+        });
+        <?php endif; ?>
+        <?php endif; ?>
     }
 
 	function drawChartPerMonth() {
@@ -504,6 +643,18 @@
 <hr>
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_number_by_statuses.tpl.php'));?></h5>
 <canvas id="chart_div_per_month"></canvas>
+<?php endif; ?>
+
+<?php if (in_array('nickgroupingdate',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
+    <hr>
+    <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/nickgroupingdate.tpl.php'));?></h5>
+    <canvas id="chart_nickgroupingdate"></canvas>
+<?php endif; ?>
+
+<?php if (in_array('nickgroupingdatenick',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
+    <hr>
+    <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/nickgroupingdatenick.tpl.php'));?></h5>
+    <canvas id="chart_nickgroupingdatenick"></canvas>
 <?php endif; ?>
 
 <?php if (in_array('proactivevsdefault',is_array($input->chart_type) ? $input->chart_type : array())) : ?>

@@ -172,6 +172,18 @@ $fieldsSearch['chart_type'] = array (
     )
 );
 
+$fieldsSearch['group_field'] = array (
+    'type' => 'text',
+    'trans' => 'Group Field',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => false,
+    'filter_table_field' => 'group_field',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'string', array()
+    )
+);
+
 $fieldsSearch['group_ids'] = array (
     'type' => 'text',
     'trans' => 'Group',

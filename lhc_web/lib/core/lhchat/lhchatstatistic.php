@@ -1858,6 +1858,642 @@ class erLhcoreClassChatStatistic {
 
         return $stats;
     }
+
+    public static function nickGroupingDateWeek($filter = array(), $filterParams = array())
+    {
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.nickgroupingdateweek',array('params_execution' => $filterParams, 'filter' => $filter));
+
+        if ($statusWorkflow === false) {
+            $numberOfChats = array();
+            $departmentFilter = array();
+            $departmentMsgFilter = array();
+
+            // Message filter
+            $msgFilter = $filter;
+
+            /**
+             * If department filter provided we have to use strict filter with table names
+             * */
+            $departmentMsgFilter['innerjoin']['lh_chat'] = array('lh_msg.chat_id','lh_chat.id');
+
+            /**
+             * If user ID provided only provided user chat's has to take effect
+             * */
+            if (isset($msgFilter['filter']['user_id'])){
+                unset($msgFilter['filter']['user_id']);
+                $msgFilter['filter']['lh_chat.user_id'] = $filter['filter']['user_id'];
+            }
+
+            if (isset($msgFilter['filterin']['user_id'])){
+                unset($msgFilter['filterin']['user_id']);
+                $msgFilter['filterin']['lh_chat.user_id'] = $filter['filterin']['user_id'];
+            }
+
+            if (isset($msgFilter['filtergte']['time'])){
+                unset($msgFilter['filtergte']['time']);
+                $msgFilter['filtergte']['lh_msg.time'] = $filter['filtergte']['time'];
+            }
+
+            if (isset($msgFilter['filterlte']['time'])){
+                unset($msgFilter['filterlte']['time']);
+                $msgFilter['filterlte']['lh_msg.time'] = $filter['filterlte']['time'];
+            }
+
+            $startTimestamp = time()-(42*7*24*3600);
+
+            $limitDays = 42;
+
+            if (isset($filter['filterlte']['time']) && isset($filter['filtergte']['time'])) {
+                $daysDifference = ceil(($filter['filterlte']['time'] - $filter['filtergte']['time'])/(24*3600*7));
+                if ($daysDifference <= 42 && $daysDifference > 0) {
+                    $limitDays = $daysDifference;
+                    $startTimestamp = $filter['filtergte']['time'];
+                }
+            } elseif (isset($filter['filtergte']['time'])) {
+                $daysDifference = ceil((time() - $filter['filtergte']['time'])/(24*3600*7));
+                if ($daysDifference <= 42 && $daysDifference > 0) {
+                    $limitDays = $daysDifference;
+                    $startTimestamp = $filter['filtergte']['time'];
+                }
+            } elseif (isset($filter['filterlte']['time'])) {
+                $limitDays = 42;
+                $startTimestamp = $filter['filterlte']['time']-(42*7*24*3600);
+            }
+
+            $validGroupFields = array(
+                'nick' => '`nick`',
+                'uagent' => '`uagent`',
+                'device_type' => '`device_type`',
+            );
+
+            $weekStarted = false;
+            for ($i = 0; $i < $limitDays;$i++) {
+                $dateUnix = mktime(0,0,0,date('m',$startTimestamp),date('d',$startTimestamp)+($i*7),date('y',$startTimestamp));
+
+                if ($weekStarted == false) {
+                    $weekStarted = true;
+
+                    if (date('N', $dateUnix) != 1) {
+                        // Adjust start time to be it monday
+                        $startTimestamp = $startTimestamp - ((date('N', $startTimestamp)-1)*24*3600);
+
+                        continue; // First day is not a monday, skip to next week
+                    }
+                }
+
+                // This week has not ended, so exclude it
+                if (date('YW') == date('YW',$dateUnix) || time() < $dateUnix) {
+                    continue;
+                }
+
+                if (!isset($filter['filtergte']['time']) || $filter['filtergte']['time'] <= $dateUnix || date('Ym',$filter['filtergte']['time']) == date('Ym',$dateUnix))
+                {
+                    $numberOfChats[$dateUnix] = array();
+
+                    $groupField = '`nick`';
+                    if (isset($filterParams['group_field']) && key_exists($filterParams['group_field'], $validGroupFields)) {
+                        $groupField = $validGroupFields[$filterParams['group_field']];
+                    }
+
+                    $numberOfChats[$dateUnix] = array ();
+                    $numberOfChats[$dateUnix]['unique'] = (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%v\') = '. date('YW',$dateUnix)))),'lh_chat', 'count(distinct ' . $groupField . ')' );
+                }
+            }
+
+            return $numberOfChats;
+        } else {
+            return $statusWorkflow['list'];
+        }
+    }
+
+    public static function nickGroupingDateNickWeek($filter = array(), $filterParams = array())
+    {
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.nickgroupingdatenickweek',array('params_execution' => $filterParams, 'filter' => $filter));
+
+        if ($statusWorkflow === false) {
+            $numberOfChats = array();
+            $departmentFilter = array();
+            $departmentMsgFilter = array();
+
+            // Message filter
+            $msgFilter = $filter;
+
+            /**
+             * If department filter provided we have to use strict filter with table names
+             * */
+            $departmentMsgFilter['innerjoin']['lh_chat'] = array('lh_msg.chat_id','lh_chat.id');
+
+            /**
+             * If user ID provided only provided user chat's has to take effect
+             * */
+            if (isset($msgFilter['filter']['user_id'])){
+                unset($msgFilter['filter']['user_id']);
+                $msgFilter['filter']['lh_chat.user_id'] = $filter['filter']['user_id'];
+            }
+
+            if (isset($msgFilter['filterin']['user_id'])){
+                unset($msgFilter['filterin']['user_id']);
+                $msgFilter['filterin']['lh_chat.user_id'] = $filter['filterin']['user_id'];
+            }
+
+            if (isset($msgFilter['filtergte']['time'])){
+                unset($msgFilter['filtergte']['time']);
+                $msgFilter['filtergte']['lh_msg.time'] = $filter['filtergte']['time'];
+            }
+
+            if (isset($msgFilter['filterlte']['time'])){
+                unset($msgFilter['filterlte']['time']);
+                $msgFilter['filterlte']['lh_msg.time'] = $filter['filterlte']['time'];
+            }
+
+            $startTimestamp = time()-(42*7*24*3600);
+
+            $limitDays = 42;
+
+            if (isset($filter['filterlte']['time']) && isset($filter['filtergte']['time'])) {
+                $daysDifference = ceil(($filter['filterlte']['time'] - $filter['filtergte']['time'])/(24*3600*7));
+                if ($daysDifference <= 42 && $daysDifference > 0) {
+                    $limitDays = $daysDifference;
+                    $startTimestamp = $filter['filtergte']['time'];
+                }
+            } elseif (isset($filter['filtergte']['time'])) {
+                $daysDifference = ceil((time() - $filter['filtergte']['time'])/(24*3600*7));
+                if ($daysDifference <= 42 && $daysDifference > 0) {
+                    $limitDays = $daysDifference;
+                    $startTimestamp = $filter['filtergte']['time'];
+                }
+            } elseif (isset($filter['filterlte']['time'])) {
+                $limitDays = 42;
+                $startTimestamp = $filter['filterlte']['time']-(42*7*24*3600);
+            }
+
+            $validGroupFields = array(
+                'nick' => '`nick`',
+                'uagent' => '`uagent`',
+                'device_type' => '`device_type`',
+            );
+
+            $weekStarted = false;
+            for ($i = 0; $i < $limitDays;$i++) {
+                $dateUnix = mktime(0,0,0,date('m',$startTimestamp),date('d',$startTimestamp)+($i*7),date('y',$startTimestamp));
+
+                if ($weekStarted == false) {
+                    $weekStarted = true;
+
+                    if (date('N', $dateUnix) != 1) {
+                        // Adjust start time to be it monday
+                        $startTimestamp = $startTimestamp - ((date('N', $startTimestamp)-1)*24*3600);
+
+                        continue; // First day is not a monday, skip to next week
+                    }
+                }
+
+                // This week has not ended, so exclude it
+                if (date('YW') == date('YW',$dateUnix) || time() < $dateUnix) {
+                    continue;
+                }
+
+                if (!isset($filter['filtergte']['time']) || $filter['filtergte']['time'] <= $dateUnix || date('Ym',$filter['filtergte']['time']) == date('Ym',$dateUnix))
+                {
+                    $numberOfChats[$dateUnix] = array();
+
+                    $groupField = '`nick`';
+                    $attr = 'nick';
+                    if (isset($filterParams['group_field']) && key_exists($filterParams['group_field'], $validGroupFields)) {
+                        $groupField = $validGroupFields[$filterParams['group_field']];
+                        $attr = $filterParams['group_field'];
+                    }
+
+                    $justDemo = array_values(erLhcoreClassModelChat::getList(array_merge_recursive($departmentFilter,$filter,array('sort' => 'nick_count DESC', 'select_columns' => 'count(id) as nick_count', 'group' => $groupField, 'limit' => 10, 'customfilter' => array('FROM_UNIXTIME(time,\'%Y%v\') = '. date('YW',$dateUnix))))));
+
+                    $returnArray = array();
+
+                    foreach ($justDemo as $demoItem) {
+                        $returnArray['color'][] = json_encode(self::colorFromString($demoItem->{$attr}));
+
+                        if ($attr == 'device_type') {
+                            $returnArray['nick'][] = json_encode($demoItem->{$attr} == 0 ? 'PC' : ($demoItem->{$attr} == 1 ? 'Mobile' : 'Table'));
+                        } else {
+                            $returnArray['nick'][] = json_encode($demoItem->{$attr});
+                        }
+
+                        $returnArray['data'][] = $demoItem->virtual_nick_count;
+                    }
+
+                    $numberOfChats[$dateUnix] = $returnArray;
+                }
+            }
+
+            $returnReversed = array();
+
+            if ($limitDays < 10) {
+                $limitDays = 10;
+            }
+
+            foreach ($numberOfChats as $dateIndex => $returnData) {
+                for ($i = 0; $i < $limitDays; $i++) {
+                    $returnReversed[$i]['data'][] = isset($returnData['data'][$i]) ? $returnData['data'][$i] : 0;
+                    $returnReversed[$i]['color'][] = isset($returnData['color'][$i]) ? $returnData['color'][$i] : '""';
+                    $returnReversed[$i]['nick'][] = isset($returnData['nick'][$i]) ? $returnData['nick'][$i] : '""';
+                }
+            }
+
+            return array('labels' => $numberOfChats, 'data' => $returnReversed);
+
+        } else {
+            return $statusWorkflow['list'];
+        }
+    }
+
+    public static function nickGroupingDateDay($filter = array(), $filterParams = array())
+    {
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getnumberofchatsperday', array('filter' => $filter, 'params_execution' => $filterParams));
+
+        if ($statusWorkflow === false) {
+            $numberOfChats = array();
+            $departmentFilter = array();
+            $departmentMsgFilter = array();
+
+            // Message filter
+            $msgFilter = $filter;
+
+            /**
+             * If department filter provided we have to use strict filter with table names
+             * */
+            $departmentMsgFilter['innerjoin']['lh_chat'] = array('lh_msg.chat_id','lh_chat.id');
+
+            /**
+             * If user ID provided only provided user chat's has to take effect
+             * */
+            if (isset($msgFilter['filter']['user_id'])){
+                unset($msgFilter['filter']['user_id']);
+                $msgFilter['filter']['lh_chat.user_id'] = $filter['filter']['user_id'];
+            }
+
+            if (isset($msgFilter['filtergte']['time'])){
+                unset($msgFilter['filtergte']['time']);
+                $msgFilter['filtergte']['lh_msg.time'] = $filter['filtergte']['time'];
+            }
+
+            if (isset($msgFilter['filterlte']['time'])){
+                unset($msgFilter['filterlte']['time']);
+                $msgFilter['filterlte']['lh_msg.time'] = $filter['filterlte']['time'];
+            }
+
+            $startTimestamp = time()-(31*24*3600);
+
+            $limitDays = 31;
+
+            if (isset($filter['filterlte']['time']) && isset($filter['filtergte']['time'])) {
+                $daysDifference = ceil(($filter['filterlte']['time'] - $filter['filtergte']['time'])/(24*3600));
+                if ($daysDifference <= 31 && $daysDifference > 0) {
+                    $limitDays = $daysDifference;
+                    $startTimestamp = $filter['filtergte']['time'];
+                }
+
+            } elseif (isset($filter['filtergte']['time'])) {
+                $daysDifference = ceil((time() - $filter['filtergte']['time'])/(24*3600));
+                if ($daysDifference <= 31 && $daysDifference > 0) {
+                    $limitDays = $daysDifference;
+                    $startTimestamp = $filter['filtergte']['time'];
+                }
+            } elseif (isset($filter['filterlte']['time'])) {
+                $limitDays = 31;
+                $startTimestamp = $filter['filterlte']['time']-(31*24*3600);
+            }
+
+            $validGroupFields = array(
+                'nick' => '`nick`',
+                'uagent' => '`uagent`',
+                'device_type' => '`device_type`',
+            );
+
+            for ($i = 0; $i < $limitDays;$i++) {
+                $dateUnix = mktime(0,0,0,date('m',$startTimestamp),date('d',$startTimestamp)+$i,date('y',$startTimestamp));
+
+                $groupField = '`nick`';
+                if (isset($filterParams['group_field']) && key_exists($filterParams['group_field'], $validGroupFields)) {
+                    $groupField = $validGroupFields[$filterParams['group_field']];
+                }
+
+                $numberOfChats[$dateUnix] = array ();
+                $numberOfChats[$dateUnix]['unique'] = (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m%d\') = '. date('Ymd',$dateUnix)))),'lh_chat', 'count(distinct ' . $groupField . ')' );
+            }
+
+            return $numberOfChats;
+        } else {
+            return $statusWorkflow['list'];
+        }
+    }
+
+    public static function nickGroupingDateNickDay($filter = array(), $filterParams = array())
+    {
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.nickgroupingdatenickday', array('filter' => $filter, 'params_execution' => $filterParams));
+
+        if ($statusWorkflow === false) {
+            $numberOfChats = array();
+            $departmentFilter = array();
+            $departmentMsgFilter = array();
+
+            // Message filter
+            $msgFilter = $filter;
+
+            /**
+             * If department filter provided we have to use strict filter with table names
+             * */
+            $departmentMsgFilter['innerjoin']['lh_chat'] = array('lh_msg.chat_id','lh_chat.id');
+
+            /**
+             * If user ID provided only provided user chat's has to take effect
+             * */
+            if (isset($msgFilter['filter']['user_id'])){
+                unset($msgFilter['filter']['user_id']);
+                $msgFilter['filter']['lh_chat.user_id'] = $filter['filter']['user_id'];
+            }
+
+            if (isset($msgFilter['filtergte']['time'])){
+                unset($msgFilter['filtergte']['time']);
+                $msgFilter['filtergte']['lh_msg.time'] = $filter['filtergte']['time'];
+            }
+
+            if (isset($msgFilter['filterlte']['time'])){
+                unset($msgFilter['filterlte']['time']);
+                $msgFilter['filterlte']['lh_msg.time'] = $filter['filterlte']['time'];
+            }
+
+            $startTimestamp = time()-(31*24*3600);
+
+            $limitDays = 31;
+
+            if (isset($filter['filterlte']['time']) && isset($filter['filtergte']['time'])) {
+                $daysDifference = ceil(($filter['filterlte']['time'] - $filter['filtergte']['time'])/(24*3600));
+                if ($daysDifference <= 31 && $daysDifference > 0) {
+                    $limitDays = $daysDifference;
+                    $startTimestamp = $filter['filtergte']['time'];
+                }
+
+            } elseif (isset($filter['filtergte']['time'])) {
+                $daysDifference = ceil((time() - $filter['filtergte']['time'])/(24*3600));
+                if ($daysDifference <= 31 && $daysDifference > 0) {
+                    $limitDays = $daysDifference;
+                    $startTimestamp = $filter['filtergte']['time'];
+                }
+            } elseif (isset($filter['filterlte']['time'])) {
+                $limitDays = 31;
+                $startTimestamp = $filter['filterlte']['time']-(31*24*3600);
+            }
+
+            $validGroupFields = array(
+                'nick' => '`nick`',
+                'uagent' => '`uagent`',
+                'device_type' => '`device_type`',
+            );
+
+            for ($i = 0; $i < $limitDays;$i++) {
+                $dateUnix = mktime(0,0,0,date('m',$startTimestamp),date('d',$startTimestamp)+$i,date('y',$startTimestamp));
+
+                $groupField = '`nick`';
+                $attr = 'nick';
+                if (isset($filterParams['group_field']) && key_exists($filterParams['group_field'], $validGroupFields)) {
+                    $groupField = $validGroupFields[$filterParams['group_field']];
+                    $attr = $filterParams['group_field'];
+                }
+
+                $justDemo = array_values(erLhcoreClassModelChat::getList(array_merge_recursive($departmentFilter,$filter,array('sort' => 'nick_count DESC', 'select_columns' => 'count(id) as nick_count', 'group' => $groupField, 'limit' => 10, 'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m%d\') = '. date('Ymd',$dateUnix))))));
+
+                $returnArray = array();
+
+                foreach ($justDemo as $demoItem) {
+                    $returnArray['color'][] = json_encode(self::colorFromString($demoItem->{$attr}));
+
+                    if ($attr == 'device_type') {
+                        $returnArray['nick'][] = json_encode($demoItem->{$attr} == 0 ? 'PC' : ($demoItem->{$attr} == 1 ? 'Mobile' : 'Table'));
+                    } else {
+                        $returnArray['nick'][] = json_encode($demoItem->{$attr});
+                    }
+
+                    $returnArray['data'][] = $demoItem->virtual_nick_count;
+                }
+
+                $numberOfChats[$dateUnix] = $returnArray;
+            }
+
+            $returnReversed = array();
+
+            if ($limitDays < 10) {
+                $limitDays = 10;
+            }
+
+            foreach ($numberOfChats as $dateIndex => $returnData) {
+                for ($i = 0; $i < $limitDays; $i++) {
+                    $returnReversed[$i]['data'][] = isset($returnData['data'][$i]) ? $returnData['data'][$i] : 0;
+                    $returnReversed[$i]['color'][] = isset($returnData['color'][$i]) ? $returnData['color'][$i] : '""';
+                    $returnReversed[$i]['nick'][] = isset($returnData['nick'][$i]) ? $returnData['nick'][$i] : '""';
+                }
+            }
+
+            return array('labels' => $numberOfChats, 'data' => $returnReversed);
+
+        } else {
+            return $statusWorkflow['list'];
+        }
+    }
+
+    public static function nickGroupingDate($days = 30, $filter = array(), $filterParams = array())
+    {
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.nickgroupingdate', array('filter' => $filter, 'params_execution' => $filterParams));
+
+        if ($statusWorkflow === false) {
+
+        $numberOfChats = array();
+        $departmentFilter = array();
+        $departmentMsgFilter = array();
+
+        // Message filter
+        $msgFilter = $filter;
+
+        /**
+         * If department filter provided we have to use strict filter with table names
+         * */
+        $departmentMsgFilter['innerjoin']['lh_chat'] = array('lh_msg.chat_id','lh_chat.id');
+
+        /**
+         * If user ID provided only provided user chat's has to take effect
+         * */
+        if (isset($msgFilter['filter']['user_id'])){
+            unset($msgFilter['filter']['user_id']);
+            $msgFilter['filter']['lh_chat.user_id'] = $filter['filter']['user_id'];
+        }
+
+        if (isset($msgFilter['filterin']['user_id'])){
+            unset($msgFilter['filterin']['user_id']);
+            $msgFilter['filterin']['lh_chat.user_id'] = $filter['filterin']['user_id'];
+        }
+
+        if (isset($msgFilter['filtergte']['time'])){
+            unset($msgFilter['filtergte']['time']);
+            $msgFilter['filtergte']['lh_msg.time'] = $filter['filtergte']['time'];
+        }
+
+        $yearStart = date('y');
+        $monthStart = date('m');
+
+        if (isset($msgFilter['filterlte']['time'])){
+            unset($msgFilter['filterlte']['time']);
+            $msgFilter['filterlte']['lh_msg.time'] = $filter['filterlte']['time'];
+            $yearStart = date('y',$filter['filterlte']['time']);
+            $monthStart = date('m',$filter['filterlte']['time']);
+        }
+
+        $validGroupFields = array(
+            'nick' => '`nick`',
+            'uagent' => '`uagent`',
+            'device_type' => '`device_type`',
+        );
+
+        for ($i = 0; $i < 12;$i++) {
+            $dateUnix = mktime(0,0,0,$monthStart - $i,1, $yearStart);
+
+            if (!isset($filter['filtergte']['time']) || $filter['filtergte']['time'] <= $dateUnix || date('Ym',$filter['filtergte']['time']) == date('Ym',$dateUnix))
+            {
+                $groupField = '`nick`';
+                if (isset($filterParams['group_field']) && key_exists($filterParams['group_field'], $validGroupFields)) {
+                    $groupField = $validGroupFields[$filterParams['group_field']];
+                }
+
+                $numberOfChats[$dateUnix] = array ();
+                $numberOfChats[$dateUnix]['unique'] = (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix)))),'lh_chat', 'count(distinct ' . $groupField . ')' );
+
+            }
+        }
+
+        $numberOfChats = array_reverse($numberOfChats,true);
+
+        return $numberOfChats;
+
+        } else {
+            return $statusWorkflow['list'];
+        }
+    }
+
+    public static function colorFromString($string)
+    {
+        $colors = [
+            '#e6194b', '#3cb44b', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080'
+            // this list should be as long as practical to avoid duplicates
+        ];
+
+        // generate a partial hash of the string (a full hash is too long for the % operator)
+        $hash = substr(sha1($string), 0, 10);
+
+        // determine the color index
+        $colorIndex = hexdec($hash) % count($colors);
+
+        return $colors[$colorIndex];
+    }
+
+    public static function nickGroupingDateNick($days = 30, $filter = array(), $filterParams = array())
+    {
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.nickgroupingdatenick', array('filter' => $filter, 'params_execution' => $filterParams));
+
+        if ($statusWorkflow === false) {
+        $numberOfChats = array();
+        $departmentFilter = array();
+        $departmentMsgFilter = array();
+
+        // Message filter
+        $msgFilter = $filter;
+
+        /**
+         * If department filter provided we have to use strict filter with table names
+         * */
+        $departmentMsgFilter['innerjoin']['lh_chat'] = array('lh_msg.chat_id','lh_chat.id');
+
+        /**
+         * If user ID provided only provided user chat's has to take effect
+         * */
+        if (isset($msgFilter['filter']['user_id'])){
+            unset($msgFilter['filter']['user_id']);
+            $msgFilter['filter']['lh_chat.user_id'] = $filter['filter']['user_id'];
+        }
+
+        if (isset($msgFilter['filterin']['user_id'])){
+            unset($msgFilter['filterin']['user_id']);
+            $msgFilter['filterin']['lh_chat.user_id'] = $filter['filterin']['user_id'];
+        }
+
+        if (isset($msgFilter['filtergte']['time'])){
+            unset($msgFilter['filtergte']['time']);
+            $msgFilter['filtergte']['lh_msg.time'] = $filter['filtergte']['time'];
+        }
+
+        $yearStart = date('y');
+        $monthStart = date('m');
+
+        if (isset($msgFilter['filterlte']['time'])){
+            unset($msgFilter['filterlte']['time']);
+            $msgFilter['filterlte']['lh_msg.time'] = $filter['filterlte']['time'];
+            $yearStart = date('y',$filter['filterlte']['time']);
+            $monthStart = date('m',$filter['filterlte']['time']);
+        }
+
+        $validGroupFields = array(
+            'nick' => '`nick`',
+            'uagent' => '`uagent`',
+            'device_type' => '`device_type`',
+        );
+
+        for ($i = 0; $i < 12;$i++) {
+            $dateUnix = mktime(0,0,0,$monthStart - $i,1, $yearStart);
+            if (!isset($filter['filtergte']['time']) || $filter['filtergte']['time'] <= $dateUnix || date('Ym',$filter['filtergte']['time']) == date('Ym',$dateUnix))
+            {
+                $numberOfChats[$dateUnix] = array ();
+
+                $groupField = '`nick`';
+                $attr = 'nick';
+                if (isset($filterParams['group_field']) && key_exists($filterParams['group_field'], $validGroupFields)) {
+                    $groupField = $validGroupFields[$filterParams['group_field']];
+                    $attr = $filterParams['group_field'];
+                }
+
+                $justDemo = array_values(erLhcoreClassModelChat::getList(array_merge_recursive($departmentFilter,$filter,array('sort' => 'nick_count DESC', 'select_columns' => 'count(id) as nick_count', 'group' => $groupField, 'limit' => 10, 'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix))))));
+
+                $returnArray = array();
+
+                foreach ($justDemo as $demoItem) {
+                    $returnArray['color'][] = json_encode(self::colorFromString($demoItem->{$attr}));
+
+                    if ($attr == 'device_type') {
+                        $returnArray['nick'][] = json_encode($demoItem->{$attr} == 0 ? 'PC' : ($demoItem->{$attr} == 1 ? 'Mobile' : 'Table'));
+                    } else {
+                        $returnArray['nick'][] = json_encode($demoItem->{$attr});
+                    }
+
+                    $returnArray['data'][] = $demoItem->virtual_nick_count;
+                }
+
+                $numberOfChats[$dateUnix] = $returnArray;
+            }
+        }
+
+        $numberOfChats = array_reverse($numberOfChats,true);
+
+        $returnReversed = array();
+
+        foreach ($numberOfChats as $dateIndex => $returnData) {
+            for ($i = 0; $i < 12; $i++) {
+                    $returnReversed[$i]['data'][] = isset($returnData['data'][$i]) ? $returnData['data'][$i] : 0;
+                    $returnReversed[$i]['color'][] = isset($returnData['color'][$i]) ? $returnData['color'][$i] : '""';
+                    $returnReversed[$i]['nick'][] = isset($returnData['nick'][$i]) ? $returnData['nick'][$i] : '""';
+            }
+        }
+
+        return array('labels' => $numberOfChats, 'data' => $returnReversed);
+    }else {
+            return $statusWorkflow['list'];
+        }
+    }
+
 }
 
 ?>
