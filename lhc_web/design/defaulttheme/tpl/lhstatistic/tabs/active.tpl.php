@@ -75,9 +75,7 @@
 	   <div class="form-group">
     	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Group field');?></label>
            <select class="form-control form-control-sm" name="group_field">
-               <option value="nick" <?php $input->group_field == '' || $input->group_field == 'nick' ? print 'selected="selected"' : '' ?>>Nick</option>
-               <option value="uagent" <?php $input->group_field == 'uagent' ? print 'selected="selected"' : '' ?>>User Agent</option>
-               <option value="device_type" <?php $input->group_field == 'device_type' ? print 'selected="selected"' : '' ?>>Device type</option>
+               <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/filter/group_field.tpl.php'));?>
            </select>
         </div>
     </div>
