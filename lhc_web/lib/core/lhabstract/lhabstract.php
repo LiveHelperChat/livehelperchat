@@ -34,7 +34,12 @@ class erLhcoreClassAbstract
 
                     if (isset($attr['placeholder'])) {
                         $ngModel .= " placeholder=\"{$attr['placeholder']}\" ";
-                    };
+                    }
+
+                    if (isset($attr['maxlength'])) {
+                        $ngModel .= " maxlength=\"{$attr['maxlength']}\" ";
+                    }
+
                     return '<input class="form-control" ' . $ngModel . ' name="AbstractInput_' . $name . '" type="' . $attr['type'] . '" value="' . htmlspecialchars($value) . '" />';
                 }
                 break;

@@ -11,6 +11,7 @@ return array(
         )),
     'name' => array(
         'type' => 'text',
+        'maxlength' => 50,
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Name'),
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(
@@ -18,6 +19,7 @@ return array(
         )),
     'operator' => array(
         'type' => 'text',
+        'maxlength' => 50,
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Operator. Visitor will see this operator nick.'),
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(
