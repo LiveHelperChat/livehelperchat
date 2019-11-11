@@ -2107,7 +2107,7 @@ class erLhcoreClassChatStatistic {
 
     public static function nickGroupingDateDay($filter = array(), $filterParams = array())
     {
-        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getnumberofchatsperday', array('filter' => $filter, 'params_execution' => $filterParams));
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.nickgroupingdateday', array('filter' => $filter, 'params_execution' => $filterParams));
 
         if ($statusWorkflow === false) {
             $numberOfChats = array();
