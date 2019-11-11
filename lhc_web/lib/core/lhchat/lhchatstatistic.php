@@ -1926,6 +1926,8 @@ class erLhcoreClassChatStatistic {
                 'device_type' => '`device_type`',
             );
 
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
+
             $weekStarted = false;
             for ($i = 0; $i < $limitDays;$i++) {
                 $dateUnix = mktime(0,0,0,date('m',$startTimestamp),date('d',$startTimestamp)+($i*7),date('y',$startTimestamp));
@@ -2032,6 +2034,8 @@ class erLhcoreClassChatStatistic {
                 'uagent' => '`uagent`',
                 'device_type' => '`device_type`',
             );
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
 
             $weekStarted = false;
             for ($i = 0; $i < $limitDays;$i++) {
@@ -2168,6 +2172,8 @@ class erLhcoreClassChatStatistic {
                 'device_type' => '`device_type`',
             );
 
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
+
             for ($i = 0; $i < $limitDays;$i++) {
                 $dateUnix = mktime(0,0,0,date('m',$startTimestamp),date('d',$startTimestamp)+$i,date('y',$startTimestamp));
 
@@ -2248,6 +2254,8 @@ class erLhcoreClassChatStatistic {
                 'uagent' => '`uagent`',
                 'device_type' => '`device_type`',
             );
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
 
             for ($i = 0; $i < $limitDays;$i++) {
                 $dateUnix = mktime(0,0,0,date('m',$startTimestamp),date('d',$startTimestamp)+$i,date('y',$startTimestamp));
@@ -2351,6 +2359,8 @@ class erLhcoreClassChatStatistic {
             'device_type' => '`device_type`',
         );
 
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
+
         for ($i = 0; $i < 12;$i++) {
             $dateUnix = mktime(0,0,0,$monthStart - $i,1, $yearStart);
 
@@ -2442,6 +2452,8 @@ class erLhcoreClassChatStatistic {
             'uagent' => '`uagent`',
             'device_type' => '`device_type`',
         );
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
 
         for ($i = 0; $i < 12;$i++) {
             $dateUnix = mktime(0,0,0,$monthStart - $i,1, $yearStart);
