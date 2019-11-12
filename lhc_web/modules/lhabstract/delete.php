@@ -1,5 +1,7 @@
 <?php
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.edit_'.strtolower($Params['user_parameters']['identifier']).'_general', array());
+
 if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
 	die('Invalid CSFR Token');
 	exit;
