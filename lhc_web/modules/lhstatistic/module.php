@@ -38,5 +38,6 @@ $ViewList['onlinehours'] = array(
 
 $FunctionList['exportxls'] = array('explain' => 'Allow to operator to export departments statistic in XLS');
 $FunctionList['viewstatistic'] = array('explain' =>'Allow operator to view statistic');
+$FunctionList['configuration'] = array('explain' =>'Allow operator to configure statistic');
 
 ?>

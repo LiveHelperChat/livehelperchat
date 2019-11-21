@@ -101,7 +101,7 @@ if (trim($form->msg) != '')
     	                }
                     }
 
-    	        	$stmt = $db->prepare('UPDATE lh_chat SET status = :status, user_status = :user_status, last_msg_id = :last_msg_id, last_op_msg_time = :last_op_msg_time, has_unread_op_messages = :has_unread_op_messages, unread_op_messages_informed = :unread_op_messages_informed' . $statusSub . ' WHERE id = :id');
+    	        	$stmt = $db->prepare('UPDATE lh_chat SET  user_id = :user_id, status_sub = :status_sub, status = :status, user_status = :user_status, last_msg_id = :last_msg_id, last_op_msg_time = :last_op_msg_time, has_unread_op_messages = :has_unread_op_messages, unread_op_messages_informed = :unread_op_messages_informed' . $statusSub . ' WHERE id = :id');
     	        	$stmt->bindValue(':id',$Chat->id,PDO::PARAM_INT);
     	        	$stmt->bindValue(':last_msg_id',$msg->id,PDO::PARAM_INT);
     	        	$stmt->bindValue(':last_op_msg_time',time(),PDO::PARAM_INT);
@@ -110,7 +110,8 @@ if (trim($form->msg) != '')
     	        	
     	        	if ($userData->invisible_mode == 0 && $messageUserId > 0) { // Change status only if it's not internal command
     		        	if ($Chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
-    		        		$Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;  
+    		        		$Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
+                            $Chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
     		        		$Chat->user_id = $messageUserId;
     		        	}
     	        	}
@@ -126,7 +127,9 @@ if (trim($form->msg) != '')
     	        	
     	        	$stmt->bindValue(':user_status',$Chat->user_status,PDO::PARAM_INT);
     	        	$stmt->bindValue(':status',$Chat->status,PDO::PARAM_INT);
-    	        	$stmt->execute();	        	
+                    $stmt->bindValue(':status_sub',$Chat->status_sub,PDO::PARAM_INT);
+                    $stmt->bindValue(':user_id',$Chat->user_id,PDO::PARAM_INT);
+                    $stmt->execute();
     	        }
 
     	        // If chat is in bot mode and operators writes a message, accept a chat as operator.

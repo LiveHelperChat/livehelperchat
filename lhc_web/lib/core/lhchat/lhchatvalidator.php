@@ -146,6 +146,7 @@ class erLhcoreClassChatValidator {
         $validationFields['user_timezone'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int');
         $validationFields['HasProductID'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean');
         $validationFields['keyUpStarted'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1));
+        $validationFields['bot_id'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1));
         $validationFields['tag'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'string');
 
         $validationFields['name_items'] = new ezcInputFormDefinitionElement(
@@ -393,6 +394,10 @@ class erLhcoreClassChatValidator {
 
         if ($form->hasValidData( 'DepartmentIDDefined' )) {
         	$inputForm->departament_id_array = $form->DepartmentIDDefined;
+        }
+
+        if ($form->hasValidData( 'bot_id' )) {
+        	$inputForm->bot_id = $form->bot_id;
         }
 
         if ($form->hasValidData( 'ProductIDDefined' )) {
@@ -1583,6 +1588,12 @@ class erLhcoreClassChatValidator {
             }
         }
 
+        if (isset($params['bot_id']) && is_numeric($params['bot_id']) && $params['bot_id'] > 0 && isset($params['startDataFields']['auto_start_chat']) && $params['startDataFields']['auto_start_chat'] == true) {
+            $paramsExecution['bot_id'] = (int)$params['bot_id'];
+            $autoStart = true;
+            $skipOnlyOnlineCheck = true;
+        }
+        
         if (($autoStart == true && $params['chat']->dep_id > 0) || (!isset($params['invitation_mode']) && isset($params['startDataFields']['auto_start_chat']) && $params['startDataFields']['auto_start_chat'] == true && $params['chat']->dep_id > 0)) {
 
             $chat = $params['chat'];

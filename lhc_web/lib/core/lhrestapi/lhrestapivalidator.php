@@ -91,7 +91,7 @@ class erLhcoreClassRestAPIHandler
 
             if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
                 // may also be using PUT, PATCH, HEAD etc
-                header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+                header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 
             if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
                 header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
@@ -114,15 +114,24 @@ class erLhcoreClassRestAPIHandler
             if (count($apiData) != 2) {
                 throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Authorization failed!'));
             }
-            
-            $apiKey = erLhAbstractModelRestAPIKey::findOne(array(
-                'enable_sql_cache' => true,
-                'filter' => array(
-                    'active' => 1,
-                    'api_key' => $apiData[1]
-                )
+
+            // There is no current workflow in progress
+            $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('rest_api.validate_request', array(
+                'headers' => $headers,
             ));
-            
+
+            if ($handler !== false) {
+                $apiKey = $handler['api_key'];
+            } else {
+                $apiKey = erLhAbstractModelRestAPIKey::findOne(array(
+                    'enable_sql_cache' => true,
+                    'filter' => array(
+                        'active' => 1,
+                        'api_key' => $apiData[1]
+                    )
+                ));
+            }
+
             if (! ($apiKey instanceof erLhAbstractModelRestAPIKey)) {
                 throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Authorization failed!'));
             }

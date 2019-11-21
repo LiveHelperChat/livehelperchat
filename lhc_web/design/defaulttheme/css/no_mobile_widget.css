@@ -1,0 +1,59 @@
+body {
+    margin:7px;
+    margin-bottom:0;
+}
+
+html{
+    background: none;
+}
+
+body.embed-widget {
+    background:none;
+}
+
+#widget-layout .row { min-width: 0;  }
+
+.widget-chat #widget-layout {
+    padding-top:0px;
+}
+
+/*#widget-layout #status-chat h4{
+	font-size:12px;
+	margin:3px 0px 6px;
+}*/
+
+::-webkit-scrollbar {
+    width: 0.7em;
+    height: 0.8em;
+    background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    min-height: 0.8em;
+    min-width: 0.7em;
+    background-color: #ddd;
+}
+
+@media only screen and (max-device-width: 640px) {
+
+    input[type='text'],
+    select,
+    input,
+    a.btn,
+    .control-label,
+    #widget-layout textarea {
+        font-size: 16px!important;
+    }
+    
+    #messages{
+        font-size: 16px;
+    }
+
+    .usr-tit{
+        font-size:16px;
+    }
+
+    #widget-layout #status-chat h4{
+        font-size:14px;
+    }
+}

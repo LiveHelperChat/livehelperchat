@@ -27,7 +27,10 @@ if (!this.cssNHWasAdded) {
     this.addCss(raw_css_need_hl);
     <?php if ($theme !== false && $theme->show_need_help_delay > 0) : ?>
     setTimeout(function(){
-        document.getElementById("<?php echo $chatCSSPrefix?>_need_help_container").style.display = "inline-block";
+        var needHelp = document.getElementById("<?php echo $chatCSSPrefix?>_need_help_container");
+        if (needHelp !== null){
+            needHelp.style.display = "inline-block";
+        }
     },<?php echo $theme->show_need_help_delay*1000?>);
     <?php endif ?>
 };

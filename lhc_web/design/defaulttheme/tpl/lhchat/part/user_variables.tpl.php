@@ -6,6 +6,10 @@
     <input type="hidden" name="tag" value="<?php echo htmlspecialchars($tag)?>" />
 <?php endif; ?>
 
+<?php if (isset($input_data->bot_id) && is_numeric($input_data->bot_id)) : ; ?>
+    <input type="hidden" name="bot_id" value="<?php echo htmlspecialchars($input_data->bot_id)?>" />
+<?php endif; ?>
+
 <?php
 $modeUserVariables = isset($modeUserVariables) ? $modeUserVariables : 'on';
 

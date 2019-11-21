@@ -44,6 +44,7 @@ var lh_inst  = {
     disabledGeo : <?php echo (isset($disableByGeoAdjustment) && $disableByGeoAdjustment == true) ? 'true' : 'false' ?>,
     checkOperatorMessage : <?php echo $check_operator_messages == true ? 'true' : 'false'?>,
 	offset_data : '',
+    reset : <?php isset($fresh) && $fresh == true ? print 'true' : print 'false'?>,
 	lang: '<?php echo erLhcoreClassSystem::instance()->WWWDirLang?>',
 	langDefault: '/<?php echo erLhcoreClassSystem::instance()->SiteAccess?>',
 	is_dragging : false,
@@ -318,9 +319,9 @@ var lh_inst  = {
     <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/functions/part/show_survey.tpl.php')); ?>
 
     getAppendCookieArguments : function() {
-		    var hashAppend = this.cookieData.hash ? '/(hash)/'+this.cookieData.hash : '';
+		    var hashAppend = this.cookieData.hash && this.reset == false  ? '/(hash)/'+this.cookieData.hash : '';
 		    var vidAppend = this.cookieDataPers.vid ? '/(vid)/'+this.cookieDataPers.vid : '';
-		    var hashResume = this.cookieData.hash_resume ? '/(hash_resume)/'+this.cookieData.hash_resume : '';
+		    var hashResume = this.cookieData.hash_resume && this.reset == false  ? '/(hash_resume)/'+this.cookieData.hash_resume : '';
 		    var soundOption = this.cookieData.s ? '/(sound)/'+this.cookieData.s : '';
 		    var explicitClose = this.explicitClose ? '/(eclose)/t' : '';
 

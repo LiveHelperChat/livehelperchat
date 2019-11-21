@@ -1597,6 +1597,8 @@ function lh(){
 
 	this.checkChatStatusTimeout = null;
 
+	this.chatStatus = null;
+
 	this.chatsyncuserpending = function ()
 	{
 		var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
@@ -1608,6 +1610,8 @@ function lh(){
 	    $.getJSON(this.wwwDir + this.checkchatstatus + this.chat_id + '/' + this.hash + modeWindow + themeWindow,{}, function(data) {
 
             ee.emitEvent('checkChatStatus', [inst.chat_id, data]);
+
+            inst.chatStatus = data.status; 
 
 	        // If no error
 	        if (data.error == 'false')
@@ -3265,14 +3269,13 @@ function lh(){
 
     this.enableVisitorEditor = function()
     {
-        $('#CSChatMessage').prop('readonly',false);
+        $('#ChatMessageContainer').removeClass('hide');
+        $('#CSChatMessage').focus();
     }
 
     this.disableVisitorEditor = function()
     {
-        setTimeout(function(){
-            $('#CSChatMessage').prop('readonly',true);
-        },300);
+        $('#ChatMessageContainer').addClass('hide');
     }
 
     this.buttonClicked = function(payload, id, btn, notHide) {

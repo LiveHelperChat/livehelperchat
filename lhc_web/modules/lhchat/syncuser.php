@@ -39,9 +39,16 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		        $chat->auto_responder->chat = $chat;
 		        $chat->auto_responder->process();
 		    }
-		    		    		
-			if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->transfer_if_na == 1 && $chat->transfer_timeout_ts < (time()-$chat->transfer_timeout_ac) ) {
-		
+
+			if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->transfer_if_na == 1 &&
+                (
+			        (
+			            $chat->transfer_timeout_ts < (time()-$chat->transfer_timeout_ac)
+                    ) || (
+                        ($department = $chat->department) && $offlineDepartmentOperators = true && $department !== false && isset($department->bot_configuration_array['off_op_exec']) && $department->bot_configuration_array['off_op_exec'] == 1 && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true, 'exclude_online_hours' => true)) === false
+                    )
+                ) ) {
+
 				$canExecuteWorkflow = true;
 		
 				if (erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value >= 0) {
@@ -51,7 +58,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 				}
 		
 				if ($canExecuteWorkflow == true) {
-					erLhcoreClassChatWorkflow::transferWorkflow($chat);
+					erLhcoreClassChatWorkflow::transferWorkflow($chat, array('offline_operators' => isset($offlineDepartmentOperators)));
 				}
 			}
 		
@@ -78,11 +85,31 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 				    $Messages = erLhcoreClassChat::getPendingMessages((int)$Params['user_parameters']['chat_id'],(int)$Params['user_parameters']['message_id']);
 				    if (count($Messages) > 0)
 				    {
+                        $theme = false;
+
+                        if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+                            try {
+                                $theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+                            } catch (Exception $e) {
+
+                            }
+                        } else {
+                            $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
+                            if ($defaultTheme > 0) {
+                                try {
+                                    $theme = erLhAbstractModelWidgetTheme::fetch($defaultTheme);
+                                } catch (Exception $e) {
+
+                                }
+                            }
+                        }
+
 				        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/syncuser.tpl.php');
 				        $tpl->set('messages',$Messages);
 				        $tpl->set('chat',$chat);
 				        $tpl->set('sync_mode',isset($Params['user_parameters_unordered']['mode']) ? $Params['user_parameters_unordered']['mode'] : '');
                         $tpl->set('async_call',true);
+                        $tpl->set('theme',$theme);
 
 				        $content = $tpl->fetch();
 		
@@ -127,25 +154,26 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 			
 		    // Closed
 		    if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
-		        
-		        $theme = false;
-		        
-		        if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
-		            try {
-		                $theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
-		            } catch (Exception $e) {
-		        
-		            }
-		        } else {
-		            $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
-		            if ($defaultTheme > 0) {
-		                try {
-		                    $theme = erLhAbstractModelWidgetTheme::fetch($defaultTheme);
-		                } catch (Exception $e) {
-		                     
-		                }
-		            }
-		        }
+
+                if (!isset($theme)) {
+                    $theme = false;
+                    if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+                        try {
+                            $theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+                        } catch (Exception $e) {
+
+                        }
+                    } else {
+                        $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
+                        if ($defaultTheme > 0) {
+                            try {
+                                $theme = erLhAbstractModelWidgetTheme::fetch($defaultTheme);
+                            } catch (Exception $e) {
+
+                            }
+                        }
+                    }
+                }
 
 		        // Parse outcome
 		        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/errors/chatclosed.tpl.php');

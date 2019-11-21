@@ -101,7 +101,7 @@ function generateEmbedCode() {
     
     <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/options_variable_page.tpl.php')); ?>
     
-    var script = '<script type="text/javascript">'+"\n"+"var <?php echo $chatOptionsVariablePage?> = {};\n"+
+    var script = '<script type="text/javascript">'+"\n"+"var <?php echo $chatOptionsVariablePage?> = {'height':300,'mobile':false};\n"+
       '<?php echo $chatOptionsVariablePage?>.opt = {};\n'+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+

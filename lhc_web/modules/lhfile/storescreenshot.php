@@ -116,7 +116,7 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
                             if ($chat !== false) {
 
                                 $msg = new erLhcoreClassModelmsg();
-                                $msg->msg = '[file=' . $fileUpload->id . '_' . md5($fileUpload->name . '_' . $fileUpload->chat_id) . ']';
+                                $msg->msg = '[file=' . $fileUpload->id . '_' . $fileUpload->security_hash . ']';
                                 $msg->chat_id = $chat->id;
                                 $msg->user_id = -1;
 

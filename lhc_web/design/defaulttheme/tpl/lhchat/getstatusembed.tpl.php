@@ -28,7 +28,7 @@ var lh_inst_page  = {
     hasSurvey : false,
     survey_id : '',
     surveyShown : false,
-
+    reset : <?php isset($fresh) && $fresh == true ? print 'true' : print 'false'?>,
     hide : function() {
         if (!this.cookieData.hash || this.hasSurvey == false || this.surveyShown == true) {
             var th = document.getElementsByTagName('head')[0];
@@ -134,8 +134,8 @@ var lh_inst_page  = {
     },
 
     getAppendCookieArguments : function() {
-		    var hashAppend = this.cookieData.hash ? '/(hash)/'+this.cookieData.hash : '';
-		    var hashResume = this.cookieData.hash_resume ? '/(hash_resume)/'+this.cookieData.hash_resume : '';
+		    var hashAppend = this.cookieData.hash && this.reset == false ? '/(hash)/'+this.cookieData.hash : '';
+		    var hashResume = this.cookieData.hash_resume && this.reset == false ? '/(hash_resume)/'+this.cookieData.hash_resume : '';
 		    var soundOption = this.cookieData.s ? '/(sound)/'+this.cookieData.s : '';
 
 		    var paid_hash = '';
@@ -173,14 +173,18 @@ var lh_inst_page  = {
 
         var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
 
+        var mobileFullHeight = typeof <?php echo $chatOptionsVariablePage?>.opt.mobile === 'undefined' || <?php echo $chatOptionsVariablePage?>.opt.mobile === true;
+
         if ( url_to_open != undefined ) {
             this.initial_iframe_url = url_to_open+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+'&dt='+encodeURIComponent(document.title)+this.parseStorageArguments();
         } else {
-            this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $theme !== false ? print '/(theme)/'.$theme : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : ''?>/(mode)/embed"+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments();
+            this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $theme !== false ? print '/(theme)/'.$theme : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $bot_id !== null ? print '/(bot_id)/'.$bot_id : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : ''?>/(mode)/embed" + (mobileFullHeight === false ? '/(mobile)/false' : '') + this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments();
         };
 
-        var raw_css = "@media only screen and (max-device-width : 640px) { #<?php echo $chatCSSPrefix?>_status_container_page{position: fixed; overflow: hidden; right: 0px; left: 0px; top: 0px; bottom: 0px;} #<?php echo $chatCSSPrefix?>_status_container_page iframe{width:100% !important;height: 100%!important}}";
-        this.addCss(raw_css);
+        if (mobileFullHeight === true) {
+            var raw_css = "@media only screen and (max-device-width : 640px) { #<?php echo $chatCSSPrefix?>_status_container_page{position: fixed; overflow: hidden; right: 0px; left: 0px; top: 0px; bottom: 0px;} #<?php echo $chatCSSPrefix?>_status_container_page iframe{width:100% !important;height: 100%!important}}";
+            this.addCss(raw_css);
+        }
 
         this.iframe_html = '<iframe id="<?php echo $chatCSSPrefix?>_iframe_page" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Live Help')?>" allowTransparency="true" scrolling="no" class="loading" frameborder="0" ' +
                        ( this.initial_iframe_url != '' ? ' src="'    + this.initial_iframe_url + '"' : '' ) +
@@ -243,8 +247,15 @@ var lh_inst_page  = {
     	if (action == 'lhc_sizing_chat_page') {
     		var height = e.data.split(':')[1];
     		var elementObject = document.getElementById('<?php echo $chatCSSPrefix?>_iframe_page');
-    		elementObject.height = height;
-    		elementObject.style.height = height+'px';
+            if (parseInt(height) < (<?php echo $chatOptionsVariablePage?>.opt.height ? <?php echo $chatOptionsVariablePage?>.opt.height : 300)) {
+                elementObject.height = (<?php echo $chatOptionsVariablePage?>.opt.height ? <?php echo $chatOptionsVariablePage?>.opt.height : 300);
+                elementObject.style.height = (<?php echo $chatOptionsVariablePage?>.opt.height ? <?php echo $chatOptionsVariablePage?>.opt.height : 300)+'px';
+            } else {
+                if (height > elementObject.height) {
+                    elementObject.height = height;
+                    elementObject.style.height = height+'px';
+                }
+            }
     	} else if (action == 'lhc_ch') {
     		var parts = e.data.split(':');
     		if (parts[1] != '' && parts[2] != '') {

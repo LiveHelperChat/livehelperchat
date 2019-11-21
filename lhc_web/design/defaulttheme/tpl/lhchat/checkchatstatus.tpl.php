@@ -1,5 +1,5 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus/check_chat_status_multiinclude.tpl.php'));?>
-
+<?php if (!($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT && $chat->bot !== null && isset($chat->bot->configuration_array['profile_hide']) && $chat->bot->configuration_array['profile_hide'] == true)) : ?>
 <?php if (!isset($customChatStatus) || $customChatStatus == false) : ?>
 
 <?php if ($is_activated == true || $is_proactive_based == true) : ?>
@@ -71,6 +71,8 @@
     	   <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/no_logged_operators.tpl.php'));?>
         <?php endif;?>
     </h6>
+<?php endif; ?>
+
 <?php endif; ?>
 
 <?php endif; ?>

@@ -167,6 +167,8 @@ $responseArray['activated'] = $activated;
 $responseArray['uid'] = (int)$chat->user_id;
 $responseArray['status'] = (int)$chat->status;
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.checkchatstatus',array('chat' => & $chat, 'response' => & $responseArray));
+
 echo json_encode($responseArray);
 exit;
 ?>

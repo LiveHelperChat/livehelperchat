@@ -7,13 +7,13 @@ class erLhcoreClassUserUtils
         $remap = array();
         
         if (!empty($userlist)) {
-            $sql = "SELECT user_id, active_chats, pending_chats, inactive_chats FROM lh_userdep WHERE user_id IN (" . implode(',', array_keys($userlist)) . ') GROUP by user_id';
             $db = ezcDbInstance::get();
+            $sql = "SELECT distinct user_id, active_chats, pending_chats, inactive_chats FROM lh_userdep WHERE user_id IN (" . implode(',', array_keys($userlist)) . ')';
             $stmt = $db->prepare($sql);
             $stmt->execute();
-            
+
             $stats = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            
+
             foreach ($stats as $stat) {
                 $remap[$stat['user_id']] = array(
                     'ac' => $stat['active_chats'],
