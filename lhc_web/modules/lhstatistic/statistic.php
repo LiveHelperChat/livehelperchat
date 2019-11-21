@@ -8,7 +8,7 @@ $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.stat
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhstatistic/statistic.tpl.php');
 
-$validTabs = array('active','total','last24','chatsstatistic','agentstatistic','performance','departments');
+$validTabs = array('active','total','last24','chatsstatistic','agentstatistic','performance','departments','configuration');
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.valid_tabs', array(
     'valid_tabs' => & $validTabs
@@ -25,6 +25,8 @@ if ($tab == 'active') {
     	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'activestatistic_tab','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
     } else {
     	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'activestatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
+        $configuration = (array)erLhcoreClassModelChatConfig::fetch('statistic_options')->data;
+        $filterParams['input_form']->chart_type = isset($configuration['statistic']) ? $configuration['statistic'] : array();
     }
 
     erLhcoreClassChatStatistic::formatUserFilter($filterParams);
@@ -81,6 +83,8 @@ if ($tab == 'active') {
     	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'chatsstatistic_tab','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
     } else {
     	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'chatsstatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
+        $configuration = (array)erLhcoreClassModelChatConfig::fetch('statistic_options')->data;
+        $filterParams['input_form']->chart_type = isset($configuration['chat_statistic']) ? $configuration['chat_statistic'] : array();
     }
     
     erLhcoreClassChatStatistic::formatUserFilter($filterParams);
@@ -235,6 +239,51 @@ if ($tab == 'active') {
 
     $tpl->set('input_append', $append);
     $tpl->set('departmentstats', $departmentstats);
+
+} elseif ($tab == 'configuration') {
+
+    $statisticOptions = erLhcoreClassModelChatConfig::fetch('statistic_options');
+    $configuration = (array)$statisticOptions->data;
+    if (!isset($configuration['statistic'])) {
+        $configuration['statistic'] = array();
+    }
+
+    if (!isset($configuration['chat_statistic'])) {
+        $configuration['chat_statistic'] = array();
+    }
+
+    if (ezcInputForm::hasPostData()) {
+        $definition = array(
+            'chart_type' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL,  'string', null,FILTER_REQUIRE_ARRAY
+            ),
+            'chat_chart_type' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL,  'string',null,FILTER_REQUIRE_ARRAY
+            )
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = array();
+
+        if ($form->hasValidData('chart_type')) {
+            $configuration['statistic'] = $form->chart_type;
+        }
+
+        if ($form->hasValidData('chat_chart_type')) {
+            $configuration['chat_statistic'] = $form->chat_chart_type;
+        }
+
+        $statisticOptions->explain = '';
+        $statisticOptions->type = 0;
+        $statisticOptions->hidden = 1;
+        $statisticOptions->identifier = 'statistic_options';
+        $statisticOptions->value = serialize($configuration);
+        $statisticOptions->saveThis();
+
+        $tpl->set('updated', true);
+    }
+
+    $tpl->set('configuration', $configuration);
 
 } else {
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.process_tab', array(
