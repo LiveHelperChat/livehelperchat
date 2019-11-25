@@ -6,6 +6,12 @@
 
 <?php if (isset($updated)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/import','Group imported'); ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
+    <script>
+        setTimeout(function(){
+            window.parent.location.reload();
+        },1500);
+    </script>
+</script>
 <?php endif; ?>
 
 <form action="" method="post" autocomplete="off" enctype="multipart/form-data">
