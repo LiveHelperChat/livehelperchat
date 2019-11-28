@@ -13,6 +13,10 @@ $ViewList['chats'] = array(
     'params' => array()
 );
 
+$ViewList['chatscount'] = array(
+    'params' => array()
+);
+
 $ViewList['updatelastactivity'] = array(
     'params' => array('user_id')
 );

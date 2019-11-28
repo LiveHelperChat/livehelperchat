@@ -99,12 +99,123 @@
             "format": "int32"
           },
           {
+            "name": "id_gt",
+            "in": "query",
+            "description": "ID greater than",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "last_user_msg_time_gt",
+            "in": "query",
+            "description": "Last user message time greater than",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "time_gt",
+            "in": "query",
+            "description": "Time greater than. Unix timestamp.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
             "name": "include_messages",
             "description": "Include messages within chat",
             "required": false,
             "type": "boolean",
             "default": false,
             "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch chat list",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/chatscount": {
+      "get": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Get only number of chats",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "departament_id",
+            "in": "query",
+            "description": "Department ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "User ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Status",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "delay",
+            "in": "query",
+            "description": "How many seconds has to be passed from chat start. It's usefull if you want to fetch chats older than n seconds. It's time in seconds from chat start.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "id_gt",
+            "in": "query",
+            "description": "ID greater than",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "last_user_msg_time_gt",
+            "in": "query",
+            "description": "Last user message time greater than",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "time_gt",
+            "in": "query",
+            "description": "Time greater than. Unix timestamp.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
           }
         ],
         "responses": {
