@@ -430,7 +430,7 @@ class erLhcoreClassRestAPIHandler
         }
 
         if (isset($_GET['last_user_msg_time_gt']) && is_numeric($_GET['last_user_msg_time_gt'])) {
-            $filter['filterlte']['last_user_msg_time'] = (int)$_GET['last_user_msg_time_gt'];
+            $filter['filtergt']['last_user_msg_time'] = (int)$_GET['last_user_msg_time_gt'];
         }
 
         $limitation = self::getLimitation();
