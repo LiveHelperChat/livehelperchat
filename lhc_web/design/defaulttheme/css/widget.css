@@ -34,7 +34,7 @@ min-width: 0.7em;
 background-color: #ddd;
 }
 
-@media only screen and (max-device-width: 640px) {
+@media only screen and (max-device-width: 992px) {
 
 	input[type='text'],
 	select,
