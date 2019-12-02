@@ -693,12 +693,21 @@ class erLhcoreClassGenericBotWorkflow {
                             }
                         }
 
-                        $chatAttributes[] = array('key' => $eventData['content']['attr_options']['name'], 'identifier' => $attrIdToUpdate, 'value' => $payload);
+                        if ($attrIdToUpdate == 'lhc.email') {
+                            $chat->email = $payload;
+                        } elseif ($attrIdToUpdate == 'lhc.nick') {
+                            $chat->nick = $payload;
+                        } else {
+                            $chatAttributes[] = array('key' => $eventData['content']['attr_options']['name'], 'identifier' => $attrIdToUpdate, 'value' => $payload);
+                        }
+
                         $chat->additional_data = json_encode(array_values($chatAttributes));
 
                         $q = $db->createUpdateQuery();
                         $q->update( 'lh_chat' )
                             ->set( 'additional_data', $q->bindValue($chat->additional_data) )
+                            ->set( 'email', $q->bindValue($chat->email) )
+                            ->set( 'nick', $q->bindValue($chat->nick) )
                             ->where( $q->expr->eq( 'id', $chat->id ) );
                         $stmt = $q->prepare();
                         $stmt->execute();
