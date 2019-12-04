@@ -9,7 +9,15 @@ $ViewList['index'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['chat'] = array(
+    'params' => array('id')
+);
+
 $ViewList['chats'] = array(
+    'params' => array()
+);
+
+$ViewList['chatscount'] = array(
     'params' => array()
 );
 

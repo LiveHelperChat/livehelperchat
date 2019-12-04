@@ -34,7 +34,7 @@ min-width: 0.7em;
 background-color: #ddd;
 }
 
-@media only screen and (max-device-width: 640px) {
+@media only screen and (max-device-width: 992px) {
 
 	input[type='text'],
 	select,
@@ -138,6 +138,8 @@ background-color: #ddd;
 		left: 0;
 		width: 100%;
 		height:35px;
+        background-color: #FFF;
+        z-index: 2;
 	}
 
     .widget-chat-box #ChatMessageContainer{

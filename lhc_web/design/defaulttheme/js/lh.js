@@ -695,7 +695,19 @@ function lh(){
          	 };
             var element = $(this)[0];
             element.style.height = "5px";
-            element.style.height = ((element.scrollHeight)+3)+"px";
+
+            var heightScroll = ((element.scrollHeight)+3);
+
+            if (heightScroll > 48) {
+                heightScroll = heightScroll + 10;
+                if (heightScroll > 90) {
+                    element.style.overflowY = 'auto';
+                } else {
+                    element.style.overflowY = 'hidden';
+                }
+            }
+
+            element.style.height = heightScroll+"px";
 
             if (inst.is_typing == false) {
 

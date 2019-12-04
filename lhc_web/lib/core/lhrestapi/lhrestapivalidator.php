@@ -369,10 +369,7 @@ class erLhcoreClassRestAPIHandler
         );
     }
 
-    /**
-     * Chat's list
-     */
-    public static function validateChatList()
+    public static function getChatListFilter()
     {
         $validAttributes = array(
             'int' => array(
@@ -389,6 +386,21 @@ class erLhcoreClassRestAPIHandler
                     'validator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array(
                         'min_range' => 1
                     ))
+                ),
+                'phone' => array(
+                    'type' => 'filter',
+                    'field' => 'phone',
+                    'validator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
+                ),
+                'email' => array(
+                    'type' => 'filter',
+                    'field' => 'email',
+                    'validator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
+                ),
+                'nick' => array(
+                    'type' => 'filter',
+                    'field' => 'nick',
+                    'validator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
                 ),
                 'status' => array(
                     'type' => 'filter',
@@ -413,21 +425,49 @@ class erLhcoreClassRestAPIHandler
                 )
             )
         );
-        
-        $filterlt = array('id');
-        
+
         $filter = self::formatFilter($validAttributes);
-        
-        if (isset($_GET['filtergt']['id']) && is_numeric($_GET['filtergt']['id'])){
+
+        if (isset($_GET['filtergt']['id']) && is_numeric($_GET['filtergt']['id'])) {
             $filter['filtergt']['id'] = (int)$_GET['filtergt']['id'];
+        }
+
+        if (isset($_GET['id_gt']) && is_numeric($_GET['id_gt'])) {
+            $filter['filtergt']['id'] = (int)$_GET['id_gt'];
+        }
+
+        if (isset($_GET['time_gt']) && is_numeric($_GET['time_gt'])) {
+            $filter['filtergt']['time'] = (int)$_GET['time_gt'];
         }
 
         if (isset($_GET['delay']) && is_numeric($_GET['delay'])) {
             $filter['filterlte']['time'] = time()-(int)$_GET['delay'];
         }
-        
+
+        if (isset($_GET['last_user_msg_time_gt']) && is_numeric($_GET['last_user_msg_time_gt'])) {
+            $filter['filtergt']['last_user_msg_time'] = (int)$_GET['last_user_msg_time_gt'];
+        }
+
+        $groupFields = array();
+
+        if (isset($_GET['group_by_nick']) && $_GET['group_by_nick'] == 'true') {
+            $groupFields[] = '`nick`';
+        }
+
+        if (isset($_GET['group_by_phone']) && $_GET['group_by_phone'] == 'true') {
+            $groupFields[] = '`phone`';
+        }
+
+        if (isset($_GET['group_by_email']) && $_GET['group_by_email'] == 'true') {
+            $groupFields[] = '`email`';
+        }
+
+        if (!empty($groupFields)) {
+            $filter['group'] = implode(', ', $groupFields);
+        }
+
         $limitation = self::getLimitation();
-        
+
         // Does not have any assigned department
         if ($limitation === false) {
             return array(
@@ -439,12 +479,40 @@ class erLhcoreClassRestAPIHandler
         if ($limitation !== true) {
             $filter['customfilter'][] = $limitation;
         }
+
+        return $filter;
+    }
+
+    public static function validateChatListCount()
+    {
+        $filter = self::getChatListFilter();
+
+        if (isset($filter['limit'])) {
+            unset($filter['limit']);
+        }
+
+        // Get chats count
+        $chatsCount = erLhcoreClassModelChat::getCount($filter);
+
+        // Chats list
+        return array(
+            'list_count' => $chatsCount,
+            'error' => false
+        );
+    }
+    /**
+     * Chat's list
+     */
+    public static function validateChatList()
+    {
+
+        $filter = self::getChatListFilter();
         
         // Get chats list
-        $chats = erLhcoreClassChat::getList($filter);
+        $chats = erLhcoreClassModelChat::getList($filter);
         
         // Get chats count
-        $chatsCount = erLhcoreClassChat::getCount($filter);
+        $chatsCount = erLhcoreClassModelChat::getCount($filter);
 
         // Allow extensions append custom field
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.restapi_chats',array('list' => & $chats));

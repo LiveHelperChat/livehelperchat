@@ -46,7 +46,6 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhc
 
             $tpl->set('chat_updated',true);
         } else {
-            print_r($Errors);
             $tpl->set('errors',$Errors);
         }
 
