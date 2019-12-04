@@ -53,6 +53,11 @@ $ViewList['fetchmessages'] = array(
 	'multiple_arguments' => array ()
 );
 
+$ViewList['addmsguser'] = array(
+    'params' => array('chat_id','hash'),
+    'uparams' => array('mode'),
+);
+
 $FunctionList = array();
 $FunctionList['use_admin'] = array('explain' => 'Allow operator to manage REST API');
 
