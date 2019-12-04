@@ -697,6 +697,8 @@ class erLhcoreClassGenericBotWorkflow {
                             $chat->email = $payload;
                         } elseif ($attrIdToUpdate == 'lhc.nick') {
                             $chat->nick = $payload;
+                        } elseif ($attrIdToUpdate == 'lhc.phone') {
+                            $chat->phone = $payload;
                         } else {
                             $chatAttributes[] = array('key' => $eventData['content']['attr_options']['name'], 'identifier' => $attrIdToUpdate, 'value' => $payload);
                         }
@@ -708,6 +710,7 @@ class erLhcoreClassGenericBotWorkflow {
                             ->set( 'additional_data', $q->bindValue($chat->additional_data) )
                             ->set( 'email', $q->bindValue($chat->email) )
                             ->set( 'nick', $q->bindValue($chat->nick) )
+                            ->set( 'phone', $q->bindValue($chat->phone) )
                             ->where( $q->expr->eq( 'id', $chat->id ) );
                         $stmt = $q->prepare();
                         $stmt->execute();
