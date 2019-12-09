@@ -989,6 +989,11 @@ class erLhcoreClassChatValidator {
                             $valueToCompare = $chat->chat_variables_array[$variableName];
                         }
                     }
+                } elseif (strpos($rule['field'],'lhc.') !== false) {
+                    $variableName = str_replace('lhc.','', $rule['field']);
+                    if (isset($chat->{$variableName}) && $chat->{$variableName} != '') {
+                        $valueToCompare = $chat->{$variableName};
+                    }
                 }
 
                 if ($valueToCompare !== null) {

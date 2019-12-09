@@ -31,7 +31,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" <?php if ($react == true) : ?>id="react-close-modal"<?php endif;?> class="close float-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <ul class="nav nav-pills nav-pills-bbcode" role="tablist">
                         <?php foreach ($icons as $index => $iconGroup) : ?>
                             <li class="nav-item" role="presentation" ><a class="nav-link pl-2 pr-2 pb-1 pt-1 small <?php if ($index == 0) : ?>active<?php endif;?>" href="#bbcode-smiley-<?php echo $index?>" aria-controls="bbcode-smiley-<?php echo $index?>" role="tab" data-toggle="tab"><?php echo htmlspecialchars($iconGroup['title'])?></a></li>
@@ -55,6 +55,7 @@
                 </div>
             </div>
 
+            <?php if ($react != true) : ?>
             <script>
                 $('.bb-list a').click(function () {
 
@@ -93,7 +94,8 @@
                     };
 
                     return false;
-                });</script>
+            });</script>
+            <?php endif; ?>
         </div>
     </div>
 </div>

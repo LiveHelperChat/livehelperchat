@@ -453,14 +453,16 @@ class erLhcoreClassSystem{
     
     function wwwDir()
     {
-        return $this->WWWDir;
+        return (self::$prependDomain ? (self::$httpsMode == true ? 'https:' : '') . '//' . $_SERVER['HTTP_HOST'] : '') . $this->WWWDir;
     }
 
     function wwwImagesDir()
     {
     	return $this->WWWDirImages;
     }
-    
+
+    public static $prependDomain = false;
+
     public static $httpsMode = false;
     
     /// The path to where all the code resides

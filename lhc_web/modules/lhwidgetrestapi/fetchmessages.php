@@ -251,7 +251,7 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_closed_tpl',array('chat' => & $chat, 'tpl' => & $tpl));
 
     $status = $tpl->fetch();
-
+    $responseArray['closed'] = true;
     $blocked = true;
 }
 

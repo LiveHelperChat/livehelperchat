@@ -58,6 +58,17 @@ $ViewList['addmsguser'] = array(
     'uparams' => array('mode'),
 );
 
+$ViewList['chatcheckstatus'] = array(
+    'params' => array(),
+    'uparams' => array('status','department','vid','uactiv','wopen','uaction','hash','hash_resume','dot','hide_offline','isproactive'),
+    'multiple_arguments' => array ( 'department' )
+);
+
+$ViewList['checkchatstatus'] = array(
+    'params' => array('chat_id','hash'),
+    'uparams' => array('mode','theme','dot')
+);
+
 $FunctionList = array();
 $FunctionList['use_admin'] = array('explain' => 'Allow operator to manage REST API');
 
