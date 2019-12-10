@@ -1,12 +1,3 @@
-
-<?php /*$autoResponderOptions = array(
-    'hide_pending' => true,
-    'hide_wait_message' => true,
-    'hide_operator_nick' => true,
-    'hide_visitor_not_replying_timeout' => true,
-    'hide_visitor_not_replying_bot' => true,
-);*/ ?>
-
 <?php if (!isset($autoResponderOptions['hide_visitor_not_replying_bot']) || $autoResponderOptions['hide_visitor_not_replying_bot'] === false) : ?>
 <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Choose what bot trigger element append after auto responder message')?></h4>
 
