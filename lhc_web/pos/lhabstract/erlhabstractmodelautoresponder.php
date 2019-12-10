@@ -201,6 +201,11 @@ $def->properties['survey_id']->columnName   = 'survey_id';
 $def->properties['survey_id']->propertyName = 'survey_id';
 $def->properties['survey_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['user_id'] = new ezcPersistentObjectProperty();
+$def->properties['user_id']->columnName   = 'user_id';
+$def->properties['user_id']->propertyName = 'user_id';
+$def->properties['user_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

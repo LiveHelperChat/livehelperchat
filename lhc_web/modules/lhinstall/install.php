@@ -407,6 +407,7 @@ try {
                   `name` varchar(50) NOT NULL,
                   `operator` varchar(50) NOT NULL,
                   `dep_id` int(11) NOT NULL,
+                  `user_id` int(11) NOT NULL,
                   `only_proactive` int(11) NOT NULL,
                   `repeat_number` int(11) NOT NULL DEFAULT '1',
                   `survey_timeout` int(11) NOT NULL DEFAULT '0',

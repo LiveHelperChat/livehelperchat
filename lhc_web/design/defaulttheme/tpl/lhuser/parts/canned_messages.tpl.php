@@ -170,6 +170,8 @@ if ($pages->items_total > 0) {
 
     </div>
 
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
 	<div class="btn-group" role="group" aria-label="...">
 		<input type="submit" class="btn btn-secondary" name="Save_canned_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
     	<?php if ($canned_msg->id > 0) : ?>

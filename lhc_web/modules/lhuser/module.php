@@ -172,6 +172,7 @@ $FunctionList['userlistonlineall'] = array('explain' => 'Allow user to see logge
 $FunctionList['changeonlinestatus'] = array('explain' => 'Allow user to change his online status');
 $FunctionList['changeskypenick'] = array('explain' => 'Allow user to change/enter his skype nick');
 $FunctionList['personalcannedmsg'] = array('explain' => 'Allow user to have personal canned messages');
+$FunctionList['personalautoresponder'] = array('explain' => 'Allow user to have personal auto responder messages');
 $FunctionList['changevisibility'] = array('explain' => 'Allow user to change his visibility mode');
 $FunctionList['change_visibility_list'] = array('explain' => 'Allow user to choose what list should be visible by him, pending/active/unread/closed');
 $FunctionList['see_assigned_departments'] = array('explain' => 'Allow user to see departments assigned to him');
