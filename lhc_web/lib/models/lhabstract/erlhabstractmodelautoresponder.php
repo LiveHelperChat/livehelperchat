@@ -20,23 +20,36 @@ class erLhAbstractModelAutoResponder {
 			'operator'  		=> $this->operator,
 			'siteaccess'  		=> $this->siteaccess,
 			'wait_message'		=> $this->wait_message,
+
+			// Pending chat messages
 			'timeout_message'	=> $this->timeout_message,
 			'timeout_message_2'	=> $this->timeout_message_2,
 			'timeout_message_3'	=> $this->timeout_message_3,
 			'timeout_message_4'	=> $this->timeout_message_4,
 			'timeout_message_5'	=> $this->timeout_message_5,
+
+			// Pending chat messages timeouts
 			'wait_timeout'		=> $this->wait_timeout,
 			'wait_timeout_2'	=> $this->wait_timeout_2,
 			'wait_timeout_3'	=> $this->wait_timeout_3,
 			'wait_timeout_4'	=> $this->wait_timeout_4,
 			'wait_timeout_5'	=> $this->wait_timeout_5,
-		    
+
+            // Visitor not replying messaging
+            'timeout_reply_message_1' => $this->timeout_reply_message_1,
+            'timeout_reply_message_2' => $this->timeout_reply_message_2,
+            'timeout_reply_message_3' => $this->timeout_reply_message_3,
+            'timeout_reply_message_4' => $this->timeout_reply_message_4,
+            'timeout_reply_message_5' => $this->timeout_reply_message_5,
+
+            // Visitor not replying timeouts
 			'wait_timeout_reply_1'	  => $this->wait_timeout_reply_1,
 			'wait_timeout_reply_2'	  => $this->wait_timeout_reply_2,
 			'wait_timeout_reply_3'	  => $this->wait_timeout_reply_3,
 			'wait_timeout_reply_4'	  => $this->wait_timeout_reply_4,
 			'wait_timeout_reply_5'	  => $this->wait_timeout_reply_5,
 
+			// Hold messages
 			'timeout_hold_message_1'	  => $this->timeout_hold_message_1,
 			'timeout_hold_message_2'	  => $this->timeout_hold_message_2,
 			'timeout_hold_message_3'	  => $this->timeout_hold_message_3,
@@ -44,17 +57,12 @@ class erLhAbstractModelAutoResponder {
 			'timeout_hold_message_5'	  => $this->timeout_hold_message_5,
 			'wait_timeout_hold'	          => $this->wait_timeout_hold,
 
+			// Hold timeouts
 			'wait_timeout_hold_1'	  => $this->wait_timeout_hold_1,
 			'wait_timeout_hold_2'	  => $this->wait_timeout_hold_2,
 			'wait_timeout_hold_3'	  => $this->wait_timeout_hold_3,
 			'wait_timeout_hold_4'	  => $this->wait_timeout_hold_4,
 			'wait_timeout_hold_5'	  => $this->wait_timeout_hold_5,
-		    
-			'timeout_reply_message_1' => $this->timeout_reply_message_1,
-			'timeout_reply_message_2' => $this->timeout_reply_message_2,
-			'timeout_reply_message_3' => $this->timeout_reply_message_3,
-			'timeout_reply_message_4' => $this->timeout_reply_message_4,
-			'timeout_reply_message_5' => $this->timeout_reply_message_5,
 
 			'only_proactive'	=> $this->only_proactive,
 			'ignore_pa_chat'	=> $this->ignore_pa_chat,
@@ -65,6 +73,7 @@ class erLhAbstractModelAutoResponder {
 			'survey_id'		    => $this->survey_id,
             'languages'         => $this->languages,
             'bot_configuration' => $this->bot_configuration,
+            'user_id' => $this->user_id,
 		);
 
 		return $stateArray;
@@ -167,6 +176,11 @@ class erLhAbstractModelAutoResponder {
 	   }
 	}
 
+    public function beforeSave()
+    {
+        $this->bot_configuration = json_encode($this->bot_configuration_array);
+    }
+
     public function beforeUpdate()
     {
         $this->bot_configuration = json_encode($this->bot_configuration_array);
@@ -176,8 +190,8 @@ class erLhAbstractModelAutoResponder {
 
 		$session = erLhcoreClassAbstract::getSession();
 		$q = $session->createFindQuery( 'erLhAbstractModelAutoResponder' );
-		$q->where( '('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\') AND ('.$q->expr->eq( 'dep_id', $q->bindValue( $chat->dep_id ) ).' OR dep_id = 0) AND only_proactive = 0')
-		->orderBy('position ASC')
+		$q->where( '('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\') AND ('.$q->expr->eq( 'dep_id', $q->bindValue( $chat->dep_id ) ).' OR dep_id = 0) AND only_proactive = 0 AND user_id = 0')
+		->orderBy('dep_id DESC, position ASC')
 		->limit( 1 );
 
 		$messagesToUser = $session->find( $q );
@@ -274,6 +288,11 @@ class erLhAbstractModelAutoResponder {
         }
 
         for ($i = 1; $i <= 5; $i++) {
+
+            if (isset($data['timeout_op_trans_reply_message_' . $i]) && $data['timeout_op_trans_reply_message_' . $i] != '') {
+                $this->{'timeout_op_reply_message_' . $i} = $data['timeout_op_trans_reply_message_' . $i];
+            }
+
             if (isset($data['timeout_message_' . $i]) && $data['timeout_message_' . $i] != '') {
                 $this->{'timeout_message_' . $i} = $data['timeout_message_' . $i];
             }
@@ -287,31 +306,90 @@ class erLhAbstractModelAutoResponder {
             }
         }
     }
+
     /**
      * @desc translate auto responder if translation by chat exists
      *
      * @param $locale
      */
-    public function translateByChat($locale) {
+    public function translateByChat($locale, $params = array()) {
+
         if ($locale != '' && $this->languages != '') {
             $languages = json_decode($this->languages, true);
 
             if (is_array($languages)) {
 
+                $translated = false;
+
                 // Try to find exact match
                 foreach ($languages as $data) {
                     if (in_array($locale, $data['languages'])) {
                         $this->setTranslationData($data);
-                        return ;
+                        $translated = true;
+                        break;
                     }
                 }
 
-                // Try to match general match by first two letters
-                $localeShort = explode('-',$locale)[0];
-                foreach ($languages as $data) {
-                    if (in_array($localeShort, $data['languages'])) {
-                        $this->setTranslationData($data);
-                        return ;
+                if ($translated == false){
+                    // Try to match general match by first two letters
+                    $localeShort = explode('-',$locale)[0];
+                    foreach ($languages as $data) {
+                        if (in_array($localeShort, $data['languages'])) {
+                            $this->setTranslationData($data);
+                            return ;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Try to find personal translations
+        if (isset($params['user_id']) && $params['user_id'] > 0 && isset($params['dep_id']) && $params['dep_id'] > 0) {
+
+            $session = erLhcoreClassAbstract::getSession();
+            $q = $session->createFindQuery( 'erLhAbstractModelAutoResponder' );
+            $q->where( '('.$q->expr->eq( 'dep_id', $q->bindValue( $params['dep_id'] ) ).' OR dep_id = 0) AND user_id = ' . (int)$params['user_id'])
+            ->orderBy('dep_id DESC, position ASC')
+            ->limit( 1 );
+
+            $messagesToUser = $session->find( $q );
+
+            if ( !empty($messagesToUser) ) {
+                $message = array_shift($messagesToUser);
+                $message->translateByChat($locale);
+
+                if ($message->timeout_message != '') {
+                    $this->timeout_message = $message->timeout_message;
+                }
+
+                if ($message->wait_timeout_hold != '') {
+                    $this->wait_timeout_hold = $message->wait_timeout_hold;
+                }
+
+                if ($message->wait_message != '') {
+                    $this->wait_message = $message->wait_message;
+                }
+
+                if ($message->operator != '') {
+                    $this->operator = $message->operator;
+                }
+
+                for ($i = 1; $i <= 5; $i++) {
+
+                    if ($message->{'timeout_op_reply_message_' . $i} != '') {
+                        $this->{'timeout_op_reply_message_' . $i} = $message->{'timeout_op_reply_message_' . $i};
+                    }
+
+                    if ($message->{'timeout_message_' . $i} != '') {
+                        $this->{'timeout_message_' . $i} = $message->{'timeout_message_' . $i};
+                    }
+
+                    if ($message->{'timeout_reply_message_' . $i} != '') {
+                        $this->{'timeout_reply_message_' . $i} = $message->{'timeout_reply_message_' . $i};
+                    }
+
+                    if ($message->{'timeout_hold_message_' . $i} != '') {
+                        $this->{'timeout_hold_message_' . $i} = $message->{'timeout_hold_message_' . $i};
                     }
                 }
             }
@@ -334,6 +412,12 @@ class erLhAbstractModelAutoResponder {
             'timeout_reply_message_4' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
             'timeout_reply_message_5' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
 
+            'timeout_op_trans_reply_message_1' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'timeout_op_trans_reply_message_2' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'timeout_op_trans_reply_message_3' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'timeout_op_trans_reply_message_4' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'timeout_op_trans_reply_message_5' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+
             'wait_timeout_hold' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
             'timeout_hold_message_1' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
             'timeout_hold_message_2' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
@@ -352,24 +436,31 @@ class erLhAbstractModelAutoResponder {
             foreach ($form->languages as $index => $languages) {
                 $languagesData[] = array(
                     'languages' => $form->languages[$index],
-                    'timeout_message' => $form->timeout_message[$index],
-                    'timeout_message_2' => $form->timeout_message_2[$index],
-                    'timeout_message_3' => $form->timeout_message_3[$index],
-                    'timeout_message_4' => $form->timeout_message_4[$index],
-                    'timeout_message_5' => $form->timeout_message_5[$index],
+                    'timeout_message' => ($form->hasValidData('timeout_message') ? $form->timeout_message[$index] : null),
+                    'timeout_message_2' => ($form->hasValidData('timeout_message_2') ? $form->timeout_message_2[$index] : null),
+                    'timeout_message_3' => ($form->hasValidData('timeout_message_3') ? $form->timeout_message_3[$index] : null),
+                    'timeout_message_4' => ($form->hasValidData('timeout_message_4') ? $form->timeout_message_4[$index] : null),
+                    'timeout_message_5' => ($form->hasValidData('timeout_message_5') ? $form->timeout_message_5[$index] : null),
                     'timeout_reply_message_1' => $form->timeout_reply_message_1[$index],
                     'timeout_reply_message_2' => $form->timeout_reply_message_2[$index],
                     'timeout_reply_message_3' => $form->timeout_reply_message_3[$index],
                     'timeout_reply_message_4' => $form->timeout_reply_message_4[$index],
                     'timeout_reply_message_5' => $form->timeout_reply_message_5[$index],
+
+                    'timeout_op_trans_reply_message_1' => $form->timeout_op_trans_reply_message_1[$index],
+                    'timeout_op_trans_reply_message_2' => $form->timeout_op_trans_reply_message_2[$index],
+                    'timeout_op_trans_reply_message_3' => $form->timeout_op_trans_reply_message_3[$index],
+                    'timeout_op_trans_reply_message_4' => $form->timeout_op_trans_reply_message_4[$index],
+                    'timeout_op_trans_reply_message_5' => $form->timeout_op_trans_reply_message_5[$index],
+
                     'wait_timeout_hold' => $form->wait_timeout_hold[$index],
                     'timeout_hold_message_1' => $form->timeout_hold_message_1[$index],
                     'timeout_hold_message_2' => $form->timeout_hold_message_2[$index],
                     'timeout_hold_message_3' => $form->timeout_hold_message_3[$index],
                     'timeout_hold_message_4' => $form->timeout_hold_message_4[$index],
                     'timeout_hold_message_5' => $form->timeout_hold_message_5[$index],
-                    'wait_message' => $form->wait_message[$index],
-                    'operator' => $form->operator[$index],
+                    'wait_message' => ($form->hasValidData('wait_message') ? $form->wait_message[$index] : null),
+                    'operator' => ($form->hasValidData('operator') ?  $form->operator[$index] : null),
                 );
             }
         }
@@ -460,6 +551,8 @@ class erLhAbstractModelAutoResponder {
 	public $repeat_number = 1;
 	
 	public $ignore_pa_chat = 0;
+	
+	public $user_id = 0;
 
 	public $hide_add = false;
 	public $hide_delete = false;

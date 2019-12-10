@@ -1,3 +1,12 @@
+3.26v
+
+1. Personal auto responder. Operators has to have permission "Uers" => "Allow user to have personal auto responder messages"
+2. Rest API has methods for work with Department/Bot
+3. Option to setup default checked charts.
+4. And may more small changes :)
+
+execute doc/update_db/update_201.sql for update
+
 3.25v
 
 1. Embeded live help widget also will track referrer page.

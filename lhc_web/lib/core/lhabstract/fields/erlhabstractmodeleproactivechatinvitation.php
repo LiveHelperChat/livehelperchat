@@ -148,7 +148,7 @@ return array(
         'required' => false,
         'hidden' => true,
         'source' => 'erLhAbstractModelAutoResponder::getList',
-        'params_call' => array(),
+        'params_call' => array('filter' => array('user_id' => 0)),
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'dep_id' => array(

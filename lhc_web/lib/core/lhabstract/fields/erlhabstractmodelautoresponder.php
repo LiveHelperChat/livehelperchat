@@ -143,6 +143,17 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int'
         )),
+     'user_id' => array(
+        'type' => 'combobox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'User'),
+        'required' => false,
+        'frontend' => 'user',
+        'source' => 'erLhcoreClassModelDepartament::getList',
+        'hide_optional' => false,
+        'params_call' => array(),
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int'
+        )),
     'wait_message' => array(
         'type' => 'textarea',
         'height' => '86px',
@@ -410,7 +421,6 @@ return array(
             'validation_definition' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )),
-
         'timeout_op_reply_message_1' => array(
             'type' => 'textarea',
             'height' => '86px',
