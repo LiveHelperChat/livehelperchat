@@ -350,6 +350,14 @@
                 "extra": ""
             },
             {
+                "field": "user_id",
+                "type": "int(11)",
+                "null": "NO",
+                "key": "",
+                "default": null,
+                "extra": ""
+            },
+            {
                 "field": "survey_timeout",
                 "type": "int(11)",
                 "null": "NO",

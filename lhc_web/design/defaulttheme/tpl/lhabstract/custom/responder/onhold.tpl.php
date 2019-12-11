@@ -5,6 +5,7 @@
     <?php echo erLhcoreClassAbstract::renderInput('wait_timeout_hold', $fields['wait_timeout_hold'], $object)?>
 </div>
 
+<?php if (!isset($autoResponderOptions['hide_on_hold_bot']) || $autoResponderOptions['hide_on_hold_bot'] === false) : ?>
 <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Choose what bot trigger element append after auto responder message')?></h4>
 
 <div class="row">
@@ -25,15 +26,21 @@
         </div>
     </div>
 </div>
+<?php endif; ?>
 
 <?php for ($i = 1; $i <= 5; $i++) : ?>
     <div class="row">
+
+        <?php if (!isset($autoResponderOptions['hide_on_hold_timeout']) || $autoResponderOptions['hide_on_hold_timeout'] === false) : ?>
         <div class="col-3">
             <div class="form-group">
                 <label><?php echo $fields['wait_timeout_hold_' . $i]['trans'];?></label>
                 <?php echo erLhcoreClassAbstract::renderInput('wait_timeout_hold_' . $i, $fields['wait_timeout_hold_' . $i], $object)?>
             </div>
         </div>
+        <?php endif; ?>
+
+
         <div class="col-9">
             <div class="form-group">
                 <label><?php echo $fields['timeout_hold_message_' . $i]['trans'];?></label>

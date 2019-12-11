@@ -6,10 +6,15 @@ $currentUser = erLhcoreClassUser::instance();
 
 $UserData = $currentUser->getUserData();
 
-$tpl->set('tab',$Params['user_parameters_unordered']['tab'] == 'canned' ? 'tab_canned' : '');
+$validTabs = array(
+    'canned' => 'tab_canned',
+    'autoresponder' => 'tab_autoresponder'
+);
 
-if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmode') && isset($_POST['UpdatePending_account'])) {	
-	
+$tpl->set('tab',key_exists($Params['user_parameters_unordered']['tab'], $validTabs) ? $validTabs[$Params['user_parameters_unordered']['tab']] : '');
+
+if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmode') && isset($_POST['UpdatePending_account'])) {
+
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
 		erLhcoreClassModule::redirect('user/account');
 		exit;
@@ -196,7 +201,7 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 	 * */
 	$cannedMessage = new erLhcoreClassModelCannedMsg();
 	
-	if (is_numeric($Params['user_parameters_unordered']['msg']) && $Params['user_parameters_unordered']['action'] == ''){
+	if (is_numeric($Params['user_parameters_unordered']['msg']) && $Params['user_parameters_unordered']['action'] == '' && $Params['user_parameters_unordered']['tab'] == 'canned'){
 		$cannedMessage = erLhcoreClassModelCannedMsg::fetch($Params['user_parameters_unordered']['msg']);
 		if ($cannedMessage->user_id != $UserData->id) {
 			erLhcoreClassModule::redirect('user/account','#canned');
@@ -259,7 +264,7 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 	/**
 	 * Delete canned message
 	 * */
-	if (is_numeric($Params['user_parameters_unordered']['msg']) && $Params['user_parameters_unordered']['action'] == 'delete') {
+	if (is_numeric($Params['user_parameters_unordered']['msg']) && $Params['user_parameters_unordered']['action'] == 'delete' && $Params['user_parameters_unordered']['tab'] == 'canned') {
 		
 		if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
 			die('Invalid CSRF Token');
@@ -292,10 +297,72 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 	
 }
 
+if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalautoresponder') ) {
+    $autoResponderMessage = new erLhAbstractModelAutoResponder();
+
+    if (is_numeric($Params['user_parameters_unordered']['msg']) && $Params['user_parameters_unordered']['action'] == '' && $Params['user_parameters_unordered']['tab'] == 'autoresponder') {
+        $autoResponderMessage = erLhAbstractModelAutoResponder::fetch($Params['user_parameters_unordered']['msg']);
+        if ($autoResponderMessage->user_id != $UserData->id) {
+            erLhcoreClassModule::redirect('user/account','#canned');
+            exit;
+        }
+    }
+
+    if (isset($_POST['Cancel_autoresponder_action']))
+    {
+        erLhcoreClassModule::redirect('user/account','#autoresponder');
+        exit;
+    }
+
+    if (isset($_POST['Save_autoresponder_action']))
+    {
+        if (!$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+            die('Invalid CSRF Token');
+            exit;
+        }
+
+        $Errors = erLhcoreClassAbstract::validateInput($autoResponderMessage);
+
+        if (count($Errors) == 0) {
+
+            $autoResponderMessage->user_id = $UserData->id;
+            $autoResponderMessage->saveThis();
+
+            $tpl->set('updated_autoresponder',true);
+        } else {
+            $tpl->set('errors_autoresponder',$Errors);
+        }
+
+        $tpl->set('tab','tab_autoresponder');
+    }
+
+    /**
+     * Delete auto responder
+     * */
+    if (is_numeric($Params['user_parameters_unordered']['msg']) && $Params['user_parameters_unordered']['action'] == 'delete' && $Params['user_parameters_unordered']['tab'] == 'autoresponder') {
+
+        if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+            die('Invalid CSRF Token');
+            exit;
+        }
+
+        $cannedToDelete = erLhAbstractModelAutoResponder::fetch($Params['user_parameters_unordered']['msg']);
+        if ($cannedToDelete instanceof erLhAbstractModelAutoResponder && $cannedToDelete->user_id == $UserData->id){
+            $cannedToDelete->removeThis();
+        }
+
+        erLhcoreClassModule::redirect('user/account','#autoresponder');
+        exit;
+    }
+
+
+    $tpl->set('autoResponder_msg', $autoResponderMessage);
+}
+
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.account', array('userData' => & $UserData, 'tpl' => & $tpl, 'params' => $Params));
 
 $Result['content'] = $tpl->fetch();
-$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.cannedmsg.js').'"></script>';
+$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.cannedmsg.js;js/angular.lhc.autoresponder.js').'"></script>';
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.account_result', array('result' => & $Result));
 
