@@ -69,6 +69,11 @@ $ViewList['checkchatstatus'] = array(
     'uparams' => array('mode','theme','dot')
 );
 
+$ViewList['loadsound'] = array(
+    'params' => array('sound'),
+    'uparams' => array()
+);
+
 $FunctionList = array();
 $FunctionList['use_admin'] = array('explain' => 'Allow operator to manage REST API');
 

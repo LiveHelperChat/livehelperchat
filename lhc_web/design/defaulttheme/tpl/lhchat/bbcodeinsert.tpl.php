@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-12">
                     <button type="button" <?php if ($react == true) : ?>id="react-close-modal"<?php endif;?> class="close float-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <ul class="nav nav-pills nav-pills-bbcode" role="tablist">
+                    <ul class="nav nav-pills nav-pills-bbcode"  role="tablist">
                         <?php foreach ($icons as $index => $iconGroup) : ?>
                             <li class="nav-item" role="presentation" ><a class="nav-link pl-2 pr-2 pb-1 pt-1 small <?php if ($index == 0) : ?>active<?php endif;?>" href="#bbcode-smiley-<?php echo $index?>" aria-controls="bbcode-smiley-<?php echo $index?>" role="tab" data-toggle="tab"><?php echo htmlspecialchars($iconGroup['title'])?></a></li>
                         <?php endforeach; ?>
@@ -41,12 +41,12 @@
                         <?php foreach ($icons as $index => $iconGroup) : ?>
                             <div role="tabpanel" class="tab-pane bb-list<?php if ($index == 0) : ?> active<?php endif;?><?php if ($chat_id !== null) : ?> admin-emoji<?php endif;?>" id="bbcode-smiley-<?php echo $index?>">
                                     <?php if ($index == 0) : ?>
-                                        <a class="rounded d-inline-block badge-light p-1 m-1" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Image'); ?>" data-promt="img" data-bb-code="img"><i class="material-icons mr-0">image</i></a>
-                                        <a class="rounded d-inline-block badge-light p-1 m-1" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Link'); ?>" data-promt="url" data-bb-code=" [url=http://example.com]<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Link title'); ?>[/url] "><i class="material-icons mr-0">link</i></a>
-                                        <a class="rounded d-inline-block badge-light p-1 m-1" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Bold'); ?>" data-bb-code=" [b][/b] "><strong>B</strong></a>
-                                        <a class="rounded d-inline-block badge-light p-1 m-1" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Italic'); ?>" data-bb-code=" [i][/i] "><em>I</em></a>
+                                        <a bbitem="true" class="rounded d-inline-block badge-light p-1 m-1" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Image'); ?>" data-promt="img" data-bb-code="img"><i class="material-icons mr-0">image</i></a>
+                                        <a bbitem="true" class="rounded d-inline-block badge-light p-1 m-1" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Link'); ?>" data-promt="url" data-bb-code=" [url=http://example.com]<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Link title'); ?>[/url] "><i class="material-icons mr-0">link</i></a>
+                                        <a bbitem="true" class="rounded d-inline-block badge-light p-1 m-1" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Bold'); ?>" data-bb-code=" [b][/b] "><strong>B</strong></a>
+                                        <a bbitem="true" class="rounded d-inline-block badge-light p-1 m-1" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Italic'); ?>" data-bb-code=" [i][/i] "><em>I</em></a>
                                     <?php endif; ?>
-                                    <?php foreach ($iconGroup['icons'] as $icon) : ?><a href="#" class="rounded d-inline-block badge-light p-1 m-1" data-bb-code="<?php echo $icon ?>"><?php echo $icon ?></a><?php endforeach; ?>
+                                    <?php foreach ($iconGroup['icons'] as $icon) : ?><a href="#" bbitem="true" class="rounded d-inline-block badge-light p-1 m-1" data-bb-code="<?php echo $icon ?>"><?php echo $icon ?></a><?php endforeach; ?>
                                 </ul>
 
                             </div>
@@ -91,11 +91,12 @@
                         setTimeout(function () {
                             textAreaElement.focus();
                         },500)
-                    };
+                     };
 
                     return false;
             });</script>
             <?php endif; ?>
+
         </div>
     </div>
 </div>
