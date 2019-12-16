@@ -4,6 +4,8 @@ erLhcoreClassRestAPIHandler::setHeaders();
 
 $requestPayload = json_decode(file_get_contents('php://input'),true);
 
+$Params['user_parameters_unordered']['department'] = $requestPayload['department'];
+
 $chat = new erLhcoreClassModelChat();
 
 $inputData = new stdClass();

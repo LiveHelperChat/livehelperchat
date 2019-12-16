@@ -23,16 +23,6 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
     } catch (Exception $e) {
 
     }
-} else {
-    $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
-    if ($defaultTheme > 0) {
-        try {
-            $theme = erLhAbstractModelWidgetTheme::fetch($defaultTheme);
-            $tpl->set('theme',$theme);
-        } catch (Exception $e) {
-             
-        }
-    }
 }
 
 $responseArray = array();
@@ -157,6 +147,7 @@ try {
         $responseArray['result'] = '';
         $responseArray['activated'] = 'true';
         $responseArray['closed'] = true;
+        $responseArray['deleted'] = true;
         echo json_encode($responseArray);
         exit;
     }

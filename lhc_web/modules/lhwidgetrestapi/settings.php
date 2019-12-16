@@ -15,14 +15,27 @@ $ignorable_ip = erLhcoreClassModelChatConfig::fetch('ignorable_ip')->current_val
 $fullHeight = (isset($Params['user_parameters_unordered']['fullheight']) && $Params['user_parameters_unordered']['fullheight'] == 'true') ? true : false;
 
 if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(),explode(',',$ignorable_ip))) {
-    //TMP $tpl = erLhcoreClassTemplate::getInstance('lhchat/chatcheckoperatormessage.tpl.php');
-
     if (is_array($Params['user_parameters_unordered']['department'])){
         erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
         $department = $Params['user_parameters_unordered']['department'];
     } else {
         $department = false;
     }
+
+    $jsVars = array();
+
+    // Additional javascript variables
+    if (is_array($department) && !empty($department)) {
+        foreach (erLhAbstractModelChatVariable::getList(array('ignore_fields' => array('dep_id','var_name','var_identifier','type'), 'customfilter' => array('dep_id = 0 OR dep_id IN (' . implode(',',$department) .')'))) as $jsVar) {
+            $jsVars[] = array('id' => $jsVar->id,'var' => $jsVar->js_variable);
+        }
+    } else {
+        foreach (erLhAbstractModelChatVariable::getList(array('ignore_fields' => array('dep_id','var_name','var_identifier','type'), 'filter' => array('dep_id' => 0))) as $jsVar) {
+            $jsVars[] = array('id' => $jsVar->id, 'var' => $jsVar->js_variable);
+        }
+    }
+
+    $outputResponse['js_vars'] = $jsVars;
 
     if (is_array($Params['user_parameters_unordered']['ua'])){
         $uarguments = $Params['user_parameters_unordered']['ua'];
@@ -49,62 +62,24 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
     }
 
     if ($userInstance !== false) {
-
         if ($userInstance->invitation_id == -1) {
             $userInstance->invitation_id = 0;
             $userInstance->invitation_assigned = true;
             $userInstance->saveThis();
         }
-
-        /*$tpl->set('fullheight', $fullHeight);
-        $tpl->set('priority',is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false);
-        $tpl->set('department',$department !== false ? implode('/', $department) : false);
-        $tpl->set('uarguments',$uarguments !== false ? implode('/', $uarguments) : false);
-        $tpl->set('operator',is_numeric($Params['user_parameters_unordered']['operator']) ? (int)$Params['user_parameters_unordered']['operator'] : false);
-        $tpl->set('theme',is_numeric($Params['user_parameters_unordered']['theme']) && $Params['user_parameters_unordered']['theme'] > 0 ? (int)$Params['user_parameters_unordered']['theme'] : false);
-        $tpl->set('visitor',$userInstance);
-        $tpl->set('vid',(string)$Params['user_parameters_unordered']['vid']);
-        $tpl->set('survey',is_numeric($Params['user_parameters_unordered']['survey']) ? (int)$Params['user_parameters_unordered']['survey'] : false);
-
-        $tag = false;
-        if (isset($_GET['tag'])) {
-            $tag = implode(',',array_unique(explode(',',$_GET['tag'])));
-        }
-
-        $tpl->set('tag', $tag);
-
-        $dynamic = true;
-
-        if ($userInstance->reopen_chat == 1 && ($chat = $userInstance->chat) !== false && $chat->user_status == erLhcoreClassModelChat::USER_STATUS_PENDING_REOPEN) {
-            $tpl->set('reopen_chat',$chat);
-            $dynamic = false;
-        }
-
-        // Execute request only if widget is not open
-        if ($userInstance->operation != '' && (int)$Params['user_parameters_unordered']['wopen'] == 0) {
-            $tpl->set('operation',$userInstance->operation);
-            $userInstance->operation = '';
-            $userInstance->operation_chat = '';
-            $userInstance->saveThis();
-        }
-
-        // If there is no assigned default proactive invitations find dynamic one triggers
-        $dynamicEverytime = $userInstance->invitation instanceof erLhAbstractModelProactiveChatInvitation && $userInstance->invitation->dynamic_invitation == 1 && $userInstance->invitation->show_instant == 0;
-
-        if ($dynamic == true && $userInstance->message_seen == 0 && ($userInstance->operator_message == '' || $dynamicEverytime == true) && (int)$Params['user_parameters_unordered']['wopen'] == 0) {
-            $tpl->set('dynamic_processed',is_array($Params['user_parameters_unordered']['dyn']) ? $Params['user_parameters_unordered']['dyn'] : array());
-            $tpl->set('dynamic',$dynamic);
-            $tpl->set('dynamic_everytime',$dynamicEverytime);
-            $tpl->set('dynamic_invitation', erLhcoreClassModelChatOnlineUser::getDynamicInvitation(array('online_user' => $userInstance, 'tag' => isset($_GET['tag']) ? $_GET['tag'] : false)));
-        }
-
-        if ((int)$Params['user_parameters_unordered']['count_page'] == 1) {
-            $tpl->set('inject_html', erLhcoreClassModelChatOnlineUser::getInjectHTMLInvitation(array('online_user' => $userInstance, 'tag' => isset($_GET['tag']) ? $_GET['tag'] : false)));
-        }
-
-        echo $tpl->fetch();*/
     }
 }
+
+if (isset($_GET['theme']) && (int)$_GET['theme'] > 0){
+    $outputResponse['theme'] = (int)$_GET['theme'];
+} else {
+    $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
+    if ($defaultTheme > 0) {
+        $outputResponse['theme'] = (int)$defaultTheme;
+    }
+}
+
+//$outputResponse['isOnline'] = false;
 
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
 exit();

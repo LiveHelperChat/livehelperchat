@@ -3,10 +3,6 @@
 erLhcoreClassRestAPIHandler::setHeaders();
 $requestPayload = json_decode(file_get_contents('php://input'),true);
 
-/*if ($Params['user_parameters_unordered']['sound'] !== null && is_numeric($Params['user_parameters_unordered']['sound'])) {
-    erLhcoreClassModelUserSetting::setSetting('chat_message',(int)$Params['user_parameters_unordered']['sound'] == 1 ? 1 : 0);
-}*/
-
 try {
     $db = ezcDbInstance::get();
     $db->beginTransaction();
@@ -15,36 +11,8 @@ try {
 
     erLhcoreClassChat::setTimeZoneByChat($chat);
 
-    /*if (is_numeric($Params['user_parameters_unordered']['pchat'])) {
-        erLhcoreClassChatPaid::openChatWidget(array(
-            'tpl' => & $tpl,
-            'pchat' => $Params['user_parameters_unordered']['pchat'],
-            'chat' => $chat
-        ));
-    }*/
-
     if ($chat->hash == $requestPayload['hash'])
     {
-        //$survey = is_numeric($Params['user_parameters_unordered']['survey']) ? (int)$Params['user_parameters_unordered']['survey'] : false;
-        /*$tpl->set('chat_id',$Params['user_parameters']['chat_id']);
-        $tpl->set('hash',$Params['user_parameters']['hash']);
-        $tpl->set('chat',$chat);
-        $tpl->set('chat_widget_mode',true);
-        $tpl->set('chat_embed_mode',$embedMode);
-        $tpl->set('survey',$survey);*/
-
-        //if ($survey > 0) {
-            //$Result['parent_messages'][] = 'lhc_chat_survey:' . $survey;
-        //}
-
-        //$Result['chat'] = $chat;
-
-/*        // If survey send parent message instantly
-        if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
-            $args = erLhcoreClassChatHelper::getSubStatusArguments($chat);
-            $Result['parent_messages'][] = 'lhc_chat_closed' . ($args != '' ? ':' . $args : '');
-        }*/
-
         // User online
         if ($chat->user_status != 0) {
             $chat->support_informed = 1;
@@ -78,16 +46,6 @@ try {
 
             $chat->user_status = erLhcoreClassModelChat::USER_STATUS_JOINED_CHAT;
 
-/*            $nick = isset($_GET['prefill']['username']) ? trim($_GET['prefill']['username']) : '';
-
-            // Update nick if required
-            if (isset($_GET['prefill']['username']) && $chat->nick != $_GET['prefill']['username'] && !empty($nick) && $chat->nick == erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor')) {
-                $chat->nick = $_GET['prefill']['username'];
-                $chat->operation_admin .= "lhinst.updateVoteStatus(".$chat->id.");";
-
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.nickchanged', array('chat' => & $chat));
-            }*/
-
             if ($chat->unanswered_chat == 1 && $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)
             {
                 $chat->unanswered_chat = 0;
@@ -100,20 +58,20 @@ try {
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatwidgetchat',array('params' => & $Params, 'chat' => & $chat));
 
-/*        // Parse and return messages
-        $messages = erLhcoreClassChat::getChatMessages($chat->id);
-        $tpl = erLhcoreClassTemplate::getInstance( 'lhwidgetrestapi/messages.tpl.php');
-        $tpl->set('messages', $messages);
-
-        end($messages);
-        $lastMessage = current($messages);
-
-        $messagesParsed = $tpl->fetch();*/
-
         $outputResponse = array(
             'operator' => 'operator',
-            'messages' => []
+            'messages' => [],
+            'chat_ui' => array(
+                
+            )
         );
+
+        if (isset($requestPayload['theme']) && $requestPayload['theme'] > 0) {
+            $theme = erLhAbstractModelWidgetTheme::fetch($requestPayload['theme']);
+              if (isset($theme->bot_configuration_array['placeholder_message']) && !empty($theme->bot_configuration_array['placeholder_message'])) {
+                $outputResponse['chat_ui']['placeholder_message'] = $theme->bot_configuration_array['placeholder_message'];
+            }
+        }
 
         echo erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
         

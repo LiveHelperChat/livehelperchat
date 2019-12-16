@@ -754,8 +754,15 @@ class erLhcoreClassChatValidator {
                 unset($onlineAttr[$jsVar->var_identifier]);
             }
 
+            $val = null;
+
             if (isset($data[str_replace('lhc_var.','',$jsVar->js_variable)]) && !empty(str_replace('lhc_var.','',$jsVar->js_variable))) {
                 $val = $data[str_replace('lhc_var.','',$jsVar->js_variable)];
+            } elseif (isset($data[$jsVar->id]) && !empty($data[$jsVar->id])) {
+                $val = $data[$jsVar->id];
+            }
+
+            if (!empty($val)) {
                 if ($jsVar->type == 0) {
                     $val = (string)$val;
                 } elseif ($jsVar->type == 1) {
@@ -782,14 +789,20 @@ class erLhcoreClassChatValidator {
             $stringParts = array();
 
             foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
+
                 if (isset($data[str_replace('lhc_var.','',$jsVar->js_variable)]) && !empty(str_replace('lhc_var.','',$jsVar->js_variable))) {
+                    $val = $data[str_replace('lhc_var.','',$jsVar->js_variable)];
+                } elseif (isset($data[$jsVar->id]) && !empty($data[$jsVar->id])) {
+                    $val = $data[$jsVar->id];
+                }
+
+                if (!empty($val)) {
                     if ($jsVar->var_identifier == 'lhc.nick') {
-                        if ($chat->nick != $data[str_replace('lhc_var.','',$jsVar->js_variable)] && $data[str_replace('lhc_var.','',$jsVar->js_variable)] != '') {
-                            $chat->nick = $data[str_replace('lhc_var.','',$jsVar->js_variable)];
+                        if ($chat->nick != $val && $val != '') {
+                            $chat->nick = $val;
                             $needUpdate = true;
                         }
                     } else {
-                        $val = $data[str_replace('lhc_var.','',$jsVar->js_variable)];
                         if ($jsVar->type == 0) {
                             $val = (string)$val;
                         } elseif ($jsVar->type == 1) {

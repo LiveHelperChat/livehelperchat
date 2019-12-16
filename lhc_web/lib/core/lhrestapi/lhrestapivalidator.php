@@ -77,12 +77,12 @@ class erLhcoreClassRestAPIHandler
         return false;
     }
 
-    public static function setHeaders()
+    public static function setHeaders($content = 'Content-Type: application/json')
     {
         header('Access-Control-Allow-Origin: *');
         header('Access-Control-Allow-Credentials: true');
         header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, API-Key, Authorization');
-        header('Content-Type: application/json');
+        header($content);
         self::setOptionHeaders();
     }
 

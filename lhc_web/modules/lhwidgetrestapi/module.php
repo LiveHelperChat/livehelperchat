@@ -74,6 +74,16 @@ $ViewList['loadsound'] = array(
     'uparams' => array()
 );
 
+$ViewList['theme'] = array(
+    'params' => array('theme'),
+    'uparams' => array()
+);
+
+$ViewList['themestatus'] = array(
+    'params' => array('theme'),
+    'uparams' => array()
+);
+
 $FunctionList = array();
 $FunctionList['use_admin'] = array('explain' => 'Allow operator to manage REST API');
 
