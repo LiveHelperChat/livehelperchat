@@ -890,6 +890,16 @@ $fields = array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 )),
+                'ndomain' => array(
+                    'type' => 'text',
+                    'main_attr' => 'notification_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Notification domain'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
    		);
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('lhabstract.erlhabstractmodelwidgettheme.fields',array('fields' => & $fields));
 
