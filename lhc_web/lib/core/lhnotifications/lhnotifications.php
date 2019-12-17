@@ -121,7 +121,7 @@ class erLhcoreClassNotifications {
 
             $icon = $subscriber->theme->notification_icon_url;
             if ($icon != '') {
-                $data['icon'] = (strpos($icon,'http') === false) ? 'https://' . $data['http_host'] . $icon : $icon;
+                $data['badge'] = $data['icon'] = (strpos($icon,'http') === false) ? 'https://' . $data['http_host'] . $icon : $icon;
             }
 
             if (isset($notificationConfiguration['ntitle']) && !empty($notificationConfiguration['ntitle'])) {
