@@ -557,6 +557,11 @@
                         <label><?php echo $fields['ntitle']['trans'];?></label>
                         <?php echo erLhcoreClassAbstract::renderInput('ntitle', $fields['ntitle'], $object)?>
                     </div>
+                    
+                    <div class="form-group">
+                        <label><?php echo $fields['ndomain']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('ndomain', $fields['ndomain'], $object)?>
+                    </div>
 
                     <div class="form-group">
                         <label><?php echo $fields['notification_icon']['trans'];?></label>

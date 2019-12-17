@@ -17,6 +17,7 @@
     <?php $objectsLog = array(
         array('class' => 'AutoResponder' ,'name' => 'Auto Responder'),
         array('class' => 'CannedMsg' ,'name' => 'Canned Message'),
+        array('class' => 'Subject' ,'name' => 'Subject'),
     );
     ?>
 

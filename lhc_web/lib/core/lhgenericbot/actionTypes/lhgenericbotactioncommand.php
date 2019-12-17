@@ -123,6 +123,24 @@ class erLhcoreClassGenericBotActionCommand {
 
                 if ($eventArgs['attr'] == 'dep_id' && $eventArgs['old'] != $action['content']['payload_arg']) {
                     erLhAbstractModelAutoResponder::updateAutoResponder($chat);
+
+                    $department = erLhcoreClassModelDepartament::fetch($chat->dep_id);
+
+                    if ($department instanceof erLhcoreClassModelDepartament) {
+                        if ($department->department_transfer_id > 0) {
+                            $chat->transfer_if_na = 1;
+                            $chat->transfer_timeout_ts = time();
+                            $chat->transfer_timeout_ac = $department->transfer_timeout;
+                        }
+
+                        if ($department->inform_unread == 1) {
+                            $chat->reinform_timeout = $department->inform_unread_delay;
+                        }
+
+                        if ($department->priority > $chat->priority) {
+                            $chat->priority = $department->priority;
+                        }
+                    }
                 }
 
                 if ($eventArgs['attr'] == 'status' && $eventArgs['old'] != $action['content']['payload_arg']) {
