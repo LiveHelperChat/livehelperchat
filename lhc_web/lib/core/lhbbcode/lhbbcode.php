@@ -800,7 +800,7 @@ class erLhcoreClassBBCode
                     // Check that user has permission to see the chat. Let say if user purposely types file bbcode
                     if ($hash == $file->security_hash) {
                         $fileExtension = strtolower($file->extension);
-                        if ($fileExtension == 'jpg' || $fileExtension == 'jpeg' || $fileExtension == 'png'){
+                        if ($fileExtension == 'jpg' || $fileExtension == 'jpeg' || $fileExtension == 'png' || $fileExtension == 'gif'){
 
                             // Make link if required
                             $prepend = '';
