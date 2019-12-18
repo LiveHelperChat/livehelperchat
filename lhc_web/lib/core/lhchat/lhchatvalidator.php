@@ -727,6 +727,15 @@ class erLhcoreClassChatValidator {
             $chat->additional_data_array = $stringParts;
         }
 
+        $chat->setIP();
+        $chat->lsync = time();
+        erLhcoreClassModelChat::detectLocation($chat);
+
+        // Detect device
+        $detect = new Mobile_Detect;
+        $chat->uagent = $detect->getUserAgent();
+        $chat->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
+
         // Set priority by additional variables
         $priority = self::getPriorityByAdditionalData($chat);
 
@@ -734,11 +743,6 @@ class erLhcoreClassChatValidator {
             $chat->priority = $priority;
         }
 
-        // Detect device
-        $detect = new Mobile_Detect;
-        $chat->uagent = $detect->getUserAgent();
-        $chat->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
-        
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_start_chat',array('errors' => & $Errors, 'input_form' => & $inputForm, 'start_data_fields' => & $start_data_fields, 'chat' => & $chat,'additional_params' => & $additionalParams));
         
         return $Errors;
