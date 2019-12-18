@@ -1,5 +1,6 @@
 <?php
-erLhcoreClassRestAPIHandler::setHeaders();
+
+erLhcoreClassRestAPIHandler::setHeaders('Content-Type: text/html; charset=UTF-8');
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/bbcodeinsert.tpl.php');
 
