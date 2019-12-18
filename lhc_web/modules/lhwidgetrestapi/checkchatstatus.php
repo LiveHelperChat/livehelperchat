@@ -165,6 +165,7 @@ $responseArray['result'] = $tpl->fetch();
 $responseArray['activated'] = $activated;
 $responseArray['uid'] = (int)$chat->user_id;
 $responseArray['status'] = (int)$chat->status;
+$responseArray['status_sub'] = (int)$chat->status_sub;
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.checkchatstatus',array('chat' => & $chat, 'response' => & $responseArray));
 

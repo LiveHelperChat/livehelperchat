@@ -1,10 +1,12 @@
 <?php
 
-header('content-type: application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
+erLhcoreClassRestAPIHandler::setHeaders();
 
-$subscription = $_POST['data'];
+if (isset($_POST['data'])) {
+    $subscription = $_POST['data'];
+} else {
+    $subscription = json_decode(file_get_contents('php://input'),true)['data'];
+}
 
 if ((string)$Params['user_parameters_unordered']['hash'] != '' && $subscription != '') {
 

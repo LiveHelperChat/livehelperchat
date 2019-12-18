@@ -73,6 +73,59 @@ try {
             }
         }
 
+        if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
+            if ($chat->status_sub_arg != '') {
+                $args = json_decode($chat->status_sub_arg, true);
+                if (isset($args['survey_id'])) {
+                    $outputResponse['chat_ui']['survey_id'] = (int)$args['survey_id'];
+                }
+            }
+        }
+
+        if (!isset($outputResponse['chat_ui']['survey_id']) && isset($chat->department->bot_configuration_array['survey_id']) && $chat->department->bot_configuration_array['survey_id'] > 0) {
+            $outputResponse['chat_ui']['survey_id'] = $chat->department->bot_configuration_array['survey_id'];
+        };
+
+        $outputResponse['status_sub'] = $chat->status_sub;
+        $outputResponse['status'] = $chat->status;
+
+        if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW || $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
+            $outputResponse['closed'] = true;
+        } else {
+            $outputResponse['closed'] = false;
+        }
+
+        if ((int)erLhcoreClassModelChatConfig::fetch('disable_print')->current_value == 0) {
+            $outputResponse['chat_ui']['print'] = true;
+        }
+
+        $notificationsSettings = erLhcoreClassModelChatConfig::fetch('notifications_settings')->data_value;
+
+        if (isset($notificationsSettings['enabled']) && $notificationsSettings['enabled'] == 1 && (!isset($theme) || $theme === false || (isset($theme->notification_configuration_array['notification_enabled']) && $theme->notification_configuration_array['notification_enabled'] == 1))) {
+            $outputResponse['chat_ui']['notifications'] = true;
+            $outputResponse['chat_ui']['notifications_pk'] = $notificationsSettings['public_key'];
+        }
+
+        if ((int)erLhcoreClassModelChatConfig::fetch('disable_send')->current_value == 0) {
+            $outputResponse['chat_ui']['transcript'] = true;
+        }
+
+        if ((int)erLhcoreClassModelChatConfig::fetch('hide_button_dropdown')->current_value == 0) {
+            $outputResponse['chat_ui']['close_btn'] = true;
+        }
+
+        $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
+
+        if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] == true){
+            $outputResponse['chat_ui']['file'] = true;
+            $outputResponse['chat_ui']['file_options'] = array(
+                'fs' => $fileData['fs_max']*1024,
+                'ft_us' => $fileData['ft_us'],
+            );
+        }
+
+        $outputResponse['chat_ui']['fbst'] = $chat->fbst;
+
         echo erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
         
     } else {

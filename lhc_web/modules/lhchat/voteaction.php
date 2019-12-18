@@ -1,11 +1,11 @@
 <?php
 
-header('content-type: application/json; charset=utf-8');
+erLhcoreClassRestAPIHandler::setHeaders();
 $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 
 if ($chat->hash == $Params['user_parameters']['hash'] && ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) // Allow add messages only if chat is active
 {
-        if ($Params['user_parameters']['type'] == 1){
+        if ($Params['user_parameters']['type'] == 1) {
         	$chat->fbst = $chat->fbst == 1 ? 0 : 1;
         }
 

@@ -18,12 +18,13 @@ $content = '';
 $ott = '';
 $LastMessageID = 0;
 $userOwner = true;
-$checkStatus = false;
 $saveChat = false;
 $operation = '';
 $operatorId = 0;
 
 $responseArray = array();
+$responseArray['status_sub'] = $chat->status_sub;
+$responseArray['status'] = $chat->status;
 
 if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 {
@@ -66,7 +67,7 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validstatus_chat',array('chat' => & $chat, 'valid_statuses' => & $validStatuses));
 
             // Sync only if chat is pending or active
-			if (in_array($chat->status,$validStatuses) || ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && $chat->last_op_msg_time > time() - (int)erLhcoreClassModelChatConfig::fetch('open_closed_chat_timeout')->current_value)) {
+			if (in_array($chat->status,$validStatuses) || ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && ($chat->last_op_msg_time == 0 || $chat->last_op_msg_time > time() - (int)erLhcoreClassModelChatConfig::fetch('open_closed_chat_timeout')->current_value))) {
 				// Check for new messages only if chat last message id is greater than user last message id
 				if (!isset($requestPayload['lmgsid']) || (int)$requestPayload['lmgsid'] < $chat->last_msg_id) {
 				    $Messages = erLhcoreClassChat::getPendingMessages((int)$requestPayload['chat_id'], (isset($requestPayload['lmgsid']) ? (int)$requestPayload['lmgsid'] : 0));
@@ -113,32 +114,21 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 			}
 
 		    // Closed
-		    if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+		    if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
 		    	$responseArray['closed'] = true;
 		    }
 
-		    // If there was two tabs open with same chat force chat close in another tab also
-		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
-		        $responseArray['closed'] = true;
-		    }
-
 		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED) {
-		    	$checkStatus = true;
 		    	$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
 		    	$saveChat = true;
 		    }
 
 		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
-		    	$breakSync = true;
 		    	$responseArray['closed'] = true;
 		    	if ($chat->status_sub_arg != '') {
 		    	    $args = json_decode($chat->status_sub_arg,true);
-		    	    $responseArray['closed_arg'] = erLhcoreClassChatHelper::getSubStatusArguments($chat);
+		    	    $responseArray['closed_arg'] = $args;
 		    	}
-		    }
-
-		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM) {
-		        $checkStatus = true;
 		    }
 
 		    if ($chat->operation != '') {
@@ -178,11 +168,9 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
     $responseArray['closed'] = true;
 }
 
-
 $responseArray['op'] = $operation;
 $responseArray['uw'] = $userOwner;
 $responseArray['msop'] = $operatorId;
-$responseArray['cs'] = $checkStatus;
 $responseArray['ott'] = $ott;
 $responseArray['message_id'] = (int)$LastMessageID;
 $responseArray['messages'] = trim($content) == '' ? [] : [trim($content)];

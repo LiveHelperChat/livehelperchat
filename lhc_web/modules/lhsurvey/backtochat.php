@@ -59,21 +59,22 @@ try {
             $chat->saveThis();
 
             echo json_encode(array('result' => true));
-            
+
             flush();
-             
+
             session_write_close();
-             
+
             if ( function_exists('fastcgi_finish_request') ) {
                 fastcgi_finish_request();
             };
-            
+
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('survey.back_to_chat',array('chat' => & $chat, 'msg' => & $msg));
-        }        
+        }
     }
     
 } catch(Exception $e) {
    $tpl->setFile('lhchat/errors/chatnotexists.tpl.php');
+   print_r($e);
 }
 
 exit;
