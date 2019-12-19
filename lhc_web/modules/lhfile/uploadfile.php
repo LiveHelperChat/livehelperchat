@@ -1,5 +1,7 @@
 <?php
 
+erLhcoreClassRestAPIHandler::setHeaders();
+
 $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
 
 if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] == true) {
