@@ -2,14 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Wie viele Tage lang soll das Bewertungs-Widget seit der letzten Anzeige nicht erweitert werden</translation>
     </message>
@@ -1721,6 +1713,10 @@
     </message>
     <message>
       <source>Open popup on mobile devices using mobile layout.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not process internal pages and use redirects.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4025,21 +4021,6 @@
     </message>
   </context>
   <context>
-    <name>chat/chatnotexists</name>
-    <message>
-      <source>Chat was deleted</source>
-      <translation>Chat wurde gelöscht</translation>
-    </message>
-    <message>
-      <source>Survey not exist please check embed code options</source>
-      <translation>Umfrage existiert nicht. Bitte prüfen Sie die Einbettungscode-Optionen</translation>
-    </message>
-    <message>
-      <source>Resume chat</source>
-      <translation>Chat fortsetzen</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/syncadmininterface</name>
     <message>
       <source>Open in a new window</source>
@@ -4495,10 +4476,6 @@
   </context>
   <context>
     <name>chat/startchat</name>
-    <message>
-      <source>Please enter a message...</source>
-      <translation>Bitte Nachricht eingeben...</translation>
-    </message>
     <message>
       <source>Department is disabled</source>
       <translation>Abteilung wurde deaktiviert</translation>
@@ -5038,6 +5015,21 @@
     <message>
       <source>You do not have permission to view this chat, or the chat was deleted</source>
       <translation>Keine Berechtigung den Chat einzusehen oder der Chat wurde gelöscht</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatnotexists</name>
+    <message>
+      <source>Chat was deleted</source>
+      <translation>Chat wurde gelöscht</translation>
+    </message>
+    <message>
+      <source>Survey not exist please check embed code options</source>
+      <translation>Umfrage existiert nicht. Bitte prüfen Sie die Einbettungscode-Optionen</translation>
+    </message>
+    <message>
+      <source>Resume chat</source>
+      <translation>Chat fortsetzen</translation>
     </message>
   </context>
   <context>

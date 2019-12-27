@@ -2,16 +2,8 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation type="unfinished"/>
+      <translation>How many days voting widget should not be expanded after last show</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
@@ -1721,6 +1713,10 @@
     </message>
     <message>
       <source>Open popup on mobile devices using mobile layout.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not process internal pages and use redirects.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4025,21 +4021,6 @@
     </message>
   </context>
   <context>
-    <name>chat/chatnotexists</name>
-    <message>
-      <source>Chat was deleted</source>
-      <translation>أُزِيلَت المحادثة</translation>
-    </message>
-    <message>
-      <source>Survey not exist please check embed code options</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Resume chat</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>chat/syncadmininterface</name>
     <message>
       <source>Open in a new window</source>
@@ -4495,10 +4476,6 @@
   </context>
   <context>
     <name>chat/startchat</name>
-    <message>
-      <source>Please enter a message...</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Department is disabled</source>
       <translation type="unfinished"/>
@@ -5037,6 +5014,21 @@
     </message>
     <message>
       <source>You do not have permission to view this chat, or the chat was deleted</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatnotexists</name>
+    <message>
+      <source>Chat was deleted</source>
+      <translation>أُزِيلَت المحادثة</translation>
+    </message>
+    <message>
+      <source>Survey not exist please check embed code options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Resume chat</source>
       <translation type="unfinished"/>
     </message>
   </context>

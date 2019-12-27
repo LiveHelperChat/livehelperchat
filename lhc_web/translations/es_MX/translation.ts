@@ -2,14 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por cuantos días el widget de votación no será expandido después de mostrarlo la última vez</translation>
     </message>
@@ -603,7 +595,7 @@
     </message>
     <message>
       <source>Default</source>
-      <translation type="unfinished"/>
+      <translation>Por defecto</translation>
     </message>
     <message>
       <source>System assistant messages style</source>
@@ -1721,7 +1713,11 @@
     </message>
     <message>
       <source>Open popup on mobile devices using mobile layout.</source>
-      <translation type="unfinished"/>
+      <translation>Abrir una ventana emergente en dispositivos móviles utilizando el diseño móvil.</translation>
+    </message>
+    <message>
+      <source>Do not process internal pages and use redirects.</source>
+      <translation>No procesar páginas internas y usar redirecciones.</translation>
     </message>
     <message>
       <source>Online form settings</source>
@@ -2566,11 +2562,11 @@
     <name>audit/options</name>
     <message>
       <source>Audit Configuration</source>
-      <translation type="unfinished"/>
+      <translation>Configuración de Auditoria</translation>
     </message>
     <message>
       <source>How many days keep log?</source>
-      <translation type="unfinished"/>
+      <translation>¿Mantener log por cuantos días?</translation>
     </message>
     <message>
       <source>What objects changes log?</source>
@@ -2578,11 +2574,11 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Configuración actualizada</translation>
     </message>
     <message>
       <source>Options</source>
-      <translation type="unfinished"/>
+      <translation>Opciones</translation>
     </message>
   </context>
   <context>
@@ -2593,23 +2589,23 @@
     </message>
     <message>
       <source>Quote</source>
-      <translation type="unfinished"/>
+      <translation>Cuota</translation>
     </message>
     <message>
       <source>Youtube</source>
-      <translation type="unfinished"/>
+      <translation>Youtube</translation>
     </message>
     <message>
       <source>HTML Code</source>
-      <translation type="unfinished"/>
+      <translation>Código HTML</translation>
     </message>
     <message>
       <source>Bold</source>
-      <translation type="unfinished"/>
+      <translation>Negrita</translation>
     </message>
     <message>
       <source>Italic</source>
-      <translation type="unfinished"/>
+      <translation>Italica</translation>
     </message>
     <message>
       <source>Underline</source>
@@ -2617,15 +2613,15 @@
     </message>
     <message>
       <source>Font Size</source>
-      <translation type="unfinished"/>
+      <translation>Tamaño fuente</translation>
     </message>
     <message>
       <source>Color</source>
-      <translation type="unfinished"/>
+      <translation>Color</translation>
     </message>
     <message>
       <source>Apply</source>
-      <translation type="unfinished"/>
+      <translation>Aplicar</translation>
     </message>
     <message>
       <source>Insert image or file</source>
@@ -4025,21 +4021,6 @@
     </message>
   </context>
   <context>
-    <name>chat/chatnotexists</name>
-    <message>
-      <source>Chat was deleted</source>
-      <translation>El chat ha sido eliminado</translation>
-    </message>
-    <message>
-      <source>Survey not exist please check embed code options</source>
-      <translation>La encuesta no existe, por favor verifique las opciones de código de inserción</translation>
-    </message>
-    <message>
-      <source>Resume chat</source>
-      <translation>Reanudar el chat</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/syncadmininterface</name>
     <message>
       <source>Open in a new window</source>
@@ -4496,10 +4477,6 @@
   <context>
     <name>chat/startchat</name>
     <message>
-      <source>Please enter a message...</source>
-      <translation>Por favor ingrese su mensaje...</translation>
-    </message>
-    <message>
       <source>Department is disabled</source>
       <translation>El departamento esta deshabilitado</translation>
     </message>
@@ -4852,7 +4829,7 @@
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
-      <translation type="unfinished"/>
+      <translation>Escriba el mensaje aquí y presione enter para enviar...</translation>
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
@@ -5038,6 +5015,21 @@
     <message>
       <source>You do not have permission to view this chat, or the chat was deleted</source>
       <translation>Usted no tiene permiso para ver este chat o el chat ha sido eliminado</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatnotexists</name>
+    <message>
+      <source>Chat was deleted</source>
+      <translation>El chat ha sido eliminado</translation>
+    </message>
+    <message>
+      <source>Survey not exist please check embed code options</source>
+      <translation>La encuesta no existe, por favor verifique las opciones de código de inserción</translation>
+    </message>
+    <message>
+      <source>Resume chat</source>
+      <translation>Reanudar el chat</translation>
     </message>
   </context>
   <context>
@@ -5409,7 +5401,7 @@
     </message>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>Apodo</translation>
     </message>
     <message>
       <source>Additional information</source>
@@ -5844,7 +5836,7 @@
     </message>
     <message>
       <source>Configuration</source>
-      <translation type="unfinished"/>
+      <translation>Configuración</translation>
     </message>
     <message>
       <source>Auto responder</source>
@@ -7977,7 +7969,7 @@
     </message>
     <message>
       <source>Departments list</source>
-      <translation type="unfinished"/>
+      <translation>Lista departamentos</translation>
     </message>
   </context>
   <context>

@@ -2,14 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Quants dies després de l&apos;última visualització ha de romandre ocult el widget de votació</translation>
     </message>
@@ -1721,6 +1713,10 @@
     </message>
     <message>
       <source>Open popup on mobile devices using mobile layout.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not process internal pages and use redirects.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4025,21 +4021,6 @@
     </message>
   </context>
   <context>
-    <name>chat/chatnotexists</name>
-    <message>
-      <source>Chat was deleted</source>
-      <translation>S&apos;ha eliminat el xat</translation>
-    </message>
-    <message>
-      <source>Survey not exist please check embed code options</source>
-      <translation>L&apos;enquesta no existeix. Verifiqueu les opcions d&apos;incrustació del codi.</translation>
-    </message>
-    <message>
-      <source>Resume chat</source>
-      <translation>Continua el xat</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/syncadmininterface</name>
     <message>
       <source>Open in a new window</source>
@@ -4495,10 +4476,6 @@
   </context>
   <context>
     <name>chat/startchat</name>
-    <message>
-      <source>Please enter a message...</source>
-      <translation>Introduïu un missatge</translation>
-    </message>
     <message>
       <source>Department is disabled</source>
       <translation>El departament està inhabilitat</translation>
@@ -5038,6 +5015,21 @@
     <message>
       <source>You do not have permission to view this chat, or the chat was deleted</source>
       <translation>No teniu permís per veure aquest xat o el xat ha estat eliminat</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatnotexists</name>
+    <message>
+      <source>Chat was deleted</source>
+      <translation>S&apos;ha eliminat el xat</translation>
+    </message>
+    <message>
+      <source>Survey not exist please check embed code options</source>
+      <translation>L&apos;enquesta no existeix. Verifiqueu les opcions d&apos;incrustació del codi.</translation>
+    </message>
+    <message>
+      <source>Resume chat</source>
+      <translation>Continua el xat</translation>
     </message>
   </context>
   <context>

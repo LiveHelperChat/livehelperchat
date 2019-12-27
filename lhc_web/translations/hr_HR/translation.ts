@@ -2,14 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -1721,6 +1713,10 @@
     </message>
     <message>
       <source>Open popup on mobile devices using mobile layout.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not process internal pages and use redirects.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4025,21 +4021,6 @@
     </message>
   </context>
   <context>
-    <name>chat/chatnotexists</name>
-    <message>
-      <source>Chat was deleted</source>
-      <translation>Razgovor je obrisan</translation>
-    </message>
-    <message>
-      <source>Survey not exist please check embed code options</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Resume chat</source>
-      <translation>Nastavi razgovor</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/syncadmininterface</name>
     <message>
       <source>Open in a new window</source>
@@ -4495,10 +4476,6 @@
   </context>
   <context>
     <name>chat/startchat</name>
-    <message>
-      <source>Please enter a message...</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Department is disabled</source>
       <translation>Odjel je onemogućen</translation>
@@ -5038,6 +5015,21 @@
     <message>
       <source>You do not have permission to view this chat, or the chat was deleted</source>
       <translation>Niste ovlašteni vidjeti ovaj razgovor ili je razgovor izbrisan</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chatnotexists</name>
+    <message>
+      <source>Chat was deleted</source>
+      <translation>Razgovor je obrisan</translation>
+    </message>
+    <message>
+      <source>Survey not exist please check embed code options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Resume chat</source>
+      <translation>Nastavi razgovor</translation>
     </message>
   </context>
   <context>
