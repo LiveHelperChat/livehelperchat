@@ -58,8 +58,15 @@ if (ezcInputForm::hasPostData()) {
                         $eventObj->pattern_exc = $event['pattern_exc'];
                         $eventObj->configuration = $event['configuration'];
                         $eventObj->type = $event['type'];
-                        $eventObj->on_start_type = $event['on_start_type'];
-                        $eventObj->priority = $event['priority'];
+
+                        if (isset($event['on_start_type'])) {
+                            $eventObj->on_start_type = $event['on_start_type'];
+                        }
+
+                        if (isset($event['priority'])) {
+                            $eventObj->priority = $event['priority'];
+                        }
+
                         $eventObj->saveThis();
                     }
                 }

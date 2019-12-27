@@ -212,8 +212,17 @@ class erLhcoreClassChatValidator {
             	$hashCaptcha = isset($_SESSION[$_SERVER['REMOTE_ADDR']]['form']) ? $_SESSION[$_SERVER['REMOTE_ADDR']]['form'] : null;
         		$nameField = 'captcha_'.$hashCaptcha;    	
             	$validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
-            } else {        
-    	        $nameField = 'captcha_'.sha1(erLhcoreClassIPDetect::getIP().$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+            } else {
+
+                $captchaString = '';
+                if (isset($_POST['tscaptcha'])) {
+                    $captchaString = $_POST['tscaptcha'];
+                } elseif ($additionalParams['payload_data']['tscaptcha']) {
+                    $captchaString = $additionalParams['payload_data']['tscaptcha'];
+                }
+
+    	        $nameField = 'captcha_'.sha1(erLhcoreClassIPDetect::getIP().$captchaString.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+
     	        $validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
             }
         }
@@ -272,7 +281,7 @@ class erLhcoreClassChatValidator {
             	}
             }
         }
-        
+
         if (isset($validationFields['Username'])) {
 
             if ( !$form->hasValidData( 'Username' ) || ($form->Username == '' && (($start_data_fields['name_require_option'] == 'required' && !isset($additionalParams['offline'])) || (isset($additionalParams['offline']) && isset($start_data_fields['offline_name_require_option']) && $start_data_fields['offline_name_require_option'] == 'required' )))  )

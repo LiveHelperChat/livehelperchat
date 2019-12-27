@@ -4,6 +4,8 @@ class erTranslationClassLhTranslation
 {
     private static $instance = null;
 
+    public static $htmlEscape = true;
+
     public $cacheObj;
     public $backend;
     public $manager;
@@ -87,7 +89,7 @@ class erTranslationClassLhTranslation
     public function getTranslation($context, $string, $params = array())
     {
         if ($this->languageCode == 'en_EN') {
-            return htmlspecialchars($this->insertarguments($string,$params),ENT_QUOTES);
+            return self::$htmlEscape ? htmlspecialchars($this->insertarguments($string,$params),ENT_QUOTES) : $this->insertarguments($string,$params);
         }
 
         try {
@@ -95,12 +97,12 @@ class erTranslationClassLhTranslation
            try {
                 $translated = $context->getTranslation($string, $params);
 
-                if ($translated == '') return htmlspecialchars($this->insertarguments($string, $params),ENT_QUOTES);
+                if ($translated == '') return self::$htmlEscape ? htmlspecialchars($this->insertarguments($string, $params),ENT_QUOTES) : $this->insertarguments($string, $params);
 
-                return htmlspecialchars($translated,ENT_QUOTES);
+                return self::$htmlEscape ? htmlspecialchars($translated,ENT_QUOTES) : $translated;
 
            } catch (Exception $e){
-                return htmlspecialchars($this->insertarguments($string, $params),ENT_QUOTES);
+                return self::$htmlEscape ? htmlspecialchars($this->insertarguments($string, $params),ENT_QUOTES) : $this->insertarguments($string, $params);
            }
 
         } catch (Exception $e) {
@@ -112,7 +114,7 @@ class erTranslationClassLhTranslation
                 $translated = $this->insertarguments($string, $params);
             }
 
-            return htmlspecialchars($translated,ENT_QUOTES);
+            return self::$htmlEscape ? htmlspecialchars($translated,ENT_QUOTES) : $translated;
         }
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 erLhcoreClassRestAPIHandler::setHeaders();
+erTranslationClassLhTranslation::$htmlEscape = false;
 
 $requestPayload = json_decode(file_get_contents('php://input'),true);
 
@@ -32,24 +33,10 @@ if (is_numeric($inputData->departament_id) && $inputData->departament_id > 0 && 
     $startDataFields = (array)$startData->data;
 }
 
-if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
-    try {
-        $additionalParams['theme'] = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
-    } catch (Exception $e) {
-
-    }
-} else {
-    $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
-    if ($defaultTheme > 0) {
-        try {
-            $additionalParams['theme'] = erLhAbstractModelWidgetTheme::fetch($defaultTheme);
-        } catch (Exception $e) {
-
-        }
-    }
+if (isset($requestPayload['theme']) && $requestPayload['theme'] > 0) {
+    $additionalParams['theme'] = erLhAbstractModelWidgetTheme::fetch($requestPayload['theme']);
 }
 
-$additionalParams['ignore_captcha'] = true;
 $additionalParams['payload_data'] = $requestPayload['fields'];
 $additionalParams['offline'] = true;
 
@@ -62,6 +49,9 @@ if (count($Errors) == 0 && !isset($_POST['switchLang'])) {
     $chat->setIP();
     $chat->lsync = time();
     erLhcoreClassModelChat::detectLocation($chat);
+
+    $chat->referrer = isset($requestPayload['fields']['URLRefer']) ? $requestPayload['fields']['URLRefer'] : '';
+    $chat->session_referrer = isset($requestPayload['fields']['r']) ? $requestPayload['fields']['r'] : '';
 
     $statusGeoAdjustment = erLhcoreClassChat::getAdjustment(erLhcoreClassModelChatConfig::fetch('geoadjustment_data')->data_value, $inputData->vid);
 

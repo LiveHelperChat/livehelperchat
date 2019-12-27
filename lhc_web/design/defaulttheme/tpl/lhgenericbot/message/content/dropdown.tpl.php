@@ -12,6 +12,6 @@
                 'list_function_params'  => $metaMessage['provider_arguments'],
             )); ?>
         </div>
-        <button type="button" class="btn btn-sm btn-secondary" onclick="lhinst.dropdownClicked(<?php echo $messageId?>,$(this))"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Choose')?></button>
+        <button type="button" class="btn btn-sm btn-secondary" data-id="<?php echo $messageId?>" onclick="lhinst.dropdownClicked(<?php echo $messageId?>,$(this))"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Choose')?></button>
     </div>
 </div>

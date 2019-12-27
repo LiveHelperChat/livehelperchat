@@ -1,6 +1,19 @@
 <?php
 
-header('content-type: application/json; charset=utf-8');
+erLhcoreClassRestAPIHandler::setHeaders();
+
+if (isset($_POST['msg'])) {
+    $msg = isset($_POST['msg']);
+} else {
+    $payload = json_decode(file_get_contents('php://input'),true);
+    if (isset($payload['msg'])) {
+        $msg = $payload['msg'];
+    }
+}
+
+if ($msg != '') {
+    $msg = strip_tags($msg);
+}
 
 try {
     $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
@@ -27,9 +40,6 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
         $stmt->bindValue(':id',$chat->id,PDO::PARAM_INT);
 
         if ( $Params['user_parameters']['status'] == 'true' ) {
-
-            $msg = isset($_POST['msg']) ? strip_tags($_POST['msg']) : '';
-
             if ($msg != '' && strlen($msg) > 200){
                 if ( function_exists('mb_substr') ) {
                     $msg = mb_substr($msg, -200);

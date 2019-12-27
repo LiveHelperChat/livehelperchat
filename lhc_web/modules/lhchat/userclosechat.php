@@ -2,8 +2,6 @@
 // Happens then user closes browser.
 ignore_user_abort(true);
 
-header('content-type: application/json; charset=utf-8');
-
 $db = ezcDbInstance::get();
 $db->beginTransaction();
 
@@ -75,6 +73,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 	}
 }
 
+erLhcoreClassRestAPIHandler::setHeaders();
 echo json_encode(array('error' => 'false', 'result' => 'ok'));
 exit;
 

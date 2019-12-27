@@ -8,6 +8,7 @@
             }
         </style>
     <?php  endif; ?>
+<?php $Result['anonymous'] = true; ?>
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_user.tpl.php'));?>
 
     <?php if (isset($Result['no_mobile_css'])) : ?>

@@ -79,7 +79,21 @@ if (isset($_GET['theme']) && (int)$_GET['theme'] > 0){
     }
 }
 
-//$outputResponse['isOnline'] = false;
+if (erLhcoreClassModelChatConfig::fetch('use_secure_cookie')->current_value == 1) {
+    $outputResponse['secure_cookie'] = true;
+}
+
+if (($domain = erLhcoreClassModelChatConfig::fetch('track_domain')->current_value) != '') {
+    $outputResponse['domain'] = $domain;
+}
+
+$ts = time();
+$outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+$outputResponse['hash_ts'] = $ts;
+$outputResponse['static'] = array(
+    'screenshot' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('js/html2canvas.min.js'),
+    'cobrowser' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::designJS('js/cobrowse/compiled/cobrowse.visitor.min.js')
+);
 
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
 exit();

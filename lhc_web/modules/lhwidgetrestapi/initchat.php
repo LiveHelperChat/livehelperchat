@@ -68,7 +68,7 @@ try {
 
         if (isset($requestPayload['theme']) && $requestPayload['theme'] > 0) {
             $theme = erLhAbstractModelWidgetTheme::fetch($requestPayload['theme']);
-              if (isset($theme->bot_configuration_array['placeholder_message']) && !empty($theme->bot_configuration_array['placeholder_message'])) {
+            if (isset($theme->bot_configuration_array['placeholder_message']) && !empty($theme->bot_configuration_array['placeholder_message'])) {
                 $outputResponse['chat_ui']['placeholder_message'] = $theme->bot_configuration_array['placeholder_message'];
             }
         }

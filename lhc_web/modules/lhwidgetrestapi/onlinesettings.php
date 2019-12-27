@@ -351,7 +351,7 @@ $outputResponse = array(
     'department' => $departmentsOptions
 );
 
-$outputResponse['disabled'] = $disabled_department === true || $department_invalid === true;
+$outputResponse['disabled'] = $disabled_department === true || (isset($department_invalid) && $department_invalid === true);
 
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
 exit();

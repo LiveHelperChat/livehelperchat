@@ -1,6 +1,7 @@
 <?php
 
 erLhcoreClassRestAPIHandler::setHeaders();
+erTranslationClassLhTranslation::$htmlEscape = false;
 
 $requestPayload = json_decode(file_get_contents('php://input'),true);
 
@@ -34,24 +35,10 @@ if (is_numeric($inputData->departament_id) && $inputData->departament_id > 0 && 
     $startDataFields = (array)$startData->data;
 }
 
-if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
-    try {
-        $additionalParams['theme'] = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
-    } catch (Exception $e) {
-
-    }
-} else {
-    $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
-    if ($defaultTheme > 0) {
-        try {
-            $additionalParams['theme'] = erLhAbstractModelWidgetTheme::fetch($defaultTheme);
-        } catch (Exception $e) {
-
-        }
-    }
+if (isset($requestPayload['theme']) && $requestPayload['theme'] > 0) {
+    $additionalParams['theme'] = erLhAbstractModelWidgetTheme::fetch($requestPayload['theme']);
 }
 
-$additionalParams['ignore_captcha'] = true;
 $additionalParams['payload_data'] = $requestPayload['fields'];
 
 $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat, $additionalParams);
@@ -62,8 +49,8 @@ if (empty($Errors)) {
     $chat->status = 0;
 
     $chat->hash = erLhcoreClassChat::generateHash();
-    $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
-    $chat->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
+    $chat->referrer = isset($requestPayload['fields']['URLRefer']) ? $requestPayload['fields']['URLRefer'] : '';
+    $chat->session_referrer = isset($requestPayload['fields']['r']) ? $requestPayload['fields']['r'] : '';
 
     $nick = trim($chat->nick);
 
@@ -223,7 +210,6 @@ if (empty($Errors)) {
         'errors' => $Errors
     );
 }
-
 
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
 exit;

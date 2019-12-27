@@ -1,6 +1,6 @@
 <?php
 
-header ( 'content-type: application/json; charset=utf-8' );
+erLhcoreClassRestAPIHandler::setHeaders();
 
 session_write_close();
 
@@ -18,14 +18,20 @@ $validStatuses = array(
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validstatus_chat',array('chat' => & $chat, 'valid_statuses' => & $validStatuses));
 
+if (isset($_GET['id']) && isset($_GET['payload'])) {
+    $paramsPayload = array('id' => $_GET['id'], 'payload' => $_GET['payload'], 'processed' => (isset($_GET['processed']) && $_GET['processed'] == 'true'));
+} else {
+    $paramsPayload = json_decode(file_get_contents('php://input'),true);
+}
+
 try {
     if ($chat->hash == $Params['user_parameters']['hash'] && (in_array($chat->status,$validStatuses)) && !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) {
 
-        if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+        if (!isset($paramsPayload['id']) || !is_numeric($paramsPayload['id'])) {
             throw new Exception('Message not provided!');
         }
 
-        $message = erLhcoreClassModelmsg::fetch($_GET['id']);
+        $message = erLhcoreClassModelmsg::fetch($paramsPayload['id']);
 
         if (!($message instanceof erLhcoreClassModelmsg)) {
             throw new Exception('Message could not be found!');
@@ -35,11 +41,11 @@ try {
             throw new Exception('Invalid message provided');
         }
 
-        if (!isset($_GET['payload']) || empty($_GET['payload'])) {
+        if (!isset($paramsPayload['payload']) || empty($paramsPayload['payload'])) {
             throw new Exception('Payload not provided');
         }
 
-        erLhcoreClassGenericBotWorkflow::processUpdateClick($chat, $message, $_GET['payload']);
+        erLhcoreClassGenericBotWorkflow::processUpdateClick($chat, $message, $paramsPayload['payload']);
 
         echo json_encode(array('error' => false));
 

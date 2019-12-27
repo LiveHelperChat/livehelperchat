@@ -1,7 +1,7 @@
 <?php
+erLhcoreClassRestAPIHandler::setHeaders();
 
 header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
-header('content-type: application/json; charset=utf-8');
 header('Expires: Sat, 26 Jul 1997 05:00:00 GMT' );
 header('Last-Modified: ' . gmdate( 'D, d M Y H:i:s',time()+60*60*8 ) . ' GMT' );
 header('Cache-Control: no-store, no-cache, must-revalidate' );
@@ -10,7 +10,7 @@ header('Pragma: no-cache' );
 
 $hash = sha1(erLhcoreClassIPDetect::getIP().$Params['user_parameters']['timets'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 
-if ( (time()-$Params['user_parameters']['timets']) > 600 || (time()-$Params['user_parameters']['timets']) < 0) {
+if ( (time()-$Params['user_parameters']['timets']) > 600 || (time()-($Params['user_parameters']['timets'] - 5)) < 0) {
 	echo json_encode(array('result' => 'false'));
 	exit;
 }

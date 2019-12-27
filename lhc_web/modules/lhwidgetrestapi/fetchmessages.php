@@ -77,7 +77,16 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 				        $tpl->set('messages',$Messages);
 				        $tpl->set('chat',$chat);
 				        $tpl->set('sync_mode',/*isset($Params['user_parameters_unordered']['mode']) ? $Params['user_parameters_unordered']['mode'] :*/ '');
-                        $tpl->set('async_call',true);
+
+				        if ($requestPayload['lmgsid'] == 0) {
+                            if (isset($requestPayload['new_chat']) && $requestPayload['new_chat'] == true) {
+                                $tpl->set('chat_started_now',true);
+                            }
+                        } else {
+                            $tpl->set('async_call',true);
+                        }
+
+
                         $tpl->set('react',true);
 
                         $content = $tpl->fetch();

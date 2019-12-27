@@ -1,6 +1,7 @@
 <?php
 
 erLhcoreClassRestAPIHandler::setHeaders();
+erTranslationClassLhTranslation::$htmlEscape = false;
 
 $payload = json_decode(file_get_contents('php://input'),true);
 
