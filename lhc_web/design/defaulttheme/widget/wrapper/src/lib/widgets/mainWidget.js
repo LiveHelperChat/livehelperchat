@@ -56,20 +56,18 @@ export class mainWidget{
         this.cont.constructUIIframe('');
         this.attributes = attributes;
 
-        //this.cont.insertCssRemoteFile({crossOrigin : "anonymous", "integrity" : "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T", href : "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"});
-
-        this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_css'] /*'https://qu.lt/lhcwidget/chatwidget/dist/widget.css?v=3' + helperFunctions.generateRandomString()*/});
+        this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_css']});
         
         if (this.attributes.isMobile == true && this.attributes.mode == 'widget') {
-            this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_mobile_css']/* 'https://qu.lt/lhcwidget/chatwidget/dist/widget_mobile.css?v=3' + helperFunctions.generateRandomString()*/});
+            this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_mobile_css']});
         }
 
         if (this.attributes.mode == 'embed') {
-            this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['embed_css'] /*'https://qu.lt/lhcwidget/chatwidget/dist/embed.css?v=3' + helperFunctions.generateRandomString()*/});
+            this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['embed_css'] });
         }
 
         if (this.attributes.theme > 0) {
-            this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/theme/' + this.attributes.theme + '/' + helperFunctions.generateRandomString()});
+            this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/theme/' + this.attributes.theme});
         }
 
         this.cont.insertJSFile(this.attributes.staticJS['app'], false);

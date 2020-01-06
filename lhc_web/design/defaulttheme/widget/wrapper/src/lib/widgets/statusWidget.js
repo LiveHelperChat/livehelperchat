@@ -44,7 +44,7 @@ export class statusWidget{
         this.attributes = attributes;
 
         if (this.attributes.theme > 0) {
-            this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/themestatus/' + this.attributes.theme + '/' + helperFunctions.generateRandomString()});
+            this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/themestatus/' + this.attributes.theme});
         }
 
         attributes.onlineStatus.subscribe((data) => this.toggleOfflineIcon(data));

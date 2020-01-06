@@ -41,13 +41,6 @@ class _helperFunctions {
         return (timeZoneOffset/60)*-1;
     };
 
-    generateRandomString(a) {
-        var c, b = [];
-        a = a || 6;
-        for (c = 0; c < a; c++) b.push("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".charAt(Math.floor(62 * Math.random())));
-        return b.join("")
-    };
-
     getAbstractStyle(params) {
         return [
             "outline:                    " + (params.outline ? params.outline : "none") + " !important; ",
