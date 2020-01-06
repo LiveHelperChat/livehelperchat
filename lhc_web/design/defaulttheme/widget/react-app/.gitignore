@@ -1,0 +1,31 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Dependency directory
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Cache for Parcel
+.cache
+
+# Apple stuff
+.DS_Store
+
+.env
+dist
+coverage/
+.vscode/
+init.sh.bak
+init.sh.bak

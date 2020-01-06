@@ -9,6 +9,11 @@ $ViewList['htmlcode'] = array(
     'functions' => array( 'generatejs' )
 );
 
+$ViewList['htmlcodebeta'] = array(
+    'params' => array(),
+    'functions' => array( 'generatejs' )
+);
+
 $ViewList['embedcode'] = array(
     'params' => array(),
     'functions' => array( 'generatejs' )

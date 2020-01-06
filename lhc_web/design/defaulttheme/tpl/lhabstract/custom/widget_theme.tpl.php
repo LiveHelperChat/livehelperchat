@@ -337,6 +337,11 @@
 					<label><?php echo $fields['show_voting']['trans'];?></label>
 					<?php echo erLhcoreClassAbstract::renderInput('show_voting', $fields['show_voting'], $object)?>		
 					</div>
+
+        		    <div class="form-group">
+					<label><?php echo $fields['hide_status']['trans'];?></label>
+					<?php echo erLhcoreClassAbstract::renderInput('hide_status', $fields['hide_status'], $object)?>
+					</div>
 					
         		    <div class="form-group">										
 					<label><?php echo $fields['department_title']['trans'];?></label>

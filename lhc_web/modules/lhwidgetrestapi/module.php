@@ -18,6 +18,13 @@ $ViewList['offlinesettings'] = array(
 	'multiple_arguments' => array ( 'department', 'ua', 'prod' )
 );
 
+$ViewList['updatejs'] = array(
+    'params' => array(),
+    'functions' => array(),
+    'uparams' => array(),
+	'multiple_arguments' => array ()
+);
+
 $ViewList['onlinesettings'] = array(
     'params' => array(),
     'functions' => array(),

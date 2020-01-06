@@ -116,7 +116,7 @@ $fields = array();
 if ($Params['user_parameters_unordered']['online'] == '0')
 {
     if (
-        ($Params['user_parameters_unordered']['mode'] == 'widget' && isset($start_data_fields['offline_name_visible_in_page_widget']) && $start_data_fields['offline_name_visible_in_page_widget'] == true) ||
+        (($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['offline_name_visible_in_page_widget']) && $start_data_fields['offline_name_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['offline_name_visible_in_popup']) && $start_data_fields['offline_name_visible_in_popup'] == true)
     ) {
         $fields[] = array(
@@ -144,7 +144,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
 
 
     if (
-        ($Params['user_parameters_unordered']['mode'] == 'widget' && isset($start_data_fields['offline_phone_visible_in_page_widget']) && $start_data_fields['offline_phone_visible_in_page_widget'] == true) ||
+        (($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['offline_phone_visible_in_page_widget']) && $start_data_fields['offline_phone_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['offline_phone_visible_in_popup']) && $start_data_fields['offline_phone_visible_in_popup'] == true)
     ) {
         $fields[] = array(
@@ -175,7 +175,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
     }*/
 
     if (
-        ($Params['user_parameters_unordered']['mode'] == 'widget' && isset($start_data_fields['offline_message_visible_in_page_widget']) && $start_data_fields['offline_message_visible_in_page_widget'] == true) ||
+        ( ($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['offline_message_visible_in_page_widget']) && $start_data_fields['offline_message_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['offline_message_visible_in_popup']) && $start_data_fields['offline_message_visible_in_popup'] == true)
     ) {
         $fields[] = array(
@@ -191,7 +191,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
     }
 
     if (
-        ($Params['user_parameters_unordered']['mode'] == 'widget' && isset($start_data_fields['offline_tos_visible_in_page_widget']) && $start_data_fields['offline_tos_visible_in_page_widget'] == true) ||
+        (($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['offline_tos_visible_in_page_widget']) && $start_data_fields['offline_tos_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['offline_tos_visible_in_popup']) && $start_data_fields['offline_tos_visible_in_popup'] == true)
     ) {
         $fields[] = array(
@@ -210,7 +210,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
 } else {
     // Name field widget mode
     if (
-        ($Params['user_parameters_unordered']['mode'] == 'widget' && isset($start_data_fields['name_visible_in_page_widget']) && $start_data_fields['name_visible_in_page_widget'] == true) ||
+        (($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['name_visible_in_page_widget']) && $start_data_fields['name_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['name_visible_in_popup']) && $start_data_fields['name_visible_in_popup'] == true)
     ) {
         $fields[] = array(
@@ -226,7 +226,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
     }
 
     if (
-        ($Params['user_parameters_unordered']['mode'] == 'widget' && isset($start_data_fields['email_visible_in_page_widget']) && $start_data_fields['email_visible_in_page_widget'] == true) ||
+        (($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['email_visible_in_page_widget']) && $start_data_fields['email_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['email_visible_in_popup']) && $start_data_fields['email_visible_in_popup'] == true)
     ) {
         $fields[] = array(
@@ -242,7 +242,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
     }
 
     if (
-        ($Params['user_parameters_unordered']['mode'] == 'widget' && isset($start_data_fields['phone_visible_in_page_widget']) && $start_data_fields['phone_visible_in_page_widget'] == true) ||
+        (($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['phone_visible_in_page_widget']) && $start_data_fields['phone_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['phone_visible_in_popup']) && $start_data_fields['phone_visible_in_popup'] == true)
     ) {
         $fields[] = array(
@@ -258,7 +258,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
     }
 
     if (
-        ($Params['user_parameters_unordered']['mode'] == 'widget' && isset($start_data_fields['message_visible_in_page_widget']) && $start_data_fields['message_visible_in_page_widget'] == true) ||
+        (($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed')  && isset($start_data_fields['message_visible_in_page_widget']) && $start_data_fields['message_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['message_visible_in_popup']) && $start_data_fields['message_visible_in_popup'] == true)
     ) {
 
@@ -281,7 +281,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
     }
 
     if (
-        ($Params['user_parameters_unordered']['mode'] == 'widget' && isset($start_data_fields['tos_visible_in_page_widget']) && $start_data_fields['tos_visible_in_page_widget'] == true) ||
+        (($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['tos_visible_in_page_widget']) && $start_data_fields['tos_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['tos_visible_in_popup']) && $start_data_fields['tos_visible_in_popup'] == true)
     ) {
         $fields[] = array(

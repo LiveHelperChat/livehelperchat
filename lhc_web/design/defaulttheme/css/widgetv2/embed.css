@@ -1,0 +1,8 @@
+body, .desktop-body {
+    background-color: transparent!important;
+}
+
+.message-send-area{
+    border-radius: 20px;
+    border:1px solid #dee2e6!important;
+}
