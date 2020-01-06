@@ -13,7 +13,7 @@
 
 
     <?php if ($Result['theme'] > 0) : ?>
-        <link rel="stylesheet" type="text/css" href="/widgetrestapi/theme/<?php echo $Result['theme']?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::baseurl('widgetrestapi/theme')?>/<?php echo $Result['theme']?>" />
     <?php endif; ?>
 </head>
 <body>
