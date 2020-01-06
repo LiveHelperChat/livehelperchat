@@ -298,7 +298,15 @@
             attributesWidget.onlineStatus.subscribe((data) => {
                 chatEvents.sendChildEvent('onlineStatus', [data]);
             });
+            
+            attributesWidget.eventEmitter.addListener('screenshot',(data) => {
+                helperFunctions.makeScreenshot(attributesWidget.staticJS['screenshot'],data);
+            });
 
+            attributesWidget.eventEmitter.addListener('location',(data) => {
+                document.location = data;
+            });
+            
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.addEventListener('message', function(event) {
                     if (typeof event.data.lhc_ch !== 'undefined' && typeof event.data.lhc_cid !== 'undefined') {
@@ -323,9 +331,10 @@
                 if (parts[1] == 'ready') {
                     chatEvents.sendReadyEvent(parts[2] == 'true');
                 } else {
-                    attributesWidget.eventEmitter.emitEvent(parts[1], JSON.parse(parts[2]));
+                     attributesWidget.eventEmitter.emitEvent(parts[1], JSON.parse(parts[2]));
                 }
             };
+
 
             if ( window.addEventListener ) {
                 window.addEventListener("message", handleMessages, false);

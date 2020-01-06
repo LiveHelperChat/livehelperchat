@@ -167,46 +167,22 @@ function processResponseCheckStatus(response, getState) {
         response.op.forEach((op) => {
             var action = op.split(':')[0];
             if (action == 'lhc_chat_redirect') {
-                window.parent.document.location =  op.split(':')[1].replace(new RegExp('__SPLIT__','g'),':');
+                helperFunctions.sendMessageParent('location',[op.split(':')[1].replace(new RegExp('__SPLIT__','g'),':')]);
             } else if (action == 'lhc_screenshot') {
 
-                var inst = this;
-                if (typeof html2canvas == "undefined") {
-                    var th = document.getElementsByTagName('head')[0];
-                    var s = document.createElement('script');
-                    s.setAttribute('type','text/javascript');
-                    s.setAttribute('src',window.lhcChat['staticJS']['screenshot']);
-                    th.appendChild(s);
-                    s.onreadystatechange = s.onload = function() {
-                        processResponseCheckStatus({'op' : ['lhc_screenshot']},getState);
-                    };
-                } else {
-                    try {
-                        const state = getState();
+                const state = getState();
 
-                        var append = '';
+                var append = '';
 
-                        if ( state.chatwidget.hasIn(['chatData','id'])) {
-                            append = append + '/(hash)/' + state.chatwidget.getIn(['chatData','id']) + '_' + state.chatwidget.getIn(['chatData','hash']);
-                        }
-
-                        if ( state.chatwidget.get('vid')) {
-                            append = append + '/(vid)/' + state.chatwidget.get('vid');
-                        }
-
-                        html2canvas(window.parent.document.body, {
-                            onrendered: function(canvas) {
-                                var xhr = new XMLHttpRequest();
-                                xhr.open( "POST", window.lhcChat['base_url'] + '/file/storescreenshot' + append, true);
-                                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                                xhr.send( "data=" + encodeURIComponent( canvas.toDataURL() ) );
-                            }
-                        });
-
-                    } catch(err) {
-
-                    }
+                if ( state.chatwidget.hasIn(['chatData','id'])) {
+                    append = append + '/(hash)/' + state.chatwidget.getIn(['chatData','id']) + '_' + state.chatwidget.getIn(['chatData','hash']);
                 }
+
+                if ( state.chatwidget.get('vid')) {
+                    append = append + '/(vid)/' + state.chatwidget.get('vid');
+                }
+
+                helperFunctions.sendMessageParent('screenshot',[window.lhcChat['base_url'] + '/file/storescreenshot' + append]);
             }
         });
     }

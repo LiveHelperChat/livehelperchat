@@ -93,7 +93,35 @@ class _helperFunctions {
 
     removeClass(element, className) {
         element.classList ? element.classList.remove(className) : this.hasClass(element, className) && (element.className = element.className.replace(RegExp("(\\s|^)" + className + "(\\s|$)"), " "))
-    };
+    }
+
+    makeScreenshot(screenshot,url) {
+        var inst = this;
+        if (typeof html2canvas == "undefined") {
+            var th = document.getElementsByTagName('head')[0];
+            var s = document.createElement('script');
+            s.setAttribute('type','text/javascript');
+            s.setAttribute('src',screenshot);
+            th.appendChild(s);
+
+            s.onreadystatechange = s.onload = () => {
+                this.makeScreenshot(screenshot, url);
+            };
+        } else {
+            try {
+                html2canvas(document.body, {
+                    onrendered: function(canvas) {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open( "POST", url, true);
+                        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                        xhr.send( "data=" + encodeURIComponent( canvas.toDataURL() ) );
+                    }
+                });
+            } catch(err) {
+
+            }
+        }
+    }
 };
 
 const helperFunctions = new _helperFunctions();

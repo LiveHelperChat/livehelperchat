@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/widgetv2/widget_mobile.css')?>" />
     <?php endif; ?>
 
-
     <?php if ($Result['theme'] > 0) : ?>
         <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::baseurl('widgetrestapi/theme')?>/<?php echo $Result['theme']?>" />
     <?php endif; ?>
