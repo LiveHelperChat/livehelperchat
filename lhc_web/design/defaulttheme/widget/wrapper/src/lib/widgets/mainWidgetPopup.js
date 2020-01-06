@@ -51,7 +51,7 @@ export class mainWidgetPopup{
                 urlArgumetns = urlArgumetns + '?ses_ref=' + this.attributes['userSession'].getSessionReferrer();
             }
 
-            this.cont.elementReferrerPopup = window.open(this.attributes['base_url']+"/chat/start"+urlArgumetns,'lhc_popup_v2',"scrollbars=yes,menubar=1,resizable=1,width=500,height=800");
+            this.cont.elementReferrerPopup = window.open(this.attributes['base_url']+"/chat/start"+urlArgumetns,'lhc_popup_v2',"scrollbars=yes,menubar=1,resizable=1,width="+this.attributes['popupDimesnions']['pwidth']+",height="+this.attributes['popupDimesnions']['pheight']);
 
         }
 

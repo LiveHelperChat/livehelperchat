@@ -70,6 +70,7 @@
                 isMobile : isMobile,
                 fresh : LHC_API.args.fresh || false,
                 widgetDimesions : new BehaviorSubject({width: (isMobile ? 100 : (LHC_API.args.wwidth || 350)), height: (isMobile ? 100 : (LHC_API.args.wheight || 520)), units : (isMobile ? '%' : 'px')}),
+                popupDimesnions : {pheight: (LHC_API.args.pheight || 520), pwidth:(LHC_API.args.pwidth || 500)},
                 leaveMessage : LHC_API.args.leaveamessage || null,
                 department : LHC_API.args.department || [],
                 theme : LHC_API.args.theme || null,
@@ -116,6 +117,10 @@
                     'r' : referrer,
                     'l' : location,
                 }}).then(function(data){
+
+                if (!attributesWidget.leaveMessage && data.data.isOnline === false) {
+                    return;
+                }
 
                 if (data.data.secure_cookie) {
                     attributesWidget.storageHandler.setSecureCookie(true);

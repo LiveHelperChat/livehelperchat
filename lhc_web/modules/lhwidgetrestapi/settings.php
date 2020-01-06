@@ -99,8 +99,6 @@ $outputResponse['static'] = array(
     'embed_css' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::designCSS('css/widgetv2/embed.css'),
 );
 
-//$outputResponse['isOnline'] = false;
-
 $outputResponse['v'] = 4;
 
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
