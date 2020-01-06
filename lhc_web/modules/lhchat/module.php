@@ -405,6 +405,12 @@ $ViewList['startchat'] = array (
 	'multiple_arguments' => array ( 'department', 'ua', 'prod' )
 );
 
+$ViewList['start'] = array (
+    'params' => array(),
+    'uparams' => array('id','hash','department','theme','mobile','vid'),
+	'multiple_arguments' => array('department')
+);
+
 $ViewList['chatwidget'] = array (
     'params' => array(),
     'uparams' => array('mobile','bot_id','ua','switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill','survey','sdemo','prod','phash','pvhash','fullheight','ajaxmode'),

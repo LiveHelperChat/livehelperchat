@@ -71,6 +71,10 @@ try {
             if (isset($theme->bot_configuration_array['placeholder_message']) && !empty($theme->bot_configuration_array['placeholder_message'])) {
                 $outputResponse['chat_ui']['placeholder_message'] = $theme->bot_configuration_array['placeholder_message'];
             }
+
+            if (isset($theme->bot_configuration_array['hide_status']) && $theme->bot_configuration_array['hide_status'] == true) {
+                $outputResponse['chat_ui']['hide_status'] = true;
+            }
         }
 
         if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
@@ -85,6 +89,9 @@ try {
         if (!isset($outputResponse['chat_ui']['survey_id']) && isset($chat->department->bot_configuration_array['survey_id']) && $chat->department->bot_configuration_array['survey_id'] > 0) {
             $outputResponse['chat_ui']['survey_id'] = $chat->department->bot_configuration_array['survey_id'];
         };
+
+        $soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data_value;
+        $outputResponse['chat_ui']['sync_interval'] = (int)($soundData['chat_message_sinterval']*1000);
 
         $outputResponse['status_sub'] = $chat->status_sub;
         $outputResponse['status'] = $chat->status;
