@@ -97,6 +97,9 @@ class erLhcoreClassModelChatOnlineUser
                 } elseif (isset($this->online_attr_array['username']) && $this->online_attr_array['username'] != ''){
                     $this->nick = $this->online_attr_array['username'];
                     $this->has_nick = true;
+                } elseif ($this->chat instanceof erLhcoreClassModelChat && $this->chat->nick !== 'Visitor') {
+                    $this->nick = $this->chat->nick;
+                    $this->has_nick = true;
                 }
                 return $this->nick;
                 break;
