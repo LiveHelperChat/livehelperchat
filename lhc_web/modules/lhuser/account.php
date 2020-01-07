@@ -201,14 +201,14 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalcannedmsg') ) 
 	 * */
 	$cannedMessage = new erLhcoreClassModelCannedMsg();
 	
-	if (is_numeric($Params['user_parameters_unordered']['msg']) && $Params['user_parameters_unordered']['action'] == '' && $Params['user_parameters_unordered']['tab'] == 'canned'){
+	if (is_numeric($Params['user_parameters_unordered']['msg']) && $Params['user_parameters_unordered']['action'] == '' && $Params['user_parameters_unordered']['tab'] == 'canned') {
 		$cannedMessage = erLhcoreClassModelCannedMsg::fetch($Params['user_parameters_unordered']['msg']);
 		if ($cannedMessage->user_id != $UserData->id) {
 			erLhcoreClassModule::redirect('user/account','#canned');
 			exit;
 		}
 	}
-	
+
 	if (isset($_POST['Cancel_canned_action']))
 	{
 		erLhcoreClassModule::redirect('user/account','#canned');
