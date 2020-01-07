@@ -8,7 +8,7 @@ $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.stat
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhstatistic/statistic.tpl.php');
 
-$validTabs = array('active','total','last24','chatsstatistic','agentstatistic','performance','departments','configuration');
+$validTabs = array('visitors','active','total','last24','chatsstatistic','agentstatistic','performance','departments','configuration');
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.valid_tabs', array(
     'valid_tabs' => & $validTabs
@@ -285,6 +285,28 @@ if ($tab == 'active') {
 
     $tpl->set('configuration', $configuration);
 
+} else if ($tab == 'visitors') {
+
+    if (isset($_GET['doSearch'])) {
+        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'visitorsstatistic_tab','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+    } else {
+        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'visitorsstatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
+        $configuration = (array)erLhcoreClassModelChatConfig::fetch('statistic_options')->data;
+        $filterParams['input_form']->chart_type = isset($configuration['chat_statistic']) ? $configuration['chat_statistic'] : array();
+    }
+    
+    erLhcoreClassChatStatistic::formatUserFilter($filterParams);
+
+    $tpl->set('input',$filterParams['input_form']);
+    $tpl->set('groupby',$filterParams['input_form']->groupby == 1 ? 'Y.m.d' : ($filterParams['input_form']->groupby == 2 ? 'Y-m-d' : 'Y.m'));
+
+    if (isset($_GET['doSearch'])) {
+        $tpl->setArray(array(
+            'visitors_statistic' => erLhcoreClassChatStatistic::getVisitorsStatistic($filterParams['filter'], array('groupby' => $filterParams['input_form']->groupby,'charttypes' => $filterParams['input_form']->chart_type)),
+            'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
+        ));
+    }
+    
 } else {
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.process_tab', array(
         'tpl' => & $tpl,
