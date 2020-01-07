@@ -99,6 +99,8 @@ $outputResponse['static'] = array(
     'embed_css' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::designCSS('css/widgetv2/embed.css'),
 );
 
+$outputResponse['chunks_location'] = erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('js/widgetv2');
+
 $outputResponse['v'] = 4;
 
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);

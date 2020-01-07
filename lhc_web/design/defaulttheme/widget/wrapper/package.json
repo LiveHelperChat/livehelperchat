@@ -5,7 +5,7 @@
   "description": "VanillaJS plugin starter using Webpack",
   "main": "dist/index.js",
   "scripts": {
-    "build": "NODE_ENV=production webpack && cp -v dist/index.js ../../js/widgetv2/index.js",
+    "build": "NODE_ENV=production webpack && cp -v dist/*.js ../../js/widgetv2/",
     "start": "webpack-dev-server --inline --hot"
   },
   "repository": {

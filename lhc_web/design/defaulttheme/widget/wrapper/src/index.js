@@ -16,7 +16,6 @@
         lhc.version = 4;
 
         var init = () => {
-
             // Avoid multiple times execution
             if (lhc.ready === true) {
                 return;
@@ -118,6 +117,8 @@
                     'l' : location,
                 }}).then(function(data){
 
+                __webpack_public_path__ = data.data.chunks_location + "/";
+
                 if (!attributesWidget.leaveMessage && data.data.isOnline === false) {
                     return;
                 }
@@ -183,6 +184,10 @@
                     iframe1.src = LHC_API.args.lhc_base_url + '/widgetrestapi/updatejs';
                     document.body.appendChild(iframe1);*/
                 }
+
+                import('./util/dummyHelper').then((module) => {
+                    module.dummyHelper.testCall();
+                });
 
             });
 

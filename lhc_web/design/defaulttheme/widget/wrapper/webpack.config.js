@@ -19,7 +19,14 @@ module.exports = {
         libraryExport: 'default',
         path: path.resolve(__dirname, 'dist'),
         filename: 'index.js',
-        publicPath: config.get('publicPath')
+        publicPath: config.get('publicPath'),
+        chunkFilename: "[contenthash].js"
+    },
+
+    optimization: {
+        splitChunks: {
+           name: 'hashed'
+        }
     },
 
     // module/loaders configuration
