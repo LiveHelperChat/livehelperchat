@@ -72,7 +72,12 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
     
     	        erLhcoreClassChat::getSession()->save($msg);
     	    }
-    	    
+
+            if (is_array($Params['user_parameters_unordered']['arg']) && in_array('background',$Params['user_parameters_unordered']['arg']) && $chat->user_id > 0 && $chat->user_id != $currentUser->getUserID()) {
+                // Avoid loading chat in the background if user is not chat owner
+                exit();
+            }
+
     	    // Update general chat attributes
             if ($chat->user_id == $currentUser->getUserID()) {
                 $chat->support_informed = 1;

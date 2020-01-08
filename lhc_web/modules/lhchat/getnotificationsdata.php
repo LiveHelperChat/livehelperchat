@@ -58,6 +58,11 @@ foreach ($items as $item) {
 
     $titleParts = array_filter(array($notification_message_type, $nick, $department));
 
+    // do not show notification if i'm not chat owner and it's already belongs to other user
+    if ($item->user_id > 0 && $type != 'transfer_chat' && $item->user_id != $currentUser->getUserID()) {
+        continue;
+    }
+
     $returnArray[] = array(
         'nick' => implode(' | ', $titleParts),
         'msg' => erLhcoreClassChat::getGetLastChatMessagePending($item->id),
