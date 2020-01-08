@@ -154,14 +154,10 @@ class erLhcoreClassGenericBotActionCommand {
                 $chat->saveThis();
 
         } elseif ($action['content']['command'] == 'dispatchevent') {
-
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_chat_command_dispatch_event', array(
                     'action' => $action,
                     'chat' => & $chat,
                 ));
-
-                $chat->saveThis();
-
         }
     }
 }
