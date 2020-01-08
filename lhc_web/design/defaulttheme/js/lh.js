@@ -333,6 +333,12 @@ function lh(){
     	var inst = this;
 
     	$.get(url, function(data) {
+
+    	    if (data == '') {
+                inst.removeDialogTab(chat_id,tabs,true);
+    	        return;
+            }
+    	    
     		if (typeof focusTab === 'undefined' || focusTab === true || hash == '#chat-id-'+chat_id){
 	    		tabs.find('> ul > li > a.active').removeClass("active");
 	    		tabs.find('> ul > #chat-tab-li-'+chat_id+' > a').addClass("active");
