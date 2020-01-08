@@ -306,38 +306,33 @@ function lh(){
     	
     	var contentLi = '<li role="presentation" id="chat-tab-li-'+chat_id+'" class="nav-item"><a class="nav-link" href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">send</i><i id="user-chat-status-'+chat_id+'" class="'+this.tabIconClass+'">'+this.tabIconContent+'</i><span class="ntab" id="ntab-chat-'+chat_id+'">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span><span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>';
 
+    	if (typeof position === 'undefined' || parseInt(position) == 0) {
+    		tabs.find('> ul').append(contentLi);
+    	} else {
+    		tabs.find('> ul > li:eq('+ (position - 1)+')').after(contentLi);
+    	};
+
+    	$('#chat-tab-link-'+chat_id).click(function() {
+
+            setTimeout(function() {
+                $('#CSChatMessage-' + chat_id).focus();
+            },2);
+
+    		var inst = $(this);
+    		setTimeout(function(){
+    			inst.find('.msg-nm').remove();
+    			inst.removeClass('has-pm');
+    			$('#messagesBlock-'+chat_id).stop(true,false).animate({ scrollTop: $('#messagesBlock-'+chat_id).prop('scrollHeight') }, 500);
+    			ee.emitEvent('chatTabClicked', [chat_id, inst]);
+
+    		},500);
+    	});
+    	
     	var hash = window.location.hash.replace('#/','#');	
 
     	var inst = this;
 
     	$.get(url, function(data) {
-
-    	    if (data == '') {
-    	        return;
-            }
-
-            if (typeof position === 'undefined' || parseInt(position) == 0) {
-                tabs.find('> ul').append(contentLi);
-            } else {
-                tabs.find('> ul > li:eq('+ (position - 1)+')').after(contentLi);
-            };
-
-            $('#chat-tab-link-'+chat_id).click(function() {
-
-                setTimeout(function() {
-                    $('#CSChatMessage-' + chat_id).focus();
-                },2);
-
-                var inst = $(this);
-                setTimeout(function(){
-                    inst.find('.msg-nm').remove();
-                    inst.removeClass('has-pm');
-                    $('#messagesBlock-'+chat_id).stop(true,false).animate({ scrollTop: $('#messagesBlock-'+chat_id).prop('scrollHeight') }, 500);
-                    ee.emitEvent('chatTabClicked', [chat_id, inst]);
-
-                },500);
-            });
-
     		if (typeof focusTab === 'undefined' || focusTab === true || hash == '#chat-id-'+chat_id){
 	    		tabs.find('> ul > li > a.active').removeClass("active");
 	    		tabs.find('> ul > #chat-tab-li-'+chat_id+' > a').addClass("active");
