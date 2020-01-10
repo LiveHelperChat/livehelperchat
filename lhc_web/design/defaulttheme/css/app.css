@@ -301,9 +301,11 @@ div.system-response {
 {
     display: none;
 }
+
 .bubble-messages .op-tit {
     float:left;
     margin-top: 0px;
+    padding: 0;
 }
 
 .bubble-messages .vis-tit {
