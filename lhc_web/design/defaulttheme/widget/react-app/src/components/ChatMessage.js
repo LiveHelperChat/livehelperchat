@@ -15,10 +15,20 @@ class ChatMessage extends PureComponent {
         this.delayData = [];
     }
 
+    addLoader(attrs, element) {
+        if (!attrs["data-no-change"] && attrs.type == 'button') {
+            element.setAttribute("disabled","disabled");
+            element.innerHTML = "<i class=\"material-icons lhc-spin\">loop</i>" + element.innerHTML;
+        }
+    }
+    
     /**
      * Here we handle bot buttons actions
      * */
     abstractClick(attrs, e) {
+
+        this.addLoader(attrs,e.target);
+        
         if (attrs.onclick.indexOf('lhinst.updateTriggerClicked') !== -1) {
             this.updateTriggerClicked({type:'/(type)/triggerclicked'}, attrs, e.target);
         } else if (attrs.onclick.indexOf('notificationsLHC.sendNotification') !== -1) {
