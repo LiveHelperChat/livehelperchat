@@ -190,6 +190,9 @@ function processResponseCheckStatus(response, getState) {
 
 export function fetchMessages(obj) {
     return function(dispatch, getState) {
+
+        dispatch({type: "FETCH_MESSAGES_STARTED"});
+
         axios.post(window.lhcChat['base_url'] + "/widgetrestapi/fetchmessages", obj)
         .then((response) => {
             dispatch({type: "FETCH_MESSAGES_SUBMITTED", data: response.data});

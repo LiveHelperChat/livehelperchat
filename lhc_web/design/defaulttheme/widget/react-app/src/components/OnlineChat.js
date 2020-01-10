@@ -344,13 +344,16 @@ class OnlineChat extends Component {
     }
 
     updateMessages() {
-        this.props.dispatch(fetchMessages({
-            'chat_id': this.props.chatwidget.getIn(['chatData','id']),
-            'hash' : this.props.chatwidget.getIn(['chatData','hash']),
-            'lmgsid' : this.props.chatwidget.getIn(['chatLiveData','lmsgid']),
-            'theme' : this.props.chatwidget.get('theme'),
-            'new_chat' : this.props.chatwidget.get('newChat')
-        }));
+        if (this.props.chatwidget.getIn(['syncStatus','msg']) == false)
+        {
+            this.props.dispatch(fetchMessages({
+                'chat_id': this.props.chatwidget.getIn(['chatData','id']),
+                'hash' : this.props.chatwidget.getIn(['chatData','hash']),
+                'lmgsid' : this.props.chatwidget.getIn(['chatLiveData','lmsgid']),
+                'theme' : this.props.chatwidget.get('theme'),
+                'new_chat' : this.props.chatwidget.get('newChat')
+            }));
+        }
     }
 
     updateStatus() {

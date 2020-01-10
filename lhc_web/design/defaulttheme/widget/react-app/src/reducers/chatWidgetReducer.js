@@ -13,6 +13,8 @@ const initialState = fromJS({
     mode: 'widget',
     department: [],
     jsVars: [],
+    // Are we syncing chat messages now
+    syncStatus : {msg: false},
     offlineData: {},
     onlineData: {'fetched' : false},
     customData: {'fields' : []},
@@ -99,7 +101,7 @@ const chatWidgetReducer = (state = initialState, action) => {
         case 'captcha': {
             return state.set('captcha',fromJS(action.data));
         }
-
+        
         case 'CHAT_SESSION_REFFERER': {
             return state.set('ses_ref',action.data.ref);
         }
@@ -176,6 +178,14 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .setIn(['chatLiveData','closed'], action.data.closed && action.data.closed === true);
         }
 
+        case 'FETCH_MESSAGES_STARTED': {
+            return state.setIn(['syncStatus','msg'],true);
+        }
+
+        case 'FETCH_MESSAGES_REJECTED': {
+            return state.setIn(['syncStatus','msg'],false);
+        }
+
         case 'FETCH_MESSAGES_SUBMITTED' : {
 
             if (action.data.closed_arg && action.data.closed_arg.survey_id) {
@@ -191,6 +201,7 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.setIn(['chatLiveData','ott'], action.data.ott)
                 .setIn(['chatLiveData','status_sub'], action.data.status_sub)
                 .setIn(['chatLiveData','status'], action.data.status)
+                .setIn(['syncStatus','msg'], false)
                 .set('msgLoaded', true)
                 .setIn(['chatLiveData','closed'], action.data.closed && action.data.closed === true)
         }
