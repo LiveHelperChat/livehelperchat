@@ -116,6 +116,7 @@
                     'tz' : helperFunctions.getTzOffset(),
                     'r' : referrer,
                     'l' : location,
+                    'dep' : attributesWidget.department
                 }}).then(function(data){
 
                 if (!attributesWidget.leaveMessage && data.data.isOnline === false) {

@@ -2,8 +2,14 @@
 
 erLhcoreClassRestAPIHandler::setHeaders();
 
+$department = (isset($_GET['dep']) && is_array($_GET['dep']) && !empty($_GET['dep']) ? $_GET['dep'] : false);
+
+if (is_array($department)) {
+    erLhcoreClassChat::validateFilterIn($department);
+}
+
 $outputResponse = array(
-    'isOnline' => erLhcoreClassChat::isOnline(false, false, array(
+    'isOnline' => erLhcoreClassChat::isOnline($department, false, array(
         'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
         'ignore_user_status' => (isset($_GET['ignore_user_status']) && $_GET['ignore_user_status'] == 'true')
     )),
