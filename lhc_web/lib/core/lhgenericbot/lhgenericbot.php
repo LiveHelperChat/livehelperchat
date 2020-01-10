@@ -39,13 +39,15 @@ class erLhcoreClassGenericBot {
                 ezcInputFormDefinitionElement::OPTIONAL, 'int',null, FILTER_REQUIRE_ARRAY
             ),
             'profile_hide' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
             'msg_hide' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             )
         );
-        
+
+
+
         if (isset($additionalParams['payload_data'])) {
             $form = new erLhcoreClassInputForm(INPUT_GET, $definition, null, $additionalParams['payload_data']);
         } else {
