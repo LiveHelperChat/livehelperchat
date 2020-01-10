@@ -191,6 +191,12 @@ function processResponseCheckStatus(response, getState) {
 export function fetchMessages(obj) {
     return function(dispatch, getState) {
 
+        const state = getState();
+
+        if (state.chatwidget.getIn(['syncStatus','msg']) == true) {
+            return;
+        }
+
         dispatch({type: "FETCH_MESSAGES_STARTED"});
 
         axios.post(window.lhcChat['base_url'] + "/widgetrestapi/fetchmessages", obj)
@@ -246,17 +252,11 @@ export function pageUnload() {
 }
 
 export function addMessage(obj) {
-    return function(dispatch) {
+    return function(dispatch, getState) {
         axios.post(window.lhcChat['base_url'] + "/widgetrestapi/addmsguser", obj)
             .then((response) => {
-                dispatch({type: "ADD_MESSAGES_SUBMITTED", data: response.data})
-                axios.post(window.lhcChat['base_url'] + "/widgetrestapi/fetchmessages", {'chat_id' : obj.id, 'lmgsid' : obj.lmgsid, 'hash' : obj.hash})
-                .then((response) => {
-                    dispatch({type: "FETCH_MESSAGES_SUBMITTED", data: response.data})
-                })
-                .catch((err) => {
-                    dispatch({type: "FETCH_MESSAGES_REJECTED", data: err})
-                })
+                dispatch({type: "ADD_MESSAGES_SUBMITTED", data: response.data});
+                fetchMessages({'theme' : obj.theme, 'chat_id' : obj.id, 'lmgsid' : obj.lmgsid, 'hash' : obj.hash})(dispatch, getState);
             })
             .catch((err) => {
                 dispatch({type: "ADD_MESSAGES_REJECTED", data: err})
