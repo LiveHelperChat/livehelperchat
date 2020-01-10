@@ -2668,7 +2668,7 @@ class erLhcoreClassChatStatistic {
 
                     foreach ($justDemo as $demoItem) {
                         $returnArray['color'][] = json_encode(self::hsl2rgb(self::hue($demoItem['user_country_name'])/0xFFFFFFFF, 0.7, 1));
-                        $returnArray['nick'][] = trim($demoItem['user_country_name'] ) != '' ? json_encode(trim($demoItem['user_country_name'])) : json_encode('Unknown');
+                        $returnArray['nick'][] = trim($demoItem['user_country_name'] ) != '' ? json_encode(trim(ucwords($demoItem['user_country_name']))) : json_encode('Unknown');
                         $returnArray['data'][] = $demoItem['total_records'];
                     }
 
@@ -2699,7 +2699,7 @@ class erLhcoreClassChatStatistic {
 
                     foreach ($justDemo as $demoItem) {
                         $returnArray['color'][] = json_encode(self::hsl2rgb(self::hue($demoItem['city'] . $demoItem['user_country_name'])/0xFFFFFFFF, 0.65, 1));
-                        $returnArray['nick'][] = trim($demoItem['user_country_name'] . $demoItem['city']) != '' ? json_encode(trim($demoItem['user_country_name'] .' - '. $demoItem['city'])) : json_encode('Unknown');
+                        $returnArray['nick'][] = trim($demoItem['user_country_name'] . $demoItem['city']) != '' ? json_encode(trim(ucwords($demoItem['user_country_name']) .' - '. ucwords(($demoItem['city'] != '' ? $demoItem['city'] : 'Unknown')))) : json_encode('Unknown');
                         $returnArray['data'][] = $demoItem['total_records'];
                     }
 
