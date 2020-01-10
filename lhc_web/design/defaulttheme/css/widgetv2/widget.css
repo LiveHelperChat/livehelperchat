@@ -114,7 +114,7 @@ div.message-row {
 
 .bottom-message{
     position: absolute;
-    bottom: 5px;
+    bottom: 0px;
     right: 0;
     left: 0;
     overflow-y: auto;
@@ -292,7 +292,7 @@ div.message-row {
     margin-right:0px;
     margin-left:0px;
     position:relative;
-    white-space: pre-line;
+    /*white-space: pre-line;*/
     line-height:0;
     *white-space: pre;
     *word-wrap: break-word;

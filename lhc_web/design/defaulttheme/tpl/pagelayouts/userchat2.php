@@ -18,7 +18,12 @@
 <body>
 <div id="root" class="container-fluid d-flex flex-column flex-grow-1 overflow-auto"></div>
 <?php echo $Result['content']?>
-<script src="<?php echo erLhcoreClassDesign::designJS('js/widgetv2/react.app.js')?>"></script>
-
+<?php
+$detect = new Mobile_Detect();
+if ($detect->version('IE') !== false) : ?>
+    <script src="<?php echo erLhcoreClassDesign::designJS('js/widgetv2/react.app.ie.js')?>"></script>
+<?php else : ?>
+    <script src="<?php echo erLhcoreClassDesign::designJS('js/widgetv2/react.app.js')?>"></script>
+<?php endif; ?>
 </body>
 </html>

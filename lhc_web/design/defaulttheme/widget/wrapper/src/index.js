@@ -16,7 +16,6 @@
         lhc.version = 4;
 
         var init = () => {
-
             // Avoid multiple times execution
             if (lhc.ready === true) {
                 return;
@@ -29,6 +28,7 @@
 
             var BehaviorSubject = require('./util/monitoredVariable').monitoredVariable;
             var EventEmitter = require('wolfy87-eventemitter');
+            require('es6-promise/auto');
             const axios = require('axios');
 
             var statusWidget = require('./lib/widgets/statusWidget').statusWidget;
@@ -55,6 +55,8 @@
 
             referrer = referrer ? encodeURIComponent(referrer) : '';
 
+            console.log(global.navigator.userAgent);
+
             // Main attributes
             var attributesWidget = {
                 viewHandler : null,
@@ -68,6 +70,7 @@
                 toggleSound : new BehaviorSubject( storageHandler.getSessionStorage('LHC_SOUND') === 'true' || storageHandler.getSessionStorage('LHC_SOUND') === null),
                 hideOffline : false,
                 isMobile : isMobile,
+                isIE : (navigator.userAgent.toUpperCase().indexOf("TRIDENT/") != -1 || navigator.userAgent.toUpperCase().indexOf("MSIE") != -1),
                 fresh : LHC_API.args.fresh || false,
                 widgetDimesions : new BehaviorSubject({width: (isMobile ? 100 : (LHC_API.args.wwidth || 350)), height: (isMobile ? 100 : (LHC_API.args.wheight || 520)), units : (isMobile ? '%' : 'px')}),
                 popupDimesnions : {pheight: (LHC_API.args.pheight || 520), pwidth:(LHC_API.args.pwidth || 500)},
@@ -116,8 +119,11 @@
                     'tz' : helperFunctions.getTzOffset(),
                     'r' : referrer,
                     'l' : location,
+                    'ie' : attributesWidget.isIE,
                     'dep' : attributesWidget.department
                 }}).then(function(data){
+
+                __webpack_public_path__ = data.data.chunks_location + "/";
 
                 if (!attributesWidget.leaveMessage && data.data.isOnline === false) {
                     return;
@@ -178,12 +184,16 @@
                     attributesWidget.loadcb(attributesWidget);
                 }
 
-                if (lhc.version != data.data.v) {
+                //if (lhc.version != data.data.v) {
                     /*var iframe1 = document.createElement("iframe");
                     iframe1.style.display = "none";
                     iframe1.src = LHC_API.args.lhc_base_url + '/widgetrestapi/updatejs';
                     document.body.appendChild(iframe1);*/
-                }
+                //}
+
+                /*import('./util/dummyHelper').then((module) => {
+                    module.dummyHelper.testCall();
+                });*/
 
             });
 
