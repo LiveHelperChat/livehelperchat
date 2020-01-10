@@ -2688,7 +2688,7 @@ class erLhcoreClassChatStatistic {
                         unset($filterNew['filtergte']['time']);
                     }
 
-                    $filterFormated = array_merge_recursive($filterNew,array('customfilter' =>  array('FROM_UNIXTIME(last_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. date($groupAttributes[$params['groupby']]['php'],$dateUnix))));
+                    $filterFormated = array_merge_recursive($filterNew,array('customfilter' =>  array('city != \'\' AND FROM_UNIXTIME(last_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. date($groupAttributes[$params['groupby']]['php'],$dateUnix))));
                     $filterFormated['sort'] = 'total_records DESC';
                     $filterFormated['group'] = 'city';
                     $filterFormated['limit'] = 5;
