@@ -7,13 +7,13 @@
         $chat->bot->has_photo
     ) : ?>
         <i title="<?php echo htmlspecialchars($msg['name_support'])?>" class="chat-operators mi-fs15 mr-0">
-            <img class="profile-msg-pic" src="<?php echo $chat->bot->photo_path?>" alt="">
+            <img class="profile-msg-pic" src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo $chat->bot->photo_path?>" alt="">
         </i>
     <?php elseif ($msg['user_id'] > 0 && isset($theme) && $theme !== false && isset($theme->bot_configuration_array['bubble_style_profile']) && $theme->bot_configuration_array['bubble_style_profile'] == 1 &&
         ($userMessage = erLhcoreClassModelUser::fetch($msg['user_id'],true)) && $userMessage instanceof erLhcoreClassModelUser && $userMessage->has_photo
     ) : ?>
             <i title="<?php echo htmlspecialchars($msg['name_support'])?>" class="chat-operators mi-fs15 mr-0">
-                <img class="profile-msg-pic" src="<?php echo $userMessage->photo_path?>" alt="">
+                <img class="profile-msg-pic" src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo $userMessage->photo_path?>" alt="">
             </i>
     <?php else : ?>
         <i title="<?php echo htmlspecialchars($msg['name_support'])?>" class="material-icons chat-operators mi-fs15 mr-0">account_box</i>
