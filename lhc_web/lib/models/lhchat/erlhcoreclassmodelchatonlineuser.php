@@ -595,6 +595,7 @@ class erLhcoreClassModelChatOnlineUser
     {
         if (isset($_SERVER['HTTP_USER_AGENT']) && !self::isBot($_SERVER['HTTP_USER_AGENT'])) {
             $newVisitor = false;
+            $returningVisitor = false;
 
             if (isset($paramsHandle['vid']) && !empty($paramsHandle['vid'])) {
                 $items = erLhcoreClassModelChatOnlineUser::getList(array('filter' => array('vid' => $paramsHandle['vid'])));
@@ -624,6 +625,7 @@ class erLhcoreClassModelChatOnlineUser
                             $item->message_seen_ts = 0;
                             $item->operator_message = '';
                         }
+                        $returningVisitor = true;
                     }
 
                     $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : $item->identifier;
@@ -811,7 +813,7 @@ class erLhcoreClassModelChatOnlineUser
             }
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.before_store_chat',
-                array('new_visitor' => $newVisitor, 'log_page_view' => $logPageView, 'activity_changed' => $activityChanged, 'online_user' => $item, 'errors' => array()));
+                array('returning_visitor' => $returningVisitor, 'new_visitor' => $newVisitor, 'log_page_view' => $logPageView, 'activity_changed' => $activityChanged, 'online_user' => $item, 'errors' => array()));
 
             // Save only then we have to, in general only then page view appears
             if ($item->store_chat == true) {
@@ -829,7 +831,7 @@ class erLhcoreClassModelChatOnlineUser
                 }
             }
 
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.handle_request', array('online_user' => $item, 'params' => $paramsHandle));
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.handle_request', array('new_visitor' => $newVisitor, 'returning_visitor' => $returningVisitor, 'online_user' => $item, 'params' => $paramsHandle));
 
             return $item;
         } else {
