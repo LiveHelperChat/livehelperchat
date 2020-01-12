@@ -75,6 +75,10 @@ try {
             if (isset($theme->bot_configuration_array['hide_status']) && $theme->bot_configuration_array['hide_status'] == true) {
                 $outputResponse['chat_ui']['hide_status'] = true;
             }
+
+            if (isset($theme->bot_configuration_array['msg_expand']) && $theme->bot_configuration_array['msg_expand'] == true) {
+                $outputResponse['chat_ui']['msg_expand'] = true;
+            }
         }
 
         if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {

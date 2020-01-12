@@ -104,7 +104,12 @@ class StartChat extends Component {
         fields['URLRefer'] = window.location.href.substring(window.location.protocol.length);
         fields['r'] = this.props.chatwidget.get('ses_ref');
 
+        if (this.props.chatwidget.get('bot_id') != '') {
+            fields['bot_id'] = this.props.chatwidget.get('bot_id');
+        }
+
         const customFields = StartChat.getCustomFieldsSubmit(this.props.chatwidget.getIn(['customData','fields']));
+        
         if (customFields !== null) {
             fields = {...fields, ...customFields};
         }

@@ -486,6 +486,14 @@ class OnlineChat extends Component {
                 placeholder = this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : "Type your message here...";
             }
 
+            var msg_expand = "flex-grow-1 overflow-scroll position-relative";
+            var bottom_messages = "bottom-message pl-1 pr-1";
+
+            if (this.props.chatwidget.hasIn(['chat_ui','msg_expand'])) {
+                msg_expand = "overflow-scroll position-relative";
+                bottom_messages += " position-relative";
+            }
+
             return (
                 <React.Fragment>
 
@@ -495,8 +503,8 @@ class OnlineChat extends Component {
 
                     {this.props.chatwidget.hasIn(['chatStatusData','result']) && !this.props.chatwidget.hasIn(['chat_ui','hide_status']) && <div className="p-1"><ChatStatus updateStatus={this.updateStatus} status={this.props.chatwidget.getIn(['chatStatusData','result'])} /></div>}
 
-                    <div className="flex-grow-1 overflow-scroll position-relative" id="messagesBlock">
-                        <div className="bottom-message pl-1 pr-1" id="messages-scroll" ref={this.messagesAreaRef}>
+                    <div className={msg_expand} id="messagesBlock">
+                        <div className={bottom_messages} id="messages-scroll" ref={this.messagesAreaRef}>
                             {messages}
                         </div>
                     </div>

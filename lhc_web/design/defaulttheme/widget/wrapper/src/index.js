@@ -55,8 +55,6 @@
 
             referrer = referrer ? encodeURIComponent(referrer) : '';
 
-            console.log(global.navigator.userAgent);
-
             // Main attributes
             var attributesWidget = {
                 viewHandler : null,
@@ -82,6 +80,8 @@
                 base_url : LHC_API.args.lhc_base_url,
                 mode: LHC_API.args.mode || 'widget',
                 captcha : null,
+                lang : LHC_API.args.lang || '',
+                bot_id : LHC_API.args.bot_id || '',
                 // Login Objects
                 userSession : new userSession(),
                 storageHandler : storageHandler,

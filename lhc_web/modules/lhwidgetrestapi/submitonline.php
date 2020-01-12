@@ -15,6 +15,7 @@ $inputData->email = '';
 $inputData->username = '';
 $inputData->phone = '';
 $inputData->product_id = '';
+$inputData->bot_id = '';
 $inputData->validate_start_chat = false;
 $inputData->ignore_captcha = true;
 $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
@@ -120,6 +121,10 @@ if (empty($Errors)) {
                 $chat->last_msg_id = $msg->id;
                 $chat->saveThis();
             }
+        }
+
+        if (is_numeric($inputData->bot_id)) {
+            $paramsExecution['bot_id'] = (int)$inputData->bot_id;
         }
 
         // Set bot workflow if required

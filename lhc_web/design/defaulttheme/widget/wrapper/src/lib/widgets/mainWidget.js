@@ -81,10 +81,8 @@ export class mainWidget{
         };
 
         attributes.widgetDimesions.subscribe(this.monitorDimensionsWrap);
+        attributes.widgetStatus.subscribe(this.toggleVisibilityWrap);
 
-        //setTimeout(() => {
-            attributes.widgetStatus.subscribe(this.toggleVisibilityWrap);
-        //},250);
     }
 
     toggleVisibility(data) {

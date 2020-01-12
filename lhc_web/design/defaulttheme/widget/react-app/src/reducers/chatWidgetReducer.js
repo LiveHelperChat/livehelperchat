@@ -31,6 +31,8 @@ const initialState = fromJS({
     // Was initialized data loaded
     initLoaded : false,
     msgLoaded : false,
+    lang : '',
+    bot_id : '',
     ses_ref : null,
     captcha : {},
     validationErrors : {},
@@ -56,6 +58,14 @@ const chatWidgetReducer = (state = initialState, action) => {
 
         case 'loadedCore': {
             return state.set('loadedCore',true);
+        }
+
+        case 'lang': {
+            return state.set('lang',action.data);
+        }
+
+        case 'bot_id': {
+            return state.set('bot_id',action.data);
         }
 
         case 'widgetStatus': {

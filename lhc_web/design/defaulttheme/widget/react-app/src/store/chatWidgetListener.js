@@ -104,7 +104,7 @@ export default function (dispatch, getState) {
             }
 
             window.lhcChat = {};
-            window.lhcChat['base_url'] = paramsInit['base_url'];
+            window.lhcChat['base_url'] = paramsInit['base_url'] + (paramsInit['lang'] && paramsInit['lang'] != '' ? paramsInit['lang'] + '/' : '');
             window.lhcChat['staticJS'] = paramsInit['staticJS'];
             window.lhcChat['mode'] = paramsInit['mode'];
 

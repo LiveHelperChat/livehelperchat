@@ -43,6 +43,14 @@ class chatEventsHandler {
             'static_chat' : this.attributes['userSession'].getSessionAttributes()
         };
 
+        if (this.attributes['bot_id'] != '') {
+            attr['bot_id'] = this.attributes['bot_id'];
+        }
+        
+        if (this.attributes['lang'] != '') {
+            attr['lang'] = this.attributes['lang'];
+        }
+
         if (window.LHCChatOptions && window.LHCChatOptions.attr) {
             var prefillOptions = window.LHCChatOptions.attr;
             let fieldsCustom = [];
