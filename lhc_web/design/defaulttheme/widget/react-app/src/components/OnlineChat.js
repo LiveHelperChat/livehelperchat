@@ -338,7 +338,9 @@ class OnlineChat extends Component {
         if (this.messagesAreaRef.current) {
             this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
             setTimeout(() => {
-                this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
+                if (this.messagesAreaRef.current) {
+                    this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
+                }
             },450);
         }
     }
