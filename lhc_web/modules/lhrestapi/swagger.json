@@ -59,6 +59,16 @@
             "format": "int32"
           },
           {
+            "name": "departament_ids",
+            "in": "query",
+            "description": "Department ID",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
             "name": "user_id",
             "in": "query",
             "description": "User ID",
@@ -1506,6 +1516,46 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "name": "attr_str_1",
+            "in": "query",
+            "description": "Custom attribute attr_str_1 (exact match)",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "attr_str_2",
+            "in": "query",
+            "description": "Custom attribute attr_str_2 (exact match)",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "attr_str_3",
+            "in": "query",
+            "description": "Custom attribute attr_str_3 (exact match)",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Name like %name%",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "nick",
+            "in": "query",
+            "description": "Nick like %nick%",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          }
         ],
         "responses": {
           "200": {
@@ -1537,6 +1587,70 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "name": "attr_int_1",
+            "in": "query",
+            "description": "Custom attribute attr_int_1 (exact match)",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "attr_int_2",
+            "in": "query",
+            "description": "Custom attribute attr_int_2 (exact match)",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "attr_int_3",
+            "in": "query",
+            "description": "Custom attribute attr_int_3 (exact match)",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "Custom attribute email (exact match)",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Name like %name%",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "description": "Custom attribute identifier (exact match)",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "disabled",
+            "in": "query",
+            "description": "Disabled",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "hidden",
+            "in": "query",
+            "description": "Hidden",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
         ],
         "responses": {
           "200": {
@@ -2497,6 +2611,21 @@
           "nullable": true,
           "example": null,
           "min" : 1
+        },
+        "attr_int_1": {
+          "type": "integer",
+          "nullable": true,
+          "example": null
+        },
+        "attr_int_2": {
+          "type": "integer",
+          "nullable": true,
+          "example": null
+        },
+        "attr_int_3": {
+          "type": "integer",
+          "nullable": true,
+          "example": null
         }
       },
       "example" : {

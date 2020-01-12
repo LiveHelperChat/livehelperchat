@@ -158,6 +158,15 @@ class erLhcoreClassDepartament{
                 ),
                 'survey_id' => new ezcInputFormDefinitionElement(
                     ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+                ),
+                'attr_int_1' => new ezcInputFormDefinitionElement(
+                    ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+                ),
+                'attr_int_2' => new ezcInputFormDefinitionElement(
+                    ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+                ),
+                'attr_int_3' => new ezcInputFormDefinitionElement(
+                    ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
                 )
         );
 
@@ -302,6 +311,21 @@ class erLhcoreClassDepartament{
 	   		$department->pending_max = $form->pending_max;
 	   	} else {
 	   		$department->pending_max = 0;
+	   	}
+
+	   	if ( $form->hasValidData( 'attr_int_1' ) )
+	   	{
+	   		$department->attr_int_1 = $form->attr_int_1;
+	   	}
+
+	   	if ( $form->hasValidData( 'attr_int_2' ) )
+	   	{
+	   		$department->attr_int_2 = $form->attr_int_2;
+	   	}
+
+	   	if ( $form->hasValidData( 'attr_int_3' ) )
+	   	{
+	   		$department->attr_int_3 = $form->attr_int_3;
 	   	}
 	   	
 	   	if ( $form->hasValidData( 'Email' ) ) {	   	

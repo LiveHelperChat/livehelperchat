@@ -432,6 +432,15 @@ class erLhcoreClassRestAPIHandler
             $filter['filtergt']['id'] = (int)$_GET['filtergt']['id'];
         }
 
+        if (isset($_GET['departament_ids'])) {
+            $idDep = explode(',',$_GET['departament_ids']);
+            erLhcoreClassChat::validateFilterIn($idDep);
+
+            if (!empty($idDep)){
+                $filter['filterin']['dep_id'] = $idDep;
+            }
+        }
+
         if (isset($_GET['id_gt']) && is_numeric($_GET['id_gt'])) {
             $filter['filtergt']['id'] = (int)$_GET['id_gt'];
         }
