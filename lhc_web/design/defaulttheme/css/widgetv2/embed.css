@@ -6,3 +6,7 @@ body, .desktop-body {
     border-radius: 20px;
     border:1px solid #dee2e6!important;
 }
+
+.bottom-message {
+    padding-bottom: 5px;
+}
