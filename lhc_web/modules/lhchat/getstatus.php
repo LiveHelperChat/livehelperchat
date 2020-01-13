@@ -53,6 +53,10 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 	}
 }
 
+if ($theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['detect_language']) && $theme->bot_configuration_array['detect_language'] == true) {
+    erLhcoreClassChatValidator::setLanguageByBrowser();
+}
+
 $tpl->set('referrer',isset($_GET['r']) ? rawurldecode($_GET['r']) : '');
 $tpl->set('track_online_users',erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 && (string)$Params['user_parameters_unordered']['dot'] != 'true');
 $tpl->set('disable_online_tracking',(string)$Params['user_parameters_unordered']['dot'] == 'true');
