@@ -319,7 +319,15 @@
             attributesWidget.eventEmitter.addListener('location',(data) => {
                 document.location = data;
             });
-            
+
+            attributesWidget.eventEmitter.addListener('widgetHeight',(data) => {
+                if (attributesWidget.mode == 'widget' && attributesWidget.isMobile == false) {
+                    var value = attributesWidget.widgetDimesions.value;
+                    value['height_override'] = parseInt(data.height)+50;
+                    attributesWidget.widgetDimesions.next(value);
+                }
+            });
+
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.addEventListener('message', function(event) {
                     if (typeof event.data.lhc_ch !== 'undefined' && typeof event.data.lhc_cid !== 'undefined') {

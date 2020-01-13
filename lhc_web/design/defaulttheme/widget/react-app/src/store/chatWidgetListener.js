@@ -55,6 +55,8 @@ export default function (dispatch, getState) {
         } else if (action == 'lhc_event') {
             const parts = e.data.replace('lhc_event:','').split('::');
             helperFunctions.emitEvent(parts[0],JSON.parse(parts[1]));
+        } else if (action == 'lhc_sizing_chat') {
+            helperFunctions.sendMessageParent('widgetHeight', [{'height' : e.data.split(':')[1]}]);
         } else if (action == 'lhc_init') {
 
             if (readyReceived === true) {
