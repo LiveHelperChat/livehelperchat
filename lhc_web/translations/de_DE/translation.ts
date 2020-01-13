@@ -2572,7 +2572,7 @@
     </message>
     <message>
       <source>Need help?</source>
-      <translation>Hilfe benötigt?</translation>
+      <translation>Brauchen Sie Hilfe?</translation>
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
