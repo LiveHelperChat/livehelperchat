@@ -2,6 +2,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Quants dies després de l&apos;última visualització ha de romandre ocult el widget de votació</translation>
     </message>
@@ -478,12 +486,20 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Not replying messaging</source>
+      <translation>Missatges de xats sense resposta</translation>
+    </message>
+    <message>
       <source>Pending chat messaging</source>
       <translation>Missatges de xat pendent</translation>
     </message>
     <message>
-      <source>Not replying messaging</source>
-      <translation>Missatges de xats sense resposta</translation>
+      <source>Visitor not replying messaging</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator not replying messaging</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>On-hold chat messaging</source>
@@ -1154,11 +1170,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Bubble style messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use expanding message area</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide visitor profile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Notifications enabled</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Notification title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notification domain</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1247,6 +1279,10 @@
     <message>
       <source>Department</source>
       <translation>Departament</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
@@ -2171,6 +2207,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Group field</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Exclude offline requests from charts</source>
       <translation type="unfinished"/>
     </message>
@@ -2412,6 +2452,10 @@
     <message>
       <source>Canned message was saved</source>
       <translation>S&apos;ha desat el missatge predefinit</translation>
+    </message>
+    <message>
+      <source>Personal auto responder message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a canned message</source>
@@ -3892,6 +3936,10 @@
       <translation>Temps d&apos;espera en segons abans un xat no sigui transferit a un altre departament. Mínim 5 segons.</translation>
     </message>
     <message>
+      <source>Transfer immediately to this department if current department has no online operators?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Execute new chat logic again for recipient department?</source>
       <translation>Voleu repetir el protocol de xat nou en ser trasferit un xat a un altre departament?</translation>
     </message>
@@ -4477,6 +4525,18 @@
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>Offline</source>
+      <translation>Fora de línia</translation>
+    </message>
+    <message>
+      <source>Chat is currently unavailable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please try again later.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation>El departament està inhabilitat</translation>
     </message>
@@ -4567,10 +4627,6 @@
     <message>
       <source>Department</source>
       <translation>Departament</translation>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation>Fora de línia</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
@@ -4994,6 +5050,14 @@
     </message>
     <message>
       <source>Typing...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transferred to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>as no operators online in</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6592,6 +6656,78 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>Estadístiques</translation>
     </message>
     <message>
+      <source>What charts to display</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat numbers by status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unanswered chat numbers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message types</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation>Xats pro-actius / iniciats per visitants</translation>
+    </message>
+    <message>
+      <source>Number of chats by subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Up/Down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation>Nombre de xats per pais</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Nombre de missatges per usuari</translation>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation>Nombre de xats per hora, durada mitjana de xats</translation>
+    </message>
+    <message>
+      <source>Average wait time in seconds (maximum of 10 minutes)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats by user</source>
+      <translation>Nombre de xats per usuari</translation>
+    </message>
+    <message>
+      <source>Number of chats by department</source>
+      <translation>Nombre de xats per departament</translation>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Espera mitjana de visitants per agent</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user in seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Usefull if you prefill usernames always</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unique group field records grouped by date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats number grouped by date and group field</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Thumbs up</source>
       <translation>Polzes amunt</translation>
     </message>
@@ -6601,6 +6737,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     </message>
     <message>
       <source>Number of chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unique records</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6654,6 +6794,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <message>
       <source>Please choose statistic parameters first!</source>
       <translation>Seleccioneu abans els paràmetres d&apos;estadístiques</translation>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online</source>
@@ -6736,56 +6880,48 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>Total</translation>
     </message>
     <message>
-      <source>Average chat duration by user in seconds</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>Espera mitjana de visitants per agent</translation>
-    </message>
-    <message>
-      <source>Average wait time in seconds (maximum of 10 minutes)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Chatbox chats</source>
       <translation>Xats al xat flotant</translation>
-    </message>
-    <message>
-      <source>Chat numbers by status</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Last 24h statistics</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Message types</source>
+      <source>Unique</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Number of chats by country</source>
-      <translation>Nombre de xats per pais</translation>
+      <source>grouped by date</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Number of chats by department</source>
-      <translation>Nombre de xats per departament</translation>
+      <source>nick&apos;s</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Number of chats by user</source>
-      <translation>Nombre de xats per usuari</translation>
+      <source>user agent&apos;s</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Number of chats per hour, average chat duration</source>
-      <translation>Nombre de xats per hora, durada mitjana de xats</translation>
+      <source>device type&apos;s</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats number grouped by date and</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>user agent</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Average number of chats &amp; peak per hour</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Nombre de missatges per usuari</translation>
     </message>
     <message>
       <source>Number of Thumbs Down</source>
@@ -6798,10 +6934,6 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <message>
       <source>Operators statistic, top 100 by chats number</source>
       <translation>Estadístiques d&apos;agents, top 100 per nombre de xats</translation>
-    </message>
-    <message>
-      <source>Proactive chats number vs visitors initiated</source>
-      <translation>Xats pro-actius / iniciats per visitants</translation>
     </message>
     <message>
       <source>Agents statistics</source>
@@ -6854,10 +6986,6 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <message>
       <source>Unanswered chats</source>
       <translation>Xats sense resposta</translation>
-    </message>
-    <message>
-      <source>Unanswered chat numbers</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>more than 10 min.</source>
@@ -6917,10 +7045,6 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
   <context>
     <name>chat/sendmail</name>
     <message>
-      <source>Send mail to the user</source>
-      <translation>Envia e-mail a l&apos;usuari</translation>
-    </message>
-    <message>
       <source>Recipient</source>
       <translation>Destinatari</translation>
     </message>
@@ -6955,6 +7079,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <message>
       <source>Embed link to file</source>
       <translation>Incrusta l&apos;enllaç al fitxer</translation>
+    </message>
+    <message>
+      <source>Send mail to the user</source>
+      <translation>Envia e-mail a l&apos;usuari</translation>
     </message>
     <message>
       <source>Mail was sent to the user</source>
@@ -7182,8 +7310,24 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>Actualitzat</translation>
     </message>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Interface</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delete</source>
       <translation>Suprimeix</translation>
+    </message>
+    <message>
+      <source>Hide bot profile while chat is in bot mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat with hidden message box</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Updated!</source>
@@ -7400,6 +7544,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <message>
       <source>Notifications</source>
       <translation>Notificacions</translation>
+    </message>
+    <message>
+      <source>Personal auto responder</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Personal canned messages</source>
@@ -10727,6 +10875,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
   <context>
     <name>user/login</name>
     <message>
+      <source>You session has ended. Please login!</source>
+      <translation>Ha finalitzat la vostra sessió. Inicieu-la de nou!</translation>
+    </message>
+    <message>
       <source>Please login</source>
       <translation>Per favor, inicia la sessió</translation>
     </message>
@@ -10751,8 +10903,8 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>Recuperació de contrasenya</translation>
     </message>
     <message>
-      <source>You session has ended. Please login!</source>
-      <translation>Ha finalitzat la vostra sessió. Inicieu-la de nou!</translation>
+      <source>Your session has ended. Please login!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You were logged out because another user logged under same account</source>

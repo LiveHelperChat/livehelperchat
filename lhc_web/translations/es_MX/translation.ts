@@ -2,6 +2,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por cuantos días el widget de votación no será expandido después de mostrarlo la última vez</translation>
     </message>
@@ -478,12 +486,20 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Not replying messaging</source>
+      <translation>Mensajes del chat no contestados</translation>
+    </message>
+    <message>
       <source>Pending chat messaging</source>
       <translation>Mensajes pendientes del chat</translation>
     </message>
     <message>
-      <source>Not replying messaging</source>
-      <translation>Mensajes del chat no contestados</translation>
+      <source>Visitor not replying messaging</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator not replying messaging</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>On-hold chat messaging</source>
@@ -1154,12 +1170,28 @@
       <translation>No permita que el visitante edite el mensaje anterior presionando la flecha hacia arriba</translation>
     </message>
     <message>
+      <source>Bubble style messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use expanding message area</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide visitor profile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Notifications enabled</source>
       <translation>Notificaciones habilitadas</translation>
     </message>
     <message>
       <source>Notification title</source>
       <translation>Título de notificación</translation>
+    </message>
+    <message>
+      <source>Notification domain</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget themes</source>
@@ -1247,6 +1279,10 @@
     <message>
       <source>Department</source>
       <translation>Departamento</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
@@ -2171,6 +2207,10 @@
       <translation>Invitación</translation>
     </message>
     <message>
+      <source>Group field</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Exclude offline requests from charts</source>
       <translation>Excluir las solicitudes fuera de línea de los gráficos</translation>
     </message>
@@ -2412,6 +2452,10 @@
     <message>
       <source>Canned message was saved</source>
       <translation>El mensaje predefinido ha sido guardado</translation>
+    </message>
+    <message>
+      <source>Personal auto responder message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a canned message</source>
@@ -3892,6 +3936,10 @@
       <translation>Tiempo de espera en segundos antes de que el chat se transfiera a otro departamento. Mínimo 5 segundos.</translation>
     </message>
     <message>
+      <source>Transfer immediately to this department if current department has no online operators?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Execute new chat logic again for recipient department?</source>
       <translation>¿Ejecutar nuevamente lógica de chat nuevo para el departamento receptor?</translation>
     </message>
@@ -4477,6 +4525,18 @@
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>Offline</source>
+      <translation>Desconectado</translation>
+    </message>
+    <message>
+      <source>Chat is currently unavailable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please try again later.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation>El departamento esta deshabilitado</translation>
     </message>
@@ -4567,10 +4627,6 @@
     <message>
       <source>Department</source>
       <translation>Departamento</translation>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation>Desconectado</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
@@ -4995,6 +5051,14 @@
     <message>
       <source>Typing...</source>
       <translation>Escribiendo...</translation>
+    </message>
+    <message>
+      <source>Transferred to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>as no operators online in</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -6591,6 +6655,78 @@
       <translation>Estadísticas</translation>
     </message>
     <message>
+      <source>What charts to display</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat numbers by status</source>
+      <translation>Número de chats por estado</translation>
+    </message>
+    <message>
+      <source>Unanswered chat numbers</source>
+      <translation>Números de chat sin respuesta</translation>
+    </message>
+    <message>
+      <source>Message types</source>
+      <translation>Tipo de mensajes</translation>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation>Número de chats pro-activos vs número de chats iniciados</translation>
+    </message>
+    <message>
+      <source>Number of chats by subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Up/Down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation>Número de chats por país</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Número de mensajes por usuario</translation>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation>Número de mensajes por hora, duración promedio del chat</translation>
+    </message>
+    <message>
+      <source>Average wait time in seconds (maximum of 10 minutes)</source>
+      <translation>Tiempo promedio de espera en segundos (máximo de 10 minutos)</translation>
+    </message>
+    <message>
+      <source>Number of chats by user</source>
+      <translation>Nro. de Chats por usuario</translation>
+    </message>
+    <message>
+      <source>Number of chats by department</source>
+      <translation>Número de chats por departamento</translation>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Promedio de tiempo de espera de los visitantes por operador</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user in seconds</source>
+      <translation>Duración media de chat por usuario en segundos</translation>
+    </message>
+    <message>
+      <source>Usefull if you prefill usernames always</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unique group field records grouped by date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats number grouped by date and group field</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Thumbs up</source>
       <translation>Pulgares arriba</translation>
     </message>
@@ -6601,6 +6737,10 @@
     <message>
       <source>Number of chats</source>
       <translation>Número de chats</translation>
+    </message>
+    <message>
+      <source>Unique records</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Active</source>
@@ -6653,6 +6793,10 @@
     <message>
       <source>Please choose statistic parameters first!</source>
       <translation>Por favor, elija primero los parámetros estadísticos</translation>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online</source>
@@ -6735,56 +6879,48 @@
       <translation>Total</translation>
     </message>
     <message>
-      <source>Average chat duration by user in seconds</source>
-      <translation>Duración media de chat por usuario en segundos</translation>
-    </message>
-    <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>Promedio de tiempo de espera de los visitantes por operador</translation>
-    </message>
-    <message>
-      <source>Average wait time in seconds (maximum of 10 minutes)</source>
-      <translation>Tiempo promedio de espera en segundos (máximo de 10 minutos)</translation>
-    </message>
-    <message>
       <source>Chatbox chats</source>
       <translation>Cajas de chats</translation>
-    </message>
-    <message>
-      <source>Chat numbers by status</source>
-      <translation>Número de chats por estado</translation>
     </message>
     <message>
       <source>Last 24h statistics</source>
       <translation>Estadísticas de las últimas 24 horas</translation>
     </message>
     <message>
-      <source>Message types</source>
-      <translation>Tipo de mensajes</translation>
+      <source>Unique</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Number of chats by country</source>
-      <translation>Número de chats por país</translation>
+      <source>grouped by date</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Number of chats by department</source>
-      <translation>Número de chats por departamento</translation>
+      <source>nick&apos;s</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Number of chats by user</source>
-      <translation>Nro. de Chats por usuario</translation>
+      <source>user agent&apos;s</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Number of chats per hour, average chat duration</source>
-      <translation>Número de mensajes por hora, duración promedio del chat</translation>
+      <source>device type&apos;s</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats number grouped by date and</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>user agent</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Average number of chats &amp; peak per hour</source>
       <translation>Cantidad promedio y pico de chats por hora</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Número de mensajes por usuario</translation>
     </message>
     <message>
       <source>Number of Thumbs Down</source>
@@ -6797,10 +6933,6 @@
     <message>
       <source>Operators statistic, top 100 by chats number</source>
       <translation>Estadística de operadores, top 100 por número de chats.</translation>
-    </message>
-    <message>
-      <source>Proactive chats number vs visitors initiated</source>
-      <translation>Número de chats pro-activos vs número de chats iniciados</translation>
     </message>
     <message>
       <source>Agents statistics</source>
@@ -6853,10 +6985,6 @@
     <message>
       <source>Unanswered chats</source>
       <translation>Chats sin responder</translation>
-    </message>
-    <message>
-      <source>Unanswered chat numbers</source>
-      <translation>Números de chat sin respuesta</translation>
     </message>
     <message>
       <source>more than 10 min.</source>
@@ -6916,10 +7044,6 @@
   <context>
     <name>chat/sendmail</name>
     <message>
-      <source>Send mail to the user</source>
-      <translation>Enviar correo al usuario</translation>
-    </message>
-    <message>
       <source>Recipient</source>
       <translation>Destinatario</translation>
     </message>
@@ -6954,6 +7078,10 @@
     <message>
       <source>Embed link to file</source>
       <translation>Insertar enlace a archivo</translation>
+    </message>
+    <message>
+      <source>Send mail to the user</source>
+      <translation>Enviar correo al usuario</translation>
     </message>
     <message>
       <source>Mail was sent to the user</source>
@@ -7181,8 +7309,24 @@
       <translation>Actualizado</translation>
     </message>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Interface</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delete</source>
       <translation>Borrar</translation>
+    </message>
+    <message>
+      <source>Hide bot profile while chat is in bot mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat with hidden message box</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Updated!</source>
@@ -7399,6 +7543,10 @@
     <message>
       <source>Notifications</source>
       <translation>Notificaciones</translation>
+    </message>
+    <message>
+      <source>Personal auto responder</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Personal canned messages</source>
@@ -10726,6 +10874,10 @@
   <context>
     <name>user/login</name>
     <message>
+      <source>You session has ended. Please login!</source>
+      <translation>Tu sesión ha terminado. ¡Por favor Iniciar sesión!</translation>
+    </message>
+    <message>
       <source>Please login</source>
       <translation>Por favor, inicie sesión</translation>
     </message>
@@ -10750,8 +10902,8 @@
       <translation>Recordar contraseña</translation>
     </message>
     <message>
-      <source>You session has ended. Please login!</source>
-      <translation>Tu sesión ha terminado. ¡Por favor Iniciar sesión!</translation>
+      <source>Your session has ended. Please login!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You were logged out because another user logged under same account</source>

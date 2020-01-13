@@ -2,6 +2,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por quantos dias o widget de votação não deve ser exibido após última exibição</translation>
     </message>
@@ -123,11 +131,11 @@
     </message>
     <message>
       <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
-      <translation>Bate-papos pró ativos possuem limitação de convites baseados em bate-papos pendentes, (-1) não limita, (0,1, n+1) número de bate-papos pendentes que podem ser mostrados para convidar</translation>
+      <translation>Bate-papos proativos possuem limitação de convites baseados em bate-papos pendentes, (-1) não limita, (0,1, n+1) número de bate-papos pendentes que podem ser mostrados para convidar</translation>
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
-      <translation>Existem convites de bate-papo pro-ativos ativos. O mapeamento de usuários online também deve estar ativado.</translation>
+      <translation>Existem convites de bate-papo proativo. O mapeamento de usuários online também deve estar ativado.</translation>
     </message>
     <message>
       <source>Preload iframes. It will avoid loading delay after clicking widget</source>
@@ -135,7 +143,7 @@
     </message>
     <message>
       <source>How many seconds customer has to open already closed chat.</source>
-      <translation>Quantos segundos o cliente tem para reabrir um bate papo fechado.</translation>
+      <translation>Quantos segundos o cliente tem para reabrir um bate-papo fechado.</translation>
     </message>
     <message>
       <source>On chat close exit chat</source>
@@ -175,15 +183,15 @@
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
-      <translation>Tempo limite de mensagem pró-ativa em horas. Após quantas horas mensagens do bate-papo deve ser mostrado novamente.</translation>
+      <translation>Tempo limite de mensagem proativas em horas. Após quantas horas mensagens do bate-papo deve ser mostrado novamente.</translation>
     </message>
     <message>
       <source>Maximum message length in characters</source>
-      <translation>Comprimento máximo de mensagem em caracteres</translation>
+      <translation>Comprimento máximo da mensagem em caracteres</translation>
     </message>
     <message>
       <source>List unread chats, disabled for high performance</source>
-      <translation>Listar bate papos não lidos, desabilitado para melhor performance</translation>
+      <translation>Listar bate-papos não lidos, desabilitado para melhor performance</translation>
     </message>
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
@@ -191,7 +199,7 @@
     </message>
     <message>
       <source>List closed chats, disabled for high performance</source>
-      <translation>Listar bate papos fechados, desabilitado para melhor performance</translation>
+      <translation>Listar bate-papos fechados, desabilitado para melhor performance</translation>
     </message>
     <message>
       <source>Default number of online operators to show</source>
@@ -239,7 +247,7 @@
     </message>
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
-      <translation>Por favor digite explícitamente modo http. Use http: ou https:, não se esqueça do : no final.</translation>
+      <translation>Por gentileza, digite explícitamente modo http. Use http: ou https:, não se esqueça do : no final.</translation>
     </message>
     <message>
       <source>Encrypt also operators messages.</source>
@@ -472,18 +480,26 @@
     </message>
     <message>
       <source>Please choose atleast one department!</source>
-      <translation>Por favor selecione ao menos um departamento!</translation>
+      <translation>Por gentileza, selecione ao menos um departamento!</translation>
     </message>
   </context>
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Not replying messaging</source>
+      <translation>Não responde mensagens</translation>
+    </message>
+    <message>
       <source>Pending chat messaging</source>
       <translation>Bate-papo pendente</translation>
     </message>
     <message>
-      <source>Not replying messaging</source>
-      <translation>Não responder mensagens</translation>
+      <source>Visitor not replying messaging</source>
+      <translation>O visitante não está respondendo às mensagens</translation>
+    </message>
+    <message>
+      <source>Operator not replying messaging</source>
+      <translation>O operador não está respondendo às mensagens</translation>
     </message>
     <message>
       <source>On-hold chat messaging</source>
@@ -523,7 +539,7 @@
     </message>
     <message>
       <source>Choose what bot trigger element append after auto responder message</source>
-      <translation>Escolha qual o gatilho deve ser anexado após a mensagem de resposta automática</translation>
+      <translation>Escolha qual o gatilho deve ser acionado após a mensagem de resposta automática</translation>
     </message>
     <message>
       <source>Preview</source>
@@ -539,7 +555,7 @@
     </message>
     <message>
       <source>Widget container</source>
-      <translation>Conteiner do widget</translation>
+      <translation>Contêiner do widget</translation>
     </message>
     <message>
       <source>Messages style</source>
@@ -607,7 +623,7 @@
     </message>
     <message>
       <source>Buble background color</source>
-      <translation>Cor de fundo do buble</translation>
+      <translation>Cor de fundo do balão</translation>
     </message>
     <message>
       <source>Title color</source>
@@ -771,15 +787,15 @@
     </message>
     <message>
       <source>Minimum time in second how long sync has to be stopped before allowing reset auto responder</source>
-      <translation>Tempo mínimo em segundos para quanto tempo a sincronização precisa ser interrompida antes de não redefinir a resposta automática</translation>
+      <translation>Tempo mínimo em segundos para quanto tempo a sincronização precisa ser interrompida antes de redefinir a resposta automática</translation>
     </message>
     <message>
       <source>Maximum time in seconds how long sync has to be stopped before we do not reset auto responder</source>
-      <translation>Tempo máximo em segundos para quanto tempo a sincronização precisa ser interrompida antes de não redefinir o respondedor automático</translation>
+      <translation>Tempo máximo em segundos para quanto tempo a sincronização precisa ser interrompida antes de redefinir o respondedor automático</translation>
     </message>
     <message>
       <source>Disable reset auto responder if visitor was redirected to survey</source>
-      <translation>Desativar a resposta automática se o visitante foi redirecionado para a pesquisa</translation>
+      <translation>Desativar a resposta automática se o visitante for redirecionado para a pesquisa</translation>
     </message>
     <message>
       <source>Do not send messages to pending chat if chat is assigned to operator.</source>
@@ -907,7 +923,7 @@
     </message>
     <message>
       <source>Show copyright widget logo in left corner</source>
-      <translation>Mostrar o logotipo widget copyright no canto esquerdo</translation>
+      <translation>Mostrar o logotipo de copyright no canto esquerdo da widget</translation>
     </message>
     <message>
       <source>Hide widget close button</source>
@@ -1151,7 +1167,19 @@
     </message>
     <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
-      <translation>Bloquear que visitante altere sua última mensagem pressionando botão para cima</translation>
+      <translation>Bloquear que visitante altere sua última mensagem ao pressionar o botão para cima</translation>
+    </message>
+    <message>
+      <source>Bubble style messages</source>
+      <translation>Estilo das mensagens no balão</translation>
+    </message>
+    <message>
+      <source>Use expanding message area</source>
+      <translation>Utilize a área de expansão da mensagem</translation>
+    </message>
+    <message>
+      <source>Hide visitor profile</source>
+      <translation>Ocultar perfil do visitante</translation>
     </message>
     <message>
       <source>Notifications enabled</source>
@@ -1160,6 +1188,10 @@
     <message>
       <source>Notification title</source>
       <translation>Título da notificação</translation>
+    </message>
+    <message>
+      <source>Notification domain</source>
+      <translation>Domínio de notificação</translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -1230,7 +1262,7 @@
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation>Linguagem, deixe em branco para todos. Por exemplo, por, esp, ger etc ...</translation>
+      <translation>Linguagem, deixe em branco para todos. Exp: por, esp, ger etc ...</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1247,6 +1279,10 @@
     <message>
       <source>Department</source>
       <translation>Departamento</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Usuário</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
@@ -1570,7 +1606,7 @@
     </message>
     <message>
       <source>Pro active chat campaigns</source>
-      <translation>Campanhas de bate-papo ativas</translation>
+      <translation>Campanhas de bate-papo proativas</translation>
     </message>
     <message>
       <source>Pro active chat events</source>
@@ -1785,11 +1821,11 @@
     </message>
     <message>
       <source>Automatically start chat then user starts typing. Only message field has to be required</source>
-      <translation>Iniciar o bate-papo automaticamente quando o usuário começa a digitar. Apenas o campo de mensagem deve ser obrigatório</translation>
+      <translation>Iniciar o bate-papo automaticamente quando o usuário começar a digitar. Apenas o campo de mensagem deve ser obrigatório</translation>
     </message>
     <message>
       <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
-      <translation>Iniciar o processo do bate-papo em segundo plano assim que o usuário enviar o form. Apenas o campo de mensagem deve ser obrigatório </translation>
+      <translation>Iniciar o processo do bate-papo em segundo plano assim que o usuário enviar o formulário. Apenas o campo de mensagem deve ser obrigatório </translation>
     </message>
     <message>
       <source>Phone</source>
@@ -1916,7 +1952,7 @@
     </message>
     <message>
       <source>Fallback message</source>
-      <translation>Mensagem de falha emergencial (Fallback)</translation>
+      <translation>Mensagem de falha - fallback</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2056,7 +2092,7 @@
     </message>
     <message>
       <source>Proactive invitation</source>
-      <translation>Convite antecipado</translation>
+      <translation>Convite proativo</translation>
     </message>
     <message>
       <source>IP</source>
@@ -2164,11 +2200,15 @@
     </message>
     <message>
       <source>Please choose</source>
-      <translation>Por favor escolha</translation>
+      <translation>Por gentileza escolha</translation>
     </message>
     <message>
       <source>Invitation</source>
       <translation>Convite</translation>
+    </message>
+    <message>
+      <source>Group field</source>
+      <translation>Campo de grupo</translation>
     </message>
     <message>
       <source>Exclude offline requests from charts</source>
@@ -2363,7 +2403,7 @@
     </message>
     <message>
       <source>Automatically send this message to user then chat is accepted</source>
-      <translation>Enviar esta mensagem automaticamente ao usuário quando o bate-papo foi aceito</translation>
+      <translation>Enviar esta mensagem automaticamente ao usuário quando o bate-papo for aceito</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
@@ -2414,8 +2454,12 @@
       <translation>Mensagem predefinida foi salva</translation>
     </message>
     <message>
+      <source>Personal auto responder message</source>
+      <translation>Mensagem pessoal da resposta automática</translation>
+    </message>
+    <message>
       <source>Please enter a canned message</source>
-      <translation>Por favor insira uma mensagem predefinida</translation>
+      <translation>Por gentileza, insira uma mensagem predefinida</translation>
     </message>
     <message>
       <source>Canned message tags should not contain # character</source>
@@ -2423,15 +2467,15 @@
     </message>
     <message>
       <source>Please choose a department!</source>
-      <translation>Por favor escolha um departamento!</translation>
+      <translation>Por gentileza, escolha um departamento!</translation>
     </message>
     <message>
       <source>Please enter language name!</source>
-      <translation>Por favor, insira o nome da linguagem!</translation>
+      <translation>Por gentileza, insira o nome da linguagem!</translation>
     </message>
     <message>
       <source>Please choose a language!</source>
-      <translation>Por favor, escolha uma linguagem!</translation>
+      <translation>Por gentileza, escolha uma linguagem!</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -2478,7 +2522,7 @@
     </message>
     <message>
       <source>Please choose a subject</source>
-      <translation>Por favor, escolha um assunto</translation>
+      <translation>Por gentileza, escolha um assunto</translation>
     </message>
   </context>
   <context>
@@ -2992,7 +3036,7 @@
     </message>
     <message>
       <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>Identificador, este pode ser utilizado como filtro para convites de bate-papo pró-ativo é útil quando se tem mensagens diferentes para domínios diferentes. Apenas seqüência de caracteres sem espaços ou caracteres especiais.</translation>
+      <translation>Identificador, este pode ser utilizado como filtro para convites de bate-papo pró-ativo e é útil quando se tem mensagens diferentes para domínios diferentes. Informar apenas sequência de caracteres sem espaços ou caracteres especiais.</translation>
     </message>
     <message>
       <source>Leave empty if it is not important to you</source>
@@ -3220,7 +3264,7 @@
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
-      <translation>Copie o código de área de texto para a página onde você deseja que seu status apareça</translation>
+      <translation>Copie o código da área de texto para a página onde você deseja que seu status apareça</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Plugin to render.</source>
@@ -3236,7 +3280,7 @@
     </message>
     <message>
       <source>Disable proactive invitations</source>
-      <translation>Desabilitar convites antecipados</translation>
+      <translation>Desabilitar convites proativo</translation>
     </message>
     <message>
       <source>Disable online tracking (this overrides the system configuration)</source>
@@ -3320,15 +3364,15 @@
     </message>
     <message>
       <source>Identifier – enter a unique identifier here. This is useful for separating messages and proactive chat invitations from different domains/web pages. Enter a string without special characters or spaces such as “homepage” or “website1”.</source>
-      <translation>Identificador - informe um identificador único aqui. Isso é útil para separar mensagens e convites antecipados de bate-papo originados de diferentes domínios/sites. Informe uma palavra sem caracteres especiais ou espaços como &quot;paginainicial&quot; ou &quot;site1&quot;.</translation>
+      <translation>Identificador - informe um identificador único aqui. Isso é útil para separar mensagens e convites antecipados de bate-papo originados de diferentes domínios/sites. Informe uma palavra sem caracteres especiais ou espaços.</translation>
     </message>
     <message>
       <source>no survey</source>
-      <translation>Nenhum questionário</translation>
+      <translation>nenhum questionário</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
-      <translation>Por favor, não informe o protoloco, somente o nome do domínio é requerido</translation>
+      <translation>Por gentileza, não informe o protoloco, somente o nome do domínio é requerido</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Status to render.</source>
@@ -3509,7 +3553,7 @@
     </message>
     <message>
       <source>Invalid hash or auto creation is disabled</source>
-      <translation>hash inválido ou a criação automática está desabilitada</translation>
+      <translation>Hash inválido ou a criação automática está desabilitada</translation>
     </message>
     <message>
       <source>Back to chat</source>
@@ -3568,11 +3612,11 @@
     </message>
     <message>
       <source>Please enter link to an image</source>
-      <translation>Por favor insira uma URL para uma imagem</translation>
+      <translation>Por gentileza, insira uma URL para uma imagem</translation>
     </message>
     <message>
       <source>Please enter a link</source>
-      <translation>Por favor insira a URL</translation>
+      <translation>Por gentileza, insira a URL</translation>
     </message>
     <message>
       <source>Here is a link</source>
@@ -3861,7 +3905,7 @@
     </message>
     <message>
       <source>Please enter value in seconds</source>
-      <translation>Por favor informe o valor em segundos</translation>
+      <translation>Por gentileza, informe o valor em segundos</translation>
     </message>
     <message>
       <source>Inform then chat is accepted by one of the staff members using</source>
@@ -3890,6 +3934,10 @@
     <message>
       <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
       <translation>Tempo limite em segundos antes do bate-papo ser transferido para outro departamento. O mínimo é de 5 segundos.</translation>
+    </message>
+    <message>
+      <source>Transfer immediately to this department if current department has no online operators?</source>
+      <translation>Transferir imediatamente para este departamento se o departamento atual não tiver operadores disponíveis?</translation>
     </message>
     <message>
       <source>Execute new chat logic again for recipient department?</source>
@@ -4431,7 +4479,7 @@
     </message>
     <message>
       <source>Please</source>
-      <translation>Por favor</translation>
+      <translation>Por gentileza</translation>
     </message>
     <message>
       <source>login first.</source>
@@ -4477,6 +4525,18 @@
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>Offline</source>
+      <translation>Offline</translation>
+    </message>
+    <message>
+      <source>Chat is currently unavailable</source>
+      <translation>O bate-papo está indisponível no momento</translation>
+    </message>
+    <message>
+      <source>Please try again later.</source>
+      <translation>Por gentileza, tente novamente mais tarde.</translation>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation>Departamento está desabilitado</translation>
     </message>
@@ -4510,7 +4570,7 @@
     </message>
     <message>
       <source>Please provide a department</source>
-      <translation>Por favor informe um departamento</translation>
+      <translation>Por gentileza, informe um departamento</translation>
     </message>
     <message>
       <source>Name</source>
@@ -4534,7 +4594,7 @@
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
-      <translation>Não existem operadores online no momento, por favor deixe uma mensagem e entraremos em contato com você</translation>
+      <translation>Não existem operadores online no momento. Por gentileza, deixe uma mensagem e entraremos em contato com você</translation>
     </message>
     <message>
       <source>File</source>
@@ -4567,10 +4627,6 @@
     <message>
       <source>Department</source>
       <translation>Departamento</translation>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation>Offline</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
@@ -4606,7 +4662,7 @@
     </message>
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
-      <translation>Não há operadores on-line no momento, por favor deixe a sua mensagem</translation>
+      <translation>Não há operadores on-line no momento. Por gentileza, deixe a sua mensagem</translation>
     </message>
     <message>
       <source>Me</source>
@@ -4630,7 +4686,7 @@
     </message>
     <message>
       <source>Please enter a valid email address</source>
-      <translation>Por favor insira um endereço de e-mail válido</translation>
+      <translation>Por gentileza, insira um endereço de e-mail válido</translation>
     </message>
     <message>
       <source>Maximum 50 characters</source>
@@ -4638,11 +4694,11 @@
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>Você não tem permissão para o bate-papo! Por favor, contate o proprietário do site.</translation>
+      <translation>Você não tem permissão para o bate-papo! Por gentileza, contate o proprietário do site.</translation>
     </message>
     <message>
       <source>Please enter your name</source>
-      <translation>Por favor, digite seu nome</translation>
+      <translation>Por gentileza, digite seu nome</translation>
     </message>
     <message>
       <source>Maximum 100 characters</source>
@@ -4650,7 +4706,7 @@
     </message>
     <message>
       <source>Please enter your message</source>
-      <translation>Por favor, digite sua mensagem</translation>
+      <translation>Por gentileza, digite sua mensagem</translation>
     </message>
     <message>
       <source>Maximum</source>
@@ -4666,7 +4722,7 @@
     </message>
     <message>
       <source>Please enter your phone</source>
-      <translation>Por favor, digite seu telefone</translation>
+      <translation>Por gentileza, digite seu telefone</translation>
     </message>
     <message>
       <source>Maximum 100 characters for phone</source>
@@ -4678,7 +4734,7 @@
     </message>
     <message>
       <source>Please choose department!</source>
-      <translation>Por favor escolha um departamento!</translation>
+      <translation>Por gentileza, escolha um departamento!</translation>
     </message>
     <message>
       <source>Could not find a product!</source>
@@ -4686,7 +4742,7 @@
     </message>
     <message>
       <source>Please choose</source>
-      <translation>Por favor escolha</translation>
+      <translation>Por gentileza escolha</translation>
     </message>
     <message>
       <source>Could not determine a default department!</source>
@@ -4694,11 +4750,11 @@
     </message>
     <message>
       <source>Please choose a product!</source>
-      <translation>Por favor escolha um produto!</translation>
+      <translation>Por gentileza escolha um produto!</translation>
     </message>
     <message>
       <source>At the moment department is overloaded, please choose a different department or try again later!</source>
-      <translation>No momento o departamento está sobrecarregado, por favor escolha um departamento diferente ou tente novamente mais tarde!</translation>
+      <translation>No momento o departamento está sobrecarregado. Por gentileza, escolha um departamento diferente ou tente novamente mais tarde!</translation>
     </message>
     <message>
       <source>is required</source>
@@ -4714,7 +4770,7 @@
     </message>
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
-      <translation>Sua solicitação não foi processada como esperado - mas não se preocupe isso não foi sua culpa. Por favor reenvie sua solicitação. Se você experimentar o mesmo problema, você precisará nos contactar por outros meios.</translation>
+      <translation>Sua solicitação não foi processada como esperado. Por gentileza, reenvie sua solicitação. Se você experimentar o mesmo problema, você precisará nos contactar por outros meios.</translation>
     </message>
     <message>
       <source>Invalid file extension</source>
@@ -4750,11 +4806,11 @@
     </message>
     <message>
       <source>Please enter a message, max characters</source>
-      <translation>Por favor, digite uma mensagem, máximo de caracteres</translation>
+      <translation>Por gentileza, digite uma mensagem, máximo de caracteres</translation>
     </message>
     <message>
       <source>You cannot send messages to this chat. Please refresh your browser.</source>
-      <translation>Você não pode enviar mensagens para esse bate-papo. Por favor, atualize seu navegador.</translation>
+      <translation>Você não pode enviar mensagens para esse bate-papo. Por gentileza, atualize seu navegador.</translation>
     </message>
     <message>
       <source>Pending Chat</source>
@@ -4778,7 +4834,7 @@
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
-      <translation>Preencha no formulário para iniciar um bate-papo</translation>
+      <translation>Preencha o formulário para iniciar um bate-papo</translation>
     </message>
   </context>
   <context>
@@ -4813,7 +4869,7 @@
     </message>
     <message>
       <source>in the queue. Please wait...</source>
-      <translation>na fila. Por favor, aguarde...</translation>
+      <translation>na fila. Por gentileza, aguarde...</translation>
     </message>
     <message>
       <source>Chat status if customer is chatting with a bot</source>
@@ -4997,6 +5053,14 @@
       <translation>Digitando...</translation>
     </message>
     <message>
+      <source>Transferred to</source>
+      <translation>Transferido para</translation>
+    </message>
+    <message>
+      <source>as no operators online in</source>
+      <translation>como nenhum operador está online em</translation>
+    </message>
+    <message>
       <source>Chat was automatically transferred to</source>
       <translation>O bate-papo foi automaticamente transferido para</translation>
     </message>
@@ -5036,7 +5100,7 @@
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
-      <translation>Por favor informe o texto!</translation>
+      <translation>Por gentileza, informe o texto!</translation>
     </message>
   </context>
   <context>
@@ -5349,7 +5413,7 @@
     </message>
     <message>
       <source>IP, if your site remote IP is different from detected one, please provide correct remote IP address</source>
-      <translation>IP, se o IP remoto do site for diferente do detectado, por favor informe o IP correto</translation>
+      <translation>IP, se o IP remoto do site for diferente do detectado informe o IP correto</translation>
     </message>
     <message>
       <source>Save</source>
@@ -5713,23 +5777,23 @@
     </message>
     <message>
       <source>Please enter city variable!</source>
-      <translation>Por favor insira a variável cidade!</translation>
+      <translation>Por gentileza, insira a variável cidade!</translation>
     </message>
     <message>
       <source>Please enter latitude variable!</source>
-      <translation>Por favor insira a variável latitude!</translation>
+      <translation>Por gentileza, insira a variável latitude!</translation>
     </message>
     <message>
       <source>Please enter longitude variable!</source>
-      <translation>Por favor insira a variável longitude!</translation>
+      <translation>Por gentileza, insira a variável longitude!</translation>
     </message>
     <message>
       <source>Please enter API Key!</source>
-      <translation>Por favor digite a chave da API!</translation>
+      <translation>Por gentileza, digite a chave da API!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
-      <translation>A definição do provedor de serviço falhou, por favor, verifique se seu provedor de serviço permite que faça solicitações para páginas remotas!</translation>
+      <translation>A definição do provedor de serviço falhou. Por gentileza, verifique se seu provedor de serviço permite que faça solicitações para páginas remotas!</translation>
     </message>
     <message>
       <source>MaxMind city file does not exists!</source>
@@ -5741,35 +5805,35 @@
     </message>
     <message>
       <source>Setting service provider failed, please check that MaxMind database files exists!</source>
-      <translation>Configuração de provedor de serviços falhou, por favor, verifique se os arquivos de banco de dados MaxMind existe!</translation>
+      <translation>Configuração de provedor de serviços falhou. Por gentileza, verifique se os arquivos de banco de dados MaxMind existe!</translation>
     </message>
     <message>
       <source>Please enter the API key!</source>
-      <translation>Por favor digite a chave da API!</translation>
+      <translation>Por gentileza, digite a chave da API!</translation>
     </message>
     <message>
       <source>Please enter the API username!</source>
-      <translation>Por favor digite o usuário da API!</translation>
+      <translation>Por gentileza, digite o usuário da API!</translation>
     </message>
     <message>
       <source>Please enter IP!</source>
-      <translation>Por favor informe o IP!</translation>
+      <translation>Por gentileza, informe o IP!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
-      <translation>Definir provedor de serviço falhou, por favor verifique se o seu provedor de serviço permite que você faça requisições a páginas remotas e se sua chave API e o nome de usuário estão corretos!</translation>
+      <translation>Definir provedor de serviço falhou. Por gentileza, verifique se o seu provedor de serviço permite que você faça requisições a páginas remotas e se sua chave API e o nome de usuário estão corretos!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
-      <translation>A configuração do provedor de serviços falhou! por favor verifique se o seu provedor de serviços permite que você faça requisições a páginas remotas e se sua chave API está correta!</translation>
+      <translation>A configuração do provedor de serviços falhou! Por gentileza, verifique se o seu provedor de serviços permite que você faça requisições a páginas remotas e se sua chave API está correta!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
-      <translation>Provedor de serviços de configuração falhou, por favor, verifique se você instalou módulo php-GeoIP e arquivo GeoIPCity.dat está disponível!</translation>
+      <translation>Provedor de serviços de configuração falhou. Por gentileza, verifique se você instalou módulo php-GeoIP e se o arquivo GeoIPCity.dat está disponível!</translation>
     </message>
     <message>
       <source>Please choose a service provider!</source>
-      <translation>Por favor escolha um provedor do serviço!</translation>
+      <translation>Por gentileza, escolha um provedor do serviço!</translation>
     </message>
     <message>
       <source>Online users</source>
@@ -5953,7 +6017,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Paid chat configuration</source>
-      <translation>Configuração de bate papo pago</translation>
+      <translation>Configuração de bate-papo pago</translation>
     </message>
     <message>
       <source>Update information</source>
@@ -5961,11 +6025,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Pro active chat invitations</source>
-      <translation>Convites de bate-papo pró ativos</translation>
+      <translation>Convites de bate-papo proativos</translation>
     </message>
     <message>
       <source>Pro active chat campaigns</source>
-      <translation>Campanhas de bate-papo ativas</translation>
+      <translation>Campanhas de bate-papo proativos</translation>
     </message>
     <message>
       <source>Pro active chat events</source>
@@ -6592,6 +6656,78 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Estatística</translation>
     </message>
     <message>
+      <source>What charts to display</source>
+      <translation>Quais gráficos devem ser exibidos</translation>
+    </message>
+    <message>
+      <source>Chat numbers by status</source>
+      <translation>Números de bate-papo por status</translation>
+    </message>
+    <message>
+      <source>Unanswered chat numbers</source>
+      <translation>Número de bate-papo não respondidos</translation>
+    </message>
+    <message>
+      <source>Message types</source>
+      <translation>Tipos de mensagens</translation>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation>Número de bate-papos proativos X Visitantes iniciaram</translation>
+    </message>
+    <message>
+      <source>Number of chats by subject</source>
+      <translation>Número de bate-papo por assunto</translation>
+    </message>
+    <message>
+      <source>Number of Thumbs Up/Down</source>
+      <translation>Número de polegadas para cima ou para baixo</translation>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation>Número de bate-papos por país</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Número de mensagens por usuário</translation>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation>Número de bate-papos por hora, duração média do bate-papo</translation>
+    </message>
+    <message>
+      <source>Average wait time in seconds (maximum of 10 minutes)</source>
+      <translation>Tempo médio de espera em segundos (máximo de 10 minutos)</translation>
+    </message>
+    <message>
+      <source>Number of chats by user</source>
+      <translation>Número de bate-papos por usuário</translation>
+    </message>
+    <message>
+      <source>Number of chats by department</source>
+      <translation>Número de bate-papo por departamento</translation>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Tempo de espera médio dos visitantes por operador</translation>
+    </message>
+    <message>
+      <source>Average chat duration by user in seconds</source>
+      <translation>Duração média, em segundos, do bate-papo por usuário </translation>
+    </message>
+    <message>
+      <source>Usefull if you prefill usernames always</source>
+      <translation>Útil se você preencher previamente os nomes de usuário</translation>
+    </message>
+    <message>
+      <source>Unique group field records grouped by date</source>
+      <translation>Registros de campo de grupo exclusivo agrupados por data</translation>
+    </message>
+    <message>
+      <source>Chats number grouped by date and group field</source>
+      <translation>Número de bate-papos agrupados por data e campo de grupo</translation>
+    </message>
+    <message>
       <source>Thumbs up</source>
       <translation>Positivo</translation>
     </message>
@@ -6602,6 +6738,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Number of chats</source>
       <translation>Número de bate-papos</translation>
+    </message>
+    <message>
+      <source>Unique records</source>
+      <translation>Registros exclusivos</translation>
     </message>
     <message>
       <source>Active</source>
@@ -6621,7 +6761,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Proactive</source>
-      <translation>Pró-ativo</translation>
+      <translation>Proativos</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -6653,7 +6793,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please choose statistic parameters first!</source>
-      <translation>Por favor escolha os parâmetros de estatísticas primeiro!</translation>
+      <translation>Por gentileza, escolha os parâmetros de estatísticas primeiro!</translation>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation>Atualizado</translation>
     </message>
     <message>
       <source>Online</source>
@@ -6736,56 +6880,48 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Total</translation>
     </message>
     <message>
-      <source>Average chat duration by user in seconds</source>
-      <translation>Duração média, em segundos, do bate-papo por usuário </translation>
-    </message>
-    <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>Tempo de espera médio dos visitantes por operador</translation>
-    </message>
-    <message>
-      <source>Average wait time in seconds (maximum of 10 minutes)</source>
-      <translation>Tempo médio de espera em segundos (máximo de 10 minutos)</translation>
-    </message>
-    <message>
       <source>Chatbox chats</source>
       <translation>Caixas de bate-papos</translation>
-    </message>
-    <message>
-      <source>Chat numbers by status</source>
-      <translation>Números de bate-papo por status</translation>
     </message>
     <message>
       <source>Last 24h statistics</source>
       <translation>Estatísticas das últimas 24 horas</translation>
     </message>
     <message>
-      <source>Message types</source>
-      <translation>Tipos de mensagens</translation>
+      <source>Unique</source>
+      <translation>Exclusivo</translation>
     </message>
     <message>
-      <source>Number of chats by country</source>
-      <translation>Número de bate-papos por país</translation>
+      <source>grouped by date</source>
+      <translation>agrupados por data</translation>
     </message>
     <message>
-      <source>Number of chats by department</source>
-      <translation>Número de bate-papo por departamento</translation>
+      <source>nick&apos;s</source>
+      <translation>Nomes de usuário</translation>
     </message>
     <message>
-      <source>Number of chats by user</source>
-      <translation>Número de bate-papos por usuário</translation>
+      <source>user agent&apos;s</source>
+      <translation>navegadores do usuário</translation>
     </message>
     <message>
-      <source>Number of chats per hour, average chat duration</source>
-      <translation>Número de bate-papos por hora, duração média do bate-papo</translation>
+      <source>device type&apos;s</source>
+      <translation>Tipo de dispositivo</translation>
+    </message>
+    <message>
+      <source>Chats number grouped by date and</source>
+      <translation>Número de bate-papos agrupados por data e</translation>
+    </message>
+    <message>
+      <source>nick</source>
+      <translation>apelido</translation>
+    </message>
+    <message>
+      <source>user agent</source>
+      <translation>navegador do usuário</translation>
     </message>
     <message>
       <source>Average number of chats &amp; peak per hour</source>
       <translation>Número médio de bate-papo e pico por hora</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Número de mensagens por usuário</translation>
     </message>
     <message>
       <source>Number of Thumbs Down</source>
@@ -6798,10 +6934,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Operators statistic, top 100 by chats number</source>
       <translation>Estatística dos operadores, top 100 por números de bate-papos</translation>
-    </message>
-    <message>
-      <source>Proactive chats number vs visitors initiated</source>
-      <translation>Número de bate-papos pró-ativos X Visitantes iniciaram</translation>
     </message>
     <message>
       <source>Agents statistics</source>
@@ -6854,10 +6986,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Unanswered chats</source>
       <translation>Bate-papos sem resposta</translation>
-    </message>
-    <message>
-      <source>Unanswered chat numbers</source>
-      <translation>Número de bate-papo não respondidos</translation>
     </message>
     <message>
       <source>more than 10 min.</source>
@@ -6917,10 +7045,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>chat/sendmail</name>
     <message>
-      <source>Send mail to the user</source>
-      <translation>Enviar e-mail para o usuário</translation>
-    </message>
-    <message>
       <source>Recipient</source>
       <translation>Destinatário</translation>
     </message>
@@ -6957,12 +7081,16 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Incorporar URL ao arquivo</translation>
     </message>
     <message>
+      <source>Send mail to the user</source>
+      <translation>Enviar e-mail para o usuário</translation>
+    </message>
+    <message>
       <source>Mail was sent to the user</source>
       <translation>O e-mail foi enviado para o usuário</translation>
     </message>
     <message>
       <source>Please enter recipient e-mail!</source>
-      <translation>Por favor, digite o e-mail do destinatário!</translation>
+      <translation>Por gentileza, digite o e-mail do destinatário!</translation>
     </message>
     <message>
       <source>From e-mail is missing!</source>
@@ -7060,7 +7188,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>How many seconds for a user to be considered as being online</source>
-      <translation>Quantos segundos para que um usuário seja considerado como estando online</translation>
+      <translation>Quantos segundos para que um usuário seja considerado online</translation>
     </message>
     <message>
       <source>Value in seconds</source>
@@ -7144,27 +7272,27 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please enter a valid online timeout value!</source>
-      <translation>Por favor, insira um valor de tempo limite válido!</translation>
+      <translation>Por gentileza, insira um valor de tempo limite válido!</translation>
     </message>
     <message>
       <source>Please enter a valid server connection timeout value!</source>
-      <translation>Por favor insira um valor válido de tempo limite de conexão do servidor!</translation>
+      <translation>Por gentileza, insira um valor válido de tempo limite de conexão com o servidor!</translation>
     </message>
     <message>
       <source>Please enter a valid operator message timeout value!</source>
-      <translation>Por favor informe um tempo limite válido para a mensagem do operador!</translation>
+      <translation>Por gentileza, informe um tempo limite válido para a mensagem do operador!</translation>
     </message>
     <message>
       <source>Please enter a valid new messages polling sync interval!</source>
-      <translation>Por favor insira um novo intervalo válido para sincronização de mensagens de votação!</translation>
+      <translation>Por gentileza, insira um novo intervalo válido para sincronização de mensagens de votação!</translation>
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
-      <translation>Por favor, insira um intervalo de sincronização de back office válido!</translation>
+      <translation>Por gentileza, insira um intervalo de sincronização de back office válido!</translation>
     </message>
     <message>
       <source>Please enter a valid new messages sync interval!</source>
-      <translation>Por favor insira um novo intervalo de sincronização de mensagens válido!</translation>
+      <translation>Por gentileza, insira um novo intervalo de sincronização de mensagens válido!</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
@@ -7182,8 +7310,24 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Atualizado</translation>
     </message>
     <message>
+      <source>General</source>
+      <translation>Geral</translation>
+    </message>
+    <message>
+      <source>Interface</source>
+      <translation>Interface</translation>
+    </message>
+    <message>
       <source>Delete</source>
       <translation>Apagar</translation>
+    </message>
+    <message>
+      <source>Hide bot profile while chat is in bot mode</source>
+      <translation>Ocultar o perfil do robô enquanto o bate-papo estiver no modo robô</translation>
+    </message>
+    <message>
+      <source>Start chat with hidden message box</source>
+      <translation>Iniciar bate-papo com caixa de mensagem oculta</translation>
     </message>
     <message>
       <source>Updated!</source>
@@ -7402,6 +7546,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Notificações</translation>
     </message>
     <message>
+      <source>Personal auto responder</source>
+      <translation>Resposta automática pessoal</translation>
+    </message>
+    <message>
       <source>Personal canned messages</source>
       <translation>Mensagens predefinidas pessoais</translation>
     </message>
@@ -7564,11 +7712,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation>Por favor informe um intervalo de datas válido!</translation>
+      <translation>Por gentileza, informe um intervalo de datas válido!</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation>Por favor insira dados válidos no intervalo de dada!</translation>
+      <translation>Por gentileza, insira dados válidos no intervalo de data!</translation>
     </message>
   </context>
   <context>
@@ -8145,11 +8293,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation>Por favor insira uma pergunta!</translation>
+      <translation>Por gentileza, insira uma pergunta!</translation>
     </message>
     <message>
       <source>Please enter your email address!</source>
-      <translation>Por favor informe seu endereço de e-mail</translation>
+      <translation>Por gentileza, informe seu endereço de e-mail</translation>
     </message>
   </context>
   <context>
@@ -8234,19 +8382,19 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please enter a manager name!</source>
-      <translation>Por favor insira um nome de gerente!</translation>
+      <translation>Por gentileza, insira um nome de gerente!</translation>
     </message>
     <message>
       <source>Please enter a chatbox name!</source>
-      <translation>Por favor, informe um nome para o chatbox!</translation>
+      <translation>Por gentileza, informe um nome para o chatbox!</translation>
     </message>
     <message>
       <source>Please enter a chatbox identifier!</source>
-      <translation>Por favor, informe um identificador para o chatbox!</translation>
+      <translation>Por gentileza, informe um identificador para o chatbox!</translation>
     </message>
     <message>
       <source>Please enter answer!</source>
-      <translation>Por favor, digite uma resposta!</translation>
+      <translation>Por gentileza, digite uma resposta!</translation>
     </message>
     <message>
       <source>Identifier has to be shorter than 10 characters!</source>
@@ -8254,7 +8402,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please enter question!</source>
-      <translation>Por favor insira a pergunta!</translation>
+      <translation>Por gentileza, insira a pergunta!</translation>
     </message>
     <message>
       <source>FAQ</source>
@@ -8376,11 +8524,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please enter valid file type!</source>
-      <translation>Por favor informe um tipo de arquivo válido!</translation>
+      <translation>Por gentileza, informe um tipo de arquivo válido!</translation>
     </message>
     <message>
       <source>Please enter valid maximum file size!</source>
-      <translation>Por favor informe um tamanho máximo de arquivo válido!</translation>
+      <translation>Por gentileza, informe um tamanho máximo de arquivo válido!</translation>
     </message>
   </context>
   <context>
@@ -9058,15 +9206,15 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please enter role name</source>
-      <translation>Por favor informe o nome da regra</translation>
+      <translation>Por gentileza, informe o nome da regra</translation>
     </message>
     <message>
       <source>Please choose module</source>
-      <translation>Por favor escolha o módulo</translation>
+      <translation>Por gentileza, escolha o módulo</translation>
     </message>
     <message>
       <source>Please choose module function</source>
-      <translation>Por favor, selecione a função do módulo</translation>
+      <translation>Por gentileza, selecione a função do módulo</translation>
     </message>
     <message>
       <source>Role edit</source>
@@ -9081,7 +9229,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please choose at least one permission</source>
-      <translation>Por favor, escolha pelo menos uma permissão</translation>
+      <translation>Por gentileza, escolha pelo menos uma permissão</translation>
     </message>
   </context>
   <context>
@@ -9177,7 +9325,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please enter role name</source>
-      <translation>Por favor informe o nome de regra</translation>
+      <translation>Por gentileza, informe o nome de regra</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -9204,7 +9352,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please choose a user!</source>
-      <translation>Por favor escolha um usuário!</translation>
+      <translation>Por gentileza, escolha um usuário!</translation>
     </message>
     <message>
       <source>This user can not receive permision request!</source>
@@ -9418,11 +9566,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation>Por favor, digite uma pergunta!</translation>
+      <translation>Por gentileza, digite uma pergunta!</translation>
     </message>
     <message>
       <source>Please enter an option!</source>
-      <translation>Por favor, insira uma opção!</translation>
+      <translation>Por gentileza, insira uma opção!</translation>
     </message>
     <message>
       <source>Edit a question</source>
@@ -9573,7 +9721,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please choose one of the options!</source>
-      <translation>Por favor, escolha uma das opções!</translation>
+      <translation>Por gentileza, escolha uma das opções!</translation>
     </message>
     <message>
       <source>No question was detected</source>
@@ -9838,7 +9986,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please complete this short evaluation survey</source>
-      <translation>Por favor, responda este curto questionário de avaliação</translation>
+      <translation>Por gentileza, responda este curto questionário de avaliação</translation>
     </message>
   </context>
   <context>
@@ -9996,19 +10144,19 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please choose correct language</source>
-      <translation>Por favor escolha o idioma correto</translation>
+      <translation>Por gentileza, escolha o idioma correto</translation>
     </message>
     <message>
       <source>Please enter theme</source>
-      <translation>Por favor, informe o tema</translation>
+      <translation>Por gentileza, informe o tema</translation>
     </message>
     <message>
       <source>Please enter module name</source>
-      <translation>Por favor, informe o nome do módulo</translation>
+      <translation>Por gentileza, informe o nome do módulo</translation>
     </message>
     <message>
       <source>Please enter view name</source>
-      <translation>Por favor, informe o nome de exibição</translation>
+      <translation>Por gentileza, informe o nome de exibição</translation>
     </message>
   </context>
   <context>
@@ -10066,7 +10214,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
-      <translation>Comparando estrutura atual do banco de dados, por favor aguarde...</translation>
+      <translation>Comparando estrutura atual do banco de dados. Por gentileza, aguarde...</translation>
     </message>
     <message>
       <source>Time zone</source>
@@ -10262,7 +10410,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please enter a group name</source>
-      <translation>Por favor informe um nome do grupo</translation>
+      <translation>Por gentileza, informe um nome do grupo</translation>
     </message>
   </context>
   <context>
@@ -10363,7 +10511,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation>Por favor insira um nome</translation>
+      <translation>Por gentileza, insira um nome</translation>
     </message>
     <message>
       <source>File not chosen for</source>
@@ -10526,7 +10674,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please enter a group name</source>
-      <translation>Por favor Informe um nome do grupo</translation>
+      <translation>Por gentileza, informe um nome do grupo</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -10727,6 +10875,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>user/login</name>
     <message>
+      <source>You session has ended. Please login!</source>
+      <translation>Sua seção expirou. Por gentileza, entre novamente!</translation>
+    </message>
+    <message>
       <source>Please login</source>
       <translation>Faça o login</translation>
     </message>
@@ -10751,8 +10903,8 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Lembrete de senha</translation>
     </message>
     <message>
-      <source>You session has ended. Please login!</source>
-      <translation>Sua seção expirou. Por favor, entre novamente!</translation>
+      <source>Your session has ended. Please login!</source>
+      <translation>Sua sessão terminou. Por gentileza, realize um novo acesso!</translation>
     </message>
     <message>
       <source>You were logged out because another user logged under same account</source>
@@ -11320,11 +11472,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please enter bot name!</source>
-      <translation>Por favor, insira o nome do robô!</translation>
+      <translation>Por gentileza, insira o nome do robô!</translation>
     </message>
     <message>
       <source>Please enter bot nick!</source>
-      <translation>Por favor, informe o apelido do robô!</translation>
+      <translation>Por gentileza, informe o apelido do robô!</translation>
     </message>
     <message>
       <source>Please enter translation group name!</source>
@@ -11332,11 +11484,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please enter default translation!</source>
-      <translation>Por favor, defina a tradução padrão!</translation>
+      <translation>Por gentileza, defina a tradução padrão!</translation>
     </message>
     <message>
       <source>Please choose a group!</source>
-      <translation>Por favor, escolha um grupo!</translation>
+      <translation>Por gentileza, escolha um grupo!</translation>
     </message>
     <message>
       <source>Please enter exception group name!</source>
@@ -11344,22 +11496,22 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please enter chat id!</source>
-      <translation>Por favor, informe o ID do bate-papo!</translation>
+      <translation>Por gentileza, informe o ID do bate-papo!</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation>Por favor informe uma data de início de intervalo válida!</translation>
+      <translation>Por gentileza, informe uma data de início de intervalo válida!</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation>Por favor informe uma data final válida para o intervalo!</translation>
+      <translation>Por gentileza, informe uma data final válida para o intervalo!</translation>
     </message>
   </context>
   <context>
     <name>departament/editgroup</name>
     <message>
       <source>Please enter a department group name</source>
-      <translation>Por favor digite o nome de um departamento</translation>
+      <translation>Por gentileza, digite o nome de um departamento</translation>
     </message>
   </context>
   <context>
@@ -11385,11 +11537,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
-      <translation>Por favor digite o nome de usuário</translation>
+      <translation>Por gentileza, digite o nome de usuário</translation>
     </message>
     <message>
       <source>User exists</source>
-      <translation>O usuário existente</translation>
+      <translation>O usuário existe</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
@@ -11405,7 +11557,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation>Por favor digite seu nome </translation>
+      <translation>Por gentileza, digite seu nome </translation>
     </message>
     <message>
       <source>You have to choose one of required groups!</source>
@@ -11417,7 +11569,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Please choose a default user group</source>
-      <translation>Por favor escolha um grupo de usuário padrão</translation>
+      <translation>Por gentileza, escolha um grupo de usuário padrão</translation>
     </message>
     <message>
       <source>Password has to be atleast</source>
@@ -11520,7 +11672,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Browser offer invitations</source>
-      <translation>Navegador ofertar convites</translation>
+      <translation>Convites de ofertas do navegador</translation>
     </message>
     <message>
       <source>Content</source>
@@ -11625,7 +11777,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>chat/voteaction</name>
     <message>
       <source>User has updated his profile information</source>
-      <translation>Usuário atualizou seu informação de perfil</translation>
+      <translation>O usuário atualizou suas informações de perfil</translation>
     </message>
     <message>
       <source>Thumbs up</source>
@@ -11700,7 +11852,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>chat/updatemsguser</name>
     <message>
       <source>User has edited his last message</source>
-      <translation>Usuário editou sua última mensagem</translation>
+      <translation>O usuário editou sua última mensagem</translation>
     </message>
   </context>
   <context>
@@ -11733,7 +11885,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
-      <translation>Por favor insira um tipo de arquivo válido!</translation>
+      <translation>Por gentileza, insira um tipo de arquivo válido!</translation>
     </message>
   </context>
   <context>

@@ -2,6 +2,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Son gösteriminden kaç gün sonra oy kullanma kutucuğu açılmamalı?</translation>
     </message>
@@ -478,12 +486,20 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Not replying messaging</source>
+      <translation>Mesaj cevaplanmıyor</translation>
+    </message>
+    <message>
       <source>Pending chat messaging</source>
       <translation>Bekleyen sohbet mesajı</translation>
     </message>
     <message>
-      <source>Not replying messaging</source>
-      <translation>Mesaj cevaplanmıyor</translation>
+      <source>Visitor not replying messaging</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator not replying messaging</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>On-hold chat messaging</source>
@@ -1154,12 +1170,28 @@
       <translation>Kullanıcılara üst ok tuşuna basarak bir önceki mesajı düzenleme izni verilmesin</translation>
     </message>
     <message>
+      <source>Bubble style messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use expanding message area</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide visitor profile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Notifications enabled</source>
       <translation>Bildirimler aktif</translation>
     </message>
     <message>
       <source>Notification title</source>
       <translation>Bildirim başlığı</translation>
+    </message>
+    <message>
+      <source>Notification domain</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget themes</source>
@@ -1247,6 +1279,10 @@
     <message>
       <source>Department</source>
       <translation>Departman</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
@@ -2171,6 +2207,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Group field</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Exclude offline requests from charts</source>
       <translation type="unfinished"/>
     </message>
@@ -2411,6 +2451,10 @@
     </message>
     <message>
       <source>Canned message was saved</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal auto responder message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3892,6 +3936,10 @@
       <translation>Sohbetin başka bir departmana aktarılmadan önceki geçerlilik süresi (saniye, min. 5 saniye)</translation>
     </message>
     <message>
+      <source>Transfer immediately to this department if current department has no online operators?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Execute new chat logic again for recipient department?</source>
       <translation>Sohbetin transfer edildiği departmanda yeni sohbet süreci başlatılsın mı?(bildirim vb.)</translation>
     </message>
@@ -4477,6 +4525,18 @@
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>Offline</source>
+      <translation>Çevrimdışı</translation>
+    </message>
+    <message>
+      <source>Chat is currently unavailable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please try again later.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department is disabled</source>
       <translation type="unfinished"/>
     </message>
@@ -4567,10 +4627,6 @@
     <message>
       <source>Department</source>
       <translation>Departman</translation>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation>Çevrimdışı</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
@@ -4994,6 +5050,14 @@
     </message>
     <message>
       <source>Typing...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transferred to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>as no operators online in</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6593,6 +6657,78 @@
       <translation>İstatistik</translation>
     </message>
     <message>
+      <source>What charts to display</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat numbers by status</source>
+      <translation>Durumuna göre sohbet sayıları</translation>
+    </message>
+    <message>
+      <source>Unanswered chat numbers</source>
+      <translation>Cevapsız sohbet sayısı</translation>
+    </message>
+    <message>
+      <source>Message types</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive chats number vs visitors initiated</source>
+      <translation>Proaktif sohbetler ve Kullanıcı sayacı karşılaştırması</translation>
+    </message>
+    <message>
+      <source>Number of chats by subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of Thumbs Up/Down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats by country</source>
+      <translation>Ülkelere göre sohbet sayısı</translation>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation>Kullanıcının mesaj sayısı</translation>
+    </message>
+    <message>
+      <source>Number of chats per hour, average chat duration</source>
+      <translation>Saat başına sohbet sayısı ve ortalama sohbet süreleri</translation>
+    </message>
+    <message>
+      <source>Average wait time in seconds (maximum of 10 minutes)</source>
+      <translation>Ortalama bekleme süresi (saniye) - maksimum 10 dakika</translation>
+    </message>
+    <message>
+      <source>Number of chats by user</source>
+      <translation>Operatör için sohbet sayısı</translation>
+    </message>
+    <message>
+      <source>Number of chats by department</source>
+      <translation>Departman için sohbet sayısı</translation>
+    </message>
+    <message>
+      <source>AVG visitor wait time by operator</source>
+      <translation>Operatör için ortalama ziyaretçi bekleme süresi </translation>
+    </message>
+    <message>
+      <source>Average chat duration by user in seconds</source>
+      <translation>Kullanıcı başına ortalama sohbet süresi (saniye)</translation>
+    </message>
+    <message>
+      <source>Usefull if you prefill usernames always</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unique group field records grouped by date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats number grouped by date and group field</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Thumbs up</source>
       <translation type="unfinished"/>
     </message>
@@ -6603,6 +6739,10 @@
     <message>
       <source>Number of chats</source>
       <translation>Sohbet sayıları</translation>
+    </message>
+    <message>
+      <source>Unique records</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Active</source>
@@ -6654,6 +6794,10 @@
     </message>
     <message>
       <source>Please choose statistic parameters first!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6737,56 +6881,48 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Average chat duration by user in seconds</source>
-      <translation>Kullanıcı başına ortalama sohbet süresi (saniye)</translation>
-    </message>
-    <message>
-      <source>AVG visitor wait time by operator</source>
-      <translation>Operatör için ortalama ziyaretçi bekleme süresi </translation>
-    </message>
-    <message>
-      <source>Average wait time in seconds (maximum of 10 minutes)</source>
-      <translation>Ortalama bekleme süresi (saniye) - maksimum 10 dakika</translation>
-    </message>
-    <message>
       <source>Chatbox chats</source>
       <translation>Toplantı odası konuşmaları</translation>
-    </message>
-    <message>
-      <source>Chat numbers by status</source>
-      <translation>Durumuna göre sohbet sayıları</translation>
     </message>
     <message>
       <source>Last 24h statistics</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Message types</source>
+      <source>Unique</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Number of chats by country</source>
-      <translation>Ülkelere göre sohbet sayısı</translation>
+      <source>grouped by date</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Number of chats by department</source>
-      <translation>Departman için sohbet sayısı</translation>
+      <source>nick&apos;s</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Number of chats by user</source>
-      <translation>Operatör için sohbet sayısı</translation>
+      <source>user agent&apos;s</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Number of chats per hour, average chat duration</source>
-      <translation>Saat başına sohbet sayısı ve ortalama sohbet süreleri</translation>
+      <source>device type&apos;s</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats number grouped by date and</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>user agent</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Average number of chats &amp; peak per hour</source>
       <translation>Saat başına sohbet ortalamaları</translation>
-    </message>
-    <message>
-      <source>Number of messages by user</source>
-      <translation>Kullanıcının mesaj sayısı</translation>
     </message>
     <message>
       <source>Number of Thumbs Down</source>
@@ -6799,10 +6935,6 @@
     <message>
       <source>Operators statistic, top 100 by chats number</source>
       <translation>Operatör istatistikleri, sohbet sayısı bakımından top 100</translation>
-    </message>
-    <message>
-      <source>Proactive chats number vs visitors initiated</source>
-      <translation>Proaktif sohbetler ve Kullanıcı sayacı karşılaştırması</translation>
     </message>
     <message>
       <source>Agents statistics</source>
@@ -6855,10 +6987,6 @@
     <message>
       <source>Unanswered chats</source>
       <translation>Cevapsız sohbetler</translation>
-    </message>
-    <message>
-      <source>Unanswered chat numbers</source>
-      <translation>Cevapsız sohbet sayısı</translation>
     </message>
     <message>
       <source>more than 10 min.</source>
@@ -6918,10 +7046,6 @@
   <context>
     <name>chat/sendmail</name>
     <message>
-      <source>Send mail to the user</source>
-      <translation>Kullanıcıya posta gönder</translation>
-    </message>
-    <message>
       <source>Recipient</source>
       <translation>Alıcı</translation>
     </message>
@@ -6956,6 +7080,10 @@
     <message>
       <source>Embed link to file</source>
       <translation>Linki dosyaya ekle</translation>
+    </message>
+    <message>
+      <source>Send mail to the user</source>
+      <translation>Kullanıcıya posta gönder</translation>
     </message>
     <message>
       <source>Mail was sent to the user</source>
@@ -7183,8 +7311,24 @@
       <translation>Güncellendi</translation>
     </message>
     <message>
+      <source>General</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Interface</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delete</source>
       <translation>Sil</translation>
+    </message>
+    <message>
+      <source>Hide bot profile while chat is in bot mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat with hidden message box</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Updated!</source>
@@ -7400,6 +7544,10 @@
     </message>
     <message>
       <source>Notifications</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal auto responder</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10728,6 +10876,10 @@
   <context>
     <name>user/login</name>
     <message>
+      <source>You session has ended. Please login!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please login</source>
       <translation>Lütfen giriş yapın</translation>
     </message>
@@ -10752,7 +10904,7 @@
       <translation>Parolamı unuttum</translation>
     </message>
     <message>
-      <source>You session has ended. Please login!</source>
+      <source>Your session has ended. Please login!</source>
       <translation type="unfinished"/>
     </message>
     <message>
