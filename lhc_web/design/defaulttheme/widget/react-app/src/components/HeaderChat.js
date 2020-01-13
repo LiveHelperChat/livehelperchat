@@ -55,7 +55,7 @@ class HeaderChat extends Component {
                                 {this.props.chatwidget.get('isChatting') === true ? (
                                         <a className="dropdown-item" onClick={this.endChat} href="#">End Chat</a>
                                 ) : ''}
-                                <a className="dropdown-item" onClick={this.popup} href="#">Popup</a>
+                                {!this.props.chatwidget.hasIn(['chat_ui','hide_popup']) ? (<a className="dropdown-item" onClick={this.popup} href="#">Popup</a>) : ''}
                             </div>
                         </div>
                     </div>

@@ -14,7 +14,7 @@ const initialState = fromJS({
     department: [],
     jsVars: [],
     // Are we syncing chat messages now
-    syncStatus : {msg: false},
+    syncStatus : {msg: false, status : false},
     offlineData: {},
     onlineData: {'fetched' : false},
     customData: {'fields' : []},
@@ -192,8 +192,16 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.setIn(['syncStatus','msg'],true);
         }
 
+        case 'CHECK_CHAT_STATUS_STARTED': {
+            return state.setIn(['syncStatus','status'],true);
+        }
+
         case 'FETCH_MESSAGES_REJECTED': {
             return state.setIn(['syncStatus','msg'],false);
+        }
+
+        case 'CHECK_CHAT_STATUS_REJECTED': {
+            return state.setIn(['syncStatus','status'],false);
         }
 
         case 'FETCH_MESSAGES_SUBMITTED' : {
@@ -220,6 +228,7 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.set('chatStatusData',fromJS(action.data))
                 .setIn(['chatLiveData','closed'], action.data.closed && action.data.closed === true || state.getIn(['chatLiveData','closed']))
                 .setIn(['chatLiveData','status'], action.data.status)
+                .setIn(['syncStatus','status'], false)
                 .setIn(['chatLiveData','ru'], action.data.ru ? action.data.ru : null)
                 .setIn(['chatLiveData','status_sub'], action.data.status_sub);
         }

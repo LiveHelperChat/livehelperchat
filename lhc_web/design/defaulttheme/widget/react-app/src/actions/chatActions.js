@@ -227,7 +227,16 @@ export function fetchMessages(obj) {
 }
 
 export function checkChatStatus(obj) {
-    return function(dispatch) {
+    return function(dispatch, getState) {
+
+        const state = getState();
+
+        if (state.chatwidget.getIn(['syncStatus','status']) == true) {
+            return;
+        }
+
+        dispatch({type: "CHECK_CHAT_STATUS_STARTED"});
+
         axios.post(window.lhcChat['base_url'] + "/widgetrestapi/checkchatstatus", obj)
         .then((response) => {
             if (response.data.deleted) {

@@ -43,6 +43,16 @@ class chatEventsHandler {
             'static_chat' : this.attributes['userSession'].getSessionAttributes()
         };
 
+        if (this.attributes['fresh'] == true) {
+            if (attr['static_chat']['id']) {
+                delete attr['static_chat']['id'];
+            }
+
+            if (attr['static_chat']['hash']) {
+                delete attr['static_chat']['hash'];
+            }
+        }
+
         if (this.attributes['bot_id'] != '') {
             attr['bot_id'] = this.attributes['bot_id'];
         }
