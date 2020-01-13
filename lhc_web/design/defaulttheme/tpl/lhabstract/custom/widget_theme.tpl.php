@@ -265,6 +265,10 @@
 						<div class="form-group">	
 						<label><?php echo erLhcoreClassAbstract::renderInput('hide_popup', $fields['hide_popup'], $object)?> <?php echo $fields['hide_popup']['trans'];?></label>	
         		        </div>
+
+						<div class="form-group">	
+						<label><?php echo erLhcoreClassAbstract::renderInput('detect_language', $fields['detect_language'], $object)?> <?php echo $fields['detect_language']['trans'];?></label>
+        		        </div>
         		
         		</div>
         		<div role="tabpanel" class="tab-pane" id="needhelp">

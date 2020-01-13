@@ -1,3 +1,10 @@
+3.27v
+
+1. New widget. At the moment it's beta. It features rewritten widget implementation from zero. It's still missing few features but should be pretty stable now.
+2. In themes there is option now to activate automatic language detection from browser headers. For existing installation it to work you have to edit language. System configuration -> Speech -> Languages
+
+execute doc/update_db/update_202.sql for update
+
 3.26v
 
 1. Personal auto responder. Operators has to have permission "Uers" => "Allow user to have personal auto responder messages"

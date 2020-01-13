@@ -43,6 +43,9 @@ class erLhcoreClassSpeech {
         $definition = array(
             'name' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'siteaccess' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             )
         );
 
@@ -54,6 +57,13 @@ class erLhcoreClassSpeech {
             $item->name = $form->name;
         } else {
             $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter language name!');
+        }
+
+        if ( $form->hasValidData( 'siteaccess' ) )
+        {
+            $item->siteaccess = $form->siteaccess;
+        } else {
+            $item->siteaccess = '';
         }
 
         return $Errors;

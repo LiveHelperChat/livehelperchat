@@ -19,3 +19,20 @@
     </div>
 
 </form>
+
+<?php if ($item->id > 0) : ?>
+    <hr>
+    <?php $dialectsLanguage = erLhcoreClassModelSpeechLanguageDialect::getList(array('filter' => array('language_id' => $item->id))); ?>
+    <div class="row">
+        <?php foreach ($dialectsLanguage as $langDialect) : ?>
+            <div class="col-4">
+                <label class="fs12"><?php echo htmlspecialchars($langDialect->language)?> [<?php echo htmlspecialchars($langDialect->lang_code)?>]</label>
+            </div>
+            <?php if ($langDialect->short_code != '') : ?>
+                <div class="col-4">
+                    <label class="fs12"><?php echo htmlspecialchars($langDialect->language)?> [<?php echo htmlspecialchars($langDialect->short_code)?>]</label>
+                </div>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
+<?php endif;?>

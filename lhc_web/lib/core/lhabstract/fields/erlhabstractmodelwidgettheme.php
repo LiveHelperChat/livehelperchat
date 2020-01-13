@@ -4,14 +4,14 @@ $fields = array(
    				'name' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Name'),
-   						'required' => true,   						
+   						'required' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
    				'name_company' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Name of the company'),
-   						'required' => false,   						
+   						'required' => false,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
@@ -835,6 +835,16 @@ $fields = array(
                     'type' => 'checkbox',
                     'main_attr' => 'bot_configuration_array',
                     'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Do not allow visitor to edit previous message by pressing up arrow'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'detect_language' => array(
+                    'type' => 'checkbox',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Try to detect language from browser headers'),
                     'required' => false,
                     'hidden' => true,
                     'nginit' => true,
