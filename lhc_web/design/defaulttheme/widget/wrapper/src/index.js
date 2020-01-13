@@ -111,7 +111,9 @@
                 }
 
             } else {
-                document.getElementById('lhc_status_container_page').appendChild(attributesWidget.mainWidget.cont.constructUI());
+                var embedWrapper = document.getElementById('lhc_status_container_page');
+                embedWrapper.appendChild(attributesWidget.mainWidget.cont.constructUI());
+                embedWrapper.style.height = (LHC_API.args.wheight || 520)+'px';
             }
 
             axios.get(LHC_API.args.lhc_base_url + '/widgetrestapi/settings',{params : {
