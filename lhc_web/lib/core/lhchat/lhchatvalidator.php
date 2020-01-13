@@ -1589,6 +1589,29 @@ class erLhcoreClassChatValidator {
         }
     }
 
+    public static function setLanguageByBrowser() {
+        // Detect user locale
+        if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+            $parts = explode(';',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
+            $languages = explode(',',$parts[0]);
+            if (isset($languages[0])) {
+                $locale = $languages[0];
+
+                $db = ezcDbInstance::get();
+                $stmt = $db->prepare('SELECT `siteaccess` FROM `lh_speech_language` INNER JOIN `lh_speech_language_dialect` ON `lh_speech_language_dialect`.`language_id` = `lh_speech_language`.`id` WHERE (`lh_speech_language_dialect`.`lang_code` = :lang_code OR `lh_speech_language_dialect`.`short_code` = :short_code)');
+                $stmt->bindValue(':lang_code', $locale, PDO::PARAM_STR);
+                $stmt->bindValue(':short_code', $locale, PDO::PARAM_STR);
+                $stmt->execute();
+
+                $siteAccess = $stmt->fetchColumn();
+
+                if ($siteAccess != '') {
+                    erLhcoreClassSystem::setSiteAccess($siteAccess);
+                }
+            }
+        }
+    }
+    
     /*
      * Auto start chat if required
      *
