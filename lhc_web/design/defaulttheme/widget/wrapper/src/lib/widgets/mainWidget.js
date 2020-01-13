@@ -56,6 +56,10 @@ export class mainWidget{
         this.cont.constructUIIframe('');
         this.attributes = attributes;
 
+        if (this.attributes.staticJS['fontCSS']) {
+            this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['fontCSS']});
+        }
+
         this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_css']});
         
         if (this.attributes.isMobile == true && this.attributes.mode == 'widget') {

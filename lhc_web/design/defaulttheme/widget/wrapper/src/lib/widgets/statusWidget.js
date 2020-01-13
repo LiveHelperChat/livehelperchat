@@ -43,6 +43,10 @@ export class statusWidget{
 
         this.attributes = attributes;
 
+        if (this.attributes.staticJS['fontCSS']) {
+            this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['fontCSS']});
+        }
+
         if (this.attributes.theme > 0) {
             this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/themestatus/' + this.attributes.theme});
         }

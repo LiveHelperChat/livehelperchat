@@ -109,5 +109,7 @@ $outputResponse['chunks_location'] = erLhcoreClassModelChatConfig::fetch('explic
 
 $outputResponse['v'] = 4;
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.settings', array('output' => & $outputResponse));
+
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
 exit();
