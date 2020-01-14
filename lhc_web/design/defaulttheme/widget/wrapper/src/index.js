@@ -28,8 +28,6 @@
 
             var BehaviorSubject = require('./util/monitoredVariable').monitoredVariable;
             var EventEmitter = require('wolfy87-eventemitter');
-            require('es6-promise/auto');
-            const axios = require('axios');
 
             var statusWidget = require('./lib/widgets/statusWidget').statusWidget;
             var mainWidget = require('./lib/widgets/mainWidget').mainWidget;
@@ -116,54 +114,54 @@
                 embedWrapper.style.height = (LHC_API.args.wheight || 520)+'px';
             }
 
-            axios.get(LHC_API.args.lhc_base_url + '/widgetrestapi/settings',{params : {
-                    'vid' : attributesWidget.userSession.getVID(),
-                    'tz' : helperFunctions.getTzOffset(),
-                    'r' : referrer,
-                    'l' : location,
-                    'ie' : attributesWidget.isIE,
-                    'dep' : attributesWidget.department
-                }}).then(function(data){
+            helperFunctions.makeRequest(LHC_API.args.lhc_base_url + '/widgetrestapi/settings',{
+                'vid' : attributesWidget.userSession.getVID(),
+                'tz' : helperFunctions.getTzOffset(),
+                'r' : referrer,
+                'l' : location,
+                'ie' : attributesWidget.isIE,
+                'dep' : attributesWidget.department.join(',')
+            }, (data) => {
 
-                __webpack_public_path__ = data.data.chunks_location + "/";
+                __webpack_public_path__ = data.chunks_location + "/";
 
-                if (!attributesWidget.leaveMessage && data.data.isOnline === false) {
+                if (!attributesWidget.leaveMessage && data.isOnline === false) {
                     return;
                 }
 
-                if (data.data.secure_cookie) {
+                if (data.secure_cookie) {
                     attributesWidget.storageHandler.setSecureCookie(true);
                 }
 
-                if (data.data.domain) {
-                    attributesWidget.storageHandler.setCookieDomain(data.data.domain);
+                if (data.domain) {
+                    attributesWidget.storageHandler.setCookieDomain(data.domain);
                 }
 
-                if (data.data.static) {
-                    attributesWidget.staticJS = data.data.static;
+                if (data.static) {
+                    attributesWidget.staticJS = data.static;
                 }
 
-                attributesWidget.captcha = {hash : data.data.hash, ts : data.data.hash_ts};
+                attributesWidget.captcha = {hash : data.hash, ts : data.hash_ts};
 
-                attributesWidget.userSession.setVID(data.data.vid);
+                attributesWidget.userSession.setVID(data.vid);
 
                 // Store session
                 attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
 
-                attributesWidget.hideOffline = data.data.hideOffline;
-                attributesWidget.onlineStatus.next(data.data.isOnline);
+                attributesWidget.hideOffline = data.hideOffline;
+                attributesWidget.onlineStatus.next(data.isOnline);
 
-                if (data.data.theme) {
-                    attributesWidget.theme = data.data.theme;
+                if (data.theme) {
+                    attributesWidget.theme = data.theme;
                 }
 
                 // Javascript custom variables init
                 // Extensions can listen for these
-                attributesWidget.jsVars.next(data.data.js_vars);
+                attributesWidget.jsVars.next(data.js_vars);
 
                 // Monitor js vars if required
-                if (data.data.js_vars.length > 0) {
-                    attributesWidget.userSession.setupVarsMonitoring(data.data.js_vars);
+                if (data.js_vars.length > 0) {
+                    attributesWidget.userSession.setupVarsMonitoring(data.js_vars);
                 }
 
                 // Init main widgets
@@ -185,19 +183,7 @@
                 if (attributesWidget.loadcb) {
                     attributesWidget.loadcb(attributesWidget);
                 }
-
-                //if (lhc.version != data.data.v) {
-                    /*var iframe1 = document.createElement("iframe");
-                    iframe1.style.display = "none";
-                    iframe1.src = LHC_API.args.lhc_base_url + '/widgetrestapi/updatejs';
-                    document.body.appendChild(iframe1);*/
-                //}
-
-                /*import('./util/dummyHelper').then((module) => {
-                    module.dummyHelper.testCall();
-                });*/
-
-            });
+            })
 
             // Widget Hide event
             attributesWidget.eventEmitter.addListener('closeWidget',function () {
@@ -227,6 +213,8 @@
 
                 attributesWidget.userSession.setChatInformation({'id':null,'hash':null});
                 attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
+
+                attributesWidget.widgetDimesions.nextProperty('height_override',null);
 
                 chatEvents.sendChildEvent('endedChat', [{'sender' : 'endButton'}]);
 
@@ -275,6 +263,8 @@
             // Store chat information if it's not popup mode.
             attributesWidget.eventEmitter.addListener('chatStarted',function (data, mode) {
 
+                attributesWidget.widgetDimesions.nextProperty('height_override',null);
+
                 if (mode !== 'popup') {
                     attributesWidget.userSession.setChatInformation(data);
                 }
@@ -322,9 +312,16 @@
 
             attributesWidget.eventEmitter.addListener('widgetHeight',(data) => {
                 if (attributesWidget.mode == 'widget' && attributesWidget.isMobile == false) {
-                    var value = attributesWidget.widgetDimesions.value;
-                    value['height_override'] = parseInt(data.height)+50;
-                    attributesWidget.widgetDimesions.next(value);
+                        var d=document,
+                        e=d.documentElement,
+                        g=d.getElementsByTagName('body')[0],
+                        y=global.innerHeight||e.clientHeight||g.clientHeight;
+
+                    if (parseInt(data.height) > attributesWidget.widgetDimesions.value['height'] && y > parseInt(data.height)) {
+                        attributesWidget.widgetDimesions.nextProperty('height_override',parseInt(data.height));
+                    } else if (attributesWidget.widgetDimesions.value['height_override'] && attributesWidget.widgetDimesions.value['height_override'] > y) {
+                        attributesWidget.widgetDimesions.nextProperty('height_override',null);
+                    }
                 }
             });
 

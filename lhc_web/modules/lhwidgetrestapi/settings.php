@@ -2,7 +2,13 @@
 
 erLhcoreClassRestAPIHandler::setHeaders();
 
-$department = (isset($_GET['dep']) && is_array($_GET['dep']) && !empty($_GET['dep']) ? $_GET['dep'] : false);
+if (isset($_GET['dep']) && is_array($_GET['dep']) && !empty($_GET['dep'])){
+    $department = (isset($_GET['dep']) && is_array($_GET['dep']) && !empty($_GET['dep']) ? $_GET['dep'] : false);
+} else if (isset($_GET['dep']) && $_GET['dep'] != '') {
+    $department = explode(',',$_GET['dep']);
+} else {
+    $department = false;
+}
 
 if (is_array($department)) {
     erLhcoreClassChat::validateFilterIn($department);

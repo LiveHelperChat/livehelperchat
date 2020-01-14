@@ -56,7 +56,7 @@ export default function (dispatch, getState) {
             const parts = e.data.replace('lhc_event:','').split('::');
             helperFunctions.emitEvent(parts[0],JSON.parse(parts[1]));
         } else if (action == 'lhc_sizing_chat') {
-            helperFunctions.sendMessageParent('widgetHeight', [{'height' : e.data.split(':')[1]}]);
+            helperFunctions.sendMessageParent('widgetHeight', [{'height' : (parseInt(e.data.split(':')[1]) + 50)}]);
         } else if (action == 'lhc_init') {
 
             if (readyReceived === true) {

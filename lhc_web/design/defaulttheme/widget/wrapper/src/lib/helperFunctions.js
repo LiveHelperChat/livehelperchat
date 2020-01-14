@@ -122,6 +122,29 @@ class _helperFunctions {
             }
         }
     }
+
+    makeQuery(params)
+    {
+        var item, pairs = [];
+        for (item in params) {
+            if (params[item] != '') {
+                params.hasOwnProperty(item) && pairs.push(encodeURIComponent(item) + "=" + encodeURIComponent(params[item]));
+            }
+        }
+        return pairs.join("&")
+    }
+    
+    makeRequest(url, params, callback) {
+        var request = new XMLHttpRequest;
+        request.open("GET", url + '?' + this.makeQuery(params), true);
+        request.onreadystatechange = function () {
+           if (4 == request.readyState) {
+               callback(JSON.parse(request.responseText));
+           }
+        };
+        request.send();
+        return {type: "xhr", req: request}
+    }
 };
 
 const helperFunctions = new _helperFunctions();

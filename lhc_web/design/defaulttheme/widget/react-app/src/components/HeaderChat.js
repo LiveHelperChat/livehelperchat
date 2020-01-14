@@ -38,7 +38,7 @@ class HeaderChat extends Component {
     render() {
 
         var className = 'row header-chat' + (this.props.chatwidget.get('isMobile') == true ? ' mobile-header' : ' desktop-header');
-        var classNameMenu = 'col-6 pr-1' + (this.props.chatwidget.get('isChatting') === false ? ' ' : '');
+        var classNameMenu = 'col-6 pr-1' + (this.props.chatwidget.get('isChatting') === false && this.props.chatwidget.hasIn(['chat_ui','hide_popup']) ? ' d-none' : '');
 
         return (
             <div className={className}>
