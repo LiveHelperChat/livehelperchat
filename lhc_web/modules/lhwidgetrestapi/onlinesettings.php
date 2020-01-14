@@ -384,5 +384,7 @@ $outputResponse = array(
 
 $outputResponse['disabled'] = $disabled_department === true || (isset($department_invalid) && $department_invalid === true);
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.onlinesettings', array('output' => & $outputResponse));
+
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
 exit();
