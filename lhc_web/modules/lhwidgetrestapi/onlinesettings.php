@@ -253,7 +253,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'width' => 6,
             'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'E-mail'),
             'class' => 'form-control form-control-sm',
-            'required' => true,
+            'required' => (isset($start_data_fields['email_require_option']) && $start_data_fields['email_require_option'] == 'required' ? true : false),
             'name' => 'Email',
             'identifier' => 'email',
             'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Enter your email address'),
@@ -367,10 +367,16 @@ if ($theme !== false && $theme->hide_popup == 1) {
     $chat_ui['hide_popup'] = true;
 }
 
-
+$visibleCount = 0;
+foreach ($fields as $field) {
+    if ($field['type'] != 'hidden') {
+        $visibleCount++;
+    }
+}
 
 $outputResponse = array(
     'fields' => $fields,
+    'fields_visible' => $visibleCount, // how many fields are visible one
     'js_vars' => $jsVars,
     'chat_ui' => $chat_ui,
     'department' => $departmentsOptions

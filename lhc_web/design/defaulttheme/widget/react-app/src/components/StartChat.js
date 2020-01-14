@@ -208,7 +208,7 @@ class StartChat extends Component {
     }
 
     if (this.props.chatwidget.get('processStatus') == 0 || this.props.chatwidget.get('processStatus') == 1) {
-            if (this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','fields']).size == 1 && this.props.chatwidget.getIn(['customData','fields']).size == 0) {
+            if (this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 && this.props.chatwidget.getIn(['customData','fields']).size == 0) {
                 return (
                     <React.Fragment>
 
@@ -240,6 +240,9 @@ class StartChat extends Component {
                 return (
                     <div className="container-fluid" id="id-container-fluid">
                         <ChatErrorList errors={this.props.chatwidget.get('validationErrors')} />
+
+                        {this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div className="p-1"><ChatStatus status={this.props.chatwidget.getIn(['chat_ui','operator_profile'])} /></div>}
+
                         <form onSubmit={this.handleSubmit}>
                             <div className="row pt-2">
                                 {mappedFields}

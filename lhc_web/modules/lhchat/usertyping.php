@@ -2,6 +2,8 @@
 
 erLhcoreClassRestAPIHandler::setHeaders();
 
+$msg = '';
+
 if (isset($_POST['msg'])) {
     $msg = isset($_POST['msg']);
 } else {

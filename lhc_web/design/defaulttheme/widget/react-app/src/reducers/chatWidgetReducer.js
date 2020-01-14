@@ -234,7 +234,7 @@ const chatWidgetReducer = (state = initialState, action) => {
         }
 
         case 'ONLINE_FIELDS_UPDATED' : {
-            return state.set('onlineData', fromJS({'fetched' : true, 'fields' : action.data.fields, 'department' : action.data.department})).set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)));
+            return state.set('onlineData', fromJS({'fetched' : true, 'fields_visible': action.data.fields_visible, 'fields' : action.data.fields, 'department' : action.data.department})).set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)));
         }
 
         case 'CUSTOM_FIELDS': {

@@ -34,7 +34,7 @@ class erLhcoreClassGenericBotActionConditions {
                         $attr = $chat->nick;
                     } elseif (isset($chatVariables[$condition['content']['attr']])) {
                         $attr = $chatVariables[$condition['content']['attr']];
-                    } elseif ($chatAttributesFrontend[$condition['content']['attr']]) {
+                    } elseif (isset($chatAttributesFrontend[$condition['content']['attr']])) {
                         $attr = $chatAttributesFrontend[$condition['content']['attr']];
                     }
 
