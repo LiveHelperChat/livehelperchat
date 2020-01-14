@@ -6,6 +6,7 @@ import ChatErrorList from './ChatErrorList';
 import ChatDepartment from './ChatDepartment';
 import ChatModal from './ChatModal';
 import ChatStartOptions from './ChatStartOptions';
+import { helperFunctions } from "../lib/helperFunctions";
 
 import { initOnlineForm, submitOnlineForm } from "../actions/chatActions"
 
@@ -147,6 +148,12 @@ class StartChat extends Component {
 
     componentDidMount() {
          StartChat.prefillFields(this);
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (document.getElementById('id-container-fluid')) {
+            helperFunctions.sendMessageParent('widgetHeight', [{'height' : document.getElementById('id-container-fluid').offsetHeight+60}]);
+        }
     }
 
     static getDerivedStateFromProps(props, state) {

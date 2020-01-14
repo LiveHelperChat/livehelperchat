@@ -15,7 +15,15 @@ export class monitoredVariable {
 
     next(val) {
         this.valueInternal = val;
+        this.callListeners();
+    }
 
+    nextProperty(key, val) {
+        this.valueInternal[key] = val;
+        this.callListeners();
+    }
+
+    callListeners() {
         this.listeners.forEach((item) => {
             if (item && typeof item === "function") {
                 item(this.valueInternal);

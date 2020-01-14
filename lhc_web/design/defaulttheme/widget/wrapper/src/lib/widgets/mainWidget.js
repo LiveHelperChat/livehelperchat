@@ -95,7 +95,7 @@ export class mainWidget{
 
     monitorDimensions(data) {
         this.width = data.width;
-        this.height = data.height;
+        this.height = data.height_override || data.height;
         this.units = data.units;
         this.resize();
     }

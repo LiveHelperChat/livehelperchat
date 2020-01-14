@@ -344,6 +344,10 @@ if (is_numeric($departament_id) && $departament_id > 0) {
     }
 }
 
+if ($theme !== false && $theme->hide_popup == 1) {
+    $chat_ui['hide_popup'] = true;
+}
+
 $outputResponse = array(
     'fields' => $fields,
     'js_vars' => $jsVars,
