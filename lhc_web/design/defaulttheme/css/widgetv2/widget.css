@@ -38,12 +38,12 @@ body {
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/MaterialIcons-Regular.eot'); /* For IE6-8 */
+    src: url('../fonts/MaterialIcons-Regularv2.eot'); /* For IE6-8 */
     src: local('Material Icons'),
     local('MaterialIcons-Regular'),
-    url('../fonts/MaterialIcons-Regular.woff2') format('woff2'),
-    url('../fonts/MaterialIcons-Regular.woff') format('woff'),
-    url('../fonts/MaterialIcons-Regular.ttf') format('truetype');
+    url('../fonts/MaterialIcons-Regularv2.woff2') format('woff2'),
+    url('../fonts/MaterialIcons-Regularv2.woff') format('woff'),
+    url('../fonts/MaterialIcons-Regularv2.ttf') format('truetype');
 }
 
 div.message-row {
@@ -127,8 +127,13 @@ div.message-row {
     user-select: none;
 }
 
-.header-chat .material-icons{
+.header-link .material-icons{
     font-size: 32px;
+    color:#343a40;
+}
+
+.header-link:hover .material-icons,.header-link[aria-expanded="true"] .material-icons{
+    color:#000;
 }
 
 .overflow-auto{
