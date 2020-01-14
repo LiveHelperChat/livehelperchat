@@ -41,10 +41,6 @@ if (is_array($Params['user_parameters_unordered']['department']) && erLhcoreClas
     }
 }
 
-
-
-
-
 if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1) {
     erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
     $departament_id = array_shift($Params['user_parameters_unordered']['department']);
@@ -109,6 +105,29 @@ if (isset($startDataFields['show_messages_box']) && $startDataFields['show_messa
 
 if (isset($startDataFields['user_msg_height']) && $startDataFields['user_msg_height'] != ''){
     $chat_ui['user_msg_height'] = (int)$startDataFields['user_msg_height'];
+}
+
+if ($Params['user_parameters_unordered']['online'] == '0'){
+    if (isset($start_data_fields['pre_offline_chat_html']) && $start_data_fields['pre_offline_chat_html'] != '') {
+        $chat_ui['operator_profile'] = $start_data_fields['pre_offline_chat_html'];
+    }
+} else {
+    if (isset($start_data_fields['pre_chat_html']) && $start_data_fields['pre_chat_html'] != '') {
+        $chat_ui['operator_profile'] = $start_data_fields['pre_chat_html'];
+    }
+}
+
+if (isset($startDataFields['show_operator_profile']) && $startDataFields['show_operator_profile'] != '') {
+    $tpl = new erLhcoreClassTemplate('lhchat/part/operator_profile_start_chat.tpl.php');
+    $tpl->set('theme',$theme);
+    $tpl->set('start_data_fields',$startDataFields);
+    $tpl->set('react',true);
+
+    if (!isset($chat_ui['operator_profile'])) {
+        $chat_ui['operator_profile'] = '';
+    }
+
+    $chat_ui['operator_profile'] .= $tpl->fetch();
 }
 
 $fields = array();
@@ -347,6 +366,8 @@ if (is_numeric($departament_id) && $departament_id > 0) {
 if ($theme !== false && $theme->hide_popup == 1) {
     $chat_ui['hide_popup'] = true;
 }
+
+
 
 $outputResponse = array(
     'fields' => $fields,

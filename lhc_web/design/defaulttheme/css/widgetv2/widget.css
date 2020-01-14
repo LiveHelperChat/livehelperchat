@@ -122,8 +122,9 @@ div.message-row {
     max-height: 100%;
 }
 
-.header-chat{
+.header-chat {
     background-color: #ededed;
+    user-select: none;
 }
 
 .header-chat .material-icons{

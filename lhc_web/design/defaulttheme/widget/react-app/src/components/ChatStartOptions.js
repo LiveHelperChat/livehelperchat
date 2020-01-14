@@ -7,7 +7,8 @@ class ChatStartOptions extends PureComponent {
     }
 
     componentDidMount() {
-        new Dropdown( document.getElementById('chat-dropdown-options'));
+        var bsn = require("bootstrap.native/dist/bootstrap-native-v4");
+        new bsn.Dropdown(document.getElementById('chat-dropdown-options'));
     }
 
     render() {

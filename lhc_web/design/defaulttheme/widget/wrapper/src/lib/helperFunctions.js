@@ -127,7 +127,7 @@ class _helperFunctions {
     {
         var item, pairs = [];
         for (item in params) {
-            if (params[item] != '') {
+            if (params[item] != '' && params[item] != null) {
                 params.hasOwnProperty(item) && pairs.push(encodeURIComponent(item) + "=" + encodeURIComponent(params[item]));
             }
         }
