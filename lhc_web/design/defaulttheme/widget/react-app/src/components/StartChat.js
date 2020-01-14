@@ -214,7 +214,7 @@ class StartChat extends Component {
 
                         {this.state.showBBCode && <ChatModal showModal={this.state.showBBCode} insertText={this.insertText} toggle={this.toggleModal} dataUrl={"/chat/bbcodeinsert?react=1"} />}
 
-                        {this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div className="pt-1"><ChatStatus status={this.props.chatwidget.getIn(['chat_ui','operator_profile'])} /></div>}
+                        {this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div className="p-1"><ChatStatus status={this.props.chatwidget.getIn(['chat_ui','operator_profile'])} /></div>}
 
                         <div className="flex-grow-1 overflow-scroll position-relative" id="messagesBlock">
                             <div className="bottom-message pl-1 pr-1" id="messages-scroll">
@@ -241,7 +241,7 @@ class StartChat extends Component {
                     <div className="container-fluid" id="id-container-fluid">
                         <ChatErrorList errors={this.props.chatwidget.get('validationErrors')} />
 
-                        {this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div className="p-1"><ChatStatus status={this.props.chatwidget.getIn(['chat_ui','operator_profile'])} /></div>}
+                        {this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div className="pt-2"><ChatStatus status={this.props.chatwidget.getIn(['chat_ui','operator_profile'])} /></div>}
 
                         <form onSubmit={this.handleSubmit}>
                             <div className="row pt-2">
