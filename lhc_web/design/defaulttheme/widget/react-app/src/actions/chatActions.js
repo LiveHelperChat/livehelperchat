@@ -156,7 +156,9 @@ export function initChatUI(obj) {
             dispatch({type: "INIT_CHAT_SUBMITTED", data: response.data})
             if (response.data.init_calls) {
                 response.data.init_calls.forEach((callExtension) => {
-                    console.log(callExtension);
+                    import('../extensions/nodejs/nodeJSChat').then((module) => {
+                        module.nodeJSChat.testCall();
+                    });
                 });
             }
         })
