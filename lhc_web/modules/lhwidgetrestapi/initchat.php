@@ -129,6 +129,8 @@ try {
             $outputResponse['chat_ui']['close_btn'] = true;
         }
 
+        $outputResponse['chat_ui']['max_length'] = (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value - 1;
+
         $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
 
         if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] == true){

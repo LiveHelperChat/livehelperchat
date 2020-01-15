@@ -408,6 +408,12 @@ $def->properties['notification_configuration']->columnName   = 'notification_con
 $def->properties['notification_configuration']->propertyName = 'notification_configuration';
 $def->properties['notification_configuration']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+// Stores notifications configuration as array
+$def->properties['modified'] = new ezcPersistentObjectProperty();
+$def->properties['modified']->columnName   = 'modified';
+$def->properties['modified']->propertyName = 'modified';
+$def->properties['modified']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('lhabstract.erlhabstractmodelwidgettheme.posdefinition',array('def' => & $def));
 
 return $def;

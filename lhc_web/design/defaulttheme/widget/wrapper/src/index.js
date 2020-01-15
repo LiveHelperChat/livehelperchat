@@ -154,6 +154,15 @@
                 if (data.theme) {
                     attributesWidget.theme = data.theme;
                 }
+                
+                if (data.chat_ui) {
+                    if (data.chat_ui.wheight && !isMobile) {
+                        attributesWidget.widgetDimesions.nextProperty('height',data.chat_ui.wheight);
+                    }
+                    if (data.chat_ui.wwidth && !isMobile) {
+                        attributesWidget.widgetDimesions.nextProperty('width',data.chat_ui.wwidth);
+                    }
+                }
 
                 // Javascript custom variables init
                 // Extensions can listen for these

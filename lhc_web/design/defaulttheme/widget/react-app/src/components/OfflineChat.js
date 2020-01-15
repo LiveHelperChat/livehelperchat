@@ -89,7 +89,7 @@ class OfflineChat extends Component {
             return (
                 <div className="container-fluid">
                     <form onSubmit={this.handleSubmit}>
-                        <div className="row">
+                        <div className="row pt-2">
                             {mappedFields}
                             {mappedFieldsCustom}
                         </div>

@@ -91,6 +91,19 @@ if (isset($_GET['theme']) && (int)$_GET['theme'] > 0){
     }
 }
 
+if (isset($outputResponse['theme'])){
+    $theme = erLhAbstractModelWidgetTheme::fetch($outputResponse['theme']);
+    if ($theme instanceof erLhAbstractModelWidgetTheme) {
+        if (isset($theme->bot_configuration_array['wwidth']) && $theme->bot_configuration_array['wwidth'] > 0) {
+            $outputResponse['chat_ui']['wwidth'] = $theme->bot_configuration_array['wwidth'];
+        }
+
+        if (isset($theme->bot_configuration_array['wheight']) && $theme->bot_configuration_array['wheight'] > 0) {
+            $outputResponse['chat_ui']['wheight'] = $theme->bot_configuration_array['wheight'];
+        }
+    }
+}
+
 if (erLhcoreClassModelChatConfig::fetch('use_secure_cookie')->current_value == 1) {
     $outputResponse['secure_cookie'] = true;
 }

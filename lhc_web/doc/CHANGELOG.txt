@@ -1,3 +1,11 @@
+3.28v
+
+1. From themes you can change new widget dimensions directly.
+2. Various new widget UI improvements.
+3. Translations update.
+
+execute doc/update_db/update_203.sql for update
+
 3.27v
 
 1. New widget. At the moment it's beta. It features rewritten widget implementation from zero. It's still missing few features but should be pretty stable now.

@@ -397,7 +397,6 @@ class OnlineChat extends Component {
             } else {
                 clearTimeout(this.typingStopped);
                 this.typingStopped = setTimeout(this.typingStoppedAction, 3000);
-
                 if (this.currentMessageTyping != this.state.value ) {
                     if ( Math.abs(this.currentMessageTyping.length - this.state.value.length) > 6) {
                         this.currentMessageTyping = this.state.value;
@@ -511,9 +510,9 @@ class OnlineChat extends Component {
                         </div>
                     </div>
 
-                    {(this.props.chatwidget.getIn(['chatLiveData','ott']) || this.props.chatwidget.getIn(['chatLiveData','error'])) && <div id="id-operator-typing">{this.props.chatwidget.getIn(['chatLiveData','error']) || this.props.chatwidget.getIn(['chatLiveData','ott'])}</div>}
 
                     <div className={(this.props.chatwidget.get('msgLoaded') === false || this.state.enabledEditor === false ? 'd-none ' : 'd-flex ') + "flex-row border-top position-relative message-send-area"} >
+                        {(this.props.chatwidget.getIn(['chatLiveData','ott']) || this.props.chatwidget.getIn(['chatLiveData','error'])) && <div id="id-operator-typing" className="bg-white pl-1">{this.props.chatwidget.getIn(['chatLiveData','error']) || this.props.chatwidget.getIn(['chatLiveData','ott'])}</div>}
                         <ChatOptions elementId="chat-dropdown-options">
                             <div className="btn-group dropup pt-1 disable-select pl-2 pt-2">
                                 <i className="material-icons settings text-muted" id="chat-dropdown-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">settings</i>
@@ -530,13 +529,13 @@ class OnlineChat extends Component {
                         </ChatOptions>
 
                         <div className="mx-auto pb-1 w-100">
-                            <textarea onFocus={this.scrollBottom} onTouchStart={this.scrollBottom} autoFocus={true} aria-label="Type your message here..." onKeyUp={this.keyUp} readOnly={this.props.chatwidget.getIn(['chatLiveData','closed'])} id="CSChatMessage" placeholder={placeholder} onKeyDown={this.enterKeyDown} value={this.state.value} onChange={this.handleChange} ref={this.textMessageRef} rows="1" className="pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0" />
+                            <textarea maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} style={{height: this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/8.6)) ? '60px' : 'auto'}} onFocus={this.scrollBottom} onTouchStart={this.scrollBottom} autoFocus={true} aria-label="Type your message here..." onKeyUp={this.keyUp} readOnly={this.props.chatwidget.getIn(['chatLiveData','closed'])} id="CSChatMessage" placeholder={placeholder} onKeyDown={this.enterKeyDown} value={this.state.value} onChange={this.handleChange} ref={this.textMessageRef} rows="1" className="pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0" />
                         </div>
 
                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && <div className="disable-select">
                             <div className="user-chatwidget-buttons" id="ChatSendButtonContainer">
                                 <a onClick={this.sendMessage} title="Send">
-                                   <i className="material-icons text-muted settings">send</i>
+                                   <i className="material-icons text-muted settings mr-0">send</i>
                                 </a>
                             </div>
                         </div>}

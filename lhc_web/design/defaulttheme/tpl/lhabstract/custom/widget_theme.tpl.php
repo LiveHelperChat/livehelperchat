@@ -221,6 +221,16 @@
 						<label><?php echo $fields['header_padding']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('header_padding', $fields['header_padding'], $object)?>		
 						</div>
+                    
+						<div class="form-group">	
+						<label><?php echo $fields['wwidth']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('wwidth', $fields['wwidth'], $object)?>		
+						</div>
+                    
+						<div class="form-group">	
+						<label><?php echo $fields['wheight']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('wheight', $fields['wheight'], $object)?>		
+						</div>
 						
 						<?php /*
 						<div class="form-group">							
