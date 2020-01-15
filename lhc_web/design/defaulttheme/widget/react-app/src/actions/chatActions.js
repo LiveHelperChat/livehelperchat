@@ -150,19 +150,21 @@ export function submitOfflineForm(obj) {
 }
 
 export function initChatUI(obj) {
-    return function(dispatch) {
+    return function(dispatch, getState) {
         axios.post(window.lhcChat['base_url'] + "/widgetrestapi/initchat", obj)
         .then((response) => {
             dispatch({type: "INIT_CHAT_SUBMITTED", data: response.data})
+
             if (response.data.init_calls) {
                 response.data.init_calls.forEach((callExtension) => {
                     import('../extensions/nodejs/nodeJSChat').then((module) => {
-                        module.nodeJSChat.testCall();
+                        module.nodeJSChat.bootstrap(callExtension.params, dispatch, getState);
                     });
                 });
             }
         })
         .catch((err) => {
+            console.log(err);
             dispatch({type: "INIT_CHAT_REJECTED", data: err})
         })
     }
@@ -283,9 +285,18 @@ export function addMessage(obj) {
 export function userTyping(status, msg) {
     return function(dispatch, getState) {
         const state = getState();
-        axios.post(window.lhcChat['base_url'] + "/chat/usertyping/" + state.chatwidget.getIn(['chatData','id']) + '/' + state.chatwidget.getIn(['chatData','hash']) + '/' + status, {'msg' : msg})
-            .then((response) => {
+
+        if (status === 'true') {
+            helperFunctions.eventEmitter.emitEvent('visitorTyping', [{'chat_id':state.chatwidget.getIn(['chatData','id']), 'hash': state.chatwidget.getIn(['chatData','hash']),'status': true, msg: msg}]);
+        } else {
+            helperFunctions.eventEmitter.emitEvent('visitorTyping', [{'chat_id':state.chatwidget.getIn(['chatData','id']), 'hash': state.chatwidget.getIn(['chatData','hash']),'status': false}]);
+        }
+
+        if (!state.chatwidget.get('overrides').contains('typing')) {
+            axios.post(window.lhcChat['base_url'] + "/chat/usertyping/" + state.chatwidget.getIn(['chatData','id']) + '/' + state.chatwidget.getIn(['chatData','hash']) + '/' + status, {'msg' : msg})
+                .then((response) => {
             });
+        }
     }
 }
 
