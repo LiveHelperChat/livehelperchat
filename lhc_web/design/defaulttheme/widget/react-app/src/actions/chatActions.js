@@ -154,6 +154,11 @@ export function initChatUI(obj) {
         axios.post(window.lhcChat['base_url'] + "/widgetrestapi/initchat", obj)
         .then((response) => {
             dispatch({type: "INIT_CHAT_SUBMITTED", data: response.data})
+            if (response.data.init_calls) {
+                response.data.init_calls.forEach((callExtension) => {
+                    console.log(callExtension);
+                });
+            }
         })
         .catch((err) => {
             dispatch({type: "INIT_CHAT_REJECTED", data: err})

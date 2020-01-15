@@ -34,7 +34,7 @@ try {
     
     $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
     
-    if ($chat->hash === $Params['user_parameters']['hash']) {   
+    if ($chat instanceof erLhcoreClassModelChat && $chat->hash === $Params['user_parameters']['hash']) {
 
         if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
             // Lock chat record for update untill we finish this procedure
