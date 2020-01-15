@@ -32,7 +32,7 @@
 	 <?php endif; ?>
 	 	 
 
-	 <?php if ($currentUser->hasAccessTo('lhsystem','use')) : ?>
+	 <?php if ($currentUser->hasAccessTo('lhsystem','usersactions')) : ?>
 	 <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Advanced');?></h4>
      <ul class="circle small-list">
         <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/usersactions')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Users actions');?></a></li>
