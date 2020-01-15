@@ -222,9 +222,12 @@ class StartChat extends Component {
                         </div>
 
                         <div className="d-flex flex-row border-top position-relative message-send-area">
+
+                            {(this.props.chatwidget.hasIn(['validationErrors','question'])) && <div id="id-operator-typing" className="bg-white pl-1">{this.props.chatwidget.getIn(['validationErrors','question'])}</div>}
+
                             <ChatStartOptions toggleModal={this.toggleModal} />
                             <div className="mx-auto pb-1 w-100">
-                                <textarea aria-label="Type your message here..." id="CSChatMessage" value={this.state.Question} placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : "Type your message here..."} onKeyDown={this.enterKeyDown} onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})} ref={this.textMessageRef} rows="1" className="pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0" />
+                                <textarea maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} style={{height: this.textMessageRef.current && (/\r|\n/.exec(this.state.Question) || (this.state.Question.length > this.textMessageRef.current.offsetWidth/8.6)) ? '60px' : 'inherit'}} aria-label="Type your message here..." id="CSChatMessage" value={this.state.Question} placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : "Type your message here..."} onKeyDown={this.enterKeyDown} onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})} ref={this.textMessageRef} rows="1" className="pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0" />
                             </div>
                             <div className="disable-select">
                                 <div className="user-chatwidget-buttons" id="ChatSendButtonContainer">

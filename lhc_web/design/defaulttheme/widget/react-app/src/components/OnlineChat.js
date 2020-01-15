@@ -398,7 +398,7 @@ class OnlineChat extends Component {
                 clearTimeout(this.typingStopped);
                 this.typingStopped = setTimeout(this.typingStoppedAction, 3000);
                 if (this.currentMessageTyping != this.state.value ) {
-                    if ( Math.abs(this.currentMessageTyping.length - this.state.value.length) > 6) {
+                    if (Math.abs(this.currentMessageTyping.length - this.state.value.length) > 6 || this.props.chatwidget.get('overrides').contains('typing')) {
                         this.currentMessageTyping = this.state.value;
                         this.props.dispatch(userTyping('true',this.state.value));
                     }
@@ -529,7 +529,7 @@ class OnlineChat extends Component {
                         </ChatOptions>
 
                         <div className="mx-auto pb-1 w-100">
-                            <textarea maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} style={{height: this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/8.6)) ? '60px' : 'auto'}} onFocus={this.scrollBottom} onTouchStart={this.scrollBottom} autoFocus={true} aria-label="Type your message here..." onKeyUp={this.keyUp} readOnly={this.props.chatwidget.getIn(['chatLiveData','closed'])} id="CSChatMessage" placeholder={placeholder} onKeyDown={this.enterKeyDown} value={this.state.value} onChange={this.handleChange} ref={this.textMessageRef} rows="1" className="pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0" />
+                            <textarea maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} style={{height: this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/8.6)) ? '60px' : 'inherit'}} onFocus={this.scrollBottom} onTouchStart={this.scrollBottom} autoFocus={true} aria-label="Type your message here..." onKeyUp={this.keyUp} readOnly={this.props.chatwidget.getIn(['chatLiveData','closed'])} id="CSChatMessage" placeholder={placeholder} onKeyDown={this.enterKeyDown} value={this.state.value} onChange={this.handleChange} ref={this.textMessageRef} rows="1" className="pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0" />
                         </div>
 
                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && <div className="disable-select">

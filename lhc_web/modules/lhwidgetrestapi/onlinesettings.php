@@ -374,6 +374,8 @@ foreach ($fields as $field) {
     }
 }
 
+$chat_ui['max_length'] = (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value - 1;
+
 $outputResponse = array(
     'fields' => $fields,
     'fields_visible' => $visibleCount, // how many fields are visible one

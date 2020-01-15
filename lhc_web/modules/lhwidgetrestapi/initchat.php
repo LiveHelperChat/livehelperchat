@@ -143,6 +143,8 @@ try {
 
         $outputResponse['chat_ui']['fbst'] = $chat->fbst;
 
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.initchat', array('output' => & $outputResponse));
+
         echo erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
         
     } else {

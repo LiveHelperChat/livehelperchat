@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "parcel watch src/react.app.js --no-source-maps --out-dir ../../js/widgetv2/",
     "dev-ie": "parcel watch src/react.app.ie.js --no-source-maps --out-dir ../../js/widgetv2/",
-    "build": "parcel build src/react.app.js --no-source-maps --detailed-report --no-content-hash --out-dir ../../js/widgetv2/",
-    "build-ie": "parcel build src/react.app.ie.js --no-source-maps --detailed-report --no-content-hash --out-dir ../../js/widgetv2/",
+    "build": "parcel build src/react.app.js --no-source-maps --detailed-report --out-dir ../../js/widgetv2/",
+    "build-ie": "parcel build src/react.app.ie.js --no-source-maps --detailed-report --out-dir ../../js/widgetv2/",
     "format": "prettier \"src/**/*.{js,html}\" --write",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -50,6 +50,7 @@
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^6.1.2",
     "redux-thunk": "^2.3.0",
+    "socketcluster-client": "^14.3.1",
     "wolfy87-eventemitter": "^5.2.8"
   },
   "browserslist": [

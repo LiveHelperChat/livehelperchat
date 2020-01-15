@@ -8,8 +8,6 @@ $db->beginTransaction();
 
 try {
     $chat = erLhcoreClassModelChat::fetchAndLock($requestPayload['chat_id']);
-    $chat->updateIgnoreColumns = array('last_msg_id');
-    erLhcoreClassChat::setTimeZoneByChat($chat);
 } catch (Exception $e) {
     $chat = false;
 }
@@ -21,13 +19,16 @@ $userOwner = true;
 $saveChat = false;
 $operation = '';
 $operatorId = 0;
-
-$responseArray = array();
-$responseArray['status_sub'] = $chat->status_sub;
-$responseArray['status'] = $chat->status;
+$responseArray = array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT, 'status_sub' => erLhcoreClassModelChat::STATUS_SUB_DEFAULT);
 
 if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 {
+    erLhcoreClassChat::setTimeZoneByChat($chat);
+    $chat->updateIgnoreColumns = array('last_msg_id');
+
+    $responseArray['status_sub'] = $chat->status_sub;
+    $responseArray['status'] = $chat->status;
+
 	try {
 
 		    if ($chat->auto_responder !== false) {

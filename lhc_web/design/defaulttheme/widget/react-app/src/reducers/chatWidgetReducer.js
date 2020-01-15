@@ -11,6 +11,7 @@ const initialState = fromJS({
     newChat: true,
     theme: null,
     mode: 'widget',
+    overrides: [], // we store here extensions flags. Like do we override typing monitoring so we send every request
     department: [],
     jsVars: [],
     // Are we syncing chat messages now
@@ -128,6 +129,14 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.set('theme',action.data);
         }
 
+        case 'CHAT_ADD_OVERRIDE' : {
+            return state.update('overrides',list => list.push(action.data));
+        }
+
+        case 'CHAT_REMOVE_OVERRIDE': {
+            return state.update('overrides',list => list.filter(item => item != action.data));
+        }
+
         case 'base_url': {
             return state.set('base_url',action.data);
         }
@@ -216,8 +225,11 @@ const chatWidgetReducer = (state = initialState, action) => {
                     .setIn(['chatLiveData','lmsgid'],action.data.message_id);
             }
 
-            return state.setIn(['chatLiveData','ott'], action.data.ott)
-                .setIn(['chatLiveData','status_sub'], action.data.status_sub)
+            if (!state.get('overrides').contains('typing')) {
+                state = state.setIn(['chatLiveData','ott'], action.data.ott);
+            }
+
+            return state.setIn(['chatLiveData','status_sub'], action.data.status_sub)
                 .setIn(['chatLiveData','status'], action.data.status)
                 .setIn(['syncStatus','msg'], false)
                 .set('msgLoaded', true)
@@ -235,6 +247,10 @@ const chatWidgetReducer = (state = initialState, action) => {
 
         case 'ONLINE_FIELDS_UPDATED' : {
             return state.set('onlineData', fromJS({'fetched' : true, 'fields_visible': action.data.fields_visible, 'fields' : action.data.fields, 'department' : action.data.department})).set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)));
+        }
+
+        case 'CHAT_UI_UPDATE' : {
+            return state.set('chat_ui',state.get('chat_ui').merge(fromJS(action.data)));
         }
 
         case 'CUSTOM_FIELDS': {
