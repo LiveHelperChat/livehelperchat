@@ -23,7 +23,7 @@ $inputData->only_bot_online = isset($_POST['onlyBotOnline']) ? (int)$_POST['only
 
 if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1) {
     erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
-    $inputData->departament_id = array_shift($Params['user_parameters_unordered']['department']);
+    $requestPayload['fields']['DepartamentID'] = $inputData->departament_id = array_shift($Params['user_parameters_unordered']['department']);
 } else {
     $inputData->departament_id = 0;
 }
