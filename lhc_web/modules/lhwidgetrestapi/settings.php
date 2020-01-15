@@ -27,12 +27,6 @@ $ignorable_ip = erLhcoreClassModelChatConfig::fetch('ignorable_ip')->current_val
 $fullHeight = (isset($Params['user_parameters_unordered']['fullheight']) && $Params['user_parameters_unordered']['fullheight'] == 'true') ? true : false;
 
 if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(),explode(',',$ignorable_ip))) {
-    if (is_array($Params['user_parameters_unordered']['department'])){
-        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
-        $department = $Params['user_parameters_unordered']['department'];
-    } else {
-        $department = false;
-    }
 
     $jsVars = array();
 
