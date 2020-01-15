@@ -3348,6 +3348,14 @@
                 "default": null,
                 "extra": "",
                 "collation": "utf8mb4_unicode_ci"
+            },
+            {
+              "field": "modified",
+              "type": "int(11)",
+              "null": "NO",
+              "key": "",
+              "default": null,
+              "extra": ""
             }
         ],
         "lh_canned_msg": [

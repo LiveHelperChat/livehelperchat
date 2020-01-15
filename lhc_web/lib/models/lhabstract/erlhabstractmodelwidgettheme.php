@@ -94,6 +94,7 @@ class erLhAbstractModelWidgetTheme {
 
 			'hide_ts'                   => $this->hide_ts,
 			'widget_response_width'     => $this->widget_response_width,
+			'modified'                  => $this->modified,
 		);
 
 		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('lhabstract.erlhabstractmodelwidgettheme.getstate',array('state' => & $stateArray, 'object' => & $this));
@@ -200,6 +201,8 @@ class erLhAbstractModelWidgetTheme {
 	    
 	    return $metaData;
 	}
+
+
 
 	public function afterSave()
     {
@@ -386,12 +389,14 @@ class erLhAbstractModelWidgetTheme {
     {
         $this->bot_configuration = json_encode($this->bot_configuration_array);
         $this->notification_configuration = json_encode($this->notification_configuration_array);
+        $this->modified = time();
     }
 
     public function beforeSave()
     {
         $this->bot_configuration = json_encode($this->bot_configuration_array);
         $this->notification_configuration = json_encode($this->notification_configuration_array);
+        $this->modified = time();
     }
     
 	public function dependCss()
@@ -491,6 +496,9 @@ class erLhAbstractModelWidgetTheme {
 
     public $hide_ts = 0;
     public $widget_response_width = 0;
+
+    // Theme modified time. We will use this attribute for E-Tag
+    public $modified = 0;
 
 	public $hide_add = false;
 	public $hide_delete = false;

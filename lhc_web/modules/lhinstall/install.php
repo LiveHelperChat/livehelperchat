@@ -516,6 +516,7 @@ try {
                  `header_padding` int(11) NOT NULL,
                  `widget_border_width` int(11) NOT NULL,
                  `hide_ts` int(11) NOT NULL,
+                 `modified` int(11) NOT NULL,
                  `widget_response_width` int(11) NOT NULL,
                  `show_voting` tinyint(1) NOT NULL DEFAULT '1',
                  `department_title` varchar(250) NOT NULL,

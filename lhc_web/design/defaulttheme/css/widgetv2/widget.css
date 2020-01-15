@@ -617,9 +617,13 @@ div.message-admin+div.message-admin .msg-date,div.message-row.response+div.messa
     text-overflow: ellipsis;
     overflow: hidden;
     text-align: right;
-    bottom: 43px;
+    top: -16px;
     right: 0px;
     position: absolute;
+    border-top-left-radius: 10px;
+    -webkit-box-shadow: -1px -2px 5px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px -2px 5px -2px rgba(0,0,0,0.75);
+    box-shadow: -1px -2px 5px -2px rgba(0,0,0,0.75);
 }
 
 .no-outline:focus,.no-outline,.no-outline:active {
@@ -639,7 +643,7 @@ textarea[name=ChatMessage] {
     height: 36px;
     overflow: auto;
     resize: none;
-    padding-right: 30px;
+    padding-right: 33px;
     background: transparent;
 }
 
@@ -651,7 +655,7 @@ textarea[name=ChatMessage] {
 .user-chatwidget-buttons {
     position: absolute;
     top: 6px;
-    right: 3px;
+    right: 10px;
     height: 10px;
 }
 

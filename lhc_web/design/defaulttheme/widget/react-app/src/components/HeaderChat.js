@@ -43,7 +43,7 @@ class HeaderChat extends Component {
         return (
             <div className={className}>
                 <div className="col-6 pl-1">
-                    <a href="#" className="header-link" onClick={this.closeWidget}><i className="material-icons">minimize</i></a>
+                    <a href="#" className="header-link" onClick={this.closeWidget}><i className="material-icons">arrow_drop_down</i></a>
                 </div>
                 <div className={classNameMenu}>
                     <div className="d-flex">
