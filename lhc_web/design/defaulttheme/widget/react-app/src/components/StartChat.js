@@ -180,7 +180,7 @@ class StartChat extends Component {
                 'department':props.chatwidget.get('department'),
                 'theme' : props.chatwidget.get('theme'),
                 'mode' : props.chatwidget.get('mode'),
-                'vid' : this.props.chatwidget.get('vid'),
+                'vid' : props.chatwidget.get('vid'),
                 'fields' : fields
             }));
         }
