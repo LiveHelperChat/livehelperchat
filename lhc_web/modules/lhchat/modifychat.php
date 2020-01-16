@@ -83,6 +83,22 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhc
 
             $userInstance = $chat->online_user;
 
+            if ($userInstance instanceof erLhcoreClassModelChatOnlineUser) {
+                $attr = $userInstance->online_attr_system_array;
+                // Update informing options for online visitor
+                if (isset($_POST['informReturn'])) {
+                    $attr['lhc_ir'] = true;
+                    $userInstance->online_attr_system = json_encode($attr);
+                    $userInstance->online_attr_system_array = $attr;
+                    $userInstance->saveThis();
+                } elseif (isset($userInstance->online_attr_system_array['lhc_ir'])) {
+                    unset($attr['lhc_ir']);
+                    $userInstance->online_attr_system = json_encode($attr);
+                    $userInstance->online_attr_system_array = $attr;
+                    $userInstance->saveThis();
+                }
+            }
+
             if ($userInstance instanceof erLhcoreClassModelChatOnlineUser && $chat->nick != erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor')) {
                 $onlineAttr = $userInstance->online_attr_system_array;
                 $onlineAttr['username'] = $chat->nick;

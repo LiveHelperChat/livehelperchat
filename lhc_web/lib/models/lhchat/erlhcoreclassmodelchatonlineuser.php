@@ -625,7 +625,12 @@ class erLhcoreClassModelChatOnlineUser
                             $item->message_seen_ts = 0;
                             $item->operator_message = '';
                         }
+                        
                         $returningVisitor = true;
+
+                        if (isset($item->online_attr_system_array['lhc_ir'])) {
+                            erLhcoreClassChatMail::informVisitorReturned($item);
+                        }
                     }
 
                     $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : $item->identifier;
