@@ -107,7 +107,7 @@ if (($domain = erLhcoreClassModelChatConfig::fetch('track_domain')->current_valu
 }
 
 $ts = time();
-$outputResponse['v'] = 6;
+$outputResponse['v'] = 7;
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
 $outputResponse['static'] = array(
