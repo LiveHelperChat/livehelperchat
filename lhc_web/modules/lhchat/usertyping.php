@@ -5,7 +5,7 @@ erLhcoreClassRestAPIHandler::setHeaders();
 $msg = '';
 
 if (isset($_POST['msg'])) {
-    $msg = isset($_POST['msg']);
+    $msg = $_POST['msg'];
 } else {
     $payload = json_decode(file_get_contents('php://input'),true);
     if (isset($payload['msg'])) {
