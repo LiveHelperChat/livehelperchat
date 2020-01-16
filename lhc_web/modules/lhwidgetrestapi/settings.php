@@ -58,8 +58,13 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
 
     // Exit if not required
     $statusGeoAdjustment = erLhcoreClassChat::getAdjustment(erLhcoreClassModelChatConfig::fetch('geoadjustment_data')->data_value,'',false, $userInstance);
+
     if ($statusGeoAdjustment['status'] == 'offline' || $statusGeoAdjustment['status'] == 'hidden') {
-        $outputResponse['hideOffline'] = false;
+
+        if ($statusGeoAdjustment['status'] == 'hidden') {
+            $outputResponse['hideOffline'] = true;
+        }
+
         $outputResponse['isOnline'] = false;
     }
 
@@ -107,7 +112,7 @@ if (($domain = erLhcoreClassModelChatConfig::fetch('track_domain')->current_valu
 }
 
 $ts = time();
-$outputResponse['v'] = 8;
+$outputResponse['v'] = 9;
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
 $outputResponse['static'] = array(

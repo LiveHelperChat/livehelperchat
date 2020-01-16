@@ -20,6 +20,7 @@ $inputData->validate_start_chat = false;
 $inputData->ignore_captcha = true;
 $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
 $inputData->only_bot_online = isset($_POST['onlyBotOnline']) ? (int)$_POST['onlyBotOnline'] : 0;
+$inputData->vid = isset($requestPayload['vid']) && $requestPayload['vid'] != '' ? (string)$requestPayload['vid'] : '';
 
 if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1) {
     erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
@@ -46,6 +47,24 @@ $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFie
 
 if (empty($Errors)) {
 
+    $chat->lsync = time();
+    $chat->setIP();
+
+    erLhcoreClassModelChat::detectLocation($chat);
+
+    $statusGeoAdjustment = erLhcoreClassChat::getAdjustment(erLhcoreClassModelChatConfig::fetch('geoadjustment_data')->data_value, $inputData->vid);
+
+    if ($statusGeoAdjustment['status'] == 'hidden') { // This should never happen
+        $outputResponse = array (
+            'success' => false,
+            'errors' => 'Chat not available in your country'
+        );
+
+        erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
+        exit;
+    }
+
+
     $chat->time = $chat->pnd_time = time();
     $chat->status = 0;
 
@@ -69,7 +88,7 @@ if (empty($Errors)) {
         // Assign chat to user
         if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
             // To track online users
-            $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('check_message_operator' => true, 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'vid' => $Params['user_parameters_unordered']['vid']));
+            $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('check_message_operator' => true, 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'vid' => $inputData->vid));
 
             if ($userInstance !== false) {
                 $userInstance->chat_id = $chat->id;

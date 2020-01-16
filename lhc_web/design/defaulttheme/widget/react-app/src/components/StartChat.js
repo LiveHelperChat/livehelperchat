@@ -119,6 +119,7 @@ class StartChat extends Component {
             'department': this.props.chatwidget.get('department'),
             'theme' : this.props.chatwidget.get('theme'),
             'mode' : this.props.chatwidget.get('mode'),
+            'vid' : this.props.chatwidget.get('vid'),
             'fields' : fields
         };
 
@@ -179,7 +180,7 @@ class StartChat extends Component {
                 'department':props.chatwidget.get('department'),
                 'theme' : props.chatwidget.get('theme'),
                 'mode' : props.chatwidget.get('mode'),
-                'online' : 1,
+                'vid' : this.props.chatwidget.get('vid'),
                 'fields' : fields
             }));
         }

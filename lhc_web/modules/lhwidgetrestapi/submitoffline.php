@@ -17,6 +17,7 @@ $inputData->validate_start_chat = false;
 $inputData->ignore_captcha = true;
 $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
 $inputData->only_bot_online = isset($_POST['onlyBotOnline']) ? (int)$_POST['onlyBotOnline'] : 0;
+$inputData->vid = isset($requestPayload['vid']) && $requestPayload['vid'] != '' ? (string)$requestPayload['vid'] : '';
 
 if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1) {
     erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
@@ -45,7 +46,7 @@ $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFie
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_started', array('chat' => & $chat, 'errors' => & $Errors, 'offline' => (isset($additionalParams['offline']) && $additionalParams['offline'] == true)));
 
-if (count($Errors) == 0 && !isset($_POST['switchLang'])) {
+if (empty($Errors)) {
     $chat->setIP();
     $chat->lsync = time();
     erLhcoreClassModelChat::detectLocation($chat);
@@ -56,7 +57,13 @@ if (count($Errors) == 0 && !isset($_POST['switchLang'])) {
     $statusGeoAdjustment = erLhcoreClassChat::getAdjustment(erLhcoreClassModelChatConfig::fetch('geoadjustment_data')->data_value, $inputData->vid);
 
     if ($statusGeoAdjustment['status'] == 'hidden') { // This should never happen
-        exit('Chat not available in your country');
+        $outputResponse = array (
+            'success' => false,
+            'errors' => 'Chat not available in your country'
+        );
+
+        erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
+        exit;
     }
 
     // Because product can have different department than selected product, we reasign chat to correct department if required
