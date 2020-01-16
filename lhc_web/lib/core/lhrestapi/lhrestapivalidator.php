@@ -749,7 +749,7 @@ class erLhcoreClassRestAPIHandler
            echo self::formatXML(json_decode(json_encode($data),true));
         } else {
         
-            $json = json_encode($data, JSON_PRETTY_PRINT);
+            $json = json_encode($data);
             
             if (isset($_GET['callback'])) {
                 echo $_GET['callback'] . '(' . $json . ')';
