@@ -8770,6 +8770,22 @@
                 "reply_to_ac": "0",
                 "recipient": "",
                 "user_mail_as_sender": "0"
+            },
+            {
+                "id": "12",
+                "name": "Visitor returned",
+                "from_name": "Live Helper Chat",
+                "from_name_ac": "0",
+                "from_email": "",
+                "from_email_ac": "0",
+                "content": "Hello,\r\n\r\nVisitor information\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\nCreated:{created}\r\nUser left:{user_left}\r\nWaited:{waited}\r\nChat duration:{chat_duration}\r\n\r\nSee more information at\r\n{url_accept}\r\n\r\nLast chat:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nSincerely,\r\nLive Support Team",
+                "subject": "Visitor returned - {username}",
+                "bcc_recipients": "",
+                "subject_ac": "0",
+                "reply_to": "",
+                "reply_to_ac": "0",
+                "recipient": "",
+                "user_mail_as_sender": "0"
             }
         ]
     },
