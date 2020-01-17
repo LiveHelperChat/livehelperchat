@@ -65,6 +65,7 @@
                 eventEmitter : new EventEmitter(),
                 toggleSound : new BehaviorSubject( storageHandler.getSessionStorage('LHC_SOUND') === 'true' || storageHandler.getSessionStorage('LHC_SOUND') === null),
                 hideOffline : false,
+                check_status : 0, // Should we be checking for widget online status changed?
                 isMobile : isMobile,
                 isIE : (navigator.userAgent.toUpperCase().indexOf("TRIDENT/") != -1 || navigator.userAgent.toUpperCase().indexOf("MSIE") != -1),
                 fresh : LHC_API.args.fresh || false,
@@ -159,8 +160,13 @@
                     if (data.chat_ui.wheight && !isMobile) {
                         attributesWidget.widgetDimesions.nextProperty('height',data.chat_ui.wheight);
                     }
+
                     if (data.chat_ui.wwidth && !isMobile) {
                         attributesWidget.widgetDimesions.nextProperty('width',data.chat_ui.wwidth);
+                    }
+
+                    if (data.chat_ui.check_status) {
+                        attributesWidget.check_status = data.chat_ui.check_status;
                     }
                 }
 

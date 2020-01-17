@@ -4,12 +4,12 @@ import rootReducer from "../reducers/index";
 import thunk from "redux-thunk"
 import promise from "redux-promise-middleware"
 
-//import {logger} from "redux-logger"
+import {logger} from "redux-logger"
 //import { createLogger } from 'redux-logger'
 
 import addChatWidgetListener from './chatWidgetListener';
 
-const middleware = applyMiddleware(promise, thunk/*, logger*/)
+const middleware = applyMiddleware(promise, thunk, logger)
 
 const store = createStore(
     rootReducer,
