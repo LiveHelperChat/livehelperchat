@@ -114,14 +114,14 @@
                 embedWrapper.style.height = (LHC_API.args.wheight || 520)+'px';
             }
 
-            helperFunctions.makeRequest(LHC_API.args.lhc_base_url + '/widgetrestapi/settings',{
+            helperFunctions.makeRequest(LHC_API.args.lhc_base_url + '/widgetrestapi/settings',{params:{
                 'vid' : attributesWidget.userSession.getVID(),
                 'tz' : helperFunctions.getTzOffset(),
                 'r' : referrer,
                 'l' : location,
                 'ie' : attributesWidget.isIE,
                 'dep' : attributesWidget.department.join(',')
-            }, (data) => {
+            }}, (data) => {
 
                 __webpack_public_path__ = data.chunks_location + "/";
 
@@ -159,8 +159,19 @@
                     if (data.chat_ui.wheight && !isMobile) {
                         attributesWidget.widgetDimesions.nextProperty('height',data.chat_ui.wheight);
                     }
+
                     if (data.chat_ui.wwidth && !isMobile) {
                         attributesWidget.widgetDimesions.nextProperty('width',data.chat_ui.wwidth);
+                    }
+
+                    if (data.chat_ui.check_status) {
+                        import('./util/activityMonitoring').then((module) => {
+                            module.activityMonitoring.setParams({
+                                'timeout' : data.chat_ui.check_status,
+                                'track_mouse' : data.chat_ui.track_mouse,
+                                'track_activity' : data.chat_ui.track_activity
+                            }, attributesWidget);
+                        });
                     }
                 }
 

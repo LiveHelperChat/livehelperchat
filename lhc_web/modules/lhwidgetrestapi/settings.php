@@ -103,6 +103,18 @@ if (isset($outputResponse['theme'])){
     }
 }
 
+if ((int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value > 0){
+    $outputResponse['chat_ui']['check_status'] = (int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value;
+
+    if ((int)erLhcoreClassModelChatConfig::fetch('track_activity')->current_value > 0) {
+        $outputResponse['chat_ui']['track_activity'] = true;
+    }
+
+    if ((int)erLhcoreClassModelChatConfig::fetch('track_mouse_activity')->current_value > 0) {
+        $outputResponse['chat_ui']['track_mouse'] = true;
+    }
+}
+
 if (erLhcoreClassModelChatConfig::fetch('use_secure_cookie')->current_value == 1) {
     $outputResponse['secure_cookie'] = true;
 }
@@ -112,7 +124,7 @@ if (($domain = erLhcoreClassModelChatConfig::fetch('track_domain')->current_valu
 }
 
 $ts = time();
-$outputResponse['v'] = 10;
+$outputResponse['v'] = 12;
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
 $outputResponse['static'] = array(
