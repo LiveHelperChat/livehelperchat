@@ -65,7 +65,6 @@
                 eventEmitter : new EventEmitter(),
                 toggleSound : new BehaviorSubject( storageHandler.getSessionStorage('LHC_SOUND') === 'true' || storageHandler.getSessionStorage('LHC_SOUND') === null),
                 hideOffline : false,
-                check_status : 0, // Should we be checking for widget online status changed?
                 isMobile : isMobile,
                 isIE : (navigator.userAgent.toUpperCase().indexOf("TRIDENT/") != -1 || navigator.userAgent.toUpperCase().indexOf("MSIE") != -1),
                 fresh : LHC_API.args.fresh || false,
@@ -115,14 +114,14 @@
                 embedWrapper.style.height = (LHC_API.args.wheight || 520)+'px';
             }
 
-            helperFunctions.makeRequest(LHC_API.args.lhc_base_url + '/widgetrestapi/settings',{
+            helperFunctions.makeRequest(LHC_API.args.lhc_base_url + '/widgetrestapi/settings',{params:{
                 'vid' : attributesWidget.userSession.getVID(),
                 'tz' : helperFunctions.getTzOffset(),
                 'r' : referrer,
                 'l' : location,
                 'ie' : attributesWidget.isIE,
                 'dep' : attributesWidget.department.join(',')
-            }, (data) => {
+            }}, (data) => {
 
                 __webpack_public_path__ = data.chunks_location + "/";
 
@@ -166,7 +165,13 @@
                     }
 
                     if (data.chat_ui.check_status) {
-                        attributesWidget.check_status = data.chat_ui.check_status;
+                        import('./util/activityMonitoring').then((module) => {
+                            module.activityMonitoring.setParams({
+                                'timeout' : data.chat_ui.check_status,
+                                'track_mouse' : data.chat_ui.track_mouse,
+                                'track_activity' : data.chat_ui.track_activity
+                            }, attributesWidget);
+                        });
                     }
                 }
 

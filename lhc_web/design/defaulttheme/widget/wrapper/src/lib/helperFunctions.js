@@ -136,7 +136,7 @@ class _helperFunctions {
     
     makeRequest(url, params, callback) {
         var request = new XMLHttpRequest;
-        request.open("GET", url + '?' + this.makeQuery(params), true);
+        request.open("GET", url + '?' + this.makeQuery(params.params), true);
         request.onreadystatechange = function () {
            if (4 == request.readyState) {
                callback(JSON.parse(request.responseText));
