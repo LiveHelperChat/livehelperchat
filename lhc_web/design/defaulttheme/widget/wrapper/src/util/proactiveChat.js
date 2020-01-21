@@ -162,76 +162,7 @@ class _proactiveChat {
                 }
             });
         }
-
-        /*startNewMessageCheckSingle : function() {
-            if (!lh_inst.cookieData.hash) {
-                var vid = this.cookieDataPers.vid;
-                lh_inst.removeById('lhc_operator_message');
-                var th = document.getElementsByTagName('head')[0];
-                var s = document.createElement('script');
-                var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
-                var tzOffset = this.getTzOffset();
-
-                var dynamic = this.dynamicAssigned.length > 0 ? '/(dyn)/' +  this.dynamicAssigned.join('/'): '';
-
-                s.setAttribute('id','lhc_operator_message');
-                s.setAttribute('type','text/javascript');
-                s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?>
-                <?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?>
-                <?php is_object($theme) ? print '/(theme)/'.$theme->id : ''?>
-                <?php $operator !== false ? print '/(operator)/'.$operator : ''?>
-                <?php $department !== false ? print '/(department)/'.$department : ''?>
-                <?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?>
-                <?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?>
-                <?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ?  '/(fullheight)/true' : '/(fullheight)/false' ?>/(tz)/' + tzOffset + this.survey_id + '/(count_page)/1/(vid)/'+vid+'/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+dynamic+'?l='+locationCurrent+this.tag+this.parseStorageArguments()+this.parseOptionsOnline()+this.parseOptions()+'&dt='+encodeURIComponent(document.title)+'&ts='+Date.now());
-                th.appendChild(s);
-            }
-        },*/
     }
-
-    /*syncUserStatus(sender) {
-        const chatParams = this.attributes['userSession'].getSessionAttributes();
-
-        let params = {
-            'vid': this.attributes.userSession.getVID(),
-            'wopen': (this.attributes.widgetStatus.value ? 1 : 0),
-            'uaction': sender,
-            'uactiv': this.userActive,
-            'dep': this.attributes.department.join(',')
-        };
-
-        if (chatParams['id'] && chatParams['hash']) {
-            params['hash'] = chatParams['id'] + '_' + chatParams['hash'];
-        }
-
-        helperFunctions.makeRequest(LHC_API.args.lhc_base_url + '/widgetrestapi/chatcheckstatus', {params: params}, (data) => {
-            if (data.change_status == true && this.attributes.onlineStatus.value != data.online) {
-                this.attributes.onlineStatus.next(data.online);
-            }
-        });
-    }*/
-
-    /*
-    startNewMessageCheck : function() {
-    	/*var vid = this.cookieDataPers.vid;
-    	var inst = this;
-    	var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
-
-        this.timeoutInstance = setTimeout(function() {
-            lh_inst.removeById('lhc_operator_message');
-            var dynamic = inst.dynamicAssigned.length > 0 ? '/(dyn)/' +  inst.dynamicAssigned.join('/') : '';
-            var th = document.getElementsByTagName('head')[0];
-            var s = document.createElement('script');
-            s.setAttribute('id','lhc_operator_message');
-            s.setAttribute('type','text/javascript');
-            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ?  '/(fullheight)/true' : '/(fullheight)/false' ?>/(vid)/'+vid + lh_inst.survey_id + '/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+dynamic+'?l='+locationCurrent+inst.tag+'&dt='+encodeURIComponent(document.title)+'&ts='+Date.now());
-            th.appendChild(s);
-            lh_inst.startNewMessageCheck();
-        }, <?php echo (int)(erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['check_for_operator_msg']*1000); ?> );
-    },
-
-    */
-
 }
 
 const proactiveChat = new _proactiveChat();
