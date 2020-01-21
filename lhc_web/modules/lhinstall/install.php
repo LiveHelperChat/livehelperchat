@@ -1408,7 +1408,7 @@ try {
                 ('hide_right_column_frontpage','0','0','Hide right column in frontpage','0'),
                 ('front_tabs', 'dashboard,online_users,online_map', '0', 'Home page tabs order', '0'),
                 ('speech_data',	'a:3:{i:0;b:0;s:8:\"language\";i:7;s:7:\"dialect\";s:5:\"en-US\";}',	1,	'',	1),
-                ('sharing_nodejs_sllocation','https://cdn.socket.io/socket.io-1.1.0.js',0,'Location of SocketIO JS library',0),
+                ('sharing_nodejs_sllocation','https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js',0,'Location of SocketIO JS library',0),
                 ('track_is_online','0',0,'Track is user still on site, chat status checks also has to be enabled',0),
 				('show_languages','eng,lit,hrv,esp,por,nld,ara,ger,pol,rus,ita,fre,chn,cse,nor,tur,vnm,idn,sve,per,ell,dnk,rou,bgr,tha,geo,fin,alb',0,'Between what languages user should be able to switch',0),
                 ('geoadjustment_data',	'a:8:{i:0;b:0;s:18:\"use_geo_adjustment\";b:0;s:13:\"available_for\";s:0:\"\";s:15:\"other_countries\";s:6:\"custom\";s:8:\"hide_for\";s:0:\"\";s:12:\"other_status\";s:7:\"offline\";s:11:\"rest_status\";s:6:\"hidden\";s:12:\"apply_widget\";i:0;}',	0,	'Geo adjustment settings',	1),

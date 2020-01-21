@@ -1,0 +1,10 @@
+[Unit]
+Description=Live helper chat NodeJS Daemon
+
+[Service]
+User=nodejs
+ExecStart=/usr/bin/forever /var/www/git/NodeJS-Helper/nodejshelper/serversc/lhc/server.js
+LimitNOFILE=100000
+
+[Install]
+WantedBy=multi-user.target
