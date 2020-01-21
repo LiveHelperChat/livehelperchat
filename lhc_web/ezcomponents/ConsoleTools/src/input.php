@@ -516,7 +516,7 @@ class ezcConsoleInput
 
         if ( !isset( $args ) )
         {
-            $args = isset( $argv ) ? $argv : isset( $_SERVER['argv'] ) ? $_SERVER['argv'] : array();
+            $args = isset( $argv ) ? $argv : (isset( $_SERVER['argv'] ) ? $_SERVER['argv'] : array());
         }
 
         $nextIndex = $this->processOptions( $args );

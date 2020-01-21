@@ -530,7 +530,7 @@ class ezcPersistentSaveHandler extends ezcPersistentSessionHandler
             }
             else
             {
-                if ( !array_key_exists( $name, $def->properties ) )
+                if ( !isset($def->properties[$name]) )
                 {
                     // Unknown property
                     continue;

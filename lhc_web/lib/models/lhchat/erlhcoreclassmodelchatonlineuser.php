@@ -709,7 +709,7 @@ class erLhcoreClassModelChatOnlineUser
                             } elseif ($jsVar->type == 1) {
                                 $val = (int)$val;
                             } elseif ($jsVar->type == 2) {
-                                $val = (real)$val;
+                                $val = (float)$val;
                             }
                             $onlineAttr[$jsVar->var_identifier] =  array('h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
                         }
