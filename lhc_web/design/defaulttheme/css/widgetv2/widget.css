@@ -686,3 +686,76 @@ textarea[name=ChatMessage] {
 .hide {
     display: none!important;
 }
+
+.proactive-need-help {
+    background-color: #fff;
+    border-radius: 10px;
+    position:absolute;
+    min-width: 200px;
+    right: 0;
+}
+
+.fs12{
+    font-size:12px;
+}
+
+.fs14{
+    font-size:14px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.fade-in {
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+    -moz-animation: fadeIn ease 1s;
+    -o-animation: fadeIn ease 1s;
+    -ms-animation: fadeIn ease 1s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}

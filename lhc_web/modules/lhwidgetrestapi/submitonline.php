@@ -64,7 +64,6 @@ if (empty($Errors)) {
         exit;
     }
 
-
     $chat->time = $chat->pnd_time = time();
     $chat->status = 0;
 
@@ -85,12 +84,67 @@ if (empty($Errors)) {
         // Store chat
         $chat->saveThis();
 
+        $paramsExecution = array();
+
         // Assign chat to user
         if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
             // To track online users
             $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('check_message_operator' => true, 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'vid' => $inputData->vid));
 
             if ($userInstance !== false) {
+
+                if (isset($requestPayload['invitation_id']) && is_numeric($requestPayload['invitation_id'])) {
+                    $chat->invitation_id = (int)$requestPayload['invitation_id'];
+
+                    $onlineAttrSystem = $userInstance->online_attr_system_array;
+
+                    $ignoreResponder = isset($onlineAttrSystem['lhc_ignore_autoresponder']) && $onlineAttrSystem['lhc_ignore_autoresponder'] == 1;
+
+                    if (isset($onlineAttrSystem['lhc_assign_to_me']) && $onlineAttrSystem['lhc_assign_to_me'] == 1 && $userInstance->operator_user_id > 0) {
+                        $chat->user_id = $userInstance->operator_user_id;
+                        $chat->tslasign = time();
+                    }
+
+                    $conversionUser = erLhAbstractModelProactiveChatCampaignConversion::fetch($userInstance->conversion_id);
+                    if ($conversionUser instanceof erLhAbstractModelProactiveChatCampaignConversion) {
+                        $conversionUser->invitation_status = erLhAbstractModelProactiveChatCampaignConversion::INV_CHAT_STARTED;
+                        $conversionUser->chat_id = $chat->id;
+                        $conversionUser->department_id = $chat->dep_id;
+                        $conversionUser->con_time = time();
+                        $conversionUser->saveThis();
+                    }
+
+                    $userInstance->conversion_id = 0;
+
+                    // Store Message from operator
+                    $msg = new erLhcoreClassModelmsg();
+                    $msg->msg = trim($userInstance->operator_message);
+                    $msg->chat_id = $chat->id;
+                    $msg->name_support = $userInstance->operator_user !== false ? trim($userInstance->operator_user->name_support) : (!empty($userInstance->operator_user_proactive) ? $userInstance->operator_user_proactive : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support'));
+                    $msg->user_id = $userInstance->operator_user_id > 0 ? $userInstance->operator_user_id : -2;
+                    $msg->time = time()-7; // Deduct 7 seconds so for user all looks more natural
+
+                    erLhcoreClassChat::getSession()->save($msg);
+
+                    if ($ignoreResponder == false && $userInstance->invitation !== false) {
+                        $responder = $userInstance->invitation->autoresponder;
+                    }
+
+                    $invitation = erLhAbstractModelProactiveChatInvitation::fetch($requestPayload['invitation_id']);
+
+                    if ($invitation instanceof erLhAbstractModelProactiveChatInvitation && $invitation->bot_id > 0 && $invitation->trigger_id > 0) {
+
+                        if ($invitation->bot_offline == true) {
+                            $paramsExecution['bot_only_offline'] = true;
+                        }
+
+                        $paramsExecution['bot_id'] = $invitation->bot_id;
+                        $paramsExecution['trigger_id'] = $invitation->trigger_id;
+                    }
+
+                    $chat->chat_initiator = erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE;
+                }
+
                 $userInstance->chat_id = $chat->id;
                 $userInstance->dep_id = $chat->dep_id;
                 $userInstance->message_seen = 1;
@@ -121,8 +175,6 @@ if (empty($Errors)) {
 
         $messageInitial = false;
 
-        $paramsExecution = array();
-
         // Store message if required
         if (isset($startDataFields['message_visible_in_page_widget']) && $startDataFields['message_visible_in_page_widget'] == true) {
             if ( $inputData->question != '') {
@@ -142,15 +194,16 @@ if (empty($Errors)) {
             }
         }
 
-        if (is_numeric($inputData->bot_id)) {
+        if (is_numeric($inputData->bot_id) && !isset($paramsExecution['bot_id'])) {
             $paramsExecution['bot_id'] = (int)$inputData->bot_id;
         }
 
         // Set bot workflow if required
         erLhcoreClassChatValidator::setBot($chat, $paramsExecution);
 
-        // Auto responder
-        $responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
+        if (!isset($responder) && (!isset($ignoreResponder) || $ignoreResponder === false)) {
+            $responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
+        }
 
         if ($responder instanceof erLhAbstractModelAutoResponder) {
             $beforeAutoResponderErrors = array();

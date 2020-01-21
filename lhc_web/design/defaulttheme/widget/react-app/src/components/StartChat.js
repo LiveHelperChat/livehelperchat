@@ -8,6 +8,7 @@ import ChatModal from './ChatModal';
 import ChatStartOptions from './ChatStartOptions';
 import { helperFunctions } from "../lib/helperFunctions";
 import ChatStatus from './ChatStatus';
+import ChatInvitationMessage from './ChatInvitationMessage';
 import { initOnlineForm, submitOnlineForm } from "../actions/chatActions"
 
 @connect((store) => {
@@ -123,6 +124,10 @@ class StartChat extends Component {
             'fields' : fields
         };
 
+        if (this.props.chatwidget.hasIn(['proactive','data','invitation_id']) === true) {
+            submitData['invitation_id'] = this.props.chatwidget.getIn(['proactive','data','invitation_id']);
+        }
+
         this.props.dispatch(submitOnlineForm(submitData));
 
         event.preventDefault();
@@ -223,6 +228,7 @@ class StartChat extends Component {
 
                         <div className="flex-grow-1 overflow-scroll position-relative" id="messagesBlock">
                             <div className="bottom-message pl-1 pr-1" id="messages-scroll">
+                                {this.props.chatwidget.getIn(['proactive','has']) === true && <ChatInvitationMessage mode="message" invitation={this.props.chatwidget.getIn(['proactive','data'])} />}
                             </div>
                         </div>
 
@@ -249,7 +255,11 @@ class StartChat extends Component {
                     <div className="container-fluid" id="id-container-fluid">
                         <ChatErrorList errors={this.props.chatwidget.get('validationErrors')} />
 
-                        {this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div className="pt-2"><ChatStatus status={this.props.chatwidget.getIn(['chat_ui','operator_profile'])} /></div>}
+                        {
+                            (this.props.chatwidget.getIn(['proactive','has']) === true && <ChatInvitationMessage mode='profile' invitation={this.props.chatwidget.getIn(['proactive','data'])} />)
+                            ||
+                            (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div className="pt-2"><ChatStatus status={this.props.chatwidget.getIn(['chat_ui','operator_profile'])} /></div>)
+                        }
 
                         <form onSubmit={this.handleSubmit}>
                             <div className="row pt-2">

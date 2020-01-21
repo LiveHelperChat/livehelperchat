@@ -25,7 +25,17 @@ module.exports = {
 
     optimization: {
         splitChunks: {
-           name: 'hashed'
+           name: 'hashed',
+           chunks: 'initial',
+           cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    chunks: 'all',
+                    name: 'vendor',
+                    enforce: true,
+                    minChunks: 3
+                }
+            }
         }
     },
 

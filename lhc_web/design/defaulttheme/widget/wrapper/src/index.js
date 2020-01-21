@@ -77,13 +77,17 @@
                 position: LHC_API.args.position || 'bottom_right',
                 base_url : LHC_API.args.lhc_base_url,
                 mode: LHC_API.args.mode || 'widget',
+                tag: LHC_API.args.tag || '',
                 captcha : null,
+                identifier : LHC_API.args.identifier || '',
+                proactive_interval : null,
                 lang : LHC_API.args.lang || '',
                 bot_id : LHC_API.args.bot_id || '',
                 // Login Objects
                 userSession : new userSession(),
                 storageHandler : storageHandler,
                 staticJS : {},
+                init_calls : [],
                 loadcb : LHC_API.args.loadcb || null,
                 LHCChatOptions : global.LHCChatOptions ? global.LHCChatOptions : {}
             };
@@ -119,8 +123,11 @@
                 'tz' : helperFunctions.getTzOffset(),
                 'r' : referrer,
                 'l' : location,
+                'dt' : encodeURIComponent(document.title),
                 'ie' : attributesWidget.isIE,
-                'dep' : attributesWidget.department.join(',')
+                'dep' : attributesWidget.department.join(','),
+                'idnt' : attributesWidget.identifier,
+                'tag' : attributesWidget.tag
             }}, (data) => {
 
                 __webpack_public_path__ = data.chunks_location + "/";
@@ -203,6 +210,12 @@
                 if (attributesWidget.loadcb) {
                     attributesWidget.loadcb(attributesWidget);
                 }
+
+                if (data.init_calls) {
+                    attributesWidget.init_calls = data.init_calls;
+                }
+
+                attributesWidget.proactive_interval = data.chat_ui.proactive_interval;
             })
 
             // Widget Hide event
@@ -261,6 +274,12 @@
                 }
 
                 chatEvents.sendChildEvent('shownWidget', [{'sender' : 'closeButton'}]);
+            });
+
+            // Add tag listener
+            attributesWidget.eventEmitter.addListener('addTag',function (tag) {
+                attributesWidget.tag = attributesWidget.tag != '' ? attributesWidget.tag + ',' + tag : tag;
+                attributesWidget.eventEmitter.emitEvent('tagAdded');
             });
 
             // Popup open event
@@ -326,17 +345,49 @@
                 helperFunctions.makeScreenshot(attributesWidget.staticJS['screenshot'],data);
             });
 
+            attributesWidget.eventEmitter.addListener('screenshare',(data) => {
+                import('./util/screenShare').then((module) => {
+                    module.screenShare.setParams((data || {}), attributesWidget, chatEvents);
+                });
+            });
+
             attributesWidget.eventEmitter.addListener('location',(data) => {
                 document.location = data;
             });
 
+            attributesWidget.eventEmitter.addListener('showInvitation',(data) => {
+                attributesWidget.widgetDimesions.nextProperty('bottom_override',95);
+                attributesWidget.widgetDimesions.nextProperty('right_override',95);
+                attributesWidget.mainWidget.show();
+            });
+
+            attributesWidget.eventEmitter.addListener('hideInvitation',(data) => {
+                if (data.full) {
+                    attributesWidget.eventEmitter.emitEvent('showWidget', [{'sender' : 'closeButton'}]);
+                }
+            });
+
             attributesWidget.eventEmitter.addListener('widgetHeight',(data) => {
+
+                if (data.reset_height) {
+                    attributesWidget.widgetDimesions.nextProperty('height_override',null);
+                    attributesWidget.widgetDimesions.nextProperty('bottom_override',null);
+                    attributesWidget.widgetDimesions.nextProperty('right_override',null);
+                    attributesWidget.widgetDimesions.nextProperty('width_override',null);
+                    return;
+                }
+
+                if (data.force_height || data.force_width) {
+                    data.force_height && attributesWidget.widgetDimesions.nextProperty('height_override',data.force_height);
+                    data.force_width && attributesWidget.widgetDimesions.nextProperty('width_override',data.force_width);
+                    return;
+                }
+
                 if (attributesWidget.mode == 'widget' && attributesWidget.isMobile == false) {
                         var d=document,
                         e=d.documentElement,
                         g=d.getElementsByTagName('body')[0],
                         y=global.innerHeight||e.clientHeight||g.clientHeight;
-
                     if (parseInt(data.height) > attributesWidget.widgetDimesions.value['height'] && y > parseInt(data.height)) {
                         attributesWidget.widgetDimesions.nextProperty('height_override',parseInt(data.height));
                     } else if (attributesWidget.widgetDimesions.value['height_override'] && attributesWidget.widgetDimesions.value['height_override'] > y) {
@@ -368,6 +419,29 @@
 
                 if (parts[1] == 'ready') {
                     chatEvents.sendReadyEvent(parts[2] == 'true');
+
+                    if (attributesWidget.mode == 'widget' && (!LHC_API.args.proactive || LHC_API.args.proactive === true)) {
+                        import('./util/proactiveChat').then((module) => {
+                            module.proactiveChat.setParams({
+                                'interval' : attributesWidget.proactive_interval
+                            }, attributesWidget, chatEvents);
+                        });
+                    }
+
+                    if (attributesWidget.init_calls.length > 0) {
+                        attributesWidget.init_calls.forEach((item) => {
+                            if (item.extension == 'nodeJSChat') {
+                                import('./util/nodeJSChat').then((module) => {
+                                    module.nodeJSChat.setParams(item.params, attributesWidget, chatEvents);
+                                });
+                            }
+                        });
+                    }
+
+                    if (attributesWidget.storageHandler.getSessionStorage('LHC_screenshare')){
+                        attributesWidget.eventEmitter.emitEvent('screenshare',[{'auto_start' : true}]);
+                    }
+
                 } else {
                      attributesWidget.eventEmitter.emitEvent(parts[1], JSON.parse(parts[2]));
                 }

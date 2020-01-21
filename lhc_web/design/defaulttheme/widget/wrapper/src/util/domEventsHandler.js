@@ -12,6 +12,11 @@ class _domEventsHandler {
         return dispatch
     };
 
+    unlisten(eventName) {
+        var presentEvent;
+        this.events[eventName] && (presentEvent = this.events[eventName], this.events[eventName] = null, this.removeEventHandler(presentEvent.element, presentEvent.eventName, presentEvent.eventListener));
+    }
+
     listen(object, event, callback, eventName) {
         var presentEvent;
         if (eventName) {

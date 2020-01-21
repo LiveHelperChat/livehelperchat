@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { closeWidget, abtractAction } from "../actions/chatActions"
+import { closeWidget, abtractAction, minimizeWidget } from "../actions/chatActions"
 import { helperFunctions } from "../lib/helperFunctions";
 
 @connect((store) => {
@@ -19,7 +19,7 @@ class HeaderChat extends Component {
     }
 
     closeWidget() {
-        helperFunctions.sendMessageParent('closeWidget', [{'sender' : 'closeButton'}]);
+        this.props.dispatch(minimizeWidget());
     }
 
     endChat() {
