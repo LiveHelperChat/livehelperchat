@@ -11,7 +11,7 @@
 
     <!-- Tab panes -->
     <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="general">
+        <div role="tabpanel" class="tab-pane active pt-2" id="general">
             <div class="row">
                 <div class="col-md-6">
                     <div>
@@ -23,12 +23,17 @@
                         <label><input type="checkbox" id="id_show_leave_form" checked="checked" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Show a ‘leave a message form’ when there are no online operators');?></label>
                     </div>
                 </div>
-                <?php /*
+                <div class="col-md-6">
+                    <div>
+                        <label><input type="checkbox" id="id_check_messages_operator" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Check for operator invitation messages');?></label>
+                    </div>
+                </div>
+
                 <div class="col-md-6">
                     <div>
                         <label><input type="checkbox" id="id_disable_pro_active_invitations" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Disable proactive invitations');?></label>
                     </div>
-                </div>*/ ?>
+                </div>
 
                 <?php /*<div class="col-md-6">
                     <div>
@@ -222,10 +227,10 @@
                 </div>
             </div>*/ ?>
 
-            <?php /*
+
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Identifier – enter a unique identifier here. This is useful for separating messages and proactive chat invitations from different domains/web pages. Enter a string without special characters or spaces such as “homepage” or “website1”.');?></label> <input type="text" class="form-control" id="id_site_identifier" maxlength="50" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Leave empty if it is not important to you');?>" value="" />
-            </div>*/ ?>
+            </div>
 
         </div>
 
@@ -243,7 +248,7 @@
     var default_site_access = '<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'default_site_access' ); ?>/';
 
     function generateEmbedCode(){
-        var siteAccess = $('#LocaleID').val() == default_site_access ? '' : $('#LocaleID').val();
+        var siteAccess = $('#LocaleID').val() == default_site_access ? '' : ',lang:\''+$('#LocaleID').val()+'\'';
 
         var id_widget_mode = $('#id_widget_mode').val();
 
@@ -259,8 +264,8 @@
         var id_show_leave_form = $('#id_show_leave_form').is(':checked') ? ',leaveamessage:true' : '';
         var id_fresh = $('#id_fresh').is(':checked') ? ',fresh:true' : '';
 
-        //var id_check_operator_message = $('#id_check_operator_message').is(':checked') ? '/(check_operator_messages)/true' : '';
-       // var id_disable_pro_active_invitations = $('#id_disable_pro_active_invitations').is(':checked') ? '/(disable_pro_active)/true' : '';
+
+       var id_disable_pro_active_invitations = $('#id_disable_pro_active_invitations').is(':checked') ? ',proactive:false' : '';
 
         var id_department = $('#DepartmentID').val() && $('#DepartmentID').val().length > 0 && $('#DepartmentID').val().join('/') != '0' ? ',department:['+$('#DepartmentID').val().join(',')+']' : '';
 
@@ -269,8 +274,9 @@
         var id_theme = $('#ThemeID').val() > 0 ? ',theme:'+$('#ThemeID').val() : '';
         var id_widget_position = $('#id_widget_position').val() != '' ? ',position:\''+$('#id_widget_position').val()+'\'' : '';
 
+        var id_check_messages_operator = $('#id_check_messages_operator').is(':checked') ? ',check_messages:true' : '';
 
-        <?php //var id_identifier = $('#id_site_identifier').val() != '' ? '/(identifier)/'+$('#id_site_identifier').val() : '';?>
+        var id_identifier = $('#id_site_identifier').val() != '' ? ',identifier:\''+$('#id_site_identifier').val()+'\'' : '';
 
         <?php //var id_ma = $('#MinimizeID').val() != '' ? '/(ma)/'+$('#MinimizeID').val() : ''; ?>
 
@@ -323,11 +329,11 @@
                 "if (document.documentElement.lang != '') _l = document.documentElement.lang;"+
                 "if (_cl != '' && _cl != _l) _l = _cl;"+
                 "if (_l == undefined || _l == '') {_l = '" + siteAccess + "';"+
-                "} else {_l = _l[0].toLowerCase() + _l[1].toLowerCase(); if ('<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'default_site_access' )?>' == _l) {_l = ''} else {LHC_API.args.lhc_base_url = '//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+_l + '/';}}\n";
+                "} else {_l = _l[0].toLowerCase() + _l[1].toLowerCase(); if ('<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'default_site_access' )?>' == _l) {_l = ''} else {LHC_API.args.lang = _l + '/';}}\n";
         }
 
         var script = '<script>'+
-            'var LHC_API = LHC_API||{};'+"\n"+'LHC_API.args = {mode:\''+id_widget_mode+'\',lhc_base_url:\'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+ siteAccess+'\',wheight:'+$('#id_widget_height').val()+',wwidth:'+$('#id_widget_width').val()+',pheight:'+$('#id_popup_height').val()+',pwidth:'+$('#id_popup_width').val()+id_embed_domain+id_fresh+id_show_leave_form+id_department+id_theme+id_survey+id_widget_position+'};\n'+
+            'var LHC_API = LHC_API||{};'+"\n"+'LHC_API.args = {mode:\''+id_widget_mode+'\',lhc_base_url:\'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>\',wheight:'+$('#id_widget_height').val()+',wwidth:'+$('#id_widget_width').val()+',pheight:'+$('#id_popup_height').val()+',pwidth:'+$('#id_popup_width').val()+id_embed_domain+id_fresh+id_show_leave_form+id_department+id_theme+id_survey+id_widget_position+id_check_messages_operator+id_disable_pro_active_invitations+id_identifier+siteAccess+'};\n'+
             '(function() {'+"\n"+langDetectScript+
             'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
             'var date = new Date();'+
@@ -339,7 +345,7 @@
         $('#HMLTContent').text(id_tag+script);
     };
 
-    $('#id_widget_mode,#id_disable_subdomain,#id_fresh,#id_widget_position,#LocaleID,#id_embed_domain,#DetectLanguage,#id_product_id,#id_disable_online_tracking,#MinimizeID,#id_operator,#DepartmentID,#HttpMode,#ThemeID,#id_Survey,#id_disable_pro_active_invitations,#id_site_identifier,#id_internal_popup,#id_position_bottom,#PositionID,#id_show_leave_form,#id_hide_then_offline,#id_check_operator_message,#UnitsTop,#id_top_text,#id_popup_width,#id_popup_height,#id_widget_width,#id_widget_height').change(function(){
+    $('#id_widget_mode,#id_check_messages_operator,#id_disable_subdomain,#id_fresh,#id_widget_position,#LocaleID,#id_embed_domain,#DetectLanguage,#id_product_id,#id_disable_online_tracking,#MinimizeID,#id_operator,#DepartmentID,#HttpMode,#ThemeID,#id_Survey,#id_disable_pro_active_invitations,#id_site_identifier,#id_internal_popup,#id_position_bottom,#PositionID,#id_show_leave_form,#id_hide_then_offline,#UnitsTop,#id_top_text,#id_popup_width,#id_popup_height,#id_widget_width,#id_widget_height').change(function(){
         generateEmbedCode();
     });
 

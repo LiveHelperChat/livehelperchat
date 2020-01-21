@@ -91,6 +91,21 @@ $ViewList['themestatus'] = array(
     'uparams' => array()
 );
 
+$ViewList['checkinvitation'] = array(
+    'params' => array(),
+    'uparams' => array()
+);
+
+$ViewList['getinvitation'] = array(
+    'params' => array(),
+    'uparams' => array()
+);
+
+$ViewList['screensharesettings'] = array(
+    'params' => array(),
+    'uparams' => array()
+);
+
 $FunctionList = array();
 $FunctionList['use_admin'] = array('explain' => 'Allow operator to manage REST API');
 

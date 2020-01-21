@@ -5,6 +5,7 @@ import OnlineChat from './OnlineChat';
 import StartChat from './StartChat';
 import OfflineChat from './OfflineChat';
 import HeaderChat from './HeaderChat';
+import ProactiveInvitation from './ProactiveInvitation';
 import { endChat } from "../actions/chatActions"
 import { helperFunctions } from "../lib/helperFunctions";
 
@@ -59,6 +60,10 @@ class BodyChat extends Component {
 
         if (this.props.chatwidget.get('loadedCore') === false) {
             return null;
+        }
+
+        if (this.props.chatwidget.getIn(['proactive','pending']) === true) {
+            return <ProactiveInvitation />
         }
 
         var className = 'd-flex flex-column flex-grow-1 overflow-auto reset-container-margins';

@@ -99,6 +99,8 @@ var LHCCoBrowser = (function() {
 		}
 	};
 	
+	
+	
 	LHCCoBrowser.prototype.hashchangeEventListener = function(e)
 	{
 		this.sendData({
@@ -502,25 +504,25 @@ var LHCCoBrowser = (function() {
 			};
 						
 			var hightlight = true;
-			if (element !== null && lh_inst.hasClass(element,'lhc-higlighted') && (element.tagName != 'INPUT' && element.tagName != 'TEXTAREA' && element.tagName != 'SELECT') ){
+			if (element !== null && this.hasClass(element,'lhc-higlighted') && (element.tagName != 'INPUT' && element.tagName != 'TEXTAREA' && element.tagName != 'SELECT') ){
 				hightlight = false;
 			};
 			
 			// Remove previously highlighted element
 			var elements = document.getElementsByClassName('lhc-higlighted');
 			for (var i = 0; i < elements.length; i++) {			
-				lh_inst.removeClass(elements[i],'lhc-higlighted');
+				this.removeClass(elements[i],'lhc-higlighted');
 				if (elements[i] == element){
 					hightlight = false;
 				}
 			};
-			
+
 			// Highlight only if required
 			if (hightlight == true && element !== null){
-				lh_inst.addClass(element,'lhc-higlighted');				
+				this.addClass(element,'lhc-higlighted');
 				if (this.cssAdded == false) {	
 					this.cssAdded = true;
-					lh_inst.addCss('.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1)!important;-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1)!important;box-shadow: 0px 0px 20px 5px rgba(88,140,204,1)!important;}');
+                    this.addCss('.lhc-higlighted{-webkit-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1)!important;-moz-box-shadow: 0px 0px 20px 5px rgba(88,140,204,1)!important;box-shadow: 0px 0px 20px 5px rgba(88,140,204,1)!important;}');
 				}
 			}
 		} else if (msg[1] == 'operatorcursor'){
@@ -530,7 +532,7 @@ var LHCCoBrowser = (function() {
 				var element = document.getElementById('lhc-user-cursor');
 	
 				if (element === null) {
-					var fragment = lh_inst.appendHTML('<div id="lhc-user-cursor" style="z-index:99999;top:'
+					var fragment = this.appendHTML('<div id="lhc-user-cursor" style="z-index:99999;top:'
 									+ pos[1]
 									+ 'px;left:'
 									+ parseInt(pos[0]-12)
@@ -548,7 +550,7 @@ var LHCCoBrowser = (function() {
 				this.operatorMouseVisible = true;
 			} else {
 				this.operatorMouseVisible = false;
-				lh_inst.removeById('lhc-user-cursor');				
+				this.removeById('lhc-user-cursor');
 			}
 		} else if (msg[1] == 'scroll') {			
 			if (msg[2] == 'true') {
@@ -826,10 +828,10 @@ var LHCCoBrowser = (function() {
 				if (typeof xhr.setRequestHeader !== 'undefined'){
 					xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 				};
-				xhr.send("data=" + encodeURIComponent(lh_inst.JSON.stringify(_this.sendCommands)));
+				xhr.send("data=" + encodeURIComponent(JSON.stringify(_this.sendCommands)));
 
 				xhr.onload = function() {
-					var response = lh_inst.JSON.parse(xhr.responseText);
+					var response = JSON.parse(xhr.responseText);
 					// stop mirroring if initialize request return an error
 					if (response !== "undefined" && response.disableShare == "true") {
 						alert(response.error_msg);
@@ -853,12 +855,18 @@ var LHCCoBrowser = (function() {
 			// Remove previously highlighted element
 			var elements = document.getElementsByClassName('lhc-higlighted');
 			for (var i = 0; i < elements.length; i++) {			
-				lh_inst.removeClass(elements[i],'lhc-higlighted');				
+				this.removeClass(elements[i],'lhc-higlighted');
 			};
 			
 			// Hide operator cursor
-			lh_inst.removeById('lhc-user-cursor');	
-			lh_inst.finishScreenSharing(); // Inform main chat handler about finished session	      
+			this.removeById('lhc-user-cursor');
+
+            // Inform main chat handler about finished session
+			if (typeof lh_inst !== 'undefined') {
+                lh_inst.finishScreenSharing()
+            } else if ($_LHC) {
+                $_LHC.eventListener.emitEvent('finishScreenSharing')
+            }
 
 			if (this.isNodeConnected == true) {
 				this.isNodeConnected = false;
@@ -891,6 +899,49 @@ var LHCCoBrowser = (function() {
 			console.log(e);
 		}
 	};
+
+    LHCCoBrowser.prototype.addCss = function(css_content) {
+        var head = document.getElementsByTagName('head')[0];
+        var style = document.createElement('style');
+        style.type = 'text/css';
+
+        if(style.styleSheet) {
+            style.styleSheet.cssText = css_content;
+        } else {
+            rules = document.createTextNode(css_content);
+            style.appendChild(rules);
+        };
+
+        head.appendChild(style);
+    },
+
+    LHCCoBrowser.prototype.appendHTML = function (htmlStr) {
+        var frag = document.createDocumentFragment(),
+            temp = document.createElement('div');
+        temp.innerHTML = htmlStr;
+        while (temp.firstChild) {
+            frag.appendChild(temp.firstChild);
+        };
+        return frag;
+    }
+
+    LHCCoBrowser.prototype.removeById = function(EId) {
+        return(EObj=document.getElementById(EId))?EObj.parentNode.removeChild(EObj):false;
+    }
+
+    LHCCoBrowser.prototype.hasClass = function(el, name) {
+        return new RegExp('(\\s|^)'+name+'(\\s|$)').test(el.className);
+    };
+
+    LHCCoBrowser.prototype.addClass = function(el, name) {
+        if (!this.hasClass(el, name)) { el.className += (el.className ? ' ' : '') +name; }
+    }
+
+    LHCCoBrowser.prototype.removeClass = function(el, name) {
+        if (this.hasClass(el, name)) {
+            el.className=el.className.replace(new RegExp('(\\s|^)'+name+'(\\s|$)'),' ').replace(/^\s+|\s+$/g, '');
+        }
+    }
 
 	LHCCoBrowser.prototype.startMirroring = function() {
 		var _this = this;
@@ -941,7 +992,7 @@ var LHCCoBrowser = (function() {
 
 		var htmlStatus = '<div id="lhc_status_mirror" style="'+this.shareStyleStatus+'">'
 				+ this.trans.operator_watching + '</div>';
-		var fragment = lh_inst.appendHTML(htmlStatus);
+		var fragment = this.appendHTML(htmlStatus);
 		
 		document.body.appendChild(fragment);
 	

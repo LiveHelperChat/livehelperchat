@@ -1545,6 +1545,9 @@ class erLhcoreClassChatValidator {
 
             if (isset($params['bot_id']) && $params['bot_id'] > 0) {
                 $bot = erLhcoreClassModelGenericBotBot::fetch($params['bot_id']);
+                if (isset($params['bot_only_offline']) && $params['bot_only_offline'] === true) {
+                    $botConfiguration['bot_only_offline'] = true;
+                }
             } else {
                 $botConfiguration = $chat->department->bot_configuration_array;
                 $bot = erLhcoreClassModelGenericBotBot::fetch($botConfiguration['bot_id']);

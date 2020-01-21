@@ -8,6 +8,8 @@ export class mainWidget{
 
         this.width = '350';
         this.height = '520';
+        this.bottom = '30';
+        this.right = '30';
         this.units = 'px';
 
         this.cont = new UIConstructorIframe('lhc_widget_v2', helperFunctions.getAbstractStyle({
@@ -36,8 +38,8 @@ export class mainWidget{
             width: this.width + this.units + " !important",
             "min-width": this.width + this.units + " !important",
             "max-width": this.width + this.units +  " !important",
-            bottom: (this.units == 'px' ? "30px !important" : '0px !important'),
-            right: (this.units == 'px' ? "30px !important" : '0px !important'),
+            bottom: (this.units == 'px' ? this.bottom + "px !important" : '0px !important'),
+            right: (this.units == 'px' ? this.right + "px !important" : '0px !important'),
         };
 
         if (this.attributes.mode == 'embed') {
@@ -94,9 +96,12 @@ export class mainWidget{
     }
 
     monitorDimensions(data) {
-        this.width = data.width;
+        this.width = data.width_override || data.width;
         this.height = data.height_override || data.height;
-        this.units = data.units;
+        this.bottom = data.bottom_override || 30;
+        this.right = data.right_override || 30;
+
+        this.units = (data.width_override || data.height_override || data.bottom_override || data.right_override) ? 'px' : data.units;
         this.resize();
     }
 

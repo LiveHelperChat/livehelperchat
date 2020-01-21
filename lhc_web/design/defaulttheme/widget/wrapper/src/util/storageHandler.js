@@ -48,6 +48,13 @@ export class storageHandler {
         }
     }
 
+    removeSessionStorage(key) {
+        if (this.hasSessionStorage && sessionStorage.removeItem) try {
+            sessionStorage.removeItem(key)
+        } catch (d) {
+        }
+    }
+
     getSessionStorage(a) {
         return this.hasSessionStorage && sessionStorage.getItem ?
             sessionStorage.getItem(a) : null
@@ -59,7 +66,7 @@ export class storageHandler {
         }
     }
 
-    getSessionReferrer(){
+    getSessionReferrer() {
         return this.getSessionStorage('lhc_ref');
     }
 

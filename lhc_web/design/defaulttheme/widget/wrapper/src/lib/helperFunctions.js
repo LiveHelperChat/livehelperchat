@@ -17,6 +17,11 @@ class _helperFunctions {
         return a.contentWindow ? a.contentWindow.document : a.contentDocument ? a.contentDocument : a.document ? a.document : null
     };
 
+    removeById(EId)
+    {
+        return(EObj=document.getElementById(EId))?EObj.parentNode.removeChild(EObj):false;
+    }
+
     // Returns time zone offset
     getTzOffset(){
         Date.prototype.stdTimezoneOffset = function() {

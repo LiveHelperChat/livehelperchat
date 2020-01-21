@@ -32,6 +32,7 @@ const initialState = fromJS({
     // Was initialized data loaded
     initLoaded : false,
     msgLoaded : false,
+    proactive : {'pending' : false, 'has' : false, data : {}}, // Proactive invitation data holder
     lang : '',
     bot_id : '',
     ses_ref : null,
@@ -70,11 +71,30 @@ const chatWidgetReducer = (state = initialState, action) => {
         }
 
         case 'widgetStatus': {
+            // Visitor clicked widget and it has invitation shown. We leave invitation mode
+            if (action.data == true && state.getIn(['proactive','pending']) === true) {
+                state = state.setIn(['proactive','pending'],false);
+            }
             return state.set('shown',action.data);
         }
 
         case 'jsVars': {
             return state.set('jsVars',action.data);
+        }
+
+        // Proactive invitation has arrived
+        case 'PROACTIVE': {
+            return state.set('proactive',{'pending' : (state.get('shown') === false ? true : false), 'has': true, data : action.data});
+        }
+
+        // Visitor clicks hide invitation
+        case 'HIDE_INVITATION': {
+            return state.set('proactive',{'pending': false, 'has': false});
+        }
+
+        // Visitor was interested and clicked invitation tooltip itself.
+        case 'FULL_INVITATION': {
+            return state.setIn(['proactive','pending'],false);
         }
 
         case SOUND_ENABLED : {

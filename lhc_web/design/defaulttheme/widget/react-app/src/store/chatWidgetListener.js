@@ -1,4 +1,4 @@
-import { endChat, initChatUI, pageUnload, focusChange, storeSubscriber } from "../actions/chatActions"
+import { endChat, initChatUI, pageUnload, focusChange, storeSubscriber, initProactive } from "../actions/chatActions"
 import { helperFunctions } from "../lib/helperFunctions";
 
 export default function (dispatch, getState) {
@@ -16,7 +16,8 @@ export default function (dispatch, getState) {
         {id : 'onlineStatus',cb : (data) => {dispatch({type: 'onlineStatus', data: data})}},
         {id : 'toggleSound',cb : (data) => {dispatch({type: 'toggleSound', data: data})}},
         {id : 'widgetStatus',cb : (data) => {dispatch({type: 'widgetStatus', data: data})}},
-        {id : 'jsVars',cb : (data) => {dispatch({type: 'jsVars', data: data})}}
+        {id : 'jsVars',cb : (data) => {dispatch({type: 'jsVars', data: data})}},
+        {id : 'proactive', cb : (data) => {dispatch(initProactive(data))}}
     ];
 
     // Event listeners

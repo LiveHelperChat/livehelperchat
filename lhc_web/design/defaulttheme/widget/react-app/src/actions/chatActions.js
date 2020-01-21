@@ -13,6 +13,30 @@ export function abtractAction(eventData) {
     }
 }
 
+export function hideInvitation() {
+    return function(dispatch, getState) {
+        const state = getState();
+        helperFunctions.sendMessageParent('closeWidget', [{'sender' : 'closeButton'}]);
+        axios.get(window.lhcChat['base_url'] + "/chat/chatwidgetclosed/(vid)/" + state.chatwidget.get('vid')).then((response) => {
+            dispatch({type: "HIDE_INVITATION"});
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+}
+
+export function minimizeWidget() {
+    return function(dispatch, getState) {
+        const state = getState();
+        if (state.chatwidget.getIn(['proactive','has']) === true) {
+            hideInvitation()(dispatch, getState);
+        } else {
+            helperFunctions.sendMessageParent('closeWidget', [{'sender' : 'closeButton'}]);
+        }
+    }
+}
+
 export function endChat(obj) {
     return function(dispatch, getState) {
         axios.get(window.lhcChat['base_url'] + "/chat/chatwidgetclosed/(eclose)/t/(hash)/" + obj['chat']['id'] +'_'+ obj['chat']['hash'] + '/(vid)/' + obj['vid'])
@@ -36,6 +60,29 @@ export function endChat(obj) {
 
 export function voteAction(obj) {
     return axios.post(window.lhcChat['base_url'] + "/chat/voteaction/" + obj.id + '/' + obj.hash + '/' + obj.type)
+}
+
+export function initProactive(data) {
+    return function(dispatch, getState) {
+        const state = getState();
+
+        let payload = {
+            'invitation' : data.invitation,
+            'vid_id' : data.vid_id
+        };
+
+        if (state.chatwidget.get('theme')) {
+            payload['theme'] = state.chatwidget.get('theme');
+        }
+
+        if (state.chatwidget.get('vid')) {
+            payload['vid'] = state.chatwidget.get('vid');
+        }
+
+        axios.post(window.lhcChat['base_url'] + "/widgetrestapi/getinvitation", payload).then((response) => {
+            dispatch({type: "PROACTIVE", data: response.data})
+        });
+    }
 }
 
 export function storeSubscriber(payload) {
@@ -192,6 +239,10 @@ function processResponseCheckStatus(response, getState) {
                 }
 
                 helperFunctions.sendMessageParent('screenshot',[window.lhcChat['base_url'] + '/file/storescreenshot' + append]);
+            } else if (action == 'lhc_cobrowse') {
+                helperFunctions.sendMessageParent('screenshare',[]);
+            } else if (action == 'lhc_cobrowse_cmd') {
+                helperFunctions.sendMessageParent('screenshareCommand',[op]);
             }
         });
     }
