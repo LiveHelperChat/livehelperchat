@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/widgetv2/widget_mobile.css')?>" />
     <?php endif; ?>
 
-    <?php if ($Result['theme'] > 0) : ?>
+    <?php if (isset($Result['theme']) && $Result['theme'] > 0) : ?>
         <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::baseurl('widgetrestapi/theme')?>/<?php echo $Result['theme']?>" />
     <?php endif; ?>
 </head>
@@ -21,9 +21,9 @@
 <?php
 $detect = new Mobile_Detect();
 if ($detect->version('IE') !== false) : ?>
-    <script src="<?php echo erLhcoreClassDesign::designJS('js/widgetv2/react.app.ie.js')?>"></script>
+    <script src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.ie.js')?>?=13"></script>
 <?php else : ?>
-    <script src="<?php echo erLhcoreClassDesign::designJS('js/widgetv2/react.app.js')?>"></script>
+    <script src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.js')?>?=13"></script>
 <?php endif; ?>
 </body>
 </html>
