@@ -68,7 +68,7 @@ $ViewList['attatchfile'] = array(
 
 $ViewList['attatchfileimg'] = array(
 		'params' => array(),
-		'uparams' => array(),
+		'uparams' => array('persistent','user_id','visitor'),
 		'functions' => array( 'use_operator' )
 );
 
