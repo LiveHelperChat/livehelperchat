@@ -67,6 +67,12 @@ export default function (dispatch, getState) {
             readyReceived = true;
 
             var paramsInit = JSON.parse(e.data.replace('lhc_init:',''));
+
+            window.lhcChat = {};
+            window.lhcChat['base_url'] = paramsInit['base_url'] + (paramsInit['lang'] && paramsInit['lang'] != '' ? paramsInit['lang'] + '/' : '');
+            window.lhcChat['staticJS'] = paramsInit['staticJS'];
+            window.lhcChat['mode'] = paramsInit['mode'];
+
             for (const [key, value] of Object.entries(paramsInit)) {
                 if (key === 'static_chat') {
                     if (value.id && value.hash) {
@@ -88,6 +94,8 @@ export default function (dispatch, getState) {
                         type: 'CHAT_SESSION_REFFERER',
                         data: {'ref' : value}
                     })
+                } else if (key === 'proactive') {
+                    dispatch(initProactive(value))
                 } else {
                     dispatch({
                         type: key,
@@ -105,11 +113,6 @@ export default function (dispatch, getState) {
                 window.onpageshow = window.onfocus = focusChangeCb;
                 window.onpagehide = window.onblur = focusChangeCb;
             }
-
-            window.lhcChat = {};
-            window.lhcChat['base_url'] = paramsInit['base_url'] + (paramsInit['lang'] && paramsInit['lang'] != '' ? paramsInit['lang'] + '/' : '');
-            window.lhcChat['staticJS'] = paramsInit['staticJS'];
-            window.lhcChat['mode'] = paramsInit['mode'];
 
             dispatch({
                 type: 'loadedCore'

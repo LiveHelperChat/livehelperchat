@@ -316,6 +316,8 @@ export function pageUnload() {
         const state = getState();
         if (state.chatwidget.hasIn(['chatData','id']) && state.chatwidget.hasIn(['chatData','hash'])) {
             axios.get(window.lhcChat['base_url'] + "/chat/userclosechat/" +  state.chatwidget.getIn(['chatData','id']) + '/' + state.chatwidget.getIn(['chatData','hash']));
+        } else if (state.chatwidget.getIn(['proactive','has']) === true && window.lhcChat['mode'] == 'popup' && window.opener) {
+            hideInvitation()(dispatch, getState);
         }
     }
 }

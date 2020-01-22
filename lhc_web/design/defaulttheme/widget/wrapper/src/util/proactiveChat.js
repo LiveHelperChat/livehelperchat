@@ -33,7 +33,6 @@ class _proactiveChat {
     }
 
     showInvitation(params) {
-
         const chatParams = this.attributes['userSession'].getSessionAttributes();
 
         // Show invitation only if widget is not open
@@ -50,6 +49,7 @@ class _proactiveChat {
         }
 
         if (!params.only_inject) {
+            this.attributes.proactive = params;
             this.chatEvents.sendChildEvent('proactive', [params]);
             clearTimeout(this.checkMessageTimeout);
             clearTimeout(this.nextRescheduleTimeout);

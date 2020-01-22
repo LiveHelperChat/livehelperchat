@@ -4,7 +4,11 @@ erLhcoreClassRestAPIHandler::setHeaders();
 
 $payload = json_decode(file_get_contents('php://input'),true);
 
-$onlineUser = erLhcoreClassModelChatOnlineUser::fetch($payload['vid_id']);
+if (isset($payload['vid_id']) && is_numeric($payload['vid_id'])) {
+    $onlineUser = erLhcoreClassModelChatOnlineUser::fetch($payload['vid_id']);
+} else {
+    $onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($payload['vid']);
+}
 
 if (!($onlineUser instanceof erLhcoreClassModelChatOnlineUser) || $onlineUser->vid != $payload['vid']) {
     erLhcoreClassRestAPIHandler::outputResponse(array('status' => false));
@@ -46,8 +50,6 @@ if ($onlineUser->invitation_id > 0) {
 }
 
 $outputResponse['message'] = erLhcoreClassBBCode::make_clickable(htmlspecialchars($onlineUser->operator_message_front));
-
-
 
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
 exit;

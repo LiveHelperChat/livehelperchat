@@ -78,17 +78,18 @@ export class mainWidget{
 
         this.cont.insertJSFile(this.attributes.staticJS['app'], false);
 
+        if (this.attributes.mode !== 'popup') {
+            this.toggleVisibilityWrap = (data) => {
+                this.toggleVisibility(data);
+            };
+            attributes.widgetStatus.subscribe(this.toggleVisibilityWrap);
+        }
+
         this.monitorDimensionsWrap = (data) => {
             this.monitorDimensions(data);
         };
 
-        this.toggleVisibilityWrap = (data) => {
-            this.toggleVisibility(data);
-        };
-
         attributes.widgetDimesions.subscribe(this.monitorDimensionsWrap);
-        attributes.widgetStatus.subscribe(this.toggleVisibilityWrap);
-
     }
 
     toggleVisibility(data) {

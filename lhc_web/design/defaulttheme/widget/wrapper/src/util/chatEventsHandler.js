@@ -61,6 +61,10 @@ class chatEventsHandler {
             attr['lang'] = this.attributes['lang'];
         }
 
+        if (this.attributes['proactive']['invitation']) {
+            attr['proactive'] = this.attributes['proactive'];
+        }
+
         if (window.LHCChatOptions && window.LHCChatOptions.attr) {
             var prefillOptions = window.LHCChatOptions.attr;
             let fieldsCustom = [];
