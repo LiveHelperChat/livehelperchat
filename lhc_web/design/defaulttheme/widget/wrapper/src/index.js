@@ -61,7 +61,7 @@
                 chatNotifications : chatNotifications,
                 jsVars :  new BehaviorSubject(true),
                 onlineStatus :  new BehaviorSubject(true),
-                widgetStatus : new BehaviorSubject((storageHandler.getSessionStorage('LHC_WS') === 'true' || (LHC_API.args.mode && LHC_API.args.mode == 'embed' || LHC_API.args.mode == 'popup'))),
+                widgetStatus : new BehaviorSubject((storageHandler.getSessionStorage('LHC_WS') === 'true' || (LHC_API.args.mode && LHC_API.args.mode == 'embed'))),
                 eventEmitter : new EventEmitter(),
                 toggleSound : new BehaviorSubject( storageHandler.getSessionStorage('LHC_SOUND') === 'true' || storageHandler.getSessionStorage('LHC_SOUND') === null),
                 hideOffline : false,
@@ -78,6 +78,7 @@
                 base_url : LHC_API.args.lhc_base_url,
                 mode: LHC_API.args.mode || 'widget',
                 tag: LHC_API.args.tag || '',
+                proactive: {},
                 captcha : null,
                 identifier : LHC_API.args.identifier || '',
                 proactive_interval : null,
@@ -108,7 +109,7 @@
                     containerChatObj.cont.elmDom.appendChild(attributesWidget.viewHandler.cont.constructUI(),!0);
                 }
 
-                if (attributesWidget.mode == 'widget') {
+                if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
                     containerChatObj.cont.elmDom.appendChild(attributesWidget.mainWidget.cont.constructUI(),!0);
                 }
 
@@ -132,10 +133,10 @@
 
                 __webpack_public_path__ = data.chunks_location + "/";
 
-                if (!attributesWidget.leaveMessage && data.isOnline === false) {
+                if ((!attributesWidget.leaveMessage && data.chat_ui.leaveamessage === false) && data.isOnline === false) {
                     return;
                 }
-
+                
                 if (data.secure_cookie) {
                     attributesWidget.storageHandler.setSecureCookie(true);
                 }
@@ -171,6 +172,10 @@
                         attributesWidget.widgetDimesions.nextProperty('width',data.chat_ui.wwidth);
                     }
 
+                    if (data.chat_ui.mobile_popup && isMobile) {
+                        attributesWidget.mode = 'popup';
+                    }
+
                     if (data.chat_ui.check_status) {
                         import('./util/activityMonitoring').then((module) => {
                             module.activityMonitoring.setParams({
@@ -198,9 +203,9 @@
                     }
                 }
 
-                if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'embed') {
+                //if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'embed') {
                     attributesWidget.mainWidget.init(attributesWidget);
-                }
+                //}
 
                 // Show status widget
                 if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
@@ -271,6 +276,8 @@
                     if (attributesWidget.position != 'api') {
                         attributesWidget.viewHandler.removeUnreadIndicator();
                     }
+
+                    attributesWidget.mainWidget.hide();
                 }
 
                 chatEvents.sendChildEvent('shownWidget', [{'sender' : 'closeButton'}]);
@@ -306,6 +313,8 @@
 
                 if (mode !== 'popup') {
                     attributesWidget.userSession.setChatInformation(data);
+                } else if (mode == 'popup') {
+                    attributesWidget.mainWidget.hide();
                 }
 
                 // Store information permanently
@@ -328,8 +337,10 @@
 
             // Track widget status changes
             attributesWidget.widgetStatus.subscribe((data) => {
-                attributesWidget.storageHandler.setSessionStorage('LHC_WS',data);
-                chatEvents.sendChildEvent('widgetStatus', [data]);
+                if (attributesWidget.mode !== 'popup') {
+                    attributesWidget.storageHandler.setSessionStorage('LHC_WS',data);
+                    chatEvents.sendChildEvent('widgetStatus', [data]);
+                }
             });
 
             // Store sound settings
@@ -362,6 +373,11 @@
             });
 
             attributesWidget.eventEmitter.addListener('hideInvitation',(data) => {
+
+                if (attributesWidget.mode == 'popup') {
+                    attributesWidget.storageHandler.setSessionStorage('LHC_invt',1);
+                }
+
                 if (data.full) {
                     attributesWidget.eventEmitter.emitEvent('showWidget', [{'sender' : 'closeButton'}]);
                 }
@@ -420,7 +436,7 @@
                 if (parts[1] == 'ready') {
                     chatEvents.sendReadyEvent(parts[2] == 'true');
 
-                    if (attributesWidget.mode == 'widget' && (!LHC_API.args.proactive || LHC_API.args.proactive === true)) {
+                    if ( (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') && (!LHC_API.args.proactive || LHC_API.args.proactive === true) && attributesWidget.storageHandler.getSessionStorage('LHC_invt') === null) {
                         import('./util/proactiveChat').then((module) => {
                             module.proactiveChat.setParams({
                                 'interval' : attributesWidget.proactive_interval

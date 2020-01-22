@@ -37,6 +37,22 @@ class _helperFunctions {
         }
     }
 
+    sendMessageParentDirect(key, data) {
+        var eventEmiter = null;
+
+        if (window.parent && window.parent.$_LHC && window.parent.closed === false) {
+            eventEmiter = window.parent.$_LHC.eventListener;
+        } else if (window.opener && window.opener.$_LHC && window.opener.closed === false) {
+            eventEmiter = window.opener.$_LHC.eventListener;
+        }
+
+        if (eventEmiter !== null) {
+            eventEmiter.emitEvent(key,data);
+        } else {
+            this.sendMessageParent(key, data);
+        }
+    }
+
     setSessionStorage(key, value) {
         if (this.hasSessionStorage && sessionStorage.setItem) try {
             sessionStorage.setItem(key, value)

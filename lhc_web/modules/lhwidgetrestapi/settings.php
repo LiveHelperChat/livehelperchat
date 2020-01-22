@@ -125,8 +125,26 @@ if (($domain = erLhcoreClassModelChatConfig::fetch('track_domain')->current_valu
     $outputResponse['domain'] = $domain;
 }
 
+$startDataDepartment = false;
+
+if (is_array($department) && !empty($department) && count($department) == 1) {
+    $dep_id = $department[0];
+    $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('filter' => array('department_id' => $dep_id)));
+    if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
+        $startDataFields = $startDataDepartment->data_array;
+    }
+}
+
+if ($startDataDepartment === false) {
+    $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
+    $start_data_fields = $startDataFields = (array)$startData->data;
+}
+
+$outputResponse['chat_ui']['leaveamessage'] = (isset($startDataFields['force_leave_a_message']) && $startDataFields['force_leave_a_message'] == true) ? true : false;
+$outputResponse['chat_ui']['mobile_popup'] = isset($startDataFields['mobile_popup']) && $startDataFields['mobile_popup'] == true;
+
 $ts = time();
-$outputResponse['v'] = 13;
+$outputResponse['v'] = 14;
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
 $outputResponse['static'] = array(

@@ -20,6 +20,12 @@
             $params['attr_prefill'] = $prefill;
         }
 
+        if (isset($inv) && $inv != '') {
+            $params['proactive'] = array(
+                 'invitation' => $inv
+            );
+        }
+
         if (isset($custom_fields)) {
             $params['CUSTOM_FIELDS'] = $custom_fields;
         }

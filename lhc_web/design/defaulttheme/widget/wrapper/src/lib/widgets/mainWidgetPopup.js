@@ -47,6 +47,14 @@ export class mainWidgetPopup{
                 urlArgumetns = urlArgumetns + "/(department)/" + this.attributes['department'].join('/');
             }
 
+            if (this.attributes['identifier'] != '') {
+                urlArgumetns = urlArgumetns + "/(identifier)/" +this.attributes['identifier'];
+            }
+
+            if (this.attributes['proactive']['invitation']) {
+                urlArgumetns = urlArgumetns + "/(inv)/" +this.attributes['proactive']['invitation'];
+            }
+
             if (this.attributes['userSession'].getSessionReferrer() !== null) {
                 urlArgumetns = urlArgumetns + '?ses_ref=' + this.attributes['userSession'].getSessionReferrer();
             }
