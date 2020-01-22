@@ -32,11 +32,11 @@ class _proactiveChat {
         });
     }
 
-    showInvitation(params) {
+    showInvitation(params, init) {
         const chatParams = this.attributes['userSession'].getSessionAttributes();
 
         // Show invitation only if widget is not open
-        if (this.attributes.widgetStatus.value === true || chatParams['id']) {
+        if ((init === 0 && this.attributes.widgetStatus.value === true) || chatParams['id']) {
             return;
         }
 
@@ -94,8 +94,8 @@ class _proactiveChat {
                 if (data.invitation) {
                     const params = {'vid_id' : data.vid_id, 'invitation' : data.invitation, 'inject_html' :  data.inject_html};
                     setTimeout(() => {
-                        this.showInvitation(params);
-                    }, data.delay || 0);
+                        this.showInvitation(params, init);
+                    }, this.attributes.widgetStatus.value === true ? 0 : (data.delay || 0));
                 } else {
                     if (LHC_API.args.check_messages) {
                         this.checkMessageTimeout = setTimeout(() => {

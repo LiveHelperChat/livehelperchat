@@ -691,7 +691,8 @@ textarea[name=ChatMessage] {
     background-color: #fff;
     border-radius: 10px;
     position:absolute;
-    min-width: 200px;
+    min-width: 150px;
+    max-width: 250px;
     right: 0;
 }
 

@@ -164,9 +164,10 @@ export default function (dispatch, getState) {
     };
 
     // Iframe is ready to receive updates
-    helperFunctions.sendMessageParent('ready', window.opener ? true : false);
-
-    if (!window.opener && window.initializeLHC) {
+    // But we do not want to receive any updates as popup
+    if (!window.opener && !window.initializeLHC) {
+        helperFunctions.sendMessageParent('ready', window.opener ? true : false);
+    } else if (window.initializeLHC) {
         handleParentMessage({data : window.initializeLHC});
     }
 

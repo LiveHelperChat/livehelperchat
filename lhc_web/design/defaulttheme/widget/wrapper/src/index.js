@@ -373,6 +373,11 @@
             });
 
             attributesWidget.eventEmitter.addListener('hideInvitation',(data) => {
+
+                if (attributesWidget.mode == 'popup') {
+                    attributesWidget.storageHandler.setSessionStorage('LHC_invt',1);
+                }
+
                 if (data.full) {
                     attributesWidget.eventEmitter.emitEvent('showWidget', [{'sender' : 'closeButton'}]);
                 }
@@ -431,7 +436,7 @@
                 if (parts[1] == 'ready') {
                     chatEvents.sendReadyEvent(parts[2] == 'true');
 
-                    if ( (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') && (!LHC_API.args.proactive || LHC_API.args.proactive === true)) {
+                    if ( (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') && (!LHC_API.args.proactive || LHC_API.args.proactive === true) && attributesWidget.storageHandler.getSessionStorage('LHC_invt') === null) {
                         import('./util/proactiveChat').then((module) => {
                             module.proactiveChat.setParams({
                                 'interval' : attributesWidget.proactive_interval

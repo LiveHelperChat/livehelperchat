@@ -44,7 +44,9 @@ class ProactiveInvitation extends Component {
     }
 
     fullInvitation() {
-        helperFunctions.sendMessageParent('hideInvitation', [{'full' : true}]);
+
+        helperFunctions.sendMessageParentDirect('hideInvitation', [{'full' : true}]);
+
         this.props.dispatch({
             'type' : 'FULL_INVITATION'
         });
@@ -62,7 +64,7 @@ class ProactiveInvitation extends Component {
         return (
             <div className={className} onClick={this.fullInvitation} id="id-invitation-height">
                 <button title="Close" onClick={(e) => this.hideInvitation(e)} className="float-right btn btn-sm rounded"><i className="material-icons mr-0">close</i></button>
-                <div className="fs14"><b>{this.props.chatwidget.getIn(['proactive','data','extra_profile'])}</b></div>
+                <div className="fs14"><b>{this.props.chatwidget.getIn(['proactive','data','name_support']) || this.props.chatwidget.getIn(['proactive','data','extra_profile'])}</b></div>
                 <p className="fs12">{this.props.chatwidget.getIn(['proactive','data','message'])}</p>
             </div>
         );

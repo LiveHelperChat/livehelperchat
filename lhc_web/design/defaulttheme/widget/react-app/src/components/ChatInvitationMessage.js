@@ -10,7 +10,7 @@ class ChatInvitationMessage extends PureComponent {
         if (this.props.mode == 'message'){
             return (
                 <div className="message-row message-admin">
-                    <span className="usr-tit op-tit">{this.props.invitation.extra_profile}</span>
+                    <span className="usr-tit op-tit">{this.props.invitation.name_support || this.props.invitation.extra_profile}</span>
                     <div className="msg-body">{this.props.invitation.message}</div>
                 </div>
             );

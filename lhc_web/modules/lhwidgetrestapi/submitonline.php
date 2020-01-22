@@ -130,16 +130,18 @@ if (empty($Errors)) {
                         $responder = $userInstance->invitation->autoresponder;
                     }
 
-                    $invitation = erLhAbstractModelProactiveChatInvitation::fetch($requestPayload['invitation_id']);
+                    if ($requestPayload['invitation_id'] > 0) {
+                        $invitation = erLhAbstractModelProactiveChatInvitation::fetch($requestPayload['invitation_id']);
 
-                    if ($invitation instanceof erLhAbstractModelProactiveChatInvitation && $invitation->bot_id > 0 && $invitation->trigger_id > 0) {
+                        if ($invitation instanceof erLhAbstractModelProactiveChatInvitation && $invitation->bot_id > 0 && $invitation->trigger_id > 0) {
 
-                        if ($invitation->bot_offline == true) {
-                            $paramsExecution['bot_only_offline'] = true;
+                            if ($invitation->bot_offline == true) {
+                                $paramsExecution['bot_only_offline'] = true;
+                            }
+
+                            $paramsExecution['bot_id'] = $invitation->bot_id;
+                            $paramsExecution['trigger_id'] = $invitation->trigger_id;
                         }
-
-                        $paramsExecution['bot_id'] = $invitation->bot_id;
-                        $paramsExecution['trigger_id'] = $invitation->trigger_id;
                     }
 
                     $chat->chat_initiator = erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE;

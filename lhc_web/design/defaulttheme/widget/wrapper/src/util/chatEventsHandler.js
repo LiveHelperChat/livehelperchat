@@ -120,11 +120,11 @@ class chatEventsHandler {
             this.attributes.mainWidget.cont.elmDom.contentWindow.postMessage('lhc_init:' + JSON.stringify(args), '*');
         }
 
-        if (this.attributes.popupWidget.cont.elementReferrerPopup && this.attributes.popupWidget.cont.elementReferrerPopup.closed === false)
+        /*if (this.attributes.popupWidget.cont.elementReferrerPopup && this.attributes.popupWidget.cont.elementReferrerPopup.closed === false)
         {
             args['mode'] = 'popup';
             this.attributes.popupWidget.cont.elementReferrerPopup.postMessage('lhc_init:' + JSON.stringify(args), '*');
-        }
+        }*/
 
      }
 

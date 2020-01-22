@@ -45,9 +45,8 @@ if (($user = $onlineUser->operator_user) !== false) {
     $outputResponse['extra_profile'] = $onlineUser->operator_user !== false ? htmlspecialchars($onlineUser->operator_user->name_support) : (!empty($onlineUser->operator_user_proactive) ? htmlspecialchars($onlineUser->operator_user_proactive) : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support'));
 }
 
-if ($onlineUser->invitation_id > 0) {
-    $outputResponse['invitation_id'] = $onlineUser->invitation_id;
-}
+$outputResponse['invitation_id'] = $onlineUser->invitation_id;
+
 
 $outputResponse['message'] = erLhcoreClassBBCode::make_clickable(htmlspecialchars($onlineUser->operator_message_front));
 
