@@ -708,6 +708,142 @@ textarea[name=ChatMessage] {
     cursor: pointer;
 }
 
+.bot-btn-list {
+    max-width: 250px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    width: 100%;
+    background-color: #FFF;
+    margin: 0;
+    padding: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.bot-btn-list > li {
+    background: none;
+    border: none;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    font-weight: 600;
+    display:inline-block;
+    list-style-type: none;
+}
+
+.bot-btn-list li:last-child {
+    border-bottom: none;
+}
+
+.bot-btn-list > li a{
+    display:block;
+    padding: 6px 0;
+    text-align: center;
+}
+.bot-btn-list > li a:hover{
+    background: none;
+    border: 0;
+}
+/**
+* List style
+*/
+
+.list-group .button-item {
+    padding:0;
+}
+
+.list-group .button-item a{
+    display:block;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.list-group {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    overflow: hidden;
+    max-width: 370px;
+}
+
+.list-group-element:first-child:not(.compact) {
+    padding: 0;
+    border: none;
+    position: relative;
+    border-radius: 10px 10px 0 0;
+}
+
+.list-group-element {
+    display: block;
+    overflow: hidden;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.generic-bubble-item h4 a,
+.list-group-element h4 a{
+    color: #333;
+}
+
+.list-group-element:first-child:not(.compact) .element-description-row {
+    position: absolute;
+    top: 35%;
+    left: 20px;
+    z-index: 9;
+    color: #fff;
+    width: 100%;
+}
+
+.list-group-element h4 {
+    margin: 5px 0;
+}
+
+.list-group-element:last-child{
+    border-bottom: 0;
+}
+
+.element-background {
+    height: 180px;
+    background-size: cover;
+}
+
+/**
+* List generic carousel
+*/
+.generic-carousel{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom:10px;
+    padding-bottom: 10px;
+}
+
+.generic-bubble-item  {
+    flex: 0 0 auto;
+    width: 220px;
+}
+
+.generic-bubble-content{
+    margin: 0 20px 0 0;
+    border: 1px solid #eee;
+    padding: 10px;
+}
+
+.generic-carousel {
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
+}
+
+.btn-bot:focus,.btn-bot:active:focus,.btn-bot.active:focus,
+.btn-bot.focus,.btn-bot:active.focus,.btn-bot.active.focus {
+    outline: none;
+}
+
+
 .fade-in {
     animation: fadeIn ease 1s;
     -webkit-animation: fadeIn ease 1s;
