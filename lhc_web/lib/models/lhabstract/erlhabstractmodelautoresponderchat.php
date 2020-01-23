@@ -32,6 +32,29 @@ class erLhAbstractModelAutoResponderChat
         return (string)$this->chat_id;
     }
 
+    /*
+     * Chat closing auto responder
+     * */
+    public function processClose()
+    {
+        if ($this->auto_responder !== false) {
+
+            if ($this->auto_responder->close_message != '') {
+
+                $msg = new erLhcoreClassModelmsg();
+                $msg->msg = trim($this->auto_responder->close_message);
+                $msg->chat_id = $this->chat->id;
+                $msg->name_support = $this->chat->user !== false ? $this->chat->user->name_support : ($this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support'));
+                $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
+                $msg->time = time();
+                erLhcoreClassChat::getSession()->save($msg);
+
+                $this->chat->last_msg_id = $msg->id;
+                $this->chat->updateThis();
+            }
+        }
+    }
+
     public function process()
     {
         if ($this->auto_responder !== false) {

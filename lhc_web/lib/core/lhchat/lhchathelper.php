@@ -116,7 +116,11 @@ class erLhcoreClassChatHelper
             
             $db = ezcDbInstance::get();
             $db->beginTransaction();
-            
+
+                if ($params['chat']->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT && $params['chat']->user_id > 0 && $params['chat']->auto_responder !== false) {
+                    $params['chat']->auto_responder->processClose();
+                }
+
                 $params['chat']->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 
                 if ($params['chat']->wait_time == 0) {

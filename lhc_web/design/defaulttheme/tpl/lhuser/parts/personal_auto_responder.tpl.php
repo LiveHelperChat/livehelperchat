@@ -76,6 +76,11 @@ if ($pages->items_total > 0) {
             <li role="presentation" class="nav-item"><a class="nav-link active" href="#active" aria-controls="active" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Visitor not replying messaging');?></a></li>
             <li role="presentation" class="nav-item"><a class="nav-link" href="#operatornotreply" aria-controls="active" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator not replying messaging');?></a></li>
             <li role="presentation" class="nav-item"><a class="nav-link" href="#onhold" aria-controls="onhold" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','On-hold chat messaging');?></a></li>
+
+            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalautoresponder_cm')) : ?>
+            <li role="presentation" class="nav-item"><a class="nav-link" href="#closeaction" aria-controls="closeaction" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Close messaging');?></a></li>
+            <?php endif; ?>
+
             <li ng-repeat="lang in cmsg.languages" class="nav-item" role="presentation"><a class="nav-link" href="#lang-{{$index}}" aria-controls="lang-{{$index}}" role="tab" data-toggle="tab" ><i class="material-icons mr-0">&#xE894;</i></a></li>
             <li class="nav-item"><a class="nav-link" href="#addlanguage" ng-click="cmsg.addLanguage()"><i class="material-icons">&#xE145;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Add translation');?></a></li>
         </ul>
@@ -93,6 +98,8 @@ if ($pages->items_total > 0) {
 
             'hide_on_hold_timeout' => true,
             'hide_on_hold_bot' => true,
+
+            'hide_personal_closing' => !erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalautoresponder_cm')
         ); ?>
 
         <!-- Tab panes -->
@@ -106,6 +113,12 @@ if ($pages->items_total > 0) {
             <div role="tabpanel" class="tab-pane" id="onhold">
                 <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/onhold.tpl.php'));?>
             </div>
+
+            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalautoresponder_cm')) : ?>
+            <div role="tabpanel" class="tab-pane" id="closeaction">
+                <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/closeaction.tpl.php'));?>
+            </div>
+            <?php endif; ?>
 
             <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/languages.tpl.php'));?>
         </div>

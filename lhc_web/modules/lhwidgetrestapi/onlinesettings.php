@@ -19,7 +19,7 @@ if (isset($requestPayload['theme']) && $requestPayload['theme'] > 0) {
 // Departments
 $disabled_department = false;
 
-if (is_array($Params['user_parameters_unordered']['department']) && erLhcoreClassModelChatConfig::fetch('hide_disabled_department')->current_value == 1) {
+if (is_array($Params['user_parameters_unordered']['department']) && !empty($Params['user_parameters_unordered']['department']) && erLhcoreClassModelChatConfig::fetch('hide_disabled_department')->current_value == 1) {
     try {
         erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
         $departments = erLhcoreClassModelDepartament::getList(array('filterin' => array('id' => $Params['user_parameters_unordered']['department'])));
@@ -367,7 +367,8 @@ if ($theme !== false && $theme->hide_popup == 1) {
     $chat_ui['hide_popup'] = true;
 }
 
-$visibleCount = 0;
+$visibleCount = $departament_id > 0 ? 0 : 1;
+
 foreach ($fields as $field) {
     if ($field['type'] != 'hidden') {
         $visibleCount++;

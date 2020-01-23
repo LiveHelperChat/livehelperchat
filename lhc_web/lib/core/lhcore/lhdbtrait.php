@@ -363,10 +363,10 @@ trait erLhcoreClassDBTrait
         if (isset($params['filterin']) && count($params['filterin']) > 0) {
             foreach ($params['filterin'] as $field => $fieldValue) {
                 if (empty($fieldValue)) {
-                    return 0;
                     break;
+                } else {
+                    $conditions[] = $q->expr->in($field, $fieldValue);
                 }
-                $conditions[] = $q->expr->in($field, $fieldValue);
             }
         }
 

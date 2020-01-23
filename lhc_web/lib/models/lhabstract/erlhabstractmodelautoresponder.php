@@ -111,6 +111,14 @@ class erLhAbstractModelAutoResponder {
 	   	       $this->left_menu = '';
 	   		   return $this->left_menu;
 	   		break;
+
+	   case 'user':
+	   	       $this->user = null;
+	   	       if ($this->user_id > 0) {
+                   $this->user = erLhcoreClassModelUser::fetch($this->user_id);
+               }
+	   		   return $this->user;
+	   		break;
 	   		
 	   	case 'dep':
 	   	       if ($this->dep_id > 0) {
@@ -121,6 +129,7 @@ class erLhAbstractModelAutoResponder {
 	   		   return $this->dep;
 	   		break;
 
+           case 'close_message':
            case 'wait_op_timeout_reply_1':
            case 'wait_op_timeout_reply_2':
            case 'wait_op_timeout_reply_3':
@@ -286,6 +295,10 @@ class erLhAbstractModelAutoResponder {
         if (isset($data['operator']) && $data['operator'] != '') {
             $this->operator = $data['operator'];
         }
+        
+        if (isset($data['close_message']) && $data['close_message'] != '') {
+            $this->close_message = $data['close_message'];
+        }
 
         for ($i = 1; $i <= 5; $i++) {
 
@@ -374,6 +387,10 @@ class erLhAbstractModelAutoResponder {
                     $this->operator = $message->operator;
                 }
 
+                if ($message->close_message != '') {
+                    $this->close_message = $message->close_message;
+                }
+
                 for ($i = 1; $i <= 5; $i++) {
 
                     if ($message->{'timeout_op_reply_message_' . $i} != '') {
@@ -426,6 +443,7 @@ class erLhAbstractModelAutoResponder {
             'timeout_hold_message_5' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
             'wait_message' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
             'operator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'close_message' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
         );
 
         $form = new ezcInputForm( INPUT_POST, $definition );
@@ -461,6 +479,7 @@ class erLhAbstractModelAutoResponder {
                     'timeout_hold_message_5' => $form->timeout_hold_message_5[$index],
                     'wait_message' => ($form->hasValidData('wait_message') ? $form->wait_message[$index] : null),
                     'operator' => ($form->hasValidData('operator') ?  $form->operator[$index] : null),
+                    'close_message' => ($form->hasValidData('close_message') ?  $form->close_message[$index] : null),
                 );
             }
         }

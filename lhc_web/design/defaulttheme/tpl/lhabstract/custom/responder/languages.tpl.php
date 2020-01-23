@@ -109,4 +109,14 @@
         </div>
     <?php endfor;?>
     </div>
+
+    <?php if (!isset($autoResponderOptions['hide_personal_closing']) || $autoResponderOptions['hide_personal_closing'] === false) : ?>
+    <h4><?php echo $fields['close_message']['trans'];?></h4>
+    <div class="form-group">
+        <?php $bbcodeOptions = array('selector' => '#trans_timeout_message_{{$index}}'); ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
+        <textarea class="form-control" id="trans_close_message_{{$index}}" ng-model="lang.close_message" name="close_message[{{$index}}]"></textarea>
+    </div>
+    <?php endif; ?>
+
 </div>
