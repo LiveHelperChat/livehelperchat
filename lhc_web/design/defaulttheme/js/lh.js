@@ -3004,6 +3004,13 @@ function lh(){
     this.addCaptchaSubmit = function(timestamp,inst) {
         if (inst.find('.form-protected').length == 0) {
             inst.find('input[type="submit"]').attr('disabled','disabled');
+            inst.find('#ChatSendButtonContainer').remove();
+            inst.find('#id_Question').attr('readonly','readonly');
+
+            if (typeof formSubmitted !== 'undefined') {
+                formSubmitted = true;
+            }
+
             $.getJSON(this.wwwDir + 'captcha/captchastring/form/'+timestamp, function(data) {
                 inst.append('<input type="hidden" value="'+timestamp+'" name="captcha_'+data.result+'" /><input type="hidden" value="'+timestamp+'" name="tscaptcha" /><input type="hidden" class="form-protected" value="1" />');
 
