@@ -739,7 +739,9 @@ textarea[name=ChatMessage] {
     display:block;
     padding: 6px 0;
     text-align: center;
+    cursor: pointer;
 }
+
 .bot-btn-list > li a:hover{
     background: none;
     border: 0;
