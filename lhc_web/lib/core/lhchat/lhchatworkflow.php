@@ -33,6 +33,9 @@ class erLhcoreClassChatWorkflow {
         $chat->transfer_timeout_ts = time();
 
         if ($chat->department !== false && ($departmentTransfer = $chat->department->department_transfer) !== false) {
+
+            $botConfiguration = $chat->department->bot_configuration_array;
+
             $chat->dep_id = $departmentTransfer->id;
 
             $msg = new erLhcoreClassModelmsg();
@@ -64,6 +67,16 @@ class erLhcoreClassChatWorkflow {
             if ($departmentTransfer->department_transfer !== false) {
                 $chat->transfer_if_na = 1;
                 $chat->transfer_timeout_ac = $departmentTransfer->transfer_timeout;
+            }
+
+            // Reset user on chat transfer to other department if required
+            if (isset($botConfiguration['ru_on_transfer']) && $botConfiguration['ru_on_transfer'] == 1 && $chat->user_id > 0) {
+
+                if ($chat->user_id > 0) {
+                    erLhcoreClassChat::updateActiveChats($chat->user_id);
+                }
+
+                $chat->user_id = 0;
             }
 
             if ($chat->department->nc_cb_execute == 1) {

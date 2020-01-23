@@ -80,6 +80,9 @@ class erLhcoreClassDepartament{
 	   			'off_op_exec' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
+                'ru_on_transfer' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
                 'nc_cb_execute' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
@@ -284,6 +287,13 @@ class erLhcoreClassDepartament{
 		   		$botConfiguration['off_op_exec'] = 1;
 		   	} else {
                 $botConfiguration['off_op_exec'] = 0;
+		   	}
+		   	
+		   	if ( $form->hasValidData( 'ru_on_transfer' ) && $form->ru_on_transfer == true )
+		   	{
+		   		$botConfiguration['ru_on_transfer'] = 1;
+		   	} else {
+                $botConfiguration['ru_on_transfer'] = 0;
 		   	}
 
 		   	if ( $form->hasValidData( 'na_cb_execute' ) && $form->na_cb_execute == true )
