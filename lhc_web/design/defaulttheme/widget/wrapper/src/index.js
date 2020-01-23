@@ -227,6 +227,7 @@
             attributesWidget.eventEmitter.addListener('closeWidget',function () {
                 attributesWidget.widgetStatus.next(false);
                 chatEvents.sendChildEvent('closedWidget', [{'sender' : 'closeButton'}]);
+
             });
 
             // Toggle sound user
@@ -373,11 +374,6 @@
             });
 
             attributesWidget.eventEmitter.addListener('hideInvitation',(data) => {
-
-                if (attributesWidget.mode == 'popup') {
-                    attributesWidget.storageHandler.setSessionStorage('LHC_invt',1);
-                }
-
                 if (data.full) {
                     attributesWidget.eventEmitter.emitEvent('showWidget', [{'sender' : 'closeButton'}]);
                 }

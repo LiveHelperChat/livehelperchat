@@ -53,6 +53,10 @@ export class mainWidgetPopup{
 
             if (this.attributes['proactive']['invitation']) {
                 urlArgumetns = urlArgumetns + "/(inv)/" +this.attributes['proactive']['invitation'];
+                this.attributes['proactive'] = {};
+                if (this.attributes['mode'] == 'popup') {
+                    this.attributes.storageHandler.setSessionStorage('LHC_invt',1);
+                }
             }
 
             if (this.attributes['userSession'].getSessionReferrer() !== null) {
