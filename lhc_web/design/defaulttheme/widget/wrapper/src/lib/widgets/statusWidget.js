@@ -35,7 +35,7 @@ export class statusWidget{
     }
 
     init(attributes) {
-        this.cont.constructUIIframe(settings.ChatStatus+settings.FontStyle);
+        this.cont.constructUIIframe(''/*settings.ChatStatus+settings.FontStyle*/);
 
         this.cont.attachUserEventListener("click", function (a) {
             attributes.eventEmitter.emitEvent('showWidget', [{'sender' : 'closeButton'}]);
@@ -50,6 +50,8 @@ export class statusWidget{
         if (this.attributes.theme > 0) {
             this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/themestatus/' + this.attributes.theme});
         }
+
+        this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['status_css'] });
 
         attributes.onlineStatus.subscribe((data) => this.toggleOfflineIcon(data));
 
