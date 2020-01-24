@@ -2,38 +2,6 @@ body {
     background-color: transparent!important;
 }
 
-/*@font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: url('./fonts/materialdesignicons-webfont.eot');
-    src: local('Material Icons'),
-    local('MaterialIcons-Regular'),
-    url('./fonts/materialdesignicons-webfont.woff2') format('woff2'),
-    url('./fonts/materialdesignicons-webfont.woff') format('woff'),
-    url('./fonts/materialdesignicons-webfont.ttf') format('truetype');
-}
-
-.material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 18px;
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    width: 1em;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'liga';
-    vertical-align: middle;
-    margin-right:5px;
-    overflow:hidden;
-}*/
-
 @font-face {
     font-family: 'Material Icons';
     font-style: normal;

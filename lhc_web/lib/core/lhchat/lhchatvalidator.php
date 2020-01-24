@@ -375,7 +375,7 @@ class erLhcoreClassChatValidator {
          	$fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
          	$data = (array)$fileData->data;
          	
-         	if ($_FILES['File']['error'] != 4) { // No file was provided
+         	if (isset($_FILES['File']) && $_FILES['File']['error'] != 4) { // No file was provided
 	         	if (isset($_FILES['File']) && erLhcoreClassSearchHandler::isFile('File','/\.('.$data['ft_us'].')$/i',$data['fs_max']*1024)){
 	         		$inputForm->has_file = true;
 	

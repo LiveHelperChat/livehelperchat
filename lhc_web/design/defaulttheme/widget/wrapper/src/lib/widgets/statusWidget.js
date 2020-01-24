@@ -21,7 +21,7 @@ export class statusWidget{
             minwidth: "95px"
         }), null, "iframe");
 
-        this.cont.tmpl = '<div id="lhc_status_container"><i title="New messages" id="unread-msg-number">!</i><a id="status-icon" class="offline-status" href="#"></a></div>';
+        this.cont.tmpl = '<div id="lhc_status_container" style="display: none"><i title="New messages" id="unread-msg-number">!</i><a id="status-icon" class="offline-status" href="#"></a></div>';
     }
 
     toggleOfflineIcon(onlineStatus) {
@@ -35,7 +35,7 @@ export class statusWidget{
     }
 
     init(attributes) {
-        this.cont.constructUIIframe(settings.ChatStatus+settings.FontStyle);
+        this.cont.constructUIIframe('');
 
         this.cont.attachUserEventListener("click", function (a) {
             attributes.eventEmitter.emitEvent('showWidget', [{'sender' : 'closeButton'}]);
@@ -46,6 +46,8 @@ export class statusWidget{
         if (this.attributes.staticJS['fontCSS']) {
             this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['fontCSS']});
         }
+
+        this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['status_css'] });
 
         if (this.attributes.theme > 0) {
             this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/themestatus/' + this.attributes.theme});
