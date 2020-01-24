@@ -187,6 +187,15 @@ class erLhcoreClassUser{
    		return $_SESSION['lhc_csfr_token'];
    }
 
+   public static function anonymousGetCSFRToken()
+   {
+       if (!isset($_SESSION['lhc_csfr_token'])) {
+           $_SESSION['lhc_csfr_token'] = md5(rand(0, 99999999).time(). 0);
+       }
+
+       return $_SESSION['lhc_csfr_token'];
+   }
+
    public function validateCSFRToken($token) {
    		return $this->getCSFRToken() == $token;
    }
