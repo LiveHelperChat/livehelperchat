@@ -8,7 +8,6 @@ var confLH = {};
 confLH.back_office_sinterval = <?php echo (int)($soundData['back_office_sinterval']*1000) ?>;
 confLH.chat_message_sinterval = <?php echo (int)($soundData['chat_message_sinterval']*1000) ?>;
 confLH.transLation = {'delete_confirm':'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Are you sure you want to delete this chat?')?>','new_chat':'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New chat request')?>','transfered':'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New chat has been transferred to you directly!')?>'};
-
 <?php if (!isset($Result['anonymous'])) : ?>
 confLH.csrf_token = '<?php echo erLhcoreClassUser::instance()->getCSFRToken()?>';
 confLH.user_id = '<?php echo erLhcoreClassUser::instance()->getUserID()?>';
@@ -22,8 +21,9 @@ confLH.sn_off = <?php echo (int)erLhcoreClassModelUserSetting::getSetting('sn_of
 confLH.ownntfonly = <?php echo (int)erLhcoreClassModelUserSetting::getSetting('ownntfonly',0)?>;
 confLH.accept_chats = <?php if (erLhcoreClassUser::instance()->isLogged()) { print (int)erLhcoreClassUser::instance()->getUserData()->auto_accept; } else {print 0;}?>;
 confLH.auto_uppercase = <?php echo (int)erLhcoreClassModelUserSetting::getSetting('auto_uppercase',1)?>;
+<?php else : ?>
+confLH.csrf_token = '<?php echo erLhcoreClassUser::anonymousGetCSFRToken()?>';
 <?php endif;?>
-
 confLH.repeat_sound = <?php echo (int)$soundData['repeat_sound']?>;
 confLH.repeat_sound_delay = <?php echo (int)$soundData['repeat_sound_delay']?>;
 confLH.content_language = '<?php echo erLhcoreClassSystem::instance()->ContentLanguage?>';
