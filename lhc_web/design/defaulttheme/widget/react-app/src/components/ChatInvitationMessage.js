@@ -30,7 +30,7 @@ class ChatInvitationMessage extends PureComponent {
                         </div>
                     </div>
                     <div className="message-row message-admin pt-1 text-left">
-                        <div className="msg-body">{this.props.invitation.message}</div>
+                        <div className="msg-body" dangerouslySetInnerHTML={{__html:this.props.invitation.message}}></div>
                     </div>
                 </React.Fragment>
 
