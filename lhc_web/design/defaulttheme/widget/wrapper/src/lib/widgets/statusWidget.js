@@ -22,6 +22,8 @@ export class statusWidget{
         }), null, "iframe");
 
         this.cont.tmpl = '<div id="lhc_status_container" style="display: none"><i title="New messages" id="unread-msg-number">!</i><a id="status-icon" class="offline-status" href="#"></a></div>';
+        
+        this.loadStatus = {main : false, theme: false};
     }
 
     toggleOfflineIcon(onlineStatus) {
@@ -31,6 +33,12 @@ export class statusWidget{
             helperFunctions.removeClass(icon, "offline-status");
         } else {
             helperFunctions.addClass(icon, "offline-status");
+        }
+    }
+
+    checkLoadStatus(){
+        if (this.loadStatus['theme'] == true && this.loadStatus['main'] == true) {
+            this.cont.getElementById('lhc_status_container').style.display = "initial";
         }
     }
 
@@ -47,11 +55,14 @@ export class statusWidget{
             this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['fontCSS']});
         }
 
-        this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['status_css'] });
-
         if (this.attributes.theme > 0) {
-            this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/themestatus/' + this.attributes.theme});
+            this.loadStatus['theme'] = false;
+            this.cont.insertCssRemoteFile({onload: ()=>{this.loadStatus['theme'] = true; this.checkLoadStatus()}, crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/themestatus/' + this.attributes.theme + '?v=' + this.attributes.theme_v}, true);
+        } else {
+            this.loadStatus['theme'] = true;
         }
+
+        this.cont.insertCssRemoteFile({onload: ()=>{this.loadStatus['main'] = true; this.checkLoadStatus()}, crossOrigin : "anonymous",  href : this.attributes.staticJS['status_css'] });
 
         attributes.onlineStatus.subscribe((data) => this.toggleOfflineIcon(data));
 

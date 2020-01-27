@@ -59,10 +59,14 @@ export class mainWidget{
         this.attributes = attributes;
 
         if (this.attributes.staticJS['fontCSS']) {
-            this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['fontCSS']});
+            this.cont.insertCssRemoteFile({rel:"preload", crossOrigin : "anonymous",  href : this.attributes.staticJS['fontCSS']});
         }
 
-        this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_css']});
+        if (this.attributes.theme > 0) {
+            this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/theme/' + this.attributes.theme + '?v=' + this.attributes.theme_v}, true);
+        }
+
+        this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_css']}, true);
         
         if (this.attributes.isMobile == true && this.attributes.mode == 'widget') {
             this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_mobile_css']});
@@ -70,10 +74,6 @@ export class mainWidget{
 
         if (this.attributes.mode == 'embed') {
             this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['embed_css'] });
-        }
-
-        if (this.attributes.theme > 0) {
-            this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/theme/' + this.attributes.theme});
         }
 
         this.cont.insertJSFile(this.attributes.staticJS['app'], false);

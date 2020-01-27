@@ -73,6 +73,7 @@
                 leaveMessage : LHC_API.args.leaveamessage || null,
                 department : LHC_API.args.department || [],
                 theme : LHC_API.args.theme || null,
+                theme_v : null,
                 domain: LHC_API.args.domain || null,
                 position: LHC_API.args.position || 'bottom_right',
                 base_url : LHC_API.args.lhc_base_url,
@@ -161,6 +162,7 @@
 
                 if (data.theme) {
                     attributesWidget.theme = data.theme;
+                    attributesWidget.theme_v = data.theme_v;
                 }
                 
                 if (data.chat_ui) {

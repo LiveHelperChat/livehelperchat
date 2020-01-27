@@ -100,6 +100,8 @@ if (isset($outputResponse['theme'])){
         if (isset($theme->bot_configuration_array['wheight']) && $theme->bot_configuration_array['wheight'] > 0) {
             $outputResponse['chat_ui']['wheight'] = $theme->bot_configuration_array['wheight'];
         }
+
+        $outputResponse['theme_v'] = $theme->modified;
     }
 }
 

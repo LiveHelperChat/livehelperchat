@@ -3,30 +3,30 @@
     <style>
 <?php endif; ?>
         <?php if ($Result['theme']->buble_visitor_background != '') : ?>
-        #messagesBlock div.message-row.response div.msg-body{background-color:#<?php echo htmlspecialchars($Result['theme']->buble_visitor_background)?>;}
+        #messagesBlock div.message-row.response div.msg-body{background-color:#<?php echo htmlspecialchars($Result['theme']->buble_visitor_background)?>!important;}
         <?php endif;?>
 
         <?php if ($Result['theme']->buble_visitor_text_color != '') : ?>
         #messagesBlock div.message-row.response div.msg-body,
         #messagesBlock div.message-row.response div.msg-body a.link
-        {color:#<?php echo htmlspecialchars($Result['theme']->buble_visitor_text_color)?>;}
+        {color:#<?php echo htmlspecialchars($Result['theme']->buble_visitor_text_color)?>!important;}
         <?php endif;?>
 
         <?php if ($Result['theme']->buble_visitor_title_color != '') : ?>
-        #messagesBlock div.response .vis-tit{color:#<?php echo htmlspecialchars($Result['theme']->buble_visitor_title_color)?>;}
+        #messagesBlock div.response .vis-tit{color:#<?php echo htmlspecialchars($Result['theme']->buble_visitor_title_color)?>!important;}
         <?php endif;?>
 
         <?php if ($Result['theme']->buble_operator_background != '') : ?>
-        #messagesBlock div.message-admin div.msg-body{background-color:#<?php echo htmlspecialchars($Result['theme']->buble_operator_background)?>;}
+        #messagesBlock div.message-admin div.msg-body{background-color:#<?php echo htmlspecialchars($Result['theme']->buble_operator_background)?>!important;}
         <?php endif;?>
 
         <?php if ($Result['theme']->buble_operator_text_color != '') : ?>
         #messagesBlock div.message-admin div.msg-body,
-        #messagesBlock div.message-admin div.msg-body a.link{color:#<?php echo htmlspecialchars($Result['theme']->buble_operator_text_color)?>;}
+        #messagesBlock div.message-admin div.msg-body a.link{color:#<?php echo htmlspecialchars($Result['theme']->buble_operator_text_color)?>!important;}
         <?php endif;?>
 
         <?php if ($Result['theme']->buble_operator_title_color != '') : ?>
-        #messagesBlock div.message-admin .op-tit{color:#<?php echo htmlspecialchars($Result['theme']->buble_operator_title_color)?>;}
+        #messagesBlock div.message-admin .op-tit{color:#<?php echo htmlspecialchars($Result['theme']->buble_operator_title_color)?>!important;}
         <?php endif;?>
 
         .btn-bot,.btn-bot:hover,.btn-bot:focus,.btn-bot:active{
@@ -68,60 +68,60 @@
 .user-nick-title,
 .op-nick-title
 {
-    display: none;
+    display: none!important;
 }
 .op-tit {
-    float:left;
-    margin-top: 2px;
+    float:left!important;
+    margin-top: 2px!important;
 }
 
 .vis-tit {
     float:right;
     margin-left: 3px!important;
-    margin-top: 3px;
+    margin-top: 3px!important;
 }
 
 .op-tit {
-    position: absolute;
+    position: absolute!important;
 }
 
 .op-tit i.material-icons,
 .vis-tit i.material-icons{
-    font-size: 24px;
+    font-size: 24px!important;
 }
 
 div.message-admin div.msg-body,
 div.message-admin div.meta-message{
-    margin-left:29px;
+    margin-left:29px!important;
 }
 
 @media (min-width: 1024px) {
     .profile-msg-pic {
-        width: 33px;
+        width: 33px!important;
     }
 
     div.message-admin div.msg-body,
     div.message-admin div.meta-message{
-        margin-left:42px;
+        margin-left:42px!important;
     }
 }
 <?php endif; ?>
 
 .header-chat {
-    background-color: #<?php echo $theme->header_background;?>;
+    background-color: #<?php echo $theme->header_background;?>!important;
 <?php if ($theme->header_height > 0) : ?>
-    height: <?php echo $theme->header_height?>px;
+    height: <?php echo $theme->header_height?>px!important;
 <?php endif; ?>
 
 <?php if ($theme->header_padding > 0) : ?>
-    padding: <?php echo $theme->header_padding?>px;
+    padding: <?php echo $theme->header_padding?>px!important;
 <?php endif; ?>
 }
 
 .desktop-header,.desktop-body{
-    border-color:#<?php echo $theme->widget_border_color?>;
+    border-color:#<?php echo $theme->widget_border_color?>!important;
     <?php if ($theme->widget_border_width > 0) : ?>
-    border-width: <?php echo $theme->widget_border_width?>px;
+    border-width: <?php echo $theme->widget_border_width?>px!important;
     <?php endif; ?>
 }
 
