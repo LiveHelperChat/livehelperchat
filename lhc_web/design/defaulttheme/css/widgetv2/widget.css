@@ -464,11 +464,6 @@ div.message-row.operator-changes .usr-tit{
     color: #fff!important;
 }
 
-.invisible-messages,
-.invisible-messages div.message-row.operator-changes .usr-tit{
-    visibility:hidden!important;
-}
-
 div.message-row-in {
     padding:0px 2px 4px 2px;
 }
