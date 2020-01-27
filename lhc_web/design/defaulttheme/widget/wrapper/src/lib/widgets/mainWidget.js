@@ -62,6 +62,10 @@ export class mainWidget{
             this.cont.insertCssRemoteFile({rel:"preload", crossOrigin : "anonymous",  href : this.attributes.staticJS['fontCSS']});
         }
 
+        if (this.attributes.staticJS['font_widget']) {
+            this.cont.insertCssRemoteFile({"as":"font", rel:"preload", type: "font/woff2", crossOrigin : "anonymous",  href : this.attributes.staticJS['font_widget']});
+        }
+
         if (this.attributes.theme > 0) {
             this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/theme/' + this.attributes.theme + '?v=' + this.attributes.theme_v}, true);
         }

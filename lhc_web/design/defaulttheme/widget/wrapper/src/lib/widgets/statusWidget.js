@@ -55,6 +55,10 @@ export class statusWidget{
             this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['fontCSS']});
         }
 
+        if (this.attributes.staticJS['font_status']) {
+            this.cont.insertCssRemoteFile({"as":"font", rel:"preload", type: "font/woff", crossOrigin : "anonymous",  href : this.attributes.staticJS['font_status']});
+        }
+
         if (this.attributes.theme > 0) {
             this.loadStatus['theme'] = false;
             this.cont.insertCssRemoteFile({onload: ()=>{this.loadStatus['theme'] = true; this.checkLoadStatus()}, crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/themestatus/' + this.attributes.theme + '?v=' + this.attributes.theme_v}, true);
