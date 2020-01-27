@@ -51,7 +51,7 @@ class HeaderChat extends Component {
                             <a href="#" className="header-link " id="headerDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,5">
                                 <i className="material-icons">menu</i>
                             </a>
-                            <div className="dropdown-menu dropdown-menu-right mr-3" aria-labelledby="dropdownMenuOffset">
+                            <div className="dropdown-menu dropdown-menu-right dropdown-menu-header mr-3" aria-labelledby="dropdownMenuOffset">
                                 {this.props.chatwidget.get('isChatting') === true ? (
                                         <a className="dropdown-item" onClick={this.endChat} href="#"><i className="material-icons">close</i>End Chat</a>
                                 ) : ''}

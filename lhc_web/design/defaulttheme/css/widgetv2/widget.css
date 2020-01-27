@@ -93,6 +93,11 @@ div.message-row {
 .header-chat {
     background-color: #ededed;
     user-select: none;
+    padding: 3px 0px;
+}
+
+.dropdown-menu-header a.dropdown-item{
+    padding-left:0.5rem;
 }
 
 .header-link .material-icons{
@@ -370,10 +375,6 @@ div.message-row.response div.msg-body{
     text-decoration:underline;
 }
 
-.bottom-message{
-    padding-top: 5px;
-}
-
 .msg-body-media,
 .msg-body-emoji{
     background:none!important;
@@ -463,6 +464,11 @@ div.message-row.operator-changes .usr-tit{
     color: #fff!important;
 }
 
+.invisible-messages,
+.invisible-messages div.message-row.operator-changes .usr-tit{
+    visibility:hidden!important;
+}
+
 div.message-row-in {
     padding:0px 2px 4px 2px;
 }
@@ -548,7 +554,7 @@ div.message-admin+div.message-admin .msg-date,div.message-row.response+div.messa
     max-width:50px;
 }
 
-.operator-info .icon-thumbs-down,
+.operator-info .icon-thumbs-down,.up-vote-action,.down-vote-action,
 .operator-info .icon-thumbs-up{
     color:#CCC;
     cursor:pointer;
@@ -805,7 +811,6 @@ textarea[name=ChatMessage] {
 .generic-carousel {
     width: 100%;
     -webkit-overflow-scrolling: touch;
-    -webkit-overflow-scrolling: touch;
 }
 
 .btn-bot:focus,.btn-bot:active:focus,.btn-bot.active:focus,
@@ -813,52 +818,15 @@ textarea[name=ChatMessage] {
     outline: none;
 }
 
+.fade-in-fast {
+    animation: fadeIn ease 0.3s;
+}
 
 .fade-in {
     animation: fadeIn ease 1s;
-    -webkit-animation: fadeIn ease 1s;
-    -moz-animation: fadeIn ease 1s;
-    -o-animation: fadeIn ease 1s;
-    -ms-animation: fadeIn ease 1s;
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity:0;
-    }
-    100% {
-        opacity:1;
-    }
-}
-
-@-moz-keyframes fadeIn {
-    0% {
-        opacity:0;
-    }
-    100% {
-        opacity:1;
-    }
-}
-
-@-webkit-keyframes fadeIn {
-    0% {
-        opacity:0;
-    }
-    100% {
-        opacity:1;
-    }
-}
-
-@-o-keyframes fadeIn {
-    0% {
-        opacity:0;
-    }
-    100% {
-        opacity:1;
-    }
-}
-
-@-ms-keyframes fadeIn {
     0% {
         opacity:0;
     }

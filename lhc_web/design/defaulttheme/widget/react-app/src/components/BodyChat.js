@@ -17,6 +17,10 @@ import { helperFunctions } from "../lib/helperFunctions";
 
 class BodyChat extends Component {
 
+    state = {
+        animate: false
+    };
+
     constructor(props) {
         super(props);
         this.endChat = this.endChat.bind(this);

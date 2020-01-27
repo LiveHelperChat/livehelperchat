@@ -125,6 +125,7 @@ body {
 #lhc_status_container {
     display: block!important;
     animation: fadeIn ease 0.5s;
+
 }
 
 #lhc_status_container.has-uread-message #unread-msg-number {
@@ -141,6 +142,7 @@ body {
 }
 
 #lhc_status_container #status-icon {
+    background-color: #0c8fc4;
     border: 2px solid #e3e3e3;
     -webkit-border-radius: 47px;
     -moz-border-radius: 47px;
