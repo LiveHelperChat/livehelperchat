@@ -14,8 +14,7 @@ It's an open-source powered application, which brings simplicity and usability i
    * modulecompile => false
    ```
  * To compile JS from lhc_web folder execute. This will compile main JS and old widget javascript files.
-   * npm install 
-   * gulp
+   * `npm install` && `gulp`
  * To compile new widget V2
    * There is two apps [wrapper](https://github.com/LiveHelperChat/livehelperchat/tree/master/lhc_web/design/defaulttheme/widget/wrapper) and [widget](https://github.com/LiveHelperChat/livehelperchat/tree/master/lhc_web/design/defaulttheme/widget/react-app)
    * `cd lhc_web/design/defaulttheme/widget/wrapper && npm install && npm run build`
