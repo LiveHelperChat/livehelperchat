@@ -26,7 +26,7 @@ export class mainWidget{
             minwidth: "95px"
         }), null, "iframe");
 
-        this.cont.tmpl = '<div id="root" class="container-fluid d-flex flex-column flex-grow-1 overflow-auto"></div>';
+        this.cont.tmpl = '<div id="root" class="container-fluid d-flex flex-column flex-grow-1 overflow-auto fade-in"></div>';
     }
 
     resize() {

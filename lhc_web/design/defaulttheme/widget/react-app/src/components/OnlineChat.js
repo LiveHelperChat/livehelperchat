@@ -24,9 +24,9 @@ class OnlineChat extends Component {
         value: '',
         showBBCode : null,
         dragging : false,
-        enabledEditor : true
+        enabledEditor : true,
+        showMessages : false
     };
-
 
     constructor(props) {
         super(props);
@@ -309,7 +309,7 @@ class OnlineChat extends Component {
                 );
             }
 
-        // Are we restroing widget visibility
+        // Are we restoring widget visibility
         } else if (prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true) {
             return 0;
         }
@@ -318,6 +318,11 @@ class OnlineChat extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
+
+        // Update untill we are sure that messages can be shown
+        if (this.state.showMessages === false || prevProps.chatwidget.getIn(['chatLiveData','status']) != this.props.chatwidget.getIn(['chatLiveData','status'])) {
+            this.scrollBottom();
+        }
 
         if (
             (prevState.enabledEditor === false && prevState.enabledEditor != this.state.enabledEditor) ||
@@ -336,10 +341,15 @@ class OnlineChat extends Component {
 
     scrollBottom() {
         if (this.messagesAreaRef.current) {
+
             this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
+
             setTimeout(() => {
                 if (this.messagesAreaRef.current) {
-                    this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
+                     this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
+                }
+                if (this.state.showMessages === false) {
+                    this.setState({'showMessages':true});
                 }
             },450);
         }
@@ -502,7 +512,7 @@ class OnlineChat extends Component {
 
                     {this.state.showBBCode && <ChatModal showModal={this.state.showBBCode} insertText={this.insertText} toggle={this.toggleModal} dataUrl={"/chat/bbcodeinsert?react=1"} />}
 
-                    {this.props.chatwidget.hasIn(['chatStatusData','result']) && !this.props.chatwidget.hasIn(['chat_ui','hide_status']) && <div className="p-1"><ChatStatus updateStatus={this.updateStatus} status={this.props.chatwidget.getIn(['chatStatusData','result'])} /></div>}
+                    {this.props.chatwidget.hasIn(['chatStatusData','result']) && !this.props.chatwidget.hasIn(['chat_ui','hide_status']) && <div className="pt-1 pl-1 pr-1"><ChatStatus updateStatus={this.updateStatus} status={this.props.chatwidget.getIn(['chatStatusData','result'])} /></div>}
 
                     <div className={msg_expand} id="messagesBlock">
                         <div className={bottom_messages} id="messages-scroll" ref={this.messagesAreaRef}>
