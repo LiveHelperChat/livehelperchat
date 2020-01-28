@@ -387,20 +387,33 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 
     				    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_message', array('chat' => & $chat, 'responder' => & $responder));
 
-    					if ($responder->wait_message != '' && $chat->status !== erLhcoreClassModelChat::STATUS_BOT_CHAT) {
-    						$msg = new erLhcoreClassModelmsg();
-    						$msg->msg = trim($responder->wait_message);
-    						$msg->chat_id = $chat->id;
-    						$msg->name_support = $responder->operator != '' ? $responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
-    						$msg->user_id = -2;
-    						$msg->time = time() + 5;
-    						erLhcoreClassChat::getSession()->save($msg);
+                        if ($chat->status !== erLhcoreClassModelChat::STATUS_BOT_CHAT) {
+                            $messageText = '';
 
-    						if ($chat->last_msg_id < $msg->id) {
-    							$chat->last_msg_id = $msg->id;
-    						}
-    					}
+                            if ($responder->offline_message != '' && !erLhcoreClassChat::isOnline($chat->dep_id, false, array(
+                                    'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
+                                    'ignore_user_status' => false
+                                ))) {
+                                $messageText = $responder->offline_message;
+                            } else {
+                                $messageText = $responder->wait_message;
+                            }
 
+                            if ($messageText != '') {
+                                $msg = new erLhcoreClassModelmsg();
+                                $msg->msg = trim($messageText);
+                                $msg->meta_msg = $responder->getMeta($chat, 'pending');
+                                $msg->chat_id = $chat->id;
+                                $msg->name_support = $responder->operator != '' ? $responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+                                $msg->user_id = -2;
+                                $msg->time = time() + 5;
+                                erLhcoreClassChat::getSession()->save($msg);
+
+                                if ($chat->last_msg_id < $msg->id) {
+                                    $chat->last_msg_id = $msg->id;
+                                }
+                            }
+                        }
 
     					erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered', array('chat' => & $chat));
 

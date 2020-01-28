@@ -130,6 +130,7 @@ class erLhAbstractModelAutoResponder {
 	   		break;
 
            case 'close_message':
+           case 'offline_message':
            case 'wait_op_timeout_reply_1':
            case 'wait_op_timeout_reply_2':
            case 'wait_op_timeout_reply_3':

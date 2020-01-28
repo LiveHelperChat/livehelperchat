@@ -48,12 +48,35 @@
     <label><?php echo erLhcoreClassAbstract::renderInput('dreset_survey', $fields['dreset_survey'], $object)?> <?php echo $fields['dreset_survey']['trans'];?></label>
 </div>
 
-<div class="form-group">
-<label><?php echo $fields['wait_message']['trans'];?></label>
-<?php $bbcodeOptions = array('selector' => 'textarea[name=AbstractInput_wait_message]'); ?>
-<?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
-<?php echo erLhcoreClassAbstract::renderInput('wait_message', $fields['wait_message'], $object)?>
+<div role="tabpanel">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs mb-2" role="tablist">
+        <li role="presentation" class="nav-item"><a class="nav-link active" href="#main-wait-content" aria-controls="main-wait-content" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Welcome message');?></a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link" href="#main-offline-content" aria-controls="main-offline-content" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Offline message');?></a></li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="main-wait-content">
+            <div class="form-group">
+                <label><?php echo $fields['wait_message']['trans'];?></label>
+                <?php $bbcodeOptions = array('selector' => 'textarea[name=AbstractInput_wait_message]'); ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
+                <?php echo erLhcoreClassAbstract::renderInput('wait_message', $fields['wait_message'], $object)?>
+            </div>
+            <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.')?></small></p>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="main-offline-content">
+            <div class="form-group">
+                <label><?php echo $fields['offline_message']['trans'];?></label>
+                <?php $bbcodeOptions = array('selector' => 'textarea[name=AbstractInput_offline_message]'); ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
+                <?php echo erLhcoreClassAbstract::renderInput('offline_message', $fields['offline_message'], $object)?>
+                <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','If department is offline and visitor starts a chat this message will be send instaed of default welcome message. If this message is empty - welcome message will be send.')?></small></p>
+            </div>
+        </div>
+    </div>
 </div>
+
+    <hr class="border">
 
 <div class="form-group">
 <label><?php echo $fields['operator']['trans'];?></label>
