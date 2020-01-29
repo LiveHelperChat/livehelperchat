@@ -279,6 +279,14 @@
 						<div class="form-group">	
 						<label><?php echo erLhcoreClassAbstract::renderInput('detect_language', $fields['detect_language'], $object)?> <?php echo $fields['detect_language']['trans'];?></label>
         		        </div>
+
+						<div class="form-group">
+						<label><?php echo erLhcoreClassAbstract::renderInput('survey_button', $fields['survey_button'], $object)?> <?php echo $fields['survey_button']['trans'];?></label>
+        		        </div>
+
+						<div class="form-group">
+						<label><?php echo erLhcoreClassAbstract::renderInput('confirm_close', $fields['confirm_close'], $object)?> <?php echo $fields['confirm_close']['trans'];?></label>
+        		        </div>
         		
         		</div>
         		<div role="tabpanel" class="tab-pane" id="needhelp">

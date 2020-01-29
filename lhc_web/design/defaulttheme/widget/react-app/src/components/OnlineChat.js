@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import parse from 'html-react-parser';
-
 import { initChatUI, fetchMessages, addMessage, checkChatStatus, endChat, userTyping} from "../actions/chatActions"
-
+import { STATUS_CLOSED_CHAT, STATUS_BOT_CHAT, STATUS_SUB_SURVEY_SHOW, STATUS_SUB_USER_CLOSED_CHAT } from "../constants/chat-status";
 import ChatMessage from './ChatMessage';
 import ChatModal from './ChatModal';
 import ChatFileUploader from './ChatFileUploader';
@@ -25,7 +24,8 @@ class OnlineChat extends Component {
         showBBCode : null,
         dragging : false,
         enabledEditor : true,
-        showMessages : false
+        showMessages : false,
+        preloadSurvey : false // Should survey be preloaded
     };
 
     constructor(props) {
@@ -51,6 +51,7 @@ class OnlineChat extends Component {
         this.sendDelay = this.sendDelay.bind(this);
         this.unhideDelayed = this.unhideDelayed.bind(this);
         this.toggleSound = this.toggleSound.bind(this);
+        this.goToSurvey = this.goToSurvey.bind(this);
 
         // Messages Area
         this.messagesAreaRef = React.createRef();
@@ -75,6 +76,13 @@ class OnlineChat extends Component {
 
     dragging(status) {
         this.setState({dragging : status})
+    }
+
+    goToSurvey() {
+        this.props.dispatch({
+            'type': 'UI_STATE',
+            'data' : {attr: 'show_survey', 'val': 1}
+        });
     }
 
     setStatusText(text){
@@ -337,6 +345,10 @@ class OnlineChat extends Component {
                 this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight - snapshot;
             }
         }
+
+        if (this.props.chatwidget.getIn(['chat_ui_state','confirm_close']) == 1 && this.state.preloadSurvey === false) {
+            this.setState({'preloadSurvey':true});
+        }
     }
 
     scrollBottom() {
@@ -455,22 +467,7 @@ class OnlineChat extends Component {
             return null;
         }
 
-        if (((this.props.chatwidget.hasIn(['chatLiveData','status_sub']) && (this.props.chatwidget.getIn(['chatLiveData','status_sub']) == 5 || this.props.chatwidget.getIn(['chatLiveData','status_sub']) == 3)) || (this.props.chatwidget.getIn(['chatLiveData','status']) == 2)) && this.props.chatwidget.hasIn(['chat_ui','survey_id'])) {
-            var location = this.props.chatwidget.get('base_url') + "/survey/fillwidget/(chatid)/" + this.props.chatwidget.getIn(['chatData', 'id']) + "/(hash)/" + this.props.chatwidget.getIn(['chatData', 'hash']);
-
-            if (this.props.chatwidget.get('theme')) {
-                location = location + '/(theme)/' + this.props.chatwidget.get('theme');
-            }
-
-            location = location + '/(survey)/' + this.props.chatwidget.getIn(['chat_ui', 'survey_id']);
-
-            return (
-                <React.Fragment>
-                    <iframe allowtransparency="true" src={location} frameBorder="0" className="flex-grow-1 position-relative iframe-modal"/>
-                </React.Fragment>
-            )
-
-        } else if (this.props.chatwidget.hasIn(['chatLiveData','ru']) && this.props.chatwidget.getIn(['chatLiveData','ru'])) {
+        if (this.props.chatwidget.hasIn(['chatLiveData','ru']) && this.props.chatwidget.getIn(['chatLiveData','ru'])) {
 
             location = this.props.chatwidget.get('base_url') + this.props.chatwidget.getIn(['chatLiveData','ru']);
 
@@ -505,10 +502,73 @@ class OnlineChat extends Component {
                 bottom_messages += " position-relative";
             }
 
+            var message_send_style = "mx-auto pb-1 w-100";
+
+            if (this.props.chatwidget.getIn(['chatLiveData','closed']) == true) {
+                message_send_style += " pt-1 pr-1";
+            }
+
+            /**
+             * Survey handling logic
+             * */
+            var showChat = true;
+            var preloadSurvey = false;
+
+            var location = "";
+            var classSurvey = "flex-grow-1 position-relative iframe-modal";
+
+            var validSurveyState = (this.props.chatwidget.hasIn(['chatLiveData','status_sub']) &&
+                    (
+                        this.props.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_SURVEY_SHOW
+                    ||
+                        (
+                            this.props.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_USER_CLOSED_CHAT &&
+                            (
+                                this.props.chatwidget.getIn(['chatLiveData','uid']) > 0 || this.props.chatwidget.getIn(['chatLiveData','status']) === STATUS_BOT_CHAT
+                            )
+                        )
+                    )
+                )
+                ||
+                (this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_CLOSED_CHAT && this.props.chatwidget.getIn(['chatLiveData','uid']) > 0);
+
+            if ((this.state.preloadSurvey === true || validSurveyState) && this.props.chatwidget.hasIn(['chat_ui','survey_id'])) {
+                location = this.props.chatwidget.get('base_url') + "/survey/fillwidget/(chatid)/" + this.props.chatwidget.getIn(['chatData', 'id']) + "/(hash)/" + this.props.chatwidget.getIn(['chatData', 'hash']);
+
+                if (this.props.chatwidget.get('theme')) {
+                    location = location + '/(theme)/' + this.props.chatwidget.get('theme');
+                }
+
+                location = location + '/(survey)/' + this.props.chatwidget.getIn(['chat_ui', 'survey_id']);
+                
+                if (this.props.chatwidget.hasIn(['chat_ui', 'survey_url'])) {
+                    location = this.props.chatwidget.getIn(['chat_ui', 'survey_url']);
+                }
+
+                preloadSurvey = true;
+
+                showChat = false;
+
+                if (
+                    (validSurveyState === false) ||
+                    (this.props.chatwidget.hasIn(['chat_ui','survey_button']) && this.props.chatwidget.getIn(['chat_ui_state','show_survey']) === 0 && this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_CLOSED_CHAT) ||
+                    (this.props.chatwidget.getIn(['chat_ui_state','confirm_close']) == 1)
+                ) {
+                    showChat = true;
+                    classSurvey = " d-none";
+                }
+            }
+
             return (
                 <React.Fragment>
 
+                    {preloadSurvey && <iframe allowTransparency="true" src={location} frameBorder="0" className={classSurvey} />}
+
+                    {showChat && <React.Fragment>
+
                     <ChatSync syncInterval={this.props.chatwidget.getIn(['chat_ui','sync_interval'])} updateStatus={this.updateStatus} updateMessages={this.updateMessages} initClose={this.props.chatwidget.get('initClose')} dispatch={this.props.dispatch} status_sub={this.props.chatwidget.getIn(['chatLiveData','status_sub'])} status={this.props.chatwidget.getIn(['chatLiveData','status'])} theme={this.props.chatwidget.get('theme')} lmgsid={this.props.chatwidget.getIn(['chatLiveData','lmsgid'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} chat_id={this.props.chatwidget.getIn(['chatData','id'])} />
+
+                    {this.props.chatwidget.getIn(['chat_ui_state','confirm_close']) == 1 && <ChatModal confirmClose={this.props.endChat} cancelClose={this.props.cancelClose} toggle={this.props.cancelClose} dataUrl={"/chat/confirmleave/"+this.props.chatwidget.getIn(['chatData','id'])+"/"+this.props.chatwidget.getIn(['chatData','hash'])} />}
 
                     {this.state.showBBCode && <ChatModal showModal={this.state.showBBCode} insertText={this.insertText} toggle={this.toggleModal} dataUrl={"/chat/bbcodeinsert?react=1"} />}
 
@@ -519,7 +579,6 @@ class OnlineChat extends Component {
                             {messages}
                         </div>
                     </div>
-
 
                     <div className={(this.props.chatwidget.get('msgLoaded') === false || this.state.enabledEditor === false ? 'd-none ' : 'd-flex ') + "flex-row border-top position-relative message-send-area"} >
                         {(this.props.chatwidget.getIn(['chatLiveData','ott']) || this.props.chatwidget.getIn(['chatLiveData','error'])) && <div id="id-operator-typing" className="bg-white pl-1">{this.props.chatwidget.getIn(['chatLiveData','error']) || this.props.chatwidget.getIn(['chatLiveData','ott'])}</div>}
@@ -538,8 +597,9 @@ class OnlineChat extends Component {
                             </div>
                         </ChatOptions>
 
-                        <div className="mx-auto pb-1 w-100">
-                            <textarea maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} style={{height: this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/8.6)) ? '60px' : 'auto'}} onFocus={this.scrollBottom} onTouchStart={this.scrollBottom} autoFocus={true} aria-label="Type your message here..." onKeyUp={this.keyUp} readOnly={this.props.chatwidget.getIn(['chatLiveData','closed'])} id="CSChatMessage" placeholder={placeholder} onKeyDown={this.enterKeyDown} value={this.state.value} onChange={this.handleChange} ref={this.textMessageRef} rows="1" className="pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0" />
+                        <div className={message_send_style}>
+                            {this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.hasIn(['chat_ui','survey_id']) && <button onClick={this.goToSurvey} className="w-100 btn btn-success">Go to Survey</button>}
+                            {!this.props.chatwidget.getIn(['chatLiveData','closed']) && <textarea maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} style={{height: this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/8.6)) ? '60px' : 'auto'}} onFocus={this.scrollBottom} onTouchStart={this.scrollBottom} autoFocus={true} aria-label="Type your message here..." onKeyUp={this.keyUp} readOnly={this.props.chatwidget.getIn(['chatLiveData','closed'])} id="CSChatMessage" placeholder={placeholder} onKeyDown={this.enterKeyDown} value={this.state.value} onChange={this.handleChange} ref={this.textMessageRef} rows="1" className="pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0" />}
                         </div>
 
                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && <div className="disable-select">
@@ -550,6 +610,7 @@ class OnlineChat extends Component {
                             </div>
                         </div>}
                     </div>
+                    </React.Fragment>}
 
                 </React.Fragment>
             );

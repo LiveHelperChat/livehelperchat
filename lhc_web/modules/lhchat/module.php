@@ -558,6 +558,10 @@ $ViewList['accept'] = array(
     'params' => array('hash','validation_hash','email')
 );
 
+$ViewList['confirmleave'] = array(
+    'params' => array('chat_id','hash')
+);
+
 $ViewList['sendchat'] = array(
 		'params' => array('chat_id','hash')
 );

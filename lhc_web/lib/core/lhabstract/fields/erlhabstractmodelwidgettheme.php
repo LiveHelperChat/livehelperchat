@@ -861,6 +861,33 @@ $fields = array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 )),
+                /*<div class="form-group">
+						<label><?php echo erLhcoreClassAbstract::renderInput('survey_button', $fields['detect_language'], $object)?> <?php echo $fields['detect_language']['trans'];?></label>
+        		        </div>
+
+						<div class="form-group">
+						<label><?php echo erLhcoreClassAbstract::renderInput('conform_close', $fields['conform_close'], $object)?> <?php echo $fields['conform_close']['trans'];?></label>
+        		        </div>*/
+                'confirm_close' => array(
+                    'type' => 'checkbox',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Before closing chat ask user does he really want to to close chat'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'survey_button' => array(
+                    'type' => 'checkbox',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Show go to survey button on chat close'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
                 'detect_language' => array(
                     'type' => 'checkbox',
                     'main_attr' => 'bot_configuration_array',

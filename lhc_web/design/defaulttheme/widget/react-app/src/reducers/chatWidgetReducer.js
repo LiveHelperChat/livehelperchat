@@ -21,9 +21,10 @@ const initialState = fromJS({
     customData: {'fields' : []},
     attr_prefill: [],
     chat_ui : {}, // Settings from themes, UI
+    chat_ui_state : {'confirm_close': 0, 'show_survey' : 0}, // Settings from themes, UI we store our present state here
     processStatus : 0,
     chatData : {}, // Stores only chat id and hash
-    chatLiveData : {'error' : '','lmsgid' : 0, 'operator' : '', 'messages' : [], 'closed' : false, 'ott' : '', 'status_sub' : 0, 'status' : 0}, // Stores live chat data
+    chatLiveData : {'uid' : 0, 'error' : '','lmsgid' : 0, 'operator' : '', 'messages' : [], 'closed' : false, 'ott' : '', 'status_sub' : 0, 'status' : 0}, // Stores live chat data
     chatStatusData : {},
     usersettings : {soundOn : false},
     vid: null,
@@ -106,8 +107,9 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .set('processStatus', 0)
                 .set('isChatting',false)
                 .set('chatData',fromJS({}))
-                .set('chatLiveData',fromJS({'status' : 0, 'status_sub' : 0, 'uw' : false, 'ott' : '', 'closed' : false, 'lmsgid' : 0, 'operator' : '', 'messages' : []}))
+                .set('chatLiveData',fromJS({'uid':0, 'status' : 0, 'status_sub' : 0, 'uw' : false, 'ott' : '', 'closed' : false, 'lmsgid' : 0, 'operator' : '', 'messages' : []}))
                 .set('chatStatusData',fromJS({}))
+                .set('chat_ui_state',fromJS({'confirm_close': 0, 'show_survey' : 0}))
                 .set('initClose',false)
                 .set('initLoaded',false);
         }
@@ -208,6 +210,10 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.set('processStatus', 1);
         }
 
+        case 'UI_STATE':{
+            return state.setIn(['chat_ui_state',action.data.attr],action.data.val);
+        }
+
         case 'INIT_CHAT_SUBMITTED' : {
             return state.setIn(['chatLiveData','operator'], action.data.operator)
                 .set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)))
@@ -260,6 +266,7 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.set('chatStatusData',fromJS(action.data))
                 .setIn(['chatLiveData','closed'], action.data.closed && action.data.closed === true || state.getIn(['chatLiveData','closed']))
                 .setIn(['chatLiveData','status'], action.data.status)
+                .setIn(['chatLiveData','uid'], action.data.uid)
                 .setIn(['syncStatus','status'], false)
                 .setIn(['chatLiveData','ru'], action.data.ru ? action.data.ru : null)
                 .setIn(['chatLiveData','status_sub'], action.data.status_sub);

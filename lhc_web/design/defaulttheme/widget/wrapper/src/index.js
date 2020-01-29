@@ -63,7 +63,7 @@
                 onlineStatus :  new BehaviorSubject(true),
                 widgetStatus : new BehaviorSubject((storageHandler.getSessionStorage('LHC_WS') === 'true' || (LHC_API.args.mode && LHC_API.args.mode == 'embed'))),
                 eventEmitter : new EventEmitter(),
-                toggleSound : new BehaviorSubject( storageHandler.getSessionStorage('LHC_SOUND') === 'true' || storageHandler.getSessionStorage('LHC_SOUND') === null),
+                toggleSound : new BehaviorSubject(storageHandler.getSessionStorage('LHC_SOUND') === 'true',{'ignore_sub':true}),
                 hideOffline : false,
                 isMobile : isMobile,
                 isIE : (navigator.userAgent.toUpperCase().indexOf("TRIDENT/") != -1 || navigator.userAgent.toUpperCase().indexOf("MSIE") != -1),
@@ -176,6 +176,10 @@
 
                     if (data.chat_ui.mobile_popup && isMobile) {
                         attributesWidget.mode = 'popup';
+                    }
+
+                    if (data.chat_ui.sound_enabled && storageHandler.getSessionStorage('LHC_SOUND') === null) {
+                        attributesWidget.toggleSound.next(true);
                     }
 
                     if (data.chat_ui.check_status) {

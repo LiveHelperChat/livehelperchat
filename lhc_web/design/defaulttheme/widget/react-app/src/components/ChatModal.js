@@ -46,12 +46,19 @@ class ChatModal extends PureComponent {
         this.props.insertText(txtToAdd);
     }
 
+    generalDataActionClick = (e) => {
+        if (e['data-action'] && this.props[e['data-action']]) {
+            this.props[e['data-action']]();
+        }
+    }
+
     render() {
         return (
             <React.Fragment>
                 {this.state.body !== null && <div className="fade modal-backdrop show"></div>}
                 {this.state.body !== null && <div role="dialog" id="dialog-content" aria-modal="true" className="fade modal show d-block" tabIndex="-1">{parse(this.state.body, {
                         replace: domNode => {
+
                             if (domNode.attribs && domNode.attribs.id === 'react-close-modal') {
                                 return <button type="button" className="close float-right" data-dismiss="modal" onClick={this.dismissModal} aria-label="Close"><span aria-hidden="true">&times;</span></button>;
                             } else if (domNode.attribs && domNode.attribs.bbitem) {
@@ -62,6 +69,15 @@ class ChatModal extends PureComponent {
                                 return (
                                     <a {...domNode.attribs} onClick={(e) => this.generalOnClick(domNode.attribs)}>{domToReact(domNode.children)}</a>
                                 );
+                            } else if (domNode.type && domNode.type === 'tag' && domNode.name && domNode.name == 'input' && domNode.attribs && domNode.attribs.type && domNode.attribs.type == "button") {
+
+                                if (domNode.attribs.class) {
+                                    domNode.attribs.className = domNode.attribs.class;
+                                    delete domNode.attribs.class;
+                                }
+
+                                return (<input {...domNode.attribs} onClick={(e) => this.generalDataActionClick(domNode.attribs)} />);
+
                             } else if (domNode.type && domNode.type === 'script') {
                                 if (domNode.children.length > 0)
                                 {

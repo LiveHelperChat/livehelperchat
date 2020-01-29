@@ -117,7 +117,10 @@ if ((int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_val
     }
 }
 
-$outputResponse['chat_ui']['proactive_interval'] = (int)(erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['check_for_operator_msg']);
+$soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data_value;
+
+$outputResponse['chat_ui']['proactive_interval'] = (int)($soundData['check_for_operator_msg']);
+$outputResponse['chat_ui']['sound_enabled'] = (int)($soundData['new_message_sound_user_enabled']);
 
 if (erLhcoreClassModelChatConfig::fetch('use_secure_cookie')->current_value == 1) {
     $outputResponse['secure_cookie'] = true;
@@ -146,7 +149,7 @@ $outputResponse['chat_ui']['leaveamessage'] = (isset($startDataFields['force_lea
 $outputResponse['chat_ui']['mobile_popup'] = isset($startDataFields['mobile_popup']) && $startDataFields['mobile_popup'] == true;
 
 $ts = time();
-$outputResponse['v'] = 17;
+$outputResponse['v'] = 18;
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
 $outputResponse['static'] = array(

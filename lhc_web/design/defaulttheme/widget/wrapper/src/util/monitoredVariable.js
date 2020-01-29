@@ -1,8 +1,9 @@
 
 export class monitoredVariable {
-    constructor(value) {
+    constructor(value, params) {
         this.valueInternal = value;
         this.listeners = [];
+        this.params = params || {};
     }
 
     get value() {
@@ -39,7 +40,10 @@ export class monitoredVariable {
 
     subscribe(callback) {
         this.listeners.push(callback);
-        callback(this.valueInternal);
+        
+        if (!this.params['ignore_sub']) {
+            callback(this.valueInternal);
+        }
     }
 }
 
