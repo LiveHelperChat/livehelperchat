@@ -334,10 +334,13 @@ class OnlineChat extends Component {
 
         if (
             (prevState.enabledEditor === false && prevState.enabledEditor != this.state.enabledEditor) ||
-            this.props.chatwidget.get('msgLoaded') !== prevProps.chatwidget.get('msgLoaded')
+            (this.props.chatwidget.get('msgLoaded') !== prevProps.chatwidget.get('msgLoaded'))
         ) {
             this.scrollBottom();
-            this.focusMessage();
+
+            if (!(this.props.chatwidget.getIn(['chat_ui','auto_start']) === true && this.props.chatwidget.get('mode') == 'embed')) {
+                this.focusMessage();
+            }
         }
 
         if (snapshot !== null) {
@@ -513,9 +516,10 @@ class OnlineChat extends Component {
              * */
             var showChat = true;
             var preloadSurvey = false;
+            var forceSurvey = false;
 
             var location = "";
-            var classSurvey = "flex-grow-1 position-relative iframe-modal";
+            var classSurvey = "flex-grow-1 position-relative iframe-modal content-loader";
 
             var validSurveyState = (this.props.chatwidget.hasIn(['chatLiveData','status_sub']) &&
                     (
@@ -532,6 +536,10 @@ class OnlineChat extends Component {
                 ||
                 (this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_CLOSED_CHAT && this.props.chatwidget.getIn(['chatLiveData','uid']) > 0);
 
+            if ((this.props.chatwidget.hasIn(['chatLiveData','status_sub']) && this.props.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_SURVEY_SHOW) || (this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_CLOSED_CHAT && this.props.chatwidget.getIn(['chatLiveData','uid']) > 0)) {
+                forceSurvey = true;
+            }
+
             if ((this.state.preloadSurvey === true || validSurveyState) && this.props.chatwidget.hasIn(['chat_ui','survey_id'])) {
                 location = this.props.chatwidget.get('base_url') + "/survey/fillwidget/(chatid)/" + this.props.chatwidget.getIn(['chatData', 'id']) + "/(hash)/" + this.props.chatwidget.getIn(['chatData', 'hash']);
 
@@ -539,10 +547,10 @@ class OnlineChat extends Component {
                     location = location + '/(theme)/' + this.props.chatwidget.get('theme');
                 }
 
-                location = location + '/(survey)/' + this.props.chatwidget.getIn(['chat_ui', 'survey_id']);
+                location = location + '/(survey)/' + this.props.chatwidget.getIn(['chat_ui', 'survey_id']) + (forceSurvey === true ? '/(force)/true' : '');
                 
                 if (this.props.chatwidget.hasIn(['chat_ui', 'survey_url'])) {
-                    location = this.props.chatwidget.getIn(['chat_ui', 'survey_url']);
+                    location = this.props.chatwidget.getIn(['chat_ui', 'survey_url']) + (forceSurvey === true ? '?force=true' : '');
                 }
 
                 preloadSurvey = true;

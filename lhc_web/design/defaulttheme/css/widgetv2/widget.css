@@ -829,3 +829,7 @@ textarea[name=ChatMessage] {
         opacity:1;
     }
 }
+
+.content-loader {
+    background: url(../images/icons/loading.png) no-repeat center center;
+}
