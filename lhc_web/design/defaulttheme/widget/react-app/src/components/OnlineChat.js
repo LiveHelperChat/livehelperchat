@@ -338,7 +338,7 @@ class OnlineChat extends Component {
         ) {
             this.scrollBottom();
 
-            if (!(this.props.chatwidget.getIn(['chat_ui','auto_start']) === true && this.props.chatwidget.get('mode') == 'embed')) {
+            if (!(this.props.chatwidget.getIn(['chat_ui','auto_start']) === true && this.props.chatwidget.get('mode') == 'embed') || (prevState.enabledEditor === false && prevState.enabledEditor != this.state.enabledEditor)) {
                 this.focusMessage();
             }
         }
