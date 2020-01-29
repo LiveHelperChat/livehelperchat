@@ -1448,7 +1448,10 @@ class erLhcoreClassChat {
 
    			foreach ($attrRemove as $attr) {
    				$object->{$attr} = null;
-   			};
+   				if (isset($params['clean_ignore'])) {
+   				    unset($object->{$attr});
+                }
+   			}
    			
    			if (isset($params['remove_all']) && $params['remove_all'] == true) {
    			    foreach ($object as $attr => $value) {
@@ -1457,8 +1460,6 @@ class erLhcoreClassChat {
    			        }
    			    }
    			}
-
-
 
    			if (!isset($params['do_not_clean'])){
    			    if (isset($params['filter_function'])){

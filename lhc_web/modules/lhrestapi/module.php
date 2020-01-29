@@ -17,6 +17,10 @@ $ViewList['chats'] = array(
     'params' => array()
 );
 
+$ViewList['extensions'] = array(
+    'params' => array()
+);
+
 $ViewList['chatscount'] = array(
     'params' => array()
 );
@@ -175,5 +179,6 @@ $ViewList['checkchatstatus'] = array(
 
 $FunctionList = array();
 $FunctionList['use_admin'] = array('explain' => 'Allow operator to manage REST API');
+$FunctionList['use_direct_logins'] = array('explain' => 'Allow opeator use api directly with his username and password');
 
 ?>

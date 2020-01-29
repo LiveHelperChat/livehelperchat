@@ -134,17 +134,34 @@ class erLhcoreClassRestAPIHandler
                 ));
             }
 
-            if (! ($apiKey instanceof erLhAbstractModelRestAPIKey)) {
+            $authorised = false;
+            $user = null;
+
+            if (!($apiKey instanceof erLhAbstractModelRestAPIKey)) {
+                $user = erLhcoreClassModelUser::findOne(array('filter' => array('username' => $apiData[0])));
+                if (!($user instanceof erLhcoreClassModelUser) || !password_verify($apiData[1], $user->password)) {
+                    throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Authorization failed!'));
+                } else {
+                    if (!$user->hasAccessTo('lhrestapi','use_direct_logins')){
+                        throw new Exception(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'You do not have permission to use REST API directly. "lhrestapi", "use_direct_logins" is missing!')));
+                    } else {
+                        $authorised = true;
+                    }
+                }
+            }
+
+            if ($authorised === false && $apiKey->user->username != $apiData[0]) {
                 throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Authorization failed!'));
             }
-            
-            if ($apiKey->user->username != $apiData[0]) {
-                throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Authorization failed!'));
+
+            if ($user instanceof erLhcoreClassModelUser){
+                self::$apiKey = new erLhAbstractModelRestAPIKey();
+                self::$apiKey->user = $user;
+            } else {
+                // API Key
+                self::$apiKey = $apiKey;
             }
-            
-            // API Key
-            self::$apiKey = $apiKey;
-            
+
             if (isset($_GET['update_activity'])) {
                 erLhcoreClassUserDep::updateLastActivityByUser(self::$apiKey->user->id, time());
             }
@@ -491,6 +508,8 @@ class erLhcoreClassRestAPIHandler
             $filter['customfilter'][] = $limitation;
         }
 
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('restapi.chats_filter', array('filter' => & $filter));
+
         return $filter;
     }
 
@@ -528,7 +547,7 @@ class erLhcoreClassRestAPIHandler
         // Allow extensions append custom field
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.restapi_chats',array('list' => & $chats));
 
-        if (isset($_GET['include_messages']) && $_GET['include_messages'] == 'true') {
+        if (isset($_GET['include_messages']) && $_GET['include_messages'] == 'true' && !empty($chats)) {
             $messages = erLhcoreClassModelmsg::getList(array('limit' => 100000,'sort' => 'id ASC','filterin' => array('chat_id' => array_keys($chats))));
             foreach ($messages as $message) {
                 if (!is_array($chats[$message->chat_id]->messages)) {
@@ -536,6 +555,21 @@ class erLhcoreClassRestAPIHandler
                 }
                 $chats[$message->chat_id]->messages[] = $message;
             }
+        }
+
+        $prefillFields = array();
+
+        if (isset($_GET['prefill_fields'])){
+            $prefillFields = explode(',',str_replace(' ','',$_GET['prefill_fields']));
+        }
+
+        $ignoreFields = array();
+        if (isset($_GET['ignore_fields'])){
+            $ignoreFields = explode(',',str_replace(' ','',$_GET['ignore_fields']));
+        }
+
+        if (!empty($prefillFields) || !empty($ignoreFields)) {
+            erLhcoreClassChat::prefillGetAttributes($chats, $prefillFields, $ignoreFields, array('clean_ignore' => true,'do_not_clean' => true));
         }
 
         // Chats list

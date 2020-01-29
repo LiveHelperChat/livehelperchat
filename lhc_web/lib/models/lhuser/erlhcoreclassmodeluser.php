@@ -370,8 +370,18 @@ class erLhcoreClassModelUser {
    	
    		return false;
    		
-   	}   	
-   	
+   	}
+
+   	public function hasAccessTo($module, $function) {
+        if ($this->accessArray === null) {
+            $this->accessArray = erLhcoreClassRole::accessArrayByUserID($this->id);
+        }
+
+        return erLhcoreClassRole::canUseByModuleAndFunction($this->accessArray, $module, $function);
+    }
+
+    private $accessArray = null;
+
     public $id = null;
     public $username = '';
     public $password = '';

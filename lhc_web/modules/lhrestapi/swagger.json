@@ -50,7 +50,7 @@
           "application/json"
         ],
         "parameters": [
-          {
+          {{chats_parameters}}{
             "name": "departament_id",
             "in": "query",
             "description": "Department ID",
@@ -187,6 +187,20 @@
             "type": "boolean",
             "default": false,
             "in": "query"
+          },
+          {
+            "name": "prefill_fields",
+            "description": "What fields to prefill E.g time_created_front, department_name, plain_user_name, product_name, n_official, n_off_full, wait_time_pending, wait_time_seconds, cls_time_front, tatus_sub_sub, can_edit_chat, unread_time",
+            "required": false,
+            "type": "string",
+            "in": "query"
+          },
+          {
+            "name": "ignore_fields",
+            "description": "What fields to skip E.g product_id, product, department, time, status, user, additional_data, additional_data_array, chat_variables, chat_variables_array",
+            "required": false,
+            "type": "string",
+            "in": "query"
           }
         ],
         "responses": {
@@ -219,7 +233,7 @@
           "application/json"
         ],
         "parameters": [
-          {
+          {{chats_parameters}}{
             "name": "departament_id",
             "in": "query",
             "description": "Department ID",
@@ -1671,6 +1685,37 @@
         ]
       }
     },
+    "/restapi/extensions": {
+      "get": {
+        "tags": [
+          "system"
+        ],
+        "summary": "List of activated extensions",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns list of activated extensions",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
     "/restapi/department": {
       "post": {
         "tags": [
@@ -2005,7 +2050,7 @@
           }
         ]
       }
-    }
+    }{{append_paths}}
   },
   "securityDefinitions": {
     "login": {
@@ -2014,7 +2059,7 @@
     }
   },
   "definitions": {
-    "Chat": {
+{{append_definitions}}"Chat": {
       "type": "object",
       "properties": {
         "id": {

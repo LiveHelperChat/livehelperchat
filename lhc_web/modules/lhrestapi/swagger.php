@@ -20,7 +20,13 @@ ob_start();
 include 'modules/lhrestapi/swagger.json';
 $content = ob_get_clean();
 
-echo str_replace('{{host}}',$_SERVER['HTTP_HOST'], $content);
+$append_definitions = '';
+$append_paths = '';
+$chats_parameters = '';
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('restapi.swagger', array('append_definitions' => & $append_definitions, 'append_paths' => & $append_paths, 'chats_parameters' => & $chats_parameters));
+
+echo str_replace(array('{{host}}','{{append_definitions}}','{{append_paths}}', '{{chats_parameters}}'),array($_SERVER['HTTP_HOST'], $append_definitions, $append_paths, $chats_parameters), $content);
 
 exit;
 
