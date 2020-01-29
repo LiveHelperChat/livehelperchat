@@ -59,7 +59,7 @@ export class mainWidget{
         this.attributes = attributes;
 
         if (this.attributes.staticJS['fontCSS']) {
-            this.cont.insertCssRemoteFile({rel:"preload", crossOrigin : "anonymous",  href : this.attributes.staticJS['fontCSS']});
+            this.cont.insertCssRemoteFile({rel:"stylesheet", crossOrigin : "anonymous",  href : this.attributes.staticJS['fontCSS']});
         }
 
         if (this.attributes.staticJS['font_widget']) {
