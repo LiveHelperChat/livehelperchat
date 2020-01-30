@@ -128,7 +128,7 @@ const chatWidgetReducer = (state = initialState, action) => {
         }
 
         case OFFLINE_FIELDS_UPDATED : {
-            return state.set('offlineData',fromJS(action.data));
+            return state.set('offlineData', fromJS({'fetched' : true, 'fields_visible': action.data.fields_visible, 'fields' : action.data.fields, 'department' : action.data.department})).set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)));
         }
 
         case 'captcha': {

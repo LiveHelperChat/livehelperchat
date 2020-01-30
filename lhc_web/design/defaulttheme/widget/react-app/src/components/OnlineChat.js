@@ -593,7 +593,7 @@ class OnlineChat extends Component {
                         <ChatOptions elementId="chat-dropdown-options">
                             <div className="btn-group dropup pt-1 disable-select pl-2 pt-2">
                                 <i className="material-icons settings text-muted" id="chat-dropdown-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">settings</i>
-                                <div className="dropdown-menu shadow bg-white rounded">
+                                <div className="dropdown-menu shadow bg-white rounded lhc-dropdown-menu ml-1">
                                     <div className="d-flex flex-row">
                                         <a href="#" onClick={this.toggleSound} title="Enable/Disable sound about new messages from the operator"><i className="material-icons chat-setting-item text-muted">{this.props.chatwidget.getIn(['usersettings','soundOn']) === true ? 'volume_up' : 'volume_off'}</i></a>
                                         {this.props.chatwidget.hasIn(['chat_ui','print']) && <a target="_blank" href={this.props.chatwidget.get('base_url') + "/chat/printchat/" +this.props.chatwidget.getIn(['chatData','id']) + "/" + this.props.chatwidget.getIn(['chatData','hash'])} title="Print"><i className="material-icons chat-setting-item text-muted">print</i></a>}
