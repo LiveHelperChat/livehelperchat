@@ -42,6 +42,7 @@ class HeaderChat extends Component {
 
         return (
             <div className={className}>
+                {this.props.chatwidget.hasIn(['chat_ui','custom_html_header_body']) && <div className="lhc-custom-header-inside" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header_body'])}}></div>}
                 <div className="col-6 pl-1">
                     <a href="#" className="header-link" onClick={this.closeWidget}><i className="material-icons">arrow_drop_down</i></a>
                 </div>

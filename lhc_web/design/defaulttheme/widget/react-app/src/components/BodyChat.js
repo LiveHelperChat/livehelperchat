@@ -108,11 +108,11 @@ class BodyChat extends Component {
         }
 
         if (this.props.chatwidget.get('isChatting') === true) {
-            return (<React.Fragment>{this.props.chatwidget.get('mode') == 'widget' && <HeaderChat popupChat={this.popupChat} endChat={this.endChat} />}<div className={className}><OnlineChat cancelClose={this.cancelClose} endChat={this.endChat} /></div></React.Fragment>)
+            return (<React.Fragment>{this.props.chatwidget.hasIn(['chat_ui','custom_html_header']) && <div className="lhc-custom-header-above" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header'])}}></div>}{this.props.chatwidget.get('mode') == 'widget' && <HeaderChat popupChat={this.popupChat} endChat={this.endChat} />}<div className={className}><OnlineChat cancelClose={this.cancelClose} endChat={this.endChat} /></div></React.Fragment>)
         } else if (this.props.chatwidget.get('isOnline') === true) {
-            return (<React.Fragment>{this.props.chatwidget.get('mode') == 'widget' && <HeaderChat popupChat={this.popupChat} endChat={this.endChat} />}<div className={className}><StartChat /></div></React.Fragment>)
+            return (<React.Fragment>{this.props.chatwidget.hasIn(['chat_ui','custom_html_header']) && <div className="lhc-custom-header-above" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header'])}}></div>}{this.props.chatwidget.get('mode') == 'widget' && <HeaderChat popupChat={this.popupChat} endChat={this.endChat} />}<div className={className}><StartChat /></div></React.Fragment>)
         } else {
-            return (<React.Fragment>{this.props.chatwidget.get('mode') == 'widget' && <HeaderChat popupChat={this.popupChat} endChat={this.endChat} />}<div className={className}><OfflineChat /></div></React.Fragment>)
+            return (<React.Fragment>{this.props.chatwidget.hasIn(['chat_ui','custom_html_header']) && <div className="lhc-custom-header-above" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header'])}}></div>}{this.props.chatwidget.get('mode') == 'widget' && <HeaderChat popupChat={this.popupChat} endChat={this.endChat} />}<div className={className}><OfflineChat /></div></React.Fragment>)
         }
     }
 }

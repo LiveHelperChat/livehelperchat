@@ -96,7 +96,7 @@ class OfflineChat extends Component {
                         </div>
                         <div className="row">
                             <div className="col-12">
-                                <button type="submit" className="btn btn-secondary btn-sm">Leave a message</button>
+                                <button type="submit" className="btn btn-secondary btn-sm">{this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || 'Leave a message'}</button>
                             </div>
                         </div>
                     </form>

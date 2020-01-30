@@ -232,6 +232,8 @@ class StartChat extends Component {
                             </div>
                         </div>
 
+                        {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','custom_html_widget']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_widget'])}}></div>}
+
                         <div className="d-flex flex-row border-top position-relative message-send-area">
 
                             {(this.props.chatwidget.hasIn(['validationErrors','question'])) && <div id="id-operator-typing" className="bg-white pl-1">{this.props.chatwidget.getIn(['validationErrors','question'])}</div>}
@@ -261,6 +263,8 @@ class StartChat extends Component {
                             (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div className="pt-2"><ChatStatus status={this.props.chatwidget.getIn(['chat_ui','operator_profile'])} /></div>)
                         }
 
+                        {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','custom_html_widget']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_widget'])}}></div>}
+
                         <form onSubmit={this.handleSubmit}>
                             <div className="row pt-2">
                                 {mappedFields}
@@ -269,7 +273,7 @@ class StartChat extends Component {
                             </div>
                             <div className="row">
                                 <div className="col-12">
-                                    <button disabled={this.props.chatwidget.get('processStatus') == 1} type="submit" className="btn btn-secondary btn-sm">Start Chat</button>
+                                    <button disabled={this.props.chatwidget.get('processStatus') == 1} type="submit" className="btn btn-secondary btn-sm">{this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || 'Start Chat'}</button>
                                 </div>
                             </div>
                         </form>

@@ -363,6 +363,63 @@ if (is_numeric($departament_id) && $departament_id > 0) {
     }
 }
 
+if ($theme !== false) {
+
+    if ($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') {
+        if (isset($theme->bot_configuration_array['custom_html_widget_bot']) && $theme->bot_configuration_array['custom_html_widget_bot'] != '') {
+            $onlyBotOnline = erLhcoreClassChat::isOnlyBotOnline($Params['user_parameters_unordered']['department']);
+            if ($onlyBotOnline === true) {
+                $chat_ui['custom_html_widget'] = $theme->bot_configuration_array['custom_html_widget_bot'];
+            }
+        }
+
+        if (!isset($chat_ui['custom_html_widget']) && isset($theme->bot_configuration_array['custom_html_widget']) && $theme->bot_configuration_array['custom_html_widget'] != '') {
+            $chat_ui['custom_html_widget'] = $theme->bot_configuration_array['custom_html_widget'];
+        }
+    }
+
+    if ($Params['user_parameters_unordered']['mode'] == 'popup') {
+        if (isset($theme->bot_configuration_array['custom_html_bot']) && $theme->bot_configuration_array['custom_html_bot'] != '') {
+            $onlyBotOnline = erLhcoreClassChat::isOnlyBotOnline($Params['user_parameters_unordered']['department']);
+            if ($onlyBotOnline === true) {
+                $chat_ui['custom_html_widget'] = $theme->bot_configuration_array['custom_html_bot'];
+            }
+        }
+        if (!isset($chat_ui['custom_html_widget']) && isset($theme->bot_configuration_array['custom_html']) && $theme->bot_configuration_array['custom_html'] != '') {
+            $chat_ui['custom_html_widget'] = $theme->bot_configuration_array['custom_html'];
+        }
+    }
+
+    if ($Params['user_parameters_unordered']['online'] == '0' && isset($theme->bot_configuration_array['custom_start_button_offline']) && $theme->bot_configuration_array['custom_start_button_offline'] != '') {
+        $chat_ui['custom_start_button'] = $theme->bot_configuration_array['custom_start_button_offline'];
+    }
+
+    if ($Params['user_parameters_unordered']['online'] == '1') {
+
+        if (isset($theme->bot_configuration_array['custom_start_button_bot']) && $theme->bot_configuration_array['custom_start_button_bot'] != '') {
+            if (!isset($onlyBotOnline)) {
+                $onlyBotOnline = erLhcoreClassChat::isOnlyBotOnline($Params['user_parameters_unordered']['department']);
+            }
+
+            if ($onlyBotOnline === true) {
+                $chat_ui['custom_start_button'] = $theme->bot_configuration_array['custom_start_button_bot'];
+            }
+        }
+
+        if (!isset($chat_ui['custom_start_button']) && isset($theme->bot_configuration_array['custom_start_button']) && $theme->bot_configuration_array['custom_start_button'] != '') {
+            $chat_ui['custom_start_button'] = $theme->bot_configuration_array['custom_start_button'];
+        }
+    }
+
+    if (isset($theme->bot_configuration_array['custom_html_header']) && $theme->bot_configuration_array['custom_html_header'] != '') {
+        $chat_ui['custom_html_header'] = $theme->bot_configuration_array['custom_html_header'];
+    }
+
+    if (isset($theme->bot_configuration_array['custom_html_header_body']) && $theme->bot_configuration_array['custom_html_header_body'] != '') {
+        $chat_ui['custom_html_header_body'] = $theme->bot_configuration_array['custom_html_header_body'];
+    }
+}
+
 if ($theme !== false && $theme->hide_popup == 1) {
     $chat_ui['hide_popup'] = true;
 }
