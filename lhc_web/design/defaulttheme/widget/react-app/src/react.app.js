@@ -4,6 +4,9 @@ import App from './App';
 import { Provider } from "react-redux";
 import store from "./store/index";
 
+// import i18n (needs to be bundled ;))
+import './i18n';
+
 var root = document.getElementById('root');
 
 ReactDOM.render(
