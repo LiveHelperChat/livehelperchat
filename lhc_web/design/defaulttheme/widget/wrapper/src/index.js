@@ -193,13 +193,15 @@
                     }
                 }
 
-                // Javascript custom variables init
-                // Extensions can listen for these
-                attributesWidget.jsVars.next(data.js_vars);
+                if (data.js_vars) {
+                    // Javascript custom variables init
+                    // Extensions can listen for these
+                    attributesWidget.jsVars.next(data.js_vars);
 
-                // Monitor js vars if required
-                if (data.js_vars.length > 0) {
-                    attributesWidget.userSession.setupVarsMonitoring(data.js_vars);
+                    // Monitor js vars if required
+                    if (data.js_vars.length > 0) {
+                        attributesWidget.userSession.setupVarsMonitoring(data.js_vars);
+                    }
                 }
 
                 // Init main widgets
