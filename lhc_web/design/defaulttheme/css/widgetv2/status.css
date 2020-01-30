@@ -130,7 +130,7 @@ body {
     display: inline-block
 }
 
-#lhc_status_container .offline-status {
+#lhc_status_container #status-icon.offline-status {
     background-color: #888888 !important;
 }
 

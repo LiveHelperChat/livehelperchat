@@ -861,13 +861,6 @@ $fields = array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 )),
-                /*<div class="form-group">
-						<label><?php echo erLhcoreClassAbstract::renderInput('survey_button', $fields['detect_language'], $object)?> <?php echo $fields['detect_language']['trans'];?></label>
-        		        </div>
-
-						<div class="form-group">
-						<label><?php echo erLhcoreClassAbstract::renderInput('conform_close', $fields['conform_close'], $object)?> <?php echo $fields['conform_close']['trans'];?></label>
-        		        </div>*/
                 'confirm_close' => array(
                     'type' => 'checkbox',
                     'main_attr' => 'bot_configuration_array',

@@ -19,7 +19,6 @@
     background-image: url(<?php echo $theme->offline_image_url?>)!important;
     background-repeat: no-repeat!important;
     background-position: center center!important;
-    :before
 }
 #lhc_status_container .offline-status:before{
     content:''!important;
