@@ -69,7 +69,7 @@ export default function (dispatch, getState) {
             var paramsInit = JSON.parse(e.data.replace('lhc_init:',''));
 
             window.lhcChat = {};
-            window.lhcChat['base_url'] = paramsInit['base_url'] + (paramsInit['lang'] && paramsInit['lang'] != '' ? paramsInit['lang'] + '/' : '');
+            window.lhcChat['base_url'] = paramsInit['base_url'] + (paramsInit['lang'] && paramsInit['lang'] != '' ? paramsInit['lang'].replace('/','') + '/' : '');
             window.lhcChat['staticJS'] = paramsInit['staticJS'];
             window.lhcChat['mode'] = paramsInit['mode'];
 
