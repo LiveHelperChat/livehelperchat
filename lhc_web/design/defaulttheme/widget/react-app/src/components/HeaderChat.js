@@ -32,8 +32,11 @@ class HeaderChat extends Component {
     }
     
     componentDidMount() {
-        var bsn = require("bootstrap.native/dist/bootstrap-native-v4");
-        new bsn.Dropdown(document.getElementById('headerDropDown'));
+        var dropdown = document.getElementById('headerDropDown');
+        if (dropdown) {
+            var bsn = require("bootstrap.native/dist/bootstrap-native-v4");
+            new bsn.Dropdown(dropdown);
+        }
     }
 
     render() {
