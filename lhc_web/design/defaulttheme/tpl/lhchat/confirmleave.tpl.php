@@ -1,4 +1,4 @@
-<?php $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/itsp','Are you sure you want to close this chat?'); $hideModalClose = true; ?>
+<?php $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Are you sure you want to close this chat?'); $hideModalClose = true; ?>
 
 <div class="modal-dialog modal-<?php isset($modalSize) ? print $modalSize : print 'lg'?>">
     <div class="modal-content">
