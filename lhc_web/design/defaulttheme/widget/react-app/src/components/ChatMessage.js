@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import parse, { domToReact } from 'html-react-parser';
 import { connect } from "react-redux";
 import { updateTriggerClicked, subscribeNotifications } from "../actions/chatActions";
+import { withTranslation } from 'react-i18next';
 
 class ChatMessage extends PureComponent {
 
@@ -27,6 +28,8 @@ class ChatMessage extends PureComponent {
      * */
     abstractClick(attrs, e) {
 
+        const { t } = this.props;
+
         this.addLoader(attrs,e.target);
         
         if (attrs.onclick.indexOf('lhinst.updateTriggerClicked') !== -1) {
@@ -34,7 +37,7 @@ class ChatMessage extends PureComponent {
         } else if (attrs.onclick.indexOf('notificationsLHC.sendNotification') !== -1) {
 
             this.props.dispatch(subscribeNotifications());
-            e.target.innerHTML = 'Subscribing...';
+            e.target.innerHTML = t('notifications.subscribing');
             setTimeout(() => {
                 this.removeMetaMessage(attrs['data-id']);
             }, 500);
@@ -51,7 +54,7 @@ class ChatMessage extends PureComponent {
                 attrs['data-payload'] = list.value;
                 this.updateTriggerClicked({type:'/(type)/valueclicked'}, attrs, e.target);
             } else {
-                alert('Please choose!');
+                alert(t('bot.please_choose'));
             }
         } else {
             console.log('Unknown click event: ' + attrs.onclick);
@@ -157,4 +160,4 @@ class ChatMessage extends PureComponent {
     }
 }
 
-export default  connect()(ChatMessage);
+export default withTranslation()(connect()(ChatMessage));

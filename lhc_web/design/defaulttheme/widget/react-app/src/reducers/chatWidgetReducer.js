@@ -2,6 +2,7 @@ import { SHOWN_WIDGET, CLOSED_WIDGET, IS_MOBILE, IS_ONLINE, OFFLINE_FIELDS_UPDAT
 import {fromJS} from 'immutable';
 import { helperFunctions } from "../lib/helperFunctions";
 
+
 const initialState = fromJS({
     loadedCore: false, // Was the core loaded. IT's set after all initial attributes are loaded and app can proceed futher.
     shown: true,

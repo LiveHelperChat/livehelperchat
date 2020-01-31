@@ -6,6 +6,7 @@ import store from "./store/index";
 
 var root = document.getElementById('root');
 
+
 ReactDOM.render(
     <Provider store={store}>
         <App {...(root.dataset)} />

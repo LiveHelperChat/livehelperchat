@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withTranslation } from 'react-i18next';
 
 class ChatDepartment extends Component {
 
@@ -21,6 +22,8 @@ class ChatDepartment extends Component {
 
     render() {
 
+        const { t } = this.props;
+
         var classNameInput = [];
 
         classNameInput.push('form-control form-control-sm');
@@ -30,7 +33,7 @@ class ChatDepartment extends Component {
         }
         
         if (this.props.departments.get('departments').size > 1) {
-            var options = this.props.departments.get('departments').map(dep => <option key={'dep-'+dep.get('value')} value={dep.get('value')}>{dep.get('name')} {!dep.get('online') ? '--=Offline=--' : ''}</option>);
+            var options = this.props.departments.get('departments').map(dep => <option key={'dep-'+dep.get('value')} value={dep.get('value')}>{dep.get('name')} {!dep.get('online') ? t('department.offline') : ''}</option>);
             return <div className="col-12">
                 <div className="form-group">
                     <label className="control-label">{this.props.departments.getIn(['settings','label'])}</label>
@@ -46,4 +49,4 @@ class ChatDepartment extends Component {
     }
 }
 
-export default ChatDepartment;
+export default withTranslation()(ChatDepartment);

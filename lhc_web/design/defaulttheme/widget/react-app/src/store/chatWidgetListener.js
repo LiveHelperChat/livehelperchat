@@ -1,5 +1,6 @@
 import { endChat, initChatUI, pageUnload, focusChange, storeSubscriber, initProactive } from "../actions/chatActions"
 import { helperFunctions } from "../lib/helperFunctions";
+import i18n from "../i18n";
 
 export default function (dispatch, getState) {
 
@@ -72,6 +73,26 @@ export default function (dispatch, getState) {
             window.lhcChat['base_url'] = paramsInit['base_url'] + (paramsInit['lang'] && paramsInit['lang'] != '' ? paramsInit['lang'].replace('/','') + '/' : '');
             window.lhcChat['staticJS'] = paramsInit['staticJS'];
             window.lhcChat['mode'] = paramsInit['mode'];
+            var date = new Date();
+
+            i18n.init({
+                backend: {
+                    loadPath: paramsInit['base_url']+'{{lng}}/widgetrestapi/lang/{{ns}}?v='+(""+date.getFullYear() + date.getMonth() + date.getDate())
+                },
+                lng: ((paramsInit['lang'] && paramsInit['lang'] != '') ?  paramsInit['lang'].replace('/','') : 'eng'),
+                fallbackLng: 'eng',
+                debug: false,
+                interpolation: {
+                    escapeValue: false, // not needed for react as it escapes by default
+                }
+            }, () => {
+                dispatch({
+                    type: 'loadedCore'
+                })
+            });
+
+            paramsInit['base_url'] = window.lhcChat['base_url'];
+
 
             for (const [key, value] of Object.entries(paramsInit)) {
                 if (key === 'static_chat') {
@@ -113,10 +134,6 @@ export default function (dispatch, getState) {
                 window.onpageshow = window.onfocus = focusChangeCb;
                 window.onpagehide = window.onblur = focusChangeCb;
             }
-
-            dispatch({
-                type: 'loadedCore'
-            })
 
             if (paramsInit['mode'] == 'popup') {
                 helperFunctions.sendMessageParent('endChatCookies');
