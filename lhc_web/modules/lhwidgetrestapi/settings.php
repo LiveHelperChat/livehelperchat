@@ -81,7 +81,7 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
     }
 }
 
-if (isset($_GET['theme']) && (int)$_GET['theme'] > 0){
+if (isset($_GET['theme']) && is_numeric($_GET['theme']) && (int)$_GET['theme'] > 0) {
     $outputResponse['theme'] = (int)$_GET['theme'];
 } else {
     $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;

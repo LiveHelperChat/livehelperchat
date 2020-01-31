@@ -137,7 +137,8 @@
                 'ie' : attributesWidget.isIE,
                 'dep' : attributesWidget.department.join(','),
                 'idnt' : attributesWidget.identifier,
-                'tag' : attributesWidget.tag
+                'tag' : attributesWidget.tag,
+                'theme' : attributesWidget.theme
             }}, (data) => {
 
                 __webpack_public_path__ = data.chunks_location + "/";
