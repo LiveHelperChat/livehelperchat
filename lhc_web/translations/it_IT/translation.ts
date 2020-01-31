@@ -410,11 +410,11 @@
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>Si</translation>
     </message>
     <message>
       <source>No</source>
-      <translation type="unfinished"/>
+      <translation>No</translation>
     </message>
     <message>
       <source>Send</source>
@@ -487,11 +487,11 @@
     <name>abstract/widgettheme</name>
     <message>
       <source>Welcome message</source>
-      <translation type="unfinished"/>
+      <translation>Messaggio di benvenuto</translation>
     </message>
     <message>
       <source>Offline message</source>
-      <translation type="unfinished"/>
+      <translation>Messaggio offline</translation>
     </message>
     <message>
       <source>Pending chat messaging</source>
@@ -499,11 +499,11 @@
     </message>
     <message>
       <source>Visitor not replying messaging</source>
-      <translation type="unfinished"/>
+      <translation>Il visitatore non risponde ai messaggi</translation>
     </message>
     <message>
       <source>Operator not replying messaging</source>
-      <translation type="unfinished"/>
+      <translation>L&apos;operatore non risponde ai messaggi</translation>
     </message>
     <message>
       <source>On-hold chat messaging</source>
@@ -511,7 +511,7 @@
     </message>
     <message>
       <source>Close messaging</source>
-      <translation type="unfinished"/>
+      <translation>Chiudi i messaggi</translation>
     </message>
     <message>
       <source>Survey</source>
@@ -1171,11 +1171,11 @@
     </message>
     <message>
       <source>Widget height (px)</source>
-      <translation type="unfinished"/>
+      <translation>Altezza Widget (px)</translation>
     </message>
     <message>
       <source>Widget width (px)</source>
-      <translation type="unfinished"/>
+      <translation>Lunghezza Widget (px)</translation>
     </message>
     <message>
       <source>Placeholder for message text</source>
@@ -1187,31 +1187,32 @@
     </message>
     <message>
       <source>Before closing chat ask user does he really want to to close chat</source>
-      <translation type="unfinished"/>
+      <translation>Prima di chiudere la chat chiedere al visitatore se vuole davvero uscire dalla chat</translation>
     </message>
     <message>
       <source>Show go to survey button on chat close</source>
-      <translation type="unfinished"/>
+      <translation>Mostrare il sondaggio alla chiusura della chat</translation>
     </message>
     <message>
       <source>Try to detect language from browser headers</source>
-      <translation type="unfinished"/>
+      <translation>Provare a determinare la lingua dagli headers del browser</translation>
     </message>
     <message>
       <source>Bubble style messages</source>
-      <translation type="unfinished"/>
+      <translation>Stile  
+Messaggi in stile bolla</translation>
     </message>
     <message>
       <source>Hide chat status block</source>
-      <translation type="unfinished"/>
+      <translation>Nascondi blocco stato chat</translation>
     </message>
     <message>
       <source>Use expanding message area</source>
-      <translation type="unfinished"/>
+      <translation> Usa area messaggi in espansione</translation>
     </message>
     <message>
       <source>Hide visitor profile</source>
-      <translation type="unfinished"/>
+      <translation>Nascondere profilo visitatore</translation>
     </message>
     <message>
       <source>Notifications enabled</source>
@@ -1223,7 +1224,7 @@
     </message>
     <message>
       <source>Notification domain</source>
-      <translation type="unfinished"/>
+      <translation>Dominio di notifica</translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -1234,11 +1235,11 @@
     <name>abstract/proactivechatinvitation</name>
     <message>
       <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.</source>
-      <translation type="unfinished"/>
+      <translation>Se il dipartimento è online e il visitatore avvia una chat e sta aspettando che alcuni accettino la chat, questo sarà il messaggio iniziale che riceverà.</translation>
     </message>
     <message>
       <source>If department is offline and visitor starts a chat this message will be send instaed of default welcome message. If this message is empty - welcome message will be send.</source>
-      <translation type="unfinished"/>
+      <translation>Se il dipartimento è offline e il visitatore avvia una chat, questo messaggio verrà inviato con il messaggio di benvenuto predefinito. Se questo messaggio è vuoto, verrà inviato un messaggio di benvenuto.</translation>
     </message>
     <message>
       <source>You can also use 5 images using keywords as {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}. You can use these events. These events should be used on onclick event.</source>
@@ -1322,7 +1323,7 @@
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Utente</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
@@ -1394,11 +1395,11 @@
     </message>
     <message>
       <source>Message to visitor on chat close</source>
-      <translation type="unfinished"/>
+      <translation>Messaggio al visitatore alla chiusura della chat</translation>
     </message>
     <message>
       <source>Message to visitor if department is offline</source>
-      <translation type="unfinished"/>
+      <translation>Messaggio al visitatore se il dipartimento è offline</translation>
     </message>
     <message>
       <source>Column name</source>
@@ -2259,7 +2260,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Group field</source>
-      <translation type="unfinished"/>
+      <translation>Campo di gruppo</translation>
     </message>
     <message>
       <source>Exclude offline requests from charts</source>
@@ -2506,7 +2507,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Personal auto responder message</source>
-      <translation type="unfinished"/>
+      <translation> Messaggio di risposta automatica personale</translation>
     </message>
     <message>
       <source>Please enter a canned message</source>
@@ -3267,7 +3268,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Widget embed code (beta)</source>
-      <translation type="unfinished"/>
+      <translation>Widget embed code (beta)</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -3439,27 +3440,27 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>HTML code (beta)</source>
-      <translation type="unfinished"/>
+      <translation>HTML code (beta)</translation>
     </message>
     <message>
       <source>On each refresh start new chat. Usefull in embed mode.</source>
-      <translation type="unfinished"/>
+      <translation>Ad ogni aggiornamento inizia una nuova chat. Utile in modalità embed.</translation>
     </message>
     <message>
       <source>Check for operator invitation messages</source>
-      <translation type="unfinished"/>
+      <translation>Controlla i messaggi di invito dell&apos;operatore</translation>
     </message>
     <message>
       <source>Widget embed/click mode</source>
-      <translation type="unfinished"/>
+      <translation>Widget modalità incorporamento / clic</translation>
     </message>
     <message>
       <source>widget (default)</source>
-      <translation type="unfinished"/>
+      <translation>widget (default)</translation>
     </message>
     <message>
       <source>Widget position</source>
-      <translation type="unfinished"/>
+      <translation>Posizione Widget</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -3723,11 +3724,11 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Please enter link to an image!</source>
-      <translation type="unfinished"/>
+      <translation>Inserire il link all&apos;immagine!</translation>
     </message>
     <message>
       <source>Please enter a link!</source>
-      <translation type="unfinished"/>
+      <translation>Inserire un link!</translation>
     </message>
   </context>
   <context>
@@ -4024,11 +4025,11 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Transfer immediately to this department if current department has no online operators?</source>
-      <translation type="unfinished"/>
+      <translation>Trasferisci immediatamente in questo dipartimento se l&apos;attuale dipartimento non ha operatori online?</translation>
     </message>
     <message>
       <source>Reset assigned user on chat transfer?</source>
-      <translation type="unfinished"/>
+      <translation>Ripristinare l&apos;utente assegnato al trasferimento della chat?</translation>
     </message>
     <message>
       <source>Execute new chat logic again for recipient department?</source>
@@ -4167,11 +4168,11 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Chat is currently unavailable</source>
-      <translation type="unfinished"/>
+      <translation>La chat non è al momento disponibile</translation>
     </message>
     <message>
       <source>Please try again later.</source>
-      <translation type="unfinished"/>
+      <translation>Si prega di riprovare più tardi</translation>
     </message>
     <message>
       <source>Department is disabled</source>
@@ -4219,7 +4220,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Are you sure you want to close this chat?</source>
-      <translation type="unfinished"/>
+      <translation>Siete sicuri di voler chiudere questa chat?</translation>
     </message>
     <message>
       <source>Type your message here...</source>
@@ -4479,31 +4480,31 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Minimize</source>
-      <translation type="unfinished"/>
+      <translation>Minimizzare</translation>
     </message>
     <message>
       <source>End chat</source>
-      <translation type="unfinished"/>
+      <translation>Termina chat</translation>
     </message>
     <message>
       <source>BB code</source>
-      <translation type="unfinished"/>
+      <translation>BB code</translation>
     </message>
     <message>
       <source>Popup</source>
-      <translation type="unfinished"/>
+      <translation>Popup</translation>
     </message>
     <message>
       <source>Thank you for your feedback...</source>
-      <translation type="unfinished"/>
+      <translation>Grazie per il vostro feedback...</translation>
     </message>
     <message>
       <source>Go to Survey.</source>
-      <translation type="unfinished"/>
+      <translation>Vai al sondaggio.</translation>
     </message>
     <message>
       <source>Please choose!</source>
-      <translation type="unfinished"/>
+      <translation>Si prego di scegliere!</translation>
     </message>
   </context>
   <context>
@@ -5177,11 +5178,11 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Transferred to</source>
-      <translation type="unfinished"/>
+      <translation>Trasferito a</translation>
     </message>
     <message>
       <source>as no operators online in</source>
-      <translation type="unfinished"/>
+      <translation>come nessun operatore online in</translation>
     </message>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -6779,7 +6780,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>What charts to display</source>
-      <translation type="unfinished"/>
+      <translation>Quali grafici visualizzare</translation>
     </message>
     <message>
       <source>Chat numbers by status</source>
@@ -6799,11 +6800,11 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Number of chats by subject</source>
-      <translation type="unfinished"/>
+      <translation>Numero di chat per argomento</translation>
     </message>
     <message>
       <source>Number of Thumbs Up/Down</source>
-      <translation type="unfinished"/>
+      <translation>Numero di pollici su / giù</translation>
     </message>
     <message>
       <source>Number of chats by country</source>
@@ -6839,15 +6840,15 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Usefull if you prefill usernames always</source>
-      <translation type="unfinished"/>
+      <translation>Utile se precompili sempre i nomi utente</translation>
     </message>
     <message>
       <source>Unique group field records grouped by date</source>
-      <translation type="unfinished"/>
+      <translation>Record di campi di gruppo univoci raggruppati per data</translation>
     </message>
     <message>
       <source>Chats number grouped by date and group field</source>
-      <translation type="unfinished"/>
+      <translation>Numero di chat raggruppato per data e campo del gruppo</translation>
     </message>
     <message>
       <source>Thumbs up</source>
@@ -6863,7 +6864,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Unique records</source>
-      <translation type="unfinished"/>
+      <translation>Record unici</translation>
     </message>
     <message>
       <source>Active</source>
@@ -6919,7 +6920,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation type="unfinished"/>
+      <translation>Aggiornato</translation>
     </message>
     <message>
       <source>Online</source>
@@ -7011,15 +7012,15 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Unique</source>
-      <translation type="unfinished"/>
+      <translation>Unico</translation>
     </message>
     <message>
       <source>grouped by date</source>
-      <translation type="unfinished"/>
+      <translation>Raggruppati per data</translation>
     </message>
     <message>
       <source>nick&apos;s</source>
-      <translation type="unfinished"/>
+      <translation>nick&apos;s</translation>
     </message>
     <message>
       <source>user agent&apos;s</source>
@@ -7027,15 +7028,15 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>device type&apos;s</source>
-      <translation type="unfinished"/>
+      <translation>Tipologia di dispositivo</translation>
     </message>
     <message>
       <source>Chats number grouped by date and</source>
-      <translation type="unfinished"/>
+      <translation> Numero di chat raggruppate per data e</translation>
     </message>
     <message>
       <source>nick</source>
-      <translation type="unfinished"/>
+      <translation>nick</translation>
     </message>
     <message>
       <source>user agent</source>
@@ -7111,19 +7112,19 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>New visitors</source>
-      <translation type="unfinished"/>
+      <translation>Nuovo visitatore</translation>
     </message>
     <message>
       <source>Returning visitors</source>
-      <translation type="unfinished"/>
+      <translation>Visitatori di ritorno</translation>
     </message>
     <message>
       <source>Countries</source>
-      <translation type="unfinished"/>
+      <translation>Paesi</translation>
     </message>
     <message>
       <source>Cities</source>
-      <translation type="unfinished"/>
+      <translation>Città</translation>
     </message>
     <message>
       <source>User agent</source>
@@ -7131,7 +7132,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Time on site</source>
-      <translation type="unfinished"/>
+      <translation>Tempo permanenza sul sito</translation>
     </message>
     <message>
       <source>more than 10 min.</source>
@@ -7457,11 +7458,11 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Generale</translation>
     </message>
     <message>
       <source>Interface</source>
-      <translation type="unfinished"/>
+      <translation>Interfaccia</translation>
     </message>
     <message>
       <source>Delete</source>
@@ -7469,11 +7470,11 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Hide bot profile while chat is in bot mode</source>
-      <translation type="unfinished"/>
+      <translation>Nascondi profilo quando la chat è in modalità bot</translation>
     </message>
     <message>
       <source>Start chat with hidden message box</source>
-      <translation type="unfinished"/>
+      <translation>Inizia la chat con l&apos;area messaggi nascosta</translation>
     </message>
     <message>
       <source>Updated!</source>
@@ -7693,7 +7694,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Personal auto responder</source>
-      <translation type="unfinished"/>
+      <translation>Risponditore automatico personale</translation>
     </message>
     <message>
       <source>Personal canned messages</source>
@@ -11046,7 +11047,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Your session has ended. Please login!</source>
-      <translation type="unfinished"/>
+      <translation>La vostra sessione è terminata. Effettuare nuovamente l&apos;accesso!</translation>
     </message>
     <message>
       <source>You were logged out because another user logged under same account</source>
@@ -11664,7 +11665,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>You do not have permission to use REST API directly. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; is missing!</source>
-      <translation type="unfinished"/>
+      <translation>Non sei autorizzato a utilizzare direttamente l&apos;API REST. Manca &quot;lhrestapi&quot;, &quot;use_direct_logins&quot;!</translation>
     </message>
     <message>
       <source>Authorization header is missing!</source>
@@ -12113,22 +12114,24 @@ Icona colonna, testo icone materiale</translation>
     <name>chat/file</name>
     <message>
       <source>Uploading</source>
-      <translation type="unfinished"/>
+      <translation>Caricamento</translation>
     </message>
     <message>
       <source>Incorrect file type!</source>
-      <translation type="unfinished"/>
+      <translation>Tipo di file non corretto!</translation>
     </message>
     <message>
       <source>File to big!</source>
-      <translation type="unfinished"/>
+      <translation>File troppo grande!</translation>
     </message>
   </context>
   <context>
     <name>chat/notifications</name>
     <message>
       <source>Subscribing...</source>
-      <translation type="unfinished"/>
+      <translation> 
+Iscrizione ...
+ </translation>
     </message>
   </context>
 </TS>
