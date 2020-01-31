@@ -58,7 +58,7 @@
             referrer = referrer ? encodeURIComponent(referrer) : '';
 
             if (LHC_API.args.lang) {
-                LHC_API.args.lang = LHC_API.args.lang.replace('/') + '/';
+                LHC_API.args.lang = LHC_API.args.lang.replace('/','') + '/';
             }
 
             // Main attributes
