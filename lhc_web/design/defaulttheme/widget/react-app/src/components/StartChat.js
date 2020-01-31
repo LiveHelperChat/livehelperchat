@@ -118,7 +118,7 @@ class StartChat extends Component {
 
     static getDerivedStateFromProps(props, state) {
 
-        if (props.chatwidget.getIn(['chat_ui','auto_start']) && props.chatwidget.get('processStatus') == 0) {
+        if (props.chatwidget.getIn(['chat_ui','auto_start']) && props.chatwidget.get('processStatus') == 0 && (props.chatwidget.get('mode') == 'embed' || props.chatwidget.get('mode') == 'popup' || (props.chatwidget.get('mode') == 'widget' && props.chatwidget.get('shown') == 1) )) {
             let fields = {'jsvar' : props.chatwidget.get('jsVars')};
             fields['captcha_' + props.chatwidget.getIn(['captcha','hash'])] = props.chatwidget.getIn(['captcha','ts']);
             fields['tscaptcha'] = props.chatwidget.getIn(['captcha','ts']);
