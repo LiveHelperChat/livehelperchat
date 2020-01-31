@@ -5,7 +5,7 @@ erLhcoreClassRestAPIHandler::setHeaders();
 erTranslationClassLhTranslation::$htmlEscape = false;
 
 header('Cache-Control: max-age=84600');
-Header("Expires:".gmdate('D, d M Y H:i:s \G\M\T', time() + 3600));
+header("Expires:".gmdate('D, d M Y H:i:s \G\M\T', time() + 3600));
 header("Last-Modified: ".gmdate("D, d M Y H:i:s", time())." GMT");
 header("Pragma: cache");
 header("User-Cache-Control: max-age=84600");
