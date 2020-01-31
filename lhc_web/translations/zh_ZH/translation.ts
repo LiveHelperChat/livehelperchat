@@ -2,14 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>多少天投票窗口小部件不应扩大后最后的展示</translation>
     </message>
@@ -417,6 +409,14 @@
       <translation>更新</translation>
     </message>
     <message>
+      <source>Yes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Send</source>
       <translation>发送</translation>
     </message>
@@ -486,7 +486,11 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
-      <source>Not replying messaging</source>
+      <source>Welcome message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -503,6 +507,10 @@
     </message>
     <message>
       <source>On-hold chat messaging</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close messaging</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1162,6 +1170,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Widget height (px)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget width (px)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Placeholder for message text</source>
       <translation type="unfinished"/>
     </message>
@@ -1170,7 +1186,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Before closing chat ask user does he really want to to close chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show go to survey button on chat close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Try to detect language from browser headers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Bubble style messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide chat status block</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1200,6 +1232,14 @@
   </context>
   <context>
     <name>abstract/proactivechatinvitation</name>
+    <message>
+      <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If department is offline and visitor starts a chat this message will be send instaed of default welcome message. If this message is empty - welcome message will be send.</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>You can also use 5 images using keywords as {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}. You can use these events. These events should be used on onclick event.</source>
       <translation type="unfinished"/>
@@ -1350,6 +1390,14 @@
     </message>
     <message>
       <source>Timeout. [5]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message to visitor on chat close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message to visitor if department is offline</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3215,6 +3263,10 @@
       <translation>页面嵌入代码</translation>
     </message>
     <message>
+      <source>Widget embed code (beta)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Set default speech recognition language</source>
       <translation>设置默认语音识别的语言</translation>
     </message>
@@ -3380,6 +3432,30 @@
     </message>
     <message>
       <source>Place this tag after the Live Helper status tag.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTML code (beta)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On each refresh start new chat. Usefull in embed mode.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for operator invitation messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget embed/click mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>widget (default)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget position</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3640,6 +3716,14 @@
     </message>
     <message>
       <source>Money</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter link to an image!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a link!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -3940,6 +4024,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Reset assigned user on chat transfer?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Execute new chat logic again for recipient department?</source>
       <translation>执行新的聊天逻辑再次为收件人处吗？</translation>
     </message>
@@ -4065,6 +4153,353 @@
     </message>
     <message>
       <source>Departments limit groups</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/startchat</name>
+    <message>
+      <source>Offline</source>
+      <translation>當前離線</translation>
+    </message>
+    <message>
+      <source>Chat is currently unavailable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please try again later.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department is disabled</source>
+      <translation>部被禁用</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>电子邮件</translation>
+    </message>
+    <message>
+      <source>Enter your email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>电话</translation>
+    </message>
+    <message>
+      <source>Enter your phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>输入您的消息</translation>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>你的问题</translation>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>輸入您的留言，並按下回車鍵發送...</translation>
+    </message>
+    <message>
+      <source>Please provide a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>名</translation>
+    </message>
+    <message>
+      <source>Enter your name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Are you sure you want to close this chat?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type your message here...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live support is not available in your country</source>
+      <translation>在线支持目前在您的国家不可用</translation>
+    </message>
+    <message>
+      <source>Live Support</source>
+      <translation>現場支持</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave a message</source>
+      <translation>此刻有没有在线运营商，请留言</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your request was sent!</source>
+      <translation>你的请求被发送！</translation>
+    </message>
+    <message>
+      <source>Leave a message</source>
+      <translation>留言</translation>
+    </message>
+    <message>
+      <source>Send message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>I accept my personal data will be handled according to</source>
+      <translation>我接受我的个人数据将根据处理</translation>
+    </message>
+    <message>
+      <source>our terms and to the Law</source>
+      <translation>我们的条款和法律</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>开始聊天</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>部门</translation>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>发送</translation>
+    </message>
+    <message>
+      <source>Department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Go to leave a message form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel and choose another department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>characters</source>
+      <translation>字符</translation>
+    </message>
+    <message>
+      <source>Personal assistant</source>
+      <translation>个人助理</translation>
+    </message>
+    <message>
+      <source>Fill out this form to start a chat</source>
+      <translation>请填写此表格开始聊天</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave your message</source>
+      <translation>此刻有没有在线运营商，请留下您的消息</translation>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose your language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation>請輸入一個有效的電子郵件地址</translation>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>最大50个字符</translation>
+    </message>
+    <message>
+      <source>You do not have permission to chat! Please contact site owner.</source>
+      <translation>您没有权限聊天！请联系网站所有者。</translation>
+    </message>
+    <message>
+      <source>Please enter your name</source>
+      <translation>请输入您的姓名</translation>
+    </message>
+    <message>
+      <source>Maximum 100 characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter your message</source>
+      <translation>请输入您的留言</translation>
+    </message>
+    <message>
+      <source>Maximum</source>
+      <translation>最大值</translation>
+    </message>
+    <message>
+      <source>characters for a message</source>
+      <translation>一条消息的字符</translation>
+    </message>
+    <message>
+      <source>You have to accept our Terms Of Service</source>
+      <translation>你必须要接受我们的服务条款</translation>
+    </message>
+    <message>
+      <source>Please enter your phone</source>
+      <translation>请输入您的手机</translation>
+    </message>
+    <message>
+      <source>Maximum 100 characters for phone</source>
+      <translation>電話最多100個字符</translation>
+    </message>
+    <message>
+      <source>Invalid file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not determine a default department!</source>
+      <translation>不能确定默认部门 ！</translation>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>At the moment department is overloaded, please choose a different department or try again later!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>需要</translation>
+    </message>
+    <message>
+      <source>Could not decrypt data!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>游客</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was transferred to operator!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was transferred to bot!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button action could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trigger could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update actions could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a message, max characters</source>
+      <translation>请输入一条消息，最大字符</translation>
+    </message>
+    <message>
+      <source>You cannot send messages to this chat. Please refresh your browser.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unread message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New message from operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fill in the form to start a chat</source>
+      <translation>填寫表格，開始聊天</translation>
+    </message>
+    <message>
+      <source>Minimize</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>End chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>BB code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thank you for your feedback...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Go to Survey.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -4520,321 +4955,6 @@
     <message>
       <source>Expand or collapse right menu</source>
       <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/startchat</name>
-    <message>
-      <source>Offline</source>
-      <translation>當前離線</translation>
-    </message>
-    <message>
-      <source>Chat is currently unavailable</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please try again later.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department is disabled</source>
-      <translation>部被禁用</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>电子邮件</translation>
-    </message>
-    <message>
-      <source>Enter your email address</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>电话</translation>
-    </message>
-    <message>
-      <source>Enter your phone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>输入您的消息</translation>
-    </message>
-    <message>
-      <source>Your question</source>
-      <translation>你的问题</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>輸入您的留言，並按下回車鍵發送...</translation>
-    </message>
-    <message>
-      <source>Please provide a department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>名</translation>
-    </message>
-    <message>
-      <source>Enter your name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message here...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live support is not available in your country</source>
-      <translation>在线支持目前在您的国家不可用</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>現場支持</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave a message</source>
-      <translation>此刻有没有在线运营商，请留言</translation>
-    </message>
-    <message>
-      <source>File</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Your request was sent!</source>
-      <translation>你的请求被发送！</translation>
-    </message>
-    <message>
-      <source>Leave a message</source>
-      <translation>留言</translation>
-    </message>
-    <message>
-      <source>Send message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>I accept my personal data will be handled according to</source>
-      <translation>我接受我的个人数据将根据处理</translation>
-    </message>
-    <message>
-      <source>our terms and to the Law</source>
-      <translation>我们的条款和法律</translation>
-    </message>
-    <message>
-      <source>Start chat</source>
-      <translation>开始聊天</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>部门</translation>
-    </message>
-    <message>
-      <source>Have a question? Ask us!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>发送</translation>
-    </message>
-    <message>
-      <source>Department is offline</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Go to leave a message form</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Cancel and choose another department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>characters</source>
-      <translation>字符</translation>
-    </message>
-    <message>
-      <source>Personal assistant</source>
-      <translation>个人助理</translation>
-    </message>
-    <message>
-      <source>Fill out this form to start a chat</source>
-      <translation>请填写此表格开始聊天</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave your message</source>
-      <translation>此刻有没有在线运营商，请留下您的消息</translation>
-    </message>
-    <message>
-      <source>Me</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose your language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation>請輸入一個有效的電子郵件地址</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>最大50个字符</translation>
-    </message>
-    <message>
-      <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>您没有权限聊天！请联系网站所有者。</translation>
-    </message>
-    <message>
-      <source>Please enter your name</source>
-      <translation>请输入您的姓名</translation>
-    </message>
-    <message>
-      <source>Maximum 100 characters</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter your message</source>
-      <translation>请输入您的留言</translation>
-    </message>
-    <message>
-      <source>Maximum</source>
-      <translation>最大值</translation>
-    </message>
-    <message>
-      <source>characters for a message</source>
-      <translation>一条消息的字符</translation>
-    </message>
-    <message>
-      <source>You have to accept our Terms Of Service</source>
-      <translation>你必须要接受我们的服务条款</translation>
-    </message>
-    <message>
-      <source>Please enter your phone</source>
-      <translation>请输入您的手机</translation>
-    </message>
-    <message>
-      <source>Maximum 100 characters for phone</source>
-      <translation>電話最多100個字符</translation>
-    </message>
-    <message>
-      <source>Invalid file</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose department!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not find a product!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not determine a default department!</source>
-      <translation>不能确定默认部门 ！</translation>
-    </message>
-    <message>
-      <source>Please choose a product!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>At the moment department is overloaded, please choose a different department or try again later!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>is required</source>
-      <translation>需要</translation>
-    </message>
-    <message>
-      <source>Could not decrypt data!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>游客</translation>
-    </message>
-    <message>
-      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid file extension</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was transferred to operator!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was transferred to bot!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Button action could not be found!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Trigger could not be found!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Update actions could not be found!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a message, max characters</source>
-      <translation>请输入一条消息，最大字符</translation>
-    </message>
-    <message>
-      <source>You cannot send messages to this chat. Please refresh your browser.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pending Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unread message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New message from operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Transfer Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Assigned Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Fill in the form to start a chat</source>
-      <translation>填寫表格，開始聊天</translation>
     </message>
   </context>
   <context>
@@ -6984,6 +7104,30 @@
     </message>
     <message>
       <source>Unanswered chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returning visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Countries</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cities</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User agent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time on site</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10874,10 +11018,6 @@
   <context>
     <name>user/login</name>
     <message>
-      <source>You session has ended. Please login!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Please login</source>
       <translation>请登录</translation>
     </message>
@@ -11520,6 +11660,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>You do not have permission to use REST API directly. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; is missing!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Authorization header is missing!</source>
       <translation type="unfinished"/>
     </message>
@@ -11959,6 +12103,28 @@
     <name>chat/backtochat</name>
     <message>
       <source>Visitor has been redirected back to chat!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/file</name>
+    <message>
+      <source>Uploading</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Incorrect file type!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File to big!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/notifications</name>
+    <message>
+      <source>Subscribing...</source>
       <translation type="unfinished"/>
     </message>
   </context>

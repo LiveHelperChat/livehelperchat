@@ -2,14 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hoeveel dagen moet de stemwidget verborgen blijven na de laatste weergave?</translation>
     </message>
@@ -417,6 +409,14 @@
       <translation>Opgeslagen</translation>
     </message>
     <message>
+      <source>Yes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Send</source>
       <translation>Verstuur</translation>
     </message>
@@ -486,7 +486,11 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
-      <source>Not replying messaging</source>
+      <source>Welcome message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -503,6 +507,10 @@
     </message>
     <message>
       <source>On-hold chat messaging</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close messaging</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1162,6 +1170,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Widget height (px)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget width (px)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Placeholder for message text</source>
       <translation type="unfinished"/>
     </message>
@@ -1170,7 +1186,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Before closing chat ask user does he really want to to close chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show go to survey button on chat close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Try to detect language from browser headers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Bubble style messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide chat status block</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1200,6 +1232,14 @@
   </context>
   <context>
     <name>abstract/proactivechatinvitation</name>
+    <message>
+      <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If department is offline and visitor starts a chat this message will be send instaed of default welcome message. If this message is empty - welcome message will be send.</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>You can also use 5 images using keywords as {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}. You can use these events. These events should be used on onclick event.</source>
       <translation type="unfinished"/>
@@ -1350,6 +1390,14 @@
     </message>
     <message>
       <source>Timeout. [5]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message to visitor on chat close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message to visitor if department is offline</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3215,6 +3263,10 @@
       <translation>Pagina embed code</translation>
     </message>
     <message>
+      <source>Widget embed code (beta)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Set default speech recognition language</source>
       <translation>Standaard taalherkenning</translation>
     </message>
@@ -3381,6 +3433,30 @@
     <message>
       <source>Place this tag after the Live Helper status tag.</source>
       <translation>Plaats deze tag na de Livechat status tag.</translation>
+    </message>
+    <message>
+      <source>HTML code (beta)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On each refresh start new chat. Usefull in embed mode.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for operator invitation messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget embed/click mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>widget (default)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget position</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -3640,6 +3716,14 @@
     </message>
     <message>
       <source>Money</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter link to an image!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a link!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -3940,6 +4024,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Reset assigned user on chat transfer?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Execute new chat logic again for recipient department?</source>
       <translation>Nieuwe chat logica uitvoeren voor ontvanger&apos;s afdeling?</translation>
     </message>
@@ -4065,6 +4153,353 @@
     </message>
     <message>
       <source>Departments limit groups</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/startchat</name>
+    <message>
+      <source>Offline</source>
+      <translation>Offline</translation>
+    </message>
+    <message>
+      <source>Chat is currently unavailable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please try again later.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department is disabled</source>
+      <translation>Afdeling is uitgeschakeld</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Enter your email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefoon</translation>
+    </message>
+    <message>
+      <source>Enter your phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Typ uw bericht</translation>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>Uw vraag</translation>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Typ hier uw bericht en druk op enter om te versturen</translation>
+    </message>
+    <message>
+      <source>Please provide a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Naam</translation>
+    </message>
+    <message>
+      <source>Enter your name</source>
+      <translation>Vul uw naam in</translation>
+    </message>
+    <message>
+      <source>Are you sure you want to close this chat?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type your message here...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live support is not available in your country</source>
+      <translation>Live chat is niet beschikbaar in uw land</translation>
+    </message>
+    <message>
+      <source>Live Support</source>
+      <translation>Live support</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave a message</source>
+      <translation>Er zijn op dit moment geen medewerkers online, Laat een bericht achter.</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation>Bestand</translation>
+    </message>
+    <message>
+      <source>Your request was sent!</source>
+      <translation>Uw verzoek is verzonden!</translation>
+    </message>
+    <message>
+      <source>Leave a message</source>
+      <translation>Laat een bericht achter</translation>
+    </message>
+    <message>
+      <source>Send message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>I accept my personal data will be handled according to</source>
+      <translation>I accepteer dat mijn persoonlijke data zal worden behandeld volgens</translation>
+    </message>
+    <message>
+      <source>our terms and to the Law</source>
+      <translation>onze voorwaarden en de wet</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>Begin chat</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Afdeling</translation>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation>Heeft u een vraag? Vraag het ons!</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Verstuur</translation>
+    </message>
+    <message>
+      <source>Department is offline</source>
+      <translation>Afdeling is offline</translation>
+    </message>
+    <message>
+      <source>Go to leave a message form</source>
+      <translation>Laat een bericht achter</translation>
+    </message>
+    <message>
+      <source>Cancel and choose another department</source>
+      <translation>Annuleer en kies een andere afdeling</translation>
+    </message>
+    <message>
+      <source>characters</source>
+      <translation>karakters</translation>
+    </message>
+    <message>
+      <source>Personal assistant</source>
+      <translation>Persoonlijke assistent</translation>
+    </message>
+    <message>
+      <source>Fill out this form to start a chat</source>
+      <translation>Vul onderstaande in om te chatten</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave your message</source>
+      <translation>Er zijn op dit moment geen medewerkers online, Laat een bericht achter.</translation>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation>Ik</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Product</translation>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation>Kies een product</translation>
+    </message>
+    <message>
+      <source>Choose your language</source>
+      <translation>Kies uw taal</translation>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation>Ongeldig CSRF token!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation>Voer s.v.p. een geldig emailadres in</translation>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>Maximaal 50 karakters</translation>
+    </message>
+    <message>
+      <source>You do not have permission to chat! Please contact site owner.</source>
+      <translation>U heeft geen rechten om te chatten, neem contact op met de eigenaar van de website.</translation>
+    </message>
+    <message>
+      <source>Please enter your name</source>
+      <translation>Vul uw naam in a.u.b.</translation>
+    </message>
+    <message>
+      <source>Maximum 100 characters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter your message</source>
+      <translation>Vult u a.u.b. uw bericht in</translation>
+    </message>
+    <message>
+      <source>Maximum</source>
+      <translation>Maximaal</translation>
+    </message>
+    <message>
+      <source>characters for a message</source>
+      <translation>tekens voor een bericht</translation>
+    </message>
+    <message>
+      <source>You have to accept our Terms Of Service</source>
+      <translation>U moet onze Gebruiksvoorwaarden accepteren</translation>
+    </message>
+    <message>
+      <source>Please enter your phone</source>
+      <translation>Vult u a.u.b. uw telefoonnummer in</translation>
+    </message>
+    <message>
+      <source>Maximum 100 characters for phone</source>
+      <translation>Maximaal 100 karakters voor telefoon</translation>
+    </message>
+    <message>
+      <source>Invalid file</source>
+      <translation>Ongeldig bestand</translation>
+    </message>
+    <message>
+      <source>Please choose department!</source>
+      <translation>Kies afdeling!</translation>
+    </message>
+    <message>
+      <source>Could not find a product!</source>
+      <translation>Kan geen product vinden!</translation>
+    </message>
+    <message>
+      <source>Please choose</source>
+      <translation>Kies a.u.b.</translation>
+    </message>
+    <message>
+      <source>Could not determine a default department!</source>
+      <translation>Kon de standaard afdeling niet bepalen!</translation>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation>Kies een product!</translation>
+    </message>
+    <message>
+      <source>At the moment department is overloaded, please choose a different department or try again later!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>is verplicht</translation>
+    </message>
+    <message>
+      <source>Could not decrypt data!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>Bezoeker</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation>Uw aanvraag is niet succesvol behandeld, geen zorgen dit was een probleem vanuit ons. Probeer het alstublieft opnieuw. Mocht het nog niet lukken kunt u contact opnemen via een andere manier.</translation>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was transferred to operator!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was transferred to bot!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button action could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trigger could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update actions could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a message, max characters</source>
+      <translation>Voer s.v.p. een bericht in, maximaal aantal tekens</translation>
+    </message>
+    <message>
+      <source>You cannot send messages to this chat. Please refresh your browser.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unread message</source>
+      <translation>Ongelezen bericht</translation>
+    </message>
+    <message>
+      <source>New message from operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fill in the form to start a chat</source>
+      <translation>Vul het formulier in om een chat te starten</translation>
+    </message>
+    <message>
+      <source>Minimize</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>End chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>BB code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Popup</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thank you for your feedback...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Go to Survey.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -4520,321 +4955,6 @@
     <message>
       <source>Expand or collapse right menu</source>
       <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/startchat</name>
-    <message>
-      <source>Offline</source>
-      <translation>Offline</translation>
-    </message>
-    <message>
-      <source>Chat is currently unavailable</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please try again later.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department is disabled</source>
-      <translation>Afdeling is uitgeschakeld</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Enter your email address</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefoon</translation>
-    </message>
-    <message>
-      <source>Enter your phone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Typ uw bericht</translation>
-    </message>
-    <message>
-      <source>Your question</source>
-      <translation>Uw vraag</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Typ hier uw bericht en druk op enter om te versturen</translation>
-    </message>
-    <message>
-      <source>Please provide a department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Naam</translation>
-    </message>
-    <message>
-      <source>Enter your name</source>
-      <translation>Vul uw naam in</translation>
-    </message>
-    <message>
-      <source>Type your message here...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live support is not available in your country</source>
-      <translation>Live chat is niet beschikbaar in uw land</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>Live support</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave a message</source>
-      <translation>Er zijn op dit moment geen medewerkers online, Laat een bericht achter.</translation>
-    </message>
-    <message>
-      <source>File</source>
-      <translation>Bestand</translation>
-    </message>
-    <message>
-      <source>Your request was sent!</source>
-      <translation>Uw verzoek is verzonden!</translation>
-    </message>
-    <message>
-      <source>Leave a message</source>
-      <translation>Laat een bericht achter</translation>
-    </message>
-    <message>
-      <source>Send message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>I accept my personal data will be handled according to</source>
-      <translation>I accepteer dat mijn persoonlijke data zal worden behandeld volgens</translation>
-    </message>
-    <message>
-      <source>our terms and to the Law</source>
-      <translation>onze voorwaarden en de wet</translation>
-    </message>
-    <message>
-      <source>Start chat</source>
-      <translation>Begin chat</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Afdeling</translation>
-    </message>
-    <message>
-      <source>Have a question? Ask us!</source>
-      <translation>Heeft u een vraag? Vraag het ons!</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Verstuur</translation>
-    </message>
-    <message>
-      <source>Department is offline</source>
-      <translation>Afdeling is offline</translation>
-    </message>
-    <message>
-      <source>Go to leave a message form</source>
-      <translation>Laat een bericht achter</translation>
-    </message>
-    <message>
-      <source>Cancel and choose another department</source>
-      <translation>Annuleer en kies een andere afdeling</translation>
-    </message>
-    <message>
-      <source>characters</source>
-      <translation>karakters</translation>
-    </message>
-    <message>
-      <source>Personal assistant</source>
-      <translation>Persoonlijke assistent</translation>
-    </message>
-    <message>
-      <source>Fill out this form to start a chat</source>
-      <translation>Vul onderstaande in om te chatten</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave your message</source>
-      <translation>Er zijn op dit moment geen medewerkers online, Laat een bericht achter.</translation>
-    </message>
-    <message>
-      <source>Me</source>
-      <translation>Ik</translation>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation>Product</translation>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation>Kies een product</translation>
-    </message>
-    <message>
-      <source>Choose your language</source>
-      <translation>Kies uw taal</translation>
-    </message>
-    <message>
-      <source>Invalid CSRF token!</source>
-      <translation>Ongeldig CSRF token!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation>Voer s.v.p. een geldig emailadres in</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>Maximaal 50 karakters</translation>
-    </message>
-    <message>
-      <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>U heeft geen rechten om te chatten, neem contact op met de eigenaar van de website.</translation>
-    </message>
-    <message>
-      <source>Please enter your name</source>
-      <translation>Vul uw naam in a.u.b.</translation>
-    </message>
-    <message>
-      <source>Maximum 100 characters</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter your message</source>
-      <translation>Vult u a.u.b. uw bericht in</translation>
-    </message>
-    <message>
-      <source>Maximum</source>
-      <translation>Maximaal</translation>
-    </message>
-    <message>
-      <source>characters for a message</source>
-      <translation>tekens voor een bericht</translation>
-    </message>
-    <message>
-      <source>You have to accept our Terms Of Service</source>
-      <translation>U moet onze Gebruiksvoorwaarden accepteren</translation>
-    </message>
-    <message>
-      <source>Please enter your phone</source>
-      <translation>Vult u a.u.b. uw telefoonnummer in</translation>
-    </message>
-    <message>
-      <source>Maximum 100 characters for phone</source>
-      <translation>Maximaal 100 karakters voor telefoon</translation>
-    </message>
-    <message>
-      <source>Invalid file</source>
-      <translation>Ongeldig bestand</translation>
-    </message>
-    <message>
-      <source>Please choose department!</source>
-      <translation>Kies afdeling!</translation>
-    </message>
-    <message>
-      <source>Could not find a product!</source>
-      <translation>Kan geen product vinden!</translation>
-    </message>
-    <message>
-      <source>Please choose</source>
-      <translation>Kies a.u.b.</translation>
-    </message>
-    <message>
-      <source>Could not determine a default department!</source>
-      <translation>Kon de standaard afdeling niet bepalen!</translation>
-    </message>
-    <message>
-      <source>Please choose a product!</source>
-      <translation>Kies een product!</translation>
-    </message>
-    <message>
-      <source>At the moment department is overloaded, please choose a different department or try again later!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>is required</source>
-      <translation>is verplicht</translation>
-    </message>
-    <message>
-      <source>Could not decrypt data!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>Bezoeker</translation>
-    </message>
-    <message>
-      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
-      <translation>Uw aanvraag is niet succesvol behandeld, geen zorgen dit was een probleem vanuit ons. Probeer het alstublieft opnieuw. Mocht het nog niet lukken kunt u contact opnemen via een andere manier.</translation>
-    </message>
-    <message>
-      <source>Invalid file extension</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was transferred to operator!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was transferred to bot!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Button action could not be found!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Trigger could not be found!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Update actions could not be found!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a message, max characters</source>
-      <translation>Voer s.v.p. een bericht in, maximaal aantal tekens</translation>
-    </message>
-    <message>
-      <source>You cannot send messages to this chat. Please refresh your browser.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pending Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unread message</source>
-      <translation>Ongelezen bericht</translation>
-    </message>
-    <message>
-      <source>New message from operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Transfer Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Assigned Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Fill in the form to start a chat</source>
-      <translation>Vul het formulier in om een chat te starten</translation>
     </message>
   </context>
   <context>
@@ -6986,6 +7106,30 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Unanswered chats</source>
       <translation>Onbeantwoorde chats</translation>
+    </message>
+    <message>
+      <source>New visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returning visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Countries</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cities</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User agent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time on site</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>more than 10 min.</source>
@@ -10875,10 +11019,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>user/login</name>
     <message>
-      <source>You session has ended. Please login!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Please login</source>
       <translation>Inloggen a.u.b.</translation>
     </message>
@@ -11521,6 +11661,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>You do not have permission to use REST API directly. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; is missing!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Authorization header is missing!</source>
       <translation type="unfinished"/>
     </message>
@@ -11960,6 +12104,28 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>chat/backtochat</name>
     <message>
       <source>Visitor has been redirected back to chat!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/file</name>
+    <message>
+      <source>Uploading</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Incorrect file type!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File to big!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/notifications</name>
+    <message>
+      <source>Subscribing...</source>
       <translation type="unfinished"/>
     </message>
   </context>
