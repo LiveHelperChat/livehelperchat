@@ -60,6 +60,10 @@ module.exports = {
         })
     ],
 
+    optimization: {
+        minimize: true
+    },
+
     // development server configuration
     devServer: {
         

@@ -26,6 +26,10 @@
                 lhc.ready = true;
             }
 
+            if (!global.Promise) {
+                global.Promise = require('promise');
+            }
+
             var BehaviorSubject = require('./util/monitoredVariable').monitoredVariable;
             var EventEmitter = require('wolfy87-eventemitter');
 
