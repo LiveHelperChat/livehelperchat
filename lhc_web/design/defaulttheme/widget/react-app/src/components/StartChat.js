@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import { withTranslation } from 'react-i18next';
 
 import ChatField from './ChatField';
 import ChatErrorList from './ChatErrorList';
@@ -10,6 +11,7 @@ import { helperFunctions } from "../lib/helperFunctions";
 import ChatStatus from './ChatStatus';
 import ChatInvitationMessage from './ChatInvitationMessage';
 import { initOnlineForm, submitOnlineForm } from "../actions/chatActions"
+
 
 @connect((store) => {
     return {
@@ -53,56 +55,13 @@ class StartChat extends Component {
         }
     }
 
-    static getTimeZone() {
-
-        var today = new Date();
-
-        let stdTimezoneOffset = function() {
-            var jan = new Date(today.getFullYear(), 0, 1);
-            var jul = new Date(today.getFullYear(), 6, 1);
-            return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
-        };
-
-        var dst = function() {
-            return today.getTimezoneOffset() < stdTimezoneOffset();
-        };
-
-        var timeZoneOffset = 0;
-
-        if (dst()) {
-            timeZoneOffset = today.getTimezoneOffset();
-        } else {
-            timeZoneOffset = today.getTimezoneOffset()-60;
-        };
-
-        return (((timeZoneOffset)/60) * -1);
-    }
-
-    static getCustomFieldsSubmit(customFields)
-    {
-        if (customFields.size > 0 ) {
-            let customItems = {'name_items' : [],'values_req' : [], 'value_items' : [], 'value_types' : [], 'encattr' : [], 'value_show' : []};
-            customFields.forEach(field => {
-                customItems['value_items'].push(field.get('value'));
-                customItems['name_items'].push(field.get('name'));
-                customItems['values_req'].push(field.get('required') === true ? 't' : 'f');
-                customItems['encattr'].push(field.get('encrypted') === true ? 't' : '');
-                customItems['value_types'].push(field.get('type'));
-                customItems['value_show'].push(field.get('show'));
-            })
-            return customItems;
-        }
-
-        return null;
-    }
-
     handleSubmit(event) {
 
         var fields = this.state;
         fields['jsvar'] = this.props.chatwidget.get('jsVars');
         fields['captcha_' + this.props.chatwidget.getIn(['captcha','hash'])] = this.props.chatwidget.getIn(['captcha','ts']);
         fields['tscaptcha'] = this.props.chatwidget.getIn(['captcha','ts']);
-        fields['user_timezone'] = StartChat.getTimeZone();
+        fields['user_timezone'] = helperFunctions.getTimeZone();
         fields['URLRefer'] = window.location.href.substring(window.location.protocol.length);
         fields['r'] = this.props.chatwidget.get('ses_ref');
 
@@ -110,7 +69,7 @@ class StartChat extends Component {
             fields['bot_id'] = this.props.chatwidget.get('bot_id');
         }
 
-        const customFields = StartChat.getCustomFieldsSubmit(this.props.chatwidget.getIn(['customData','fields']));
+        const customFields = helperFunctions.getCustomFieldsSubmit(this.props.chatwidget.getIn(['customData','fields']));
         
         if (customFields !== null) {
             fields = {...fields, ...customFields};
@@ -143,17 +102,8 @@ class StartChat extends Component {
         this.props.dispatch({'type' : 'CUSTOM_FIELDS_ITEM', data : {id : obj.field.get('index'), value : obj.value}});
     }
 
-    static prefillFields(inst) {
-        const prefillOptions = inst.props.chatwidget.get('attr_prefill');
-        if (prefillOptions.length > 0) {
-            prefillOptions.forEach((item) => {
-                inst.setState(item);
-            });
-        }
-    }
-
     componentDidMount() {
-         StartChat.prefillFields(this);
+        helperFunctions.prefillFields(this);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -168,7 +118,7 @@ class StartChat extends Component {
             let fields = {'jsvar' : props.chatwidget.get('jsVars')};
             fields['captcha_' + props.chatwidget.getIn(['captcha','hash'])] = props.chatwidget.getIn(['captcha','ts']);
             fields['tscaptcha'] = props.chatwidget.getIn(['captcha','ts']);
-            fields['user_timezone'] = StartChat.getTimeZone();
+            fields['user_timezone'] = helperFunctions.getTimeZone();
             fields['URLRefer'] = window.location.href.substring(window.location.protocol.length);
             fields['r'] = props.chatwidget.get('ses_ref');
 
@@ -176,7 +126,7 @@ class StartChat extends Component {
                 fields['bot_id'] = props.chatwidget.get('bot_id');
             }
 
-            const customFields = StartChat.getCustomFieldsSubmit(props.chatwidget.getIn(['customData','fields']));
+            const customFields = helperFunctions.getCustomFieldsSubmit(props.chatwidget.getIn(['customData','fields']));
             if (customFields !== null) {
                 fields = {...fields, ...customFields};
             }
@@ -204,6 +154,8 @@ class StartChat extends Component {
     {
         return null;
     }
+
+    const { t } = this.props;
 
     if (this.props.chatwidget.get('onlineData').has('fields') && !(this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','fields']).size == 1)) {
         var mappedFields = this.props.chatwidget.getIn(['onlineData','fields']).map(field =><ChatField chatUI={this.props.chatwidget.get('chat_ui')} key={field.get('identifier')} isInvalid={this.props.chatwidget.hasIn(['validationErrors',field.get('identifier')])} defaultValueField={this.state[field.get('name')] || field.get('value')} onChangeContent={this.handleContentChange} field={field} />);
@@ -273,7 +225,7 @@ class StartChat extends Component {
                             </div>
                             <div className="row">
                                 <div className="col-12">
-                                    <button disabled={this.props.chatwidget.get('processStatus') == 1} type="submit" className="btn btn-secondary btn-sm">{this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || 'Start Chat'}</button>
+                                    <button disabled={this.props.chatwidget.get('processStatus') == 1} type="submit" className="btn btn-secondary btn-sm">{this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || t('button.start_chat')}</button>
                                 </div>
                             </div>
                         </form>
@@ -286,7 +238,7 @@ class StartChat extends Component {
                 <div className="container-fluid" id="id-container-fluid">
                     <div className="row">
                         <div className="col-12">
-                            <p>Thank you for your feedback...</p>
+                            <p>{t('start_chat.thank_you_for_feedback')}</p>
                         </div>
                     </div>
                 </div>
@@ -295,4 +247,4 @@ class StartChat extends Component {
     }
 }
 
-export default StartChat;
+export default withTranslation()(StartChat);

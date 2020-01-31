@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { withTranslation } from 'react-i18next';
 
 /**
  * https://github.com/LukasMarx/react-file-upload
@@ -33,6 +34,7 @@ class ChatFileUploader extends PureComponent {
     }
 
     onFilesAdded(files) {
+        const { t } = this.props;
 
         const ruleTest = new RegExp("(\.|\/)(" + this.props.fileOptions.get('ft_us') + ")$","i");
 
@@ -40,11 +42,11 @@ class ChatFileUploader extends PureComponent {
         files.forEach(file => {
 
             if (!(ruleTest.test(file.type) || ruleTest.test(file.name))) {
-                uploadErrors.push(file.name + ': Incorrect file type!');
+                uploadErrors.push(file.name + ': ' + t('file.incorrect_type'));
             }
 
             if (file.size > this.props.fileOptions.get('fs')) {
-                uploadErrors.push(file.name + ': To big file');
+                uploadErrors.push(file.name + ': '+ t('file.to_big_file'));
             }
         });
 
@@ -79,6 +81,8 @@ class ChatFileUploader extends PureComponent {
     }
 
     sendRequest(file) {
+        const { t } = this.props;
+
         return new Promise((resolve, reject) => {
             const req = new XMLHttpRequest();
 
@@ -89,7 +93,7 @@ class ChatFileUploader extends PureComponent {
                         state: "pending",
                         percentage: (event.loaded / event.total) * 100
                     };
-                    this.props.progress('Uploading ' + Math.round((event.loaded / event.total) * 100) + '%');
+                    this.props.progress(t('file.uploading') + Math.round((event.loaded / event.total) * 100) + '%');
                 }
             });
 
@@ -211,4 +215,4 @@ class ChatFileUploader extends PureComponent {
     }
 }
 
-export default ChatFileUploader;
+export default withTranslation()(ChatFileUploader);

@@ -10,6 +10,7 @@ import ChatSync from './ChatSync';
 import ChatOptions from './ChatOptions';
 import ChatStatus from './ChatStatus';
 import { helperFunctions } from "../lib/helperFunctions";
+import { withTranslation } from 'react-i18next';
 
 @connect((store) => {
     return {
@@ -470,6 +471,8 @@ class OnlineChat extends Component {
             return null;
         }
 
+        const { t } = this.props;
+
         if (this.props.chatwidget.hasIn(['chatLiveData','ru']) && this.props.chatwidget.getIn(['chatLiveData','ru'])) {
 
             location = this.props.chatwidget.get('base_url') + this.props.chatwidget.getIn(['chatLiveData','ru']);
@@ -490,11 +493,11 @@ class OnlineChat extends Component {
 
             var placeholder = '';
             if (this.state.dragging === true) {
-                placeholder = 'Drop your files here.';
+                placeholder = t('chat.drop_files');
             } else if (this.props.chatwidget.getIn(['chatLiveData','closed'])) {
-                placeholder = 'This chat is closed now. You can close window.';
+                placeholder = t('chat.chat_closed');
             } else {
-                placeholder = this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : "Type your message here...";
+                placeholder = this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here');
             }
 
             var msg_expand = "flex-grow-1 overflow-scroll position-relative";
@@ -541,7 +544,7 @@ class OnlineChat extends Component {
             }
 
             if ((this.state.preloadSurvey === true || validSurveyState) && this.props.chatwidget.hasIn(['chat_ui','survey_id'])) {
-                location = this.props.chatwidget.get('base_url') + "/survey/fillwidget/(chatid)/" + this.props.chatwidget.getIn(['chatData', 'id']) + "/(hash)/" + this.props.chatwidget.getIn(['chatData', 'hash']);
+                location = this.props.chatwidget.get('base_url') + "survey/fillwidget/(chatid)/" + this.props.chatwidget.getIn(['chatData', 'id']) + "/(hash)/" + this.props.chatwidget.getIn(['chatData', 'hash']);
 
                 if (this.props.chatwidget.get('theme')) {
                     location = location + '/(theme)/' + this.props.chatwidget.get('theme');
@@ -595,24 +598,24 @@ class OnlineChat extends Component {
                                 <i className="material-icons settings text-muted" id="chat-dropdown-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">settings</i>
                                 <div className="dropdown-menu shadow bg-white rounded lhc-dropdown-menu ml-1">
                                     <div className="d-flex flex-row">
-                                        <a href="#" onClick={this.toggleSound} title="Enable/Disable sound about new messages from the operator"><i className="material-icons chat-setting-item text-muted">{this.props.chatwidget.getIn(['usersettings','soundOn']) === true ? 'volume_up' : 'volume_off'}</i></a>
-                                        {this.props.chatwidget.hasIn(['chat_ui','print']) && <a target="_blank" href={this.props.chatwidget.get('base_url') + "/chat/printchat/" +this.props.chatwidget.getIn(['chatData','id']) + "/" + this.props.chatwidget.getIn(['chatData','hash'])} title="Print"><i className="material-icons chat-setting-item text-muted">print</i></a>}
+                                        <a href="#" onClick={this.toggleSound} title={t('chat.option_sound')}><i className="material-icons chat-setting-item text-muted">{this.props.chatwidget.getIn(['usersettings','soundOn']) === true ? 'volume_up' : 'volume_off'}</i></a>
+                                        {this.props.chatwidget.hasIn(['chat_ui','print']) && <a target="_blank" href={this.props.chatwidget.get('base_url') + "chat/printchat/" +this.props.chatwidget.getIn(['chatData','id']) + "/" + this.props.chatwidget.getIn(['chatData','hash'])} title={t('button.print')}><i className="material-icons chat-setting-item text-muted">print</i></a>}
                                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.hasIn(['chat_ui','file']) && <ChatFileUploader fileOptions={this.props.chatwidget.getIn(['chat_ui','file_options'])} onDrag={this.dragging} dropArea={this.textMessageRef} onCompletion={this.updateMessages} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} link={true}/>}
-                                        {!this.props.chatwidget.getIn(['chatLiveData','closed']) && <a href="#" onClick={this.toggleModal} title="BB Code"><i className="material-icons chat-setting-item text-muted">face</i></a>}
-                                        {this.props.chatwidget.hasIn(['chat_ui','close_btn']) && <a onClick={this.endChat} href="#" title="End the chat"><i className="material-icons chat-setting-item text-muted">close</i></a>}
+                                        {!this.props.chatwidget.getIn(['chatLiveData','closed']) && <a href="#" onClick={this.toggleModal} title={t('button.bb_code')}><i className="material-icons chat-setting-item text-muted">face</i></a>}
+                                        {this.props.chatwidget.hasIn(['chat_ui','close_btn']) && <a onClick={this.endChat} href="#" title={t('button.end_chat')} ><i className="material-icons chat-setting-item text-muted">close</i></a>}
                                     </div>
                                 </div>
                             </div>
                         </ChatOptions>
 
                         <div className={message_send_style}>
-                            {this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.hasIn(['chat_ui','survey_id']) && <button onClick={this.goToSurvey} className="w-100 btn btn-success">Go to Survey</button>}
+                            {this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.hasIn(['chat_ui','survey_id']) && <button onClick={this.goToSurvey} className="w-100 btn btn-success">{t('online_chat.go_to_survey')}</button>}
                             {!this.props.chatwidget.getIn(['chatLiveData','closed']) && <textarea maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} style={{height: this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/8.6)) ? '60px' : 'auto'}} onFocus={this.scrollBottom} onTouchStart={this.scrollBottom} autoFocus={true} aria-label="Type your message here..." onKeyUp={this.keyUp} readOnly={this.props.chatwidget.getIn(['chatLiveData','closed'])} id="CSChatMessage" placeholder={placeholder} onKeyDown={this.enterKeyDown} value={this.state.value} onChange={this.handleChange} ref={this.textMessageRef} rows="1" className="pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0" />}
                         </div>
 
                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && <div className="disable-select">
                             <div className="user-chatwidget-buttons" id="ChatSendButtonContainer">
-                                <a onClick={this.sendMessage} title="Send">
+                                <a onClick={this.sendMessage} title={t('button.send')}>
                                    <i className="material-icons text-muted settings mr-0">send</i>
                                 </a>
                             </div>
@@ -626,4 +629,4 @@ class OnlineChat extends Component {
     }
 }
 
-export default OnlineChat;
+export default withTranslation()(OnlineChat);

@@ -68,6 +68,57 @@ class _helperFunctions {
         this.hasSessionStorage && sessionStorage.removeItem && sessionStorage.removeItem(a);
     }
 
+    getTimeZone() {
+
+        var today = new Date();
+
+        let stdTimezoneOffset = function() {
+            var jan = new Date(today.getFullYear(), 0, 1);
+            var jul = new Date(today.getFullYear(), 6, 1);
+            return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
+        };
+
+        var dst = function() {
+            return today.getTimezoneOffset() < stdTimezoneOffset();
+        };
+
+        var timeZoneOffset = 0;
+
+        if (dst()) {
+            timeZoneOffset = today.getTimezoneOffset();
+        } else {
+            timeZoneOffset = today.getTimezoneOffset()-60;
+        };
+
+        return (((timeZoneOffset)/60) * -1);
+    }
+
+    getCustomFieldsSubmit(customFields)
+    {
+        if (customFields.size > 0 ) {
+            let customItems = {'name_items' : [],'values_req' : [], 'value_items' : [], 'value_types' : [], 'encattr' : [], 'value_show' : []};
+            customFields.forEach(field => {
+                customItems['value_items'].push(field.get('value'));
+                customItems['name_items'].push(field.get('name'));
+                customItems['values_req'].push(field.get('required') === true ? 't' : 'f');
+                customItems['encattr'].push(field.get('encrypted') === true ? 't' : '');
+                customItems['value_types'].push(field.get('type'));
+                customItems['value_show'].push(field.get('show'));
+            })
+            return customItems;
+        }
+        return null;
+    }
+
+    prefillFields(inst) {
+        const prefillOptions = inst.props.chatwidget.get('attr_prefill');
+        if (prefillOptions.length > 0) {
+            prefillOptions.forEach((item) => {
+                inst.setState(item);
+            });
+        }
+    }
+
 };
 
 const helperFunctions = new _helperFunctions();

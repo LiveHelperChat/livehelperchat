@@ -25,6 +25,13 @@ $ViewList['updatejs'] = array(
 	'multiple_arguments' => array ()
 );
 
+$ViewList['lang'] = array(
+    'params' => array(),
+    'functions' => array(),
+    'uparams' => array(),
+	'multiple_arguments' => array ()
+);
+
 $ViewList['onlinesettings'] = array(
     'params' => array(),
     'functions' => array(),

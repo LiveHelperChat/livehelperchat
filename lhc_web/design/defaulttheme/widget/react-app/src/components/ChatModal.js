@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import axios from "axios";
 import parse, { domToReact } from 'html-react-parser';
+import { withTranslation } from 'react-i18next';
 
 class ChatModal extends PureComponent {
 
@@ -31,16 +32,18 @@ class ChatModal extends PureComponent {
     }
 
     generalOnClick = (e) => {
+        const { t } = this.props;
+
         var txtToAdd =  e['data-bb-code'];
         if (e['data-promt'] && e['data-promt'] == 'img') {
-            var link = prompt("Please enter link to an image");
+            var link = prompt(t('bbcode.img_link'));
             if (link) {
                 txtToAdd = '[' + txtToAdd + ']' + link + '[/' + txtToAdd + ']';
             }
         } else if (e['data-promt'] && e['data-promt'] == 'url') {
-            var link = prompt("Please enter a link");
+            var link = prompt(t('bbcode.link'));
             if (link) {
-                txtToAdd = '[url=' + link + ']Here is a link[/url]';
+                txtToAdd = '[url=' + link + ']'+t('bbcode.link_here')+'[/url]';
             }
         }
         this.props.insertText(txtToAdd);
@@ -53,6 +56,7 @@ class ChatModal extends PureComponent {
     }
 
     render() {
+
         return (
             <React.Fragment>
                 {this.state.body !== null && <div className="fade modal-backdrop show"></div>}
@@ -104,4 +108,4 @@ class ChatModal extends PureComponent {
     }
 }
 
-export default ChatModal;
+export default withTranslation()(ChatModal);

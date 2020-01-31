@@ -53,6 +53,10 @@
 
             referrer = referrer ? encodeURIComponent(referrer) : '';
 
+            if (LHC_API.args.lang) {
+                LHC_API.args.lang = LHC_API.args.lang.replace('/') + '/';
+            }
+
             // Main attributes
             var attributesWidget = {
                 viewHandler : null,
@@ -120,7 +124,7 @@
                 embedWrapper.style.height = (LHC_API.args.wheight || 520)+'px';
             }
 
-            helperFunctions.makeRequest(LHC_API.args.lhc_base_url + '/widgetrestapi/settings',{params:{
+            helperFunctions.makeRequest(LHC_API.args.lhc_base_url+ attributesWidget.lang + 'widgetrestapi/settings',{params:{
                 'vid' : attributesWidget.userSession.getVID(),
                 'tz' : helperFunctions.getTzOffset(),
                 'r' : referrer,

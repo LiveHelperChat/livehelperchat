@@ -44,7 +44,7 @@ class _proactiveChat {
             var th = document.getElementsByTagName('head')[0];
             var s = document.createElement('script');
             s.setAttribute('type','text/javascript');
-            s.setAttribute('src', LHC_API.args.lhc_base_url + 'chat/htmlsnippet/'+params.invitation+'/inv/0/?ts='+Date.now());
+            s.setAttribute('src', LHC_API.args.lhc_base_url + this.attributes['lang'] + 'chat/htmlsnippet/'+params.invitation+'/inv/0/?ts='+Date.now());
             th.appendChild(s);
         }
 
@@ -90,7 +90,7 @@ class _proactiveChat {
             params['dt'] = encodeURIComponent(document.title);
             params['init'] = init;
 
-            helperFunctions.makeRequest(LHC_API.args.lhc_base_url + '/widgetrestapi/checkinvitation', {params: params}, (data) => {
+            helperFunctions.makeRequest(LHC_API.args.lhc_base_url + this.attributes['lang'] + 'widgetrestapi/checkinvitation', {params: params}, (data) => {
                 if (data.invitation) {
                     const params = {'vid_id' : data.vid_id, 'invitation' : data.invitation, 'inject_html' :  data.inject_html};
                     setTimeout(() => {

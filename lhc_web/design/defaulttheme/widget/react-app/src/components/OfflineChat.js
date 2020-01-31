@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import ChatField from './ChatField';
 import StartChat from './StartChat';
-
+import { withTranslation } from 'react-i18next';
 import { initOfflineForm, submitOfflineForm } from "../actions/chatActions"
+import { helperFunctions } from "../lib/helperFunctions";
 
 @connect((store) => {
     return {
@@ -37,11 +38,11 @@ class OfflineChat extends Component {
         fields['jsvar'] = this.props.chatwidget.get('jsVars');
         fields['captcha_' + this.props.chatwidget.getIn(['captcha','hash'])] = this.props.chatwidget.getIn(['captcha','ts']);
         fields['tscaptcha'] = this.props.chatwidget.getIn(['captcha','ts']);
-        fields['user_timezone'] = StartChat.getTimeZone();
+        fields['user_timezone'] = helperFunctions.getTimeZone();
         fields['URLRefer'] = window.location.href.substring(window.location.protocol.length);
         fields['r'] = this.props.chatwidget.get('ses_ref');
 
-        const customFields = StartChat.getCustomFieldsSubmit(this.props.chatwidget.getIn(['customData','fields']));
+        const customFields = helperFunctions.getCustomFieldsSubmit(this.props.chatwidget.getIn(['customData','fields']));
         if (customFields !== null) {
             fields = {...fields, ...customFields};
         }
@@ -65,7 +66,7 @@ class OfflineChat extends Component {
     }
 
     componentDidMount() {
-        StartChat.prefillFields(this);
+        helperFunctions.prefillFields(this);
     }
 
     handleContentChangeCustom(obj) {
@@ -73,6 +74,8 @@ class OfflineChat extends Component {
     }
 
     render() {
+
+        const { t } = this.props;
 
         if (this.props.chatwidget.get('offlineData').has('fields')) {
             var mappedFields = this.props.chatwidget.getIn(['offlineData','fields']).map(field =><ChatField chatUI={this.props.chatwidget.get('chat_ui')} isInvalid={this.props.chatwidget.hasIn(['validationErrors',field.get('identifier')])} defaultValueField={this.state[field.get('name')] || field.get('value')} onChangeContent={this.handleContentChange} field={field} />);
@@ -96,7 +99,7 @@ class OfflineChat extends Component {
                         </div>
                         <div className="row">
                             <div className="col-12">
-                                <button type="submit" className="btn btn-secondary btn-sm">{this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || 'Leave a message'}</button>
+                                <button type="submit" className="btn btn-secondary btn-sm">{this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || t('start_chat.leave_a_message')}</button>
                             </div>
                         </div>
                     </form>
@@ -107,7 +110,7 @@ class OfflineChat extends Component {
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-12">
-                            <p>Thank you for your feedback...</p>
+                            <p>{t('start_chat.thank_you_for_feedback')}</p>
                         </div>
                     </div>
                 </div>
@@ -116,4 +119,4 @@ class OfflineChat extends Component {
     }
 }
 
-export default OfflineChat;
+export default withTranslation()(OfflineChat);

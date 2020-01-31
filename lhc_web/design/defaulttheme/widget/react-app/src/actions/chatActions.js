@@ -17,7 +17,7 @@ export function hideInvitation() {
     return function(dispatch, getState) {
         const state = getState();
         helperFunctions.sendMessageParent('closeWidget', [{'sender' : 'closeButton'}]);
-        axios.get(window.lhcChat['base_url'] + "/chat/chatwidgetclosed/(vid)/" + state.chatwidget.get('vid')).then((response) => {
+        axios.get(window.lhcChat['base_url'] + "chat/chatwidgetclosed/(vid)/" + state.chatwidget.get('vid')).then((response) => {
             dispatch({type: "HIDE_INVITATION"});
         })
         .catch((err) => {
@@ -39,7 +39,7 @@ export function minimizeWidget() {
 
 export function endChat(obj) {
     return function(dispatch, getState) {
-        axios.get(window.lhcChat['base_url'] + "/chat/chatwidgetclosed/(eclose)/t/(hash)/" + obj['chat']['id'] +'_'+ obj['chat']['hash'] + '/(vid)/' + obj['vid'])
+        axios.get(window.lhcChat['base_url'] + "chat/chatwidgetclosed/(eclose)/t/(hash)/" + obj['chat']['id'] +'_'+ obj['chat']['hash'] + '/(vid)/' + obj['vid'])
         .then((response) => {
             if (!obj.noClose) {
                 if (window.lhcChat['mode'] == 'popup') {
@@ -59,7 +59,7 @@ export function endChat(obj) {
 }
 
 export function voteAction(obj) {
-    return axios.post(window.lhcChat['base_url'] + "/chat/voteaction/" + obj.id + '/' + obj.hash + '/' + obj.type)
+    return axios.post(window.lhcChat['base_url'] + "chat/voteaction/" + obj.id + '/' + obj.hash + '/' + obj.type)
 }
 
 export function initProactive(data) {
@@ -79,7 +79,7 @@ export function initProactive(data) {
             payload['vid'] = state.chatwidget.get('vid');
         }
 
-        axios.post(window.lhcChat['base_url'] + "/widgetrestapi/getinvitation", payload).then((response) => {
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/getinvitation", payload).then((response) => {
             dispatch({type: "PROACTIVE", data: response.data})
         });
     }
@@ -103,7 +103,7 @@ export function storeSubscriber(payload) {
             args = args + '/(vid)/' + state.chatwidget.get('vid');
         }
 
-        axios.post(window.lhcChat['base_url'] + "/notifications/subscribe" +args, {'data' : payload})
+        axios.post(window.lhcChat['base_url'] + "notifications/subscribe" +args, {'data' : payload})
             .then((response) => {
                 if (state.chatwidget.hasIn(['chatData','id']) && state.chatwidget.hasIn(['chatData','hash'])) {
                     dispatch(fetchMessages({
@@ -120,7 +120,7 @@ export function storeSubscriber(payload) {
 export function updateTriggerClicked(typeParams, params) {
     return function(dispatch, getState) {
         const state = getState();
-        return axios.post(window.lhcChat['base_url'] + "/genericbot/"+(typeParams.mainType ? typeParams.mainType : "buttonclicked")+"/" + state.chatwidget.getIn(['chatData','id']) + '/' + state.chatwidget.getIn(['chatData','hash']) + typeParams.type, params)
+        return axios.post(window.lhcChat['base_url'] + "genericbot/"+(typeParams.mainType ? typeParams.mainType : "buttonclicked")+"/" + state.chatwidget.getIn(['chatData','id']) + '/' + state.chatwidget.getIn(['chatData','hash']) + typeParams.type, params)
     }
 }
 
@@ -133,7 +133,7 @@ export function subscribeNotifications(params) {
 
 export function initOfflineForm(obj) {
     return function(dispatch) {
-        axios.post(window.lhcChat['base_url'] + "/widgetrestapi/onlinesettings", obj)
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/onlinesettings", obj)
         .then((response) => {
             dispatch({type: "OFFLINE_FIELDS_UPDATED", data: response.data})
         })
@@ -145,7 +145,7 @@ export function initOfflineForm(obj) {
 
 export function initOnlineForm(obj) {
     return function(dispatch) {
-        axios.post(window.lhcChat['base_url'] + "/widgetrestapi/onlinesettings", obj)
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/onlinesettings", obj)
         .then((response) => {
             dispatch({type: "ONLINE_FIELDS_UPDATED", data: response.data})
         })
@@ -158,7 +158,7 @@ export function initOnlineForm(obj) {
 export function getCaptcha(dispatch) {
     var date = new Date();
     var timestamp = Math.round(date.getTime()/1000);
-    axios.post(window.lhcChat['base_url'] + "/captcha/captchastring/fake/" + timestamp)
+    axios.post(window.lhcChat['base_url'] + "captcha/captchastring/fake/" + timestamp)
     .then((response) => {
         dispatch({type: "captcha", data: {'hash' : response.data.result, 'ts' : timestamp}})
     });
@@ -167,7 +167,7 @@ export function getCaptcha(dispatch) {
 export function submitOnlineForm(obj) {
     return function(dispatch) {
         dispatch({type: "ONLINE_SUBMITTING"});
-        axios.post(window.lhcChat['base_url'] + "/widgetrestapi/submitonline", obj)
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/submitonline", obj)
         .then((response) => {
 
             // If validation contains invalid captcha update it instantly
@@ -186,7 +186,7 @@ export function submitOnlineForm(obj) {
 export function submitOfflineForm(obj) {
     return function(dispatch) {
         dispatch({type: "OFFLINE_SUBMITTING"});
-        axios.post(window.lhcChat['base_url'] + "/widgetrestapi/submitoffline", obj)
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/submitoffline", obj)
         .then((response) => {
             dispatch({type: "OFFLINE_SUBMITTED", data: response.data})
         })
@@ -198,7 +198,7 @@ export function submitOfflineForm(obj) {
 
 export function initChatUI(obj) {
     return function(dispatch, getState) {
-        axios.post(window.lhcChat['base_url'] + "/widgetrestapi/initchat", obj)
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/initchat", obj)
         .then((response) => {
             dispatch({type: "INIT_CHAT_SUBMITTED", data: response.data})
 
@@ -238,7 +238,7 @@ function processResponseCheckStatus(response, getState) {
                     append = append + '/(vid)/' + state.chatwidget.get('vid');
                 }
 
-                helperFunctions.sendMessageParent('screenshot',[window.lhcChat['base_url'] + '/file/storescreenshot' + append]);
+                helperFunctions.sendMessageParent('screenshot',[window.lhcChat['base_url'] + 'file/storescreenshot' + append]);
             } else if (action == 'lhc_cobrowse') {
                 helperFunctions.sendMessageParent('screenshare',[]);
             } else if (action == 'lhc_cobrowse_cmd') {
@@ -259,14 +259,14 @@ export function fetchMessages(obj) {
 
         dispatch({type: "FETCH_MESSAGES_STARTED"});
 
-        axios.post(window.lhcChat['base_url'] + "/widgetrestapi/fetchmessages", obj)
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/fetchmessages", obj)
         .then((response) => {
             dispatch({type: "FETCH_MESSAGES_SUBMITTED", data: response.data});
 
             processResponseCheckStatus(response.data, getState);
 
             if (response.data.cs || (response.data.closed && response.data.closed === true)) {
-                axios.post(window.lhcChat['base_url'] + "/widgetrestapi/checkchatstatus", obj)
+                axios.post(window.lhcChat['base_url'] + "widgetrestapi/checkchatstatus", obj)
                 .then((response) => {
                     if (response.data.deleted) {
                         //window.lhcChat.eventEmitter.emitEvent('endChat', [{'sender' : 'endButton'}]);
@@ -297,7 +297,7 @@ export function checkChatStatus(obj) {
 
         dispatch({type: "CHECK_CHAT_STATUS_STARTED"});
 
-        axios.post(window.lhcChat['base_url'] + "/widgetrestapi/checkchatstatus", obj)
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/checkchatstatus", obj)
         .then((response) => {
             if (response.data.deleted) {
                 helperFunctions.sendMessageParent('endChat',[{'sender' : 'endButton'}]);
@@ -315,7 +315,7 @@ export function pageUnload() {
     return function(dispatch, getState) {
         const state = getState();
         if (state.chatwidget.hasIn(['chatData','id']) && state.chatwidget.hasIn(['chatData','hash'])) {
-            axios.get(window.lhcChat['base_url'] + "/chat/userclosechat/" +  state.chatwidget.getIn(['chatData','id']) + '/' + state.chatwidget.getIn(['chatData','hash']));
+            axios.get(window.lhcChat['base_url'] + "chat/userclosechat/" +  state.chatwidget.getIn(['chatData','id']) + '/' + state.chatwidget.getIn(['chatData','hash']));
         } else if (state.chatwidget.getIn(['proactive','has']) === true && window.lhcChat['mode'] == 'popup' && window.opener) {
             hideInvitation()(dispatch, getState);
         }
@@ -324,7 +324,7 @@ export function pageUnload() {
 
 export function addMessage(obj) {
     return function(dispatch, getState) {
-        axios.post(window.lhcChat['base_url'] + "/widgetrestapi/addmsguser", obj)
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/addmsguser", obj)
             .then((response) => {
                 dispatch({type: "ADD_MESSAGES_SUBMITTED", data: response.data});
                 fetchMessages({'theme' : obj.theme, 'chat_id' : obj.id, 'lmgsid' : obj.lmgsid, 'hash' : obj.hash})(dispatch, getState);
@@ -346,7 +346,7 @@ export function userTyping(status, msg) {
         }
 
         if (!state.chatwidget.get('overrides').contains('typing')) {
-            axios.post(window.lhcChat['base_url'] + "/chat/usertyping/" + state.chatwidget.getIn(['chatData','id']) + '/' + state.chatwidget.getIn(['chatData','hash']) + '/' + status, {'msg' : msg})
+            axios.post(window.lhcChat['base_url'] + "chat/usertyping/" + state.chatwidget.getIn(['chatData','id']) + '/' + state.chatwidget.getIn(['chatData','hash']) + '/' + status, {'msg' : msg})
                 .then((response) => {
             });
         }
