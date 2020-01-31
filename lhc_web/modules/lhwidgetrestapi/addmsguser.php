@@ -176,7 +176,7 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
 
 } else {
     $error = 't';
-    $r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message, max characters').' - '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value;
+    $r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message') . ', ' . (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','characters max.');
     echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r));
     exit;
 }
