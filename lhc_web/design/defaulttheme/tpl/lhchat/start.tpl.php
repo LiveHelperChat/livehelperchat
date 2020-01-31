@@ -8,7 +8,7 @@
             'department' => $department,
             'captcha' => $captcha,
             'theme' => $theme,
-            'base_url' => rtrim(erLhcoreClassDesign::baseurl(),"/"),
+            'base_url' => rtrim(erLhcoreClassDesign::baseurl(),"/") . '/',
             'static_chat' => array(
                 'id' => $id,
                 'hash' => $hash,
