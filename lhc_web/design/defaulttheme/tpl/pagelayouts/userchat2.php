@@ -12,7 +12,7 @@
     <?php endif; ?>
 
     <?php if (isset($Result['theme']) && $Result['theme'] > 0) : ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::baseurl('widgetrestapi/theme')?>/<?php echo $Result['theme']?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::baseurl('widgetrestapi/theme')?>/<?php echo $Result['theme']?>?v=<?php echo $Result['theme_v']?>" />
     <?php endif; ?>
 </head>
 <body>

@@ -66,6 +66,12 @@ if (isset($_GET['jsvar']) && is_array($_GET['jsvar']) && !empty($_GET['jsvar']))
 
 if ($Params['user_parameters_unordered']['theme'] > 0) {
     $Result['theme'] = $Params['user_parameters_unordered']['theme'];
+    $themeObject = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+    if ($themeObject instanceof erLhAbstractModelWidgetTheme) {
+        $Result['theme_v'] = $themeObject->modified;
+    } else {
+        $Result['theme_v'] = time();
+    }
 }
 
 if ($Params['user_parameters_unordered']['mobile'] == 'true') {
