@@ -82,7 +82,7 @@ class _activityMonitoring {
             params['hash'] = chatParams['id'] + '_' + chatParams['hash'];
         }
 
-        helperFunctions.makeRequest(LHC_API.args.lhc_base_url + this.attributes['lang'] + '/widgetrestapi/chatcheckstatus', {params: params}, (data) => {
+        helperFunctions.makeRequest(LHC_API.args.lhc_base_url + this.attributes['lang'] + 'widgetrestapi/chatcheckstatus', {params: params}, (data) => {
             if (data.change_status == true && this.attributes.onlineStatus.value != data.online) {
                 this.attributes.onlineStatus.next(data.online);
             }
