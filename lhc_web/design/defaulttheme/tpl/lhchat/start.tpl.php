@@ -8,7 +8,8 @@
             'department' => $department,
             'captcha' => $captcha,
             'theme' => $theme,
-            'base_url' => erLhcoreClassDesign::baseurl(),
+            'base_url' => erLhcoreClassDesign::baseurldirect(),
+            'lang' => erLhcoreClassSystem::instance()->SiteAccess,
             'static_chat' => array(
                 'id' => $id,
                 'hash' => $hash,
