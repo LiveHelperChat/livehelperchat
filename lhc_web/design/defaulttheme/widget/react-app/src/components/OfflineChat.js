@@ -96,6 +96,8 @@ class OfflineChat extends Component {
 
                     {this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <ChatStatus status={this.props.chatwidget.getIn(['chat_ui','operator_profile'])} />}
 
+                    <p className="pb-1 mb-0"><b>{this.props.chatwidget.getIn(['chat_ui','offline_intro'])}</b></p>
+
                     <form onSubmit={this.handleSubmit}>
                         <div className="row pt-2">
                             {mappedFields}

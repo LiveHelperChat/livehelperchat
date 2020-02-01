@@ -2,6 +2,8 @@
 
 erLhcoreClassRestAPIHandler::setHeaders();
 
+erTranslationClassLhTranslation::$htmlEscape = false;
+
 $requestPayload = json_decode(file_get_contents('php://input'),true);
 
 foreach ($requestPayload as $attr => $attrValue) {
@@ -107,10 +109,18 @@ if (isset($startDataFields['user_msg_height']) && $startDataFields['user_msg_hei
     $chat_ui['user_msg_height'] = (int)$startDataFields['user_msg_height'];
 }
 
-if ($Params['user_parameters_unordered']['online'] == '0'){
+if ($Params['user_parameters_unordered']['online'] == '0') {
+
     if (isset($start_data_fields['pre_offline_chat_html']) && $start_data_fields['pre_offline_chat_html'] != '') {
         $chat_ui['operator_profile'] = $start_data_fields['pre_offline_chat_html'];
     }
+
+    if ($theme instanceof erLhAbstractModelWidgetTheme && $theme->noonline_operators_offline) {
+        $chat_ui['offline_intro'] = $theme->noonline_operators_offline;
+    } else {
+        $chat_ui['offline_intro'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','There are no online operators at the moment, please leave a message');
+    }
+
 } else {
     if (isset($start_data_fields['pre_chat_html']) && $start_data_fields['pre_chat_html'] != '') {
         $chat_ui['operator_profile'] = $start_data_fields['pre_chat_html'];

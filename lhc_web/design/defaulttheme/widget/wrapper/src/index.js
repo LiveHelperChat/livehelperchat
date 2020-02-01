@@ -141,12 +141,12 @@
                 'theme' : attributesWidget.theme
             }}, (data) => {
 
-                __webpack_public_path__ = data.chunks_location + "/";
-
-                if ((!attributesWidget.leaveMessage && data.chat_ui.leaveamessage === false) && data.isOnline === false) {
+                if (((!attributesWidget.leaveMessage && data.chat_ui.leaveamessage === false) && data.isOnline === false) || data.terminate) {
                     return;
                 }
-                
+
+                __webpack_public_path__ = data.chunks_location + "/";
+
                 if (data.secure_cookie) {
                     attributesWidget.storageHandler.setSecureCookie(true);
                 }

@@ -2,6 +2,11 @@
 
 erLhcoreClassRestAPIHandler::setHeaders();
 
+if (isset($_SERVER['HTTP_USER_AGENT']) && erLhcoreClassModelChatOnlineUser::isBot($_SERVER['HTTP_USER_AGENT'])) {
+    erLhcoreClassRestAPIHandler::outputResponse(array('terminate' => true));
+    exit;
+}
+
 if (isset($_GET['dep']) && is_array($_GET['dep']) && !empty($_GET['dep'])){
     $department = (isset($_GET['dep']) && is_array($_GET['dep']) && !empty($_GET['dep']) ? $_GET['dep'] : false);
 } else if (isset($_GET['dep']) && $_GET['dep'] != '') {
@@ -149,7 +154,7 @@ $outputResponse['chat_ui']['leaveamessage'] = (isset($startDataFields['force_lea
 $outputResponse['chat_ui']['mobile_popup'] = isset($startDataFields['mobile_popup']) && $startDataFields['mobile_popup'] == true;
 
 $ts = time();
-$outputResponse['v'] = 24;
+$outputResponse['v'] = 25;
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
 $outputResponse['static'] = array(
