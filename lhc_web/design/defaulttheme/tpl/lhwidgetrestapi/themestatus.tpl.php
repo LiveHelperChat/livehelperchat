@@ -15,12 +15,12 @@
 <?php endif; ?>
 
 <?php if ($theme->offline_image_url != '') : ?>
-#lhc_status_container .offline-status {
+#lhc_status_container #status-icon.offline-status {
     background-image: url(<?php echo $theme->offline_image_url?>)!important;
     background-repeat: no-repeat!important;
     background-position: center center!important;
 }
-#lhc_status_container .offline-status:before{
+#lhc_status_container #status-icon.offline-status:before{
     content:''!important;
 }
 <?php endif; ?>
