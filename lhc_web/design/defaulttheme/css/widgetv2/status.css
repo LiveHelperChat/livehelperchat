@@ -131,7 +131,7 @@ body {
 }
 
 #lhc_status_container #status-icon.offline-status {
-    background-color: #888888 !important;
+    background-color: #888888;
 }
 
 #lhc_status_container {
