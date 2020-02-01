@@ -13,7 +13,7 @@ $inputData->email = '';
 $inputData->username = '';
 $inputData->phone = '';
 $inputData->product_id = '';
-$inputData->validate_start_chat = false;
+$inputData->validate_start_chat = $inputData->validate_start_chat = isset($requestPayload['mode']) && $requestPayload['mode'] == 'popup' ? true : false;
 $inputData->ignore_captcha = true;
 $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
 $inputData->only_bot_online = isset($_POST['onlyBotOnline']) ? (int)$_POST['onlyBotOnline'] : 0;
