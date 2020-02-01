@@ -117,7 +117,7 @@ if ($Params['user_parameters_unordered']['online'] == '0'){
     }
 }
 
-if (isset($startDataFields['show_operator_profile']) && $startDataFields['show_operator_profile'] != '') {
+if ($Params['user_parameters_unordered']['online'] == '1' && isset($startDataFields['show_operator_profile']) && $startDataFields['show_operator_profile'] != '') {
     $tpl = new erLhcoreClassTemplate('lhchat/part/operator_profile_start_chat.tpl.php');
     $tpl->set('theme',$theme);
     $tpl->set('start_data_fields',$startDataFields);

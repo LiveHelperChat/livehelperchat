@@ -5,6 +5,7 @@ import StartChat from './StartChat';
 import { withTranslation } from 'react-i18next';
 import { initOfflineForm, submitOfflineForm } from "../actions/chatActions"
 import { helperFunctions } from "../lib/helperFunctions";
+import ChatStatus from './ChatStatus';
 
 @connect((store) => {
     return {
@@ -93,7 +94,7 @@ class OfflineChat extends Component {
             return (
                 <div className="container-fluid">
 
-                    {this.props.chatwidget.hasIn(['chat_ui','custom_html_widget']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_widget'])}}></div>}
+                    {this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <ChatStatus status={this.props.chatwidget.getIn(['chat_ui','operator_profile'])} />}
 
                     <form onSubmit={this.handleSubmit}>
                         <div className="row pt-2">
