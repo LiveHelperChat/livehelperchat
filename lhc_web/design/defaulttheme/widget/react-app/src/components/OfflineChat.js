@@ -92,6 +92,9 @@ class OfflineChat extends Component {
         if (this.props.chatwidget.get('processStatus') == 0 || this.props.chatwidget.get('processStatus') == 1) {
             return (
                 <div className="container-fluid">
+
+                    {this.props.chatwidget.hasIn(['chat_ui','custom_html_widget']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_widget'])}}></div>}
+
                     <form onSubmit={this.handleSubmit}>
                         <div className="row pt-2">
                             {mappedFields}
