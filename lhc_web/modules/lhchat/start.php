@@ -2,6 +2,13 @@
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/start.tpl.php');
 
+$dep = false;
+
+if (is_array($Params['user_parameters_unordered']['department'])) {
+    erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
+    $dep = $Params['user_parameters_unordered']['department'];
+}
+
 $tpl->set('department',is_array($Params['user_parameters_unordered']['department']) ? $Params['user_parameters_unordered']['department'] : array());
 $tpl->set('id',$Params['user_parameters_unordered']['id'] > 0 ? (int)$Params['user_parameters_unordered']['id'] : null);
 $tpl->set('hash',$Params['user_parameters_unordered']['hash'] != '' ? $Params['user_parameters_unordered']['hash'] : null);
@@ -10,9 +17,9 @@ $tpl->set('theme',$Params['user_parameters_unordered']['theme'] > 0 ? (int)$Para
 $tpl->set('vid',$Params['user_parameters_unordered']['vid'] != '' ? $Params['user_parameters_unordered']['vid'] : null);
 $tpl->set('identifier',$Params['user_parameters_unordered']['identifier'] != '' ? $Params['user_parameters_unordered']['identifier'] : null);
 $tpl->set('inv',$Params['user_parameters_unordered']['inv'] != '' ? $Params['user_parameters_unordered']['inv'] : null);
-$tpl->set('online',erLhcoreClassChat::isOnline(false, false, array(
+$tpl->set('online',erLhcoreClassChat::isOnline($dep, false, array(
     'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
-    'ignore_user_status' => (isset($_GET['ignore_user_status']) && $_GET['ignore_user_status'] == 'true')
+    'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value
 )));
 
 $ts = time();
