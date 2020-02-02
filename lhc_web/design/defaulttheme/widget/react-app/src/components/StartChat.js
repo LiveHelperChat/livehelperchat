@@ -112,7 +112,7 @@ class StartChat extends Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (document.getElementById('id-container-fluid')) {
-            helperFunctions.sendMessageParent('widgetHeight', [{'height' : document.getElementById('id-container-fluid').offsetHeight+60}]);
+            helperFunctions.sendMessageParent('widgetHeight', [{'height' : document.getElementById('id-container-fluid').offsetHeight+40}]);
         }
     }
 
