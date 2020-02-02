@@ -13,7 +13,7 @@ class ChatDepartment extends Component {
     }
 
     componentDidMount() {
-        if (this.props.departments.get('departments').size == 1) {
+        if (this.props.departments.get('departments').size == 1 || !this.props.departments.hasIn(['settings','optional'])) {
             this.props.onChangeContent({id : 'DepartamentID', value : this.props.departments.getIn(['departments',0]).get('value')});
         } else if (this.props.departments.get('departments').size > 1) {
             this.props.onChangeContent({id : 'DepartamentID', value : -1});

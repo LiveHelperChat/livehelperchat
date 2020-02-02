@@ -6,6 +6,7 @@ import { withTranslation } from 'react-i18next';
 import { initOfflineForm, submitOfflineForm } from "../actions/chatActions"
 import { helperFunctions } from "../lib/helperFunctions";
 import ChatStatus from './ChatStatus';
+import ChatDepartment from './ChatDepartment';
 
 @connect((store) => {
     return {
@@ -102,9 +103,10 @@ class OfflineChat extends Component {
                         <div className="row pt-2">
                             {mappedFields}
                             {mappedFieldsCustom}
+                            {this.props.chatwidget.hasIn(['offlineData','department']) && <ChatDepartment defaultValueField={this.state['DepartamentID']} onChangeContent={this.handleContentChange} isInvalid={this.props.chatwidget.hasIn(['validationErrors','department'])} departments={this.props.chatwidget.getIn(['offlineData','department'])} />}
                         </div>
                         <div className="row">
-                            <div className="col-12">
+                            <div className="col-12 pb-3">
                                 <button type="submit" className="btn btn-secondary btn-sm">{this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || t('start_chat.leave_a_message')}</button>
                             </div>
                         </div>
