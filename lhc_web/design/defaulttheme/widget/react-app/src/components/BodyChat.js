@@ -37,18 +37,9 @@ class BodyChat extends Component {
 
     endChat() {
 
-        // User has to confirm close
-        if (this.props.chatwidget.hasIn(['chat_ui','confirm_close']) && this.props.chatwidget.getIn(['chat_ui_state','confirm_close']) === 0) {
-            this.props.dispatch({'type' : 'UI_STATE', 'data' : {'attr': 'confirm_close', 'val': 1}});
-            return;
-        }
+        let surveyMode = false;
+        let navigateToSurvey = false;
 
-        // User confirmed to close
-        if (this.props.chatwidget.getIn(['chat_ui_state','confirm_close']) === 1) {
-            this.props.dispatch({'type' : 'UI_STATE', 'data' : {'attr': 'confirm_close', 'val': 2}});
-        }
-
-        let surveyMode = false
         let surveyByVisitor = (this.props.chatwidget.hasIn(['chatLiveData','status_sub']) && (this.props.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_CONTACT_FORM || this.props.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_SURVEY_SHOW || (this.props.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_USER_CLOSED_CHAT && (this.props.chatwidget.getIn(['chatLiveData','uid']) > 0 || this.props.chatwidget.getIn(['chatLiveData','status']) === STATUS_BOT_CHAT))));
         let surveyByOperator = (this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_CLOSED_CHAT && this.props.chatwidget.getIn(['chatLiveData','uid']) > 0);
 
@@ -58,11 +49,26 @@ class BodyChat extends Component {
             if ((!this.props.chatwidget.hasIn(['chat_ui','survey_button']) || this.props.chatwidget.getIn(['chat_ui_state','show_survey']) === 1) || surveyByVisitor == true) {
                 surveyMode = true;
             } else {
-                // Forward user to survey on close
-                // Means chat was closed by operator but visitor is still not in survey mode
-                this.props.dispatch({'type' : 'UI_STATE', 'data' : {'attr': 'show_survey', 'val': 1}});
-                return;
+                navigateToSurvey = true;
             }
+        }
+
+        // User has to confirm close
+        if (surveyMode === false && this.props.chatwidget.hasIn(['chat_ui','confirm_close']) && this.props.chatwidget.getIn(['chat_ui_state','confirm_close']) === 0) {
+            this.props.dispatch({'type' : 'UI_STATE', 'data' : {'attr': 'confirm_close', 'val': 1}});
+            return;
+        }
+
+        // User confirmed to close
+        if (this.props.chatwidget.getIn(['chat_ui_state','confirm_close']) === 1) {
+            this.props.dispatch({'type' : 'UI_STATE', 'data' : {'attr': 'confirm_close', 'val': 2}});
+        }
+
+        if (navigateToSurvey === true) {
+            // Forward user to survey on close
+            // Means chat was closed by operator but visitor is still not in survey mode
+            this.props.dispatch({'type' : 'UI_STATE', 'data' : {'attr': 'show_survey', 'val': 1}});
+            return;
         }
 
         if (this.props.chatwidget.get('initClose') === false && this.props.chatwidget.hasIn(['chat_ui','survey_id']) && surveyMode == false && (this.props.chatwidget.getIn(['chatLiveData','uid']) > 0 || this.props.chatwidget.getIn(['chatLiveData','status']) === STATUS_BOT_CHAT)) {

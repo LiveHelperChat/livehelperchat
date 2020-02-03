@@ -511,7 +511,7 @@ class OnlineChat extends Component {
             var message_send_style = "mx-auto pb-1 w-100";
 
             if (this.props.chatwidget.getIn(['chatLiveData','closed']) == true) {
-                message_send_style += " pt-1 pr-1";
+                message_send_style += " pt-1"+(this.props.chatwidget.get('mode') == 'embed' ? ' pr-2' : ' pr-1');
             }
 
             /**
@@ -583,7 +583,7 @@ class OnlineChat extends Component {
 
                     {this.state.showBBCode && <ChatModal showModal={this.state.showBBCode} insertText={this.insertText} toggle={this.toggleModal} dataUrl={"/chat/bbcodeinsert?react=1"} />}
 
-                    {this.props.chatwidget.hasIn(['chatStatusData','result']) && !this.props.chatwidget.hasIn(['chat_ui','hide_status']) && <div className="pt-1 pl-1 pr-1"><ChatStatus updateStatus={this.updateStatus} status={this.props.chatwidget.getIn(['chatStatusData','result'])} /></div>}
+                    {this.props.chatwidget.hasIn(['chatStatusData','result']) && !this.props.chatwidget.hasIn(['chat_ui','hide_status']) && <div className="pt-1 pl-1 pr-1"><ChatStatus updateStatus={this.updateStatus} vtm={this.props.chatwidget.hasIn(['chat_ui','switch_to_human']) && this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_BOT_CHAT ? this.props.chatwidget.getIn(['chatLiveData','vtm']) : 0} status={this.props.chatwidget.getIn(['chatStatusData','result'])} /></div>}
 
                     <div className={msg_expand} id="messagesBlock">
                         <div className={bottom_messages} id="messages-scroll" ref={this.messagesAreaRef}>

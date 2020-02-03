@@ -15,6 +15,7 @@ $ru = '';
 
 $tpl = erLhcoreClassTemplate::getInstance('lhchat/checkchatstatus.tpl.php');
 $tpl->set('theme',false);
+$tpl->set('react',true);
 
 if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
     try {
@@ -34,7 +35,7 @@ try {
     
     $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
     
-    if ($chat instanceof erLhcoreClassModelChat && $chat->hash === $Params['user_parameters']['hash']) {
+    if ($chat instanceof erLhcoreClassModelChat && $chat->hash === $Params['user_parameters']['hash'] && ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $chat->last_op_msg_time == 0 || $chat->last_op_msg_time > time() - (int)erLhcoreClassModelChatConfig::fetch('open_closed_chat_timeout')->current_value)) {
 
         if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
             // Lock chat record for update untill we finish this procedure
