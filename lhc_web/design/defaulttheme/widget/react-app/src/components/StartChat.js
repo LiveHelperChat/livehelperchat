@@ -10,7 +10,6 @@ import ChatStartOptions from './ChatStartOptions';
 import { helperFunctions } from "../lib/helperFunctions";
 import ChatInvitationMessage from './ChatInvitationMessage';
 import { initOnlineForm, submitOnlineForm } from "../actions/chatActions"
-import parse from 'html-react-parser';
 
 @connect((store) => {
     return {

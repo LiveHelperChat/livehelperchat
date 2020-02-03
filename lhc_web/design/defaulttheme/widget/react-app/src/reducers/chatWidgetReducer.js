@@ -247,9 +247,7 @@ const chatWidgetReducer = (state = initialState, action) => {
             }
 
             if (action.data.messages !== '') {
-                state =
-                    //state.setIn(['chatLiveData','messages'], state.getIn(['chatLiveData','messages']).concat(fromJS(action.data.messages)))
-                    state.updateIn(['chatLiveData','messages'],list => list.push({
+                state = state.updateIn(['chatLiveData','messages'],list => list.push({
                         'lmsop': (action.data.lmsop || state.getIn(['chatLiveData','msop'])),
                         'msop': (action.data.lmsop || action.data.msop),
                         'msg': action.data.messages
