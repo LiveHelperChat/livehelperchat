@@ -122,6 +122,8 @@ class ChatMessage extends PureComponent {
 
         var operatorChanged = false;
 
+        console.log(this.props.msg['msop'] +'-'+ this.props.msg['lmsop']);
+
         return parse(this.props.msg['msg'], {
 
             replace: domNode => {

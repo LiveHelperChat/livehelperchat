@@ -97,36 +97,27 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 
                         $content = $tpl->fetch();
 
-
-
+                        $operatorId = null;
 
 				        foreach ($Messages as $msg) {
 				        	if ($msg['user_id'] > 0 || $msg['user_id'] == -2 && $userOwner === true) {
 				        		$userOwner = false;
 				        	}
 
+				        	if ($msg['user_id'] != -1 && $operatorId === null) {
+                                $operatorId = (int)$msg['user_id'];
+                            }
+
 				        	if ($msg['user_id'] == 0) {
                                 $visitorTotalMessages++;
                             }
+
+                            if ((int)$requestPayload['lmgsid'] == 0) {
+                                $operatorIdLast = (int)$msg['user_id'];
+                            }
+
+                            $LastMessageID = $msg['id'];
 				        }
-
-				        // Get first message opertor id
-				        reset($Messages);
-				        $firstNewMessage = current($Messages);
-				        $operatorId = (int)$firstNewMessage['user_id'];
-
-				        if ($operatorId == -1) {
-				        	$operatorId = 0;
-				        }
-
-				        // Get Last message ID
-				        end($Messages);
-				        $LastMessageIDs = current($Messages);
-				        $LastMessageID = $LastMessageIDs['id'];
-				        if ((int)$requestPayload['lmgsid'] == 0) {
-                            $operatorIdLast = (int)$LastMessageIDs['user_id'];
-                        }
-
 				    }
 				}
 
