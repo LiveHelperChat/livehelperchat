@@ -323,7 +323,7 @@ export function pageUnload() {
         /**
          * Unload always if we have this options in theme and chat is in survey mode on mobile or is unloading in general desktop application
          * */
-        if (state.chatwidget.hasIn(['chat_ui','close_on_unload'])) {
+        if (state.chatwidget.hasIn(['chat_ui','close_on_unload']) && state.chatwidget.get('mode') == 'embed') {
 
             let surveyMode = false
             let surveyByVisitor = (state.chatwidget.hasIn(['chatLiveData','status_sub']) && (state.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_CONTACT_FORM || state.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_SURVEY_SHOW || (state.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_USER_CLOSED_CHAT && (state.chatwidget.getIn(['chatLiveData','uid']) > 0 || state.chatwidget.getIn(['chatLiveData','status']) === STATUS_BOT_CHAT))));
