@@ -166,6 +166,7 @@ export default function (dispatch, getState) {
         window.addEventListener("beforeunload", () => {
             dispatch(pageUnload());
         }, false);
+
     } else if ( window.attachEvent ) {
         // IE
         window.attachEvent("onmessage", handleParentMessage);

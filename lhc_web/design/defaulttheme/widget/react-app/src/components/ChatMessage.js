@@ -95,7 +95,7 @@ class ChatMessage extends PureComponent {
 
     componentDidMount() {
 
-        this.props.setMetaUpdateState(this.props.msg.indexOf('meta-auto-hide') !== -1);
+        this.props.setMetaUpdateState(this.props.msg['msg'].indexOf('meta-auto-hide') !== -1);
 
         if (this.disableEditor == true) {
             this.props.setEditorEnabled(false);
@@ -119,7 +119,12 @@ class ChatMessage extends PureComponent {
     }
 
     render() {
-        return parse(this.props.msg, {
+
+        var operatorChanged = false;
+
+        console.log(this.props.msg['msop'] +'-'+ this.props.msg['lmsop']);
+
+        return parse(this.props.msg['msg'], {
 
             replace: domNode => {
                 if (domNode.attribs) {
@@ -132,6 +137,10 @@ class ChatMessage extends PureComponent {
                         // Animate only if it's not first sync call
                         if (domNode.attribs.className.indexOf('message-row') !== -1 && this.props.id > 0) {
                             domNode.attribs.className += ' fade-in-fast';
+                            if (this.props.msg['msop'] > 0 && this.props.msg['msop'] != this.props.msg['lmsop'] && operatorChanged == false) {
+                                domNode.attribs.className += ' operator-changes';
+                                operatorChanged = true;
+                            }
                         }
 
                         delete domNode.attribs.class;

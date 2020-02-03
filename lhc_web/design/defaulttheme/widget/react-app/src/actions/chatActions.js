@@ -1,5 +1,6 @@
 import axios from "axios";
 import { helperFunctions } from "../lib/helperFunctions";
+import { STATUS_CLOSED_CHAT, STATUS_BOT_CHAT, STATUS_SUB_SURVEY_SHOW, STATUS_SUB_USER_CLOSED_CHAT, STATUS_SUB_CONTACT_FORM } from "../constants/chat-status";
 
 export function closeWidget() {
     return function(dispatch) {
@@ -60,6 +61,10 @@ export function endChat(obj) {
 
 export function voteAction(obj) {
     return axios.post(window.lhcChat['base_url'] + "chat/voteaction/" + obj.id + '/' + obj.hash + '/' + obj.type)
+}
+
+export function transferToHumanAction(obj) {
+    return axios.post(window.lhcChat['base_url'] + "chat/transfertohuman/" + obj.id + '/' + obj.hash)
 }
 
 export function initProactive(data) {
@@ -314,6 +319,28 @@ export function checkChatStatus(obj) {
 export function pageUnload() {
     return function(dispatch, getState) {
         const state = getState();
+
+        /**
+         * Unload always if we have this options in theme and chat is in survey mode on mobile or is unloading in general desktop application
+         * */
+        if (state.chatwidget.hasIn(['chat_ui','close_on_unload'])) {
+
+            let surveyMode = false
+            let surveyByVisitor = (state.chatwidget.hasIn(['chatLiveData','status_sub']) && (state.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_CONTACT_FORM || state.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_SURVEY_SHOW || (state.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_USER_CLOSED_CHAT && (state.chatwidget.getIn(['chatLiveData','uid']) > 0 || state.chatwidget.getIn(['chatLiveData','status']) === STATUS_BOT_CHAT))));
+            let surveyByOperator = (state.chatwidget.getIn(['chatLiveData','status']) == STATUS_CLOSED_CHAT && state.chatwidget.getIn(['chatLiveData','uid']) > 0);
+
+            if ((surveyByVisitor == true || surveyByOperator) && state.chatwidget.hasIn(['chat_ui','survey_id'])) {
+                // If survey button is required and we have not went to survey yet
+                if ((!state.chatwidget.hasIn(['chat_ui','survey_button']) || state.chatwidget.getIn(['chat_ui_state','show_survey']) === 1) || surveyByVisitor == true) {
+                    surveyMode = true;
+                }
+            }
+
+            if (state.chatwidget.get('isMobile') === false || surveyMode === true) {
+                helperFunctions.sendMessageParent('endChat',[{'sender' : 'endButton'}]);
+            }
+        }
+
         if (state.chatwidget.hasIn(['chatData','id']) && state.chatwidget.hasIn(['chatData','hash'])) {
             axios.get(window.lhcChat['base_url'] + "chat/userclosechat/" +  state.chatwidget.getIn(['chatData','id']) + '/' + state.chatwidget.getIn(['chatData','hash']));
         } else if (state.chatwidget.getIn(['proactive','has']) === true && window.lhcChat['mode'] == 'popup' && window.opener) {

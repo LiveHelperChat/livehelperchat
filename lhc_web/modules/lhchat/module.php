@@ -344,6 +344,11 @@ $ViewList['syncuser'] = array(
 	'uparams' => array('mode','ot','theme','modeembed')
 );
 
+$ViewList['transfertohuman'] = array(
+    'params' => array('chat_id','hash'),
+	'uparams' => array()
+);
+
 $ViewList['editnick'] = array(
     'params' => array('chat_id','hash'),
 	'uparams' => array()

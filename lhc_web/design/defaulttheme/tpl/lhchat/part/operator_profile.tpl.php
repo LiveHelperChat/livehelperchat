@@ -25,6 +25,13 @@
      	<?php endif;?>
 
      	<?php endif;?>
-     	<?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_post.tpl.php'));?>
+
+         <?php if (isset($react) && $react === true && isset($chat) && $chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT && isset($theme) && is_numeric($theme->bot_configuration_array['switch_to_human'])) : ?>
+         <div id="transfer-to-human-btn" class="pt5 d-inline-block<?php $theme->bot_configuration_array['switch_to_human'] == 0 ? print '' : print ' hide' ?>">
+             <a href="#" onclick="return lhinst.transferToHuman(<?php echo $chat->id?>,'<?php echo $chat->hash?>',$(this))" class="btn btn-light btn-sm btn-xs pointer"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/part/operator_profile','Switch To Human')?></a>
+         </div>
+         <?php endif;?>
+
+         <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_post.tpl.php'));?>
      </div>
 </div>

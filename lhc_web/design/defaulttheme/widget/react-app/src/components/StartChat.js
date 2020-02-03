@@ -8,10 +8,8 @@ import ChatDepartment from './ChatDepartment';
 import ChatModal from './ChatModal';
 import ChatStartOptions from './ChatStartOptions';
 import { helperFunctions } from "../lib/helperFunctions";
-import ChatStatus from './ChatStatus';
 import ChatInvitationMessage from './ChatInvitationMessage';
 import { initOnlineForm, submitOnlineForm } from "../actions/chatActions"
-
 
 @connect((store) => {
     return {
@@ -187,7 +185,7 @@ class StartChat extends Component {
 
                         {this.state.showBBCode && <ChatModal showModal={this.state.showBBCode} insertText={this.insertText} toggle={this.toggleModal} dataUrl={"/chat/bbcodeinsert?react=1"} />}
 
-                        {this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div className="p-1"><ChatStatus status={this.props.chatwidget.getIn(['chat_ui','operator_profile'])} /></div>}
+                        {this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div className="p-1" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div>}
 
                         <div className="flex-grow-1 overflow-scroll position-relative" id="messagesBlock">
                             <div className="bottom-message pl-1 pr-1" id="messages-scroll">
@@ -224,7 +222,7 @@ class StartChat extends Component {
                         {
                             (this.props.chatwidget.getIn(['proactive','has']) === true && <ChatInvitationMessage mode='profile' invitation={this.props.chatwidget.getIn(['proactive','data'])} />)
                             ||
-                            (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div className="pt-2"><ChatStatus status={this.props.chatwidget.getIn(['chat_ui','operator_profile'])} /></div>)
+                            (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div className="pt-2" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div>)
                         }
 
                         {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','custom_html_widget']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_widget'])}}></div>}

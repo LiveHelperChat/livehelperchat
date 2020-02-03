@@ -62,7 +62,7 @@ try {
             'operator' => 'operator',
             'messages' => [],
             'chat_ui' => array(
-                
+
             )
         );
 
@@ -90,6 +90,14 @@ try {
 
             if (isset($theme->bot_configuration_array['confirm_close']) && $theme->bot_configuration_array['confirm_close'] == true) {
                 $outputResponse['chat_ui']['confirm_close'] = true;
+            }
+
+            if (isset($theme->bot_configuration_array['close_on_unload']) && $theme->bot_configuration_array['close_on_unload'] == true) {
+                $outputResponse['chat_ui']['close_on_unload'] = true;
+            }
+
+            if (isset($theme->bot_configuration_array['switch_to_human']) && is_numeric($theme->bot_configuration_array['switch_to_human'])) {
+                $outputResponse['chat_ui']['switch_to_human'] = (int)$theme->bot_configuration_array['switch_to_human'];
             }
         }
 

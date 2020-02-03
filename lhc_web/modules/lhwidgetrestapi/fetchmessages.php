@@ -19,6 +19,8 @@ $userOwner = true;
 $saveChat = false;
 $operation = '';
 $operatorId = 0;
+$visitorTotalMessages = 0;
+
 $responseArray = array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT, 'status_sub' => erLhcoreClassModelChat::STATUS_SUB_DEFAULT);
 
 if (is_object($chat) && $chat->hash == $requestPayload['hash'])
@@ -95,26 +97,27 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 
                         $content = $tpl->fetch();
 
+                        $operatorId = null;
+
 				        foreach ($Messages as $msg) {
-				        	if ($msg['user_id'] > 0 || $msg['user_id'] == -2) {
+				        	if ($msg['user_id'] > 0 || $msg['user_id'] == -2 && $userOwner === true) {
 				        		$userOwner = false;
-				        		break;
 				        	}
+
+				        	if ($msg['user_id'] != -1 && $operatorId === null) {
+                                $operatorId = (int)$msg['user_id'];
+                            }
+
+				        	if ($msg['user_id'] == 0) {
+                                $visitorTotalMessages++;
+                            }
+
+                            if ((int)$requestPayload['lmgsid'] == 0) {
+                                $operatorIdLast = (int)$msg['user_id'];
+                            }
+
+                            $LastMessageID = $msg['id'];
 				        }
-
-				        // Get first message opertor id
-				        reset($Messages);
-				        $firstNewMessage = current($Messages);
-				        $operatorId = $firstNewMessage['user_id'];
-
-				        if ($operatorId == -1) {
-				        	$operatorId = 0;
-				        }
-
-				        // Get Last message ID
-				        end($Messages);
-				        $LastMessageIDs = current($Messages);
-				        $LastMessageID = $LastMessageIDs['id'];
 				    }
 				}
 
@@ -184,9 +187,18 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 $responseArray['op'] = $operation;
 $responseArray['uw'] = $userOwner;
 $responseArray['msop'] = $operatorId;
+if (isset($operatorIdLast)) {
+    $responseArray['lmsop'] = $operatorIdLast;
+}
 $responseArray['ott'] = $ott;
+
+// Append how many of messages ones are visitor ones
+if ($visitorTotalMessages > 0) {
+    $responseArray['vtm'] = $visitorTotalMessages;
+}
+
 $responseArray['message_id'] = (int)$LastMessageID;
-$responseArray['messages'] = trim($content) == '' ? [] : [trim($content)];
+$responseArray['messages'] = trim($content);
 
 echo erLhcoreClassChat::safe_json_encode($responseArray);
 exit;
