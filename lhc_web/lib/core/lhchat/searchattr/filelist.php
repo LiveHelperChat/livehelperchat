@@ -26,6 +26,18 @@ $fieldsSearch['visitor'] = array (
 	)
 );
 
+$fieldsSearch['upload_name'] = array (
+    'type' => 'text',
+    'trans' => 'Upload Name',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'like',
+    'filter_table_field' => 'upload_name',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+    )
+);
+
 $fieldsSearch['persistent'] = array (
 	'type' => 'boolean',
 	'trans' => 'User',
