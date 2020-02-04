@@ -110,16 +110,11 @@ class ChatMessage extends PureComponent {
         }
     }
 
-    processBotAction(domNode) {
-
-        const attr = domNode.attribs;
-
+    processBotAction(attr) {
         if (attr['data-bot-action'] == 'lhinst.disableVisitorEditor') {
             this.disableEditor = true;
-        } else if (attr['data-bot-action'] == 'lhinst.setDelay') {
+        } if (attr['data-bot-action'] == 'lhinst.setDelay') {
             this.delayData.push(JSON.parse(attr['data-bot-args']));
-        } else if (attr['data-bot-action'] == 'execute-js') {
-            eval(domNode.children[0]['data']);
         }
     }
 
@@ -164,7 +159,7 @@ class ChatMessage extends PureComponent {
                             return <a {...domNode.attribs} onClick={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</a>
                         }
                     } else if (domNode.name && domNode.name === 'script' && domNode.attribs['data-bot-action']) {
-                        this.processBotAction(domNode);
+                        this.processBotAction(domNode.attribs);
                     }
                 }
             }
