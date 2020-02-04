@@ -57,6 +57,7 @@ class ChatMessage extends PureComponent {
                 alert(t('bot.please_choose'));
             }
         } else {
+            helperFunctions.emitEvent('MessageClick',[attrs, this.props.dispatch]);
             console.log('Unknown click event: ' + attrs.onclick);
         }
 

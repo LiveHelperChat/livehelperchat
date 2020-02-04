@@ -93,8 +93,10 @@ export default function (dispatch, getState) {
 
             paramsInit['base_url'] = window.lhcChat['base_url'];
 
+            Object.keys(paramsInit).forEach(key => {
+                
+                let value = paramsInit[key];
 
-            for (const [key, value] of Object.entries(paramsInit)) {
                 if (key === 'static_chat') {
                     if (value.id && value.hash) {
                         dispatch({
@@ -123,7 +125,7 @@ export default function (dispatch, getState) {
                         data: value
                     });
                 }
-            }
+            });
 
             if (paramsInit['mode'] == 'popup') {
                 const focusChangeCb = (e) => {

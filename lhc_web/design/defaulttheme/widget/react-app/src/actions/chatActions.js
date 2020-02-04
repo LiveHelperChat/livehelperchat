@@ -209,9 +209,13 @@ export function initChatUI(obj) {
 
             if (response.data.init_calls) {
                 response.data.init_calls.forEach((callExtension) => {
-                    import('../extensions/nodejs/nodeJSChat').then((module) => {
-                        module.nodeJSChat.bootstrap(callExtension.params, dispatch, getState);
-                    });
+                    if (callExtension.extension === 'nodeJSChat') {
+                        import('../extensions/nodejs/nodeJSChat').then((module) => {
+                            module.nodeJSChat.bootstrap(callExtension.params, dispatch, getState);
+                        });
+                    } else if (callExtension.extension === 'dummy_extensions') {
+                        // Import your extension here
+                    }
                 });
             }
         })

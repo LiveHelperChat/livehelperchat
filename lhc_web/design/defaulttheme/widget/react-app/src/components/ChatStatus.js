@@ -31,6 +31,8 @@ class ChatStatus extends PureComponent {
                 transferToHumanAction({id : this.props.chat.get('id'), hash: this.props.chat.get('hash')}).then((response) => {
                     this.props.updateStatus()
                 });
+            } else {
+                helperFunctions.emitEvent('StatusClick',[attrs, this.props.dispatch]);
             }
         }
     }
