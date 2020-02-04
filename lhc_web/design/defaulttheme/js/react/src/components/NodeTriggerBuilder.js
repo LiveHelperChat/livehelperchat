@@ -19,6 +19,7 @@ import NodeTriggerActionConditions from './builder/NodeTriggerActionConditions';
 import NodeTriggerActionMatchActions from './builder/NodeTriggerActionMatchActions';
 import NodeTriggerActionEventType from './builder/NodeTriggerActionEventType';
 import NodeTriggerActionRepeatRestrict from './builder/NodeTriggerActionRepeatRestrict';
+import NodeTriggerActionExecuteJS from './builder/NodeTriggerActionExecuteJS';
 
 @connect((store) => {
     return {
@@ -189,6 +190,8 @@ class NodeTriggerBuilder extends Component {
                     return <NodeTriggerActionEventType upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} />
                 } else if (action.get('type') == 'repeat_restrict') {
                     return <NodeTriggerActionRepeatRestrict upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} />
+                } else if (action.get('type') == 'execute_js') {
+                    return <NodeTriggerActionExecuteJS upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} />
                 }
             });
         }

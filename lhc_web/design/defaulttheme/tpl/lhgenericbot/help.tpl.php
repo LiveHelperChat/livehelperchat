@@ -6,18 +6,32 @@
         </div>
         <div class="modal-body">
             <p>
-                <?php if ($context == 'text') : ?>
-                    <ul>
-                        <li>{<translation>__default message__t[show from hour, show till hour]} inclusive is first hour. Few examples
-                                <ul>
-                                    <li>Default message</li>
-                                    <li>{welcome_message__Welcome to our website}</li>
-                                    <li>{good_evening__Good evening__t[17:24]} - Show this message from 17 until midnight</li>
-                                    <li>{good_morning__Good morning__t[0:17]} - Show this message from midnight until evening</li>
-                                </ul>
-                        </li>
-                    </ul>
-                <?php endif; ?>
+            <?php if ($context == 'text') : ?>
+                <ul>
+                    <li>{<translation>__default message__t[show from hour, show till hour]} inclusive is first hour. Few examples
+                            <ul>
+                                <li>Default message</li>
+                                <li>{welcome_message__Welcome to our website}</li>
+                                <li>{good_evening__Good evening__t[17:24]} - Show this message from 17 until midnight</li>
+                                <li>{good_morning__Good morning__t[0:17]} - Show this message from midnight until evening</li>
+                            </ul>
+                    </li>
+                </ul>
+            <?php endif; ?>
+
+            <?php if ($context == 'execute_js') : ?>
+                <ul>
+                    <li>Few example. If you are using new widget you can execute the following examples
+                        <ul>
+                            <li>alert('Hello')</li>
+                            <li>console.log(window.parent)</li>
+                            <li>window.parent.document.body.style = "background-color: red";</li>
+                            <li>window.parent.document.title = "Change main window title";</li>
+                            <li>window.parent.callMe()</li>
+                        </ul>
+                    </li>
+                </ul>
+            <?php endif; ?>
 
             <?php if ($context == 'preg_match') : ?>
                     <ul>
