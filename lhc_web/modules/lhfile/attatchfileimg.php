@@ -23,7 +23,7 @@ $pages->paginate();
 
 $items = array();
 if ($pages->items_total > 0) {
-    $items = erLhcoreClassChat::getList(array_merge(array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id DESC'),$filterParams['filter']),'erLhcoreClassModelChatFile','lh_chat_file');
+    $items = erLhcoreClassChat::getList(array_merge(array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id DESC'), $filterParams['filter']),'erLhcoreClassModelChatFile','lh_chat_file');
 }
 
 $tpl->set('items',$items);
@@ -31,6 +31,12 @@ $tpl->set('pages',$pages);
 
 $filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('file/attatchfileimg');
 $tpl->set('input',$filterParams['input_form']);
+
+if (isset($_GET['ajax_search'])) {
+    $tpl->set('ajax_search',true);
+    echo $tpl->fetch();
+    exit;
+}
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'popup';
