@@ -26,7 +26,8 @@ class OnlineChat extends Component {
         dragging : false,
         enabledEditor : true,
         showMessages : false,
-        preloadSurvey : false // Should survey be preloaded
+        preloadSurvey : false, // Should survey be preloaded
+        gotToSurvey : false
     };
 
     constructor(props) {
@@ -84,6 +85,7 @@ class OnlineChat extends Component {
             'type': 'UI_STATE',
             'data' : {attr: 'show_survey', 'val': 1}
         });
+        this.setState({'gotToSurvey' : true});
     }
 
     setStatusText(text){
@@ -537,7 +539,8 @@ class OnlineChat extends Component {
                     )
                 )
                 ||
-                (this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_CLOSED_CHAT && this.props.chatwidget.getIn(['chatLiveData','uid']) > 0);
+                (this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_CLOSED_CHAT && this.props.chatwidget.getIn(['chatLiveData','uid']) > 0) ||
+                this.state.gotToSurvey === true;
 
             if ((this.props.chatwidget.hasIn(['chatLiveData','status_sub']) && this.props.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_SURVEY_SHOW) || (
                 this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_CLOSED_CHAT &&
