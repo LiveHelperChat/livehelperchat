@@ -40,7 +40,12 @@ class BodyChat extends Component {
         let surveyMode = false;
         let navigateToSurvey = false;
 
-        let surveyByVisitor = (this.props.chatwidget.hasIn(['chatLiveData','status_sub']) && (this.props.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_CONTACT_FORM || this.props.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_SURVEY_SHOW || (this.props.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_USER_CLOSED_CHAT && (this.props.chatwidget.getIn(['chatLiveData','uid']) > 0 || this.props.chatwidget.getIn(['chatLiveData','status']) === STATUS_BOT_CHAT))));
+        let surveyByVisitor = (this.props.chatwidget.hasIn(['chatLiveData','status_sub']) && (this.props.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_CONTACT_FORM || this.props.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_SURVEY_SHOW || (this.props.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_USER_CLOSED_CHAT && (
+            this.props.chatwidget.getIn(['chatLiveData','uid']) > 0 ||
+            this.props.chatwidget.getIn(['chatLiveData','status']) === STATUS_BOT_CHAT ||
+            this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_CLOSED_CHAT
+        ))));
+        
         let surveyByOperator = (this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_CLOSED_CHAT && this.props.chatwidget.getIn(['chatLiveData','uid']) > 0);
 
         if ((surveyByVisitor == true || surveyByOperator) && this.props.chatwidget.hasIn(['chat_ui','survey_id'])) {

@@ -531,7 +531,7 @@ class OnlineChat extends Component {
                         (
                             this.props.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_USER_CLOSED_CHAT &&
                             (
-                                this.props.chatwidget.getIn(['chatLiveData','uid']) > 0 || this.props.chatwidget.getIn(['chatLiveData','status']) === STATUS_BOT_CHAT
+                                this.props.chatwidget.getIn(['chatLiveData','uid']) > 0 || this.props.chatwidget.getIn(['chatLiveData','status']) === STATUS_BOT_CHAT || this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_CLOSED_CHAT
                             )
                         )
                     )
@@ -539,7 +539,10 @@ class OnlineChat extends Component {
                 ||
                 (this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_CLOSED_CHAT && this.props.chatwidget.getIn(['chatLiveData','uid']) > 0);
 
-            if ((this.props.chatwidget.hasIn(['chatLiveData','status_sub']) && this.props.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_SURVEY_SHOW) || (this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_CLOSED_CHAT && this.props.chatwidget.getIn(['chatLiveData','uid']) > 0)) {
+            if ((this.props.chatwidget.hasIn(['chatLiveData','status_sub']) && this.props.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_SURVEY_SHOW) || (
+                this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_CLOSED_CHAT &&
+                this.props.chatwidget.getIn(['chatLiveData','status_sub']) != STATUS_SUB_USER_CLOSED_CHAT
+            )) {
                 forceSurvey = true;
             }
 
@@ -562,7 +565,11 @@ class OnlineChat extends Component {
 
                 if (
                     (validSurveyState === false) ||
-                    (this.props.chatwidget.hasIn(['chat_ui','survey_button']) && this.props.chatwidget.getIn(['chat_ui_state','show_survey']) === 0 && this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_CLOSED_CHAT) ||
+                    (this.props.chatwidget.hasIn(['chat_ui','survey_button']) && this.props.chatwidget.getIn(['chat_ui_state','show_survey']) === 0 &&
+                        this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_CLOSED_CHAT &&
+                        this.props.chatwidget.getIn(['chatLiveData','status_sub']) != STATUS_SUB_SURVEY_SHOW &&
+                        this.props.chatwidget.getIn(['chatLiveData','status_sub']) != STATUS_SUB_USER_CLOSED_CHAT
+                    ) ||
                     (this.props.chatwidget.getIn(['chat_ui_state','confirm_close']) == 1)
                 ) {
                     showChat = true;
@@ -573,7 +580,7 @@ class OnlineChat extends Component {
             return (
                 <React.Fragment>
 
-                    {preloadSurvey && <iframe allowTransparency="true" src={location} frameBorder="0" className={classSurvey} />}
+                    {preloadSurvey && <iframe allowtransparency="true" src={location} frameBorder="0" className={classSurvey} />}
 
                     {showChat && <React.Fragment>
 
