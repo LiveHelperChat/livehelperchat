@@ -96,7 +96,7 @@ class erLhcoreClassModelChatOnlineUserFootprint {
    		$item->chat_id = $onlineUser->chat_id;
    		$item->online_user_id = $onlineUser->id;
    		$item->vtime = time();
-   		$item->page = isset($_POST['l']) ? $_POST['l'] : $_SERVER['HTTP_REFERER'];
+   		$item->page = isset($_POST['l']) ? substr($_POST['l'],0,250) : substr($_SERVER['HTTP_REFERER'],0,250);
    		erLhcoreClassChat::getSession()->save( $item );
    		
    		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlinefootprint.created', array('item' => & $item));
