@@ -30,12 +30,22 @@ export class storageHandler {
         document.cookie = coookieName + "=" + cookieValue + string + "; path=/" + (this.secureCookie ? ";secure" : "") + (domain ? ";domain=" + domain : "");
     };
 
-    getHTTPCookie(a) {
-        var b, d, k = [], s = a + "=", e = document.cookie.split(";");
-        a = 0;
-        for (b = e.length; a < b; a++) {
-            for (d = e[a]; " " === d.charAt(0);) d = d.substring(1, d.length);
-            0 === d.indexOf(s) && k.push(d.substring(s.length, d.length))
+    getHTTPCookie(cookieName) {
+        var b, d, k = [], baseCookie = cookieName + "=", e = document.cookie.split(";");
+        cookieName = 0;
+        for (b = e.length; cookieName < b; cookieName++) {
+            for (d = e[cookieName]; " " === d.charAt(0);) d = d.substring(1, d.length);
+            0 === d.indexOf(baseCookie) && k.push(d.substring(baseCookie.length, d.length))
+        }
+
+        // Reset duplicate cookies
+        if (k.length == 2) {
+            let host = (window.location.hostname || document.location.host),
+            reset = baseCookie + "0;expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=";
+            if (host) {
+                document.cookie = reset + host;
+                document.cookie = reset+ "." + host;
+            }
         }
 
         return k;

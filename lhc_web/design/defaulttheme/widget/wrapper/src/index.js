@@ -124,8 +124,12 @@
 
             } else {
                 var embedWrapper = document.getElementById('lhc_status_container_page');
-                embedWrapper.appendChild(attributesWidget.mainWidget.cont.constructUI());
-                embedWrapper.style.height = (LHC_API.args.wheight || 520)+'px';
+                if (embedWrapper !== null) {
+                    embedWrapper.appendChild(attributesWidget.mainWidget.cont.constructUI());
+                    embedWrapper.style.height = (LHC_API.args.wheight || 520)+'px';
+                } else {
+                    attributesWidget.position = 'api';
+                }
             }
 
             helperFunctions.makeRequest(LHC_API.args.lhc_base_url+ attributesWidget.lang + 'widgetrestapi/settings',{params:{
@@ -220,9 +224,9 @@
                     }
                 }
 
-                //if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'embed') {
+                if (!(attributesWidget.position == 'api' && attributesWidget.mode == 'embed')) {
                     attributesWidget.mainWidget.init(attributesWidget);
-                //}
+                }
 
                 // Show status widget
                 if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
