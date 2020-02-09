@@ -41,10 +41,10 @@ export class storageHandler {
         // Reset duplicate cookies
         if (k.length == 2) {
             let host = (window.location.hostname || document.location.host),
-            reset = baseCookie + "0;expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=";
+            reset = baseCookie + "0;expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
             if (host) {
-                document.cookie = reset + host;
-                document.cookie = reset+ "." + host;
+                document.cookie = reset;
+                document.cookie = reset + "; domain=." + host;
             }
         }
 
