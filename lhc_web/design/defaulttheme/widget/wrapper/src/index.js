@@ -133,7 +133,7 @@
             }
 
             helperFunctions.makeRequest(LHC_API.args.lhc_base_url+ attributesWidget.lang + 'widgetrestapi/settings',{params:{
-                'vid' : attributesWidget.userSession.getVID(),
+                'vid' : (LHC_API.args.UUID || attributesWidget.userSession.getVID()),
                 'tz' : helperFunctions.getTzOffset(),
                 'r' : referrer,
                 'l' : location,
