@@ -389,8 +389,8 @@
             });
 
             attributesWidget.eventEmitter.addListener('showInvitation',(data) => {
-                attributesWidget.widgetDimesions.nextProperty('bottom_override',95);
-                attributesWidget.widgetDimesions.nextProperty('right_override',95);
+                attributesWidget.widgetDimesions.nextProperty('bottom_override',75);
+                attributesWidget.widgetDimesions.nextProperty('right_override',75);
                 attributesWidget.mainWidget.show();
             });
 

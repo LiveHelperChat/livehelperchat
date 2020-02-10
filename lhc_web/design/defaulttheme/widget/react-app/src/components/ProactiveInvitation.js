@@ -26,8 +26,8 @@ class ProactiveInvitation extends Component {
         if (document.getElementById('id-invitation-height')) {
             setTimeout(()=> {
                 helperFunctions.sendMessageParent('widgetHeight', [{
-                    'force_width' : (document.getElementById('id-invitation-height').offsetWidth + 80),
-                    'force_height' : document.getElementById('id-invitation-height').offsetHeight}]);
+                    'force_width' : 240,
+                    'force_height' : document.getElementById('id-invitation-height').offsetHeight+20}]);
                 this.setState({shown : true});
              }, 50);
         }
