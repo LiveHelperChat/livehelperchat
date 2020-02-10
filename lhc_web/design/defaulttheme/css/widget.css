@@ -144,11 +144,11 @@ background-color: #ddd;
 	}
 
     .widget-chat-box #ChatMessageContainer{
-        height:145px;
+        height:90px;
     }
 
     .widget-chat-box #messages{
-        bottom:145px;
+        bottom:90px;
     }
 
 	#id-operator-typing{

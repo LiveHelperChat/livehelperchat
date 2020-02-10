@@ -4,9 +4,6 @@
             <div class="col-9">
                 <span><b><?php echo htmlspecialchars($chatbox->name)?></b></span>
             </div>
-            <div class="col-3">
-                <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings.tpl.php'));?>
-            </div>
         </div>
 
         <?php if ($chatbox->active == 1) : ?>
@@ -36,7 +33,11 @@
                 <?php if (isset($_GET['dnc']) && $_GET['dnc'] == 'true') : ?>
                     <span><?php echo htmlspecialchars(erLhcoreClassChatbox::getVisitorName(),ENT_QUOTES); ?></span>
                 <?php endif;?>
-                <textarea class="form-control form-control-sm mb-2" rows="4" name="ChatMessage" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Enter your message')?>" id="CSChatMessage"></textarea>
+
+                <div class="position-relative">
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/customer_user_settings.tpl.php'));?>
+                </div>
+
                 <script type="text/javascript">
                     jQuery('#CSChatMessage').bind('keydown', 'return', function (evt){
                 	   lhinst.addmsguserchatbox();
@@ -44,15 +45,7 @@
                     });
                     lhinst.afterChatWidgetInit();
                 </script>
-
-                <div>
-                    <input type="button" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Send')?>" onclick="lhinst.addmsguserchatbox()" />
-                    <input type="button" class="btn btn-secondary btn-sm float-right" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','BB Code')?>" onclick="return lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('chat/bbcodeinsert')?>'})" />
-                </div>
-
             </div>
-
-
 
             <script type="text/javascript">
                 lhinst.setChatID('<?php echo $chatbox->chat->id?>');
