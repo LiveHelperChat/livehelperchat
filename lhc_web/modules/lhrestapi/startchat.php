@@ -79,7 +79,7 @@ try {
     $additionalParams['ignore_captcha'] = true;
     
     // Validate post data
-    $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat,$additionalParams);
+    $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat, $additionalParams);
 
     if (count($Errors) == 0)
     {

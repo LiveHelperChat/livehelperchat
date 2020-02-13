@@ -255,7 +255,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
     {
         $chat->lsync = time();
    		$chat->setIP();
-   		erLhcoreClassModelChat::detectLocation($chat);
+   		erLhcoreClassModelChat::detectLocation($chat, (string)$Params['user_parameters_unordered']['vid']);
    		
    		$statusGeoAdjustment = erLhcoreClassChat::getAdjustment(erLhcoreClassModelChatConfig::fetch('geoadjustment_data')->data_value, $inputData->vid);
    		

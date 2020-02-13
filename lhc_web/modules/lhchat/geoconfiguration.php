@@ -111,6 +111,9 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
         ),
         'CityGeoLocation' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
+        'ipapi_key' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
         )
     );
 
@@ -261,10 +264,25 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
             } elseif ($form->UseGeoIP == 'php_geoip') {
                 $data['geo_service_identifier'] = 'php_geoip';
               
-                $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('php_geoip','94.23.200.91');
+                $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('php_geoip','8.8.8.8');
                 if ($responseDetection == false || !isset($responseDetection->country_code)){
                     $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!');
                 }                
+            } elseif ($form->UseGeoIP == 'ipapi') {
+                $data['geo_service_identifier'] = 'ipapi';
+
+                if ( $form->hasValidData( 'ipapi_key' ) && $form->ipapi_key != '' ) {
+                    $data['ipapi_key'] = $form->ipapi_key;
+                } else {
+                    $data['ipapi_key'] = '';
+                }
+
+                $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('ipapi','8.8.8.8');
+
+                if ($responseDetection == false || !isset($responseDetection->country_code)){
+                    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!');
+                }
+
             }
 
         } else {

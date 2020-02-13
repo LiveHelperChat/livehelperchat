@@ -739,7 +739,7 @@ class erLhcoreClassChatValidator {
 
         $chat->setIP();
         $chat->lsync = time();
-        erLhcoreClassModelChat::detectLocation($chat);
+        erLhcoreClassModelChat::detectLocation($chat, $inputForm->vid);
 
         // Detect device
         $detect = new Mobile_Detect;

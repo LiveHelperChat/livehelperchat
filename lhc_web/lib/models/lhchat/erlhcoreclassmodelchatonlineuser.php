@@ -494,6 +494,31 @@ class erLhcoreClassModelChatOnlineUser
                 }
                 return false;
             }
+        } elseif ($service == 'ipapi') {
+
+            $ip = (isset($params['ip']) && !empty($params['ip'])) ? $params['ip'] : $ip;
+
+            $response = self::executeRequest("http://ip-api.com/json/{$ip}");
+
+            if (!empty($response)) {
+                $responseData = json_decode($response,true);
+                if (is_array($responseData)) {
+
+                    if (isset($responseData['status']) && $responseData['status'] == 'success') {
+
+                        $normalizedObject = new stdClass();
+                        $normalizedObject->country_code = strtolower($responseData['countryCode']);
+                        $normalizedObject->country_name = $responseData['country'];
+                        $normalizedObject->lat = substr($responseData['lat'],0,10);
+                        $normalizedObject->lon = substr($responseData['lon'],0,10);
+                        $normalizedObject->city = $responseData['city'] . ($responseData['region'] != '' ? ', ' . $responseData['region'] : '') . ($responseData['isp'] != '' ? ' || ' . $responseData['isp'] : '');
+
+                        return $normalizedObject;
+                    }
+
+                }
+                return false;
+            }
         }
 
         return false;
@@ -524,6 +549,8 @@ class erLhcoreClassModelChatOnlineUser
                 $params['city_file'] = isset($geo_data['max_mind_city_location']) ? $geo_data['max_mind_city_location'] : '';
             } elseif ($geo_data['geo_service_identifier'] == 'freegeoip') {
                 $params['freegeoip_key'] = $geo_data['freegeoip_key'];
+            } elseif ($geo_data['geo_service_identifier'] == 'ipapi') {
+                $params['api_key'] = $geo_data['ipapi_key'];
             }
 
             $location = self::getUserData($geo_data['geo_service_identifier'], $instance->ip, $params);

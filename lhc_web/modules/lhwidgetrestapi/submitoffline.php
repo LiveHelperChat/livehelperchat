@@ -49,7 +49,7 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_star
 if (empty($Errors)) {
     $chat->setIP();
     $chat->lsync = time();
-    erLhcoreClassModelChat::detectLocation($chat);
+    erLhcoreClassModelChat::detectLocation($chat, $inputData->vid);
 
     $chat->referrer = isset($requestPayload['fields']['URLRefer']) ? $requestPayload['fields']['URLRefer'] : '';
     $chat->session_referrer = isset($requestPayload['fields']['r']) ? $requestPayload['fields']['r'] : '';

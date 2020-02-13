@@ -49,7 +49,7 @@ if (empty($Errors)) {
     $chat->lsync = time();
     $chat->setIP();
 
-    erLhcoreClassModelChat::detectLocation($chat);
+    erLhcoreClassModelChat::detectLocation($chat, $inputData->vid);
 
     $statusGeoAdjustment = erLhcoreClassChat::getAdjustment(erLhcoreClassModelChatConfig::fetch('geoadjustment_data')->data_value, $inputData->vid);
 
