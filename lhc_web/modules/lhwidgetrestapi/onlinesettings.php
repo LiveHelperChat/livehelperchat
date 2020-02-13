@@ -434,12 +434,20 @@ if ($theme !== false && $theme->hide_popup == 1) {
     $chat_ui['hide_popup'] = true;
 }
 
-$visibleCount = $departament_id > 0 ? 0 : 1;
+$visibleCount = ($departament_id > 0 || count($departmentsOptions['departments']) == 0) ? 0 : 1;
+$messageFieldVisible = false;
 
 foreach ($fields as $field) {
     if ($field['type'] != 'hidden') {
         $visibleCount++;
+        if ($field['identifier'] == 'question') {
+            $messageFieldVisible = true;
+        }
     }
+}
+
+if ($messageFieldVisible === false) {
+    $visibleCount = 0;
 }
 
 $chat_ui['max_length'] = (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value - 1;

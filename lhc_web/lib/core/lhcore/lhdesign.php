@@ -255,7 +255,7 @@ class erLhcoreClassDesign
 
                     $fileContent = file_get_contents($fileDir);
 
-                    if (preg_match_all("/url\(\s*[\'|\"]?([A-Za-z0-9_\-\/\.\\%?&#]+)[\'|\"]?\s*\)/ix", $fileContent, $urlMatches)) {
+                    if (preg_match_all("/url\(\s*[\'|\"]?([A-Za-z0-9_@\-\/\.\\%?&#]+)[\'|\"]?\s*\)/ix", $fileContent, $urlMatches)) {
                         $urlMatches = array_unique($urlMatches[1]);
                         foreach ($urlMatches as $match) {
                             $match = str_replace('\\', '/', $match);

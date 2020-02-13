@@ -159,7 +159,7 @@ class StartChat extends Component {
 
     const { t } = this.props;
 
-    if (this.props.chatwidget.get('onlineData').has('fields') && !(this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','fields']).size == 1)) {
+    if (this.props.chatwidget.get('onlineData').has('fields') && !(this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1)) {
         var mappedFields = this.props.chatwidget.getIn(['onlineData','fields']).map(field =><ChatField chatUI={this.props.chatwidget.get('chat_ui')} key={field.get('identifier')} isInvalid={this.props.chatwidget.hasIn(['validationErrors',field.get('identifier')])} defaultValueField={this.state[field.get('name')] || field.get('value')} onChangeContent={this.handleContentChange} field={field} />);
     } else {
         var mappedFields = "";
