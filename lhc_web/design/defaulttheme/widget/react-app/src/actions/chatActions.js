@@ -274,13 +274,16 @@ export function fetchMessages(obj) {
 
             processResponseCheckStatus(response.data, getState);
 
+            helperFunctions.emitEvent('chat.fetch_messages',[response.data, dispatch, getState]);
+
             if (response.data.cs || (response.data.closed && response.data.closed === true)) {
                 axios.post(window.lhcChat['base_url'] + "widgetrestapi/checkchatstatus", obj)
                 .then((response) => {
                     if (response.data.deleted) {
                         //window.lhcChat.eventEmitter.emitEvent('endChat', [{'sender' : 'endButton'}]);
                     } else {
-                        dispatch({type: "CHECK_CHAT_STATUS_FINISHED", data: response.data})
+                        dispatch({type: "CHECK_CHAT_STATUS_FINISHED", data: response.data});
+                        helperFunctions.emitEvent('chat.check_status',[response.data, dispatch, getState]);
                     }
                 })
                 .catch((err) => {
@@ -311,7 +314,8 @@ export function checkChatStatus(obj) {
             if (response.data.deleted) {
                 helperFunctions.sendMessageParent('endChat',[{'sender' : 'endButton'}]);
             } else {
-                dispatch({type: "CHECK_CHAT_STATUS_FINISHED", data: response.data})
+                dispatch({type: "CHECK_CHAT_STATUS_FINISHED", data: response.data});
+                helperFunctions.emitEvent('chat.check_status',[response.data, dispatch, getState]);
             }
         })
         .catch((err) => {

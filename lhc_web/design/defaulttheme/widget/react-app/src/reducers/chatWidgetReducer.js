@@ -21,6 +21,7 @@ const initialState = fromJS({
     onlineData: {'fetched' : false},
     customData: {'fields' : []},
     attr_prefill: [],
+    extension: {}, // Holds extensions data for reuse
     chat_ui : {}, // Settings from themes, UI
     chat_ui_state : {'confirm_close': 0, 'show_survey' : 0}, // Settings from themes, UI we store our present state here
     processStatus : 0,
@@ -246,6 +247,10 @@ const chatWidgetReducer = (state = initialState, action) => {
                 state = state.setIn(['chat_ui','survey_id'],action.data.closed_arg.survey_id);
             }
 
+            if (action.data.extension) {
+                state = state.set('extension',state.get('extension').merge(fromJS(action.data.extension)));
+            }
+
             if (action.data.messages !== '') {
                 state = state.updateIn(['chatLiveData','messages'],list => list.push({
                         'lmsop': (action.data.lmsop || state.getIn(['chatLiveData','msop'])),
@@ -274,6 +279,11 @@ const chatWidgetReducer = (state = initialState, action) => {
         }
 
         case 'CHECK_CHAT_STATUS_FINISHED' : {
+
+            if (action.data.extension) {
+                state = state.set('extension',state.get('extension').merge(fromJS(action.data.extension)));
+            }
+
             return state.set('chatStatusData',fromJS(action.data))
                 .setIn(['chatLiveData','closed'], action.data.closed && action.data.closed === true || state.getIn(['chatLiveData','closed']))
                 .setIn(['chatLiveData','status'], action.data.status)
