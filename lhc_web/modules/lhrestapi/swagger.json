@@ -61,7 +61,17 @@
           {
             "name": "departament_ids",
             "in": "query",
-            "description": "Department ID",
+            "description": "Department ID's",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "departament_groups_ids",
+            "in": "query",
+            "description": "Department group ID's",
             "required": false,
             "type": "array",
             "items":{
@@ -240,6 +250,16 @@
             "required": false,
             "type": "string",
             "format": "int32"
+          },
+          {
+            "name": "departament_groups_ids",
+            "in": "query",
+            "description": "Department group ID's",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
           },
           {
             "name": "user_id",

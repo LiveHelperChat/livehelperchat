@@ -378,8 +378,6 @@ class erLhcoreClassRestAPIHandler
             ));
         }
 
-
-
         // Chats list
         return array(
             'list' => array_values($campaignsConversions),
@@ -454,9 +452,26 @@ class erLhcoreClassRestAPIHandler
         if (isset($_GET['departament_ids'])) {
             $idDep = explode(',',$_GET['departament_ids']);
             erLhcoreClassChat::validateFilterIn($idDep);
-
             if (!empty($idDep)){
                 $filter['filterin']['dep_id'] = $idDep;
+            }
+        }
+
+        if (isset($_GET['departament_groups_ids'])) {
+            $idDep = explode(',',$_GET['departament_groups_ids']);
+            erLhcoreClassChat::validateFilterIn($idDep);
+            if (!empty($idDep)){
+                $groups = erLhcoreClassModelDepartamentGroup::getList(array('filterin' => array('id' => $idDep)));
+                foreach ($groups as $group) {
+                    $depIds = $group->departments_ids;
+                    if (!empty($depIds)) {
+                        if (isset($filter['filterin']['dep_id'])) {
+                            $filter['filterin']['dep_id'] = array_merge($filter['filterin']['dep_id'], $depIds);
+                        } else {
+                            $filter['filterin']['dep_id'] = $depIds;
+                        }
+                    }
+                }
             }
         }
 
