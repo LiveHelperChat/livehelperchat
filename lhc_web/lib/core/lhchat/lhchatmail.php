@@ -685,6 +685,10 @@ class erLhcoreClassChatMail {
 
         $chat = $item->chat;
 
+        if (!($chat instanceof erLhcoreClassModelChat)) {
+            $chat = erLhcoreClassModelChat::findOne(array('sort' => '`id` DESC','filter' => array('online_user_id' => $item->id)));
+        }
+
         if ($sendMail->from_email == '{chat_email}' && $chat instanceof erLhcoreClassModelChat && $chat->email != '') {
             $mail->From = $item->chat->email;
         }
@@ -697,9 +701,15 @@ class erLhcoreClassChatMail {
 
         $emailRecipient = array();
 
-        if ($chat instanceof erLhcoreClassModelChat && $chat->user instanceof erLhcoreClassModelUser) {
-            $emailRecipient = array($chat->user->email);
-        } else if ($sendMail->recipient != '') { // This time we give priority to template recipients
+        $attr = $item->online_attr_system_array;
+        foreach ($attr['lhc_ir'] as $userId) {
+            $userData = erLhcoreClassModelUser::fetch($userId);
+            if ($userData instanceof erLhcoreClassModelUser) {
+                $emailRecipient[] = $userData->email;
+            }
+        }
+
+        if (empty($emailRecipient) && $sendMail->recipient != '') { // This time we give priority to template recipients
             $emailRecipient = explode(',',$sendMail->recipient);
         }
 
@@ -724,7 +734,7 @@ class erLhcoreClassChatMail {
 
             $messagesContent = '';
 
-            $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
+            $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10,'sort' => 'id DESC', 'filter' => array('chat_id' => $chat->id))));
             foreach ($messages as $msg ) {
                 if ($msg->user_id == -1) {
                     $messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant').': '.htmlspecialchars($msg->msg)."\n";

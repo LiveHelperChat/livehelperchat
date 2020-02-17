@@ -1,3 +1,10 @@
+3.29v
+
+1. Option to be informed about returning visitor.
+2. Removed beta widget from beta state.
+
+execute doc/update_db/update_204.sql for update
+
 3.28v
 
 1. From themes you can change new widget dimensions directly.
