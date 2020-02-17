@@ -113,10 +113,10 @@
 
                 var containerChatObj = new containerChat();
 
-                if (attributesWidget.position != 'api') {
+                //if (attributesWidget.position != 'api') {
                     attributesWidget.viewHandler = new statusWidget();
                     containerChatObj.cont.elmDom.appendChild(attributesWidget.viewHandler.cont.constructUI(),!0);
-                }
+                //}
 
                 if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
                     containerChatObj.cont.elmDom.appendChild(attributesWidget.mainWidget.cont.constructUI(),!0);
@@ -219,9 +219,9 @@
 
                 // Init main widgets
                 if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
-                    if (attributesWidget.position != 'api') {
+                    //if (attributesWidget.position != 'api') {
                         attributesWidget.viewHandler.init(attributesWidget);
-                    }
+                    //}
                 }
 
                 if (!(attributesWidget.position == 'api' && attributesWidget.mode == 'embed')) {
@@ -267,12 +267,12 @@
 
             attributesWidget.eventEmitter.addListener('endChat',function () {
 
+                attributesWidget.userSession.setChatInformation({'id':null,'hash':null});
+                attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
+
                 if (attributesWidget.mode != 'popup') {
                     attributesWidget.widgetStatus.next(false);
                 }
-
-                attributesWidget.userSession.setChatInformation({'id':null,'hash':null});
-                attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
 
                 attributesWidget.widgetDimesions.nextProperty('height_override',null);
 
@@ -295,9 +295,9 @@
                 if (attributesWidget.mode == 'popup') {
                     attributesWidget.popupWidget.init(attributesWidget);
 
-                    if (attributesWidget.position != 'api') {
+                    //if (attributesWidget.position != 'api') {
                         attributesWidget.viewHandler.removeUnreadIndicator();
-                    }
+                    //}
 
                     attributesWidget.mainWidget.hide();
                 }
@@ -318,9 +318,9 @@
 
                 attributesWidget.popupWidget.init(attributesWidget);
 
-                if (attributesWidget.position != 'api') {
+                //if (attributesWidget.position != 'api') {
                     attributesWidget.viewHandler.removeUnreadIndicator();
-                }
+                //}
 
                 chatEvents.sendChildEvent('shownWidget', [{'sender' : 'closeButton'}]);
 
