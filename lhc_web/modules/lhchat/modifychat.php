@@ -83,6 +83,39 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhc
 
             $userInstance = $chat->online_user;
 
+            if ($userInstance instanceof erLhcoreClassModelChatOnlineUser) {
+                $attr = $userInstance->online_attr_system_array;
+                // Update informing options for online visitor
+                if (isset($_POST['informReturn'])) {
+
+                    if (!isset($attr['lhc_ir']) || !is_array($attr['lhc_ir'])) {
+                        $attr['lhc_ir'] = array();
+                    }
+
+                    $attr['lhc_ir'][] = $currentUser->getUserData(true)->id;
+
+                    $userInstance->online_attr_system = json_encode($attr);
+                    $userInstance->online_attr_system_array = $attr;
+                    $userInstance->saveThis();
+                    
+                } elseif (isset($userInstance->online_attr_system_array['lhc_ir'])) {
+
+                    $index = array_search($currentUser->getUserData(true)->id,$userInstance->online_attr_system_array['lhc_ir']);
+
+                    if ($index !== false) {
+                        unset($attr['lhc_ir'][$index]);
+
+                        if (empty($attr['lhc_ir'])) {
+                            unset($attr['lhc_ir']);
+                        }
+
+                        $userInstance->online_attr_system = json_encode($attr);
+                        $userInstance->online_attr_system_array = $attr;
+                        $userInstance->saveThis();
+                    }
+                }
+            }
+
             if ($userInstance instanceof erLhcoreClassModelChatOnlineUser && $chat->nick != erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor')) {
                 $onlineAttr = $userInstance->online_attr_system_array;
                 $onlineAttr['username'] = $chat->nick;

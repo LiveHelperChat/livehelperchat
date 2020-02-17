@@ -672,9 +672,186 @@ class erLhcoreClassChatMail {
     	
     	
     }
-    
-    
 
+    public static function informVisitorReturned($item) {
+        $sendMail = erLhAbstractModelEmailTemplate::fetch(12);
+
+        $mail = new PHPMailer();
+        $mail->CharSet = "UTF-8";
+
+        if ($sendMail->from_email != '') {
+            $mail->Sender = $mail->From = $sendMail->from_email;
+        }
+
+        $chat = $item->chat;
+
+        if (!($chat instanceof erLhcoreClassModelChat)) {
+            $chat = erLhcoreClassModelChat::findOne(array('sort' => '`id` DESC','filter' => array('online_user_id' => $item->id)));
+        }
+
+        if ($sendMail->from_email == '{chat_email}' && $chat instanceof erLhcoreClassModelChat && $chat->email != '') {
+            $mail->From = $item->chat->email;
+        }
+
+        $mail->FromName = $sendMail->from_name;
+
+        $mail->Subject = str_replace(array('{username}'), array($item->nick), $sendMail->subject);;
+
+        $mail->FromName = $item->nick;
+
+        $emailRecipient = array();
+
+        $attr = $item->online_attr_system_array;
+        foreach ($attr['lhc_ir'] as $userId) {
+            $userData = erLhcoreClassModelUser::fetch($userId);
+            if ($userData instanceof erLhcoreClassModelUser) {
+                $emailRecipient[] = $userData->email;
+            }
+        }
+
+        if (empty($emailRecipient) && $sendMail->recipient != '') { // This time we give priority to template recipients
+            $emailRecipient = explode(',',$sendMail->recipient);
+        }
+
+        if (empty($emailRecipient)) { // Lets find first user and send him an e-mail
+            $list = erLhcoreClassModelUser::getUserList(array('limit' => 1,'sort' => 'id ASC'));
+            $user = array_pop($list);
+            $emailRecipient = array($user->email);
+        }
+
+        self::setupSMTP($mail);
+
+        if ($sendMail->reply_to != '') {
+            $mail->AddReplyTo($sendMail->reply_to,$sendMail->from_name);
+        } elseif ($chat instanceof erLhcoreClassModelChat && $chat->email != '') {
+            $mail->AddReplyTo($chat->email, $chat->nick);
+        }
+
+        $messagesContent = '-';
+        $additional_data = '-';
+
+        if ($chat instanceof erLhcoreClassModelChat) {
+
+            $messagesContent = '';
+
+            $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10,'sort' => 'id DESC', 'filter' => array('chat_id' => $chat->id))));
+            foreach ($messages as $msg ) {
+                if ($msg->user_id == -1) {
+                    $messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant').': '.htmlspecialchars($msg->msg)."\n";
+                } else {
+                    $messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. ($msg->user_id == 0 ? htmlspecialchars($chat->nick) : htmlspecialchars($msg->name_support)).': '.htmlspecialchars($msg->msg)."\n";
+                }
+            }
+
+            // Format user friendly additional data
+            if ($chat->additional_data != '') {
+                $paramsAdditional = json_decode($chat->additional_data,true);
+                $elementsAdditional = array();
+                if (is_array($paramsAdditional) && !empty($paramsAdditional)) {
+                    foreach ($paramsAdditional as $param) {
+                        $elementsAdditional[] = $param['key'].' - '.$param['value'];
+                    }
+                    $additional_data = implode("\n", $elementsAdditional);
+                } else {
+                    $additional_data = $chat->additional_data;
+                }
+            }
+        }
+
+        foreach ($emailRecipient as $receiver) {
+            $appendURL = erLhcoreClassDesign::baseurldirect('user/login').'/(r)/'.rawurlencode(base64_encode('chat/onlineusers?search='.$item->nick));
+
+            $mail->Body = str_replace(array(
+                '{chat_duration}',
+                '{waited}',
+                '{created}',
+                '{user_left}',
+                '{chat_id}',
+                '{phone}',
+                '{name}',
+                '{email}',
+                '{message}',
+                '{additional_data}',
+                '{url_request}',
+                '{ip}',
+                '{department}',
+                '{url_accept}',
+                '{country}',
+                '{city}'
+            ), array(
+                ($chat instanceof erLhcoreClassModelChat && $chat->chat_duration > 0 ? $chat->chat_duration_front : '-'),
+                ($chat instanceof erLhcoreClassModelChat && $chat->wait_time > 0 ? $chat->wait_time_front : '-'),
+                ($chat instanceof erLhcoreClassModelChat ? $chat->time_created_front : '-'),
+                ($chat instanceof erLhcoreClassModelChat && $chat->user_closed_ts > 0 && $chat->user_status == 1 ? $chat->user_closed_ts_front : '-'),
+                ($chat instanceof erLhcoreClassModelChat ? $chat->id : '-'),
+                ($chat instanceof erLhcoreClassModelChat ? $chat->phone : '-'),
+                $item->nick,
+                ($chat instanceof erLhcoreClassModelChat ? $chat->email : '-'),
+                $messagesContent,
+                $additional_data,
+                $item->referrer,
+                $item->ip,
+                ($chat instanceof erLhcoreClassModelChat ? (string)$chat->department : '-'),
+                (isset($_SERVER['HTTP_HOST']) ? erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . $appendURL : erLhcoreClassModelChatConfig::fetch('customer_site_url')->current_value . $appendURL),
+                $item->user_country_name,
+                $item->city),
+                $sendMail->content);
+
+            $mail->AddAddress( $receiver );
+            $mail->Send();
+            $mail->ClearAddresses();
+        }
+
+        if ($sendMail->bcc_recipients != '') {
+            $recipientsBCC = explode(',',$sendMail->bcc_recipients);
+            foreach ($recipientsBCC as $receiver) {
+
+                $appendURL = erLhcoreClassDesign::baseurldirect('user/login').'/(r)/'.rawurlencode(base64_encode('chat/onlineusers?search='.$item->nick));
+
+                $mail->Body = str_replace(array(
+                    '{chat_duration}',
+                    '{waited}',
+                    '{created}',
+                    '{user_left}',
+                    '{chat_id}',
+                    '{phone}',
+                    '{name}',
+                    '{email}',
+                    '{message}',
+                    '{additional_data}',
+                    '{url_request}',
+                    '{ip}',
+                    '{department}',
+                    '{url_accept}',
+                    '{country}',
+                    '{city}'
+                ), array(
+                    ($chat instanceof erLhcoreClassModelChat && $chat->chat_duration > 0 ? $chat->chat_duration_front : '-'),
+                    ($chat instanceof erLhcoreClassModelChat && $chat->wait_time > 0 ? $chat->wait_time_front : '-'),
+                    ($chat instanceof erLhcoreClassModelChat ? $chat->time_created_front : '-'),
+                    ($chat instanceof erLhcoreClassModelChat && $chat->user_closed_ts > 0 && $chat->user_status == 1 ? $chat->user_closed_ts_front : '-'),
+                    ($chat instanceof erLhcoreClassModelChat ? $chat->id : '-'),
+                    ($chat instanceof erLhcoreClassModelChat ? $chat->phone : '-'),
+                    $item->nick,
+                    ($chat instanceof erLhcoreClassModelChat ? $chat->email : '-'),
+                    $messagesContent,
+                    $additional_data,
+                    $item->referrer,
+                    $item->ip,
+                    ($chat instanceof erLhcoreClassModelChat ? (string)$chat->department : '-'),
+                    (isset($_SERVER['HTTP_HOST']) ? erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . $appendURL : erLhcoreClassModelChatConfig::fetch('customer_site_url')->current_value . $appendURL),
+                    $item->user_country_name,
+                    $item->city),
+                    $sendMail->content);
+
+                $receiver = trim($receiver);
+
+                $mail->AddAddress( $receiver );
+                $mail->Send();
+                $mail->ClearAddresses();
+            }
+        }
+    }
 }
 
 ?>

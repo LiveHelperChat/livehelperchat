@@ -10,7 +10,7 @@
 	
 	</div>
 	<div class="col-2 pr-0">
-		<input class="form-control form-control-sm" ng-model="query" type="text" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search')?>">
+		<input class="form-control form-control-sm" <?php if (isset($_GET['search'])) :?>ng-init="query='<?php echo htmlentities(addslashes(html_entity_decode(strip_tags($_GET['search']),ENT_QUOTES)),ENT_QUOTES);?>'"<?php endif?> ng-model="query" type="text" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search')?>">
 	</div>
 	<div class="col-1 pr-0">
 		<select class="form-control form-control-sm" ng-model="groupByField" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Group list by');?>">
