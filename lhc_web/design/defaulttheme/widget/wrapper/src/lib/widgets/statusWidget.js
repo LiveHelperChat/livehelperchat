@@ -106,7 +106,7 @@ export class statusWidget{
             const chatParams = this.attributes['userSession'].getSessionAttributes();
 
             // show status icon only if we are not in api mode or chat is going now
-            if (this.attributes['position'] != 'api' || this.attributes['position'] == 'api' && chatParams['id'] && chatParams['hash']) {
+            if (this.attributes['position'] != 'api' || (this.attributes['position'] == 'api' && chatParams['id'] && chatParams['hash'])) {
                 this.cont.show();
             }
 
