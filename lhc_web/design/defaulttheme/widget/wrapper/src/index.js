@@ -453,7 +453,7 @@
                 if (parts[1] == 'ready') {
                     chatEvents.sendReadyEvent(parts[2] == 'true');
 
-                    if ( (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') && attributesWidget.position != 'api' && (!LHC_API.args.proactive || LHC_API.args.proactive === true) && attributesWidget.storageHandler.getSessionStorage('LHC_invt') === null) {
+                    if ( (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') && (!LHC_API.args.proactive || LHC_API.args.proactive === true) && attributesWidget.storageHandler.getSessionStorage('LHC_invt') === null) {
                         import('./util/proactiveChat').then((module) => {
                             module.proactiveChat.setParams({
                                 'interval' : attributesWidget.proactive_interval
