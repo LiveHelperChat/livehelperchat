@@ -617,6 +617,7 @@ $FunctionList['administratecolumn'] = array('explain' => 'Allow operator to conf
 $FunctionList['administratechatvariable'] = array('explain' => 'Allow operator to configure chat custom variables');
 $FunctionList['administratechatpriority'] = array('explain' => 'Allow operator to configure chat priority by custom variables');
 $FunctionList['administratesyncsound'] = array('explain' => 'Allow operator to configure chat sound and sync settings');
+$FunctionList['voicemessages'] = array('explain' => 'Allow operator to send voice messages');
 
 
 ?>
