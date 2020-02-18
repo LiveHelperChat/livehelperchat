@@ -1,5 +1,6 @@
-RewriteEngine On
+AddType application/wasm .wasm
 
+RewriteEngine On
 RewriteRule ^/var/[^/]+/cache/(stylesheets|images|javascripts?)/.* - [L]
 RewriteRule ^upgrade.php - [L]
 RewriteRule !\.(gif|jpe?g|png|bmp|css|js|xml|html|json|ico|mp3|wasm|ogg|wav|ogv|swf|flv|otf|woff2|woff|eot|ttf)|var(.+)storage.pdf(.+)\.pdf$ index.php
