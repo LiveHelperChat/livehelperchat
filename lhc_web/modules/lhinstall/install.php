@@ -1160,7 +1160,7 @@ try {
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `chat_id` int(11) NOT NULL,
 				  `online_user_id` int(11) NOT NULL,
-				  `page` varchar(250) NOT NULL,
+				  `page` varchar(2083) NOT NULL,
 				  `vtime` int(11) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `chat_id` (`chat_id`),

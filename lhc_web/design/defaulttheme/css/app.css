@@ -513,6 +513,7 @@ div.message-row.response div.msg-body{
 	position: absolute;
 	right: 20px;
 	top: 20px;
+    z-index: 99;
 }
 .hidden-download::after{
 	font-family: 'Material Icons';
@@ -524,6 +525,16 @@ div.message-row.response div.msg-body{
 	padding: 5px;
 	border-radius: 5px;
 }
+
+.audio-download{
+    top:0;
+    right:0;
+}
+
+.audio-download::after{
+    font-size: 16px;
+}
+
 .msg-body-media:hover > img
 {
 	filter: contrast(50%);

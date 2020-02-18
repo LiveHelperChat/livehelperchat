@@ -63,6 +63,35 @@
         </div>
     </div>
 
+    <hr>
+
+    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Voice messages'); ?></h3>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="soundMessages" value="on" <?php isset($file_data['sound_messages']) && ($file_data['sound_messages'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Voice messages for visitors is active'); ?>
+                </label>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="soundMessagesOp" value="on" <?php isset($file_data['sound_messages_op']) && ($file_data['sound_messages_op'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Voice messages for operators is active'); ?>
+                </label>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Voice message max length in seconds'); ?></label>
+            <input type="text" class="form-control" name="soundLength" value="<?php isset($file_data['sound_length']) ? print $file_data['sound_length'] : print '30' ?>" />
+        </div>
+    </div>
+
+    <hr>
+
     <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Maintenance'); ?></h3>
 
     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Files will be deleted only if days is > 0')?></p>

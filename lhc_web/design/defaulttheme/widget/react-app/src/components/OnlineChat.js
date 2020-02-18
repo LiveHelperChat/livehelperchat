@@ -9,8 +9,16 @@ import ChatFileUploader from './ChatFileUploader';
 import ChatSync from './ChatSync';
 import ChatOptions from './ChatOptions';
 import ChatStatus from './ChatStatus';
+
 import { helperFunctions } from "../lib/helperFunctions";
 import { withTranslation } from 'react-i18next';
+
+import { Suspense, lazy } from 'react';
+
+//import VoiceMessage from './VoiceMessage';
+
+const VoiceMessage = React.lazy(() => import('./VoiceMessage'));
+
 
 @connect((store) => {
     return {
@@ -27,7 +35,8 @@ class OnlineChat extends Component {
         enabledEditor : true,
         showMessages : false,
         preloadSurvey : false, // Should survey be preloaded
-        gotToSurvey : false
+        gotToSurvey : false,
+        voiceMode : false
     };
 
     constructor(props) {
@@ -54,6 +63,8 @@ class OnlineChat extends Component {
         this.unhideDelayed = this.unhideDelayed.bind(this);
         this.toggleSound = this.toggleSound.bind(this);
         this.goToSurvey = this.goToSurvey.bind(this);
+        this.startVoiceRecording = this.startVoiceRecording.bind(this);
+        this.cancelVoiceRecording = this.cancelVoiceRecording.bind(this);
 
         // Messages Area
         this.messagesAreaRef = React.createRef();
@@ -93,6 +104,14 @@ class OnlineChat extends Component {
             'type': 'chat_status_changed',
             'data' : {text: text}
         });
+    }
+
+    startVoiceRecording() {
+        this.setState({voiceMode: true});
+    }
+
+    cancelVoiceRecording() {
+        this.setState({voiceMode: false});
     }
 
     handleChange(event) {
@@ -603,6 +622,7 @@ class OnlineChat extends Component {
 
                     <div className={(this.props.chatwidget.get('msgLoaded') === false || this.state.enabledEditor === false ? 'd-none ' : 'd-flex ') + "flex-row border-top position-relative message-send-area"} >
                         {(this.props.chatwidget.getIn(['chatLiveData','ott']) || this.props.chatwidget.getIn(['chatLiveData','error'])) && <div id="id-operator-typing" className="bg-white pl-1">{this.props.chatwidget.getIn(['chatLiveData','error']) || this.props.chatwidget.getIn(['chatLiveData','ott'])}</div>}
+
                         <ChatOptions elementId="chat-dropdown-options">
                             <div className="btn-group dropup pt-1 disable-select pl-2 pt-2">
                                 <i className="material-icons settings text-muted" id="chat-dropdown-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">settings</i>
@@ -624,12 +644,25 @@ class OnlineChat extends Component {
                         </div>
 
                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && <div className="disable-select">
-                            <div className="user-chatwidget-buttons" id="ChatSendButtonContainer">
-                                <a onClick={this.sendMessage} title={t('button.send')}>
-                                   <i className="material-icons text-muted settings mr-0">send</i>
-                                </a>
-                            </div>
+
+                                <div className="user-chatwidget-buttons pt-1 pr-1" id="ChatSendButtonContainer">
+
+                                    {this.state.voiceMode === true && <Suspense fallback="..."><VoiceMessage onCompletion={this.updateMessages} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} maxSeconds="30" cancel={this.cancelVoiceRecording} /></Suspense>}
+
+                                    {this.props.chatwidget.hasIn(['chat_ui','voice_message']) && this.state.value.length == 0 && this.state.voiceMode === false && <a onClick={this.startVoiceRecording} title={t('button.record_voice')}>
+                                       <i className="material-icons text-muted settings mr-0">mic_none</i>
+                                    </a>}
+
+                                    {(!this.props.chatwidget.hasIn(['chat_ui','voice_message']) || (this.state.value.length > 0 && this.state.voiceMode === false)) && <a onClick={this.sendMessage} title={t('button.send')}>
+                                       <i className="material-icons text-muted settings mr-0">send</i>
+                                    </a>}
+
+                                </div>
+
                         </div>}
+
+
+
                     </div>
                     </React.Fragment>}
 

@@ -157,6 +157,10 @@ try {
             );
         }
 
+        if (isset($fileData['sound_messages']) && $fileData['sound_messages'] == true){
+            $outputResponse['chat_ui']['voice_message'] = $fileData['sound_length'];
+        }
+
         $outputResponse['chat_ui']['fbst'] = $chat->fbst;
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.initchat', array('output' => & $outputResponse, 'chat' => $chat));

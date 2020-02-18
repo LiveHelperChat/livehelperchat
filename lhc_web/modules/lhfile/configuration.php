@@ -44,7 +44,16 @@ if (isset($_POST['StoreFileConfiguration'])) {
         'mdays_older_visitor' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
         ),
+        'soundLength' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+        ),
         'removeMetaTag' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'soundMessages' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'soundMessagesOp' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
     );
@@ -102,6 +111,24 @@ if (isset($_POST['StoreFileConfiguration'])) {
         $data['clamav_enabled'] = true;
     } else {
         $data['clamav_enabled'] = false;
+    }
+
+    if ($form->hasValidData('soundMessages') && $form->soundMessages == true) {
+        $data['sound_messages'] = true;
+    } else {
+        $data['sound_messages'] = false;
+    }
+
+    if ($form->hasValidData('soundMessagesOp') && $form->soundMessagesOp == true) {
+        $data['sound_messages_op'] = true;
+    } else {
+        $data['sound_messages_op'] = false;
+    }
+
+    if ($form->hasValidData('soundLength')) {
+        $data['sound_length'] = $form->soundLength;
+    } else {
+        $data['sound_length'] = 30;
     }
 
     if ($form->hasValidData('AllowedFileTypes') && $form->AllowedFileTypes != '') {

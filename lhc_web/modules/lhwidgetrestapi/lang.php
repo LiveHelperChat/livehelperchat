@@ -18,13 +18,14 @@ $translations = array(
         "bb_code" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','BB code'),
         "print" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Print'),
         "send" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send'),
-        "popup" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Popup')
+        "popup" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Popup'),
+        "record_voice" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Record voice message')
     ],
     "chat" => [
         "option_sound" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new messages from the operator'),
         "chat_closed" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat',"This chat is closed now. You can close window."),
         "drop_files" => erTranslationClassLhTranslation::getInstance()->getTranslation('files/files','Drop your files here.'),
-        "type_here" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Type your message here...')
+        "type_here" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your message...')
     ],
     "start_chat" => [
         "thank_you_for_feedback" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Thank you for your feedback...'),
@@ -52,6 +53,14 @@ $translations = array(
         "img_link" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Please enter link to an image!'),
         "link" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Please enter a link!'),
         "link_here" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Here is a link')
+    ],
+    "voice" => [
+        "cancel_voice_message" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Cancel voice message'),
+        "record_voice_message" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Record voice message'),
+        "stop_recording" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Stop recording'),
+        "play_recorded" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Play recorded message'),
+        "stop_playing_recorded" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Stop playing recorded audio'),
+        "send" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Send voice message')
     ]
 );
 

@@ -4,6 +4,7 @@ erLhcoreClassRestAPIHandler::setHeaders();
 
 $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
 
+
 if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] == true) {
 
     $db = ezcDbInstance::get();
@@ -27,6 +28,8 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfile.file_path', array('path' => & $path, 'storage_id' => $chat->id));
 
                 $clamav = false;
+
+                echo "asdasd";
 
                 if (isset($data['clamav_enabled']) && $data['clamav_enabled'] == true) {
 

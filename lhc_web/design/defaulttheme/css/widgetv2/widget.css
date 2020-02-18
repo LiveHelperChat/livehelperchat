@@ -399,11 +399,19 @@ div.message-row.response div.msg-body{
 .msg-body-media:hover .hidden-download::after{
     display: block;
 }
+
 .hidden-download{
     position: absolute;
     right: 20px;
     top: 20px;
+    z-index:99;
 }
+
+.audio-download{
+    top:0;
+    right:0;
+}
+
 .hidden-download::after{
     font-family: 'Material Icons';
     content:'\e2c0';
@@ -414,6 +422,11 @@ div.message-row.response div.msg-body{
     padding: 5px;
     border-radius: 5px;
 }
+
+.audio-download::after{
+    font-size: 16px;
+}
+
 .msg-body-media:hover > img
 {
     filter: contrast(50%);
@@ -619,7 +632,6 @@ textarea[name=ChatMessage] {
 #CSChatMessage{
     overflow: auto;
     resize: none;
-    padding-right: 33px;
     background: transparent;
     scrollbar-color: #888 transparent;
     scrollbar-width: thin;
@@ -631,10 +643,10 @@ textarea[name=ChatMessage] {
 }
 
 .user-chatwidget-buttons {
-    position: absolute;
+    /*position: absolute;
     top: 6px;
     right: 10px;
-    height: 10px;
+    height: 10px;*/
 }
 
 .disable-select {
@@ -678,8 +690,16 @@ textarea[name=ChatMessage] {
     font-size:12px;
 }
 
+.fs11{
+    font-size:11px;
+}
+
 .fs14{
     font-size:14px;
+}
+
+.fs25{
+    font-size:25px;
 }
 
 .pointer {
