@@ -16,7 +16,9 @@
                 'vid' => $vid,
             ),
         );
-
+        
+        $params['staticJS']['chunk_js'] = erLhcoreClassDesign::design('js/widgetv2');
+        
         if (isset($prefill)) {
             $params['attr_prefill'] = $prefill;
         }
