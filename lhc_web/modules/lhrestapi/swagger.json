@@ -79,6 +79,14 @@
             }
           },
           {
+            "name": "department_groups",
+            "description": "Should we include department_groups attribute in response",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
             "name": "user_id",
             "in": "query",
             "description": "User ID",

@@ -583,8 +583,31 @@ class erLhcoreClassRestAPIHandler
             $ignoreFields = explode(',',str_replace(' ','',$_GET['ignore_fields']));
         }
 
+        // Option to have department_groups attribute listed in response
+        if (isset($_GET['department_groups']) && $_GET['department_groups'] == 'true') {
+            $departments = array();
+            foreach ($chats as $chat) {
+                $departments[] = $chat->dep_id;
+            }
+
+            $departments = array_unique($departments);
+
+            $depMembersItems = array();
+
+            if (!empty($departments)) {
+                $depMembers = erLhcoreClassModelDepartamentGroupMember::getList(array('filterin' => array('dep_id' => $departments)));
+                foreach ($depMembers as $depMember) {
+                    $depMembersItems[$depMember->dep_id][] = $depMember->dep_group_id;
+                }
+            }
+
+            foreach ($chats as $index => $chat) {
+                $chats[$index]->department_groups = isset($depMembersItems[$chat->dep_id]) ? $depMembersItems[$chat->dep_id] : array();
+            }
+        }
+
         if (!empty($prefillFields) || !empty($ignoreFields)) {
-            erLhcoreClassChat::prefillGetAttributes($chats, $prefillFields, $ignoreFields, array('clean_ignore' => true,'do_not_clean' => true));
+            erLhcoreClassChat::prefillGetAttributes($chats, $prefillFields, $ignoreFields, array('clean_ignore' => true, 'do_not_clean' => true));
         }
 
         // Chats list
