@@ -29,8 +29,6 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
 
                 $clamav = false;
 
-                echo "asdasd";
-
                 if (isset($data['clamav_enabled']) && $data['clamav_enabled'] == true) {
 
                     $opts = array();
