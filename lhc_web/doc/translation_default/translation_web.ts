@@ -20,6 +20,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -989,6 +997,10 @@
     </message>
     <message>
       <source>Custom html before start chat form fields, widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom page CSS (new widget only)</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2270,6 +2282,10 @@
     </message>
     <message>
       <source>Select survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File name</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3562,6 +3578,14 @@
   <context>
     <name>chat/chat</name>
     <message>
+      <source>Enter your message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>BB Code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Last visitor message time</source>
       <translation type="unfinished"/>
     </message>
@@ -3639,14 +3663,6 @@
     </message>
     <message>
       <source>Load more...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>BB Code</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4277,6 +4293,30 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Cancel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Record voice message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stop recording</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Play recorded audio</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stop playing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send voice message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>I accept my personal data will be handled according to</source>
       <translation type="unfinished"/>
     </message>
@@ -4525,6 +4565,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Your message...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Thank you for your feedback...</source>
       <translation type="unfinished"/>
     </message>
@@ -4534,6 +4578,18 @@
     </message>
     <message>
       <source>Please choose!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel voice message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Play recorded message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stop playing recorded audio</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -5522,6 +5578,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Use http://ip-api.com</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Use MaxMind, does not depend on any third party remote service</source>
       <translation type="unfinished"/>
     </message>
@@ -5915,6 +5975,14 @@
     </message>
     <message>
       <source>Uploaded files from visitors are scanned</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Voice messages for visitors is active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Voice messages for operators is active</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7189,6 +7257,14 @@
     </message>
     <message>
       <source>Recipient e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform me then visitor returns</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail is send then visitor starts new browsing session</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8669,6 +8745,14 @@
     </message>
     <message>
       <source>ClamAV socket length</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Voice messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Voice message max length in seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>

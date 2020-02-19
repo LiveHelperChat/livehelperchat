@@ -691,7 +691,20 @@ function lh(){
 	        	jQuery('#CSChatMessage').val(sessionStorage.getItem('lhc_ttxt'));       
 	    	}
         } catch(e) {}
-        
+
+        var hasMic = false;
+
+        if (jQuery('#CSChatMessage').val() != '') {
+            $('#lhc-send-icon').show();
+            $('#lhc-mic-icon').hide();
+        } else {
+            if ($('#lhc-mic-icon').length > 0){
+                $('#lhc-send-icon').hide();
+                $('#lhc-mic-icon').show();
+                hasMic = true;
+            }
+        }
+
         jQuery('#CSChatMessage').bind('keyup', function (evt){
         	
         	 if (sessionStorage) {
@@ -701,6 +714,17 @@ function lh(){
          	 };
             var element = $(this)[0];
             element.style.height = "5px";
+
+            if (hasMic == true) {
+                if ($(this).val() != '') {
+                    $('#lhc-send-icon').show();
+                    $('#lhc-mic-icon').hide();
+                    $('#voice-control-message').hide();
+                } else {
+                    $('#lhc-send-icon').hide();
+                    $('#lhc-mic-icon').show();
+                }
+            }
 
             var heightScroll = ((element.scrollHeight)+3);
 
@@ -2638,6 +2662,12 @@ function lh(){
         var modeWindow = this.isWidgetMode == true ? '/(mode)/widget' : '';
         textArea.val('');
 		var inst = this;
+
+		if ($('#lhc-mic-icon').length > 0){
+		    $('#lhc-send-icon').hide();
+		    $('#lhc-mic-icon').show();
+		    $('#voice-control-message').hide();
+        }
 
 		if (sessionStorage) {
 			try {
