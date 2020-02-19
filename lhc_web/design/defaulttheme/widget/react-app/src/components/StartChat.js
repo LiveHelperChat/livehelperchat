@@ -209,8 +209,8 @@ class StartChat extends Component {
                                 <textarea disabled={this.props.chatwidget.get('processStatus') == 1} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} style={{height: this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.Question) || (this.state.Question.length > this.textMessageRef.current.offsetWidth/8.6)) ? '60px' : 'inherit'}} aria-label="Type your message here..." id="CSChatMessage" value={this.state.Question} placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} onKeyDown={this.enterKeyDown} onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})} ref={this.textMessageRef} rows="1" className={classMessageInput} />
                             </div>
                             <div className="disable-select">
-                                <div className="user-chatwidget-buttons" id="ChatSendButtonContainer">
-                                    <a href="#" onClick={this.handleSubmit} title="Send">
+                                <div className="user-chatwidget-buttons pt-2" id="ChatSendButtonContainer">
+                                    <a href="#" onClick={this.handleSubmit} title={t('button.start_chat')}>
                                         <i className="material-icons text-muted settings">send</i>
                                     </a>
                                 </div>
