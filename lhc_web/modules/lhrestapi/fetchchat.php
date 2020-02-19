@@ -27,6 +27,13 @@ try {
             throw new Exception('Invalid hash');
         }
 
+        if (isset($_GET['department_groups']) && $_GET['department_groups'] == 'true') {
+            $chat->department_groups = array();
+            foreach (erLhcoreClassModelDepartamentGroupMember::getList(array('filter' => array('dep_id' => $chat->dep_id))) as $depGroup) {
+                $chat->department_groups[] = $depGroup->dep_group_id;
+            };
+        }
+        
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('api.fetchchat', array('chat' => & $chat));
 
         erLhcoreClassChat::prefillGetAttributesObject($chat, array('user','plain_user_name'), array(), array('do_not_clean' => true));

@@ -596,6 +596,14 @@
             "required": false,
             "type": "string",
             "format": "int32"
+          },
+          {
+            "name": "department_groups",
+            "description": "Should we include department_groups attribute in response",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
           }
         ],
         "responses": {
