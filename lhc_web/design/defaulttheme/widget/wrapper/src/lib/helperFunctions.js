@@ -150,6 +150,20 @@ class _helperFunctions {
         request.send();
         return {type: "xhr", req: request}
     }
+
+    insertCssRemoteFile(attr) {
+        var d = document.getElementsByTagName("head")[0],
+            k = document.createDocumentFragment(),
+            e = document.createElement('link');
+
+        e.rel = "stylesheet";
+        e.crossOrigin = "*";
+
+        for (var b in attr) e[b] = attr[b];
+
+        k.appendChild(e);
+        d.appendChild(k);
+    }
 };
 
 const helperFunctions = new _helperFunctions();

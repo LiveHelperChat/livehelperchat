@@ -88,6 +88,11 @@ $ViewList['loadsound'] = array(
     'uparams' => array()
 );
 
+$ViewList['themepage'] = array(
+    'params' => array('theme'),
+    'uparams' => array()
+);
+
 $ViewList['theme'] = array(
     'params' => array('theme'),
     'uparams' => array()

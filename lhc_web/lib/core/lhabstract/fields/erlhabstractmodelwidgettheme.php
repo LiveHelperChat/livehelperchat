@@ -292,6 +292,17 @@ $fields = array(
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
+                    'custom_page_css' => array(
+   						'type' => 'textarea',
+   						'height' => '50px',
+                        'ace_editor' => 'css',
+                        'main_attr' => 'bot_configuration_array',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom page CSS (new widget only)'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
                 'custom_html_bot' => array(
    						'type' => 'textarea',
    						'height' => '50px',

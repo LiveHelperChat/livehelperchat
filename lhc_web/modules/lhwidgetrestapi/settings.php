@@ -95,6 +95,8 @@ if (isset($_GET['theme']) && is_numeric($_GET['theme']) && (int)$_GET['theme'] >
     }
 }
 
+$pageCSS = false;
+
 if (isset($outputResponse['theme'])){
     $theme = erLhAbstractModelWidgetTheme::fetch($outputResponse['theme']);
     if ($theme instanceof erLhAbstractModelWidgetTheme) {
@@ -107,6 +109,10 @@ if (isset($outputResponse['theme'])){
         }
 
         $outputResponse['theme_v'] = $theme->modified;
+
+        if (isset($theme->bot_configuration_array['custom_page_css']) && $theme->bot_configuration_array['custom_page_css'] != '') {
+            $pageCSS = true;
+        }
     }
 }
 
@@ -167,7 +173,10 @@ $outputResponse['static'] = array(
     'font_status' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('fonts/lhc.woff'),
     'font_widget' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('fonts/MaterialIcons-Regularv2.woff2'),
     'chunk_js' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('js/widgetv2'),
+    'page_css' => $pageCSS
 );
+
+
 
 $outputResponse['chunks_location'] = erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('js/widgetv2');
 

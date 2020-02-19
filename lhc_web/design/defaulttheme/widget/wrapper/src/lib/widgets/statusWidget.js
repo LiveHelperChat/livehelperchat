@@ -68,6 +68,10 @@ export class statusWidget{
 
         this.cont.insertCssRemoteFile({onload: ()=>{this.loadStatus['main'] = true; this.checkLoadStatus()}, crossOrigin : "anonymous",  href : this.attributes.staticJS['status_css'] });
 
+        if (this.attributes.staticJS['page_css']) {
+            helperFunctions.insertCssRemoteFile({crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/themepage/' + this.attributes.theme + '?v=' + this.attributes.theme_v});
+        }
+
         attributes.onlineStatus.subscribe((data) => this.toggleOfflineIcon(data));
 
         if (this.attributes.mode !== 'popup') {
