@@ -47,6 +47,7 @@ class erLhcoreClassGenericBotActionActions {
                             'typos_exc' => (isset($action['content']['event_typos_exc']) ? $action['content']['event_typos_exc'] : null),
                             'words_alt' => (isset($action['content']['event_in_validate']) ? $action['content']['event_in_validate'] : null),
                             'validation_args' => (isset($action['content']['event_arg_match']) ? $action['content']['event_arg_match'] : null),
+                            'validation_static_args' => (isset($action['content']['event_arg_static']) ? $action['content']['event_arg_static'] : null),
                         ),
                         'event' => (isset($action['content']['event']) ? $action['content']['event'] : null),
                         'event_args' => array(
@@ -79,7 +80,8 @@ class erLhcoreClassGenericBotActionActions {
             'render_args_event' => array(
                 'invalid' => (isset($action['content']['attr_options']['collection_callback_cancel']) ? $action['content']['attr_options']['collection_callback_cancel'] : null),
                 'valid' => (isset($action['content']['attr_options']['collection_callback_pattern']) ? $action['content']['attr_options']['collection_callback_pattern'] : null),
-                'format' => (isset($action['content']['attr_options']['collection_callback_format']) ? $action['content']['attr_options']['collection_callback_format'] : null)
+                'format' => (isset($action['content']['attr_options']['collection_callback_format']) ? $action['content']['attr_options']['collection_callback_format'] : null),
+                'static' => (isset($action['content']['event_arg_static']) ? $action['content']['event_arg_static'] : null),
             ),
             'chat' => & $chat
         ));

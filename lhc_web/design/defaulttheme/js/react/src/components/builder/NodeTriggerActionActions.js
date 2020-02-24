@@ -120,6 +120,13 @@ class NodeTriggerActionActions extends Component {
                         </div>
                     </div>
 
+                    <div className="col-12">
+                        <div className="form-group">
+                            <label>Static arguments</label>
+                            <textarea className="form-control form-control-sm" placeholder="Argument value ==> identifier" onChange={(e) => this.onchangeAttr({'path' : ['event_arg_static'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','event_arg_static'])}></textarea>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div className="form-group">

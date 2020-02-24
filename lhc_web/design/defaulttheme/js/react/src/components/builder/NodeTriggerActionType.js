@@ -82,6 +82,10 @@ export default ({onChange, type}) => {
         {
             'value': 'execute_js',
             'text' : 'Execute Javascript',
+        },
+        {
+            'value': 'repeat_restrict',
+            'text' : 'Restrict execution more than defined times',
         }
     ]);
 
