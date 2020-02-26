@@ -10,7 +10,10 @@ class erLhcoreClassGenericBotActionTyping {
 
         $metaMessage = array();
 
-        if (isset($action['content']['duration']) && !empty($action['content']['duration']) && $action['content']['duration'] > 0)
+        if (
+            (isset($action['content']['duration']) && !empty($action['content']['duration']) && $action['content']['duration'] > 0) ||
+            (isset($action['content']['untill_message']) && $action['content']['untill_message'] == true)
+        )
         {
 
             // Message should be send only on start chat event, but we are not in start chat mode

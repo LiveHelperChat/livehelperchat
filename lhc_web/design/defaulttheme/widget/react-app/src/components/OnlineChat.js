@@ -236,6 +236,7 @@ class OnlineChat extends Component {
                                 this.addClass(msg,'meta-hider');
                                 this.addClass(msg,'message-row-typing');
                                 this.removeClass(msg,'hide');
+                                this.removeClass(msg,'fade-in-fast');
 
                                 var elementsBody = msg.getElementsByClassName("msg-body");
 
@@ -262,6 +263,7 @@ class OnlineChat extends Component {
                     }, duration * 1000);
 
                     this.removeClass(msg,'hide');
+                    this.removeClass(msg,'fade-in-fast');
 
                     var elementsBody = msg.getElementsByClassName("msg-body");
 
