@@ -177,7 +177,7 @@ class StartChat extends Component {
                 var classMessageInput = "pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0";
 
                 if (this.props.chatwidget.get('processStatus') == 1) {
-                    classMessageInput += " invisible ";
+                    classMessageInput += " d-none ";
                 }
 
                 return (

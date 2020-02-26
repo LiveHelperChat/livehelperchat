@@ -859,17 +859,12 @@ textarea[name=ChatMessage] {
     }
 }
 
-.content-loader {
-    background: url(../images/icons/loading.png) no-repeat center center;
-}
+.loader-submit,
+ .content-loader {
+     background: url(../images/icons/loading.png) no-repeat center center;
+ }
 
 .loader-submit{
-    border: 2px solid #f3f3f3; /* Light grey */
-    border-top: 2px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    animation: lhc-spin 2s linear infinite;
-    position: absolute;
-    margin-top: 3px;
+    width: 100%;
+    height: 36px;
 }
