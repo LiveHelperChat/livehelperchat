@@ -376,6 +376,12 @@ class OnlineChat extends Component {
         if (this.props.chatwidget.getIn(['chat_ui_state','confirm_close']) == 1 && this.state.preloadSurvey === false) {
             this.setState({'preloadSurvey':true});
         }
+
+        // Auto focus if it's show operation
+        if (prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true && this.props.chatwidget.get('mode') == 'widget' && this.textMessageRef.current) {
+            this.textMessageRef.current.focus();
+        }
+
     }
 
     scrollBottom() {

@@ -112,6 +112,12 @@ class StartChat extends Component {
         if (document.getElementById('id-container-fluid')) {
             helperFunctions.sendMessageParent('widgetHeight', [{'height' : document.getElementById('id-container-fluid').offsetHeight+40}]);
         }
+
+        // Auto focus if it's show operation
+        if (prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true && this.props.chatwidget.get('mode') == 'widget' && this.textMessageRef.current) {
+            this.textMessageRef.current.focus();
+        }
+
     }
 
     static getDerivedStateFromProps(props, state) {
