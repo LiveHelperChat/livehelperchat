@@ -507,7 +507,7 @@ class erLhcoreClassChatWorkflow {
 
                 $chat->syncAndLock();
 
-                if ($chat->user_id == 0 || ($department->max_timeout_seconds > 0 && $chat->tslasign < time()-$department->max_timeout_seconds)) {
+                if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && ($chat->user_id == 0 || ($department->max_timeout_seconds > 0 && $chat->tslasign < time()-$department->max_timeout_seconds))) {
 
                     $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.autoassign', array(
                         'department' => & $department,
@@ -598,11 +598,26 @@ class erLhcoreClassChatWorkflow {
 
                     if ($user_id > 0) {
 
+                        $previousMessage = '';
+
                         // Update previously assigned operator statistic
                         if ($chat->user_id > 0) {
+                            $userOld = erLhcoreClassModelUser::fetch($chat->user_id);
+                            $previousMessage = $userOld->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','did not accepted chat in time.');
                             erLhcoreClassChat::updateActiveChats($chat->user_id);
                         }
 
+                        $userNew = erLhcoreClassModelUser::fetch($user_id);
+
+                        $msg = new erLhcoreClassModelmsg();
+                        $msg->msg = $previousMessage . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat was assigned to') . ' ' . $userNew->name_support;
+                        $msg->chat_id = $chat->id;
+                        $msg->user_id = -1;
+                        $msg->time = time();
+                        erLhcoreClassChat::getSession()->save($msg);
+
+
+                        $chat->last_msg_id = $msg->id;
                         $chat->tslasign = time();
                         $chat->user_id = $user_id;
                         $chat->updateThis();
