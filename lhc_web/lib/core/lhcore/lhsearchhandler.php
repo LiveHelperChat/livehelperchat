@@ -94,7 +94,9 @@ class erLhcoreClassSearchHandler
                     if ($field['filter_type'] == 'filter') {
                         
                         if (is_bool($inputParams->$key) && $inputParams->$key == true) {
-                            $filter[$field['filter_type']][$field['filter_table_field']] = 1;
+
+                            $filter[$field['filter_type']][$field['filter_table_field']] = isset($field['filter_value_if_checked']) ? $field['filter_value_if_checked'] : 1;
+
                         } else {
                             $filter[$field['filter_type']][$field['filter_table_field']] = $inputParams->$key;
                         }

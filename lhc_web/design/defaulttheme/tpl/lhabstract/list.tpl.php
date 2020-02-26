@@ -11,6 +11,11 @@
             <?php ;
             break;
 
+            case 'autoresponder': ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhabstract/filter/autoresponder.tpl.php')); ?>
+            <?php ;
+            break;
+
         default:
             ;
             break;
