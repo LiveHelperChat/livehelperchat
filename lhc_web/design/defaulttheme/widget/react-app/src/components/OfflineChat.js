@@ -96,7 +96,7 @@ class OfflineChat extends Component {
 
                     {this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div>}
 
-                    <p className="pb-1 mb-0 font-weight-bold" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','offline_intro'])}}></p>
+                    <p className="pb-1 mb-0 font-weight-bold offline-intro" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','offline_intro'])}}></p>
 
                     <form onSubmit={this.handleSubmit}>
                         <div className="row pt-2">
