@@ -511,7 +511,7 @@ class erLhcoreClassModelChatOnlineUser
                         $normalizedObject->country_name = $responseData['country'];
                         $normalizedObject->lat = substr($responseData['lat'],0,10);
                         $normalizedObject->lon = substr($responseData['lon'],0,10);
-                        $normalizedObject->city = $responseData['city'] . ($responseData['region'] != '' ? ', ' . $responseData['region'] : '') . ($responseData['isp'] != '' ? ' || ' . $responseData['isp'] : '');
+                        $normalizedObject->city = $responseData['city'] . ($responseData['region'] != '' ? ', ' . $responseData['region'] : '') . ($responseData['org'] != '' ? ' || ' . $responseData['org'] : '');
 
                         return $normalizedObject;
                     }
