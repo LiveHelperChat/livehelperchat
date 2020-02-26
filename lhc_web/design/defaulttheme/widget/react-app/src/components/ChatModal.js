@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import axios from "axios";
 import parse, { domToReact } from 'html-react-parser';
 import { withTranslation } from 'react-i18next';
+import Xwiper from 'xwiper';
 
 class ChatModal extends PureComponent {
 
@@ -18,9 +19,25 @@ class ChatModal extends PureComponent {
         .then((response) => {
             this.setState({'body' : response.data});
             var container = document.getElementById('dialog-content');
-
             var bsn = require("bootstrap.native/dist/bootstrap-native-v4");
-            Array.prototype.forEach.call(container.querySelectorAll('[data-toggle="tab"]'), function(element){ new bsn.Tab( element) });
+            var tabs = container.querySelectorAll('[data-toggle="tab"]');
+
+            if (tabs.length > 0) {
+                var activeTab = 0;
+                Array.prototype.forEach.call(tabs, function(element){ new bsn.Tab( element) });
+
+                const xwiper = new Xwiper('.tab-content');
+                xwiper.onSwipeLeft(() => {
+                    activeTab = activeTab < (tabs.length - 1) ? (activeTab + 1) : 0;
+                    tabs[activeTab].Tab.show();
+                });
+
+                xwiper.onSwipeRight(() => {
+                    activeTab = activeTab > 0 ? (activeTab - 1) : (tabs.length - 1);
+                    tabs[activeTab].Tab.show();
+                });
+            }
+
         })
         .catch((err) => {
             console.log(err);
