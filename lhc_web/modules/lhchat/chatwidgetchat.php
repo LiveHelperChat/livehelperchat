@@ -124,8 +124,19 @@ try {
                 $chat->unanswered_chat = 0;
             }
             
-            erLhcoreClassChat::getSession()->update($chat);
-        }        
+            $chat->updateThis(array('update' => array(
+                'unanswered_chat',
+                'operation_admin',
+                'nick',
+                'user_status',
+                'has_unread_op_messages',
+                'unread_op_messages_informed',
+                'user_typing_txt',
+                'support_informed',
+                'user_typing',
+                'is_user_typing'
+            )));
+        }
 
         $db->commit();
 

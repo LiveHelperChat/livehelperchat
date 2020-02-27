@@ -53,8 +53,19 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
     	        
     	        $explicitClosed = true;
 		    }
-		    
-		    erLhcoreClassChat::getSession()->update($chat);
+
+            $chat->updateThis(array('update' => array(
+                'last_msg_id',
+                'last_user_msg_time',
+                'wait_time',
+                'status_sub',
+                'user_typing_txt',
+                'user_closed_ts',
+                'is_user_typing',
+                'user_typing',
+                'support_informed',
+                'user_status'
+            )));
 		    
 		    if ($chat->has_unread_messages == 1 && $chat->last_user_msg_time < (time() - 5)) {
 		        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.unread_chat',array('chat' => & $chat));

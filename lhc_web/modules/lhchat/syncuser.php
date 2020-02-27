@@ -206,7 +206,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    		    		    
 		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
 		    	$blocked = 'true';
-		    	$breakSync = true;		    	
+		    	$breakSync = true;
 		    	$responseArray['closed'] = true;
 		    	$status = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You have been redirected to survey!');
 		    	if ($chat->status_sub_arg != '') {		    	    
@@ -240,7 +240,15 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    
 		    if ($saveChat === true || $chat->lsync < time()-30) {
 		        $chat->lsync = time();
-		    	$chat->updateThis();
+		    	$chat->updateThis(array('update' => array(
+		    	    'unanswered_chat',
+		    	    'has_unread_op_messages',
+		    	    'unread_op_messages_informed',
+		    	    'user_status',
+		    	    'operation',
+		    	    'status_sub',
+		    	    'lsync',
+                )));
 		    }
 		    
 		    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncuser',array('chat' => & $chat, 'response' => & $responseArray));

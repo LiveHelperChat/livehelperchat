@@ -104,8 +104,20 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 				        	$onlineuser->reopen_chat = 0;
 				        	$onlineuser->saveThis();
 				        }
-				        
-				        erLhcoreClassChat::getSession()->update($chat);
+
+                        $chat->updateThis(array('update' => array(
+                                'wait_time',
+                                'pnd_time',
+                                'last_msg_id',
+                                'status_sub',
+                                'user_status',
+                                'support_informed',
+                                'user_closed_ts',
+                                'user_typing',
+                                'is_user_typing',
+                                'user_typing_txt',
+                        )));
+
 				        				        
 				        if ($chat->has_unread_messages == 1 && $chat->last_user_msg_time < (time() - 5)) {
 				            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.unread_chat',array('chat' => & $chat));
@@ -139,14 +151,15 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 
                     erLhcoreClassChat::getSession()->save($msg);
 
-                    //$chat->last_user_msg_time = $msg->time;
-
                     // Set last message ID
                     if ($chat->last_msg_id < $msg->id) {
                         $chat->last_msg_id = $msg->id;
                     }
 
-                    erLhcoreClassChat::getSession()->update($chat);
+                    $chat->updateThis(array('update' => array(
+                        'status_sub',
+                        'last_msg_id'
+                    )));
 
                     if ($chat->has_unread_messages == 1 && $chat->last_user_msg_time < (time() - 5)) {
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.unread_chat',array('chat' => & $chat));

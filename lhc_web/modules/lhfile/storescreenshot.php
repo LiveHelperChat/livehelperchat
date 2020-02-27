@@ -45,7 +45,7 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
                     $chat->user_typing = time();
                     $chat->is_user_typing = 1;
                     $chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Screenshot store error').': '.implode('; ', $errors),ENT_QUOTES);
-                    $chat->saveThis();
+                    $chat->saveThis(array('update' => array('user_typing_txt','is_user_typing','user_typing','support_informed')));
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.sync_back_office');
 
                     echo json_encode(array('stored' => 'false'));
@@ -132,7 +132,7 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
                                 $chat->user_typing = time();
 
                                 $chat->screenshot_id = $fileUpload->id;
-                                $chat->updateThis();
+                                $chat->updateThis(array('update' => array('screenshot_id','user_typing','user_typing_txt','last_msg_id','last_user_msg_time')));
 
                                 // Force operators to check for new messages
                                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.messages_added_passive', array(

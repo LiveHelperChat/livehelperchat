@@ -46,12 +46,16 @@ try {
 
             $chat->user_status = erLhcoreClassModelChat::USER_STATUS_JOINED_CHAT;
 
-            if ($chat->unanswered_chat == 1 && $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)
-            {
-                $chat->unanswered_chat = 0;
-            }
-
-            erLhcoreClassChat::getSession()->update($chat);
+            $chat->updateThis(array('update' => array(
+                'unanswered_chat',
+                'user_status',
+                'has_unread_op_messages',
+                'unread_op_messages_informed',
+                'user_typing_txt',
+                'is_user_typing',
+                'user_typing',
+                'support_informed',
+            )));
         }
 
         $db->commit();

@@ -48,7 +48,7 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
 			    $tpl->set('chat',$Chat);
 		        
 			    $Chat->operation .= "lhinst.updateMessageRow({$msg->id});\n";
-			    $Chat->updateThis();
+			    $Chat->updateThis(array('update' => array('operation')));
 			    
 		        echo erLhcoreClassChat::safe_json_encode(array('error' => 'f','msg' => trim($tpl->fetch())));
 	        }	        
