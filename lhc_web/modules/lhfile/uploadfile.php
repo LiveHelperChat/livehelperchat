@@ -65,7 +65,7 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
                 }
 
                 $chat->user_typing = time();
-                erLhcoreClassChat::getSession()->update($chat);
+                $chat->updateThis(array('update' => array('user_typing_txt','user_typing')));
 
                 echo json_encode(array('error' => 'false'));
             } else {

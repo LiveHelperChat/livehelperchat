@@ -66,7 +66,14 @@ try {
                     $chat->unanswered_chat = 0;
                 }
 
-	        	erLhcoreClassChat::getSession()->update($chat);
+                $chat->updateThis(array('update' => array(
+                    'unanswered_chat',
+                    'user_typing_txt',
+                    'is_user_typing',
+                    'user_typing',
+                    'support_informed',
+                )));
+
 
         	$db->commit();
         }
