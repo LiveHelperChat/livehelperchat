@@ -168,7 +168,15 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 
 		    if ($saveChat === true || $chat->lsync < time()-30) {
 		        $chat->lsync = time();
-		    	$chat->updateThis();
+		    	$chat->updateThis(array('update' => array(
+		    	    'lsync',
+                    'unanswered_chat',
+                    'has_unread_op_messages',
+                    'unread_op_messages_informed',
+                    'user_status',
+                    'operation',
+                    'status_sub',
+                )));
 		    }
 
 		    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncuser',array('chat' => & $chat, 'response' => & $responseArray));

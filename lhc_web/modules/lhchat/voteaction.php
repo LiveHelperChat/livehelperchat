@@ -18,7 +18,7 @@ if ($chat->hash == $Params['user_parameters']['hash'] && ($chat->status == erLhc
 
         $chat->operation_admin .= "lhinst.updateVoteStatus(".$chat->id.");";
         
-        $chat->updateThis();
+        $chat->updateThis(array('update' => array('fbst','user_typing','user_typing_txt','operation_admin')));
 
         echo json_encode(array('error' => 'false', 'status' => $chat->fbst));
         exit;

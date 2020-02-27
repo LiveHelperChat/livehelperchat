@@ -110,7 +110,7 @@ class erLhcoreClassFileUpload extends UploadHandler
                 }
 
                 $chat->has_unread_messages = 1;
-                $chat->updateThis();
+                $chat->updateThis(array('update' => array('last_user_msg_time','last_msg_id','has_unread_messages')));
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg, 'chat' => & $chat));
             }

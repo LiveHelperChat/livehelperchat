@@ -64,7 +64,7 @@ try {
     			}
     		} else {
     			$chat->nc_cb_executed = 1;
-    			$chat->updateThis();
+    			$chat->updateThis(array('update' => array('nc_cb_executed')));
     		}
     	}
     	
@@ -90,7 +90,7 @@ try {
     				
     				if ($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM) {
         				$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM;
-        				$chat->updateThis();
+        				$chat->updateThis(array('update' => array('status_sub')));
     				}
     				
     			} else {

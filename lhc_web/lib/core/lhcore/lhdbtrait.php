@@ -10,10 +10,10 @@ trait erLhcoreClassDBTrait
         }
     }
 
-    public function saveThis()
+    public function saveThis($params = array())
     {
         $this->beforeSave();
-        self::getSession()->saveOrUpdate($this);
+        self::getSession()->saveOrUpdate($this, (isset($params['ignore']) ? $params['ignore'] : array()), (isset($params['update']) ? $params['update'] : array()));
         $this->afterSave();
         $this->clearCache();
     }

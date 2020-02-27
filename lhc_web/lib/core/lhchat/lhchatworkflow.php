@@ -21,7 +21,7 @@ class erLhcoreClassChatWorkflow {
             $chat->last_msg_id = $msg->id;
         }
 
-        $chat->updateThis();
+        $chat->updateThis(array('update' => array('last_msg_id')));
     }
 
     /**
@@ -83,16 +83,16 @@ class erLhcoreClassChatWorkflow {
                 $chat->nc_cb_executed = 0;
             }
 
-            if ($chat->department->na_cb_execute == 1) {
-                $chat->na_cb_executed = 0;
-            }
-
             erLhAbstractModelAutoResponder::updateAutoResponder($chat);
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_assigned_department',array('chat' => & $chat));
+
+            $chat->updateThis(array('update' => array('dep_id','last_user_msg_time','last_msg_id','reinform_timeout','unread_messages_informed','user_id','na_cb_executed','transfer_if_na','transfer_timeout_ts')));
+        } else {
+            $chat->updateThis(array('update' => array('transfer_if_na','transfer_timeout_ts')));
         }
 
-        $chat->updateThis();
+
     }
 
     public static function mainUnansweredChatWorkflow() {
@@ -119,7 +119,7 @@ class erLhcoreClassChatWorkflow {
     public static function unansweredChatWorkflow(erLhcoreClassModelChat & $chat){
 
         $chat->na_cb_executed = 1;
-        $chat->updateThis();
+        $chat->updateThis(array('update' => array('na_cb_executed')));
 
         // Execute callback if it exists
         $extensions = erConfigClassLhConfig::getInstance()->getOverrideValue( 'site', 'extensions' );
@@ -138,7 +138,7 @@ class erLhcoreClassChatWorkflow {
     public static function unreadInformWorkflow($options = array(), & $chat) {
 
         $chat->unread_messages_informed = 1;
-        $chat->updateThis();
+        $chat->updateThis(array('update' => array('unread_messages_informed')));
 
         if (in_array('mail', $options['options'])) {
             erLhcoreClassChatMail::sendMailUnacceptedChat($chat,7);
@@ -189,7 +189,7 @@ class erLhcoreClassChatWorkflow {
     public static function newChatInformWorkflow($options = array(), & $chat) {
 
         $chat->nc_cb_executed = 1;
-        $chat->updateThis();
+        $chat->updateThis(array('update' => array('nc_cb_executed')));
 
         if (in_array('mail', $options['options'])) {
             erLhcoreClassChatMail::sendMailUnacceptedChat($chat);
@@ -620,7 +620,7 @@ class erLhcoreClassChatWorkflow {
                         $chat->last_msg_id = $msg->id;
                         $chat->tslasign = time();
                         $chat->user_id = $user_id;
-                        $chat->updateThis();
+                        $chat->updateThis(array('update' => array('last_msg_id','tslasign','user_id')));
 
                         erLhcoreClassUserDep::updateLastAcceptedByUser($user_id, time());
 
@@ -735,7 +735,7 @@ class erLhcoreClassChatWorkflow {
             foreach ($items as $item) {
                 $item->has_unread_op_messages = 0;
                 $item->unread_op_messages_informed = 1;
-                $item->updateThis();
+                $item->updateThis(array('update' => array('has_unread_op_messages','unread_op_messages_informed')));
             }
 
             // Now inform visitors

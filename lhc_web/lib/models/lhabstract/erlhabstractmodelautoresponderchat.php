@@ -50,7 +50,7 @@ class erLhAbstractModelAutoResponderChat
                 erLhcoreClassChat::getSession()->save($msg);
 
                 $this->chat->last_msg_id = $msg->id;
-                $this->chat->updateThis();
+                $this->chat->updateThis(array('update' => array('last_msg_id')));
             }
         }
     }
@@ -113,7 +113,7 @@ class erLhAbstractModelAutoResponderChat
                                 erLhcoreClassChat::getSession()->save($msg);
 
                                 $this->chat->last_msg_id = $msg->id;
-                                $this->chat->updateThis();
+                                $this->chat->updateThis(array('update' => array('last_msg_id')));
                             }
                         }
                     }
@@ -158,7 +158,7 @@ class erLhAbstractModelAutoResponderChat
                         erLhcoreClassChat::getSession()->save($msg);
 
                         $this->chat->last_msg_id = $msg->id;
-                        $this->chat->updateThis();
+                        $this->chat->updateThis(array('update' => array('last_msg_id','status_sub','last_user_msg_time','last_op_msg_time','lsync','last_user_msg_time')));
                     }
                 }
 
@@ -176,7 +176,7 @@ class erLhAbstractModelAutoResponderChat
 
                             $this->chat->last_msg_id = $msg->id;
                             $this->chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW;
-                            $this->chat->updateThis();
+                            $this->chat->updateThis(array('update' => array('last_msg_id','status_sub')));
 
                             if ($this->chat->user_id > 0) {
                                 erLhcoreClassChat::updateActiveChats($this->chat->user_id);
@@ -204,7 +204,7 @@ class erLhAbstractModelAutoResponderChat
                                 erLhcoreClassChat::getSession()->save($msg);
 
                                 $this->chat->last_msg_id = $msg->id;
-                                $this->chat->updateThis();
+                                $this->chat->updateThis(array('update' => array('last_msg_id')));
                             }
                         }
 
@@ -231,7 +231,7 @@ class erLhAbstractModelAutoResponderChat
                                 erLhcoreClassChat::getSession()->save($msg);
 
                                 $this->chat->last_msg_id = $msg->id;
-                                $this->chat->updateThis();
+                                $this->chat->updateThis(array('update' => array('last_msg_id')));
                             }
                         }
 
@@ -257,7 +257,7 @@ class erLhAbstractModelAutoResponderChat
                             erLhcoreClassChat::getSession()->save($msg);
 
                             $this->chat->last_msg_id = $msg->id;
-                            $this->chat->updateThis();
+                            $this->chat->updateThis(array('update' => array('last_msg_id')));
                         }
                     }
                 }
