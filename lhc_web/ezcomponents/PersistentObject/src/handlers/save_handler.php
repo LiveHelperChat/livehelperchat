@@ -69,9 +69,6 @@ class ezcPersistentSaveHandler extends ezcPersistentSessionHandler
      */
     public function update( $object, $updateIgnoreColumns = array(), $updateOnlyColumn = array()  )
     {
-        
-        print_r($updateIgnoreColumns);
-        print_r($updateOnlyColumn);
         $this->updateInternal( $object, true, $updateIgnoreColumns, $updateOnlyColumn );
     }
 
