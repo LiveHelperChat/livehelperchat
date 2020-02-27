@@ -18,18 +18,18 @@ trait erLhcoreClassDBTrait
         $this->clearCache();
     }
 
-    public function saveOrUpdate()
+    public function saveOrUpdate($params = array())
     {
         $this->beforeSave();
-        self::getSession()->saveOrUpdate($this);
+        self::getSession()->saveOrUpdate($this, (isset($params['ignore']) ? $params['ignore'] : array()), (isset($params['update']) ? $params['update'] : array()));
         $this->afterSave();
         $this->clearCache();
     }
 
-    public function updateThis()
+    public function updateThis($params = array())
     {
         $this->beforeUpdate();
-        self::getSession()->update($this);
+        self::getSession()->update($this, (isset($params['ignore']) ? $params['ignore'] : array()), (isset($params['update']) ? $params['update'] : array()));
         $this->afterUpdate();
         $this->clearCache();
     }

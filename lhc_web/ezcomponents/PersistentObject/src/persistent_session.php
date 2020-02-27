@@ -426,9 +426,9 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
      * @param object $object
      * @return void
      */
-    public function update( $object, $updateIgnoreColumns = array() )
+    public function update( $object, $updateIgnoreColumns = array(), $updateOnlyColumn = array() )
     {
-        return $this->saveHandler->update( $object, $updateIgnoreColumns );
+        return $this->saveHandler->update( $object, $updateIgnoreColumns, $updateOnlyColumn );
     }
 
     /**
@@ -451,7 +451,7 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
      */
     public function saveOrUpdate( $object )
     {
-        return $this->saveHandler->saveOrUpdate( $object );
+        return $this->saveHandler->saveOrUpdate( $object, $updateIgnoreColumns = array(), $updateOnlyColumn = array());
     }
 
     /**

@@ -18,8 +18,6 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
                 throw new Exception('You do not have permission to open all pending chats.');
             }
 
-	        $db->beginTransaction();
-	        
     		$operatorAccepted = false;
     		$chatDataChanged = false;
     		
@@ -91,9 +89,11 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
     	    }
 
     	    erLhcoreClassChat::getSession()->update($chat);
-    	    
+
     	    $db->commit();
-    	    
+
+            $db->beginTransaction();
+
     	    session_write_close();
 
     	    if ($chatDataChanged == true) {
@@ -112,7 +112,6 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
     	    	$options = $chat->department->inform_options_array;
     	    	erLhcoreClassChatWorkflow::chatAcceptedWorkflow(array('department' => $chat->department,'options' => $options),$chat);
     	    };
-
     	    $db->commit();
     	    
     	    $tpl->set('chat',$chat);

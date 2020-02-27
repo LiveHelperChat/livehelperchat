@@ -716,7 +716,13 @@ class erLhcoreClassChatWorkflow {
                 $chat->last_msg_id = $msg->id;
             }
 
-            $chat->updateThis();
+            $chat->updateThis(array('update' => array(
+                'last_op_msg_time',
+                'last_user_msg_time',
+                'has_unread_op_messages',
+                'unread_op_messages_informed',
+                'last_msg_id'
+            )));
         }
     }
 
