@@ -57,7 +57,7 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 		            	if ( ($Chat->user_id == $currentUser->getUserID()) && ($Chat->has_unread_messages == 1 || $Chat->unread_messages_informed == 1)) {
 		            		 $Chat->has_unread_messages = 0;
 		            		 $Chat->unread_messages_informed = 0;
-		            		 $Chat->saveThis();
+		            		 $Chat->updateThis(array('update' => array('has_unread_messages','unread_messages_informed')));
 		            	}
 		
 		            	// Auto accept transfered chats if I have opened this chat
@@ -115,7 +115,7 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 		            if ($Chat->operation_admin != '') {
 		            	$ReturnStatuses[$chat_id]['oad'] = $Chat->operation_admin;
 		            	$Chat->operation_admin = '';
-		            	$Chat->saveThis();
+		            	$Chat->updateThis(array('update' => array('operation_admin')));
 		            }	            
 		        }
 		

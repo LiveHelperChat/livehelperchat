@@ -206,7 +206,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    		    		    
 		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
 		    	$blocked = 'true';
-		    	$breakSync = true;		    	
+		    	$breakSync = true;
 		    	$responseArray['closed'] = true;
 		    	$status = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You have been redirected to survey!');
 		    	if ($chat->status_sub_arg != '') {		    	    
