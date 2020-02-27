@@ -603,7 +603,7 @@ class erLhcoreClassChatWorkflow {
                         // Update previously assigned operator statistic
                         if ($chat->user_id > 0) {
                             $userOld = erLhcoreClassModelUser::fetch($chat->user_id);
-                            $previousMessage = $userOld->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','did not accepted chat in time.');
+                            $previousMessage = $userOld->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','did not accepted chat in time.') . ' ';
                             erLhcoreClassChat::updateActiveChats($chat->user_id);
                         }
 
