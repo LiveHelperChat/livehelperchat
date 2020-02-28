@@ -12,25 +12,25 @@ trait erLhcoreClassDBTrait
 
     public function saveThis($params = array())
     {
-        $this->beforeSave();
+        $this->beforeSave($params);
         self::getSession()->saveOrUpdate($this, (isset($params['ignore']) ? $params['ignore'] : array()), (isset($params['update']) ? $params['update'] : array()));
-        $this->afterSave();
+        $this->afterSave($params);
         $this->clearCache();
     }
 
     public function saveOrUpdate($params = array())
     {
-        $this->beforeSave();
+        $this->beforeSave($params);
         self::getSession()->saveOrUpdate($this, (isset($params['ignore']) ? $params['ignore'] : array()), (isset($params['update']) ? $params['update'] : array()));
-        $this->afterSave();
+        $this->afterSave($params);
         $this->clearCache();
     }
 
     public function updateThis($params = array())
     {
-        $this->beforeUpdate();
+        $this->beforeUpdate($params);
         self::getSession()->update($this, (isset($params['ignore']) ? $params['ignore'] : array()), (isset($params['update']) ? $params['update'] : array()));
-        $this->afterUpdate();
+        $this->afterUpdate($params);
         $this->clearCache();
     }
 
@@ -56,12 +56,12 @@ trait erLhcoreClassDBTrait
         $this->setState($data);
     }
 
-    public function beforeSave()
+    public function beforeSave($params = array())
     {
 
     }
 
-    public function beforeUpdate()
+    public function beforeUpdate($params = array())
     {
 
     }
@@ -71,12 +71,12 @@ trait erLhcoreClassDBTrait
 
     }
 
-    public function afterSave()
+    public function afterSave($params = array())
     {
 
     }
 
-    public function afterUpdate()
+    public function afterUpdate($params = array())
     {
 
     }
