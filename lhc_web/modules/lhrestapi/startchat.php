@@ -89,7 +89,7 @@ try {
         }
 
         $chat->time = $chat->pnd_time = time();
-        $chat->status = 0;
+        $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
         
         $chat->hash = erLhcoreClassChat::generateHash();
         $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
