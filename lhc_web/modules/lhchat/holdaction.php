@@ -15,7 +15,7 @@ try {
         $chat->status_sub = 0;
         $chat->last_op_msg_time = time();
         $chat->last_user_msg_time = time()-1;
-        $chat->saveThis();
+        $chat->updateThis(array('update' => array('status_sub','last_op_msg_time','last_user_msg_time')));
 
         if ($chat->auto_responder !== false) {
             $chat->auto_responder->active_send_status = 0;
@@ -57,7 +57,7 @@ try {
 
         $chat->last_op_msg_time = time();
         $chat->last_user_msg_time = time()-1;
-        $chat->saveThis();
+        $chat->updateThis(array('update' => array('last_msg_id','last_op_msg_time','last_user_msg_time','status_sub')));
     }
 
     echo json_encode(array('error' => false, 'hold' => $hold, 'msg' => $msgStatus));

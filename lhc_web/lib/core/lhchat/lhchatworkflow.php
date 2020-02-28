@@ -505,8 +505,6 @@ class erLhcoreClassChatWorkflow {
                 // Lock chat record for update untill we finish this procedure
                 erLhcoreClassChat::lockDepartment($department->id, $db);
 
-                $chat->syncAndLock();
-
                 if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && ($chat->user_id == 0 || ($department->max_timeout_seconds > 0 && $chat->tslasign < time()-$department->max_timeout_seconds))) {
 
                     $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.autoassign', array(

@@ -228,10 +228,10 @@ class erLhcoreClassChatHelper
             	
         } elseif ($changeStatus == erLhcoreClassModelChat::STATUS_CHATBOX_CHAT) {
             $chat->status = erLhcoreClassModelChat::STATUS_CHATBOX_CHAT;
-            erLhcoreClassChat::getSession()->update($chat);
+            $chat->updateThis(array('update' => array('status')));
         } elseif ($changeStatus == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) {
             $chat->status = erLhcoreClassModelChat::STATUS_OPERATORS_CHAT;
-            erLhcoreClassChat::getSession()->update($chat);
+            $chat->updateThis(array('update' => array('status')));
         }
         
         erLhcoreClassChat::updateActiveChats($chat->user_id);

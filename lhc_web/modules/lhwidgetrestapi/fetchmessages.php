@@ -7,7 +7,7 @@ $db = ezcDbInstance::get();
 $db->beginTransaction();
 
 try {
-    $chat = erLhcoreClassModelChat::fetchAndLock($requestPayload['chat_id']);
+    $chat = erLhcoreClassModelChat::fetch($requestPayload['chat_id']);
 } catch (Exception $e) {
     $chat = false;
 }

@@ -33,15 +33,10 @@ try {
     $db = ezcDbInstance::get();
     $db->beginTransaction();
     
-    $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
+    $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
     
     if ($chat instanceof erLhcoreClassModelChat && $chat->hash === $Params['user_parameters']['hash'] && ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $chat->last_op_msg_time == 0 || $chat->last_op_msg_time > time() - (int)erLhcoreClassModelChatConfig::fetch('open_closed_chat_timeout')->current_value)) {
 
-        if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
-            // Lock chat record for update untill we finish this procedure
-            erLhcoreClassChat::lockDepartment($chat->dep_id, $db);
-         }
-        
     	// Main unasnwered chats callback
     	if ( $chat->na_cb_executed == 0 && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_value > 0) {    		
     		$delay = time()-(erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_value*60);    		

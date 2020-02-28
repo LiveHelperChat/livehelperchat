@@ -34,7 +34,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhc
                 $chat->last_msg_id = $msg->id;
             }
 
-            $chat->saveThis();
+            $chat->saveThis(array('ignore' => array('status')));
 
             // Update department and user stats
             if ($chat->dep_id != $chatOriginal->dep_id) {

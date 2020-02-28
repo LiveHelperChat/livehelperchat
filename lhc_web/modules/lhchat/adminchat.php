@@ -88,7 +88,7 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
     	        $chat->unanswered_chat = 0;
     	    }
 
-    	    erLhcoreClassChat::getSession()->update($chat);
+            $chat->updateThis();
 
     	    $db->commit();
 

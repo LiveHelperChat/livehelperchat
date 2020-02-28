@@ -42,7 +42,7 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
                 $chat->user_typing = time();
                 $chat->user_typing_txt = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/refreshcustomfields','Data refreshed');
                 $chat->operation_admin .= "lhinst.updateVoteStatus(".$chat->id.");";
-                $chat->saveThis();
+                $chat->saveThis(array('ignore' => array('status')));
                 
                 // Force operators to check for new messages
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_chat', array(

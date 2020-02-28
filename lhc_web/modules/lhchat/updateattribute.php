@@ -42,7 +42,7 @@ try {
 		$chat->user_typing = time();
 		$chat->user_typing_txt = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/refreshcustomfields','Custom chat data was saved');
 		$chat->operation_admin .= "lhinst.updateVoteStatus(".$chat->id.");";
-		$chat->saveThis();
+		$chat->updateThis(array('update' => array('additional_data','user_typing','user_typing_txt','operation_admin')));
 		
 		// Force operators to check for new messages
 		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_chat', array(
