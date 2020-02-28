@@ -25,7 +25,7 @@ if ( erLhcoreClassChat::hasAccessToRead($Chat) )
 
         if(empty($errors)) {
             $Chat->remarks = $form->data;
-            $Chat->saveThis();
+            $Chat->saveThis(array('update' => array('remarks')));
             echo json_encode(array('error' => 'false'));
             exit;
         } else {
