@@ -38,7 +38,7 @@ class erLhcoreClassGenericBotActionCommand {
                 // We do not have to set this
                 // Because it triggers auto responder of not replying
                 // $chat->last_op_msg_time = time();
-                $chat->saveThis();
+                $chat->updateThis();
 
                 $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_chat_command_transfer', array(
                     'action' => $action,
@@ -64,7 +64,7 @@ class erLhcoreClassGenericBotActionCommand {
         } elseif ($action['content']['command'] == 'transfertobot') {
             $chat->status = erLhcoreClassModelChat::STATUS_BOT_CHAT;
             $chat->last_op_msg_time = time();
-            $chat->saveThis();
+            $chat->updateThis();
 
             if (isset($action['content']['payload']) && is_numeric($action['content']['payload'])) {
 
