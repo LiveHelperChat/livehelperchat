@@ -88,10 +88,17 @@ class erLhcoreClassGenericBotActionIntent {
                             return $return;
 
                         } else {
-                            $pendingAction = new erLhcoreClassModelGenericBotPendingEvent();
-                            $pendingAction->chat_id = $chat->id;
-                            $pendingAction->trigger_id = $intent['content']['trigger_id'];
-                            $pendingAction->saveThis();
+                            for ($i = 0; $i < 3; $i++) {
+                                try {
+                                    $pendingAction = new erLhcoreClassModelGenericBotPendingEvent();
+                                    $pendingAction->chat_id = $chat->id;
+                                    $pendingAction->trigger_id = $intent['content']['trigger_id'];
+                                    $pendingAction->saveThis();
+                                    break;
+                                } catch (Exception $e) {
+                                    usleep(500);
+                                }
+                            }
                         }
                     }
                 }

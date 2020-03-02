@@ -110,6 +110,32 @@ class erLhcoreClassChatHelper
         return '';
     }
     
+    public static function cleanupOnClose($chatId) {
+        $db = ezcDbInstance::get();
+
+        $q = $db->createDeleteQuery();
+
+        // Auto responder chats
+        $q->deleteFrom( 'lh_abstract_auto_responder_chat' )->where( $q->expr->eq( 'chat_id', $chatId ) );
+        $stmt = $q->prepare();
+        $stmt->execute();
+
+        // Repeat counter remove
+        $q->deleteFrom( 'lh_generic_bot_repeat_restrict' )->where( $q->expr->eq( 'chat_id', $chatId ) );
+        $stmt = $q->prepare();
+        $stmt->execute();
+
+        // Repeat counter remove
+        $q->deleteFrom( 'lh_generic_bot_chat_event' )->where( $q->expr->eq( 'chat_id', $chatId ) );
+        $stmt = $q->prepare();
+        $stmt->execute();
+
+        // Pending event remove
+        $q->deleteFrom( 'lh_generic_bot_pending_event' )->where( $q->expr->eq( 'chat_id', $chatId ) );
+        $stmt = $q->prepare();
+        $stmt->execute();
+    }
+
     public static function closeChat($params)
     {
         if ($params['chat']->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
@@ -142,22 +168,7 @@ class erLhcoreClassChatHelper
 
                 $params['chat']->updateThis();
 
-                $q = $db->createDeleteQuery();
-
-                // Auto responder chats
-                $q->deleteFrom( 'lh_abstract_auto_responder_chat' )->where( $q->expr->eq( 'chat_id', $params['chat']->id ) );
-                $stmt = $q->prepare();
-                $stmt->execute();
-
-                // Repeat counter remove
-                $q->deleteFrom( 'lh_generic_bot_repeat_restrict' )->where( $q->expr->eq( 'chat_id', $params['chat']->id ) );
-                $stmt = $q->prepare();
-                $stmt->execute();
-    
-                // Repeat counter remove
-                $q->deleteFrom( 'lh_generic_bot_chat_event' )->where( $q->expr->eq( 'chat_id', $params['chat']->id ) );
-                $stmt = $q->prepare();
-                $stmt->execute();
+                self::cleanupOnClose($params['chat']->id);
 
             $db->commit();
 

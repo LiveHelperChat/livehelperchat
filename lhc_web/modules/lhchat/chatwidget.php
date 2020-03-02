@@ -385,7 +385,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     	                $userInstance->saveThis();
     
     	                $chat->online_user_id = $userInstance->id;
-    	                $chat->saveThis();
+    	                $chat->updateThis();
 
     	                if ( erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) {
     	            		erLhcoreClassModelChatOnlineUserFootprint::assignChatToPageviews($userInstance, erLhcoreClassModelChatConfig::fetch('footprint_background')->current_value == 1);
@@ -412,7 +412,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     	               	               
     	               $chat->unanswered_chat = 1;
     	               $chat->last_msg_id = $msg->id;
-    	               $chat->saveThis();
+    	               $chat->updateThis(array('update' => array('unanswered_chat','last_msg_id')));
     	           }
     	       }
 

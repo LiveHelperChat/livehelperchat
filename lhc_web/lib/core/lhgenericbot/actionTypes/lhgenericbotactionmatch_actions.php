@@ -66,10 +66,17 @@ class erLhcoreClassGenericBotActionMatch_actions {
                         'trigger_id' => $event->trigger_id
                     );
                 } elseif (isset($action['content']['on_start_type']) && $action['content']['on_start_type'] == 4) {
-                    $pendingAction = new erLhcoreClassModelGenericBotPendingEvent();
-                    $pendingAction->chat_id = $chat->id;
-                    $pendingAction->trigger_id = $event->trigger_id;
-                    $pendingAction->saveThis();
+                    for ($i = 0; $i < 3; $i++) {
+                        try {
+                            $pendingAction = new erLhcoreClassModelGenericBotPendingEvent();
+                            $pendingAction->chat_id = $chat->id;
+                            $pendingAction->trigger_id = $event->trigger_id;
+                            $pendingAction->saveThis();
+                            break;
+                        } catch (Exception $e) {
+                            usleep(500);
+                        }
+                    }
                 } elseif (isset($action['content']['on_start_type']) && $action['content']['on_start_type'] == 5) {
                     return array(
                         'status' => 'continue_all',
