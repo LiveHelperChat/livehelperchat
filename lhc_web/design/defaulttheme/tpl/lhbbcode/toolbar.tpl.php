@@ -16,7 +16,7 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <?php for($ibb = 0; $ibb < 7; $ibb++) : ?>
-                    <a class="dropdown-item" href="#" data-selector="<?php echo $bbcodeOptions['selector']?>" onclick="return lhinst.handleBBCode($(this))" data-bbcode-end="fs<" data-bbcode="fs<?php echo 10+$ibb;?>" style="font-size: <?php echo 10+$i;?>pt">Font Size <?php echo 10+$ibb;?>pt</a>
+                    <a class="dropdown-item" href="#" data-selector="<?php echo $bbcodeOptions['selector']?>" onclick="return lhinst.handleBBCode($(this))" data-bbcode-end="fs" data-bbcode="fs<?php echo 10+$ibb;?>" style="font-size: <?php echo 10+$ibb;?>pt">Font Size <?php echo 10+$ibb;?>pt</a>
                 <?php endfor; ?>
             </div>
         </div>
