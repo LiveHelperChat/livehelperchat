@@ -15,7 +15,7 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
         'chat' => $chat,
     ));
 
-    if ($dataPrevious['has_messages'] == true) {
+    if ($dataPrevious['has_messages'] == true && isset($dataPrevious['chat_history']) && is_object($dataPrevious['chat_history'])) {
         $items[] = array (
             'selector' => '#load-prev-btn-' . $chat->id,
             'action' => 'show',
