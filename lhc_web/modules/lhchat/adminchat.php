@@ -111,6 +111,11 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
     	    	erLhcoreClassChatWorkflow::presendCannedMsg($chat);
     	    	$options = $chat->department->inform_options_array;
     	    	erLhcoreClassChatWorkflow::chatAcceptedWorkflow(array('department' => $chat->department,'options' => $options),$chat);
+
+    	    	// Just update if some extension modified data and forgot to update.
+                // Also this is solving strange issue after chat assignment it's assignment got reset.
+                // So this should help if not we will need something more.
+                $chat->updateThis();
     	    };
     	    $db->commit();
     	    
