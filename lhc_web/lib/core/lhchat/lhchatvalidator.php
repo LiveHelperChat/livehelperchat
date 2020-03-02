@@ -217,7 +217,7 @@ class erLhcoreClassChatValidator {
                 $captchaString = '';
                 if (isset($_POST['tscaptcha'])) {
                     $captchaString = $_POST['tscaptcha'];
-                } elseif ($additionalParams['payload_data']['tscaptcha']) {
+                } elseif (isset($additionalParams['payload_data']['tscaptcha'])) {
                     $captchaString = $additionalParams['payload_data']['tscaptcha'];
                 }
 
