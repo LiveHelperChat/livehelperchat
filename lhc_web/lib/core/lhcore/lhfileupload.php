@@ -109,6 +109,10 @@ class erLhcoreClassFileUpload extends UploadHandler
                     $chat->last_msg_id = $msg->id;
                 }
 
+                if (isset($chat->chat_variables_array['gbot_id']) && (!isset($chat->chat_variables_array['gbot_disabled']) || $chat->chat_variables_array['gbot_disabled'] == 0)) {
+                    erLhcoreClassGenericBotWorkflow::userMessageAdded($chat, $msg);
+                }
+
                 $chat->has_unread_messages = 1;
                 $chat->updateThis(array('update' => array('last_user_msg_time','last_msg_id','has_unread_messages')));
 
