@@ -69,24 +69,24 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 				        // User Closed Chat
 				        if ($Params['user_parameters_unordered']['eclose'] == 't') {
 
-                            erLhcoreClassChat::lockDepartment($chat->dep_id, $db);
+                            if ($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
+                                erLhcoreClassChat::lockDepartment($chat->dep_id, $db);
 
-				            $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
-				            
-				            $msg = new erLhcoreClassModelmsg();
-				            $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','Visitor has closed the chat explicitly!'),ENT_QUOTES);;
-				            $msg->chat_id = $chat->id;
-				            $msg->user_id = -1;
-				            $msg->time = time();
-				            
-				            erLhcoreClassChat::getSession()->save($msg);
-		          				            
-				            //$chat->last_user_msg_time = $msg->time;
-				            
-				            // Set last message ID
-				            if ($chat->last_msg_id < $msg->id) {
-				               $chat->last_msg_id = $msg->id;
-				            }
+                                $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
+
+                                $msg = new erLhcoreClassModelmsg();
+                                $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','Visitor has closed the chat explicitly!'),ENT_QUOTES);;
+                                $msg->chat_id = $chat->id;
+                                $msg->user_id = -1;
+                                $msg->time = time();
+
+                                erLhcoreClassChat::getSession()->save($msg);
+
+                                // Set last message ID
+                                if ($chat->last_msg_id < $msg->id) {
+                                    $chat->last_msg_id = $msg->id;
+                                }
+                            }
 				            
 				            if ($chat->wait_time == 0) {
 				                if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT){
