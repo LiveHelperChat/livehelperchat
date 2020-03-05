@@ -153,7 +153,7 @@ trait erLhcoreClassDBTrait
 
     }
 
-    public static function fetchAndLock($id, $useCache = true)
+    public static function fetchAndLock($id, $useCache = false)
     {
         if (isset($GLOBALS[__CLASS__ . $id]) && $useCache == true) return $GLOBALS[__CLASS__ . $id];
 
