@@ -39,6 +39,8 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                         $tpl = erLhcoreClassTemplate::getInstance('lhkernel/alert_success.tpl.php');
                         $tpl->set('msg', erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'Chat owner was changed to') . ' ' . $user->name_support);
 
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_owner_changed', array('chat' => & $Chat, 'user' => $user));
+
                         echo json_encode(['error' => 'false', 'result' => $tpl->fetch(), 'chat_id' => $Params['user_parameters']['chat_id']]);
                     } else {
                         throw new Exception('User could not be found!');
@@ -118,7 +120,7 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                 $Chat->transfer_uid = $currentUser->getUserID();
                 $Chat->saveThis();
 
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_transfered', array('chat' => & $Chat));
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_transfered', array('chat' => & $Chat, 'transfer' => $Transfer));
 
                 echo json_encode(['error' => 'false', 'result' => $tpl->fetch(), 'chat_id' => $Params['user_parameters']['chat_id']]);
             }

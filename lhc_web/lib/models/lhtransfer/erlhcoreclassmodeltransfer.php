@@ -25,13 +25,6 @@ class erLhcoreClassModelTransfer
         );
     }
 
-    public function setState(array $properties)
-    {
-        foreach ($properties as $key => $val) {
-            $this->$key = $val;
-        }
-    }
-
     public $id = null;
 
     public $dep_id = 0;
