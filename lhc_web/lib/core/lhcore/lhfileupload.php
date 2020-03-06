@@ -102,6 +102,10 @@ class erLhcoreClassFileUpload extends UploadHandler
                 }
                 $chat->last_user_msg_time = $msg->time = time();
 
+                if ($msg->user_id > 0) {
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat));
+                }
+
                 erLhcoreClassChat::getSession()->save($msg);
 
                 // Set last message ID
