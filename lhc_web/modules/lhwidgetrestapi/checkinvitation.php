@@ -164,7 +164,7 @@ if (isset($_GET['init']) && $_GET['init'] == 1) {
             'iddle_for' => $injectInvitation->iddle_for,
             'only_inject' => true,
             'inject_html' => true,
-            'every_time' => (!isset($injectInvitation->design_data_array['dynamic_everytime']) || $injectInvitation->design_data_array['dynamic_everytime'] == 0)
+            'every_time' => !(!isset($injectInvitation->design_data_array['dynamic_everytime']) || $injectInvitation->design_data_array['dynamic_everytime'] == 0)
         );
     }
 }
