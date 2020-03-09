@@ -36,7 +36,9 @@ $translations = array(
         "leave_a_message" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Leave a message')
     ],
     "department" => [
-        "offline" => "--=" . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Offline') . "=--"
+        "offline" => "--=" . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Offline') . "=--",
+        "choose_a_product" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Choose a product'),
+        "product" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Product')
     ],
     "file" => [
         "uploading" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Uploading'),

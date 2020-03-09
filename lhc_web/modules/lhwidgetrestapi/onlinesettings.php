@@ -373,6 +373,49 @@ if (is_numeric($departament_id) && $departament_id > 0) {
     }
 }
 
+if (erLhcoreClassModelChatConfig::fetch('product_enabled_module')->current_value == 1) {
+
+    $filter = array('sort' => 'priority ASC, name ASC');
+
+    if (is_array($Params['user_parameters_unordered']['product']) && !empty($Params['user_parameters_unordered']['product'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['product']);
+        $filter['filterin']['id'] = $Params['user_parameters_unordered']['product'];
+    }
+
+    if (!empty($departament_id_array)) {
+        $filter['filterin']['departament_id'] = $departament_id_array;
+    }
+
+    if (is_numeric($departament_id) && $departament_id > 0) {
+        $filter['filterin']['departament_id'][] = $departament_id;
+    }
+
+    $filter['filter']['disabled'] = 0;
+
+    if (erLhcoreClassModelChatConfig::fetch('product_show_departament')->current_value == 0) {
+
+        $products = erLhAbstractModelProduct::getList($filter);
+
+        if (!empty($products)) {
+            $departmentsOptions['settings']['hide_department'] = true;
+            $departmentsOptions['products'] = array();
+            foreach ($products as $product) {
+                $departmentsOptions['products'][] = array(
+                    'value'=> $product->id,
+                    'name'=> $product->name,
+                );
+            }
+            $departmentsOptions['settings']['product_required'] = true;
+        }
+
+    } else {
+        $departmentsOptions['settings']['product_by_department'] = true;
+    }
+
+    $departmentsOptions['settings']['product'] = true;
+}
+
+
 if ($theme !== false) {
 
     if ($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') {
@@ -435,7 +478,11 @@ if ($theme !== false && $theme->hide_popup == 1) {
 }
 
 $visibleCount = ($departament_id > 0 || count($departmentsOptions['departments']) == 0) ? 0 : 1;
-$messageFieldVisible = false;
+$messageFieldVisible = isset($departmentsOptions['settings']['product']);
+
+if (isset($departmentsOptions['settings']['product'])) {
+    $visibleCount = 1;
+}
 
 foreach ($fields as $field) {
     if ($field['type'] != 'hidden') {

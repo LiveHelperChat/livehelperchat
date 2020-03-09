@@ -14,6 +14,7 @@ const initialState = fromJS({
     mode: 'widget',
     overrides: [], // we store here extensions flags. Like do we override typing monitoring so we send every request
     department: [],
+    product: [],
     jsVars: [],
     // Are we syncing chat messages now
     syncStatus : {msg: false, status : false},
@@ -109,6 +110,7 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .set('processStatus', 0)
                 .set('isChatting',false)
                 .set('chatData',fromJS({}))
+                .setIn(['onlineData','fetched'],false)
                 .set('chatLiveData',fromJS({'lmsop':0, 'vtm':0, 'msop':0, 'uid':0, 'status' : 0, 'status_sub' : 0, 'uw' : false, 'ott' : '', 'closed' : false, 'lmsgid' : 0, 'operator' : '', 'messages' : []}))
                 .set('chatStatusData',fromJS({}))
                 .set('chat_ui_state',fromJS({'confirm_close': 0, 'show_survey' : 0}))
@@ -137,12 +139,20 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.set('captcha',fromJS(action.data));
         }
         
+        case 'INIT_PRODUCTS': {
+            return state.setIn(['onlineData','department','products'], fromJS(action.data.products)).setIn(['onlineData','department','settings','product_required'],action.data.required);
+        }
+
         case 'CHAT_SESSION_REFFERER': {
             return state.set('ses_ref',action.data.ref);
         }
 
         case 'department' : {
             return state.set('department',fromJS(action.data));
+        }
+
+        case 'product' : {
+            return state.set('product',fromJS(action.data));
         }
 
         case 'mode' : {

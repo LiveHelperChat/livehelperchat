@@ -27,6 +27,7 @@ class StartChat extends Component {
         // Init offline form with all attributes
         this.props.dispatch(initOnlineForm({
             'department':this.props.chatwidget.get('department'),
+            'product':this.props.chatwidget.get('product'),
             'theme' : this.props.chatwidget.get('theme'),
             'mode' : this.props.chatwidget.get('mode'),
             'online' : 1
@@ -241,7 +242,7 @@ class StartChat extends Component {
                             <div className="row pt-2">
                                 {mappedFields}
                                 {mappedFieldsCustom}
-                                {this.props.chatwidget.hasIn(['onlineData','department']) && <ChatDepartment defaultValueField={this.state['DepartamentID']} onChangeContent={this.handleContentChange} isInvalid={this.props.chatwidget.hasIn(['validationErrors','department'])} departments={this.props.chatwidget.getIn(['onlineData','department'])} />}
+                                {this.props.chatwidget.hasIn(['onlineData','department']) && <ChatDepartment defaultValueField={this.state['DepartamentID']} onChangeContent={this.handleContentChange} isInvalidProduct={this.props.chatwidget.hasIn(['validationErrors','ProductID'])} isInvalid={this.props.chatwidget.hasIn(['validationErrors','department'])} departments={this.props.chatwidget.getIn(['onlineData','department'])} />}
                             </div>
                             <div className="row">
                                 <div className="col-12 pb-3">

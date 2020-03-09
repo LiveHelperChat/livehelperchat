@@ -80,6 +80,7 @@
                 popupDimesnions : {pheight: (LHC_API.args.pheight || 520), pwidth:(LHC_API.args.pwidth || 500)},
                 leaveMessage : LHC_API.args.leaveamessage || null,
                 department : LHC_API.args.department || [],
+                product : LHC_API.args.product || [],
                 theme : LHC_API.args.theme || null,
                 theme_v : null,
                 domain: LHC_API.args.domain || null,

@@ -59,6 +59,18 @@ export function endChat(obj) {
     }
 }
 
+export function getProducts(obj) {
+    return function(dispatch) {
+        axios.get(window.lhcChat['base_url'] + "widgetrestapi/getproducts/" + obj['dep_id'])
+        .then((response) => {
+            dispatch({type: "INIT_PRODUCTS", data: response.data})
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+}
+
 export function voteAction(obj) {
     return axios.post(window.lhcChat['base_url'] + "chat/voteaction/" + obj.id + '/' + obj.hash + '/' + obj.type)
 }

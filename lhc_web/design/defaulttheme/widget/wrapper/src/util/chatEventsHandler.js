@@ -35,6 +35,7 @@ class chatEventsHandler {
             'jsVars' : this.getJSVarsValues(this.attributes['jsVars'].value),
             'isMobile' : this.attributes['isMobile'],
             'department' : this.attributes['department'],
+            'product' : this.attributes['product'],
             'theme' : this.attributes['theme'],
             'base_url' : this.attributes['base_url'],
             'mode' : this.attributes['mode'],
