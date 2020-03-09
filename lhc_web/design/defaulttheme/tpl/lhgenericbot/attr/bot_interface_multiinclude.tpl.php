@@ -1,0 +1,1 @@
+<?php /* Just override */ ?>
