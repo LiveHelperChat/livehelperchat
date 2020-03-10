@@ -2,7 +2,6 @@ import { SHOWN_WIDGET, CLOSED_WIDGET, IS_MOBILE, IS_ONLINE, OFFLINE_FIELDS_UPDAT
 import {fromJS} from 'immutable';
 import { helperFunctions } from "../lib/helperFunctions";
 
-
 const initialState = fromJS({
     loadedCore: false, // Was the core loaded. IT's set after all initial attributes are loaded and app can proceed futher.
     shown: true,
@@ -11,6 +10,8 @@ const initialState = fromJS({
     isChatting: false,
     newChat: true,
     theme: null,
+    pvhash: null,
+    phash: null,
     mode: 'widget',
     overrides: [], // we store here extensions flags. Like do we override typing monitoring so we send every request
     department: [],
@@ -304,7 +305,7 @@ const chatWidgetReducer = (state = initialState, action) => {
         }
 
         case 'ONLINE_FIELDS_UPDATED' : {
-            return state.set('onlineData', fromJS({'fetched' : true, 'fields_visible': action.data.fields_visible, 'fields' : action.data.fields, 'department' : action.data.department})).set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)));
+            return state.set('onlineData', fromJS({'fetched' : true, 'paid': action.data.paid, 'fields_visible': action.data.fields_visible, 'fields' : action.data.fields, 'department' : action.data.department})).set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)));
         }
 
         case 'CHAT_UI_UPDATE' : {
@@ -317,6 +318,14 @@ const chatWidgetReducer = (state = initialState, action) => {
 
         case 'attr_prefill': {
             return state.set('attr_prefill', action.data);
+        }
+
+        case 'phash': {
+            return state.set('phash', action.data);
+        }
+
+        case 'pvhash': {
+            return state.set('pvhash', action.data);
         }
 
         case 'CUSTOM_FIELDS_ITEM': {

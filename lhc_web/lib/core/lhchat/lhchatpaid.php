@@ -28,25 +28,46 @@ class erLhcoreClassChatPaid {
                     if ($chatExisting->chat_id > 0 && $chatExisting->chat instanceof erLhcoreClassModelChat) {
                         if ($chatExisting->chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
                             if (isset($data['paidchat_read_denied']) && $data['paidchat_read_denied'] == 1) {
-                                erLhcoreClassModule::redirect('paidchat/expiredchat','/' .$chatExisting->id . '/(mode)/widget' . $params['append_mode'] . '/(pchat)/' . $chatExisting->id );
+                                if (isset($params['output']) && $params['output'] == 'json') {
+                                    return array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('paidchat/expiredchat','Chat was closed.'));
+                                } else {
+                                    erLhcoreClassModule::redirect('paidchat/expiredchat','/' .$chatExisting->id . '/(mode)/widget' . $params['append_mode'] . '/(pchat)/' . $chatExisting->id );
+                                    exit;
+                                }
                             } else {
-                                erLhcoreClassModule::redirect('chat/'.$mode,'/' .$chatExisting->chat->id . '/' . $chatExisting->chat->hash . '/(mode)/widget' . $params['append_mode'] . '/(pchat)/' . $chatExisting->id );
+                                if (isset($params['output']) && $params['output'] == 'json') {
+                                    return array('continue' => true, 'id' => $chatExisting->chat->id, 'hash' => $chatExisting->chat->hash);
+                                } else {
+                                    erLhcoreClassModule::redirect('chat/'.$mode,'/' .$chatExisting->chat->id . '/' . $chatExisting->chat->hash . '/(mode)/widget' . $params['append_mode'] . '/(pchat)/' . $chatExisting->id );
+                                }
                             }
                             exit;
                         } else {
-                            erLhcoreClassModule::redirect('chat/'.$mode,'/' .$chatExisting->chat->id . '/' . $chatExisting->chat->hash . '/(mode)/widget' . $params['append_mode'] . '/(pchat)/' . $chatExisting->id );
-                            exit;
+                            if (isset($params['output']) && $params['output'] == 'json') {
+                                return array('continue' => true, 'id' => $chatExisting->chat->id, 'hash' => $chatExisting->chat->hash);
+                            } else {
+                                erLhcoreClassModule::redirect('chat/'.$mode,'/' .$chatExisting->chat->id . '/' . $chatExisting->chat->hash . '/(mode)/widget' . $params['append_mode'] . '/(pchat)/' . $chatExisting->id );
+                                exit;
+                            }
                         }
                     } elseif ($chatExisting->chat_id > 0) {
-                        erLhcoreClassModule::redirect('paidchat/removedpaidchat');
-                        exit;
+                        if (isset($params['output']) && $params['output'] == 'json') {
+                            return array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('paidchat/expiredchat','Chat was closed.'));
+                        } else {
+                            erLhcoreClassModule::redirect('paidchat/removedpaidchat');
+                            exit;
+                        }
                     }
                 } else {
                     return array('need_store' => true, 'hash' => $params['uparams']['phash']);
                 }
-            } else {                
-                erLhcoreClassModule::redirect('paidchat/invalidhash','/' .$chatExisting->chat->id . '/' . $chatExisting->chat->hash );
-                exit;
+            } else {
+                if (isset($params['output']) && $params['output'] == 'json') {
+                    return array('error' => true, 'message' => 'Invalid hash!');
+                } else {
+                    erLhcoreClassModule::redirect('paidchat/invalidhash','/' .$chatExisting->chat->id . '/' . $chatExisting->chat->hash );
+                    exit;
+                }
             }
         }
         

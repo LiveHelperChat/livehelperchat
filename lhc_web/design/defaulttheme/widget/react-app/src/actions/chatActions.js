@@ -164,7 +164,17 @@ export function initOnlineForm(obj) {
     return function(dispatch) {
         axios.post(window.lhcChat['base_url'] + "widgetrestapi/onlinesettings", obj)
         .then((response) => {
-            dispatch({type: "ONLINE_FIELDS_UPDATED", data: response.data})
+            if (response.data.paid.continue && response.data.paid.continue === true) {
+                dispatch({type: "ONLINE_SUBMITTED", data: {
+                        success : true,
+                        chatData : {
+                            id : response.data.paid.id,
+                            hash : response.data.paid.hash
+                        }
+               }});
+            } else {
+                dispatch({type: "ONLINE_FIELDS_UPDATED", data: response.data})
+            }
         })
         .catch((err) => {
             dispatch({type: "ONLINE_FIELDS_REJECTED", data: err})
