@@ -14,6 +14,8 @@ class ChatField extends Component {
     componentDidMount() {
         if (this.props.field.get('type') == 'checkbox' && this.props.field.get('default') == true) {
             this.props.onChangeContent({id : this.props.field.get('name'), value : true});
+        } else if (this.props.field.get('type') == 'dropdown') {
+            this.props.onChangeContent({id : this.props.field.get('name'), value : this.props.defaultValueField});
         }
     }
 
@@ -72,6 +74,16 @@ class ChatField extends Component {
             )
         } else if (this.props.field.get('type') == 'hidden') {
             return <input type="hidden" className={classNameInput.join(' ')} required={required} onChange={(e) => this.onchangeAttr({'value' : e.target.value})} name={this.props.field.get('name')} defaultValue={this.props.defaultValueField} placeholder={this.props.field.get('placeholder')} />
+        } else if (this.props.field.get('type') == 'dropdown') {
+           var options = this.props.field.get('options').map(dep => <option key={'opt-drop-'+dep.get('value')} value={dep.get('value')}>{dep.get('name')}</option>);
+           return (<div className={className}>
+                <div className="form-group">
+                    <label className="control-label">{this.props.field.get('label')}{required === true ? '*' : ''}</label>
+                    <select className={classNameInput.join(' ')} required={required} onChange={(e) => this.onchangeAttr({'value' : e.target.value})} name={this.props.field.get('name')} defaultValue={this.props.defaultValueField}>
+                        {options}
+                    </select>
+                </div>
+            </div>);
         } else {
             console.log('Unknown field');
             return null;

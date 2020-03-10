@@ -625,7 +625,16 @@ class erLhcoreClassChatValidator {
             if ($form->hasValidData( 'value_items_admin' )){
                 $inputForm->value_items_admin = $valuesArray = $form->value_items_admin;
             }
-            
+
+            // If data comes from payload we process it a different way
+            if (isset($additionalParams['payload_data'])) {
+                foreach ($customAdminfields as $key => $adminField) {
+                    if (isset($additionalParams['payload_data']['value_items_admin_' . $key])) {
+                        $inputForm->value_items_admin[$key] = $valuesArray[$key] = $additionalParams['payload_data']['value_items_admin_' . $key];
+                    }
+                }
+            }
+
             if ($form->hasValidData( 'via_hidden' )){
                 $inputForm->via_hidden = $form->via_hidden;
             }
@@ -716,6 +725,12 @@ class erLhcoreClassChatValidator {
                             $val = (int)$val;
                         } elseif ($jsVar->type == 2) {
                             $val = (real)$val;
+                        } elseif ($jsVar->type == 3) {
+                            try {
+                                $val = self::decryptAdditionalField($val, $chat);
+                            } catch (Exception $e) {
+                                $val = $e->getMessage();
+                            }
                         }
 
                         $stringParts[] = array('h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);

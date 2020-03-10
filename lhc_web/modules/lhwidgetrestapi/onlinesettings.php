@@ -331,7 +331,51 @@ if ($Params['user_parameters_unordered']['online'] == '0')
     }
 }
 
-// Handle departments
+// Admin interface custom fields
+if (isset($start_data_fields['custom_fields']) && $start_data_fields['custom_fields'] != ''){
+    $customAdminfields = json_decode($start_data_fields['custom_fields'],true);
+    if (is_array($customAdminfields)) {
+        $adminCustomFieldsMode = $Params['user_parameters_unordered']['online'] == '0' ? 'off' : 'on';
+        foreach ($customAdminfields as $key => $adminField) {
+            if ($adminField['visibility'] == 'all' || $adminCustomFieldsMode == $adminField['visibility']) {
+
+                $fieldData = array(
+                    'type' => $adminField['fieldtype'],
+                    'width' => $adminField['size'],
+                    'label' => $adminField['fieldname'],
+                    'class' => 'form-control form-control-sm',
+                    'required' => $adminField['isrequired'] == 'true',
+                    'name' => 'value_items_admin_'. $key,
+                    'identifier' => 'value_items_admin_' . $key,
+                    'value' => $adminField['defaultvalue'],
+                );
+
+                if ($fieldData['type'] == 'dropdown') {
+                    $optionsRaw = explode("\n",$adminField['options']);
+                    $fieldData['options'] = array();
+                    $defaultValue = null;
+                    foreach ($optionsRaw as $optionRaw) {
+                        $itemData = explode('=>',$optionRaw);
+                        if ($defaultValue === null) {
+                            $defaultValue = $itemData[0];
+                        }
+                        $fieldData['options'][] = array(
+                            'name' => (isset($itemData[1]) ? $itemData[1] : $itemData[0]),
+                            'value' => $itemData[0]
+                        );
+                    }
+                    $fieldData['value'] = $defaultValue;
+                }
+
+                $fields[] = $fieldData;
+            }
+        } 
+    }
+}
+
+    
+
+    // Handle departments
 if (is_numeric($departament_id) && $departament_id > 0) {
     $departmentsOptions = array('departments' => array(array('value' => $departament_id)), 'settings' => array());
 } else {

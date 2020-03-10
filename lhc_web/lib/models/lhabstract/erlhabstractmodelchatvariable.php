@@ -58,6 +58,12 @@ class erLhAbstractModelChatVariable
 
         $items[] = $item;
 
+        $item = new stdClass();
+        $item->id = 3;
+        $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Encrypted');
+
+        $items[] = $item;
+
         return $items;
     }
 
