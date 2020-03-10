@@ -30,6 +30,8 @@ class StartChat extends Component {
             'product':this.props.chatwidget.get('product'),
             'theme' : this.props.chatwidget.get('theme'),
             'mode' : this.props.chatwidget.get('mode'),
+            'pvhash' : this.props.chatwidget.get('pvhash'),
+            'phash' : this.props.chatwidget.get('phash'),
             'online' : 1
         }));
 
@@ -70,6 +72,14 @@ class StartChat extends Component {
 
         if (this.props.chatwidget.get('bot_id') != '') {
             fields['bot_id'] = this.props.chatwidget.get('bot_id');
+        }
+
+        if (this.props.chatwidget.get('pvhash') !== null) {
+            fields['pvhash'] = this.props.chatwidget.get('pvhash');
+        }
+
+        if (this.props.chatwidget.get('phash') !== null) {
+            fields['phash'] = this.props.chatwidget.get('phash');
         }
 
         const customFields = helperFunctions.getCustomFieldsSubmit(this.props.chatwidget.getIn(['customData','fields']));
@@ -176,6 +186,10 @@ class StartChat extends Component {
         var mappedFieldsCustom = this.props.chatwidget.getIn(['customData','fields']).map(field =><ChatField chatUI={this.props.chatwidget.get('chat_ui')} key={field.get('identifier')} isInvalid={this.props.chatwidget.hasIn(['validationErrors',field.get('identifier')])} defaultValueField={field.get('value')} onChangeContent={this.handleContentChangeCustom} field={field} />);
     } else {
         var mappedFieldsCustom = "";
+    }
+
+    if (this.props.chatwidget.hasIn(['onlineData','paid','error']) && this.props.chatwidget.getIn(['onlineData','paid','error'])) {
+        return <p className="p-2">{this.props.chatwidget.getIn(['onlineData','paid','message'])}</p>
     }
 
     if (this.props.chatwidget.get('processStatus') == 0 || this.props.chatwidget.get('processStatus') == 1) {

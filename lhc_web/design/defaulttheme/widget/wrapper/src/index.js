@@ -94,6 +94,8 @@
                 proactive_interval : null,
                 lang : LHC_API.args.lang || '',
                 bot_id : LHC_API.args.bot_id || '',
+                phash : LHC_API.args.phash || null,
+                pvhash : LHC_API.args.pvhash || null,
                 // Login Objects
                 userSession : new userSession(),
                 storageHandler : storageHandler,

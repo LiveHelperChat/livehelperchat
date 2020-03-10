@@ -42,7 +42,21 @@ if (isset($requestPayload['theme']) && $requestPayload['theme'] > 0) {
 
 $additionalParams['payload_data'] = $requestPayload['fields'];
 
-$Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat, $additionalParams);
+if (isset($additionalParams['payload_data']['phash']) && isset($additionalParams['payload_data']['pvhash']) && (string)$additionalParams['payload_data']['phash'] != '' && (string)$additionalParams['payload_data']['pvhash'] != '') {
+    $paidChatSettings = erLhcoreClassChatPaid::paidChatWorkflow(array(
+        'uparams' => $additionalParams['payload_data'],
+        'mode' => 'chat',
+        'output' => 'json'
+    ));
+
+    if (isset($paidChatSettings['error'])) {
+        $Errors['phash'] = $paidChatSettings['message'];
+    }
+}
+
+if (!isset($Errors)) {
+    $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat, $additionalParams);
+}
 
 if (empty($Errors)) {
 

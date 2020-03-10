@@ -58,6 +58,14 @@ class chatEventsHandler {
             attr['bot_id'] = this.attributes['bot_id'];
         }
         
+        if (this.attributes['phash'] !== null) {
+            attr['phash'] = this.attributes['phash'];
+        }
+
+        if (this.attributes['pvhash'] !== null) {
+            attr['pvhash'] = this.attributes['pvhash'];
+        }
+
         if (this.attributes['lang'] != '') {
             attr['lang'] = this.attributes['lang'];
         }

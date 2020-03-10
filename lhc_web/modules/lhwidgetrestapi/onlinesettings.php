@@ -11,6 +11,7 @@ foreach ($requestPayload as $attr => $attrValue) {
 }
 
 $chat_ui = array();
+$paidSettings = array();
 
 $theme = false;
 
@@ -373,7 +374,14 @@ if (isset($start_data_fields['custom_fields']) && $start_data_fields['custom_fie
     }
 }
 
-    
+if (isset($requestPayload['phash']) && isset($requestPayload['pvhash']) && (string)$requestPayload['phash'] != '' && (string)$requestPayload['pvhash'] != '') {
+    $paidSettings = erLhcoreClassChatPaid::paidChatWorkflow(array(
+        'uparams' => $requestPayload,
+        'mode' => 'chat',
+        'output' => 'json'
+    ));
+}
+
 
     // Handle departments
 if (is_numeric($departament_id) && $departament_id > 0) {
@@ -548,7 +556,8 @@ $outputResponse = array(
     'fields_visible' => $visibleCount, // how many fields are visible one
     'js_vars' => $jsVars,
     'chat_ui' => $chat_ui,
-    'department' => $departmentsOptions
+    'department' => $departmentsOptions,
+    'paid' => $paidSettings
 );
 
 $outputResponse['disabled'] = $disabled_department === true || (isset($department_invalid) && $department_invalid === true);
