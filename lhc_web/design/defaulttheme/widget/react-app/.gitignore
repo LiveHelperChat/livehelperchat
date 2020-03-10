@@ -1,31 +1,16 @@
-# Logs
-logs
-*.log
-npm-debug.log*
 
-# Runtime data
-pids
-*.pid
-*.seed
-
-# Dependency directory
-node_modules
-
-# Optional npm cache directory
-.npm
-
-# Optional REPL history
-.node_repl_history
-
-# Cache for Parcel
-.cache
-
-# Apple stuff
-.DS_Store
-
-.env
-dist
+.cache/
 coverage/
-.vscode/
-init.sh.bak
-init.sh.bak
+dist/*
+!dist/index.html
+node_modules/
+*.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

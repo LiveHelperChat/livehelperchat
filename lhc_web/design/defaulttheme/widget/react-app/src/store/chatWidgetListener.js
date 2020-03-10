@@ -74,6 +74,8 @@ export default function (dispatch, getState) {
             window.lhcChat['staticJS'] = paramsInit['staticJS'];
             window.lhcChat['mode'] = paramsInit['mode'];
 
+            __webpack_public_path__ = window.lhcChat['staticJS']['chunk_js'] + "/";
+
             var date = new Date();
 
             i18n.init({

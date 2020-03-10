@@ -1,12 +1,37 @@
-### Install dependencies
+# empty-project
 
-`$ npm install`
+Empty project.
 
-### Build the app and start the server: 
+## Building and running on localhost
 
-`$ npm run dev`
+First install dependencies:
 
-### Bundle the application for production:
+```sh
+npm install
+```
 
-`$ npm run build`
+To run in hot module reloading mode:
 
+```sh
+npm start
+```
+
+To create a production build:
+
+```sh
+npm run build-prod
+```
+
+To create a development build:
+
+```sh
+npm run build-dev
+```
+
+## Running
+
+Open the file `dist/index.html` in your browser
+
+## Credits
+
+Made with [createapp.dev](https://createapp.dev/)

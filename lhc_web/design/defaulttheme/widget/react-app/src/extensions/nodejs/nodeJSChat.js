@@ -107,20 +107,24 @@ class _nodeJSChat {
                     }
                 } else if (op.op == 'cmsg' || op.op == 'schange') {
                     const state = getState();
-                    dispatch(fetchMessages({
-                        'chat_id': state.chatwidget.getIn(['chatData','id']),
-                        'hash' : state.chatwidget.getIn(['chatData','hash']),
-                        'lmgsid' : state.chatwidget.getIn(['chatLiveData','lmsgid']),
-                        'theme' : state.chatwidget.get('theme')
-                    }));
+                    if (state.chatwidget.hasIn(['chatData','id'])){
+                        dispatch(fetchMessages({
+                            'chat_id': state.chatwidget.getIn(['chatData','id']),
+                            'hash' : state.chatwidget.getIn(['chatData','hash']),
+                            'lmgsid' : state.chatwidget.getIn(['chatLiveData','lmsgid']),
+                            'theme' : state.chatwidget.get('theme')
+                        }));
+                    }
                 } else if (op.op == 'schange') {
                     const state = getState();
-                    dispatch(checkChatStatus({
-                        'chat_id': state.chatwidget.getIn(['chatData','id']),
-                        'hash' : state.chatwidget.getIn(['chatData','hash']),
-                        'mode' : state.chatwidget.get('mode'),
-                        'theme' : state.chatwidget.get('theme')
-                    }));
+                    if (state.chatwidget.hasIn(['chatData','id'])){
+                        dispatch(checkChatStatus({
+                            'chat_id': state.chatwidget.getIn(['chatData','id']),
+                            'hash' : state.chatwidget.getIn(['chatData','hash']),
+                            'mode' : state.chatwidget.get('mode'),
+                            'theme' : state.chatwidget.get('theme')
+                        }));
+                    }
                 }
             });
 
