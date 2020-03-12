@@ -768,8 +768,8 @@
           {
             "name": "hash",
             "in": "formData",
-            "description": "Hash",
-            "required": true,
+            "description": "Hash. If you skip hash make sure you set validation headers. Otherwise it is are not required to set validation header.",
+            "required": false,
             "type": "string"
           }
         ],
@@ -784,7 +784,12 @@
             "schema": {
             }
           }
-        }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
       }
     },
     "/restapi/addmsgadmin": {
