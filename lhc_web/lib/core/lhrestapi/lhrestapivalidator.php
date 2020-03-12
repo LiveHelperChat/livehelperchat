@@ -169,6 +169,8 @@ class erLhcoreClassRestAPIHandler
         } else {
             throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Authorization header is missing!'));
         }
+
+        return true;
     }
 
     public static function formatFilter($validAttributes)
