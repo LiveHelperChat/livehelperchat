@@ -26,7 +26,7 @@ $chats_parameters = '';
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('restapi.swagger', array('append_definitions' => & $append_definitions, 'append_paths' => & $append_paths, 'chats_parameters' => & $chats_parameters));
 
-echo str_replace(array('{{host}}','{{append_definitions}}','{{append_paths}}', '{{chats_parameters}}'),array($_SERVER['HTTP_HOST'], $append_definitions, $append_paths, $chats_parameters), $content);
+echo str_replace(array('{{ts}}','{{host}}','{{append_definitions}}','{{append_paths}}', '{{chats_parameters}}'),array(time(),$_SERVER['HTTP_HOST'], $append_definitions, $append_paths, $chats_parameters), $content);
 
 exit;
 

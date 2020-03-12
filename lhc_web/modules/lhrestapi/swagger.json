@@ -2002,6 +2002,46 @@
         ]
       }
     },
+    "/restapi/chat": {
+      "post": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Creates a new chat",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Creates a chat and returns it's data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NewChat"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Creates a chat and returns it's attributes",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
     "/restapi/bot/{bot_id}": {
       "put": {
         "tags": [
@@ -2483,6 +2523,257 @@
       "example" : {
         "name" : "Name of the bot",
         "nick" : "Nick of the bot"
+      }
+    },
+   "NewChat": {
+      "type": "object",
+      "properties": {
+        "ignore_required": {
+          "type": "boolean",
+          "default": true,
+          "required": false,
+          "description": "Should we apply same required fields validation as starting chat from web interface."
+        },
+        "department": {
+          "type": "array",
+          "default": "name",
+          "required": false,
+          "description": "Department ID's. From what departments list chat is provided. You should include array of departments. Even if it's only one department."
+        },
+        "invitation_id": {
+          "type": "integer",
+          "default": "name",
+          "required": false,
+          "description": "Proactive invitation ID"
+        },
+        "theme": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Theme"
+        },
+       "vid": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Online visitor unique hash"
+        },
+        "fields": {
+          "$ref": "#/definitions/NewChatFields"
+        },
+        "messages": {
+          "type": "array",
+          "default": "name",
+          "required": false,
+          "items": {
+            "$ref": "#/definitions/ChatMessage"
+          },
+          "description": "If you are creating chat and chat existed already in third party system it makes sense to pass also previous messages."
+        },
+        "chat_variables": {
+          "type": "array",
+          "default": "name",
+          "required": false,
+          "description": "Provide additional chat variables which can be used by extension. E.g [{UUID: \"Some internal value\"}]"
+        },
+        "additional_data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AdditionalItem"
+          },
+          "default": "name",
+          "required": false,
+          "description": "Stores additional chat variables. These variables are visible by operators and have strict structure."
+        }
+      },
+      "example" : {
+          "ignore_required" : true,
+          "department" : [1],
+          "fields" : {
+              "Question" : "Visitor Initial Message. If you are passing messages argument makes sense just skip this",
+              "Username" : "Visitor nick"
+          },
+          "chat_variables" : {
+              "UUID" : "Just some internal variable"
+          },
+          "additional_data" : [
+              {
+                "h": true,
+                "identifier": "age",
+                "key": "Age",
+                "value": 18
+              }
+          ],
+          "messages" : [
+              {
+                "msg": "Visitor initial message",
+                "time": {{ts}},
+                "user_id": 0
+              },
+              {
+                "msg": "Bot message",
+                "time": {{ts}},
+                "user_id": -2
+              },
+              {
+                "msg": "System message",
+                "time": {{ts}},
+                "user_id": -1
+              }
+          ]
+      }
+    },
+    "NewChatFields": {
+      "type": "object",
+      "properties": {
+        "Question": {
+          "type": "string",
+          "default": "name",
+          "required": false,
+          "description": "User initial message"
+        },
+        "Username": {
+          "type": "string",
+          "default": "name",
+          "required": false,
+          "description": "Visitor nick"
+        },
+        "Email": {
+          "type": "string",
+          "default": "name",
+          "required": false,
+          "description": "Visitor E-mail"
+        },
+        "Phone": {
+          "type": "string",
+          "default": "name",
+          "required": false,
+          "description": "Visitor Phone"
+        },
+        "AcceptTOS": {
+          "type": "boolean",
+          "default": "name",
+          "required": false,
+          "description": "Accept Terms Of Service"
+        },
+        "DepartamentID": {
+          "type": "integer",
+          "default": "name",
+          "required": false,
+          "description": "To what department chat should be assigned"
+        },
+        "priority": {
+          "type": "integer",
+          "default": "name",
+          "required": false,
+          "description": "Priority of chat"
+       },
+       "URLRefer": {
+          "type": "string",
+          "default": "name",
+          "required": false,
+          "description": "Chat referrer. Page URL or E.g CRM"
+        },
+        "r": {
+          "type": "string",
+          "default": "name",
+          "required": false,
+          "description": "Current session referer. E.g CRM Finance"
+        },
+        "bot_id": {
+          "type": "integer",
+          "default": "name",
+          "required": false,
+          "description": "Bot ID to assign to chat. It will override department bot"
+        },
+        "user_timezone": {
+          "type": "integer",
+          "default": "name",
+          "required": false,
+          "description": "User timezone offset in hours"
+        },
+        "operator": {
+          "type": "integer",
+          "default": "name",
+          "required": false,
+          "description": "To what operator chat should be assigned directly"
+        }
+      }
+    },
+    "AdditionalItem": {
+      "type": "object",
+      "properties": {
+        "h": {
+          "type": "boolean",
+          "default": false,
+          "required": false,
+          "description": "Was value passed as hidden"
+        },
+        "identifier": {
+          "type": "string",
+          "default": "name",
+          "required": false,
+          "description": "This can be used in extension and should be system name without constantly changing value"
+        },
+        "key": {
+          "type": "string",
+          "default": "name",
+          "required": false,
+          "description": "Operator sees this as passed variable name. Literal name."
+        },
+        "value": {
+          "type": "string",
+          "default": "name",
+          "required": false,
+          "description": "Value"
+        }
+      }
+    },
+    "ChatMessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Message ID"
+        },
+        "msg": {
+          "type": "string",
+          "default": "name",
+          "required": false,
+          "description": "Message text"
+        },
+        "meta_msg": {
+          "type": "string",
+          "default": "name",
+          "required": false,
+          "description": "Meta message content. JSON encoded string."
+        },
+        "time": {
+          "type": "integer",
+          "default": "name",
+          "required": true,
+          "description": "Message time in unix timestamp"
+        },
+        "chat_id": {
+          "type": "integer",
+          "default": "name",
+          "required": false,
+          "description": "Chat ID"
+        },
+        "user_id": {
+          "type": "integer",
+          "default": "name",
+          "required": false,
+          "description": "User ID. Message type depends on user id. [0] - Visitor message, [> 0] - Operator Message, [-1] - System message. Not visible by visitor, [-2] Bot message"
+        },
+        "name_support": {
+          "type": "string",
+          "default": "name",
+          "required": false,
+          "description": "Operator nick"
+        }
       }
     },
     "Department": {

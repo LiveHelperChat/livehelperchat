@@ -5,7 +5,7 @@ erTranslationClassLhTranslation::$htmlEscape = false;
 
 $requestPayload = json_decode(file_get_contents('php://input'),true);
 
-$Params['user_parameters_unordered']['department'] = $requestPayload['department'];
+$Params['user_parameters_unordered']['department'] = isset($requestPayload['department']) ? $requestPayload['department'] : null;
 
 $chat = new erLhcoreClassModelChat();
 
@@ -17,7 +17,7 @@ $inputData->phone = '';
 $inputData->product_id = '';
 $inputData->bot_id = '';
 $inputData->validate_start_chat = $inputData->validate_start_chat = isset($requestPayload['mode']) && $requestPayload['mode'] == 'popup' ? true : false;
-$inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
+$inputData->priority = (isset($requestPayload['fields']['priority']) && is_numeric($requestPayload['fields']['priority'])) ? (int)$requestPayload['fields']['priority'] : false;
 $inputData->only_bot_online = isset($_POST['onlyBotOnline']) ? (int)$_POST['onlyBotOnline'] : 0;
 $inputData->vid = isset($requestPayload['vid']) && $requestPayload['vid'] != '' ? (string)$requestPayload['vid'] : '';
 
@@ -40,7 +40,7 @@ if (isset($requestPayload['theme']) && $requestPayload['theme'] > 0) {
     $additionalParams['theme'] = erLhAbstractModelWidgetTheme::fetch($requestPayload['theme']);
 }
 
-$additionalParams['payload_data'] = $requestPayload['fields'];
+$additionalParams['payload_data'] = isset($requestPayload['fields']) ? $requestPayload['fields'] : array();
 
 if (isset($additionalParams['payload_data']['phash']) && isset($additionalParams['payload_data']['pvhash']) && (string)$additionalParams['payload_data']['phash'] != '' && (string)$additionalParams['payload_data']['pvhash'] != '') {
     $paidChatSettings = erLhcoreClassChatPaid::paidChatWorkflow(array(
@@ -54,6 +54,14 @@ if (isset($additionalParams['payload_data']['phash']) && isset($additionalParams
     }
 }
 
+if (isset($restAPI) && $requestPayload['ignore_required'] == true) {
+    $additionalParams['ignore_required'] = true;
+}
+
+if (isset($restAPI['ignore_captcha']) && $restAPI['ignore_captcha'] === true) {
+    $additionalParams['ignore_captcha'] = true;
+}
+
 if (!isset($Errors)) {
     $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat, $additionalParams);
 }
@@ -65,16 +73,18 @@ if (empty($Errors)) {
 
     erLhcoreClassModelChat::detectLocation($chat, $inputData->vid);
 
-    $statusGeoAdjustment = erLhcoreClassChat::getAdjustment(erLhcoreClassModelChatConfig::fetch('geoadjustment_data')->data_value, $inputData->vid);
+    if (!isset($restAPI['ignore_geo']) || $restAPI['ignore_geo'] === false) {
+        $statusGeoAdjustment = erLhcoreClassChat::getAdjustment(erLhcoreClassModelChatConfig::fetch('geoadjustment_data')->data_value, $inputData->vid);
 
-    if ($statusGeoAdjustment['status'] == 'hidden') { // This should never happen
-        $outputResponse = array (
-            'success' => false,
-            'errors' => 'Chat not available in your country'
-        );
+        if ($statusGeoAdjustment['status'] == 'hidden') { // This should never happen
+            $outputResponse = array (
+                'success' => false,
+                'errors' => 'Chat not available in your country'
+            );
 
-        erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
-        exit;
+            erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
+            exit;
+        }
     }
 
     $chat->time = $chat->pnd_time = time();
@@ -83,6 +93,22 @@ if (empty($Errors)) {
     $chat->hash = erLhcoreClassChat::generateHash();
     $chat->referrer = isset($requestPayload['fields']['URLRefer']) ? $requestPayload['fields']['URLRefer'] : '';
     $chat->session_referrer = isset($requestPayload['fields']['r']) ? $requestPayload['fields']['r'] : '';
+
+    if (isset($restAPI) && isset($requestPayload['chat_variables']) && is_array($requestPayload['chat_variables'])) {
+        $chat_variables_array = $chat->chat_variables_array;
+        foreach ($requestPayload['chat_variables'] as $chatVariableKey => $chatVariableName) {
+            $chat_variables_array[$chatVariableKey] = $chatVariableName;
+        }
+        $chat->chat_variables = json_encode($chat_variables_array);
+    }
+
+    if (isset($restAPI) && isset($requestPayload['additional_data']) && is_array($requestPayload['additional_data'])) {
+        $chat_variables_array = $chat->additional_data_array;
+        foreach ($requestPayload['additional_data'] as $chatVariableKey => $chatVariableName) {
+            $chat_variables_array[$chatVariableKey] = $chatVariableName;
+        }
+        $chat->additional_data = json_encode($chat_variables_array);
+    }
 
     $nick = trim($chat->nick);
 
@@ -96,6 +122,10 @@ if (empty($Errors)) {
 
         // Store chat
         $chat->saveThis();
+
+        if (isset($restAPI) && isset($requestPayload['messages']) && is_array($requestPayload['messages'])) {
+            erLhcoreClassRestAPIHandler::importMessages($chat, $requestPayload['messages']);
+        }
 
         $paramsExecution = array();
 
@@ -192,7 +222,7 @@ if (empty($Errors)) {
 
         // Store message if required
         if (isset($startDataFields['message_visible_in_page_widget']) && $startDataFields['message_visible_in_page_widget'] == true) {
-            if ( $inputData->question != '') {
+            if (isset($inputData->question) && $inputData->question != '') {
                 // Store question as message
                 $msg = new erLhcoreClassModelmsg();
                 $msg->msg = trim($inputData->question);
@@ -317,8 +347,10 @@ if (empty($Errors)) {
         'errors' => $Errors
     );
 }
+if (!isset($restAPI)) {
+    erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
+    exit;
+}
 
-erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
-exit;
 
 ?>

@@ -288,7 +288,7 @@ class erLhcoreClassChatValidator {
                 ((!$form->hasValidData( 'Username' ) || $form->Username == '') && isset($additionalParams['offline']) && isset($start_data_fields['offline_name_require_option']) && $start_data_fields['offline_name_require_option'] == 'required' )
             )
             {
-                if (!($inputForm->only_bot_online == 1 && isset($start_data_fields['name_hidden_bot']) && $start_data_fields['name_hidden_bot'] == true)) {
+                if (!($inputForm->only_bot_online == 1 && isset($start_data_fields['name_hidden_bot']) && $start_data_fields['name_hidden_bot'] == true) && !isset($additionalParams['ignore_required'])) {
                     $Errors['nick'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your name');
                 }
 
@@ -296,7 +296,7 @@ class erLhcoreClassChatValidator {
                 $chat->nick = $inputForm->username = $form->Username;
             }
 
-            if ($form->hasValidData( 'Username' ) && $form->Username != '' && mb_strlen($form->Username) > 100)
+            if ($form->hasValidData( 'Username' ) && $form->Username != '' && mb_strlen($form->Username) > 100 && !isset($additionalParams['ignore_required']))
             {
                 $Errors['nick'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 100 characters');
             }
@@ -305,7 +305,7 @@ class erLhcoreClassChatValidator {
         if ( isset($validationFields['Email']) ) {
             if ( (!$form->hasValidData( 'Email' ) && $start_data_fields['email_require_option'] == 'required') || (!$form->hasValidData( 'Email' ) && isset($additionalParams['offline'])) ) {
 
-                if (!($inputForm->only_bot_online == 1 && isset($start_data_fields['email_hidden_bot']) && $start_data_fields['email_hidden_bot'] == true)) {
+                if (!($inputForm->only_bot_online == 1 && isset($start_data_fields['email_hidden_bot']) && $start_data_fields['email_hidden_bot'] == true) && !isset($additionalParams['ignore_required'])) {
                     $Errors['email'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a valid email address');
                 }
 
@@ -320,21 +320,21 @@ class erLhcoreClassChatValidator {
         if (isset($validationFields['Question'])) {
 
             if ( !$form->hasValidData('keyUpStarted') && (!$form->hasValidData( 'Question' ) || (trim($form->Question) == '' && (($start_data_fields['message_require_option'] == 'required' && !isset($additionalParams['offline'])) || (isset($additionalParams['offline']) && isset($start_data_fields['offline_message_require_option']) && $start_data_fields['offline_message_require_option'] == 'required'))))) {
-                if (!($inputForm->only_bot_online == 1 && isset($start_data_fields['message_hidden_bot']) && $start_data_fields['message_hidden_bot'] == true)) {
+                if (!($inputForm->only_bot_online == 1 && isset($start_data_fields['message_hidden_bot']) && $start_data_fields['message_hidden_bot'] == true) && !isset($additionalParams['ignore_required'])) {
                     $Errors['question'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your message');
                 }
             } elseif ($form->hasValidData( 'Question' )) {
                 $inputForm->question = trim($form->Question);
             }
 
-            if ($form->hasValidData( 'Question' ) && trim($form->Question) != '' && mb_strlen($form->Question) > (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
+            if ($form->hasValidData( 'Question' ) && trim($form->Question) != '' && mb_strlen($form->Question) > (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value && !isset($additionalParams['ignore_required']))
             {
                 $Errors['question'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum').' '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','characters for a message');
             }
         }
        
         if (isset($validationFields['AcceptTOS'])) {
-        	if ( !$form->hasValidData( 'AcceptTOS' ) || $form->AcceptTOS == false) {
+        	if ( (!$form->hasValidData( 'AcceptTOS' ) || $form->AcceptTOS == false) && !isset($additionalParams['ignore_required'])) {
         		$Errors['accept_tos'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You have to accept our Terms Of Service');
         	} else {
         		$inputForm->accept_tos = true;
@@ -345,14 +345,14 @@ class erLhcoreClassChatValidator {
         // Validate phone
         if (isset($validationFields['Phone'])) {
             if (((!$form->hasValidData( 'Phone' ) || $form->Phone == '' || mb_strlen($form->Phone) < erLhcoreClassModelChatConfig::fetch('min_phone_length')->current_value) && ( ($start_data_fields['phone_require_option'] == 'required' && !isset($additionalParams['offline'])) || (isset($additionalParams['offline']) && isset($start_data_fields['offline_phone_require_option']) && $start_data_fields['offline_phone_require_option'] == 'required')))) {
-                if (!($inputForm->only_bot_online == 1 && isset($start_data_fields['phone_hidden_bot']) && $start_data_fields['phone_hidden_bot'] == true)) {
+                if (!($inputForm->only_bot_online == 1 && isset($start_data_fields['phone_hidden_bot']) && $start_data_fields['phone_hidden_bot'] == true) && !isset($additionalParams['ignore_required'])) {
                     $Errors['phone'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your phone');
                 }
             } elseif ($form->hasValidData( 'Phone' )) {
                 $chat->phone = $inputForm->phone = $form->Phone;
             }
 
-            if ($form->hasValidData( 'Phone' ) && $form->Phone != '' && mb_strlen($form->Phone) > 100)
+            if ($form->hasValidData( 'Phone' ) && $form->Phone != '' && mb_strlen($form->Phone) > 100 && !isset($additionalParams['ignore_required']))
             {
                 $Errors['phone'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 100 characters for phone');
             }
@@ -599,7 +599,9 @@ class erLhcoreClassChatValidator {
         	foreach ($form->name_items as $key => $name_item) {    
         	    
         		if (isset($inputForm->values_req[$key]) && $inputForm->values_req[$key] == 't' && ($inputForm->value_show[$key] == 'b' || $inputForm->value_show[$key] == (isset($additionalParams['offline']) ? 'off' : 'on')) && (!isset($valuesArray[$key]) || trim($valuesArray[$key]) == '')) {
-        			$Errors['additional_'.$key] = trim($name_item).' : '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
+        		    if (!isset($additionalParams['ignore_required'])){
+                        $Errors['additional_'.$key] = trim($name_item).' : '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
+                    }
         		}
         		
         		$valueStore = isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '';

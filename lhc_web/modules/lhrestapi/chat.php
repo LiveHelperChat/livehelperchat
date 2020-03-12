@@ -6,7 +6,19 @@ try
 
     $requestBody = json_decode(file_get_contents('php://input'),true);
 
-    if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        $restAPI = array('ignore_captcha' => true, 'ignore_geo' => true);
+
+        include "modules/lhwidgetrestapi/submitonline.php";
+
+        if ($outputResponse['success'] === false) {
+            $errors = $Errors;
+            throw new Exception(implode("\n",$outputResponse['errors']));
+        }
+
+
+    } else if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
         $chat = erLhcoreClassModelChat::fetch((int)$Params['user_parameters']['id']);
         if (!($chat instanceof erLhcoreClassModelChat)) {
             throw new Exception('Chat could not be found!');
@@ -42,6 +54,7 @@ try
     http_response_code(400);
     echo erLhcoreClassRestAPIHandler::outputResponse(array(
         'error' => true,
+        'errors' => (isset($errors) ? $errors : array()),
         'result' => $e->getMessage()
     ));
 }

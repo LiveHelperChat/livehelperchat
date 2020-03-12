@@ -78,6 +78,10 @@ class StartChat extends Component {
             fields['pvhash'] = this.props.chatwidget.get('pvhash');
         }
 
+        if (this.props.chatwidget.get('priority') !== null) {
+            fields['priority'] = this.props.chatwidget.get('priority');
+        }
+
         if (this.props.chatwidget.get('phash') !== null) {
             fields['phash'] = this.props.chatwidget.get('phash');
         }
@@ -143,6 +147,18 @@ class StartChat extends Component {
 
             if (props.chatwidget.get('bot_id') != '') {
                 fields['bot_id'] = props.chatwidget.get('bot_id');
+            }
+
+            if (props.chatwidget.get('priority') !== null) {
+                fields['priority'] = props.chatwidget.get('priority');
+            }
+
+            if (props.chatwidget.get('pvhash') !== null) {
+                fields['pvhash'] = props.chatwidget.get('pvhash');
+            }
+
+            if (props.chatwidget.get('phash') !== null) {
+                fields['phash'] = props.chatwidget.get('phash');
             }
 
             const customFields = helperFunctions.getCustomFieldsSubmit(props.chatwidget.getIn(['customData','fields']));

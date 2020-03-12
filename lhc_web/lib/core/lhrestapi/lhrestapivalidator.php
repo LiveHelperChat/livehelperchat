@@ -831,6 +831,26 @@ class erLhcoreClassRestAPIHandler
         }
     }
 
+    public static function importMessages($chat, $messages) {
+        foreach ($messages as $message) {
+            $msg = new erLhcoreClassModelmsg();
+            $msg->msg = isset($message['msg']) ? $message['msg'] : '';
+            $msg->meta_msg = isset($message['meta_msg']) ? $message['meta_msg'] : '';
+            $msg->time = isset($message['time']) ? $message['time'] : time();
+            $msg->chat_id = $chat->id;
+            $msg->user_id = isset($message['user_id']) ? $message['user_id'] : 0;
+            $msg->name_support = isset($message['name_support']) ? $message['name_support'] : '';
+            $msg->saveThis();
+
+            $chat->last_msg_id = $msg->id;
+            if ($msg->user_id == 0) {
+                $chat->last_user_msg_time = $msg->time;
+            } elseif ($msg->user_id == -2) {
+                $chat->last_op_msg_time = $msg->time;
+            }
+        }
+    }
+
     private static $apiKey = null;
 }
 
