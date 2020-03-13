@@ -73,7 +73,13 @@ class OfflineChat extends Component {
     handleContentChangeCustom(obj) {
         this.props.dispatch({'type' : 'CUSTOM_FIELDS_ITEM', data : {id : obj.field.get('index'), value : obj.value}});
     }
-
+    
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (document.getElementById('id-container-fluid')) {
+            helperFunctions.sendMessageParent('widgetHeight', [{'height' : document.getElementById('id-container-fluid').offsetHeight+40}]);
+        }
+    }
+    
     render() {
 
         const { t } = this.props;
@@ -92,7 +98,7 @@ class OfflineChat extends Component {
 
         if (this.props.chatwidget.get('processStatus') == 0 || this.props.chatwidget.get('processStatus') == 1) {
             return (
-                <div className="container-fluid">
+                <div className="container-fluid" id="id-container-fluid">
 
                     {this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div>}
 
@@ -114,7 +120,7 @@ class OfflineChat extends Component {
             )
         } else if (this.props.chatwidget.get('processStatus') == 2) {
             return (
-                <div className="container-fluid">
+                <div className="container-fluid" id="id-container-fluid">
                     <div className="row">
                         <div className="col-12">
                             <p>{t('start_chat.thank_you_for_feedback')}</p>
