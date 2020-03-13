@@ -403,7 +403,7 @@ class erLhcoreClassModelChat {
        	case 'number_in_queue':
        	        $this->number_in_queue = 1;
        	        if ($this->status == self::STATUS_PENDING_CHAT) {
-       	           $this->number_in_queue = erLhcoreClassChat::getCount(array('filterlt' => array('id' => $this->id),'filter' => array('dep_id' => $this->dep_id,'status' => self::STATUS_PENDING_CHAT))) + 1;
+       	           $this->number_in_queue = self::getCount(array('filterlt' => array('id' => $this->id), 'filtergte' => array('priority' => $this->priority),'filter' => array('dep_id' => $this->dep_id, 'status' => self::STATUS_PENDING_CHAT))) + 1;
        	        }
        	        return $this->number_in_queue;
        	    break;
