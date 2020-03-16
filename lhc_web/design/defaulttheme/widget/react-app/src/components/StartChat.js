@@ -24,16 +24,7 @@ class StartChat extends Component {
 
         this.state = {showBBCode : null, Question:'', };
 
-        // Init offline form with all attributes
-        this.props.dispatch(initOnlineForm({
-            'department':this.props.chatwidget.get('department'),
-            'product':this.props.chatwidget.get('product'),
-            'theme' : this.props.chatwidget.get('theme'),
-            'mode' : this.props.chatwidget.get('mode'),
-            'pvhash' : this.props.chatwidget.get('pvhash'),
-            'phash' : this.props.chatwidget.get('phash'),
-            'online' : 1
-        }));
+
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.enterKeyDown = this.enterKeyDown.bind(this);
@@ -121,9 +112,26 @@ class StartChat extends Component {
 
     componentDidMount() {
         helperFunctions.prefillFields(this);
+        this.updateOnlineFields();
+    }
+
+    updateOnlineFields(){
+        if (this.props.chatwidget.getIn(['onlineData','fetched']) === false) {
+            // Init offline form with all attributes
+            this.props.dispatch(initOnlineForm({
+                'department':this.props.chatwidget.get('department'),
+                'product':this.props.chatwidget.get('product'),
+                'theme' : this.props.chatwidget.get('theme'),
+                'mode' : this.props.chatwidget.get('mode'),
+                'pvhash' : this.props.chatwidget.get('pvhash'),
+                'phash' : this.props.chatwidget.get('phash'),
+                'online' : 1
+            }));
+        }
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
+        this.updateOnlineFields();
         if (document.getElementById('id-container-fluid')) {
             helperFunctions.sendMessageParent('widgetHeight', [{'height' : document.getElementById('id-container-fluid').offsetHeight+40}]);
         }
