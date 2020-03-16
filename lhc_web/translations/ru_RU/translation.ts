@@ -2,6 +2,30 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Сколько дней виджет голосования не будет открыт с последнего показа</translation>
     </message>
@@ -11,11 +35,11 @@
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation>С каких IP должно быть разрешено обновление БД через HTTP запрос, через запятую?</translation>
+      <translation>С каких IP разрешено обновление БД через HTTP запрос? (вводите через запятую)</translation>
     </message>
     <message>
       <source>How long keep operators online sessions data? (days)</source>
-      <translation type="unfinished"/>
+      <translation>Как долго хранить информацию о сессиях операторов? (в днях)</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
@@ -107,7 +131,7 @@
     </message>
     <message>
       <source>Make default pending chats order from old to new</source>
-      <translation type="unfinished"/>
+      <translation>По умолчанию сортировка ожидающих чатов от старых к новым</translation>
     </message>
     <message>
       <source>Reopen chat functionality enabled</source>
@@ -131,15 +155,15 @@
     </message>
     <message>
       <source>Preload iframes. It will avoid loading delay after clicking widget</source>
-      <translation type="unfinished"/>
+      <translation>Предзагрузка iframe. Это позволит избежать задержки загрузки после клика на виджете</translation>
     </message>
     <message>
       <source>How many seconds customer has to open already closed chat.</source>
-      <translation type="unfinished"/>
+      <translation>Сколько секунд у посетителя, чтобы открыть уже закрытый чат?</translation>
     </message>
     <message>
       <source>On chat close exit chat</source>
-      <translation type="unfinished"/>
+      <translation>При закрытии [X] чата - выходить из него</translation>
     </message>
     <message>
       <source/>
@@ -151,7 +175,7 @@
     </message>
     <message>
       <source>Cookie should be valid only for domain where Javascript is embedded</source>
-      <translation type="unfinished"/>
+      <translation>Cookie должны быть валидны только для домена, в котором встроен Javascript</translation>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
@@ -167,7 +191,7 @@
     </message>
     <message>
       <source>Messages box height for operator</source>
-      <translation type="unfinished"/>
+      <translation>Высота бокса сообщений для оператора</translation>
     </message>
     <message>
       <source>Messages box height</source>
@@ -183,7 +207,7 @@
     </message>
     <message>
       <source>List unread chats, disabled for high performance</source>
-      <translation type="unfinished"/>
+      <translation>Список непрочитанных чатов (отключить для производительности)</translation>
     </message>
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
@@ -191,11 +215,11 @@
     </message>
     <message>
       <source>List closed chats, disabled for high performance</source>
-      <translation type="unfinished"/>
+      <translation>Список закрытых чатов (отключить для производительности)</translation>
     </message>
     <message>
       <source>Default number of online operators to show</source>
-      <translation type="unfinished"/>
+      <translation>Показываемое по умолчанию количество операторов</translation>
     </message>
     <message>
       <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
@@ -227,7 +251,7 @@
     </message>
     <message>
       <source>Footprint updates should be processed in the background. Make sure you are running workflow background cronjob.</source>
-      <translation type="unfinished"/>
+      <translation>Обновления футпринтов посетителей должны обрабатываться в фоновом режиме ( убедитесь, что вы настроили cron )</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
@@ -251,7 +275,7 @@
     </message>
     <message>
       <source>Do not track visitors IP.</source>
-      <translation type="unfinished"/>
+      <translation>Не отслеживать IP посетителей</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
@@ -263,11 +287,11 @@
     </message>
     <message>
       <source>Hide &apos;New Window&apos; option in Connector Widget</source>
-      <translation type="unfinished"/>
+      <translation>Спрятать опцию &quot;Новое окно&quot; в виджете коннектора</translation>
     </message>
     <message>
       <source>Disable live auto assign</source>
-      <translation type="unfinished"/>
+      <translation>Отключить автораспределение</translation>
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
@@ -275,7 +299,7 @@
     </message>
     <message>
       <source>Disable iframes in sharing mode</source>
-      <translation type="unfinished"/>
+      <translation>Отключить iframe в режиме совместного использования</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
@@ -283,7 +307,7 @@
     </message>
     <message>
       <source>How long department availability statistic should be kept? (days)</source>
-      <translation type="unfinished"/>
+      <translation>Как долго хранить статистику доступности департамента (дней)?</translation>
     </message>
     <message>
       <source>Home page dashboard widgets order</source>
@@ -299,7 +323,7 @@
     </message>
     <message>
       <source>Cleanup should should be done only using cronjob.</source>
-      <translation type="unfinished"/>
+      <translation>Очистка должна проводиться только по Cron.</translation>
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
@@ -331,15 +355,15 @@
     </message>
     <message>
       <source>Automatic pending chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation type="unfinished"/>
+      <translation>Автоматическое закрытие ожидающих чатов. 0 - отключено, n &gt; 0 время в минутах до того, как чат будет автоматически закрыт</translation>
     </message>
     <message>
       <source>Automatic bot chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation type="unfinished"/>
+      <translation>Автоматическое закрытие чатов с ботом. 0 - отключено, n &gt; 0 время в минутах до того, как чат будет автоматически закрыт</translation>
     </message>
     <message>
       <source>Automatic active chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation type="unfinished"/>
+      <translation>Автоматическое закрытие активных чатов. 0 - отключено, n &gt; 0 время в минутах до того, как чат будет автоматически закрыт</translation>
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
@@ -347,7 +371,7 @@
     </message>
     <message>
       <source>Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Чаты, которые в очереди ожидания уже более n секунд, будут автоназначаться. Время в секундах</translation>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
@@ -363,7 +387,7 @@
     </message>
     <message>
       <source>How long operator should go offline automatically because of inactivity</source>
-      <translation type="unfinished"/>
+      <translation>Через какое время неактивный оператор будет считаться оффлайн</translation>
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
@@ -410,11 +434,11 @@
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>Да</translation>
     </message>
     <message>
       <source>No</source>
-      <translation type="unfinished"/>
+      <translation>Нет</translation>
     </message>
     <message>
       <source>Send</source>
@@ -446,11 +470,11 @@
     </message>
     <message>
       <source>Send test notification</source>
-      <translation type="unfinished"/>
+      <translation>Отправить тестовое уведомление</translation>
     </message>
     <message>
       <source>Submit</source>
-      <translation type="unfinished"/>
+      <translation>Подтвердить</translation>
     </message>
     <message>
       <source>Test</source>
@@ -487,11 +511,11 @@
     <name>abstract/widgettheme</name>
     <message>
       <source>Welcome message</source>
-      <translation type="unfinished"/>
+      <translation>Приветственное сообщение</translation>
     </message>
     <message>
       <source>Offline message</source>
-      <translation type="unfinished"/>
+      <translation>Офлайн-сообщение</translation>
     </message>
     <message>
       <source>Pending chat messaging</source>
@@ -539,7 +563,7 @@
     </message>
     <message>
       <source>Design</source>
-      <translation type="unfinished"/>
+      <translation>Дизайн</translation>
     </message>
     <message>
       <source>Inject HTML</source>
@@ -551,7 +575,7 @@
     </message>
     <message>
       <source>Preview</source>
-      <translation type="unfinished"/>
+      <translation>Превью</translation>
     </message>
     <message>
       <source>Download theme</source>
@@ -591,7 +615,7 @@
     </message>
     <message>
       <source>Notification</source>
-      <translation type="unfinished"/>
+      <translation>Уведомление</translation>
     </message>
     <message>
       <source>Live preview</source>
@@ -619,7 +643,7 @@
     </message>
     <message>
       <source>Default</source>
-      <translation type="unfinished"/>
+      <translation>По умолчанию</translation>
     </message>
     <message>
       <source>System assistant messages style</source>
@@ -627,7 +651,7 @@
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Основное</translation>
     </message>
     <message>
       <source>Buble background color</source>
@@ -974,6 +998,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Custom page CSS (new widget only)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom html before start chat form fields, popup (bot mode)</source>
       <translation type="unfinished"/>
     </message>
@@ -1178,6 +1206,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>After how many user messages show switch to human button. empty - never, 0 - always</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Placeholder for message text</source>
       <translation type="unfinished"/>
     </message>
@@ -1187,6 +1219,10 @@
     </message>
     <message>
       <source>Before closing chat ask user does he really want to to close chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close chat if page is refreshed. Usefull if you have embed code in popup.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2244,6 +2280,10 @@
     </message>
     <message>
       <source>Select survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File name</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3536,6 +3576,14 @@
   <context>
     <name>chat/chat</name>
     <message>
+      <source>Enter your message</source>
+      <translation>Введите сообщение</translation>
+    </message>
+    <message>
+      <source>BB Code</source>
+      <translation>BB код</translation>
+    </message>
+    <message>
       <source>Last visitor message time</source>
       <translation>Время последнего сообщения посетителя</translation>
     </message>
@@ -3614,14 +3662,6 @@
     <message>
       <source>Load more...</source>
       <translation>Загрузить больше...</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Введите сообщение</translation>
-    </message>
-    <message>
-      <source>BB Code</source>
-      <translation>BB код</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -4252,6 +4292,30 @@
       <translation>Отправить сообщение</translation>
     </message>
     <message>
+      <source>Cancel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Record voice message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stop recording</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Play recorded audio</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stop playing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send voice message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>I accept my personal data will be handled according to</source>
       <translation>Я согласен, что мои персональные данные будут обрабатываться согласно</translation>
     </message>
@@ -4476,6 +4540,14 @@
       <translation>Заполните форму для начала общения с оператором</translation>
     </message>
     <message>
+      <source>Please enter a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>characters max.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize</source>
       <translation type="unfinished"/>
     </message>
@@ -4492,6 +4564,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Your message...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Thank you for your feedback...</source>
       <translation type="unfinished"/>
     </message>
@@ -4501,6 +4577,18 @@
     </message>
     <message>
       <source>Please choose!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel voice message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Play recorded message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stop playing recorded audio</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -5023,6 +5111,10 @@
       <source>Skype call</source>
       <translation>Позвонить через Skype</translation>
     </message>
+    <message>
+      <source>Switch To Human</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/user_settings</name>
@@ -5485,6 +5577,10 @@
       <translation>Долгота варьируется</translation>
     </message>
     <message>
+      <source>Use http://ip-api.com</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Use MaxMind, does not depend on any third party remote service</source>
       <translation>Использовать MaxMind, чтобы не зависеть от других служб</translation>
     </message>
@@ -5878,6 +5974,14 @@
     </message>
     <message>
       <source>Uploaded files from visitors are scanned</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Voice messages for visitors is active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Voice messages for operators is active</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7155,6 +7259,14 @@
       <translation>E-mail получателя</translation>
     </message>
     <message>
+      <source>Inform me then visitor returns</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail is send then visitor starts new browsing session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Nick</source>
       <translation>Ник</translation>
     </message>
@@ -7364,11 +7476,11 @@
     </message>
     <message>
       <source>Long polling (experimental)</source>
-      <translation>Ожидание опроса (экспериментально)</translation>
+      <translation>Long polling (экспериментально)</translation>
     </message>
     <message>
       <source>Enable long polling</source>
-      <translation>Включить ожидание опроса</translation>
+      <translation>Включить поддержку Long polling</translation>
     </message>
     <message>
       <source>How many seconds keep connection to server?</source>
@@ -8632,6 +8744,14 @@
     </message>
     <message>
       <source>ClamAV socket length</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Voice messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Voice message max length in seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>

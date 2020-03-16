@@ -1,11 +1,11 @@
 
 <ul class="nav nav-tabs mb-3" role="tablist">
-    <li role="presentation" class="nav-item"><a href="#general" class="nav-link<?php if ($tab == '') : ?> active<?php endif;?>" aria-controls="general" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','General');?></a></li>
+    <li role="presentation" class="nav-item"><a href="#general" class="nav-link active" aria-controls="general" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','General');?></a></li>
     <li role="presentation" class="nav-item"><a href="#interface" class="nav-link" aria-controls="interface" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Interface');?></a></li>
 </ul>
 
 <div class="tab-content">
-    <div role="tabpanel" class="tab-pane <?php if ($tab == '') : ?>active<?php endif;?>" id="general">
+    <div role="tabpanel" class="tab-pane active" id="general">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Name');?></label>
             <input type="text" class="form-control" name="name"  value="<?php echo htmlspecialchars($item->name);?>" />
@@ -28,34 +28,9 @@
             </div>
         <?php endif;?>
 
-        <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Exception groups to apply');?></label>
-            <div class="row">
-                <?php
-                echo erLhcoreClassRenderHelper::renderCheckbox(array(
-                    'list_function' => 'erLhcoreClassModelGenericBotException::getList',
-                    'selected_id' => (isset($item->configuration_array['exc_group_id']) ? $item->configuration_array['exc_group_id'] : array()),
-                    'input_name' => 'exc_group_id[]',
-                    'wrap_prepend' => '<div class="col-4">',
-                    'wrap_append' => '</div>'
-                ));
-                ?>
-            </div>
-        </div>
+        <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/attr/exceptions_groups_apply.tpl.php'));?>
 
-        <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','These bot logic applies also');?></label>
-            <div class="row">
-                <?php echo erLhcoreClassRenderHelper::renderCheckbox(array(
-                    'list_function' => 'erLhcoreClassModelGenericBotBot::getList',
-                    'selected_id' => (isset($item->configuration_array['bot_id']) ? $item->configuration_array['bot_id'] : array()),
-                    'input_name' => 'bot_id[]',
-                    'wrap_prepend' => '<div class="col-6 fs12">',
-                    'wrap_append' => '</div>'
-                ));
-                ?>
-            </div>
-        </div>
+        <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/attr/applies_logic_to.tpl.php'));?>
 
         <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/attr/attr_1_container.tpl.php'));?>
         <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/attr/attr_2_container.tpl.php'));?>

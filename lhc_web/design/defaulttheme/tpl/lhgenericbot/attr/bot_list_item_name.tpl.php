@@ -1,0 +1,2 @@
+<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Download')?>" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/downloadbot')?>/<?php echo $item->id?>"><i class="material-icons">cloud_download</i></a>
+<a title="<?php echo $item->id?>" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/bot')?>/<?php echo $item->id?>"><?php echo htmlspecialchars($item->name)?></a>

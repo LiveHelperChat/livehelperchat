@@ -2,6 +2,30 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por cuantos días el widget de votación no será expandido después de mostrarlo la última vez</translation>
     </message>
@@ -974,6 +998,10 @@
       <translation>HTML personalizado antes de iniciar los campos del formulario de chat en el widget</translation>
     </message>
     <message>
+      <source>Custom page CSS (new widget only)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom html before start chat form fields, popup (bot mode)</source>
       <translation>HTML personalizado antes de iniciar los campos del formulario de chat, ventana emergente (modo robot)</translation>
     </message>
@@ -1178,6 +1206,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>After how many user messages show switch to human button. empty - never, 0 - always</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Placeholder for message text</source>
       <translation type="unfinished"/>
     </message>
@@ -1187,6 +1219,10 @@
     </message>
     <message>
       <source>Before closing chat ask user does he really want to to close chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close chat if page is refreshed. Usefull if you have embed code in popup.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2245,6 +2281,10 @@
     <message>
       <source>Select survey</source>
       <translation>Seleccionar encuesta</translation>
+    </message>
+    <message>
+      <source>File name</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose</source>
@@ -3536,6 +3576,14 @@
   <context>
     <name>chat/chat</name>
     <message>
+      <source>Enter your message</source>
+      <translation>Ingrese su mensaje</translation>
+    </message>
+    <message>
+      <source>BB Code</source>
+      <translation>Código BB</translation>
+    </message>
+    <message>
       <source>Last visitor message time</source>
       <translation>Hora del mensaje del último visitante</translation>
     </message>
@@ -3614,14 +3662,6 @@
     <message>
       <source>Load more...</source>
       <translation>Cargar más...</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Ingrese su mensaje</translation>
-    </message>
-    <message>
-      <source>BB Code</source>
-      <translation>Código BB</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -4251,6 +4291,30 @@
       <translation>Enviar mensaje</translation>
     </message>
     <message>
+      <source>Cancel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Record voice message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stop recording</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Play recorded audio</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stop playing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send voice message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>I accept my personal data will be handled according to</source>
       <translation>Acepto que mi datos personales sean tratados de acuerdo a</translation>
     </message>
@@ -4475,6 +4539,14 @@
       <translation>Llene el formulario para iniciar un chat</translation>
     </message>
     <message>
+      <source>Please enter a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>characters max.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize</source>
       <translation type="unfinished"/>
     </message>
@@ -4491,6 +4563,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Your message...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Thank you for your feedback...</source>
       <translation type="unfinished"/>
     </message>
@@ -4500,6 +4576,18 @@
     </message>
     <message>
       <source>Please choose!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel voice message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Play recorded message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stop playing recorded audio</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -5022,6 +5110,10 @@
       <source>Skype call</source>
       <translation>Llamada Skype</translation>
     </message>
+    <message>
+      <source>Switch To Human</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/user_settings</name>
@@ -5484,6 +5576,10 @@
       <translation>Variable de Longitud</translation>
     </message>
     <message>
+      <source>Use http://ip-api.com</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Use MaxMind, does not depend on any third party remote service</source>
       <translation>Usar MaxMind, no depende de ningún servicio remoto de terceros</translation>
     </message>
@@ -5878,6 +5974,14 @@
     <message>
       <source>Uploaded files from visitors are scanned</source>
       <translation>Los archivos subidos de los visitantes son escaneados</translation>
+    </message>
+    <message>
+      <source>Voice messages for visitors is active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Voice messages for operators is active</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Preview chat</source>
@@ -7152,6 +7256,14 @@
     <message>
       <source>Recipient e-mail</source>
       <translation>Destinatario de e-mail</translation>
+    </message>
+    <message>
+      <source>Inform me then visitor returns</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail is send then visitor starts new browsing session</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Nick</source>
@@ -8632,6 +8744,14 @@
     <message>
       <source>ClamAV socket length</source>
       <translation>Longitud del socket ClamAV</translation>
+    </message>
+    <message>
+      <source>Voice messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Voice message max length in seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Maintenance</source>

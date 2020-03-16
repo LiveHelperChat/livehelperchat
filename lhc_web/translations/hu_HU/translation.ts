@@ -2,6 +2,30 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -974,6 +998,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Custom page CSS (new widget only)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom html before start chat form fields, popup (bot mode)</source>
       <translation type="unfinished"/>
     </message>
@@ -1178,6 +1206,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>After how many user messages show switch to human button. empty - never, 0 - always</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Placeholder for message text</source>
       <translation type="unfinished"/>
     </message>
@@ -1187,6 +1219,10 @@
     </message>
     <message>
       <source>Before closing chat ask user does he really want to to close chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close chat if page is refreshed. Usefull if you have embed code in popup.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2244,6 +2280,10 @@
     </message>
     <message>
       <source>Select survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File name</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3536,6 +3576,14 @@
   <context>
     <name>chat/chat</name>
     <message>
+      <source>Enter your message</source>
+      <translation>Írja be üzenetét</translation>
+    </message>
+    <message>
+      <source>BB Code</source>
+      <translation>BB kód</translation>
+    </message>
+    <message>
       <source>Last visitor message time</source>
       <translation type="unfinished"/>
     </message>
@@ -3614,14 +3662,6 @@
     <message>
       <source>Load more...</source>
       <translation>Továbbiak betöltése...</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Írja be üzenetét</translation>
-    </message>
-    <message>
-      <source>BB Code</source>
-      <translation>BB kód</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -4251,6 +4291,30 @@
       <translation>Üzenet küldése</translation>
     </message>
     <message>
+      <source>Cancel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Record voice message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stop recording</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Play recorded audio</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stop playing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send voice message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>I accept my personal data will be handled according to</source>
       <translation type="unfinished"/>
     </message>
@@ -4475,6 +4539,14 @@
       <translation>Töltse ki a mezőket a beszélgetés megkezdéséhez</translation>
     </message>
     <message>
+      <source>Please enter a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>characters max.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimize</source>
       <translation type="unfinished"/>
     </message>
@@ -4491,6 +4563,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Your message...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Thank you for your feedback...</source>
       <translation type="unfinished"/>
     </message>
@@ -4500,6 +4576,18 @@
     </message>
     <message>
       <source>Please choose!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel voice message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Play recorded message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stop playing recorded audio</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -5022,6 +5110,10 @@
       <source>Skype call</source>
       <translation>Skype hívás</translation>
     </message>
+    <message>
+      <source>Switch To Human</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/user_settings</name>
@@ -5484,6 +5576,10 @@
       <translation>Hosszúsági változó</translation>
     </message>
     <message>
+      <source>Use http://ip-api.com</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Use MaxMind, does not depend on any third party remote service</source>
       <translation>Használja a MaxMind-et, ez nem függ egyéb harmadik féltől származó távoli szolgáltatástól</translation>
     </message>
@@ -5877,6 +5973,14 @@
     </message>
     <message>
       <source>Uploaded files from visitors are scanned</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Voice messages for visitors is active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Voice messages for operators is active</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7151,6 +7255,14 @@
     </message>
     <message>
       <source>Recipient e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inform me then visitor returns</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail is send then visitor starts new browsing session</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8631,6 +8743,14 @@
     </message>
     <message>
       <source>ClamAV socket length</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Voice messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Voice message max length in seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>

@@ -13,8 +13,7 @@
     <?php foreach ($items as $item) : ?>
         <tr>
             <td>
-                <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Download')?>" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/downloadbot')?>/<?php echo $item->id?>"><i class="material-icons">cloud_download</i></a>
-                <a title="<?php echo $item->id?>" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/bot')?>/<?php echo $item->id?>"><?php echo htmlspecialchars($item->name)?></a>
+                <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/attr/bot_list_item_name.tpl.php'));?>
             </td>
             <td><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/edit')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Edit');?></a></td>
             <td><a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/delete')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Delete');?></a></td>

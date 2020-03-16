@@ -2,6 +2,30 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -974,6 +998,11 @@
       <translation>Html personalizzato prima di avviare i campi del modulo di chat, widget</translation>
     </message>
     <message>
+      <source>Custom page CSS (new widget only)</source>
+      <translation> 
+CSS pagina personalizzata (solo nuovo widget)</translation>
+    </message>
+    <message>
       <source>Custom html before start chat form fields, popup (bot mode)</source>
       <translation>Html personalizzato prima di avviare i campi modulo di chat, popup (modalità bot)</translation>
     </message>
@@ -1178,6 +1207,10 @@
       <translation>Lunghezza Widget (px)</translation>
     </message>
     <message>
+      <source>After how many user messages show switch to human button. empty - never, 0 - always</source>
+      <translation>Dopo quanti messaggi utente mostrare passa al pulsante umano. vuoto - mai, 0 - sempre</translation>
+    </message>
+    <message>
       <source>Placeholder for message text</source>
       <translation>Segnaposto per il testo del messaggio</translation>
     </message>
@@ -1188,6 +1221,11 @@
     <message>
       <source>Before closing chat ask user does he really want to to close chat</source>
       <translation>Prima di chiudere la chat chiedere al visitatore se vuole davvero uscire dalla chat</translation>
+    </message>
+    <message>
+      <source>Close chat if page is refreshed. Usefull if you have embed code in popup.</source>
+      <translation> 
+Chiudi la chat se la pagina viene aggiornata. Utile se hai incorporato il codice nel popup.</translation>
     </message>
     <message>
       <source>Show go to survey button on chat close</source>
@@ -2249,6 +2287,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Select survey</source>
       <translation>Seleziona sondaggio</translation>
+    </message>
+    <message>
+      <source>File name</source>
+      <translation>Nome file</translation>
     </message>
     <message>
       <source>Please choose</source>
@@ -3540,6 +3582,14 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>chat/chat</name>
     <message>
+      <source>Enter your message</source>
+      <translation>Inserire il proprio messaggio</translation>
+    </message>
+    <message>
+      <source>BB Code</source>
+      <translation>Codice BB</translation>
+    </message>
+    <message>
       <source>Last visitor message time</source>
       <translation>Orario dell&apos;ultimo messaggio visitatore</translation>
     </message>
@@ -3618,14 +3668,6 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Load more...</source>
       <translation>Carica di più...</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Inserire il proprio messaggio</translation>
-    </message>
-    <message>
-      <source>BB Code</source>
-      <translation>Codice BB</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
@@ -4255,6 +4297,30 @@ Icona colonna, testo icone materiale</translation>
       <translation>Invia messaggio</translation>
     </message>
     <message>
+      <source>Cancel</source>
+      <translation>Annulla</translation>
+    </message>
+    <message>
+      <source>Record voice message</source>
+      <translation>Registra messaggio vocale</translation>
+    </message>
+    <message>
+      <source>Stop recording</source>
+      <translation>Ferma registrazione</translation>
+    </message>
+    <message>
+      <source>Play recorded audio</source>
+      <translation>Riproduci audio registrato</translation>
+    </message>
+    <message>
+      <source>Stop playing</source>
+      <translation>Ferma la riproduzione</translation>
+    </message>
+    <message>
+      <source>Send voice message</source>
+      <translation>Invia messaggio vocale</translation>
+    </message>
+    <message>
       <source>I accept my personal data will be handled according to</source>
       <translation>Accetto che i miei dati vengano trattati come da informativa privacy</translation>
     </message>
@@ -4479,6 +4545,14 @@ Icona colonna, testo icone materiale</translation>
       <translation>Compila questo modulo per avviare una chat</translation>
     </message>
     <message>
+      <source>Please enter a message</source>
+      <translation>Inserire un messaggio</translation>
+    </message>
+    <message>
+      <source>characters max.</source>
+      <translation>caratteri max.</translation>
+    </message>
+    <message>
       <source>Minimize</source>
       <translation>Minimizzare</translation>
     </message>
@@ -4495,6 +4569,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Popup</translation>
     </message>
     <message>
+      <source>Your message...</source>
+      <translation>Il tuo messaggio...</translation>
+    </message>
+    <message>
       <source>Thank you for your feedback...</source>
       <translation>Grazie per il vostro feedback...</translation>
     </message>
@@ -4504,7 +4582,19 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Please choose!</source>
-      <translation>Si prego di scegliere!</translation>
+      <translation>Si prega di scegliere!</translation>
+    </message>
+    <message>
+      <source>Cancel voice message</source>
+      <translation>Annulla messaggio vocale</translation>
+    </message>
+    <message>
+      <source>Play recorded message</source>
+      <translation>Riproduci messaggio registrato</translation>
+    </message>
+    <message>
+      <source>Stop playing recorded audio</source>
+      <translation>Ferma la riproduzione audio</translation>
     </message>
   </context>
   <context>
@@ -5026,6 +5116,10 @@ Icona colonna, testo icone materiale</translation>
       <source>Skype call</source>
       <translation>Chiamata Skype</translation>
     </message>
+    <message>
+      <source>Switch To Human</source>
+      <translation>Passa ad umano</translation>
+    </message>
   </context>
   <context>
     <name>chat/user_settings</name>
@@ -5488,6 +5582,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Variabile longitudine </translation>
     </message>
     <message>
+      <source>Use http://ip-api.com</source>
+      <translation>Usa http://ip-api.com</translation>
+    </message>
+    <message>
       <source>Use MaxMind, does not depend on any third party remote service</source>
       <translation>Usa MaxMind, non dipende da nessun servizio remoto di terze parti</translation>
     </message>
@@ -5882,6 +5980,14 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Uploaded files from visitors are scanned</source>
       <translation>I file caricati dai visitatori vengono scansionati</translation>
+    </message>
+    <message>
+      <source>Voice messages for visitors is active</source>
+      <translation>I messaggi vocali per i visitatori sono attivi</translation>
+    </message>
+    <message>
+      <source>Voice messages for operators is active</source>
+      <translation>I messaggi vocali per gli operatori sono attivi</translation>
     </message>
     <message>
       <source>Preview chat</source>
@@ -7024,7 +7130,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>user agent&apos;s</source>
-      <translation type="unfinished"/>
+      <translation>client utenti</translation>
     </message>
     <message>
       <source>device type&apos;s</source>
@@ -7040,7 +7146,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>user agent</source>
-      <translation type="unfinished"/>
+      <translation>client utente</translation>
     </message>
     <message>
       <source>Average number of chats &amp; peak per hour</source>
@@ -7128,7 +7234,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>User agent</source>
-      <translation type="unfinished"/>
+      <translation>Client utente</translation>
     </message>
     <message>
       <source>Time on site</source>
@@ -7156,6 +7262,14 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Recipient e-mail</source>
       <translation>E mail del destinatario</translation>
+    </message>
+    <message>
+      <source>Inform me then visitor returns</source>
+      <translation>Informami quando il visitatore ritorna</translation>
+    </message>
+    <message>
+      <source>E-mail is send then visitor starts new browsing session</source>
+      <translation>L&apos;e-mail viene inviata, quindi il visitatore inizia una nuova sessione di navigazione</translation>
     </message>
     <message>
       <source>Nick</source>
@@ -8636,6 +8750,14 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>ClamAV socket length</source>
       <translation>ClamAv lunghezza socket</translation>
+    </message>
+    <message>
+      <source>Voice messages</source>
+      <translation>Messaggi vocali</translation>
+    </message>
+    <message>
+      <source>Voice message max length in seconds</source>
+      <translation>Lunghezza massima del messaggio vocale in secondi</translation>
     </message>
     <message>
       <source>Maintenance</source>
