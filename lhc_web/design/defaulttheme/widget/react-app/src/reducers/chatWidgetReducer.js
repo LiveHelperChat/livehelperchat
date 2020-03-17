@@ -198,6 +198,7 @@ const chatWidgetReducer = (state = initialState, action) => {
 
         case 'OFFLINE_SUBMITTED' : {
             if (action.data.success === true) {
+                helperFunctions.sendMessageParent('offlineMessage',[]);
                 return state.set('processStatus', 2).set('validationErrors',fromJS({}));
             } else {
                 return state.set('validationErrors',fromJS(action.data.errors)).set('processStatus',0);
