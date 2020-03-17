@@ -3,6 +3,9 @@ Live helper chat
 
 It's an open-source powered application, which brings simplicity and usability in one place. With live helper chat you can bring live support on your site for free. http://livehelperchat.com
 
+## Hooks for extensions
+https://doc.livehelperchat.com/docs/hooks
+
 ## Quick development guide
  * After app is installed disable cache and enable debug output. 
    * https://github.com/LiveHelperChat/livehelperchat/blob/master/lhc_web/settings/settings.ini.default.php#L13-L16
