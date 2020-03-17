@@ -5,6 +5,8 @@ erTranslationClassLhTranslation::$htmlEscape = false;
 
 $requestPayload = json_decode(file_get_contents('php://input'),true);
 
+$Params['user_parameters_unordered']['department'] = isset($requestPayload['department']) ? $requestPayload['department'] : null;
+
 $chat = new erLhcoreClassModelChat();
 
 $inputData = new stdClass();
