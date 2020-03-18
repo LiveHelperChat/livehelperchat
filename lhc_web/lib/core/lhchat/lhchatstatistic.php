@@ -416,7 +416,7 @@ class erLhcoreClassChatStatistic {
     
     public static function getNumberOfChatsPerDay($filter = array(), $paramsExecution = array())
     {	
-        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getnumberofchatsperday', array('filter' => $filter));
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getnumberofchatsperday', array('params_execution' => $paramsExecution, 'filter' => $filter));
          
         if ($statusWorkflow === false) {
         	$numberOfChats = array();
