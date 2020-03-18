@@ -33,6 +33,19 @@
                 </ul>
             <?php endif; ?>
 
+            <?php if ($context == 'attribute_identifier') : ?>
+            <ul>
+                <li>Few examples
+                    <ul>
+                        <li><strong>lhc.email</strong> - set user provided data as chat e-mail</li>
+                        <li><strong>lhc.nick</strong> - set user provided data as visitor username</li>
+                        <li><strong>lhc.phone</strong> - set user provided data as visitor phone</li>
+                        <li><strong>order_number</strong> - non internal attribute. Can be anything. Like order number</li>
+                    </ul>
+                </li>
+            </ul>
+            <?php endif; ?>
+
             <?php if ($context == 'preg_match') : ?>
                     <ul>
                         <li>Few examples
