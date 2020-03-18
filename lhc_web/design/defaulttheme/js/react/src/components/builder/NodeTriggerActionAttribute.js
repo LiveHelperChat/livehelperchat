@@ -51,7 +51,7 @@ class NodeTriggerActionAttribute extends Component {
                     </div>
                     <div className="col-6">
                         <div className="form-group">
-                            <label>Attribute name</label>
+                            <label>Attribute name <a title="Need help?" className="float-right" onClick={(e) => this.showHelp('attribute_name')}><i className="material-icons mr-0">help</i></a></label>
                             <input type="text" placeholder="Attribute name" className="form-control" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','name'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','attr_options','name'])} />
                         </div>
                     </div>

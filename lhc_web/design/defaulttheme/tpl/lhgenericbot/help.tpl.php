@@ -46,6 +46,10 @@
             </ul>
             <?php endif; ?>
 
+            <?php if ($context == 'attribute_name') : ?>
+                <p>This field be used only if you are collecting non internal attribute. This will be used as display name for that attribute in back office.</p>
+            <?php endif; ?>
+
             <?php if ($context == 'preg_match') : ?>
                     <ul>
                         <li>Few examples

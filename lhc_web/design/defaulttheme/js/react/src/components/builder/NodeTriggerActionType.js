@@ -8,8 +8,8 @@ export default ({onChange, type}) => {
             'text' : 'Send Text',
         },
         {
-            'value':'collectable',
-            'text' : 'Collect information',
+            'value':'attribute',
+            'text' : 'Collect custom attribute',
         },
         {
             'value':'buttons',
@@ -28,21 +28,9 @@ export default ({onChange, type}) => {
             'text' : 'Send Typing',
         },
         {
-            'value':'progress',
-            'text' : 'Progress',
-        },
-        {
             'value':'video',
             'text' : 'Send Video',
-        },/*,
-        {
-            'value':'audio',
-            'text' : 'Send Audio',
         },
-        {
-            'value':'file',
-            'text' : 'Send File',
-        },,*/
         {
             'value':'generic',
             'text' : 'Send Carrousel',
@@ -50,14 +38,6 @@ export default ({onChange, type}) => {
         {
             'value':'command',
             'text' : 'Update Current chat',
-        },
-        {
-            'value':'attribute',
-            'text' : 'Collect custom attribute',
-        },
-        {
-            'value': 'actions',
-            'text' : 'Execute action',
         },
         {
             'value': 'intent',
@@ -76,6 +56,21 @@ export default ({onChange, type}) => {
             'text' : 'Search for default actions on message',
         },
         {
+            'value': 'repeat_restrict',
+            'text' : 'Restrict execution more than defined times',
+        }
+    ]);
+
+    var options_advanced = fromJS([
+        {
+            'value':'collectable',
+            'text' : 'Collect information',
+        },
+        {
+            'value':'progress',
+            'text' : 'Progress',
+        },
+        {
             'value': 'event_type',
             'text' : 'Trigger to execute by response',
         },
@@ -84,12 +79,14 @@ export default ({onChange, type}) => {
             'text' : 'Execute Javascript',
         },
         {
-            'value': 'repeat_restrict',
-            'text' : 'Restrict execution more than defined times',
+            'value': 'actions',
+            'text' : 'Execute action',
         }
     ]);
 
     var list = options.map((option, index) => <option key={index} value={option.get('value')}>{option.get('text')}</option>);
+
+    var list_advanced = options_advanced.map((option, index) => <option key={index} value={option.get('value')}>{option.get('text')}</option>);
 
     return (
         <div className="row">
@@ -99,7 +96,12 @@ export default ({onChange, type}) => {
             <div className="col-6">
                 <div className="form-group">
                     <select onChange={(e) => onChange(e)} className="form-control form-control-sm" defaultValue={type}>
-                        {list}
+                        <optgroup label="Basic">
+                            {list}
+                        </optgroup>
+                        <optgroup label="Advanced">
+                            {list_advanced}
+                        </optgroup>
                     </select>
                 </div>
             </div>
