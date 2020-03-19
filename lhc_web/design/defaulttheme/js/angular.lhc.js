@@ -30,8 +30,8 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 			 } else {
 				 deferred.resolve(data.data);
 			 }			 
-		},function(){
-			deferred.reject('error');
+		},function(internalError) {
+			deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
 		});		
 		return deferred.promise;
 	};
@@ -44,8 +44,8 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 			 } else {
 				 deferred.resolve(data.data);
 			 }			 
-		},function(){
-			deferred.reject('error');
+		},function(internalError){
+            deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
 		});		
 		return deferred.promise;
 	};
@@ -58,8 +58,8 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 			 } else {
 				 deferred.resolve(data.data);
 			 }			 
-		},function(){
-			deferred.reject('error');
+		},function(internalError){
+            deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
 		});		
 		return deferred.promise;
 	};
@@ -72,8 +72,8 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 			} else {
 				deferred.resolve(data.data);
 			}
-		},function(){
-			deferred.reject('error');
+		},function(internalError){
+            deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
 		});
 		return deferred.promise;
 	};
@@ -82,8 +82,8 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 		var deferred = $q.defer();
 		$http.get(WWW_DIR_JAVASCRIPT + 'user/setinactive/'+status).then(function(data) {
 			deferred.resolve(data.data);
-		},function() {
-			deferred.reject('error');
+		},function(internalError) {
+            deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
 		});
 		return deferred.promise;
 	};
@@ -92,8 +92,8 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
         var deferred = $q.defer();
         $http.get(WWW_DIR_JAVASCRIPT + 'user/setoffline/'+status).then(function(data) {
             deferred.resolve(data.data);
-        },function(data) {
-            deferred.reject(data.data);
+        },function(internalError) {
+            deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
         });
         return deferred.promise;
 	};
@@ -103,8 +103,8 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
         var deferred = $q.defer();
         $http.get(WWW_DIR_JAVASCRIPT + 'user/setinvisible/'+status).then(function(data) {
             deferred.resolve(data.data);
-        },function(data) {
-            deferred.reject(data.data);
+        },function(internalError) {
+            deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
         });
         return deferred.promise;
     };
@@ -113,8 +113,8 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
         var deferred = $q.defer();
         $http.get(WWW_DIR_JAVASCRIPT + 'chat/startchatwithoperator/'+user_id+'/(mode)/check').then(function(data) {
         	deferred.resolve(data.data);
-        },function(){
-            deferred.reject('error');
+        },function(internalError){
+            deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
         });
         return deferred.promise;
     };
@@ -216,6 +216,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
     this.lhcVersion = 0;
     this.lhcVersionCounter = 8;
     this.lhcPendingRefresh = false;
+    this.lhcConnectivityProblem = false;
+    this.lhcConnectivityProblemExplain = '';
 
 	// Stores last ID of unread/pending chat id
 	this.lastidEvent = 0;
@@ -316,7 +318,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                 alert(data);
 			}
 		},function(error) {
-            alert('We could not change your status!');
+            alert('We could not change your status! ' + error);
         });
 	};
 
@@ -807,8 +809,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		}
 		
 		clearTimeout($scope.timeoutControl);
-		LiveHelperChatFactory.loadChatList($scope.getSyncFilter()).then(function(data){	
-																	
+		LiveHelperChatFactory.loadChatList($scope.getSyncFilter()).then(function(data){
+
+		        if (_that.lhcConnectivityProblem == true) {
+                    _that.lhcConnectivityProblem = false;
+                }
+
 				ee.emitEvent('eventLoadChatList', [data, $scope, _that]);
 				
 				if (typeof data.items_processed == 'undefined') {
@@ -950,7 +956,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				_that.isListLoaded = true;
 				
 		},function(error){
-				console.log(error);
+
+                _that.lhcConnectivityProblem = true;
+                _that.lhcConnectivityProblemExplain = error;
+
 				$scope.timeoutControl = setTimeout(function(){
 					$scope.loadChatList();
 				},confLH.back_office_sinterval);

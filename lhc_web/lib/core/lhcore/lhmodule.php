@@ -140,9 +140,14 @@ class erLhcoreClassModule{
             	header('Status: 503 Service Temporarily Unavailable');
             	header('Retry-After: 300');
 
-                include_once('design/defaulttheme/tpl/lhkernel/fatal_error.tpl.php');
 
-                erLhcoreClassLog::write(print_r($e,true));
+            	if (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'],'application/json') !== false){
+                    echo json_encode(array('error' => true, 'message' => $e->getMessage()));
+                } else {
+                    include_once('design/defaulttheme/tpl/lhkernel/fatal_error.tpl.php');
+                    erLhcoreClassLog::write(print_r($e,true));
+                }
+
                 exit;
             }
 
