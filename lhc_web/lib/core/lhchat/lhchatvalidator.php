@@ -800,6 +800,12 @@ class erLhcoreClassChatValidator {
                     $val = (int)$val;
                 } elseif ($jsVar->type == 2) {
                     $val = (real)$val;
+                } elseif ($jsVar->type == 3) {
+                    try {
+                        $val = self::decryptAdditionalField($val);
+                    } catch (Exception $e) {
+                        $val = $e->getMessage();
+                    }
                 }
                 $onlineAttr[$jsVar->var_identifier] =  array('h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
             }
@@ -842,6 +848,12 @@ class erLhcoreClassChatValidator {
                             $val = (int)$val;
                         } elseif ($jsVar->type == 2) {
                             $val = (real)$val;
+                        } elseif ($jsVar->type == 3) {
+                            try {
+                                $val = self::decryptAdditionalField($val, $chat);
+                            } catch (Exception $e) {
+                                $val = $e->getMessage();
+                            }
                         }
                         $stringParts[] = array('h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
                     }
@@ -1357,14 +1369,19 @@ class erLhcoreClassChatValidator {
         }
     }
     
-    public static function decryptAdditionalField($valueStore, $chat)
+    public static function decryptAdditionalField($valueStore, $chat = null)
     {
         if ($valueStore != '') {
-                   
-            $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('filter' => array('department_id' => $chat->dep_id)));
-            
-            if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
-                $startData = $startDataDepartment->data_array;
+
+            if ($chat !== null) {
+                $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('filter' => array('department_id' => $chat->dep_id)));
+
+                if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
+                    $startData = $startDataDepartment->data_array;
+                } else {
+                    $startData = (array)erLhcoreClassModelChatConfig::fetch('start_chat_data')->data;
+                }
+
             } else {
                 $startData = (array)erLhcoreClassModelChatConfig::fetch('start_chat_data')->data;
             }
