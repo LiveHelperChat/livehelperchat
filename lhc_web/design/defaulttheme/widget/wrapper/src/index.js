@@ -90,6 +90,7 @@
                 tag: LHC_API.args.tag || '',
                 proactive: {},
                 captcha : null,
+                offline_redirect : LHC_API.args.offline_redirect || null,
                 identifier : LHC_API.args.identifier || '',
                 proactive_interval : null,
                 lang : LHC_API.args.lang || '',
@@ -299,9 +300,7 @@
                 if (attributesWidget.mode == 'popup') {
                     attributesWidget.popupWidget.init(attributesWidget);
 
-                    //if (attributesWidget.position != 'api') {
-                        attributesWidget.viewHandler.removeUnreadIndicator();
-                    //}
+                    attributesWidget.viewHandler.removeUnreadIndicator();
 
                     attributesWidget.mainWidget.hide();
                 }
@@ -322,9 +321,7 @@
 
                 attributesWidget.popupWidget.init(attributesWidget);
 
-                //if (attributesWidget.position != 'api') {
-                    attributesWidget.viewHandler.removeUnreadIndicator();
-                //}
+                attributesWidget.viewHandler.removeUnreadIndicator();
 
                 chatEvents.sendChildEvent('shownWidget', [{'sender' : 'closeButton'}]);
 

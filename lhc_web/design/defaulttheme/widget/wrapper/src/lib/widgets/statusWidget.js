@@ -45,11 +45,19 @@ export class statusWidget{
     init(attributes) {
         this.cont.constructUIIframe('');
 
+        this.attributes = attributes;
+
         this.cont.attachUserEventListener("click", function (a) {
-            attributes.eventEmitter.emitEvent('showWidget', [{'sender' : 'closeButton'}]);
+
+            if (attributes.onlineStatus.value === false && attributes.offline_redirect !== null){
+                document.location = attributes.offline_redirect;
+            } else {
+                attributes.eventEmitter.emitEvent('showWidget', [{'sender' : 'closeButton'}]);
+            }
+
         }, "lhc_status_container", "minifiedclick");
 
-        this.attributes = attributes;
+
 
         if (this.attributes.staticJS['fontCSS']) {
             this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['fontCSS']});
