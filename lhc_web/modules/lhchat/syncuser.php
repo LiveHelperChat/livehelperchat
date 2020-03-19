@@ -8,13 +8,7 @@ $pollingMessageTimeout = (float)erLhcoreClassModelChatConfig::fetch('sync_sound_
 $db = ezcDbInstance::get();
 $db->beginTransaction();
 
-try {
-    $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
-    $chat->updateIgnoreColumns = array('last_msg_id');
-    erLhcoreClassChat::setTimeZoneByChat($chat);
-} catch (Exception $e) {
-    $chat = false;
-}
+$chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
 
 $content = 'false';
 $status = 'true';
@@ -31,7 +25,10 @@ $operatorId = 0;
 $responseArray = array();
 
 if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
-{   
+{
+    $chat->updateIgnoreColumns = array('last_msg_id');
+    erLhcoreClassChat::setTimeZoneByChat($chat);
+
 	try {
 		while (true) {
 	    
