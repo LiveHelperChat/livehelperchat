@@ -322,7 +322,12 @@ function lh(){
     		setTimeout(function(){
     			inst.find('.msg-nm').remove();
     			inst.removeClass('has-pm');
-    			$('#messagesBlock-'+chat_id).stop(true,false).animate({ scrollTop: $('#messagesBlock-'+chat_id).prop('scrollHeight') }, 500);
+
+                if (!inst.attr('lhc-scrolled')) {
+                    $('#messagesBlock-'+chat_id).prop('scrollTop',$('#messagesBlock-'+chat_id).prop('scrollHeight'));
+                    inst.attr('lhc-scrolled',true);
+                }
+
     			ee.emitEvent('chatTabClicked', [chat_id, inst]);
 
     		},500);
@@ -2491,7 +2496,11 @@ function lh(){
 
 		this.addSynchroChat(chat_id,last_message_id);
 
-		$('#messagesBlock-'+chat_id).animate({ scrollTop: $('#messagesBlock-'+chat_id).prop('scrollHeight') }, 1000);
+        $messageBlock.prop('scrollTop',$messageBlock.prop('scrollHeight'));
+
+        if ($messageBlock.prop('scrollTop') != 0 || $messageBlock.prop('scrollHeight') != 0) {
+            $('#chat-tab-link-'+chat_id).attr('lhc-scrolled',true);
+        }
 
 		// Start synchronisation
 		this.startSyncAdmin();
