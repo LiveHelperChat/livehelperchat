@@ -1385,13 +1385,15 @@ class erLhcoreClassChatValidator {
             } else {
                 $startData = (array)erLhcoreClassModelChatConfig::fetch('start_chat_data')->data;
             }
-            
-            $valueStore = lhSecurity::decrypt($valueStore,
-                (isset($startData['custom_fields_encryption']) && !empty($startData['custom_fields_encryption']) ? $startData['custom_fields_encryption'] : null)
-            );
-        
-            if ($valueStore === false) {
-               throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Could not decrypt data!'));
+
+            $keyDecrypt = (isset($startData['custom_fields_encryption']) && !empty($startData['custom_fields_encryption']) ? $startData['custom_fields_encryption'] : null);
+
+            if ($keyDecrypt !== null) {
+                $valueStore = lhSecurity::decrypt($valueStore,$keyDecrypt);
+
+                if ($valueStore === false) {
+                    throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Could not decrypt data!'));
+                }
             }
         }
         

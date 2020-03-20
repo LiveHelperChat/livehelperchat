@@ -9,6 +9,7 @@ $themeAppend = '';
 if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
 	try {
 		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+        $theme->translate();
 		$Result['theme'] = $theme;
 		$themeAppend = '/(theme)/'.$theme->id;
 	} catch (Exception $e) {
@@ -19,6 +20,7 @@ if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_p
 	if ($defaultTheme > 0) {
 		try {
 			$theme = erLhAbstractModelWidgetTheme::fetch($defaultTheme);
+            $theme->translate();
 			$Result['theme'] = $theme;
 			$themeAppend = '/(theme)/'.$theme->id;
 		} catch (Exception $e) {

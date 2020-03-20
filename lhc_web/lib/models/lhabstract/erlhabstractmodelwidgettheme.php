@@ -408,11 +408,92 @@ class erLhAbstractModelWidgetTheme {
     {
 		return '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/colorpicker.js;js/ace/ace.js').'"></script>';
 	}
+
+    public function dependFooterJs()
+    {
+        return '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/angular.lhc.theme.js').'"></script>';
+    }
 	
 	public function customForm()
     {
 		return 'widget_theme.tpl.php';
 	}
+
+	public function translate() {
+        $chatLocale = null;
+        $chatLocaleFallback = erConfigClassLhConfig::getInstance()->getDirLanguage('content_language');
+
+        // Detect user locale
+        if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+            $parts = explode(';',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
+            $languages = explode(',',$parts[0]);
+            if (isset($languages[0])) {
+                $chatLocale = $languages[0];
+            }
+        }
+
+        $attributesDirect = array(
+            'pending_join_queue',
+            'bot_status_text',
+            'support_joined',
+            'support_closed',
+            'pending_join',
+            'noonline_operators',
+            'noonline_operators_offline',
+            'department_title',
+            'department_select',
+            'explain_text',
+        );
+
+        $translatableAttributes = array_merge(array(
+            'custom_start_button_offline',
+            'custom_start_button_bot',
+            'custom_start_button',
+            'inject_html',
+            'custom_html_status',
+            'custom_html_header_body',
+            'custom_html_header',
+            'custom_html_widget_bot',
+            'custom_html_bot',
+            'custom_html_widget',
+            'custom_html'
+        ),$attributesDirect);
+
+        $attributes = $this->bot_configuration_array;
+
+        foreach ($translatableAttributes as $attr) {
+            if (isset($attributes[$attr . '_lang'])) {
+
+                $translated = false;
+
+                if ($chatLocale !== null) {
+                    foreach ($attributes[$attr . '_lang'] as $attrTrans) {
+                        if (in_array($chatLocale, $attrTrans['languages']) && $attrTrans['content'] != '') {
+                            $attributes[$attr] = $attrTrans['content'];
+                            $translated = true;
+                            break;
+                        }
+                    }
+                }
+
+                if ($translated == false) {
+                    foreach ($attributes[$attr . '_lang'] as $attrTrans) {
+                        if (in_array($chatLocaleFallback, $attrTrans['languages']) && $attrTrans['content'] != '') {
+                            $attributes[$attr] = $attrTrans['content'];
+                            $translated = true;
+                            break;
+                        }
+                    }
+                }
+
+                if ($translated === true && in_array($attr,$attributesDirect)) {
+                    $this->$attr = $attributes[$attr];
+                }
+            }
+        }
+
+        $this->bot_configuration_array = $attributes;
+    }
 
    	public $id = null;
 	public $name = '';
@@ -502,7 +583,6 @@ class erLhAbstractModelWidgetTheme {
 
 	public $hide_add = false;
 	public $hide_delete = false;
-
 }
 
 ?>

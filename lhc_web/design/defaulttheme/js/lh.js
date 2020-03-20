@@ -321,11 +321,17 @@ function lh(){
     		var inst = $(this);
     		setTimeout(function(){
     			inst.find('.msg-nm').remove();
-    			inst.removeClass('has-pm');
 
-                if (!inst.attr('lhc-scrolled')) {
+    			var scrollNeeded = false;
+
+                if (inst.hasClass('has-pm')) {
+                    scrollNeeded = true;
+                    inst.removeClass('has-pm');
+                }
+
+                if (/*!inst.attr('lhc-scrolled') || */scrollNeeded == true) {
                     $('#messagesBlock-'+chat_id).prop('scrollTop',$('#messagesBlock-'+chat_id).prop('scrollHeight'));
-                    inst.attr('lhc-scrolled',true);
+                    //inst.attr('lhc-scrolled',true);
                 }
 
     			ee.emitEvent('chatTabClicked', [chat_id, inst]);
@@ -2498,9 +2504,9 @@ function lh(){
 
         $messageBlock.prop('scrollTop',$messageBlock.prop('scrollHeight'));
 
-        if ($messageBlock.prop('scrollTop') != 0 || $messageBlock.prop('scrollHeight') != 0) {
+        /*if ($messageBlock.prop('scrollTop') != 0 || $messageBlock.prop('scrollHeight') != 0) {
             $('#chat-tab-link-'+chat_id).attr('lhc-scrolled',true);
-        }
+        }*/
 
 		// Start synchronisation
 		this.startSyncAdmin();

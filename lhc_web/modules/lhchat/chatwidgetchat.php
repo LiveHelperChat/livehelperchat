@@ -21,6 +21,7 @@ if ((string)$Params['user_parameters_unordered']['mobile'] == 'false') {
 if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
 	try {
 		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+        $theme->translate();
 		$Result['theme'] = $theme;
 		$tpl->set('theme',$theme);
 		$modeAppend .= '/(theme)/'.$theme->id;

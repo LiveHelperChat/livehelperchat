@@ -17,6 +17,7 @@ $theme = false;
 
 if (isset($requestPayload['theme']) && $requestPayload['theme'] > 0) {
     $theme = erLhAbstractModelWidgetTheme::fetch($requestPayload['theme']);
+    $theme->translate();
 }
 
 // Departments
@@ -493,6 +494,14 @@ if ($theme !== false) {
         if (!isset($chat_ui['custom_html_widget']) && isset($theme->bot_configuration_array['custom_html']) && $theme->bot_configuration_array['custom_html'] != '') {
             $chat_ui['custom_html_widget'] = $theme->bot_configuration_array['custom_html'];
         }
+    }
+
+    if ($theme->explain_text != '') {
+        if (!isset($chat_ui['custom_html_widget'])) {
+            $chat_ui['custom_html_widget'] = '';
+        }
+
+        $chat_ui['custom_html_widget'] .= erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->explain_text));
     }
 
     if ($Params['user_parameters_unordered']['online'] == '0' && isset($theme->bot_configuration_array['custom_start_button_offline']) && $theme->bot_configuration_array['custom_start_button_offline'] != '') {

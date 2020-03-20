@@ -98,12 +98,10 @@
 						<div class="form-group">
 						<label><?php echo $fields['operator_image']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('operator_image', $fields['operator_image'], $object)?>
-						</div>		
-										
-						<div class="form-group">
-						<label><?php echo $fields['explain_text']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('explain_text', $fields['explain_text'], $object)?>
 						</div>
+
+                        <?php $translatableItem = array('identifier' => 'explain_text', 'bb_code_selected' => 'textarea[name=AbstractInput_explain_text]'); ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
 						<div class="form-group">
 						<label><?php echo $fields['show_status_delay']['trans'];?></label>
@@ -374,63 +372,43 @@
 					<label><?php echo $fields['hide_status']['trans'];?></label>
 					<?php echo erLhcoreClassAbstract::renderInput('hide_status', $fields['hide_status'], $object)?>
 					</div>
-					
-        		    <div class="form-group">										
-					<label><?php echo $fields['department_title']['trans'];?></label>
-					<?php echo erLhcoreClassAbstract::renderInput('department_title', $fields['department_title'], $object)?>		
-					</div>
-					
-        		    <div class="form-group">										
-					<label><?php echo $fields['department_select']['trans'];?></label>
-					<?php echo erLhcoreClassAbstract::renderInput('department_select', $fields['department_select'], $object)?>		
-					</div>
-					        		    
-        		    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text changes')?></h3>
-        		
-            		<div class="form-group">										
-    				<label><?php echo $fields['placeholder_message']['trans'];?></label>
-    				<?php echo erLhcoreClassAbstract::renderInput('placeholder_message', $fields['placeholder_message'], $object)?>
-    				</div>
 
-                    <div class="form-group">
-    				<label><?php echo $fields['bot_status_text']['trans'];?></label>
-    				<?php echo erLhcoreClassAbstract::renderInput('bot_status_text', $fields['bot_status_text'], $object)?>
-    				</div>
+                    <?php $translatableItem = array('identifier' => 'department_title'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
-                    <div class="form-group">
-    				<label><?php echo $fields['support_joined']['trans'];?></label>
-    				<?php echo erLhcoreClassAbstract::renderInput('support_joined', $fields['support_joined'], $object)?>
-    				</div>
-    				
-    				<div class="form-group">										
-    				<label><?php echo $fields['support_closed']['trans'];?></label>
-    				<?php echo erLhcoreClassAbstract::renderInput('support_closed', $fields['support_closed'], $object)?>		
-    				</div>
-    				
-    				<div class="form-group">										
-    				<label><?php echo $fields['pending_join']['trans'];?></label>
-    				<?php echo erLhcoreClassAbstract::renderInput('pending_join', $fields['pending_join'], $object)?>		
-    				</div>
+                    <?php $translatableItem = array('identifier' => 'department_select'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
-    				<div class="form-group">
-    				<label><?php echo $fields['pending_join_queue']['trans'];?></label>
-    				<?php echo erLhcoreClassAbstract::renderInput('pending_join_queue', $fields['pending_join_queue'], $object)?>
-    				</div>
-    				
-    				<div class="form-group">										
-    				<label><?php echo $fields['noonline_operators']['trans'];?></label>
-    				<?php echo erLhcoreClassAbstract::renderInput('noonline_operators', $fields['noonline_operators'], $object)?>		
-    				</div>
-    				
-    				<div class="form-group">										
-    				<label><?php echo $fields['noonline_operators_offline']['trans'];?></label>
-    				<?php echo erLhcoreClassAbstract::renderInput('noonline_operators_offline', $fields['noonline_operators_offline'], $object)?>		
-    				</div>
-    				
+                    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text changes')?></h3>
+
+                    <?php $translatableItem = array('identifier' => 'placeholder_message'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'bot_status_text'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'support_joined'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'support_closed'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'pending_join'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'pending_join_queue'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'noonline_operators'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'noonline_operators_offline'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
         		</div>
         		
         		<div role="tabpanel" class="tab-pane" id="customcss">
-        		
+
                     <label><?php echo $fields['custom_status_css']['trans'];?></label>
                     <div class="form-group">
                     <?php echo erLhcoreClassAbstract::renderInput('custom_status_css', $fields['custom_status_css'], $object)?>
@@ -460,60 +438,38 @@
 
                 <div role="tabpanel" class="tab-pane" id="customcontent">
 
-                    <div class="form-group">
-                        <label><?php echo $fields['custom_html']['trans'];?></label>
-                        <?php echo erLhcoreClassAbstract::renderInput('custom_html', $fields['custom_html'], $object)?>
-                    </div>
+                    <?php $translatableItem = array('identifier' => 'custom_html'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
-                    <div class="form-group">
-                        <label><?php echo $fields['custom_html_widget']['trans'];?></label>
-                        <?php echo erLhcoreClassAbstract::renderInput('custom_html_widget', $fields['custom_html_widget'], $object)?>
-                    </div>
+                    <?php $translatableItem = array('identifier' => 'custom_html_widget'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
-                    <div class="form-group">
-                        <label><?php echo $fields['custom_html_bot']['trans'];?></label>
-                        <?php echo erLhcoreClassAbstract::renderInput('custom_html_bot', $fields['custom_html_bot'], $object)?>
-                    </div>
+                    <?php $translatableItem = array('identifier' => 'custom_html_bot'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
-                    <div class="form-group">
-                        <label><?php echo $fields['custom_html_widget_bot']['trans'];?></label>
-                        <?php echo erLhcoreClassAbstract::renderInput('custom_html_widget_bot', $fields['custom_html_widget_bot'], $object)?>
-                    </div>
+                    <?php $translatableItem = array('identifier' => 'custom_html_widget_bot'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
-                    <div class="form-group">
-                        <label><?php echo $fields['custom_html_header']['trans'];?></label>
-                        <?php echo erLhcoreClassAbstract::renderInput('custom_html_header', $fields['custom_html_header'], $object)?>
-                    </div>
+                    <?php $translatableItem = array('identifier' => 'custom_html_header'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
-                    <div class="form-group">
-                        <label><?php echo $fields['custom_html_header_body']['trans'];?></label>
-                        <?php echo erLhcoreClassAbstract::renderInput('custom_html_header_body', $fields['custom_html_header_body'], $object)?>
-                    </div>   
+                    <?php $translatableItem = array('identifier' => 'custom_html_header_body'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
-                    <div class="form-group">
-                        <label><?php echo $fields['custom_html_status']['trans'];?></label>
-                        <?php echo erLhcoreClassAbstract::renderInput('custom_html_status', $fields['custom_html_status'], $object)?>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label><?php echo $fields['inject_html']['trans'];?></label>
-                        <?php echo erLhcoreClassAbstract::renderInput('inject_html', $fields['inject_html'], $object)?>
-                    </div>
+                    <?php $translatableItem = array('identifier' => 'custom_html_status'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
-                    <div class="form-group">
-                        <label><?php echo $fields['custom_start_button']['trans'];?></label>
-                        <?php echo erLhcoreClassAbstract::renderInput('custom_start_button', $fields['custom_start_button'], $object)?>
-                    </div>
+                    <?php $translatableItem = array('identifier' => 'inject_html'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
-                    <div class="form-group">
-                        <label><?php echo $fields['custom_start_button_bot']['trans'];?></label>
-                        <?php echo erLhcoreClassAbstract::renderInput('custom_start_button_bot', $fields['custom_start_button_bot'], $object)?>
-                    </div>
+                    <?php $translatableItem = array('identifier' => 'custom_start_button'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
-                    <div class="form-group">
-                        <label><?php echo $fields['custom_start_button_offline']['trans'];?></label>
-                        <?php echo erLhcoreClassAbstract::renderInput('custom_start_button_offline', $fields['custom_start_button_offline'], $object)?>
-                    </div>
+                    <?php $translatableItem = array('identifier' => 'custom_start_button_bot'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'custom_start_button_offline'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
                     <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text content before user fields')?></h4>
 

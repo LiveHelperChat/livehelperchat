@@ -86,7 +86,7 @@
                     </label>
                     <br ng-if="langDialtect.short_code"/>
                     <label class="fs12" ng-if="langDialtect.short_code">
-                        <input name="languages[{{$parent.$index}}][]" type="checkbox" value="{{langDialtect.short_code}}" ng-checked="lang.languages.indexOf(langDialtect.short_code) > -1" ng-click="cmsg.toggleSelection(lang,langDialtect.short_code)"> {{langDialtect.lang_name}} [{{langDialtect.short_code}}]
+                        <input name="languages[{{$parent.$parent.$index}}][]" type="checkbox" value="{{langDialtect.short_code}}" ng-checked="lang.languages.indexOf(langDialtect.short_code) > -1" ng-click="cmsg.toggleSelection(lang,langDialtect.short_code)"> {{langDialtect.lang_name}} [{{langDialtect.short_code}}]
                     </label>
                     <br/>
                 </div>
