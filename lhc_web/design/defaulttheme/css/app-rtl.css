@@ -44,3 +44,13 @@ input[type="file"] {
 .chatbox-row .usr-tit {
 	float:none;
 }
+
+.user-chatwidget-buttons {
+    right:unset;
+    left:3px;
+}
+
+#ChatSendButtonContainer a i {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
