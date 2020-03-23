@@ -43,9 +43,10 @@ export class statusWidget{
     }
 
     init(attributes) {
-        this.cont.constructUIIframe('');
 
         this.attributes = attributes;
+
+        this.cont.constructUIIframe('');
 
         this.cont.attachUserEventListener("click", function (a) {
 

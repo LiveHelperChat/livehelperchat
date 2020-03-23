@@ -530,7 +530,7 @@ class OnlineChat extends Component {
             }
 
             var msg_expand = "flex-grow-1 overflow-scroll position-relative";
-            var bottom_messages = "bottom-message pl-1 pr-1";
+            var bottom_messages = "bottom-message px-1";
 
             if (this.props.chatwidget.hasIn(['chat_ui','msg_expand'])) {
                 msg_expand = "overflow-scroll position-relative";
@@ -620,7 +620,7 @@ class OnlineChat extends Component {
 
                     {this.state.showBBCode && <ChatModal showModal={this.state.showBBCode} insertText={this.insertText} toggle={this.toggleModal} dataUrl={"/chat/bbcodeinsert?react=1"} />}
 
-                    {this.props.chatwidget.hasIn(['chatStatusData','result']) && !this.props.chatwidget.hasIn(['chat_ui','hide_status']) && <div className="pt-1 pl-1 pr-1"><ChatStatus updateStatus={this.updateStatus} vtm={this.props.chatwidget.hasIn(['chat_ui','switch_to_human']) && this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_BOT_CHAT ? this.props.chatwidget.getIn(['chatLiveData','vtm']) : 0} status={this.props.chatwidget.getIn(['chatStatusData','result'])} /></div>}
+                    {this.props.chatwidget.hasIn(['chatStatusData','result']) && !this.props.chatwidget.hasIn(['chat_ui','hide_status']) && <div className="pt-1 px-1"><ChatStatus updateStatus={this.updateStatus} vtm={this.props.chatwidget.hasIn(['chat_ui','switch_to_human']) && this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_BOT_CHAT ? this.props.chatwidget.getIn(['chatLiveData','vtm']) : 0} status={this.props.chatwidget.getIn(['chatStatusData','result'])} /></div>}
 
                     <div className={msg_expand} id="messagesBlock">
                         <div className={bottom_messages} id="messages-scroll" ref={this.messagesAreaRef}>
@@ -632,7 +632,7 @@ class OnlineChat extends Component {
                         {(this.props.chatwidget.getIn(['chatLiveData','ott']) || this.props.chatwidget.getIn(['chatLiveData','error'])) && <div id="id-operator-typing" className="bg-white pl-1">{this.props.chatwidget.getIn(['chatLiveData','error']) || this.props.chatwidget.getIn(['chatLiveData','ott'])}</div>}
 
                         <ChatOptions elementId="chat-dropdown-options">
-                            <div className="btn-group dropup pt-1 disable-select pl-2 pt-2">
+                            <div className="btn-group dropup disable-select pl-2 pt-2">
                                 <i className="material-icons settings text-muted" id="chat-dropdown-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">settings</i>
                                 <div className="dropdown-menu shadow bg-white rounded lhc-dropdown-menu ml-1">
                                     <div className="d-flex flex-row pl-1">

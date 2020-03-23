@@ -146,7 +146,7 @@ class VoiceMessage extends PureComponent {
 
             {recording && isPlaying === true && <i className="material-icons pointer text-success mr-0 fs25" title={t('voice.stop_playing_recorded')} onClick={this.stopPlayRecord}>stop</i>}
 
-            <span className="fs12 pl-1 pr-1">{isRecording ? '' : (isPlaying ? this.pad(this.state.currentTime) + ':' : '')}{isRecording || !recording ? (this.props.maxSeconds - this.state.audioDuration) + " s." : this.pad(this.state.audioDuration) + (!isPlaying ? 's.' : '')}</span>
+            <span className="fs12 px-1">{isRecording ? '' : (isPlaying ? this.pad(this.state.currentTime) + ':' : '')}{isRecording || !recording ? (this.props.maxSeconds - this.state.audioDuration) + " s." : this.pad(this.state.audioDuration) + (!isPlaying ? 's.' : '')}</span>
 
             {recording && <i className="material-icons pointer text-success mr-0 fs25" title={t('voice.send')} onClick={this.sendRecord}>send</i>}
 

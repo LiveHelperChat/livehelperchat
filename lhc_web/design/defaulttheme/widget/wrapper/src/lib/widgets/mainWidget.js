@@ -55,8 +55,10 @@ export class mainWidget{
     }
 
     init(attributes) {
-        this.cont.constructUIIframe('');
+
         this.attributes = attributes;
+
+        this.cont.constructUIIframe('', this.attributes.staticJS['dir'], this.attributes.staticJS['cl']);
 
         if (this.attributes.staticJS['fontCSS']) {
             this.cont.insertCssRemoteFile({rel:"stylesheet", crossOrigin : "anonymous",  href : this.attributes.staticJS['fontCSS']});
