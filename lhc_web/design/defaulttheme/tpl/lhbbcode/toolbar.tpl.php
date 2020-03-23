@@ -11,10 +11,10 @@
 
     <div class="btn-group btn-group-sm mr-2" role="group">
         <div class="dropdown mr-2">
-            <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Font Size')?>
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-menu">
                 <?php for($ibb = 0; $ibb < 7; $ibb++) : ?>
                     <a class="dropdown-item" href="#" data-selector="<?php echo $bbcodeOptions['selector']?>" onclick="return lhinst.handleBBCode($(this))" data-bbcode-end="fs" data-bbcode="fs<?php echo 10+$ibb;?>" style="font-size: <?php echo 10+$ibb;?>pt">Font Size <?php echo 10+$ibb;?>pt</a>
                 <?php endfor; ?>

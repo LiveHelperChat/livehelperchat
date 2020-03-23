@@ -7,7 +7,7 @@
 <?php endif; ?>
 
 <?php $fields = $object->getFields();?>
-<div ng-controller="AutoResponderCtrl as cmsg"  ng-init='<?php if ($object->languages != '') : ?>cmsg.languages = <?php echo json_encode(json_decode($object->languages,true),JSON_HEX_APOS)?>;<?php endif;?>cmsg.dialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getList()))?>'>
+<div ng-controller="AutoResponderCtrl as cmsg"  ng-init='<?php if ($object->languages != '') : ?>cmsg.languages = <?php echo json_encode(json_decode($object->languages,true),JSON_HEX_APOS)?>;<?php endif;?>cmsg.dialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>'>
 
 <div class="form-group">
 <label><?php echo $fields['name']['trans'];?></label>
@@ -19,12 +19,12 @@
 <?php echo erLhcoreClassAbstract::renderInput('siteaccess', $fields['siteaccess'], $object)?>
 </div>
 
-<div class="form-group">		
+<div class="form-group">
 <label><?php echo $fields['position']['trans'];?></label>
 <?php echo erLhcoreClassAbstract::renderInput('position', $fields['position'], $object)?>
 </div>
 
-<div class="form-group">		
+<div class="form-group">
 <label><?php echo $fields['dep_id']['trans'];?></label>
 <?php echo erLhcoreClassAbstract::renderInput('dep_id', $fields['dep_id'], $object)?>
 </div>
@@ -96,7 +96,7 @@
     		<li role="presentation" class="nav-item"><a class="nav-link" href="#onhold" aria-controls="onhold" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','On-hold chat messaging');?></a></li>
             <li role="presentation" class="nav-item"><a class="nav-link" href="#closeaction" aria-controls="closeaction" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Close messaging');?></a></li>
     		<li role="presentation" class="nav-item"><a class="nav-link" href="#survey" aria-controls="survey" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Survey');?></a></li>
-            <li ng-repeat="lang in cmsg.languages" class="nav-item" role="presentation"><a class="nav-link" href="#lang-{{$index}}" aria-controls="lang-{{$index}}" role="tab" data-toggle="tab" ><i class="material-icons mr-0">&#xE894;</i></a></li>
+            <li ng-repeat="lang in cmsg.languages" class="nav-item" role="presentation"><a class="nav-link" href="#lang-{{$index}}" aria-controls="lang-{{$index}}" role="tab" data-toggle="tab" ><i class="material-icons mr-0">&#xE894;</i> [{{cmsg.getLanguagesChecked(lang)}}]</a></li>
             <li class="nav-item"><a class="nav-link" href="#addlanguage" ng-click="cmsg.addLanguage()"><i class="material-icons">&#xE145;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Add translation');?></a></li>
         </ul>
     
