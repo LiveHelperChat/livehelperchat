@@ -229,14 +229,9 @@
 						<label><?php echo $fields['wheight']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('wheight', $fields['wheight'], $object)?>		
 						</div>
-						
-						<?php /*
-						<div class="form-group">							
-						<label><?php echo $fields['copyright_image']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('copyright_image', $fields['copyright_image'], $object)?>
-						</div>
-						*/ ?>
-						
+
+                        <input class="d-none" checked="checked" type="checkbox" name="AbstractInput_copyright_image_delete" value="1">
+
 						<div class="form-group">	
 						<label><?php echo $fields['minimize_image']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('minimize_image', $fields['minimize_image'], $object)?>
@@ -262,9 +257,9 @@
 						<?php echo erLhcoreClassAbstract::renderInput('widget_response_width', $fields['widget_response_width'], $object)?>
 						</div>
 						
-						<div class="form-group">	
+						<?php /*<div class="form-group">
 						<label><?php echo erLhcoreClassAbstract::renderInput('show_copyright', $fields['show_copyright'], $object)?> <?php echo $fields['show_copyright']['trans'];?></label>	
-						</div>
+						</div>*/ ?>
 						
 						<div class="form-group">	
 						<label><?php echo erLhcoreClassAbstract::renderInput('hide_close', $fields['hide_close'], $object)?> <?php echo $fields['hide_close']['trans'];?></label>
@@ -585,7 +580,8 @@
 	
 	<div class="row">
 		<div class="col-md-12">
-			<div id="lhc_container"><div id="lhc_header"><span id="lhc_title" ng-show="abstract_checked_show_copyright"><a title="Powered by Live Helper Chat" href="{{ngModelAbstractInput_widget_copyright_url || 'http://livehelperchat.com'}}" target="_blank"><img src="<?php if ($object->copyright_image_url != '') : ?><?php echo $object->copyright_image_url?><?php else : ?><?php echo erLhcoreClassDesign::design('images/general/logo_grey.png');?><?php endif?>" alt="Live Helper Chat"></a></span><a ng-hide="abstract_checked_hide_close" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" id="lhc_close"><img src="<?php if ($object->close_image_url != '') : ?><?php echo $object->close_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/cancel.png');?><?php endif;?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>"></a>&nbsp;<a ng-hide="abstract_checked_hide_popup" target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chat/startchat')?>/(leaveamessage)/true<?php echo $object->id > 0 ? '/(theme)/'.$object->id : ''?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>" id="lhc_remote_window"><img src="<?php if ($object->popup_image_url != '') : ?><?php echo $object->popup_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/application_double.png');?><?php endif;?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>"></a><a href="#" id="lhc_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Minimize/Restore')?>"><img src="<?php if ($object->minimize_image_url != '') : ?><?php echo $object->minimize_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/min.png');?><?php endif;?>"></a><a href="#" id="lhc_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Minimize/Restore')?>"><img src="<?php if ($object->restore_image_url != '') : ?><?php echo $object->restore_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/restore.png');?><?php endif;?>"></a></div><div id="lhc_iframe_container"><iframe id="lhc_iframe" allowtransparency="true" scrolling="no" class="lhc-loading" frameborder="0" src="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?>/(sdemo)/true/(leaveamessage)/true<?php echo $object->id > 0 ? '/(theme)/'.$object->id : ''?>" width="320" height="292" style="width: 100%; height: 292px;"></iframe></div></div>
+			<div id="lhc_container"><div id="lhc_header">
+                    <a ng-hide="abstract_checked_hide_close" href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" id="lhc_close"><img src="<?php if ($object->close_image_url != '') : ?><?php echo $object->close_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/cancel.png');?><?php endif;?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>"></a>&nbsp;<a ng-hide="abstract_checked_hide_popup" target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chat/startchat')?>/(leaveamessage)/true<?php echo $object->id > 0 ? '/(theme)/'.$object->id : ''?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>" id="lhc_remote_window"><img src="<?php if ($object->popup_image_url != '') : ?><?php echo $object->popup_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/application_double.png');?><?php endif;?>" alt="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Open in a new window')?>"></a><a href="#" id="lhc_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Minimize/Restore')?>"><img src="<?php if ($object->minimize_image_url != '') : ?><?php echo $object->minimize_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/min.png');?><?php endif;?>"></a><a href="#" id="lhc_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Minimize/Restore')?>"><img src="<?php if ($object->restore_image_url != '') : ?><?php echo $object->restore_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/restore.png');?><?php endif;?>"></a></div><div id="lhc_iframe_container"><iframe id="lhc_iframe" allowtransparency="true" scrolling="no" class="lhc-loading" frameborder="0" src="<?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?>/(sdemo)/true/(leaveamessage)/true<?php echo $object->id > 0 ? '/(theme)/'.$object->id : ''?>" width="320" height="292" style="width: 100%; height: 292px;"></iframe></div></div>
 			<hr>
 		</div>
 
