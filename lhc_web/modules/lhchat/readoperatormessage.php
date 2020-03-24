@@ -468,7 +468,7 @@ if (isset($_POST['askQuestion']))
        $chat->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
 
        if ($chat->nick == '') {
-       		$chat->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
+       		$chat->nick = 'Visitor';
        }
        
        erLhcoreClassModelChat::detectLocation($chat, (string)$Params['user_parameters_unordered']['vid']);
@@ -508,13 +508,13 @@ if (isset($_POST['askQuestion']))
        $userInstance->chat_id = $chat->id;
        $userInstance->conversion_id = 0;
 
-        if ($chat->nick != erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor')) {
+        if ($chat->nick != 'Visitor') {
             $onlineAttr = $userInstance->online_attr_system_array;
             if (!isset($onlineAttr['username'])){
                 $onlineAttr['username'] = $chat->nick;
                 $userInstance->online_attr_system = json_encode($onlineAttr);
             }
-        } elseif ($chat->nick == erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor')){
+        } elseif ($chat->nick == 'Visitor'){
             if ($userInstance->nick && $userInstance->has_nick) {
                 $chat->nick = $userInstance->nick;
             }

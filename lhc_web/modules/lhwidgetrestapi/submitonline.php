@@ -113,7 +113,7 @@ if (empty($Errors)) {
     $nick = trim($chat->nick);
 
     if ( empty($nick) ) {
-        $chat->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
+        $chat->nick = 'Visitor';
     }
 
     try {
@@ -195,13 +195,13 @@ if (empty($Errors)) {
                 $userInstance->message_seen = 1;
                 $userInstance->message_seen_ts = time();
 
-                if ($chat->nick != erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor')) {
+                if ($chat->nick != 'Visitor') {
                     $onlineAttr = $userInstance->online_attr_system_array;
                     if (!isset($onlineAttr['username'])){
                         $onlineAttr['username'] = $chat->nick;
                         $userInstance->online_attr_system = json_encode($onlineAttr);
                     }
-                } elseif ($chat->nick == erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor')){
+                } elseif ($chat->nick == 'Visitor'){
                     if ($userInstance->nick && $userInstance->has_nick) {
                         $chat->nick = $userInstance->nick;
                     }

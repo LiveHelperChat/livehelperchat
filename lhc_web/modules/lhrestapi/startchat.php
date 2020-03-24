@@ -96,7 +96,7 @@ try {
         $chat->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
         
         if ( empty($chat->nick) ) {
-            $chat->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
+            $chat->nick = 'Visitor';
         }
         
         // Update chat attributes
