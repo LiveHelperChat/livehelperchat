@@ -195,13 +195,14 @@ gulp.task('js-colorpicker', function() {
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
-gulp.task('js-lh-npm', function() {		 
+gulp.task('js-lh-npm', function(done) {
 	 webpack(webpackConfig, function(err, stats) {
 	        if(err) throw new gutil.PluginError("webpack", err);
 	        gutil.log("[webpack]", stats.toString({
 	            // output options
 	        }));	            	
 	 });
+	 done();
 });
 
 gulp.task('bower', function() {
@@ -245,13 +246,9 @@ gulp.task('js-cobrowse',gulp.series('js-cobrowse-operator','js-cobrowse-visitor'
 //bower setup
 gulp.task('bower-setup');
 
-gulp.task('default', gulp.series('js-lh-dashboard','js-cobrowse-operator','js-cobrowse-visitor','js-angular-main','js-main-fileupload','js-datepicker','js-colorpicker','js-lhc-speak-js','js-lh','js-lh-canned','js-angular-checkmodel','js-angular-online','js-lh-npm', function() {
-	// Just execute all the tasks	
-}));
+gulp.task('default', gulp.series('js-lh-dashboard','js-cobrowse-operator','js-cobrowse-visitor','js-angular-main','js-main-fileupload','js-datepicker','js-colorpicker','js-lhc-speak-js','js-lh','js-lh-canned','js-angular-checkmodel','js-angular-online','js-lh-npm'));
 
-gulp.task('webpack', gulp.series('js-lh-npm', function() {
-	// Just execute all the tasks	
-}));
+gulp.task('webpack', gulp.series('js-lh-npm'));
 
 gulp.task('watch', function () {
 	gulp.watch('design/defaulttheme/js/cobrowse/*.js', ['js-cobrowse-visitor','js-cobrowse-operator']);	
