@@ -25,6 +25,16 @@ $userData = $currentUser->getUserData(true);
 
 $columnsAdditional = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','column_name','column_name','column_identifier','enabled'), 'sort' => false, 'filter' => array('enabled' => 1, 'chat_enabled' => 1)));
 
+// User has included custom column which we ignore by default
+foreach ($columnsAdditional as $columnAdditional) {
+    if (strpos($columnAdditional->variable,'lhc.') !== false) {
+        $variableName = str_replace('lhc.','', $columnAdditional->variable);
+        if (in_array($variableName,erLhcoreClassChat::$chatListIgnoreField)) {
+            unset(erLhcoreClassChat::$chatListIgnoreField[array_search($variableName,erLhcoreClassChat::$chatListIgnoreField)]);
+        }
+    }
+}
+
 $ReturnMessages = array();
 
 $pendingTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_pending_list',1);
