@@ -4,6 +4,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -488,6 +496,14 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Online status text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline status text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Welcome message</source>
       <translation type="unfinished"/>
     </message>
@@ -521,6 +537,14 @@
     </message>
     <message>
       <source>Add translation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search for language. Enter * to see all.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>See all variations</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -896,11 +920,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Online status text</source>
+      <source>Online status text [old widget]</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Offline status text</source>
+      <source>Offline status text [old widget]</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2412,7 +2436,15 @@
   <context>
     <name>chat/cannedmsg</name>
     <message>
-      <source>Language</source>
+      <source>Main</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add translation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search for language. Enter * to see all.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2457,14 +2489,6 @@
     </message>
     <message>
       <source>Messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Main</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Add translation</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2517,6 +2541,10 @@
     </message>
     <message>
       <source>Group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language</source>
       <translation type="unfinished"/>
     </message>
     <message>

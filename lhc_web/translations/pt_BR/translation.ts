@@ -2,30 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por quantos dias o widget de votação não deve ser exibido após última exibição</translation>
     </message>
@@ -1685,6 +1661,10 @@
       <translation>Decimal</translation>
     </message>
     <message>
+      <source>Encrypted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat variables</source>
       <translation>Variáveis do bate-papo</translation>
     </message>
@@ -2025,6 +2005,10 @@
     <message>
       <source>Source</source>
       <translation>Origem</translation>
+    </message>
+    <message>
+      <source>Exclude personal responses</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title</source>
@@ -3088,6 +3072,14 @@
       <translation>Erro na resposta automática</translation>
     </message>
     <message>
+      <source>did not accepted chat in time.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was assigned to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hold removed!</source>
       <translation>Mantenha removido!</translation>
     </message>
@@ -3575,14 +3567,6 @@
   </context>
   <context>
     <name>chat/chat</name>
-    <message>
-      <source>Enter your message</source>
-      <translation>Digite sua mensagem</translation>
-    </message>
-    <message>
-      <source>BB Code</source>
-      <translation>Código BB</translation>
-    </message>
     <message>
       <source>Last visitor message time</source>
       <translation>Hora da última mensagem do visitante</translation>
@@ -4108,6 +4092,10 @@
       <translation>Máximo de bate-papos pendentes</translation>
     </message>
     <message>
+      <source>These bot logic applies also</source>
+      <translation>Essa lógica de robô também se aplica</translation>
+    </message>
+    <message>
       <source>Custom attribute 1</source>
       <translation>Atributo personalizado 1</translation>
     </message>
@@ -4120,16 +4108,12 @@
       <translation>Atributo personalizado 3</translation>
     </message>
     <message>
-      <source>Nick, what should be operator nick. E.g Support Bot</source>
-      <translation>Apelido, que deve ser o apelido do operador. Ex: Suporte</translation>
-    </message>
-    <message>
       <source>Exception groups to apply</source>
       <translation>Grupos para aplicar exceção</translation>
     </message>
     <message>
-      <source>These bot logic applies also</source>
-      <translation>Essa lógica de robô também se aplica</translation>
+      <source>Nick, what should be operator nick. E.g Support Bot</source>
+      <translation>Apelido, que deve ser o apelido do operador. Ex: Suporte</translation>
     </message>
     <message>
       <source>Priority</source>
@@ -8228,6 +8212,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Duração</translation>
     </message>
     <message>
+      <source>Was offline for</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Active chats</source>
       <translation>Bate-papos ativos</translation>
     </message>
@@ -8935,6 +8923,65 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
   </context>
   <context>
+    <name>genericbot/list</name>
+    <message>
+      <source>Download</source>
+      <translation>Baixar</translation>
+    </message>
+    <message>
+      <source>Bot list</source>
+      <translation>Lista de robôs</translation>
+    </message>
+    <message>
+      <source>New</source>
+      <translation>Novo</translation>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation>Importar</translation>
+    </message>
+    <message>
+      <source>Bot exceptions groups</source>
+      <translation>Grupos de exceções do robô</translation>
+    </message>
+    <message>
+      <source>Translations groups</source>
+      <translation>Grupos de tradução</translation>
+    </message>
+    <message>
+      <source>Translations items</source>
+      <translation>Itens de traduções</translation>
+    </message>
+    <message>
+      <source>Could not execute</source>
+      <translation>Não foi possível executar</translation>
+    </message>
+    <message>
+      <source>with args</source>
+      <translation>com argumentos</translation>
+    </message>
+    <message>
+      <source>Confirm</source>
+      <translation>Confirmar</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Cancelar</translation>
+    </message>
+    <message>
+      <source>Function is not callable</source>
+      <translation>Função não disponível</translation>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation>Escolha</translation>
+    </message>
+    <message>
+      <source>Bots</source>
+      <translation>Robôs</translation>
+    </message>
+  </context>
+  <context>
     <name>genericbot/import</name>
     <message>
       <source>Import group</source>
@@ -9054,65 +9101,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>User edit</source>
       <translation>Editar usuário</translation>
-    </message>
-  </context>
-  <context>
-    <name>genericbot/list</name>
-    <message>
-      <source>Bot list</source>
-      <translation>Lista de robôs</translation>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation>Baixar</translation>
-    </message>
-    <message>
-      <source>New</source>
-      <translation>Novo</translation>
-    </message>
-    <message>
-      <source>Import</source>
-      <translation>Importar</translation>
-    </message>
-    <message>
-      <source>Bot exceptions groups</source>
-      <translation>Grupos de exceções do robô</translation>
-    </message>
-    <message>
-      <source>Translations groups</source>
-      <translation>Grupos de tradução</translation>
-    </message>
-    <message>
-      <source>Translations items</source>
-      <translation>Itens de traduções</translation>
-    </message>
-    <message>
-      <source>Could not execute</source>
-      <translation>Não foi possível executar</translation>
-    </message>
-    <message>
-      <source>with args</source>
-      <translation>com argumentos</translation>
-    </message>
-    <message>
-      <source>Confirm</source>
-      <translation>Confirmar</translation>
-    </message>
-    <message>
-      <source>Cancel</source>
-      <translation>Cancelar</translation>
-    </message>
-    <message>
-      <source>Function is not callable</source>
-      <translation>Função não disponível</translation>
-    </message>
-    <message>
-      <source>Choose</source>
-      <translation>Escolha</translation>
-    </message>
-    <message>
-      <source>Bots</source>
-      <translation>Robôs</translation>
     </message>
   </context>
   <context>

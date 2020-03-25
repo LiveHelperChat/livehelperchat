@@ -2,30 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -1691,6 +1667,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Decimale</translation>
     </message>
     <message>
+      <source>Encrypted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat variables</source>
       <translation>Variabili chat</translation>
     </message>
@@ -2031,6 +2011,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Source</source>
       <translation>fonte</translation>
+    </message>
+    <message>
+      <source>Exclude personal responses</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title</source>
@@ -3094,6 +3078,14 @@ Icona colonna, testo icone materiale</translation>
       <translation>L&apos;autorisponditore ha riportato un errore</translation>
     </message>
     <message>
+      <source>did not accepted chat in time.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was assigned to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hold removed!</source>
       <translation>Tieni rimosso!</translation>
     </message>
@@ -3581,14 +3573,6 @@ Icona colonna, testo icone materiale</translation>
   </context>
   <context>
     <name>chat/chat</name>
-    <message>
-      <source>Enter your message</source>
-      <translation>Inserire il proprio messaggio</translation>
-    </message>
-    <message>
-      <source>BB Code</source>
-      <translation>Codice BB</translation>
-    </message>
     <message>
       <source>Last visitor message time</source>
       <translation>Orario dell&apos;ultimo messaggio visitatore</translation>
@@ -4114,6 +4098,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Chat massime in attesa</translation>
     </message>
     <message>
+      <source>These bot logic applies also</source>
+      <translation>Questa logica bot si applica anche</translation>
+    </message>
+    <message>
       <source>Custom attribute 1</source>
       <translation>Attributo personalizzato 1</translation>
     </message>
@@ -4126,16 +4114,12 @@ Icona colonna, testo icone materiale</translation>
       <translation>Attributo personalizzato 3</translation>
     </message>
     <message>
-      <source>Nick, what should be operator nick. E.g Support Bot</source>
-      <translation>Nick, quale dovrebbe essere il nick operatore. E.s Supporto Bot</translation>
-    </message>
-    <message>
       <source>Exception groups to apply</source>
       <translation>Gruppi di eccezioni da applicare</translation>
     </message>
     <message>
-      <source>These bot logic applies also</source>
-      <translation>Questa logica bot si applica anche</translation>
+      <source>Nick, what should be operator nick. E.g Support Bot</source>
+      <translation>Nick, quale dovrebbe essere il nick operatore. E.s Supporto Bot</translation>
     </message>
     <message>
       <source>Priority</source>
@@ -8233,6 +8217,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Durata</translation>
     </message>
     <message>
+      <source>Was offline for</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Active chats</source>
       <translation>Chat attive</translation>
     </message>
@@ -8940,6 +8928,65 @@ Icona colonna, testo icone materiale</translation>
     </message>
   </context>
   <context>
+    <name>genericbot/list</name>
+    <message>
+      <source>Download</source>
+      <translation>Download</translation>
+    </message>
+    <message>
+      <source>Bot list</source>
+      <translation>Lista bot</translation>
+    </message>
+    <message>
+      <source>New</source>
+      <translation>Nuovo</translation>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation>Importa</translation>
+    </message>
+    <message>
+      <source>Bot exceptions groups</source>
+      <translation>Gruppi di eccezioni Bot</translation>
+    </message>
+    <message>
+      <source>Translations groups</source>
+      <translation>Gruppi traduzioni</translation>
+    </message>
+    <message>
+      <source>Translations items</source>
+      <translation>Elementi traduzioni</translation>
+    </message>
+    <message>
+      <source>Could not execute</source>
+      <translation>Non posso eseguire</translation>
+    </message>
+    <message>
+      <source>with args</source>
+      <translation>con args</translation>
+    </message>
+    <message>
+      <source>Confirm</source>
+      <translation>Conferma</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Annulla</translation>
+    </message>
+    <message>
+      <source>Function is not callable</source>
+      <translation>La funzione non è richiamabile</translation>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation>Scegliere</translation>
+    </message>
+    <message>
+      <source>Bots</source>
+      <translation>Bot</translation>
+    </message>
+  </context>
+  <context>
     <name>genericbot/import</name>
     <message>
       <source>Import group</source>
@@ -9059,65 +9106,6 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>User edit</source>
       <translation>Modifica utente</translation>
-    </message>
-  </context>
-  <context>
-    <name>genericbot/list</name>
-    <message>
-      <source>Bot list</source>
-      <translation>Lista bot</translation>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation>Download</translation>
-    </message>
-    <message>
-      <source>New</source>
-      <translation>Nuovo</translation>
-    </message>
-    <message>
-      <source>Import</source>
-      <translation>Importa</translation>
-    </message>
-    <message>
-      <source>Bot exceptions groups</source>
-      <translation>Gruppi di eccezioni Bot</translation>
-    </message>
-    <message>
-      <source>Translations groups</source>
-      <translation>Gruppi traduzioni</translation>
-    </message>
-    <message>
-      <source>Translations items</source>
-      <translation>Elementi traduzioni</translation>
-    </message>
-    <message>
-      <source>Could not execute</source>
-      <translation>Non posso eseguire</translation>
-    </message>
-    <message>
-      <source>with args</source>
-      <translation>con args</translation>
-    </message>
-    <message>
-      <source>Confirm</source>
-      <translation>Conferma</translation>
-    </message>
-    <message>
-      <source>Cancel</source>
-      <translation>Annulla</translation>
-    </message>
-    <message>
-      <source>Function is not callable</source>
-      <translation>La funzione non è richiamabile</translation>
-    </message>
-    <message>
-      <source>Choose</source>
-      <translation>Scegliere</translation>
-    </message>
-    <message>
-      <source>Bots</source>
-      <translation>Bot</translation>
     </message>
   </context>
   <context>
