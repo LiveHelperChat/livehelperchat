@@ -29,7 +29,7 @@
 				<div role="tabpanel" class="<?php (!isset($geo_data['geo_detection_enabled']) || $geo_data['geo_detection_enabled'] == 0) ? print ' hide' : '' ?>" id="settings-geo">
 
 					<!-- Nav tabs -->
-					<ul class="nav nav-tabs" role="tablist">
+					<ul class="nav nav-tabs mb-2" role="tablist">
 						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'freegeoip') ? print 'active' : ''?>"><a class="nav-link" href="#freegeoip" aria-controls="freegeoip" role="tab" data-toggle="tab">https://ipstack.com</a></li>
 						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'mod_geoip2') ? print 'active' : ''?>"><a class="nav-link" href="#mod_geoip2" aria-controls="mod_geoip2" role="tab" data-toggle="tab">mod_geoip2</a></li>
 						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'max_mind') ? print 'active' : ''?>"><a class="nav-link" href="#maxmind" aria-controls="maxmind" role="tab" data-toggle="tab">MaxMind</a></li>
@@ -112,7 +112,7 @@
 								</p>
 
 								<p>
-      	<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','bcmath php extension detected'); ?> - <?php echo extension_loaded ('bcmath' ) ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>'; ?>
+      	<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','bcmath php extension detected'); ?> - <?php echo extension_loaded ('bcmath' ) ? '<span class="badge badge-success">Yes</span>' : '<span class="badge badge-danger">No</span>'; ?>
       	</p>
 
       	                        <div class="form-group">
@@ -125,7 +125,7 @@
 										<label><input type="radio" name="MaxMindDetectionType" value="country" <?php (isset($geo_data['max_mind_detection_type']) && $geo_data['max_mind_detection_type'] == 'country') ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User country based detection, faster')?></label>
 									</div>
 									<div class="col-6">
-				<?php if (file_exists("var/external/geoip/GeoLite2-Country.mmdb")) : ?> <span class="label label-success" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','File exists'); ?>">var/external/geoip/GeoLite2-Country.mmdb</span> <?php else : ?><span class="label label-danger" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','File does not exists'); ?>">var/external/geoip/GeoLite2-Country.mmdb</span><?php endif;?>
+				<?php if (file_exists("var/external/geoip/GeoLite2-Country.mmdb")) : ?> <span class="badge badge-success" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','File exists'); ?>">var/external/geoip/GeoLite2-Country.mmdb</span> <?php else : ?><span class="badge badge-danger" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','File does not exists'); ?>">var/external/geoip/GeoLite2-Country.mmdb</span><?php endif;?>
 			</div>
 								</div>
 								<div class="row">
@@ -133,7 +133,7 @@
 										<label><input type="radio" name="MaxMindDetectionType" value="city" <?php (isset($geo_data['max_mind_detection_type']) && $geo_data['max_mind_detection_type'] == 'city') ? print 'checked="checked"' : '' ?> <?php if (!file_exists(isset($geo_data['max_mind_city_location']) && ($geo_data['max_mind_city_location'] != '') ?  $geo_data['max_mind_city_location'] : 'var/external/geoip/GeoLite2-City.mmdb')) : ?> disabled <?php endif;?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User city based detection, slower')?></label>
 									</div>
 									<div class="col-6">
-				<?php if (file_exists(isset($geo_data['max_mind_city_location']) && ($geo_data['max_mind_city_location'] != '') ?  $geo_data['max_mind_city_location'] : 'var/external/geoip/GeoLite2-City.mmdb')) : ?> <span class="label label-success" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','File exists');?>"><?php isset($geo_data['max_mind_city_location']) && ($geo_data['max_mind_city_location'] != '') ?  print htmlspecialchars($geo_data['max_mind_city_location']) : print 'var/external/geoip/GeoLite2-City.mmdb' ?></span> <?php else : ?><span class="round label alert" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','File does not exists')?>"><?php isset($geo_data['max_mind_city_location']) && ($geo_data['max_mind_city_location'] != '') ?  print htmlspecialchars($geo_data['max_mind_city_location']) : print 'var/external/geoip/GeoLite2-City.mmdb' ?></span><?php endif;?>
+				<?php if (file_exists(isset($geo_data['max_mind_city_location']) && ($geo_data['max_mind_city_location'] != '') ?  $geo_data['max_mind_city_location'] : 'var/external/geoip/GeoLite2-City.mmdb')) : ?> <span class="badge badge-success" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','File exists');?>"><?php isset($geo_data['max_mind_city_location']) && ($geo_data['max_mind_city_location'] != '') ?  print htmlspecialchars($geo_data['max_mind_city_location']) : print 'var/external/geoip/GeoLite2-City.mmdb' ?></span> <?php else : ?><span class="badge badge-danger" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','File does not exists')?>"><?php isset($geo_data['max_mind_city_location']) && ($geo_data['max_mind_city_location'] != '') ?  print htmlspecialchars($geo_data['max_mind_city_location']) : print 'var/external/geoip/GeoLite2-City.mmdb' ?></span><?php endif;?>
 			</div>
 								</div>
 								
@@ -146,7 +146,7 @@
 						<div role="tabpanel" class="tab-pane <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'php_geoip') ? print 'active' : ''?>" id="phpgeoip">
 						      <div class="form-group">
 						          <label><input type="radio" name="UseGeoIP" value="php_geoip" <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'php_geoip') ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Use PHP-GeoIP module'); ?></label>
-								  <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Support for PHP-GeoIP detected'); ?> - <?php echo function_exists('geoip_country_code_by_name') ? '<span class="success label round">Yes</span>' : '<span class="round label alert">No</span>'; ?></p>
+								  <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Support for PHP-GeoIP detected'); ?> - <?php echo function_exists('geoip_country_code_by_name') ? '<span class="badge badge-success">Yes</span>' : '<span class="badge badge-danger">No</span>'; ?></p>
 						      </div>
 						</div>
 												
