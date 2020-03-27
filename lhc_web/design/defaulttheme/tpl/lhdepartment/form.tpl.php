@@ -377,7 +377,7 @@
 		       </div>
 
                <div class="form-group">
-                   <label><input type="checkbox" name="hide_send_email" value="on" <?php if (isset($departament->bot_configuration_array['hide_send_email']) && $departament->bot_configuration_array['hide_send_email'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Hide send button for operators');?></label>
+                   <label><input type="checkbox" name="hide_send_email" value="on" <?php if (isset($departament->bot_configuration_array['hide_send_email']) && $departament->bot_configuration_array['hide_send_email'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Hide send e-mail button for operators in chat window');?></label>
                </div>
 
 		    </div>
