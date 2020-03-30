@@ -33,9 +33,8 @@ class erLhAbstractModelSubject {
 
     public function getFields()
     {
-        $currentUser = erLhcoreClassUser::instance();
-        $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
-        return include ('lib/core/lhabstract/fields/erlhabstractmodelsubject.php');
+        $items = include ('lib/core/lhabstract/fields/erlhabstractmodelsubject.php');
+        return $items;
     }
 
     public function getModuleTranslations()
@@ -119,6 +118,29 @@ class erLhAbstractModelSubject {
                 break;
         }
     }
+
+    public function getFilter() {
+
+        $filter = array();
+
+        // Global filters
+        $departmentFilter = erLhcoreClassUserDep::conditionalDepartmentFilter(false, 'dep_id');
+
+        if (!empty($departmentFilter)){
+
+            $subjects = erLhAbstractModelSubjectDepartment::getCount($departmentFilter,'',false,'distinct subject_id', false, true, true);
+
+            if (empty($subjects)) {
+                $filter['filterin']['id'] = array(-1);
+            } else {
+                $filter['filterin']['id'] = $subjects;
+            }
+        }
+
+        return $filter;
+
+    }
+
 
     public $id = null;
     public $name = '';

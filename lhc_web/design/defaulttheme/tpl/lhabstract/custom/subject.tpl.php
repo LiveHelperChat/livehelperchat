@@ -1,5 +1,9 @@
 <?php $fields = $object->getFields();?>
 
+<?php if (isset($errors)) : ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
+<?php endif; ?>
+
 <div class="form-group">
     <label><?php echo $fields['name']['trans'];?>*</label>
     <?php echo erLhcoreClassAbstract::renderInput('name', $fields['name'], $object)?>

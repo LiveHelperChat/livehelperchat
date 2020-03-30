@@ -36,7 +36,7 @@ class erLhcoreClassGroupUser{
        erLhcoreClassUser::getSession()->delete($AssignedUser);
    }
 
-   public static function getConditionalUserFilter($userID = false, $groupsLimit = false)
+   public static function getConditionalUserFilter($userID = false, $groupsLimit = false, $column = 'id')
    {
        if ($userID === false) {
            $userID = erLhcoreClassUser::instance()->getUserID();
@@ -53,12 +53,12 @@ class erLhcoreClassGroupUser{
        $groups = erLhcoreClassGroupRole::getGroupsAccessedByUser($user)['groups'];
 
        if ($groupsLimit === true) {
-           return array('filterin' => array('id' => $groups));
+           return array('filterin' => array($column => $groups));
        }
 
        $userID = erLhcoreClassModelGroupUser::getCount(array('filterin' => array('group_id' => $groups)), '', false, '`user_id`', false, true, true);
 
-       return array('filterin' => array('id' => $userID));
+       return array('filterin' => array($column => $userID));
    }
 
 

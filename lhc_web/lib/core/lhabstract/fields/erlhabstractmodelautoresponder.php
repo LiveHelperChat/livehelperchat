@@ -138,8 +138,8 @@ return array(
         'required' => false,
         'frontend' => 'dep_frontend',
         'source' => 'erLhcoreClassModelDepartament::getList',
-        'hide_optional' => false,
-        'params_call' => array(),
+        'hide_optional' => !empty($departmentFilterdefault = erLhcoreClassUserDep::conditionalDepartmentFilter()),
+        'params_call' => $departmentFilterdefault,
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int'
         )),

@@ -297,6 +297,7 @@
                     'selected_id'    => $input->subject_id,
                     'css_class'      => 'form-control form-control-sm',
                     'display_name'   => 'name',
+                    'list_function_params'  => (new erLhAbstractModelSubject())->getFilter(),
                     'list_function'  => 'erLhAbstractModelSubject::getList'
                 )); ?>
             </div>

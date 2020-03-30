@@ -265,6 +265,10 @@ class erLhcoreClassAbstract
                     $object->$key = array();
                 }
 
+                if (isset($field['required']) && $field['required'] === true && empty($object->$key)) {
+                    $Errors[$key] = $field['trans'] . ' is required';
+                }
+
             } elseif ($field['type'] == 'file' || $field['type'] == 'filebinary') {
                 if (erLhcoreClassSearchHandler::isFile('AbstractInput_' . $key)) {
                     if (isset($field['backend_call_param'])) {

@@ -10,6 +10,14 @@ if (isset($_GET['doSearch'])) {
 	$filterParams['is_search'] = false;
 }
 
+// I should see files only from users i can see.
+// @todo this is partially wrong because i won't be able to see files uploaded from visitors.
+$userFilterDefault = erLhcoreClassGroupUser::getConditionalUserFilter();
+
+if (!empty($userFilterDefault)) {
+    $filterParams['filter']['filterin']['user_id'] = $userFilterDefault['filterin']['id'];
+}
+
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
 $pages = new lhPaginator();

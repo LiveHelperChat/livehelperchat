@@ -488,6 +488,32 @@ class erLhAbstractModelAutoResponder {
         $this->languages = json_encode($languagesData);
     }
 
+    public function getFilter(){
+
+        $filter = array();
+
+        // Global filters
+        $departmentFilter = erLhcoreClassUserDep::conditionalDepartmentFilter();
+
+        $conditions = array();
+
+        if (!empty($departmentFilter)){
+            $conditions[] = '(dep_id IN (' . implode(',',$departmentFilter['filterin']['id']) . '))';
+        }
+
+        $userFilterDefault = erLhcoreClassGroupUser::getConditionalUserFilter();
+        if (!empty($userFilterDefault)){
+            $conditions[] = '(user_id IN (' . implode(',',$userFilterDefault['filterin']['id']) . '))';
+        }
+
+        if (!empty($conditions)) {
+            $filter['filter_custom'][] = '('.implode(' OR ',$conditions).')';
+        }
+
+        return $filter;
+
+    }
+
    	public $id = null;
 	public $siteaccess = '';
 	public $position = 0;

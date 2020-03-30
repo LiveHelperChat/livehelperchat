@@ -47,18 +47,18 @@ if (isset($_POST['AddBlock']))
 	}
 }
 
-
+$userFilterDefault = erLhcoreClassGroupUser::getConditionalUserFilter(false, false, 'user_id');
 
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('chat/blockedusers');
-$pages->items_total = erLhcoreClassModelChatBlockedUser::getCount();
+$pages->items_total = erLhcoreClassModelChatBlockedUser::getCount($userFilterDefault);
 $pages->setItemsPerPage(20);
 $pages->paginate();
 
 $items = array();
 
 if ($pages->items_total > 0) {
-    $items = erLhcoreClassModelChatBlockedUser::getList(array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id ASC'));
+    $items = erLhcoreClassModelChatBlockedUser::getList(array_merge_recursive($userFilterDefault,array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id ASC')));
 }
 
 $tpl->set('items',$items);
