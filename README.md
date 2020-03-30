@@ -28,7 +28,7 @@ https://doc.livehelperchat.com/docs/hooks
 http://livehelperchat.com/demo-12c.html
 
 ## Documentation
-http://livehelperchat.com/documentation-6c.html
+https://doc.livehelperchat.com
 
 ## Extensions
 https://github.com/LiveHelperChat
