@@ -1299,6 +1299,10 @@ class erLhcoreClassChatStatistic {
         
         $filterUsers = array();
 
+        if (isset($filtergte['filterin']['id'])) {
+            $filterUsers['filterin']['id'] = $filtergte['filterin']['id'];
+        }
+
         $userIdGroup = array();
 
         // Explicit user filter
@@ -1411,7 +1415,7 @@ class erLhcoreClassChatStatistic {
         if (!empty($userIdGroup)) {
             $filterUsers['filterin']['id'] = $userIdGroup;
         }
-        
+
         $userList = erLhcoreClassModelUser::getUserList($filterUsers);
         
         if (empty($userList)) {

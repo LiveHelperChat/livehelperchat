@@ -27,6 +27,16 @@ class erLhcoreClassRole{
 	   	   	
 	   	return $stmt->fetchColumn() == 0;
    }
+
+   public static function hasAccessTo($userId, $module, $functions) {
+       static $cachePermission = array();
+
+       if (!isset($cachePermission[$userId])){
+           $cachePermission[$userId] = self::accessArrayByUserID($userId);
+       }
+
+       return self::canUseByModuleAndFunction($cachePermission[$userId], $module, $functions);
+   }
    
    public static function canUseByModuleAndFunction($AccessArray, $module, $functions) {
        // Global rights

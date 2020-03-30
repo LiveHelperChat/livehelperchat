@@ -36,6 +36,32 @@ class erLhcoreClassGroupUser{
        erLhcoreClassUser::getSession()->delete($AssignedUser);
    }
 
+   public static function getConditionalUserFilter($userID = false, $groupsLimit = false)
+   {
+       if ($userID === false) {
+           $userID = erLhcoreClassUser::instance()->getUserID();
+       }
+
+       if (erLhcoreClassRole::hasAccessTo($userID, 'lhuser', 'see_all') === true) {
+           return array();
+       }
+
+       // User should be able to see users from
+       // He is a member of group
+       $user = erLhcoreClassModelUser::fetch($userID);
+
+       $groups = erLhcoreClassGroupRole::getGroupsAccessedByUser($user)['groups'];
+
+       if ($groupsLimit === true) {
+           return array('filterin' => array('id' => $groups));
+       }
+
+       $userID = erLhcoreClassModelGroupUser::getCount(array('filterin' => array('group_id' => $groups)), '', false, '`user_id`', false, true, true);
+
+       return array('filterin' => array('id' => $userID));
+   }
+
+
 }
 
 

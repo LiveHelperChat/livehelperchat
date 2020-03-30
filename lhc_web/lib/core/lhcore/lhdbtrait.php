@@ -214,7 +214,7 @@ trait erLhcoreClassDBTrait
 
     }
 
-    public static function getCount($params = array(), $operation = 'COUNT', $field = false, $rawSelect = false, $fetchColumn = true, $fetchAll = false)
+    public static function getCount($params = array(), $operation = 'COUNT', $field = false, $rawSelect = false, $fetchColumn = true, $fetchAll = false, $fetchColumnAll = false)
     {
 
         if (isset($params['enable_sql_cache']) && $params['enable_sql_cache'] == true) {
@@ -259,7 +259,7 @@ trait erLhcoreClassDBTrait
         if ($fetchColumn == true) {
             $result = $stmt->fetchColumn();
         } elseif ($fetchAll == true) {
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll($fetchColumnAll === false ? PDO::FETCH_ASSOC : PDO::FETCH_COLUMN);
         } else {
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
         }

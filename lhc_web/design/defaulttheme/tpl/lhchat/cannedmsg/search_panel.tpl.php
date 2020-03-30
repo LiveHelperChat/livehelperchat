@@ -29,6 +29,7 @@
                     'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select department'),
                     'selected_id'    => $input->department_id,
                     'css_class'      => 'form-control',
+                    'list_function_params' => erLhcoreClassUserDep::conditionalDepartmentFilter(),
                     'list_function'  => 'erLhcoreClassModelDepartament::getList'
                 )); ?>
             </div>

@@ -104,6 +104,7 @@
                'selected_id'    => $input->user_ids,
                'css_class'      => 'form-control',
                'display_name'   => 'name_official',
+               'list_function_params' => erLhcoreClassGroupUser::getConditionalUserFilter(),
                'list_function'  => 'erLhcoreClassModelUser::getUserList'
            )); ?>
 
@@ -113,25 +114,15 @@
     <div class="col-md-2">
 	   <div class="form-group">
     	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User group');?></label>
-
-           <?php /*echo erLhcoreClassRenderHelper::renderCombobox( array (
-                'input_name'     => 'group_id',
-				'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select group'),
-                'selected_id'    => $input->group_id,
-	            'css_class'      => 'form-control',
-	            'display_name'   => 'name',
-                'list_function'  => 'erLhcoreClassModelGroup::getList'
-        ));*/ ?>
-
            <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
                'input_name'     => 'group_ids[]',
                'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select group'),
                'selected_id'    => $input->group_ids,
                'css_class'      => 'form-control',
                'display_name'   => 'name',
+               'list_function_params' => erLhcoreClassGroupUser::getConditionalUserFilter(false, true),
                'list_function'  => 'erLhcoreClassModelGroup::getList'
            )); ?>
-
         </div>
     </div>
 
@@ -144,6 +135,7 @@
                'selected_id'    => $input->department_ids,
                'css_class'      => 'form-control',
                'display_name'   => 'name',
+               'list_function_params' => erLhcoreClassUserDep::conditionalDepartmentFilter(),
                'list_function'  => 'erLhcoreClassModelDepartament::getList'
            )); ?>
 
@@ -159,6 +151,7 @@
                'selected_id'    => $input->department_group_ids,
                'css_class'      => 'form-control',
                'display_name'   => 'name',
+               'list_function_params' => erLhcoreClassUserDep::conditionalDepartmentGroupFilter(),
                'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
            )); ?>
 
