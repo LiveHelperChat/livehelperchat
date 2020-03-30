@@ -123,10 +123,12 @@ if (is_array($Params['user_parameters_unordered']['chatopen']) && !empty($Params
     }
 }
 
-$userList = erLhcoreClassModelUser::getUserList(array('sort' => 'name ASC'));
+$userListParams = erLhcoreClassGroupUser::getConditionalUserFilter();
+$userListParams['sort'] = 'name ASC';
+$userList = erLhcoreClassModelUser::getUserList($userListParams);
 erLhcoreClassChat::prefillGetAttributes($userList,array('id','name_official'),array(),array('remove_all' => true));
 
-$columns = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','enabled','variable'),'sort' => 'position ASC, id ASC','filter' => array('enabled' => 1)));
+$columns = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','enabled','variable'), 'sort' => 'position ASC, id ASC','filter' => array('enabled' => 1)));
 
 $columnsAdd = array();
 foreach ($columns as $column) {
@@ -137,8 +139,12 @@ foreach ($columns as $column) {
     $columnsAdd[$column->column_identifier]['oenabl'] = $column->online_enabled == 1;
 }
 
-$response = array('col' => array_values($columnsAdd), 'v' => erLhcoreClassUpdate::LHC_RELEASE, 'ho' => $userData->hide_online == 1, 'im' => $userData->invisible_mode == 1, 'user_list' => array_values($userList), 'user_groups' => array_values(erLhcoreClassModelGroup::getList(array('sort' => 'name ASC', 'filter' => array('disabled' => 0)))), 'track_activity' => $trackActivity, 'cdel' => $chatDel, 'copen' => $chatOpen, 'timeout_activity' => $activityTimeout, 'pr_names' => $productsNames, 'dp_groups' => $depGroupsList, 'dp_names' => $departmentNames, 'dep_list' => $departmentList);
+$groupListParams = erLhcoreClassGroupUser::getConditionalUserFilter(false, true);
+$groupListParams['sort'] = 'name ASC';
+$groupListParams['filter']['disabled'] =0;
 
+
+$response = array('col' => array_values($columnsAdd), 'v' => erLhcoreClassUpdate::LHC_RELEASE, 'ho' => $userData->hide_online == 1, 'im' => $userData->invisible_mode == 1, 'user_list' => array_values($userList), 'user_groups' => array_values(erLhcoreClassModelGroup::getList($groupListParams)), 'track_activity' => $trackActivity, 'cdel' => $chatDel, 'copen' => $chatOpen, 'timeout_activity' => $activityTimeout, 'pr_names' => $productsNames, 'dp_groups' => $depGroupsList, 'dp_names' => $departmentNames, 'dep_list' => $departmentList);
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.loadinitialdata',array('lists' => & $response));
 
 echo json_encode($response);

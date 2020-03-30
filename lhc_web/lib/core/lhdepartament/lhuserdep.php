@@ -74,6 +74,30 @@ class erLhcoreClassUserDep
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
 
+    public static function conditionalDepartmentGroupFilter(){
+        return array();
+    }
+
+    public static function conditionalDepartmentFilter($userID = false, $column = 'id') {
+
+        if ($userID === false) {
+            $userID = erLhcoreClassUser::instance()->getUserID();
+        }
+
+        if (erLhcoreClassRole::hasAccessTo($userID, 'lhdepartment', 'see_all') === true) {
+            return array();
+        };
+
+        $departments = self::parseUserDepartmetnsForFilter($userID);
+
+        if ($departments === true) {
+            return  array();
+        }
+
+        return array('filterin' => array($column => $departments));
+
+    }
+
     public static function parseUserDepartmetnsForFilter($userID)
     {
         $userDepartments = self::getUserDepartaments($userID);

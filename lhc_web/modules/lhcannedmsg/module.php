@@ -12,5 +12,6 @@ $ViewList['showsuggester'] = array(
 );
 
 $FunctionList['use'] = array('explain' => 'General permission to use canned messages module');
+$FunctionList['see_global'] = array('explain' => 'Allow operator to see global canned messages');
 
 ?>

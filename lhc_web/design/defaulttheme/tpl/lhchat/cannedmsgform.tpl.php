@@ -39,7 +39,7 @@
             <input type="text" class="form-control" name="Position" value="<?php echo $canned_message->position?>" />
         </div>
 
-        <?php $showAnyDepartment = true; ?>
+        <?php $showAnyDepartment = erLhcoreClassUser::instance()->hasAccessTo('lhchat','see_global'); ?>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/department.tpl.php')); ?>
 
         <?php include(erLhcoreClassDesign::designtpl('lhchat/part/after_cannedmsgform_multiinclude.tpl.php')); ?>

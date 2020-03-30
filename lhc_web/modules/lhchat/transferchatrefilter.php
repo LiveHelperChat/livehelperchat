@@ -13,7 +13,7 @@ if ($Params['user_parameters_unordered']['mode'] == '' || $Params['user_paramete
         )
     );
 
-    $filter = array();
+    $filter = erLhcoreClassUserDep::conditionalDepartmentFilter();;
     $filter['sort'] = 'sort_priority ASC, name ASC';
 
     $form = new ezcInputForm(INPUT_POST, $definition);

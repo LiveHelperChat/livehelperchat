@@ -11,6 +11,7 @@
                     'selected_id'    => $input->department_ids,
                     'css_class'      => 'form-control',
                     'display_name'   => 'name',
+                    'list_function_params' => erLhcoreClassUserDep::conditionalDepartmentFilter(),
                     'list_function'  => 'erLhcoreClassModelDepartament::getList'
                 )); ?>
             </div>
@@ -25,6 +26,7 @@
                     'selected_id'    => $input->department_group_ids,
                     'css_class'      => 'form-control',
                     'display_name'   => 'name',
+                    'list_function_params' => erLhcoreClassUserDep::conditionalDepartmentGroupFilter(),
                     'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
                 )); ?>
             </div>
