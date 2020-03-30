@@ -236,7 +236,10 @@ class erLhcoreClassModelCannedMsg
 	        $filter[] = $q->expr->lOr($q->expr->eq('department_id', $q->bindValue($department_id)), $q->expr->lAnd($q->expr->eq('department_id', $q->bindValue(0)), $q->expr->eq('user_id', $q->bindValue(0))), $q->expr->eq('user_id', $q->bindValue($user_id)));
 	
 	        if (isset($paramsFilter['q']) && $paramsFilter['q'] != '') {
-	            $filter[] = $q->expr->like('msg', $q->bindValue('%' . $paramsFilter['q'] . '%'));
+	            $filter[] = $q->expr->lOr(
+	                $q->expr->like('msg', $q->bindValue('%' . $paramsFilter['q'] . '%')),
+	                $q->expr->like('title', $q->bindValue('%' . $paramsFilter['q'] . '%'))
+                );
 	        }
 
 	        if (isset($paramsFilter['id']) && !empty($paramsFilter['id'])) {
