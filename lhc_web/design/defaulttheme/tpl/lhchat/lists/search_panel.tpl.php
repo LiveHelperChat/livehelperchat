@@ -40,6 +40,7 @@
                     'selected_id'    => $input->department_group_ids,
                     'css_class'      => 'form-control',
                     'display_name'   => 'name',
+                    'list_function_params' => erLhcoreClassUserDep::conditionalDepartmentGroupFilter(),
                     'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
                 )); ?>
             </div>

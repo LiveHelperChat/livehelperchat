@@ -91,7 +91,7 @@ class erLhcoreClassUpdate
 				foreach ($columnsData as $column) {
 				    $existingColumns[] = $column['field'];
 				}
-				
+
 				foreach ($columnsData as $column) {
 					if (isset($definition['tables_alter'][$table][$column['field']])) {
 					    
@@ -128,10 +128,16 @@ class erLhcoreClassUpdate
 								$typeMatch = false;
 							}
 
+							if ($columnDesired['default'] != $column['default']) {
+								$typeMatch = false;
+							}
+
 							if ($column['collation'] != '' && isset($columnDesired['collation']) && $columnDesired['collation'] != $column['collation']) {
                                 $typeMatch = $collationMatch = false;
 							}
-						}	
+						}
+
+
 					}
 
 					if ($typeMatch == false) {
@@ -143,7 +149,9 @@ class erLhcoreClassUpdate
 						$extra = '';
 						if ($columnDesired['extra'] == 'auto_increment') {
 						    $extra = ' AUTO_INCREMENT';
-						}
+						} elseif ($columnDesired['default'] !== null) {
+                            $extra = " DEFAULT '{$columnDesired['default']}'";
+                        }
 
 						$collation = '';
                         if ($collationMatch == false) {

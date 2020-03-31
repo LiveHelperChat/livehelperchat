@@ -38,7 +38,7 @@ foreach ($departments as $department) {
 }
 
 $depGroupsList = array();
-$depGroups = erLhcoreClassModelDepartamentGroup::getList();
+$depGroups = erLhcoreClassModelDepartamentGroup::getList(erLhcoreClassUserDep::conditionalDepartmentGroupFilter());
 foreach ($depGroups as $departmentGroup) {
     $depGroupsList[] = array(
         'id' => $departmentGroup->id,
