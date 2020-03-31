@@ -40,7 +40,7 @@ class erLhAbstractModelProactiveChatVariables{
 	    /**
 	     * Get's executed before permissions check. It can redirect to frontpage throw permission exception etc
 	     * */
-	    $metaData = array('permission_delete' => array('module' => 'lhchat','function' => 'administrateinvitations'),'permission' => array('module' => 'lhchat','function' => 'administrateinvitations'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Pro active chat variables'));
+	    $metaData = array('permission_delete' => array('module' => 'lhchat','function' => 'administratechatvariables'),'permission' => array('module' => 'lhchat','function' => 'administratechatvariables'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Pro active chat variables'));
 	    
 	    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('feature.can_use_proactive', array('object_meta_data' => & $metaData));	
 	    

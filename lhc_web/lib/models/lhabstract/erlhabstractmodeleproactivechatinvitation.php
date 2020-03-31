@@ -63,7 +63,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	}
 	
 	public function checkPermission(){
-		
+
 		$currentUser = erLhcoreClassUser::instance();
 		
 		/**
@@ -79,16 +79,8 @@ class erLhAbstractModelProactiveChatInvitation {
 	}
 	
 	public static function getFilter(){
-		
-		$currentUser = erLhcoreClassUser::instance();
-		$departmentParams = array();
-		$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
-		if ($userDepartments !== true){
-			$departmentParams['filterin']['dep_id'] = $userDepartments;
-            $departmentParams['filterin']['dep_id'][] = 0;
-		}
-		
-		return $departmentParams;
+        // Global filters
+        return erLhcoreClassUserDep::conditionalDepartmentFilter(false,'dep_id');
 	}
 
 	public function getFields()

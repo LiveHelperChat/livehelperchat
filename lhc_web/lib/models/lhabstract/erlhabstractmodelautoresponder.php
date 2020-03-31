@@ -488,6 +488,21 @@ class erLhAbstractModelAutoResponder {
         $this->languages = json_encode($languagesData);
     }
 
+    public function checkPermission(){
+
+        $currentUser = erLhcoreClassUser::instance();
+
+        /**
+         * Append user departments filter
+         * */
+        $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+        if ($userDepartments !== true) {
+            if (!in_array($this->dep_id, $userDepartments) && $this->dep_id != 0) {
+                return false;
+            }
+        }
+    }
+
     public function getFilter(){
 
         $filter = array();

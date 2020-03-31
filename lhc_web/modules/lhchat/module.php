@@ -598,6 +598,11 @@ $FunctionList['use_onlineusers'] = array('explain' =>'Allow operator to view onl
 $FunctionList['chattabschrome'] = array('explain' =>'Allow operator to use chrome extension');
 $FunctionList['canchangechatstatus'] = array('explain' =>'Allow operator to change chat status');
 $FunctionList['administrateinvitations'] = array('explain' =>'Allow operator to change pro active invitations');
+$FunctionList['administratecampaigs'] = array('explain' =>'Allow operator to change pro active campaigns');
+$FunctionList['administratechatevents'] = array('explain' =>'Allow operator to change pro active chat events');
+$FunctionList['administratechatvariables'] = array('explain' =>'Allow operator to change pro active chat variables');
+
+
 $FunctionList['administrateresponder'] = array('explain' =>'Allow operator to change auto responder');
 $FunctionList['maintenance'] = array('explain' =>'Allow operator to run maintenance');
 $FunctionList['sees_all_online_visitors'] = array('explain' =>'Operator can see all online visitors, not only his department');

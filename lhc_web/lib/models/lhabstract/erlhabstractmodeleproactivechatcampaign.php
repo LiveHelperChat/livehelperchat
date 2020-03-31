@@ -42,11 +42,11 @@ class erLhAbstractModelProactiveChatCampaign
         $metaData = array(
             'permission_delete' => array(
                 'module' => 'lhchat',
-                'function' => 'administrateinvitations'
+                'function' => 'administratecampaigs'
             ),
             'permission' => array(
                 'module' => 'lhchat',
-                'function' => 'administrateinvitations'
+                'function' => 'administratecampaigs'
             ),
             'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Pro active chat campaigns')
         );

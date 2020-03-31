@@ -157,12 +157,8 @@ return array(
         'required' => false,
         'hidden' => true,
         'source' => 'erLhcoreClassModelDepartament::getList',
-        'hide_optional' => false/*$userDepartments !== true*/,
-        'params_call' => ($userDepartments === true) ? array() : array(
-            'filterin' => array(
-                'id' => $userDepartments
-            )
-        ),
+        'hide_optional' => !empty($departmentFilterdefault = erLhcoreClassUserDep::conditionalDepartmentFilter()),
+        'params_call' => $departmentFilterdefault,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'campaign_id' => array(
