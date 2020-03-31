@@ -14,9 +14,9 @@ module.exports = {
 
     // output file(s) and chunks
     output: {
-        library: 'UserList',
-        libraryTarget: 'umd',
-        libraryExport: 'default',
+        library: 'LiveHelperChat',
+        libraryTarget: 'this',
+        libraryExport: 'LiveHelperChatDefault',
         path: path.resolve(__dirname, 'dist'),
         filename: 'index.js',
         publicPath: config.get('publicPath'),
