@@ -96,6 +96,7 @@
                 lang : LHC_API.args.lang || '',
                 bot_id : LHC_API.args.bot_id || '',
                 priority : LHC_API.args.priority || '',
+                survey : LHC_API.args.survey || null,
                 phash : LHC_API.args.phash || null,
                 pvhash : LHC_API.args.pvhash || null,
                 // Login Objects
@@ -118,10 +119,8 @@
 
                 var containerChatObj = new containerChat();
 
-                //if (attributesWidget.position != 'api') {
-                    attributesWidget.viewHandler = new statusWidget();
-                    containerChatObj.cont.elmDom.appendChild(attributesWidget.viewHandler.cont.constructUI(),!0);
-                //}
+                attributesWidget.viewHandler = new statusWidget();
+                containerChatObj.cont.elmDom.appendChild(attributesWidget.viewHandler.cont.constructUI(),!0);
 
                 if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
                     containerChatObj.cont.elmDom.appendChild(attributesWidget.mainWidget.cont.constructUI(),!0);

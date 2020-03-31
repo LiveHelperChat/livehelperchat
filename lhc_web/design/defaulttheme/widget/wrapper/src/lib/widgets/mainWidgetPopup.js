@@ -51,6 +51,14 @@ export class mainWidgetPopup{
                 urlArgumetns = urlArgumetns + "/(identifier)/" +this.attributes['identifier'];
             }
 
+            if (this.attributes['survey'] !== null) {
+                urlArgumetns = urlArgumetns + "/(survey)/" +this.attributes['survey'];
+            }
+
+            if (this.attributes['priority'] !== null) {
+                urlArgumetns = urlArgumetns + "/(priority)/" +this.attributes['priority'];
+            }
+
             if (this.attributes['proactive']['invitation']) {
                 urlArgumetns = urlArgumetns + "/(inv)/" +this.attributes['proactive']['invitation'];
                 this.attributes['proactive'] = {};

@@ -29,9 +29,18 @@
             );
         }
 
+        if (isset($survey) && $survey != '') {
+            $params['survey'] = (int)$survey;
+        }
+
+        if (isset($priority) && $priority != '') {
+            $params['priority'] = (int)$priority;
+        }
+
         if (isset($custom_fields)) {
             $params['CUSTOM_FIELDS'] = $custom_fields;
         }
+
         if (isset($jsVars)) {
             $params['jsVars'] = $jsVars;
         }

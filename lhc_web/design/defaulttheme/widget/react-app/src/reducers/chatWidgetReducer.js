@@ -334,6 +334,10 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.set('pvhash', action.data);
         }
 
+        case 'survey': {
+            return state.setIn(['chat_ui','survey_id'], action.data);
+        }
+
         case 'CUSTOM_FIELDS_ITEM': {
             return state.setIn(['customData','fields',action.data.id,'value'], action.data.value);
         }

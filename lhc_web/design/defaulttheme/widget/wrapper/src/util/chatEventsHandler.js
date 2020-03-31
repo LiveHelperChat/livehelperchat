@@ -66,6 +66,10 @@ class chatEventsHandler {
             attr['phash'] = this.attributes['phash'];
         }
 
+        if (this.attributes['survey'] !== null) {
+            attr['survey'] = this.attributes['survey'];
+        }
+
         if (this.attributes['pvhash'] !== null) {
             attr['pvhash'] = this.attributes['pvhash'];
         }

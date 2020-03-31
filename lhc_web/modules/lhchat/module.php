@@ -412,7 +412,7 @@ $ViewList['startchat'] = array (
 
 $ViewList['start'] = array (
     'params' => array(),
-    'uparams' => array('id','hash','department','theme','mobile','vid','identifier','inv'),
+    'uparams' => array('id','hash','department','theme','mobile','vid','identifier','inv','survey','priority'),
 	'multiple_arguments' => array('department')
 );
 
