@@ -30,7 +30,7 @@
             $pendingTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_pending_list',1);
             $activeTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_active_list',1);
             $closedTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);
-            $mchatsTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_mchats_list',0);
+            $mchatsTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_mchats_list',1);
             $unreadTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1); ?>
             <div class="columns col-sm-4 col-md-3 right-column-page-general" id="right-column-page" ng-cloak>
             	

@@ -5,7 +5,7 @@
             <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('botc_widget_exp')" class="fs24 float-right material-icons exp-cntr">{{lhc.toggleWidgetData['botc_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
         </div>
 
-        <?php if (erLhcoreClassModelUserSetting::getSetting('enable_bot_list',0) == 1) : ?>
+        <?php if (erLhcoreClassModelUserSetting::getSetting('enable_bot_list',1) == 1) : ?>
         <div ng-if="lhc.toggleWidgetData['botc_widget_exp'] !== true">
             <?php $optinsPanel = array('panelid' => 'botd', 'limitid' => 'limitb'); ?>
             <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/options.tpl.php'));?>

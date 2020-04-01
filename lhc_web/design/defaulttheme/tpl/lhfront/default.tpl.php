@@ -21,7 +21,7 @@
 
     $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list', 0) && erLhcoreClassModelChatConfig::fetchCache('list_unread')->current_value == 1;
 
-    $mchatsTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_mchats_list', 0);
+    $mchatsTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_mchats_list', 1);
     
     $frontTabsOrder = explode(',', erLhcoreClassModelChatConfig::fetch('front_tabs')->current_value);
     ?>

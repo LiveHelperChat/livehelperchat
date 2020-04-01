@@ -6785,7 +6785,7 @@
         "type": "int(11)",
         "null": "NO",
         "key": "",
-        "default": null,
+        "default": "0",
         "extra": ""
       },
       {

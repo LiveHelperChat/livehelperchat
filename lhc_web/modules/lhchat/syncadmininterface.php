@@ -46,7 +46,7 @@ if (erLhcoreClassModelChatConfig::fetchCache('list_closed')->current_value == 1)
     $closedTabEnabled = 0;
 }
 
-$botTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_bot_list',0);
+$botTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_bot_list',1);
 
 if (erLhcoreClassModelChatConfig::fetchCache('list_unread')->current_value == 1) {
     $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list', 0);
@@ -57,7 +57,7 @@ if (erLhcoreClassModelChatConfig::fetchCache('list_unread')->current_value == 1)
 $showAllPending = erLhcoreClassModelUserSetting::getSetting('show_all_pending',1);
 $showDepartmentsStats = $currentUser->hasAccessTo('lhuser','canseedepartmentstats');
 $showDepartmentsStatsAll = $currentUser->hasAccessTo('lhuser','canseealldepartmentstats');
-$myChatsEnabled = erLhcoreClassModelUserSetting::getSetting('enable_mchats_list',0);
+$myChatsEnabled = erLhcoreClassModelUserSetting::getSetting('enable_mchats_list',1);
 
 
 $chatsList = array();

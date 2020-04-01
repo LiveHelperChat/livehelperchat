@@ -1303,7 +1303,7 @@ try {
 
                     $db->query("INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES
                 ('tracked_users_cleanup',	'160',	0,	'How many days keep records of online users.',	0),
-        	   	('list_online_operators', '0', '0', 'List online operators.', '0'),
+        	   	('list_online_operators', '1', '0', 'List online operators.', '0'),
         	   	('voting_days_limit',	'7',	0,	'How many days voting widget should not be expanded after last show',	0),
                 ('track_online_visitors',	'1',	0,	'Enable online site visitors tracking',	0),
         	   	('pro_active_invite',	'1',	0,	'Is pro active chat invitation active. Online users tracking also has to be enabled',	0),
@@ -1391,7 +1391,7 @@ try {
                 ('min_phone_length','8',0,'Minimum phone number length',0),
                 ('mheight','',0,'Messages box height',0),
                 ('inform_unread_message','0',0,'Inform visitor about unread messages from operator, value in minutes. 0 - disabled',0),
-                ('dashboard_order', '[[\"online_operators\",\"departments_stats\",\"online_visitors\"],[\"pending_chats\",\"unread_chats\",\"transfered_chats\"],[\"active_chats\",\"closed_chats\"]]', '0', 'Home page dashboard widgets order', '0'),
+                ('dashboard_order', '[[\"online_operators\",\"departments_stats\",\"online_visitors\"],[\"my_chats\",\"pending_chats\",\"transfered_chats\"],[\"active_chats\",\"bot_chats\"]]', '0', 'Home page dashboard widgets order', '0'),
                 ('banned_ip_range','',0,'Which ip should not be allowed to chat',0),
                 ('suggest_leave_msg','1',0,'Suggest user to leave a message then user chooses offline department',0),
                 ('checkstatus_timeout','0',0,'Interval between chat status checks in seconds, 0 disabled.',0),
@@ -1798,7 +1798,7 @@ try {
                   `last_activity` int(11) NOT NULL,
                   `exclude_autoasign` tinyint(1) NOT NULL DEFAULT '0',
                   `hide_online` int(11) NOT NULL,
-                  `last_accepted` int(11) NOT NULL,
+                  `last_accepted` int(11) NOT NULL DEFAULT '0',
                   `active_chats` int(11) NOT NULL DEFAULT '0',
                   `pending_chats` int(11) NOT NULL DEFAULT '0',
                   `inactive_chats` int(11) NOT NULL DEFAULT '0',
@@ -1972,6 +1972,7 @@ try {
                         array('module' => 'lhspeech', 'function' => 'use'),
                         array('module' => 'lhcannedmsg', 'function' => 'use'),
                         array('module' => 'lhtheme', 'function' => 'personaltheme'),
+                        array('module' => 'lhuser', 'function' => 'userlistonline'),
                         array('module' => 'lhspeech', 'function' => 'change_chat_recognition'),
                     );
 
