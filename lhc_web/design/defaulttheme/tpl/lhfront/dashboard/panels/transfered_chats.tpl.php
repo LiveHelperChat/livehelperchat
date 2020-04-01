@@ -34,7 +34,7 @@
                         		</tr>
                         	</table>
                         	
-                        	<div ng-if="transfer_chats.list.length == 0" class="m-1 alert alert-info"><i class="material-icons">search</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Nothing found')?>...</div>
+                        	<div ng-if="transfer_chats.list.length == 0" class="m-1 alert alert-info"><i class="material-icons">search</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Transferred chats to you will appear here.')?>...</div>
 		
     				</div>
     				<div role="tabpanel" class="tab-pane" id="transfereddep-widget">
@@ -56,13 +56,13 @@
                         		</tr>
                         	</table>
                         	
-                        	<div ng-if="transfer_dep_chats.list.length == 0" class="m-1 alert alert-info"><i class="material-icons">search</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Nothing found')?>...</div>
+                        	<div ng-if="transfer_dep_chats.list.length == 0" class="m-1 alert alert-info"><i class="material-icons">search</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Transferred chats to your department will appear here.')?>...</div>
                        
     				</div>
     			</div>
     		</div>
     		
-    		<div ng-if="transfer_chats.list.length == 0 && transfer_dep_chats.list.length == 0" class="m-1 alert alert-info"><i class="material-icons">search</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Nothing found')?>...</div>
+    		<div ng-if="transfer_chats.list.length == 0 && transfer_dep_chats.list.length == 0" class="m-1 alert alert-info"><i class="material-icons">search</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Transferred chats to you or your department will appear here.')?>...</div>
     		
     	</div>
 	</div>
