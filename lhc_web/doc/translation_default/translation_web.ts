@@ -12,6 +12,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -3133,6 +3141,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Widget embed code (beta)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation type="unfinished"/>
     </message>
@@ -3317,15 +3329,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Widget embed code (new)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget embed code (legacy)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page embed code (legacy)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Page embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget embed code (beta)</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4660,6 +4680,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>All active chats will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Location</source>
       <translation type="unfinished"/>
     </message>
@@ -4740,6 +4764,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Bot chats will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enable bot chats list in your account!</source>
       <translation type="unfinished"/>
     </message>
@@ -4752,7 +4780,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chats assigned to you will appear here. List includes pending and active chats.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will see short list of your site visitors here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delete chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All pending chats will appear here.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4760,7 +4800,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Transferred chats to you will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Transfer time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transferred chats to your department will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transferred chats to you or your department will appear here.</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -8440,6 +8492,10 @@
   <context>
     <name>chat/operatorsbalancing</name>
     <message>
+      <source>Hide send button for operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Active</source>
       <translation type="unfinished"/>
     </message>
@@ -8488,7 +8544,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Hide send button for operators</source>
+      <source>Hide send e-mail button for operators in chat window</source>
       <translation type="unfinished"/>
     </message>
   </context>
