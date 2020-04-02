@@ -1,5 +1,9 @@
 AddType application/wasm .wasm
 
+Header always Set Access-Control-Allow-Origin "*"
+Header always Set Access-Control-Allow-Methods: "GET, POST, OPTIONS, PUT, DELETE"
+Header always Set Access-Control-Allow-Headers: "Origin, X-Requested-With, Content-Type, Accept, API-Key, Authorization"
+
 RewriteEngine On
 RewriteRule ^/var/[^/]+/cache/(stylesheets|images|javascripts?)/.* - [L]
 RewriteRule ^upgrade.php - [L]
