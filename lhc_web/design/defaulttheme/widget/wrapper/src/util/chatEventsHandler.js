@@ -74,6 +74,10 @@ class chatEventsHandler {
             attr['pvhash'] = this.attributes['pvhash'];
         }
 
+        if (this.attributes['operator'] !== null) {
+            attr['operator'] = this.attributes['operator'];
+        }
+
         if (this.attributes['lang'] != '') {
             attr['lang'] = this.attributes['lang'];
         }

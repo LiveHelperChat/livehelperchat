@@ -97,6 +97,7 @@
                 bot_id : LHC_API.args.bot_id || '',
                 priority : LHC_API.args.priority || '',
                 survey : LHC_API.args.survey || null,
+                operator : LHC_API.args.operator || null,
                 phash : LHC_API.args.phash || null,
                 pvhash : LHC_API.args.pvhash || null,
                 // Login Objects

@@ -40,6 +40,7 @@ const initialState = fromJS({
     proactive : {'pending' : false, 'has' : false, data : {}}, // Proactive invitation data holder
     lang : '',
     bot_id : '',
+    operator : '',
     priority : null,
     ses_ref : null,
     captcha : {},
@@ -336,6 +337,10 @@ const chatWidgetReducer = (state = initialState, action) => {
 
         case 'survey': {
             return state.setIn(['chat_ui','survey_id'], action.data);
+        }
+
+        case 'operator': {
+            return state.set('operator', action.data);
         }
 
         case 'CUSTOM_FIELDS_ITEM': {

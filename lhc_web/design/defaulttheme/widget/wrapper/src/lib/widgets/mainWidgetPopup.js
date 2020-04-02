@@ -51,6 +51,10 @@ export class mainWidgetPopup{
                 urlArgumetns = urlArgumetns + "/(identifier)/" +this.attributes['identifier'];
             }
 
+            if (this.attributes['operator'] !== null) {
+                urlArgumetns = urlArgumetns + "/(operator)/" +this.attributes['operator'];
+            }
+
             if (this.attributes['survey'] !== null) {
                 urlArgumetns = urlArgumetns + "/(survey)/" +this.attributes['survey'];
             }

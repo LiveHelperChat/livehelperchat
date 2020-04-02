@@ -23,9 +23,6 @@ class StartChat extends Component {
         super(props);
 
         this.state = {showBBCode : null, Question:'', };
-
-
-
         this.handleSubmit = this.handleSubmit.bind(this);
         this.enterKeyDown = this.enterKeyDown.bind(this);
         this.handleContentChange = this.handleContentChange.bind(this);
@@ -63,6 +60,10 @@ class StartChat extends Component {
 
         if (this.props.chatwidget.get('bot_id') != '') {
             fields['bot_id'] = this.props.chatwidget.get('bot_id');
+        }
+
+        if (this.props.chatwidget.get('operator') != '') {
+            fields['operator'] = this.props.chatwidget.get('operator');
         }
 
         if (this.props.chatwidget.get('pvhash') !== null) {
@@ -155,6 +156,10 @@ class StartChat extends Component {
 
             if (props.chatwidget.get('bot_id') != '') {
                 fields['bot_id'] = props.chatwidget.get('bot_id');
+            }
+
+            if (props.chatwidget.get('operator') != '') {
+                fields['operator'] = props.chatwidget.get('operator');
             }
 
             if (props.chatwidget.get('priority') !== null) {

@@ -36,6 +36,10 @@
         if (isset($priority) && $priority != '') {
             $params['priority'] = (int)$priority;
         }
+        
+        if (isset($operator) && is_numeric($operator)) {
+            $params['operator'] = (int)$operator;
+        }
 
         if (isset($custom_fields)) {
             $params['CUSTOM_FIELDS'] = $custom_fields;

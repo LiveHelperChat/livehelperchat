@@ -19,6 +19,7 @@ $tpl->set('identifier',$Params['user_parameters_unordered']['identifier'] != '' 
 $tpl->set('inv',$Params['user_parameters_unordered']['inv'] != '' ? $Params['user_parameters_unordered']['inv'] : null);
 $tpl->set('survey',$Params['user_parameters_unordered']['survey'] != '' ? $Params['user_parameters_unordered']['survey'] : null);
 $tpl->set('priority',$Params['user_parameters_unordered']['priority'] != '' ? $Params['user_parameters_unordered']['priority'] : null);
+$tpl->set('operator',$Params['user_parameters_unordered']['operator'] != '' ? (int)$Params['user_parameters_unordered']['operator'] : null);
 $tpl->set('online',erLhcoreClassChat::isOnline($dep, false, array(
     'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
     'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value
