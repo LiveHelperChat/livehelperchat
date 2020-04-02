@@ -99,40 +99,41 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose a language');?></label> <select id="LocaleID" class="form-control">
-                            <?php foreach ($locales as $locale ) : ?>
-                                <option value="<?php echo $locale?>/"><?php echo $locale?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label><input type="checkbox" id="DetectLanguage" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Try to detect language automatically');?></label>
-                    </div>
+                <div class="col-md-12">
 
                     <div class="row">
-
-                        <?php /*
-                        <div class="col-md-6">
+                        <div class="col-6">
                             <div class="form-group">
-                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Operator ID')?></label> <input type="text" class="form-control" id="id_operator" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','To what operator chat should be assigned automatically?')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','To what operator chat should be assigned automatically?')?>" value="" />
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose a language');?></label> <select id="LocaleID" class="form-control">
+                                    <?php foreach ($locales as $locale ) : ?>
+                                        <option value="<?php echo $locale?>/"><?php echo $locale?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
-                        </div>*/ ?>
-
-                        <div class="col-md-6">
-                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Survey at the end of chat')?></label>
-                            <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-                                'input_name'     => 'Survey',
-                                'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','no survey'),
-                                'selected_id'    => 0,
-                                'css_class'     => 'form-control',
-                                'list_function'  => 'erLhAbstractModelSurvey::getList'
-                            )); ?>
+                            <div class="form-group">
+                                <label><input type="checkbox" id="DetectLanguage" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Try to detect language automatically');?></label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Operator ID')?></label> <input type="text" class="form-control" id="id_operator" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','To what operator chat should be assigned automatically?')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','To what operator chat should be assigned automatically?')?>" value="" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Survey at the end of chat')?></label>
+                                    <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                                        'input_name'     => 'Survey',
+                                        'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','no survey'),
+                                        'selected_id'    => 0,
+                                        'css_class'     => 'form-control',
+                                        'list_function'  => 'erLhAbstractModelSurvey::getList'
+                                    )); ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
@@ -243,12 +244,17 @@
 <p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Copy the code from the text area to the page where you want your status to appear');?></p>
 <textarea style="width: 100%; height: 200px; font-size: 11px;" class="form-control" id="HMLTContent"></textarea>
 
+<p>Static URL. You can send this url to your customers</p>
+<input type="text" class="form-control form-control-sm" value="" id="static-url-generated">
+
 <script type="text/javascript">
 
     var default_site_access = '<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'default_site_access' ); ?>/';
 
     function generateEmbedCode(){
         var siteAccess = $('#LocaleID').val() == default_site_access ? '' : ',lang:\''+$('#LocaleID').val()+'\'';
+
+        var siteAccessStatic = $('#LocaleID').val() == default_site_access ? '' : $('#LocaleID').val();
 
         var id_widget_mode = $('#id_widget_mode').val();
 
@@ -263,27 +269,33 @@
 
         var id_show_leave_form = $('#id_show_leave_form').is(':checked') ? ',leaveamessage:true' : '';
         var id_fresh = $('#id_fresh').is(':checked') ? ',fresh:true' : '';
-
+        var id_fresh_status = $('#id_fresh').is(':checked') ? '/(fresh)/true' : '';
 
        var id_disable_pro_active_invitations = $('#id_disable_pro_active_invitations').is(':checked') ? ',proactive:false' : '';
 
         var id_department = $('#DepartmentID').val() && $('#DepartmentID').val().length > 0 && $('#DepartmentID').val().join('/') != '0' ? ',department:['+$('#DepartmentID').val().join(',')+']' : '';
+        var id_department_static = $('#DepartmentID').val() && $('#DepartmentID').val().length > 0 && $('#DepartmentID').val().join('/') != '0' ? '/(department)/'+$('#DepartmentID').val().join('/') : '';
 
         //var id_product = $('#id_product_id').val() && $('#id_product_id').val().length > 0 && $('#id_product_id').val().join('/') != '0' ? '/(prod)/'+$('#id_product_id').val().join('/') : '';
 
         var id_theme = $('#ThemeID').val() > 0 ? ',theme:'+$('#ThemeID').val() : '';
+        var id_theme_static = $('#ThemeID').val() > 0 ? '/(theme)/'+$('#ThemeID').val() : '';
+
         var id_widget_position = $('#id_widget_position').val() != '' ? ',position:\''+$('#id_widget_position').val()+'\'' : '';
 
         var id_check_messages_operator = $('#id_check_messages_operator').is(':checked') ? ',check_messages:true' : '';
 
         var id_identifier = $('#id_site_identifier').val() != '' ? ',identifier:\''+$('#id_site_identifier').val()+'\'' : '';
+        var id_identifier_static = $('#id_site_identifier').val() != '' ? '/(identifier)/'+$('#id_site_identifier').val() : '';
 
         <?php //var id_ma = $('#MinimizeID').val() != '' ? '/(ma)/'+$('#MinimizeID').val() : ''; ?>
 
-        <?php //var id_operator = $('#id_operator').val() > 0 ? '/(operator)/'+$('#id_operator').val() : '';?>
+        var id_operator = $('#id_operator').val() > 0 ? ',operator:'+$('#id_operator').val() : '';
+        var id_operator_static = $('#id_operator').val() > 0 ? '/(operator)/'+$('#id_operator').val() : '';
 
 
         var id_survey = $('#id_Survey').val() > 0 ? ',survey:'+$('#id_Survey').val() : '';
+        var id_survey_static = $('#id_Survey').val() > 0 ? '/(survey)/'+$('#id_Survey').val() : '';
 
 
         <?php /*var id_position =  '/(position)/'+$('#PositionID').val();*/ ?>
@@ -332,8 +344,10 @@
                 "} else {_l = _l[0].toLowerCase() + _l[1].toLowerCase(); if ('<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'default_site_access' )?>' == _l) {_l = ''} else {LHC_API.args.lang = _l + '/';}}\n";
         }
 
+        $('#static-url-generated').val($('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccessStatic +'chat/start'+id_survey_static+id_operator_static+id_fresh_status+id_department_static+id_theme_static+id_identifier_static);
+
         var script = '<script>'+
-            'var LHC_API = LHC_API||{};'+"\n"+'LHC_API.args = {mode:\''+id_widget_mode+'\',lhc_base_url:\'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>\',wheight:'+$('#id_widget_height').val()+',wwidth:'+$('#id_widget_width').val()+',pheight:'+$('#id_popup_height').val()+',pwidth:'+$('#id_popup_width').val()+id_embed_domain+id_fresh+id_show_leave_form+id_department+id_theme+id_survey+id_widget_position+id_check_messages_operator+id_disable_pro_active_invitations+id_identifier+siteAccess+'};\n'+
+            'var LHC_API = LHC_API||{};'+"\n"+'LHC_API.args = {mode:\''+id_widget_mode+'\',lhc_base_url:\'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>\',wheight:'+$('#id_widget_height').val()+',wwidth:'+$('#id_widget_width').val()+',pheight:'+$('#id_popup_height').val()+',pwidth:'+$('#id_popup_width').val()+id_operator+id_embed_domain+id_fresh+id_show_leave_form+id_department+id_theme+id_survey+id_widget_position+id_check_messages_operator+id_disable_pro_active_invitations+id_identifier+siteAccess+'};\n'+
             '(function() {'+"\n"+langDetectScript+
             'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
             'var date = new Date();'+
