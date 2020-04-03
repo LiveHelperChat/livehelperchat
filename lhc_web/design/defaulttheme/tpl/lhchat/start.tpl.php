@@ -1,3 +1,6 @@
+<?php if ($leaveamessage === false && $online === false) : ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_not_available.tpl.php'));?>
+<?php else : ?>
 <script>
     window.initializeLHC = "lhc_init:"+JSON.stringify(<?php
         $params = array(
@@ -51,3 +54,4 @@
 
         echo json_encode($params); ?>);
 </script>
+<?php endif;?>

@@ -37,7 +37,7 @@ class ChatDepartment extends Component {
         }
 
         if (this.props.departments.get('departments').size == 1 || !this.props.departments.hasIn(['settings','optional'])) {
-            this.onchangeAttr({'value':this.props.departments.getIn(['departments',0]).get('value')});
+            this.onchangeAttr({'value': this.props.setDefaultValue || this.props.departments.getIn(['departments',0]).get('value')});
           } else if (this.props.departments.get('departments').size > 1) {
             this.onchangeAttr({'value': -1});
         }
@@ -58,7 +58,7 @@ class ChatDepartment extends Component {
             var options = this.props.departments.get('departments').map(dep => <option key={'dep-'+dep.get('value')} value={dep.get('value')}>{dep.get('name')} {!dep.get('online') ? t('department.offline') : ''}</option>);
             departmentOutput = <div className="form-group">
                 <label className="control-label">{this.props.departments.getIn(['settings','label'])}</label>
-                <select defaultValue={this.props.defaultValueField} className={classNameInput.join(' ')} onChange={(e) => this.onchangeAttr({'value' : e.target.value})}>
+                <select defaultValue={this.props.setDefaultValue || this.props.defaultValueField} className={classNameInput.join(' ')} onChange={(e) => this.onchangeAttr({'value' : e.target.value})}>
                     {this.props.departments.hasIn(['settings','optional']) && <option value="-1">{this.props.departments.getIn(['settings','optional'])}</option>}
                     {options}
                 </select>

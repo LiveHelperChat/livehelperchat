@@ -9,6 +9,7 @@ const initialState = fromJS({
     isOnline: false,
     isChatting: false,
     newChat: true,
+    departmentDefault: null,
     theme: null,
     pvhash: null,
     phash: null,
@@ -321,6 +322,10 @@ const chatWidgetReducer = (state = initialState, action) => {
 
         case 'CUSTOM_FIELDS': {
             return state.set('customData', fromJS({'fields' : action.data}));
+        }
+
+        case 'dep_default': {
+            return state.set('departmentDefault',action.data);
         }
 
         case 'attr_prefill': {
