@@ -9,6 +9,29 @@ if (is_array($Params['user_parameters_unordered']['department'])) {
     $dep = $Params['user_parameters_unordered']['department'];
 }
 
+$startDataDepartment = false;
+
+if (is_array($dep) && !empty($dep) && count($dep) == 1) {
+    $dep_id = $dep[0];
+    $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('filter' => array('department_id' => $dep_id)));
+    if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
+        $startDataFields = $startDataDepartment->data_array;
+    }
+}
+
+if ($startDataDepartment === false) {
+    $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
+    $start_data_fields = $startDataFields = (array)$startData->data;
+}
+
+$online = erLhcoreClassChat::isOnline($dep, false, array(
+    'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
+    'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value
+));
+
+$leaveamessage = $Params['user_parameters_unordered']['leaveamessage'] === 'true' || (isset($startDataFields['force_leave_a_message']) && $startDataFields['force_leave_a_message'] == true);
+$tpl->set('leaveamessage',$leaveamessage);
+$tpl->set('department',is_array($Params['user_parameters_unordered']['department']) ? $Params['user_parameters_unordered']['department'] : array());
 $tpl->set('department',is_array($Params['user_parameters_unordered']['department']) ? $Params['user_parameters_unordered']['department'] : array());
 $tpl->set('id',$Params['user_parameters_unordered']['id'] > 0 ? (int)$Params['user_parameters_unordered']['id'] : null);
 $tpl->set('hash',$Params['user_parameters_unordered']['hash'] != '' ? $Params['user_parameters_unordered']['hash'] : null);
@@ -20,10 +43,7 @@ $tpl->set('inv',$Params['user_parameters_unordered']['inv'] != '' ? $Params['use
 $tpl->set('survey',$Params['user_parameters_unordered']['survey'] != '' ? $Params['user_parameters_unordered']['survey'] : null);
 $tpl->set('priority',$Params['user_parameters_unordered']['priority'] != '' ? $Params['user_parameters_unordered']['priority'] : null);
 $tpl->set('operator',$Params['user_parameters_unordered']['operator'] != '' ? (int)$Params['user_parameters_unordered']['operator'] : null);
-$tpl->set('online',erLhcoreClassChat::isOnline($dep, false, array(
-    'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
-    'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value
-)));
+$tpl->set('online',$online);
 
 $ts = time();
 $tpl->set('captcha',array(
@@ -89,6 +109,12 @@ if ($Params['user_parameters_unordered']['mobile'] == 'true') {
 }
 
 $Result['content'] = $tpl->fetch();
-$Result['pagelayout'] = 'userchat2';
+
+if ($leaveamessage === false && $online === false){
+    $Result['pagelayout'] = 'userchat';
+} else {
+    $Result['pagelayout'] = 'userchat2';
+}
+
 
 ?>

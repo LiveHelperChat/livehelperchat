@@ -105,6 +105,19 @@ class StartChat extends Component {
         var currentState = this.state;
         currentState[obj.id] = obj.value;
         this.setState(currentState);
+
+        if (obj.id == 'DepartamentID') {
+            if (this.props.chatwidget.getIn(['onlineData','department','departments']).size > 0){
+                this.props.chatwidget.getIn(['onlineData','department','departments']).map(dep => {
+                    if (dep.get('value') == obj.value) {
+                        if (dep.get('online') == false) {
+                            this.props.dispatch({'type' : 'dep_default', data : obj.value});
+                            this.props.dispatch({'type' : 'onlineStatus', data : false});
+                        }
+                    }
+                })
+            }
+        }
     }
 
     handleContentChangeCustom(obj) {
@@ -285,7 +298,7 @@ class StartChat extends Component {
                             <div className="row pt-2">
                                 {mappedFields}
                                 {mappedFieldsCustom}
-                                {this.props.chatwidget.hasIn(['onlineData','department']) && <ChatDepartment defaultValueField={this.state['DepartamentID']} onChangeContent={this.handleContentChange} isInvalidProduct={this.props.chatwidget.hasIn(['validationErrors','ProductID'])} isInvalid={this.props.chatwidget.hasIn(['validationErrors','department'])} departments={this.props.chatwidget.getIn(['onlineData','department'])} />}
+                                {this.props.chatwidget.hasIn(['onlineData','department']) && <ChatDepartment defaultValueField={this.state['DepartamentID']} setDefaultValue={this.props.chatwidget.get('departmentDefault')} onChangeContent={this.handleContentChange} isInvalidProduct={this.props.chatwidget.hasIn(['validationErrors','ProductID'])} isInvalid={this.props.chatwidget.hasIn(['validationErrors','department'])} departments={this.props.chatwidget.getIn(['onlineData','department'])} />}
                             </div>
                             <div className="row">
                                 <div className="col-12 pb-3">
