@@ -67,7 +67,7 @@ return array (
             'default_url' =>
                 array (
                     'module' => 'chat',
-                    'view' => 'startchat',
+                    'view' => 'start',
                 ),
             'chat' => array(
                 'online_timeout' => 300,
@@ -127,7 +127,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat',
+                                    'view' => 'start',
                                 ),
                             'theme' =>
                                 array (
@@ -150,7 +150,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat',
+                                    'view' => 'start',
                                 ),
                         ),
                     'hrv' =>
@@ -168,7 +168,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat',
+                                    'view' => 'start',
                                 ),
                         ),
                     'esp' =>
@@ -186,7 +186,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat',
+                                    'view' => 'start',
                                 ),
                         ),
                     'dnk' =>
@@ -204,7 +204,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat',
+                                    'view' => 'start',
                                 ),
                         ),
                     'por' =>
@@ -222,7 +222,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat',
+                                    'view' => 'start',
                                 ),
                         ),
                     'nld' =>
@@ -240,7 +240,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat',
+                                    'view' => 'start',
                                 ),
                         ),
                     'ara' =>
@@ -258,7 +258,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'ger' =>
@@ -276,7 +276,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'pol' =>
@@ -294,7 +294,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'rus' =>
@@ -312,7 +312,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'ita' =>
@@ -330,7 +330,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'tur' =>
@@ -348,7 +348,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'fre' =>
@@ -366,7 +366,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'chn' =>
@@ -384,7 +384,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'cse' =>
@@ -402,7 +402,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'nor' =>
@@ -420,7 +420,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'vnm' =>
@@ -438,7 +438,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'tha' =>
@@ -456,7 +456,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'idn' =>
@@ -474,7 +474,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'sve' =>
@@ -492,7 +492,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'per' =>
@@ -510,7 +510,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'ell' =>
@@ -528,7 +528,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'rou' =>
@@ -546,7 +546,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'bgr' =>
@@ -564,7 +564,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'cat' =>
@@ -582,7 +582,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat',
+                                    'view' => 'start',
                                 ),
                         ),
                     'geo' =>
@@ -600,7 +600,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'fin' =>
@@ -618,7 +618,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'alb' =>
@@ -636,7 +636,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'heb' => array (
@@ -653,7 +653,7 @@ return array (
                         'default_url' =>
                             array (
                                 'module' => 'chat',
-                                'view' => 'startchat'
+                                'view' => 'start'
                             ),
                     ),
                     'hun' =>
@@ -671,7 +671,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat'
+                                    'view' => 'start'
                                 ),
                         ),
                     'site_admin' =>
