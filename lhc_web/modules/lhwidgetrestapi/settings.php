@@ -160,7 +160,7 @@ $outputResponse['chat_ui']['leaveamessage'] = (isset($startDataFields['force_lea
 $outputResponse['chat_ui']['mobile_popup'] = isset($startDataFields['mobile_popup']) && $startDataFields['mobile_popup'] == true;
 
 $ts = time();
-$outputResponse['v'] = 45;
+$outputResponse['v'] = 46;
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
 $outputResponse['static'] = array(
