@@ -69,6 +69,18 @@ if (ezcInputForm::hasPostData()) {
 
                         $eventObj->saveThis();
                     }
+
+                    // Import payloads
+                    if (isset($trigger['payloads'])) {
+                        foreach ($trigger['payloads'] as $payloadVar) {
+                            $payloadObj = new erLhcoreClassModelGenericBotPayload();
+                            $payloadObj->name = $payloadVar['name'];
+                            $payloadObj->payload = $payloadVar['payload'];
+                            $payloadObj->bot_id = $bot->id;
+                            $payloadObj->trigger_id = $triggerObj->id;
+                            $payloadObj->saveThis();
+                        }
+                    }
                 }
             }
 

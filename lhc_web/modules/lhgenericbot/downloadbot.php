@@ -35,9 +35,22 @@ foreach ($groups as $group) {
             $eventsVars[] = $eventVar;
         }
 
+        // Payloads
+        $payloads = erLhcoreClassModelGenericBotPayload::getList(array('sort' => 'id ASC', 'filter' => array('trigger_id' => $trigger->id, 'bot_id' => $bot->id)));
+        $payloadsVars = array();
+
+        foreach ($payloads as $payload) {
+            $payloadVar = get_object_vars($payload);
+            unset($payloadVar['id']);
+            unset($payloadVar['trigger_id']);
+            unset($payloadVar['bot_id']);
+            $payloadsVars[] = $payloadVar;
+        }
+
         $itemTrigger = array(
             'trigger' => $triggerVars,
-            'events' => $eventsVars
+            'events' => $eventsVars,
+            'payloads' => $payloadsVars
         );
 
         $item['triggers'][] = $itemTrigger;

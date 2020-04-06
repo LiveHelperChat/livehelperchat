@@ -708,6 +708,15 @@ class erLhcoreClassChatValidator {
             if (isset($languages[0])) {
                 $chat->chat_locale = $languages[0];
             }
+
+            // We set custom chat locale only if visitor is not using default siteaccss and default langauge is not english.
+            if (erConfigClassLhConfig::getInstance()->getSetting('site','default_site_access') != erLhcoreClassSystem::instance()->SiteAccess) {
+                $siteAccessOptions = erConfigClassLhConfig::getInstance()->getSetting('site_access_options', erLhcoreClassSystem::instance()->SiteAccess);
+                // Never override to en
+                if (isset($siteAccessOptions['content_language']) && $siteAccessOptions['content_language'] != 'en') {
+                    $chat->chat_locale = $siteAccessOptions['content_language'];
+                }
+            }
         }
 
         // Javascript variables
