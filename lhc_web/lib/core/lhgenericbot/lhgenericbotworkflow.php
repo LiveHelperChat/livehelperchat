@@ -1384,17 +1384,17 @@ class erLhcoreClassGenericBotWorkflow {
         return $messages;
     }
 
-    public static function getClickName($metaData, $payload, $returnAll = false)
+    public static function getClickName($metaData, $payload, $returnAll = false, $paramsExecution = array())
     {
         if (isset($metaData['content']['quick_replies'])) {
             foreach ($metaData['content']['quick_replies'] as $reply) {
-                if ($reply['content']['payload'] == $payload) {
+                if ($reply['content']['payload'] == $payload && (!isset($paramsExecution['payload_hash']) || $paramsExecution['payload_hash'] == '' || md5($reply['content']['name']) == $paramsExecution['payload_hash'])) {
                     return $returnAll == false ? $reply['content']['name'] : $reply['content'];
                 }
             }
         } elseif (isset($metaData['content']['buttons_generic'])) {
             foreach ($metaData['content']['buttons_generic'] as $reply) {
-                if ($reply['content']['payload'] == $payload) {
+                if ($reply['content']['payload'] == $payload && (!isset($paramsExecution['payload_hash']) || $paramsExecution['payload_hash'] == '' || md5($reply['content']['name']) == $paramsExecution['payload_hash'])) {
                     return $returnAll == false ? $reply['content']['name'] : $reply['content'];
                 }
             }
@@ -1453,6 +1453,10 @@ class erLhcoreClassGenericBotWorkflow {
 
                 $continueExecution = true;
 
+                $payloadParams = explode('__',$payload);
+                $payload = $payloadParams[0];
+                $payloadHash = isset($payloadParams[1]) ? $payloadParams[1] : null;
+
                 // Try to find current workflow first
                 $workflow = erLhcoreClassModelGenericBotChatWorkflow::findOne(array('filterin' => array('status' => array(0,1)), 'filter' => array('chat_id' => $chat->id)));
                 if ($workflow instanceof erLhcoreClassModelGenericBotChatWorkflow) {
@@ -1466,6 +1470,7 @@ class erLhcoreClassGenericBotWorkflow {
                         'chat' => & $chat,
                         'msg' => $messageContext,
                         'payload' => $payload,
+                        'payload_hash' => $payloadHash,
                     ));
 
                     if ($handler !== false) {
@@ -1481,7 +1486,7 @@ class erLhcoreClassGenericBotWorkflow {
 
                     if ($continueExecution == true)
                     {
-                        $messageClick = self::getClickName($messageContext->meta_msg_array, $payload);
+                        $messageClick = self::getClickName($messageContext->meta_msg_array, $payload, false, array('payload_hash' => $payloadHash));
 
                         if (!empty($messageClick)) {
                             if ((isset($params['processed']) && $params['processed'] == true) || !isset($params['processed'])){
@@ -1524,11 +1529,16 @@ class erLhcoreClassGenericBotWorkflow {
 
             $db = ezcDbInstance::get();
 
+
             try {
 
                 $db->beginTransaction();
 
                 $chat->syncAndLock();
+
+                $payloadParams = explode('__',$payload);
+                $payload = $payloadParams[0];
+                $payloadHash = isset($payloadParams[1]) ? $payloadParams[1] : null;
 
                 $continueExecution = true;
                 
@@ -1554,6 +1564,7 @@ class erLhcoreClassGenericBotWorkflow {
                             'chat' => & $chat,
                             'msg' => $messageContext,
                             'payload' => $payload,
+                            'payload_hash' => $payloadHash,
                         ));
 
                         if ($handler !== false) {
@@ -1562,7 +1573,7 @@ class erLhcoreClassGenericBotWorkflow {
                             $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'], 1, array(), array('dep_id' => $chat->dep_id));
                         }
 
-                        $messageClick = self::getClickName($messageContext->meta_msg_array, $payload);
+                        $messageClick = self::getClickName($messageContext->meta_msg_array, $payload, false, array('payload_hash' => $payloadHash));
 
                         if (!empty($messageClick)) {
                             if ((isset($params['processed']) && $params['processed'] == true) || !isset($params['processed'])) {
