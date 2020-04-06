@@ -7,10 +7,8 @@
 <label><?php echo erLhcoreClassAbstract::renderInput('disabled', $fields['disabled'], $object)?> <?php echo $fields['disabled']['trans'];?></label>
 </div>
 
-<div class="form-group">		
-<label><?php echo $fields['operator_name']['trans'];?></label>
-<?php echo erLhcoreClassAbstract::renderInput('operator_name', $fields['operator_name'], $object)?>
-</div>
+<?php $translatableItem = array('identifier' => 'operator_name'); ?>
+<?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
 <div class="form-group">		
 <label><?php echo $fields['position']['trans'];?></label>
@@ -107,24 +105,14 @@
 <?php echo erLhcoreClassAbstract::renderInput('campaign_id', $fields['campaign_id'], $object)?>
 </div>
 
-<div class="form-group">		
-<label><?php echo $fields['message']['trans'];?>*</label>
-<?php $bbcodeOptions = array('selector' => 'textarea[name=AbstractInput_message]'); ?>
-<?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
-<?php echo erLhcoreClassAbstract::renderInput('message', $fields['message'], $object)?>
-</div>
+<?php $translatableItem = array('identifier' => 'message'); ?>
+<?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
-<div class="form-group">		
-<label><?php echo $fields['message_returning']['trans'];?></label>
-<?php $bbcodeOptions = array('selector' => 'textarea[name=AbstractInput_message_returning]'); ?>
-<?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
-<?php echo erLhcoreClassAbstract::renderInput('message_returning', $fields['message_returning'], $object)?>
-</div>
+<?php $translatableItem = array('identifier' => 'message_returning'); ?>
+<?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
-<div class="form-group">		
-<label><?php echo $fields['message_returning_nick']['trans'];?></label>
-<?php echo erLhcoreClassAbstract::renderInput('message_returning_nick', $fields['message_returning_nick'], $object)?>
-</div>
+<?php $translatableItem = array('identifier' => 'message_returning_nick'); ?>
+<?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
 <div class="form-group">
 <label><?php echo $fields['autoresponder_id']['trans'];?></label>

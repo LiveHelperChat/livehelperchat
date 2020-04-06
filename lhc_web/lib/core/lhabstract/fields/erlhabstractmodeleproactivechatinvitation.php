@@ -9,6 +9,8 @@ return array(
     ),
     'operator_name' => array(
         'type' => 'text',
+        'translatable' => true,
+        'main_attr_lang' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Operator name'),
         'required' => false,
         'hidden' => true,
@@ -209,6 +211,8 @@ return array(
     ),
     'message' => array(
         'type' => 'textarea',
+        'translatable' => true,
+        'main_attr_lang' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message to user'),
         'required' => true,
         'hidden' => true,
@@ -216,12 +220,16 @@ return array(
     ),
     'message_returning' => array(
         'type' => 'textarea',
+        'translatable' => true,
+        'main_attr_lang' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message to returning user'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
     ),
     'message_returning_nick' => array(
+        'translatable' => true,
+        'main_attr_lang' => 'design_data_array',
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Nick which will be used if we cannot determine returning user name'),
         'required' => false,

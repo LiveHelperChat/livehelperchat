@@ -33,7 +33,12 @@
         <div role="tabpanel" class="tab-pane active" id="defaulttr">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Translation');?></label>
-                <textarea class="form-control form-control-sm" name="default_message"><?php echo htmlspecialchars($item->translation_array['default']);?></textarea>
+
+                <?php $bbcodeOptions = array('selector' => '#default-message-translation'); ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
+
+                <textarea class="form-control form-control-sm" id="default-message-translation" name="default_message"><?php echo htmlspecialchars($item->translation_array['default']);?></textarea>
+
             </div>
         </div>
         <div ng-repeat="lang in cmsg.languages" role="tabpanel" class="tab-pane" id="lang-{{$index}}">
