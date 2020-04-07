@@ -9,7 +9,7 @@ class erLhcoreClassGenericBotActionAttribute {
 
         $metaMessage = array();
 
-        if (isset($action['content']['attr_options']['name']) && !empty($action['content']['attr_options']['name']))
+        if (isset($action['content']['attr_options']['identifier']) && !empty($action['content']['attr_options']['identifier']))
         {
             $filter = array('filter' => array('chat_id' => $chat->id));
 

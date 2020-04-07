@@ -459,12 +459,12 @@ class erLhcoreClassGenericBotWorkflow {
 
                     if (isset($dataProcess['valid']) && $dataProcess['valid'] == false) {
                         if (isset($dataProcess['message']) && !empty($dataProcess['message'])) {
-                            throw new Exception($dataProcess['message']);
+                            throw new erLhcoreClassGenericBotException($dataProcess['message'], 0, null, (isset($dataProcess['params_exception']) ? $dataProcess['params_exception'] : array()));
                         } else {
-                            throw new Exception('Your message does not match required format!');
+                            throw new erLhcoreClassGenericBotException('Your message does not match required format!', 0, null, (isset($dataProcess['params_exception']) ? $dataProcess['params_exception'] : array()));
                         }
                     } elseif (!isset($dataProcess['valid'])) {
-                        throw new Exception('Returned format is incorrect and data could not be validated!');
+                        throw new erLhcoreClassGenericBotException('Returned format is incorrect and data could not be validated!', 0, null, (isset($dataProcess['params_exception']) ? $dataProcess['params_exception'] : array()));
                     }
 
                 } else {
