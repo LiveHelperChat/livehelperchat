@@ -110,6 +110,9 @@ class erLhAbstractModelAutoResponderChat
                                 $msg->name_support = $this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support');
                                 $msg->user_id = - 2;
                                 $msg->time = time();
+
+                                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('msg' => & $msg, 'chat' => & $this->chat));
+
                                 erLhcoreClassChat::getSession()->save($msg);
 
                                 $this->chat->last_msg_id = $msg->id;
@@ -155,6 +158,9 @@ class erLhAbstractModelAutoResponderChat
                         $msg->chat_id = $this->chat->id;
                         $msg->user_id = - 1;
                         $msg->time = time();
+
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('msg' => & $msg, 'chat' => & $this->chat));
+
                         erLhcoreClassChat::getSession()->save($msg);
 
                         $this->chat->last_msg_id = $msg->id;
@@ -172,6 +178,9 @@ class erLhAbstractModelAutoResponderChat
                             $msg->chat_id = $this->chat->id;
                             $msg->user_id = - 1;
                             $msg->time = time();
+
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('msg' => & $msg, 'chat' => & $this->chat));
+
                             erLhcoreClassChat::getSession()->save($msg);
 
                             $this->chat->last_msg_id = $msg->id;
@@ -201,6 +210,9 @@ class erLhAbstractModelAutoResponderChat
                                 $msg->name_support = $this->chat->user !== false ? $this->chat->user->name_support : ($this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support'));
                                 $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
                                 $msg->time = time();
+
+                                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('msg' => & $msg, 'chat' => & $this->chat));
+
                                 erLhcoreClassChat::getSession()->save($msg);
 
                                 $this->chat->last_msg_id = $msg->id;
@@ -228,6 +240,9 @@ class erLhAbstractModelAutoResponderChat
                                 $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
                                 $msg->meta_msg = (string)$this->auto_responder->getMeta($this->chat, 'nreply_op', $i);
                                 $msg->time = time();
+
+                                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('msg' => & $msg, 'chat' => & $this->chat));
+
                                 erLhcoreClassChat::getSession()->save($msg);
 
                                 $this->chat->last_msg_id = $msg->id;
@@ -254,6 +269,9 @@ class erLhAbstractModelAutoResponderChat
                             $msg->name_support = $this->chat->user !== false ? $this->chat->user->name_support : ($this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support'));
                             $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
                             $msg->time = time();
+
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('msg' => & $msg, 'chat' => & $this->chat));
+
                             erLhcoreClassChat::getSession()->save($msg);
 
                             $this->chat->last_msg_id = $msg->id;
