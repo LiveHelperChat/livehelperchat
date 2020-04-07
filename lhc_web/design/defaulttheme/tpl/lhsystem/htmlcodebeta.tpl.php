@@ -283,7 +283,7 @@
 
         var id_widget_position = $('#id_widget_position').val() != '' ? ',position:\''+$('#id_widget_position').val()+'\'' : '';
 
-        var id_check_messages_operator = $('#id_check_messages_operator').is(':checked') ? ',check_messages:true' : '';
+        var id_check_messages_operator = $('#id_check_messages_operator').is(':checked') ? ',proactive:true' : ',proactive:false';
 
         var id_identifier = $('#id_site_identifier').val() != '' ? ',identifier:\''+$('#id_site_identifier').val()+'\'' : '';
         var id_identifier_static = $('#id_site_identifier').val() != '' ? '/(identifier)/'+$('#id_site_identifier').val() : '';
