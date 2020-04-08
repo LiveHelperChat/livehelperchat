@@ -92,7 +92,7 @@ class _proactiveChat {
 
             helperFunctions.makeRequest(LHC_API.args.lhc_base_url + this.attributes['lang'] + 'widgetrestapi/checkinvitation', {params: params}, (data) => {
                 if (data.invitation) {
-                    const params = {'vid_id' : data.vid_id, 'invitation' : data.invitation, 'inject_html' :  data.inject_html};
+                    const params = {'vid_id' : data.vid_id, 'invitation' : data.invitation, 'inject_html' :  data.inject_html, 'qinv' : data.qinv};
                     setTimeout(() => {
                         this.showInvitation(params, init);
                     }, this.attributes.widgetStatus.value === true ? 0 : (data.delay || 0));
@@ -118,7 +118,7 @@ class _proactiveChat {
                                 e = e ? e : window.event;
                                 var from = e.relatedTarget || e.toElement;
                                 if (!from || from.nodeName == "HTML") {
-                                    this.showInvitation({'vid_id' : data.vid_id, 'invitation' : item.id, 'inject_html' :  item.inject_html, 'only_inject' : item.only_inject});
+                                    this.showInvitation({'vid_id' : data.vid_id, 'invitation' : item.id, 'inject_html' :  item.inject_html, 'qinv' : data.qinv, 'only_inject' : item.only_inject});
                                     if (!item.every_time) {
                                         domEventsHandler.unlisten('lhc_inv_mouse_out_'+item.id);
                                     }
@@ -128,7 +128,7 @@ class _proactiveChat {
 
                             var iddleTimeout = () => {
 
-                                this.showInvitation({'vid_id' : data.vid_id, 'invitation' : item.id, 'inject_html' :  item.inject_html, 'only_inject' : item.only_inject});
+                                this.showInvitation({'vid_id' : data.vid_id, 'invitation' : item.id, 'inject_html' :  item.inject_html, 'qinv' : data.qinv, 'only_inject' : item.only_inject});
 
                                 clearTimeout(this.iddleTimeoutActivity);
 

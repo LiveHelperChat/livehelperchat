@@ -47,6 +47,7 @@ if (($user = $onlineUser->operator_user) !== false) {
 
 $outputResponse['invitation_id'] = $onlineUser->invitation_id;
 
+$outputResponse['qinv'] = isset($onlineUser->online_attr_system_array['qinv']);
 
 $outputResponse['message'] = erLhcoreClassBBCode::make_clickable(htmlspecialchars($onlineUser->operator_message_front));
 
