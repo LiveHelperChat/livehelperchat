@@ -62,6 +62,10 @@ if ( isset($_POST['SendMessage']) ) {
         unset($onlineAttrSystem['lhc_ignore_autoresponder']);
     }
 
+    if (isset($onlineAttrSystem['qinv'])) {
+        unset($onlineAttrSystem['qinv']);
+    }
+
     $visitor->online_attr_system_array = $onlineAttrSystem;
     $visitor->online_attr_system = json_encode($onlineAttrSystem);
 
