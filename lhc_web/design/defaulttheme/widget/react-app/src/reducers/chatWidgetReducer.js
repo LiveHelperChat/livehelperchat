@@ -96,12 +96,12 @@ const chatWidgetReducer = (state = initialState, action) => {
 
         // Proactive invitation has arrived
         case 'PROACTIVE': {
-            return state.set('proactive',{'pending' : (state.get('shown') === false ? true : false), 'has': true, data : action.data});
+            return state.set('proactive',{'pending' : (state.get('shown') === false && action.data.qinv === false ? true : false), 'has': true, data : action.data});
         }
 
         // Visitor clicks hide invitation
         case 'HIDE_INVITATION': {
-            return state.set('proactive',{'pending': false, 'has': false});
+            return state.setIn(['proactive','pending'],false);
         }
 
         // Visitor was interested and clicked invitation tooltip itself.

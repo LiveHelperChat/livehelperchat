@@ -169,7 +169,7 @@ if (isset($_GET['init']) && $_GET['init'] == 1) {
     }
 }
 
-
+$outputResponse['qinv'] = isset($userInstance->online_attr_system_array['qinv']);
 
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
 exit;

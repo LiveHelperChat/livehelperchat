@@ -28,14 +28,23 @@ if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value
             }
         }
 
+        $onlineAttributes = $userInstance->online_attr_system_array;
+
         if ($userInstance->invitation !== false && isset($userInstance->invitation->design_data_array['show_everytime']) && $userInstance->invitation->design_data_array['show_everytime'] == true) {
             $userInstance->operator_message = '';
             $userInstance->message_seen = 0;
             $userInstance->message_seen_ts = 0;
+            $onlineAttributes['qinv'] = 1; // Next time show quite invitation
         } else {
             $userInstance->message_seen = 1;
             $userInstance->message_seen_ts = time();
+
+            if (isset($onlineAttributes['qinv'])) {
+                unset($onlineAttributes['qinv']); // Next time show normal invitation
+            }
         }
+
+        $userInstance->online_attr_system = json_encode($onlineAttributes);
 
         $userInstance->conversion_id = 0;
         $userInstance->saveThis();

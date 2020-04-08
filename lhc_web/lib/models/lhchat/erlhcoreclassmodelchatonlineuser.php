@@ -647,15 +647,22 @@ class erLhcoreClassModelChatOnlineUser
                             }
                         }
 
+                        $onlineAttrSystem = $item->online_attr_system_array;
+
                         if ($item->message_seen == 1 && $item->message_seen_ts < (time() - ((int)$paramsHandle['message_seen_timeout'] * 3600))) {
                             $item->message_seen = 0;
                             $item->message_seen_ts = 0;
                             $item->operator_message = '';
                         }
+
+                        if (isset($onlineAttrSystem['qinv'])) {
+                            unset($onlineAttrSystem['qinv']);
+                            $item->online_attr_system = json_encode($onlineAttrSystem);
+                        }
                         
                         $returningVisitor = true;
 
-                        if (isset($item->online_attr_system_array['lhc_ir'])) {
+                        if (isset($onlineAttrSystem['lhc_ir'])) {
                             erLhcoreClassChatMail::informVisitorReturned($item);
                         }
                     }
