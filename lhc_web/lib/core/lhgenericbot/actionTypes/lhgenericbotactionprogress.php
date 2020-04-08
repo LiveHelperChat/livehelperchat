@@ -15,7 +15,8 @@ class erLhcoreClassGenericBotActionProgress {
             $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
                 'render' => $action['content']['method'],
                 'render_args' => $params,
-                'chat' => & $chat
+                'chat' => & $chat,
+                'trigger' => $trigger
             ));
 
             // We have valid handler, so we have and function also

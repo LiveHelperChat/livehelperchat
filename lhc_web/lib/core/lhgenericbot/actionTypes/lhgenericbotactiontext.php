@@ -37,6 +37,7 @@ class erLhcoreClassGenericBotActionText {
                         'render' => $quickReply['content']['render_precheck_function'],
                         'render_args' => $quickReply['content']['render_args'],
                         'chat' => & $chat,
+                        'trigger' => $trigger,
                     ));
 
                     if ($validationResult !== false && isset($validationResult['content']['valid']) && $validationResult['content']['valid'] === false)
