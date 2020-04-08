@@ -25,6 +25,9 @@ try {
 $currentUser = erLhcoreClassUser::instance();
 $userData = $currentUser->getUserData(true);
 
+// Old chat user
+$oldUserId = $chat->user_id;
+
 if  ($chatTransfer->dep_id > 0) {
 	$chat->dep_id = $chatTransfer->dep_id;
 
@@ -101,6 +104,14 @@ if (isset($msg) && $msg instanceof erLhcoreClassModelmsg) {
 // All ok, we can make changes
 erLhcoreClassChat::getSession()->update($chat);
 erLhcoreClassTransfer::getSession()->delete($chatTransfer);
+
+if ($chat->user_id > 0 && $oldUserId != $chat->user_id) {
+    erLhcoreClassChat::updateActiveChats($chat->user_id);
+}
+
+if ($oldUserId != $chat->user_id && $oldUserId > 0) {
+    erLhcoreClassChat::updateActiveChats($oldUserId);
+}
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_transfer_accepted',array('chat' => & $chat));
 
