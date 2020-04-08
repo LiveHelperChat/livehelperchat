@@ -30,11 +30,23 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                         $msg->time = time();
                         $msg->saveThis();
 
+                        $oldUserId = 0;
+
+                        if ($Chat->user_id > 0) {
+                            $oldUserId = $Chat->user_id;
+                        }
+
                         $Chat->last_msg_id = $msg->id;
                         $Chat->last_user_msg_time = time();
                         $Chat->user_id = $user->id;
                         $Chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
                         $Chat->saveThis();
+
+                        erLhcoreClassChat::updateActiveChats($Chat->user_id);
+
+                        if ($oldUserId > 0) {
+                            erLhcoreClassChat::updateActiveChats($oldUserId);
+                        }
 
                         $tpl = erLhcoreClassTemplate::getInstance('lhkernel/alert_success.tpl.php');
                         $tpl->set('msg', erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'Chat owner was changed to') . ' ' . $user->name_support);
