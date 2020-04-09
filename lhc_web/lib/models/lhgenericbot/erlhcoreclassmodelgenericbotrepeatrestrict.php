@@ -25,7 +25,7 @@ class erLhcoreClassModelGenericBotRepeatRestrict {
 
     public $id = null;
     public $chat_id = null;
-    public $trigger_id = null;
+    public $trigger_id = 0;
     public $counter = 0;
     public $identifier = '';
 }
