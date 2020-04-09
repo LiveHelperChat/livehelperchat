@@ -24,6 +24,11 @@ $def->properties['counter']->columnName   = 'counter';
 $def->properties['counter']->propertyName = 'counter';
 $def->properties['counter']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['identifier'] = new ezcPersistentObjectProperty();
+$def->properties['identifier']->columnName   = 'identifier';
+$def->properties['identifier']->propertyName = 'identifier';
+$def->properties['identifier']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>
