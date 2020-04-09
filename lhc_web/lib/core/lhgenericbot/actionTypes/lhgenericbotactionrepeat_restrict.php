@@ -6,12 +6,20 @@ class erLhcoreClassGenericBotActionRepeat_restrict {
     {
         if (isset($action['content']['repeat_count']) && is_numeric($action['content']['repeat_count']) && $action['content']['repeat_count'] > 0) {
 
-            $restrict = erLhcoreClassModelGenericBotRepeatRestrict::findOne(array('filter' => array('trigger_id' => $trigger->id, 'chat_id' => $chat->id)));
+            $filterId = 'trigger_id';
+            $filterValue = $trigger->id;
+
+            if (isset($action['content']['identifier']) && $action['content']['identifier'] != '') {
+                $filterId = 'identifier';
+                $filterValue = $action['content']['identifier'];
+            }
+
+            $restrict = erLhcoreClassModelGenericBotRepeatRestrict::findOne(array('filter' => array($filterId => $filterValue, 'chat_id' => $chat->id)));
 
             if (!($restrict instanceof erLhcoreClassModelGenericBotRepeatRestrict)) {
                 $restrict = new erLhcoreClassModelGenericBotRepeatRestrict();
                 $restrict->chat_id = $chat->id;
-                $restrict->trigger_id = $trigger->id;
+                $restrict->{$filterId} = $filterValue;
             }
 
             $restrict->counter++;

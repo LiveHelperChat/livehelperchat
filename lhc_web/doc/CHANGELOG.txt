@@ -1,3 +1,33 @@
+3.30v
+
+1. Bot triggers enhancements.
+1.1 Regrouped triggers by their complexity.
+1.2 Repeat restriction trigger can be global or local per trigger.
+2. New widget out of beta and now is preferred one.
+3. Proactive will remain in the widget for all session once it's triggered. See how demo it works. It no longer disappears from widget on widget close.
+4. Active operator chats were not updated when owner of chat changed because of transfer.
+5. Metalanguage support everywhere.
+6. Changes required for multiple clients support.
+https://doc.livehelperchat.com/docs/chat/multiple-clients/
+It required to change permission if your operators does not see anymore all users/operators see
+https://doc.livehelperchat.com/docs/chat/transferring-chat/#my-operator-sees-only-to-him-assigned-departments-and-only-his-departments-operators
+7. Update how default dashboard will look like for a new installations.
+8. Operator passing in new widget
+9. Static URL generation in embed widget window
+10. Javascript native calls definition https://doc.livehelperchat.com/docs/javascript-arguments#public-methods
+11. Canned messages search will be performed also in title. https://doc.livehelperchat.com/docs/canned/#canned-messages-in-chat-interface
+12. RTL support for a new widget.
+13. Connection problems will be reported in dashboard.
+14. And many many more changes...
+
+See weekly changelog videos
+https://youtu.be/t2mzEE3sTss
+https://youtu.be/wxsDE9rDpa4
+https://youtu.be/SPyEX2EcWew
+https://youtu.be/dEsB6XdWc9g
+
+execute doc/update_db/update_205.sql for update
+
 3.29v
 
 1. Option to be informed about returning visitor.
