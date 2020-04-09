@@ -36,6 +36,7 @@ if (is_numeric($Params['user_parameters_unordered']['id']) && $Params['user_para
             erLhcoreClassLog::logObjectChange(array(
                 'object' => $Msg,
                 'check_log' => true,
+                'action' => 'Delete',
                 'msg' => array(
                     'delete' => $Msg->getState(),
                     'user_id' => $currentUser->getUserID()

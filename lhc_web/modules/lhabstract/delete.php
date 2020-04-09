@@ -28,6 +28,7 @@ $ObjectData->removeThis();
 erLhcoreClassLog::logObjectChange(array(
     'object' => $ObjectData,
     'check_log' => true,
+    'action' => 'Delete',
     'msg' => array(
         'delete' => $ObjectData->getState(),
         'user_id' => $currentUser->getUserID()

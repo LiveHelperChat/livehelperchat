@@ -107,7 +107,11 @@ class erLhcoreClassLog implements ezcBaseConfigurationInitializer {
                 return;
             }
         }
-        
+
+        if (isset($params['action'])) {
+            $className .= $params['action'];
+        }
+
         erLhcoreClassLog::write(print_r($params['msg'],true),
             ezcLog::SUCCESS_AUDIT,
             array(
