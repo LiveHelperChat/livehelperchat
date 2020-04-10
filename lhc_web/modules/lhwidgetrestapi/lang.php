@@ -23,7 +23,7 @@ $translations = array(
     ],
     "chat" => [
         "option_sound" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new messages from the operator'),
-        "chat_closed" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat',"This chat is closed now. You can close window."),
+        "chat_closed" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','This chat is closed now. You can close window.'),
         "drop_files" => erTranslationClassLhTranslation::getInstance()->getTranslation('files/files','Drop your files here.'),
         "type_here" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your message...')
     ],
