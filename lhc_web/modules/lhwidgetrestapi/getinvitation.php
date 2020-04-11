@@ -15,7 +15,7 @@ if (!($onlineUser instanceof erLhcoreClassModelChatOnlineUser) || $onlineUser->v
     exit;
 }
 
-if (is_numeric($payload['invitation']) && ($onlineUser->invitation_id == 0 || $onlineUser->invitation_id != $payload['invitation'])) {
+if (is_numeric($payload['invitation']) && $payload['invitation'] > 0/*&& ($onlineUser->invitation_id == 0 || $onlineUser->invitation_id != $payload['invitation'])*/) {
     erLhAbstractModelProactiveChatInvitation::setInvitation($onlineUser, (int)$payload['invitation']);
 }
 
