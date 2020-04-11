@@ -81,6 +81,10 @@ export default ({onChange, type}) => {
         {
             'value': 'actions',
             'text' : 'Execute action',
+        },
+        {
+            'value': 'restapi',
+            'text' : 'Rest API',
         }
     ]);
 
