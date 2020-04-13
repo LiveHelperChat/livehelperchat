@@ -95,6 +95,12 @@ $ViewList['listrestapi'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['restapimethods'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['listexceptions'] = array(
     'params' => array(),
     'uparams' => array(),

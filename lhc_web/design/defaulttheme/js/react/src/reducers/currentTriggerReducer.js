@@ -24,7 +24,8 @@ import {
     MOVE_DOWN_SUBELEMENT,
     MOVE_UP,
     MOVE_DOWN,
-    LOAD_USE_CASES_TRIGGER_FULFILLED
+    LOAD_USE_CASES_TRIGGER_FULFILLED,
+    INIT_BOT_REST_API_METHODS
 } from "../constants/action-types";
 
 import {fromJS} from 'immutable';
@@ -33,6 +34,7 @@ import shortid from 'shortid';
 const initialState = fromJS({
     currenttrigger : {},
     payloads : [],
+    rest_api_calls : [],
     fetching: false,
     fetched: false,
     error: null
@@ -167,7 +169,16 @@ const nodeGroupTriggerReducer = (state = initialState, action) => {
         }
 
         case INIT_BOT_FULFILLED : {
-            return state.set('payloads',fromJS(action.payload['payloads']));
+            return state.set('payloads',fromJS(action.payload['payloads'])).set('rest_api_calls',fromJS(action.payload['rest_api_calls']));
+        }
+
+        case INIT_BOT_REST_API_METHODS: {
+            // Find Rest API Index we will be updating
+            const indexOfListingToUpdate = state.getIn(['rest_api_calls']).findIndex(listing => {
+                return listing.get('id') === action.payload['id'];
+            });
+
+            return state.setIn(['rest_api_calls',indexOfListingToUpdate,'methods'],fromJS(action.payload['methods']));
         }
         
         case INIT_BOT_ARGUMENTS_FULFILLED : {

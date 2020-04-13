@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import NodeTriggerActionType from './NodeTriggerActionType';
 import NodeTriggerArgumentTemplate from './NodeTriggerArgumentTemplate';
-import { initREstAPI } from "../../actions/nodeGroupTriggerActions"
+
+import { initRestMethods } from "../../actions/nodeGroupTriggerActions"
+import { connect } from "react-redux";
+import { fromJS } from 'immutable';
+
+@connect((store) => {
+    return {
+        payloads: store.currenttrigger
+    };
+})
 
 class NodeTriggerActionRestAPI extends Component {
 
@@ -10,7 +19,8 @@ class NodeTriggerActionRestAPI extends Component {
         this.changeType = this.changeType.bind(this);
         this.removeAction = this.removeAction.bind(this);
         this.onchangeAttr = this.onchangeAttr.bind(this);
-        this.props.dispatch(initRestAPI());
+        this.onRestAPIChange = this.onRestAPIChange.bind(this);
+        this.onRestAPIMethodChange = this.onRestAPIMethodChange.bind(this);
     }
 
     changeType(e) {
@@ -25,15 +35,54 @@ class NodeTriggerActionRestAPI extends Component {
         this.props.onChangeContent({id : this.props.id, 'path' : ['content'].concat(e.path), value : e.value});
     }
 
+    componentDidMount() {
+        if (this.props.action.hasIn(['content','rest_api'])) {
+            this.props.dispatch(initRestMethods(this.props.action.getIn(['content','rest_api'])));
+        }
+    }
+
     onRestAPIChange(e) {
-        this.onchangeAttr({'path' : ['rest_api'], 'value' : e})
+        this.props.dispatch(initRestMethods(e));
+        this.onchangeAttr({'path' : ['rest_api'], 'value' : e});
+        this.onchangeAttr({'path' : ['rest_api_method'], 'value' : null});
+        this.onchangeAttr({'path' : ['rest_api_method_params'], 'value' : fromJS({})});
     }
 
     onRestAPIMethodChange(e) {
-        this.onchangeAttr({'path' : ['rest_api_method'], 'value' : e})
+        this.onchangeAttr({'path' : ['rest_api_method'], 'value' : e});
+        this.onchangeAttr({'path' : ['rest_api_method_params'], 'value' : fromJS({})});
     }
 
     render() {
+
+        var list = this.props.payloads.get('rest_api_calls').map((option, index) => <option key={option.get('id')} value={option.get('id')}>{option.get('name')}</option>);
+
+        const indexOfListingToUpdate = this.props.payloads.getIn(['rest_api_calls']).findIndex(listing => {
+            return listing.get('id') == this.props.action.getIn(['content','rest_api']);
+        });
+
+        var listMethods = [];
+        var userParams = []
+
+        if (indexOfListingToUpdate !== -1 && this.props.payloads.hasIn(['rest_api_calls',indexOfListingToUpdate,'methods'])) {
+            listMethods = this.props.payloads.getIn(['rest_api_calls',indexOfListingToUpdate,'methods']).map((option, index) => <option key={option.get('id')} value={option.get('id')}>{option.get('name')}</option>);
+
+            if (this.props.action.hasIn(['content','rest_api_method'])){
+                const indexOfListingToUpdateMethod = this.props.payloads.getIn(['rest_api_calls',indexOfListingToUpdate,'methods']).findIndex(listing => {
+                    return listing.get('id') == this.props.action.getIn(['content','rest_api_method']);
+                });
+
+                if (indexOfListingToUpdateMethod !== -1) {
+                    userParams = this.props.payloads.getIn(['rest_api_calls',indexOfListingToUpdate,'methods',indexOfListingToUpdateMethod,'userparams']).map((option, index) =>
+                        <div className="form-group" key={option.get('key')}>
+                            <label>{option.get('value')}</label>
+                            <input className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['rest_api_method_params',option.get('key')], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','rest_api_method_params',option.get('key')])} type="text" />
+                        </div>
+                    );
+                }
+            }
+        }
+
         return (
             <div>
                 <div className="row">
@@ -57,20 +106,23 @@ class NodeTriggerActionRestAPI extends Component {
                 <div className="row">
                     <div className="col-6">
                         <div className="form-group">
-                            <label>Choose Rest API</label>
+                            <label>Rest API</label>
                             <select className="form-control form-control-sm" defaultValue={this.props.action.getIn(['content','rest_api'])} onChange={(e) => this.onRestAPIChange(e.target.value)}>
+                                {list}
                             </select>
                         </div>
                     </div>
                     <div className="col-6">
                         <div className="form-group">
-                            <label>Choose Rest API</label>
-                            <select className="form-control form-control-sm" defaultValue={this.props.action.getIn(['content','rest_api_method'])} onChange={(e) => this.onRestAPIMethodChange(e.target.value)}>
+                            <label>Method</label>
+                            <select className="form-control form-control-sm" value={this.props.action.getIn(['content','rest_api_method'])} onChange={(e) => this.onRestAPIMethodChange(e.target.value)}>
+                                <option value="">Choose a method</option>
+                                {listMethods}
                             </select>
                         </div>
                     </div>
                 </div>
-
+                {userParams}
                 <hr className="hr-big" />
 
             </div>
