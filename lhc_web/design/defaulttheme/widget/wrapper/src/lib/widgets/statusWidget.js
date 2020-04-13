@@ -90,11 +90,14 @@ export class statusWidget{
         } else {
             this.show()
         }
- 
+
         attributes.eventEmitter.addListener('unread_message', () => {
-            var icon = this.cont.getElementById("lhc_status_container");
-            helperFunctions.addClass(icon, "has-uread-message");
+            this.showUnreadIndicator();
         });
+
+        if (attributes.storageHandler.getSessionStorage('LHC_UNR') == "1") {
+            this.showUnreadIndicator();
+        }
 
         attributes.eventEmitter.addListener('focusChanged', (status) => {
             if (status == true) {
@@ -108,9 +111,16 @@ export class statusWidget{
         this.removeUnreadIndicator();
     }
 
+    showUnreadIndicator(){
+        var icon = this.cont.getElementById("lhc_status_container");
+        helperFunctions.addClass(icon, "has-uread-message");
+        this.attributes.storageHandler.setSessionStorage('LHC_UNR',"1");
+    }
+
     removeUnreadIndicator() {
         var icon = this.cont.getElementById("lhc_status_container");
         helperFunctions.removeClass(icon, "has-uread-message");
+        this.attributes.storageHandler.removeSessionStorage('LHC_UNR');
     }
 
     show () {
