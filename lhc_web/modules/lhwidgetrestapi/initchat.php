@@ -88,6 +88,10 @@ try {
                 $outputResponse['chat_ui']['hide_popup'] = true;
             }
 
+            if ($theme->hide_close == 1) {
+                $outputResponse['chat_ui']['hide_close'] = true;
+            }
+
             if (isset($theme->bot_configuration_array['survey_button']) && $theme->bot_configuration_array['survey_button'] == true) {
                 $outputResponse['chat_ui']['survey_button'] = true;
             }
