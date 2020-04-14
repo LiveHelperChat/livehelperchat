@@ -108,7 +108,11 @@ class erLhcoreClassGenericBotActionCommand {
 
                 if (is_array($variablesAppend)) {
                     foreach ($variablesAppend as $key => $value) {
-                        $variablesArray[$key] = $value;
+                        if (isset($params['replace_array'])) {
+                            $variablesArray[$key] = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$value);
+                        } else {
+                            $variablesArray[$key] = $value;
+                        }
                     }
                 }
 

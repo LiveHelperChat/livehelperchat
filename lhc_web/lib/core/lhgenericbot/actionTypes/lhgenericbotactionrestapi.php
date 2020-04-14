@@ -1,0 +1,329 @@
+<?php
+
+class erLhcoreClassGenericBotActionRestapi
+{
+
+    public static function process($chat, $action, $trigger, $params)
+    {
+        if (isset($action['content']['rest_api']) && is_numeric($action['content']['rest_api']) && isset($action['content']['rest_api_method']) && !empty($action['content']['rest_api_method'])) {
+
+            $restAPI = erLhcoreClassModelGenericBotRestAPI::fetch($action['content']['rest_api']);
+
+            if ($restAPI instanceof erLhcoreClassModelGenericBotRestAPI) {
+                $method = false;
+                foreach ($restAPI->configuration_array['parameters'] as $parameter) {
+                    if ($action['content']['rest_api_method'] == $parameter['id']) {
+                        $method = $parameter;
+                    }
+                }
+
+                $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
+
+                // We have found exact matching response type
+                // Let's check has user checked any trigger to execute.
+                if (isset($response['id'])) {
+                    if (isset($action['content']['rest_api_method_output'][$response['id']]) && is_numeric($action['content']['rest_api_method_output'][$response['id']])) {
+                        return array(
+                            'status' => 'stop',
+                            'replace_array' => array(
+                                '{content_1}' => $response['content'],
+                                '{content_2}' => $response['content_2'],
+                                '{content_3}' => $response['content_3'],
+                                '{content_4}' => $response['content_4'],
+                                '{http_code}' => $response['http_code']
+                            ),
+                            'trigger_id' => $action['content']['rest_api_method_output'][$response['id']]
+                        );
+                    } else {
+                        // Do nothing as user did not chose any trigger to execute
+                    }
+                } elseif (isset($action['content']['rest_api_method_output']['default_trigger']) && is_numeric($action['content']['rest_api_method_output']['default_trigger'])) {
+                    return array(
+                        'status' => 'stop',
+                        'replace_array' => array(
+                            '{content_1}' => $response['content'],
+                            '{content_2}' => $response['content_2'],
+                            '{content_3}' => $response['content_3'],
+                            '{content_4}' => $response['content_4'],
+                            '{http_code}' => $response['http_code']
+                        ),
+                        'trigger_id' => $action['content']['rest_api_method_output']['default_trigger']
+                    );
+                }
+
+                if ($response['content'] != '' || (isset($response['meta']) && !empty($response['meta']))){
+                    $msg = new erLhcoreClassModelmsg();
+                    $msg->chat_id = $chat->id;
+                    $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
+                    $msg->user_id = -2;
+                    $msg->time = time() + 5;
+                    $msg->meta_msg = (isset($response['meta']) && !empty($response['meta'])) ? json_encode($response['meta']) : '';
+                    $msg->msg = $response['content'];
+                    $msg->saveThis();
+
+                    return  $msg;
+                }
+            }
+        }
+    }
+
+    public static function makeRequest($host, $methodSettings, $paramsCustomer)
+    {
+
+        $msg_text = '';
+
+        if (isset($paramsCustomer['params']['msg'])) {
+            $msg_text = $paramsCustomer['params']['msg']->msg;
+        } elseif ($paramsCustomer['params']['msg_text']) {
+            $msg_text = $paramsCustomer['params']['msg_text'];
+        }
+
+        $replaceVariables = array(
+            '{{msg}}' => $msg_text,
+            '{{chat_id}}' => $paramsCustomer['chat']->id,
+            '{{lhc.nick}}' =>$paramsCustomer['chat']->nick,
+            '{{lhc.email}}' => $paramsCustomer['chat']->email,
+            '{{lhc.department}}' => (string)$paramsCustomer['chat']->department,
+            '{{lhc.dep_id}}' => (string)$paramsCustomer['chat']->dep_id,
+            '{{ip}}' => (string)erLhcoreClassIPDetect::getIP(),
+        );
+
+        $replaceVariablesJSON = array(
+            '{{msg}}' => json_encode($msg_text),
+            '{{chat_id}}' => json_encode($paramsCustomer['chat']->id),
+            '{{lhc.nick}}' => json_encode($paramsCustomer['chat']->nick),
+            '{{lhc.email}}' => json_encode($paramsCustomer['chat']->email),
+            '{{lhc.department}}' => json_encode((string)$paramsCustomer['chat']->department),
+            '{{lhc.dep_id}}' => json_encode((string)$paramsCustomer['chat']->dep_id),
+            '{{ip}}' => json_encode(erLhcoreClassIPDetect::getIP()),
+        );
+
+        foreach ($paramsCustomer['chat']->additional_data_array as $keyItem => $addItem) {
+            if (!is_string($addItem) || (is_string($addItem) && ($addItem != ''))) {
+                if (isset($addItem['identifier'])) {
+                    if (is_string($addItem['value']) || is_numeric($addItem['value'])) {
+                        $replaceVariables['{{lhc.add.' . $addItem['identifier'] . '}}'] = $addItem['value'];
+                        $replaceVariablesJSON['{{lhc.add.' . $addItem['identifier'] . '}}'] = json_encode($addItem['value']);
+                    }
+                } else if (isset($addItem['key'])) {
+                    if (is_string($addItem['value']) || is_numeric($addItem['value'])) {
+                        $replaceVariables['{{lhc.add.' . $addItem['key'] . '}}'] = $addItem['value'];
+                        $replaceVariablesJSON['{{lhc.add.' . $addItem['key'] . '}}'] = json_encode($addItem['value']);
+                    }
+                }
+            }
+        }
+
+        foreach ($paramsCustomer['chat']->chat_variables_array as $keyItem => $addItem) {
+            if (is_string($addItem) || is_numeric($addItem)) {
+                $replaceVariables['{{lhc.var.' . $keyItem . '}}'] = $addItem;
+                $replaceVariablesJSON['{{lhc.var.' . $keyItem . '}}'] = json_encode($addItem);
+            }
+        }
+
+        $queryArgs = array();
+
+        if (isset($methodSettings['query']) && !empty($methodSettings['query'])) {
+            foreach ($methodSettings['query'] as $dataQuery) {
+                $queryArgs[$dataQuery['key']] = str_replace(array_keys($replaceVariables), array_values($replaceVariables), $dataQuery['value']);
+            }
+        }
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+
+        if (isset($methodSettings['method']) && ($methodSettings['method'] == 'PUT' || $methodSettings['method'] == 'DELETE')) {
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $methodSettings['method']);
+        }
+
+        $headers = array();
+
+        if (isset($methodSettings['header']) && !empty($methodSettings['header'])) {
+            foreach ($methodSettings['header'] as $header) {
+                $headers[] = $header['key'] . ': ' . $header['value'];
+            }
+        }
+
+        if (isset($methodSettings['method']) && $methodSettings['method'] == 'POST') {
+            curl_setopt($ch, CURLOPT_POST, 1);
+        }
+
+        if (isset($methodSettings['authorization']) && $methodSettings['authorization'] == 'basicauth') {
+            curl_setopt($ch, CURLOPT_USERPWD, $methodSettings['auth_username'] . ":" . $methodSettings['auth_password']);
+        } elseif (isset($methodSettings['authorization']) && $methodSettings['authorization'] == 'bearer' && isset($methodSettings['auth_bearer']) && $methodSettings['auth_bearer'] != '') {
+            $headers[] = 'Authorization: Bearer ' . $methodSettings['auth_bearer'];
+        } else if (isset($methodSettings['authorization']) && $methodSettings['authorization'] == 'apikey') {
+            if ($methodSettings['api_key_location'] == 'header' && isset($methodSettings['auth_api_key_key']) && isset($methodSettings['auth_api_key_name'])) {
+                $headers[] = $methodSettings['auth_api_key_key'] . ': ' . $methodSettings['auth_api_key_name'];
+            } else if ($methodSettings['api_key_location'] == 'queryparams') {
+                $queryArgs[$methodSettings['auth_api_key_key']] = $methodSettings['auth_api_key_name'];
+            }
+        }
+
+        if (isset($methodSettings['userparams']) && !empty($methodSettings['userparams'])) {
+            foreach ($methodSettings['userparams'] as $userParam) {
+
+                $valueParam = '';
+
+                if (isset($paramsCustomer['action']['content']['rest_api_method_params'][$userParam['id']]) && !empty($paramsCustomer['action']['content']['rest_api_method_params'][$userParam['id']])) {
+                    $valueParam = $paramsCustomer['action']['content']['rest_api_method_params'][$userParam['id']];
+                }
+
+                if (!isset($userParam['location']) || $userParam['location'] == '') {
+                    $queryArgs[$userParam['key']] = $valueParam;
+                } elseif (isset($userParam['location']) && $userParam['location'] == 'post_param') {
+                    $postParams[$userParam['key']] = $valueParam;
+                } elseif (isset($userParam['location']) && $userParam['location'] == 'body_param') {
+                    $methodSettings['body_raw'] = str_replace('{{' . $userParam['key'] . '}}', json_encode($valueParam), $methodSettings['body_raw']);
+                }
+            }
+        }
+
+
+        if (isset($methodSettings['body_request_type']) && $methodSettings['body_request_type'] == 'form-data') {
+            if (isset($methodSettings['postparams']) && !empty($methodSettings['postparams'])) {
+                $postParams = array();
+                foreach ($methodSettings['postparams'] as $postParam) {
+                    $postParams[$postParam['key']] = str_replace(array_keys($replaceVariables), array_values($replaceVariables), $postParam['value']);
+                }
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $postParams);
+            }
+        } elseif (isset($methodSettings['body_request_type']) && $methodSettings['body_request_type'] == 'raw') {
+            curl_setopt($ch, CURLOPT_POSTFIELDS, str_replace(array_keys($replaceVariablesJSON), array_values($replaceVariablesJSON), $methodSettings['body_raw']));
+        }
+
+        $url = rtrim($host) . str_replace(array_keys($replaceVariables), array_values($replaceVariables),$methodSettings['suburl']) . '?' . http_build_query($queryArgs);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+
+        $content = curl_exec($ch);
+
+        if (curl_errno($ch)) {
+            //$additionalError = ' [ERR: ' . curl_error($ch) . '] ';
+        }
+
+        $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        if (isset($methodSettings['output']) && !empty($methodSettings['output'])) {
+
+            foreach ($methodSettings['output'] as $outputCombination)
+            {
+                // Verify HTTP Status code
+                if (isset($outputCombination['success_header']) && empty($outputCombination['success_header']) || in_array((string)$httpcode,explode(',',$outputCombination['success_header']))){
+
+                    if (isset($outputCombination['success_location']) && $outputCombination['success_location'] != '') {
+                        $contentJSON = json_decode($content, true);
+
+                        $successLocation = self::extractAttribute($contentJSON,$outputCombination['success_location']);
+
+                        if ($successLocation['found'] === true) {
+
+                            $responseValueSub = array();
+                            for ($i = 2; $i <= 4; $i++){
+                                if (isset($outputCombination['success_location_' . $i]) && $outputCombination['success_location_' . $i] != '') {
+                                    $successLocationNumbered = self::extractAttribute($contentJSON,$outputCombination['success_location_' . $i]);
+                                    if ($successLocationNumbered['found'] === true) {
+                                        $responseValueSub[$i] = $successLocationNumbered['value'];
+                                    }
+                                }
+                            }
+
+                            $responseValueCompare = $responseValue = $successLocation['value'];
+                            if (isset($outputCombination['success_condition_val']) && !empty($outputCombination['success_condition_val'])) {
+                                $responseValueCompareLocation = self::extractAttribute($contentJSON, $outputCombination['success_condition_val']);
+                                if ($responseValueCompareLocation['found'] === true) {
+                                    $responseValueCompare = $responseValueCompareLocation['value'];
+                                }
+                            }
+                        } else {
+                            continue; // Required attribute was not found
+                        }
+                    } else {
+                        $responseValueCompare = $responseValue = $content;
+                    }
+
+                    if (isset($outputCombination['success_condition']) && $outputCombination['success_condition'] != '' && isset($outputCombination['success_compare_value']) && $outputCombination['success_compare_value'] != '') {
+                        if ( $outputCombination['success_condition'] == 'eq' && !($responseValueCompare == $outputCombination['success_compare_value'])) {
+                            continue;
+                        } else if ($outputCombination['success_condition'] == 'lt' && !($responseValueCompare < $outputCombination['success_compare_value'])) {
+                            continue;
+                        } else if ($outputCombination['success_condition'] == 'lte' && !($responseValueCompare <= $outputCombination['success_compare_value'])) {
+                            continue;
+                        } else if ($outputCombination['success_condition'] == 'neq' && !($responseValueCompare != $outputCombination['success_compare_value'])) {
+                            continue;
+                        } else if ($outputCombination['success_condition'] == 'gte' && !($responseValueCompare >= $outputCombination['success_compare_value'])) {
+                            continue;
+                        } else if ($outputCombination['success_condition'] == 'gt' && !($responseValueCompare > $outputCombination['success_compare_value'])) {
+                            continue;
+                        } else if ($outputCombination['success_condition'] == 'like' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$outputCombination['success_compare_value']),$responseValueCompare,0) == false) {
+                            continue;
+                        } else if ($outputCombination['success_condition'] == 'notlike' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$outputCombination['success_compare_value']),$responseValueCompare,0) == true) {
+                            continue;
+                        }
+                    }
+
+                    $meta = array();
+
+                    if (isset($outputCombination['success_location_meta']) && $outputCombination['success_location_meta'] != '') {
+                        $contentJSON = json_decode($content,true);
+                        $metaResponse = self::extractAttribute($contentJSON, $outputCombination['success_location_meta']);
+
+                        if ($metaResponse['found'] == true) {
+                            $meta = $metaResponse['value'];
+                        }
+                    }
+
+                    return array(
+                        'content' => $responseValue,
+                        'http_code' => $httpcode,
+                        'content_2' => (isset($responseValueSub[2]) ? $responseValueSub[2] : ''),
+                        'content_3' => (isset($responseValueSub[3]) ? $responseValueSub[3] : ''),
+                        'content_4' => (isset($responseValueSub[4]) ? $responseValueSub[4] : ''),
+                        'meta' => $meta,
+                        'id' => $outputCombination['id']);
+                }
+            }
+
+            // We did not found matching response. Return everything.
+            return array(
+                'content' => $content,
+                'http_code' => $httpcode,
+                'content_2' => '',
+                'content_3' => '',
+                'content_4' => '',
+            );
+        }
+
+        return array(
+            'content' => $content,
+            'http_code' => $httpcode,
+            'content_2' => '',
+            'content_3' => '',
+            'content_4' => '',
+        );
+    }
+
+    public static function extractAttribute($partData, $string)
+    {
+        $parts = explode(':', $string);
+
+        $partFound = true;
+        foreach ($parts as $part) {
+            if (isset($partData[$part]) ) {
+                $partData = $partData[$part];
+            } else {
+                $partFound = false;
+            }
+        }
+
+        return array('found' => $partFound, 'value' => $partData);
+    }
+
+}
+
+?>

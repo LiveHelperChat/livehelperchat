@@ -21,6 +21,7 @@ lhcAppControllers.controller('BotRestAPIParameters',['$scope','$http','$location
         params.push({
             'key' : '',
             'value' : '',
+            'id' : 'temp'+new Date().getTime()
         });
     }
 

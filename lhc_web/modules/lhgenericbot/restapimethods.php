@@ -12,6 +12,7 @@ if (isset($restAPI->configuration_array['parameters'])){
             'name' => isset($parameter['name']) ? $parameter['name'] : 'Unknown',
             'userparams' =>  $parameter['userparams'],
             'id' =>  $parameter['id'],
+            'output' => isset($parameter['output']) ? $parameter['output'] : [],
         );
     }
 }

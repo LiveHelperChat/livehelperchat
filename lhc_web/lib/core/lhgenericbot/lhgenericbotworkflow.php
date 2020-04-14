@@ -529,7 +529,14 @@ class erLhcoreClassGenericBotWorkflow {
 
                             if (isset($eventData['content']['validation']['words']) && $eventData['content']['validation']['words'] != '') {
 
-                                $words = explode(',',$eventData['content']['validation']['words']);
+                                $pregMatchValid = false;
+
+                                // First letter is /, means we are in preg match mode
+                                if ($eventData['content']['validation']['words'][0] == '/' && preg_match($eventData['content']['validation']['words'], mb_strtolower($payload)) === 1) {
+                                    $pregMatchValid = true;
+                                } else {
+                                    $words = explode(',',$eventData['content']['validation']['words']);
+                                }
 
                                 $wordsExc = array();
                                 if (isset($eventData['content']['validation']['words_exc']) && $eventData['content']['validation']['words_exc'] != '') {
@@ -537,7 +544,7 @@ class erLhcoreClassGenericBotWorkflow {
                                 }
 
                                 if (
-                                    self::checkPresence($words,mb_strtolower($payload),(isset($eventData['content']['validation']['typos']) ? (int)$eventData['content']['validation']['typos'] : 0)) === true &&
+                                    ($pregMatchValid === true || self::checkPresence($words,mb_strtolower($payload),(isset($eventData['content']['validation']['typos']) ? (int)$eventData['content']['validation']['typos'] : 0)) === true) &&
                                     (empty($wordsExc) || self::checkPresence($wordsExc,mb_strtolower($payload),(isset($eventData['content']['validation']['typos_exc']) ? (int)$eventData['content']['validation']['typos_exc'] : 0)) === false)
                                 ) {
                                      if (isset($eventData['content']['event_args']['valid']) && is_numeric($eventData['content']['event_args']['valid'])){
@@ -1302,6 +1309,13 @@ class erLhcoreClassGenericBotWorkflow {
 
     public static function processTrigger($chat, $trigger, $setLastMessageId = false, $params = array())
     {
+        static $recursion_counter = 0;
+
+        $recursion_counter++;
+
+        if ($recursion_counter > 50) {
+            throw new Exception('To many calls to process trigger! [50]');
+        }
 
         // Delete pending event if same even is executing already
         if ($chat->id > 0 && $trigger->id > 0){
@@ -1331,6 +1345,10 @@ class erLhcoreClassGenericBotWorkflow {
                         } else {
                             $params['args']['validation_args'] = $messageNew['validation_args'];
                         }
+                    }
+
+                    if (isset($messageNew['replace_array'])) {
+                        $params['args']['replace_array'] = $messageNew['replace_array'];
                     }
 
                     $response = self::processTrigger($chat, $trigger, $setLastMessageId, $params);

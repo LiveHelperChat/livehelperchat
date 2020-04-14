@@ -21,10 +21,12 @@
 
     <hr style="height: 5px;"/>
 
+    <button type="button" class="btn btn-danger btn-xs" ng-click="lhcrestapi.deleteParam(lhcrestapi.parameters,param)">Delete</button>
+
     <div class="row">
         <div class="col-6">
             <div class="form-group">
-                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Name of the request');?></label>
+                <label><b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Name of the request');?></b></label>
                 <input type="text" class="form-control form-control-sm" ng-model="param.name" placeholder="" value="" />
             </div>
         </div>
@@ -208,7 +210,6 @@
                 </div>
             </div>
 
-
         </div>
         <div role="tabpanel" class="tab-pane" id="userparams-rest-{{$index}}">
             <div class="form-group">
@@ -216,12 +217,17 @@
 
                 <button type="button" class="btn btn-secondary btn-xs" ng-click="lhcrestapi.addParam(param.userparams)">Add param</button>
 
+                <hr>
+
                 <div ng-repeat="paramUser in param.userparams" class="mt-2">
+
+                    <button type="button" class="btn btn-danger btn-xs" ng-click="lhcrestapi.deleteParam(param.userparams,paramUser)">Delete</button>
+
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
                                 <label>Location</label>
-                                <select class="form-control" ng-model="paramUser.location">
+                                <select class="form-control form-control-sm" ng-model="paramUser.location">
                                     <option value="">Query</option>
                                     <option value="post_param">Body Post Param</option>
                                     <option value="body_param">Body Param</option>
@@ -234,7 +240,7 @@
                         </div>
                         <div class="col-6">
                             <label>Location/Key</label>
-                            <input type="text" class="form-control form-control-sm" ng-model="paramUser.key" placeholder="Either name or location in json ['params']['msg']" >
+                            <input type="text" class="form-control form-control-sm" ng-model="paramUser.key" placeholder="Either key which will be used for replacement" >
                         </div>
                     </div>
                 </div>
@@ -248,7 +254,11 @@
 
                 <button type="button" class="btn btn-secondary btn-xs" ng-click="lhcrestapi.addParam(param.output)">Add combination</button>
 
+
                 <div ng-repeat="paramOutput in param.output" class="mt-2">
+                    <hr>
+                    <h5><button type="button" class="btn btn-danger btn-xs" ng-click="lhcrestapi.deleteParam(param.output,paramOutput)">Delete</button> Expected output definition</h5>
+
                     <div class="form-group">
                         <label>Name</label>
                         <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_name" placeholder="Name">
@@ -259,15 +269,71 @@
                         <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_header" placeholder="HTTP status code 200,301">
                     </div>
 
-                    <div class="form-group">
-                        <label>Response Location.</label>
-                        <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_location" placeholder="['response']['msg'] you can leave an empty if you want forward whole response.">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Response Location 1. Available as {content_1} in messages.</label>
+                                <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_location" placeholder="response:msg you can leave an empty if you want forward whole response.">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Response Location 2. Available as {content_2} in messages.</label>
+                                <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_location_2" placeholder="response:msg you can leave an empty if you want forward whole response.">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Response Location 3. Available as {content_3} in messages.</label>
+                                <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_location_3" placeholder="response:msg you can leave an empty if you want forward whole response.">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Response Location 4. Available as {content_4} in messages.</label>
+                                <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_location_4" placeholder="response:msg you can leave an empty if you want forward whole response.">
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>If required you can have also condition to check</p>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label>Response Location.</label>
+                                <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_condition_val" placeholder="response:msg you can leave an empty if you want forward whole response.">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label>Response comparison</label>
+                                <select class="form-control form-control-sm" ng-model="paramOutput.success_condition" >
+                                    <option value="">Do nothing</option>
+                                    <option value="gt">&gt;</option>
+                                    <option value="gte">&gt;=</option>
+                                    <option value="lt">&lt;</option>
+                                    <option value="lte">&lt;=</option>
+                                    <option value="eq">=</option>
+                                    <option value="neq">!=</option>
+                                    <option value="like">Text like</option>
+                                    <option value="notlike">Text not like</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4" ng-if="paramOutput.success_condition != '' && paramOutput.success_condition != undefined">
+                            <div class="form-group">
+                                <label>Comparison value</label>
+                                <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_compare_value" placeholder="Value to compare">
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label>Meta msg location. If you support Live Helper Chat json syntax you can set location of this response.</label>
-                        <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_location_meta" placeholder="['response']['meta_msg']">
+                        <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_location_meta" placeholder="response:msg">
                     </div>
+
+
                 </div>
 
         </div>

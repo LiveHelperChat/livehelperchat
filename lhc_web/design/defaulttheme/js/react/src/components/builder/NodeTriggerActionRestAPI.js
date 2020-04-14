@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NodeTriggerActionType from './NodeTriggerActionType';
 import NodeTriggerArgumentTemplate from './NodeTriggerArgumentTemplate';
+import NodeTriggerList from './NodeTriggerList';
 
 import { initRestMethods } from "../../actions/nodeGroupTriggerActions"
 import { connect } from "react-redux";
@@ -46,11 +47,13 @@ class NodeTriggerActionRestAPI extends Component {
         this.onchangeAttr({'path' : ['rest_api'], 'value' : e});
         this.onchangeAttr({'path' : ['rest_api_method'], 'value' : null});
         this.onchangeAttr({'path' : ['rest_api_method_params'], 'value' : fromJS({})});
+        this.onchangeAttr({'path' : ['rest_api_method_output'], 'value' : fromJS({})});
     }
 
     onRestAPIMethodChange(e) {
         this.onchangeAttr({'path' : ['rest_api_method'], 'value' : e});
         this.onchangeAttr({'path' : ['rest_api_method_params'], 'value' : fromJS({})});
+        this.onchangeAttr({'path' : ['rest_api_method_output'], 'value' : fromJS({})});
     }
 
     render() {
@@ -63,6 +66,7 @@ class NodeTriggerActionRestAPI extends Component {
 
         var listMethods = [];
         var userParams = []
+        var outputCombinations = []
 
         if (indexOfListingToUpdate !== -1 && this.props.payloads.hasIn(['rest_api_calls',indexOfListingToUpdate,'methods'])) {
             listMethods = this.props.payloads.getIn(['rest_api_calls',indexOfListingToUpdate,'methods']).map((option, index) => <option key={option.get('id')} value={option.get('id')}>{option.get('name')}</option>);
@@ -74,11 +78,18 @@ class NodeTriggerActionRestAPI extends Component {
 
                 if (indexOfListingToUpdateMethod !== -1) {
                     userParams = this.props.payloads.getIn(['rest_api_calls',indexOfListingToUpdate,'methods',indexOfListingToUpdateMethod,'userparams']).map((option, index) =>
-                        <div className="form-group" key={option.get('key')}>
+                        <div className="form-group" key={option.get('id')}>
                             <label>{option.get('value')}</label>
-                            <input className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['rest_api_method_params',option.get('key')], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','rest_api_method_params',option.get('key')])} type="text" />
+                            <input className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['rest_api_method_params',option.get('id')], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','rest_api_method_params',option.get('id')])} type="text" />
                         </div>
                     );
+
+                    outputCombinations = this.props.payloads.getIn(['rest_api_calls',indexOfListingToUpdate,'methods',indexOfListingToUpdateMethod,'output']).map((option, index) => <div key={option.get('id')} className="form-group">
+                        <label>Execute trigger for [<b>{option.get('success_name')}</b>]</label>
+                        <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path':['rest_api_method_output',option.get('id')],'value':e})} payload={this.props.action.getIn(['content','rest_api_method_output',option.get('id')])} />
+                    </div>);
+
+
                 }
             }
         }
@@ -108,6 +119,7 @@ class NodeTriggerActionRestAPI extends Component {
                         <div className="form-group">
                             <label>Rest API</label>
                             <select className="form-control form-control-sm" defaultValue={this.props.action.getIn(['content','rest_api'])} onChange={(e) => this.onRestAPIChange(e.target.value)}>
+                                <option value="">Choose a Rest API</option>
                                 {list}
                             </select>
                         </div>
@@ -123,6 +135,13 @@ class NodeTriggerActionRestAPI extends Component {
                     </div>
                 </div>
                 {userParams}
+                {outputCombinations}
+
+                <div className="form-group">
+                    <label>Default trigger to execute</label>
+                    <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path':['rest_api_method_output','default_trigger'],'value':e})} payload={this.props.action.getIn(['content','rest_api_method_output','default_trigger'])} />
+                </div>
+
                 <hr className="hr-big" />
 
             </div>
