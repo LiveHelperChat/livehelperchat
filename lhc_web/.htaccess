@@ -5,11 +5,3 @@ AddType application/wasm .wasm
   Header always Set Access-Control-Allow-Methods: "GET, POST, OPTIONS, PUT, DELETE"
   Header always Set Access-Control-Allow-Headers: "Origin, X-Requested-With, Content-Type, Accept, API-Key, Authorization"
 </Files>
-
-RewriteEngine On
-
-RewriteBase /
-RewriteRule ^upgrade.php - [L]
-RewriteRule ^/var/[^/]+/cache/(stylesheets|images|javascripts?)/.* - [L]
-RewriteCond %{REQUEST_FILENAME} !\.(gif|jpe?g|json|ico|png|bmp|wasm|css|ogv|js|xml|flv|html|woff2|mp3|ogg|wav|swf|otf|woff|eot|ttf)|var(.+)storage.pdf(.+)\.pdf$ [NC]
-RewriteRule ^(.*)?$ index.php?/$1 [L]

@@ -11,62 +11,53 @@ $ViewList['getproducts'] = array(
 $ViewList['settings'] = array(
     'params' => array(),
     'uparams' => array('department','ua','identifier'),
-    'functions' => array(  ),
     'multiple_arguments' => array ( 'department', 'ua' )
 );
 
 $ViewList['offlinesettings'] = array(
     'params' => array(),
-    'functions' => array(),
     'uparams' => array('ua','switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill','survey','sdemo','prod','phash','pvhash','fullheight','ajaxmode'),
 	'multiple_arguments' => array ( 'department', 'ua', 'prod' )
 );
 
 $ViewList['updatejs'] = array(
     'params' => array(),
-    'functions' => array(),
     'uparams' => array(),
 	'multiple_arguments' => array ()
 );
 
 $ViewList['lang'] = array(
     'params' => array(),
-    'functions' => array(),
     'uparams' => array(),
 	'multiple_arguments' => array ()
 );
 
 $ViewList['onlinesettings'] = array(
     'params' => array(),
-    'functions' => array(),
     'uparams' => array('ua','switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill','survey','sdemo','prod','phash','pvhash','fullheight','ajaxmode'),
 	'multiple_arguments' => array ( 'department', 'ua', 'prod' )
 );
 
 $ViewList['submitoffline'] = array(
     'params' => array(),
-    'functions' => array(),
     'uparams' => array('ua','switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill','survey','sdemo','prod','phash','pvhash','fullheight','ajaxmode'),
 	'multiple_arguments' => array ( 'department', 'ua', 'prod' )
 );
 
 $ViewList['submitonline'] = array(
     'params' => array(),
-    'functions' => array(),
     'uparams' => array('ua','switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill','survey','sdemo','prod','phash','pvhash','fullheight','ajaxmode'),
 	'multiple_arguments' => array ( 'department', 'ua', 'prod' )
 );
 
 $ViewList['initchat'] = array(
     'params' => array(),
-    'functions' => array(),
     'uparams' => array(),
 	'multiple_arguments' => array ()
 );
 
 $ViewList['fetchmessages'] = array(
     'params' => array(),
-    'functions' => array(),
     'uparams' => array(),
 	'multiple_arguments' => array ()
 );

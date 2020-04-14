@@ -538,6 +538,10 @@ if ($theme !== false && $theme->hide_popup == 1) {
     $chat_ui['hide_popup'] = true;
 }
 
+if ($theme !== false && $theme->hide_close == 1) {
+    $chat_ui['hide_close'] = true;
+}
+
 $visibleCount = ($departament_id > 0 || count($departmentsOptions['departments']) == 0) ? 0 : 1;
 $messageFieldVisible = isset($departmentsOptions['settings']['product']);
 

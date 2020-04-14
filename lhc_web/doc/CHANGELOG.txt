@@ -1,3 +1,11 @@
+3.31v
+
+1. Updated .htaccess files so Live Helper Chat should work out of the box with subdomain installations.
+2. PHP Session was starting where it should not have to. Will increase widget performance a little bit.
+3. If widget was minimized and restored again popup was not showing proactive invitation.
+
+There is no database update this time.
+
 3.30v
 
 1. Bot triggers enhancements.
