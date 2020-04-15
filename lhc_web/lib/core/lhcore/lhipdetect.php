@@ -17,7 +17,7 @@ class erLhcoreClassIPDetect {
             $_SERVER['REMOTE_ADDR'] = $parts[0];
 		}
 		
-		$_SERVER['REMOTE_ADDR'] = strip_tags($_SERVER['REMOTE_ADDR']);
+		$_SERVER['REMOTE_ADDR'] = isset($_SERVER['REMOTE_ADDR']) ? strip_tags($_SERVER['REMOTE_ADDR']) : '127.0.0.1';
 		
 		return $_SERVER["REMOTE_ADDR"];
 	}
@@ -122,6 +122,10 @@ class erLhcoreClassIPDetect {
 	}
 	
 	public static function cloudflareInit() {
+
+	    if (!isset($_SERVER["REMOTE_ADDR"])){
+	        return;
+        }
 
 		if (strpos($_SERVER["REMOTE_ADDR"], ":") === FALSE) {
 			$cf_ip_ranges = array("204.93.240.0/24","204.93.177.0/24","199.27.128.0/21","173.245.48.0/20","103.21.244.0/22","103.22.200.0/22","103.31.4.0/22","141.101.64.0/18","108.162.192.0/18","190.93.240.0/20","188.114.96.0/20","197.234.240.0/22","198.41.128.0/17","162.158.0.0/15");

@@ -142,6 +142,10 @@ class NodeTriggerActionRestAPI extends Component {
                     <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path':['rest_api_method_output','default_trigger'],'value':e})} payload={this.props.action.getIn(['content','rest_api_method_output','default_trigger'])} />
                 </div>
 
+                <div className="form-group">
+                    <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','background_process'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','background_process'])} /> Send Rest API Call in the background.</label> <i className="material-icons" title="You have to be using lhc-php-resque extension.">info</i>
+                </div>
+
                 <hr className="hr-big" />
 
             </div>

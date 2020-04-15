@@ -17,6 +17,33 @@ class erLhcoreClassGenericBotActionRestapi
                     }
                 }
 
+                // Within next user message we will validate his username or anything else
+                if ((isset($action['content']['attr_options']['background_process']) && $action['content']['attr_options']['background_process'] == true)) {
+
+                    $event = new erLhcoreClassModelGenericBotChatEvent();
+                    $event->chat_id = $chat->id;
+                    $event->ctime = time();
+                    $event->content = json_encode(array('callback_list' => array(
+                        array(
+                            'content' => array(
+                                'type' => 'rest_api',
+                                'replace_array' => (isset($params['replace_array']) ? $params['replace_array'] : array()),
+                                'action' => $action,
+                                'msg_id' => (isset($params['msg']) && is_object($params['msg']) ? $params['msg']->id : 0),
+                                'msg_text' => (isset($params['msg_text']) ? $params['msg_text'] : ''),
+                                'event' => (isset($action['content']['event']) ? $action['content']['event'] : null),
+                            )
+                        )
+                    )));
+
+                    // Save only if user has resque extension
+                    if ((!isset($params['do_not_save']) || $params['do_not_save'] == false) && class_exists('erLhcoreClassExtensionLhcphpresque')) {
+                        $event->saveThis();
+                        erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_rest_api_queue', 'erLhcoreClassLHCBotWorker', array('action' => 'rest_api', 'event_id' => $event->id));
+                        return ;
+                    }
+                }
+
                 $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
 
                 // We have found exact matching response type
@@ -219,7 +246,7 @@ class erLhcoreClassGenericBotActionRestapi
                     if (isset($outputCombination['success_location']) && $outputCombination['success_location'] != '') {
                         $contentJSON = json_decode($content, true);
 
-                        $successLocation = self::extractAttribute($contentJSON,$outputCombination['success_location']);
+                        $successLocation = self::extractAttribute($contentJSON, $outputCombination['success_location']);
 
                         if ($successLocation['found'] === true) {
 

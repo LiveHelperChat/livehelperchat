@@ -288,6 +288,7 @@ return array_merge(array (
         'erLhcoreClassGenericBotActionRepeat_restrict'   => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionrepeat_restrict.php',
         'erLhcoreClassGenericBotActionRestapi'      => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionrestapi.php',
         'erLhcoreClassModelGenericBotRestAPI'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotrestapi.php',
+        'erLhcoreClassLHCBotWorker'                 => 'lib/core/lhgenericbot/lhgenericbotworker.php',
 
         // Notifications
         'erLhcoreClassNotifications'                => 'lib/core/lhnotifications/lhnotifications.php',

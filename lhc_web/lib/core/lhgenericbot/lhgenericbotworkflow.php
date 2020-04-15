@@ -401,7 +401,7 @@ class erLhcoreClassGenericBotWorkflow {
         if (isset($params['msg'])) {
             $payload = $params['msg']->msg;
         } else {
-            $payload =  $params['payload'];
+            $payload = $params['payload'];
         }
 
         $db = ezcDbInstance::get();
@@ -721,6 +721,11 @@ class erLhcoreClassGenericBotWorkflow {
                             ->where( $q->expr->eq( 'id', $chat->id ) );
                         $stmt = $q->prepare();
                         $stmt->execute();
+
+                    } elseif (isset($eventData['content']['type']) && $eventData['content']['type'] == 'rest_api') {
+                        // Rest API in progress
+                        // Ignore any customer request for a while
+                        $keepEvent = true;
                     }
                 }
 
