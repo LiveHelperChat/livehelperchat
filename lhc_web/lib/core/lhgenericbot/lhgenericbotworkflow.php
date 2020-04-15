@@ -1552,7 +1552,6 @@ class erLhcoreClassGenericBotWorkflow {
 
             $db = ezcDbInstance::get();
 
-
             try {
 
                 $db->beginTransaction();
@@ -1609,13 +1608,23 @@ class erLhcoreClassGenericBotWorkflow {
 
                         if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
                             $message = self::processTrigger($chat, $event->trigger);
+                        } else {
+
+                            // Send default message for unknown button click
+                            $bot = erLhcoreClassModelGenericBotBot::fetch($chat->chat_variables_array['gbot_id']);
+
+                            $trigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => array('default_unknown_btn' => 1)));
+
+                            if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                                erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, array('args' => array('msg_text' => $payload)));
+                            }
                         }
 
                         if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
                             self::setLastMessageId($chat, $message->id);
                         } else {
                             if (erConfigClassLhConfig::getInstance()->getSetting('site', 'debug_output') == true) {
-                                self::sendAsBot($chat, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Button action could not be found!'));
+                                //self::sendAsBot($chat, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Button action could not be found!'));
                             }
                         }
                     }

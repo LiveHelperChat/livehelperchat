@@ -2,6 +2,7 @@
 
 1. Rest API Response trigger type. You will be able to integrate ant third party API easily.
 2. Added protection against recursion if some messes around and calls itself in bot building workflow.
+3. Option to set default actions for unknown button click.
 
 execute doc/update_db/update_206.sql for update
 

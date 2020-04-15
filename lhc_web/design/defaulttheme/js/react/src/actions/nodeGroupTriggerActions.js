@@ -223,6 +223,19 @@ export function setDefaultUnknownTrigger(obj) {
     }
 }
 
+export function setDefaultUnknownBtnTrigger(obj) {
+    return function(dispatch) {
+        dispatch({type: "SET_DEFAULT_UNKNOWN_BTN_TRIGGER", payload : obj});
+
+        axios.post(WWW_DIR_JAVASCRIPT + "genericbot/setdefaultunknownbtntrigger/" + obj.get('id') + '/' +  obj.get('default_unknown_btn'))
+                .then((response) => {
+                dispatch({type: "SET_DEFAULT_UNKNOWN_BTN_FULFILLED", payload: response.data})
+        }).catch((err) => {
+                dispatch({type: "SET_DEFAULT_UNKNOWN_BTN_REJECTED", payload: err})
+        })
+    }
+}
+
 export function setDefaultAlwaysTrigger(obj) {
     return function(dispatch) {
         dispatch({type: "SET_DEFAULT_ALWAYS_TRIGGER", payload : obj});
