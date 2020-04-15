@@ -44,6 +44,11 @@ $def->properties['default_always']->columnName   = 'default_always';
 $def->properties['default_always']->propertyName = 'default_always';
 $def->properties['default_always']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['default_unknown_btn'] = new ezcPersistentObjectProperty();
+$def->properties['default_unknown_btn']->columnName   = 'default_unknown_btn';
+$def->properties['default_unknown_btn']->propertyName = 'default_unknown_btn';
+$def->properties['default_unknown_btn']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

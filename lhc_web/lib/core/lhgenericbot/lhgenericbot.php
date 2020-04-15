@@ -252,6 +252,44 @@ class erLhcoreClassGenericBot {
         return $Errors;
     }
 
+    public static function validateBotRestAPI(& $botRestAPI)
+    {
+        $definition = array(
+            'name' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'description' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'configuration' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = array();
+
+        if ( !$form->hasValidData( 'name' ) || $form->name == '' ) {
+            $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter Rest API Name!');
+        } else {
+            $botRestAPI->name = $form->name;
+        }
+
+        if ( $form->hasValidData( 'description' )  ) {
+            $botRestAPI->description = $form->description;
+        } else {
+            $botRestAPI->description = '';
+        }
+        
+        if ( $form->hasValidData( 'configuration' )  ) {
+            $botRestAPI->configuration = $form->configuration;
+        } else {
+            $botRestAPI->configuration = '';
+        }
+
+        return $Errors;
+    }
+
     public static function validateBotTranslationGroup(& $botTranslation)
     {
         $definition = array(

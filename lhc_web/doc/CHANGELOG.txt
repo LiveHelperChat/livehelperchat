@@ -1,3 +1,11 @@
+3.32v
+
+1. Rest API Response trigger type. You will be able to integrate ant third party API easily.
+2. Added protection against recursion if some messes around and calls itself in bot building workflow.
+3. Option to set default actions for unknown button click.
+
+execute doc/update_db/update_206.sql for update
+
 3.31v
 
 1. Updated .htaccess files so Live Helper Chat should work out of the box with subdomain installations.

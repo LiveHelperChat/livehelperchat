@@ -89,6 +89,18 @@ $ViewList['list'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['listrestapi'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['restapimethods'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['listexceptions'] = array(
     'params' => array(),
     'uparams' => array(),
@@ -108,6 +120,12 @@ $ViewList['listtranslationsitems'] = array(
 );
 
 $ViewList['new'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['newrestapi'] = array(
     'params' => array(),
     'uparams' => array(),
     'functions' => array( 'use' )
@@ -143,6 +161,12 @@ $ViewList['edittritem'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['editrestapi'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['editexception'] = array(
     'params' => array('id'),
     'uparams' => array(),
@@ -156,6 +180,12 @@ $ViewList['edit'] = array(
 );
 
 $ViewList['delete'] = array(
+    'params' => array('id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'use' )
+);
+
+$ViewList['deleterestapi'] = array(
     'params' => array('id'),
     'uparams' => array('csfr'),
     'functions' => array( 'use' )
@@ -252,6 +282,12 @@ $ViewList['setdefaulttrigger'] = array(
 );
 
 $ViewList['setdefaultunknowntrigger'] = array(
+    'params' => array('id','default'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['setdefaultunknownbtntrigger'] = array(
     'params' => array('id','default'),
     'uparams' => array(),
     'functions' => array( 'use' )

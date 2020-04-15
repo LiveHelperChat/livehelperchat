@@ -223,6 +223,19 @@ export function setDefaultUnknownTrigger(obj) {
     }
 }
 
+export function setDefaultUnknownBtnTrigger(obj) {
+    return function(dispatch) {
+        dispatch({type: "SET_DEFAULT_UNKNOWN_BTN_TRIGGER", payload : obj});
+
+        axios.post(WWW_DIR_JAVASCRIPT + "genericbot/setdefaultunknownbtntrigger/" + obj.get('id') + '/' +  obj.get('default_unknown_btn'))
+                .then((response) => {
+                dispatch({type: "SET_DEFAULT_UNKNOWN_BTN_FULFILLED", payload: response.data})
+        }).catch((err) => {
+                dispatch({type: "SET_DEFAULT_UNKNOWN_BTN_REJECTED", payload: err})
+        })
+    }
+}
+
 export function setDefaultAlwaysTrigger(obj) {
     return function(dispatch) {
         dispatch({type: "SET_DEFAULT_ALWAYS_TRIGGER", payload : obj});
@@ -248,6 +261,18 @@ export function initBot(botId) {
         })
     }
 }
+
+export function initRestMethods(RestAPIID) {
+    return function(dispatch) {
+        axios.post(WWW_DIR_JAVASCRIPT + "genericbot/restapimethods/" + RestAPIID)
+            .then((response) => {
+            dispatch({type: "INIT_BOT_REST_API_METHODS", payload: response.data})
+        }).catch((err) => {
+            //dispatch({type: "INIT_BOT_REJECTED", payload: err})
+        })
+    }
+}
+
 
 export function initArgumentTemplates() {
     return function(dispatch) {
