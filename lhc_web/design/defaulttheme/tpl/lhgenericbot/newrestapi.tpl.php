@@ -4,7 +4,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('genericbot/newrestapi')?>" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('genericbot/newrestapi')?>" method="post" ng-controller="BotRestAPIParameters as lhcrestapi" ng-init='lhcrestapi.parameters = <?php isset($item->configuration_array['parameters']) ? print json_encode($item->configuration_array['parameters'],JSON_HEX_APOS) : print "[]"?>;lhcrestapi.host = <?php isset($item->configuration_array['host']) ? print json_encode($item->configuration_array['host'], JSON_HEX_APOS) : print "\"\""?>'>
 
     <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/form_rest_api.tpl.php'));?>
 
