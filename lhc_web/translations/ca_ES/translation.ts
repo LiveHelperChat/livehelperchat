@@ -2,6 +2,22 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Quants dies després de l&apos;última visualització ha de romandre ocult el widget de votació</translation>
     </message>
@@ -486,6 +502,14 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Online status text</source>
+      <translation>Text de l&apos;estat &quot;en línia&quot;</translation>
+    </message>
+    <message>
+      <source>Offline status text</source>
+      <translation>Text de l&apos;estat &quot;fora de línia&quot;</translation>
+    </message>
+    <message>
       <source>Welcome message</source>
       <translation type="unfinished"/>
     </message>
@@ -520,6 +544,14 @@
     <message>
       <source>Add translation</source>
       <translation>Afegeix una traducció</translation>
+    </message>
+    <message>
+      <source>Search for language. Enter * to see all.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>See all variations</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invitation</source>
@@ -894,12 +926,12 @@
       <translation>Gruix de la vora dels widgets en px</translation>
     </message>
     <message>
-      <source>Online status text</source>
-      <translation>Text de l&apos;estat &quot;en línia&quot;</translation>
+      <source>Online status text [old widget]</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Offline status text</source>
-      <translation>Text de l&apos;estat &quot;fora de línia&quot;</translation>
+      <source>Offline status text [old widget]</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Operator intro text</source>
@@ -2410,8 +2442,16 @@
   <context>
     <name>chat/cannedmsg</name>
     <message>
-      <source>Language</source>
-      <translation>Idioma</translation>
+      <source>Main</source>
+      <translation>Principal</translation>
+    </message>
+    <message>
+      <source>Add translation</source>
+      <translation>Afegeix una traducció</translation>
+    </message>
+    <message>
+      <source>Search for language. Enter * to see all.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title/Message</source>
@@ -2456,14 +2496,6 @@
     <message>
       <source>Messages</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Main</source>
-      <translation>Principal</translation>
-    </message>
-    <message>
-      <source>Add translation</source>
-      <translation>Afegeix una traducció</translation>
     </message>
     <message>
       <source>Title</source>
@@ -2516,6 +2548,10 @@
     <message>
       <source>Group</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Idioma</translation>
     </message>
     <message>
       <source>Personal canned message</source>
@@ -3103,6 +3139,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Widget embed code (beta)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>Codi HTML</translation>
     </message>
@@ -3287,16 +3327,24 @@
       <translation>Codi d&apos;incrustació</translation>
     </message>
     <message>
+      <source>Widget embed code (new)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget embed code (legacy)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page embed code (legacy)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>Codi d&apos;incrustació del widget</translation>
     </message>
     <message>
       <source>Page embed code</source>
       <translation>Codi d&apos;incrustació de la pàgina</translation>
-    </message>
-    <message>
-      <source>Widget embed code (beta)</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -4630,6 +4678,10 @@
       <translation>Configura el tauler</translation>
     </message>
     <message>
+      <source>All active chats will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Location</source>
       <translation>Ubicació</translation>
     </message>
@@ -4710,6 +4762,10 @@
       <translation>Temps que fa</translation>
     </message>
     <message>
+      <source>Bot chats will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enable bot chats list in your account!</source>
       <translation type="unfinished"/>
     </message>
@@ -4722,16 +4778,40 @@
       <translation>Xats pendents</translation>
     </message>
     <message>
+      <source>Chats assigned to you will appear here. List includes pending and active chats.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will see short list of your site visitors here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delete chat</source>
       <translation>Esborra xat</translation>
+    </message>
+    <message>
+      <source>All pending chats will appear here.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Created</source>
       <translation>Creat</translation>
     </message>
     <message>
+      <source>Transferred chats to you will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Transfer time</source>
       <translation>Temps de transferència</translation>
+    </message>
+    <message>
+      <source>Transferred chats to your department will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transferred chats to you or your department will appear here.</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -8411,6 +8491,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
   <context>
     <name>chat/operatorsbalancing</name>
     <message>
+      <source>Hide send button for operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Active</source>
       <translation>Actiu</translation>
     </message>
@@ -8459,7 +8543,7 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Hide send button for operators</source>
+      <source>Hide send e-mail button for operators in chat window</source>
       <translation type="unfinished"/>
     </message>
   </context>

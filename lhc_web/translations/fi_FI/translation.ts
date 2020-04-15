@@ -2,6 +2,22 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Kuinka monta päivää edellisen äänestyksen jälkeen äänestys-widgetti pidetään piilossa</translation>
     </message>
@@ -486,6 +502,14 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Online status text</source>
+      <translation>Online status-teksti</translation>
+    </message>
+    <message>
+      <source>Offline status text</source>
+      <translation>Offline status-teksti</translation>
+    </message>
+    <message>
       <source>Welcome message</source>
       <translation type="unfinished"/>
     </message>
@@ -520,6 +544,14 @@
     <message>
       <source>Add translation</source>
       <translation>Lisää käännös</translation>
+    </message>
+    <message>
+      <source>Search for language. Enter * to see all.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>See all variations</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invitation</source>
@@ -894,12 +926,12 @@
       <translation>Widgetin reunan leveys (px)</translation>
     </message>
     <message>
-      <source>Online status text</source>
-      <translation>Online status-teksti</translation>
+      <source>Online status text [old widget]</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Offline status text</source>
-      <translation>Offline status-teksti</translation>
+      <source>Offline status text [old widget]</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Operator intro text</source>
@@ -2410,8 +2442,16 @@
   <context>
     <name>chat/cannedmsg</name>
     <message>
-      <source>Language</source>
-      <translation>Kieli</translation>
+      <source>Main</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add translation</source>
+      <translation>Lisää käännös</translation>
+    </message>
+    <message>
+      <source>Search for language. Enter * to see all.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title/Message</source>
@@ -2456,14 +2496,6 @@
     <message>
       <source>Messages</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Main</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Add translation</source>
-      <translation>Lisää käännös</translation>
     </message>
     <message>
       <source>Title</source>
@@ -2516,6 +2548,10 @@
     <message>
       <source>Group</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Kieli</translation>
     </message>
     <message>
       <source>Personal canned message</source>
@@ -3103,6 +3139,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Widget embed code (beta)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>HTML koodi</translation>
     </message>
@@ -3287,16 +3327,24 @@
       <translation>Upotuskoodi</translation>
     </message>
     <message>
+      <source>Widget embed code (new)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget embed code (legacy)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page embed code (legacy)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>Widget koodi</translation>
     </message>
     <message>
       <source>Page embed code</source>
       <translation>Sivu koodi</translation>
-    </message>
-    <message>
-      <source>Widget embed code (beta)</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -4630,6 +4678,10 @@
       <translation>Kojelaudan asetukset</translation>
     </message>
     <message>
+      <source>All active chats will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Location</source>
       <translation>Sijainti</translation>
     </message>
@@ -4710,6 +4762,10 @@
       <translation>Aikaa sitten</translation>
     </message>
     <message>
+      <source>Bot chats will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enable bot chats list in your account!</source>
       <translation type="unfinished"/>
     </message>
@@ -4722,16 +4778,40 @@
       <translation>Odottavat viestit</translation>
     </message>
     <message>
+      <source>Chats assigned to you will appear here. List includes pending and active chats.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will see short list of your site visitors here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delete chat</source>
       <translation>Poista keskustelu</translation>
+    </message>
+    <message>
+      <source>All pending chats will appear here.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Created</source>
       <translation>Luotu</translation>
     </message>
     <message>
+      <source>Transferred chats to you will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Transfer time</source>
       <translation>Siirtoaika</translation>
+    </message>
+    <message>
+      <source>Transferred chats to your department will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transferred chats to you or your department will appear here.</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -8410,6 +8490,10 @@
   <context>
     <name>chat/operatorsbalancing</name>
     <message>
+      <source>Hide send button for operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Active</source>
       <translation>Aktiivinen</translation>
     </message>
@@ -8458,7 +8542,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Hide send button for operators</source>
+      <source>Hide send e-mail button for operators in chat window</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -11735,7 +11819,7 @@
     </message>
     <message>
       <source>Please choose a group!</source>
-      <translation type="unfinished"/>
+      <translation>Ole hyvä ja valitse ryhmä!</translation>
     </message>
     <message>
       <source>Please enter exception group name!</source>
@@ -12088,7 +12172,7 @@
     </message>
     <message>
       <source>department</source>
-      <translation type="unfinished"/>
+      <translation>yksikkö</translation>
     </message>
     <message>
       <source>Chat was assigned to selected department</source>
@@ -12182,14 +12266,14 @@
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Uusi</translation>
     </message>
   </context>
   <context>
     <name>notifications/index</name>
     <message>
       <source>Notifications</source>
-      <translation type="unfinished"/>
+      <translation>Ilmoitukset</translation>
     </message>
     <message>
       <source>Subscribers list</source>
@@ -12197,7 +12281,7 @@
     </message>
     <message>
       <source>Settings</source>
-      <translation type="unfinished"/>
+      <translation>Asetukset</translation>
     </message>
   </context>
   <context>
@@ -12211,22 +12295,22 @@
     <name>chat/backtochat</name>
     <message>
       <source>Visitor has been redirected back to chat!</source>
-      <translation type="unfinished"/>
+      <translation>Vierailija on ohjattu takaisin chattiin!</translation>
     </message>
   </context>
   <context>
     <name>chat/file</name>
     <message>
       <source>Uploading</source>
-      <translation type="unfinished"/>
+      <translation>Siirretään</translation>
     </message>
     <message>
       <source>Incorrect file type!</source>
-      <translation type="unfinished"/>
+      <translation>Väärä tiedostomuoto!</translation>
     </message>
     <message>
       <source>File to big!</source>
-      <translation type="unfinished"/>
+      <translation>Tiedosto on liian iso!</translation>
     </message>
   </context>
   <context>

@@ -2,6 +2,22 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -486,6 +502,14 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Online status text</source>
+      <translation>Testo mostrato online</translation>
+    </message>
+    <message>
+      <source>Offline status text</source>
+      <translation>Testo mostrato offline</translation>
+    </message>
+    <message>
       <source>Welcome message</source>
       <translation>Messaggio di benvenuto</translation>
     </message>
@@ -520,6 +544,14 @@
     <message>
       <source>Add translation</source>
       <translation>Aggiungi traduzione</translation>
+    </message>
+    <message>
+      <source>Search for language. Enter * to see all.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>See all variations</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invitation</source>
@@ -894,12 +926,12 @@
       <translation>Larghezza del bordo di widget (px)</translation>
     </message>
     <message>
-      <source>Online status text</source>
-      <translation>Testo mostrato online</translation>
+      <source>Online status text [old widget]</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Offline status text</source>
-      <translation>Testo mostrato offline</translation>
+      <source>Offline status text [old widget]</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Operator intro text</source>
@@ -2416,8 +2448,16 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>chat/cannedmsg</name>
     <message>
-      <source>Language</source>
-      <translation>Lingua</translation>
+      <source>Main</source>
+      <translation>Principale</translation>
+    </message>
+    <message>
+      <source>Add translation</source>
+      <translation>Aggiungi traduzione</translation>
+    </message>
+    <message>
+      <source>Search for language. Enter * to see all.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title/Message</source>
@@ -2462,14 +2502,6 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Messages</source>
       <translation>Messaggi</translation>
-    </message>
-    <message>
-      <source>Main</source>
-      <translation>Principale</translation>
-    </message>
-    <message>
-      <source>Add translation</source>
-      <translation>Aggiungi traduzione</translation>
     </message>
     <message>
       <source>Title</source>
@@ -2522,6 +2554,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Group</source>
       <translation>Gruppo</translation>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation>Lingua</translation>
     </message>
     <message>
       <source>Personal canned message</source>
@@ -3109,6 +3145,10 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Widget embed code (beta)</source>
+      <translation>Widget embed code (beta)</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>Codice HTML</translation>
     </message>
@@ -3293,16 +3333,24 @@ Icona colonna, testo icone materiale</translation>
       <translation>Codice di incorporamento</translation>
     </message>
     <message>
+      <source>Widget embed code (new)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget embed code (legacy)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page embed code (legacy)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget embed code</source>
       <translation>Codice di incorporamento del widget</translation>
     </message>
     <message>
       <source>Page embed code</source>
       <translation>Codice di incorporamento della pagina</translation>
-    </message>
-    <message>
-      <source>Widget embed code (beta)</source>
-      <translation>Widget embed code (beta)</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
@@ -4636,6 +4684,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Configura dashboard</translation>
     </message>
     <message>
+      <source>All active chats will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Location</source>
       <translation>Posizione</translation>
     </message>
@@ -4716,6 +4768,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Tempo fa</translation>
     </message>
     <message>
+      <source>Bot chats will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enable bot chats list in your account!</source>
       <translation>Abilitare la lista chat bot nel proprio profilo!</translation>
     </message>
@@ -4728,16 +4784,40 @@ Icona colonna, testo icone materiale</translation>
       <translation>Chat in sospeso</translation>
     </message>
     <message>
+      <source>Chats assigned to you will appear here. List includes pending and active chats.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will see short list of your site visitors here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delete chat</source>
       <translation>Eliminare chat</translation>
+    </message>
+    <message>
+      <source>All pending chats will appear here.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Created</source>
       <translation>Creato</translation>
     </message>
     <message>
+      <source>Transferred chats to you will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Transfer time</source>
       <translation>Tempo di trasferimento</translation>
+    </message>
+    <message>
+      <source>Transferred chats to your department will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transferred chats to you or your department will appear here.</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -8416,6 +8496,10 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>chat/operatorsbalancing</name>
     <message>
+      <source>Hide send button for operators</source>
+      <translation>Nascondi il bottone invia per gli operatori</translation>
+    </message>
+    <message>
       <source>Active</source>
       <translation>Attivo</translation>
     </message>
@@ -8464,8 +8548,8 @@ Icona colonna, testo icone materiale</translation>
       <translation>Riprendi l&apos;assegnazione automatica se la chat rimane in sospeso per n secondi</translation>
     </message>
     <message>
-      <source>Hide send button for operators</source>
-      <translation>Nascondi il bottone invia per gli operatori</translation>
+      <source>Hide send e-mail button for operators in chat window</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
