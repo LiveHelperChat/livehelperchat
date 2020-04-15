@@ -5,7 +5,8 @@ import NodeTriggerList from './NodeTriggerList';
 
 import { initRestMethods } from "../../actions/nodeGroupTriggerActions"
 import { connect } from "react-redux";
-import { fromJS } from 'immutable';
+import { fromJS, List } from 'immutable';
+
 
 @connect((store) => {
     return {
@@ -39,6 +40,15 @@ class NodeTriggerActionRestAPI extends Component {
     componentDidMount() {
         if (this.props.action.hasIn(['content','rest_api'])) {
             this.props.dispatch(initRestMethods(this.props.action.getIn(['content','rest_api'])));
+
+            // We have to change value if it's a list
+            if (List.isList(this.props.action.getIn(['content','rest_api_method_output']))){
+                this.onchangeAttr({'path' : ['rest_api_method_output'], 'value' : fromJS({})});
+            }
+
+            if (List.isList(this.props.action.getIn(['content','rest_api_method_params']))){
+                this.onchangeAttr({'path' : ['rest_api_method_params'], 'value' : fromJS({})});
+            }
         }
     }
 
@@ -46,6 +56,7 @@ class NodeTriggerActionRestAPI extends Component {
         this.props.dispatch(initRestMethods(e));
         this.onchangeAttr({'path' : ['rest_api'], 'value' : e});
         this.onchangeAttr({'path' : ['rest_api_method'], 'value' : null});
+
         this.onchangeAttr({'path' : ['rest_api_method_params'], 'value' : fromJS({})});
         this.onchangeAttr({'path' : ['rest_api_method_output'], 'value' : fromJS({})});
     }
