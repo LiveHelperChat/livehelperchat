@@ -1355,6 +1355,10 @@ class erLhcoreClassGenericBotWorkflow {
                     if (isset($messageNew['replace_array'])) {
                         $params['args']['replace_array'] = $messageNew['replace_array'];
                     }
+                    
+                    if (isset($messageNew['meta_msg'])) {
+                        $params['args']['meta_msg'] = $messageNew['meta_msg'];
+                    }
 
                     $response = self::processTrigger($chat, $trigger, $setLastMessageId, $params);
 

@@ -84,7 +84,9 @@ class erLhcoreClassLHCBotWorker
                     // Let's check has user checked any trigger to execute.
                     if (isset($response['id'])) {
                         if (isset($action['content']['rest_api_method_output'][$response['id']]) && is_numeric($action['content']['rest_api_method_output'][$response['id']])) {
-                            self::processTrigger($chat, $action['content']['rest_api_method_output'][$response['id']], array('args' => array('replace_array' => array(
+                            self::processTrigger($chat, $action['content']['rest_api_method_output'][$response['id']], array('args' => array(
+                                'meta_msg' => $response['meta'],
+                                'replace_array' => array(
                                 '{content_1}' => $response['content'],
                                 '{content_2}' => $response['content_2'],
                                 '{content_3}' => $response['content_3'],
@@ -102,7 +104,10 @@ class erLhcoreClassLHCBotWorker
                             // Do nothing as user did not chose any trigger to execute
                         }
                     } elseif (isset($action['content']['rest_api_method_output']['default_trigger']) && is_numeric($action['content']['rest_api_method_output']['default_trigger'])) {
-                        self::processTrigger($chat, $action['content']['rest_api_method_output']['default_trigger'], array('args' => array('replace_array' => array(
+                        self::processTrigger($chat, $action['content']['rest_api_method_output']['default_trigger'], array(
+                            'args' => array(
+                             'meta_msg' => $response['meta'],
+                             'replace_array' => array(
                             '{content_1}' => $response['content'],
                             '{content_2}' => $response['content_2'],
                             '{content_3}' => $response['content_3'],

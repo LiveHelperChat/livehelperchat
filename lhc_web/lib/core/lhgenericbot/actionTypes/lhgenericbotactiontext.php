@@ -124,7 +124,7 @@ class erLhcoreClassGenericBotActionText {
             $msg->msg = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$msg->msg);
         }
 
-        $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';
+        $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : (isset($params['meta_msg']) && !empty($params['meta_msg']) ? json_encode($params['meta_msg']) : '');
         $msg->chat_id = $chat->id;
         $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
         $msg->user_id = -2;

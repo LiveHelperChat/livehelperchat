@@ -59,6 +59,7 @@ class erLhcoreClassGenericBotActionRestapi
                                 '{content_4}' => $response['content_4'],
                                 '{http_code}' => $response['http_code']
                             ),
+                            'meta_msg' => $response['meta'],
                             'trigger_id' => $action['content']['rest_api_method_output'][$response['id']]
                         );
                     } else {
@@ -74,6 +75,7 @@ class erLhcoreClassGenericBotActionRestapi
                             '{content_4}' => $response['content_4'],
                             '{http_code}' => $response['http_code']
                         ),
+                        'meta_msg' => $response['meta'],
                         'trigger_id' => $action['content']['rest_api_method_output']['default_trigger']
                     );
                 }
@@ -323,6 +325,7 @@ class erLhcoreClassGenericBotActionRestapi
                 'content_2' => '',
                 'content_3' => '',
                 'content_4' => '',
+                'meta' => array()
             );
         }
 
@@ -332,6 +335,7 @@ class erLhcoreClassGenericBotActionRestapi
             'content_2' => '',
             'content_3' => '',
             'content_4' => '',
+            'meta' => array()
         );
     }
 
