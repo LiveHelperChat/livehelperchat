@@ -4,7 +4,7 @@
             <?php foreach ($metaMessage as $item) : ?>
                 <li>
                     <?php if ((!isset($item['editable']) || $item['editable'] == true) && (!isset($messagesStats) || $messagesStats['total_messages'] == $messagesStats['counter_messages'])) : ?>
-                    <a class="meta-auto-hide" href="#" title="Edit this step" data-id="<?php echo $messageId?>" data-payload="<?php echo $item['step']?>" onclick="lhinst.editGenericStep(<?php echo $item['step']?>,<?php echo $messageId?>)">
+                    <a rel="noreferrer" class="meta-auto-hide" href="#" title="Edit this step" data-id="<?php echo $messageId?>" data-payload="<?php echo $item['step']?>" onclick="lhinst.editGenericStep(<?php echo $item['step']?>,<?php echo $messageId?>)">
                         <?php if (isset($metaMessageData['content']['collectable_options']['edit_image_url']) && !empty($metaMessageData['content']['collectable_options']['edit_image_url'])) : ?>
                             <img src="<?php echo htmlspecialchars($metaMessageData['content']['collectable_options']['edit_image_url'])?>" />
                         <?php else : ?>

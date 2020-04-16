@@ -32,7 +32,7 @@
 </div>
 
 <div class="form-group">
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/generalsettings','Secret hash, this is used when auto creation is disabled');?>, <a href="http://livehelperchat.com/documentation-6c.html"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/generalsettings','more information on how to use it');?></a></label>
+<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/generalsettings','Secret hash, this is used when auto creation is disabled');?>, <a rel="noreferrer" href="http://livehelperchat.com/documentation-6c.html"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/generalsettings','more information on how to use it');?></a></label>
 <input class="form-control" type="text" name="SecretHash" value="<?php (isset($chatbox_data['chatbox_secret_hash']) && $chatbox_data['chatbox_secret_hash'] != '') ? print $chatbox_data['chatbox_secret_hash'] : print erLhcoreClassChat::generateHash() ?>" />
 </div>
 
