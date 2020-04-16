@@ -34,7 +34,7 @@ class erLhcoreClassBBCode
        $url = self::esc_url($url);
        if ( empty($url) )
            return $matches[0];
-       return $matches[1] . "<a href=\"$url\" class=\"link\" rel=\"noopener\" target=\"_blank\" rel=\"nofollow\">$url</a>" . $suffix;
+       return $matches[1] . "<a href=\"$url\" class=\"link\" rel=\"noreferrer\" target=\"_blank\">$url</a>" . $suffix;
    }
    
    /**
@@ -730,7 +730,7 @@ class erLhcoreClassBBCode
        if ( empty($dest) )
            return $matches[0];
        
-       return $matches[1] . "<a href=\"$dest\" class=\"link\" rel=\"noreferrer\" target=\"_blank\" rel=\"nofollow\">$dest</a>$ret";
+       return $matches[1] . "<a href=\"$dest\" class=\"link\" rel=\"noreferrer\" target=\"_blank\">$dest</a>$ret";
    }
    
    /**
