@@ -243,7 +243,7 @@ class erLhcoreClassGenericBotActionRestapi
             foreach ($methodSettings['output'] as $outputCombination)
             {
                 // Verify HTTP Status code
-                if (isset($outputCombination['success_header']) && empty($outputCombination['success_header']) || in_array((string)$httpcode,explode(',',$outputCombination['success_header']))){
+                if (!isset($outputCombination['success_header']) || $outputCombination['success_header'] == '' || in_array((string)$httpcode,explode(',',$outputCombination['success_header']))){
 
                     if (isset($outputCombination['success_location']) && $outputCombination['success_location'] != '') {
                         $contentJSON = json_decode($content, true);

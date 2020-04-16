@@ -100,6 +100,43 @@ class erLhcoreClassGenericBotActionCommand {
                 ));
             }
 
+        } elseif ($action['content']['command'] == 'chatattribute') {
+
+            $variablesArray = (array)$chat->additional_data_array;
+
+            $variablesAppend = json_decode($action['content']['payload'],true);
+
+            if (is_array($variablesAppend)) {
+
+                $updatedIdentifiers = array();
+
+                // Update and insert new one.
+                foreach ($variablesAppend as $value) {
+                    if (isset($value['identifier']) && isset($value['key']) && isset($value['value']) && $value['key'] != '' && $value['identifier'] != '' && $value['value'] != '') {
+                        foreach ($variablesArray as $indexVariable => $variableData) {
+                            if ($variableData['identifier'] == $value['identifier']) {
+                                $variablesArray[$indexVariable]['value'] = isset($params['replace_array']) ? str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$value['value']) : $value['value'];
+                                $updatedIdentifiers[] = $value['identifier'];
+                            }
+                        }
+                    }
+                }
+
+                foreach ($variablesAppend as $value) {
+                    if (isset($value['identifier']) && isset($value['key']) && isset($value['value']) && $value['key'] != '' && $value['identifier'] != '' && $value['value'] != '' && !in_array($value['identifier'],$updatedIdentifiers)) {
+                        $variablesArray[] = array(
+                            'identifier' => $value['identifier'],
+                            'key' => $value['key'],
+                            'value' => (isset($params['replace_array']) ? str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$value['value']) : $value['value'])
+                        );
+                    }
+                }
+
+                $chat->additional_data = json_encode($variablesArray);
+                $chat->additional_data_array = $variablesArray;
+                $chat->updateThis(array('update' => array('additional_data')));
+            }
+
         } elseif ($action['content']['command'] == 'chatvariable') {
 
                 $variablesArray = (array)$chat->chat_variables_array;
