@@ -21,20 +21,18 @@ class ChatSound extends PureComponent {
             if (e.sound_on === true && (e.widget_open === false || (e.widget_open === true && window.lhcChat['is_focused'] == false))) {
                 this.playSoundFile('new_message');
             }
-
             if (e.widget_open == false) {
                 helperFunctions.sendMessageParent('unread_message',[{'type' : 'unread_message'}]);
             }
-
-            if (window.lhcChat['is_focused'] == false) {
-                helperFunctions.sendMessageParent('unread_message_title',[{'status':false}]);
-            }
-
         } else if (e.type == 'new_invitation' && e.sound_on === true) {
              if (helperFunctions.getSessionStorage('lhc_invs') === null) {
                  helperFunctions.setSessionStorage('lhc_invs',1);
                  this.playSoundFile('new_invitation');
              }
+        }
+
+        if (window.lhcChat['is_focused'] == false) {
+            helperFunctions.sendMessageParent('unread_message_title',[{'status':false}]);
         }
     }
 
