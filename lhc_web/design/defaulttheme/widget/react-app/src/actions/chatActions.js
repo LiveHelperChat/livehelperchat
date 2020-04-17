@@ -182,12 +182,25 @@ export function initOnlineForm(obj) {
     }
 }
 
-export function getCaptcha(dispatch) {
+export function getCaptcha(dispatch, form, obj) {
     var date = new Date();
     var timestamp = Math.round(date.getTime()/1000);
     axios.post(window.lhcChat['base_url'] + "captcha/captchastring/fake/" + timestamp)
     .then((response) => {
-        dispatch({type: "captcha", data: {'hash' : response.data.result, 'ts' : timestamp}})
+        dispatch({type: "captcha", data: {'hash' : response.data.result, 'ts' : timestamp}});
+
+        // Update submit object instantly
+        obj.fields['captcha_' + response.data.result] = timestamp;
+        obj.fields['tscaptcha'] = timestamp;
+
+        // We auto resubmit only one time
+        if (!obj.fields['tscaptcha_resubmit']) {
+            obj.fields['tscaptcha_resubmit'] = 1;
+            form(obj)(dispatch);
+        } else {
+            delete obj.fields['tscaptcha_resubmit'];
+        }
+
     });
 }
 
@@ -199,7 +212,10 @@ export function submitOnlineForm(obj) {
 
             // If validation contains invalid captcha update it instantly
             if (response.data.success === false && response.data.errors.captcha) {
-                getCaptcha(dispatch);
+                getCaptcha(dispatch, submitOnlineForm, obj);
+                if (!obj.fields['tscaptcha_resubmit']) {
+                    return;
+                }
             }
 
             dispatch({type: "ONLINE_SUBMITTED", data: response.data});
@@ -215,6 +231,15 @@ export function submitOfflineForm(obj) {
         dispatch({type: "OFFLINE_SUBMITTING"});
         axios.post(window.lhcChat['base_url'] + "widgetrestapi/submitoffline", obj)
         .then((response) => {
+
+            // If validation contains invalid captcha update it instantly
+            if (response.data.success === false && response.data.errors.captcha) {
+                getCaptcha(dispatch, submitOfflineForm, obj);
+                if (!obj.fields['tscaptcha_resubmit']) {
+                    return;
+                }
+            }
+
             dispatch({type: "OFFLINE_SUBMITTED", data: response.data})
         })
         .catch((err) => {

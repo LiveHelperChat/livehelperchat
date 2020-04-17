@@ -10,10 +10,12 @@ class ChatErrorList extends Component {
     render() {
 
         var mappedFields = this.props.errors.mapEntries(([k, v]) => {
-            return [<li>{v}</li>]
+            if (k == 'captcha') {
+                return [<li>{v}</li>]
+            }
         });
 
-        if (this.props.errors.size > 0) {
+        if (mappedFields.size > 0) {
             return (
                 <div data-alert="" className="mt-2 alert alert-danger alert-dismissible fade show">
                     <button type="button" className="close" data-dismiss="alert" aria-label="Close">
