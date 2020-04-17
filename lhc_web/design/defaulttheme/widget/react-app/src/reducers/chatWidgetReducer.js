@@ -194,7 +194,7 @@ const chatWidgetReducer = (state = initialState, action) => {
 
                 return state.set('processStatus', 2).set('isChatting',true).set('chatData',fromJS(action.data.chatData)).set('validationErrors',fromJS({}));;
             } else {
-                return state.set('validationErrors',fromJS(action.data.errors)).set('processStatus',0);
+                return state.set('validationErrors',fromJS(action.data.errors)).set('processStatus',0).setIn(['chat_ui','auto_start'],false);
             }
         }
 
