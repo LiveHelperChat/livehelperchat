@@ -404,6 +404,20 @@
                 }
             });
 
+            attributesWidget.originalTitle = document.title;
+            attributesWidget.blinkInterval = null;
+
+            attributesWidget.eventEmitter.addListener('unread_message_title',(data) => {
+                clearInterval(attributesWidget.blinkInterval);
+                if (data.status == false) {
+                    attributesWidget.blinkInterval = setInterval(() => {
+                        document.title = (Math.round(new Date().getTime() / 1000) % 2) ? '💬 ' + attributesWidget.originalTitle : attributesWidget.originalTitle;
+                    },1000);
+                } else {
+                    document.title = attributesWidget.originalTitle;
+                }
+            });
+
             attributesWidget.eventEmitter.addListener('widgetHeight',(data) => {
 
                 if (data.reset_height) {
@@ -478,6 +492,16 @@
                     if (attributesWidget.storageHandler.getSessionStorage('LHC_screenshare')){
                         attributesWidget.eventEmitter.emitEvent('screenshare',[{'auto_start' : true}]);
                     }
+
+                    const focusChangeCb = (e) => {
+                        const focused = e.type === "focus";
+                        chatEvents.sendChildEvent('focus_changed', [{'status' : focused}]);
+                    };
+
+                    window.addEventListener('focus',focusChangeCb);
+                    window.addEventListener('blur',focusChangeCb);
+                    window.addEventListener('pageshow',focusChangeCb);
+                    window.addEventListener('pagehide',focusChangeCb);
 
                 } else {
                      attributesWidget.eventEmitter.emitEvent(parts[1], JSON.parse(parts[2]));

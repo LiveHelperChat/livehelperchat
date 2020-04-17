@@ -9,24 +9,6 @@ class _helperFunctions {
 
     emitEvent(event, data, internal) {
         this.eventEmitter.emitEvent(event,data);
-
-        /*let eventEmiter = null;
-        if (window.parent && window.parent.$_LHC && window.parent.closed === false) {
-            eventEmiter = window.parent.$_LHC.eventListener;
-        } else if (window.opener && window.opener.$_LHC && window.opener.closed === false) {
-            eventEmiter = window.opener.$_LHC.eventListener;
-        } else {
-            eventEmiter = window.lhcChat.eventEmitter;
-        }
-
-        if (eventEmiter) {
-            eventEmiter.emitEvent(event, data);
-
-            // Emiter changed because we are in popup mode and parent window was refreshed.
-            if (eventEmiter !== window.lhcChat.eventEmitter) {
-                window.lhcChat.eventEmitter.emitEvent(event, data);
-            }
-        }*/
     }
 
     sendMessageParent(key, data) {

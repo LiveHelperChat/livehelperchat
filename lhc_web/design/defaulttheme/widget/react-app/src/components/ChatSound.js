@@ -18,21 +18,35 @@ class ChatSound extends PureComponent {
 
     playSound = (e) => {
         if (e.type == 'new_message') {
-            if (e.sound_on === true) {
-                var sound = new Howl({
-                    src: [
-                        window.lhcChat['base_url'] + "/widgetrestapi/loadsound/new_message_mp3",
-                        window.lhcChat['base_url'] + "/widgetrestapi/loadsound/new_message_ogg",
-                        window.lhcChat['base_url'] + "/widgetrestapi/loadsound/new_message_wav"],
-                    format: ['mp3', 'ogg', 'wav'],
-                    autoplay : true
-                });
+            if (e.sound_on === true && (e.widget_open === false || (e.widget_open === true && window.lhcChat['is_focused'] == false))) {
+                this.playSoundFile('new_message');
             }
 
             if (e.widget_open == false) {
                 helperFunctions.sendMessageParent('unread_message',[{'type' : 'unread_message'}]);
             }
+
+            if (window.lhcChat['is_focused'] == false) {
+                helperFunctions.sendMessageParent('unread_message_title',[{'status':false}]);
+            }
+
+        } else if (e.type == 'new_invitation' && e.sound_on === true) {
+             if (helperFunctions.getSessionStorage('lhc_invs') === null) {
+                 helperFunctions.setSessionStorage('lhc_invs',1);
+                 this.playSoundFile('new_invitation');
+             }
         }
+    }
+
+    playSoundFile = (file) => {
+        var sound = new Howl({
+            src: [
+                window.lhcChat['base_url'] + "/widgetrestapi/loadsound/"+file+"_mp3",
+                window.lhcChat['base_url'] + "/widgetrestapi/loadsound/"+file+"_ogg",
+                window.lhcChat['base_url'] + "/widgetrestapi/loadsound/"+file+"_wav"],
+            format: ['mp3', 'ogg', 'wav'],
+            autoplay : true
+        });
     }
 
     render() {

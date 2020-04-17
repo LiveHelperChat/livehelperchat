@@ -98,12 +98,6 @@ export class statusWidget{
         if (attributes.storageHandler.getSessionStorage('LHC_UNR') == "1") {
             this.showUnreadIndicator();
         }
-
-        attributes.eventEmitter.addListener('focusChanged', (status) => {
-            if (status == true) {
-                this.removeUnreadIndicator();
-            }
-        });
     }
 
     hide () {

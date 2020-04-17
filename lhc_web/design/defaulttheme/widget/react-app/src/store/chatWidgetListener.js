@@ -1,4 +1,4 @@
-import { endChat, initChatUI, pageUnload, focusChange, storeSubscriber, initProactive } from "../actions/chatActions"
+import { endChat, initChatUI, pageUnload, storeSubscriber, initProactive } from "../actions/chatActions"
 import { helperFunctions } from "../lib/helperFunctions";
 import i18n from "../i18n";
 
@@ -18,7 +18,16 @@ export default function (dispatch, getState) {
         {id : 'toggleSound',cb : (data) => {dispatch({type: 'toggleSound', data: data})}},
         {id : 'widgetStatus',cb : (data) => {dispatch({type: 'widgetStatus', data: data})}},
         {id : 'jsVars',cb : (data) => {dispatch({type: 'jsVars', data: data})}},
-        {id : 'proactive', cb : (data) => {dispatch(initProactive(data))}}
+        {id : 'proactive', cb : (data) => {dispatch(initProactive(data))}},
+        {id : 'focus_changed', cb : (data) => {
+                var newValue = data.status || document.hasFocus();
+                if (newValue != window.lhcChat['is_focused']){
+                    window.lhcChat['is_focused'] = newValue;
+                    if (newValue == true) {
+                        helperFunctions.sendMessageParent('unread_message_title',[{'status':true}]);
+                    }
+                }
+        }}
     ];
 
     // Event listeners
@@ -73,6 +82,7 @@ export default function (dispatch, getState) {
             window.lhcChat['base_url'] = paramsInit['base_url'] + (paramsInit['lang'] && paramsInit['lang'] != '' ? paramsInit['lang'].replace('/','') + '/' : '');
             window.lhcChat['staticJS'] = paramsInit['staticJS'];
             window.lhcChat['mode'] = paramsInit['mode'];
+            window.lhcChat['is_focused'] = false;
 
             __webpack_public_path__ = window.lhcChat['staticJS']['chunk_js'] + "/";
 
@@ -130,15 +140,18 @@ export default function (dispatch, getState) {
                 }
             });
 
-            if (paramsInit['mode'] == 'popup') {
-                const focusChangeCb = (e) => {
-                    const focused = e.type === "focus";
-                    dispatch(focusChange(focused));
-                };
+            const focusChangeCb = (e) => {
+                const focused = e.type === "focus";
+                if (focused == true) {
+                    helperFunctions.sendMessageParent('unread_message_title',[{'status':true}]);
+                }
+                window.lhcChat['is_focused'] = focused;
+            };
 
-                window.onpageshow = window.onfocus = focusChangeCb;
-                window.onpagehide = window.onblur = focusChangeCb;
-            }
+            window.addEventListener('focus', focusChangeCb);
+            window.addEventListener('blur', focusChangeCb);
+            window.addEventListener('pageshow', focusChangeCb);
+            window.addEventListener('pagehide', focusChangeCb);
 
             if (paramsInit['mode'] == 'popup') {
                 helperFunctions.sendMessageParent('endChatCookies');

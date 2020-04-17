@@ -434,9 +434,3 @@ export function userTyping(status, msg) {
         }
     }
 }
-
-export function focusChange(status) {
-    return function(dispatch) {
-        helperFunctions.sendMessageParent('focusChanged',[status]);
-    }
-}
