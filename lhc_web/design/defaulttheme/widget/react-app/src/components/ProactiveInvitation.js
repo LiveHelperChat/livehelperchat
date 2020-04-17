@@ -28,8 +28,6 @@ class ProactiveInvitation extends Component {
             helperFunctions.emitEvent('play_sound', [{'type' : 'new_invitation', 'sound_on' : (this.props.chatwidget.getIn(['proactive','data','play_sound']) === true), 'widget_open' : ((this.props.chatwidget.get('shown') && this.props.chatwidget.get('mode') == 'widget') || document.hasFocus())}]);
         }
 
-        sound_invitation
-
         if (document.getElementById('id-invitation-height')) {
             setTimeout(()=> {
                 helperFunctions.sendMessageParent('widgetHeight', [{
