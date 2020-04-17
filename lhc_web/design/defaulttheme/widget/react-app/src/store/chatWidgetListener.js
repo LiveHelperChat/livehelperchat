@@ -82,7 +82,7 @@ export default function (dispatch, getState) {
             window.lhcChat['base_url'] = paramsInit['base_url'] + (paramsInit['lang'] && paramsInit['lang'] != '' ? paramsInit['lang'].replace('/','') + '/' : '');
             window.lhcChat['staticJS'] = paramsInit['staticJS'];
             window.lhcChat['mode'] = paramsInit['mode'];
-            window.lhcChat['is_focused'] = false;
+            window.lhcChat['is_focused'] = true;
 
             __webpack_public_path__ = window.lhcChat['staticJS']['chunk_js'] + "/";
 

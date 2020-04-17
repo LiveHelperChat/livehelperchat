@@ -21,6 +21,7 @@ class ChatSound extends PureComponent {
             if (e.sound_on === true && (e.widget_open === false || (e.widget_open === true && window.lhcChat['is_focused'] == false))) {
                 this.playSoundFile('new_message');
             }
+
             if (e.widget_open == false) {
                 helperFunctions.sendMessageParent('unread_message',[{'type' : 'unread_message'}]);
             }
@@ -34,6 +35,7 @@ class ChatSound extends PureComponent {
         if (window.lhcChat['is_focused'] == false) {
             helperFunctions.sendMessageParent('unread_message_title',[{'status':false}]);
         }
+
     }
 
     playSoundFile = (file) => {
