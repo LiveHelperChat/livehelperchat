@@ -51,6 +51,8 @@ $outputResponse['qinv'] = isset($onlineUser->online_attr_system_array['qinv']);
 
 $outputResponse['message'] = erLhcoreClassBBCode::make_clickable(htmlspecialchars($onlineUser->operator_message_front));
 
+$outputResponse['play_sound'] = erLhcoreClassModelChatConfig::fetch('sound_invitation')->current_value == 1;
+
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
 exit;
 ?>
