@@ -56,7 +56,8 @@
 			</div>
 		</div>
 		<div class="col-3">
-			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Is required')?> <input ng-model="startChat.isrequired" type="checkbox" name="isRequired" /></label>
+			<label><input ng-model="startChat.isrequired" type="checkbox" name="isRequired" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Is required')?> </label><br/>
+            <label><input ng-model="startChat.hide_prefilled" type="checkbox" name="hidePrefilled" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hide if prefilled')?></label>
 		</div>
         <div class="col-3">
             <div class="form-group">
@@ -127,7 +128,8 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <label><input ng-model="field.isrequired" type="checkbox" name="customFieldIsrequired[]" value="true" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Is required')?></label>
+                    <label><input ng-model="field.isrequired" type="checkbox" name="customFieldIsrequired[]" value="true" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Is required')?></label><br>
+                    <label><input ng-model="field.hide_prefilled" type="checkbox" name="customFieldHidePrefilled[]" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hide if prefilled')?></label>
                 </div>
             </div>
 

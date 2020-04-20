@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 
 class ChatField extends Component {
 
+    state = {
+        hiddenIfPrefilled: false
+    };
+
     constructor(props) {
         super(props);
         this.onchangeAttr = this.onchangeAttr.bind(this);
@@ -17,9 +21,25 @@ class ChatField extends Component {
         } else if (this.props.field.get('type') == 'dropdown') {
             this.props.onChangeContent({id : this.props.field.get('name'), value : this.props.defaultValueField});
         }
+
+        if (this.props.attrPrefill && this.props.attrPrefill.attr_prefill_admin) {
+            this.props.attrPrefill.attr_prefill_admin.forEach((item) => {
+                if (item.index == this.props.field.get('identifier') || (this.props.field.has('identifier_prefill') && item.index == this.props.field.get('identifier_prefill'))) {
+                    this.props.onChangeContent({id : this.props.field.get('name'), value : item.value});
+                    // Hide only valid prefilled fields
+                    if (this.props.field.has('hide_prefilled') && this.props.field.get('hide_prefilled') == true && this.props.isInvalid === false) {
+                        this.setState({'hiddenIfPrefilled':true});
+                    }
+                }
+            });
+        }
     }
 
     render() {
+
+        if (this.state.hiddenIfPrefilled === true && this.props.isInvalid !== true) {
+            return null;
+        }
 
         var className = 'col-' + this.props.field.get('width');
         var required = this.props.field.get('required') === true;

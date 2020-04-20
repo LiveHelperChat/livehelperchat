@@ -113,6 +113,15 @@ class chatEventsHandler {
             attr['attr_prefill'] = prefilOptionsList;
         }
 
+        if (window.LHCChatOptions && window.LHCChatOptions.attr_prefill_admin) {
+            var prefillOptions = window.LHCChatOptions.attr_prefill_admin;
+            let prefilOptionsList = [];
+            prefillOptions.forEach((item) => {
+                  prefilOptionsList.push({'value' : item.value, 'index' : item.index});
+            })
+            attr['attr_prefill_admin'] = prefilOptionsList;
+        }
+
         if (this.attributes['userSession'].getSessionReferrer() !== null) {
             attr['ses_ref'] = this.attributes['userSession'].getSessionReferrer()
         }

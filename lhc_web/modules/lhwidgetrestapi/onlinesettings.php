@@ -156,6 +156,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name'),
             'class' => 'form-control form-control-sm',
             'required' => (isset($start_data_fields['offline_name_require_option']) && $start_data_fields['offline_name_require_option'] == 'required'),
+            'hide_prefilled' => (isset($start_data_fields['offline_name_hidden_prefilled']) && $start_data_fields['offline_name_hidden_prefilled'] == true),
             'name' => 'Username',
             'identifier' => 'username',
             'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your name')
@@ -185,6 +186,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'class' => 'form-control form-control-sm',
             'required' => (isset($start_data_fields['offline_phone_require_option']) && $start_data_fields['offline_phone_require_option'] == 'required'),
             'name' => 'Phone',
+            'hide_prefilled' => (isset($start_data_fields['offline_phone_hidden_prefilled']) && $start_data_fields['offline_phone_hidden_prefilled'] == true),
             'identifier' => 'phone',
             'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your phone'),
         );
@@ -215,6 +217,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your question'),
             'class' => 'form-control form-control-sm',
             'required' => (isset($start_data_fields['offline_message_require_option']) && $start_data_fields['offline_message_require_option'] == 'required'),
+            'hide_prefilled' => (isset($start_data_fields['offline_message_hidden_prefilled']) && $start_data_fields['offline_message_hidden_prefilled'] == true),
             'name' => 'Question',
             'identifier' => 'question',
             'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message'),
@@ -252,6 +255,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'required' => (isset($start_data_fields['name_require_option']) && $start_data_fields['name_require_option'] == 'required'),
             'name' => 'Username',
             'identifier' => 'username',
+            'hide_prefilled' => (isset($start_data_fields['name_hidden_prefilled']) && $start_data_fields['name_hidden_prefilled'] == true),
             'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Enter your name')
         );
     }
@@ -267,6 +271,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'class' => 'form-control form-control-sm',
             'required' => (isset($start_data_fields['email_require_option']) && $start_data_fields['email_require_option'] == 'required' ? true : false),
             'name' => 'Email',
+            'hide_prefilled' => (isset($start_data_fields['email_hidden_prefilled']) && $start_data_fields['email_hidden_prefilled'] == true),
             'identifier' => 'email',
             'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Enter your email address'),
         );
@@ -283,6 +288,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'class' => 'form-control form-control-sm',
             'required' => (isset($start_data_fields['phone_require_option']) && $start_data_fields['phone_require_option'] == 'required'),
             'name' => 'Phone',
+            'hide_prefilled' => (isset($start_data_fields['phone_hidden_prefilled']) && $start_data_fields['phone_hidden_prefilled'] == true),
             'identifier' => 'phone',
             'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Enter your phone'),
         );
@@ -307,6 +313,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'required' => (isset($start_data_fields['message_require_option']) && $start_data_fields['message_require_option'] == 'required'),
             'name' => 'Question',
             'identifier' => 'question',
+            'hide_prefilled' => (isset($start_data_fields['message_hidden_prefilled']) && $start_data_fields['message_hidden_prefilled'] == true),
             'placeholder' => $placeholderMessage,
         );
     }
@@ -349,6 +356,8 @@ if (isset($start_data_fields['custom_fields']) && $start_data_fields['custom_fie
                     'required' => $adminField['isrequired'] == 'true',
                     'name' => 'value_items_admin_'. $key,
                     'identifier' => 'value_items_admin_' . $key,
+                    'identifier_prefill' => $adminField['fieldidentifier'],
+                    'hide_prefilled' => ((isset($adminField['hide_prefilled']) && $adminField['hide_prefilled'] == true) ? true : false),
                     'value' => $adminField['defaultvalue'],
                 );
 

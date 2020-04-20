@@ -26,6 +26,7 @@ lhcAppControllers.controller('StartChatFormCtrl',['$scope','$http','$location','
 				'fieldidentifier' : that.fieldidentifier,
 				'size' : that.size,
 				'isrequired' : that.isrequired,
+				'hide_prefilled' : that.hide_prefilled,
 				'options' : that.options,
 				'showcondition' : that.showcondition
 			});

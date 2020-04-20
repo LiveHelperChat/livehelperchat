@@ -24,6 +24,7 @@ const initialState = fromJS({
     onlineData: {'fetched' : false},
     customData: {'fields' : []},
     attr_prefill: [],
+    attr_prefill_admin: [],
     extension: {}, // Holds extensions data for reuse
     chat_ui : {}, // Settings from themes, UI
     chat_ui_state : {'confirm_close': 0, 'show_survey' : 0}, // Settings from themes, UI we store our present state here
@@ -330,6 +331,10 @@ const chatWidgetReducer = (state = initialState, action) => {
 
         case 'attr_prefill': {
             return state.set('attr_prefill', action.data);
+        }
+
+        case 'attr_prefill_admin': {
+            return state.set('attr_prefill_admin', action.data);
         }
 
         case 'phash': {
