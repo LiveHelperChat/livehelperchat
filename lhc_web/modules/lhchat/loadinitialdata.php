@@ -115,7 +115,7 @@ if (is_array($Params['user_parameters_unordered']['chatopen']) && !empty($Params
         if (erLhcoreClassChat::hasAccessToRead($chat)){
             $chatOpen[] = array(
                 'id' => $chat->id,
-                'nick' => erLhcoreClassDesign::shrt($chat->nick,10,'...',30,ENT_QUOTES),
+                'nick' => erLhcoreClassDesign::shrt($chat->nick,10,'...',30,ENT_QUOTES)
             );
         } else {
             $chatDel[] = (int)$chat->id;

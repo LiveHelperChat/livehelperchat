@@ -7,7 +7,11 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/above_messages_block.tpl.php')); ?>
 
 		<div class="message-block">
-            <?php $LastMessageID = 0; $messages = erLhcoreClassChat::getChatMessages($chat->id, erLhcoreClassChat::$limitMessages); ?>
+            <?php
+                $LastMessageID = 0;
+                $messages = erLhcoreClassChat::getChatMessages($chat->id, erLhcoreClassChat::$limitMessages);
+                $current_user_id = erLhcoreClassUser::instance()->getUserID();
+            ?>
 
             <?php include(erLhcoreClassDesign::designtpl('lhchat/part/load_previous.tpl.php'));?>
 

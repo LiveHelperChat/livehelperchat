@@ -411,7 +411,6 @@ div.message-admin{
 	text-align:right;
 }
 
-
 div.message-admin div.msg-body{
 	margin-right:0px;
 	background-color: #3267e4;
@@ -427,11 +426,14 @@ div.message-admin div.msg-body{
 	max-width:85%;
 }
 
+div.other-operator div.msg-body{
+    background-color: #5585ff;
+}
+
 div.message-admin div.msg-body a.link{
 	color:#fff;
 	text-decoration:underline;
 }
-
 
 div.message-row-typing div.msg-body {
 	background-color: #d0d0d0;

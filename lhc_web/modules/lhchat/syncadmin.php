@@ -75,7 +75,8 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 		
 		                $tpl->set('messages',$Messages);
 		                $tpl->set('chat',$Chat);
-		
+		                $tpl->set('current_user_id',$currentUser->getUserID());
+
 		                $msgText = '';
 		                if ($userOwner == 'true') {
 		                	foreach ($Messages as $msg) {

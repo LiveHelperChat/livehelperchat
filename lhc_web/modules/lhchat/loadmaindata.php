@@ -8,6 +8,34 @@ $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id
 
 if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRead($chat) ) {
 
+    if ($chat->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) {
+        if ($currentUser->getUserID() != $chat->user_id && $chat->user_id > 0 && $chat->n_off_full !== false) {
+            $nick = $chat->n_off_full;
+        } elseif ($currentUser->getUserID() != $chat->sender_user_id && $chat->sender_user_id > 0) {
+            try {
+                $nick = erLhcoreClassModelUser::fetch($chat->sender_user_id)->name_official;
+            } catch (Exception $e) {
+
+            }
+        }
+
+        $items[] = array (
+            'selector' => '#user-chat-status-' . $chat->id,
+            'attr' => array(
+                'text' => 'group'
+            )
+        );
+
+        if (isset($nick)) {
+            $items[] = array (
+                'selector' => '#ntab-chat-' . $chat->id,
+                'attr' => array(
+                    'text' => erLhcoreClassDesign::shrt($nick,10,'...',30,ENT_QUOTES),
+                )
+            );
+        }
+    }
+
     $messages = erLhcoreClassChat::getChatMessages($chat->id, erLhcoreClassChat::$limitMessages);
 
     $dataPrevious = erLhcoreClassChatWorkflow::hasPreviousChats(array(

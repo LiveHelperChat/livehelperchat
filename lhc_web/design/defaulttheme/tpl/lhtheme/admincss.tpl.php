@@ -195,9 +195,29 @@ a {
 
 <?php endif; ?>
 
+<?php if (isset($cssAttributes['buble_operator_other_background']) || isset($cssAttributes['buble_operator_other_text_color'])) : ?>
+div.other-operator div.msg-body{
+    <?php if (isset($cssAttributes['buble_operator_other_background'])) : ?>background-color: #<?php echo $cssAttributes['buble_operator_other_background'];?>;<?php endif;?>
+    <?php if (isset($cssAttributes['buble_operator_other_text_color'])) : ?>color: #<?php echo $cssAttributes['buble_operator_other_text_color'];?>;<?php endif; ?>
+}
+
+<?php if (isset($cssAttributes['buble_operator_other_text_color'])) : ?>
+div.other-operator div.msg-body a.link{
+    color: #<?php echo $cssAttributes['buble_operator_other_text_color'];?>;
+}
+<?php endif; ?>
+
+<?php endif; ?>
+
 <?php if (isset($cssAttributes['buble_operator_title_color'])) : ?>
     .op-tit{
         color: #<?php echo $cssAttributes['buble_operator_title_color'];?>
+    }
+<?php endif; ?>
+
+<?php if (isset($cssAttributes['buble_operator_other_title_color'])) : ?>
+    div.other-operator .op-tit{
+        color: #<?php echo $cssAttributes['buble_operator_other_title_color'];?>
     }
 <?php endif; ?>
 

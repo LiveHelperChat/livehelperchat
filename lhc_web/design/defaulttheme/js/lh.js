@@ -167,7 +167,11 @@ function lh(){
 
                 if (typeof dataElement.attr !== 'undefined') {
                     $.each(dataElement.attr, function( attr, data ) {
-                        el.attr(attr,data);
+                        if (attr == 'text') {
+                            el.text(data);
+                        } else {
+                            el.attr(attr,data);
+                        }
                     });
                 }
 
@@ -298,7 +302,7 @@ function lh(){
         }
     };
 
-    this.addTab = function(tabs, url, name, chat_id, focusTab, position) {    
+    this.addTab = function(tabs, url, name, chat_id, focusTab, position) {
     	// If tab already exits return
     	if (tabs.find('#chat-tab-link-'+chat_id).length > 0) {
     		return ;

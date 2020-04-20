@@ -1242,7 +1242,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			}
 
             angular.forEach(data.copen, function(chatOpen) {
-                lhinst.startChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate(chatOpen.nick,10), false);
+                lhinst.startChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate(chatOpen.nick,10), false, 0, chatOpen.status);
             });
 
             angular.forEach(data.cdel, function(chatOpen) {

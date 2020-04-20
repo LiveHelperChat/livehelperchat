@@ -26,7 +26,7 @@
 			<div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Name');?>*</label> 
 				<input type="text" class="form-control" name="Name" value="<?php echo htmlspecialchars($form->name) ?>" />
-			</div>				
+			</div>
 		</div>
 
 
@@ -34,7 +34,7 @@
 
                 <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Live preview')?></h3>
                 <div id="messages">
-                    <div class="msgBlock msgBlock-admin" style="height:300px;background-color: #{{bactract_bg_color_chat_bg}}">
+                    <div class="msgBlock msgBlock-admin" style="height:330px;background-color: #{{bactract_bg_color_chat_bg}}">
                         <div class="message-row response">
                             <div class="msg-date" style="color:#{{bactract_bg_color_time_color}}">10:14:39</div>
                             <span style="color:#{{bactract_bg_color_buble_visitor_title_color}}" class="usr-tit vis-tit" role="button"><i class="material-icons chat-operators mi-fs15 mr-0">face</i>Visitor</span>
@@ -47,8 +47,13 @@
                         </div>
                         <div class="message-row message-admin operator-changes">
                             <div class="msg-date" style="color:#{{bactract_bg_color_time_color}}">10:18:22</div>
-                            <span style="color:#{{bactract_bg_color_buble_operator_title_color}}" class="usr-tit op-tit" ><i class="material-icons chat-operators mi-fs15 mr-0">account_box</i>Operator</span>
+                            <span style="color:#{{bactract_bg_color_buble_operator_title_color}}" class="usr-tit op-tit" ><i class="material-icons chat-operators mi-fs15 mr-0">account_box</i>Operator 1</span>
                             <div class="msg-body" style="color:#{{bactract_bg_color_buble_operator_text_color}};background-color: #{{bactract_bg_color_buble_operator_background}};">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                        </div>
+                        <div class="message-row message-admin operator-changes">
+                            <div class="msg-date" style="color:#{{bactract_bg_color_time_color}}">10:18:22</div>
+                            <span style="color:#{{bactract_bg_color_buble_operator_other_title_color}}" class="usr-tit op-tit" ><i class="material-icons chat-operators mi-fs15 mr-0">account_box</i>Operator 2</span>
+                            <div class="msg-body" style="color:#{{bactract_bg_color_buble_operator_other_text_color}};background-color: #{{bactract_bg_color_buble_operator_other_background}};">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
                         </div>
                     </div>
                 </div>
@@ -83,6 +88,7 @@
                             <?php echo erLhcoreClassAbstract::renderInput('buble_operator_background', $fields['buble_operator_background'], $form)?>
                         </div>
                     </div>
+
                     <div class="col">
                         <div class="form-group">
                             <label><?php echo $fields['buble_operator_title_color']['trans'];?></label>
@@ -96,6 +102,29 @@
                         </div>
                     </div>
                 </div>
+
+            <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Other Operator messages style')?></h5>
+            <p>If other operator writes a message in the chat this is how their message will look a like.</p>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label><?php echo $fields['buble_operator_other_background']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('buble_operator_other_background', $fields['buble_operator_other_background'], $form)?>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label><?php echo $fields['buble_operator_other_title_color']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('buble_operator_other_title_color', $fields['buble_operator_other_title_color'], $form)?>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label><?php echo $fields['buble_operator_other_text_color']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('buble_operator_other_text_color', $fields['buble_operator_other_text_color'], $form)?>
+                    </div>
+                </div>
+            </div>
 
                 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','System assistant messages style')?></h5>
                 <div class="row">

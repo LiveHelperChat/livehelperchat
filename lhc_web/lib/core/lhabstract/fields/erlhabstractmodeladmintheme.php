@@ -32,7 +32,16 @@ return array(
     'buble_operator_background' => array(
         'type' => 'colorpicker',
         'main_attr' => 'css_attributes_array',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Buble background color'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','My messages bubble background color'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
+    'buble_operator_other_background' => array(
+        'type' => 'colorpicker',
+        'main_attr' => 'css_attributes_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Other operator bubble background color'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
@@ -47,7 +56,25 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )),
+    'buble_operator_other_title_color' => array(
+        'type' => 'colorpicker',
+        'main_attr' => 'css_attributes_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Title color'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
     'buble_operator_text_color' => array(
+        'type' => 'colorpicker',
+        'main_attr' => 'css_attributes_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text color'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
+    'buble_operator_other_text_color' => array(
         'type' => 'colorpicker',
         'main_attr' => 'css_attributes_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text color'),
