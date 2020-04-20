@@ -50,6 +50,10 @@
             LHC_API.args = LHC_API.args || {};
             var storageHandler = new storageHandler(global, LHC_API.args.domain || null);
 
+            if (LHC_API.args.cookie_per_page) {
+                storageHandler.setCookiePerPage(LHC_API.args.cookie_per_page);
+            }
+
             var referrer = (document.referrer) ? document.referrer.substr(document.referrer.indexOf('://')+1) : '';
             var location  = (document.location) ? encodeURIComponent(window.location.href.substring(window.location.protocol.length)) : '';
 

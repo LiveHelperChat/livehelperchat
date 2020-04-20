@@ -6,10 +6,15 @@ export class storageHandler {
         this.hasSessionStorage = this.isCookieEnabled && !!this.window.sessionStorage;
         this.domain = domain;
         this.secureCookie = false;
+        this.cookiePerPage = false;
     }
 
     setCookieDomain(domain) {
         this.domain = domain;
+    }
+
+    setCookiePerPage(cookiePerPage) {
+        this.cookiePerPage = cookiePerPage;
     }
 
     getCookieDomain() {
@@ -27,7 +32,7 @@ export class storageHandler {
     setHTTPCookie(coookieName, cookieValue, expireTime, domain) {
         var string = "";
         expireTime || (expireTime = new Date, expireTime.setTime(expireTime.getTime() + 15552E6), string = "; expires=" + expireTime.toGMTString());
-        document.cookie = coookieName + "=" + cookieValue + string + "; path=/" + (this.secureCookie ? ";secure" : "") + (domain ? ";domain=" + domain : "");
+        document.cookie = coookieName + "=" + cookieValue + string + (this.cookiePerPage === false ? "; path=/" : (this.cookiePerPage === true ? "" : '; path=' + this.cookiePerPage)) + (this.secureCookie ? ";secure" : "") + (domain ? ";domain=" + domain : "");
     };
 
     getHTTPCookie(cookieName) {
