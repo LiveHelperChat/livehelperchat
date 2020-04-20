@@ -52,6 +52,10 @@
             $params['jsVars'] = $jsVars;
         }
 
+        if (isset($prefill_admin)) {
+            $params['attr_prefill_admin'] = $prefill_admin;
+        }
+
         echo json_encode($params); ?>);
 </script>
 <?php endif;?>

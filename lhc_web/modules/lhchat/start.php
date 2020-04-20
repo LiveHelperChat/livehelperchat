@@ -68,6 +68,14 @@ if (isset($_GET['prefill']) && is_array($_GET['prefill']) && !empty($_GET['prefi
     $tpl->set('prefill',$prefillOptions);
 }
 
+if (isset($_GET['value_items_admin']) && is_array($_GET['value_items_admin']) && !empty($_GET['value_items_admin'])) {
+    $options = array();
+    foreach ($_GET['value_items_admin'] as $field => $value) {
+        $options[] = array('index' => $field, 'value' => $value);
+    }
+    $tpl->set('prefill_admin',$options);
+}
+
 if (isset($_GET['name']) && is_array($_GET['name']) && !empty($_GET['name'])) {
     $attributes = array();
     foreach ($_GET['name'] as $index => $value) {
