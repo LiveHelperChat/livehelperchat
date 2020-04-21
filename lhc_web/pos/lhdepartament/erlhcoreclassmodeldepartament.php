@@ -55,7 +55,7 @@ $def->properties['online_hours_active']->columnName   = 'online_hours_active';
 $def->properties['online_hours_active']->propertyName = 'online_hours_active';
 $def->properties['online_hours_active']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
-foreach (erLhcoreClassDepartament::getWeekDays() as $dayShort => $dayLong) {
+foreach (array('mod','tud','wed','thd','frd','sad','sud') as $dayShort) {
     $def->properties[$dayShort.'_start_hour'] = new ezcPersistentObjectProperty();
     $def->properties[$dayShort.'_start_hour']->columnName = $dayShort.'_start_hour';
     $def->properties[$dayShort.'_start_hour']->propertyName = $dayShort.'_start_hour';
