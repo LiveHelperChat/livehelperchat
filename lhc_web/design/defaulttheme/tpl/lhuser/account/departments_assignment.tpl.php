@@ -8,11 +8,19 @@
     	
         <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Individual departments')?></h4>
         
-        <div class="mx170">
+
+            <div class="row" style="max-height: 600px;overflow: auto">
         	<?php foreach (erLhcoreClassDepartament::getDepartaments() as $departament) : ?>
-                <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Read only')?>"><input type="checkbox" name="UserDepartamentRead[]" value="<?php echo $departament['id']?>" <?php echo in_array($departament['id'],$userDepartamentsRead) ? 'checked="checked"' : '';?> /><i class="material-icons">&#xE8F4;</i></label><label><input type="checkbox" name="UserDepartament[]" value="<?php echo $departament['id']?>" <?php echo in_array($departament['id'],$userDepartaments) ? 'checked="checked"' : '';?> /><?php echo htmlspecialchars($departament['name'])?></label><br>
+                <div class="col-6">
+                    <label class="font-weight-bold"><?php echo htmlspecialchars($departament['name'])?></label><br>
+
+                    <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Read only')?>"><input type="checkbox" name="UserDepartamentRead[]" value="<?php echo $departament['id']?>" <?php echo in_array($departament['id'],$userDepartamentsRead) ? 'checked="checked"' : '';?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Read Only')?></label>
+
+                    <label><input type="checkbox" name="UserDepartament[]" value="<?php echo $departament['id']?>" <?php echo in_array($departament['id'],$userDepartaments) ? 'checked="checked"' : '';?> />Assign</label><br>
+                </div>
         	<?php endforeach; ?>
-    	</div>
+            </div>
+
     </div>
     
     <?php $departmentsGroups = erLhcoreClassModelDepartamentGroup::getList(array('limit' => false)); ?>
