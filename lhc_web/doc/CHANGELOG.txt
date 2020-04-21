@@ -1,3 +1,17 @@
+3.33v
+
+1. Cookie path argument.
+2. Operator to operator chat improvements.
+3. Admin fields now can be prefilled.
+4. Hidden if prefilled option.
+5. Option to define explicitly in back office on what domains caht will work.
+6. If embed mode is used and leave a message is disabled and offline_redirect is provided. Live Helper Chat will redirect customer to provided page.
+7. Notifications about new messages will blink page title.
+8. Unread messages will be played only if page is not focused.
+9. Option to disable javascript embed in other pages.
+
+execute doc/update_db/update_207.sql for update
+
 3.32v
 
 1. Rest API Response trigger type. You will be able to integrate ant third party API easily.

@@ -7613,6 +7613,13 @@
         "hidden": "0"
       },
       {
+        "identifier": "valid_domains",
+        "value": "",
+        "type": "0",
+        "explain": "Domains where script can be embedded. E.g example.com, google.com",
+        "hidden": "0"
+      },
+      {
         "identifier": "activity_track_all",
         "value": "0",
         "type": "0",

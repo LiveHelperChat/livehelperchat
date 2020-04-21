@@ -1,0 +1,1 @@
+INSERT INTO `lh_chat_config` (`identifier`,`value`,`type`,`explain`,`hidden`) VALUES ('valid_domains','','0','Domains where script can be embedded. E.g example.com, google.com','0');
