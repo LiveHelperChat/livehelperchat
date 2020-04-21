@@ -1853,6 +1853,15 @@ class Install
             $cfgSite->setSetting( 'site', 'templatecache', true);
             $cfgSite->setSetting( 'site', 'templatecompile', true);
             $cfgSite->setSetting( 'site', 'modulecompile', true);
+            $cfgSite->setSetting( 'site', 'force_virtual_host', $form->ForceVirtualHost == 1);
+
+            if ($form->Extensions != '') {
+                $extensions = explode(',',str_replace(' ','',$form->Extensions));
+                if (!empty($extensions) ) {
+                    $cfgSite->setSetting( 'site', 'extensions', $extensions);
+                }
+            }
+
             return true;
         } else {
             return $Errors;
