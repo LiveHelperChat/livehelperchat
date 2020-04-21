@@ -154,7 +154,12 @@
                 'theme' : attributesWidget.theme
             }}, (data) => {
 
-                if (((!attributesWidget.leaveMessage && data.chat_ui.leaveamessage === false) && data.isOnline === false) || data.terminate) {
+                if (data.terminate || ((!attributesWidget.leaveMessage && data.chat_ui.leaveamessage === false) && data.isOnline === false)) {
+
+                    if (LHC_API.args.offline_redirect && attributesWidget.mode == 'embed') {
+                        document.location = LHC_API.args.offline_redirect;
+                    }
+
                     return;
                 }
 

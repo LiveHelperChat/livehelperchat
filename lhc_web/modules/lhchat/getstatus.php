@@ -8,6 +8,23 @@ header('Cache-Control: no-store, no-cache, must-revalidate' );
 header('Cache-Control: post-check=0, pre-check=0', false );
 header('Pragma: no-cache' );
 
+if (isset($_SERVER['HTTP_ORIGIN']) && !empty($_SERVER['HTTP_ORIGIN'])) {
+    $validDomains = (string)erLhcoreClassModelChatConfig::fetch('valid_domains')->current_value;
+    if (!empty($validDomains)) {
+        $validDomainsList = explode(',',$validDomains);
+        $validDomain = false;
+        foreach ($validDomainsList as $validDomainItem) {
+            if (strpos($_SERVER['HTTP_ORIGIN'],trim($validDomainItem)) !== false) {
+                $validDomain = true;
+            }
+        }
+
+        if ($validDomain == false) {
+            exit;
+        }
+    }
+}
+
 if (erLhcoreClassModelChatConfig::fetch('hide_disabled_department')->current_value == 1 && is_array($Params['user_parameters_unordered']['department'])){
 	try {
 		erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
