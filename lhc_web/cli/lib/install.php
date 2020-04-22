@@ -1874,6 +1874,16 @@ class Install
                 $cfgSite->setSetting( 'site', 'time_zone', $form->TimeZone);
             }
 
+            if (isset($form->DefaultConfigs) && is_array($form->DefaultConfigs)) {
+                foreach ($form->DefaultConfigs as $identifier => $value) {
+                    $sql = "UPDATE `lh_chat_config` SET `value` = :value WHERE `identifier` = :identifier";
+                    $stmt = $db->prepare($sql);
+                    $stmt->bindValue(':value',$value);
+                    $stmt->bindValue(':identifier',$identifier);
+                    $stmt->execute();
+                }
+            }
+
             return true;
         } else {
             return $Errors;
