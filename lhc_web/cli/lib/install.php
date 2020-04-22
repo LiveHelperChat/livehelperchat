@@ -1862,6 +1862,18 @@ class Install
                 }
             }
 
+            if ($form->ApacheUserGroupName != '') {
+                $cfgSite->setSetting( 'site', 'default_group', $form->ApacheUserGroupName);
+            }
+
+            if ($form->ApacheUserName != '') {
+                $cfgSite->setSetting( 'site', 'default_user', $form->ApacheUserName);
+            }
+
+            if ($form->TimeZone != '') {
+                $cfgSite->setSetting( 'site', 'time_zone', $form->TimeZone);
+            }
+
             return true;
         } else {
             return $Errors;
