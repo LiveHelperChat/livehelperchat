@@ -1884,6 +1884,16 @@ class Install
                 }
             }
 
+            $smtpData = erLhcoreClassModelChatConfig::fetch('smtp_data');
+
+            $data = (array)$smtpData->data;
+            $data['default_from'] = $adminEmail;
+            $data['default_from_name'] = trim($form->AdminName . ' ' . $form->AdminSurname);
+            $data['sender'] = $form->Domain;
+
+            $smtpData->value = serialize($data);
+            $smtpData->saveThis();
+
             return true;
         } else {
             return $Errors;
