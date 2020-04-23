@@ -222,7 +222,9 @@ class erLhcoreClassGenericBotActionRestapi
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $postParams);
             }
         } elseif (isset($methodSettings['body_request_type']) && $methodSettings['body_request_type'] == 'raw') {
-            curl_setopt($ch, CURLOPT_POSTFIELDS, str_replace(array_keys($replaceVariablesJSON), array_values($replaceVariablesJSON), $methodSettings['body_raw']));
+            $bodyPOST = str_replace(array_keys($replaceVariablesJSON), array_values($replaceVariablesJSON), $methodSettings['body_raw']);
+            $bodyPOST = preg_replace('/{{lhc\.(var|add)\.(.*?)}}/','""',$bodyPOST);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyPOST);
         }
 
         $url = rtrim($host) . str_replace(array_keys($replaceVariables), array_values($replaceVariables),$methodSettings['suburl']) . '?' . http_build_query($queryArgs);
