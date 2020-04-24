@@ -11,6 +11,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) ) {
     
     if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
         $filter['filterlikeright']['tag'] = $_GET['keyword'];
+        $tpl->set('keyword',strip_tags($_GET['keyword']));
     }
     
     $tpl->set('tags',erLhcoreClassModelCannedMsgTag::getList($filter));

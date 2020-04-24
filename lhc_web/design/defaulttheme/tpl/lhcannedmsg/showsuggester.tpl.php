@@ -9,6 +9,7 @@
                 </ul>
             </li>
         <?php endforeach; ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhcannedmsg/showsuggester_multiinclude.tpl.php'));?>
     </ul>
     <div id="canned-hash-current-<?php echo $chat->id?>" class="current-hash-content"></div>
 </div>
