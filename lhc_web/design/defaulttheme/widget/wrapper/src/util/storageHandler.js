@@ -2,8 +2,7 @@
 export class storageHandler {
     constructor(global, domain) {
         this.window = global;
-        this.isCookieEnabled = this.checkCookieEnabled();
-        this.hasSessionStorage = this.isCookieEnabled && !!this.window.sessionStorage;
+        this.hasSessionStorage = !!this.window.sessionStorage;
         this.domain = domain;
         this.secureCookie = false;
         this.cookiePerPage = false;
@@ -103,12 +102,6 @@ export class storageHandler {
         } else {
             return {};
         }
-    };
-
-    checkCookieEnabled() {
-        var a = this.window.cookieEnabled ? !0 : !1;
-        "undefined" != typeof this.window.cookieEnabled || a || (document.cookie = "testcookie", a = -1 != document.cookie.indexOf("testcookie") ? !0 : !1);
-        return a
     };
 }
 
