@@ -1238,7 +1238,6 @@ input[type="file"]{
 	padding: 2px 5px 1px;
 	background-color: #fff;
 	border-bottom: 1px solid #ddd;
-    border-top: 1px solid #ddd;
     min-height: 66px;
     max-height: 350px;
     overflow: auto;
