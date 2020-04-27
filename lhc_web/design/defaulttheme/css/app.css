@@ -1229,7 +1229,7 @@ input[type="file"]{
 }
 
 .current-hash-content{
-    max-height: 330px;
+    max-height: 370px;
     overflow: auto;
 }
 
