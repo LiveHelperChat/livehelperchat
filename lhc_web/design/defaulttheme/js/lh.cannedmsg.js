@@ -240,7 +240,7 @@ var LHCCannedMessageAutoSuggest = (function() {
             var element = $('#canned-hash-current-' + this.chat_id).parent().find('.canned-msg-preview');
 
             if (element.length == 0) {
-                $('#canned-hash-current-' + this.chat_id).parent().append('<div class="canned-msg-preview"></div>');
+                $('#canned-hash-current-' + this.chat_id).parent().prepend('<div class="canned-msg-preview"></div>');
                 element = $('#canned-hash-current-' + this.chat_id).parent().find('.canned-msg-preview');
 			}
 

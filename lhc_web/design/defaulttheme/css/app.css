@@ -1240,7 +1240,7 @@ input[type="file"]{
 	border-bottom: 1px solid #ddd;
     border-top: 1px solid #ddd;
     min-height: 66px;
-    max-height: 150px;
+    max-height: 350px;
     overflow: auto;
 }
 
