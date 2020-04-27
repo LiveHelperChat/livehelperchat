@@ -1239,7 +1239,9 @@ input[type="file"]{
 	background-color: #fff;
 	border-bottom: 1px solid #ddd;
     border-top: 1px solid #ddd;
-    min-height: 46px;
+    min-height: 66px;
+    max-height: 150px;
+    overflow: auto;
 }
 
 .current-hash-content ul{

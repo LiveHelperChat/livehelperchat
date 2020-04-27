@@ -21,6 +21,8 @@ var LHCCannedMessageAutoSuggest = (function() {
 		// Cache
 		this.cacheCanned = {};
 
+		this.htmlPreviewTimeout = null;
+
         // General one
 		var _that = this;
 		
@@ -229,6 +231,10 @@ var LHCCannedMessageAutoSuggest = (function() {
 	{
 		var dataMsg = element.find('> .canned-msg').attr('data-msg');
 
+		clearTimeout(this.htmlPreviewTimeout);
+
+		var _that = this;
+
 		if (typeof dataMsg !== 'undefined') {
 
             var element = $('#canned-hash-current-' + this.chat_id).parent().find('.canned-msg-preview');
@@ -239,6 +245,13 @@ var LHCCannedMessageAutoSuggest = (function() {
 			}
 
             element.html(dataMsg);
+
+            this.htmlPreviewTimeout = setTimeout(function(){
+                $.post(WWW_DIR_JAVASCRIPT + 'chat/previewmessage/' + _that.chat_id,{msg_body : true, msg : dataMsg}, function(data) {
+                    element.html(data);
+                });
+            },300);
+
 		} else {
             $('#canned-hash-current-' + this.chat_id).parent().find('.canned-msg-preview').remove();
 		}
@@ -347,7 +360,11 @@ var LHCCannedMessageAutoSuggest = (function() {
 			
 			var container = $(this).parent().parent();
 			container.hide();
-			
+
+            content.find('span.canned-msg').mouseover(function(){
+                _that.renderPreview($(this).parent());
+            });
+
 			content.find('span.canned-msg').click(function(){
 								
 				// Insert selected text
