@@ -91,17 +91,40 @@ export class storageHandler {
         return this.parseSessionInformation(a)
     };
 
+    getStoreValue(sessionInformation)
+    {
+        let pairs = [];
+        Object.keys(sessionInformation).forEach(key => {
+            let value = sessionInformation[key];
+            pairs.push(key + '|' + value);
+        });
+        return pairs.join('|');
+    }
+
     storeSessionInformation(sessionInformation) {
-             this.setHTTPCookie("lhc_per", JSON.stringify(sessionInformation), false, this.getCookieDomain());
-            this.sessionInformation = sessionInformation;
+        this.setHTTPCookie("lhc_per", this.getStoreValue(sessionInformation), false, this.getCookieDomain());
+        this.sessionInformation = sessionInformation;
     };
 
     parseSessionInformation(content) {
-        if (content){
-            return JSON.parse(decodeURIComponent(content))
+        // Check was it stored as our format or JSON.
+        if (content && content.indexOf('|') !== -1) {
+            let contentReturn = {};
+            let parts = content.split('|');
+
+            for (var i = 0; i < parts.length / 2; i++) {
+                contentReturn[parts[i * 2]] = parts[(i * 2) + 1];
+            }
+
+            return contentReturn;
         } else {
-            return {};
+            if (content) {
+                return JSON.parse(unescape(content))
+            } else {
+                return {};
+            }
         }
+
     };
 }
 
