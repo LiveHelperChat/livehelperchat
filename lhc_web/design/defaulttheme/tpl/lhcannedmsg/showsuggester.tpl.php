@@ -5,11 +5,11 @@
                 <ul class="list-unstyled list-sub-items row list-inline mr-0 ml-0">
                     <?php
                         $itemsPerPart = 20;
-                        $itemsPerPartAdjusted = max(ceil(count($item['messages']) / $itemsPerPart), $itemsPerPart);
+                        $itemsPerPartAdjusted = max(ceil(count($item['messages']) / 3), $itemsPerPart);
                         $parts = array();
-                        $parts[] = array_splice($item['messages'],0, $itemsPerPart);
-                        $parts[] = array_splice($item['messages'], 0 , $itemsPerPart);
-                        $parts[] = array_splice($item['messages'],0, $itemsPerPart);
+                        $parts[] = array_splice($item['messages'],0, $itemsPerPartAdjusted);
+                        $parts[] = array_splice($item['messages'], 0 , $itemsPerPartAdjusted);
+                        $parts[] = array_splice($item['messages'],0, $itemsPerPartAdjusted);
                     ?>
                     <?php foreach ($parts as $part) : if (!empty($part)) : ?>
                         <li class="col list-inline-item pl-0 pr-0 mr-0">
