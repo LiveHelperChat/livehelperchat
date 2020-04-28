@@ -1231,6 +1231,7 @@ input[type="file"]{
 .current-hash-content{
     max-height: 370px;
     overflow: auto;
+    scroll-behavior: smooth;
 }
 
 .canned-msg-preview{
@@ -1270,10 +1271,7 @@ input[type="file"]{
 
 .canned-list li.current-item a,
 .current-hash-content li.current-item,
-.current-hash-content ul li ul li:hover,
 .canned-list a:hover{background-color:#cecece;}
-
-
 .canned-list > li{position:relative;}
 .canned-list > li > ul {display: none;}
 

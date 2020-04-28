@@ -227,8 +227,14 @@ var LHCCannedMessageAutoSuggest = (function() {
 		}
 	}
 
+    LHCCannedMessageAutoSuggest.prototype.isVisible = function(lookIn, element, settings) {
+        return (lookIn.height() + lookIn.offset().top) >= (element.offset().top + settings.threshold) && (element.offset().top > lookIn.offset().top - settings.threshold)
+    };
+
+
     LHCCannedMessageAutoSuggest.prototype.renderPreview = function(element)
 	{
+
 		var dataMsg = element.find('> .canned-msg').attr('data-msg');
 
 		clearTimeout(this.htmlPreviewTimeout);
@@ -236,6 +242,10 @@ var LHCCannedMessageAutoSuggest = (function() {
 		var _that = this;
 
 		if (typeof dataMsg !== 'undefined') {
+
+            if (!this.isVisible($('#canned-hash-current-' + this.chat_id),element,{threshold : 10})) {
+                element[0].scrollIntoView();
+            }
 
             var element = $('#canned-hash-current-' + this.chat_id).parent().find('.canned-msg-preview');
 
@@ -363,6 +373,8 @@ var LHCCannedMessageAutoSuggest = (function() {
 
             content.find('span.canned-msg').mouseover(function(){
                 _that.renderPreview($(this).parent());
+                $('#canned-hash-current-'+_that.chat_id+' li.current-item').removeClass('current-item');
+                $(this).parent().addClass('current-item');
             });
 
 			content.find('span.canned-msg').click(function(){
@@ -393,7 +405,9 @@ var LHCCannedMessageAutoSuggest = (function() {
 		            range.moveStart('character', textBeforeCursor.length);
 		            range.select();
 		        }
-				
+
+                _that.textarea[0].focus();
+
 				_that.stopSuggesting();
 			});
 			
