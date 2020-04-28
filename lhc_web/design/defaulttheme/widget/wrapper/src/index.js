@@ -94,6 +94,7 @@
                 tag: LHC_API.args.tag || '',
                 proactive: {},
                 captcha : null,
+                focused : true,
                 offline_redirect : LHC_API.args.offline_redirect || null,
                 identifier : LHC_API.args.identifier || '',
                 proactive_interval : null,
@@ -423,6 +424,7 @@
                         document.title = (Math.round(new Date().getTime() / 1000) % 2) ? '💬 ' + attributesWidget.originalTitle : attributesWidget.originalTitle;
                     },1000);
                 } else {
+                    attributesWidget.focused = true;
                     document.title = attributesWidget.originalTitle;
                 }
             });
@@ -504,6 +506,7 @@
 
                     const focusChangeCb = (e) => {
                         const focused = e.type === "focus";
+                        attributesWidget.focused = focused;
                         chatEvents.sendChildEvent('focus_changed', [{'status' : focused}]);
                     };
 

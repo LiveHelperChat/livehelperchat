@@ -58,8 +58,6 @@ export class statusWidget{
 
         }, "lhc_status_container", "minifiedclick");
 
-
-
         if (this.attributes.staticJS['fontCSS']) {
             this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['fontCSS']});
         }

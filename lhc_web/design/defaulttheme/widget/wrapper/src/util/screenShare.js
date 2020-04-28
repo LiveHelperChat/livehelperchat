@@ -10,6 +10,7 @@ class _screenShare {
         this.sharemode = 'chat';
         this.sharehash = null;
         this.cobrowser = null;
+        this.intervalRequest = null;
     }
 
     startCoBrowse(params) {
@@ -69,21 +70,35 @@ class _screenShare {
 
         if (this.isSharing == false) {
             helperFunctions.makeRequest(LHC_API.args.lhc_base_url + '/widgetrestapi/screensharesettings', {}, (data) => {
-                if ((this.params['auto_start']) || data['auto_share'] == 1 || confirm('Allow operator to see your page content?')) {
-                    if (typeof TreeMirror == "undefined") {
-                        var th = document.getElementsByTagName('head')[0];
-                        var s = document.createElement('script');
-                        s.setAttribute('type', 'text/javascript');
-                        s.setAttribute('src', data['cobrowser']);
-                        th.appendChild(s);
-                        s.onreadystatechange = s.onload = () => {
-                            this.startCoBrowse(data);
-                        };
-                    } else {
-                        this.startCoBrowse(data);
-                    }
+                if ((this.params['auto_start']) || data['auto_share'] == 1 || (this.attributes.focused == true && confirm('Allow operator to see your page content?'))) {
+                    this.initCoBrowsing(data);
+                } else if (this.attributes.focused == false) {
+                    clearInterval(this.intervalRequest);
+                    this.intervalRequest = setInterval(() => {
+                        if (this.attributes.focused == true) {
+                            clearInterval(this.intervalRequest);
+                            if (confirm('Allow operator to see your page content?')){
+                                this.initCoBrowsing(data);
+                            }
+                        }
+                    },500);
                 }
             });
+        }
+    }
+
+    initCoBrowsing(data) {
+        if (typeof TreeMirror == "undefined") {
+            var th = document.getElementsByTagName('head')[0];
+            var s = document.createElement('script');
+            s.setAttribute('type', 'text/javascript');
+            s.setAttribute('src', data['cobrowser']);
+            th.appendChild(s);
+            s.onreadystatechange = s.onload = () => {
+                this.startCoBrowse(data);
+            };
+        } else {
+            this.startCoBrowse(data);
         }
     }
 }
