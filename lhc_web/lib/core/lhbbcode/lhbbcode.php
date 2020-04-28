@@ -1006,12 +1006,14 @@ class erLhcoreClassBBCode
        // Pure images
        $msg = preg_replace('#\[img(.*?)\](.*?)\[\/img\]#is','IMG_REPLACE[img\1]\2[/img]IMG_REPLACE',$msg);
 
+       $msg = trim($msg);
+
        $messages = array_filter(explode('IMG_REPLACE', $msg));
+       $totalMessages = count($messages);
 
        $messagesData = array();
-       foreach ($messages as $message) {
-           $message = trim($message);
-           if ($message != '')
+       foreach ($messages as $indexMessage => $message) {
+           if (trim($message) != '')
            {
                $msgRendered = erLhcoreClassBBCode::make_clickable(htmlspecialchars($message), $paramsMessage);
 
@@ -1027,6 +1029,16 @@ class erLhcoreClassBBCode
 
                if ($emojiMessage == '') {
                    $messagesDataItem['flags'][] = 'emoji';
+               }
+
+                // New line at the top of message and it's not the first message
+               if (substr($message,0,1) == "\n" && $indexMessage > 0) {
+                   $messagesDataItem['flags'][] = 'nlt';
+               }
+
+               // New line at the end of message and it's not the last message
+               if (substr($message,-1) == "\n" && $indexMessage + 1 != $totalMessages) {
+                   $messagesDataItem['flags'][] = 'nl';
                }
 
                $messagesData[] = $messagesDataItem;
