@@ -5,8 +5,8 @@ const CannedMessages = props => {
     const [data, setData] = useState([]);
     const [isLoaded, setLoaded] = useState(false);
 
-const getRootCategory = () => {
-        axios.get("https://jsonplaceholder.typicode.com/users").then(result => {
+    const getRootCategory = () => {
+        axios.get(WWW_DIR_JAVASCRIPT  + "cannedmsg/filter/"+props.chatId).then(result => {
             //setData(result.data)
             setLoaded(true);
         });

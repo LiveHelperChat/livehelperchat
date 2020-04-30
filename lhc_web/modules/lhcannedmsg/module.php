@@ -1,11 +1,16 @@
 <?php
 
-$Module = array( "name" => "Canned Messages",
-				 'variable_params' => true );
+$Module = array( "name" => "Canned Messages");
 
 $ViewList = array();
 
 $ViewList['showsuggester'] = array(
+    'params' => array('chat_id'),
+    'uparams' => array(),
+    'functions' => array( 'use' ),
+);
+
+$ViewList['filter'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),
     'functions' => array( 'use' ),
