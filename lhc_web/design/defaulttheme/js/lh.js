@@ -2515,7 +2515,7 @@ function lh(){
 		// Start synchronisation
 		this.startSyncAdmin();
 
-		jQuery('#id_CannedMessageSearch-'+chat_id).keyup(function(evt) {
+		/*jQuery('#id_CannedMessageSearch-'+chat_id).keyup(function(evt) {
 
 			if ($(this).val() != '') {
 				jQuery('#id_CannedMessage-'+chat_id).attr('size',10);
@@ -2536,7 +2536,7 @@ function lh(){
                 	 }
                  }
             });
-		});
+		});*/
 
 		// Hide notification only if chat was not started in background
 		if (arg === null || typeof arg !== 'object' || arg.indexOf('background') === -1) {

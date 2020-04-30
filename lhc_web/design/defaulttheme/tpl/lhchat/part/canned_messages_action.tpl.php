@@ -1,7 +1,7 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/canned_messages_action_pre.tpl.php')); ?>
 <?php if ($chat_part_canned_messages_action_enabled == true) : ?>
-<div class="row">
-	<div class="col-7">
+<div class="row" id="canned-messages-chat-container-<?php echo $chat->id?>">
+	<?php /*<div class="col-7">
         <select class="form-control form-control-sm" name="CannedMessage-<?php echo $chat->id?>" id="id_CannedMessage-<?php echo $chat->id?>">
         	<?php $canned_options = erLhcoreClassModelCannedMsg::groupItems(erLhcoreClassModelCannedMsg::getCannedMessages($chat->dep_id, erLhcoreClassUser::instance()->getUserID()), $chat, erLhcoreClassUser::instance()->getUserData(true)); ?>
         	<?php include(erLhcoreClassDesign::designtpl('lhchat/part/canned_messages_options.tpl.php')); ?>
@@ -19,6 +19,6 @@
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/send_delayed_canned_action.tpl.php')); ?>
             </div>
         </div>
-	</div>
+	</div>*/ ?>
 </div>
 <?php endif;?>
