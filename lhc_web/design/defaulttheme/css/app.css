@@ -1279,22 +1279,6 @@ input[type="file"]{
 .canned-list > li{position:relative;}
 .canned-list > li > ul {display: none;}
 
-
-.canned-msg{
-    white-space: nowrap;
-}
-
-.canned-message-item{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 180px;
-}
-
-
-
-
-
-
 .message-container-admin{
 	position:relative;
 }
