@@ -259,13 +259,27 @@ var LHCCannedMessageAutoSuggest = (function() {
             this.htmlPreviewTimeout = setTimeout(function(){
                 $.post(WWW_DIR_JAVASCRIPT + 'chat/previewmessage/' + _that.chat_id,{msg_body : true, msg : dataMsg}, function(data) {
                     element.html(data);
+                    setTimeout(function(){
+                        _that.adjustHeight();
+                    },500);
                 });
             },300);
+
+            this.adjustHeight();
 
 		} else {
             $('#canned-hash-current-' + this.chat_id).parent().find('.canned-msg-preview').remove();
 		}
 	}
+
+    LHCCannedMessageAutoSuggest.prototype.adjustHeight = function()
+    {
+        var suggester = $('#chat-main-column-' + this.chat_id + ' .canned-suggester');
+
+        if (suggester.height() > $('#CSChatMessage-'+this.chat_id).offset().top){
+            $('#canned-hash-current-'+this.chat_id).css('max-height',$('#CSChatMessage-'+this.chat_id).offset().top - suggester.find('.canned-msg-preview').height() - 10);
+        }
+    }
 
 	LHCCannedMessageAutoSuggest.prototype.stopSuggesting = function()
 	{

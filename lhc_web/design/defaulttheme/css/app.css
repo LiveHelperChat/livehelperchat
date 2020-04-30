@@ -1240,8 +1240,12 @@ input[type="file"]{
 	background-color: #fff;
 	border-bottom: 1px solid #ddd;
     min-height: 66px;
-    max-height: 350px;
+    max-height: 200px;
     overflow: auto;
+}
+
+.canned-msg-preview img{
+    max-height: 80px;
 }
 
 .current-hash-content ul{
