@@ -56,6 +56,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
             if (!isset($msg)){
                 $error = true;
                 $r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message, max characters').' - '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value;
+                http_response_code(400);
                 echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r));
                 exit;
             }
@@ -87,45 +88,21 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
             throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You cannot send messages to this chat. Please refresh your browser.'));
         }
 
-        // Initialize auto responder if required
-        if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_START_ON_KEY_UP)
-        {
-            // Invitation...
-            // We have to apply proactive invitation rules
-            if ($chat->chat_initiator == erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE && $chat->online_user !== false && $chat->online_user->invitation !== false) {
-
-                if ($chat->online_user->invitation->wait_message != '') {
-                    $msg = new erLhcoreClassModelmsg();
-                    $msg->msg = trim($chat->online_user->invitation->wait_message);
-                    $msg->chat_id = $chat->id;
-                    $msg->name_support = $chat->online_user->operator_user !== false ? $chat->online_user->operator_user->name_support : (!empty($chat->online_user->operator_user_proactive) ? $chat->online_user->operator_user_proactive : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support'));
-                    $msg->user_id = $chat->online_user->operator_user_id > 0 ? $chat->online_user->operator_user_id : -2;
-                    $msg->time = time()+5;
-                    erLhcoreClassChat::getSession()->save($msg);
-                }
-
-                $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
-                $chat->time = $chat->pnd_time = time(); // Update initial chat start time for auto responder
-                $chat->saveThis();
-
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered',array('chat' => & $chat));
-            }
-        }
-
         $db->commit();
-        echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r));
+        echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r, 'msg' => $msg->getState()));
         exit;
 
     } catch (Exception $e) {
         $db->rollback();
+        http_response_code(400);
         echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $e->getMessage()));
         exit;
     }
 
 } else {
-    $error = true;
+    http_response_code(400);
     $r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message, max characters').' - '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value;
-    echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r));
+    echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $r));
     exit;
 }
 

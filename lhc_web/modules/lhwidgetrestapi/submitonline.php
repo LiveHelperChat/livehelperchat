@@ -243,8 +243,10 @@ if (empty($Errors)) {
             $paramsExecution['bot_id'] = (int)$inputData->bot_id;
         }
 
-        // Set bot workflow if required
-        erLhcoreClassChatValidator::setBot($chat, $paramsExecution);
+        if (!isset($restAPI) || (isset($restAPI) && (!isset($requestPayload['ignore_bot']) || $requestPayload['ignore_bot'] == false))) {
+            // Set bot workflow if required
+            erLhcoreClassChatValidator::setBot($chat, $paramsExecution);
+        }
 
         if (!isset($responder) && (!isset($ignoreResponder) || $ignoreResponder === false)) {
             $responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
