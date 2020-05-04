@@ -75,5 +75,5 @@ module.exports = {
     },
 
     // generate source map
-    devtool: ( 'production' === process.env.NODE_ENV ? 'source-map' : 'cheap-module-eval-source-map' ),
+    devtool: ( 'production' === process.env.NODE_ENV ? '' : 'cheap-module-eval-source-map' ),
 };
