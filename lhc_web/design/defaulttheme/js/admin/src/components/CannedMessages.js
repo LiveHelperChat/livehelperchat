@@ -6,66 +6,139 @@ const CannedMessages = props => {
     const [isLoaded, setLoaded] = useState(false);
 
     const getRootCategory = () => {
-        axios.get(WWW_DIR_JAVASCRIPT  + "cannedmsg/filter/"+props.chatId).then(result => {
-            //setData(result.data)
-            setLoaded(true);
-        });
+        if (!isLoaded) {
+            axios.get(WWW_DIR_JAVASCRIPT  + "cannedmsg/filter/"+props.chatId).then(result => {
+                setData(result.data);
+                setLoaded(true);
+            });
+        }
     }
 
-    /*useEffect(() => {
-        axios
-            .get("https://jsonplaceholder.typicode.com/users")
-            .then(result => setData(result.data));
-    }, []);*/
+    const expandCategory = (categoryUpdate, indexUpdate) => {
+        categoryUpdate.expanded = !categoryUpdate.expanded;
+        setData(data.map((category, index) => (indexUpdate == index ? categoryUpdate : category)));
+    }
 
-    //<?php $canned_options = erLhcoreClassModelCannedMsg::groupItems(erLhcoreClassModelCannedMsg::getCannedMessages($chat->dep_id, erLhcoreClassUser::instance()->getUserID()), $chat, erLhcoreClassUser::instance()->getUserData(true)); ?>
-    //<?php include(erLhcoreClassDesign::designtpl('lhchat/part/canned_messages_options.tpl.php')); ?>
+    const fillMessage = (message) => {
+        document.getElementById('CSChatMessage-'+props.chatId).value = message.msg;
+        document.getElementById('CSChatMessage-'+props.chatId).focus();
+    }
 
-    // <?php include(erLhcoreClassDesign::designtpl('lhchat/part/send_delayed_canned_action.tpl.php')); ?>
+    const fillAndSend = (message) => {
+        setTimeout(() => {
+            const formData = new FormData();
+            formData.append('msg', message.msg);
+            axios.post(WWW_DIR_JAVASCRIPT  + 'chat/addmsgadmin/' + props.chatId, formData,{
+                headers: {'X-CSRFToken': confLH.csrf_token}
+            }).then(restul => {
+                if (LHCCallbacks.addmsgadmin) {
+                    LHCCallbacks.addmsgadmin(props.chatId);
+                };
+                ee.emitEvent('chatAddMsgAdmin', [props.chatId]);
+                lhinst.syncadmincall();
+                return true;
+            });
+        }, message.delay);
+    }
 
+    const applyFilter = (e) => {
+
+        if (e.keyCode == 13) {
+            data.map((item, index) => (
+                item.messages.map(message => {
+                    if (message.current) {
+                        document.getElementById('CSChatMessage-' + props.chatId).value = message.msg;
+                        document.getElementById('CSChatMessage-' + props.chatId).focus();
+                    }
+                })
+            ));
+        } else if (e.keyCode == 38) { // Up
+            data.map((item, index) => (
+                item.messages.map(message => {
+                    if (message.current) {
+                        message.current = false;
+                    }
+                })
+            ));
+
+        } else if (e.keyCode == 40) { // Down
+
+            console.log(data);
+
+            var messageSet = false;
+
+            data.map((item, index) => {
+                item.messages.map(message => {
+                    if (messageSet == true) {
+                        message.current = true;
+                        messageSet = false;
+                    } else if (message.current) {
+                        message.current = false;
+                        messageSet = true;
+                    }
+                })
+            });
+            
+            setData(data);
+
+            //var messageSet = false;
+
+            /*var data = data.map((item, index) => {
+                    console.log(item)
+            }*/
+
+                /*item.messages.map(message => {
+                    if (messageSet == true) {
+                        message.current = true;
+                        messageSet = false;
+                    } else if (message.current) {
+                        message.current = false;
+                        messageSet = true;
+                    }
+                })*/
+            //);
+
+            console.log(data);
+
+
+        } else {
+            axios.get(WWW_DIR_JAVASCRIPT  + "cannedmsg/filter/"+props.chatId + '?q=' + encodeURIComponent(e.target.value)).then(result => {
+                setData(result.data);
+            });
+        }
+    }
 
     return (
         <React.Fragment>
-            <div className="col-7">
+            <div className="col-6">
+
+                <input type="text" onFocus={getRootCategory} className="form-control form-control-sm" onKeyUp={(e) => applyFilter(e)} defaultValue="" placeholder="Type to search"/>
+
                 {!isLoaded &&
-                    <p><button type="button" onClick={getRootCategory}>Load</button></p>
+                    <p className="border mt-1"><a className="fs13" onClick={getRootCategory}><span className="material-icons">expand_more</span> Canned messages</a></p>
                 }
                 {isLoaded &&
-                <p>Data was loaded</p>
+                    <ul className="list-unstyled fs13 border mt-1">
+                        {data.map((item, index) => (
+                        <li><a className="font-weight-bold" onClick={() => expandCategory(item, index)}><span className="material-icons">{item.expanded ? 'expand_less' : 'expand_more'}</span>{item.title} [{item.messages.length}]</a>
+                            {item.expanded &&
+                            <ul className="list-unstyled ml-4">
+                                {item.messages.map(message => (
+                                    <li className={message.current ? 'font-italic font-weight-bold' : ''}>
+                                        <a title="Send instantly" onClick={(e) => fillAndSend(message)}><span className="material-icons fs12">send</span></a><a title={message.msg} onClick={(e) => fillMessage(message)}>{message.message_title}</a>
+                                    </li>
+                                ))}
+                            </ul>}
+                        </li>
+                        ))}
+                    </ul>
                 }
-                <select class="form-control form-control-sm" name="CannedMessage-<?php echo $chat->id?>" id="id_CannedMessage-<?php echo $chat->id?>">
-
-                </select>
             </div>
-            <div className="col-3">
-                <input type="text" class="form-control form-control-sm" id="id_CannedMessageSearch-<?php echo $chat->id?>" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Type to search')?>"/>
-            </div>
-            <div class="col-2 sub-action-chat" id="sub-action-chat-<?php echo $chat->id?>">
-                <div className="row d-flex">
-                    <div class="col pl-0 pr-2">
-                        <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Fill textarea with canned message')?>" href="#" onclick="$('#CSChatMessage-<?php echo $chat->id?>').val(($('#id_CannedMessage-<?php echo $chat->id?>').val() > 0) ? $('#id_CannedMessage-<?php echo $chat->id?>').find(':selected').attr('data-msg') : '');return false;" class="btn btn-secondary w-100 btn-sm fill-editor-canned"><i class="material-icons mr-0">mode_edit</i></a>
-                    </div>
-                    <div className="col pl-0 pr-2">
-                        <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Send delayed canned message instantly')?>" href="#" className="btn btn-secondary w-100 btn-sm send-delayed-canned" onClick="return lhinst.sendCannedMessage('<?php echo $chat->id?>',$(this))">
-                            <i className="material-icons mr-0">mail</i>
-                        </a>
-                    </div>
-                </div>
+            <div className="col-6">
+                Preview rendered...
             </div>
         </React.Fragment>
     );
-
-    /*return (
-        <div>
-            <ul>
-                {data.map(item => (
-                    <li key={item.username}>
-                        {item.username}: {item.name}
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );*/
 }
 
 export default CannedMessages

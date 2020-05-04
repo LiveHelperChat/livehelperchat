@@ -4,10 +4,16 @@ erLhcoreClassRestAPIHandler::setHeaders();
 
 $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 
-$canned_options = erLhcoreClassModelCannedMsg::groupItems(erLhcoreClassModelCannedMsg::getCannedMessages($chat->dep_id, erLhcoreClassUser::instance()->getUserID()), $chat, erLhcoreClassUser::instance()->getUserData(true));
+$q = (isset($_GET['q']) ? $_GET['q'] : '');
 
-$cannedMessagesFormated = array()
+$canned_options = erLhcoreClassModelCannedMsg::groupItems(erLhcoreClassModelCannedMsg::getCannedMessages($chat->dep_id, erLhcoreClassUser::instance()->getUserID(), array(
+    'q' => $q
+)), $chat, erLhcoreClassUser::instance()->getUserData(true));
 
+$cannedMessagesFormated = array();
+
+$counter = 0;
+$itemSelected = false;
 foreach ($canned_options as $depId => $group) {
 
     $dataList = explode('_', $depId);
@@ -20,19 +26,33 @@ foreach ($canned_options as $depId => $group) {
         $typeTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat', 'Personal');
     } else {
         $typeTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat', 'Global');
-    } ?>
+    }
 
-    <optgroup label="<?php echo $typeTitle ?>">
-        <?php foreach ($group as $item) : ?>
-            <option data-msg="<?php echo htmlspecialchars($item->msg_to_user)?>" data-delay="<?php echo $item->delay?>" value="<?php echo $item->id?>"><?php echo htmlspecialchars($item->message_title)?></option>
-        <?php endforeach; ?>
-    </optgroup>
+    $items = array();
 
+     foreach ($group as $item) {
+         $selected =  $q != '' && $itemSelected == false;
+         $itemSelected = true;
+
+         $items[] = array(
+                 'msg' => $item->msg_to_user,
+                 'delay' => $item->delay,
+                 'message_title' => $item->message_title,
+                 'id' => $item->id,
+                 'current' => $selected
+         );
+     }
+
+     $cannedMessagesFormated[] = array(
+        'messages' => $items,
+        'title' => $typeTitle,
+        'expanded' => $q != ''
+     );
+
+    $counter++;
 }
 
-echo json_encode($canned_options);
-
-//include(erLhcoreClassDesign::designtpl('lhchat/part/canned_messages_options.tpl.php'));
+echo json_encode($cannedMessagesFormated);
 
 exit;
 ?>
