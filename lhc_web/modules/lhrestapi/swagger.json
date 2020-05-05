@@ -777,6 +777,7 @@
           "200": {
             "description": "Message added",
             "schema": {
+                "$ref": "#/definitions/addmsguser"
             }
           },
           "400": {
@@ -847,6 +848,7 @@
           "200": {
             "description": "Message added",
             "schema": {
+                "$ref": "#/definitions/addmsguser"
             }
           },
           "400": {
@@ -2539,6 +2541,12 @@
           "required": false,
           "description": "Should we apply same required fields validation as starting chat from web interface."
         },
+        "ignore_bot": {
+          "type": "boolean",
+          "default": false,
+          "required": false,
+          "description": "Should we ignore bot auto assignment workflow."
+        },
         "department": {
           "type": "array",
           "default": "name",
@@ -2593,6 +2601,7 @@
       },
       "example" : {
           "ignore_required" : true,
+          "ignore_bot" : false,
           "department" : [1],
           "fields" : {
               "Question" : "Visitor Initial Message. If you are passing messages argument makes sense just skip this",
@@ -2732,6 +2741,26 @@
           "required": false,
           "description": "Value"
         }
+      }
+    },
+    "addmsguser": {
+      "type": "object",
+      "properties": {
+          "error": {
+              "type": "boolean",
+              "default": false,
+              "required": false,
+              "description": "Was the an error"
+          },
+          "r": {
+              "type": "string",
+              "default": "",
+              "required": false,
+              "description": "Holds error message in case of an error"
+          },
+          "msg" : {
+            "$ref": "#/definitions/ChatMessage"
+          }
       }
     },
     "ChatMessage": {

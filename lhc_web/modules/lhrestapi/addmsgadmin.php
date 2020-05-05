@@ -54,6 +54,7 @@ try {
                 $ignoreMessage = false;
                 $returnBody = '';
                 $customArgs = array();
+                $msg = new erLhcoreClassModelmsg();
 
                 if (strpos($msgText, '!') === 0) {
                     $statusCommand = erLhcoreClassChatCommand::processCommand(array('user' => $userData, 'msg' => $msgText, 'chat' => & $Chat));
@@ -81,7 +82,6 @@ try {
                 }
 
                 if ($ignoreMessage == false) {
-                    $msg = new erLhcoreClassModelmsg();
                     $msg->msg = $msgText;
                     $msg->chat_id = $Chat->id;
                     $msg->user_id = $messageUserId;
@@ -244,7 +244,7 @@ try {
                     }
                 }
 
-                echo erLhcoreClassChat::safe_json_encode(array('error' => false, 'result' => $returnBody)+ $customArgs);
+                echo erLhcoreClassChat::safe_json_encode(array('error' => false, 'r' => $returnBody, 'msg' => $msg->getState())+ $customArgs);
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg,'chat' => & $Chat));
 
@@ -258,7 +258,7 @@ try {
             http_response_code(400);
             echo erLhcoreClassRestAPIHandler::outputResponse(array(
                 'error' => true,
-                'result' => $e->getMessage()
+                'r' => $e->getMessage()
             ));
             $db->rollback();
         }
@@ -267,14 +267,14 @@ try {
         http_response_code(400);
         echo erLhcoreClassRestAPIHandler::outputResponse(array(
             'error' => true,
-            'result' => "Please enter a message!"
+            'r' => "Please enter a message!"
         ));
     }
 } catch (Exception $e) {
     http_response_code(400);
     echo erLhcoreClassRestAPIHandler::outputResponse(array(
         'error' => true,
-        'result' => $e->getMessage()
+        'r' => $e->getMessage()
     ));
 }
 
