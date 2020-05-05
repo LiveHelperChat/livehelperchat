@@ -14,7 +14,15 @@ const CannedMessages = props => {
             axios.get(WWW_DIR_JAVASCRIPT  + "cannedmsg/filter/" + props.chatId).then(result => {
                 setData(result.data);
                 setLoaded(true);
-                renderPreview(null);
+
+                result.data.map((item, index) => {
+                    item.messages.map(message => {
+                        if (message.current == true) {
+                            renderPreview(message);
+                        }
+                    })
+                });
+
             });
         }
     }
@@ -115,8 +123,13 @@ const CannedMessages = props => {
         function sendManualMessage(chatId, messageId) {
             if (props.chatId == chatId) {
                 axios.get(WWW_DIR_JAVASCRIPT  + "cannedmsg/filter/" + props.chatId).then(result => {
-                    setData(result.data);
-                    renderPreview(null);
+
+                    if (!isLoaded) {
+                        setData(result.data);
+                        renderPreview(null);
+                        setLoaded(true);
+                    }
+
                     result.data.map((item, index) => {
                         item.messages.map(message => {
                             if (message.id == messageId) {
@@ -254,7 +267,7 @@ const CannedMessages = props => {
             <div className="col-6">
 
                 {!isLoaded &&
-                    <p className="border mt-0 pb-1 pt-1"><a className="fs13 d-block" onClick={getRootCategory}><span className="material-icons">expand_more</span>Canned messages</a></p>
+                <p className="border mt-0 pb-1 pt-1"><a className="fs13 d-block" onClick={getRootCategory}><span className="material-icons">expand_more</span>Canned messages</a></p>
                 }
 
                 {isLoaded && isCollapsed && <ul className="list-unstyled fs13 border mt-0 mx300">
@@ -262,9 +275,9 @@ const CannedMessages = props => {
                 </ul>}
 
                 {isLoaded && !isCollapsed &&
-                    <ul className="list-unstyled fs13 border mt-0 mx300" id={'canned-list-'+props.chatId}>
-                        <li className="border-bottom pt-1 pb-1"><a onClick={(e) => setCollapsed(true)}><span className="material-icons">expand_less</span>Canned messages</a></li>
-                        {data.map((item, index) => (
+                <ul className="list-unstyled fs13 border mt-0 mx300" id={'canned-list-'+props.chatId}>
+                    <li className="border-bottom pt-1 pb-1"><a onClick={(e) => setCollapsed(true)}><span className="material-icons">expand_less</span>Canned messages</a></li>
+                    {data.map((item, index) => (
                         <li><a className="font-weight-bold" key={index} onClick={() => expandCategory(item, index)}><span className="material-icons">{item.expanded ? 'expand_less' : 'expand_more'}</span>{item.title} [{item.messages.length}]</a>
                             {item.expanded &&
                             <ul className="list-unstyled ml-4">
@@ -275,8 +288,8 @@ const CannedMessages = props => {
                                 ))}
                             </ul>}
                         </li>
-                        ))}
-                    </ul>
+                    ))}
+                </ul>
                 }
             </div>
             <div className="col-6">
