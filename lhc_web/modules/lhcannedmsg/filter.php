@@ -14,6 +14,9 @@ $cannedMessagesFormated = array();
 
 $counter = 0;
 $itemSelected = false;
+$expandAll = $q != '';
+$expandedDefault = false;
+
 foreach ($canned_options as $depId => $group) {
 
     $dataList = explode('_', $depId);
@@ -28,10 +31,11 @@ foreach ($canned_options as $depId => $group) {
         $typeTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat', 'Global');
     }
 
-    $items = array();
+     $items = array();
+
 
      foreach ($group as $item) {
-         $selected =  $q != '' && $itemSelected == false;
+         $selected =  $itemSelected == false;
          $itemSelected = true;
 
          $items[] = array(
@@ -46,8 +50,10 @@ foreach ($canned_options as $depId => $group) {
      $cannedMessagesFormated[] = array(
         'messages' => $items,
         'title' => $typeTitle,
-        'expanded' => $q != ''
+        'expanded' => ($expandAll || $expandedDefault == false)
      );
+
+    $expandedDefault = true;
 
     $counter++;
 }

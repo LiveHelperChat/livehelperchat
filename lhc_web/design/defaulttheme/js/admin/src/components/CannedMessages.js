@@ -7,10 +7,11 @@ const CannedMessages = props => {
     const [data, setData] = useState([]);
     const [isLoaded, setLoaded] = useState(false);
     const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
+    const [isCollapsed, setCollapsed] = useState(false);
 
     const getRootCategory = () => {
         if (!isLoaded) {
-            axios.get(WWW_DIR_JAVASCRIPT  + "cannedmsg/filter/"+props.chatId).then(result => {
+            axios.get(WWW_DIR_JAVASCRIPT  + "cannedmsg/filter/" + props.chatId).then(result => {
                 setData(result.data);
                 setLoaded(true);
                 renderPreview(null);
@@ -24,12 +25,17 @@ const CannedMessages = props => {
     }
 
     const fillMessage = (message) => {
-        document.getElementById('CSChatMessage-'+props.chatId).value = message.msg;
-        document.getElementById('CSChatMessage-'+props.chatId).focus();
+        let element = document.getElementById('CSChatMessage-'+props.chatId);
+        element.value = message.msg;
+        element.focus();
         renderPreview(message);
     }
 
-    const fillAndSend = (message) => {
+    const fillAndSend = (message,e) => {
+
+        e.stopPropagation();
+        e.preventDefault();
+
         setTimeout(() => {
             const formData = new FormData();
             formData.append('msg', message.msg);
@@ -44,6 +50,21 @@ const CannedMessages = props => {
                 return true;
             });
         }, message.delay);
+    }
+
+    const mouseOver = (message) => {
+        renderPreview(message);
+    }
+
+    const mouseLeave = (message) => {
+        renderPreview(null);
+        data.map((item, index) => {
+            item.messages.map(message => {
+                if (message.current == true) {
+                    renderPreview(message);
+                }
+            })
+        });
     }
 
     const renderPreview = (message) => {
@@ -65,8 +86,31 @@ const CannedMessages = props => {
             axios.post(WWW_DIR_JAVASCRIPT + 'chat/previewmessage/', formData).then((result) => {
                 element.innerHTML = result.data;
             });
-        },100);
+        }, 100);
     }
+
+    const isVisible = (lookInId, elementId, settings) => {
+        let lookIn = document.getElementById(lookInId);
+        let element = document.getElementById(elementId);
+        return (lookIn.offsetHeight + lookIn.scrollTop) >= (element.offsetTop + settings.threshold) && (element.offsetTop > lookIn.scrollTop - settings.threshold)
+    };
+
+    useEffect(() => {
+        data.map((item, index) => {
+            item.messages.map(message => {
+                if (message.current) {
+                    let messageElement = document.getElementById('canned-msg-'+props.chatId+'-'+message.id);
+                    if (messageElement != null && !isVisible('canned-list-'+props.chatId,'canned-msg-'+props.chatId+'-'+message.id,{threshold:10})) {
+                        messageElement.scrollIntoView();
+                    }
+                }
+            })
+        });
+    });
+
+    useEffect(() => {
+        //console.log('initial load');
+    },[]);
 
     const applyFilter = (e, doSearch) => {
 
@@ -80,8 +124,9 @@ const CannedMessages = props => {
             data.map((item, index) => (
                 item.messages.map(message => {
                     if (message.current) {
-                        document.getElementById('CSChatMessage-' + props.chatId).value = message.msg;
-                        document.getElementById('CSChatMessage-' + props.chatId).focus();
+                        let element = document.getElementById('CSChatMessage-' + props.chatId);
+                        element.value = message.msg;
+                        element.focus();
                     }
                 })
             ));
@@ -97,11 +142,20 @@ const CannedMessages = props => {
                 let index = data.length - 1;
                 data[index]['messages'][data[index]['messages'].length - 1].current = true;
                 renderPreview(data[index]['messages'][data[index]['messages'].length - 1]);
+
+                if (data[index].expanded) {
+                    data[index].expanded = true;
+                }
             } else {
                 data.map((val, index, array) => (
                     array[array.length - 1 - index].messages.map((messageValue, indexMessages, arrayMessages) => {
                             let message = arrayMessages[arrayMessages.length - 1 - indexMessages]
                             if (messageSet == true) {
+
+                                if (!array[array.length - 1 - index].expanded) {
+                                    array[array.length - 1 - index].expanded = true;
+                                }
+
                                 message.current = true;
                                 messageSet = false;
                                 renderPreview(message);
@@ -126,10 +180,18 @@ const CannedMessages = props => {
                 data[data.length -1]['messages'][ data[data.length -1]['messages'].length -1 ].current = false;
                 data[0]['messages'][0].current = true;
                 renderPreview(data[0]['messages'][0]);
+
+                if (data[0].expanded) {
+                    data[0].expanded = true;
+                }
+
             } else {
                 data.map((item, index) => {
                     item.messages.map(message => {
                         if (messageSet == true) {
+                            if (!item.expanded) {
+                                item.expanded = true;
+                            }
                             message.current = true;
                             renderPreview(message);
                             messageSet = false;
@@ -149,6 +211,7 @@ const CannedMessages = props => {
         } else if (doSearch === true) {
             axios.get(WWW_DIR_JAVASCRIPT  + "cannedmsg/filter/"+props.chatId + '?q=' + encodeURIComponent(e.target.value)).then(result => {
                 setData(result.data);
+                setCollapsed(false);
                 renderPreview(null);
                 result.data.map((item, index) => {
                     item.messages.map(message => {
@@ -165,20 +228,24 @@ const CannedMessages = props => {
         <React.Fragment>
             <div className="col-6">
 
-                <input type="text" onFocus={getRootCategory} className="form-control form-control-sm" onKeyUp={(e) => applyFilter(e, true)} onKeyDown={(e) => applyFilter(e, false)} defaultValue="" placeholder="Type to search"/>
-
                 {!isLoaded &&
-                    <p className="border mt-1"><a className="fs13" onClick={getRootCategory}><span className="material-icons">expand_more</span> Canned messages</a></p>
+                    <p className="border mt-0 pb-1 pt-1"><a className="fs13 d-block" onClick={getRootCategory}><span className="material-icons">expand_more</span>Canned messages</a></p>
                 }
-                {isLoaded &&
-                    <ul className="list-unstyled fs13 border mt-1">
+
+                {isLoaded && isCollapsed && <ul className="list-unstyled fs13 border mt-0 mx300">
+                    <li className="pt-1 pb-1"><a className="d-block" onClick={(e) => setCollapsed(false)}><span className="material-icons">expand_more</span>Canned messages</a></li>
+                </ul>}
+
+                {isLoaded && !isCollapsed &&
+                    <ul className="list-unstyled fs13 border mt-0 mx300" id={'canned-list-'+props.chatId}>
+                        <li className="border-bottom pt-1 pb-1"><a onClick={(e) => setCollapsed(true)}><span className="material-icons">expand_less</span>Canned messages</a></li>
                         {data.map((item, index) => (
                         <li><a className="font-weight-bold" key={index} onClick={() => expandCategory(item, index)}><span className="material-icons">{item.expanded ? 'expand_less' : 'expand_more'}</span>{item.title} [{item.messages.length}]</a>
                             {item.expanded &&
                             <ul className="list-unstyled ml-4">
                                 {item.messages.map(message => (
-                                    <li key={message.id} className={message.current ? 'font-italic font-weight-bold' : ''}>
-                                        <a title="Send instantly" onClick={(e) => fillAndSend(message)}><span className="material-icons fs12">send</span></a><a title={message.msg} onClick={(e) => fillMessage(message)}>{message.message_title}</a>
+                                    <li key={message.id} className={message.current ? 'font-italic font-weight-bold' : ''} id={'canned-msg-'+props.chatId+'-'+message.id}>
+                                        <a className="hover-canned d-block" onMouseLeave={(e) => mouseLeave(message)} onMouseEnter={(e) => mouseOver(message)} title={message.msg} onClick={(e) => fillMessage(message)}><span title="Send instantly" onClick={(e) => fillAndSend(message,e)} className="material-icons fs12">send</span> {message.message_title}</a>
                                     </li>
                                 ))}
                             </ul>}
@@ -187,8 +254,12 @@ const CannedMessages = props => {
                     </ul>
                 }
             </div>
-            <div className="col-6 mx300" id={'chat-render-preview-'+props.chatId}>
+            <div className="col-6">
+                <input type="text" onFocus={getRootCategory} className="form-control form-control-sm" onKeyUp={(e) => applyFilter(e, true)} onKeyDown={(e) => applyFilter(e, false)} defaultValue="" placeholder="&#128269; Navigate with &#11139; and &#8629; Enter"/>
 
+                <div className="mx300 mt-1" id={'chat-render-preview-'+props.chatId}>
+
+                </div>
             </div>
         </React.Fragment>
     );

@@ -1257,6 +1257,11 @@ input[type="file"]{
     max-height: 80px;
 }
 
+.hover-canned:hover{
+    font-weight: bold;
+    font-style: italic;
+}
+
 .current-hash-content ul{
 	margin-bottom:0;
 }
