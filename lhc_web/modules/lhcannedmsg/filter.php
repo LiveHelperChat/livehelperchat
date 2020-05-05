@@ -12,7 +12,6 @@ $canned_options = erLhcoreClassModelCannedMsg::groupItems(erLhcoreClassModelCann
 
 $cannedMessagesFormated = array();
 
-$counter = 0;
 $itemSelected = false;
 $expandAll = $q != '';
 $expandedDefault = false;
@@ -33,9 +32,8 @@ foreach ($canned_options as $depId => $group) {
 
      $items = array();
 
-
      foreach ($group as $item) {
-         $selected =  $itemSelected == false;
+         $selected = $itemSelected == false;
          $itemSelected = true;
 
          $items[] = array(
@@ -54,9 +52,9 @@ foreach ($canned_options as $depId => $group) {
      );
 
     $expandedDefault = true;
-
-    $counter++;
 }
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('cannedmsg.filter',array('q' => $q, 'cannedmessages' => & $cannedMessagesFormated, 'chat' => & $chat));
 
 echo json_encode($cannedMessagesFormated);
 

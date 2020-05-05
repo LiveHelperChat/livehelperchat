@@ -143,7 +143,7 @@ const CannedMessages = props => {
                 data[index]['messages'][data[index]['messages'].length - 1].current = true;
                 renderPreview(data[index]['messages'][data[index]['messages'].length - 1]);
 
-                if (data[index].expanded) {
+                if (!data[index].expanded) {
                     data[index].expanded = true;
                 }
             } else {
@@ -181,7 +181,7 @@ const CannedMessages = props => {
                 data[0]['messages'][0].current = true;
                 renderPreview(data[0]['messages'][0]);
 
-                if (data[0].expanded) {
+                if (!data[0].expanded) {
                     data[0].expanded = true;
                 }
 
