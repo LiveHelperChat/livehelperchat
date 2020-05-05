@@ -100,7 +100,7 @@ class _screenShare {
                         '  font-size: 16px;' +
                         '  margin: 4px 2px;' +
                         '  cursor: pointer;">' + data.trans.deny + '</button></p></div></div>');
-                    
+
                     var btn = document.getElementById("lhc-close");
                     var btnDeny = document.getElementById("lhc-deny-share-session");
                     var modal = document.getElementById("lhc-co-browsing-modal");

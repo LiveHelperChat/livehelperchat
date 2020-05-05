@@ -134,6 +134,11 @@ a:hover{
 	overflow:auto;
 }
 
+.mx300{
+	max-height:300px;
+	overflow:auto;
+}
+
 .mh150{
 	min-height:150px;
 }
@@ -193,6 +198,10 @@ a:hover{
 
 .fs12 {
 	font-size: 12px;
+}
+
+.fs13 {
+	font-size: 13px;
 }
 
 .fs24 {
@@ -1246,6 +1255,11 @@ input[type="file"]{
 
 .canned-msg-preview img{
     max-height: 80px;
+}
+
+.hover-canned:hover{
+    font-weight: bold;
+    font-style: italic;
 }
 
 .current-hash-content ul{

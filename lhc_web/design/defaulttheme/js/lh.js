@@ -2515,29 +2515,6 @@ function lh(){
 		// Start synchronisation
 		this.startSyncAdmin();
 
-		jQuery('#id_CannedMessageSearch-'+chat_id).keyup(function(evt) {
-
-			if ($(this).val() != '') {
-				jQuery('#id_CannedMessage-'+chat_id).attr('size',10);
-			} else {
-				jQuery('#id_CannedMessage-'+chat_id).removeAttr('size');
-			}
-
-			var q = $(this).val();
-			$.getJSON(_that.wwwDir + 'chat/getcannedfiltered/' + chat_id, {q: q}, function(data) {
-                 if (data.error == false) {
-                	 $('#id_CannedMessage-'+chat_id).html(data.result);
-
-                	 if (q != '') {
-                		 var options = $('#id_CannedMessage-'+chat_id).find('option');
-                		 if (options.length > 1) {
-                			 $(options[1]).attr('selected','selected');
-                		 }
-                	 }
-                 }
-            });
-		});
-
 		// Hide notification only if chat was not started in background
 		if (arg === null || typeof arg !== 'object' || arg.indexOf('background') === -1) {
 			this.hideNotification(chat_id);
