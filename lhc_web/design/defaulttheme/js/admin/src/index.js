@@ -14,3 +14,10 @@ ee.addListener('adminChatLoaded',(chatId) => {
         document.getElementById('canned-messages-chat-container-'+chatId)
     );
 })
+
+ee.addListener('removeSynchroChat', (chatId) => {
+    var el = document.getElementById('canned-messages-chat-container-'+chatId);
+    if (el !== null) {
+        ReactDOM.unmountComponentAtNode(el)
+    }
+});

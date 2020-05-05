@@ -33,8 +33,10 @@ const CannedMessages = props => {
 
     const fillAndSend = (message,e) => {
 
-        e.stopPropagation();
-        e.preventDefault();
+        if (typeof e !== 'undefined') {
+            e.stopPropagation();
+            e.preventDefault();
+        }
 
         setTimeout(() => {
             const formData = new FormData();
@@ -109,7 +111,30 @@ const CannedMessages = props => {
     });
 
     useEffect(() => {
-        //console.log('initial load');
+
+        function sendManualMessage(chatId, messageId) {
+            if (props.chatId == chatId) {
+                axios.get(WWW_DIR_JAVASCRIPT  + "cannedmsg/filter/" + props.chatId).then(result => {
+                    setData(result.data);
+                    renderPreview(null);
+                    result.data.map((item, index) => {
+                        item.messages.map(message => {
+                            if (message.id == messageId) {
+                                fillAndSend(message);
+                            }
+                        })
+                    });
+                });
+            }
+        }
+
+        ee.addListener('sendCannedByMessageId',sendManualMessage)
+
+        // Cleanup
+        return function cleanup() {
+            ee.removeListener('sendCannedByMessageId', sendManualMessage);
+        };
+
     },[]);
 
     const applyFilter = (e, doSearch) => {
