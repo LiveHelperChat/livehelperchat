@@ -53,12 +53,20 @@ class _nodeJSChat {
         socket.on('connect', function (status) {
             if (status.isAuthenticated) {
                 connectSiteVisitor();
+
+                // Disable check messages in case we connect to nodejs
+                LHC_API.args.check_messages = false;
+
             } else {
                 socket.emit('login', {hash: params.hash, chanelName: chanelName}, function (err) {
                     if (err) {
                         console.log(err);
                     } else {
+
                         connectSiteVisitor();
+
+                        // Disable check messages in case we connect to nodejs
+                        LHC_API.args.check_messages = false;
                     }
                 });
             }
