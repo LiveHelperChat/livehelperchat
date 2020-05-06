@@ -1,3 +1,24 @@
+3.34v
+
+1. Canned messages new interface
+2. Passing variable has option to be persistent. It means variable in online visitors list will be preserved even if afterward it won't be passed.
+3. Offline messaging will respect priority and passed department.
+4. If NodeJS is enabled we should not be executing check messages call. Because NodeJS does that for us.
+5. Send Video in bot now supports iframes. So you can embed youtube video.
+6. If department was assigned to department group, operators max_chats limit was not respected.
+7. Rest API for adding user messages will return message data itself.
+8. Co-browsing new modal window for requesting screen share.
+9. Hash tag functionality for canned messages now has columns supports and left,right navigation between columns.
+10. New line were not respected if image was send in between operator messages.
+11. Canned messages has full HTML preview.
+12. RFC6265 Compatible cookie
+13. CLI Install update to recent version.
+14. Few fixes for PHP 7.4.5 compatibility.
+
+And a lot of other small changes...
+
+execute doc/update_db/update_208.sql for update
+
 3.33v
 
 1. Cookie path argument.
