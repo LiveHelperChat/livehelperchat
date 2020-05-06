@@ -665,8 +665,24 @@
             "in": "query",
             "description": "Should system messages be ignored or not.",
             "required": false,
-            "type": "string",
-            "format": "int32"
+            "default": false,
+            "type": "boolean"
+          },
+          {
+            "name": "extract_media",
+            "in": "query",
+            "description": "Should we include separate array of related files to a message?",
+            "required": false,
+            "default": false,
+            "type": "boolean"
+          },
+          {
+            "name": "remove_media",
+            "in": "query",
+            "description": "Remove bbcode tags from message if it's only file message?",
+            "required": false,
+            "default": false,
+            "type": "boolean"
           }
         ],
         "responses": {

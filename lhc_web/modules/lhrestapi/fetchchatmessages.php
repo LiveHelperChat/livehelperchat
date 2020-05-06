@@ -87,13 +87,62 @@ try {
             $messages = erLhcoreClassChatArcive::getPendingMessages($chat->id, $lastMessageId);
         }
 
-        if (isset($_GET['ignore_system_messages']) &&  $_GET['ignore_system_messages'] == true)
+        if (isset($_GET['ignore_system_messages']) && ($_GET['ignore_system_messages'] == 'true' || $_GET['ignore_system_messages'] == '1'))
         {
             foreach ($messages as $key => $data) {
                 if ($data['user_id'] == -1) {
                     unset($messages[$key]);
                 }
                 $lastMessageId = $data['id'];
+            }
+        }
+
+        // Extract media within message if required
+        if (isset($_GET['extract_media']) && ($_GET['extract_media'] == 'true' || $_GET['extract_media'] == '1')) {
+            foreach ($messages as $key => $msg) {
+                $matches = array();
+
+                $msg_text_cleaned = $msg['msg'];
+
+                preg_match_all('/\[file="?(.*?)"?\]/', $msg_text_cleaned, $matches);
+
+                $media = array();
+
+                foreach ($matches[1] as $index => $body) {
+                    $parts = explode('_', $body);
+                    $fileID = $parts[0];
+                    $hash = $parts[1];
+                    try {
+                        $file = erLhcoreClassModelChatFile::fetch($fileID);
+                        if (is_object($file) && $hash == $file->security_hash) {
+
+                            $url = (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$file->id}/{$hash}";
+
+                            $media[] = array(
+                                'id' => $file->id,
+                                'size' => $file->size,
+                                'upload_name' => $file->upload_name,
+                                'type' => $file->type,
+                                'extension' => $file->extension,
+                                'hash' => $hash,
+                                'url' => $url,
+                            );
+
+                            $msg_text_cleaned = str_replace($matches[0][$index],'',$msg_text_cleaned);
+                        }
+
+                    } catch (Exception $e) {
+
+                    }
+                }
+
+                // Set message text to empty if only file was send
+                if (trim($msg_text_cleaned) == '' && isset($_GET['remove_media']) && ($_GET['remove_media'] == 'true' || $_GET['remove_media'] == '1') ) {
+                    $messages[$key]['msg'] = '';
+                }
+
+                $messages[$key]['media'] = $media;
+
             }
         }
                 
