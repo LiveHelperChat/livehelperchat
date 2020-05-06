@@ -197,11 +197,10 @@ if (empty($Errors)) {
 
                 if ($chat->nick != 'Visitor') {
                     $onlineAttr = $userInstance->online_attr_system_array;
-                    if (!isset($onlineAttr['username'])){
-                        $onlineAttr['username'] = $chat->nick;
-                        $userInstance->online_attr_system = json_encode($onlineAttr);
-                    }
-                } elseif ($chat->nick == 'Visitor'){
+                    $onlineAttr['username'] = $chat->nick;
+                    $userInstance->online_attr_system = json_encode($onlineAttr);
+                    $userInstance->online_attr_system_array = $onlineAttr;
+                } elseif ($chat->nick == 'Visitor') {
                     if ($userInstance->nick && $userInstance->has_nick) {
                         $chat->nick = $userInstance->nick;
                     }

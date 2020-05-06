@@ -790,7 +790,7 @@ class erLhcoreClassChatValidator {
 
         foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$visitor->dep_id))) as $jsVar) {
 
-            if (isset($onlineAttr[$jsVar->var_identifier])) {
+            if (isset($onlineAttr[$jsVar->var_identifier]) && $jsVar->persistent == 0) {
                 unset($onlineAttr[$jsVar->var_identifier]);
             }
 
@@ -816,6 +816,14 @@ class erLhcoreClassChatValidator {
                         $val = $e->getMessage();
                     }
                 }
+
+                if ($jsVar->var_identifier == 'lhc.nick' && $val != '') {
+                    $onlineAttrSystem = $visitor->online_attr_system_array;
+                    $onlineAttrSystem['username'] = $val;
+                    $visitor->online_attr_system = json_encode($onlineAttrSystem);
+                    $visitor->online_attr_system_array =$onlineAttrSystem;
+                }
+
                 $onlineAttr[$jsVar->var_identifier] =  array('h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
             }
         }
