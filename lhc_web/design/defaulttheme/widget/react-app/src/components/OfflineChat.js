@@ -43,6 +43,14 @@ class OfflineChat extends Component {
         fields['URLRefer'] = window.location.href.substring(window.location.protocol.length);
         fields['r'] = this.props.chatwidget.get('ses_ref');
 
+        if (this.props.chatwidget.get('operator') != '') {
+            fields['operator'] = this.props.chatwidget.get('operator');
+        }
+        
+        if (this.props.chatwidget.get('priority') !== null) {
+            fields['priority'] = this.props.chatwidget.get('priority');
+        }
+
         const customFields = helperFunctions.getCustomFieldsSubmit(this.props.chatwidget.getIn(['customData','fields']));
         if (customFields !== null) {
             fields = {...fields, ...customFields};
