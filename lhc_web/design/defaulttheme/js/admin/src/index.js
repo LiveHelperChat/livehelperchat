@@ -9,14 +9,19 @@ const CannedMessages = React.lazy(() => import('./components/CannedMessages'));
 __webpack_public_path__ = WWW_DIR_LHC_WEBPACK_ADMIN;
 
 ee.addListener('adminChatLoaded',(chatId) => {
-    ReactDOM.render(
-        <Suspense fallback="..."><CannedMessages chatId={chatId}/></Suspense>,
-        document.getElementById('canned-messages-chat-container-'+chatId)
-    );
+    var el = document.getElementById('canned-messages-chat-container-'+chatId);
+
+    if (el !== null) {
+        ReactDOM.render(
+            <Suspense fallback="..."><CannedMessages chatId={chatId}/></Suspense>,
+            el
+        );
+    }
 })
 
 ee.addListener('removeSynchroChat', (chatId) => {
     var el = document.getElementById('canned-messages-chat-container-'+chatId);
+
     if (el !== null) {
         ReactDOM.unmountComponentAtNode(el)
     }
