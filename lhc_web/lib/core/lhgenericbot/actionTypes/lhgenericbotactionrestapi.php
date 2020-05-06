@@ -146,13 +146,9 @@ class erLhcoreClassGenericBotActionRestapi
             }
         }
 
-        // Set message text to empty if only file was send
-        if (trim($msg_text_cleaned) == '') {
-            $msg_text = '';
-        }
-
         $replaceVariables = array(
             '{{msg}}' => $msg_text,
+            '{{msg_clean}}' => trim($msg_text_cleaned),
             '{{chat_id}}' => $paramsCustomer['chat']->id,
             '{{lhc.nick}}' =>$paramsCustomer['chat']->nick,
             '{{lhc.email}}' => $paramsCustomer['chat']->email,
@@ -164,6 +160,7 @@ class erLhcoreClassGenericBotActionRestapi
 
         $replaceVariablesJSON = array(
             '{{msg}}' => json_encode($msg_text),
+            '{{msg_clean}}' => json_encode(trim($msg_text_cleaned)),
             '{{chat_id}}' => json_encode($paramsCustomer['chat']->id),
             '{{lhc.nick}}' => json_encode($paramsCustomer['chat']->nick),
             '{{lhc.email}}' => json_encode($paramsCustomer['chat']->email),
