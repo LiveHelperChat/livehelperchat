@@ -100,11 +100,55 @@ class erLhcoreClassGenericBotActionRestapi
     {
 
         $msg_text = '';
+        $msg_text_cleaned = '';
 
         if (isset($paramsCustomer['params']['msg'])) {
-            $msg_text = $paramsCustomer['params']['msg']->msg;
+            $msg_text_cleaned = $msg_text = $paramsCustomer['params']['msg']->msg;
         } elseif ($paramsCustomer['params']['msg_text']) {
-            $msg_text = $paramsCustomer['params']['msg_text'];
+            $msg_text_cleaned = $msg_text = $paramsCustomer['params']['msg_text'];
+        }
+
+        // We have to extract attached files and send them separately
+        $matches = array();
+        preg_match_all('/\[file="?(.*?)"?\]/', $msg_text, $matches);
+
+        $media = array();
+
+        foreach ($matches[1] as $index => $body) {
+            $parts = explode('_', $body);
+            $fileID = $parts[0];
+            $hash = $parts[1];
+            try {
+                $file = erLhcoreClassModelChatFile::fetch($fileID);
+                if (is_object($file) && $hash == $file->security_hash) {
+
+                    if (isset($_SERVER['HTTP_HOST'])) {
+                        $url = (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$file->id}/{$hash}";
+                    } else {
+                        $url = erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->settings['site_address'] . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$file->id}/{$hash}";
+                    }
+
+                    $media[] = array(
+                        'id' => $file->id,
+                        'size' => $file->size,
+                        'upload_name' => $file->upload_name,
+                        'type' => $file->type,
+                        'extension' => $file->extension,
+                        'hash' => $hash,
+                        'url' => $url,
+                    );
+
+                    $msg_text_cleaned = str_replace($matches[0][$index],'',$msg_text_cleaned);
+                }
+
+            } catch (Exception $e) {
+
+            }
+        }
+
+        // Set message text to empty if only file was send
+        if (trim($msg_text_cleaned) == '') {
+            $msg_text = '';
         }
 
         $replaceVariables = array(
@@ -115,6 +159,7 @@ class erLhcoreClassGenericBotActionRestapi
             '{{lhc.department}}' => (string)$paramsCustomer['chat']->department,
             '{{lhc.dep_id}}' => (string)$paramsCustomer['chat']->dep_id,
             '{{ip}}' => (string)erLhcoreClassIPDetect::getIP(),
+            '{{media}}' => json_encode($media)
         );
 
         $replaceVariablesJSON = array(
@@ -125,6 +170,7 @@ class erLhcoreClassGenericBotActionRestapi
             '{{lhc.department}}' => json_encode((string)$paramsCustomer['chat']->department),
             '{{lhc.dep_id}}' => json_encode((string)$paramsCustomer['chat']->dep_id),
             '{{ip}}' => json_encode(erLhcoreClassIPDetect::getIP()),
+            '{{media}}' => json_encode($media),
         );
 
         foreach ($paramsCustomer['chat']->additional_data_array as $keyItem => $addItem) {
