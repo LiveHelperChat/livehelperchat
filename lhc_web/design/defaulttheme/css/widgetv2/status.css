@@ -168,6 +168,7 @@ body {
     url('../fonts/lhc.svg#lhc') format('svg');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 #status-icon,
@@ -198,6 +199,7 @@ body {
     url('../fonts/MaterialIcons-Regularv2.woff2') format('woff2'),
     url('../fonts/MaterialIcons-Regularv2.woff') format('woff'),
     url('../fonts/MaterialIcons-Regularv2.ttf') format('truetype');
+    font-display: swap;
 }
 
 .material-icons {

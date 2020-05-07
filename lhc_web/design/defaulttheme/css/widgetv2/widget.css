@@ -12,6 +12,7 @@ body {
     url('../fonts/MaterialIcons-Regularv2.woff2') format('woff2'),
     url('../fonts/MaterialIcons-Regularv2.woff') format('woff'),
     url('../fonts/MaterialIcons-Regularv2.ttf') format('truetype');
+    font-display: swap;
 }
 
 div.message-row {
