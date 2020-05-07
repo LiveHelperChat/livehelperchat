@@ -8,8 +8,11 @@ class erLhcoreClassChatWorkflow {
     public static function timeoutWorkflow(erLhcoreClassModelChat & $chat)
     {
         $msg = new erLhcoreClassModelmsg();
-        $msg->msg = trim($chat->auto_responder->auto_responder->timeout_message);
-        $msg->meta_msg = $chat->auto_responder->auto_responder->getMeta($chat, 'pending');
+
+        $metaMessage = $chat->auto_responder->auto_responder->getMeta($chat, 'pending_op', 1, array('include_message' => true));
+
+        $msg->msg = trim($chat->auto_responder->auto_responder->timeout_message) . $metaMessage['msg'];
+        $msg->meta_msg = $metaMessage['meta_msg'];
         $msg->chat_id = $chat->id;
         $operator = $chat->auto_responder->auto_responder->operator;
         $msg->name_support = $operator != '' ? $operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');

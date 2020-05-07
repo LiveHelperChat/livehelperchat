@@ -81,6 +81,7 @@ class erLhcoreClassGenericBotActionRestapi
                 }
 
                 if ($response['content'] != '' || (isset($response['meta']) && !empty($response['meta']))){
+
                     $msg = new erLhcoreClassModelmsg();
                     $msg->chat_id = $chat->id;
                     $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
@@ -88,7 +89,10 @@ class erLhcoreClassGenericBotActionRestapi
                     $msg->time = time() + 5;
                     $msg->meta_msg = (isset($response['meta']) && !empty($response['meta'])) ? json_encode($response['meta']) : '';
                     $msg->msg = $response['content'];
-                    $msg->saveThis();
+
+                    if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
+                        $msg->saveThis();
+                    }
 
                     return  $msg;
                 }
@@ -104,7 +108,7 @@ class erLhcoreClassGenericBotActionRestapi
 
         if (isset($paramsCustomer['params']['msg'])) {
             $msg_text_cleaned = $msg_text = $paramsCustomer['params']['msg']->msg;
-        } elseif ($paramsCustomer['params']['msg_text']) {
+        } elseif (isset($paramsCustomer['params']['msg_text'])) {
             $msg_text_cleaned = $msg_text = $paramsCustomer['params']['msg_text'];
         }
 

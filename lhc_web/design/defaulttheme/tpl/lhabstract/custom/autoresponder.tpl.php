@@ -135,8 +135,7 @@
 </div>
 
 <script>
-
-$('select[name*="AbstractInput_nreply_op_bot_id"],select[name="AbstractInput_nreply_op_bot_id_1"],select[name="AbstractInput_pending_bot_id"],select[name="AbstractInput_nreply_bot_id"],select[name="AbstractInput_onhold_bot_id"]').change(function(){
+$('select[name*="AbstractInput_pending_op_bot_id"],select[name*="AbstractInput_nreply_op_bot_id"],select[name="AbstractInput_nreply_bot_id"],select[name="AbstractInput_onhold_bot_id"]').change(function(){
     var identifier = $(this).attr('name').replace(/AbstractInput_|_bot_id/g,"");
     $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $(this).val() + '/0/(preview)/1/(element)/'+identifier+'_trigger_id', { }, function(data) {
         $('#'+identifier+'-trigger-list-id').html(data);
@@ -146,10 +145,11 @@ $('select[name*="AbstractInput_nreply_op_bot_id"],select[name="AbstractInput_nre
     });
 });
 
-var responderItems = [{'id':'pending_bot_id','val' : <?php echo (isset($object->bot_configuration_array['pending_trigger_id'])) ? $object->bot_configuration_array['pending_trigger_id'] : 0 ?>},{'id':'nreply_bot_id','val':<?php echo (isset($object->bot_configuration_array['nreply_trigger_id'])) ? $object->bot_configuration_array['nreply_trigger_id'] : 0 ?>},{'id':'onhold_bot_id','val': <?php echo (isset($object->bot_configuration_array['onhold_trigger_id'])) ? $object->bot_configuration_array['onhold_trigger_id'] : 0 ?>}];
+var responderItems = [{'id':'nreply_bot_id','val':<?php echo (isset($object->bot_configuration_array['nreply_trigger_id'])) ? $object->bot_configuration_array['nreply_trigger_id'] : 0 ?>},{'id':'onhold_bot_id','val': <?php echo (isset($object->bot_configuration_array['onhold_trigger_id'])) ? $object->bot_configuration_array['onhold_trigger_id'] : 0 ?>}];
 
 <?php for ($i = 1; $i <= 5; $i++)  : ?>
 responderItems.push({'id':'nreply_op_bot_id_<?php echo $i?>','val' : <?php echo (isset($object->bot_configuration_array['nreply_op_' . $i .'_trigger_id'])) ? $object->bot_configuration_array['nreply_op_' . $i .'_trigger_id'] : 0 ?>});
+responderItems.push({'id':'pending_op_bot_id_<?php echo $i?>','val' : <?php echo (isset($object->bot_configuration_array['pending_op_' . $i .'_trigger_id'])) ? $object->bot_configuration_array['pending_op_' . $i .'_trigger_id'] : 0 ?>});
 <?php endfor; ?>
 
 $.each(responderItems, function( index, value ) {

@@ -245,7 +245,7 @@ class erLhAbstractModelAutoResponder {
         }
     }
 
-	public function getMeta(& $chat, $type, $counter = null)
+	public function getMeta(& $chat, $type, $counter = null, $options = array())
     {
 
         $botCounter = $counter !== null ? '_' . $counter : '';
@@ -256,19 +256,37 @@ class erLhAbstractModelAutoResponder {
             $trigger = erLhcoreClassModelGenericBotTrigger::fetch($this->bot_configuration_array[$type . $botCounter . '_trigger_id']);
 
             if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
-                $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('do_not_save' => true)));
 
                 // Set chat bot
                 $variablesArray = $chat->chat_variables_array;
 
-                if (!isset($variablesArray['gbot_id'])){
+                if (!isset($variablesArray['gbot_id'])) {
                     $variablesArray['gbot_id'] = $trigger->bot_id;
                     $chat->chat_variables = json_encode($variablesArray);
                     $chat->chat_variables_array = $variablesArray;
+                    $chat->updateThis(array('update' => array('chat_variables')));
                 }
 
-                return $message->meta_msg;
+                $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('do_not_save' => true)));
+
+                if ($message instanceof erLhcoreClassModelmsg) {
+                    if (isset($options['include_message']) && $options['include_message'] == true) {
+                        return array(
+                            'msg' => $message->msg,
+                            'meta_msg' => $message->meta_msg,
+                        );
+                    } else {
+                        return $message->meta_msg;
+                    }
+                }
             }
+        }
+
+        if (isset($options['include_message']) && $options['include_message'] == true) {
+            return array(
+                'msg' => '',
+                'meta_msg' => '',
+            );
         }
 
         return '';
