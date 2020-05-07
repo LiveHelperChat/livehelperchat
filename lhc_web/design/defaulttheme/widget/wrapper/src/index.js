@@ -1,6 +1,6 @@
 (function (global) {
 
-    if (!global.LHC_API) {
+    if (!global.LHC_API || /bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|Chrome-Lighthouse/i.test(navigator.userAgent)) {
         return;
     }
 
