@@ -61,8 +61,10 @@ class erLhcoreClassChatCommand
         }
         
         return array(
-            'processed' => false,
-            'process_status' => ''
+            'processed' => true,
+            'ignore' => true,
+            'process_status' => '',
+            'info' => 'Unknown command! [' . $commandData['command'] .']',
         );
     }
 
