@@ -178,7 +178,7 @@ $outputResponse['chat_ui']['leaveamessage'] = (isset($startDataFields['force_lea
 $outputResponse['chat_ui']['mobile_popup'] = isset($startDataFields['mobile_popup']) && $startDataFields['mobile_popup'] == true;
 
 $ts = time();
-$outputResponse['v'] = 52;
+$outputResponse['v'] = 53;
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
 $outputResponse['static'] = array(
@@ -195,8 +195,6 @@ $outputResponse['static'] = array(
     'chunk_js' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('js/widgetv2'),
     'page_css' => $pageCSS
 );
-
-
 
 $outputResponse['chunks_location'] = erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('js/widgetv2');
 

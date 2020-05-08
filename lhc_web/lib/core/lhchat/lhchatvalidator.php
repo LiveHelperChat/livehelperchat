@@ -143,7 +143,7 @@ class erLhcoreClassChatValidator {
         $validationFields['DepartmentIDDefined'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1),FILTER_REQUIRE_ARRAY);
         $validationFields['ProductIDDefined'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1),FILTER_REQUIRE_ARRAY);
         $validationFields['operator'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1));
-        $validationFields['user_timezone'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int');
+        $validationFields['user_timezone'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw');
         $validationFields['HasProductID'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean');
         $validationFields['keyUpStarted'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1));
         $validationFields['bot_id'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1));
@@ -393,13 +393,15 @@ class erLhcoreClassChatValidator {
          	}
          }
         
-        if ($form->hasValidData( 'user_timezone' )) {        	
-        	$timezone_name = timezone_name_from_abbr(null, $form->user_timezone*3600, true);        	
+        if ($form->hasValidData( 'user_timezone' ) && is_numeric($form->user_timezone)) {
+        	$timezone_name = timezone_name_from_abbr(null, (int)$form->user_timezone*3600, true);
         	if ($timezone_name !== false) {
         		$chat->user_tz_identifier = $timezone_name;
         	} else {
         		$chat->user_tz_identifier = '';
         	}
+        } else if ($form->hasValidData( 'user_timezone' ) && self::isValidTimezoneId2($form->user_timezone)) {
+            $chat->user_tz_identifier = $form->user_timezone;
         }
 
         if ($form->hasValidData( 'DepartmentIDDefined' )) {
@@ -831,6 +833,16 @@ class erLhcoreClassChatValidator {
         $visitor->online_attr = json_encode($onlineAttr);
         $visitor->saveThis();
 
+    }
+
+    public static function isValidTimezoneId2($tzid) {
+        $valid = array();
+        $tza = timezone_abbreviations_list();
+        foreach ($tza as $zone)
+            foreach ($zone as $item)
+                $valid[$item['timezone_id']] = true;
+        unset($valid['']);
+        return !!$valid[$tzid];
     }
 
     public static function validateJSVarsChat($chat, $data) {

@@ -694,6 +694,8 @@ class erLhcoreClassModelChatOnlineUser
                         if ($timezone_name !== false) {
                             $item->visitor_tz = $timezone_name;
                         }
+                    } elseif (isset($paramsHandle['tz']) && erLhcoreClassChatValidator::isValidTimezoneId2($paramsHandle['tz'])){
+                        $item->visitor_tz = $paramsHandle['tz'];
                     }
 
                     self::detectLocation($item);
@@ -806,6 +808,8 @@ class erLhcoreClassModelChatOnlineUser
                     if ($timezone_name !== false) {
                         $item->visitor_tz = $timezone_name;
                     }
+                } elseif (isset($paramsHandle['tz']) && $item->visitor_tz == '' && erLhcoreClassChatValidator::isValidTimezoneId2($paramsHandle['tz'])) {
+                    $item->visitor_tz = $paramsHandle['tz'];
                 }
 
                 // Hide invitation message after n times if required

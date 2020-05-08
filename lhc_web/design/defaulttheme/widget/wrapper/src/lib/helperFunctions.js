@@ -23,27 +23,31 @@ class _helperFunctions {
     }
 
     // Returns time zone offset
-    getTzOffset(){
-        Date.prototype.stdTimezoneOffset = function() {
-            var jan = new Date(this.getFullYear(), 0, 1);
-            var jul = new Date(this.getFullYear(), 6, 1);
-            return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
-        };
+    getTzOffset() {
+        try {
+            return Intl.DateTimeFormat().resolvedOptions().timeZone;
+        } catch (e) {
+            Date.prototype.stdTimezoneOffset = function() {
+                var jan = new Date(this.getFullYear(), 0, 1);
+                var jul = new Date(this.getFullYear(), 6, 1);
+                return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
+            };
 
-        Date.prototype.dst = function() {
-            return this.getTimezoneOffset() < this.stdTimezoneOffset();
-        };
+            Date.prototype.dst = function() {
+                return this.getTimezoneOffset() < this.stdTimezoneOffset();
+            };
 
-        var today = new Date();
-        var timeZoneOffset = 0;
+            var today = new Date();
+            var timeZoneOffset = 0;
 
-        if (today.dst()) {
-            timeZoneOffset = today.getTimezoneOffset();
-        } else {
-            timeZoneOffset = today.getTimezoneOffset()-60;
-        };
+            if (today.dst()) {
+                timeZoneOffset = today.getTimezoneOffset();
+            } else {
+                timeZoneOffset = today.getTimezoneOffset()-60;
+            };
 
-        return (timeZoneOffset/60)*-1;
+            return (timeZoneOffset/60)*-1;
+        }
     };
 
     getAbstractStyle(params) {
