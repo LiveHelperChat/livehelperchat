@@ -295,7 +295,7 @@ const CannedMessages = props => {
             <div className="col-6">
                 <input type="text" onFocus={getRootCategory} className="form-control form-control-sm" onKeyUp={(e) => applyFilter(e, true)} onKeyDown={(e) => applyFilter(e, false)} defaultValue="" placeholder="&#128269; Navigate with &#11139; and &#8629; Enter"/>
 
-                <div className="mx300 mt-1" id={'chat-render-preview-'+props.chatId}>
+                <div className="mx275 mt-1" id={'chat-render-preview-'+props.chatId}>
 
                 </div>
             </div>

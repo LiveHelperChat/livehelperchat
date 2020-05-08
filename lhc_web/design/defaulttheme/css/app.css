@@ -139,6 +139,11 @@ a:hover{
 	overflow:auto;
 }
 
+.mx275{
+    max-height:275px;
+    overflow:auto;
+}
+
 .mh150{
 	min-height:150px;
 }
