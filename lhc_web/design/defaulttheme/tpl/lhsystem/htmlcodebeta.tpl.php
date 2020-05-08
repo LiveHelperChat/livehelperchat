@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div>
-                        <label><input type="checkbox" id="id_fresh" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','On each refresh start new chat. Usefull in embed mode.');?></label>
+                        <label><input type="checkbox" id="id_fresh" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','On each refresh start a new chat. Users will loose chat session browsing through pages! Usefull in embed mode.');?></label>
                     </div>
                 </div>
                 <div class="col-md-6">

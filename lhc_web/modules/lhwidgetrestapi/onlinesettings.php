@@ -17,7 +17,11 @@ $theme = false;
 
 if (isset($requestPayload['theme']) && $requestPayload['theme'] > 0) {
     $theme = erLhAbstractModelWidgetTheme::fetch($requestPayload['theme']);
-    $theme->translate();
+    if ($theme instanceof erLhAbstractModelWidgetTheme){
+        $theme->translate();
+    } else {
+        $theme = false;
+    }
 }
 
 // Departments
