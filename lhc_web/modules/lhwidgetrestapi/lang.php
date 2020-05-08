@@ -29,7 +29,8 @@ $translations = array(
     ],
     "start_chat" => [
         "thank_you_for_feedback" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Thank you for your feedback...'),
-        "leave_a_message" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Leave a message')
+        "leave_a_message" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Leave a message'),
+        "cant_start_a_chat" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Chat can not be started now. Please try again later.')
     ],
     "online_chat" => [
         "go_to_survey" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Go to Survey.'),

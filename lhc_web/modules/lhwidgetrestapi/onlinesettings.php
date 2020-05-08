@@ -582,11 +582,16 @@ $outputResponse = array(
     'fields_visible' => $visibleCount, // how many fields are visible one
     'js_vars' => $jsVars,
     'chat_ui' => $chat_ui,
-    'department' => $departmentsOptions,
     'paid' => $paidSettings
 );
 
 $outputResponse['disabled'] = $disabled_department === true || (isset($department_invalid) && $department_invalid === true);
+
+if ($outputResponse['disabled'] === true) {
+    $departmentsOptions['departments'] = [];
+}
+
+$outputResponse['department'] = $departmentsOptions;
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.onlinesettings', array('output' => & $outputResponse));
 
