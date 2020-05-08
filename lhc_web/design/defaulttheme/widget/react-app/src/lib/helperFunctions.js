@@ -51,28 +51,31 @@ class _helperFunctions {
     }
 
     getTimeZone() {
+        try {
+            return Intl.DateTimeFormat().resolvedOptions().timeZone;
+        } catch (e) {
+            var today = new Date();
 
-        var today = new Date();
+            let stdTimezoneOffset = function() {
+                var jan = new Date(today.getFullYear(), 0, 1);
+                var jul = new Date(today.getFullYear(), 6, 1);
+                return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
+            };
 
-        let stdTimezoneOffset = function() {
-            var jan = new Date(today.getFullYear(), 0, 1);
-            var jul = new Date(today.getFullYear(), 6, 1);
-            return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
-        };
+            var dst = function() {
+                return today.getTimezoneOffset() < stdTimezoneOffset();
+            };
 
-        var dst = function() {
-            return today.getTimezoneOffset() < stdTimezoneOffset();
-        };
+            var timeZoneOffset = 0;
 
-        var timeZoneOffset = 0;
+            if (dst()) {
+                timeZoneOffset = today.getTimezoneOffset();
+            } else {
+                timeZoneOffset = today.getTimezoneOffset()-60;
+            };
 
-        if (dst()) {
-            timeZoneOffset = today.getTimezoneOffset();
-        } else {
-            timeZoneOffset = today.getTimezoneOffset()-60;
-        };
-
-        return (((timeZoneOffset)/60) * -1);
+            return (((timeZoneOffset)/60) * -1);
+        }
     }
 
     getCustomFieldsSubmit(customFields)
