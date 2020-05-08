@@ -20,7 +20,7 @@ const initialState = fromJS({
     jsVars: [],
     // Are we syncing chat messages now
     syncStatus : {msg: false, status : false},
-    offlineData: {},
+    offlineData: {'fetched' : false},
     onlineData: {'fetched' : false},
     customData: {'fields' : []},
     attr_prefill: [],
@@ -141,7 +141,7 @@ const chatWidgetReducer = (state = initialState, action) => {
         }
 
         case OFFLINE_FIELDS_UPDATED : {
-            return state.set('offlineData', fromJS({'fetched' : true, 'fields_visible': action.data.fields_visible, 'fields' : action.data.fields, 'department' : action.data.department})).set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)));
+            return state.set('offlineData', fromJS({'fetched' : true, 'disabled': action.data.disabled, 'fields_visible': action.data.fields_visible, 'fields' : action.data.fields, 'department' : action.data.department})).set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)));
         }
 
         case 'captcha': {
@@ -314,7 +314,7 @@ const chatWidgetReducer = (state = initialState, action) => {
         }
 
         case 'ONLINE_FIELDS_UPDATED' : {
-            return state.set('onlineData', fromJS({'fetched' : true, 'paid': action.data.paid, 'fields_visible': action.data.fields_visible, 'fields' : action.data.fields, 'department' : action.data.department})).set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)));
+            return state.set('onlineData', fromJS({'disabled': action.data.disabled, 'fetched' : true, 'paid': action.data.paid, 'fields_visible': action.data.fields_visible, 'fields' : action.data.fields, 'department' : action.data.department})).set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)));
         }
 
         case 'CHAT_UI_UPDATE' : {

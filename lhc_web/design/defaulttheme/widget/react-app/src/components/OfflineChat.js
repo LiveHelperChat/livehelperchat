@@ -105,6 +105,14 @@ class OfflineChat extends Component {
 
         const { t } = this.props;
 
+        if (this.props.chatwidget.getIn(['offlineData','fetched']) === true && this.props.chatwidget.getIn(['offlineData','disabled']) === true) {
+            return (
+                <div className="alert alert-danger m-2" role="alert">
+                    {t('start_chat.cant_start_a_chat')}
+                </div>
+            )
+        }
+
         if (this.props.chatwidget.get('offlineData').has('fields')) {
             var mappedFields = this.props.chatwidget.getIn(['offlineData','fields']).map(field =><ChatField chatUI={this.props.chatwidget.get('chat_ui')} isInvalid={this.props.chatwidget.hasIn(['validationErrors',field.get('identifier')])} attrPrefill={{'attr_prefill_admin' : this.props.chatwidget.get('attr_prefill_admin'), 'attr_prefill' : this.props.chatwidget.get('attr_prefill')}} defaultValueField={this.state[field.get('name')] || field.get('value')} onChangeContent={this.handleContentChange} field={field} />);
         } else {

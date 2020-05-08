@@ -211,12 +211,20 @@ class StartChat extends Component {
 
     render() {
 
+    const { t } = this.props;
+
+    if (this.props.chatwidget.getIn(['onlineData','fetched']) === true && this.props.chatwidget.getIn(['onlineData','disabled']) === true) {
+        return (
+            <div className="alert alert-danger m-2" role="alert">
+                {t('start_chat.cant_start_a_chat')}
+            </div>
+        )
+    }
+
     if (this.props.chatwidget.getIn(['onlineData','fetched']) === false || this.props.chatwidget.getIn(['chat_ui','auto_start']) === true)
     {
         return null;
     }
-
-    const { t } = this.props;
 
     if (this.props.chatwidget.get('onlineData').has('fields') && !(this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 && this.props.chatwidget.getIn(['customData','fields']).size == 0)) {
         var mappedFields = this.props.chatwidget.getIn(['onlineData','fields']).map(field =><ChatField chatUI={this.props.chatwidget.get('chat_ui')} key={field.get('identifier')} isInvalid={this.props.chatwidget.hasIn(['validationErrors',field.get('identifier')])} defaultValueField={this.state[field.get('name')] || field.get('value')} attrPrefill={{'attr_prefill_admin' : this.props.chatwidget.get('attr_prefill_admin'), 'attr_prefill' : this.props.chatwidget.get('attr_prefill')}} onChangeContent={this.handleContentChange} field={field} />);
