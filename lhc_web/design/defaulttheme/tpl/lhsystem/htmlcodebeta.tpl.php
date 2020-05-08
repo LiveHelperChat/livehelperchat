@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-md-6">
                     <div>
-                        <label><input type="checkbox" id="id_check_messages_operator" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Check for operator invitation messages');?></label>
+                        <label><input type="checkbox" id="id_check_messages_operator" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Check for operator invitation messages. If you are planning to send messages to online visitors manually you can check this.');?></label>
                     </div>
                 </div>
 
