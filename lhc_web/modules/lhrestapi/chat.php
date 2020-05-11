@@ -8,7 +8,7 @@ try
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        $restAPI = array('ignore_captcha' => true, 'ignore_geo' => true);
+        $restAPI = array('ignore_captcha' => true, 'ignore_geo' => true, 'collect_all' => true);
 
         include "modules/lhwidgetrestapi/submitonline.php";
 

@@ -62,6 +62,10 @@ if (isset($restAPI['ignore_captcha']) && $restAPI['ignore_captcha'] === true) {
     $additionalParams['ignore_captcha'] = true;
 }
 
+if (isset($restAPI['collect_all']) && $restAPI['collect_all'] === true) {
+    $additionalParams['collect_all'] = true;
+}
+
 if (!isset($Errors)) {
     $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat, $additionalParams);
 }
