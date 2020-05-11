@@ -67,7 +67,7 @@ try {
     		if ($department !== false) {
     			$delay = time()-$department->delay_lm;
     			if ($department->delay_lm > 0 && $chat->time < $delay) {
-    				$baseURL = (isset($Params['user_parameters_unordered']['mode']) && $Params['user_parameters_unordered']['mode'] == 'widget') ? erLhcoreClassDesign::baseurl('chat/chatwidget') : erLhcoreClassDesign::baseurl('chat/startchat');
+    				$baseURL = (isset($Params['user_parameters_unordered']['mode']) && $Params['user_parameters_unordered']['mode'] == 'widget') ? 'chat/chatwidget' : 'chat/startchat';
     				$ru = $baseURL.'/(department)/'.$department->id.'/(offline)/true/(leaveamessage)/true/(chatprefill)/'.$chat->id.'_'.$chat->hash;
     				
     				$msg = new erLhcoreClassModelmsg();
@@ -125,7 +125,7 @@ try {
 	    	$activated = 'false';
 	    	$department = $chat->department;
 	    	if ($department !== false) {
-	    		$baseURL = (isset($Params['user_parameters_unordered']['mode']) && $Params['user_parameters_unordered']['mode'] == 'widget') ? erLhcoreClassDesign::baseurl('chat/chatwidget') : erLhcoreClassDesign::baseurl('chat/startchat');
+	    		$baseURL = (isset($Params['user_parameters_unordered']['mode']) && $Params['user_parameters_unordered']['mode'] == 'widget') ? 'chat/chatwidget' : 'chat/startchat';
 	    		$ru = $baseURL.'/(department)/'.$department->id.'/(offline)/true/(leaveamessage)/true/(chatprefill)/'.$chat->id.'_'.$chat->hash;
 	    		
 	    		$msg = new erLhcoreClassModelmsg();
