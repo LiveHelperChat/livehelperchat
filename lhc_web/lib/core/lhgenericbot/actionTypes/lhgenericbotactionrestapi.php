@@ -51,7 +51,7 @@ class erLhcoreClassGenericBotActionRestapi
                 if (isset($response['id'])) {
                     if (isset($action['content']['rest_api_method_output'][$response['id']]) && is_numeric($action['content']['rest_api_method_output'][$response['id']])) {
                         return array(
-                            'status' => 'stop',
+                            'status' => 'continue_all',
                             'replace_array' => array(
                                 '{content_1}' => $response['content'],
                                 '{content_2}' => $response['content_2'],
@@ -67,7 +67,7 @@ class erLhcoreClassGenericBotActionRestapi
                     }
                 } elseif (isset($action['content']['rest_api_method_output']['default_trigger']) && is_numeric($action['content']['rest_api_method_output']['default_trigger'])) {
                     return array(
-                        'status' => 'stop',
+                        'status' => 'continue_all',
                         'replace_array' => array(
                             '{content_1}' => $response['content'],
                             '{content_2}' => $response['content_2'],
