@@ -68,7 +68,6 @@ try {
     }
 
 } catch (Exception $e) {
-    $db->rollback();
     throw $e;
 }
 
