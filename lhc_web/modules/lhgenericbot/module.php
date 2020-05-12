@@ -275,6 +275,12 @@ $ViewList['removetrigger'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['maketriggercopy'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['setdefaulttrigger'] = array(
     'params' => array('id','default'),
     'uparams' => array(),

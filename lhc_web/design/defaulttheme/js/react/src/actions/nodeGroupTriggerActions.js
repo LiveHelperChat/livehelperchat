@@ -197,6 +197,18 @@ export function removeTrigger(obj) {
     }
 }
 
+export function makeTriggerCopy(obj) {
+    return function(dispatch) {
+        axios.post(WWW_DIR_JAVASCRIPT + "genericbot/maketriggercopy/" + obj.get('id'))
+                .then((response) => {
+                fetchNodeGroupTriggers(obj.get('group_id'))(dispatch);
+                fetchNodeGroupTriggerAction(response.data.id)(dispatch);
+        }).catch((err) => {
+                dispatch({type: "COPY_TRIGGER_REJECTED", payload: err})
+        })
+    }
+}
+
 export function setDefaultTrigger(obj) {
     return function(dispatch) {
         dispatch({type: "SET_DEFAULT_TRIGGER", payload : obj});

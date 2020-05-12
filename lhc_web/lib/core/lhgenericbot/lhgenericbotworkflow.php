@@ -1513,7 +1513,39 @@ class erLhcoreClassGenericBotWorkflow {
 
                     if ($continueExecution == true)
                     {
-                        $messageClick = self::getClickName($messageContext->meta_msg_array, $payload, false, array('payload_hash' => $payloadHash));
+                        $messageClickData = self::getClickName($messageContext->meta_msg_array, $payload, true, array('payload_hash' => $payloadHash));
+
+                        $messageClick = '';
+
+                        if (isset($messageClickData['name'])) {
+
+                            $messageClick = $messageClickData['name'];
+
+                            $chatAdditionalData = $chat->additional_data_array;
+
+                            $updateAdditionalData = false;
+                            if (isset($messageClickData['store_name']) && $messageClickData['store_name'] != '') {
+                                foreach ($chatAdditionalData as $dataItemIndex => $dataItem) {
+                                    if ($dataItem['identifier'] == str_replace(' ','_',mb_strtolower($messageClickData['store_name']))) {
+                                        $chatAdditionalData[$dataItemIndex]['value'] = (isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ?  $messageClickData['store_value'] : $messageClick;
+                                        $updateAdditionalData = true;
+                                        break;
+                                    }
+                                }
+
+                                if ($updateAdditionalData == false) {
+                                    $chatAdditionalData[] = array(
+                                        'identifier' => str_replace(' ','_',mb_strtolower($messageClickData['store_name'])),
+                                        'key' => $messageClickData['store_name'],
+                                        'value' => ((isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ?  $messageClickData['store_value'] : $messageClick),
+                                    );
+                                }
+
+                                $chat->additional_data_array = $chatAdditionalData;
+                                $chat->additional_data = json_encode($chatAdditionalData);
+                                $chat->updateThis(array('update' => array('additional_data')));
+                            }
+                        }
 
                         if (!empty($messageClick)) {
                             if ((isset($params['processed']) && $params['processed'] == true) || !isset($params['processed'])){
@@ -1599,7 +1631,39 @@ class erLhcoreClassGenericBotWorkflow {
                             $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'], 1, array(), array('dep_id' => $chat->dep_id));
                         }
 
-                        $messageClick = self::getClickName($messageContext->meta_msg_array, $payload, false, array('payload_hash' => $payloadHash));
+                        $messageClickData = self::getClickName($messageContext->meta_msg_array, $payload, true, array('payload_hash' => $payloadHash));
+
+                        $messageClick = '';
+
+                        if (isset($messageClickData['name'])) {
+
+                            $messageClick = $messageClickData['name'];
+
+                            $chatAdditionalData = $chat->additional_data_array;
+
+                            $updateAdditionalData = false;
+                            if (isset($messageClickData['store_name']) && $messageClickData['store_name'] != '') {
+                                foreach ($chatAdditionalData as $dataItemIndex => $dataItem) {
+                                    if ($dataItem['identifier'] == str_replace(' ','_',mb_strtolower($messageClickData['store_name']))) {
+                                        $chatAdditionalData[$dataItemIndex]['value'] = (isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ?  $messageClickData['store_value'] : $messageClick;
+                                        $updateAdditionalData = true;
+                                        break;
+                                    }
+                                }
+
+                                if ($updateAdditionalData == false) {
+                                    $chatAdditionalData[] = array(
+                                        'identifier' => str_replace(' ','_',mb_strtolower($messageClickData['store_name'])),
+                                        'key' => $messageClickData['store_name'],
+                                        'value' => ((isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ?  $messageClickData['store_value'] : $messageClick),
+                                    );
+                                }
+
+                                $chat->additional_data_array = $chatAdditionalData;
+                                $chat->additional_data = json_encode($chatAdditionalData);
+                                $chat->updateThis(array('update' => array('additional_data')));
+                            }
+                        }
 
                         if (!empty($messageClick)) {
                             if ((isset($params['processed']) && $params['processed'] == true) || !isset($params['processed'])) {

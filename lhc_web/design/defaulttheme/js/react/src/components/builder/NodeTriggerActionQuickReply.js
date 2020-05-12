@@ -20,6 +20,16 @@ class NodeTriggerActionQuickReply extends Component {
 
         this.onPrecheckChange = this.onPrecheckChange.bind(this);
         this.onRenderArgsChange = this.onRenderArgsChange.bind(this);
+        this.onStoreNameChange = this.onStoreNameChange.bind(this);
+        this.onStoreValueChange = this.onStoreValueChange.bind(this);
+    }
+
+    onStoreNameChange(e) {
+        this.props.onStoreNameChange({id : this.props.id, value : e.target.value});
+    }
+
+    onStoreValueChange(e) {
+        this.props.onStoreValueChange({id : this.props.id, value : e.target.value});
     }
 
     onPrecheckChange(e) {
@@ -61,7 +71,6 @@ class NodeTriggerActionQuickReply extends Component {
                         <label>Name</label>
                         <input type="text" onChange={this.onNameChange} defaultValue={this.props.reply.getIn(['content','name'])} className="form-control form-control-sm" />
                     </div>
-
                     <div className="row">
                         <div className="col-6">
                             <div className="form-group">
@@ -78,6 +87,8 @@ class NodeTriggerActionQuickReply extends Component {
                     </div>
 
                 </div>
+
+
                 <div className="col-5">
                     <NodeTriggerActionQuickReplyPayload onPayloadAttrChange={this.onPayloadAttrChange} onPayloadTypeChange={this.onPayloadTypeChange} onPayloadChange={this.onPayloadChange} payloadType={this.props.reply.get('type')} currentPayload={this.props.reply.getIn(['content'])} />
                 </div>
@@ -89,6 +100,24 @@ class NodeTriggerActionQuickReply extends Component {
                         </div>
                     </div>
                 </div>
+
+                {(this.props.reply.get('type') == 'trigger' || this.props.reply.get('type') == 'button') && <div className="col-10">
+                    <div className="row">
+                        <div className="col-6">
+                            <div className="form-group">
+                                <label>Store name</label>
+                                <input type="text" title="If you do not set we will not save button click" placeholder="How should we name stored attribute?" onChange={this.onStoreNameChange} defaultValue={this.props.reply.getIn(['content','store_name'])} className="form-control form-control-sm" />
+                            </div>
+                        </div>
+                        <div className="col-6">
+                            <div className="form-group">
+                                <label>Store value</label>
+                                <input type="text" placeholder="Button name is used by default." onChange={this.onStoreValueChange} defaultValue={this.props.reply.getIn(['content','store_value'])} className="form-control form-control-sm" />
+                            </div>
+                        </div>
+                    </div>
+                </div>}
+
             </div>
         );
     }
