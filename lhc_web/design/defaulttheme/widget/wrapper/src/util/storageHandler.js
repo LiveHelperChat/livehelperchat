@@ -31,7 +31,7 @@ export class storageHandler {
     setHTTPCookie(coookieName, cookieValue, expireTime, domain) {
         var string = "";
         expireTime || (expireTime = new Date, expireTime.setTime(expireTime.getTime() + 15552E6), string = "; expires=" + expireTime.toGMTString());
-        document.cookie = coookieName + "=" + cookieValue + string + (this.cookiePerPage === false ? "; path=/" : (this.cookiePerPage === true ? "" : '; path=' + this.cookiePerPage)) + (this.secureCookie ? ";secure" : "") + (domain ? ";domain=" + domain : "");
+        document.cookie = coookieName + "=" + cookieValue + string + (this.cookiePerPage === false ? "; path=/" : (this.cookiePerPage === true ? "" : '; path=' + this.cookiePerPage)) + (this.secureCookie ? ";secure" : "") + (domain ? ";domain=" + domain : "") + ";SameSite=Lax";
     };
 
     getHTTPCookie(cookieName) {

@@ -53,6 +53,15 @@ $outputResponse['message'] = erLhcoreClassBBCode::make_clickable(htmlspecialchar
 
 $outputResponse['play_sound'] = erLhcoreClassModelChatConfig::fetch('sound_invitation')->current_value == 1;
 
+$outputResponse['bubble'] = false;
+
+if (isset($payload['theme']) && $payload['theme'] > 0) {
+    $theme = erLhAbstractModelWidgetTheme::fetch($payload['theme']);
+    if ($theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['bubble_style_profile']) && $theme->bot_configuration_array['bubble_style_profile'] == 1) {
+        $outputResponse['bubble'] = true;
+    }
+}
+
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
 exit;
 ?>

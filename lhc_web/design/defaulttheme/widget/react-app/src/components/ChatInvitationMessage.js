@@ -19,7 +19,13 @@ class ChatInvitationMessage extends PureComponent {
         if (this.props.mode == 'message') {
             return (
                 <div className="message-row message-admin">
-                    <span className="usr-tit op-tit">{this.props.invitation.name_support || this.props.invitation.extra_profile}</span>
+                    <span className="usr-tit op-tit">
+                         {this.props.invitation.bubble && <i title={this.props.invitation.name_support || this.props.invitation.extra_profile} className="chat-operators mi-fs15 mr-0">
+                             {this.props.invitation.photo && <img src={this.props.invitation.photo} alt="" className="profile-msg-pic" />}
+                             {!this.props.invitation.photo && <i className="icon-assistant material-icons">account_box</i>}
+                         </i>}
+                        {!this.props.invitation.bubble && (this.props.invitation.name_support || this.props.invitation.extra_profile)}
+                     </span>
                     <div className="msg-body" dangerouslySetInnerHTML={{__html:this.props.invitation.message}}></div>
                 </div>
             );
