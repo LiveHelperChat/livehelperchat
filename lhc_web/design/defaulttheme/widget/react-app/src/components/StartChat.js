@@ -281,7 +281,7 @@ class StartChat extends Component {
                             </div>
                             <div className="disable-select">
                                 <div className="user-chatwidget-buttons pt-1" id="ChatSendButtonContainer">
-                                    <a href="#" onClick={this.handleSubmit} title={t('button.start_chat')}>
+                                    <a onClick={this.handleSubmit} title={t('button.start_chat')}>
                                         <i className="material-icons text-muted settings">send</i>
                                     </a>
                                 </div>

@@ -67,6 +67,10 @@ div.message-row {
     min-width: auto;
 }
 
+.lhc-dropdown-menu a{
+    cursor: pointer;
+}
+
 @keyframes lhc-spin {
     0% {
         -webkit-transform: rotate(0deg);
@@ -112,6 +116,12 @@ div.message-row {
 .header-link .material-icons{
     font-size: 32px;
     color:#343a40;
+}
+
+.action-image,
+.header-link-item,
+.header-link{
+    cursor: pointer;
 }
 
 .header-link:hover .material-icons,.header-link[aria-expanded="true"] .material-icons{

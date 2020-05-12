@@ -21,7 +21,7 @@ export class statusWidget{
             minwidth: "95px"
         }), null, "iframe");
 
-        this.cont.tmpl = '<div id="lhc_status_container" style="display: none"><i title="New messages" id="unread-msg-number">!</i><a id="status-icon" class="offline-status" href="#"></a></div>';
+        this.cont.tmpl = '<div id="lhc_status_container" style="display: none"><i title="New messages" id="unread-msg-number">!</i><i id="status-icon" class="offline-status" href="#"></i></div>';
         
         this.loadStatus = {main : false, theme: false};
     }

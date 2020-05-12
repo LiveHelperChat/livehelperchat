@@ -152,6 +152,7 @@ body {
     display: block;
     padding: 10px;
     font-size:39px;
+    cursor: pointer;
 }
 
 #lhc_status_container #status-icon.offline-status {

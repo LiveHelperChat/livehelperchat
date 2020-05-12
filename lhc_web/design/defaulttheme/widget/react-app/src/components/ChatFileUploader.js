@@ -208,7 +208,7 @@ class ChatFileUploader extends PureComponent {
             return (
                 <React.Fragment>
                     <input onChange={this.onFilesAddedUI} ref={this.fileInputRef} id="fileupload" type="file" name="files[]" multiple className="d-none" />
-                    <a className="file-uploader" onClick={this.openFileDialog} href="#"><i className="material-icons chat-setting-item text-muted">attach_file</i></a>
+                    <a className="file-uploader" onClick={this.openFileDialog}><i className="material-icons chat-setting-item text-muted">attach_file</i></a>
                 </React.Fragment>
             );
         }
