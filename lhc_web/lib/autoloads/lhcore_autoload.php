@@ -293,6 +293,7 @@ return array_merge(array (
         // Group chat
         'erLhcoreClassModelGroupChat'               => 'lib/models/lhchat/erlhcoreclassmodelgroupchat.php',
         'erLhcoreClassGroupChat'                    => 'lib/core/lhchat/lhgroupchat.php',
+        'erLhcoreClassModelGroupMsg'                => 'lib/models/lhchat/erlhcoreclassmodelgroupmsg.php',
 
         // Notifications
         'erLhcoreClassNotifications'                => 'lib/core/lhnotifications/lhnotifications.php',

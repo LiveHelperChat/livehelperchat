@@ -30,6 +30,13 @@ ee.addListener('groupChatTabLoaded',(chatId) => {
     }
 })
 
+ee.addListener('unloadGroupChat', (chatId) => {
+    var el = document.getElementById('chat-id-'+chatId);
+    if (el !== null) {
+        ReactDOM.unmountComponentAtNode(el)
+    }
+});
+
 ee.addListener('removeSynchroChat', (chatId) => {
     var el = document.getElementById('canned-messages-chat-container-'+chatId);
 

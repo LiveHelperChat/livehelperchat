@@ -12,6 +12,20 @@ $ViewList['chat'] = array(
     'multiple_arguments' => array()
 );
 
+$ViewList['addmessage'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' ),
+    'multiple_arguments' => array()
+);
+
+$ViewList['sync'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' ),
+    'multiple_arguments' => array()
+);
+
 $ViewList['list'] = array(
     'params' => array(),
     'uparams' => array(),
