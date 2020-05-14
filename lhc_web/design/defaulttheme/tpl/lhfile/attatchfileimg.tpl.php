@@ -31,7 +31,9 @@
                     <?php endif; ?>
                 </td>
                 <td>
+                    <div class="abbr-list">
                     <a href="<?php echo erLhcoreClassDesign::baseurl('file/downloadfile')?>/<?php echo $file->id?>/<?php echo $file->security_hash?>" class="link" target="_blank"><?php echo htmlspecialchars($file->upload_name)?></a>
+                    </div>
                 </td>
                 <td nowrap><?php echo htmlspecialchars(round($file->size/1024,2))?> Kb.</td>
                 <td nowrap><a id="embed-button-<?php echo $file->id?>" onclick="lhinst.sendLinkToGeneralEditor('[file=<?php echo $file->id,'_',$file->security_hash,'_img'?>]','<?php echo $file->id?>')" href="#" class="csfr-required btn btn-secondary btn-xs"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Embed BB code');?></a></td>
