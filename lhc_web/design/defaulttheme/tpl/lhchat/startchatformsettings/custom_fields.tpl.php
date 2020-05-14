@@ -19,6 +19,7 @@
 			<div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Type')?></label> <select ng-model="startChat.fieldtype" class="form-control">
 					<option value="text"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Text')?></option>
+					<option value="password"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Password')?></option>
 					<option value="hidden"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hidden')?></option>
 					<option value="dropdown"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Dropdown')?></option>
 				</select>
@@ -94,6 +95,7 @@
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Type')?></label>
                         <select ng-model="field.fieldtype" class="form-control" name="customFieldType[]">
                             <option value="text"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Text')?></option>
+                            <option value="password"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Password')?></option>
                             <option value="hidden"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hidden')?></option>
                             <option value="dropdown"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Dropdown')?></option>
                         </select>

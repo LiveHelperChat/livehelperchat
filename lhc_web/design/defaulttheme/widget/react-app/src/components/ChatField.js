@@ -63,6 +63,15 @@ class ChatField extends Component {
                     </div>
                 </div>
             )
+        } else if (this.props.field.get('type') == 'password') {
+            return (
+                <div className={className}>
+                    <div className="form-group">
+                        <label className="control-label">{this.props.field.get('label')}{required === true ? '*' : ''}</label>
+                        <input type="password" autocomplete="new-password" className={classNameInput.join(' ')} required={required} onChange={(e) => this.onchangeAttr({'value' : e.target.value})} name={this.props.field.get('name')} defaultValue={this.props.defaultValueField} placeholder={this.props.field.get('placeholder')} />
+                    </div>
+                </div>
+            )
         } else if (this.props.field.get('type') == 'textarea') {
             return (
                 <div className={className}>
