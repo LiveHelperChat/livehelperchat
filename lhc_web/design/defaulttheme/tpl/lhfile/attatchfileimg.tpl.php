@@ -14,13 +14,13 @@
 <div id="file-search-content">
 <?php endif; ?>
 
-    <table class="table table-sm" cellpadding="0" cellspacing="0">
+    <table class="table table-sm table-fixed"" cellpadding="0" cellspacing="0">
         <thead>
         <tr>
-            <th width="1%">&nbsp;</th>
+            <th style="width: 120px">&nbsp;</th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Upload name');?></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','File size');?></th>
-            <th width="1%">&nbsp;</th>
+            <th style="width: 120px"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','File size');?></th>
+            <th style="width: 120px">&nbsp;</th>
         </tr>
         </thead>
         <?php foreach ($items as $file) : ?>
