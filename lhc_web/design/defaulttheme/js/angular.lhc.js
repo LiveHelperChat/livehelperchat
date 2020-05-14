@@ -204,6 +204,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.limitc = this.restoreLocalSetting('limitc','10',false);
 	this.limitd = this.restoreLocalSetting('limitd','10',false);
 	this.limitmc = this.restoreLocalSetting('limitmc','10',false);
+	this.limitgc = this.restoreLocalSetting('limitgc','10',false);
 
 	// Active chat's operators filter
 	this.activeu = this.restoreLocalSetting('activeu',[],true);
@@ -409,6 +410,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		filter += '/(limitd)/'+parseInt(_that.limitd);
 		filter += '/(limitmc)/'+parseInt(_that.limitmc);
 		filter += '/(limitb)/'+parseInt(_that.limitb);
+		filter += '/(limitgc)/'+parseInt(_that.limitgc);
 
 		if (typeof _that.activeu == 'object' && _that.activeu.length > 0) {
 			filter += '/(activeu)/'+_that.activeu.join('/');			
@@ -756,6 +758,13 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		};
 	});
 
+	$scope.$watch('lhc.limitgc', function(newVal,oldVal) {
+		if (newVal != oldVal) {
+			_that.storeLocalSetting('limitgc',newVal);
+			$scope.loadChatList();
+		};
+	});
+
 	$scope.$watch('lhc.limitd', function(newVal,oldVal) {
 		if (newVal != oldVal) {
 			_that.storeLocalSetting('limitd',newVal);
@@ -1020,7 +1029,13 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.deleteChat = function(chat_id, tabs, hidetab) {
 		return lhinst.deleteChat(chat_id, tabs, hidetab);
 	};
-	
+
+	this.startGroupChat = function (chat_id, name) {
+        if ($('#tabs').length > 0) {
+            return lhinst.startGroupChat(chat_id,$('#tabs'),LiveHelperChatFactory.truncate(name,10));
+        }
+    }
+
 	this.startChat = function (chat_id,name) {	
 		if ($('#tabs').length > 0){
 			return lhinst.startChat(chat_id,$('#tabs'),LiveHelperChatFactory.truncate(name,10));	

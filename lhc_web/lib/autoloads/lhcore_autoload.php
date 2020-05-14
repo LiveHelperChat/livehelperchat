@@ -290,6 +290,10 @@ return array_merge(array (
         'erLhcoreClassModelGenericBotRestAPI'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotrestapi.php',
         'erLhcoreClassLHCBotWorker'                 => 'lib/core/lhgenericbot/lhgenericbotworker.php',
 
+        // Group chat
+        'erLhcoreClassModelGroupChat'               => 'lib/models/lhchat/erlhcoreclassmodelgroupchat.php',
+        'erLhcoreClassGroupChat'                    => 'lib/core/lhchat/lhgroupchat.php',
+
         // Notifications
         'erLhcoreClassNotifications'                => 'lib/core/lhnotifications/lhnotifications.php',
         'erLhcoreClassModelNotificationSubscriber'  => 'lib/models/lhnotifications/erlhcoreclassmodelnotificationsubscriber.php'

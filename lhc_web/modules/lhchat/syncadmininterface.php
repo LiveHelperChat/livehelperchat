@@ -204,6 +204,17 @@ if ($activeTabEnabled == true) {
 	$chatsList[] = & $ReturnMessages['active_chats']['list'];
 }
 
+if ($currentUser->hasAccessTo('lhgroupchat','use')) {
+    $limitList = is_numeric($Params['user_parameters_unordered']['limitgc']) ? (int)$Params['user_parameters_unordered']['limitgc'] : 10;
+
+    $chats = erLhcoreClassModelGroupChat::getList(array('limit' => $limitList));
+
+    erLhcoreClassChat::prefillGetAttributes($chats,array('time_front'));
+
+    $ReturnMessages['group_chats'] = array('list' => array_values($chats));
+
+}
+
 if ($myChatsEnabled == true) {
     /**
      * My chats chats
