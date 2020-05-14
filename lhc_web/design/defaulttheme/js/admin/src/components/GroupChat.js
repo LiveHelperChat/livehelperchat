@@ -11,38 +11,76 @@ function reducer(state, action) {
         case 'decrement':
             return {count: state.count - 1};
         case 'update': {
+            console.log('update');
             return { ...state, ...action.value }
+        }
+        case 'update_messages': {
+            state = { ...state, ...action.value };
+            state.messages.push(action.messages);
+            return state;
         }
         case 'init':
             return {count: state.count - 1};
         default:
-            throw new Error();
+            throw new Error('Unknown action!');
     }
 }
 
+function useInterval(callback, delay) {
+    const savedCallback = useRef();
+
+    // Remember the latest callback.
+    useEffect(() => {
+        savedCallback.current = callback;
+    }, [callback]);
+
+    // Set up the interval.
+    useEffect(() => {
+        function tick() {
+            savedCallback.current();
+        }
+        if (delay !== null) {
+            let id = setInterval(tick, delay);
+            return () => clearInterval(id);
+        }
+    }, [delay]);
+}
 
 const GroupChat = props => {
-    const [data, setData] = useState([]);
-    const [isLoaded, setLoaded] = useState(false);
-    const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
-    const [isCollapsed, setCollapsed] = useState(false);
 
     const messageElement = useRef(null);
 
     const [state, dispatch] = useReducer(reducer, {
         messages: [],
         operators: [],
-        last_message: ''
+        last_message: '',
+        last_message_id: 0,
     });
 
+    const fetchMessages = () => {
+        axios.post(WWW_DIR_JAVASCRIPT  + "groupchat/sync/" + props.chatId,[props.chatId + ',' + state.last_message_id]).then(result => {
+            result.data.result.forEach((chatData) => {
+                if (chatData.chat_id == props.chatId) {
+                    dispatch({
+                        type: 'update_messages',
+                        messages : chatData.content,
+                        value: {
+                            'last_message' : 'Just last message sample from sync'+Date.now(),
+                            'last_message_id' : chatData.message_id
+                        }
+                    });
+                }
+            });
+        });
+    }
+
+    useInterval(() => {
+        fetchMessages();
+    },3000)
+
     useEffect(() => {
-
-        dispatch({type: 'update', value: {
-            'last_message' : 'Just last message sample'
-        }});
-
         return function cleanup() {
-            console.log('cleanup group chat');
+
         };
     },[]);
 
@@ -50,7 +88,7 @@ const GroupChat = props => {
         if (e.keyCode == 13) {
 
             axios.post(WWW_DIR_JAVASCRIPT  + "groupchat/addmessage/" + props.chatId,{msg: messageElement.current.value}).then(result => {
-                console.log('message added');
+                fetchMessages();
             });
 
             messageElement.current.value = '';
@@ -67,6 +105,8 @@ const GroupChat = props => {
                 <div className="col-sm-7 chat-main-left-column">
 
                     {state.last_message}
+                    --{state.last_message_id}--
+                    {state.messages.length}
 
                     <div className="message-block">
                         <div className="msgBlock msgBlock-admin">
