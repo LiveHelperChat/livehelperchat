@@ -44,3 +44,25 @@ ee.addListener('removeSynchroChat', (chatId) => {
         ReactDOM.unmountComponentAtNode(el)
     }
 });
+
+$(document).ready(function(){
+
+    if (localStorage) {
+        try {
+            var achat_id_array = [];
+            var achat_id = localStorage.getItem('gachat_id');
+
+            if (achat_id !== null && achat_id !== '') {
+                achat_id_array = achat_id.split(',');
+                achat_id_array.forEach((chatId) => {
+                    if ($('#tabs').length > 0) {
+                        return lhinst.startGroupChat(chatId,$('#tabs'),LiveHelperChatFactory.truncate(name,10));
+                    }
+                });
+            }
+        } catch(e) {
+
+        }
+    }
+
+});

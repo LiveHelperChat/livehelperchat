@@ -73,7 +73,7 @@ if (is_array($payload) && count($payload) > 0)
                     // Fetch content
                     $templateResult = $tpl->fetch();
 
-                    $response = array('chat_id' => $chat_id,'nck' => $Chat->nick, 'msfrom' => $MessageID, 'msop' => $firstNewMessage['user_id'], 'mn' => $newMessagesNumber, 'msg' => $msgText, 'content' => $templateResult, 'message_id' => $LastMessageIDs['id']);
+                    $response = array('chat_id' => $chat_id,'nck' => $Chat->nick, 'msfrom' => $MessageID, 'msop' => $firstNewMessage['user_id'], 'lmsop' => $LastMessageIDs['user_id'], 'mn' => $newMessagesNumber, 'msg' => $msgText, 'content' => $templateResult, 'message_id' => $LastMessageIDs['id']);
 
                     $ReturnMessages[] = $response;
                 }

@@ -5,7 +5,7 @@ $Module = array( "name" => "Group chats module",
 
 $ViewList = array();
 
-$ViewList['chat'] = array(
+$ViewList['loadgroupchat'] = array(
     'params' => array('id'),
     'uparams' => array(),
     'functions' => array( 'use' ),

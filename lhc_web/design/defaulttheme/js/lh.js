@@ -399,12 +399,12 @@ function lh(){
         }
     };
     
-    this.forgetChat = function (chat_id) {
+    this.forgetChat = function (chat_id,listId) {
         if (localStorage) {
             try {
                 chat_id = parseInt(chat_id);
 
-                var achat_id = localStorage.getItem('achat_id');
+                var achat_id = localStorage.getItem(listId);
                 var achat_id_array = new Array();
 
                 if (achat_id !== null) {
@@ -415,7 +415,7 @@ function lh(){
                     achat_id_array.splice(achat_id_array.indexOf(chat_id), 1);
                 }
 
-                localStorage.setItem('achat_id',achat_id_array.join(','));
+                localStorage.setItem(listId,achat_id_array.join(','));
             } catch (e) {
                 console.log(e);
             }
@@ -597,7 +597,7 @@ function lh(){
             } else { j++; }
         };
 
-        this.forgetChat(chat_id);
+        this.forgetChat(chat_id,'achat_id');
 
         ee.emitEvent('removeSynchroChat', [chat_id]);
 

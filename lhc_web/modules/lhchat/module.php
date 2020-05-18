@@ -197,10 +197,10 @@ $ViewList['syncadmininterface'] = array(
 
 $ViewList['loadinitialdata'] = array(
     'params' => array(),
-    'uparams' => array('chatopen'),
+    'uparams' => array('chatopen','chatgopen'),
     'ajax' => true,
     'functions' => array( 'use' ),
-    'multiple_arguments' => array('chatopen')
+    'multiple_arguments' => array('chatopen','chatgopen')
 );
 
 $ViewList['list'] = array(
