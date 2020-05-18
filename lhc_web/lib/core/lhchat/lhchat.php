@@ -375,7 +375,13 @@ class erLhcoreClassChat {
     	{
     		foreach ($params['filter'] as $field => $fieldValue)
     		{
-    			$conditions[] = $q->expr->eq( $field, $q->bindValue($fieldValue) );
+                if (is_array($fieldValue)) {
+                    if (!empty($fieldValue)) {
+                        $conditions[] = $q->expr->in($field, $fieldValue);
+                    }
+                } else {
+    			    $conditions[] = $q->expr->eq( $field, $q->bindValue($fieldValue) );
+                }
     		}
     	}
 
@@ -430,7 +436,13 @@ class erLhcoreClassChat {
         if (isset($params['filternot']) && count($params['filternot']) > 0)
         {
             foreach ($params['filternot'] as $field => $fieldValue) {
-                $conditions[] = $q->expr->neq($field, $q->bindValue($fieldValue));
+                if (is_array($fieldValue)) {
+                    if (!empty($fieldValue)) {
+                        $conditions[] = $q->expr->not($q->expr->in($field, $fieldValue));
+                    }
+                } else {
+                    $conditions[] = $q->expr->neq($field, $q->bindValue($fieldValue));
+                }
             }
         }
 
