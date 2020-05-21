@@ -195,7 +195,19 @@ try {
         if ($saveChat === true) {
             $chat->updateThis();
         }
-        
+
+        if (isset($_GET['as_html']) && ($_GET['as_html'] == 'true' || $_GET['as_html'] == '1')) {
+            foreach ($messages as $key => $msg) {
+                $messages[$key]['msg'] = erLhcoreClassBBCode::make_clickable(htmlspecialchars($msg['msg']), array('sender' => $msg['user_id']));
+            }
+        }
+
+        if (isset($_GET['file_as_link']) && ($_GET['file_as_link'] == 'true' || $_GET['file_as_link'] == '1')) {
+            foreach ($messages as $key => $msg) {
+                $messages[$key]['msg'] = erLhcoreClassBBCodePlain::make_clickable($msg['msg'], array('sender' => $msg['user_id']));
+            }
+        }
+
         erLhcoreClassRestAPIHandler::outputResponse(array(
             'error' => false,
             'result' => array(
