@@ -489,15 +489,14 @@ function lh(){
         var location = this.smartTabFocus(tabs, chat_id);
     };
 
-    this.addGroupTab = function(tabs, name, chat_id) {
+    this.addGroupTab = function(tabs, name, chat_id, background) {
         // If tab already exits return
         if (tabs.find('#chat-tab-link-'+chat_id).length > 0) {
-
             tabs.find('> ul > li > a.active').removeClass("active");
             tabs.find('> ul > li#chat-tab-li-'+chat_id+' > a').addClass("active");
             tabs.find('> div.tab-content > div.active').removeClass('active');
             tabs.find('> div.tab-content > #chat-id-'+chat_id).addClass('active');
-
+            ee.emitEvent('groupChatTabClicked', [chat_id]);
             return ;
         }
 
@@ -508,15 +507,24 @@ function lh(){
 
         var inst = this;
 
-        tabs.find('> ul > li > a.active').removeClass("active");
-        tabs.find('> ul > #chat-tab-li-'+chat_id+' > a').addClass("active");
-        tabs.find('> div.tab-content > div.active').removeClass('active');
-        tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane active" id="chat-id-'+chat_id+'"></div>');
+        if (background !== true) {
+            tabs.find('> ul > li > a.active').removeClass("active");
+            tabs.find('> ul > #chat-tab-li-'+chat_id+' > a').addClass("active");
+            tabs.find('> div.tab-content > div.active').removeClass('active');
+            tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane active" id="chat-id-'+chat_id+'"></div>');
+        } else {
+            tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane" id="chat-id-'+chat_id+'"></div>');
+        }
+
         ee.emitEvent('groupChatTabLoaded', [chat_id]);
+        
+        $('#chat-tab-link-'+chat_id).click(function() {
+            ee.emitEvent('groupChatTabClicked', [chat_id.replace('gc','')]);
+        });
     };
 
-    this.startGroupChat = function (chat_id,tabs,name) {
-        this.addGroupTab(tabs, name, 'gc'+chat_id);
+    this.startGroupChat = function (chat_id,tabs,name, background) {
+        this.addGroupTab(tabs, name, 'gc'+chat_id, background);
     }
 
     this.startChat = function (chat_id,tabs,name,focusTab,position) {

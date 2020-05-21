@@ -207,9 +207,30 @@ if ($activeTabEnabled == true) {
 if ($currentUser->hasAccessTo('lhgroupchat','use')) {
     $limitList = is_numeric($Params['user_parameters_unordered']['limitgc']) ? (int)$Params['user_parameters_unordered']['limitgc'] : 10;
 
-    $chats = erLhcoreClassModelGroupChat::getList(array('limit' => $limitList));
+    $chats = erLhcoreClassModelGroupChat::getList(array('limit' => $limitList, 'filter' => array('type' => 0)));
 
-    erLhcoreClassChat::prefillGetAttributes($chats,array('time_front'));
+    $memberOf = erLhcoreClassModelGroupChatMember::getList(array('sort' => 'jtime ASC', 'filter' => array('user_id' => $currentUser->getUserID())));
+
+    $groupsPrivates = array();
+    $groupsPrivateMembers = array();
+
+    foreach ($memberOf as $member) {
+        if (!isset($chats[$member->group_id])) {
+            $groupsPrivates[] = $member->group_id;
+        }
+        $groupsPrivateMembers[$member->group_id] = $member;
+    }
+
+    if (!empty($groupsPrivates)) {
+        $chatsPrivate = erLhcoreClassModelGroupChat::getList(array('limit' => $limitList, 'filterin' => array('id' => $groupsPrivates)));
+        $chats = $chatsPrivate + $chats;
+    }
+
+    foreach ($chats as $indexChat => $chat) {
+        $chats[$indexChat]->member = isset($groupsPrivateMembers[$chat->id]) ? $groupsPrivateMembers[$chat->id] : null;
+    }
+
+    erLhcoreClassChat::prefillGetAttributes($chats, array('time_front', 'jtime', 'is_member'), array('member','time','status','last_msg_op_id','last_msg_id','last_msg'), array('do_not_clean' => true,'clean_ignore' => true));
 
     $ReturnMessages['group_chats'] = array('list' => array_values($chats));
 

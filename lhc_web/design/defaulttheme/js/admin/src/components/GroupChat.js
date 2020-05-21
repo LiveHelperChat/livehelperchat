@@ -3,7 +3,10 @@
 
 import React, { useEffect, useState, useReducer, useRef } from "react";
 import axios from "axios";
-import parse, { domToReact } from 'html-react-parser';
+import GroupChatMessage from "./parts/GroupChatMessage";
+import useInterval from "./lib/useInterval";
+import {groupChatSync} from "./lib/groupChatSync";
+import {useTranslation} from 'react-i18next';
 
 function reducer(state, action) {
     switch (action.type) {
@@ -12,12 +15,26 @@ function reducer(state, action) {
         case 'decrement':
             return {count: state.count - 1};
         case 'update': {
-            console.log('update');
             return { ...state, ...action.value }
         }
         case 'update_messages': {
+
+            // Set last operator from previous state
+            action.messages['lmsop'] = state.lmsop || action.value.lmsop;
+
+            // Update state
             state = { ...state, ...action.value };
+
+            // Update message
             state.messages.push(action.messages);
+
+            return state;
+        }
+        case 'update_history': {
+            state = { ...state, ...action.value };
+            if (action.history.msg != '') {
+                state.messages.unshift(action.history);
+            }
             return state;
         }
         case 'init':
@@ -27,121 +44,62 @@ function reducer(state, action) {
     }
 }
 
-function ChatMessage({message, index}) {
-
-    var operatorChanged = false;
-
-    console.log(message['msop']);
-    console.log(message['lmsop']);
-
-    return parse(message['msg'], {
-
-        replace: domNode => {
-            if (domNode.attribs) {
-
-                var cloneAttr = Object.assign({}, domNode.attribs);
-
-                if (domNode.attribs.class) {
-                    domNode.attribs.className = domNode.attribs.class;
-
-                    // Animate only if it's not first sync call
-                    if (domNode.attribs.className.indexOf('message-row') !== -1 && index > 0) {
-                        domNode.attribs.className += ' fade-in-fast';
-                        if (message['msop'] > 0 && message['msop'] != message['lmsop'] && operatorChanged == false) {
-                            domNode.attribs.className += ' operator-changes';
-                            operatorChanged = true;
-                        }
-                    }
-
-                    delete domNode.attribs.class;
-                }
-
-                if (domNode.attribs.onclick) {
-                    delete domNode.attribs.onclick;
-                }
-
-                if (domNode.name && domNode.name === 'img') {
-                    return <img {...domNode.attribs} />
-                } else if (domNode.name && domNode.name === 'a') {
-                    if (cloneAttr.onclick) {
-                        return <a {...domNode.attribs}  >{domToReact(domNode.children)}</a>
-                    }
-                }
-            }
-        }
-    });
-}
-
-function useInterval(callback, delay) {
-    const savedCallback = useRef();
-
-    // Remember the latest callback.
-    useEffect(() => {
-        savedCallback.current = callback;
-    }, [callback]);
-
-    // Set up the interval.
-    useEffect(() => {
-        function tick() {
-            savedCallback.current();
-        }
-        if (delay !== null) {
-            let id = setInterval(tick, delay);
-            return () => clearInterval(id);
-        }
-    }, [delay]);
-}
-
 const GroupChat = props => {
 
     const messageElement = useRef(null);
     const messagesElement = useRef(null);
     const tabsContainer = useRef(null);
+    const searchOperatorElement = useRef(null);
 
     const [state, dispatch] = useReducer(reducer, {
         messages: [],
         operators: [],
+        operators_invite: [],
+        chat: {},
+        has_more_messages: false,
+        old_message_id: 0,
         last_message: '',
         last_message_id: 0,
         lmsop: 0,
+        lgsync: 0
     });
 
-    const loadMainData() = () => {
+    const loadMainData = () => {
         axios.post(WWW_DIR_JAVASCRIPT  + "groupchat/loadgroupchat/" + props.chatId).then(result => {
             dispatch({
                 type: 'update',
                 value: {
-                    'operators': result.data.operators
+                    'chat': result.data.chat
+                }
+            });
+            rememberChat(props.chatId);
+            groupChatSync.sync();
+        }).catch((error) => {
+            lhinst.removeDialogTabGroup('gc'+props.chatId,$('#tabs'),true);
+        });
+    }
+
+    const loadPrevious = () => {
+        axios.get(WWW_DIR_JAVASCRIPT  + "groupchat/loadpreviousmessages/" + props.chatId+'/'+state.old_message_id).then(result => {
+            dispatch({
+                type: 'update_history',
+                value: {
+                    'has_more_messages' : result.data.has_messages,
+                    'old_message_id' : result.data.message_id
+                },
+                history: {
+                    "msg" : result.data.result,
+                    "msop" : result.data.msop,
+                    "lmsop" : result.data.lmsop
                 }
             });
         });
     }
 
-    const fetchMessages = () => {
-        axios.post(WWW_DIR_JAVASCRIPT  + "groupchat/sync/" + props.chatId,[props.chatId + ',' + state.last_message_id]).then(result => {
-            result.data.result.forEach((chatData) => {
-                if (chatData.chat_id == props.chatId) {
-                    dispatch({
-                        type: 'update_messages',
-                        messages : {
-                            'msg':chatData.content,
-                            'lmsop': (state.lmsop || chatData.lmsop),
-                            'msop': chatData.msop,
-                        },
-                        value: {
-                            'last_message' : 'Just last message sample from sync'+Date.now(),
-                            'last_message_id' : chatData.message_id,
-                            'lmsop': chatData.lmsop
-                        }
-                    });
-                }
-            });
-        });
+    const startChatWithOperator = (operator) => {
+        var lhcController = angular.element('body').scope();
+        lhcController.startChatOperatorPublic(operator.user_id);
     }
-
-    useInterval(() => {
-        fetchMessages();
-    },2500)
 
     useEffect(() => {
         messagesElement.current.scrollTop = messagesElement.current.scrollHeight;
@@ -168,6 +126,27 @@ const GroupChat = props => {
         }
     }
 
+    const leaveGroup = () => {
+        axios.get(WWW_DIR_JAVASCRIPT  + "groupchat/leave/" + props.chatId).then(result => {
+            lhinst.removeDialogTabGroup('gc'+props.chatId,$('#tabs'),true)
+        });
+    }
+
+    var searchTimeout = null
+    const searchOpeartors = () => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            axios.get(WWW_DIR_JAVASCRIPT  + "groupchat/searchoperator/"+props.chatId+"?q=" + escape(searchOperatorElement.current.value)).then(result => {
+                dispatch({
+                    type: 'update',
+                    value: {
+                        "operators_invite" : result.data
+                    }
+                });
+            });
+        },200);
+    }
+
     const forgetChat = (chatId) => {
         if (localStorage) {
             try {
@@ -190,11 +169,7 @@ const GroupChat = props => {
     }
 
     useEffect(() => {
-        fetchMessages();
         loadMainData();
-
-        rememberChat(props.chatId);
-
         // Activate tabs
         var container = tabsContainer.current;
         var bsn = require("bootstrap.native/dist/bootstrap-native-v4");
@@ -204,8 +179,57 @@ const GroupChat = props => {
             Array.prototype.forEach.call(tabs, function(element){ new bsn.Tab( element) });
         }
 
+        const tabClicked = (e) => {
+            if (e == props.chatId) {
+                setTimeout(() => {
+                    messageElement.current.focus();
+                },2)
+            }
+        }
+
+        ee.addListener('groupChatTabClicked',tabClicked)
+
+        messageElement.current.focus();
+
+        const chatSynced = (e) => {
+            if (e.msg) {
+                dispatch({
+                    type: 'update_messages',
+                    messages : {
+                        'msg':e.msg.content,
+                        'msop': e.msg.msop,
+                    },
+                    value: {
+                        'last_message_id' : e.msg.message_id,
+                        'lmsop': e.msg.lmsop
+                    }
+                });
+            }
+
+            if (e.status) {
+                let valueUpdate = {
+                    'operators': e.status.operators,
+                    'lgsync': e.status.lgsync
+                };
+
+                if (e.status.old_message_id) {
+                    valueUpdate['has_more_messages'] = e.status.has_more_messages;
+                    valueUpdate['old_message_id'] = e.status.old_message_id;
+                }
+
+                dispatch({
+                    type: 'update',
+                    value: valueUpdate
+                });
+            }
+        }
+
+        groupChatSync.addSubscriber(props.chatId, chatSynced);
+
         return function cleanup() {
             forgetChat(props.chatId)
+            ee.removeListener('groupChatTabClicked',tabClicked);
+            groupChatSync.removeSubscriber(props.chatId, chatSynced);
         };
     },[]);
 
@@ -213,7 +237,7 @@ const GroupChat = props => {
         if (e.keyCode == 13) {
 
             axios.post(WWW_DIR_JAVASCRIPT  + "groupchat/addmessage/" + props.chatId,{msg: messageElement.current.value}).then(result => {
-                fetchMessages();
+                groupChatSync.sync();
             });
 
             messageElement.current.value = '';
@@ -224,25 +248,51 @@ const GroupChat = props => {
         }
     }
 
+    const inviteOperator = (e) => {
+        axios.get(WWW_DIR_JAVASCRIPT  + "groupchat/inviteoperator/" + props.chatId + "/" + e.id).then(result => {
+            e.invited = true;
+            dispatch({
+                type: 'update',
+                value: {
+                    "operators_invite" : state.operators_invite
+                }
+            });
+        });
+    }
+
+    const cancelInvite = (e) => {
+        axios.get(WWW_DIR_JAVASCRIPT  + "groupchat/cancelinvite/" + props.chatId + "/" + e.id).then(result => {
+            e.invited = false;
+            dispatch({
+                type: 'update',
+                value: {
+                    "operators_invite" : state.operators_invite
+                }
+            });
+        });
+    }
+
+    const { t, i18n } = useTranslation('group_chat');
 
     return (
         <React.Fragment>
             <div className="row">
-                <div className="col-sm-7 chat-main-left-column">
+                <div className="col-7 chat-main-left-column">
                     <div className="message-block">
-                        <div className="msgBlock msgBlock-admin" ref={messagesElement}>
+
+                        {state.has_more_messages && <a className="load-prev-btn"  title="Load more..." onClick={(e) => loadPrevious()}><i className="material-icons">&#xE889;</i></a>}
+
+                        <div className="msgBlock msgBlock-admin msgBlock-group-admin" ref={messagesElement}>
                            {state.messages.map((message, index) => (
-                                <ChatMessage key={'msg_' + props.chatId + '_' + index} index={index} message={message} />
+                                <GroupChatMessage key={'msg_' + props.chatId + '_' + index} index={index} message={message} />
                             ))}
                         </div>
                     </div>
-
                     <div className="message-container-admin mt-2">
-                        <textarea ref={messageElement} placeholder="" onKeyDown={(e) => addMessage(e)} className="form-control form-control-sm form-group" rows="2"></textarea>
+                        <textarea ref={messageElement} placeholder={t('message.enter_message')} onKeyDown={(e) => addMessage(e)} className="form-control form-control-sm form-group" rows="2"></textarea>
                     </div>
-
                 </div>
-                <div className="col-sm-5 chat-main-right-column">
+                <div className="chat-main-right-column col-5">
                     <div role="tabpanel">
                         <ul className="nav nav-pills" role="tablist" ref={tabsContainer}>
                             <li role="presentation" className="nav-item"><a className="nav-link active" href={"#group-chat-"+props.chatId} aria-controls={"#group-chat-"+props.chatId} role="tab" data-toggle="tab" title="Operators"><i className="material-icons mr-0">face</i></a></li>
@@ -251,18 +301,38 @@ const GroupChat = props => {
                         <div className="tab-content">
                             <div role="tabpanel" className="tab-pane active" id={"group-chat-"+props.chatId}>
 
-                                <h5>Operators</h5>
-                                <ul className="list-group list-group-flush border-0">
-                                    <li className="list-group-item pl-1 py-1">Cras justo odio</li>
-                                    <li className="list-group-item pl-1 py-1">Dapibus ac facilisis in</li>
-                                    <li className="list-group-item pl-1 py-1">Morbi leo risus</li>
-                                    <li className="list-group-item pl-1 py-1">Porta ac consectetur ac</li>
-                                    <li className="list-group-item pl-1 py-1">Vestibulum at eros</li>
+                                <ul className="list-group list-group-flush border-0 mw-100">
+                                    {state.operators.map((operator, index) => (
+                                        <li className="list-group-item pl-1 py-1">{props.userId != operator.user_id && <i title="Start chat with an operator directly" onClick={(e) => startChatWithOperator(operator)} className="material-icons action-image">chat</i>} {state.chat.user_id == operator.user_id && <i title="Group owner" className="material-icons">account_balance</i>} {operator.n_off_full}<span className="float-right fs11">
+                                            {!operator.jtime && <span className="badge badge-info fs11">{t('operator.pending_join')}</span>} {operator.last_activity_ago} <i className="material-icons">{operator.hide_online ? 'flash_off' : 'flash_on'}</i>
+                                        </span>
+                                        </li>
+                                    ))}
                                 </ul>
-
                             </div>
                             <div role="tabpanel" className="tab-pane" id={"group-chat-info-"+props.chatId}>
-                                <p>Group chat information...</p>
+
+                                <div className="form-row">
+                                    <div className="col-9">
+                                        <input ref={searchOperatorElement} onKeyUp={searchOpeartors} type="text" placeholder={t('operator.search_tip')} className="form-control form-control-sm" />
+                                    </div>
+                                    <div className="col-3">
+                                        <button onClick={searchOpeartors} className="btn w-100 d-block btn-default btn-sm"><span className="material-icons">search</span></button>
+                                    </div>
+                                </div>
+
+                                <ul className="m-0 p-0 mt-2 mx275">
+                                    {state.operators_invite.map((operator, index) => (
+                                        <li className="list-group-item p-2 fs13">
+                                            {operator.name_official}
+                                            {!operator.member && !operator.invited && <button className="float-right btn btn-xs btn-secondary" onClick={(e) => inviteOperator(operator)}>{t('operator.invite')}</button>}
+                                            {!operator.member && operator.invited && <button className="float-right btn btn-xs btn-warning" onClick={(e) => cancelInvite(operator)}>{t('operator.cancel_invite')}</button>}
+                                            {operator.member && <button disabled="disabled" className="float-right btn btn-xs btn-success">{t('operator.already_member')}</button>}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <hr/>
+                                <button className="btn btn-xs btn-danger" title={t('operator.leave_group')} onClick={(e) => leaveGroup()}>{t('operator.leave_group')}</button>
                             </div>
                         </div>
                     </div>

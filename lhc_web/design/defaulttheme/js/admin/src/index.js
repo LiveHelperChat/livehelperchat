@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Suspense, lazy } from 'react';
+import i18n from "./components/i18n/i18n";
 
 const CannedMessages = React.lazy(() => import('./components/CannedMessages'));
 const GroupChat = React.lazy(() => import('./components/GroupChat'));
@@ -24,7 +25,7 @@ ee.addListener('groupChatTabLoaded',(chatId) => {
     if (el !== null) {
         chatId = chatId.replace('gc','');
         ReactDOM.render(
-            <Suspense fallback="..."><GroupChat chatId={chatId} /></Suspense>,
+            <Suspense fallback="..."><GroupChat chatId={chatId} userId={confLH.user_id} /></Suspense>,
             el
         );
     }

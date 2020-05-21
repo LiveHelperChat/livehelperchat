@@ -36,6 +36,12 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
         erLhcoreClassModelUserSetting::setSetting('auto_preload', 0);
     }
 
+    if (isset($_POST['auto_join_private']) && $_POST['auto_join_private'] == 1) {
+        erLhcoreClassModelUserSetting::setSetting('auto_join_private', 1);
+    } else {
+        erLhcoreClassModelUserSetting::setSetting('auto_join_private', 0);
+    }
+
     // Update max active chats directly
     $db = ezcDbInstance::get();
     $stmt = $db->prepare('UPDATE lh_userdep SET max_chats = :max_chats, exclude_autoasign = :exclude_autoasign WHERE user_id = :user_id');

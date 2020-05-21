@@ -1387,6 +1387,10 @@ input[type="file"]{
 * List style
 */
 
+.msgBlock-group-admin div.other-operator{
+    text-align: left;
+}
+
 .list-group .button-item {
 	padding:0;
 }
@@ -1397,6 +1401,10 @@ input[type="file"]{
 	text-align: center;
 	font-size: 14px;
 	font-weight: 600;
+}
+
+.mw-100{
+    max-width: 100%!important;
 }
 
 .list-group {

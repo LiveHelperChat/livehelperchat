@@ -3,7 +3,7 @@
 header ( 'content-type: application/json; charset=utf-8' );
 
 $content = [];
-$content_status = 'false';
+$content_status = [];
 $userOwner = 'true';
 
 $hasAccessToReadArray = array();
@@ -30,7 +30,9 @@ if (is_array($payload) && count($payload) > 0)
 
             foreach ($payload as $chat_id_list)
             {
-            list($chat_id, $MessageID ) = explode(',',$chat_id_list);
+
+                list($chat_id, $MessageID, $lastGroupSync) = explode(',',$chat_id_list);
+
             $chat_id = (int)$chat_id;
             $MessageID = (int)$MessageID;
 
@@ -39,11 +41,11 @@ if (is_array($payload) && count($payload) > 0)
 
                 $hasAccessToReadArray[$chat_id] = true;
 
-                if ( ($Chat->last_msg_id > (int)$MessageID) && count($Messages = erLhcoreClassModelGroupMsg::getList(array('filter' => array('chat_id' => $chat_id), 'filtergt' => array('id' => $MessageID)))) > 0)
+                if ( ($Chat->last_msg_id > (int)$MessageID) && count($Messages = erLhcoreClassGroupChat::getChatMessages($chat_id, erLhcoreClassChat::$limitMessages, $MessageID)) > 0)
                 {
 
                     foreach ($Messages as $messageIndex => $message) {
-                        $Messages[$messageIndex] = $message->getState();
+                        $Messages[$messageIndex] = $message;
                     }
 
                     $newMessagesNumber = count($Messages);
@@ -78,9 +80,49 @@ if (is_array($payload) && count($payload) > 0)
                     $ReturnMessages[] = $response;
                 }
 
-                $lp = $Chat->lsync > 0 ? time()-$Chat->lsync : false;
+                if ($lastGroupSync < time() - 15) {
 
-                $ReturnStatuses[$chat_id] = array('cs' => $Chat->status, 'co' => $Chat->user_id, 'chat_id' => $chat_id, 'lp' => $lp, 'um' => $Chat->has_unread_op_messages);
+                    // Update last activity group member
+                    $q = ezcDbInstance::get()->createUpdateQuery();
+                    $q->update( 'lh_group_chat_member' )
+                        ->set('last_activity',time())
+                        ->where(
+                        $q->expr->eq( 'user_id', $currentUser->getUserID() ),
+                        $q->expr->eq( 'group_id', $chat_id )
+                    );
+                    $stmt = $q->prepare();
+                    $stmt->execute();
+
+                    $resultStatusItem = array(
+                        'chat_id' => $chat_id,
+                        'lgsync' => time(),
+                        'operators' => erLhcoreClassGroupChat::getGroupChatMembers($Chat->id, $currentUser->getUserID())
+                    );
+
+                    if ($Chat->type == erLhcoreClassModelGroupChat::PRIVATE_CHAT && $Chat->user_id != $currentUser->getUserID()) {
+                        $validUser = false;
+                        foreach ($resultStatusItem['operators'] as $operator) {
+                            if ($operator->user_id == $currentUser->getUserID()) {
+                                $validUser = true;
+                                break;
+                            }
+                        }
+
+                        // As this means user tried to read private messages
+                        // Delete it's response
+                        if ($validUser === false) {
+                            $ReturnMessages = [];
+                        }
+                    }
+
+                    // It was first call we have to check does chat has older messages?
+                    if ($MessageID == 0 && isset($newMessagesNumber)) {
+                        $resultStatusItem['has_more_messages'] = $newMessagesNumber == erLhcoreClassChat::$limitMessages;
+                        $resultStatusItem['old_message_id'] = $firstNewMessage['id'];
+                    }
+
+                    $ReturnStatuses[] = $resultStatusItem;
+                }
             }
 
         if (count($ReturnMessages) > 0) {
@@ -91,8 +133,6 @@ if (is_array($payload) && count($payload) > 0)
             $content_status = $ReturnStatuses;
         }
 }
-
-
 
 echo erLhcoreClassChat::safe_json_encode(array('error' => 'false','uw' => $userOwner, 'result_status' => $content_status, 'result' => $content ));
 exit;

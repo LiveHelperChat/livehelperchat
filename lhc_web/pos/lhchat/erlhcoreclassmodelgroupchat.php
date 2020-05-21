@@ -55,6 +55,17 @@ $def->properties['last_msg_id']->columnName   = 'last_msg_id';
 $def->properties['last_msg_id']->propertyName = 'last_msg_id';
 $def->properties['last_msg_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['type'] = new ezcPersistentObjectProperty();
+$def->properties['type']->columnName   = 'type';
+$def->properties['type']->propertyName = 'type';
+$def->properties['type']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+// Total members
+$def->properties['tm'] = new ezcPersistentObjectProperty();
+$def->properties['tm']->columnName   = 'tm';
+$def->properties['tm']->propertyName = 'tm';
+$def->properties['tm']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

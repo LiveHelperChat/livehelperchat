@@ -23,14 +23,53 @@ class erLhcoreClassModelGroupChat
             'last_msg_op_id' => $this->last_msg_op_id,
             'last_msg' => $this->last_msg,
             'last_user_msg_time' => $this->last_user_msg_time,
-            'last_msg_id' => $this->last_msg_id
+            'last_msg_id' => $this->last_msg_id,
+            'type' => $this->type,
+            'tm' => $this->tm,
         );
+    }
+
+    public function afterRemove()
+    {
+        $q = ezcDbInstance::get()->createDeleteQuery();
+        // Messages
+        $q->deleteFrom( 'lh_group_msg' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+        $stmt = $q->prepare();
+        $stmt->execute();
+
+        $q = ezcDbInstance::get()->createDeleteQuery();
+        // Group members
+        $q->deleteFrom( 'lh_group_chat_member' )->where( $q->expr->eq( 'group_id', $this->id ) );
+        $stmt = $q->prepare();
+        $stmt->execute();
+    }
+
+    public function updateMembersCount() {
+        $this->tm = erLhcoreClassModelGroupChatMember::getCount(array('filter' => array('group_id' => $this->id)));
+        $this->updateThis(array('update' => array('tm')));
     }
 
     public function __get($var)
     {
 
         switch ($var) {
+
+            case 'member':
+                $this->member = null;
+                break;
+
+            case 'is_member':
+                $this->is_member = $this->member !== null;
+                return $this->is_member;
+                break;
+
+            case 'jtime':
+                $this->jtime = 0;
+                if ($this->is_member === true && is_object($this->member)) {
+                    $this->jtime = $this->member->jtime;
+                }
+                return $this->jtime;
+                break;
 
             case 'user':
                 $this->user = null;
@@ -67,6 +106,9 @@ class erLhcoreClassModelGroupChat
         }
     }
 
+    const PUBLIC_CHAT = 0;
+    const PRIVATE_CHAT = 1;
+
     public $id = null;
     public $name = '';
     public $status = 0;
@@ -76,6 +118,8 @@ class erLhcoreClassModelGroupChat
     public $last_msg = '';
     public $last_user_msg_time = 0;
     public $last_msg_id = 0;
+    public $tm = 0;
+    public $type = self::PUBLIC_CHAT;
 }
 
 ?>

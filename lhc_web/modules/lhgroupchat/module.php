@@ -12,6 +12,34 @@ $ViewList['loadgroupchat'] = array(
     'multiple_arguments' => array()
 );
 
+$ViewList['loadpreviousmessages'] = array(
+    'params' => array('id','msg_id'),
+    'uparams' => array('initial'),
+    'functions' => array( 'use' ),
+    'multiple_arguments' => array()
+);
+
+$ViewList['inviteoperator'] = array(
+    'params' => array('id','op_id'),
+    'uparams' => array(),
+    'functions' => array( 'use' ),
+    'multiple_arguments' => array()
+);
+
+$ViewList['startchatwithoperator'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' ),
+    'multiple_arguments' => array()
+);
+
+$ViewList['leave'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' ),
+    'multiple_arguments' => array()
+);
+
 $ViewList['addmessage'] = array(
     'params' => array('id'),
     'uparams' => array(),
@@ -20,7 +48,7 @@ $ViewList['addmessage'] = array(
 );
 
 $ViewList['sync'] = array(
-    'params' => array('id'),
+    'params' => array(),
     'uparams' => array(),
     'functions' => array( 'use' ),
     'multiple_arguments' => array()
@@ -56,7 +84,26 @@ $ViewList['new'] = array(
     'functions' => array( 'manage' )
 );
 
-$FunctionList['use'] = array('explain' => 'Permission to use group chat module');
+$ViewList['newgroupajax'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['searchoperator'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['cancelinvite'] = array(
+    'params' => array('id','op_id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$FunctionList['use'] = array('explain' => 'Allow operator to use private/public groups');
 $FunctionList['manage'] = array('explain' => 'Permission to manage group chat module');
+$FunctionList['public_chat'] = array('explain' => 'Allow operator to create a public group chat');
 
 ?>

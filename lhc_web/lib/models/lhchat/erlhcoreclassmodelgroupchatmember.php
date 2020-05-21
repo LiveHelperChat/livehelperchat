@@ -22,7 +22,7 @@ class erLhcoreClassModelGroupChatMember
             'jtime' => $this->jtime
         );
     }
-
+    
     public function __get($var)
     {
 
@@ -36,14 +36,49 @@ class erLhcoreClassModelGroupChatMember
                 return $this->last_activity_front;
                 break;
 
-            case 'jtime_front':
-                if (date('Ymd') == date('Ymd', $this->jtime)) {
-                    $this->jtime_front = date(erLhcoreClassModule::$dateHourFormat, $this->jtime);
-                } else {
-                    $this->jtime_front = date(erLhcoreClassModule::$dateDateHourFormat, $this->jtime);
+         case 'last_activity_ago':
+            $this->last_activity_ago = erLhcoreClassChat::getAgoFormat($this->last_activity);
+
+            return $this->last_activity_ago;
+            break;
+
+        case 'hide_online':
+                if ($this->user !== false) {
+                    $this->hide_online = (string)$this->user->hide_online != 0;
                 }
-                return $this->jtime_front;
-                break;
+                return $this->hide_online;
+            break;
+
+        case 'user':
+            $this->user = false;
+            if ($this->user_id > 0) {
+                try {
+                    $this->user = erLhcoreClassModelUser::fetch($this->user_id,true);
+                } catch (Exception $e) {
+                    $this->user = false;
+                }
+            }
+            return $this->user;
+            break;
+
+        case 'n_off_full':
+            $this->n_off_full = null;
+
+            if ($this->user !== false) {
+                $this->n_off_full = (string)$this->user->name_official;
+            }
+
+            return $this->n_off_full;
+            break;
+
+        case 'jtime_front':
+            if (date('Ymd') == date('Ymd', $this->jtime)) {
+                $this->jtime_front = date(erLhcoreClassModule::$dateHourFormat, $this->jtime);
+            } else {
+                $this->jtime_front = date(erLhcoreClassModule::$dateDateHourFormat, $this->jtime);
+            }
+            return $this->jtime_front;
+            break;
 
 
             default:
