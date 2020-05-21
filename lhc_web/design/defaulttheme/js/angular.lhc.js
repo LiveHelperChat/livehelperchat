@@ -251,6 +251,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.userDepartmentsGroups = [];
 	this.userGroups = [];
 	this.userList = [];
+	this.widgets = [];
 	this.additionalColumns = [];
 
 	this.departmentd = this.restoreLocalSetting('departmentd',[],true);
@@ -433,6 +434,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		filter += '/(limitmc)/'+parseInt(_that.limitmc);
 		filter += '/(limitb)/'+parseInt(_that.limitb);
 		filter += '/(limitgc)/'+parseInt(_that.limitgc);
+
+        if (typeof _that.widgetsActive == 'object' && _that.widgetsActive.length > 0) {
+            filter += '/(w)/'+_that.widgetsActive.join('/');
+        }
 
 		if (typeof _that.activeu == 'object' && _that.activeu.length > 0) {
 			filter += '/(activeu)/'+_that.activeu.join('/');			
@@ -1295,6 +1300,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             _that.hideOnline = data.ho;
             _that.lhcVersion = data.v;
             _that.additionalColumns = data.col;
+            _that.widgetsActive = data.widgets;
 
 			angular.forEach(_that.widgetsItems, function(listId) {
 				_that.setDepartmentNames(listId);

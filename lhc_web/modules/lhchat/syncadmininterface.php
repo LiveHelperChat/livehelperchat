@@ -59,11 +59,10 @@ $showDepartmentsStats = $currentUser->hasAccessTo('lhuser','canseedepartmentstat
 $showDepartmentsStatsAll = $currentUser->hasAccessTo('lhuser','canseealldepartmentstats');
 $myChatsEnabled = erLhcoreClassModelUserSetting::getSetting('enable_mchats_list',1);
 
-
 $chatsList = array();
 $chatsListAll = array();
 
-if ($showDepartmentsStats == true) {
+if ($showDepartmentsStats == true && is_array($Params['user_parameters_unordered']['w']) && in_array('departments_stats',$Params['user_parameters_unordered']['w'])) {
     /**
      * Departments stats
      * */
@@ -327,7 +326,7 @@ if ($closedTabEnabled == true) {
 	$chatsList[] = & $ReturnMessages['closed_chats']['list'];
 }
 
-if ($botTabEnabled == true) {
+if (is_array($Params['user_parameters_unordered']['w']) && in_array('bot_chats',$Params['user_parameters_unordered']['w']) && $botTabEnabled == true) {
     $limitList = is_numeric($Params['user_parameters_unordered']['limitb']) ? (int)$Params['user_parameters_unordered']['limitb'] : 10;
 
     $filter = array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField);
@@ -493,7 +492,7 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
 	$ReturnMessages['online_op'] = array('list' => array_values($onlineOperators), 'op_cc' => $operatorsCount, 'op_sn' => $operatorsSend);
 }
 
-if ($unreadTabEnabled == true) {
+if ($unreadTabEnabled == true && is_array($Params['user_parameters_unordered']['w']) && in_array('unread_chats',$Params['user_parameters_unordered']['w'])) {
 
     $filter = array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField);
 
