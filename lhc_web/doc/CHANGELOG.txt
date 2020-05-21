@@ -1,3 +1,11 @@
+3.35v
+
+execute doc/update_db/update_209.sql for update
+
+1. Group chats between operators
+
+execute doc/update_db/update_208.sql for update
+
 3.34v
 
 1. Canned messages new interface
