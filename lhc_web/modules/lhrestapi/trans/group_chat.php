@@ -11,7 +11,7 @@ echo json_encode(array(
         "cancel_invite" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Cancel invite'),
         "leave_group" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Leave the group'),
         "search_tip" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter operator name or surname or just click search to invite'),
-        "leave_group" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Leave the group, you still can join anytime you want.'),
+        "leave_group_tip" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Leave the group, you still can join anytime you want.'),
     ]
 ));
 

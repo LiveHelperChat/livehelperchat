@@ -332,7 +332,7 @@ const GroupChat = props => {
                                     ))}
                                 </ul>
                                 <hr/>
-                                <button className="btn btn-xs btn-danger" title={t('operator.leave_group')} onClick={(e) => leaveGroup()}>{t('operator.leave_group')}</button>
+                                <button className="btn btn-xs btn-danger" title={t('operator.leave_group_tip')} onClick={(e) => leaveGroup()}>{t('operator.leave_group')}</button>
                             </div>
                         </div>
                     </div>
