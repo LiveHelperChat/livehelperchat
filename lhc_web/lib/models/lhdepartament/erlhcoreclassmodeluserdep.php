@@ -70,7 +70,9 @@ class erLhcoreClassModelUserDep
                         } elseif ($depId > 0) {
                             try {
                                 $dep = erLhcoreClassModelDepartament::fetch($depId, true);
-                                $this->departments_names[] = $dep->name;
+                                if (is_object($dep)) {
+                                    $this->departments_names[] = $dep->name;
+                                }
                             } catch (Exception $e) {
 
                             }

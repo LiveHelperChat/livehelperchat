@@ -37,14 +37,20 @@ if (is_array($department)) {
     erLhcoreClassChat::validateFilterIn($department);
 }
 
+$departmentUpdated = $department;
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.settings_department_verify', array('department' => & $departmentUpdated));
+
 $outputResponse = array(
-    'isOnline' => erLhcoreClassChat::isOnline($department, false, array(
+    'isOnline' => erLhcoreClassChat::isOnline($departmentUpdated, false, array(
         'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
         'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value
     )),
     'hideOffline' => false,
     'vid' => isset($_GET['vid']) ? $_GET['vid'] : substr(sha1(mt_rand() . microtime()),0,20)
 );
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.settings_department_after_verify', array('department' => & $department, 'output' => & $outputResponse));
 
 $ignorable_ip = erLhcoreClassModelChatConfig::fetch('ignorable_ip')->current_value;
 $fullHeight = (isset($Params['user_parameters_unordered']['fullheight']) && $Params['user_parameters_unordered']['fullheight'] == 'true') ? true : false;
@@ -181,6 +187,11 @@ $ts = time();
 $outputResponse['v'] = 56;
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
+
+if (is_array($department) && !empty($department)) {
+    $outputResponse['department'] = $department;
+}
+
 $outputResponse['static'] = array(
     'screenshot' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('js/html2canvas.min.js'). '?v=' . $outputResponse['v'],
     'app' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . ((isset($_GET['ie']) && $_GET['ie'] == 'true') ? erLhcoreClassDesign::design('js/widgetv2/react.app.ie.js') . '?v=' . $outputResponse['v'] : erLhcoreClassDesign::design('js/widgetv2/react.app.js') . '?v=' . $outputResponse['v']),
@@ -193,7 +204,8 @@ $outputResponse['static'] = array(
     'font_status' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('fonts/lhc.woff'),
     'font_widget' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('fonts/MaterialIcons-Regularv2.woff2'),
     'chunk_js' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('js/widgetv2'),
-    'page_css' => $pageCSS
+    'page_css' => $pageCSS,
+    'ex_js' => []
 );
 
 $outputResponse['chunks_location'] = erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('js/widgetv2');

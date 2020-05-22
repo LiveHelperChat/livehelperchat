@@ -164,6 +164,10 @@
                     return;
                 }
 
+                if (data.department) {
+                    attributesWidget.department = data.department;
+                }
+
                 __webpack_public_path__ = data.chunks_location + "/";
 
                 if (data.secure_cookie) {

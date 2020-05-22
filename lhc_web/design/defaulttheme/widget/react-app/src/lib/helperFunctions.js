@@ -107,4 +107,5 @@ class _helperFunctions {
 };
 
 const helperFunctions = new _helperFunctions();
+window.lhcHelperfunctions = helperFunctions;
 export { helperFunctions };
