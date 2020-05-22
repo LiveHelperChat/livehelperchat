@@ -31,6 +31,7 @@ confLH.repeat_sound_delay = <?php echo (int)$soundData['repeat_sound_delay']?>;
 confLH.content_language = '<?php echo erLhcoreClassSystem::instance()->ContentLanguage?>';
 confLH.defaultm_hegiht = '<?php echo erLhcoreClassModelChatConfig::fetch('mheight_op')->current_value;?>';
 confLH.dlist = {'op_n':'<?php echo erLhcoreClassModelChatConfig::fetch('listd_op')->current_value;?>'};
+confLH.lngUser = '<?php echo erConfigClassLhConfig::getInstance()->getDirLanguage('content_language')?>';
 <?php $geo_location_data = erLhcoreClassModelChatConfig::fetch('geo_location_data')->data_value; ?>
 confLH.gmaps_api_key = "<?php if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'maps_api_key', false)) {echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'maps_api_key', false);} elseif (isset($geo_location_data['gmaps_api_key'])) {echo $geo_location_data['gmaps_api_key'];}?>";
 </script>

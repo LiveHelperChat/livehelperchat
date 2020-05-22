@@ -6,10 +6,10 @@ var date = new Date();
 
 i18n.use(Backend).use(initReactI18next).init({
     backend: {
-        loadPath: '{{lng}}restapi/lang/{{ns}}?v='+(""+date.getFullYear() + date.getMonth() + date.getDate())
+        loadPath: WWW_DIR_JAVASCRIPT+'restapi/lang/{{ns}}?l={{lng}}&v='+(""+date.getFullYear() + date.getMonth() + date.getDate())
     },
-    lng: WWW_DIR_JAVASCRIPT,
-    fallbackLng: WWW_DIR_JAVASCRIPT,
+    lng: confLH.lngUser,
+    fallbackLng: confLH.lngUser,
     defaultNS: 'group_chat',
     ns: 'group_chat',
     debug: false,
