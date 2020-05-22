@@ -356,7 +356,13 @@ trait erLhcoreClassDBTrait
 
         if (isset($params['filter']) && count($params['filter']) > 0) {
             foreach ($params['filter'] as $field => $fieldValue) {
-                $conditions[] = $q->expr->eq($field, $q->bindValue($fieldValue));
+                if (is_array($fieldValue)) {
+                    if (!empty($fieldValue)) {
+                        $conditions[] = $q->expr->in($field, $fieldValue);
+                    }
+                } else {
+                    $conditions[] = $q->expr->eq($field, $q->bindValue($fieldValue));
+                }
             }
         }
 
@@ -396,7 +402,13 @@ trait erLhcoreClassDBTrait
 
         if (isset($params['filternot']) && count($params['filternot']) > 0) {
             foreach ($params['filternot'] as $field => $fieldValue) {
-                $conditions[] = $q->expr->neq($field, $q->bindValue($fieldValue));
+                if (is_array($fieldValue)) {
+                    if (!empty($fieldValue)) {
+                        $conditions[] = $q->expr->not($q->expr->in($field, $fieldValue));
+                    }
+                } else {
+                    $conditions[] = $q->expr->neq($field, $q->bindValue($fieldValue));
+                }
             }
         }
 
@@ -459,13 +471,11 @@ trait erLhcoreClassDBTrait
         }
 
         if (isset($params['filternotin']) && count($params['filternotin']) > 0) {
-
             foreach ($params['filternotin'] as $field => $fieldValue) {
                 if (!empty($fieldValue)) {
                     $conditions[] = $q->expr->not($q->expr->in($field, $fieldValue));
                 }
             }
-
         }
 
         if (isset($params['filter_custom']) && count($params['filter_custom']) > 0) {

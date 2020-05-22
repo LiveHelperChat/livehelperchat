@@ -683,6 +683,22 @@
             "required": false,
             "default": false,
             "type": "boolean"
+          },
+          {
+            "name": "as_html",
+            "in": "query",
+            "description": "Render message body as HTML instead of BBCode",
+            "required": false,
+            "default": false,
+            "type": "boolean"
+          },
+          {
+            "name": "file_as_link",
+            "in": "query",
+            "description": "Render message files/images as links",
+            "required": false,
+            "default": false,
+            "type": "boolean"
           }
         ],
         "responses": {

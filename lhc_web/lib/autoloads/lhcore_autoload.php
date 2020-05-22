@@ -46,7 +46,7 @@ return array_merge(array (
         'Clamav'                     => 'lib/core/lhexternal/Clamav.php',
 
         'erLhcoreClassBBCode'       => 'lib/core/lhbbcode/lhbbcode.php',
-
+        'erLhcoreClassBBCodePlain'  => 'lib/core/lhbbcode/lhbbcode_cleanup.php',
 
         'erLhcoreClassDepartament' => 'lib/core/lhdepartament/lhdepartament.php',
         'erLhcoreClassUserDep'      => 'lib/core/lhdepartament/lhuserdep.php',

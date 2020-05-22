@@ -727,8 +727,12 @@ class erLhcoreClassChatValidator {
             $inputForm->jsvar = $form->jsvar;
             foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
                 if (isset($form->jsvar[$jsVar->id]) && !empty($form->jsvar[$jsVar->id])) {
-                    if ($jsVar->var_identifier == 'lhc.nick') {
-                        $chat->nick = $form->jsvar[$jsVar->id];
+
+                    if (strpos($jsVar->var_identifier,'lhc.') !== false) {
+                        $lhcVar = str_replace('lhc.','',$jsVar->var_identifier);
+                        if ($chat->{$lhcVar} != $form->jsvar[$jsVar->id] && $form->jsvar[$jsVar->id] != '') {
+                            $chat->{$lhcVar} = $form->jsvar[$jsVar->id];
+                        }
                     } else {
 
                         $val = $form->jsvar[$jsVar->id];
@@ -853,6 +857,11 @@ class erLhcoreClassChatValidator {
         {
             $needUpdate = false;
             $stringParts = array();
+            $updateColumns = array(
+                'additional_data',
+                'priority',
+                'operation_admin',
+            );
 
             foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
 
@@ -865,9 +874,11 @@ class erLhcoreClassChatValidator {
                 }
 
                 if (!empty($val)) {
-                    if ($jsVar->var_identifier == 'lhc.nick') {
-                        if ($chat->nick != $val && $val != '') {
-                            $chat->nick = $val;
+                    if (strpos($jsVar->var_identifier,'lhc.') !== false) {
+                        $lhcVar = str_replace('lhc.','',$jsVar->var_identifier);
+                        if ($chat->{$lhcVar} != $val && $val != '') {
+                            $chat->{$lhcVar} = $val;
+                            $updateColumns[] = $lhcVar;
                             $needUpdate = true;
                         }
                     } else {
@@ -912,6 +923,7 @@ class erLhcoreClassChatValidator {
             if ($needUpdate == true) {
                 $chat->additional_data_array = $additionalDataArray;
                 $chat->additional_data = json_encode($additionalDataArray);
+                $chat->operation_admin = 'lhinst.updateVoteStatus(' . $chat->id . ');';
 
                 // Set priority if we find new after fetching additional data
                 $priority = erLhcoreClassChatValidator::getPriorityByAdditionalData($chat);
@@ -923,16 +935,7 @@ class erLhcoreClassChatValidator {
                 $db = ezcDbInstance::get();
                 $db->beginTransaction();
 
-                erLhcoreClassModelChat::fetchAndLock($chat->id);
-
-                $stmt = $db->prepare("UPDATE lh_chat SET nick = :nick, additional_data = :additional_data, priority = :priority, operation_admin = :operation_admin WHERE id = :chat_id");
-                $stmt->bindValue(':chat_id',$chat->id,PDO::PARAM_INT);
-                $stmt->bindValue(':priority',$chat->priority,PDO::PARAM_INT);
-                $stmt->bindValue(':operation_admin','lhinst.updateVoteStatus(' . $chat->id . ');',PDO::PARAM_STR);
-                $stmt->bindValue(':additional_data',$chat->additional_data,PDO::PARAM_STR);
-                $stmt->bindValue(':nick',$chat->nick,PDO::PARAM_STR);
-
-                $stmt->execute();
+                $chat->updateThis(array('update' => $updateColumns));
 
                 $db->commit();
 
@@ -941,7 +944,6 @@ class erLhcoreClassChatValidator {
             }
         }
     }
-
 
     public static function updateAdditionalVariables($chat) {
 
@@ -961,13 +963,19 @@ class erLhcoreClassChatValidator {
         {
             $needUpdate = false;
             $stringParts = array();
+            $updateColumns = array(
+                'additional_data',
+                'priority',
+                'operation_admin',
+            );
 
             foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
                 if (isset($form->jsvar[$jsVar->id]) && !empty($form->jsvar[$jsVar->id])) {
-                    if ($jsVar->var_identifier == 'lhc.nick') {
-                        if ($chat->nick != $form->jsvar[$jsVar->id] && $form->jsvar[$jsVar->id] != '') {
-                            $chat->nick = $form->jsvar[$jsVar->id];
-                            $needUpdate = true;
+                    if (strpos($jsVar->var_identifier,'lhc.') !== false) {
+                        $lhcVar = str_replace('lhc.','',$jsVar->var_identifier);
+                        if ($chat->{$lhcVar} != $form->jsvar[$jsVar->id] && $form->jsvar[$jsVar->id] != '') {
+                            $chat->{$lhcVar} = $form->jsvar[$jsVar->id];
+                            $updateColumns[] = $lhcVar;
                         }
                     } else {
                         $val = $form->jsvar[$jsVar->id];
@@ -1019,16 +1027,7 @@ class erLhcoreClassChatValidator {
                 $db = ezcDbInstance::get();
                 $db->beginTransaction();
 
-                erLhcoreClassModelChat::fetchAndLock($chat->id);
-
-                $stmt = $db->prepare("UPDATE lh_chat SET nick = :nick, additional_data = :additional_data, priority = :priority, operation_admin = :operation_admin WHERE id = :chat_id");
-                $stmt->bindValue(':chat_id',$chat->id,PDO::PARAM_INT);
-                $stmt->bindValue(':priority',$chat->priority,PDO::PARAM_INT);
-                $stmt->bindValue(':operation_admin','lhinst.updateVoteStatus(' . $chat->id . ');',PDO::PARAM_STR);
-                $stmt->bindValue(':additional_data',$chat->additional_data,PDO::PARAM_STR);
-                $stmt->bindValue(':nick',$chat->nick,PDO::PARAM_STR);
-
-                $stmt->execute();
+                $chat->updateThis(array('update' => $updateColumns));
 
                 $db->commit();
 
@@ -1345,9 +1344,11 @@ class erLhcoreClassChatValidator {
 
             foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
                 if (isset($form->jsvar[$jsVar->id]) && !empty($form->jsvar[$jsVar->id])) {
-                    if ($jsVar->var_identifier == 'lhc.nick') {
-                        if ($chat->nick != $form->jsvar[$jsVar->id] && $form->jsvar[$jsVar->id] != ''){
-                            $chat->nick = $form->jsvar[$jsVar->id];
+
+                    if (strpos($jsVar->var_identifier,'lhc.') !== false) {
+                        $lhcVar = str_replace('lhc.','', $jsVar->var_identifier);
+                        if ($chat->{$lhcVar} != $form->jsvar[$jsVar->id] && $form->jsvar[$jsVar->id] != '') {
+                            $chat->{$lhcVar} = $form->jsvar[$jsVar->id];
                         }
                     } else {
                         $val = $form->jsvar[$jsVar->id];

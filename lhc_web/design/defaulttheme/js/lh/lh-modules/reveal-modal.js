@@ -101,7 +101,7 @@ var revealM = {
 				}
 				var additionalModalBody = typeof params['modalbodyclass'] === 'undefined' ? '' : ' '+params['modalbodyclass'];
 
-				$('#myModal').html('<div class="modal-dialog modal-lg"><div class="modal-content">'+header+'<div class="modal-body'+additionalModalBody+'">'+prependeBody+'<iframe src="'+params['url']+'" frameborder="0" style="width:100%" height="'+params['height']+'" /></div></div></div>').modal('show')	;
+				$('#myModal').html('<div class="modal-dialog modal-xl"><div class="modal-content">'+header+'<div class="modal-body'+additionalModalBody+'">'+prependeBody+'<iframe src="'+params['url']+'" frameborder="0" style="width:100%" height="'+params['height']+'" /></div></div></div>').modal('show')	;
 
 				if (typeof params['showcallback'] !== 'undefined') {
 					$('#myModal').on('shown.bs.modal',params['showcallback']);
