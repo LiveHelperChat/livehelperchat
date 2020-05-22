@@ -2021,6 +2021,7 @@ try {
                         array('module' => 'lhtheme', 'function' => 'personaltheme'),
                         array('module' => 'lhuser', 'function' => 'userlistonline'),
                         array('module' => 'lhspeech', 'function' => 'change_chat_recognition'),
+                        array('module' => 'lhgroupchat', 'function' => 'use'),
                     );
 
                     foreach ($permissionsArray as $paramsPermission) {

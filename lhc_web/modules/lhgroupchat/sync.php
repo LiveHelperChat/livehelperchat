@@ -18,11 +18,6 @@ if (is_array($payload) && count($payload) > 0)
     $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/syncadmin.tpl.php');
     $currentUser = erLhcoreClassUser::instance();
 
-    /*if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
-        echo json_encode(array('error' => 'true', 'result' => 'Invalid CSRF Token' ));
-        exit;
-    }*/
-
     // We do not need a session anymore
     session_write_close();
 

@@ -2,13 +2,23 @@
 
 header ( 'content-type: application/json; charset=utf-8' );
 
-$item = erLhcoreClassModelGroupChat::fetch($Params['user_parameters']['id']);
+$db = ezcDbInstance::get();
+$db->beginTransaction();
 
-erLhcoreClassGroupChat::cancelInvite($item->id, $Params['user_parameters']['op_id']);
+try {
+    $item = erLhcoreClassModelGroupChat::fetch($Params['user_parameters']['id']);
 
-$item->updateMembersCount();
+    erLhcoreClassGroupChat::cancelInvite($item->id, $Params['user_parameters']['op_id']);
 
-echo json_encode(array());
+    $item->updateMembersCount();
+
+    $db->commit();
+    echo json_encode(array());
+} catch (Exception $e){
+    http_response_code(400);
+    echo json_encode($e->getMessage());
+    $db->rollback();
+}
 
 exit;
 
