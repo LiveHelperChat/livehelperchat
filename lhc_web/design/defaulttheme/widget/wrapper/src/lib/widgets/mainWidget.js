@@ -84,6 +84,12 @@ export class mainWidget{
 
         this.cont.insertJSFile(this.attributes.staticJS['app'], false);
 
+        if (this.attributes.staticJS['ex_js'] && this.attributes.staticJS['ex_js'].length > 0) {
+            this.attributes.staticJS['ex_js'].forEach((item) => {
+                this.cont.insertJSFile(item, false);
+            });
+        }
+        
         this.toggleVisibilityWrap = (data) => {
                 this.toggleVisibility(data);
         };

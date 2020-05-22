@@ -2,6 +2,8 @@ import axios from "axios";
 import { helperFunctions } from "../lib/helperFunctions";
 import { STATUS_CLOSED_CHAT, STATUS_BOT_CHAT, STATUS_SUB_SURVEY_SHOW, STATUS_SUB_USER_CLOSED_CHAT, STATUS_SUB_CONTACT_FORM } from "../constants/chat-status";
 
+window.lhcAxios = axios;
+
 export function closeWidget() {
     return function(dispatch) {
         dispatch({type: "closeWidget"});
