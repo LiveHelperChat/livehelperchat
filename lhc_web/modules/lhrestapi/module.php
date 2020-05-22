@@ -93,6 +93,10 @@ $ViewList['bots'] = array(
     'params' => array()
 );
 
+$ViewList['lang'] = array(
+    'params' => array('ns')
+);
+
 $ViewList['bot'] = array(
     'params' => array('id')
 );

@@ -955,6 +955,46 @@ class Install
 				  KEY `identifier` (`identifier`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+            $db->query("CREATE TABLE `lh_group_chat` (
+                    `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `status` int(11) NOT NULL,
+  `time` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `last_msg_op_id` bigint(20) NOT NULL,
+  `last_msg` varchar(200) NOT NULL,
+  `last_user_msg_time` int(11) NOT NULL,
+  `last_msg_id` bigint(20) NOT NULL,
+  `type` tinyint(1) NOT NULL DEFAULT 0,
+  `tm` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `type` (`type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
+            $db->query("CREATE TABLE `lh_group_msg` (
+                    `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `msg` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time` int(11) NOT NULL,
+  `chat_id` int(11) NOT NULL DEFAULT 0,
+  `user_id` int(11) NOT NULL DEFAULT 0,
+  `name_support` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_msg` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `chat_id_id` (`chat_id`,`id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
+            $db->query("CREATE TABLE `lh_group_chat_member` (
+                    `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) NOT NULL,
+  `group_id` bigint(20) NOT NULL,
+  `last_activity` int(11) NOT NULL,
+  `jtime` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `group_id` (`group_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
 
             $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_form` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1253,7 +1293,7 @@ class Install
                 ('min_phone_length','8',0,'Minimum phone number length',0),
                 ('mheight','',0,'Messages box height',0),
                 ('inform_unread_message','0',0,'Inform visitor about unread messages from operator, value in minutes. 0 - disabled',0),
-                ('dashboard_order', '[[\"online_operators\",\"departments_stats\",\"online_visitors\"],[\"my_chats\",\"pending_chats\",\"transfered_chats\"],[\"active_chats\",\"bot_chats\"]]', '0', 'Home page dashboard widgets order', '0'),
+                ('dashboard_order', '[[\"online_operators\",\"departments_stats\",\"online_visitors\"],[\"group_chats\",\"my_chats\",\"pending_chats\",\"transfered_chats\"],[\"active_chats\",\"bot_chats\"]]', '0', 'Home page dashboard widgets order', '0'),
                 ('banned_ip_range','',0,'Which ip should not be allowed to chat',0),
                 ('suggest_leave_msg','1',0,'Suggest user to leave a message then user chooses offline department',0),
                 ('checkstatus_timeout','0',0,'Interval between chat status checks in seconds, 0 disabled.',0),
@@ -1838,6 +1878,7 @@ class Install
                 array('module' => 'lhtheme', 'function' => 'personaltheme'),
                 array('module' => 'lhuser', 'function' => 'userlistonline'),
                 array('module' => 'lhspeech', 'function' => 'change_chat_recognition'),
+                array('module' => 'lhgroupchat', 'function' => 'use'),
             );
 
             foreach ($permissionsArray as $paramsPermission) {

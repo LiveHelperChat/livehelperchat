@@ -399,12 +399,12 @@ function lh(){
         }
     };
     
-    this.forgetChat = function (chat_id) {
+    this.forgetChat = function (chat_id,listId) {
         if (localStorage) {
             try {
                 chat_id = parseInt(chat_id);
 
-                var achat_id = localStorage.getItem('achat_id');
+                var achat_id = localStorage.getItem(listId);
                 var achat_id_array = new Array();
 
                 if (achat_id !== null) {
@@ -415,7 +415,7 @@ function lh(){
                     achat_id_array.splice(achat_id_array.indexOf(chat_id), 1);
                 }
 
-                localStorage.setItem('achat_id',achat_id_array.join(','));
+                localStorage.setItem(listId,achat_id_array.join(','));
             } catch (e) {
                 console.log(e);
             }
@@ -482,6 +482,50 @@ function lh(){
 
         return false;
 	},
+
+    this.removeDialogTabGroup = function(chat_id, tabs)
+    {
+        ee.emitEvent('unloadGroupChat', [chat_id]);
+        var location = this.smartTabFocus(tabs, chat_id);
+    };
+
+    this.addGroupTab = function(tabs, name, chat_id, background) {
+        // If tab already exits return
+        if (tabs.find('#chat-tab-link-'+chat_id).length > 0) {
+            tabs.find('> ul > li > a.active').removeClass("active");
+            tabs.find('> ul > li#chat-tab-li-'+chat_id+' > a').addClass("active");
+            tabs.find('> div.tab-content > div.active').removeClass('active');
+            tabs.find('> div.tab-content > #chat-id-'+chat_id).addClass('active');
+            ee.emitEvent('groupChatTabClicked', [chat_id]);
+            return ;
+        }
+
+        var contentLi = '<li role="presentation" id="chat-tab-li-'+chat_id+'" class="nav-item"><a class="nav-link" href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">send</i><i id="user-chat-status-'+chat_id+'" class="'+this.tabIconClass+'">group</i><span class="ntab" id="ntab-chat-'+chat_id+'">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span><span onclick="return lhinst.removeDialogTabGroup(\''+chat_id+'\',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>';
+
+        tabs.find('> ul').append(contentLi);
+        var hash = window.location.hash.replace('#/','#');
+
+        var inst = this;
+
+        if (background !== true) {
+            tabs.find('> ul > li > a.active').removeClass("active");
+            tabs.find('> ul > #chat-tab-li-'+chat_id+' > a').addClass("active");
+            tabs.find('> div.tab-content > div.active').removeClass('active');
+            tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane active" id="chat-id-'+chat_id+'"></div>');
+        } else {
+            tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane" id="chat-id-'+chat_id+'"></div>');
+        }
+
+        ee.emitEvent('groupChatTabLoaded', [chat_id]);
+        
+        $('#chat-tab-link-'+chat_id).click(function() {
+            ee.emitEvent('groupChatTabClicked', [chat_id.replace('gc','')]);
+        });
+    };
+
+    this.startGroupChat = function (chat_id,tabs,name, background) {
+        this.addGroupTab(tabs, name, 'gc'+chat_id, background);
+    }
 
     this.startChat = function (chat_id,tabs,name,focusTab,position) {
     	    	
@@ -561,7 +605,7 @@ function lh(){
             } else { j++; }
         };
 
-        this.forgetChat(chat_id);
+        this.forgetChat(chat_id,'achat_id');
 
         ee.emitEvent('removeSynchroChat', [chat_id]);
 

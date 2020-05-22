@@ -18,6 +18,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -547,11 +555,11 @@
     </message>
     <message>
       <source>Search for language. Enter * to see all.</source>
-      <translation type="unfinished"/>
+      <translation>Cerca la lingua. Inserisci * per vedere tutto.</translation>
     </message>
     <message>
       <source>See all variations</source>
-      <translation type="unfinished"/>
+      <translation>Visualizza tutte le varianti</translation>
     </message>
     <message>
       <source>Invitation</source>
@@ -927,11 +935,11 @@
     </message>
     <message>
       <source>Online status text [old widget]</source>
-      <translation type="unfinished"/>
+      <translation>Testo stato online [vecchio widget]</translation>
     </message>
     <message>
       <source>Offline status text [old widget]</source>
-      <translation type="unfinished"/>
+      <translation>Testo stato offline [vecchio widget]</translation>
     </message>
     <message>
       <source>Operator intro text</source>
@@ -1700,7 +1708,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Encrypted</source>
-      <translation type="unfinished"/>
+      <translation>Crittografato</translation>
     </message>
     <message>
       <source>Chat variables</source>
@@ -2046,7 +2054,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Exclude personal responses</source>
-      <translation type="unfinished"/>
+      <translation>Escludere le risposte personali</translation>
     </message>
     <message>
       <source>Title</source>
@@ -2457,7 +2465,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Search for language. Enter * to see all.</source>
-      <translation type="unfinished"/>
+      <translation>Cerca la lingua. Inserisci * per vedere tutto.</translation>
     </message>
     <message>
       <source>Title/Message</source>
@@ -2558,6 +2566,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Language</source>
       <translation>Lingua</translation>
+    </message>
+    <message>
+      <source>Siteaccess</source>
+      <translation>Siteaccess</translation>
     </message>
     <message>
       <source>Personal canned message</source>
@@ -3115,11 +3127,11 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>did not accepted chat in time.</source>
-      <translation type="unfinished"/>
+      <translation>non ha accettato la chat in tempo.</translation>
     </message>
     <message>
       <source>Chat was assigned to</source>
-      <translation type="unfinished"/>
+      <translation>La chat è stata assegnata a</translation>
     </message>
     <message>
       <source>Hold removed!</source>
@@ -3334,15 +3346,15 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Widget embed code (new)</source>
-      <translation type="unfinished"/>
+      <translation>Codice widget (nuovo)</translation>
     </message>
     <message>
       <source>Widget embed code (legacy)</source>
-      <translation type="unfinished"/>
+      <translation>Codice widget (vecchio)</translation>
     </message>
     <message>
       <source>Page embed code (legacy)</source>
-      <translation type="unfinished"/>
+      <translation>Codice pagina (vecchio)</translation>
     </message>
     <message>
       <source>Widget embed code</source>
@@ -4601,6 +4613,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Popup</translation>
     </message>
     <message>
+      <source>This chat is closed now. You can close window.</source>
+      <translation>La chat è terminata. È possibile chiudere la finestra.</translation>
+    </message>
+    <message>
       <source>Your message...</source>
       <translation>Il tuo messaggio...</translation>
     </message>
@@ -4685,7 +4701,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>All active chats will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>Tutte le chat attive appariranno qui.</translation>
     </message>
     <message>
       <source>Location</source>
@@ -4769,7 +4785,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Bot chats will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>Le chat con il bot appariranno qui.</translation>
     </message>
     <message>
       <source>Please enable bot chats list in your account!</source>
@@ -4785,11 +4801,11 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Chats assigned to you will appear here. List includes pending and active chats.</source>
-      <translation type="unfinished"/>
+      <translation>Le chat assegnate a voi verranno visualizzate qui. L&apos;elenco include le chat in sospeso e attive.</translation>
     </message>
     <message>
       <source>You will see short list of your site visitors here.</source>
-      <translation type="unfinished"/>
+      <translation>Vedrai un breve elenco dei visitatori del tuo sito qui.</translation>
     </message>
     <message>
       <source>Delete chat</source>
@@ -6137,6 +6153,10 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation>Supportato: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</translation>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Richiedi il permesso di notifica</translation>
     </message>
@@ -6153,8 +6173,8 @@ Icona colonna, testo icone materiale</translation>
       <translation>Nuove impostazioni di notifica chat</translation>
     </message>
     <message>
-      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
-      <translation>Supportato: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</translation>
+      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats, bot_chats, my_chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
@@ -6219,6 +6239,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Translations groups</source>
       <translation>Gruppo traduzioni</translation>
+    </message>
+    <message>
+      <source>Rest API Calls</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Browse offers embed code</source>
@@ -6673,6 +6697,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Bots</source>
       <translation>Bots</translation>
+    </message>
+    <message>
+      <source>Rest API Calls</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Translations groups</source>
@@ -8582,6 +8610,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Nuovo gruppo di eccezioni</translation>
     </message>
     <message>
+      <source>New Rest API Call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New translation group</source>
       <translation>Nuovo gruppo traduzioni</translation>
     </message>
@@ -9032,6 +9064,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Bot exceptions groups</source>
       <translation>Gruppi di eccezioni Bot</translation>
+    </message>
+    <message>
+      <source>Rest API Calls</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Translations groups</source>
@@ -11816,6 +11852,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Inserire il nick del bot!</translation>
     </message>
     <message>
+      <source>Please enter Rest API Name!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter translation group name!</source>
       <translation>Inserire il nome del gruppo di traduzioni!</translation>
     </message>
@@ -12263,6 +12303,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Eccezioni</translation>
     </message>
     <message>
+      <source>Rest API Calls</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Translations groups</source>
       <translation>Gruppo traduzioni</translation>
     </message>
@@ -12326,6 +12370,225 @@ Icona colonna, testo icone materiale</translation>
       <translation> 
 Iscrizione ...
  </translation>
+    </message>
+  </context>
+  <context>
+    <name>genericbot/restapi</name>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Description</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name of the request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Method</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sub URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Params</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Authorization</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Headers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Body</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User parameters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Output parsing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can put visitor message as placeholder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add param</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can always just define custom header if you do not find authorisation method here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Authorization method</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skip</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>API Key Location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Query Params</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Request Body</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>none</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>raw (Use this to send JSON Body)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>form data (Use this to send post parameters)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Paste your request here (E.g JSON body). You can put visitor message as placeholder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can define additional parameters user can enter in bot trigger directly.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Query</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Body Post Param</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Body Param</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name visible in trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Location/Key</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Either key which will be used for replacement</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can define response conditions to which you will be able to add corresponding triggers.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add combination</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Expected output definition</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTTP status code E.g 200,301,500</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTTP status code 200,301</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location 1. Available as {content_1} in messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>response:msg you can leave an empty if you want forward whole response.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location 2. Available as {content_2} in messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location 3. Available as {content_3} in messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location 4. Available as {content_4} in messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If required you can have also condition to check</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response comparison</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do nothing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text like</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text not like</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Comparison value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Value to compare</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Meta msg location. If you support Live Helper Chat json syntax you can set location of this response.</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

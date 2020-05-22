@@ -51,6 +51,10 @@ $columnSize = 12 / $columnsTotal;
 
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bot_chats.tpl.php'));?>
 
+                <?php elseif ($wiget == 'group_chats') : ?>
+
+                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/group_chat.tpl.php'));?>
+
                 <?php elseif ($wiget == 'unread_chats') : ?>
                 
                     <?php if ($unreadTabEnabled == true && $online_chat_enabled_pre == true) : ?>

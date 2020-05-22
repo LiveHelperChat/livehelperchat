@@ -1,7 +1,6 @@
 <?php
 
-$Module = array( "name" => "Chat",
-				 'variable_params' => true );
+$Module = array( "name" => "Chat");
 
 $ViewList = array();
 
@@ -190,18 +189,18 @@ $ViewList['delete'] = array(
 
 $ViewList['syncadmininterface'] = array(
     'params' => array(),
-    'uparams' => array('clcs','limitb','botd','odpgroups','ddgroups','udgroups','mdgroups', 'cdgroups', 'pdgroups','adgroups','pugroups','augroups','onop', 'acs', 'mcd', 'limitmc', 'mcdprod','activeu','pendingu','topen','departmentd','operatord','actived','pendingd','closedd','unreadd','limita','limitp','limitc','limitu','limito','limitd','activedprod','unreaddprod','pendingdprod','closeddprod','psort'),
+    'uparams' => array('w','clcs','limitgc','limitb','botd','odpgroups','ddgroups','udgroups','mdgroups', 'cdgroups', 'pdgroups','adgroups','pugroups','augroups','onop', 'acs', 'mcd', 'limitmc', 'mcdprod','activeu','pendingu','topen','departmentd','operatord','actived','pendingd','closedd','unreadd','limita','limitp','limitc','limitu','limito','limitd','activedprod','unreaddprod','pendingdprod','closeddprod','psort'),
     'ajax' => true,
     'functions' => array( 'use' ),
-    'multiple_arguments' => array ('odpgroups','ddgroups','udgroups','mdgroups', 'cdgroups', 'pdgroups', 'adgroups', 'pugroups','augroups','mcd','operatord','mcdprod', 'activeu', 'pendingu', 'actived', 'closedd' , 'pendingd', 'unreadd','departmentd','activedprod','unreaddprod','pendingdprod','closeddprod')
+    'multiple_arguments' => array ('w','odpgroups','ddgroups','udgroups','mdgroups', 'cdgroups', 'pdgroups', 'adgroups', 'pugroups','augroups','mcd','operatord','mcdprod', 'activeu', 'pendingu', 'actived', 'closedd' , 'pendingd', 'unreadd','departmentd','activedprod','unreaddprod','pendingdprod','closeddprod')
 );
 
 $ViewList['loadinitialdata'] = array(
     'params' => array(),
-    'uparams' => array('chatopen'),
+    'uparams' => array('chatopen','chatgopen'),
     'ajax' => true,
     'functions' => array( 'use' ),
-    'multiple_arguments' => array('chatopen')
+    'multiple_arguments' => array('chatopen','chatgopen')
 );
 
 $ViewList['list'] = array(

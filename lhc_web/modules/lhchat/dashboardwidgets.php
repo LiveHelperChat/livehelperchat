@@ -24,6 +24,10 @@ $supportedWidgets['departments_stats'] = erTranslationClassLhTranslation::getIns
 $supportedWidgets['pending_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Pending chats');
 $supportedWidgets['transfered_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Transfered chats');
 
+if (erLhcoreClassUser::instance()->hasAccessTo('lhgroupchat', 'use')) {
+    $supportedWidgets['group_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Group chats');
+}
+
 if (erLhcoreClassModelChatConfig::fetchCache('list_unread')->current_value == 1) {
     $supportedWidgets['unread_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Unread chats');
 }

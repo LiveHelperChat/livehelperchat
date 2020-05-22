@@ -80,6 +80,7 @@
     		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/theming.tpl.php'));?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/bot.tpl.php'));?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/notifications.tpl.php'));?>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/group_chat.tpl.php'));?>
     		</div>
 		</div>
 	</div>
