@@ -1,10 +1,12 @@
 3.35v
 
-execute doc/update_db/update_209.sql for update
-
 1. Group chats between operators
+2. More Rest API arguments for fetchmessages call
+3. In prefill variables workflow you can now prefill any chat variable you want.
+4. Files attatchement modal window is larger and has preview of images
+5. Password field type for custom variables defined from back office.
 
-execute doc/update_db/update_208.sql for update
+execute doc/update_db/update_209.sql for update
 
 3.34v
 
