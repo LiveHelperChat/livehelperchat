@@ -18,6 +18,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Kuinka monta päivää edellisen äänestyksen jälkeen äänestys-widgetti pidetään piilossa</translation>
     </message>
@@ -426,11 +434,11 @@
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>Kyllä</translation>
     </message>
     <message>
       <source>No</source>
-      <translation type="unfinished"/>
+      <translation>Ei</translation>
     </message>
     <message>
       <source>Send</source>
@@ -466,7 +474,7 @@
     </message>
     <message>
       <source>Submit</source>
-      <translation type="unfinished"/>
+      <translation>Lähetä</translation>
     </message>
     <message>
       <source>Test</source>
@@ -511,11 +519,11 @@
     </message>
     <message>
       <source>Welcome message</source>
-      <translation type="unfinished"/>
+      <translation>Tervetuloviesti</translation>
     </message>
     <message>
       <source>Offline message</source>
-      <translation type="unfinished"/>
+      <translation>Poissa linjoilta -viesti</translation>
     </message>
     <message>
       <source>Pending chat messaging</source>
@@ -563,7 +571,7 @@
     </message>
     <message>
       <source>Dynamic</source>
-      <translation type="unfinished"/>
+      <translation>Dynaaminen</translation>
     </message>
     <message>
       <source>Events</source>
@@ -583,7 +591,7 @@
     </message>
     <message>
       <source>Preview</source>
-      <translation type="unfinished"/>
+      <translation>Esikatselu</translation>
     </message>
     <message>
       <source>Download theme</source>
@@ -651,7 +659,7 @@
     </message>
     <message>
       <source>Default</source>
-      <translation type="unfinished"/>
+      <translation>Oletus</translation>
     </message>
     <message>
       <source>System assistant messages style</source>
@@ -659,7 +667,7 @@
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Yleistä</translation>
     </message>
     <message>
       <source>Buble background color</source>
@@ -819,7 +827,7 @@
     </message>
     <message>
       <source>Choose a bot</source>
-      <translation type="unfinished"/>
+      <translation>Valitse botti</translation>
     </message>
     <message>
       <source>Choose a trigger</source>
@@ -2552,6 +2560,10 @@
     <message>
       <source>Language</source>
       <translation>Kieli</translation>
+    </message>
+    <message>
+      <source>Siteaccess</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Personal canned message</source>
@@ -4595,6 +4607,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>This chat is closed now. You can close window.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Your message...</source>
       <translation type="unfinished"/>
     </message>
@@ -5023,7 +5039,7 @@
     </message>
     <message>
       <source>Send chat</source>
-      <translation type="unfinished"/>
+      <translation>Lähetä chat</translation>
     </message>
   </context>
   <context>
@@ -5082,7 +5098,7 @@
     </message>
     <message>
       <source>Open my active chats</source>
-      <translation type="unfinished"/>
+      <translation>Avaa omat aktiiviset keskustelut</translation>
     </message>
     <message>
       <source>Last 10 your active chats will be always visible</source>
@@ -5090,11 +5106,11 @@
     </message>
     <message>
       <source>Keep my active chats</source>
-      <translation type="unfinished"/>
+      <translation>Pidä omat aktiiviset keskustelut</translation>
     </message>
     <message>
       <source>Hide nicknames for offline chats</source>
-      <translation type="unfinished"/>
+      <translation>Piilota nimimerkit offline-keskusteluissa</translation>
     </message>
     <message>
       <source>Mail settings</source>
@@ -5113,7 +5129,7 @@
     <name>chat/checkchatstatus</name>
     <message>
       <source>You are talking with our bot now.</source>
-      <translation type="unfinished"/>
+      <translation>Keskustelet nyt meidän botin kanssa</translation>
     </message>
     <message>
       <source>A support staff member has closed this chat</source>
@@ -5145,7 +5161,7 @@
     </message>
     <message>
       <source>Chat status if customer is chatting with a bot</source>
-      <translation type="unfinished"/>
+      <translation>Keskustelun tila, mikäli asiakas keskustelee botin kanssa</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
@@ -5153,11 +5169,11 @@
     </message>
     <message>
       <source>You are number {number} in the queue. Please wait...</source>
-      <translation type="unfinished"/>
+      <translation>Olet jonossa paikalla {number}. Odotathan, kiitos...</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
-      <translation type="unfinished"/>
+      <translation>Kirjoita viestisi tähän ja paina Enter lähettääksesi...</translation>
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
@@ -5176,7 +5192,7 @@
     </message>
     <message>
       <source>Switch To Human</source>
-      <translation type="unfinished"/>
+      <translation>Vaihda asiakaspalvelijaan</translation>
     </message>
   </context>
   <context>
@@ -5258,15 +5274,15 @@
     </message>
     <message>
       <source>Closed chats</source>
-      <translation type="unfinished"/>
+      <translation>Suljetut keskustelut</translation>
     </message>
     <message>
       <source>My active and pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Omat aktiiviset ja odottavat keskustelut</translation>
     </message>
     <message>
       <source>Bot chats</source>
-      <translation type="unfinished"/>
+      <translation>Bottikeskustelut</translation>
     </message>
   </context>
   <context>
@@ -5326,15 +5342,15 @@
     </message>
     <message>
       <source>Typing...</source>
-      <translation type="unfinished"/>
+      <translation>Kirjoittaa...</translation>
     </message>
     <message>
       <source>Transferred to</source>
-      <translation type="unfinished"/>
+      <translation>Siirrettiin »</translation>
     </message>
     <message>
       <source>as no operators online in</source>
-      <translation type="unfinished"/>
+      <translation>koska yhtään operaattoria ei ole linjoilla kohteessa</translation>
     </message>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -5745,7 +5761,7 @@
     </message>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>Nimimerkki</translation>
     </message>
     <message>
       <source>Additional information</source>
@@ -6049,7 +6065,7 @@
     </message>
     <message>
       <source>Preview chat</source>
-      <translation type="unfinished"/>
+      <translation>Esikatsele keskustelu</translation>
     </message>
     <message>
       <source>Visits</source>
@@ -6131,6 +6147,10 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
+      <translation>Vaihtoehdot: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</translation>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Vaadi ilmoitukset -oikeus</translation>
     </message>
@@ -6147,8 +6167,8 @@
       <translation>Uuden keskustelun aloitus asetusket</translation>
     </message>
     <message>
-      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</source>
-      <translation>Vaihtoehdot: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats</translation>
+      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats, bot_chats, my_chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
@@ -6200,11 +6220,11 @@
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>Botti</translation>
     </message>
     <message>
       <source>Bot list</source>
-      <translation type="unfinished"/>
+      <translation>Bottilista</translation>
     </message>
     <message>
       <source>Bot exceptions</source>
@@ -6212,6 +6232,10 @@
     </message>
     <message>
       <source>Translations groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rest API Calls</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6669,6 +6693,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Rest API Calls</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Translations groups</source>
       <translation type="unfinished"/>
     </message>
@@ -7088,7 +7116,7 @@
     </message>
     <message>
       <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>Paikalla</translation>
     </message>
     <message>
       <source>Disabled</source>
@@ -7100,15 +7128,15 @@
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Ei paikalla</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation type="unfinished"/>
+      <translation>Päivä</translation>
     </message>
     <message>
       <source>Hour</source>
-      <translation type="unfinished"/>
+      <translation>Tunti</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -7630,7 +7658,7 @@
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Yleiset</translation>
     </message>
     <message>
       <source>Interface</source>
@@ -8576,6 +8604,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>New Rest API Call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New translation group</source>
       <translation type="unfinished"/>
     </message>
@@ -9025,6 +9057,10 @@
     </message>
     <message>
       <source>Bot exceptions groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rest API Calls</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -11810,6 +11846,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Please enter Rest API Name!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter translation group name!</source>
       <translation type="unfinished"/>
     </message>
@@ -12257,6 +12297,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Rest API Calls</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Translations groups</source>
       <translation type="unfinished"/>
     </message>
@@ -12317,6 +12361,225 @@
     <name>chat/notifications</name>
     <message>
       <source>Subscribing...</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>genericbot/restapi</name>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Description</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name of the request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Method</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sub URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Params</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Authorization</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Headers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Body</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User parameters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Output parsing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can put visitor message as placeholder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add param</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can always just define custom header if you do not find authorisation method here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Authorization method</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skip</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>API Key Location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Query Params</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Request Body</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>none</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>raw (Use this to send JSON Body)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>form data (Use this to send post parameters)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Paste your request here (E.g JSON body). You can put visitor message as placeholder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can define additional parameters user can enter in bot trigger directly.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Query</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Body Post Param</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Body Param</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name visible in trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Location/Key</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Either key which will be used for replacement</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can define response conditions to which you will be able to add corresponding triggers.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add combination</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Expected output definition</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTTP status code E.g 200,301,500</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTTP status code 200,301</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location 1. Available as {content_1} in messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>response:msg you can leave an empty if you want forward whole response.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location 2. Available as {content_2} in messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location 3. Available as {content_3} in messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location 4. Available as {content_4} in messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If required you can have also condition to check</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response comparison</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do nothing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text like</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text not like</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Comparison value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Value to compare</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Meta msg location. If you support Live Helper Chat json syntax you can set location of this response.</source>
       <translation type="unfinished"/>
     </message>
   </context>
