@@ -302,6 +302,9 @@ class erLhcoreClassUserValidator {
             'auto_uppercase' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			),
+            'auto_join_private' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+			),
             'maximumChats' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'int'
 			),
@@ -327,6 +330,12 @@ class erLhcoreClassUserValidator {
             $result['auto_accept'] = 1;
 		} else {
             $result['auto_accept'] = 0;
+		}
+		
+		if ( $form->hasValidData( 'auto_join_private' ) && $form->auto_join_private == true ) {
+            $result['auto_join_private'] = 1;
+		} else {
+            $result['auto_join_private'] = 0;
 		}
 
 		if ( $form->hasValidData( 'exclude_autoasign' ) && $form->exclude_autoasign == true ) {
