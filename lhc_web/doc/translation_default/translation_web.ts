@@ -8,7 +8,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Domains where script can be embedded. E.g example.com, google.com</source>
+      <source>Domains where script can be embedded. E.g examplpagelayout/pagelayoute.com, google.com</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6868,7 +6868,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Group Chats</source>
+      <source>Group chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
