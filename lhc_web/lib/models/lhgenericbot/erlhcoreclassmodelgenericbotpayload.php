@@ -25,13 +25,6 @@ class erLhcoreClassModelGenericBotPayload {
         return $stateArray;
     }
 
-    public function beforeRemove()
-    {
-        foreach (erLhcoreClassModelGenericBotTrigger::getList(array('filter' => array('group_id' => $this->id))) as $trigger) {
-            $trigger->removeThis();
-        }
-    }
-
     public function __toString()
     {
         return $this->name;
