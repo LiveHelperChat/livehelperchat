@@ -1879,6 +1879,7 @@ class Install
                 array('module' => 'lhuser', 'function' => 'userlistonline'),
                 array('module' => 'lhspeech', 'function' => 'change_chat_recognition'),
                 array('module' => 'lhgroupchat', 'function' => 'use'),
+                array('module' => 'lhuser', 'function' => 'see_all_group_users'),
             );
 
             foreach ($permissionsArray as $paramsPermission) {
