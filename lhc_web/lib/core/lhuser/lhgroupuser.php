@@ -56,6 +56,10 @@ class erLhcoreClassGroupUser{
            return array('filterin' => array($column => $groups));
        }
 
+       if ($groupsLimit === false && !erLhcoreClassRole::hasAccessTo($userID, 'lhuser', 'see_all_group_users') === true) {
+           return array('filterin' => array($column => [$userID]));
+       }
+
        $userID = erLhcoreClassModelGroupUser::getCount(array('filterin' => array('group_id' => $groups)), '', false, '`user_id`', false, true, true);
 
        return array('filterin' => array($column => $userID));
