@@ -324,7 +324,7 @@ const GroupChat = props => {
 
                                     <ul className="m-0 p-0 mt-2 mx275">
                                         {state.operators_invite.map((operator, index) => (
-                                            <li className="list-group-item p-2 fs13">
+                                            <li className="list-group-item p-2 fs13" title={operator.id}>
                                                 {operator.name_official}
                                                 {!operator.member && !operator.invited && <button className="float-right btn btn-xs btn-secondary" onClick={(e) => inviteOperator(operator)}>{t('operator.invite')}</button>}
                                                 {!operator.member && operator.invited && <button className="float-right btn btn-xs btn-warning" onClick={(e) => cancelInvite(operator)}>{t('operator.cancel_invite')}</button>}
