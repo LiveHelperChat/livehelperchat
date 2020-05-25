@@ -38,6 +38,16 @@ WHERE
         $groupChat->tm = 2;
         $groupChat->saveThis();
 
+        $msg = new erLhcoreClassModelGroupMsg();
+        $msg->msg = (string)$currentUser->getUserData(true)->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has invited') . ' ' . $operator->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','for the private chat.');
+        $msg->chat_id = $groupChat->id;
+        $msg->user_id = -1;
+        $msg->time = time();
+        $msg->saveThis();
+
+        $groupChat->last_msg_id = $msg->id;
+        $groupChat->updateThis(array('update' => array('last_msg_id')));
+
         // Create a member
         $newMember = new erLhcoreClassModelGroupChatMember();
         $newMember->user_id = $groupChat->user_id;
@@ -53,6 +63,9 @@ WHERE
         $newMember->last_activity = time();
         $newMember->jtime = 0;
         $newMember->saveThis();
+
+
+
     }
 
     $db->commit();

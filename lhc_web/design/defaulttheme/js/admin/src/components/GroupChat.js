@@ -312,26 +312,29 @@ const GroupChat = props => {
                             </div>
                             <div role="tabpanel" className="tab-pane" id={"group-chat-info-"+props.chatId}>
 
-                                <div className="form-row">
-                                    <div className="col-9">
-                                        <input ref={searchOperatorElement} onKeyUp={searchOpeartors} type="text" placeholder={t('operator.search_tip')} className="form-control form-control-sm" />
+                                {state.chat.type == 1 && <div>
+                                    <div className="form-row">
+                                        <div className="col-9">
+                                            <input ref={searchOperatorElement} onKeyUp={searchOpeartors} type="text" placeholder={t('operator.search_tip')} className="form-control form-control-sm" />
+                                        </div>
+                                        <div className="col-3">
+                                            <button onClick={searchOpeartors} className="btn w-100 d-block btn-default btn-sm"><span className="material-icons">search</span></button>
+                                        </div>
                                     </div>
-                                    <div className="col-3">
-                                        <button onClick={searchOpeartors} className="btn w-100 d-block btn-default btn-sm"><span className="material-icons">search</span></button>
-                                    </div>
-                                </div>
 
-                                <ul className="m-0 p-0 mt-2 mx275">
-                                    {state.operators_invite.map((operator, index) => (
-                                        <li className="list-group-item p-2 fs13">
-                                            {operator.name_official}
-                                            {!operator.member && !operator.invited && <button className="float-right btn btn-xs btn-secondary" onClick={(e) => inviteOperator(operator)}>{t('operator.invite')}</button>}
-                                            {!operator.member && operator.invited && <button className="float-right btn btn-xs btn-warning" onClick={(e) => cancelInvite(operator)}>{t('operator.cancel_invite')}</button>}
-                                            {operator.member && <button disabled="disabled" className="float-right btn btn-xs btn-success">{t('operator.already_member')}</button>}
-                                        </li>
-                                    ))}
-                                </ul>
-                                <hr/>
+                                    <ul className="m-0 p-0 mt-2 mx275">
+                                        {state.operators_invite.map((operator, index) => (
+                                            <li className="list-group-item p-2 fs13">
+                                                {operator.name_official}
+                                                {!operator.member && !operator.invited && <button className="float-right btn btn-xs btn-secondary" onClick={(e) => inviteOperator(operator)}>{t('operator.invite')}</button>}
+                                                {!operator.member && operator.invited && <button className="float-right btn btn-xs btn-warning" onClick={(e) => cancelInvite(operator)}>{t('operator.cancel_invite')}</button>}
+                                                {operator.member && <button disabled="disabled" className="float-right btn btn-xs btn-success">{t('operator.already_member')}</button>}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <hr/>
+                                </div>}
+
                                 <button className="btn btn-xs btn-danger" title={t('operator.leave_group_tip')} onClick={(e) => leaveGroup()}>{t('operator.leave_group')}</button>
                             </div>
                         </div>
