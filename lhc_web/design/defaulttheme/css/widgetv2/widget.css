@@ -260,6 +260,7 @@ div.system-response {
 
 .profile-msg-pic {
     width: 24px;
+    border-radius: 5px;
 }
 
 .bubble-messages div.message-admin div.msg-body,
