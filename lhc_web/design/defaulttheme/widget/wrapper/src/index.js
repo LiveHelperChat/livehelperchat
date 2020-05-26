@@ -316,6 +316,9 @@
             // Widget show event
             attributesWidget.eventEmitter.addListener('showWidget',function () {
 
+                // Just to restyle if needed
+                attributesWidget.mainWidget.hideInvitation();
+
                 attributesWidget.widgetStatus.next(true);
 
                 if (attributesWidget.mode == 'popup') {
