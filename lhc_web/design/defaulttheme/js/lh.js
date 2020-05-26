@@ -437,9 +437,9 @@ function lh(){
             if (data.error == false) {
 
                 if (data.hold == true) {
-                    inst.addClass('btn-info');
+                    inst.addClass('btn-outline-info');
 				} else {
-                    inst.removeClass('btn-info');
+                    inst.removeClass('btn-outline-info');
 				}
 
 				if (data.msg != '') {
@@ -2295,9 +2295,9 @@ function lh(){
 	            	};
 
 		        	if (data.hold_removed === true) {
-                        $('#hold-action-'+chat_id).removeClass('btn-info');
+                        $('#hold-action-'+chat_id).removeClass('btn-outline-info');
 					} else if (data.hold_added === true) {
-                        $('#hold-action-'+chat_id).addClass('btn-info');
+                        $('#hold-action-'+chat_id).addClass('btn-outline-info');
 					}
 
 					lhinst.syncadmincall();
