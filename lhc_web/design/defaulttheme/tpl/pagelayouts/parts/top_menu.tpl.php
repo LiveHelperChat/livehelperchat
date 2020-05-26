@@ -15,17 +15,8 @@
         <ul class="navbar-nav ml-auto">
             <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu_multiinclude.tpl.php'));?>
 
-            <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu_chat_actions_pre.tpl.php'));?>
-            <?php if ($parts_top_menu_chat_actions_enabled == true && $currentUser->hasAccessTo('lhchat','allowchattabs')) : ?>
-                <li class="li-icon nav-item"><a class="nav-link" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chat tabs');?>" href="#" onclick="javascript:lhinst.chatTabsOpen()"><i class="material-icons">chat</i></a></li>
-            <?php endif;?>
-
-            <?php if ($currentUser->hasAccessTo('lhsystem','use')) : ?>
-                <li class="li-icon nav-item"><a class="nav-link" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Configuration');?>" href="<?php echo erLhcoreClassDesign::baseurl('system/configuration')?>"><i class="material-icons">settings_applications</i></a></li>
-            <?php endif; ?>
-
-            <?php $hideULSetting = true;?>
-            <?php include(erLhcoreClassDesign::designtpl('lhchat/user_settings.tpl.php'));?>
+            <?php //$hideULSetting = true;?>
+            <?php //include(erLhcoreClassDesign::designtpl('lhchat/user_settings.tpl.php'));?>
 
             <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/user_box.tpl.php'));?>
             <li class="li-icon nav-item">
