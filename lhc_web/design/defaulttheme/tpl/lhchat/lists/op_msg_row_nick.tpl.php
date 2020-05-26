@@ -15,6 +15,10 @@
             <i title="<?php echo htmlspecialchars($msg['name_support'])?>" class="chat-operators mi-fs15 mr-0">
                 <img class="profile-msg-pic" src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo $userMessage->photo_path?>" alt="">
             </i>
+    <?php elseif (isset($theme) && $theme !== false && isset($theme->bot_configuration_array['bubble_style_profile']) && $theme->bot_configuration_array['bubble_style_profile'] == 1 && $theme->operator_image_url !== false) : ?>
+        <i title="<?php echo htmlspecialchars($msg['name_support'])?>" class="chat-operators mi-fs15 mr-0">
+            <img class="profile-msg-pic" src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo $theme->operator_image_url?>" alt="">
+        </i>
     <?php else : ?>
         <i title="<?php echo htmlspecialchars($msg['name_support'])?>" class="material-icons chat-operators mi-fs15 mr-0">account_box</i>
         <span class="op-nick-title"><?php echo htmlspecialchars($msg['name_support'])?></span>
