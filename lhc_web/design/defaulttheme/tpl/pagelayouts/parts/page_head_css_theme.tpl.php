@@ -126,7 +126,7 @@ div.message-admin div.meta-message{
 }
 
 
-<?php echo $theme->custom_container_css,$theme->custom_widget_css?>
+<?php echo $theme->custom_widget_css?>
 
 <?php endif; ?>
 
