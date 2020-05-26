@@ -182,6 +182,10 @@
                     attributesWidget.staticJS = data.static;
                 }
 
+                if (data.cont_css) {
+                    attributesWidget.cont_ss = data.cont_css;
+                }
+
                 attributesWidget.captcha = {hash : data.hash, ts : data.hash_ts};
 
                 attributesWidget.userSession.setVID(data.vid);
@@ -409,10 +413,11 @@
             attributesWidget.eventEmitter.addListener('showInvitation',(data) => {
                 attributesWidget.widgetDimesions.nextProperty('bottom_override',75);
                 attributesWidget.widgetDimesions.nextProperty('right_override',75);
-                attributesWidget.mainWidget.show();
+                attributesWidget.mainWidget.showInvitation();
             });
 
             attributesWidget.eventEmitter.addListener('hideInvitation',(data) => {
+                attributesWidget.mainWidget.hideInvitation();
                 if (data.full) {
                     attributesWidget.eventEmitter.emitEvent('showWidget', [{'sender' : 'closeButton'}]);
                 }

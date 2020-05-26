@@ -11,6 +11,7 @@ export class mainWidget{
         this.bottom = '30';
         this.right = '30';
         this.units = 'px';
+        this.originalCSS = '';
 
         this.cont = new UIConstructorIframe('lhc_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "1000000",
@@ -60,6 +61,11 @@ export class mainWidget{
 
         this.cont.constructUIIframe('', this.attributes.staticJS['dir'], this.attributes.staticJS['cl']);
 
+        if (this.attributes.cont_ss) {
+            this.originalCSS = this.cont.elmDom.style.cssText;
+            this.cont.elmDom.style.cssText += this.attributes.cont_ss;
+        }
+        
         if (this.attributes.staticJS['fontCSS']) {
             this.cont.insertCssRemoteFile({rel:"stylesheet", crossOrigin : "anonymous",  href : this.attributes.staticJS['fontCSS']});
         }
@@ -119,6 +125,19 @@ export class mainWidget{
 
     hide () {
         this.cont.hide();
+    }
+
+    hideInvitation() {
+        if (this.attributes.cont_ss) {
+            this.cont.elmDom.style.cssText += this.attributes.cont_ss;
+        }
+    }
+
+    showInvitation() {
+        if (this.attributes.cont_ss) {
+            this.cont.elmDom.style.cssText = this.originalCSS;
+        }
+        this.show();
     }
 
     show () {

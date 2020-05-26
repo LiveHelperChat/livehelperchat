@@ -545,7 +545,7 @@ class erLhAbstractModelWidgetTheme {
 	public $name_company = '';
 	public $header_height = 0;
 	public $header_padding = 0;
-	public $widget_border_width = 0;
+	public $widget_border_width = 1;
 	public $show_need_help = 1;
 	public $show_need_help_timeout = 24;
 	public $show_need_help_delay = 0;

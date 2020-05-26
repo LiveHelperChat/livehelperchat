@@ -120,7 +120,7 @@ div.message-admin div.meta-message{
 
 .desktop-header,.desktop-body{
     border-color:#<?php echo $theme->widget_border_color?>!important;
-    <?php if ($theme->widget_border_width > 0) : ?>
+    <?php if (is_numeric($theme->widget_border_width)) : ?>
     border-width: <?php echo $theme->widget_border_width?>px!important;
     <?php endif; ?>
 }

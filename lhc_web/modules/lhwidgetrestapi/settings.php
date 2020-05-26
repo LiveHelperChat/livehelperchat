@@ -134,6 +134,10 @@ if (isset($outputResponse['theme'])){
 
         $outputResponse['theme_v'] = $theme->modified;
 
+        if ($theme->custom_container_css !== ''){
+            $outputResponse['cont_css'] =  str_replace(array("\n","\r"), '', $theme->custom_container_css);
+        }
+
         if (isset($theme->bot_configuration_array['custom_page_css']) && $theme->bot_configuration_array['custom_page_css'] != '') {
             $pageCSS = true;
         }
