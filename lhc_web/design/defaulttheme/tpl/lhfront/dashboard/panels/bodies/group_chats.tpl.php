@@ -32,10 +32,10 @@
         </td>
         <td>
             <select class="form-control form-control-sm" ng-init="lhc.new_group_type=<?php $currentUser->hasAccessTo('lhgroupchat','public_chat') ? print "''" : print "'1'"?>" ng-model="lhc.new_group_type">
+                <option value="1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Private group');?></option>
                 <?php if ($currentUser->hasAccessTo('lhgroupchat','public_chat')) : ?>
                 <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Public group');?></option>
                 <?php endif; ?>
-                <option value="1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Private group');?></option>
             </select>
         </td>
         <td>
