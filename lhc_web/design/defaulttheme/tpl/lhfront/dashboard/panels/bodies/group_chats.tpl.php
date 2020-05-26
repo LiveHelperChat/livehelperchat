@@ -31,7 +31,7 @@
             <input type="text" name="" class="form-control form-control-sm" ng-model="lhc.new_group_name" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Your new group name');?>">
         </td>
         <td>
-            <select class="form-control form-control-sm" ng-init="lhc.new_group_type=<?php $currentUser->hasAccessTo('lhgroupchat','public_chat') ? print "''" : print "'1'"?>" ng-model="lhc.new_group_type">
+            <select class="form-control form-control-sm" ng-init="lhc.new_group_type='1'" ng-model="lhc.new_group_type">
                 <option value="1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Private group');?></option>
                 <?php if ($currentUser->hasAccessTo('lhgroupchat','public_chat')) : ?>
                 <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Public group');?></option>
