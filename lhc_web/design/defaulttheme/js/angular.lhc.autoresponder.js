@@ -2,7 +2,10 @@ lhcAppControllers.controller('AutoResponderCtrl',['$scope','$http','$location','
 
     this.languages = [];
     this.dialects = [];
-    
+    this.ignoreLanguages = {
+        'languages' : []
+    };
+
     var that = this;
 
     this.move = function(element, offset) {

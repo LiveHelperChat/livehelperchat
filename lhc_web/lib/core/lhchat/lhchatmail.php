@@ -603,7 +603,7 @@ class erLhcoreClassChatMail {
     	$emailRecipient = array();
     	$emailRecipientAll = array();
     	    	    	    
-    	if ($chat->department !== false && $chat->department->inform_close_all == 1 && $chat->department->inform_close_all_email != '') {
+    	if ($chat->department !== false && ($chat->department->inform_close_all == 1 || $chat->department->inform_close == 1) && $chat->department->inform_close_all_email != '') {
     	    $emailRecipientAll = explode(',', $chat->department->inform_close_all_email);
     	}
     	    	

@@ -437,9 +437,9 @@ function lh(){
             if (data.error == false) {
 
                 if (data.hold == true) {
-                    inst.addClass('btn-info');
+                    inst.addClass('btn-outline-info');
 				} else {
-                    inst.removeClass('btn-info');
+                    inst.removeClass('btn-outline-info');
 				}
 
 				if (data.msg != '') {
@@ -1135,49 +1135,51 @@ function lh(){
 	{
 	    var that = this;
 
+        var lhcController = angular.element('body').scope();
+        lhcController.syncDisabled(true);
+
 	    $.postJSON(this.wwwDir + this.closechatadmin + chat_id, function (data) {
-
+            lhcController.syncDisabled(false);
 	        if (data.error == false) {
-
-                if ($('#CSChatMessage-'+chat_id).length != 0) {
-                    $('#CSChatMessage-'+chat_id).unbind('keydown', function(){});
-                    $('#CSChatMessage-'+chat_id).unbind('keyup', function(){});
-                };
-
-                if (!!window.postMessage && window.opener) {
-                    window.opener.postMessage("lhc_ch:chatclosed:"+chat_id, '*');
-                };
-
-                that.removeSynchroChat(chat_id);
-
-                if (hidetab == true) {
-
-                    var location = that.smartTabFocus(tabs, chat_id);
-
-                    setTimeout(function() {
-                        window.location.hash =  location;
-                    },500);
-
-                    if (that.closeWindowOnChatCloseDelete == true)
-                    {
-                        window.close();
-                    }
-                };
-
-                if (LHCCallbacks.chatClosedCallback) {
-                    LHCCallbacks.chatClosedCallback(chat_id);
-                };
-
-                that.syncadmininterfacestatic();
-
+                lhcController.loadChatList();
             } else {
 	            alert(data.result);
             }
-
         }).fail(function(jqXHR, textStatus, errorThrown) {
+            lhcController.syncDisabled(false);
             console.dir(jqXHR);
             alert('postJSON request failed! ' + textStatus + ':' + errorThrown + ':' + jqXHR.responseText);
         });
+
+        if ($('#CSChatMessage-'+chat_id).length != 0) {
+            $('#CSChatMessage-'+chat_id).unbind('keydown', function(){});
+            $('#CSChatMessage-'+chat_id).unbind('keyup', function(){});
+        };
+
+        if (!!window.postMessage && window.opener) {
+            window.opener.postMessage("lhc_ch:chatclosed:"+chat_id, '*');
+        };
+
+        that.removeSynchroChat(chat_id);
+
+        if (hidetab == true) {
+
+            var location = that.smartTabFocus(tabs, chat_id);
+
+            setTimeout(function() {
+                window.location.hash =  location;
+            },500);
+
+            if (that.closeWindowOnChatCloseDelete == true)
+            {
+                window.close();
+            }
+        };
+
+        if (LHCCallbacks.chatClosedCallback) {
+            LHCCallbacks.chatClosedCallback(chat_id);
+        };
+
 	};
 
 	this.smartTabFocus = function(tabs, chat_id) {
@@ -2293,9 +2295,9 @@ function lh(){
 	            	};
 
 		        	if (data.hold_removed === true) {
-                        $('#hold-action-'+chat_id).removeClass('btn-info');
+                        $('#hold-action-'+chat_id).removeClass('btn-outline-info');
 					} else if (data.hold_added === true) {
-                        $('#hold-action-'+chat_id).addClass('btn-info');
+                        $('#hold-action-'+chat_id).addClass('btn-outline-info');
 					}
 
 					lhinst.syncadmincall();

@@ -144,6 +144,16 @@ a:hover{
     overflow:auto;
 }
 
+.mh275{
+    min-height:275px;
+    overflow:auto;
+}
+
+.break-words{
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
 .mh150{
 	min-height:150px;
 }

@@ -1661,7 +1661,7 @@ class erLhcoreClassChatValidator {
         }
     }
 
-    public static function setLanguageByBrowser() {
+    public static function setLanguageByBrowser($return = false) {
         // Detect user locale
         if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
             $parts = explode(';',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
@@ -1678,7 +1678,11 @@ class erLhcoreClassChatValidator {
                 $siteAccess = $stmt->fetchColumn();
 
                 if ($siteAccess != '') {
-                    erLhcoreClassSystem::setSiteAccess($siteAccess);
+                    if ($return == true) {
+                        return $siteAccess;
+                    } else {
+                        erLhcoreClassSystem::setSiteAccess($siteAccess);
+                    }
                 }
             }
         }

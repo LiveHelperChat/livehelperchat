@@ -141,6 +141,13 @@ if (isset($outputResponse['theme'])){
         if (isset($theme->bot_configuration_array['custom_page_css']) && $theme->bot_configuration_array['custom_page_css'] != '') {
             $pageCSS = true;
         }
+
+        if ($theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['detect_language']) && $theme->bot_configuration_array['detect_language'] == true) {
+            $siteaccess = erLhcoreClassChatValidator::setLanguageByBrowser(true);
+            if ($siteaccess != '') {
+                $outputResponse['siteaccess'] = $siteaccess . '/';
+            }
+        }
     }
 }
 

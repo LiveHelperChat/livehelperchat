@@ -55,6 +55,30 @@ class erLhAbstractModelAutoResponderChat
         }
     }
 
+    public function processAccept() {
+
+        if ($this->auto_responder !== false && $this->auto_responder->multilanguage_message != '' && $this->chat->user_id > 0) {
+            $localeShort = explode('-',$this->chat->chat_locale)[0];
+            $chatLanguages = [$this->chat->chat_locale,$localeShort];
+
+            $languagesIgnore = $this->auto_responder->languages_ignore;
+
+            if ((empty($languagesIgnore) || empty(array_intersect($chatLanguages,$languagesIgnore))) && erLhcoreClassModelSpeechUserLanguage::getCount(array('filterlor' => array('language' => $chatLanguages),'filter' => array('user_id' => $this->chat->user_id))) > 0) {
+
+                $msg = new erLhcoreClassModelmsg();
+                $msg->msg = trim($this->auto_responder->multilanguage_message);
+                $msg->chat_id = $this->chat->id;
+                $msg->name_support = $this->chat->user !== false ? $this->chat->user->name_support : ($this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support'));
+                $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
+                $msg->time = time();
+                erLhcoreClassChat::getSession()->save($msg);
+
+                $this->chat->last_msg_id = $msg->id;
+                $this->chat->updateThis(array('update' => array('last_msg_id')));
+            }
+        }
+    }
+
     public function process()
     {
         if ($this->auto_responder !== false) {

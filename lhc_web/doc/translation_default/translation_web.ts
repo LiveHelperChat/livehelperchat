@@ -8,7 +8,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Domains where script can be embedded. E.g examplpagelayout/pagelayoute.com, google.com</source>
+      <source>Domains where script can be embedded. E.g example.com, google.com</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -521,6 +521,10 @@
     </message>
     <message>
       <source>Survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Multi-language chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1291,6 +1295,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>If chat was accepted by the same language speaking operator you can send visitor a custom message on chat accept event.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>What languages should be ignored. If chat language is one of the selected, message will not be send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you leave empty - message we will be send only if translated message is found.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>If you want pro active chat invitation to work it has to be enabled in</source>
       <translation type="unfinished"/>
     </message>
@@ -1440,6 +1456,10 @@
     </message>
     <message>
       <source>Message to visitor if department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message to visitor if operator speaks same language as visitor.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3145,6 +3165,14 @@
       <source>Has no access to this chat</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>has invited</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>for the private chat.</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>system/htmlcode</name>
@@ -4788,11 +4816,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Public group</source>
+      <source>Private group</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Private group</source>
+      <source>Public group</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6245,7 +6273,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Supported: online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats, bot_chats, my_chats</source>
+      <source>Supported: group_chats, online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats, bot_chats, my_chats</source>
       <translation type="unfinished"/>
     </message>
     <message>

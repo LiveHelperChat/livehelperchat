@@ -7,11 +7,12 @@ const CannedMessages = props => {
     const [data, setData] = useState([]);
     const [isLoaded, setLoaded] = useState(false);
     const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
-    const [isCollapsed, setCollapsed] = useState(false);
+    const [isCollapsed, setCollapsed] = useState(true);
 
     const getRootCategory = () => {
         if (!isLoaded) {
             axios.get(WWW_DIR_JAVASCRIPT  + "cannedmsg/filter/" + props.chatId).then(result => {
+                setCollapsed(false);
                 setData(result.data);
                 setLoaded(true);
 
@@ -265,7 +266,7 @@ const CannedMessages = props => {
 
     return (
         <React.Fragment>
-            <div className="col-6">
+            <div className="col-12 col-xl-6">
 
                 {!isLoaded &&
                 <p className="border mt-0 pb-1 pt-1"><a className="fs13 d-block" onClick={getRootCategory}><span className="material-icons">expand_more</span>Canned messages</a></p>
@@ -293,9 +294,9 @@ const CannedMessages = props => {
                 </ul>
                 }
             </div>
-            <div className="col-6">
+            <div className="col-12 col-xl-6">
                 <input type="text" onFocus={getRootCategory} className="form-control form-control-sm" onKeyUp={(e) => applyFilter(e, true)} onKeyDown={(e) => applyFilter(e, false)} defaultValue="" placeholder="&#128269; Navigate with &#11139; and &#8629; Enter"/>
-                {!isCollapsed && <div className="mx275 mt-1" id={'chat-render-preview-'+props.chatId}></div>}
+                {!isCollapsed && <div className="mx275 mh275 mt-1 break-words" id={'chat-render-preview-'+props.chatId}></div>}
             </div>
         </React.Fragment>
     );

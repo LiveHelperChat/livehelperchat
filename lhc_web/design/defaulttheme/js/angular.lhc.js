@@ -856,7 +856,11 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			$scope.loadChatList();
 		};
 	});
-	
+
+	$scope.syncDisabled = function(disabled) {
+        _that.blockSync = disabled;
+    }
+
 	$scope.loadChatList = function() {
 		
 		if (localStorage) {
@@ -888,6 +892,14 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		
 		clearTimeout($scope.timeoutControl);
 		LiveHelperChatFactory.loadChatList($scope.getSyncFilter()).then(function(data){
+
+                if (_that.blockSync == true) {
+                    clearTimeout($scope.timeoutControl);
+                    $scope.timeoutControl = setTimeout(function(){
+                        $scope.loadChatList();
+                    },confLH.back_office_sinterval);
+                    return;
+                }
 
 		        if (_that.lhcConnectivityProblem == true) {
                     _that.lhcConnectivityProblem = false;
