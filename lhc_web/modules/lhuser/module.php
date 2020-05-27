@@ -122,6 +122,11 @@ $ViewList['setoffline'] = array (
 		'params' => array('status')
 );
 
+$ViewList['setalwaysonline'] = array (
+		'functions' => array( 'changeonlinestatus' ),
+		'params' => array('status')
+);
+
 $ViewList['setinactive'] = array (
     'functions' => array( 'changeonlinestatus' ),
     'params' => array('status')

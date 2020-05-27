@@ -75,13 +75,14 @@ class erLhcoreClassModelDepartamentGroupUser
         
         foreach ($this->dep_group->departments_ids as $depId) 
         {
-            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity,last_accepted,active_chats,type,dep_group_id,max_chats,exclude_autoasign) VALUES (:user_id,:dep_id,:hide_online,0,0,:active_chats,1,:dep_group_id,:max_chats,:exclude_autoasign)');
+            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity,last_accepted,active_chats,type,dep_group_id,max_chats,exclude_autoasign,always_on) VALUES (:user_id,:dep_id,:hide_online,0,0,:active_chats,1,:dep_group_id,:max_chats,:exclude_autoasign,:always_on)');
             $stmt->bindValue(':user_id',$this->user_id);
             $stmt->bindValue(':dep_id',$depId);
             $stmt->bindValue(':hide_online',$this->user->hide_online);
             $stmt->bindValue(':dep_group_id',$this->dep_group_id);
             $stmt->bindValue(':max_chats',$this->user->max_active_chats);
             $stmt->bindValue(':exclude_autoasign', $this->user->exclude_autoasign);
+            $stmt->bindValue(':always_on', $this->user->always_on);
             $stmt->bindValue(':active_chats',erLhcoreClassChat::getCount(array('filter' => array('user_id' => $this->user_id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))));
             $stmt->execute();
         }

@@ -754,7 +754,7 @@ class erLhcoreClassChat {
        		if ($ignoreUserStatus === false) {
 
 				if (is_numeric($dep_id)) {
-		           $stmt = $db->prepare("SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep INNER JOIN lh_departament ON lh_departament.id = :dep_id_dest WHERE (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND (last_activity > :last_activity AND hide_online = 0 AND ro = 0) AND (dep_id = :dep_id {$exclipicFilter})");
+		           $stmt = $db->prepare("SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep INNER JOIN lh_departament ON lh_departament.id = :dep_id_dest WHERE (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND ((last_activity > :last_activity OR always_on = 1) AND hide_online = 0 AND ro = 0) AND (dep_id = :dep_id {$exclipicFilter})");
 		           $stmt->bindValue(':dep_id',$dep_id,PDO::PARAM_INT);
 		           $stmt->bindValue(':dep_id_dest',$dep_id,PDO::PARAM_INT);
 		           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
@@ -762,7 +762,7 @@ class erLhcoreClassChat {
 					if (empty($dep_id)) {
 						$dep_id = array(-1);
 					}
-					$stmt = $db->prepare('SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep, lh_departament WHERE lh_departament.id IN ('. implode(',', $dep_id) .') AND (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND (last_activity > :last_activity AND hide_online = 0 AND ro = 0) AND (dep_id IN ('. implode(',', $dep_id) .") {$exclipicFilter})");
+					$stmt = $db->prepare('SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep, lh_departament WHERE lh_departament.id IN ('. implode(',', $dep_id) .') AND (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND ((last_activity > :last_activity OR always_on = 1) AND hide_online = 0 AND ro = 0) AND (dep_id IN ('. implode(',', $dep_id) .") {$exclipicFilter})");
 					$stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
 				}
 				$stmt->execute();
@@ -832,7 +832,7 @@ class erLhcoreClassChat {
        } else {
        	
 	       	if ($ignoreUserStatus === false) {
-	           $stmt = $db->prepare('SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep LEFT JOIN lh_departament ON lh_departament.id = lh_userdep.dep_id WHERE (lh_departament.pending_group_max IS NULL || lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max IS NULL || lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND (lh_departament.hidden IS NULL || lh_departament.hidden = 0) AND last_activity > :last_activity AND ro = 0 AND hide_online = 0 AND (lh_departament.disabled IS NULL || lh_departament.disabled = 0)');
+	           $stmt = $db->prepare('SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep LEFT JOIN lh_departament ON lh_departament.id = lh_userdep.dep_id WHERE (lh_departament.pending_group_max IS NULL || lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max IS NULL || lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND (lh_departament.hidden IS NULL || lh_departament.hidden = 0) AND (last_activity > :last_activity OR always_on = 1) AND ro = 0 AND hide_online = 0 AND (lh_departament.disabled IS NULL || lh_departament.disabled = 0)');
 	           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
 	           $stmt->execute();
 	           $rowsNumber = $stmt->fetchColumn();
@@ -911,7 +911,7 @@ class erLhcoreClassChat {
 
         if ($exclipic == true)
         {
-            $stmt = $db->prepare("SELECT dep_id AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND dep_id IN (" . implode(',', $departmentsIds) . ")");
+            $stmt = $db->prepare("SELECT dep_id AS found FROM lh_userdep WHERE ((last_activity > :last_activity OR always_on = 1) AND hide_online = 0) AND dep_id IN (" . implode(',', $departmentsIds) . ")");
             $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
             $stmt->execute();
 
@@ -919,7 +919,7 @@ class erLhcoreClassChat {
 
         } else {
             
-            $stmt = $db->prepare("SELECT count(id) AS found FROM lh_userdep WHERE (last_activity > :last_activity AND hide_online = 0) AND (dep_id = 0 OR dep_id IN (" . implode(',', $departmentsIds) . "))");
+            $stmt = $db->prepare("SELECT count(id) AS found FROM lh_userdep WHERE ((last_activity > :last_activity OR always_on = 1) AND hide_online = 0) AND (dep_id = 0 OR dep_id IN (" . implode(',', $departmentsIds) . "))");
             $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
             $stmt->execute();
             
@@ -954,7 +954,7 @@ class erLhcoreClassChat {
 			}
 		}
 		
-    	$SQL = 'SELECT count(*) FROM (SELECT count(lh_users.id) FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity AND lh_userdep.hide_online = 0 ' . $filterOperators . ' GROUP BY lh_users.id) as online_users';
+    	$SQL = 'SELECT count(*) FROM (SELECT count(`lh_users`.`id`) FROM `lh_users` INNER JOIN `lh_userdep` ON `lh_userdep`.`user_id` = `lh_users`.`id` WHERE (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `lh_userdep`.`hide_online` = 0 ' . $filterOperators . ' GROUP BY `lh_users`.`id`) as `online_users`';
     	$stmt = $db->prepare($SQL);
     	$stmt->bindValue(':last_activity',$agoTime,PDO::PARAM_INT);
     	$stmt->execute();
@@ -963,7 +963,7 @@ class erLhcoreClassChat {
     	if ($count > 0){
 	    	$offsetRandom = rand(0, $count-1);
 
-	    	$SQL = "SELECT lh_users.id FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity AND lh_userdep.hide_online = 0 {$filterOperators} GROUP BY lh_users.id LIMIT 1 OFFSET {$offsetRandom}";
+	    	$SQL = "SELECT `lh_users`.`id` FROM `lh_users` INNER JOIN `lh_userdep` ON `lh_userdep`.`user_id` = `lh_users`.`id` WHERE (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `lh_userdep`.`hide_online` = 0 {$filterOperators} GROUP BY `lh_users`.`id` LIMIT 1 OFFSET {$offsetRandom}";
 	    	$stmt = $db->prepare($SQL);
 	    	$stmt->bindValue(':last_activity',$agoTime,PDO::PARAM_INT);
 	    	$stmt->execute();
@@ -1002,7 +1002,7 @@ class erLhcoreClassChat {
 	       }
        }
 
-       $SQL = 'SELECT lh_users.* FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity '.$NotUser.$limitationSQL.$onlyOnline.$sameDepartment.' GROUP BY lh_users.id';
+       $SQL = 'SELECT lh_users.* FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) '.$NotUser.$limitationSQL.$onlyOnline.$sameDepartment.' GROUP BY lh_users.id';
        $stmt = $db->prepare($SQL);
        $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
 
@@ -1024,7 +1024,7 @@ class erLhcoreClassChat {
     	    	
     	$db = ezcDbInstance::get();
 
-    	$stmt = $db->prepare('SELECT count(lh_users.id) FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE lh_userdep.last_activity > :last_activity AND lh_users.id = :user_id');
+    	$stmt = $db->prepare('SELECT count(lh_users.id) FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `lh_users`.`id` = :user_id');
     	$stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
     	$stmt->bindValue(':user_id',$user_id,PDO::PARAM_INT);
     	$stmt->execute();

@@ -98,6 +98,16 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
         return deferred.promise;
 	};
 
+	this.setAlwaysOnlineMode = function(status) {
+        var deferred = $q.defer();
+        $http.get(WWW_DIR_JAVASCRIPT + 'user/setalwaysonline/'+status).then(function(data) {
+            deferred.resolve(data.data);
+        },function(internalError) {
+            deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
+        });
+        return deferred.promise;
+	};
+
 	this.changeVisibility = function(status)
     {
         var deferred = $q.defer();
@@ -317,8 +327,15 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	// Sync icons statuses
     this.hideOnline = false;
     this.hideInvisible = false;
+    this.alwaysOnline = false;
 
-    this.changeVisibility = function() {
+    this.changeVisibility = function(e) {
+
+        if (e) {
+            e.stopPropagation();
+            e.preventDefault();
+        }
+
         LiveHelperChatFactory.changeVisibility(!_that.hideInvisible == true ? 'true' : 'false').then( function(data) {
             if (data.error === false) {
             	_that.hideInvisible = !_that.hideInvisible;
@@ -332,7 +349,32 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
         });
 	};
 
-    this.changeOnline = function() {
+    this.changeAlwaysOnline = function(e) {
+        if (e) {
+            e.stopPropagation();
+            e.preventDefault();
+        }
+
+        LiveHelperChatFactory.setAlwaysOnlineMode(!_that.alwaysOnline == true ? 'true' : 'false').then(function(data){
+            if (data.error === false) {
+                _that.alwaysOnline = !_that.alwaysOnline;
+            } else if (typeof data.msg !== 'undefined') {
+                alert(data.msg);
+            } else {
+                alert(data);
+            }
+        },function(error) {
+            alert('We could not change your status! ' + error);
+        });
+    };
+
+    this.changeOnline = function(e) {
+
+        if (e) {
+            e.stopPropagation();
+            e.preventDefault();
+        }
+
         LiveHelperChatFactory.setOnlineMode(!_that.hideOnline == true ? 'true' : 'false').then(function(data){
         	if (data.error === false) {
                 _that.hideOnline = !_that.hideOnline;
@@ -983,13 +1025,13 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 				_that.hideOnline = data.ho == 1;
 				_that.hideInvisible = data.im == 1;
+                _that.alwaysOnline = data.a_on == 1;
 
 				if (_that.lhcVersion != data.v) {
                     _that.lhcVersion = data.v;
                     _that.lhcPendingRefresh = true;
 					_that.versionChanged();
 				}
-
 
 				if ($scope.setTimeoutEnabled == true) {
 					$scope.timeoutControl = setTimeout(function(){
@@ -1299,6 +1341,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             _that.hideInvisible = data.im;
             _that.hideOnline = data.ho;
             _that.lhcVersion = data.v;
+            _that.alwaysOnline = data.a_on;
             _that.additionalColumns = data.col;
             _that.widgetsActive = data.widgets;
 
