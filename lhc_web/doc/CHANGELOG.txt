@@ -1,3 +1,10 @@
+3.36v
+
+1. "Always online" operator mode. Usefull if you are using telegram and are using Auto assignment workflow.
+2. Auto responder has option to send notice to visitor if operator is speaking his language.
+
+execute doc/update_db/update_210.sql for update
+
 3.35v
 
 1. Group chats between operators
