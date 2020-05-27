@@ -513,6 +513,16 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', array()
         )),
+        'multilanguage_message' => array(
+        'type' => 'textarea',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message to visitor if operator speaks same language as visitor.'),
+        'height' => '86px',
+        'required' => false,
+        'hidden' => true,
+        'main_attr' => 'bot_configuration_array',
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', array()
+        )),
         'nreply_op_bot_id_1' => array(
         'type' => 'combobox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'Choose a bot'),
