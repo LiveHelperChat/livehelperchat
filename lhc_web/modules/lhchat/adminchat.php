@@ -107,7 +107,12 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
     	    	if ($chat->department !== false) {
     	    	    erLhcoreClassChat::updateDepartmentStats($chat->department);
     	    	}
-    	    	
+
+                if ($chat->auto_responder !== false) {
+                    $chat->auto_responder->chat = $chat;
+                    $chat->auto_responder->processAccept();
+                }
+
     	    	erLhcoreClassChatWorkflow::presendCannedMsg($chat);
     	    	$options = $chat->department->inform_options_array;
     	    	erLhcoreClassChatWorkflow::chatAcceptedWorkflow(array('department' => $chat->department,'options' => $options),$chat);

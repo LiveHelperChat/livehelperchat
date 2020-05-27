@@ -141,6 +141,8 @@ class erLhAbstractModelAutoResponder {
            case 'timeout_op_reply_message_3':
            case 'timeout_op_reply_message_4':
            case 'timeout_op_reply_message_5':
+           case 'languages_ignore':
+           case 'multilanguage_message':
                $this->{$var} = null;
                if (isset($this->bot_configuration_array[$var])) {
                    $this->{$var} = $this->bot_configuration_array[$var];
@@ -319,6 +321,10 @@ class erLhAbstractModelAutoResponder {
             $this->close_message = $data['close_message'];
         }
 
+        if (isset($data['multilanguage_message']) && $data['multilanguage_message'] != '') {
+            $this->multilanguage_message = $data['multilanguage_message'];
+        }
+
         for ($i = 1; $i <= 5; $i++) {
 
             if (isset($data['timeout_op_trans_reply_message_' . $i]) && $data['timeout_op_trans_reply_message_' . $i] != '') {
@@ -368,7 +374,7 @@ class erLhAbstractModelAutoResponder {
                     foreach ($languages as $data) {
                         if (in_array($localeShort, $data['languages'])) {
                             $this->setTranslationData($data);
-                            return ;
+                            break;
                         }
                     }
                 }
@@ -408,6 +414,10 @@ class erLhAbstractModelAutoResponder {
 
                 if ($message->close_message != '') {
                     $this->close_message = $message->close_message;
+                }
+
+                if ($message->multilanguage_message != '') {
+                    $this->multilanguage_message = $message->multilanguage_message;
                 }
 
                 for ($i = 1; $i <= 5; $i++) {
@@ -463,9 +473,24 @@ class erLhAbstractModelAutoResponder {
             'wait_message' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
             'operator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
             'close_message' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'multilanguage_message' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'languages_ignore' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
         );
 
         $form = new ezcInputForm( INPUT_POST, $definition );
+
+        if ( $form->hasValidData( 'languages_ignore' ) && !empty($form->languages_ignore) )
+        {
+            $botConfiguration = $this->bot_configuration_array;
+            $botConfiguration['languages_ignore'] = $form->languages_ignore;
+            $this->bot_configuration_array = $botConfiguration;
+        } else {
+            $botConfiguration = $this->bot_configuration_array;
+            if (isset($botConfiguration['languages_ignore'])) {
+                unset($botConfiguration['languages_ignore']);
+                $this->bot_configuration_array = $botConfiguration;
+            }
+        }
 
         $languagesData = array();
         if ( $form->hasValidData( 'languages' ) && !empty($form->languages) )
@@ -499,6 +524,7 @@ class erLhAbstractModelAutoResponder {
                     'wait_message' => ($form->hasValidData('wait_message') ? $form->wait_message[$index] : null),
                     'operator' => ($form->hasValidData('operator') ?  $form->operator[$index] : null),
                     'close_message' => ($form->hasValidData('close_message') ?  $form->close_message[$index] : null),
+                    'multilanguage_message' => ($form->hasValidData('multilanguage_message') ?  $form->multilanguage_message[$index] : null),
                 );
             }
         }

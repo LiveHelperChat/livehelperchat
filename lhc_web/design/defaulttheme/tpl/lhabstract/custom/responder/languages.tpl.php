@@ -11,6 +11,13 @@
     </div>
     <?php endif; ?>
 
+    <div class="form-group">
+        <label><?php echo $fields['multilanguage_message']['trans'];?></label>
+        <?php $bbcodeOptions = array('selector' => '#trans_multilanguage_message_{{$index}}'); ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
+        <textarea class="form-control" id="trans_multilanguage_message_{{$index}}" ng-model="lang.multilanguage_message" name="multilanguage_message[{{$index}}]"></textarea>
+    </div>
+
     <?php if (!isset($autoResponderOptions['hide_operator_nick']) || $autoResponderOptions['hide_operator_nick'] === false) : ?>
     <div class="form-group">
         <label><?php echo $fields['operator']['trans'];?></label>
@@ -102,5 +109,7 @@
         <textarea class="form-control" id="trans_close_message_{{$index}}" ng-model="lang.close_message" name="close_message[{{$index}}]"></textarea>
     </div>
     <?php endif; ?>
+
+
 
 </div>
