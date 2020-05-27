@@ -41,6 +41,14 @@ $UserData = $currentUser->getUserData(true); ?>
             }
         }
 
+        $canChangeAlwaysOnline = false;
+        if ( $currentUser->hasAccessTo('lhuser','changealwaysonline') ) {
+            $canChangeAlwaysOnline = true;
+            if ( !isset($UserData) ) {
+                $UserData = $currentUser->getUserData(true);
+            }
+        }
+
         ?>
 
         <?php if ($currentUser->hasAccessTo('lhchat','use') ) : ?>
@@ -54,8 +62,11 @@ $UserData = $currentUser->getUserData(true); ?>
 
             <?php if ($canChangeOnlineStatus == true) : ?>
                 <a href="#" class="dropdown-item" ng-click="lhc.changeOnline($event)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my status to online/offline');?>"><i id="online-offline-user" class="material-icons ng-cloak" >{{lhc.hideOnline == true ? 'flash_off' : 'flash_on'}}</i>{{lhc.hideOnline == true ? <?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Offline'),ENT_QUOTES))?> : <?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Online'),ENT_QUOTES))?>}}</a>
-                <a href="#" class="dropdown-item" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my persistent status to online');?>" ng-click="lhc.changeAlwaysOnline($event)"><i class="material-icons ng-cloak"  >{{lhc.alwaysOnline == true ? 'flash_on' : 'flash_off'}}</i>{{lhc.alwaysOnline == true ? <?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Always online'),ENT_QUOTES))?> : <?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Follows main'),ENT_QUOTES))?>}}</a>
             <?php endif;?>
+
+        <?php if ($canChangeAlwaysOnline == true) : ?>
+                <a href="#" class="dropdown-item" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my persistent status to online');?>" ng-click="lhc.changeAlwaysOnline($event)"><i class="material-icons ng-cloak"  >{{lhc.alwaysOnline == true ? 'flash_on' : 'flash_off'}}</i>{{lhc.alwaysOnline == true && lhc.hideOnline != true ? <?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Always online'),ENT_QUOTES))?> : <?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Based on activity'),ENT_QUOTES))?>}}</a>
+        <?php endif; ?>
 
         <?php endif;?>
 

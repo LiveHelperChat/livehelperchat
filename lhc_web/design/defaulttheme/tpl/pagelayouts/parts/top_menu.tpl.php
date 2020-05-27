@@ -15,9 +15,6 @@
         <ul class="navbar-nav ml-auto">
             <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu_multiinclude.tpl.php'));?>
 
-            <?php //$hideULSetting = true;?>
-            <?php //include(erLhcoreClassDesign::designtpl('lhchat/user_settings.tpl.php'));?>
-
             <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/user_box.tpl.php'));?>
             <li class="li-icon nav-item">
                 <a class="nav-link" ng-click="lhc.toggleList('lmtoggler')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Expand or collapse right menu')?>">
