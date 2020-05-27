@@ -178,6 +178,10 @@
                     attributesWidget.storageHandler.setCookieDomain(data.domain);
                 }
 
+                if (data.siteaccess) {
+                    attributesWidget.lang = data.siteaccess;
+                }
+
                 if (data.static) {
                     attributesWidget.staticJS = data.static;
                 }
