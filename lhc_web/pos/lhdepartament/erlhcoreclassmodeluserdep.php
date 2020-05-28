@@ -54,6 +54,11 @@ $def->properties['inactive_chats']->columnName   = 'inactive_chats';
 $def->properties['inactive_chats']->propertyName = 'inactive_chats';
 $def->properties['inactive_chats']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['always_on'] = new ezcPersistentObjectProperty();
+$def->properties['always_on']->columnName   = 'always_on';
+$def->properties['always_on']->propertyName = 'always_on';
+$def->properties['always_on']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def; 
 
 ?>

@@ -37,21 +37,23 @@ class erLhcoreClassModelDepartamentGroupMember
         
         foreach ($userIds as $userId) {
             
-            $stmt = $db->prepare('SELECT `hide_online`,`max_active_chats`,`exclude_autoasign` FROM lh_users WHERE id = :user_id');
+            $stmt = $db->prepare('SELECT `hide_online`,`max_active_chats`,`exclude_autoasign`,`always_on` FROM lh_users WHERE id = :user_id');
             $stmt->bindValue( ':user_id', $userId);
             $stmt->execute();
             $dataUser = $stmt->fetch(PDO::FETCH_ASSOC);
             $hide_online = $dataUser['hide_online'];
             $maxChats = $dataUser['max_active_chats'];
             $excludeAutoasign = $dataUser['exclude_autoasign'];
+            $alwaysOn = $dataUser['always_on'];
 
-            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity,last_accepted,active_chats,type,dep_group_id,max_chats,exclude_autoasign) VALUES (:user_id,:dep_id,:hide_online,0,0,:active_chats,1,:dep_group_id,:max_chats,:exclude_autoasign)');
+            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity,last_accepted,active_chats,type,dep_group_id,max_chats,exclude_autoasign,always_on) VALUES (:user_id,:dep_id,:hide_online,0,0,:active_chats,1,:dep_group_id,:max_chats,:exclude_autoasign,:always_on)');
             $stmt->bindValue( ':user_id', $userId);
             $stmt->bindValue( ':dep_id', $this->dep_id);
             $stmt->bindValue( ':hide_online', $hide_online);
             $stmt->bindValue( ':dep_group_id',$this->dep_group_id);
             $stmt->bindValue( ':active_chats',erLhcoreClassChat::getCount(array('filter' => array('user_id' => $userId, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))));
             $stmt->bindValue( ':max_chats',$maxChats);
+            $stmt->bindValue( ':always_on',$alwaysOn);
             $stmt->bindValue( ':exclude_autoasign',$excludeAutoasign);
             $stmt->execute();
 

@@ -122,6 +122,11 @@ $ViewList['setoffline'] = array (
 		'params' => array('status')
 );
 
+$ViewList['setalwaysonline'] = array (
+		'functions' => array( 'changealwaysonline' ),
+		'params' => array('status')
+);
+
 $ViewList['setinactive'] = array (
     'functions' => array( 'changeonlinestatus' ),
     'params' => array('status')
@@ -186,6 +191,6 @@ $FunctionList['loginas'] = array('explain' => 'Allow user to login as other user
 $FunctionList['passwordsecurity'] = array('explain' => 'Allow user to set password security requirements');
 $FunctionList['see_all'] = array('explain' => 'Allow user see all users/groups not only from his group/groups');
 $FunctionList['see_all_group_users'] = array('explain' => 'Allow user see all group users he belongs to.');
-
+$FunctionList['changealwaysonline'] = array('explain' => 'Allow user to change always online mode');
 
 ?>

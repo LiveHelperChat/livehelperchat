@@ -560,24 +560,18 @@ div.message-admin+div.message-admin .msg-date,div.message-row.response+div.messa
     color: grey;
 }
 
-
 .operator-info{
     background-color:#FFF;
-    border:1px solid #D3D3D3;
-    padding:5px;
     position: relative;
     z-index: 1;
     font-size: 12px;
-    border-radius:6px;
 }
 
-.round-profile{
-    border:1px solid #D3D3D3;
-    border-radius:6px;
+.status-text{
+    margin-bottom: 0;
 }
 
 .operator-info img{
-    border:1px solid #e7e7e7;
     border-radius:6px;
     max-width:50px;
 }
