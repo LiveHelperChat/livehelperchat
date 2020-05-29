@@ -123,6 +123,7 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .set('chatLiveData',fromJS({'lmsop':0, 'vtm':0, 'msop':0, 'uid':0, 'status' : 0, 'status_sub' : 0, 'uw' : false, 'ott' : '', 'closed' : false, 'lmsgid' : 0, 'operator' : '', 'messages' : []}))
                 .set('chatStatusData',fromJS({}))
                 .set('chat_ui_state',fromJS({'confirm_close': 0, 'show_survey' : 0}))
+                .set('syncStatus', fromJS({msg: false, status : false}))
                 .set('initClose',false)
                 .set('initLoaded',false);
         }

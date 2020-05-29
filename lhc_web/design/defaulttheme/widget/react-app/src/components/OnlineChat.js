@@ -15,8 +15,6 @@ import { withTranslation } from 'react-i18next';
 
 import { Suspense, lazy } from 'react';
 
-//import VoiceMessage from './VoiceMessage';
-
 const VoiceMessage = React.lazy(() => import('./VoiceMessage'));
 
 
