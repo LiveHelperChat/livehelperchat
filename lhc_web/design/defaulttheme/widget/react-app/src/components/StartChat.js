@@ -291,17 +291,15 @@ class StartChat extends Component {
                 )
             } else {
                 return (
-            <React.Fragment>
+
+                <div id="id-container-fluid">
                     {
                             (this.props.chatwidget.getIn(['proactive','has']) === true && <ChatInvitationMessage mode='profile' invitation={this.props.chatwidget.getIn(['proactive','data'])} />)
                             ||
                             (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div className="p-2 border-bottom" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div>)
                     }
-
-                    <div className="container-fluid" id="id-container-fluid">
+                    <div className="container-fluid">
                         <ChatErrorList errors={this.props.chatwidget.get('validationErrors')} />
-
-
 
                         {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','custom_html_widget']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_widget'])}}></div>}
 
@@ -318,7 +316,7 @@ class StartChat extends Component {
                             </div>
                         </form>
                     </div>
-            </React.Fragment>
+                </div>
                 )
             }
 
