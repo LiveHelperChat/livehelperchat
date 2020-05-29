@@ -28,12 +28,14 @@ export class needhelpWidget{
         this.cont.constructUIIframe('');
 
         this.cont.attachUserEventListener("click", function (a) {
+            attributes.eventEmitter.emitEvent('nhClicked', [{'sender' : 'closeButton'}]);
             attributes.eventEmitter.emitEvent('showWidget', [{'sender' : 'closeButton'}]);
         }, "start-chat-btn",'nhstrt');
 
         var _that = this;
 
         this.cont.attachUserEventListener("click", function (a) {
+            attributes.eventEmitter.emitEvent('nhClosed', [{'sender' : 'closeButton'}]);
             a.stopPropagation();
             _that.hide();
         }, "close-need-help-btn",'nhcls');
