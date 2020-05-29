@@ -308,16 +308,12 @@
 						<?php echo erLhcoreClassAbstract::renderInput('show_need_help_delay', $fields['show_need_help_delay'], $object)?>
 						</div>
 
-        		        <div class="form-group">
-        		        <label><?php echo $fields['need_help_header']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('need_help_header', $fields['need_help_header'], $object)?>
-						</div>
+                        <?php $translatableItem = array('identifier' => 'need_help_header'); ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
-			    		<div class="form-group">    
-						<label><?php echo $fields['need_help_text']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('need_help_text', $fields['need_help_text'], $object)?>		
-			    		</div>
-			    		
+                        <?php $translatableItem = array('identifier' => 'need_help_text'); ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
 			    		<div class="form-group">    
 						<label><?php echo $fields['need_help_bcolor']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('need_help_bcolor', $fields['need_help_bcolor'], $object)?>		
@@ -352,7 +348,45 @@
 						<label><?php echo $fields['need_help_image']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('need_help_image', $fields['need_help_image'], $object)?>		
 						</div>
-        		</div>
+
+                    <hr>
+                    <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Build your own need help widget layout')?></h4>
+
+                    <button type="button" class="btn btn-sm btn-default" onclick="setDefaultNeedHelp()"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Set default HTML')?></button>
+
+<div class="row">
+    <div class="col-3">
+        <div class="form-group">
+            <label><?php echo $fields['nh_bottom']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('nh_bottom', $fields['nh_bottom'], $object)?>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="form-group">
+            <label><?php echo $fields['nh_right']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('nh_right', $fields['nh_right'], $object)?>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="form-group">
+            <label><?php echo $fields['nh_height']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('nh_height', $fields['nh_height'], $object)?>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="form-group">
+            <label><?php echo $fields['nh_width']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('nh_width', $fields['nh_width'], $object)?>
+        </div>
+
+    </div>
+</div>
+
+        <?php $translatableItem = array('identifier' => 'need_help_html'); ?>
+        <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','If you want to get nerdy you can build your own eye catcher using default template as starting point. You can adjust need help widget dimensions above. Also see what placeholders we support :)')?></small></p>
+        <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+</div>
+
         		
         		<div role="tabpanel" class="tab-pane" id="widgettexts">
         		
@@ -693,6 +727,24 @@
             });
         }
 
+        function setDefaultNeedHelp() {
+            var editor = ace.edit($('#ace-AbstractInput_need_help_html')[0]);
+            editor.getSession().setValue(<?php echo json_encode('<div class="container-fluid overflow-auto fade-in p-3 pb-4" >
+<div class="shadow rounded bg-white nh-background">
+    <div class="p-2" id="start-chat-btn" style="cursor: pointer">
+        <button type="button" id="close-need-help-btn" class="close position-absolute" style="right:30px;top:25px;" aria-label="Close">
+          <span class="px-1" aria-hidden="true">&times;</span>
+        </button>
+        <div class="d-flex">
+          <div class="p-1"><img class="img-fluid rounded-circle" src="{{need_help_image_url}}"/></div>
+          <div class="p-1 flex-grow-1"><h6 class="mb-0">{{need_help_header}}</h6>
+            <p class="mb-1" style="font-size: 14px">{{need_help_body}}</p></div>
+        </div>
+    </div>
+</div>
+</div>');?>);
+        }
+
         $(function() {
             ace.config.set('basePath', '<?php echo erLhcoreClassDesign::design('js/ace')?>');
             $('textarea[data-editor]').each(function() {
@@ -700,7 +752,8 @@
                 var mode = textarea.data('editor');
                 var editDiv = $('<div>', {
                     width: '100%',
-                    height: '200px'
+                    height: '200px',
+                    id: 'ace-'+textarea.attr('name')
                 }).insertBefore(textarea);
                 textarea.css('display', 'none');
                 var editor = ace.edit(editDiv[0]);

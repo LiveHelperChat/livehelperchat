@@ -13,7 +13,7 @@
                     <?php $bbcodeOptions = array('selector' => $translatableItem['bb_code_selected']); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
                 <?php endif; ?>
-                <?php echo erLhcoreClassAbstract::renderInput($translatableItem['identifier'], $fields[$translatableItem['identifier']], $object)?>
+                <?php echo erLhcoreClassAbstract::renderInput($translatableItem['identifier'], $fields[$translatableItem['identifier']], $object, (isset($translatableItem['default_value']) ? $translatableItem['default_value'] : ''))?>
             </div>
         </div>
         <div ng-repeat="lang in attrTranslatable.languages" role="tabpanel" class="tab-pane pt-2" id="lang-<?php echo $translatableItem['identifier']?>-{{$index}}">

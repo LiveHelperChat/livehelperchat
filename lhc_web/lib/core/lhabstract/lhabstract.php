@@ -76,10 +76,13 @@ class erLhcoreClassAbstract
                         if (isset($object->{$attr['main_attr']}[$name])) {
                             $value = $object->{$attr['main_attr']}[$name];
                         } else {
-                            $value = '';
+                            $value = $defaultValue;
                         }
                     } else {
                         $value = $object->$name;
+                        if ($value == '') {
+                            $value = $defaultValue;
+                        }
                     }
 
                     $ngModel = isset($attr['nginit']) ? ' ng-init=\'ngModelAbstractInput_' . $name . '=' . json_encode($value, JSON_HEX_APOS) . '\' ng-model="ngModelAbstractInput_' . $name . '" ' : 'ng-non-bindable';
