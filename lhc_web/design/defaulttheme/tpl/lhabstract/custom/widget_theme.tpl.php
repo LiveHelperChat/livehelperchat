@@ -383,7 +383,7 @@
 </div>
 
         <?php $translatableItem = array('identifier' => 'need_help_html'); ?>
-        <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','If you want to get nerdy you can build your own eye catcher using default template as starting point. You can adjust need help widget dimensions above. Also see what placeholders we support :)')?></small></p>
+        <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','If you want to get nerdy you can build your own eye catcher using default template as starting point. You can adjust need help widget dimensions above. Also see what placeholders we support.')?></small></p>
         <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 </div>
 

@@ -4,6 +4,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -624,6 +632,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Build your own need help widget layout</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set default HTML</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you want to get nerdy you can build your own eye catcher using default template as starting point. You can adjust need help widget dimensions above. Also see what placeholders we support.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>General settings</source>
       <translation type="unfinished"/>
     </message>
@@ -908,6 +928,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Need help widget width</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help widget height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Position from right</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Position from bottom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show need help tooltip?</source>
       <translation type="unfinished"/>
     </message>
@@ -1061,6 +1097,10 @@
     </message>
     <message>
       <source>Widget border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom need help HTML</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2730,6 +2770,10 @@
     </message>
     <message>
       <source>Screen shared, click to finish</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Our staff are ready to help!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -5270,6 +5314,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Custom need help HTML</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
       <translation type="unfinished"/>
     </message>
@@ -5333,6 +5381,10 @@
     </message>
     <message>
       <source>Enable/Disable sound about new pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Change my persistent status to online</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -7028,10 +7080,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Chats list</source>
       <translation type="unfinished"/>
     </message>
@@ -7041,6 +7089,42 @@
     </message>
     <message>
       <source>Logout</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invisible</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Always online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on activity</source>
       <translation type="unfinished"/>
     </message>
   </context>
