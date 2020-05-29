@@ -24,7 +24,8 @@ class erLhcoreClassModelUserDep
             'active_chats' => $this->active_chats,
             'pending_chats' => $this->pending_chats,
             'inactive_chats' => $this->inactive_chats,
-            'hide_online_ts' => $this->hide_online_ts
+            'hide_online_ts' => $this->hide_online_ts,
+            'always_on' => $this->always_on,
         );
     }
 
@@ -107,7 +108,8 @@ class erLhcoreClassModelUserDep
             $filter['customfilter'][] = '(dep_id IN (' . implode(',', $userDepartaments) . ') OR user_id = ' . $currentUser->getUserID() . ')';
         };
 
-        $filter['filtergt']['last_activity'] = time() - $onlineTimeout;
+        $filter['customfilter'][] = '(last_activity > ' . (int)(time() - $onlineTimeout) . ' OR always_on = 1)';
+
         $filter['limit'] = $limit;
 
         if (!isset($params['sort'])) {
@@ -118,7 +120,7 @@ class erLhcoreClassModelUserDep
 
         $filter = array_merge_recursive($filter, $params);
 
-        $filter['ignore_fields'] = array('id','dep_id','hide_online_ts','hide_online','last_activity','last_accepted','active_chats','pending_chats','inactive_chats');
+        $filter['ignore_fields'] = array('id','dep_id','hide_online_ts','hide_online','last_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats');
 
         $filter['select_columns'] = '
         max(`id`) as `id`, 
@@ -126,6 +128,7 @@ class erLhcoreClassModelUserDep
         max(`hide_online_ts`) as `hide_online_ts`,
         max(`hide_online`) as `hide_online`,
         max(`last_activity`) as `last_activity`, 
+        max(`always_on`) as `always_on`, 
         max(`last_accepted`) as `last_accepted`,
         max(`active_chats`) as `active_chats`,
         max(`pending_chats`) as `pending_chats`,
@@ -144,6 +147,7 @@ class erLhcoreClassModelUserDep
     public $active_chats = 0;
     public $pending_chats = 0;
     public $inactive_chats = 0;
+    public $always_on = 0;
 }
 
 ?>

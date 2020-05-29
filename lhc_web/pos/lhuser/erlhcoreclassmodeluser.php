@@ -170,6 +170,11 @@ $def->properties['pswd_updated']->columnName   = 'pswd_updated';
 $def->properties['pswd_updated']->propertyName = 'pswd_updated';
 $def->properties['pswd_updated']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['always_on'] = new ezcPersistentObjectProperty();
+$def->properties['always_on']->columnName   = 'always_on';
+$def->properties['always_on']->propertyName = 'always_on';
+$def->properties['always_on']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

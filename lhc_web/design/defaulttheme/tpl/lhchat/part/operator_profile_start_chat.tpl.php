@@ -1,4 +1,4 @@
-<div class="operator-info d-flex<?php if (!isset($start_data_fields['remove_operator_space']) || $start_data_fields['remove_operator_space'] == false) : ?> mb10 round-profile<?php else : ?><?php endif;?>">
+<div class="operator-info d-flex">
 	<div>
      	<?php if ($theme !== false && $theme->operator_image_url != '') : ?>
      			<img src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo $theme->operator_image_url?>" alt="" />
@@ -6,7 +6,7 @@
      		<i class="icon-assistant material-icons">account_box</i>
      	<?php endif;?> 
      </div>
-     <div class="p-1 w-100">
+     <div class="p-1 pl-2 w-100">
 
          <?php if (!isset($react)) : ?>
             <?php $rightLanguage = true;?>
