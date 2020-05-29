@@ -27,7 +27,9 @@ $fields = array(
    						)),
    				'need_help_header' => array(
    						'type' => 'text',
+                        'main_attr_lang' => 'bot_configuration_array',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help header text'),
+                        'translatable' => true,
    						'required' => false,   
    						'nginit' => true,	
    						'hidden' => true,
@@ -58,6 +60,51 @@ $fields = array(
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
+
+                'nh_width' => array(
+                    'type' => 'text',
+                    'placeholder' => '320',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help widget width'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'string'
+                    )),
+                
+                'nh_height' => array(
+                    'type' => 'text',
+                    'placeholder' => '135',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help widget height'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'string'
+                    )),
+                
+                'nh_right' => array(
+                    'type' => 'text',
+                    'placeholder' => '45',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Position from right'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'string'
+                    )),
+                
+                'nh_bottom' => array(
+                    'type' => 'text',
+                    'placeholder' => '70',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Position from bottom'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'string'
+                    )),
+
    				'show_need_help' => array(
    				        'type' => 'checkbox',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Show need help tooltip?'),
@@ -85,6 +132,8 @@ $fields = array(
    				'need_help_text' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help standard text'),
+                        'translatable' => true,
+                        'main_attr_lang' => 'bot_configuration_array',
    						'required' => false,
    						'nginit' => true,
    						'hidden' => true,
@@ -478,8 +527,22 @@ $fields = array(
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),   				
-   				'need_help_bcolor' => array(
+   						)),
+
+            'need_help_html' => array(
+                'type' => 'textarea',
+                'main_attr' => 'bot_configuration_array',
+                'translatable' => true,
+                'ace_editor' => 'html',
+                'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom need help HTML'),
+                'required' => false,
+                'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Custom need help HTML'),
+                'hidden' => true,
+                'validation_definition' => new ezcInputFormDefinitionElement(
+                    ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+
+    'need_help_bcolor' => array(
    						'type' => 'colorpicker',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help background color'),
    						'required' => true,

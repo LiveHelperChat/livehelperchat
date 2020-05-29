@@ -443,6 +443,8 @@ class erLhAbstractModelWidgetTheme {
             'department_title',
             'department_select',
             'explain_text',
+            'need_help_text',
+            'need_help_header',
         );
 
         $translatableAttributes = array_merge(array(
@@ -456,7 +458,8 @@ class erLhAbstractModelWidgetTheme {
             'custom_html_widget_bot',
             'custom_html_bot',
             'custom_html_widget',
-            'custom_html'
+            'custom_html',
+            'need_help_html',
         ),$attributesDirect);
 
         $attributes = $this->bot_configuration_array;
@@ -505,13 +508,13 @@ class erLhAbstractModelWidgetTheme {
 	public $online_image_path = '';
 	public $offline_image_path = '';
 	public $header_background = '525252';
-	public $need_help_bcolor = '92B830';
-	public $need_help_hover_bg = '84A52E';
+	public $need_help_bcolor = '';
+	public $need_help_hover_bg = '';
 	public $need_help_image = '';	
-	public $need_help_tcolor = 'ffffff';
-	public $need_help_border = 'dbe257';
-	public $need_help_close_bg = '435A05';
-	public $need_help_close_hover_bg = '74990F';
+	public $need_help_tcolor = '';
+	public $need_help_border = '';
+	public $need_help_close_bg = '';
+	public $need_help_close_hover_bg = '';
 	public $need_help_image_path = '';
 	public $custom_status_css = '';
 	public $custom_container_css = '';

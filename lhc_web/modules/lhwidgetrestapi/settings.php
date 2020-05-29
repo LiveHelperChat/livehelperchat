@@ -191,6 +191,82 @@ if ($startDataDepartment === false) {
     $start_data_fields = $startDataFields = (array)$startData->data;
 }
 
+$needHelpTimeout = isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme ? $theme->show_need_help_timeout : erLhcoreClassModelChatConfig::fetch('need_help_tip_timeout')->current_value;
+
+if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme->show_need_help == 1) || (!isset($theme) && erLhcoreClassModelChatConfig::fetch('need_help_tip')->current_value == 1)) && $needHelpTimeout > 0 && (!isset($_GET['hnh']) || $_GET['hnh'] < (time() - ($needHelpTimeout * 24 * 3600))))
+{
+    $outputResponse['nh']['html'] = '<div class="container-fluid overflow-auto fade-in p-3 pb-4" >
+<div class="shadow rounded bg-white nh-background">
+    <div class="p-2" id="start-chat-btn" style="cursor: pointer">
+        <button type="button" id="close-need-help-btn" class="close position-absolute" style="right:30px;top:25px;" aria-label="Close">
+          <span class="px-1" aria-hidden="true">&times;</span>
+        </button>
+        <div class="d-flex">
+          <div class="p-1"><img class="img-fluid rounded-circle" src="{{need_help_image_url}}"/></div>
+          <div class="p-1 flex-grow-1"><h6 class="mb-0">{{need_help_header}}</h6>
+            <p class="mb-1" style="font-size: 14px">{{need_help_body}}</p></div>
+        </div>
+    </div>
+</div>
+</div>';
+
+    $outputResponse['nh']['delay'] = 1500;
+
+    if (isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme) {
+
+        if ($theme->show_need_help_delay > 0) {
+            $outputResponse['nh']['delay'] = (int)$theme->show_need_help_delay * 1000;
+        }
+
+        $theme->translate();
+
+        if (isset($theme->bot_configuration_array['need_help_html']) && !empty($theme->bot_configuration_array['need_help_html'])){
+            $outputResponse['nh']['html'] = $theme->bot_configuration_array['need_help_html'];
+        }
+
+        $replaceVars = $theme->replace_array;
+
+        if ($theme->need_help_image_url === false) {
+            $replaceVars['replace'][8] = '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('images/general/operator.png');
+        }
+
+        $replaceVars['search'][] = '{{need_help_header}}';
+        $replaceVars['search'][] = '{{need_help_body}}';
+
+        $replaceVars['replace'][] = $theme->need_help_header != '' ? $theme->need_help_header : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus', 'Need help?');
+        $replaceVars['replace'][] = $theme->need_help_text != '' ? $theme->need_help_text : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus', 'Our staff are ready to help!');
+    } else {
+        $replaceVars = array(
+            'search' => array(
+                '{{need_help_image_url}}',
+                '{{need_help_header}}',
+                '{{need_help_body}}',
+            ),
+            'replace' => array(
+                '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('images/general/operator.png'),
+                erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus', 'Need help?'),
+                erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus', 'Our staff are ready to help!')
+            )
+        );
+    }
+
+    $outputResponse['nh']['html'] = str_replace($replaceVars['search'], $replaceVars['replace'], $outputResponse['nh']['html']);
+
+    $attrDimensions = array(
+        'nh_bottom' => 'bottom',
+        'nh_right' => 'right',
+        'nh_height' => 'height',
+        'nh_width' => 'width',
+    );
+
+    foreach ($attrDimensions as $attrDimension => $attrName){
+        if (isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array[$attrDimension]) && is_numeric($theme->bot_configuration_array[$attrDimension])){
+            $outputResponse['nh']['dimensions'][$attrName] = (int)$theme->bot_configuration_array[$attrDimension] . 'px';
+        }
+    }
+}
+
+
 $outputResponse['chat_ui']['leaveamessage'] = (isset($startDataFields['force_leave_a_message']) && $startDataFields['force_leave_a_message'] == true) ? true : false;
 $outputResponse['chat_ui']['mobile_popup'] = isset($startDataFields['mobile_popup']) && $startDataFields['mobile_popup'] == true;
 

@@ -144,6 +144,7 @@
 
             helperFunctions.makeRequest(LHC_API.args.lhc_base_url+ attributesWidget.lang + 'widgetrestapi/settings',{params:{
                 'vid' : (LHC_API.args.UUID || attributesWidget.userSession.getVID()),
+                'hnh': attributesWidget.userSession.hnh,
                 'tz' : helperFunctions.getTzOffset(),
                 'r' : referrer,
                 'l' : location,
@@ -231,6 +232,14 @@
                             }, attributesWidget);
                         });
                     }
+                }
+
+                if (attributesWidget.mode == 'widget' && data.nh && attributesWidget.fresh === false && attributesWidget['position'] != 'api' && attributesWidget.userSession.id === null && data.isOnline === true) {
+                    import('./lib/widgets/needhelpWidget').then((module) => {
+                        var needhelpWidget = new module.needhelpWidget();
+                        containerChatObj.cont.elmDom.appendChild(needhelpWidget.cont.constructUI(),!0);
+                        needhelpWidget.init(attributesWidget,data.nh);
+                    });
                 }
 
                 if (data.js_vars) {

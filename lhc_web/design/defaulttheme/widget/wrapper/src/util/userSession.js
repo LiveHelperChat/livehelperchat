@@ -3,7 +3,7 @@ export class userSession {
 
     constructor() {
         this.vid = null;
-        this.lhc_hnh = null;
+        this.hnh = null;
 
         this.ref = null;
         this.id = null;
@@ -34,7 +34,7 @@ export class userSession {
 
     setSessionInformation(params) {
         this.vid = params['vid'] || null;
-        this.lhc_hnh = params['lhc_hnh'] || null;
+        this.hnh = params['hnh'] || null;
         this.hash = params['hash'] || null;
         this.id = params['id'] || null;
     }
@@ -46,8 +46,8 @@ export class userSession {
             attr['vid'] = this.vid;
         }
 
-        if (this.lhc_hnh !== null) {
-            attr['lhc_hnh'] = this.lhc_hnh;
+        if (this.hnh !== null) {
+            attr['hnh'] = this.hnh;
         }
 
         if (this.id !== null) {
@@ -136,6 +136,7 @@ export class userSession {
     setChatInformation(data) {
         this.id = data.id;
         this.hash = data.hash;
+        this.hnh = Math.round(Date.now() / 1000);
     }
 
 }

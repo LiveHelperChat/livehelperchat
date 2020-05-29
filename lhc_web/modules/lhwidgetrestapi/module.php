@@ -88,6 +88,11 @@ $ViewList['themepage'] = array(
     'uparams' => array()
 );
 
+$ViewList['themeneedhelp'] = array(
+    'params' => array('theme'),
+    'uparams' => array()
+);
+
 $ViewList['theme'] = array(
     'params' => array('theme'),
     'uparams' => array()
