@@ -166,6 +166,15 @@ if (empty($Errors)) {
                     // Store Message from operator
                     $msg = new erLhcoreClassModelmsg();
                     $msg->msg = trim($userInstance->operator_message);
+
+                    if ($msg->msg == '') {
+                        $inv = erLhAbstractModelProactiveChatInvitation::fetch($requestPayload['invitation_id']);
+                        if ($inv instanceof erLhAbstractModelProactiveChatInvitation){
+                            $inv->translateByLocale();
+                            $msg->msg = $inv->message;
+                        }
+                    }
+
                     $msg->chat_id = $chat->id;
                     $msg->name_support = $userInstance->operator_user !== false ? trim($userInstance->operator_user->name_support) : (!empty($userInstance->operator_user_proactive) ? $userInstance->operator_user_proactive : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support'));
                     $msg->user_id = $userInstance->operator_user_id > 0 ? $userInstance->operator_user_id : -2;
