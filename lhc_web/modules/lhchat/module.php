@@ -205,13 +205,14 @@ $ViewList['loadinitialdata'] = array(
 
 $ViewList['list'] = array(
     'params' => array(),
-    'uparams' => array('ip','department_ids','department_group_ids','user_ids','group_ids','subject_id','anonymized','una','chat_duration_from','chat_duration_till','wait_time_from','wait_time_till','chat_id','nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst','chat_status','hum','product_id','timefrom','timefrom_minutes','timefrom_hours','timeto', 'timeto_minutes', 'timeto_hours', 'department_group_id', 'group_id', 'invitation_id'),
+    'uparams' => array('with_bot','no_operator','has_operator','without_bot','bot_ids','ip','department_ids','department_group_ids','user_ids','group_ids','subject_id','anonymized','una','chat_duration_from','chat_duration_till','wait_time_from','wait_time_till','chat_id','nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst','chat_status','hum','product_id','timefrom','timefrom_minutes','timefrom_hours','timeto', 'timeto_minutes', 'timeto_hours', 'department_group_id', 'group_id', 'invitation_id'),
     'functions' => array( 'use' ),
     'multiple_arguments' => array(
         'department_ids',
         'department_group_ids',
         'user_ids',
-        'group_ids'
+        'group_ids',
+        'bot_ids',
     )
 );
 
