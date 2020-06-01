@@ -85,6 +85,10 @@ export default ({onChange, type}) => {
         {
             'value': 'restapi',
             'text' : 'Rest API',
+        },
+        {
+            'value': 'tbody',
+            'text' : 'Execute trigger body',
         }
     ]);
 

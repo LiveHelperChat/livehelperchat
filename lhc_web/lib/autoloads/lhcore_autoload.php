@@ -287,6 +287,8 @@ return array_merge(array (
         'erLhcoreClassGenericBotActionEvent_type'   => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionevent_type.php',
         'erLhcoreClassGenericBotActionRepeat_restrict'   => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionrepeat_restrict.php',
         'erLhcoreClassGenericBotActionRestapi'      => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionrestapi.php',
+        'erLhcoreClassGenericBotActionTbody'        => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactiontbody.php',
+
         'erLhcoreClassModelGenericBotRestAPI'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotrestapi.php',
         'erLhcoreClassLHCBotWorker'                 => 'lib/core/lhgenericbot/lhgenericbotworker.php',
 
