@@ -74,6 +74,19 @@ if ($theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configur
     erLhcoreClassChatValidator::setLanguageByBrowser();
 }
 
+if ($theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['load_w2']) && $theme->bot_configuration_array['load_w2'] == true) {
+    $tpl = erLhcoreClassTemplate::getInstance('lhchat/getstatus/getstatus_migrate.tpl.php');
+    $tpl->set('uparams',$Params['user_parameters_unordered']);
+    $tpl->set('depId',$Params['user_parameters_unordered']['department']);
+    $tpl->set('mode','widget');
+    $tpl->set('position',$Params['user_parameters_unordered']['position']);
+    $tpl->set('click',$Params['user_parameters_unordered']['click']);
+    $tpl->set('leaveamessage',$Params['user_parameters_unordered']['leaveamessage'] == 'true');
+    $tpl->set('disable_pro_active',$Params['user_parameters_unordered']['disable_pro_active'] == 'true');
+    echo $tpl->fetch();
+    exit;
+}
+
 $tpl->set('referrer',isset($_GET['r']) ? rawurldecode($_GET['r']) : '');
 $tpl->set('track_online_users',erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 && (string)$Params['user_parameters_unordered']['dot'] != 'true');
 $tpl->set('disable_online_tracking',(string)$Params['user_parameters_unordered']['dot'] == 'true');

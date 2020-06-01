@@ -1131,7 +1131,22 @@ function preloadDataLHC() {
     var cookieData = lhc_Cookies('lhc_per');
 
     if ( typeof cookieData === "string" && cookieData) {
-        lh_inst.cookieDataPers = lh_inst.JSON.parse(cookieData);
+
+
+        if (cookieData.indexOf('|') !== -1) {
+            var contentReturn = {};
+            var parts = cookieData.split('|');
+
+            for (var i = 0; i < parts.length / 2; i++) {
+                contentReturn[parts[i * 2]] = parts[(i * 2) + 1];
+            }
+
+            lh_inst.cookieDataPers = contentReturn;
+
+        } else {
+            lh_inst.cookieDataPers = lh_inst.JSON.parse(cookieData);
+        }
+
         if (!lh_inst.cookieDataPers.vid) {
             lh_inst.cookieDataPers = {<?php isset($vid) ? print 'vid:\''.$vid.'\'' : ''?>};
             lh_inst.storePersistenCookie();

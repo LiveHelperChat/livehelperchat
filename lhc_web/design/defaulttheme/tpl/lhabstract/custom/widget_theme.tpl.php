@@ -39,6 +39,10 @@
                         <div class="form-group">
 						<label><?php echo erLhcoreClassAbstract::renderInput('modern_look', $fields['modern_look'], $object)?><?php echo $fields['modern_look']['trans'];?>*</label>
 						</div>
+                    
+                        <div class="form-group">
+						<label><?php echo erLhcoreClassAbstract::renderInput('load_w2', $fields['load_w2'], $object)?><?php echo $fields['load_w2']['trans'];?>*</label>
+						</div>
 
 						<div class="form-group">		
 						<label><?php echo $fields['online_text']['trans'];?></label>

@@ -123,12 +123,22 @@ $fields = array(
    						)),
                 'modern_look' => array(
    				        'type' => 'checkbox',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Use modern look'),
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Use modern look. It is used only in older widget.'),
    						'required' => false,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
    						)),
+                    'load_w2' => array(
+                        'type' => 'checkbox',
+                        'main_attr' => 'bot_configuration_array',
+                        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Use a new widget look for old embed code. If you can not change easily old embed codes you can force system to load new widget still.'),
+                        'required' => false,
+                        'hidden' => true,
+                        'nginit' => true,
+                        'validation_definition' => new ezcInputFormDefinitionElement(
+                            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                        )),
    				'need_help_text' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help standard text'),
