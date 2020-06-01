@@ -34,7 +34,7 @@
     </h6>
     <?php elseif ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) : ?>
 
-        <?php $user = erLhcoreClassModelGenericBotBot::fetch($chat->chat_variables_array['gbot_id']);?>
+        <?php $user = erLhcoreClassModelGenericBotBot::fetch($chat->gbot_id);?>
         <?php if ($user instanceof erLhcoreClassModelGenericBotBot) : erLhcoreClassGenericBotWorkflow::setDefaultPhotoNick($chat,$user); $extraMessage = ($theme !== false ? htmlspecialchars($theme->bot_status_text) : ''); ?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_main_pre.tpl.php')); ?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile.tpl.php'));?>

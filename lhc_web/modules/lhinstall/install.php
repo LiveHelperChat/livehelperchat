@@ -306,6 +306,7 @@ try {
 				  `unanswered_chat` int(11) NOT NULL,
 				  `anonymized` tinyint(1) NOT NULL,
 				  `user_typing` int(11) NOT NULL,
+				  `gbot_id` int(11) NOT NULL DEFAULT '0',
 				  `user_typing_txt` varchar(200) NOT NULL,
 				  `operator_typing` int(11) NOT NULL,
         	   	  `operator_typing_id` int(11) NOT NULL,

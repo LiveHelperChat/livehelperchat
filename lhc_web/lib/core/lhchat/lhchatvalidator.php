@@ -1628,13 +1628,9 @@ class erLhcoreClassChatValidator {
                         (isset($botConfiguration['bot_only_offline']) && $botConfiguration['bot_only_offline'] == true && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true)) == false)
                     )
                 )) {
-                $chat->status = erLhcoreClassModelChat::STATUS_BOT_CHAT;
-                
-                $variablesArray = $chat->chat_variables_array;
-                $variablesArray['gbot_id'] = $bot->id;
 
-                $chat->chat_variables = json_encode($variablesArray);
-                $chat->chat_variables_array = $variablesArray;
+                $chat->status = erLhcoreClassModelChat::STATUS_BOT_CHAT;
+                $chat->gbot_id = $bot->id;
 
                 if (isset($params['trigger_id']) && $params['trigger_id'] > 0) {
                     $botTrigger = erLhcoreClassModelGenericBotTrigger::fetch($params['trigger_id']);

@@ -26,6 +26,18 @@ $fieldsSearch['group_field'] = array (
     )
 );
 
+$fieldsSearch['bot_ids'] = array (
+    'type' => 'text',
+    'trans' => 'Bot ID',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterin',
+    'filter_table_field' => 'gbot_id',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0), FILTER_REQUIRE_ARRAY
+    )
+);
+
 $fieldsSearch['timefrom'] = array (
     'type' => 'text',
     'trans' => 'Timefrom',
@@ -195,6 +207,58 @@ $fieldsSearch['department_group_ids'] = array (
         ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1), FILTER_REQUIRE_ARRAY
     )
 );
+
+// Boolean filters
+$fieldsSearch['no_operator'] = array (
+    'type' => 'boolean',
+    'trans' => 'groupby',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'manual',
+    'filter_table_field' => ['filter' => ['user_id' => 0]],
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    )
+);
+
+$fieldsSearch['has_operator'] = array (
+    'type' => 'boolean',
+    'trans' => 'groupby',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'manual',
+    'filter_table_field' => ['filtergt' => ['user_id' => 0]],
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    )
+);
+
+$fieldsSearch['with_bot'] = array (
+    'type' => 'boolean',
+    'trans' => 'groupby',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'manual',
+    'filter_table_field' => ['filtergt' => ['gbot_id' => 0]],
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    )
+);
+
+$fieldsSearch['without_bot'] = array (
+    'type' => 'boolean',
+    'trans' => 'groupby',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'manual',
+    'filter_table_field' => ['filter' => ['gbot_id' => 0]],
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    )
+);
+
+
+
 
 $fieldSortAttr = array (
 'field'      => false,

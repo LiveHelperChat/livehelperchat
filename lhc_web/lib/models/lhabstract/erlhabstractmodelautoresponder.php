@@ -259,14 +259,9 @@ class erLhAbstractModelAutoResponder {
 
             if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
 
-                // Set chat bot
-                $variablesArray = $chat->chat_variables_array;
-
-                if (!isset($variablesArray['gbot_id'])) {
-                    $variablesArray['gbot_id'] = $trigger->bot_id;
-                    $chat->chat_variables = json_encode($variablesArray);
-                    $chat->chat_variables_array = $variablesArray;
-                    $chat->updateThis(array('update' => array('chat_variables')));
+                if ($chat->gbot_id == 0) {
+                    $chat->gbot_id = $trigger->bot_id;
+                    $chat->updateThis(array('update' => array('gbot_id')));
                 }
 
                 $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('do_not_save' => true)));
