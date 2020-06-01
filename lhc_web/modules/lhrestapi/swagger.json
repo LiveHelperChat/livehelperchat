@@ -2400,32 +2400,32 @@
         },
         "transfer_timeout_ts": {
           "type": "integer",
-          "description": "To be defined...",
-          "example": null
-        },
-        "transfer_if_na": {
-          "type": "integer",
-          "description": "To be defined...",
+          "description": "Stores timestamp when the last transfer between departmetns accoured.",
           "example": null
         },
         "transfer_timeout_ac": {
           "type": "integer",
-          "description": "To be defined...",
+          "description": "Stores value how long change be pending before it's transfered to another department.",
+          "example": null
+        },
+        "transfer_if_na": {
+          "type": "integer",
+          "description": "Transfer between departments enabled for this chat.",
           "example": null
         },
         "transfer_uid": {
           "type": "integer",
-          "description": "To be defined...",
+          "description": "Stores the user ID who transfered the chat.",
           "example": null
         },
         "na_cb_executed": {
           "type": "integer",
-          "description": "To be defined...",
+          "description": "Unanswered chat callback was executed. It's execution are based on 'run_unaswered_chat_workflow' value. erLhcoreClassChatWorkflow::unansweredChatWorkflow",
           "example": null
         },
         "nc_cb_executed": {
           "type": "integer",
-          "description": "To be defined...",
+          "description": "Stores indication that new chat informing workflow was executed.",
           "example": null
         },
         "fbst": {
