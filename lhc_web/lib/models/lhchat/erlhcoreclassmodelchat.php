@@ -120,6 +120,7 @@ class erLhcoreClassModelChat {
 
                // Anonymized
                'anonymized'    	        => $this->anonymized,
+               'gbot_id'    	        => $this->gbot_id,
        );
    }
 
@@ -505,6 +506,8 @@ class erLhcoreClassModelChat {
 
             if (isset($chatVariables['gbot_id']) && $chatVariables['gbot_id'] > 0) {
                 $bot = erLhcoreClassModelGenericBotBot::fetch($chatVariables['gbot_id']);
+            } elseif ($this->gbot_id > 0) {
+                $bot = erLhcoreClassModelGenericBotBot::fetch($this->gbot_id);
             }
 
             $this->bot = $bot;
@@ -752,6 +755,9 @@ class erLhcoreClassModelChat {
 
    // 0 - PC, 1 - mobile, 2 - tablet
    public $device_type = 0;
+
+   // Bot ID assigned to the chat
+   public $gbot_id = 0;
 
    public $updateIgnoreColumns = array();
 }

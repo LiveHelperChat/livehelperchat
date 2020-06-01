@@ -121,8 +121,8 @@ try {
 
                         $nameSupport = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
 
-                        if (isset($chatVariables['gbot_id']) && $chatVariables['gbot_id'] > 0) {
-                            $bot = erLhcoreClassModelGenericBotBot::fetch($chatVariables['gbot_id']);
+                        if ($Chat->gbot_id > 0) {
+                            $bot = erLhcoreClassModelGenericBotBot::fetch($Chat->gbot_id);
                             if ($bot instanceof erLhcoreClassModelGenericBotBot && $bot->nick != '') {
                                 $nameSupport = $bot->nick;
                             }

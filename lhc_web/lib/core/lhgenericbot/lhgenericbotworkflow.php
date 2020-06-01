@@ -135,7 +135,7 @@ class erLhcoreClassGenericBotWorkflow {
         // Execute rest workflow if chat is in full bot mode
         if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT)
         {
-            $response = self::sendAlwaysDefault($chat, $chat->chat_variables_array['gbot_id'], $msg);
+            $response = self::sendAlwaysDefault($chat, $chat->gbot_id, $msg);
 
             if ($response === true) {
 
@@ -176,11 +176,11 @@ class erLhcoreClassGenericBotWorkflow {
                 $event = $handler['event'];
             } else {
                 // There is no current workflow in progress
-                $event = self::findEvent($msg->msg, $chat->chat_variables_array['gbot_id'], 0, array(), array('dep_id' => $chat->dep_id));
+                $event = self::findEvent($msg->msg, $chat->gbot_id, 0, array(), array('dep_id' => $chat->dep_id));
             }
 
             if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent)){
-                $event = self::findTextMatchingEvent($msg->msg, $chat->chat_variables_array['gbot_id'], array(), array('dep_id' => $chat->dep_id));
+                $event = self::findTextMatchingEvent($msg->msg, $chat->gbot_id, array(), array('dep_id' => $chat->dep_id));
             }
 
             if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
@@ -190,17 +190,15 @@ class erLhcoreClassGenericBotWorkflow {
                 }
             }
 
-            self::sendDefault($chat, $chat->chat_variables_array['gbot_id'], $msg);
+            self::sendDefault($chat, $chat->gbot_id, $msg);
         }
     }
 
     public static function getDefaultNick($chat)
     {
-        $chatVariables = $chat->chat_variables_array;
-
         $nameSupport = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
 
-        if (isset($chatVariables['gbot_id']) && $chatVariables['gbot_id'] > 0) {
+        if ($chat->gbot_id > 0) {
 
             $department = $chat->department;
             $nameSet = false;
@@ -216,7 +214,7 @@ class erLhcoreClassGenericBotWorkflow {
             }
 
             if ($nameSet == false) {
-                $bot = erLhcoreClassModelGenericBotBot::fetch($chatVariables['gbot_id']);
+                $bot = erLhcoreClassModelGenericBotBot::fetch($chat->gbot_id);
                 if ($bot instanceof erLhcoreClassModelGenericBotBot && $bot->nick != '') {
                     $nameSupport = $bot->nick;
                 }
@@ -280,10 +278,10 @@ class erLhcoreClassGenericBotWorkflow {
 
         if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
 
-            $event = self::findTextMatchingEvent($msg->msg, $chat->chat_variables_array['gbot_id'], array('filter' => array('trigger_id' => $trigger->id)), array('dep_id' => $chat->dep_id));
+            $event = self::findTextMatchingEvent($msg->msg, $chat->gbot_id, array('filter' => array('trigger_id' => $trigger->id)), array('dep_id' => $chat->dep_id));
 
             if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent)){
-                $event = self::findEvent($msg->msg, $chat->chat_variables_array['gbot_id'], 0, array('filter' => array('trigger_id' => $trigger->id)), array('dep_id' => $chat->dep_id));
+                $event = self::findEvent($msg->msg, $chat->gbot_id, 0, array('filter' => array('trigger_id' => $trigger->id)), array('dep_id' => $chat->dep_id));
             }
 
             if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
@@ -557,7 +555,7 @@ class erLhcoreClassGenericBotWorkflow {
 
                                     $trigger = null;
                                     if (isset($eventData['content']['event_args']['check_default']) && $eventData['content']['event_args']['check_default'] == true) {
-                                        $triggerEvent = self::findTextMatchingEvent(mb_strtolower($payload), $chat->chat_variables_array['gbot_id'], array(), array('dep_id' => $chat->dep_id));
+                                        $triggerEvent = self::findTextMatchingEvent(mb_strtolower($payload), $chat->gbot_id, array(), array('dep_id' => $chat->dep_id));
                                         if ($triggerEvent instanceof erLhcoreClassModelGenericBotTriggerEvent) {
                                             $trigger = $triggerEvent->trigger;
                                         }
@@ -594,10 +592,10 @@ class erLhcoreClassGenericBotWorkflow {
                             $filter = array('filter' => array('on_start_type' => $eventData['content']['event_args']['on_start_type']));
                         }
 
-                        $event = self::findTextMatchingEvent($payload, $chat->chat_variables_array['gbot_id'], $filter, array('dep_id' => $chat->dep_id));
+                        $event = self::findTextMatchingEvent($payload, $chat->gbot_id, $filter, array('dep_id' => $chat->dep_id));
 
                         if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent)) {
-                            $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'],0, $filter, array('dep_id' => $chat->dep_id));
+                            $event = self::findEvent($payload, $chat->gbot_id,0, $filter, array('dep_id' => $chat->dep_id));
                         }
 
                         if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
@@ -767,7 +765,7 @@ class erLhcoreClassGenericBotWorkflow {
 
                  $message = $e->getMessage();
                  
-                 $bot = erLhcoreClassModelGenericBotBot::fetch($chat->chat_variables_array['gbot_id']);
+                 $bot = erLhcoreClassModelGenericBotBot::fetch($chat->gbot_id);
                  if ($bot instanceof erLhcoreClassModelGenericBotBot) {
                      $configurationArray = $bot->configuration_array;
                      if (isset($configurationArray['exc_group_id']) && !empty($configurationArray['exc_group_id'])){
@@ -795,7 +793,7 @@ class erLhcoreClassGenericBotWorkflow {
         if ($handler !== false) {
             $event = $handler['event'];
         } else {
-            $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'], $type, array(), array('dep_id' => $chat->dep_id));
+            $event = self::findEvent($payload, $chat->gbot_id, $type, array(), array('dep_id' => $chat->dep_id));
         }
 
         if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
@@ -1280,7 +1278,7 @@ class erLhcoreClassGenericBotWorkflow {
 
                 $message = $e->getMessage();
 
-                $bot = erLhcoreClassModelGenericBotBot::fetch($chat->chat_variables_array['gbot_id']);
+                $bot = erLhcoreClassModelGenericBotBot::fetch($chat->gbot_id);
                 if ($bot instanceof erLhcoreClassModelGenericBotBot) {
                     $configurationArray = $bot->configuration_array;
                     if (isset($configurationArray['exc_group_id']) && !empty($configurationArray['exc_group_id'])){
@@ -1430,7 +1428,7 @@ class erLhcoreClassGenericBotWorkflow {
 
     public static function processStepEdit($chat, $messageContext, $payload, $params = array())
     {
-        if (isset($chat->chat_variables_array['gbot_id'])) {
+        if (isset($chat->gbot_id)) {
 
             // Try to find current workflow first
             $workflow = erLhcoreClassModelGenericBotChatWorkflow::findOne(array('filterin' => array('status' => array(0,1)), 'filter' => array('chat_id' => $chat->id)));
@@ -1468,7 +1466,7 @@ class erLhcoreClassGenericBotWorkflow {
     }
 
     public static function processTriggerClick($chat, $messageContext, $payload, $params = array()) {
-        if (isset($chat->chat_variables_array['gbot_id'])) {
+        if (isset($chat->gbot_id)) {
 
             $db = ezcDbInstance::get();
 
@@ -1584,7 +1582,7 @@ class erLhcoreClassGenericBotWorkflow {
 
     public static function processButtonClick($chat, $messageContext, $payload, $params = array()) {
 
-        if (isset($chat->chat_variables_array['gbot_id'])) {
+        if (isset($chat->gbot_id)) {
 
             $db = ezcDbInstance::get();
 
@@ -1628,7 +1626,7 @@ class erLhcoreClassGenericBotWorkflow {
                         if ($handler !== false) {
                             $event = $handler['event'];
                         } else {
-                            $event = self::findEvent($payload, $chat->chat_variables_array['gbot_id'], 1, array(), array('dep_id' => $chat->dep_id));
+                            $event = self::findEvent($payload, $chat->gbot_id, 1, array(), array('dep_id' => $chat->dep_id));
                         }
 
                         $messageClickData = self::getClickName($messageContext->meta_msg_array, $payload, true, array('payload_hash' => $payloadHash));
@@ -1679,7 +1677,7 @@ class erLhcoreClassGenericBotWorkflow {
                         } else {
 
                             // Send default message for unknown button click
-                            $bot = erLhcoreClassModelGenericBotBot::fetch($chat->chat_variables_array['gbot_id']);
+                            $bot = erLhcoreClassModelGenericBotBot::fetch($chat->gbot_id);
 
                             $trigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => array('default_unknown_btn' => 1)));
 
@@ -1769,7 +1767,7 @@ class erLhcoreClassGenericBotWorkflow {
      */
     public static function processUpdateClick($chat, $messageContext, $payload)
     {
-        if (isset($chat->chat_variables_array['gbot_id'])) {
+        if (isset($chat->gbot_id)) {
 
             if (is_callable('erLhcoreClassGenericBotUpdateActions::' . $payload . 'Action')){
 

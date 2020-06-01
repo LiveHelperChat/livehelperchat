@@ -1,3 +1,14 @@
+3.37v
+
+1. Had to separate bot assigned to a chat to a separate column. This will allow us to generate some charts like.
+2. Was the chat only with a bot or also operator was involved.
+
+execute doc/update_db/update_211.sql for update
+
+If you want to have capabilities to search by bot you can run this script from your command line.
+
+php cron.php -s site_admin -c cron/util/migrate_gbot_id -p 0
+
 3.36v
 
 1. "Always online" operator mode. Usefull if you are using telegram and are using Auto assignment workflow.

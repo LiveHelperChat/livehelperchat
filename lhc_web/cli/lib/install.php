@@ -153,6 +153,7 @@ class Install
         	   	  `remarks` text NOT NULL,
 				  `ip` varchar(100) NOT NULL,
 				  `dep_id` int(11) NOT NULL,				 
+				  `gbot_id` int(11) NOT NULL DEFAULT '0',				 
 				  `invitation_id` int(11) NOT NULL,				 
 				  `sender_user_id` int(11) NOT NULL,
 				  `product_id` int(11) NOT NULL,

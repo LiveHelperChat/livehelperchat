@@ -327,6 +327,8 @@ class erLhcoreClassSearchHandler
                         if (!empty($inputParams->$key)) {
                             $filter['filterin'][$field['filter_table_field']] = $inputParams->$key;
                         }
+                    } elseif ($field['filter_type'] == 'manual') {
+                        $filter = array_merge_recursive($filter, $field['filter_table_field']);
                     } elseif ($field['filter_type'] == 'filternot') {
                         if (!empty($inputParams->$key)) {
                             $filter['filternot'][$field['filter_table_field']] = $inputParams->$key;

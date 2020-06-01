@@ -391,6 +391,11 @@ $def->properties['invitation_id']->columnName   = 'invitation_id';
 $def->properties['invitation_id']->propertyName = 'invitation_id';
 $def->properties['invitation_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['gbot_id'] = new ezcPersistentObjectProperty();
+$def->properties['gbot_id']->columnName   = 'gbot_id';
+$def->properties['gbot_id']->propertyName = 'gbot_id';
+$def->properties['gbot_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>
