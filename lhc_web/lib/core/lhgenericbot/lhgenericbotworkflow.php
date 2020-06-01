@@ -1334,7 +1334,13 @@ class erLhcoreClassGenericBotWorkflow {
         	$messageNew = call_user_func_array("erLhcoreClassGenericBotAction" . ucfirst($action['type']).'::process',array($chat, $action, $trigger, (isset($params['args']) ? $params['args'] : array())));
 
             if ($messageNew instanceof erLhcoreClassModelmsg) {
+
                 $message = $messageNew;
+
+                if ($messageNew->id > 0 && $messageNew->id > $chat->last_msg_id) {
+                    $chat->last_msg_id = $messageNew->id;
+                }
+
             } elseif (is_array($messageNew) && isset($messageNew['status']) && ($messageNew['status'] == 'stop' || $messageNew['status'] == 'continue' || $messageNew['status'] == 'continue_all')) {
 
                 $continue = false;
@@ -1371,6 +1377,11 @@ class erLhcoreClassGenericBotWorkflow {
 
                 } elseif (isset($messageNew['response']) && $messageNew['response'] instanceof erLhcoreClassModelmsg) {
                     $message = $messageNew['response'];
+
+                    if ($message->id > 0 && $message->id > $chat->last_msg_id) {
+                        $chat->last_msg_id = $message->id;
+                    }
+
                 } elseif (isset($messageNew['ignore_trigger']) && $messageNew['ignore_trigger'] == true) {
                     return array(
                         'status' => 'stop',
