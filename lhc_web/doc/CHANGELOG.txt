@@ -5,7 +5,7 @@
 
 execute doc/update_db/update_211.sql for update
 
-If you want to have capabilities to search by bot you can run this script from your command line.
+If you want to have capabilities to search by bot in the past chats you can run this script from your command line.
 
 php cron.php -s site_admin -c cron/util/migrate_gbot_id -p 0
 
