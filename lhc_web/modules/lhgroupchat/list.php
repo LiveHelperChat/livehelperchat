@@ -15,7 +15,7 @@ $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input
 $pages = new lhPaginator();
 $pages->items_total = erLhcoreClassModelGroupChat::getCount($filterParams['filter']);
 $pages->translationContext = 'groupchat/list';
-$pages->serverURL = erLhcoreClassDesign::baseurl('chat/list').$append;
+$pages->serverURL = erLhcoreClassDesign::baseurl('groupchat/list').$append;
 $pages->paginate();
 $tpl->set('pages',$pages);
 
