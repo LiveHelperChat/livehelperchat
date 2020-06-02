@@ -334,6 +334,12 @@ class OnlineChat extends Component {
 
             if (this.messagesAreaRef.current){
                 let scrollValue = this.messagesAreaRef.current.scrollHeight - this.messagesAreaRef.current.scrollTop;
+
+                // Scroll to bottom if from bottom there is already less than 70px
+                if ((scrollValue - this.messagesAreaRef.current.offsetHeight) < 70) {
+                    scrollValue = 0;
+                }
+
                 return (
                     (scrollValue)
                 );

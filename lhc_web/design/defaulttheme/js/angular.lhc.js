@@ -328,6 +328,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
     this.hideOnline = false;
     this.hideInvisible = false;
     this.alwaysOnline = false;
+    this.bot_st = {};
 
     this.changeVisibility = function(e) {
 
@@ -966,7 +967,14 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		                        var userId = (typeof itemList.user_id !== 'undefined' ? itemList.user_id : 0);
 		                       		                        
 		                        var identifierElement = itemList.id + '_' + userId;
-		                        		
+
+		                        // No need to store anything as chat is still not notifable
+		                        if (item.last_id_identifier == 'bot_chats') {
+		                            if (!(itemList.msg_v && itemList.msg_v >= _that.bot_st.msg_nm && _that.bot_st.bot_notifications == 1)) {
+                                        return;
+                                    }
+                                }
+
 		                        currentStatusNotifications.push(identifierElement);
 		                  	
 		                        if (typeof _that.statusNotifications[item.last_id_identifier] == 'undefined') {
@@ -975,7 +983,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 		                        if (_that.isListLoaded == true && (chatsSkipped == 0 || itemList.status_sub_sub === 2) && ((_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == 0 && confLH.ownntfonly == 0) || (_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == confLH.user_id)) ) {
 		                        	if (lhinst.chatsSynchronising.indexOf(parseInt(itemList.id)) === -1) { // Don't show notification if chat is under sync already
-		                        		chatsToNotify.push(itemList.id);
+                                         chatsToNotify.push(itemList.id);
 		                        	}
 		                        } else {
 		                        	chatsSkipped++;
@@ -1356,6 +1364,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             _that.alwaysOnline = data.a_on;
             _that.additionalColumns = data.col;
             _that.widgetsActive = data.widgets;
+            _that.bot_st = data.bot_st;
 
 			angular.forEach(_that.widgetsItems, function(listId) {
 				_that.setDepartmentNames(listId);
