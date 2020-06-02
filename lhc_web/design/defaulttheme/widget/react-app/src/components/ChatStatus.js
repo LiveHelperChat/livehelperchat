@@ -3,6 +3,7 @@ import parse, { domToReact } from 'html-react-parser';
 import { connect } from "react-redux";
 import {voteAction, transferToHumanAction} from "../actions/chatActions"
 import { helperFunctions } from "../lib/helperFunctions";
+import axios from "axios";
 
 @connect((store) => {
     return {
@@ -39,10 +40,14 @@ class ChatStatus extends PureComponent {
 
     checkSwitchButtom(){
         if (this.props.chat_ui.has('switch_to_human') && this.props.vtm && this.props.vtm >= this.props.chat_ui.get('switch_to_human')) {
-            var transferButton = document.getElementById('transfer-to-human-btn');
-            if (transferButton !== null) {
-                transferButton.classList.remove('hide');
-            }
+            axios.get(window.lhcChat['base_url'] + "restapi/isonlinechat/" + this.props.chat.get('id')+ '?exclude_bot=true').then((response) => {
+                if (response.data.isonline){
+                    var transferButton = document.getElementById('transfer-to-human-btn');
+                    if (transferButton !== null) {
+                        transferButton.classList.remove('hide');
+                    }
+                }
+            });
         }
     }
 
