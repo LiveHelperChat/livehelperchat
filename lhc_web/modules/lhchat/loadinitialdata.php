@@ -177,7 +177,31 @@ if (!is_array($widgets)) {
 
 $widgets = erLhcoreClassChat::array_flatten($widgets);
 
-$response = array('widgets' => $widgets, 'col' => array_values($columnsAdd), 'v' => erLhcoreClassUpdate::LHC_RELEASE, 'ho' => $userData->hide_online == 1,'a_on' => ($userData->always_on == 1), 'im' => ($userData->invisible_mode == 1), 'user_list' => array_values($userList), 'user_groups' => array_values(erLhcoreClassModelGroup::getList($groupListParams)), 'track_activity' => $trackActivity, 'cgdel' => $chatgDel, 'cgopen' => $chatgOpen, 'cdel' => $chatDel, 'copen' => $chatOpen, 'timeout_activity' => $activityTimeout, 'pr_names' => $productsNames, 'dp_groups' => $depGroupsList, 'dp_names' => $departmentNames, 'dep_list' => $departmentList);
+$response = array(
+    'widgets' => $widgets,
+    'col' => array_values($columnsAdd),
+    'v' => erLhcoreClassUpdate::LHC_RELEASE,
+    'ho' => $userData->hide_online == 1,
+    'a_on' => ($userData->always_on == 1),
+    'im' => ($userData->invisible_mode == 1),
+    'user_list' => array_values($userList),
+    'user_groups' => array_values(erLhcoreClassModelGroup::getList($groupListParams)),
+    'track_activity' => $trackActivity,
+    'cgdel' => $chatgDel,
+    'cgopen' => $chatgOpen,
+    'cdel' => $chatDel,
+    'copen' => $chatOpen,
+    'timeout_activity' => $activityTimeout,
+    'pr_names' => $productsNames,
+    'dp_groups' => $depGroupsList,
+    'dp_names' => $departmentNames,
+    'dep_list' => $departmentList,
+    'bot_st' => array(
+        'msg_nm' =>  (int)erLhcoreClassModelUserSetting::getSetting('bot_msg_nm',3),
+        'bot_notifications' => (int)erLhcoreClassModelUserSetting::getSetting('bot_notifications',0)
+    )
+);
+
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.loadinitialdata',array('lists' => & $response));
 
 echo json_encode($response);

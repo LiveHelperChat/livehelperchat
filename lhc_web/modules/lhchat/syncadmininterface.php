@@ -343,8 +343,8 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array('bot_chats',
 
     $chatsListAll = $chatsListAll+$chats;
 
-    erLhcoreClassChat::prefillGetAttributes($chats,array('time_created_front','department_name','plain_user_name','product_name'),array('product_id','product','department','time','status','user_id','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
-    $ReturnMessages['bot_chats'] = array('list' => array_values($chats));
+    erLhcoreClassChat::prefillGetAttributes($chats,array('time_created_front','department_name','plain_user_name','product_name','msg_v'),array('product_id','product','department','time','status','user_id','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
+    $ReturnMessages['bot_chats'] = array('last_id_identifier' => 'bot_chats', 'list' => array_values($chats));
     $chatsList[] = & $ReturnMessages['bot_chats']['list'];
 }
 

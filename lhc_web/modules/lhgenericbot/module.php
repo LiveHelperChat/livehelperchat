@@ -311,6 +311,12 @@ $ViewList['nodetriggeractions'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['notifications'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use_operator' )
+);
+
 $ViewList['buttonclicked'] = array(
     'params' => array('chat_id', 'hash'),
     'uparams' => array('type')
@@ -322,5 +328,6 @@ $ViewList['updatebuttonclicked'] = array(
 );
 
 $FunctionList['use'] = array('explain' => 'General permission to use generic bot module');
+$FunctionList['use_operator'] = array('explain' => 'Allow operator to change bot notifications settings');
 
 ?>
