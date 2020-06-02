@@ -22,7 +22,7 @@ class StartChat extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {showBBCode : null, Question:'', QuestionSubmitted:'' };
+        this.state = {showBBCode : null, Question:''};
         this.handleSubmit = this.handleSubmit.bind(this);
         this.enterKeyDown = this.enterKeyDown.bind(this);
         this.handleContentChange = this.handleContentChange.bind(this);
@@ -76,10 +76,6 @@ class StartChat extends Component {
 
         if (this.props.chatwidget.get('phash') !== null) {
             fields['phash'] = this.props.chatwidget.get('phash');
-        }
-
-        if (this.state.Question != '') {
-            this.setState({'QuestionSubmitted':this.state.Question});
         }
 
         const customFields = helperFunctions.getCustomFieldsSubmit(this.props.chatwidget.getIn(['customData','fields']));
@@ -272,10 +268,10 @@ class StartChat extends Component {
 
                                 {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','cmmsg_widget']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','cmmsg_widget'])}}></div>}
 
-                                {this.props.chatwidget.get('processStatus') == 1 && this.state.QuestionSubmitted != '' && <div data-op-id="0" className="message-row response">
+                                {this.props.chatwidget.get('processStatus') == 1 && this.state.Question != '' && <div data-op-id="0" className="message-row response">
                                     <div className="msg-date"></div>
                                     <span title="" className="usr-tit vis-tit"><i title={t('start_chat.visitor')} className="material-icons chat-operators mi-fs15 mr-0">face</i><span className="user-nick-title">{t('start_chat.visitor')}</span></span>
-                                    <div className="msg-body">{this.state.QuestionSubmitted}</div>
+                                    <div className="msg-body">{this.state.Question}</div>
                                 </div>}
 
                             </div>
