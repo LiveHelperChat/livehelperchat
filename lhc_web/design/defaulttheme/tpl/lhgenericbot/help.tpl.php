@@ -50,6 +50,10 @@
                 <p>This field be used only if you are collecting non internal attribute. This will be used as display name for that attribute in back office.</p>
             <?php endif; ?>
 
+            <?php if ($context == 'execute_tbody') : ?>
+                <p>You can use this field as response body from your Rest API integration. You can paste content from `Show code` section.</p>
+            <?php endif; ?>
+
             <?php if ($context == 'preg_match') : ?>
                     <ul>
                         <li>Few examples
