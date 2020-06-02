@@ -51,6 +51,19 @@ try {
             erLhcoreClassGenericBotWorkflow::processButtonClick($chat, $message, $paramsPayload['payload'], array('processed' => (isset($paramsPayload['processed']) && $paramsPayload['processed'] == true)));
         }
 
+        // On button click also update counter
+        if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
+            $chatVariables = $chat->chat_variables_array;
+            if (!isset($chatVariables['msg_v'])) {
+                $chatVariables['msg_v'] = 1;
+            } else {
+                $chatVariables['msg_v']++;
+            }
+            $chat->chat_variables_array = $chatVariables;
+            $chat->chat_variables = json_encode($chatVariables);
+            $chat->updateThis(array('update' => array('chat_variables')));
+        }
+
         echo json_encode(array('error' => false));
 
     } else {

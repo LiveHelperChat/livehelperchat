@@ -970,7 +970,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 		                        // No need to store anything as chat is still not notifable
 		                        if (item.last_id_identifier == 'bot_chats') {
-		                            if (!(itemList.msg_v && itemList.msg_v >= _that.bot_st.msg_nm && _that.bot_st.bot_notifications == 1)) {
+		                            if (!(itemList.msg_v && itemList.msg_v > _that.bot_st.msg_nm && _that.bot_st.bot_notifications == 1)) {
                                         return;
                                     }
                                 }

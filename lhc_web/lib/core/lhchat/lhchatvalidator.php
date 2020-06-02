@@ -1644,7 +1644,18 @@ class erLhcoreClassChatValidator {
 
                     // set flag that we are executing everthing in start chat mode
                     erLhcoreClassGenericBotWorkflow::$startChat = true;
-                    
+
+                    if (isset($params['msg']) && $chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
+                        $chatVariables = $chat->chat_variables_array;
+                        if (!isset($chatVariables['msg_v'])) {
+                            $chatVariables['msg_v'] = 1;
+                        } else {
+                            $chatVariables['msg_v']++;
+                        }
+                        $chat->chat_variables_array = $chatVariables;
+                        $chat->chat_variables = json_encode($chatVariables);
+                    }
+
                     $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $botTrigger, false, array('args' => $params));
 
                     if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
