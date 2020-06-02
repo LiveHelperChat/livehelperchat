@@ -22,7 +22,7 @@ class StartChat extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {showBBCode : null, Question:'', };
+        this.state = {showBBCode : null, Question:'', QuestionSubmitted:'' };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.enterKeyDown = this.enterKeyDown.bind(this);
         this.handleContentChange = this.handleContentChange.bind(this);
@@ -76,6 +76,10 @@ class StartChat extends Component {
 
         if (this.props.chatwidget.get('phash') !== null) {
             fields['phash'] = this.props.chatwidget.get('phash');
+        }
+
+        if (this.state.Question != '') {
+            this.setState({'QuestionSubmitted':this.state.Question});
         }
 
         const customFields = helperFunctions.getCustomFieldsSubmit(this.props.chatwidget.getIn(['customData','fields']));
@@ -243,7 +247,7 @@ class StartChat extends Component {
     }
 
     if (this.props.chatwidget.get('processStatus') == 0 || this.props.chatwidget.get('processStatus') == 1) {
-            if (this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 && this.props.chatwidget.getIn(['customData','fields']).size == 0) {
+            if (this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','fields_visible']) <= 1 && this.props.chatwidget.getIn(['customData','fields']).size == 0) {
 
                 var classMessageInput = "pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0";
 
@@ -265,6 +269,15 @@ class StartChat extends Component {
                         <div className="flex-grow-1 overflow-scroll position-relative" id="messagesBlock">
                             <div className="bottom-message px-1" id="messages-scroll">
                                 {this.props.chatwidget.getIn(['proactive','has']) === true && <ChatInvitationMessage mode="message" invitation={this.props.chatwidget.getIn(['proactive','data'])} />}
+
+                                {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','cmmsg_widget']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','cmmsg_widget'])}}></div>}
+
+                                {this.props.chatwidget.get('processStatus') == 1 && this.state.QuestionSubmitted != '' && <div data-op-id="0" className="message-row response">
+                                    <div className="msg-date"></div>
+                                    <span title="" className="usr-tit vis-tit"><i title={t('start_chat.visitor')} className="material-icons chat-operators mi-fs15 mr-0">face</i><span className="user-nick-title">{t('start_chat.visitor')}</span></span>
+                                    <div className="msg-body">{this.state.QuestionSubmitted}</div>
+                                </div>}
+
                             </div>
                         </div>
 
@@ -274,19 +287,27 @@ class StartChat extends Component {
 
                             {(this.props.chatwidget.hasIn(['validationErrors','question'])) && <div id="id-operator-typing" className="bg-white pl-1">{this.props.chatwidget.getIn(['validationErrors','question'])}</div>}
 
-                            <ChatStartOptions toggleModal={this.toggleModal} />
-                            <div className="mx-auto pb-1 w-100">
-                                {(this.props.chatwidget.get('processStatus') == 1) && <div className="loader-submit"></div>}
-                                <textarea disabled={this.props.chatwidget.get('processStatus') == 1} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} style={{height: this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.Question) || (this.state.Question.length > this.textMessageRef.current.offsetWidth/8.6)) ? '60px' : 'inherit'}} aria-label="Type your message here..." id="CSChatMessage" value={this.state.Question} placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} onKeyDown={this.enterKeyDown} onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})} ref={this.textMessageRef} rows="1" className={classMessageInput} />
-                            </div>
-                            <div className="disable-select">
-                                <div className="user-chatwidget-buttons pt-1" id="ChatSendButtonContainer">
-                                    <a onClick={this.handleSubmit} title={t('button.start_chat')}>
-                                        <i className="material-icons text-muted settings">send</i>
-                                    </a>
+                            {this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 && <React.Fragment>
+                                <ChatStartOptions toggleModal={this.toggleModal} />
+                                <div className="mx-auto pb-1 w-100">
+                                    {(this.props.chatwidget.get('processStatus') == 1) && <div className="loader-submit"></div>}
+                                    <textarea disabled={this.props.chatwidget.get('processStatus') == 1} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} style={{height: this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.Question) || (this.state.Question.length > this.textMessageRef.current.offsetWidth/8.6)) ? '60px' : 'inherit'}} aria-label="Type your message here..." id="CSChatMessage" value={this.state.Question} placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} onKeyDown={this.enterKeyDown} onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})} ref={this.textMessageRef} rows="1" className={classMessageInput} />
                                 </div>
-                            </div>
-                        </div>
+                                <div className="disable-select">
+                                    <div className="user-chatwidget-buttons pt-1" id="ChatSendButtonContainer">
+                                        <a onClick={this.handleSubmit} title={t('button.start_chat')}>
+                                            <i className="material-icons text-muted settings">send</i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </React.Fragment>}
+
+                            {this.props.chatwidget.getIn(['onlineData','fields_visible']) == 0 && <button className="mx-auto pb-1 w-100 btn btn-light rounded-0" onClick={this.handleSubmit} title={t('button.start_chat')}>
+                                {this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || t('button.start_chat_With_us')}
+                            </button>}
+
+
+                          </div>
                     </React.Fragment>
                 )
             } else {

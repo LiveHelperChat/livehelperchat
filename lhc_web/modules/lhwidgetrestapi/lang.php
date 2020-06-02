@@ -14,12 +14,13 @@ $translations = array(
     "button" => [
         "minimize" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Minimize'),
         "end_chat" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','End chat'),
-        "start_chat" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Start chat'),
+        "start_chat" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Start a chat'),
         "bb_code" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','BB code'),
         "print" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Print'),
         "send" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send'),
         "popup" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Popup'),
-        "record_voice" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Record voice message')
+        "record_voice" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Record voice message'),
+        "start_chat_With_us" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Start a chat with us!')
     ],
     "chat" => [
         "option_sound" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new messages from the operator'),
@@ -30,7 +31,8 @@ $translations = array(
     "start_chat" => [
         "thank_you_for_feedback" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Thank you for your feedback...'),
         "leave_a_message" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Leave a message'),
-        "cant_start_a_chat" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Chat can not be started now. Please try again later.')
+        "cant_start_a_chat" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Chat can not be started now. Please try again later.'),
+        "visitor" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor')
     ],
     "online_chat" => [
         "go_to_survey" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Go to Survey.'),

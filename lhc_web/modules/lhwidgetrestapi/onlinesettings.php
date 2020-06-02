@@ -495,6 +495,13 @@ if ($theme !== false) {
         if (!isset($chat_ui['custom_html_widget']) && isset($theme->bot_configuration_array['custom_html_widget']) && $theme->bot_configuration_array['custom_html_widget'] != '') {
             $chat_ui['custom_html_widget'] = $theme->bot_configuration_array['custom_html_widget'];
         }
+
+        if (isset($theme->bot_configuration_array['trigger_id']) && !empty($theme->bot_configuration_array['trigger_id']) && $theme->bot_configuration_array['trigger_id'] > 0) {
+            $tpl = new erLhcoreClassTemplate('lhchat/part/render_intro.tpl.php');
+            $tpl->set('theme',$theme);
+            $tpl->set('no_wrap_intro',true);
+            $chat_ui['cmmsg_widget'] = $tpl->fetch();
+        }
     }
 
     if ($Params['user_parameters_unordered']['mode'] == 'popup') {
