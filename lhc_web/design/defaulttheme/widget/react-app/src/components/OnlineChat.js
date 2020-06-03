@@ -47,6 +47,9 @@ class OnlineChat extends Component {
             'theme' : this.props.chatwidget.get('theme')
         }));
 
+        this.updateMessages();
+        this.updateStatus();
+
         this.enterKeyDown = this.enterKeyDown.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.sendMessage = this.sendMessage.bind(this);
@@ -500,8 +503,16 @@ class OnlineChat extends Component {
 
     render() {
 
-        if (this.props.chatwidget.get('initLoaded') === false) {
-            return null;
+        if (this.props.chatwidget.get('initLoaded') === false || this.props.chatwidget.get('msgLoaded') === false) {
+                return (<React.Fragment>
+                    {this.props.profileBefore !== null && <div className="p-2 border-bottom" dangerouslySetInnerHTML={{__html:this.props.profileBefore}}></div>}
+                    {this.props.messagesBefore !== null && <div className="flex-grow-1 overflow-scroll position-relative" id="messagesBlock" dangerouslySetInnerHTML={{__html:this.props.messagesBefore}}></div>}
+                    <div className="d-flex flex-row border-top position-relative message-send-area" >
+                        <div className="mx-auto pb-1 w-100">
+                            <textarea aria-label="Type your message here..." rows="1" className="pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0" />
+                        </div>
+                    </div>
+                </React.Fragment>);
         }
 
         const { t } = this.props;

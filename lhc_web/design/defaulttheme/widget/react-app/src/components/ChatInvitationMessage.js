@@ -26,7 +26,7 @@ class ChatInvitationMessage extends PureComponent {
         } else {
             return (
                 <React.Fragment>
-                    <div className={classProfile}>
+                    <div id="lhc-profile-body" className={classProfile}>
                          <div>
                              {this.props.invitation.photo && <img src={this.props.invitation.photo} title={this.props.invitation.photo_title} alt=""/>}
                              {!this.props.invitation.photo && <i className="icon-assistant material-icons mr-0">account_box</i>}
