@@ -301,7 +301,7 @@ const GroupChat = props => {
                         <div className="tab-content">
                             <div role="tabpanel" className="tab-pane active" id={"group-chat-"+props.chatId}>
 
-                                <ul className="list-group list-group-flush border-0 mw-100">
+                                <ul className="list-group list-group-flush border-0 mw-100 mx275">
                                     {state.operators.map((operator, index) => (
                                         <li className="list-group-item pl-1 py-1">{props.userId != operator.user_id && <i title="Start chat with an operator directly" onClick={(e) => startChatWithOperator(operator)} className="material-icons action-image">chat</i>} {state.chat.user_id == operator.user_id && <i title="Group owner" className="material-icons">account_balance</i>} {operator.n_off_full}<span className="float-right fs11">
                                             {!operator.jtime && <span className="badge badge-info fs11">{t('operator.pending_join')}</span>} {operator.last_activity_ago} <i className="material-icons">{operator.hide_online ? 'flash_off' : 'flash_on'}</i>
