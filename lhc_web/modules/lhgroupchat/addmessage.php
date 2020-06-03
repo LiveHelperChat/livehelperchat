@@ -22,7 +22,7 @@ try {
     $msg->user_id = $userData->id;
     $msg->msg = trim($payload['msg']);
     $msg->chat_id = $groupChat->id;
-    $msg->name_support = $userData->name_support;
+    $msg->name_support = $userData->name_official;
     $msg->saveThis();
 
     $groupChat->last_msg_op_id = $userData->id;

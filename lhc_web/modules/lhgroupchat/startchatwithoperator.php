@@ -39,7 +39,7 @@ WHERE
         $groupChat->saveThis();
 
         $msg = new erLhcoreClassModelGroupMsg();
-        $msg->msg = (string)$currentUser->getUserData(true)->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has invited') . ' ' . $operator->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','for the private chat.');
+        $msg->msg = (string)$currentUser->getUserData(true)->name_official . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has invited') . ' ' . $operator->name_official . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','for the private chat.');
         $msg->chat_id = $groupChat->id;
         $msg->user_id = -1;
         $msg->time = time();

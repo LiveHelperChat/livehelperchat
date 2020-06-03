@@ -13,7 +13,7 @@ try {
     $userInvited = erLhcoreClassModelUser::fetch($Params['user_parameters']['op_id']);
 
     $msg = new erLhcoreClassModelGroupMsg();
-    $msg->msg = (string)$currentUser->getUserData(true)->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has invited') . ' ' . $userInvited->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','for the private chat.');
+    $msg->msg = (string)$currentUser->getUserData(true)->name_official . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has invited') . ' ' . $userInvited->name_official . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','for the private chat.');
     $msg->chat_id = $item->id;
     $msg->user_id = -1;
     $msg->time = time();
