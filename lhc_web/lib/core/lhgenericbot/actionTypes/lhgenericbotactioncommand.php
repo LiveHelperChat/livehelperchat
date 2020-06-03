@@ -159,6 +159,9 @@ class erLhcoreClassGenericBotActionCommand {
 
         } elseif ($action['content']['command'] == 'setchatattribute') {
 
+                // Replace variables if any
+                $action['content']['payload_arg'] = isset($params['replace_array']) ? str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$action['content']['payload_arg']) : $action['content']['payload_arg'];
+
                 $eventArgs = array('old' => $chat->{$action['content']['payload']}, 'attr' => $action['content']['payload'], 'new' => $action['content']['payload_arg']);
                 $chat->{$action['content']['payload']} = $action['content']['payload_arg'];
 
@@ -198,6 +201,7 @@ class erLhcoreClassGenericBotActionCommand {
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_chat_command_dispatch_event', array(
                     'action' => $action,
                     'chat' => & $chat,
+                    'replace_array' => (isset($params['replace_array']) ? $params['replace_array'] : [])
                 ));
         }
     }
