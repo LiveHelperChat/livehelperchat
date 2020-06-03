@@ -8,8 +8,6 @@ class ChatInvitationMessage extends PureComponent {
 
     render() {
 
-        let classProfile = "operator-info d-flex border-bottom p-2";
-
         if (this.props.mode == 'message') {
             return (
                 <div className="message-row message-admin">
@@ -26,15 +24,17 @@ class ChatInvitationMessage extends PureComponent {
         } else {
             return (
                 <React.Fragment>
-                    <div id="lhc-profile-body" className={classProfile}>
-                         <div>
-                             {this.props.invitation.photo && <img width="48" height="48" src={this.props.invitation.photo} title={this.props.invitation.photo_title} alt=""/>}
-                             {!this.props.invitation.photo && <i className="icon-assistant material-icons mr-0">account_box</i>}
-                         </div>
-                         <div className="p-1 pl-2 w-100">
+                    <div id="lhc-profile-body">
+                        <div className="operator-info d-flex border-bottom p-2">
                              <div>
-                                 <strong>{this.props.invitation.name_support || this.props.invitation.extra_profile}<br/></strong>
-                                 {this.props.invitation.name_support && <span><i>{this.props.invitation.extra_profile}</i></span>}
+                                 {this.props.invitation.photo && <img width="48" height="48" src={this.props.invitation.photo} title={this.props.invitation.photo_title} alt=""/>}
+                                 {!this.props.invitation.photo && <i className="icon-assistant material-icons mr-0">account_box</i>}
+                             </div>
+                             <div className="p-1 pl-2 w-100">
+                                 <div>
+                                     <strong>{this.props.invitation.name_support || this.props.invitation.extra_profile}<br/></strong>
+                                     {this.props.invitation.name_support && <span><i>{this.props.invitation.extra_profile}</i></span>}
+                                </div>
                             </div>
                         </div>
                     </div>

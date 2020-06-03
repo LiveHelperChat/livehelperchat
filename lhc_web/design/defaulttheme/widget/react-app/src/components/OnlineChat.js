@@ -505,7 +505,7 @@ class OnlineChat extends Component {
 
         if (this.props.chatwidget.get('initLoaded') === false || this.props.chatwidget.get('msgLoaded') === false) {
                 return (<React.Fragment>
-                    {this.props.profileBefore !== null && <div className="p-2 border-bottom" dangerouslySetInnerHTML={{__html:this.props.profileBefore}}></div>}
+                    {this.props.profileBefore !== null && <div dangerouslySetInnerHTML={{__html:this.props.profileBefore}}></div>}
                     {this.props.messagesBefore !== null && <div className="flex-grow-1 overflow-scroll position-relative" id="messagesBlock" dangerouslySetInnerHTML={{__html:this.props.messagesBefore}}></div>}
                     <div className="d-flex flex-row border-top position-relative message-send-area" >
                         <div className="mx-auto pb-1 w-100">
