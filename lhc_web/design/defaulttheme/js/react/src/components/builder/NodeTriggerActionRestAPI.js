@@ -96,7 +96,15 @@ class NodeTriggerActionRestAPI extends Component {
                     );
 
                     outputCombinations = this.props.payloads.getIn(['rest_api_calls',indexOfListingToUpdate,'methods',indexOfListingToUpdateMethod,'output']).map((option, index) => <div key={option.get('id')} className="form-group">
-                        <label>Execute trigger for [<b>{option.get('success_name')}</b>]</label>
+                        <div className="row">
+                            <div className="col-6">
+                                <label>Execute trigger for [<b>{option.get('success_name')}</b>]</label>
+                            </div>
+                            <div className="col-6">
+                                <label><input type="checkbox" value="" onChange={(e) => this.onchangeAttr({'path' : ['rest_api_method_output',option.get('id') + '_chk'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','rest_api_method_output',option.get('id') + '_chk'])}  /> Check only this response. <i className="material-icons" title="By default we are checking all output combinations. You can force to check only selected ones.">info</i></label>
+                            </div>
+                        </div>
+
                         <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path':['rest_api_method_output',option.get('id')],'value':e})} payload={this.props.action.getIn(['content','rest_api_method_output',option.get('id')])} />
                     </div>);
 

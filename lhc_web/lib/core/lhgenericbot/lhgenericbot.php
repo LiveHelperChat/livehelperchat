@@ -282,7 +282,7 @@ class erLhcoreClassGenericBot {
         }
         
         if ( $form->hasValidData( 'configuration' )  ) {
-            $botRestAPI->configuration = $form->configuration;
+            $botRestAPI->configuration = preg_replace('/(,?)\"\$\$hashKey\":\"object:([0-9]+)\"/','',$form->configuration);
         } else {
             $botRestAPI->configuration = '';
         }

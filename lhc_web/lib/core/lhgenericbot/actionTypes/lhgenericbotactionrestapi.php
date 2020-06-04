@@ -44,6 +44,10 @@ class erLhcoreClassGenericBotActionRestapi
                     }
                 }
 
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.rest_api_before_request', array(
+                    'restapi' => & $restAPI
+                ));
+
                 $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
 
                 // We have found exact matching response type
@@ -280,7 +284,7 @@ class erLhcoreClassGenericBotActionRestapi
             curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyPOST);
         }
 
-        $url = rtrim($host) . str_replace(array_keys($replaceVariables), array_values($replaceVariables),$methodSettings['suburl']) . '?' . http_build_query($queryArgs);
+        $url = rtrim($host) . str_replace(array_keys($replaceVariables), array_values($replaceVariables), (isset($methodSettings['suburl']) ? $methodSettings['suburl'] : '')) . '?' . http_build_query($queryArgs);
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -295,8 +299,24 @@ class erLhcoreClassGenericBotActionRestapi
 
         if (isset($methodSettings['output']) && !empty($methodSettings['output'])) {
 
+            $allOptional = true;
+
+            // First check is there any required to check combinations and disable others if so.
+            foreach ($methodSettings['output'] as $index => $outputCombination)
+            {
+                if (isset($paramsCustomer['action']['content']['rest_api_method_output'][$outputCombination['id'] . '_chk']) && $paramsCustomer['action']['content']['rest_api_method_output'][$outputCombination['id'] . '_chk'] == true) {
+                    $allOptional = false;
+                    break;
+                }
+            }
+
             foreach ($methodSettings['output'] as $outputCombination)
             {
+                if ($allOptional == false && (!isset($paramsCustomer['action']['content']['rest_api_method_output'][$outputCombination['id'] . '_chk']) || $paramsCustomer['action']['content']['rest_api_method_output'][$outputCombination['id'] . '_chk'] == false)) {
+                    // One of the conditions is checked, but not this one.
+                    continue;
+                }
+
                 // Verify HTTP Status code
                 if (!isset($outputCombination['success_header']) || $outputCombination['success_header'] == '' || in_array((string)$httpcode,explode(',',$outputCombination['success_header']))){
 
@@ -313,7 +333,7 @@ class erLhcoreClassGenericBotActionRestapi
                         if ($successLocation['found'] === true) {
 
                             $responseValueSub = array();
-                            for ($i = 2; $i <= 4; $i++){
+                            for ($i = 2; $i <= 6; $i++){
                                 if (isset($outputCombination['success_location_' . $i]) && $outputCombination['success_location_' . $i] != '') {
                                     $successLocationNumbered = self::extractAttribute($contentJSON,$outputCombination['success_location_' . $i]);
                                     if ($successLocationNumbered['found'] === true) {
@@ -376,6 +396,8 @@ class erLhcoreClassGenericBotActionRestapi
                         'content_2' => (isset($responseValueSub[2]) ? $responseValueSub[2] : ''),
                         'content_3' => (isset($responseValueSub[3]) ? $responseValueSub[3] : ''),
                         'content_4' => (isset($responseValueSub[4]) ? $responseValueSub[4] : ''),
+                        'content_5' => (isset($responseValueSub[5]) ? $responseValueSub[5] : ''),
+                        'content_6' => (isset($responseValueSub[6]) ? $responseValueSub[6] : ''),
                         'meta' => $meta,
                         'id' => $outputCombination['id']);
                 }
@@ -388,6 +410,8 @@ class erLhcoreClassGenericBotActionRestapi
                 'content_2' => '',
                 'content_3' => '',
                 'content_4' => '',
+                'content_5' => '',
+                'content_6' => '',
                 'meta' => array()
             );
         }
