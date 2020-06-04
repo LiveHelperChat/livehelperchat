@@ -15,6 +15,17 @@ body {
     font-display: swap;
 }
 
+.quick-replies{
+    margin-top:5px;
+    margin-bottom: 5px;
+    margin-left:0px;
+}
+
+.quick-replies > li {
+    padding-left:0;
+    padding-bottom: 3px;
+}
+
 div.message-row {
     overflow-wrap: break-word;
 }
