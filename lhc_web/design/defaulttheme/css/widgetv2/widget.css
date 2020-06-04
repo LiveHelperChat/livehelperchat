@@ -24,6 +24,7 @@ body {
 .quick-replies > li {
     padding-left:0;
     padding-bottom: 3px;
+    margin-right: 0!important;
 }
 
 div.message-row {
