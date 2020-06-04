@@ -44,6 +44,10 @@ class erLhcoreClassGenericBotActionRestapi
                     }
                 }
 
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.rest_api_before_request', array(
+                    'restapi' => & $restAPI
+                ));
+
                 $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
 
                 // We have found exact matching response type
@@ -57,6 +61,8 @@ class erLhcoreClassGenericBotActionRestapi
                                 '{content_2}' => $response['content_2'],
                                 '{content_3}' => $response['content_3'],
                                 '{content_4}' => $response['content_4'],
+                                '{content_5}' => $response['content_5'],
+                                '{content_6}' => $response['content_6'],
                                 '{http_code}' => $response['http_code']
                             ),
                             'meta_msg' => $response['meta'],
@@ -73,6 +79,8 @@ class erLhcoreClassGenericBotActionRestapi
                             '{content_2}' => $response['content_2'],
                             '{content_3}' => $response['content_3'],
                             '{content_4}' => $response['content_4'],
+                            '{content_5}' => $response['content_5'],
+                            '{content_6}' => $response['content_6'],
                             '{http_code}' => $response['http_code']
                         ),
                         'meta_msg' => $response['meta'],
@@ -276,7 +284,7 @@ class erLhcoreClassGenericBotActionRestapi
             curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyPOST);
         }
 
-        $url = rtrim($host) . str_replace(array_keys($replaceVariables), array_values($replaceVariables),$methodSettings['suburl']) . '?' . http_build_query($queryArgs);
+        $url = rtrim($host) . str_replace(array_keys($replaceVariables), array_values($replaceVariables), (isset($methodSettings['suburl']) ? $methodSettings['suburl'] : '')) . '?' . http_build_query($queryArgs);
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -284,27 +292,48 @@ class erLhcoreClassGenericBotActionRestapi
         $content = curl_exec($ch);
 
         if (curl_errno($ch)) {
-            //$additionalError = ' [ERR: ' . curl_error($ch) . '] ';
+            $additionalError = ' [ERR: ' . curl_error($ch) . '] ';
         }
 
         $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
         if (isset($methodSettings['output']) && !empty($methodSettings['output'])) {
 
+            $allOptional = true;
+
+            // First check is there any required to check combinations and disable others if so.
+            foreach ($methodSettings['output'] as $index => $outputCombination)
+            {
+                if (isset($paramsCustomer['action']['content']['rest_api_method_output'][$outputCombination['id'] . '_chk']) && $paramsCustomer['action']['content']['rest_api_method_output'][$outputCombination['id'] . '_chk'] == true) {
+                    $allOptional = false;
+                    break;
+                }
+            }
+
             foreach ($methodSettings['output'] as $outputCombination)
             {
+                if ($allOptional == false && (!isset($paramsCustomer['action']['content']['rest_api_method_output'][$outputCombination['id'] . '_chk']) || $paramsCustomer['action']['content']['rest_api_method_output'][$outputCombination['id'] . '_chk'] == false)) {
+                    // One of the conditions is checked, but not this one.
+                    continue;
+                }
+
                 // Verify HTTP Status code
                 if (!isset($outputCombination['success_header']) || $outputCombination['success_header'] == '' || in_array((string)$httpcode,explode(',',$outputCombination['success_header']))){
 
                     if (isset($outputCombination['success_location']) && $outputCombination['success_location'] != '') {
-                        $contentJSON = json_decode($content, true);
+
+                        if (isset($outputCombination['format']) && $outputCombination['format'] == 'xml') {
+                            $contentJSON = json_decode(json_encode(simplexml_load_string($content)),true);
+                        } else {
+                            $contentJSON = json_decode($content, true);
+                        }
 
                         $successLocation = self::extractAttribute($contentJSON, $outputCombination['success_location']);
 
                         if ($successLocation['found'] === true) {
 
                             $responseValueSub = array();
-                            for ($i = 2; $i <= 4; $i++){
+                            for ($i = 2; $i <= 6; $i++){
                                 if (isset($outputCombination['success_location_' . $i]) && $outputCombination['success_location_' . $i] != '') {
                                     $successLocationNumbered = self::extractAttribute($contentJSON,$outputCombination['success_location_' . $i]);
                                     if ($successLocationNumbered['found'] === true) {
@@ -318,6 +347,9 @@ class erLhcoreClassGenericBotActionRestapi
                                 $responseValueCompareLocation = self::extractAttribute($contentJSON, $outputCombination['success_condition_val']);
                                 if ($responseValueCompareLocation['found'] === true) {
                                     $responseValueCompare = $responseValueCompareLocation['value'];
+                                } else {
+                                    // Attribute was not found
+                                    continue;
                                 }
                             }
                         } else {
@@ -364,6 +396,8 @@ class erLhcoreClassGenericBotActionRestapi
                         'content_2' => (isset($responseValueSub[2]) ? $responseValueSub[2] : ''),
                         'content_3' => (isset($responseValueSub[3]) ? $responseValueSub[3] : ''),
                         'content_4' => (isset($responseValueSub[4]) ? $responseValueSub[4] : ''),
+                        'content_5' => (isset($responseValueSub[5]) ? $responseValueSub[5] : ''),
+                        'content_6' => (isset($responseValueSub[6]) ? $responseValueSub[6] : ''),
                         'meta' => $meta,
                         'id' => $outputCombination['id']);
                 }
@@ -376,6 +410,8 @@ class erLhcoreClassGenericBotActionRestapi
                 'content_2' => '',
                 'content_3' => '',
                 'content_4' => '',
+                'content_5' => '',
+                'content_6' => '',
                 'meta' => array()
             );
         }
@@ -396,10 +432,32 @@ class erLhcoreClassGenericBotActionRestapi
 
         $partFound = true;
         foreach ($parts as $part) {
-            if (isset($partData[$part]) ) {
-                $partData = $partData[$part];
+
+            if (strpos($part,'[') === 0) {
+
+                $conditions = explode('=', str_replace(['[',']'],'',$part));
+
+                $foundConditions = false;
+                foreach ($partData as $partItem) {
+                    if ($partItem[$conditions[0]] == $conditions[1]) {
+                        $partData = $partItem;
+                        $foundConditions = true;
+                        continue;
+                    }
+                }
+
+                if ($foundConditions == false) {
+                    $partFound = false;
+                    break;
+                }
+
             } else {
-                $partFound = false;
+                if (isset($partData[$part]) ) {
+                    $partData = $partData[$part];
+                } else {
+                    $partFound = false;
+                    break;
+                }
             }
         }
 

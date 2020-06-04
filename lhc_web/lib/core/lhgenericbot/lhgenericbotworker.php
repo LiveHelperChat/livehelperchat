@@ -76,6 +76,10 @@ class erLhcoreClassLHCBotWorker
                         $params['msg_text'] = $contentArray[0]['content']['msg_text'];
                     }
 
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.rest_api_before_request', array(
+                        'restapi' => & $restAPI
+                    ));
+
                     $response = erLhcoreClassGenericBotActionRestapi::makeRequest($restAPI->configuration_array['host'], $method, array('action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
 
                     $event->removeThis();
@@ -91,6 +95,8 @@ class erLhcoreClassLHCBotWorker
                                 '{content_2}' => $response['content_2'],
                                 '{content_3}' => $response['content_3'],
                                 '{content_4}' => $response['content_4'],
+                                '{content_5}' => $response['content_5'],
+                                '{content_6}' => $response['content_6'],
                                 '{http_code}' => $response['http_code']
                             ))));
 
@@ -112,6 +118,8 @@ class erLhcoreClassLHCBotWorker
                             '{content_2}' => $response['content_2'],
                             '{content_3}' => $response['content_3'],
                             '{content_4}' => $response['content_4'],
+                            '{content_5}' => $response['content_5'],
+                            '{content_6}' => $response['content_6'],
                             '{http_code}' => $response['http_code']
                         ))));
 
