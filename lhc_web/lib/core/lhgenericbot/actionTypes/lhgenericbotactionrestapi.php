@@ -57,6 +57,8 @@ class erLhcoreClassGenericBotActionRestapi
                                 '{content_2}' => $response['content_2'],
                                 '{content_3}' => $response['content_3'],
                                 '{content_4}' => $response['content_4'],
+                                '{content_5}' => $response['content_5'],
+                                '{content_6}' => $response['content_6'],
                                 '{http_code}' => $response['http_code']
                             ),
                             'meta_msg' => $response['meta'],
@@ -73,6 +75,8 @@ class erLhcoreClassGenericBotActionRestapi
                             '{content_2}' => $response['content_2'],
                             '{content_3}' => $response['content_3'],
                             '{content_4}' => $response['content_4'],
+                            '{content_5}' => $response['content_5'],
+                            '{content_6}' => $response['content_6'],
                             '{http_code}' => $response['http_code']
                         ),
                         'meta_msg' => $response['meta'],
@@ -323,6 +327,9 @@ class erLhcoreClassGenericBotActionRestapi
                                 $responseValueCompareLocation = self::extractAttribute($contentJSON, $outputCombination['success_condition_val']);
                                 if ($responseValueCompareLocation['found'] === true) {
                                     $responseValueCompare = $responseValueCompareLocation['value'];
+                                } else {
+                                    // Attribute was not found
+                                    continue;
                                 }
                             }
                         } else {
@@ -401,10 +408,32 @@ class erLhcoreClassGenericBotActionRestapi
 
         $partFound = true;
         foreach ($parts as $part) {
-            if (isset($partData[$part]) ) {
-                $partData = $partData[$part];
+
+            if (strpos($part,'[') === 0) {
+
+                $conditions = explode('=', str_replace(['[',']'],'',$part));
+
+                $foundConditions = false;
+                foreach ($partData as $partItem) {
+                    if ($partItem[$conditions[0]] == $conditions[1]) {
+                        $partData = $partItem;
+                        $foundConditions = true;
+                        continue;
+                    }
+                }
+
+                if ($foundConditions == false) {
+                    $partFound = false;
+                    break;
+                }
+
             } else {
-                $partFound = false;
+                if (isset($partData[$part]) ) {
+                    $partData = $partData[$part];
+                } else {
+                    $partFound = false;
+                    break;
+                }
             }
         }
 
