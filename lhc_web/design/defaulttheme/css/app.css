@@ -124,31 +124,6 @@ a:hover{
 	cursor:pointer;
 }
 
-.mx170{
-	max-height:170px;
-	overflow:auto;
-}
-
-.mx550{
-	max-height:550px;
-	overflow:auto;
-}
-
-.mx300{
-	max-height:300px;
-	overflow:auto;
-}
-
-.mx275{
-    max-height:275px;
-    overflow:auto;
-}
-
-.mh275{
-    min-height:275px;
-    overflow:auto;
-}
-
 .break-words{
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -1624,4 +1599,29 @@ input[type="file"]{
 .survey-stars-row .survey-selected-item svg, .survey-stars-row .hover svg {
     transform: scale(1.3);
     opacity: 1;
+}
+
+.mx170{
+    max-height:170px;
+    overflow:auto;
+}
+
+.mx550{
+    max-height:550px;
+    overflow:auto;
+}
+
+.mx300{
+    max-height:300px;
+    overflow:auto;
+}
+
+.mx275{
+    max-height:275px;
+    overflow:auto;
+}
+
+.mh275{
+    min-height:275px;
+    overflow:auto;
 }
