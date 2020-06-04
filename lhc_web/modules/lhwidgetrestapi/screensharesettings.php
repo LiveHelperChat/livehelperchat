@@ -19,6 +19,8 @@ $settings = array(
     'url' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurlsite() . '/cobrowse/storenodemap/(sharemode)/chat'
 );
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.screensharesettings', array('output' => & $settings));
+
 erLhcoreClassRestAPIHandler::outputResponse($settings);
 exit();
 
