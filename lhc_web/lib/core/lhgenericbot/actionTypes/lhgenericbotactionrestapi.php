@@ -284,7 +284,7 @@ class erLhcoreClassGenericBotActionRestapi
         $content = curl_exec($ch);
 
         if (curl_errno($ch)) {
-            //$additionalError = ' [ERR: ' . curl_error($ch) . '] ';
+            $additionalError = ' [ERR: ' . curl_error($ch) . '] ';
         }
 
         $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -297,7 +297,12 @@ class erLhcoreClassGenericBotActionRestapi
                 if (!isset($outputCombination['success_header']) || $outputCombination['success_header'] == '' || in_array((string)$httpcode,explode(',',$outputCombination['success_header']))){
 
                     if (isset($outputCombination['success_location']) && $outputCombination['success_location'] != '') {
-                        $contentJSON = json_decode($content, true);
+
+                        if (isset($outputCombination['format']) && $outputCombination['format'] == 'xml') {
+                            $contentJSON = json_decode(json_encode(simplexml_load_string($content)),true);
+                        } else {
+                            $contentJSON = json_decode($content, true);
+                        }
 
                         $successLocation = self::extractAttribute($contentJSON, $outputCombination['success_location']);
 
