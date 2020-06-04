@@ -16,15 +16,11 @@ body {
 }
 
 .quick-replies{
-    margin-top:5px;
-    margin-bottom: 5px;
-    margin-left:0px;
+    margin:0.5rem 0;
 }
 
 .quick-replies > li {
-    padding-left:0;
-    padding-bottom: 3px;
-    margin-right: 0!important;
+    padding-bottom: 0.5rem;
 }
 
 div.message-row {
