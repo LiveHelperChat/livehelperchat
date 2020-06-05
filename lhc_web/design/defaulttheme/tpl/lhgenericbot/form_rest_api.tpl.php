@@ -338,7 +338,7 @@
                             <div class="form-group">
                                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Response comparison')?></label>
                                 <select class="form-control form-control-sm" ng-model="paramOutput.success_condition" >
-                                    <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Do nothing')?></option>
+                                    <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Check for presence of variable')?></option>
                                     <option value="gt">&gt;</option>
                                     <option value="gte">&gt;=</option>
                                     <option value="lt">&lt;</option>
