@@ -438,6 +438,9 @@
                     <?php $translatableItem = array('identifier' => 'noonline_operators_offline'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
+                    <?php $translatableItem = array('identifier' => 'thank_feedback'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
         		</div>
         		
         		<div role="tabpanel" class="tab-pane" id="customcss">

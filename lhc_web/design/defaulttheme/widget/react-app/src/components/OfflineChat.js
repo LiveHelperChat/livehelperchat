@@ -152,7 +152,7 @@ class OfflineChat extends Component {
                 <div className="container-fluid" id="id-container-fluid">
                     <div className="row">
                         <div className="col-12">
-                            <p>{t('start_chat.thank_you_for_feedback')}</p>
+                            <p>{this.props.chatwidget.getIn(['chat_ui','thank_feedback']) || t('start_chat.thank_you_for_feedback')}</p>
                         </div>
                     </div>
                 </div>

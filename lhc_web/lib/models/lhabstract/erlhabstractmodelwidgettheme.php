@@ -459,6 +459,8 @@ class erLhAbstractModelWidgetTheme {
             'custom_html_bot',
             'custom_html_widget',
             'custom_html',
+            'thank_feedback',
+            'placeholder_message',
             'need_help_html',
         ),$attributesDirect);
 

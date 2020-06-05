@@ -127,6 +127,12 @@ if ($Params['user_parameters_unordered']['online'] == '0') {
         $chat_ui['offline_intro'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','There are no online operators at the moment, please leave a message');
     }
 
+    if ($Params['user_parameters_unordered']['online'] == '0') {
+        if ($theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['thank_feedback']) && !empty($theme->bot_configuration_array['thank_feedback'])) {
+            $chat_ui['thank_feedback'] = $theme->bot_configuration_array['thank_feedback'];
+        }
+    }
+
 } else {
     if (isset($start_data_fields['pre_chat_html']) && $start_data_fields['pre_chat_html'] != '') {
         $chat_ui['operator_profile'] = $start_data_fields['pre_chat_html'];
