@@ -233,7 +233,8 @@ if (empty($Errors)) {
         }
 
         // Store theme trigger message as first message
-        if (!isset($msg) && isset($additionalParams['theme']) && isset($additionalParams['theme']->bot_configuration_array['trigger_id']) && !empty($additionalParams['theme']->bot_configuration_array['trigger_id']) && $additionalParams['theme']->bot_configuration_array['trigger_id'] > 0) {
+        // But only if invitation have not set those
+        if ((!isset($requestPayload['invitation_id']) || !is_numeric($requestPayload['invitation_id'])) && !isset($msg) && isset($additionalParams['theme']) && isset($additionalParams['theme']->bot_configuration_array['trigger_id']) && !empty($additionalParams['theme']->bot_configuration_array['trigger_id']) && $additionalParams['theme']->bot_configuration_array['trigger_id'] > 0) {
             $trigger = erLhcoreClassModelGenericBotTrigger::fetch($additionalParams['theme']->bot_configuration_array['trigger_id']);
             if (is_object($trigger)) {
                 erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger);

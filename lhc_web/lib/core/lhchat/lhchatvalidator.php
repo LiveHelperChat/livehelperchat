@@ -1640,7 +1640,7 @@ class erLhcoreClassChatValidator {
                     $botTrigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $botIds), 'filter' => array('default' => 1)));
                 }
 
-                if ($botTrigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                if ($botTrigger instanceof erLhcoreClassModelGenericBotTrigger && (!isset($params['trigger_id_executed']) || $params['trigger_id_executed'] != $botTrigger->id)) {
 
                     // set flag that we are executing everthing in start chat mode
                     erLhcoreClassGenericBotWorkflow::$startChat = true;
