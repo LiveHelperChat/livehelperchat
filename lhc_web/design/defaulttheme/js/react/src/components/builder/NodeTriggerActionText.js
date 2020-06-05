@@ -27,6 +27,7 @@ class NodeTriggerActionText extends Component {
 
         this.onStoreNameChange = this.onStoreNameChange.bind(this);
         this.onStoreValueChange = this.onStoreValueChange.bind(this);
+        this.onButtonIDChange = this.onButtonIDChange.bind(this);
 
         // Abstract methods
         this.onDeleteField = this.onDeleteField.bind(this);
@@ -89,6 +90,10 @@ class NodeTriggerActionText extends Component {
         this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content','store_value'], value : e.value});
     }
 
+    onButtonIDChange(e) {
+        this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content','button_id'], value : e.value});
+    }
+
 
     onRenderArgsChange(e) {
         this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content','render_args'], value : e.value});
@@ -128,7 +133,7 @@ class NodeTriggerActionText extends Component {
 
         if (this.props.action.hasIn(['content','quick_replies'])) {
             quick_replies = this.props.action.getIn(['content','quick_replies']).map((reply, index) => {
-                return <NodeTriggerActionQuickReply onPayloadAttrChange={this.onPayloadAttrChange} onStoreValueChange={this.onStoreValueChange} onStoreNameChange={this.onStoreNameChange} onPrecheckChange={this.onPrecheckChange} onRenderArgsChange={this.onRenderArgsChange} onPayloadTypeChange={this.onQuickReplyPayloadTypeChange} deleteReply={this.onDeleteQuickReply} onNameChange={this.onQuickReplyNameChange}  onPayloadChange={this.onQuickReplyPayloadChange} id={index} key={index} reply={reply} />
+                return <NodeTriggerActionQuickReply onPayloadAttrChange={this.onPayloadAttrChange} onButtonIDChange={this.onButtonIDChange} onStoreValueChange={this.onStoreValueChange} onStoreNameChange={this.onStoreNameChange} onPrecheckChange={this.onPrecheckChange} onRenderArgsChange={this.onRenderArgsChange} onPayloadTypeChange={this.onQuickReplyPayloadTypeChange} deleteReply={this.onDeleteQuickReply} onNameChange={this.onQuickReplyNameChange}  onPayloadChange={this.onQuickReplyPayloadChange} id={index} key={index} reply={reply} />
             });
         }
 

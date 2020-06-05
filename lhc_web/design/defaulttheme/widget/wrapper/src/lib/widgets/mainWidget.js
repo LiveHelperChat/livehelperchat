@@ -59,7 +59,7 @@ export class mainWidget{
 
         this.attributes = attributes;
 
-        this.cont.constructUIIframe('', this.attributes.staticJS['dir'], this.attributes.staticJS['cl']);
+        this.cont.constructUIIframe('', this.attributes.staticJS['dir'], this.attributes.staticJS['cl'], this.attributes.hhtml);
 
         if (this.attributes.cont_ss) {
             this.originalCSS = this.cont.elmDom.style.cssText;

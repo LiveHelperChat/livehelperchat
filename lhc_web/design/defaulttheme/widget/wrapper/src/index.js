@@ -101,6 +101,7 @@
                 lang : LHC_API.args.lang || '',
                 bot_id : LHC_API.args.bot_id || '',
                 priority : LHC_API.args.priority || '',
+                hhtml : LHC_API.args.hhtml || '',
                 survey : LHC_API.args.survey || null,
                 operator : LHC_API.args.operator || null,
                 phash : LHC_API.args.phash || null,
@@ -209,6 +210,10 @@
                 if (data.chat_ui) {
                     if (data.chat_ui.wheight && !isMobile) {
                         attributesWidget.widgetDimesions.nextProperty('height',data.chat_ui.wheight);
+                    }
+
+                    if (data.chat_ui.hhtml) {
+                        attributesWidget.hhtml = data.chat_ui.hhtml;
                     }
 
                     if (data.chat_ui.wwidth && !isMobile) {
