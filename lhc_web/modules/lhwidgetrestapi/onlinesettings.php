@@ -486,7 +486,8 @@ if ($theme !== false) {
 
     if ($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') {
         if (isset($theme->bot_configuration_array['custom_html_widget_bot']) && $theme->bot_configuration_array['custom_html_widget_bot'] != '') {
-            $onlyBotOnline = erLhcoreClassChat::isOnlyBotOnline($Params['user_parameters_unordered']['department']);
+            $onlyBotOnline = erLhcoreClassChat::isOnlyBotOnline($departament_id > 0 ? $departament_id : $Params['user_parameters_unordered']['department']);
+
             if ($onlyBotOnline === true) {
                 $chat_ui['custom_html_widget'] = $theme->bot_configuration_array['custom_html_widget_bot'];
             }
@@ -506,7 +507,7 @@ if ($theme !== false) {
 
     if ($Params['user_parameters_unordered']['mode'] == 'popup') {
         if (isset($theme->bot_configuration_array['custom_html_bot']) && $theme->bot_configuration_array['custom_html_bot'] != '') {
-            $onlyBotOnline = erLhcoreClassChat::isOnlyBotOnline($Params['user_parameters_unordered']['department']);
+            $onlyBotOnline = erLhcoreClassChat::isOnlyBotOnline($departament_id > 0 ? $departament_id : $Params['user_parameters_unordered']['department']);
             if ($onlyBotOnline === true) {
                 $chat_ui['custom_html_widget'] = $theme->bot_configuration_array['custom_html_bot'];
             }
@@ -532,7 +533,7 @@ if ($theme !== false) {
 
         if (isset($theme->bot_configuration_array['custom_start_button_bot']) && $theme->bot_configuration_array['custom_start_button_bot'] != '') {
             if (!isset($onlyBotOnline)) {
-                $onlyBotOnline = erLhcoreClassChat::isOnlyBotOnline($Params['user_parameters_unordered']['department']);
+                $onlyBotOnline = erLhcoreClassChat::isOnlyBotOnline($departament_id > 0 ? $departament_id : $Params['user_parameters_unordered']['department']);
             }
 
             if ($onlyBotOnline === true) {

@@ -885,7 +885,7 @@ class erLhcoreClassChat {
             if ($onlyBotOnline == false) {
                 $departmentObject = erLhcoreClassModelDepartament::fetch($department);
                 if ($departmentObject instanceof erLhcoreClassModelDepartament) {
-                    if (!isset($departmentObject->bot_configuration_array['bot_only_offline']) || $departmentObject->bot_configuration_array['bot_only_offline'] == 0) {
+                    if ((!isset($departmentObject->bot_configuration_array['bot_only_offline']) || $departmentObject->bot_configuration_array['bot_only_offline'] == 0) && isset($departmentObject->bot_configuration_array['bot_id']) && $departmentObject->bot_configuration_array['bot_id'] > 0) {
                         $onlyBotOnline = true;
                     }
                 }
