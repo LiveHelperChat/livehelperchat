@@ -808,10 +808,15 @@ class erLhcoreClassBBCode
                             if (isset($mainData[1])) {
                                 $subpartParts = explode('=',$mainData[1]);
                                 if ($subpartParts[0] == 'link') {
-                                    $url = self::esc_url($subpartParts[1]);
-                                    if ($url != ''){
-                                        $prepend = '<a class="link" rel="noreferrer" target="_blank" href="' . self::esc_url($subpartParts[1]) . '">';
+                                    if (!isset($subpartParts[1])) {
+                                        $prepend = '<a class="link" rel="noreferrer" target="_blank" href="//'. $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}\">";
                                         $append = '</a>';
+                                    } else {
+                                        $url = self::esc_url($subpartParts[1]);
+                                        if ($url != ''){
+                                            $prepend = '<a class="link" rel="noreferrer" target="_blank" href="' . self::esc_url($subpartParts[1]) . '">';
+                                            $append = '</a>';
+                                        }
                                     }
                                 }
                             } else {
