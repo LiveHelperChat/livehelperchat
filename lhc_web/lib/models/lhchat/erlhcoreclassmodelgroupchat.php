@@ -63,6 +63,14 @@ class erLhcoreClassModelGroupChat
                 return $this->is_member;
                 break;
 
+            case 'ls_id':
+                $this->ls_id = 0;
+                if ($this->is_member === true && is_object($this->member)) {
+                    $this->ls_id = $this->member->last_msg_id;
+                }
+                return $this->ls_id;
+                break;
+
             case 'jtime':
                 $this->jtime = 0;
                 if ($this->is_member === true && is_object($this->member)) {

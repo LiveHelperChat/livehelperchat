@@ -585,6 +585,7 @@ try {
   `user_id` bigint(20) NOT NULL,
   `group_id` bigint(20) NOT NULL,
   `last_activity` int(11) NOT NULL,
+  `last_msg_id` bigint(20) NOT NULL DEFAULT 0,
   `jtime` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `group_id` (`group_id`),

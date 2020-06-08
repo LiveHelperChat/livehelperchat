@@ -1,0 +1,1 @@
+ALTER TABLE `lh_group_chat_member` ADD `last_msg_id` bigint(20) NOT NULL DEFAULT '0', COMMENT='';

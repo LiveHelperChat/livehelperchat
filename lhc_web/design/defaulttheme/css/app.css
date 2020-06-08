@@ -383,6 +383,10 @@ div.message-row > div,div.message-row > span,div.message-row > i {
 	animation: blink 1500ms linear infinite;
 }
 
+.blink-ani{
+    animation: blink 1500ms linear infinite;
+}
+
 @keyframes blink{
 	0%{opacity: 0.3;}
 	50%{opacity: .9;}

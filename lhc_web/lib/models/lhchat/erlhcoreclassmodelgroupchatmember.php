@@ -19,6 +19,7 @@ class erLhcoreClassModelGroupChatMember
             'user_id' => $this->user_id,
             'group_id' => $this->group_id,
             'last_activity' => $this->last_activity,
+            'last_msg_id' => $this->last_msg_id, // Last message operator has fetched
             'jtime' => $this->jtime
         );
     }
@@ -90,6 +91,7 @@ class erLhcoreClassModelGroupChatMember
     public $user_id = 0;
     public $group_id = 0;
     public $last_activity = 0;
+    public $last_msg_id = 0;
     public $jtime = 0;
 
 }
