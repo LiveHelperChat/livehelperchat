@@ -160,6 +160,11 @@ $ViewList['updatepassword'] = array(
     'functions' => array( )
 );
 
+$ViewList['setopstatus'] = array(
+    'params' => array('user_id'),
+    'functions' => array('setopstatus' )
+);
+
 $FunctionList['groupassignuser'] = array('explain' => 'Allow user to assign user to group');
 $FunctionList['editgroup'] = array('explain' => 'Allow user to edit group');
 $FunctionList['creategroup'] = array('explain' => 'Allow user to create group');
@@ -192,5 +197,6 @@ $FunctionList['passwordsecurity'] = array('explain' => 'Allow user to set passwo
 $FunctionList['see_all'] = array('explain' => 'Allow user see all users/groups not only from his group/groups');
 $FunctionList['see_all_group_users'] = array('explain' => 'Allow user see all group users he belongs to.');
 $FunctionList['changealwaysonline'] = array('explain' => 'Allow user to change always online mode');
+$FunctionList['setopstatus'] = array('explain' => 'Allow user to change other user online status from online operators widget');
 
 ?>

@@ -1158,7 +1158,11 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		    lhinst.startGroupChat(data.id,$('#tabs'),LiveHelperChatFactory.truncate(data.name,10));
 		});
 	};
-	
+
+	this.openModal = function(url) {
+        lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+url,hidecallback: function() { $scope.loadChatList(); }});
+    }
+
 	this.addEvent = (function () {
 	      var _that = this;
 		  if (document.addEventListener) {
