@@ -81,7 +81,7 @@ class NodeTriggerActionConditions extends Component {
                 <div className="row">
                     <div className="col-6">
                         <div className="form-group">
-                            <label>If conditions are met execute this trigger</label>
+                            <label>If conditions <b>are</b> met execute this trigger</label>
                             <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','callback_match'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','callback_match'])} />
                         </div>
                     </div>
@@ -92,6 +92,22 @@ class NodeTriggerActionConditions extends Component {
                         </div>
                     </div>
                 </div>
+
+                <div className="row">
+                    <div className="col-6">
+                        <div className="form-group">
+                            <label>If conditions <b>are NOT</b> met execute this trigger</label>
+                            <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','callback_unmatch'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','callback_unmatch'])} />
+                        </div>
+                    </div>
+                    <div className="col-6">
+                        <div className="form-group">
+                            <label>Schedule this trigger execution</label>
+                            <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','callback_unreschedule'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','callback_unreschedule'])} />
+                        </div>
+                    </div>
+                </div>
+
                 <hr className="hr-big" />
             </div>
         );
