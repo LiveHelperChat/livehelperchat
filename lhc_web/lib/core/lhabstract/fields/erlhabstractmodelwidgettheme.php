@@ -804,7 +804,7 @@ $fields = array(
                 // Visitor messages style
                 'buble_visitor_background' => array(
                     'type' => 'colorpicker',
-                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Visitor buble background color'),
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Visitor bubble background color'),
                     'required' => false,
                     'hidden' => true,
                     'validation_definition' => new ezcInputFormDefinitionElement(
@@ -829,7 +829,7 @@ $fields = array(
                 // Operator messages style
                 'buble_operator_background' => array(
                     'type' => 'colorpicker',
-                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator buble background color'),
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator bubble background color'),
                     'required' => false,
                     'hidden' => true,
                     'validation_definition' => new ezcInputFormDefinitionElement(

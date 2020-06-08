@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="tr" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN.GB2312" version="2.0">
   <context>
     <name>listchatconfig</name>
     <message>
@@ -19,147 +19,147 @@
     </message>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation>Son gösteriminden kaç gün sonra oy kullanma kutucuğu açılmamalı?</translation>
+      <translation>在投票Widget显示后，有多少天不会再次启用</translation>
     </message>
     <message>
       <source>Domains where script can be embedded. E.g example.com, google.com</source>
-      <translation type="unfinished"/>
+      <translation>可以嵌入脚本的网域。 例如example.com，google.com</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation>Güvenli çerezleri kullan. SSL ile şifrelemeyi her zaman kullanmak için bu ayarı etkinleştirin.</translation>
+      <translation>使用Secure Cookie, 并检查你是否有强制使用SSL</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation>Hangi ip&apos;nin, virgülle ayrılmış http isteğini yürüterek DB&apos;yi güncellemesine izin verilsin?</translation>
+      <translation>设定哪些 IP 可以被允许透过http请求更新资料库？（以分号分隔每个IP）</translation>
     </message>
     <message>
       <source>How long keep operators online sessions data? (days)</source>
-      <translation>Operatörlerin online session verileri kaç gün tutulsun?</translation>
+      <translation>客服人员在线工作阶段数据保留多长时间？ （天）</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation>Online ziyaretçileri izlemeyi aktif hale getir</translation>
+      <translation>启用在线访客追踪</translation>
     </message>
     <message>
       <source>Should mouse movement be tracked as activity measure, if not checked only basic events would be tracked</source>
-      <translation>Fare hareketi etkinlik ölçüsü olarak izlenirse, işaretlenmezse yalnızca temel olaylar izlenir.</translation>
+      <translation>滑鼠移动会作为活动量被追踪，如果不勾选只有基本的事件会被追踪</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
-      <translation>Ziyaretçi halen sitede, sohbet durumu kontrollerinin etkinleştirilmesi gerekiyor.</translation>
+      <translation>路径追踪的是仍然网站上、 聊天状态检查也已经启用的使用者</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation>Online operatör olmasa bile omline ziyaretçileri izleyin</translation>
+      <translation>即使没有在线的客服人员，也追踪在线的访客</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
-      <translation>Kullanıcıların ayak izini takip et. Ayni zamanda çevrimiçi ziyaretçi takibini etkinleştir.</translation>
+      <translation>追踪使用者的足迹。必须先启用在线访客追踪功能</translation>
     </message>
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
-      <translation>Farklı alt alanlarında kullanıcı izlemeyi etkinleştirmek için alan adınızı ayarlayın.</translation>
+      <translation>设定您的网域，让使用者能追踪跨不同网域的子网域。</translation>
     </message>
     <message>
       <source>Track users activity on site?</source>
-      <translation>Kullanıcıların etkinlikleri izlensin mi?</translation>
+      <translation>在网站上跟踪使用者活动吗？</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
-      <translation>Çevrimiçi kullanıcı kayıtlarını kaç gün tutalım?</translation>
+      <translation>保持多少天在线使用者记录。</translation>
     </message>
     <message>
       <source>How many days keep records of users footprint.</source>
-      <translation>Kullanıcıların gezinti kayıtları kaç gün saklansın?</translation>
+      <translation>保持多少天使用者足迹。</translation>
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
-      <translation>Kullanıcıya departman seçebilmesi mesaj bırakmasını önerin.</translation>
+      <translation>建议使用者留言，然后让使用者选择离线的部门</translation>
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation>Görüşmeye davette ses oynat</translation>
+      <translation>交谈邀请时播放音效。</translation>
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
-      <translation>Widget dilini değiştirmek için kullanıcı seçeneğini göster</translation>
+      <translation>在Widget中显示切换语言的使用者选项</translation>
     </message>
     <message>
       <source>Between what languages user should be able to switch</source>
-      <translation>Kullanıcı hangi diller arasında geçiş yapabilmeli.</translation>
+      <translation>使用者能在什么语言之间任意切换</translation>
     </message>
     <message>
       <source>Host where NodeJs is running</source>
-      <translation>NodeJs &apos;nin çalıştığı sunucu</translation>
+      <translation>运行NodeJs 的主机</translation>
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
-      <translation>SocketIO JS kütüphanesinin konumu</translation>
+      <translation>SocketIO JS库的位置</translation>
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
-      <translation>NodeJs e https modunda bağlan</translation>
+      <translation>以https模式连接到NodeJs</translation>
     </message>
     <message>
       <source>socket.io path, optional</source>
-      <translation>socket.io yolu, isteğe bağlı</translation>
+      <translation>socket.io路径，可选</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
-      <translation>NodeJS desteği aktif</translation>
+      <translation>开启 NodeJS 支援</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation>Ekranlarını görmek için kullanıcılardan izin isteme</translation>
+      <translation>不需经过使用者许可，即能查看他们的萤幕</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
-      <translation>Captcha doğrulaması oturumunu kullanın. Sistem aynı alan adına (domain) veya alt alan adına yüklenmelidir.</translation>
+      <translation>使用工作阶段验证码。 LHC必须安装在同一网域或子网域上。</translation>
     </message>
     <message>
       <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
-      <translation>Zamanlanmış İşlemler(cronjob), cevapsız konuşmaların sonlandırılması için çalıştırılır. 0 - İşlem Yapma, Sıfırdan büyük tüm değerler chat&apos;in sonlandırılması için geçecek süreyi belirtir.</translation>
+      <translation>如果cronjob运行, 未应答的聊天工作流程并执行未应答的聊天回调，0 - 不. 任何大于0的其他数字 - 多少分钟聊天不接受执行回叫信号。</translation>
     </message>
     <message>
       <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
-      <translation>Zamanlanmış işlemler kullanıcı sohbetten ayrıldığında da çalışsın mı</translation>
+      <translation>是否 Cronjob 应该运行部门转移工作流，即使使用者离开了交谈</translation>
     </message>
     <message>
       <source>Make default pending chats order from old to new</source>
-      <translation>Bekleyen sohbetlerin sıralaması eskiden yeniye varsayılan olarak kaydedilsin</translation>
+      <translation>将预设的等待中聊天顺序从旧设置为新</translation>
     </message>
     <message>
       <source>Reopen chat functionality enabled</source>
-      <translation>Sohbet fonksiyonları yeniden açılsın</translation>
+      <translation>启用 重启交谈功能</translation>
     </message>
     <message>
       <source>Reopen closed chat as new? Otherwise it will be reopened as active.</source>
-      <translation>Kapanan konuşmalar yeni olarak mı yeniden açılsın? Aksi halde aktif olarak yeniden açılacak</translation>
+      <translation>要重启已完成交谈为新的交谈吗？否则它将重启为进行中交谈。</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
-      <translation>Çevrimiçi operatör yoksa davetiye mantığı uygulanmalı mı?</translation>
+      <translation>如果没有客服人员在线上，是否要进行主动邀请</translation>
     </message>
     <message>
       <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
-      <translation>Bekleyen sohbetlere dayalı proaktif sohbet davet sınırlaması, (-1) sınırlamaz, (0,1, n + 1) beklemedeki sohbet sayısı için davetiyenin gösterilmesi.</translation>
+      <translation>不限制主动聊天邀请限制基于待定的聊天记录，(-1)，（0，1，n + 1） 挂起聊天的数目可以为要显示的邀请。</translation>
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
-      <translation>Proaktif sohbet davetiyesi aktif edilsin. Çevrimiçi kullanıcı takibi de etkin olmalıdır.</translation>
+      <translation>是否启用主动交谈邀请。在线访客追踪必须被启用</translation>
     </message>
     <message>
       <source>Preload iframes. It will avoid loading delay after clicking widget</source>
-      <translation>Iframe&apos;leri önceden yükleyin. Widget&apos;ı tıkladıktan sonra yükleme gecikmesini önleyecektir</translation>
+      <translation>预加载iframe。 这将避免单击 Widget 后的加载延迟</translation>
     </message>
     <message>
       <source>How many seconds customer has to open already closed chat.</source>
-      <translation>Ziyaretçi kapatılan aktif sohbet ekranına kaç saniyeye kadar ulaşabilsin?</translation>
+      <translation>客户必须打开多少秒才能关闭已关闭的聊天。</translation>
     </message>
     <message>
       <source>On chat close exit chat</source>
-      <translation>Sohbet sonlandığında konuşma kapatılsın.</translation>
+      <translation>当聊天关闭时退出聊天</translation>
     </message>
     <message>
       <source/>
@@ -171,2144 +171,2144 @@
     </message>
     <message>
       <source>Cookie should be valid only for domain where Javascript is embedded</source>
-      <translation>Çerez sadece Javascript&apos;in gömülü olduğu alan için geçerli olsun.</translation>
+      <translation>Cookie仅对嵌入了 Javascript 的网域有效</translation>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation>Yardım pop-up&apos;u kullanıcıya kaç saat sonra tekrar görüntülensin?</translation>
+      <translation>需要帮助工具提示超时，几个小时后会再次显示？</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation>Yardım lazım ipuçlarını göster</translation>
+      <translation>显示需要帮助工具提示？</translation>
     </message>
     <message>
       <source>Minimum phone number length</source>
-      <translation>Minimum telefon numarası uzunluğu</translation>
+      <translation>电话号码最小长度</translation>
     </message>
     <message>
       <source>Messages box height for operator</source>
-      <translation>Operatör ekranındaki mesaj kutusu yüksekliği</translation>
+      <translation>客服人员的讯息框框高度</translation>
     </message>
     <message>
       <source>Messages box height</source>
-      <translation>Mesaj kutusu yüksekliği</translation>
+      <translation>讯息框框高度</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
-      <translation>Proaktif sohbet mesajı kaç saat sonra tekrar gösterilsin?</translation>
+      <translation>以小时为单位的积极信息超时。多少小时后主动聊天 mesasge 应该会再显示。</translation>
     </message>
     <message>
       <source>Maximum message length in characters</source>
-      <translation>Karakter olarak maksimum mesaj uzunluğu</translation>
+      <translation>最大讯息字元长度</translation>
     </message>
     <message>
       <source>List unread chats, disabled for high performance</source>
-      <translation>Okunmamış sohbetleri listele, yüksek performans için kapatın</translation>
+      <translation>列出未读聊天，为提高性能而禁用</translation>
     </message>
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
-      <translation>Online operatörleri listele, 0 - kapalı, 1 - açık</translation>
+      <translation>列出在线的客服人员，0 - 否，1 - 是。</translation>
     </message>
     <message>
       <source>List closed chats, disabled for high performance</source>
-      <translation>Kapanmış sohbetleri listele, yüksek performans için kapalı</translation>
+      <translation>列出关闭的聊天，禁用以提高性能</translation>
     </message>
     <message>
       <source>Default number of online operators to show</source>
-      <translation>Varsayılan kaç operatör aktif olarak gösterilsin</translation>
+      <translation>在线客服人员的默认显示数量</translation>
     </message>
     <message>
       <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
-      <translation>Operatör&apos;ün mesajı okumaması durumu ziyaretçiye bildirilsin mi? 0 - devre dışı, Sıfır üstü değerleri dakika şeklinde giriniz.</translation>
+      <translation>告知访客客服人员的未读取讯息，单位为分钟。0 - 禁用</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
-      <translation>Kullanıcıların online saatleri sayılmasın ve departmanın aktif saatleri kayıt edilsin</translation>
+      <translation>使用部门在线时间，并忽略使用者在线状态</translation>
     </message>
     <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
-      <translation>Online kullanıcılar listesinden gizlenecek IP adresini giriniz</translation>
+      <translation>哪一个 ip 应该忽略在在线访客列表中，用逗号分隔</translation>
     </message>
     <message>
       <source>Hide right column in frontpage</source>
-      <translation>Ön sayfada sağ kolonu gizle</translation>
+      <translation>隐藏在首页的右侧</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
-      <translation>Pasif edilmiş departman aracını gizle</translation>
+      <translation>隐藏已禁用的部门 Wdiget</translation>
     </message>
     <message>
       <source>Hide close button in dropdown</source>
-      <translation>Kapat düğmesini açılır sekmede gizle</translation>
+      <translation>隐藏下拉清单中的关闭按钮</translation>
     </message>
     <message>
       <source>Home page tabs order</source>
-      <translation>Anasayfa sekme sırası</translation>
+      <translation>主页选项标签顺序</translation>
     </message>
     <message>
       <source>Footprint updates should be processed in the background. Make sure you are running workflow background cronjob.</source>
-      <translation>Ayak izi güncellemeleri arka planda işlensin. Arka planda cronjob çalıştırdığınızdan emin olun.</translation>
+      <translation>足迹更新应在后台处理。请您确保正在运行工作流程背景cronjob。</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
-      <translation>SSS için ziyaretçi maili gerekli mi?</translation>
+      <translation>是否于 FAQ 上请求访客的 E-mail</translation>
     </message>
     <message>
       <source>Chats export secret hash</source>
-      <translation>Sohbetlerin export edilmesi için karışık şifre</translation>
+      <translation>导出聊天秘密 Hash</translation>
     </message>
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
-      <translation>Sistemin çalışacağı sertifika sistemini seçin. http: yada https:, formatın sonunda :iki nokta üstüste olmasına dikkat ediniz.</translation>
+      <translation>请输入显式 HTTP 模式。任一 HTTP︰ 或 HTTPs:，不要忘记︰ 在结束了。</translation>
     </message>
     <message>
       <source>Encrypt also operators messages.</source>
-      <translation>Operatör mesajları kayıt edilirken şifrelensin</translation>
+      <translation>也加密客服人员信息。</translation>
     </message>
     <message>
       <source>After how many days encrypt messaes.</source>
-      <translation>Mesajlar kaç gün sonra şifrelensin</translation>
+      <translation>经过多少天后加密信息。</translation>
     </message>
     <message>
       <source>Do not track visitors IP.</source>
-      <translation>Kullanıcıların IP adresi izlenmesin</translation>
+      <translation>不要追踪访客的 IP</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
-      <translation>Kullanıcıya Chat Kaydı gönderilmesini gizle</translation>
+      <translation>禁用聊天记录发送</translation>
     </message>
     <message>
       <source>Disable chat print</source>
-      <translation>sohbeti yazdırma devredışı</translation>
+      <translation>禁用 chat print</translation>
     </message>
     <message>
       <source>Hide &apos;New Window&apos; option in Connector Widget</source>
-      <translation>Bağlantı aracında Yeni Pencere&apos;de açma butonunu gizle</translation>
+      <translation>在 Connector Widget 中隐藏 &quot;开新视窗&quot; 选项</translation>
     </message>
     <message>
       <source>Disable live auto assign</source>
-      <translation>Otomatik sohbet kabulü pasif</translation>
+      <translation>禁用实时自动分配</translation>
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
-      <translation>Co-Browsing için Operatör taraflı JS yürütmesini devre dışı bırakın</translation>
+      <translation>禁用 JS execution in Co-Browsing operator window</translation>
     </message>
     <message>
       <source>Disable iframes in sharing mode</source>
-      <translation>Ekran paylaşımı özelliğinde iframe&apos;leri devre dışı bırak</translation>
+      <translation>禁用 iframes in sharing mode</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
-      <translation>HTML5 hafızasını pasif et, Sitenizin sertifikalar arası geçiş yapmadığını kontrol ediniz. (http ve https)</translation>
+      <translation>禁用 HMTL5 storage, check it if your site is switching between http and https</translation>
     </message>
     <message>
       <source>How long department availability statistic should be kept? (days)</source>
-      <translation>Departman istatistikleri kaç gün saklansın?</translation>
+      <translation>部门可用性统计应保留多长时间？ （天）</translation>
     </message>
     <message>
       <source>Home page dashboard widgets order</source>
-      <translation>Dashboard araçlarının varsayılan sıralaması</translation>
+      <translation>主页仪表板 Widget 顺序</translation>
     </message>
     <message>
       <source>Your site URL address</source>
-      <translation>Sitenizin URL adresi</translation>
+      <translation>您网站的网址</translation>
     </message>
     <message>
       <source>Your company name - visible in bottom left corner</source>
-      <translation>Şirket Adı - sağ alt bölümde görünür</translation>
+      <translation>您的公司名称 - 显示于左下角</translation>
     </message>
     <message>
       <source>Cleanup should should be done only using cronjob.</source>
-      <translation>Temizleme işlemi yalnızca cronjob ile yapılmalıdır</translation>
+      <translation>清理工作应仅使用 cronjob 进行。</translation>
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
-      <translation>Sohbet durumunun kontrol değeri, 0 - devre dışı, sıfır üstü değerler saniye olarak belirtilir.</translation>
+      <translation>检查交谈状态的时间间隔，0 为禁用。</translation>
     </message>
     <message>
       <source>How long operator can wait for message from visitor before time between messages are ignored. Values in minutes.</source>
-      <translation>Kullanıcı mesaj yazmadığı durumda sohbetin sonlandırılmasından önce operatör tarafında kaç dakika bekletilsin?</translation>
+      <translation>客服人员可以等待来自访客的信息多久之前会忽略信息时间。 以分钟为单位的值。</translation>
     </message>
     <message>
       <source>How long visitor can wait for message from operator before time between messages are ignored. Values in minutes.</source>
-      <translation>Operatör mesaj yazmadığı durumda sohbetin sonlandırılmasından önce kullanıcı tarafında kaç dakika bekletilsin?</translation>
+      <translation>访客可以等待来自客服人员的信息多久之前会忽略信息时间。 以分钟为单位的值。</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
-      <translation>BB Kodu butununu göster</translation>
+      <translation>显示 BB Code 按钮</translation>
     </message>
     <message>
       <source>Which ip should not be allowed to chat</source>
-      <translation>Sohbet&apos;ten Engellenen IP Adresleri</translation>
+      <translation>哪些 IP 不被允许交谈</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
-      <translation>Otomatik sohbet temizliği. 0 - devre dışı, sıfırdan büyük değerleri dakika cinsinden giriniz</translation>
+      <translation>自动清除聊天。0 - 禁用，n &gt; 0 分钟后交谈会自动被删除</translation>
     </message>
     <message>
       <source>Automatically reopen chat on widget open</source>
-      <translation>Sohbet penceresi tekrar açıldığında eski sohbeti tekrar aktif et</translation>
+      <translation>在 Widget 开启时自动重启交谈</translation>
     </message>
     <message>
       <source>Automatic pending chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation>Bekleyen sohbetlerin sonlandırılması. 0 - devre dışı, sıfırdan büyük değeri dakika cinsinden giriniz</translation>
+      <translation>自动挂起的聊天关闭。 0-禁用，n&gt; 0分钟（以分钟为单位），聊天自动关闭</translation>
     </message>
     <message>
       <source>Automatic bot chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation>Bot için görüşme sonlandırma. 0 - devre dışı, sıfırdan büyük değeri dakika cinsinden giriniz</translation>
+      <translation>自动机器人关闭。 0-禁用，n&gt; 0分钟（以分钟为单位），聊天自动关闭</translation>
     </message>
     <message>
       <source>Automatic active chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation>Otomatik aktif sohbetlerin sonlandırılması. 0 - devre dışı, sıfırdan büyük değeri dakika cinsinden giriniz</translation>
+      <translation>自动活动聊天关闭。 0-禁用，n&gt; 0分钟（以分钟为单位），聊天自动关闭</translation>
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation>Otomatik sohbetin sonlandırılması. 0 - devre dışı, sıfırdan büyük değeri dakika cinsinden giriniz</translation>
+      <translation>关闭自动交谈。0 - 禁用，n &gt; 0 - 在多少分钟后自动关闭交谈</translation>
     </message>
     <message>
       <source>Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds</source>
-      <translation>n saniye bekleyen sohbetler otomatik olarak bir operatöre atansın. </translation>
+      <translation>应首先自动分配待接队列超过 n 秒的的聊天。时间以秒为单位</translation>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
-      <translation>Sistem Adı, tarayıcı başlığında görünür</translation>
+      <translation>支援应用程式的名称，在浏览器标题中可被看见。</translation>
     </message>
     <message>
       <source>Allow user to reopen closed chats?</source>
-      <translation>Kullanıcılar kapanan mesajları yeniden açsın mı?</translation>
+      <translation>允许使用者重启已完成聊天？</translation>
     </message>
     <message>
       <source>Track all logged operators activity and ignore their individual settings.</source>
-      <translation>Operatör aktivitelerini kayıt altına al ve kişisel seçeneklerini yoksay.</translation>
+      <translation>跟踪记录所有客服人员的活动，并忽略各自客服人员的设置。</translation>
     </message>
     <message>
       <source>How long operator should go offline automatically because of inactivity</source>
-      <translation>Hareketsiz kalan operatör kaç dakika sonra offline sayılsın</translation>
+      <translation>客服人员因不活动而应自动下线的时间</translation>
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
-      <translation>Site içi Kullanıcı sözleşmenizi  değiştirin</translation>
+      <translation>更改您的网站的服务条款</translation>
     </message>
     <message>
       <source>How many seconds chat accept link is valid. Set 0 to force login all the time manually.</source>
-      <translation>Chat kabul linki kaç saniye geçerli. Her defasında el ile giriş için 0 olarak ayarlayın.</translation>
+      <translation>在几秒内聊天接受连结是有效的。设置 0 为随时手动强制登录。</translation>
     </message>
   </context>
   <context>
     <name>system/buttons</name>
     <message>
       <source>Save</source>
-      <translation>Kaydet</translation>
+      <translation>储存</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Güncelle</translation>
+      <translation>更新</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>İptal</translation>
+      <translation>取消</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Düzenle</translation>
+      <translation>编辑</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Sil</translation>
+      <translation>删除</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Boş...</translation>
+      <translation>无</translation>
     </message>
     <message>
       <source>New</source>
-      <translation>Yeni</translation>
+      <translation>新增</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation>Güncellendi</translation>
+      <translation>已更新</translation>
     </message>
     <message>
       <source>Yes</source>
-      <translation>Evet</translation>
+      <translation>是</translation>
     </message>
     <message>
       <source>No</source>
-      <translation>Hayır</translation>
+      <translation>否</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Gönder</translation>
+      <translation>发送</translation>
     </message>
     <message>
       <source>Save and continue</source>
-      <translation>Kaydet ve devam et</translation>
+      <translation>储存并继续</translation>
     </message>
     <message>
       <source>Continue</source>
-      <translation>Devam et</translation>
+      <translation>继续</translation>
     </message>
     <message>
       <source>Start archiving</source>
-      <translation>Arşivlemeye başla</translation>
+      <translation>开始存档</translation>
     </message>
     <message>
       <source>Return</source>
-      <translation>Geri</translation>
+      <translation>返回</translation>
     </message>
     <message>
       <source>Save &amp; Exit</source>
-      <translation>Kaydet &amp; Çık</translation>
+      <translation>储存并离开</translation>
     </message>
     <message>
       <source>Delete department</source>
-      <translation>Departmanı sil</translation>
+      <translation>删除部门</translation>
     </message>
     <message>
       <source>Send test notification</source>
-      <translation>Test bildirimi gönder</translation>
+      <translation>发送测试通知</translation>
     </message>
     <message>
       <source>Submit</source>
-      <translation>Gönder</translation>
+      <translation>提交</translation>
     </message>
     <message>
       <source>Test</source>
-      <translation>Test</translation>
+      <translation>测试</translation>
     </message>
     <message>
       <source>Send test message</source>
-      <translation>Test Mesajı gönder</translation>
+      <translation>发送测试讯息</translation>
     </message>
   </context>
   <context>
     <name>abstract/abstract_form</name>
     <message>
       <source>Updated!</source>
-      <translation>Güncellendi!</translation>
+      <translation>已更新 ！</translation>
     </message>
   </context>
   <context>
     <name>chat/copyautoresponder</name>
     <message>
       <source>Copy</source>
-      <translation>Kopyala</translation>
+      <translation>复制</translation>
     </message>
     <message>
       <source>Copied!</source>
-      <translation>Kopyalandı !</translation>
+      <translation>已复制 ！</translation>
     </message>
     <message>
       <source>Please choose atleast one department!</source>
-      <translation>Lütfen en az 1 departman seçiniz!</translation>
+      <translation>请至少选择一个部门！</translation>
     </message>
   </context>
   <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Use modern look</source>
-      <translation>Modern görünüm </translation>
+      <translation>使用现代外观</translation>
     </message>
     <message>
       <source>Welcome message</source>
-      <translation>Hoşgeldin mesajı</translation>
+      <translation>欢迎信息</translation>
     </message>
     <message>
       <source>Offline message</source>
-      <translation>Çevrimdışı mesajı</translation>
+      <translation>离线信息</translation>
     </message>
     <message>
       <source>Pending chat messaging</source>
-      <translation>Bekleyen sohbet mesajı</translation>
+      <translation>等待聊天信息</translation>
     </message>
     <message>
       <source>Visitor not replying messaging</source>
-      <translation>Ziyaretçi mesajlara yanıt vermiyor</translation>
+      <translation>访客未回复信息</translation>
     </message>
     <message>
       <source>Operator not replying messaging</source>
-      <translation>Operatör mesajları yanıtlamıyor</translation>
+      <translation>客服人员不回复信息</translation>
     </message>
     <message>
       <source>On-hold chat messaging</source>
-      <translation>İşlem bekleyen sohbet mesajı</translation>
+      <translation>保留聊天信息</translation>
     </message>
     <message>
       <source>Close messaging</source>
-      <translation>Mesajlaşmayı kapat</translation>
+      <translation>关闭信息</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation>İnceleme</translation>
+      <translation>调查</translation>
     </message>
     <message>
       <source>Multi-language chat</source>
-      <translation>Çok dilli sohbet</translation>
+      <translation>多语言聊天</translation>
     </message>
     <message>
       <source>Add translation</source>
-      <translation>Çeviri ekle</translation>
+      <translation>新增翻译</translation>
     </message>
     <message>
       <source>Search for language. Enter * to see all.</source>
-      <translation type="unfinished"/>
+      <translation>搜索语言。 输入*以查看全部。</translation>
     </message>
     <message>
       <source>See all variations</source>
-      <translation type="unfinished"/>
+      <translation>查看所有变化</translation>
     </message>
     <message>
       <source>Invitation</source>
-      <translation>Davetiye</translation>
+      <translation>邀请</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation>Bot</translation>
+      <translation>机器人</translation>
     </message>
     <message>
       <source>Dynamic</source>
-      <translation>Dinamik</translation>
+      <translation>动态</translation>
     </message>
     <message>
       <source>Events</source>
-      <translation>Olaylar</translation>
+      <translation>事件</translation>
     </message>
     <message>
       <source>Design</source>
-      <translation>Tasarım</translation>
+      <translation>设计</translation>
     </message>
     <message>
       <source>Inject HTML</source>
-      <translation>HTML</translation>
+      <translation>注入HTML</translation>
     </message>
     <message>
       <source>Choose what bot trigger element append after auto responder message</source>
-      <translation>Otomatik cevaplamadan sonra hangi bot mesajı gönderilsin</translation>
+      <translation>选择机器人的触发元素自动应答器, 在信息后附加</translation>
     </message>
     <message>
       <source>Preview</source>
-      <translation>Görüntüle</translation>
+      <translation>预览</translation>
     </message>
     <message>
       <source>Download theme</source>
-      <translation>Temayı yükle</translation>
+      <translation>下载主题</translation>
     </message>
     <message>
       <source>Status widget style</source>
-      <translation>Sohbet Genel Tasarımı</translation>
+      <translation>状态 Widget 样式</translation>
     </message>
     <message>
       <source>Widget container</source>
-      <translation>Görsel bileşen alanı</translation>
+      <translation>Widget 容器</translation>
     </message>
     <message>
       <source>Messages style</source>
-      <translation>Mesajların tarzı</translation>
+      <translation>讯息样式</translation>
     </message>
     <message>
       <source>Need help widget</source>
-      <translation>Yardım kutucuğu</translation>
+      <translation>需要帮助 Widget</translation>
     </message>
     <message>
       <source>Chat widget</source>
-      <translation>Sohbet kutucuğu</translation>
+      <translation>交谈 Widget</translation>
     </message>
     <message>
       <source>Custom content</source>
-      <translation>Özel içerik</translation>
+      <translation>自定义内容</translation>
     </message>
     <message>
       <source>Custom CSS</source>
-      <translation>Özel CSS</translation>
+      <translation>自订 CSS</translation>
     </message>
     <message>
       <source>Custom bot style</source>
-      <translation>Özel bot stili</translation>
+      <translation>自定义机器人样式</translation>
     </message>
     <message>
       <source>Notification</source>
-      <translation>Bildirim</translation>
+      <translation>通知</translation>
     </message>
     <message>
       <source>Live preview</source>
-      <translation>Canlı Önizleme</translation>
+      <translation>即时预览</translation>
     </message>
     <message>
       <source>Visitor messages style</source>
-      <translation>Kullanıcı Mesaj Stili</translation>
+      <translation>访客讯息样式</translation>
     </message>
     <message>
       <source>Operator messages style</source>
-      <translation>Operatör Mesaj Stili</translation>
+      <translation>客服人员讯息样式</translation>
     </message>
     <message>
       <source>Build your own need help widget layout</source>
-      <translation type="unfinished"/>
+      <translation>建立自己的帮助小部件布局</translation>
     </message>
     <message>
       <source>Set default HTML</source>
-      <translation type="unfinished"/>
+      <translation>设置预设 HTML</translation>
     </message>
     <message>
       <source>If you want to get nerdy you can build your own eye catcher using default template as starting point. You can adjust need help widget dimensions above. Also see what placeholders we support.</source>
-      <translation type="unfinished"/>
+      <translation>如果您想书呆子，可以使用默认模板作为起点来构建自己的惹眼小部件。 您可以在上方调整需要帮助窗口小部件的尺寸。 另请参阅我们支持的占位符。</translation>
     </message>
     <message>
       <source>General settings</source>
-      <translation>Genel Ayarlar</translation>
+      <translation>一般设定</translation>
     </message>
     <message>
       <source>Text changes</source>
-      <translation>Yazı değişiklikleri</translation>
+      <translation>文字更改</translation>
     </message>
     <message>
       <source>Text content before user fields</source>
-      <translation>Kullanıcı bilgileri öncesindeki yazı alanı</translation>
+      <translation>用户字段之前的文本内容</translation>
     </message>
     <message>
       <source>Default</source>
-      <translation>Varsayılan</translation>
+      <translation>预设</translation>
     </message>
     <message>
       <source>Other Operator messages style</source>
-      <translation type="unfinished"/>
+      <translation>其他客服人员信息样式</translation>
     </message>
     <message>
       <source>System assistant messages style</source>
-      <translation>Sistem mesajları stili</translation>
+      <translation>系统小帮手信息样式</translation>
     </message>
     <message>
       <source>General</source>
-      <translation>Genel</translation>
+      <translation>一般</translation>
     </message>
     <message>
       <source>Buble background color</source>
-      <translation>Baloncuk arkaplan rengi</translation>
+      <translation>气泡背景色</translation>
     </message>
     <message>
       <source>Title color</source>
-      <translation>Başlık rengi</translation>
+      <translation>标题颜色</translation>
     </message>
     <message>
       <source>Text color</source>
-      <translation>Yazı rengi</translation>
+      <translation>文字颜色</translation>
     </message>
     <message>
       <source>My messages bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>我的信息气泡背景颜色</translation>
     </message>
     <message>
       <source>Other operator bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>其他客服人员信息气泡背景色</translation>
     </message>
     <message>
       <source>Chat background color</source>
-      <translation>Sohbet arkaplan rengi</translation>
+      <translation>聊天背景颜色</translation>
     </message>
     <message>
       <source>Time text color</source>
-      <translation>Zaman bilgisi rengi</translation>
+      <translation>时间文字颜色</translation>
     </message>
     <message>
       <source>Title text colorr</source>
-      <translation>Başlık yazısı rengi</translation>
+      <translation>标题文字颜色</translation>
     </message>
     <message>
       <source>Message text color</source>
-      <translation>Mesaj rengi</translation>
+      <translation>信息文字颜色</translation>
     </message>
     <message>
       <source>Main background color</source>
-      <translation>Ana arkaplan rengi</translation>
+      <translation>主要背景色</translation>
     </message>
     <message>
       <source>Link default text color</source>
-      <translation>Varsayılan link rengi</translation>
+      <translation>链接默认文字颜色</translation>
     </message>
     <message>
       <source>Default text color</source>
-      <translation>Varsayılan yazı rengi</translation>
+      <translation>预设文字颜色</translation>
     </message>
     <message>
       <source>Dropdown background color</source>
-      <translation>Açılır menü arkaplan rengi</translation>
+      <translation>下拉菜单背景颜色</translation>
     </message>
     <message>
       <source>Navigation bar icons text color</source>
-      <translation>Menü bar ikonlarının rengi</translation>
+      <translation>导航栏图标文字颜色</translation>
     </message>
     <message>
       <source>Navigation bar icons hover text color</source>
-      <translation>Menü bar iconlarının hover rengi</translation>
+      <translation>导航栏图标悬浮文字颜色</translation>
     </message>
     <message>
       <source>Tab border color</source>
-      <translation>Sekme çerçeve rengi</translation>
+      <translation>标签边框颜色</translation>
     </message>
     <message>
       <source>Button text color</source>
-      <translation>Buton yazı rengi</translation>
+      <translation>按钮的文本颜色</translation>
     </message>
     <message>
       <source>Button background color</source>
-      <translation>Buton arkaplan rengi</translation>
+      <translation>按钮背景颜色</translation>
     </message>
     <message>
       <source>Button border color</source>
-      <translation>Buton çerçeve rengi</translation>
+      <translation>按钮边框颜色</translation>
     </message>
     <message>
       <source>Button active text color</source>
-      <translation>Aktif buton rengi</translation>
+      <translation>按钮启用的文本颜色</translation>
     </message>
     <message>
       <source>Button active background color</source>
-      <translation>Aktif buton arkaplan rengi</translation>
+      <translation>按钮启用背景色</translation>
     </message>
     <message>
       <source>Button active border color</source>
-      <translation>Aktif buton çevçeve rengi</translation>
+      <translation>按钮启用的边框颜色</translation>
     </message>
     <message>
       <source>Dropdown hover background color</source>
-      <translation>Açılır menü hover arkaplan rengi</translation>
+      <translation>下拉菜单悬浮背景颜色</translation>
     </message>
     <message>
       <source>Dropdown border color</source>
-      <translation>Açılır Menü çerçeve rengi</translation>
+      <translation>下拉菜单边框颜色</translation>
     </message>
     <message>
       <source>Online background color</source>
-      <translation>Aktif arkaplan rengi</translation>
+      <translation>在线背景色</translation>
     </message>
     <message>
       <source>Panel header background color</source>
-      <translation>Panel başlığı arkaplan rengi</translation>
+      <translation>面板标题背景色</translation>
     </message>
     <message>
       <source>Panel header border color</source>
-      <translation>Panel başlığı çerçeve rengi</translation>
+      <translation>面板标题边框颜色</translation>
     </message>
     <message>
       <source>Header background color</source>
-      <translation>Başlık arkaplan rengi</translation>
+      <translation>标题背景色</translation>
     </message>
     <message>
       <source>Panel background color</source>
-      <translation>Panel arkaplan rengi</translation>
+      <translation>面板背景色</translation>
     </message>
     <message>
       <source>Active tab background color</source>
-      <translation>Aktif sekme arkaplan rengi</translation>
+      <translation>启用标签边框颜色</translation>
     </message>
     <message>
       <source>Breadcrumb background color</source>
-      <translation>Lokasyon arkaplan rengi</translation>
+      <translation>面包屑背景色</translation>
     </message>
     <message>
       <source>Breadcrumb border color</source>
-      <translation>Lokasyon çerçeve rengi</translation>
+      <translation>面包屑边框颜色</translation>
     </message>
     <message>
       <source>Menu active background color</source>
-      <translation>Aktif menü arkaplan rengi</translation>
+      <translation>菜单启用背景色</translation>
     </message>
     <message>
       <source>Menu text color</source>
-      <translation>Menü rengi</translation>
+      <translation>菜单文字颜色</translation>
     </message>
     <message>
       <source>Tab text color</source>
-      <translation>Sekme rengi</translation>
+      <translation>标签文字颜色</translation>
     </message>
     <message>
       <source>Table border color</source>
-      <translation>Tablo çerçeve rengi</translation>
+      <translation>表格边框颜色</translation>
     </message>
     <message>
       <source>Navbar toggle background color</source>
-      <translation>Menü göster/gizle arkaplan rengi</translation>
+      <translation>导航栏切换背景颜色</translation>
     </message>
     <message>
       <source>Navbar toggle border color</source>
-      <translation>Menü göster/gizle çerçeve rengi</translation>
+      <translation>导航栏切换边框颜色</translation>
     </message>
     <message>
       <source>Tab active text color</source>
-      <translation>Aktif sekme rengi</translation>
+      <translation>启用标签的文本颜色</translation>
     </message>
     <message>
       <source>Header border color</source>
-      <translation>Başlık çerçeve rengi</translation>
+      <translation>标题边框颜色</translation>
     </message>
     <message>
       <source>Button border radius</source>
-      <translation>Buton çerçeve ovalliği(border-radius)</translation>
+      <translation>按钮边框半径</translation>
     </message>
     <message>
       <source>Choose a bot</source>
-      <translation>Bot seçin</translation>
+      <translation>选择一个机器人</translation>
     </message>
     <message>
       <source>Choose a trigger</source>
-      <translation>Bir zamanlayıcı seçin</translation>
+      <translation>选择一个触发器</translation>
     </message>
     <message>
       <source>Minimum time in second how long sync has to be stopped before allowing reset auto responder</source>
-      <translation>Otomatik cevaplayıcı senkronizasyonunun durdurulması için minimum zaman, saniye cinsinden giriniz.</translation>
+      <translation>不重置自动应答器之前必须停止同步的最短时间（以秒为单位）</translation>
     </message>
     <message>
       <source>Maximum time in seconds how long sync has to be stopped before we do not reset auto responder</source>
-      <translation>Otomatik cevaplayıcı senkronizasyonunun durdurulması için maksimum zaman, saniye cinsinden giriniz.</translation>
+      <translation>不重置自动应答器之前必须停止同步的最长时间（以秒为单位）</translation>
     </message>
     <message>
       <source>Disable reset auto responder if visitor was redirected to survey</source>
-      <translation>Kullanıcı ankete yönlendirilirse otomatik cevaplayıcı pasif edilsin</translation>
+      <translation>如果将访客重定向到调查，则禁用重置自动应答器</translation>
     </message>
     <message>
       <source>Do not send messages to pending chat if chat is assigned to operator.</source>
-      <translation>Operatöre tanımlanmış bekleyen sohbetlere mesaj gönderilemesin</translation>
+      <translation>如果已将聊天分配给客服人员，则不要将信息发送到待处理的聊天中。</translation>
     </message>
     <message>
       <source>This auto responder applies only to proactive invitations.</source>
-      <translation>Bu otomatik cevap yalnızca proaktif davetiyeler için geçerli olsun</translation>
+      <translation>此自动应答器仅适用于主动邀请。</translation>
     </message>
     <message>
       <source>If variable is not passed should we keep previously recorded value?</source>
-      <translation type="unfinished"/>
+      <translation>如果未传递变量，我们应该保留以前记录的值吗？</translation>
     </message>
     <message>
       <source>Mobile HTML</source>
-      <translation>Mobil HTML</translation>
+      <translation>移动电话 HTML</translation>
     </message>
     <message>
       <source>Mobile style</source>
-      <translation>Mobil stil</translation>
+      <translation>移动电话样式</translation>
     </message>
     <message>
       <source>Custom image 1</source>
-      <translation>Özel resim 1</translation>
+      <translation>自订图片 1</translation>
     </message>
     <message>
       <source>Custom image 2</source>
-      <translation>Özel resim 2</translation>
+      <translation>自订图片 2</translation>
     </message>
     <message>
       <source>Custom image 3</source>
-      <translation>Özel resim 3</translation>
+      <translation>自订图片3</translation>
     </message>
     <message>
       <source>Custom image 4</source>
-      <translation>Özel resim 4</translation>
+      <translation>自订图片4</translation>
     </message>
     <message>
       <source>Custom image 5</source>
-      <translation>Özel resim 5</translation>
+      <translation>自订图片5</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Devredışı</translation>
+      <translation>已禁用</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>İsim</translation>
+      <translation>名称</translation>
     </message>
     <message>
       <source>Name of the company</source>
-      <translation>Şirket İsmi</translation>
+      <translation>公司名称</translation>
     </message>
     <message>
       <source>Chat status if customer is chatting with a bot</source>
-      <translation>Kullanıcı bir bot ile sohbet ediyor ise sohbet durumu</translation>
+      <translation>客户与机器人聊天时的聊天状态</translation>
     </message>
     <message>
       <source>Need help header text</source>
-      <translation>Yardım pop-up başlığı</translation>
+      <translation>需要帮助标题文字</translation>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation>Yardım pop-up&apos;u kullanıcıya kaç saat sonra tekrar görüntülensin?</translation>
+      <translation>需要帮助工具提示超时后，多少小时再次显示提示？</translation>
     </message>
     <message>
       <source>After how many seconds after page load show need help tooltip?</source>
-      <translation>Yardım pop-up&apos;u kaç saniye sonra gösterilsin?</translation>
+      <translation>页面加载后显示几秒钟后需要帮助工具提示吗？</translation>
     </message>
     <message>
       <source>After how many seconds after page load show status widget</source>
-      <translation>Sohbet durumu kaç saniye sonra gösterilsin?</translation>
+      <translation>页面加载后几秒钟后显示状态 Widget</translation>
     </message>
     <message>
       <source>Need help widget width</source>
-      <translation type="unfinished"/>
+      <translation>需要帮助小部件宽度</translation>
     </message>
     <message>
       <source>Need help widget height</source>
-      <translation type="unfinished"/>
+      <translation>需要帮助 Widget 高度</translation>
     </message>
     <message>
       <source>Position from right</source>
-      <translation type="unfinished"/>
+      <translation>位置从右</translation>
     </message>
     <message>
       <source>Position from bottom</source>
-      <translation type="unfinished"/>
+      <translation>位置从底部</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation>Yardım pop-up&apos;u aktif edilsin mi?</translation>
+      <translation>显示需要帮助工具提示？</translation>
     </message>
     <message>
       <source>Hide message time from visitor</source>
-      <translation>Mesaj saatleri kullanıcıdan gizlensin mi?</translation>
+      <translation>隐藏访客留言时间</translation>
     </message>
     <message>
       <source>Use modern look. It is used only in older widget.</source>
-      <translation type="unfinished"/>
+      <translation>使用现代外观。 仅在较旧的小部件中使用。</translation>
     </message>
     <message>
       <source>Use a new widget look for old embed code. If you can not change easily old embed codes you can force system to load new widget still.</source>
-      <translation type="unfinished"/>
+      <translation>使用新的小部件外观查找旧的嵌入代码。 如果您不能轻易更改旧的嵌入代码，则可以强制系统仍然加载新的小部件。</translation>
     </message>
     <message>
       <source>Need help standard text</source>
-      <translation>Yardım pop-up açıklaması</translation>
+      <translation>需要帮助的标准文字</translation>
     </message>
     <message>
       <source>Widget border width (px)</source>
-      <translation>Görsel bileşen çerçeve kalınlığı (px)</translation>
+      <translation>Widget的边框宽度 (px)</translation>
     </message>
     <message>
       <source>Online status text [old widget]</source>
-      <translation type="unfinished"/>
+      <translation>在线状态文字[旧 Widget]</translation>
     </message>
     <message>
       <source>Offline status text [old widget]</source>
-      <translation type="unfinished"/>
+      <translation>离线状态文字[旧 Widget]</translation>
     </message>
     <message>
       <source>Operator intro text</source>
-      <translation>Operatör giriş yazısı</translation>
+      <translation>客服人员简介文字</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation>Sorunuz mu var? Bize sorun</translation>
+      <translation>有任何问题吗？请询问我们 ！</translation>
     </message>
     <message>
       <source>Background color</source>
-      <translation>Arkaplan rengi</translation>
+      <translation>背景颜色</translation>
     </message>
     <message>
       <source>Status widget border color</source>
-      <translation>Durum Aracı Çerçeve Rengi</translation>
+      <translation>客服状态 Widget 边框颜色</translation>
     </message>
     <message>
       <source>Operator image in chat widget</source>
-      <translation>Sohbet penceresindeki operatör resmi</translation>
+      <translation>交谈 Widget 中的客服人员图片</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
-      <translation>Logo açılır pencerede görünür</translation>
+      <translation>商标 图片，显示于快显视窗</translation>
     </message>
     <message>
       <source>Logo image, visible in widget left corner, 16x16</source>
-      <translation>Logo widget da 16x16 olarak görünür</translation>
+      <translation>商标 图片，显示于 Widget 左上角，16 x 16</translation>
     </message>
     <message>
       <source>Show copyright widget logo in left corner</source>
-      <translation>Sol köşede telif hakkı widget logosu göster</translation>
+      <translation>在左上角显示版权 Widget logo</translation>
     </message>
     <message>
       <source>Hide widget close button</source>
-      <translation>Sohbet kapatma butonu gizlensin</translation>
+      <translation>隐藏 Widget 关闭按钮</translation>
     </message>
     <message>
       <source>Hide popup option</source>
-      <translation>popup seçenekleri gizle</translation>
+      <translation>隐藏快显选项</translation>
     </message>
     <message>
       <source>Header height (px)</source>
-      <translation>Başlık yüksekliği (px)</translation>
+      <translation>标题高度 (px)</translation>
     </message>
     <message>
       <source>Widget response layout width trigger (px)</source>
-      <translation>Yanıtlama kutusu genişliği (px)</translation>
+      <translation>Widget 响应布局宽度触发器（像素）</translation>
     </message>
     <message>
       <source>Header padding (px)</source>
-      <translation>Başlık padding değeri (px)</translation>
+      <translation>标题边距 (px)</translation>
     </message>
     <message>
       <source>Site URL</source>
-      <translation>Site URL</translation>
+      <translation>网址</translation>
     </message>
     <message>
       <source>Text above start chat form fields</source>
-      <translation>Sohbet hazırlık sayfası form içeriği üst yazısı</translation>
+      <translation>开始交谈表单栏位上方的文字</translation>
     </message>
     <message>
       <source>Custom html before start chat form fields, popup</source>
-      <translation>Sohbet hazırlık sayfası form içeriğinden öncesi için özel HTML alanı</translation>
+      <translation>在 开始聊天表单字段和弹出 之前自定义html</translation>
     </message>
     <message>
       <source>Inject HTML on widget open</source>
-      <translation>Aracın açılmasından sonra HTML dahil edin</translation>
+      <translation>在 Widget 打开时注入HTML</translation>
     </message>
     <message>
       <source>Custom html before start chat form fields, widget</source>
-      <translation>Sohbet hazırlık sayfası form içeriğinden öncesi için özel HTML alanı</translation>
+      <translation>开始聊天表单字段/Widget 之前的自定义html</translation>
     </message>
     <message>
       <source>Custom page CSS (new widget only)</source>
-      <translation>Özel sayfa CSS&apos;si (yalnızca yeni widget)</translation>
+      <translation>自定义页面CSS（仅限新 Widget）</translation>
     </message>
     <message>
       <source>Custom html before start chat form fields, popup (bot mode)</source>
-      <translation>Sohbet form alanlarını başlatmadan önce özel html, açılır pencere (bot modu)</translation>
+      <translation>开始聊天表单字段之前，自定义html，弹出式（机器人模式）</translation>
     </message>
     <message>
       <source>Custom html before start chat form fields, widget (bot mode)</source>
-      <translation>Sohbet form alanlarını başlatmadan önce özel html, widget (bot modu)</translation>
+      <translation>开始聊天表单字段前的自定义html/widget（机器人模式）</translation>
     </message>
     <message>
       <source>Custom html before standard widget header</source>
-      <translation>Standart widget başlığından önce özel html</translation>
+      <translation>标准 Widget 标题内的自定义html</translation>
     </message>
     <message>
       <source>Custom html inside standard widget header</source>
-      <translation>Standart widget başlığı içinde özel html</translation>
+      <translation>标准 Widget 标题内的自定义html</translation>
     </message>
     <message>
       <source>Custom html before standard widget status header</source>
-      <translation>Standart widget durum başlığından önce özel html</translation>
+      <translation>标准 Widget 状态标题内的自定义html</translation>
     </message>
     <message>
       <source>Start chat button text, standard chat</source>
-      <translation>Sohbet başlatma buton yazısı, varsayılan Canlı Destek</translation>
+      <translation>开始聊天按钮文字，标准聊天</translation>
     </message>
     <message>
       <source>Start chat button text, bot chat</source>
-      <translation>Sohbet başlatma buton yazısı, varsayılan Canlı Destek</translation>
+      <translation>开始聊天按钮文字，机器人聊天</translation>
     </message>
     <message>
       <source>Leave a message button text</source>
-      <translation>Mesaj Bırakın butonu yazısı</translation>
+      <translation>留下信息按钮文字</translation>
     </message>
     <message>
       <source>Online image</source>
-      <translation>Çevrimiçi resim</translation>
+      <translation>在线 图片</translation>
     </message>
     <message>
       <source>Notification icon</source>
-      <translation>Bildirim ikonu</translation>
+      <translation>通知图标</translation>
     </message>
     <message>
       <source>Offline image</source>
-      <translation>Çevrimdışı resim</translation>
+      <translation>离线 图片</translation>
     </message>
     <message>
       <source>Widget header background color</source>
-      <translation>Başlık arkaplan rengi</translation>
+      <translation>Widget 标题背景颜色</translation>
     </message>
     <message>
       <source>Widget border color</source>
-      <translation>Araç çerçeve rengi</translation>
+      <translation>Widget 边框颜色</translation>
     </message>
     <message>
       <source>Custom need help HTML</source>
-      <translation type="unfinished"/>
+      <translation>自定义需求帮助HTML</translation>
     </message>
     <message>
       <source>Need help background color</source>
-      <translation>Yardım pop-up&apos;u arkaplan rengi</translation>
+      <translation>需要帮助背景颜色</translation>
     </message>
     <message>
       <source>Need help hover background color</source>
-      <translation>Yardım pop-up&apos;u hover arkaplan rengi</translation>
+      <translation>需要帮助悬浮背景颜色</translation>
     </message>
     <message>
       <source>Need help text color</source>
-      <translation>Yardım pop-up&apos;u yaız rengi</translation>
+      <translation>需要帮助文字颜色</translation>
     </message>
     <message>
       <source>Text when user starts chat based on proactive invitation</source>
-      <translation>Proaktif davetiye ile başlatılan sohbette kullanıcıya gösterilecek mesaj</translation>
+      <translation>设定使用主动邀请时，开始交谈的文字</translation>
     </message>
     <message>
       <source>Text when operator closes a chat</source>
-      <translation>Operatör sohbeti sonlandırdığında kullanıcıya gönderilecek yazı</translation>
+      <translation>客服人员关闭交谈时的文字</translation>
     </message>
     <message>
       <source>Text when user starts a chat and is waiting for operator to join a chat. Only if queue is 1</source>
-      <translation>Operatör bekleyen kullanıcı için gösterilecek yazı, bekleyenler arasında 1. sıradaki kullanıcı için</translation>
+      <translation>用户开始聊天并等待客服人员加入聊天时的文本。 仅当队列为 1 时</translation>
     </message>
     <message>
       <source>Text when user starts a chat and is waiting for operator to join a chat. Only if queue is &gt;= 1</source>
-      <translation>Operatör bekleyen kullanıcı için gösterilecek yazı, bekleyenler arasında 2. veya daha fazla bekleyenler için</translation>
+      <translation>用户开始聊天并等待客服人员加入聊天时的文本。 仅当队列&gt; = 1 时</translation>
     </message>
     <message>
       <source>Text when user starts a chat but department is offline</source>
-      <translation>Çevrimdışı departman için bir chat başlatıldığında gösterilecek yazı</translation>
+      <translation>当访客开启交谈但部门为离线状态的文字</translation>
     </message>
     <message>
       <source>Leave a message form text</source>
-      <translation>Mesaj bırakın form yazısı</translation>
+      <translation>留言表单文字</translation>
     </message>
     <message>
       <source>Need help border color</source>
-      <translation>Yardım pop-up&apos;u çerçeve rengi</translation>
+      <translation>需要帮助边框颜色</translation>
     </message>
     <message>
       <source>Need help close background color</source>
-      <translation>Yardım pop-up&apos;u kapat butonu arkaplan rengi</translation>
+      <translation>需要帮助关闭键背景颜色</translation>
     </message>
     <message>
       <source>Need help close hover background color</source>
-      <translation>Yardım pop-up&apos;u kapat butonu hover arkaplan rengi</translation>
+      <translation>需要帮助关闭键悬浮背景颜色</translation>
     </message>
     <message>
       <source>Need help operator image</source>
-      <translation>Yardım pop-up&apos;u görseli</translation>
+      <translation>需要帮助客服人员 图片</translation>
     </message>
     <message>
       <source>Status widget additional CSS, takes effect after save</source>
-      <translation>Sohbet durum aracı için özel CSS, kaydettikten sonra etki eder</translation>
+      <translation>状态Widget 附加的 CSS，保存后生效</translation>
     </message>
     <message>
       <source>Background color for popup</source>
-      <translation>Yeni pencerede aç butonu için arkaplan rengi</translation>
+      <translation>弹出窗口的背景颜色</translation>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
-      <translation>Sohbet aracı tüm bölümler için özel CSS, kaydettikten sonra etki eder</translation>
+      <translation>Widget 容器附加的 CSS，保存后生效</translation>
     </message>
     <message>
       <source>Widget body additional CSS, takes effect after save</source>
-      <translation>Sohbet aracı body içerisine özel CSS, kaydettikten sonra etki eder</translation>
+      <translation>Widget Body 主体附加的 CSS，保存后生效</translation>
     </message>
     <message>
       <source>Minimize image</source>
-      <translation>Aracı küçült görseli</translation>
+      <translation>最小化 图片</translation>
     </message>
     <message>
       <source>Restore image</source>
-      <translation>Sohbeti tekrar aç görseli</translation>
+      <translation>还原 图片</translation>
     </message>
     <message>
       <source>Close image</source>
-      <translation>Sohbeti Kapat görseli</translation>
+      <translation>关闭 图片</translation>
     </message>
     <message>
       <source>Popup image</source>
-      <translation>Yeni pencere&apos;de aç görseli</translation>
+      <translation>快显视窗 图片</translation>
     </message>
     <message>
       <source>Visitor buble background color</source>
-      <translation>Kullanıcı baloncuğu arkaplan rengi</translation>
+      <translation>访客背景颜色</translation>
     </message>
     <message>
       <source>Visitor title color</source>
-      <translation>Kullanıcı başlık rengi</translation>
+      <translation>访客标题颜色</translation>
     </message>
     <message>
       <source>Visitor text color</source>
-      <translation>Kullanıcı yazı rengi</translation>
+      <translation>访客文字颜色</translation>
     </message>
     <message>
       <source>Operator buble background color</source>
-      <translation>Operatör baloncuğu arkaplan rengi</translation>
+      <translation>客服人员背景颜色</translation>
     </message>
     <message>
       <source>Operator title color</source>
-      <translation>Operatör başlık rengi</translation>
+      <translation>客服人员标题颜色</translation>
     </message>
     <message>
       <source>Operator text color</source>
-      <translation>Operatör yazı rengi</translation>
+      <translation>客服人员文字颜色</translation>
     </message>
     <message>
       <source>Show voting thumbs?</source>
-      <translation>Operatör oylama anketi gösterilsin mi?</translation>
+      <translation>显示评价功能拇指？</translation>
     </message>
     <message>
       <source>Use different title for department? E.g Location</source>
-      <translation>Departman için farklı bir başlık kullanılsın mı? Örneğin farklı lokasyondaki müşteriler için Konum</translation>
+      <translation>为部门使用其他标题吗？ 例如：位置</translation>
     </message>
     <message>
       <source>Location</source>
-      <translation>Konum</translation>
+      <translation>位置</translation>
     </message>
     <message>
       <source>Additional option before department selection</source>
-      <translation>Departman seçiminden öncesi için özel opsiyon</translation>
+      <translation>在部门选择前的附加选项</translation>
     </message>
     <message>
       <source>Choose department</source>
-      <translation>Departman Seçin</translation>
+      <translation>选择部门</translation>
     </message>
     <message>
       <source>Button background hover color</source>
-      <translation>Buton hover durumu arkaplan rengi</translation>
+      <translation>按钮悬浮背景颜色</translation>
     </message>
     <message>
       <source>Button top and bottom</source>
-      <translation>Buton üst ve alt</translation>
+      <translation>按钮顶部和底部</translation>
     </message>
     <message>
       <source>Button padding right and left</source>
-      <translation>Buton padding sağ ve sol</translation>
+      <translation>按钮左右填充空隙</translation>
     </message>
     <message>
       <source>Button font size</source>
-      <translation>Buton yazı boyutu</translation>
+      <translation>按钮字体大小</translation>
     </message>
     <message>
       <source>Widget height (px)</source>
-      <translation>Görsel bileşen yüksekliği</translation>
+      <translation>Widget 高度 (px)</translation>
     </message>
     <message>
       <source>Widget width (px)</source>
-      <translation>Görsel bileşen çerçeve genişliği(px)</translation>
+      <translation>Widget 宽度 (px)</translation>
     </message>
     <message>
       <source>After how many user messages show switch to human button. empty - never, 0 - always</source>
-      <translation>Kaç kullanıcı mesajı gösterildikten sonra insan düğmesine geçilir. boş - asla, 0 - her zaman</translation>
+      <translation>显示多少用户信息后，切换到人工按钮。 空-从不，0-始终</translation>
     </message>
     <message>
       <source>Placeholder for message text</source>
-      <translation>Mesaj metni için yer tutucu</translation>
+      <translation>信息文本的占位符</translation>
     </message>
     <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
-      <translation>Kullanıcılara üst ok tuşuna basarak bir önceki mesajı düzenleme izni verilmesin</translation>
+      <translation>不允许访客通过按向上箭头来编辑上一条信息</translation>
     </message>
     <message>
       <source>Before closing chat ask user does he really want to to close chat</source>
-      <translation>Sohbeti kapatmadan önce kullanıcıya sohbeti gerçekten kapatmak istiyor mu sorunu sor</translation>
+      <translation>在关闭交谈之前询问用户他是否真的想关闭交谈</translation>
     </message>
     <message>
       <source>Close chat if page is refreshed. Usefull if you have embed code in popup.</source>
-      <translation>Sayfa yenilenirse sohbeti kapat. Kodu açılır pencereye yerleştirdiyseniz yararlıdır.</translation>
+      <translation>如果刷新页面，则关闭交谈。 如果您在弹出窗口中嵌入了代码，则很有用。</translation>
     </message>
     <message>
       <source>Show go to survey button on chat close</source>
-      <translation>Sohbette ankete git düğmesini göster kapat</translation>
+      <translation>在交谈关闭时显示转到调查按钮</translation>
     </message>
     <message>
       <source>Try to detect language from browser headers</source>
-      <translation>Tarayıcı başlıklarından dil algılamaya çalışın</translation>
+      <translation>尝试从浏览器标题中检测语言</translation>
     </message>
     <message>
       <source>Bubble style messages</source>
-      <translation>Baloncuk tarzı mesajlar</translation>
+      <translation>气泡样式信息</translation>
     </message>
     <message>
       <source>Hide chat status block</source>
-      <translation>Sohbet durum bloğunu gizle</translation>
+      <translation>隐藏交谈状态块</translation>
     </message>
     <message>
       <source>Use expanding message area</source>
-      <translation>Genişleyen mesaj alanını kullan</translation>
+      <translation>使用扩展信息区域</translation>
     </message>
     <message>
       <source>Hide visitor profile</source>
-      <translation>Ziyaretçi profilini gizle</translation>
+      <translation>隐藏访客资料</translation>
     </message>
     <message>
       <source>Notifications enabled</source>
-      <translation>Bildirimler aktif</translation>
+      <translation>启用通知</translation>
     </message>
     <message>
       <source>Notification title</source>
-      <translation>Bildirim başlığı</translation>
+      <translation>通知标题</translation>
     </message>
     <message>
       <source>Notification domain</source>
-      <translation>Bildirim alan adı</translation>
+      <translation>通知域</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>Temalar</translation>
+      <translation>Widget 主题</translation>
     </message>
   </context>
   <context>
     <name>abstract/proactivechatinvitation</name>
     <message>
       <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.</source>
-      <translation>Departman çevrimiçi ise ve ziyaretçi bir sohbet başlatırsa ve bazılarının sohbet kabul etmesini beklerse. Bu alacağı ilk mesaj olacak.</translation>
+      <translation>如果部门在线并且访客开始交谈并正在等待某些人接受交谈。 这将是他得到的初步信息。</translation>
     </message>
     <message>
       <source>If department is offline and visitor starts a chat this message will be send instaed of default welcome message. If this message is empty - welcome message will be send.</source>
-      <translation>Departman çevrimdışı ve ziyaretçi sohbet etmeye başlarsa, bu iletiye varsayılan karşılama iletisinin instagramı gönderilir. Bu mesaj boşsa - hoş geldiniz mesajı gönderilir.</translation>
+      <translation>如果部门离线并且访客开始交谈，则会发送此信息，而不是预设的欢迎信息。 如果此信息为空-将发送欢迎信息。</translation>
     </message>
     <message>
       <source>You can also use 5 images using keywords as {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}. You can use these events. These events should be used on onclick event.</source>
-      <translation>Kısa kelimeler kullanarak 5 farklı görsel kullanabilirsiniz, {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}. Bu görseller yalnıca tıklama ile aktif edilebilir.</translation>
+      <translation>您还可以使用5张图片，其中包含以下关键字：{proactive_img_1}，{proactive_img_2}，{proactive_img_3}，{proactive_img_4}，{proactive_img_5}。 您可以使用这些事件。 这些事件应在onclick事件上使用。</translation>
     </message>
     <message>
       <source>Main wrapper element should have id of</source>
-      <translation>Ana sargı elemanının kimliği olmalıdır</translation>
+      <translation>主包装器元素的ID应为</translation>
     </message>
     <message>
       <source>If chat was accepted by the same language speaking operator you can send visitor a custom message on chat accept event.</source>
-      <translation type="unfinished"/>
+      <translation>如果同一语言的客服人员接受了聊天，则可以在聊天接受事件中向访客发送自定义消息。</translation>
     </message>
     <message>
       <source>What languages should be ignored. If chat language is one of the selected, message will not be send.</source>
-      <translation type="unfinished"/>
+      <translation>什么语言应该被忽略。 如果聊天语言是所选语言之一，则不会发送信息。</translation>
     </message>
     <message>
       <source>If you leave empty - message we will be send only if translated message is found.</source>
-      <translation type="unfinished"/>
+      <translation>如果您留空 - 信息，只有找到翻译后的信息，我们才会发送。</translation>
     </message>
     <message>
       <source>If you want pro active chat invitation to work it has to be enabled in</source>
-      <translation>Pro aktif konuşma isteği göndermek istiyorsanız etkinleştirmeniz gerekiyor</translation>
+      <translation>如果你想要使用主动交谈邀请，此功能必须被启用</translation>
     </message>
     <message>
       <source>chat configuration</source>
-      <translation>Konuşma ayarları</translation>
+      <translation>交谈配置</translation>
     </message>
     <message>
       <source>also online users tracking has to be</source>
-      <translation>ve aktif kullanıcı takibi </translation>
+      <translation>此外，在线用户跟踪也必须</translation>
     </message>
     <message>
       <source>enabled</source>
-      <translation>Etkinleştirildi</translation>
+      <translation>启用</translation>
     </message>
     <message>
       <source>Object ID</source>
-      <translation>Nesne Kimliği</translation>
+      <translation>物件 ID</translation>
     </message>
     <message>
       <source>Category</source>
-      <translation>Kategori</translation>
+      <translation>类别</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation>Mesaj</translation>
+      <translation>信息</translation>
     </message>
     <message>
       <source>File</source>
-      <translation>Dosya</translation>
+      <translation>档案</translation>
     </message>
     <message>
       <source>If same identifier used for two columns, both values will be represented in single column.</source>
-      <translation>İki sütun için aynı tanımlayıcı kullanılırsa, her iki değer de tek sütunda temsil edilir.</translation>
+      <translation>如果两列使用相同的标识符，则两个值将在单个列中表示。</translation>
     </message>
     <message>
       <source>Line</source>
-      <translation>Satır</translation>
+      <translation>线</translation>
     </message>
     <message>
       <source>Severity</source>
-      <translation>ciddiyet</translation>
+      <translation>严重程度</translation>
     </message>
     <message>
       <source>Source</source>
-      <translation>Kaynak</translation>
+      <translation>来源</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation>Zaman</translation>
+      <translation>时间</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation>Dil, hepsini boş bırak. Örn. lit, rus, alm vs...</translation>
+      <translation>语言，可以全部空白。例如 lit, rus, ger 等....</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>İsim</translation>
+      <translation>名字</translation>
     </message>
     <message>
       <source>Operator. Visitor will see this operator nick.</source>
-      <translation>Operatör. Ziyaretçi bu operatörün takma adını  görecektir.</translation>
+      <translation>客服人员。 访客将看到此客服人员的暱称。</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation>Pozisyon</translation>
+      <translation>位置</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Departman</translation>
+      <translation>部门</translation>
     </message>
     <message>
       <source>User</source>
-      <translation>Kullanıcı</translation>
+      <translation>使用者</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
-      <translation>Bekleme mesajı. Kullanıcı sohbet için operatör beklediğinde gösterilir.</translation>
+      <translation>等待信息。 当用户开始交谈并正在等待某人接受交谈时可见。</translation>
     </message>
     <message>
       <source>Wait timeout.</source>
-      <translation>Bekleme zaman aşımı</translation>
+      <translation>等待超时</translation>
     </message>
     <message>
       <source>Show visitor this message when wait timeout passes</source>
-      <translation>Ziyaretçiye bekleme zaman aşımı olursa bu mesajı bildir</translation>
+      <translation>等待超时过后向访客显示此信息</translation>
     </message>
     <message>
       <source>How many times repeat message? Applied only to first message.</source>
-      <translation>Mesaj kaç kez tekrarlanır? Yalnızca ilk iletiye uygulanır.</translation>
+      <translation>重复几次信息？ 仅应用于第一条信息。</translation>
     </message>
     <message>
       <source>Redirect visitor to survey if visitor does not responds within N seconds</source>
-      <translation>Ziyaretçi N saniye içinde yanıt vermezse ziyaretçiyi ankete yönlendirin</translation>
+      <translation>如果访客在N秒内未回复，则将访客重定向到调查</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation>Anket</translation>
+      <translation>调查</translation>
     </message>
     <message>
       <source>Timeout. [1]</source>
-      <translation>Zaman aşımı. [1]</translation>
+      <translation>超时。 [1]</translation>
     </message>
     <message>
       <source>Default on hold message</source>
-      <translation>Varsayılan bekletme mesajı</translation>
+      <translation>预设等候接听信息</translation>
     </message>
     <message>
       <source>Message for timeout [1]</source>
-      <translation>Zaman aşımı mesajı[1]</translation>
+      <translation>超时显示的信息[1]</translation>
     </message>
     <message>
       <source>Message for timeout [2]</source>
-      <translation>Zaman aşımı mesajı[2]</translation>
+      <translation>超时显示的信息[2]</translation>
     </message>
     <message>
       <source>Message for timeout [3]</source>
-      <translation>Zaman aşımı mesajı[3]</translation>
+      <translation>超时显示的信息[3]</translation>
     </message>
     <message>
       <source>Message for timeout [4]</source>
-      <translation>Zaman aşımı mesajı[4]</translation>
+      <translation>超时显示的信息[4]</translation>
     </message>
     <message>
       <source>Message for timeout [5]</source>
-      <translation>Zaman aşımı mesajı[5]</translation>
+      <translation>超时显示的信息[5]</translation>
     </message>
     <message>
       <source>Timeout. [2]</source>
-      <translation>Zaman aşımı. [2]</translation>
+      <translation>超时。 [2]</translation>
     </message>
     <message>
       <source>Timeout. [3]</source>
-      <translation>Zaman aşımı [3]</translation>
+      <translation>超时。 [3]</translation>
     </message>
     <message>
       <source>Timeout. [4]</source>
-      <translation>Zaman aşımı [4]</translation>
+      <translation>超时。 [4]</translation>
     </message>
     <message>
       <source>Timeout. [5]</source>
-      <translation>Zaman aşımı [5]</translation>
+      <translation>超时。 [5]</translation>
     </message>
     <message>
       <source>Message to visitor on chat close</source>
-      <translation>Sohbet kapanırken ziyaretçiye mesaj</translation>
+      <translation>交谈关闭时给访客的信息</translation>
     </message>
     <message>
       <source>Message to visitor if department is offline</source>
-      <translation>Departman çevrimdışı ise ziyaretçiye mesaj</translation>
+      <translation>部门离线时给访客的信息</translation>
     </message>
     <message>
       <source>Message to visitor if operator speaks same language as visitor.</source>
-      <translation type="unfinished"/>
+      <translation>如果客服人员说的语言与访客的语言相同，则会向访客发送信息。</translation>
     </message>
     <message>
       <source>Column name</source>
-      <translation>Sütun Adı</translation>
+      <translation>列的名称</translation>
     </message>
     <message>
       <source>Column identifier</source>
-      <translation>Sütun tanımlayıcı</translation>
+      <translation>列识别码</translation>
     </message>
     <message>
       <source>Column icon, material icons text</source>
-      <translation>Sütun simgesi, malzeme simgeler metin</translation>
+      <translation>列的图标，材质图标文本</translation>
     </message>
     <message>
       <source>Variable name</source>
-      <translation>Değişken İsmi</translation>
+      <translation>变量名称</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation>Aktif</translation>
+      <translation>启用</translation>
     </message>
     <message>
       <source>Visible in chat list</source>
-      <translation>Chat listesini gizle</translation>
+      <translation>在交谈列表中可见</translation>
     </message>
     <message>
       <source>Visible in online visitors list</source>
-      <translation>Çevrimiçi ziyaretçi listesinde görülebilir</translation>
+      <translation>在在线访问者列表中可见</translation>
     </message>
     <message>
       <source>Expected variable value</source>
-      <translation>Beklenen değişken değeri</translation>
+      <translation>预期变量值</translation>
     </message>
     <message>
       <source>Set priority to</source>
-      <translation>Önceliği şuna ayarla</translation>
+      <translation>将优先级设置为</translation>
     </message>
     <message>
       <source>Javascript variable value</source>
-      <translation>Javascript değişken değeri</translation>
+      <translation>Javascript变量值</translation>
     </message>
     <message>
       <source>Variable identifier</source>
-      <translation>Değişken tanımlama</translation>
+      <translation>变量识别码</translation>
     </message>
     <message>
       <source>Variable type</source>
-      <translation>Değişken tipi</translation>
+      <translation>变量类型</translation>
     </message>
     <message>
       <source>Default message</source>
-      <translation>Varsayılan Mesaj</translation>
+      <translation>预设信息</translation>
     </message>
     <message>
       <source>Visitor ID</source>
-      <translation>Ziyaretçi Kimliği</translation>
+      <translation>访客 ID</translation>
     </message>
     <message>
       <source>Event ID</source>
-      <translation>Etkinlik Kimliği</translation>
+      <translation>事件编号</translation>
     </message>
     <message>
       <source>Timestamp</source>
-      <translation>Zaman damgası</translation>
+      <translation>时间戳记</translation>
     </message>
     <message>
       <source>Value</source>
-      <translation>değer</translation>
+      <translation>值</translation>
     </message>
     <message>
       <source>Name for personal purposes</source>
-      <translation>Takma Adı</translation>
+      <translation>自订的名称</translation>
     </message>
     <message>
       <source>Operator name</source>
-      <translation>Operatör Adı</translation>
+      <translation>客服人员名字</translation>
     </message>
     <message>
       <source>Time on site in seconds</source>
-      <translation>Sitede geçirilen zaman(saniye)</translation>
+      <translation>在网站的停留时间（秒）</translation>
     </message>
     <message>
       <source>Delay invitation widget show for N seconds if invitation was already matched.</source>
-      <translation>Davetiye zaten eşleştirilmişse davet widget&apos;ı N saniye boyunca ertelenir.</translation>
+      <translation>如果邀请已经匹配，则将邀请 Widget 显示延迟N秒。</translation>
     </message>
     <message>
       <source>Delay invitation widget show for N seconds if trigger is matched for first time.</source>
-      <translation>Tetikleyici ilk kez eşleştirilirse, davetiye widget&apos;ı N saniye boyunca geciktirilir.</translation>
+      <translation>如果触发器首次匹配，则延迟邀请 Widget 显示N秒。</translation>
     </message>
     <message>
       <source>If dynamic invitation was matched on page refresh show instantly. Otherwise dynamic conditions will have to be matched again.</source>
-      <translation>Dinamik yenileme, sayfa yenileme şovunda eşleştirildiyse anında gösterin. Aksi takdirde dinamik koşulların yeniden eşleştirilmesi gerekecektir.</translation>
+      <translation>如果动态邀请与页面刷新匹配，则立即显示。 否则，必须重新匹配动态条件。</translation>
     </message>
     <message>
       <source>Inject only HTML, widget state will not be changed. Matched invitation is executed on each page load.</source>
-      <translation>Yalnızca HTML enjekte edin, widget durumu değişmeyecek. Eşleşen davet, her sayfa yüklemesinde yürütülür.</translation>
+      <translation>仅注入HTML，Widget 状态不会更改。 匹配的邀请在每次加载页面时执行。</translation>
     </message>
     <message>
       <source>Pageviews</source>
-      <translation>Sayfa Görüntüleme</translation>
+      <translation>网页浏览量</translation>
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation>Referans site www olmadan, örneğin google kelimesi tüm google alt siteleri için geçerlidir.</translation>
+      <translation>不带 www 的referrer 网域，例如：&quot;Google&quot; 这个关键字将配对任何Google网域</translation>
     </message>
     <message>
       <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
-      <translation>Davetiye kullanıcıya kaç kez gösterilsin, 0 - kullanıcı kapatana kadar</translation>
+      <translation>用户显示邀请的次数，0-直到用户关闭邀请，&gt; 0个限制。</translation>
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation>eMail zorunlu</translation>
+      <translation>需要 E-mail</translation>
     </message>
     <message>
       <source>Requires name</source>
-      <translation>İsim Zorunlu</translation>
+      <translation>需要名字</translation>
     </message>
     <message>
       <source>Show on mobile</source>
-      <translation>Mobilde göster</translation>
+      <translation>在移动设备上显示</translation>
     </message>
     <message>
       <source>Show everytime it is matched</source>
-      <translation>Her eşleştiğinde göster</translation>
+      <translation>每次匹配时显示</translation>
     </message>
     <message>
       <source>Requires phone</source>
-      <translation>Telefon Numarası zorunlu</translation>
+      <translation>需要电话</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
-      <translation>Rastgele bir operatör profili gösterilsin</translation>
+      <translation>显示随机客服人员资料</translation>
     </message>
     <message>
       <source>Enter operators IDs from whom random operator should be shown, separated by comma</source>
-      <translation>Rastgele operatörün gösterileceği operatör kimliklerini virgülle ayırarak girin</translation>
+      <translation>输入应显示的随机客服人员的客服人员ID，以逗号分隔</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation>Tanımlayıcı, bu mesajın hangi tanımlayıcı için gösterilmesi gerektiğini herkes için boş bırakın</translation>
+      <translation>所有的识别标志留空白，讯息的识别标志应该要显示出来</translation>
     </message>
     <message>
       <source>Tag</source>
-      <translation>Etiket</translation>
+      <translation>标签</translation>
     </message>
     <message>
       <source>Auto responder to apply</source>
-      <translation>Uygulanacak otomatik yanıtlayıcı</translation>
+      <translation>自动应答器申请</translation>
     </message>
     <message>
       <source>Campaign</source>
-      <translation>Kampanya</translation>
+      <translation>运动</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation>bot</translation>
+      <translation>机器人</translation>
     </message>
     <message>
       <source>Trigger to execute</source>
-      <translation>Yürütmek için tetikleyici</translation>
+      <translation>触发执行</translation>
     </message>
     <message>
       <source>Execute bot only if there is no online operators</source>
-      <translation>Online operatör olmasa bile omline ziyaretçileri izleyin</translation>
+      <translation>仅当没有在客服人员时才执行机器人</translation>
     </message>
     <message>
       <source>Matched times</source>
-      <translation>Eşleşen zamanlar</translation>
+      <translation>已配对时间</translation>
     </message>
     <message>
       <source>Message to user</source>
-      <translation>Kullanıcıya mesaj</translation>
+      <translation>给用户的讯息</translation>
     </message>
     <message>
       <source>Message to returning user</source>
-      <translation>Kullanıcıya(siteyi tekrar ziyaret eden) mesaj</translation>
+      <translation>回复访客的讯息</translation>
     </message>
     <message>
       <source>Nick which will be used if we cannot determine returning user name</source>
-      <translation>Kullanıcı adı tespit edilemezse kullanılacak takma adı giriniz</translation>
+      <translation>如果我们无法确定返回的用户名，将使用暱称</translation>
     </message>
     <message>
       <source>This is dynamic invitation</source>
-      <translation>Bu dinamik davet</translation>
+      <translation>这是动态邀请</translation>
     </message>
     <message>
       <source>Choose a dynamic event</source>
-      <translation>Dinamik bir etkinlik seçin</translation>
+      <translation>选择一个动态事件</translation>
     </message>
     <message>
       <source>Show invitation if visitor is iddle for n seconds</source>
-      <translation>Ziyaretçi n saniye boşta kalırsa davetiyeyi göster</translation>
+      <translation>如果访客闲置了n秒，则显示邀请</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Pasif</translation>
+      <translation>已禁用</translation>
     </message>
     <message>
       <source>Apply HTML invitation only to mobile devices</source>
-      <translation>HTML davetiyesini yalnızca mobil cihazlara uygulama</translation>
+      <translation>仅将HTML邀请应用于移动设备</translation>
     </message>
     <message>
       <source>Inject HTML everytime dynamic event occurs</source>
-      <translation>Her dinamik etkinlik gerçekleştiğinde HTML enjekte et</translation>
+      <translation>每次发生动态事件时注入HTML</translation>
     </message>
     <message>
       <source>Do not show widget automatically</source>
-      <translation>Araç&apos;ı otomatik olarak gösterme</translation>
+      <translation>不自动显示 Widget</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>belirlemek</translation>
+      <translation>识别码</translation>
     </message>
     <message>
       <source>Do not store event if from last event has passed less than x seconds.</source>
-      <translation>Son etkinlikten yeni etkinliğe kadar n saniye geçerse veriyi kaydetme</translation>
+      <translation>如果从上一个事件开始的时间少于x秒，则不存储事件。</translation>
     </message>
     <message>
       <source>Filter by value</source>
-      <translation>Değere göre filtrele</translation>
+      <translation>按值筛选</translation>
     </message>
     <message>
       <source>Audit log</source>
-      <translation>Denetim günlüğü</translation>
+      <translation>审核日志</translation>
     </message>
     <message>
       <source>Auto responder</source>
-      <translation>Otomatik yanıtlayıcı</translation>
+      <translation>自动应答器</translation>
     </message>
     <message>
       <source>Chat columns</source>
-      <translation>Sohbet sütunlar</translation>
+      <translation>聊天栏</translation>
     </message>
     <message>
       <source>Chat priority</source>
-      <translation>Sohbet önceliği</translation>
+      <translation>聊天优先顺序</translation>
     </message>
     <message>
       <source>String</source>
-      <translation>Metin</translation>
+      <translation>字串</translation>
     </message>
     <message>
       <source>Integer</source>
-      <translation>tamsayı</translation>
+      <translation>整数</translation>
     </message>
     <message>
       <source>Decimal</source>
-      <translation>Ondalık</translation>
+      <translation>小数</translation>
     </message>
     <message>
       <source>Encrypted</source>
-      <translation>şifreli</translation>
+      <translation>已加密</translation>
     </message>
     <message>
       <source>Chat variables</source>
-      <translation>Sohbet değişkenleri</translation>
+      <translation>交谈变数</translation>
     </message>
     <message>
       <source>Pro active chat campaigns</source>
-      <translation>Profesyonel etkin sohbet kampanyaları</translation>
+      <translation>主动交谈运动</translation>
     </message>
     <message>
       <source>Pro active chat events</source>
-      <translation>Pro aktif sohbet etkinlikleri</translation>
+      <translation>主动交谈事件</translation>
     </message>
     <message>
       <source>Mouse leaves a browser window</source>
-      <translation>Fare bir tarayıcı penceresi bırakır</translation>
+      <translation>鼠标离开浏览器窗口</translation>
     </message>
     <message>
       <source>Visitor idle N seconds on site</source>
-      <translation>Ziyaretçi sitede boşta N saniye</translation>
+      <translation>访客闲置了 N 秒钟</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
-      <translation>Pro active konuşma davetleri</translation>
+      <translation>主动交谈邀请</translation>
     </message>
     <message>
       <source>Pro active chat variables</source>
-      <translation>Pro aktif sohbet değişkenleri</translation>
+      <translation>主动交谈邀请变数</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation>Konu</translation>
+      <translation>主旨</translation>
     </message>
   </context>
   <context>
     <name>chat/startchatformsettings</name>
     <message>
       <source>Add event</source>
-      <translation>Etkinlik ekle</translation>
+      <translation>新增活动</translation>
     </message>
     <message>
       <source>Remove</source>
-      <translation>Kaldır</translation>
+      <translation>删除</translation>
     </message>
     <message>
       <source>Start a chat form settings</source>
-      <translation>Bir konuşma formu ayarları başlat</translation>
+      <translation>开始交谈表单设定</translation>
     </message>
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
-      <translation>En az bir alan görünür olmak zorunda, açılır pencere ve sayfa genişliği gerekiyor</translation>
+      <translation>至少一个栏位必须是可见的，并需要快显视窗和页面Widget </translation>
     </message>
     <message>
       <source>Custom fields generator, these fields will be visible in start chat forms</source>
-      <translation>Özel alanlar oluşturucu, bu alanlar başlangıçta görünür olacak sohbet formlar</translation>
+      <translation>自定义字段生成器，这些字段将在开始聊天表单中可见</translation>
     </message>
     <message>
       <source>Field label</source>
-      <translation>Alan etiketi</translation>
+      <translation>栏位标签</translation>
     </message>
     <message>
       <source>Default value</source>
-      <translation>Varsayılan değer</translation>
+      <translation>预设值</translation>
     </message>
     <message>
       <source>Type</source>
-      <translation>İpucu</translation>
+      <translation>类型</translation>
     </message>
     <message>
       <source>Text</source>
-      <translation>Metin</translation>
+      <translation>文字</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>密码</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation>Gizli</translation>
+      <translation>隐藏</translation>
     </message>
     <message>
       <source>Dropdown</source>
-      <translation>Açılır kutu</translation>
+      <translation>下拉菜单</translation>
     </message>
     <message>
       <source>Visible on</source>
-      <translation>Şurada görünür:</translation>
+      <translation>在上可见</translation>
     </message>
     <message>
       <source>Offline and online form</source>
-      <translation>Çevrimdışı ve çevrimiçi form</translation>
+      <translation>离线和在线表单</translation>
     </message>
     <message>
       <source>Only offline</source>
-      <translation>Sadece çevrimdışı</translation>
+      <translation>只有离线</translation>
     </message>
     <message>
       <source>Only online</source>
-      <translation>sadece çevrimiçi</translation>
+      <translation>只有在线上时</translation>
     </message>
     <message>
       <source>Show if</source>
-      <translation>Şunu göster</translation>
+      <translation>显示是否</translation>
     </message>
     <message>
       <source>Always</source>
-      <translation>Her zaman</translation>
+      <translation>总是</translation>
     </message>
     <message>
       <source>Username is empty</source>
-      <translation>Kullanıcı Adı boş</translation>
+      <translation>用户名为空</translation>
     </message>
     <message>
       <source>Size (between 1 and 12)</source>
-      <translation>Boyut (1 ile 12 arasında)</translation>
+      <translation>大小 ( 1 至 12 )</translation>
     </message>
     <message>
       <source>Field identifier</source>
-      <translation>Alan tanımlayıcısı</translation>
+      <translation>栏位识别码</translation>
     </message>
     <message>
       <source>Is required</source>
-      <translation>Gerekli</translation>
+      <translation>为必填栏位</translation>
     </message>
     <message>
       <source>Hide if prefilled</source>
-      <translation type="unfinished"/>
+      <translation>如果预先填充则隐藏</translation>
     </message>
     <message>
       <source>Options</source>
-      <translation>Seçenekler</translation>
+      <translation>选项</translation>
     </message>
     <message>
       <source>Each option in new line</source>
-      <translation>Yeni satırdaki her seçenek</translation>
+      <translation>每个选项开新行</translation>
     </message>
     <message>
       <source>Add a field</source>
-      <translation>Alan ekle</translation>
+      <translation>添加栏位</translation>
     </message>
     <message>
       <source>left</source>
-      <translation>sol</translation>
+      <translation>左</translation>
     </message>
     <message>
       <source>right</source>
-      <translation>sağ</translation>
+      <translation>右</translation>
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
-      <translation>Çevrimiçi operatör yoksa otomatik olarak mesaj bırakma işlevini etkinleştirin</translation>
+      <translation>如果没有在线的客服，自动启用留言功能</translation>
     </message>
     <message>
       <source>Auto start chat if there is no required fields. Usefull in case bot handles chat.</source>
-      <translation>Gerekli alan yoksa sohbeti otomatik başlat. Botun sohbeti yönetmesi durumunda faydalıdır.</translation>
+      <translation>如果没有必填字段，则自动开始聊天。 在机器人处理未处理聊天的情况下很有用。</translation>
     </message>
     <message>
       <source>Open popup on mobile devices using mobile layout.</source>
-      <translation>Mobil düzeni kullanarak mobil cihazlarda açılır pencereyi açın.</translation>
+      <translation>使用移动版式在移动设备上打开弹出窗口。</translation>
     </message>
     <message>
       <source>Do not process internal pages and use redirects.</source>
-      <translation>Dahili sayfaları işlemeyin ve yönlendirmeleri kullanmayın.</translation>
+      <translation>不要处理内部页面并使用重定向。</translation>
     </message>
     <message>
       <source>Online form settings</source>
-      <translation>Çevrimiçi form ayarları</translation>
+      <translation>在线表单设定</translation>
     </message>
     <message>
       <source>Offline form settings</source>
-      <translation>Çevrimdışı form ayarları</translation>
+      <translation>离线表单设定</translation>
     </message>
     <message>
       <source>Additional form settings</source>
-      <translation>Formun ek seçenekleri</translation>
+      <translation>其他表单设定</translation>
     </message>
     <message>
       <source>Custom fields</source>
-      <translation>Özel alanlar</translation>
+      <translation>自订栏位</translation>
     </message>
     <message>
       <source>URL Arguments</source>
-      <translation>URL Bağımsız Değişkenleri</translation>
+      <translation>网址参数</translation>
     </message>
     <message>
       <source>Pre chat</source>
-      <translation>Sohbet için</translation>
+      <translation>聊天前</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>İsim</translation>
+      <translation>名称</translation>
     </message>
     <message>
       <source>This field is visible in the popup</source>
-      <translation>Bu alan açılır pencerede görünür</translation>
+      <translation>此栏位会显示于快显视窗中</translation>
     </message>
     <message>
       <source>This field is visible in the page widget</source>
-      <translation>Bu alan sayfa genişliğinde görünür</translation>
+      <translation>此栏位会显示于页面的 Widget 里</translation>
     </message>
     <message>
       <source>This field is invisible but prefilled data is collected</source>
-      <translation>Bu alan görünmez ancak önceden doldurulmuş veriler toplanır</translation>
+      <translation>该字段不可见，但已收集预装填充数据</translation>
     </message>
     <message>
       <source>This field is hidden if chat is started with bot</source>
-      <translation>Bot ile sohbet başlatılırsa bu alan gizlenir</translation>
+      <translation>如果使用机器人开始聊天，则此字段是隐藏的</translation>
     </message>
     <message>
       <source>This field is</source>
-      <translation>Bu alan</translation>
+      <translation>此栏位为</translation>
     </message>
     <message>
       <source>Required</source>
-      <translation>Gerekiyor</translation>
+      <translation>必填</translation>
     </message>
     <message>
       <source>Optional</source>
-      <translation>Seçmeli</translation>
+      <translation>可选择的</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-posta</translation>
+      <translation>电子邮件信箱</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation>Mesaj</translation>
+      <translation>讯息</translation>
     </message>
     <message>
       <source>Automatically start chat then user starts typing. Only message field has to be required</source>
-      <translation>Kullanıcı mesaj yazmaya başladığında sohbeti başlat. Sadece mesaj kutusu zorunlu olmalıdır.</translation>
+      <translation>当使用者开始打字后自动开始交谈。只有讯息栏位必须要被请求。</translation>
     </message>
     <message>
       <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
-      <translation>Kullanıcı formu açtığında operatör için sohbeti başlat. Sadece mesaj alanı zorunlu olmalıdır.</translation>
+      <translation>当使用者开始打字后自动开始交谈。只有讯息栏位是必须。</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Telefon</translation>
+      <translation>电话</translation>
     </message>
     <message>
       <source>Terms of service acceptance checkbox</source>
-      <translation>Hizmet şartları kabul onay kutusu</translation>
+      <translation>服务条款接受复选框</translation>
     </message>
     <message>
       <source>Checked by default</source>
-      <translation>Varsayılan olarak işaretlidir</translation>
+      <translation>预设已选中</translation>
     </message>
     <message>
       <source>E-mail is always required</source>
-      <translation>E-posta herzaman gerekli</translation>
+      <translation>E-mail 为必填栏位</translation>
     </message>
     <message>
       <source>Allow to attatch a file</source>
-      <translation>Dosya yüklemeye izin ver</translation>
+      <translation>允许附加档案</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
-      <translation>Giriş alanlarının üstünde operatör profilini göster</translation>
+      <translation>输入栏位上方显示客服人员的个人资料</translation>
     </message>
     <message>
       <source>Remove space after operator profile</source>
-      <translation>Operatör profilinden sonra alanı kaldırın</translation>
+      <translation>在客服人员的个人档案后删除空间</translation>
     </message>
     <message>
       <source>Hide message label</source>
-      <translation>Mesaj etiketini gizle</translation>
+      <translation>隐藏讯息标签</translation>
     </message>
     <message>
       <source>Show messages box above input fields, usefull for UX combinations.</source>
-      <translation>Giriş alanlarının üstündeki ileti kutusunu göster, UX kombinasyonları için yararlı.</translation>
+      <translation>显示讯息方块上面输入栏位，使用者体验组合有用。</translation>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
-      <translation>Kullanıcı mesaj alanı yüksekliği (px)</translation>
+      <translation>初始使用者消息高度 （图元）</translation>
     </message>
     <message>
       <source>Department settings</source>
-      <translation>Departman ayarları</translation>
+      <translation>部门设置</translation>
     </message>
     <message>
       <source>Requires pre-filled department</source>
-      <translation>Bölüm önceden doldurulmuş alan gerektirir</translation>
+      <translation>需要预填部门</translation>
     </message>
     <message>
       <source>User can not change passed department.</source>
-      <translation>Kullanıcı seçtiği departmanı değiştiremez.</translation>
+      <translation>用户不能更改通过的部门。</translation>
     </message>
     <message>
       <source>Encryption</source>
-      <translation>Şifreleme</translation>
+      <translation>加密</translation>
     </message>
     <message>
       <source>Encryption key, min length 40</source>
-      <translation>Şifreleme anahtarı, minimum uzunluk 40</translation>
+      <translation>加密金钥，最小长度 40</translation>
     </message>
     <message>
       <source>Argument identifier</source>
-      <translation>Bağımsız değişken tanımlama</translation>
+      <translation>参数识别码</translation>
     </message>
     <message>
       <source>Argument name</source>
-      <translation>&quot;Konu&quot; Adı</translation>
+      <translation>参数名称</translation>
     </message>
     <message>
       <source>List of start chat settings</source>
-      <translation>Sohbet başlat ayarlarının listesi</translation>
+      <translation>开始聊天设置列表</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Bölüm</translation>
+      <translation>部门</translation>
     </message>
     <message>
       <source>New</source>
-      <translation>Yeni</translation>
+      <translation>新增</translation>
     </message>
     <message>
       <source>Please enter resource identifier</source>
-      <translation>Lütfen kaynak tanımlayıcı girin</translation>
+      <translation>请输入资源识别码</translation>
     </message>
     <message>
       <source>Add resource</source>
-      <translation>Kaynak ekle</translation>
+      <translation>增加资源</translation>
     </message>
     <message>
       <source>Minimum 40 characters for encryption key!</source>
-      <translation>Şifreleme anahtarı için en az 40 karakter!</translation>
+      <translation>加密密钥是至少40个字符！</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation>Konuşmayı başlat formu ayarları</translation>
+      <translation>开始交谈表单设定</translation>
     </message>
   </context>
   <context>
     <name>chat/lists/search_panel</name>
     <message>
       <source>Select event</source>
-      <translation>Etkinlik Seç</translation>
+      <translation>选择活动</translation>
     </message>
     <message>
       <source>Object ID</source>
-      <translation>Nesne Kimliği</translation>
+      <translation>物件 ID</translation>
     </message>
     <message>
       <source>Category</source>
-      <translation>Kategori</translation>
+      <translation>类别</translation>
     </message>
     <message>
       <source>Source</source>
-      <translation>Kaynak</translation>
+      <translation>来源</translation>
     </message>
     <message>
       <source>Exclude personal responses</source>
-      <translation>Kişisel yanıtları hariç tutma</translation>
+      <translation>排除个人回应</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Başlık</translation>
+      <translation>标题</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation>İleti</translation>
+      <translation>信息</translation>
     </message>
     <message>
       <source>Fallback message</source>
-      <translation>geri çekilme mesajı</translation>
+      <translation>后备讯息</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Departman</translation>
+      <translation>部门</translation>
     </message>
     <message>
       <source>Search</source>
-      <translation>Ara</translation>
+      <translation>搜寻</translation>
     </message>
     <message>
       <source>Select department</source>
-      <translation>Seçili departman</translation>
+      <translation>选择部门</translation>
     </message>
     <message>
       <source>Close selected</source>
-      <translation>Seçili sohbeti kapat</translation>
+      <translation>关闭已选</translation>
     </message>
     <message>
       <source>Delete selected</source>
-      <translation>Seçili sohbeti sil</translation>
+      <translation>删除选取项目</translation>
     </message>
     <message>
       <source>Nick</source>
-      <translation>Takma Ad</translation>
+      <translation>暱称</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-posta</translation>
+      <translation>电子邮件信箱</translation>
     </message>
     <message>
       <source>Department group</source>
-      <translation>Bölüm grubu</translation>
+      <translation>部门群组</translation>
     </message>
     <message>
       <source>User</source>
-      <translation>Kullanıcı</translation>
+      <translation>使用者</translation>
     </message>
     <message>
       <source>User group</source>
-      <translation>Kullanıcı Grubu</translation>
+      <translation>使用者群组</translation>
     </message>
     <message>
       <source>Date range from</source>
-      <translation>Tarih aralığı (ilk)</translation>
+      <translation>日期范围从</translation>
     </message>
     <message>
       <source>Hour and minute from</source>
-      <translation>Saat ve dakika (ilk)</translation>
+      <translation>由小时和分钟</translation>
     </message>
     <message>
       <source>Date range to</source>
-      <translation>Tarih aralığı (son)</translation>
+      <translation>日期范围到</translation>
     </message>
     <message>
       <source>Hour and minute to</source>
-      <translation>Saat ve dakika (son)</translation>
+      <translation>小时和分钟至</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation>Bekleme Süresi</translation>
+      <translation>等待时间</translation>
     </message>
     <message>
       <source>Vote status</source>
-      <translation>Anket Durumu</translation>
+      <translation>评价状态</translation>
     </message>
     <message>
       <source>Any</source>
-      <translation>Tümü</translation>
+      <translation>任何</translation>
     </message>
     <message>
       <source>Not Voted</source>
-      <translation>Oylanmamış</translation>
+      <translation>未评价</translation>
     </message>
     <message>
       <source>Up Voted</source>
-      <translation>Beğenilmiş</translation>
+      <translation>正评</translation>
     </message>
     <message>
       <source>Down vote</source>
-      <translation>Beğenilmemiş</translation>
+      <translation>负评</translation>
     </message>
     <message>
       <source>Chat status</source>
-      <translation>Sohbet durumu</translation>
+      <translation>交谈状态</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Bekleyen Sohbetler</translation>
+      <translation>等待中交谈</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Aktif Sohbetler</translation>
+      <translation>进行中交谈</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Sonlandırılmış Sohbetler</translation>
+      <translation>已完成交谈</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
-      <translation>Site içi sohbetler</translation>
+      <translation>Chatbox 交谈</translation>
     </message>
     <message>
       <source>Operators chats</source>
-      <translation>Operatörler arası Sohbetler</translation>
+      <translation>客服人员交谈</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation>Ürün</translation>
+      <translation>产品</translation>
     </message>
     <message>
       <source>Chat ID</source>
-      <translation>Sohbet ID</translation>
+      <translation>交谈 ID</translation>
     </message>
     <message>
       <source>Chat duration</source>
-      <translation>Sohbet Süresi</translation>
+      <translation>交谈持续时间</translation>
     </message>
     <message>
       <source>Chat duration from</source>
-      <translation>Sohbet Süresi&apos;nden</translation>
+      <translation>交谈持续时间从</translation>
     </message>
     <message>
       <source>From</source>
-      <translation>itibaren</translation>
+      <translation>从</translation>
     </message>
     <message>
       <source>Chat duration till</source>
-      <translation>Sohbet Süresi&apos;ne</translation>
+      <translation>聊天时长至</translation>
     </message>
     <message>
       <source>Till</source>
-      <translation>için</translation>
+      <translation>到</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation>Konu</translation>
+      <translation>主旨</translation>
     </message>
     <message>
       <source>Proactive invitation</source>
-      <translation>Proaktif Davetiye</translation>
+      <translation>主动邀请</translation>
     </message>
     <message>
       <source>IP</source>
-      <translation>İp</translation>
+      <translation>IP</translation>
     </message>
     <message>
       <source>Has unread messages</source>
-      <translation>Okunmamış mesajları içerenler</translation>
+      <translation>有未读取讯息</translation>
     </message>
     <message>
       <source>Unanswered chat</source>
-      <translation>Cevapsız sohbetler</translation>
+      <translation>未回复的交谈</translation>
     </message>
     <message>
       <source>Anonymised</source>
-      <translation>Anonim</translation>
+      <translation>匿名化</translation>
     </message>
     <message>
       <source>Chats without an operator</source>
-      <translation type="unfinished"/>
+      <translation>没有客服人员的聊天</translation>
     </message>
     <message>
       <source>Chats with an operator</source>
-      <translation type="unfinished"/>
+      <translation>有客服人员的聊天</translation>
     </message>
     <message>
       <source>Chats which had a bot</source>
-      <translation type="unfinished"/>
+      <translation>有机器人的聊天</translation>
     </message>
     <message>
       <source>Chats which did not had a bot</source>
-      <translation type="unfinished"/>
+      <translation>没有机器人的聊天</translation>
     </message>
     <message>
       <source>Print</source>
-      <translation>Yazdır</translation>
+      <translation>列印</translation>
     </message>
     <message>
       <source>XLS</source>
@@ -2316,207 +2316,207 @@
     </message>
     <message>
       <source>XLS (with content)</source>
-      <translation>XLS(veri dahil)</translation>
+      <translation>XLS （包括内容）</translation>
     </message>
     <message>
       <source>XLS (with survey)</source>
-      <translation>XLS (anket dahil)</translation>
+      <translation>XLS（包括调查）</translation>
     </message>
     <message>
       <source>XLS (with content and survey)</source>
-      <translation>XLS (içerik ve anket dahil)</translation>
+      <translation>XLS（包括内容和调查）</translation>
     </message>
     <message>
       <source>Export</source>
-      <translation>Kaydet</translation>
+      <translation>输出</translation>
     </message>
     <message>
       <source>Choose department</source>
-      <translation>Departman seçin</translation>
+      <translation>选择部门</translation>
     </message>
     <message>
       <source>Choose department group</source>
-      <translation>Departman grubu seçin</translation>
+      <translation>选择部门群组</translation>
     </message>
     <message>
       <source>Select user</source>
-      <translation>Kullanıcı Seçiniz</translation>
+      <translation>选择使用者</translation>
     </message>
     <message>
       <source>Select group</source>
-      <translation>Grup Seçiniz</translation>
+      <translation>选择群组</translation>
     </message>
     <message>
       <source>Select product</source>
-      <translation>Ürün Seçiniz</translation>
+      <translation>选择产品</translation>
     </message>
     <message>
       <source>Choose proactive invitation</source>
-      <translation>Proaktif davetiye seçiniz</translation>
+      <translation>选择主动邀请</translation>
     </message>
     <message>
       <source>Select bot</source>
-      <translation>Bot Seçiniz</translation>
+      <translation>选择机器人</translation>
     </message>
     <message>
       <source>Type to search</source>
-      <translation>Aramak için yazın</translation>
+      <translation>搜寻种类</translation>
     </message>
     <message>
       <source>Transfer to bot only if department is offline</source>
-      <translation>Bot&apos;a yalnızca bölüm çevrimdışı olduğunda aktarma</translation>
+      <translation>仅在部门离线时转移到机器人</translation>
     </message>
     <message>
       <source>Select translations</source>
-      <translation>Çevirileri Seçiniz</translation>
+      <translation>选择翻译</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>İsim</translation>
+      <translation>名称</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation>Gizli</translation>
+      <translation>隐藏</translation>
     </message>
     <message>
       <source>Visible only if online</source>
-      <translation>Yalnızca çevrimiçi olduğunda görünür</translation>
+      <translation>只有在线上时可见</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Pasif</translation>
+      <translation>已禁用</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation>Anket</translation>
+      <translation>调查</translation>
     </message>
     <message>
       <source>Select survey</source>
-      <translation>Anket Seçiniz</translation>
+      <translation>选择调查</translation>
     </message>
     <message>
       <source>File name</source>
-      <translation>Dosya adı</translation>
+      <translation>档案名称</translation>
     </message>
     <message>
       <source>Please choose</source>
-      <translation>Lütfen seçiniz</translation>
+      <translation>请选择</translation>
     </message>
     <message>
       <source>Invitation</source>
-      <translation>davetiye</translation>
+      <translation>邀请</translation>
     </message>
     <message>
       <source>Group field</source>
-      <translation>Grup alanı</translation>
+      <translation>群组栏位</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>机器人</translation>
     </message>
     <message>
       <source>Exclude offline requests from charts</source>
-      <translation>Çevrimdışı istekleri grafiklerden hariç tutma</translation>
+      <translation>从图表中排除离线请求</translation>
     </message>
     <message>
       <source>Show only offline requests</source>
-      <translation>Yalnızca çevrimdışı istekleri göster</translation>
+      <translation>仅显示离线请求</translation>
     </message>
     <message>
       <source>Compare to past</source>
-      <translation>Geçmişle karşılaştır</translation>
+      <translation>与过去比较</translation>
     </message>
     <message>
       <source>Agent</source>
-      <translation>ajan</translation>
+      <translation>代理</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation>Sohbetler</translation>
+      <translation>交谈</translation>
     </message>
     <message>
       <source>Group by</source>
-      <translation>Grupla</translation>
+      <translation>分组</translation>
     </message>
     <message>
       <source>Month</source>
-      <translation>Ay</translation>
+      <translation>月</translation>
     </message>
     <message>
       <source>Day</source>
-      <translation>Gün</translation>
+      <translation>天</translation>
     </message>
     <message>
       <source>Week</source>
-      <translation>Hafta</translation>
+      <translation>周</translation>
     </message>
     <message>
       <source>Day interval to include from</source>
-      <translation>Dahil edilecek gün aralığı</translation>
+      <translation>包括的天数间隔从</translation>
     </message>
     <message>
       <source>Select hour</source>
-      <translation>Saat Seçiniz</translation>
+      <translation>选择小时</translation>
     </message>
     <message>
       <source>Select minute</source>
-      <translation>Dakika Seçiniz</translation>
+      <translation>选择分钟</translation>
     </message>
     <message>
       <source>Day interval to include to</source>
-      <translation>Dahil edilecek gün aralığı</translation>
+      <translation>包括的天数间隔到</translation>
     </message>
     <message>
       <source>Date range from to</source>
-      <translation>Tarih aralığı baştan sona</translation>
+      <translation>日期范围从 / 到</translation>
     </message>
     <message>
       <source>Average</source>
-      <translation>Ortalama</translation>
+      <translation>平均</translation>
     </message>
     <message>
       <source>Total number of chats</source>
-      <translation>Toplam Sohbet</translation>
+      <translation>聊天次数总数</translation>
     </message>
     <message>
       <source>Number of chats while online</source>
-      <translation>Online olduğu süreçteki sohbetleri</translation>
+      <translation>在线聊天次数</translation>
     </message>
     <message>
       <source>Hours on chat (sum of chat duration)</source>
-      <translation>Toplam sohbet süresi (saat)</translation>
+      <translation>聊天时间（聊天时间总和, 小时）</translation>
     </message>
     <message>
       <source>Time online (sum of time spend online)</source>
-      <translation>Çevrimiçi zaman (çevrimiçi geçirilen zaman toplamı)</translation>
+      <translation>在线时间（在线花费的时间总和）</translation>
     </message>
     <message>
       <source>AVG number of chats per hour</source>
-      <translation>Saat başına ortalama sohbet</translation>
+      <translation>每小时平均聊天次数</translation>
     </message>
     <message>
       <source>Average pick-up time</source>
-      <translation>Ortalama alma süresi</translation>
+      <translation>平均接送时间</translation>
     </message>
     <message>
       <source>Average chat length</source>
-      <translation>Ortalama sohbet uzunluğu</translation>
+      <translation>平均聊天时间</translation>
     </message>
     <message>
       <source>Include hours (from, to)</source>
-      <translation>Saati dahil et (itibaren, ila)</translation>
+      <translation>包括小时（从，到）</translation>
     </message>
     <message>
       <source>Group results by operator</source>
-      <translation>Operatör tarafından grup sonuçları</translation>
+      <translation>结果按客服人员分组</translation>
     </message>
     <message>
       <source>Minimum chats</source>
-      <translation>Minimum Sohbet</translation>
+      <translation>最小的聊天</translation>
     </message>
     <message>
       <source>Optional</source>
-      <translation>İsteğe bağlı</translation>
+      <translation>可选择</translation>
     </message>
     <message>
       <source>XML</source>
@@ -2528,328 +2528,328 @@
     </message>
     <message>
       <source>Username</source>
-      <translation>Kullanıcı adı</translation>
+      <translation>使用者名称</translation>
     </message>
     <message>
       <source>Nickname</source>
-      <translation>Operatör Takma Adı</translation>
+      <translation>暱称</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Soyisim</translation>
+      <translation>姓氏</translation>
     </message>
   </context>
   <context>
     <name>chat/subject</name>
     <message>
       <source>If you do not choose any department, subject will be visible for all departments</source>
-      <translation>Eğer hiçbir departman seçmezseniz, konu tüm departmanlar için görünür olacaktır</translation>
+      <translation>如果您不选择任何部门,则所有部门都可以看到主题</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation>Konu</translation>
+      <translation>主旨</translation>
     </message>
     <message>
       <source>Choose a subject</source>
-      <translation>Bir konu seçiniz</translation>
+      <translation>选择主旨</translation>
     </message>
     <message>
       <source>Set a subject</source>
-      <translation>Bir konu belirle</translation>
+      <translation>设定主旨</translation>
     </message>
     <message>
       <source>Subject selected!</source>
-      <translation>Konu seçildi!</translation>
+      <translation>已选取项目</translation>
     </message>
     <message>
       <source>Subject unselected!</source>
-      <translation>Konu seçilmedi!</translation>
+      <translation>项目已不选取</translation>
     </message>
     <message>
       <source>Please choose a subject</source>
-      <translation>Bir konu seçiniz</translation>
+      <translation>请选择主旨</translation>
     </message>
   </context>
   <context>
     <name>survey/form</name>
     <message>
       <source>Add option</source>
-      <translation>Seçenek ekle</translation>
+      <translation>增加选项</translation>
     </message>
     <message>
       <source>Enter a possible answer to your question here...</source>
-      <translation>Sorunuza olası bir yanıtı buraya girin ...</translation>
+      <translation>在这里输入一个可能的答案</translation>
     </message>
     <message>
       <source>Enable stars</source>
-      <translation>Yıldızları etkinleştir</translation>
+      <translation>启用 Stars</translation>
     </message>
     <message>
       <source>Enable question</source>
-      <translation>Soruyu etkinleştir</translation>
+      <translation>启用 Question</translation>
     </message>
     <message>
       <source>Enable question with an answers</source>
-      <translation>Bir yanıtı olan soruyu etkinleştir</translation>
+      <translation>启用 question with an answers</translation>
     </message>
   </context>
   <context>
     <name>chat/cannedmsg</name>
     <message>
       <source>Main</source>
-      <translation>Ana</translation>
+      <translation>主要</translation>
     </message>
     <message>
       <source>Add translation</source>
-      <translation>Çeviri ekle</translation>
+      <translation>新增翻译</translation>
     </message>
     <message>
       <source>Search for language. Enter * to see all.</source>
-      <translation type="unfinished"/>
+      <translation>搜索语言。 输入*以查看全部。</translation>
     </message>
     <message>
       <source>Title/Message</source>
-      <translation>Başlık / Mesaj</translation>
+      <translation>标题 / 讯息</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Departman</translation>
+      <translation>部门</translation>
     </message>
     <message>
       <source>User</source>
-      <translation>Kullanıcı</translation>
+      <translation>使用者</translation>
     </message>
     <message>
       <source>Delay</source>
-      <translation>Gecikme</translation>
+      <translation>延迟</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation>Konum</translation>
+      <translation>位置</translation>
     </message>
     <message>
       <source>Auto send</source>
-      <translation>Otomatik gönderme</translation>
+      <translation>自动送出</translation>
     </message>
     <message>
       <source>Edit message</source>
-      <translation>Mesajı düzenle</translation>
+      <translation>编辑讯息</translation>
     </message>
     <message>
       <source>Delete message</source>
-      <translation>Mesajı sil</translation>
+      <translation>删除讯息</translation>
     </message>
     <message>
       <source>New canned message</source>
-      <translation>Yeni arşivlenmiş mesaj</translation>
+      <translation>新增罐头讯息</translation>
     </message>
     <message>
       <source>This change will be applied to all departments that use this canned message</source>
-      <translation>Bu değişiklik, bu hazır mesajı kullanan tüm departmanlara uygulanacak</translation>
+      <translation>此更改将应用于使用此罐头信息的所有部门</translation>
     </message>
     <message>
       <source>Messages</source>
-      <translation>Mesajlar</translation>
+      <translation>信息</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Başlık</translation>
+      <translation>标题</translation>
     </message>
     <message>
       <source>Explain</source>
-      <translation>Açıklamak</translation>
+      <translation>说明</translation>
     </message>
     <message>
       <source>Automatically send this message to user then chat is accepted</source>
-      <translation>Otomatik oalrak bu mesajı gönder ve sohbeti kabul et</translation>
+      <translation>在交谈接受后，自动向使用者发送此讯息</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
-      <translation>Gecikme (saniye)</translation>
+      <translation>延迟时间（秒）</translation>
     </message>
     <message>
       <source>The smaller the position value the higher the canned message will appear in the list</source>
-      <translation>Konum değeri ne kadar küçük olursa, hazır mesaj listede o kadar yüksek görünür</translation>
+      <translation>位置值越小，罐头信息将在列表中显示的越高</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation>Mesaj</translation>
+      <translation>讯息</translation>
     </message>
     <message>
       <source>Fallback message</source>
-      <translation>Yedek mesaj</translation>
+      <translation>后备讯息</translation>
     </message>
     <message>
       <source>HTML Snippet</source>
-      <translation>HTML Tamamlayıcılar</translation>
+      <translation>HTML片段</translation>
     </message>
     <message>
       <source>Tag&apos;s</source>
-      <translation>Etiketlerin</translation>
+      <translation>标签的</translation>
     </message>
     <message>
       <source>Canned messages</source>
-      <translation>Arşivlenmiş mesajlar</translation>
+      <translation>罐头讯息</translation>
     </message>
     <message>
       <source>Edit canned message</source>
-      <translation>Arşivlenmiş mesajı düzenle</translation>
+      <translation>编辑罐头讯息</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>İsim</translation>
+      <translation>名字</translation>
     </message>
     <message>
       <source>Group</source>
-      <translation>Grup</translation>
+      <translation>群组</translation>
     </message>
     <message>
       <source>Language</source>
-      <translation>Dil</translation>
+      <translation>语言</translation>
     </message>
     <message>
       <source>Siteaccess</source>
-      <translation type="unfinished"/>
+      <translation>网站访问</translation>
     </message>
     <message>
       <source>Personal canned message</source>
-      <translation>Kişisel hazır mesaj</translation>
+      <translation>我的罐头讯息</translation>
     </message>
     <message>
       <source>Canned message was saved</source>
-      <translation>Hazır mesaj kaydedildi</translation>
+      <translation>罐头讯息已储存</translation>
     </message>
     <message>
       <source>Personal auto responder message</source>
-      <translation>Kişisel otomatik yanıtlayıcı mesajı</translation>
+      <translation>个人自动应答器信息</translation>
     </message>
     <message>
       <source>Please enter a canned message</source>
-      <translation>Lütfen bir arşivlenmiş mesaj girin</translation>
+      <translation>请输入罐头讯息内容</translation>
     </message>
     <message>
       <source>Canned message tags should not contain # character</source>
-      <translation>Hazır mesaj etiketleri # karakteri içermemelidir</translation>
+      <translation>罐头信息标签不应包含＃个字符</translation>
     </message>
     <message>
       <source>Please choose a department!</source>
-      <translation>Lütfen bir bölüm seçin!</translation>
+      <translation>请选择一个部门!</translation>
     </message>
     <message>
       <source>Please enter language name!</source>
-      <translation>Lütfen bir dil giriniz.</translation>
+      <translation>请输入语言名称！</translation>
     </message>
     <message>
       <source>Please choose a language!</source>
-      <translation>Lütfen bir dil seçin!</translation>
+      <translation>请选择一种语言！</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Sistem ayarları</translation>
+      <translation>系统配置</translation>
     </message>
     <message>
       <source>Dialects</source>
-      <translation>Lehçeler</translation>
+      <translation>方言</translation>
     </message>
     <message>
       <source>Edit dialect</source>
-      <translation>Lehçeyi düzenle</translation>
+      <translation>编辑方言</translation>
     </message>
     <message>
       <source>Languages</source>
-      <translation>Diller</translation>
+      <translation>语言</translation>
     </message>
   </context>
   <context>
     <name>chat/getstatus</name>
     <message>
       <source>Close</source>
-      <translation>Kapat</translation>
+      <translation>关闭</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Yeni pencerede aç</translation>
+      <translation>在新视窗中开启</translation>
     </message>
     <message>
       <source>Minimize/Restore</source>
-      <translation>Küçült</translation>
+      <translation>最小化 / 还原</translation>
     </message>
     <message>
       <source>Our staff are always ready to help</source>
-      <translation>Personelimiz her zaman yardıma hazır</translation>
+      <translation>我们的客服人员随时准备好帮助您</translation>
     </message>
     <message>
       <source>Live help is online...</source>
-      <translation>Canlı destek çevrimiçi ...</translation>
+      <translation>线上客服为在线状态...</translation>
     </message>
     <message>
       <source>Need help?</source>
-      <translation>Yardıma mı ihtiyacınız var?</translation>
+      <translation>需要帮助吗？</translation>
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
-      <translation>Sayfa içeriğinizi operatörler görsün mü?</translation>
+      <translation>允许客服人员能看到你的页面内容？</translation>
     </message>
     <message>
       <source>New messages</source>
-      <translation>Yeni mesajlar</translation>
+      <translation>新信息</translation>
     </message>
     <message>
       <source>Live Help</source>
-      <translation>Canlı yardım</translation>
+      <translation>线上客服</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
-      <translation>Canlı destek çevrimdışı...</translation>
+      <translation>线上客服为离线状态...</translation>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
-      <translation>Ekran paylaşıldı, Bitirmek için tıklayın</translation>
+      <translation>萤幕分享，点选后完成</translation>
     </message>
     <message>
       <source>Our staff are ready to help!</source>
-      <translation type="unfinished"/>
+      <translation>我们的员工可以提供帮助！</translation>
     </message>
   </context>
   <context>
     <name>abstract/list</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Emin misiniz? </translation>
+      <translation>是否确定？</translation>
     </message>
   </context>
   <context>
     <name>audit/options</name>
     <message>
       <source>Audit Configuration</source>
-      <translation>Denetim Yapılandırması</translation>
+      <translation>审核设定</translation>
     </message>
     <message>
       <source>How many days keep log?</source>
-      <translation>Günlüğü kaç gün tutsun?</translation>
+      <translation>保留日志多少天？</translation>
     </message>
     <message>
       <source>What objects changes log?</source>
-      <translation>Hangi nesneler günlüğü değiştirsin?</translation>
+      <translation>什么目的更改日志？</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Ayarlar güncellendi</translation>
+      <translation>设定已更新</translation>
     </message>
     <message>
       <source>Options</source>
-      <translation>Seçenekler</translation>
+      <translation>选项</translation>
     </message>
   </context>
   <context>
     <name>chat/adminchat</name>
     <message>
       <source>Strike</source>
-      <translation>Vuruş</translation>
+      <translation>删除线</translation>
     </message>
     <message>
       <source>Quote</source>
-      <translation>Alıntı</translation>
+      <translation>引用</translation>
     </message>
     <message>
       <source>Youtube</source>
@@ -2857,1058 +2857,1058 @@
     </message>
     <message>
       <source>HTML Code</source>
-      <translation>HTML Kodu</translation>
+      <translation>HTML 代码</translation>
     </message>
     <message>
       <source>Bold</source>
-      <translation>Kalın</translation>
+      <translation>粗体</translation>
     </message>
     <message>
       <source>Italic</source>
-      <translation>İtalik</translation>
+      <translation>斜体</translation>
     </message>
     <message>
       <source>Underline</source>
-      <translation>Altını çizmek</translation>
+      <translation>底线</translation>
     </message>
     <message>
       <source>Font Size</source>
-      <translation>Font Boyutu</translation>
+      <translation>字体大小</translation>
     </message>
     <message>
       <source>Color</source>
-      <translation>Renk</translation>
+      <translation>颜色</translation>
     </message>
     <message>
       <source>Apply</source>
-      <translation>Uygulamak</translation>
+      <translation>应用</translation>
     </message>
     <message>
       <source>Insert image or file</source>
-      <translation>Görsel yada dosya ekle</translation>
+      <translation>插入图片或档案</translation>
     </message>
     <message>
       <source>Preview</source>
-      <translation>Ön izleme</translation>
+      <translation>预览</translation>
     </message>
     <message>
       <source>Attach uploaded file</source>
-      <translation>Yüklenen dosyayı ekle</translation>
+      <translation>上传附加档案</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Emin misin?</translation>
+      <translation>你确定吗？</translation>
     </message>
     <message>
       <source>Block user</source>
-      <translation>Kullanıcıyı engelle</translation>
+      <translation>封锁访客</translation>
     </message>
     <message>
       <source>Close chat</source>
-      <translation>Konuşmayı kapat</translation>
+      <translation>完成此交谈</translation>
     </message>
     <message>
       <source>Screen sharing</source>
-      <translation>Ekran paylaşımı</translation>
+      <translation>萤幕分享</translation>
     </message>
     <message>
       <source>Copy messages to clipboard</source>
-      <translation>İletileri panoya kopyala</translation>
+      <translation>将信息复制到剪贴簿</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Konuşmayı sil</translation>
+      <translation>删除交谈记录</translation>
     </message>
     <message>
       <source>Modify chat</source>
-      <translation>Sohbeti Düzenle</translation>
+      <translation>修改交谈</translation>
     </message>
     <message>
       <source>Edit chat information</source>
-      <translation>Sohbet bilgilerini düzenle</translation>
+      <translation>编辑交谈资讯</translation>
     </message>
     <message>
       <source>Print</source>
-      <translation>Yazdır</translation>
+      <translation>列印</translation>
     </message>
     <message>
       <source>Redirect user to contact form.</source>
-      <translation>Kullanıcıyı mesaj bırakın formuna yönlendir</translation>
+      <translation>重新定位使用者至连络人表单。</translation>
     </message>
     <message>
       <source>Please enter a URL</source>
-      <translation>Lütfen bir URL girin</translation>
+      <translation>请输入网址</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation>Kullanıcıyı farklı bir sayfaya yönlendir</translation>
+      <translation>将使用者重新定位到另一个网址</translation>
     </message>
     <message>
       <source>Mail was send</source>
-      <translation>E-posta gönderildi</translation>
+      <translation>邮件已发送</translation>
     </message>
     <message>
       <source>Send mail</source>
-      <translation>Posta gönder</translation>
+      <translation>发送邮件</translation>
     </message>
     <message>
       <source>Redirect user to survey</source>
-      <translation>Kullanıcıyı ankete yönlendir</translation>
+      <translation>重新定位使用者至调查</translation>
     </message>
     <message>
       <source>Choose other than default recognition language</source>
-      <translation>Varsayılan tanıma dili dışında bir dil seçin</translation>
+      <translation>选择其他预设识别语言</translation>
     </message>
     <message>
       <source>Transfer chat</source>
-      <translation>Konuşma aktar</translation>
+      <translation>转接交谈</translation>
     </message>
     <message>
       <source>Footprint</source>
-      <translation>Kapladığı alan</translation>
+      <translation>浏览路径</translation>
     </message>
     <message>
       <source>Refresh</source>
-      <translation>Yenile</translation>
+      <translation>重新整理</translation>
     </message>
     <message>
       <source>Additional data</source>
-      <translation>Ek bilgi</translation>
+      <translation>附加资讯</translation>
     </message>
     <message>
       <source>Hidden field</source>
-      <translation>Gizli alan</translation>
+      <translation>隐藏的栏位</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>tanımlayıcı</translation>
+      <translation>识别码</translation>
     </message>
     <message>
       <source>Chat duration</source>
-      <translation>Konuşma süresi</translation>
+      <translation>交谈持续时间</translation>
     </message>
     <message>
       <source>Chat owner</source>
-      <translation>Konuşma sahibi</translation>
+      <translation>负责客服人员</translation>
     </message>
     <message>
       <source>Chat between operators, chat initializer</source>
-      <translation>Operatörler arası konuşma, konuşma başlatıcı</translation>
+      <translation>客服人员之间的聊天，聊天初始化器</translation>
     </message>
     <message>
       <source>City</source>
-      <translation>Şehir</translation>
+      <translation>城市</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation>Ülke</translation>
+      <translation>国家</translation>
     </message>
     <message>
       <source>Created at</source>
-      <translation>Oluşturma tarihi</translation>
+      <translation>已建立于</translation>
     </message>
     <message>
       <source>Started at</source>
-      <translation>Başlangıç</translation>
+      <translation>开始于</translation>
     </message>
     <message>
       <source>Closed at</source>
-      <translation>Kapalı</translation>
+      <translation>已完成于</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Departman</translation>
+      <translation>部门</translation>
     </message>
     <message>
       <source>This is offline message</source>
-      <translation>Bu çevrimdışı İleti</translation>
+      <translation>这是离线信息</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-posta</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Telefon</translation>
+      <translation>电话</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation>Ürün</translation>
+      <translation>产品</translation>
     </message>
     <message>
       <source>Page</source>
-      <translation>Sayfa</translation>
+      <translation>页面</translation>
     </message>
     <message>
       <source>Came from</source>
-      <translation>den geldi</translation>
+      <translation>来自</translation>
     </message>
     <message>
       <source>Device</source>
-      <translation>cihaz</translation>
+      <translation>设备</translation>
     </message>
     <message>
       <source>Computer</source>
-      <translation>Bilgisayar</translation>
+      <translation>电脑</translation>
     </message>
     <message>
       <source>Smartphone</source>
-      <translation>Akıllı Telefon</translation>
+      <translation>手机</translation>
     </message>
     <message>
       <source>Tablet</source>
-      <translation>Tablet</translation>
+      <translation>平板电脑</translation>
     </message>
     <message>
       <source>User left</source>
-      <translation>Kullanıcı terk etti</translation>
+      <translation>使用者离开</translation>
     </message>
     <message>
       <source>Time zone</source>
-      <translation>Saat dilimi</translation>
+      <translation>时区</translation>
     </message>
     <message>
       <source>Waited</source>
-      <translation>Bekletildi</translation>
+      <translation>等待中</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Ziyaretçi</translation>
+      <translation>访客</translation>
     </message>
     <message>
       <source>Files</source>
-      <translation>Dosyalar</translation>
+      <translation>传送档案</translation>
     </message>
     <message>
       <source>Click to change chat status</source>
-      <translation>Sohbet durumunu güncellemek için tıklayın</translation>
+      <translation>点选以更改交谈状态</translation>
     </message>
     <message>
       <source>Pending chat</source>
-      <translation>Bekleyen konuşma</translation>
+      <translation>等待中交谈</translation>
     </message>
     <message>
       <source>Active chat</source>
-      <translation>Aktif Konuşma</translation>
+      <translation>进行中交谈</translation>
     </message>
     <message>
       <source>Closed chat</source>
-      <translation>Kapanmış Konuşma</translation>
+      <translation>已完成交谈</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation>Site içi sohbet</translation>
+      <translation>Chatbox 交谈</translation>
     </message>
     <message>
       <source>Operators chat</source>
-      <translation>Operatör sohbeti</translation>
+      <translation>客服交谈</translation>
     </message>
     <message>
       <source>Bot chat</source>
-      <translation>Bot sohbeti</translation>
+      <translation>机器人聊天</translation>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
-      <translation>Saptanamadı. GEO saptamanın etkinleştirildiğinden emin olun.</translation>
+      <translation>无法侦测。请确认 GEO 侦测已被启用。</translation>
     </message>
     <message>
       <source>Map</source>
-      <translation>Harita</translation>
+      <translation>地图</translation>
     </message>
     <message>
       <source>User browsing information</source>
-      <translation>Kullanıcı gezinme bilgileri</translation>
+      <translation>使用者浏览资讯</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation>Sohbetler</translation>
+      <translation>交谈记录</translation>
     </message>
     <message>
       <source>Remarks</source>
-      <translation>Düşünceler</translation>
+      <translation>备注</translation>
     </message>
     <message>
       <source>Include system messages</source>
-      <translation>Sistem mesajlarını dahil et</translation>
+      <translation>包括系统消息</translation>
     </message>
     <message>
       <source>Messages</source>
-      <translation>Mesajlar</translation>
+      <translation>讯息</translation>
     </message>
     <message>
       <source>Copied!</source>
-      <translation>Kopyalanan!</translation>
+      <translation>已复制!</translation>
     </message>
     <message>
       <source>Copy to clipboard</source>
-      <translation>Panoya kopyala</translation>
+      <translation>复制到剪贴簿</translation>
     </message>
     <message>
       <source>Copy messages</source>
-      <translation>Mesajları kopyala</translation>
+      <translation>复制信息</translation>
     </message>
     <message>
       <source>Close dialog</source>
-      <translation>Dialoğu kapat.</translation>
+      <translation>关闭视窗</translation>
     </message>
     <message>
       <source>Notes</source>
-      <translation>Notlar</translation>
+      <translation>备注</translation>
     </message>
     <message>
       <source>Reopen chat</source>
-      <translation>Konuşmayı tekrar aç</translation>
+      <translation>重启交谈</translation>
     </message>
     <message>
       <source>BB Code</source>
-      <translation>BB Kodu</translation>
+      <translation>BB Code</translation>
     </message>
     <message>
       <source>Type to search</source>
-      <translation>Aramak için yazın</translation>
+      <translation>输入搜索</translation>
     </message>
     <message>
       <source>Fill textarea with canned message</source>
-      <translation>Metin mesajını hazır mesajla doldurun</translation>
+      <translation>输出罐头讯息</translation>
     </message>
     <message>
       <source>Select a canned message</source>
-      <translation>Arşivlenmiş bir mesaj seçin</translation>
+      <translation>选择罐头讯息</translation>
     </message>
     <message>
       <source>Personal</source>
-      <translation>Kişiye özel</translation>
+      <translation>个人</translation>
     </message>
     <message>
       <source>Global</source>
-      <translation>Global</translation>
+      <translation>全球</translation>
     </message>
     <message>
       <source>Hold/Un-Hold chat</source>
-      <translation>Sohbeti beklet/devam et</translation>
+      <translation>保留/不保留聊天信息</translation>
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
-      <translation>Anında gecikmiş hazır mesaj gönder</translation>
+      <translation>立即发送延迟的罐头讯息</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Gönder</translation>
+      <translation>发送</translation>
     </message>
     <message>
       <source>Created</source>
-      <translation>Oluşturuldu</translation>
+      <translation>已建立</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation>öncelik</translation>
+      <translation>优先顺序</translation>
     </message>
     <message>
       <source>Select campaign</source>
-      <translation>Kampanya Seçiniz</translation>
+      <translation>选择活动</translation>
     </message>
     <message>
       <source>Are you sure you want to delete this chat?</source>
-      <translation>Bu sohbeti silmek istediğinizden emin misiniz?</translation>
+      <translation>您确定要删除此聊天吗？</translation>
     </message>
     <message>
       <source>Auto responder got error</source>
-      <translation>Otomatik yanıtlayıcıda hata var</translation>
+      <translation>自动应答器错误</translation>
     </message>
     <message>
       <source>did not accepted chat in time.</source>
-      <translation>zamanında sohbet kabul etmedi.</translation>
+      <translation>没有及时接受交谈。</translation>
     </message>
     <message>
       <source>Chat was assigned to</source>
-      <translation>Sohbet atandı</translation>
+      <translation>聊天已分配给</translation>
     </message>
     <message>
       <source>Hold removed!</source>
-      <translation>Bekletme kaldırıldı!</translation>
+      <translation>保留已删除！</translation>
     </message>
     <message>
       <source>has accepted the chat!</source>
-      <translation>sohbeti devraldı!</translation>
+      <translation>已接受交谈！</translation>
     </message>
     <message>
       <source>Invalid chat status</source>
-      <translation>Hatalı sohbet durumu</translation>
+      <translation>无效的聊天状态</translation>
     </message>
     <message>
       <source>Form data not valid</source>
-      <translation>Form verileri geçerli değil</translation>
+      <translation>表单资料无效</translation>
     </message>
     <message>
       <source>Has no access to this chat</source>
-      <translation>bu sohbete erişim yetkisi bulunmamaktadır.</translation>
+      <translation>不具有存取这次交谈的权限</translation>
     </message>
     <message>
       <source>has invited</source>
-      <translation type="unfinished"/>
+      <translation>邀请了</translation>
     </message>
     <message>
       <source>for the private chat.</source>
-      <translation type="unfinished"/>
+      <translation>进行私人聊天。</translation>
     </message>
   </context>
   <context>
     <name>system/htmlcode</name>
     <message>
       <source>HTML code</source>
-      <translation>HTML kod</translation>
+      <translation>HTML 代码</translation>
     </message>
     <message>
       <source>Popup width</source>
-      <translation>Açılır pencere genişliği</translation>
+      <translation>快显视窗宽度</translation>
     </message>
     <message>
       <source>Popup height, used only if iframe is used</source>
-      <translation>Popup height, used only if iframe is used</translation>
+      <translation>只有在使用 iframe 时所用的快显视窗高度</translation>
     </message>
     <message>
       <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>Belirteç, bu pro aktif konuşma davetiyeleri için filtre olarak kullanılabilir ve farklı domainler için farklı mesajlar tutmada yararlıdır. Aralık bırakmadan ya da özel karakterler kullanmadan sadece slaş.  </translation>
+      <translation>标识符，可以用作主动聊天邀请的过滤器，并且对于不同的域使用完全不同的信息。 仅字符串，不带空格或特殊字符。</translation>
     </message>
     <message>
       <source>Leave empty if it is not important to you</source>
-      <translation>Sizin için önemli değilse boş bırakın</translation>
+      <translation>如果此栏位对你并不重要，请空白</translation>
     </message>
     <message>
       <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
-      <translation>Aynı ziyaretçiye tekrar kaç gün teklif gösterdikten sonra gün içinde zaman aşımı teklif edin, oturum için boş bırakın</translation>
+      <translation>提供超时（以天为单位），在多少天后再次显示同一位访客的提供后，留空工作阶段</translation>
     </message>
     <message>
       <source>For what domain you are generating embed code?</source>
-      <translation>aszd</translation>
+      <translation>您正在为哪个网域生成嵌入代码？</translation>
     </message>
     <message>
       <source>example.com</source>
-      <translation>ornek.com</translation>
+      <translation>example.com</translation>
     </message>
     <message>
       <source>Choose prefered http mode</source>
-      <translation>Tercih edilen http modunu seçin</translation>
+      <translation>选择优先的 HTTP mode</translation>
     </message>
     <message>
       <source>Based on site (default)</source>
-      <translation>Siteye bağlı (varsayılan)</translation>
+      <translation>根据网站 ( 预设值 )</translation>
     </message>
     <message>
       <source>Choose a language</source>
-      <translation>Bir dil seç</translation>
+      <translation>选择一种语言</translation>
     </message>
     <message>
       <source>Chatbox messages content height</source>
-      <translation>Konuşma kutusu mesajları içerik boyu</translation>
+      <translation>Chatbox 讯息内容高度</translation>
     </message>
     <message>
       <source>Theme</source>
-      <translation>Tema</translation>
+      <translation>主题</translation>
     </message>
     <message>
       <source>Default</source>
-      <translation>Varsayılan</translation>
+      <translation>预设</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
-      <translation>Kodu metin alanından olmasını istediğiniz sayfaya kopyalayın</translation>
+      <translation>复制Text area的代码到你想要呈现的页面</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
-      <translation>Bu kodu sistemin çalışmasını istediğiniz body etiketleri arasında bir bölüme yerleştiriniz.</translation>
+      <translation>将此标签放置在您希望 Live Helper 聊天框模块  呈现的位置。</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Chatbox module tag.</source>
-      <translation>Bu kodu diğer kodun hemen altına yapıştırınız</translation>
+      <translation>将此标签放置在Live Helper 聊天框模块标签之后。</translation>
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>Site içi sohbet</translation>
+      <translation>Chatbox</translation>
     </message>
     <message>
       <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Üstten konum, yalnızca Orta sol veya Orta sağ taraf seçilirse kullanılır</translation>
+      <translation>从顶部的位置，只用如果中间左侧或右侧中间选择</translation>
     </message>
     <message>
       <source>Pixels</source>
-      <translation>Piksel</translation>
+      <translation>像素</translation>
     </message>
     <message>
       <source>Percents</source>
-      <translation>Yüzde</translation>
+      <translation>百分比</translation>
     </message>
     <message>
       <source>Size</source>
-      <translation>Ebat</translation>
+      <translation>大小</translation>
     </message>
     <message>
       <source>Width</source>
-      <translation>Genişlik</translation>
+      <translation>宽度</translation>
     </message>
     <message>
       <source>Height</source>
-      <translation>Yükseklik</translation>
+      <translation>高度</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation>Pozisyon</translation>
+      <translation>位置</translation>
     </message>
     <message>
       <source>Bottom right corner of the screen</source>
-      <translation>Ekranın sağ alt köşesi</translation>
+      <translation>在萤幕的右下角</translation>
     </message>
     <message>
       <source>Bottom left corner of the screen</source>
-      <translation>Ekranın sol alt köşesi</translation>
+      <translation>在萤幕的左下角</translation>
     </message>
     <message>
       <source>Middle right side of the screen</source>
-      <translation>Ekranın sağ orta tarafı</translation>
+      <translation>萤幕中间右侧</translation>
     </message>
     <message>
       <source>Middle left side of the screen</source>
-      <translation>Ekranın sol orta tarafı</translation>
+      <translation>萤幕中间左侧</translation>
     </message>
     <message>
       <source>Disable responsive layout for status widget.</source>
-      <translation>Durum widget&apos;ı için duyarlı düzeni devre dışı bırakın.</translation>
+      <translation>禁用 responsive layout for status widget.。</translation>
     </message>
     <message>
       <source>Disable minimize icon</source>
-      <translation>Simge durumuna küçült simgesini devre dışı bırak</translation>
+      <translation>禁用 最小化图示</translation>
     </message>
     <message>
       <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation>Sohbet Kutucuğu yerine site içi sohbet aracını göster, kullanıcılar küçültebilir fakat kapatamazlar.</translation>
+      <translation>显示聊天框内容而不是小部件，用户将只能最小化而不关闭它。</translation>
     </message>
     <message>
       <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation>İçerik gösteriliyorsa, sohbet kutusu içeriğini ilk defa simge durumuna küçültme.</translation>
+      <translation>第一次显示聊天框内容时最小化, 如果显示内容。</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>&amp; Lt; / body &amp; gt; kapanışından önce kodu metin alanından altbilgiye kopyalayın. </translation>
+      <translation>将代码从文本区域复制到页脚的结束的 &amp;lt;/body&amp;gt; 标记之前</translation>
     </message>
     <message>
       <source>Copy the code from the textarea to page where you want it to be rendered</source>
-      <translation>Kodu, metin alanından oluşturulmasını istediğiniz sayfaya kopyalayın</translation>
+      <translation>将代码从文本区域复制到要呈现它的页面</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper FAQ module to render.</source>
-      <translation>Bu kodu sistemin çalışmasını istediğiniz body etiketleri arasında bir bölüme yerleştiriniz.</translation>
+      <translation>将此标签放置在您希望Live Helper FAQ模块呈现的位置。</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper FAQ module tag.</source>
-      <translation>Bu kodu diğer kodun hemen altına yapıştırınız</translation>
+      <translation>将此标签放置在Live Helper FAQ模块标签之后。</translation>
     </message>
     <message>
       <source>Status text</source>
-      <translation>Durum metni</translation>
+      <translation>状态文字</translation>
     </message>
     <message>
       <source>FAQ</source>
-      <translation>SSS</translation>
+      <translation>FAQ</translation>
     </message>
     <message>
       <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
-      <translation>En üstten pozisyon, sadece Orta sol ya da Orta sağ taraf seçili ise kullan</translation>
+      <translation>置于首位，仅在选择了中间左侧或右侧中间位置时才能使用</translation>
     </message>
     <message>
       <source>Choose what form you want to embed</source>
-      <translation>Hangi formu gömmek istediğinizi seçin</translation>
+      <translation>选择您想要嵌入的格式</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>tanımlayıcı</translation>
+      <translation>识别码</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Questionary module to render.</source>
-      <translation>Bu kodu sistemin çalışmasını istediğiniz body etiketleri arasında bir bölüme yerleştiriniz.</translation>
+      <translation>将此标签放置在您希望Live Helper 问卷模块呈现的位置。</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Questionary module tag.</source>
-      <translation>Bu kodu diğer kodun hemen altına yapıştırınız</translation>
+      <translation>将此标签放置在 Live Helper问卷 模块标签之后。</translation>
     </message>
     <message>
       <source>Help us to grow</source>
-      <translation>Büyümemize yardım edin</translation>
+      <translation>帮助我们变的更好</translation>
     </message>
     <message>
       <source>Embed code</source>
-      <translation>Gömülü kod</translation>
+      <translation>嵌入码</translation>
     </message>
     <message>
       <source>Widget embed code (new)</source>
-      <translation type="unfinished"/>
+      <translation>Widget 嵌入代码（新）</translation>
     </message>
     <message>
       <source>Widget embed code (legacy)</source>
-      <translation type="unfinished"/>
+      <translation>Widget 嵌入代码（旧版）</translation>
     </message>
     <message>
       <source>Page embed code (legacy)</source>
-      <translation type="unfinished"/>
+      <translation>页面嵌入代码（旧版）</translation>
     </message>
     <message>
       <source>Widget embed code</source>
-      <translation>Görsel bileşen gömü kodu</translation>
+      <translation>Widget 嵌入码</translation>
     </message>
     <message>
       <source>Page embed code</source>
-      <translation>Sayfa gömü kodu</translation>
+      <translation>页面嵌入码</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
-      <translation>Varsayılan konuşma tanıma dilini ayarlama</translation>
+      <translation>设定预设的语音辨识语言</translation>
     </message>
     <message>
       <source>Speech language</source>
-      <translation>Konuşma dili</translation>
+      <translation>设定辨识语言</translation>
     </message>
     <message>
       <source>Languages</source>
-      <translation>Diller</translation>
+      <translation>语言</translation>
     </message>
     <message>
       <source>Dialects</source>
-      <translation>Lehçeler</translation>
+      <translation>方言</translation>
     </message>
     <message>
       <source>Operator ID</source>
-      <translation>Operatör Kimliği</translation>
+      <translation>客服人员 ID</translation>
     </message>
     <message>
       <source>To what operator chat should be assigned automatically?</source>
-      <translation>Hangi operatör sohbeti otomatik olarak devredilsin?</translation>
+      <translation>应该为哪些客服人员自动分配聊天？</translation>
     </message>
     <message>
       <source>General</source>
-      <translation>Genel</translation>
+      <translation>一般</translation>
     </message>
     <message>
       <source>Design</source>
-      <translation>Tasarım</translation>
+      <translation>设计</translation>
     </message>
     <message>
       <source>Hide status when offline</source>
-      <translation>Çevrim dışıyken durumu gizle </translation>
+      <translation>隐藏在离线时的状态</translation>
     </message>
     <message>
       <source>Show a ‘leave a message form’ when there are no online operators</source>
-      <translation>Çevrimiçi operatör olmadığında bir &apos;mesaj formu bırak&apos; göster</translation>
+      <translation>没有在线客服人员时显示“留言表格”</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Departman</translation>
+      <translation>部门</translation>
     </message>
     <message>
       <source>Any</source>
-      <translation>Tümü</translation>
+      <translation>任何</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
-      <translation>Metin alanını durumunuzun görünmesini istediğiniz sayfaya kopyalayın</translation>
+      <translation>从文本区域将代码复制至您的状态到您要显示的页面</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Plugin to render.</source>
-      <translation>Bu kodu sistemin çalışmasını istediğiniz body etiketleri arasında bir bölüme yerleştiriniz.</translation>
+      <translation>将此标签放置在您希望Live Helper插件呈现的位置。</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Plugin tag.</source>
-      <translation>Bu kodu diğer kodun hemen altına yapıştırınız</translation>
+      <translation>将此标签放置在Live Helper Plugin标签之后。</translation>
     </message>
     <message>
       <source>Show the page widget when a mouse is clicked</source>
-      <translation>Bir fare tıklandığında sayfa widget&apos;ını göster</translation>
+      <translation>单击鼠标时显示页面 widget</translation>
     </message>
     <message>
       <source>Disable proactive invitations</source>
-      <translation>Proaktif davetiyeleri pasif et</translation>
+      <translation>禁用主动邀请</translation>
     </message>
     <message>
       <source>Disable online tracking (this overrides the system configuration)</source>
-      <translation>Çevrimiçi izlemeyi devre dışı bırak (sistem yapılandırmasını geçersiz kılar)</translation>
+      <translation>禁用在线跟踪（这将覆蓋系统配置）</translation>
     </message>
     <message>
       <source>Cookie is valid only for domain where javascript embedded (excludes subdomains)</source>
-      <translation>Çerez yalnızca javascript&apos;in gömülü olduğu alan için geçerlidir (alt alanları hariç tutar)</translation>
+      <translation>Cookie仅对嵌入了javascript的域有效（不包括子域）</translation>
     </message>
     <message>
       <source>Try to detect language automatically</source>
-      <translation>Dili otomatik olarak tespit etmeye çalışın</translation>
+      <translation>尝试自动检测语言</translation>
     </message>
     <message>
       <source>Survey at the end of chat</source>
-      <translation>Sohbet sonunda anket</translation>
+      <translation>在交谈结束显示调查</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation>Ürün</translation>
+      <translation>产品</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>Eylemi en aza indirin, yalnızca durum Araç altta</translation>
+      <translation>最小化的行动，只有当Widget在底部适用</translation>
     </message>
     <message>
       <source>Keep where it was</source>
-      <translation>Olduğu yerde kal</translation>
+      <translation>保持原样</translation>
     </message>
     <message>
       <source>Minimize to bottom of the screen</source>
-      <translation>Ekranın altına küçült</translation>
+      <translation>最小化到萤幕底部</translation>
     </message>
     <message>
       <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Yerel konumlama - bu html kodunun gömülü olduğu yerde gösterilecek</translation>
+      <translation>本机放置-将显示在html嵌入的位置</translation>
     </message>
     <message>
       <source>Invisible, only JS API will be included</source>
-      <translation>Görünmez, sadece JS API dahil edilecek</translation>
+      <translation>不可见，仅包含JS API</translation>
     </message>
     <message>
       <source>Full height right</source>
-      <translation>Tam yükseklik sağ</translation>
+      <translation>右全高</translation>
     </message>
     <message>
       <source>Full height left</source>
-      <translation>Tam yükseklik sol</translation>
+      <translation>左全高</translation>
     </message>
     <message>
       <source>Popup window width</source>
-      <translation>Açılır pencere genişliği</translation>
+      <translation>快显视窗宽度</translation>
     </message>
     <message>
       <source>Popup window width in pixels</source>
-      <translation>Piksel olarak açılır pencere genişliği </translation>
+      <translation>快显视窗宽度，以 px 为单位</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
-      <translation>Piksel olarak açılır pencere yüksekliği</translation>
+      <translation>快显视窗高度，以 px 为单位</translation>
     </message>
     <message>
       <source>Widget width</source>
-      <translation>Görsel bileşen genişliği</translation>
+      <translation>Widget 宽度</translation>
     </message>
     <message>
       <source>Widget width in pixels</source>
-      <translation>Piksel olarak görsel bileşen genişliği</translation>
+      <translation>Widget 宽度，以 px 为单位</translation>
     </message>
     <message>
       <source>Widget height in pixels</source>
-      <translation>Piksel olarak görsel bileşen boyu </translation>
+      <translation>Widget 高度，以 px 为单位</translation>
     </message>
     <message>
       <source>Position from the top, only used if the middle left or the middle right side is chosen</source>
-      <translation>Yukarıdan gelen konum, yalnızca orta sol veya sağ orta taraf seçildiğinde kullanılır</translation>
+      <translation>从顶部开始的位置，仅在选择了中间左侧或中间右侧时使用</translation>
     </message>
     <message>
       <source>Percentage</source>
-      <translation>Yüzde</translation>
+      <translation>百分比</translation>
     </message>
     <message>
       <source>Identifier – enter a unique identifier here. This is useful for separating messages and proactive chat invitations from different domains/web pages. Enter a string without special characters or spaces such as “homepage” or “website1”.</source>
-      <translation>Tanımlayıcı - Buraya benzersiz bir tanımlayıcı girin. Bu, mesajların ayrılması için yararlıdır ve proaktifsohbetfarklı alan adlarından / web sayfalarından davetiyeler. “Ana sayfa” veya “web sitesi1” gibi özel karakterleri veya boşlukları olmayan bir dize girin.</translation>
+      <translation>标识符–在此输入唯一标识符。 这对于区分来自不同域/网页的信息和主动聊天邀请很有用。 输入不包含特殊字符或空格的字符串，例如“ homepage”或“ website1”。</translation>
     </message>
     <message>
       <source>no survey</source>
-      <translation>anket yok</translation>
+      <translation>没有调查</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
-      <translation>Domain girmeniz gerekmektedir. Lütfen bir port/protokol girmeyiniz. </translation>
+      <translation>请不要输入 protocol，只有 domain name 为必填</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Status to render.</source>
-      <translation>Bu kodu sistemin çalışmasını istediğiniz body etiketleri arasında bir bölüme yerleştiriniz.</translation>
+      <translation>将此标签放置在您希望  实时助手状态  呈现的位置。</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper status tag.</source>
-      <translation>Bu kodu diğer kodun hemen altına yapıştırınız</translation>
+      <translation>将此标签放置在Live Helper状态标签之后。</translation>
     </message>
     <message>
       <source>HTML code (beta)</source>
-      <translation>HTML kodu (beta)</translation>
+      <translation>HTML代码（测试版）</translation>
     </message>
     <message>
       <source>On each refresh start a new chat. Users will loose chat session browsing through pages! Usefull in embed mode.</source>
-      <translation type="unfinished"/>
+      <translation>每次刷新时，开始新的交谈。 用户将失去交谈工作阶段浏览页面！ 在嵌入模式下很有用。</translation>
     </message>
     <message>
       <source>Check for operator invitation messages. If you are planning to send messages to online visitors manually you can check this.</source>
-      <translation type="unfinished"/>
+      <translation>检查客服人员邀请信息。 如果您打算手动将信息发送给在线访客，则可以勾选这个。</translation>
     </message>
     <message>
       <source>Widget embed/click mode</source>
-      <translation>Araç yerleştirme / tıklama modu</translation>
+      <translation>Widget 嵌入/点击模式</translation>
     </message>
     <message>
       <source>widget (default)</source>
-      <translation>widget (varsayılan)</translation>
+      <translation>widget (预设)</translation>
     </message>
     <message>
       <source>Widget position</source>
-      <translation>Widget konumu</translation>
+      <translation>Widget 位置</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Sistem ayarı</translation>
+      <translation>系统配置</translation>
     </message>
     <message>
       <source>Chat expired</source>
-      <translation>Sohbet geçerliliği doldu</translation>
+      <translation>聊天过期</translation>
     </message>
     <message>
       <source>Invalid hash</source>
-      <translation>Geçersiz hash</translation>
+      <translation>无效 Hash</translation>
     </message>
     <message>
       <source>Chat was removed</source>
-      <translation>Sohbet silindi</translation>
+      <translation>交谈已删除</translation>
     </message>
   </context>
   <context>
     <name>questionary/htmlcode</name>
     <message>
       <source>Show overlay</source>
-      <translation>Yer paylaşımını göster</translation>
+      <translation>显示重叠</translation>
     </message>
     <message>
       <source>Show different offers for the same user</source>
-      <translation>Aynı kullanıcı için farklı teklifler göster</translation>
+      <translation>为同个访客显示不同的优惠</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
-      <translation>Metin alanındaki kodu sayfa başına ya da altına kopyala</translation>
+      <translation>复制程式码到页首或页尾</translation>
     </message>
     <message>
       <source>Status text</source>
-      <translation>Durum metni</translation>
+      <translation>状态文字</translation>
     </message>
     <message>
       <source>Expand the widget automatically for new users</source>
-      <translation>yeni kullanıcılar için ekranı görüntüsünü genişlet</translation>
+      <translation>自动为新的使用者展开 Widget</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>&amp; Lt; / body &amp; gt; kapanışından önce kodu metin alanından altbilgiye kopyalayın. etiket</translation>
+      <translation>将代码从文本区域复制到页脚的结束的 &amp;lt;/body&amp;gt; 标记之前</translation>
     </message>
     <message>
       <source>HTML code</source>
-      <translation>HTML kod</translation>
+      <translation>HTML 代码</translation>
     </message>
   </context>
   <context>
     <name>browseoffer/index</name>
     <message>
       <source>Browse offers</source>
-      <translation>Tekliflere gözat</translation>
+      <translation>浏览优惠</translation>
     </message>
     <message>
       <source>General</source>
-      <translation>Genel</translation>
+      <translation>一般</translation>
     </message>
     <message>
       <source>Browse your offers</source>
-      <translation>Tekliflerinize göz atın</translation>
+      <translation>浏览您的优惠</translation>
     </message>
     <message>
       <source>HTML Code</source>
-      <translation>HTML kodu</translation>
+      <translation>HTML 代码</translation>
     </message>
     <message>
       <source>Forms</source>
-      <translation>Formlar</translation>
+      <translation>表单</translation>
     </message>
     <message>
       <source>Form</source>
-      <translation>Form</translation>
+      <translation>表单</translation>
     </message>
   </context>
   <context>
     <name>chat/chat</name>
     <message>
       <source>Last visitor message time</source>
-      <translation>Son ziyaretçi mesajı süresi</translation>
+      <translation>上次访客留言时间</translation>
     </message>
     <message>
       <source>Show/Hide right column</source>
-      <translation>Sağ sütunu göster/gizle</translation>
+      <translation>显示 / 隐藏 右方列</translation>
     </message>
     <message>
       <source>User is typing now...</source>
-      <translation>Kullanıcı şu anda mesajlaşıyor...</translation>
+      <translation>访客输入讯息中...</translation>
     </message>
     <message>
       <source>You are not chat owner, type with caution</source>
-      <translation>SOHBET SAHİBİ SİZ DEĞİLSİNİZ, YAZDIKLARINIZ KULLANICIYA GÖNDERİLECEKTİR. DİKKATLİ OLUN!</translation>
+      <translation>您不是聊天所有者，请谨慎输入</translation>
     </message>
     <message>
       <source>Pending</source>
-      <translation>Beklemede</translation>
+      <translation>等待中</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Aktif</translation>
+      <translation>进行中</translation>
     </message>
     <message>
       <source>Closed</source>
-      <translation>Kapalı</translation>
+      <translation>已完成</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation>Site içi sohbet</translation>
+      <translation>Chatbox 交谈</translation>
     </message>
     <message>
       <source>Operators chat</source>
-      <translation>Operatörler arası sohbet</translation>
+      <translation>客服交谈</translation>
     </message>
     <message>
       <source>Bot chat</source>
-      <translation>Bot sohbeti</translation>
+      <translation>机器人聊天</translation>
     </message>
     <message>
       <source>Change chat status</source>
-      <translation>Sohbet durumunu güncelle</translation>
+      <translation>更改交谈状态</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>İptal</translation>
+      <translation>取消</translation>
     </message>
     <message>
       <source>Type your message here...</source>
-      <translation>Mesajınızı yazın:</translation>
+      <translation>在这儿输入您的讯息...</translation>
     </message>
     <message>
       <source>Close</source>
-      <translation>Kapat</translation>
+      <translation>关闭</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Gönder</translation>
+      <translation>发送</translation>
     </message>
     <message>
       <source>Decrease height</source>
-      <translation>Yüksekliği azalt</translation>
+      <translation>减少高度</translation>
     </message>
     <message>
       <source>Increase height</source>
-      <translation>Yüksekliği artır</translation>
+      <translation>增加高度</translation>
     </message>
     <message>
       <source>This chat is closed.</source>
-      <translation>Bu konuşma kapalı.</translation>
+      <translation>已关闭此交谈</translation>
     </message>
     <message>
       <source>Pending confirm</source>
-      <translation>Onay bekliyor</translation>
+      <translation>等待确认</translation>
     </message>
     <message>
       <source>Load more...</source>
-      <translation>Daha fazla yükle...</translation>
+      <translation>载入更多...</translation>
     </message>
     <message>
       <source>Chatbox is disabled.</source>
-      <translation>Site içi sohbet özelliği kapalı</translation>
+      <translation>Chatbox 被禁用。</translation>
     </message>
     <message>
       <source>Invalid hash or auto creation is disabled</source>
-      <translation>Geçersiz karma veya otomatik oluşturma devre dışı</translation>
+      <translation>禁用 Invalid hash 或 auto creation</translation>
     </message>
     <message>
       <source>Back to chat</source>
-      <translation>Sohbete geri dön</translation>
+      <translation>回到交谈</translation>
     </message>
     <message>
       <source>Switch to widget</source>
-      <translation>Araç&apos;a geç</translation>
+      <translation>切换到 Widget</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Ziyaretçi</translation>
+      <translation>访客</translation>
     </message>
     <message>
       <source>Chat started</source>
-      <translation>Konuşma başladı</translation>
+      <translation>开始交谈</translation>
     </message>
     <message>
       <source>is typing now...</source>
-      <translation>şu an yazıyor...</translation>
+      <translation>正在输入...</translation>
     </message>
     <message>
       <source>Operator is typing now...</source>
-      <translation>Operatör şu anda mesajlaşıyor...</translation>
+      <translation>客服人员正在输入...</translation>
     </message>
     <message>
       <source>You have closed this chat!</source>
-      <translation>Bu sohbeti sonlandırdınız!</translation>
+      <translation>您已关闭此聊天！</translation>
     </message>
     <message>
       <source>You have been redirected to survey!</source>
-      <translation>Ankete yönlendirildiniz!</translation>
+      <translation>您已被重定向到调查！</translation>
     </message>
   </context>
   <context>
     <name>chat/bbcodeinsert</name>
     <message>
       <source>Image</source>
-      <translation>Görsel</translation>
+      <translation>图片</translation>
     </message>
     <message>
       <source>Link</source>
-      <translation>bağlantı</translation>
+      <translation>连结</translation>
     </message>
     <message>
       <source>Link title</source>
-      <translation>Bağlantı başlığı</translation>
+      <translation>链接标题</translation>
     </message>
     <message>
       <source>Bold</source>
-      <translation>Kalın</translation>
+      <translation>粗体</translation>
     </message>
     <message>
       <source>Italic</source>
-      <translation>İtalik</translation>
+      <translation>斜体</translation>
     </message>
     <message>
       <source>Please enter link to an image</source>
-      <translation>Görsel bağlantı adresi giriniz</translation>
+      <translation>请输入图片链接</translation>
     </message>
     <message>
       <source>Please enter a link</source>
-      <translation>Lütfen bir bağlantı girin</translation>
+      <translation>请输入链接</translation>
     </message>
     <message>
       <source>Here is a link</source>
-      <translation>Burada bir bağlantı</translation>
+      <translation>这里是连结</translation>
     </message>
     <message>
       <source>Positive</source>
-      <translation>Pozitif</translation>
+      <translation>正面</translation>
     </message>
     <message>
       <source>Neutral</source>
-      <translation>nötr</translation>
+      <translation>中性</translation>
     </message>
     <message>
       <source>Negative</source>
-      <translation>Olumsuz</translation>
+      <translation>负</translation>
     </message>
     <message>
       <source>Things</source>
-      <translation>Bir şeyler</translation>
+      <translation>东西</translation>
     </message>
     <message>
       <source>Money</source>
-      <translation>Para</translation>
+      <translation>钱</translation>
     </message>
     <message>
       <source>Please enter link to an image!</source>
-      <translation>Lütfen bir resme bağlantı girin!</translation>
+      <translation>请输入图片链接!</translation>
     </message>
     <message>
       <source>Please enter a link!</source>
-      <translation>Lütfen bir link girin!</translation>
+      <translation>请输入链接!</translation>
     </message>
   </context>
   <context>
@@ -3919,1154 +3919,1154 @@
     </message>
     <message>
       <source>Date</source>
-      <translation>Tarih</translation>
+      <translation>日期</translation>
     </message>
     <message>
       <source>Users who are blocked</source>
-      <translation>Engelli olan kullanıcılar</translation>
+      <translation>被封锁的访客</translation>
     </message>
     <message>
       <source>Remove block</source>
-      <translation>Engellemeyi kaldır</translation>
+      <translation>解除封锁</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Boş...</translation>
+      <translation>无</translation>
     </message>
     <message>
       <source>Blocked users</source>
-      <translation>Engelli kullanıcılar</translation>
+      <translation>被封锁的访客</translation>
     </message>
     <message>
       <source>Please enter an IP to block</source>
-      <translation>Lütfen engellemek için bir IP girin</translation>
+      <translation>请输入 IP 以封锁</translation>
     </message>
     <message>
       <source>User was blocked!</source>
-      <translation>Kullanıcı engellendi!</translation>
+      <translation>访客已被封锁！</translation>
     </message>
     <message>
       <source>User blocking failed, perhaps you do not have permission to block users?</source>
-      <translation>Kullanıcı engelleme işlemi başarısız oldu, belki de kullanıcıları engelleme iznini sahip değilsiniz? </translation>
+      <translation>封锁客户失败，可能是您没有权限封锁客户？</translation>
     </message>
   </context>
   <context>
     <name>kernel/message</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Emin misiniz? </translation>
+      <translation>你确定吗?</translation>
     </message>
   </context>
   <context>
     <name>department/edit</name>
     <message>
       <source>Any</source>
-      <translation>Tümü</translation>
+      <translation>任何</translation>
     </message>
     <message>
       <source>Edit department</source>
-      <translation>Deparmanı düzenle</translation>
+      <translation>编辑部门</translation>
     </message>
     <message>
       <source>Edit department group</source>
-      <translation>Departman grubunu düzenle</translation>
+      <translation>编辑部门群组</translation>
     </message>
     <message>
       <source>Edit department limit group</source>
-      <translation>Departman sınır grubunu düzenle</translation>
+      <translation>编辑部门限制群组</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>İsim</translation>
+      <translation>名称</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-posta</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Visible only if online</source>
-      <translation>Yalnızca çevrimiçi olduğunda görünür</translation>
+      <translation>只有在线上时可见</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Pasif</translation>
+      <translation>已禁用</translation>
     </message>
     <message>
       <source>Will not be visible to visitor</source>
-      <translation>Ziyaretçiye görünmeyecek</translation>
+      <translation>不会被访问看见</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation>Gizli</translation>
+      <translation>隐藏</translation>
     </message>
     <message>
       <source>Maximum pending chats, if this limit is reached department becomes offline automatically</source>
-      <translation>Departman için maksimum bekleyen sohbet sayısı, bu sınır aşıldığında departman otomatik pasif olur</translation>
+      <translation>待处理的最大聊天次数（如果达到此限制），部门将自动变为离线</translation>
     </message>
     <message>
       <source>Group limit</source>
-      <translation>Grup sınırı</translation>
+      <translation>团体限制</translation>
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
-      <translation>Bir mesaj formu bırakılmadan önce saniye cinsinden gecikme. 0 İşlevselliğin devre dışı olduğu anlamına gelir,</translation>
+      <translation>延迟在前假邮件表单显示的秒数。0 意味着功能处于禁用状态，</translation>
     </message>
     <message>
       <source>Priority, used for chats priority</source>
-      <translation>Öncelik, bu departmanın seçildiği sohbetler öncelikli olur</translation>
+      <translation>优先顺序，用于交谈的顺序</translation>
     </message>
     <message>
       <source>Priority, used for departments sort</source>
-      <translation>Öncelik, bölümler sıralaması için kullanılır</translation>
+      <translation>优先顺序，用于部门的排序</translation>
     </message>
     <message>
       <source>Automate online hours</source>
-      <translation>Çevrimiçi saatleri otomatikleştirin</translation>
+      <translation>自动在线时间</translation>
     </message>
     <message>
       <source>Notifications</source>
-      <translation>Bildirimler</translation>
+      <translation>通知</translation>
     </message>
     <message>
       <source>Chat transfer worklow</source>
-      <translation>Sohbet transferi mümkün mü</translation>
+      <translation>交谈转接设定</translation>
     </message>
     <message>
       <source>Auto assignment</source>
-      <translation>Otomatik atama</translation>
+      <translation>自动分配工作</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation>Ürün</translation>
+      <translation>产品</translation>
     </message>
     <message>
       <source>Miscellaneous</source>
-      <translation>Çeşitli</translation>
+      <translation>杂项</translation>
     </message>
     <message>
       <source>Bot configuration</source>
-      <translation>Bot yapılandırması</translation>
+      <translation>机器人配置</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation>Anket</translation>
+      <translation>调查</translation>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
-      <translation>Çalışma saatleri / iş günü mantığı etkin</translation>
+      <translation>启用 工作日 / 工作时数 </translation>
     </message>
     <message>
       <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation>Çalışma günleri/saatleri, bu gün ve saatlerde departman otomatik olarak aktif edilecektir</translation>
+      <translation>上班日 / 工作时数，在这些时间内交谈会自动启用</translation>
     </message>
     <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
-      <translation>Çalışma saatleri, 24 saat biçimi, 1-24, dakika biçimi 0 - 60</translation>
+      <translation>工作时间，1 - 24 小时， 0 - 60 分钟</translation>
     </message>
     <message>
       <source>Hours from</source>
-      <translation>Saatler</translation>
+      <translation>从</translation>
     </message>
     <message>
       <source>Hours from, E.g. 8</source>
-      <translation>Saat (başlangıç), Örn. 8</translation>
+      <translation>输入 1 - 24 小时，例如：8</translation>
     </message>
     <message>
       <source>Minutes from</source>
-      <translation>Dakika</translation>
+      <translation>：</translation>
     </message>
     <message>
       <source>Minutes from, E.g. 30</source>
-      <translation>Dakika (başlangıç), Örn. 30</translation>
+      <translation>输入 0 - 60 分钟，例如：30</translation>
     </message>
     <message>
       <source>Hours to</source>
-      <translation>Saatler</translation>
+      <translation>到</translation>
     </message>
     <message>
       <source>Hours to, E.g. 17</source>
-      <translation>Saat (bitiş), Örn. 17</translation>
+      <translation>输入 1 - 24 小时，例如：17</translation>
     </message>
     <message>
       <source>Minutes to</source>
-      <translation>Dakika</translation>
+      <translation>：</translation>
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
-      <translation>Dakika (bitiş), Örn. 30</translation>
+      <translation>输入 0 - 60 分钟，例如：30</translation>
     </message>
     <message>
       <source>Custom period</source>
-      <translation>Özel dönem</translation>
+      <translation>自订期间</translation>
     </message>
     <message>
       <source>Date from</source>
-      <translation>Başlangıç ​​tarihi</translation>
+      <translation>从</translation>
     </message>
     <message>
       <source>Custom work day</source>
-      <translation>Özel iş günü</translation>
+      <translation>自订工作日</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation>Bitiş tarihi</translation>
+      <translation>到</translation>
     </message>
     <message>
       <source>Add</source>
-      <translation>Ekle</translation>
+      <translation>添加</translation>
     </message>
     <message>
       <source>Period</source>
-      <translation>dönem</translation>
+      <translation>期间</translation>
     </message>
     <message>
       <source>Start time</source>
-      <translation>Başlangıç ​​saati</translation>
+      <translation>开始时间</translation>
     </message>
     <message>
       <source>End time</source>
-      <translation>Bitiş zamanı</translation>
+      <translation>结束时间</translation>
     </message>
     <message>
       <source>Remove</source>
-      <translation>Kaldır</translation>
+      <translation>删除</translation>
     </message>
     <message>
       <source>XMPP recipients</source>
-      <translation>XMPP alıcıları</translation>
+      <translation>XMPP 收件者</translation>
     </message>
     <message>
       <source>XMPP group recipients</source>
-      <translation>XMPP grubu alıcıları</translation>
+      <translation>XMPP 群组收件者</translation>
     </message>
     <message>
       <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation>Örneğin : departman@firmaniz.com</translation>
+      <translation>例如：somechat@conference.server.org/LiveChat</translation>
     </message>
     <message>
       <source>These messages will be send as group messages</source>
-      <translation>Bu mesajlar grup mesajı olarak gönderilecek</translation>
+      <translation>这些讯息将作为群组讯息发送</translation>
     </message>
     <message>
       <source>Inform about new chats using</source>
-      <translation>Yeni sohbetler için bildirim göster</translation>
+      <translation>使用新交谈的通知</translation>
     </message>
     <message>
       <source>XMPP messages</source>
-      <translation>XMPP mesajları</translation>
+      <translation>XMPP 邮件</translation>
     </message>
     <message>
       <source>Send XMPP messages to all department operators</source>
-      <translation>Tüm departman operatörlerine XMPP mesajları gönderme</translation>
+      <translation>XMPP 消息发送到所有部门运营商</translation>
     </message>
     <message>
       <source>Mail messages</source>
-      <translation>Posta mesajları</translation>
+      <translation>Mail 讯息</translation>
     </message>
     <message>
       <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation>Sohbet operatörlere bildirilmeden önce kaç saniye bekletilsin</translation>
+      <translation>通知有关人员之前, 聊天可以等待多少秒</translation>
     </message>
     <message>
       <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
-      <translation>Kullanıcı son mesajı okumadıysa bilgilendir.(saniye)</translation>
+      <translation>通知用户未读信息, 如果信息待处理待了（秒）</translation>
     </message>
     <message>
       <source>Please enter value in seconds</source>
-      <translation>Lütfen saniye cinsinden değer girin</translation>
+      <translation>请输入数值（秒）</translation>
     </message>
     <message>
       <source>Inform then chat is accepted by one of the staff members using</source>
-      <translation>Sohbet bir yetkili tarafından kabul edildiğinde bildir</translation>
+      <translation>通知聊天被其中一名员工接受</translation>
     </message>
     <message>
       <source>Other</source>
-      <translation>Diğer</translation>
+      <translation>其他</translation>
     </message>
     <message>
       <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation>Sohbet bir yetkili tarafından sonlandırıldığında bildir</translation>
+      <translation>通知访客:客服人员关闭聊天，仅发送邮件通知。</translation>
     </message>
     <message>
       <source>Inform then chat is closed automatically, only mail notification is send.</source>
-      <translation>Sohbet otomatik olarak sonlandırıldığında bildir, sadece mail bildirimi gönderilecektir.</translation>
+      <translation>通知访客:客服人员关闭聊天，仅发送邮件通知。</translation>
     </message>
     <message>
       <source>Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats</source>
-      <translation>Sonlandırılmış sohbetler için ekstra email adresi, bu sohbetler için bildirim gönderilecektir.</translation>
+      <translation>用于通知有关封闭聊天的其他电子邮件地址，此电子邮件将发送有关封闭聊天的所有通知</translation>
     </message>
     <message>
       <source>To what department chat should be transferred if it is not accepted</source>
-      <translation>Sohbet kabul edilmediğinde, hangi departmana aktarılsın</translation>
+      <translation>如果交谈没有被接受，应该转接哪个部门</translation>
     </message>
     <message>
       <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
-      <translation>Sohbetin başka bir departmana aktarılmadan önceki geçerlilik süresi (saniye, min. 5 saniye)</translation>
+      <translation>在交谈转到另一个部门之前的超时秒数。最小值为 5 秒。</translation>
     </message>
     <message>
       <source>Transfer immediately to this department if current department has no online operators?</source>
-      <translation>Mevcut departmanın çevrimiçi operatörü yoksa derhal bu departmana transfer edilsin mi?</translation>
+      <translation>立即转移到这个部门, 如果当前部门没有在线客服人员？</translation>
     </message>
     <message>
       <source>Reset assigned user on chat transfer?</source>
-      <translation>Sohbet aktarımında atanan kullanıcı sıfırlansın mı?</translation>
+      <translation>重置交谈转移中分配的用户？</translation>
     </message>
     <message>
       <source>Execute new chat logic again for recipient department?</source>
-      <translation>Sohbetin transfer edildiği departmanda yeni sohbet süreci başlatılsın mı?(bildirim vb.)</translation>
+      <translation>要再次为收件者的部门执行新的交谈逻辑吗？</translation>
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
-      <translation>Departman için cevaplanmamış sohbet mantığı yürütülsün mü?</translation>
+      <translation>再次为收件人部门执行未答复的聊天逻辑？</translation>
     </message>
     <message>
       <source>Based on selected department these products will be shown</source>
-      <translation>Seçili departman üzerinde bu ürünler gösterilecektir</translation>
+      <translation>根据选定的部门，将展示这些产品</translation>
     </message>
     <message>
       <source>Enable products </source>
-      <translation>Ürünleri etkinleştir</translation>
+      <translation>启用产品</translation>
     </message>
     <message>
       <source>Required</source>
-      <translation>gerekli</translation>
+      <translation>必填</translation>
     </message>
     <message>
       <source>Assigned products</source>
-      <translation>Atanan ürünler</translation>
+      <translation>分配的产品</translation>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation>Bu alan maksimum 50 karakter uzunluğundadır ve eklentiler tarafından herhangi bir amaç için kullanılabilir. Ayrıca bu alan taranmaktadır.</translation>
+      <translation>此栏位最大为 50 字元，可扩展用于任何目的。此栏位也可以编入索引。</translation>
     </message>
     <message>
       <source>None</source>
-      <translation>Hiçbiri</translation>
+      <translation>None</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Departmanlar</translation>
+      <translation>部门</translation>
     </message>
     <message>
       <source>Maximum pending chats</source>
-      <translation>Maksimum bekleyen sohbet</translation>
+      <translation>最多待处理的聊天数</translation>
     </message>
     <message>
       <source>These bot logic applies also</source>
-      <translation>Bunlar bot mantığında da geçerlidir</translation>
+      <translation>这些机器人逻辑也适用</translation>
     </message>
     <message>
       <source>Custom attribute 1</source>
-      <translation>Özel özellik 1</translation>
+      <translation>自定义属性1</translation>
     </message>
     <message>
       <source>Custom attribute 2</source>
-      <translation>Özel özellik 2</translation>
+      <translation>自定义属性2</translation>
     </message>
     <message>
       <source>Custom attribute 3</source>
-      <translation>Özel özellik 3</translation>
+      <translation>自定义属性3</translation>
     </message>
     <message>
       <source>Exception groups to apply</source>
-      <translation>Uygulanacak istisna grupları</translation>
+      <translation>例外群组适用</translation>
     </message>
     <message>
       <source>Nick, what should be operator nick. E.g Support Bot</source>
-      <translation>Operatör takma adı belirleyiniz. Örneğin Canlı Destek</translation>
+      <translation>尼克，客服人员尼克应该是什么。 例如支持机器人</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation>öncelik</translation>
+      <translation>优先顺序</translation>
     </message>
     <message>
       <source>Custom message</source>
-      <translation>Özel mesaj</translation>
+      <translation>自订讯息</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>belirlemek</translation>
+      <translation>识别码</translation>
     </message>
     <message>
       <source>Translation</source>
-      <translation>Çeviri</translation>
+      <translation>翻译</translation>
     </message>
     <message>
       <source>Choose</source>
-      <translation>Seçiniz</translation>
+      <translation>选择</translation>
     </message>
     <message>
       <source>Private</source>
-      <translation type="unfinished"/>
+      <translation>私人</translation>
     </message>
     <message>
       <source>Monday</source>
-      <translation>Pazartesi</translation>
+      <translation>星期一</translation>
     </message>
     <message>
       <source>Tuesday</source>
-      <translation>Salı</translation>
+      <translation>星期二</translation>
     </message>
     <message>
       <source>Wednesday</source>
-      <translation>Çarşamba</translation>
+      <translation>星期三</translation>
     </message>
     <message>
       <source>Thursday</source>
-      <translation>Perşembe</translation>
+      <translation>星期四</translation>
     </message>
     <message>
       <source>Friday</source>
-      <translation>Cuma</translation>
+      <translation>星期五</translation>
     </message>
     <message>
       <source>Saturday</source>
-      <translation>Cumartesi</translation>
+      <translation>星期六</translation>
     </message>
     <message>
       <source>Sunday</source>
-      <translation>Pazar</translation>
+      <translation>星期日</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Sistem ayarları</translation>
+      <translation>系统配置</translation>
     </message>
     <message>
       <source>Edit a department</source>
-      <translation>Bir departmanı düzenle</translation>
+      <translation>编辑部门</translation>
     </message>
     <message>
       <source>Departments groups</source>
-      <translation>Departman grupları</translation>
+      <translation>部门群组</translation>
     </message>
     <message>
       <source>Departments limit groups</source>
-      <translation>Departman grup sınırları </translation>
+      <translation>部门限制组</translation>
     </message>
     <message>
       <source>Edit a group chat</source>
-      <translation type="unfinished"/>
+      <translation>编辑群组交谈</translation>
     </message>
   </context>
   <context>
     <name>chat/startchat</name>
     <message>
       <source>Offline</source>
-      <translation>Çevrimdışı</translation>
+      <translation>离线</translation>
     </message>
     <message>
       <source>Chat is currently unavailable</source>
-      <translation>Sohbet şu anda kullanılamıyor</translation>
+      <translation>交谈目前不可用</translation>
     </message>
     <message>
       <source>Please try again later.</source>
-      <translation>Lütfen daha sonra tekrar deneyiniz.</translation>
+      <translation>请稍后再试。</translation>
     </message>
     <message>
       <source>Department is disabled</source>
-      <translation>Departman devre dışı</translation>
+      <translation>此部门被禁用</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-posta</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Enter your email address</source>
-      <translation>E-postanızı girin</translation>
+      <translation>输入你的电子邮件地址</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Telefon</translation>
+      <translation>电话号码</translation>
     </message>
     <message>
       <source>Enter your phone</source>
-      <translation>Telefonunuzu girin</translation>
+      <translation>输入您的电话号码</translation>
     </message>
     <message>
       <source>Enter your message</source>
-      <translation>Mesajınızı girin</translation>
+      <translation>输入您的留言</translation>
     </message>
     <message>
       <source>Your question</source>
-      <translation>Sorunuz</translation>
+      <translation>您的问题</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
-      <translation>Mesajınızı buraya girin ve göndermek için enter&apos;a basın...</translation>
+      <translation>在这里输入您的讯息并按下 Enter 送出......</translation>
     </message>
     <message>
       <source>Please provide a department</source>
-      <translation>Lütfen bir departman sağlayın</translation>
+      <translation>请提供部门</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>İsim</translation>
+      <translation>名字</translation>
     </message>
     <message>
       <source>Enter your name</source>
-      <translation>Adınızı girin</translation>
+      <translation>输入你的名字</translation>
     </message>
     <message>
       <source>Are you sure you want to close this chat?</source>
-      <translation>Bu sohbeti kapatmak istediğinizden emin misiniz?</translation>
+      <translation>您确定要关闭此交谈吗？</translation>
     </message>
     <message>
       <source>Type your message here...</source>
-      <translation>Mesajınızı yazın:</translation>
+      <translation>在这儿输入您的讯息...</translation>
     </message>
     <message>
       <source>Live support is not available in your country</source>
-      <translation>Canlı destek ülkeniz için kullanılamaz</translation>
+      <translation>您所在的国家/地区不提供实时支援</translation>
     </message>
     <message>
       <source>Live Support</source>
-      <translation>Canlı Destek</translation>
+      <translation>线上支援</translation>
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
-      <translation>Şu anda online operatör yok, lütfen mesaj bırakın </translation>
+      <translation>目前没有在线的客服人员，请留下您的讯息</translation>
     </message>
     <message>
       <source>File</source>
-      <translation>Dosya</translation>
+      <translation>档案</translation>
     </message>
     <message>
       <source>Your request was sent!</source>
-      <translation>İsteğiniz gönderildi!</translation>
+      <translation>您的请求已送出！</translation>
     </message>
     <message>
       <source>Leave a message</source>
-      <translation>Mesaj bırak</translation>
+      <translation>留言</translation>
     </message>
     <message>
       <source>Send message</source>
-      <translation>Mesaj gönder</translation>
+      <translation>发送讯息</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>İptal etmek</translation>
+      <translation>取消</translation>
     </message>
     <message>
       <source>Record voice message</source>
-      <translation>Sesli mesajı kaydet</translation>
+      <translation>录取语音讯息</translation>
     </message>
     <message>
       <source>Stop recording</source>
-      <translation>Kaydetmeyi bırak</translation>
+      <translation>停止录音</translation>
     </message>
     <message>
       <source>Play recorded audio</source>
-      <translation>Kayıtlı sesi çal</translation>
+      <translation>播放已录取语音讯息</translation>
     </message>
     <message>
       <source>Stop playing</source>
-      <translation>Oynatmayı durdur</translation>
+      <translation>停止播放</translation>
     </message>
     <message>
       <source>Send voice message</source>
-      <translation>Sesli mesaj gönder</translation>
+      <translation>发送语音讯息</translation>
     </message>
     <message>
       <source>I accept my personal data will be handled according to</source>
-      <translation>Kişisel verilerimin aşağıdakilere göre işleneceğini kabul ediyorum:</translation>
+      <translation>我接受我的个人数据将按照</translation>
     </message>
     <message>
       <source>our terms and to the Law</source>
-      <translation>Şartlarımız ve hükümlülükler</translation>
+      <translation>我们的条款和法律</translation>
     </message>
     <message>
       <source>Start chat</source>
-      <translation>Konuşma başlat</translation>
+      <translation>开始交谈</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Departman</translation>
+      <translation>部门</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation>Bir sorunuz mu var? Bize sor!</translation>
+      <translation>有问题吗？请询问我们！</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Gönder</translation>
+      <translation>发送</translation>
     </message>
     <message>
       <source>Department is offline</source>
-      <translation>Departman çevrimdışı</translation>
+      <translation>部门为离线状态</translation>
     </message>
     <message>
       <source>Go to leave a message form</source>
-      <translation>Mesaj formuna git</translation>
+      <translation>前往留言表单</translation>
     </message>
     <message>
       <source>Cancel and choose another department</source>
-      <translation>İptal et ve başka bir bölüm seç</translation>
+      <translation>取消并选择另一个部门</translation>
     </message>
     <message>
       <source>characters</source>
-      <translation>karakterler</translation>
+      <translation>字元</translation>
     </message>
     <message>
       <source>Personal assistant</source>
-      <translation>Kişisel asistan</translation>
+      <translation>个人助理</translation>
     </message>
     <message>
       <source>Fill out this form to start a chat</source>
-      <translation>Bir konuşmaya başlamak için bu formu doldurun</translation>
+      <translation>填写表单后开始交谈</translation>
     </message>
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
-      <translation>Şu anda online operatör yok, lütfen mesajınızı bırakın</translation>
+      <translation>目前没有在线的客服人员，请留下您的讯息</translation>
     </message>
     <message>
       <source>Me</source>
-      <translation>Ben</translation>
+      <translation>我</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation>Ürün</translation>
+      <translation>产品</translation>
     </message>
     <message>
       <source>Choose a product</source>
-      <translation>Bir ürün seçin</translation>
+      <translation>请选择产品</translation>
     </message>
     <message>
       <source>Choose your language</source>
-      <translation>Dilinizi seçin</translation>
+      <translation>请选择您的语言</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation>Geçersiz CSRF jetonu!</translation>
+      <translation>无效的CSRF令牌！</translation>
     </message>
     <message>
       <source>Please enter a valid email address</source>
-      <translation>Geçerli bir e-posta adresi girin</translation>
+      <translation>请输入一个有效的电子邮件地址</translation>
     </message>
     <message>
       <source>Maximum 50 characters</source>
-      <translation>Maksimum 50 karakter</translation>
+      <translation>最多50个字元</translation>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>Konuşma yapmaya izniniz yok! Lütfen site sahibi ile iletişime geçin.</translation>
+      <translation>您没有交谈权限！请联络网站的管理员。</translation>
     </message>
     <message>
       <source>Please enter your name</source>
-      <translation>Lütfen adınızı girin</translation>
+      <translation>请输入你的名字</translation>
     </message>
     <message>
       <source>Maximum 100 characters</source>
-      <translation>Maksimum 100 karakter</translation>
+      <translation>最多100个字元</translation>
     </message>
     <message>
       <source>Please enter your message</source>
-      <translation>Lütfen mesajınızı girin</translation>
+      <translation>请输入您的讯息</translation>
     </message>
     <message>
       <source>Maximum</source>
-      <translation>Maksimum</translation>
+      <translation>最大值</translation>
     </message>
     <message>
       <source>characters for a message</source>
-      <translation type="unfinished"/>
+      <translation>讯息的字元</translation>
     </message>
     <message>
       <source>You have to accept our Terms Of Service</source>
-      <translation type="unfinished"/>
+      <translation>你必须接受我们的服务条款</translation>
     </message>
     <message>
       <source>Please enter your phone</source>
-      <translation>Lütfen telefonunuzu girin</translation>
+      <translation>请输入您的电话号码</translation>
     </message>
     <message>
       <source>Maximum 100 characters for phone</source>
-      <translation type="unfinished"/>
+      <translation>手机最多 100 个字元</translation>
     </message>
     <message>
       <source>Invalid file</source>
-      <translation type="unfinished"/>
+      <translation>无效的档案</translation>
     </message>
     <message>
       <source>Please choose department!</source>
-      <translation>Lütfen bir bölüm seçin!</translation>
+      <translation>请选择部门 ！</translation>
     </message>
     <message>
       <source>Could not find a product!</source>
-      <translation>Bir ürün bulunamadı!</translation>
+      <translation>找不到的产品 ！</translation>
     </message>
     <message>
       <source>Please choose</source>
-      <translation>Seçiniz</translation>
+      <translation>请选择</translation>
     </message>
     <message>
       <source>Could not determine a default department!</source>
-      <translation type="unfinished"/>
+      <translation>无法确定预设部门 ！</translation>
     </message>
     <message>
       <source>Please choose a product!</source>
-      <translation>Lütfen bir ürün seçin!</translation>
+      <translation>请选择产品 ！</translation>
     </message>
     <message>
       <source>At the moment department is overloaded, please choose a different department or try again later!</source>
-      <translation type="unfinished"/>
+      <translation>当前部门超载，请选择其他部门或稍后再试！</translation>
     </message>
     <message>
       <source>is required</source>
-      <translation type="unfinished"/>
+      <translation>为必填栏位</translation>
     </message>
     <message>
       <source>Could not decrypt data!</source>
-      <translation type="unfinished"/>
+      <translation>无法解密资料 ！</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Ziyaretçi</translation>
+      <translation>访客</translation>
     </message>
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
-      <translation type="unfinished"/>
+      <translation>您的请求并未被处理，但别担心这并不是你的问题。请重新提交您的请求。如果你遇到类似的问题，请通过其他方式与我们联系。</translation>
     </message>
     <message>
       <source>Invalid file extension</source>
-      <translation type="unfinished"/>
+      <translation>无效的文件扩展名</translation>
     </message>
     <message>
       <source>Invalid file extension!</source>
-      <translation type="unfinished"/>
+      <translation>无效的文件扩展名!</translation>
     </message>
     <message>
       <source>To big file!</source>
-      <translation type="unfinished"/>
+      <translation>文件太大！</translation>
     </message>
     <message>
       <source>Chat was transferred to operator!</source>
-      <translation>Sohbet operatöre transfer edildi!</translation>
+      <translation>聊天已转移至客服人员！</translation>
     </message>
     <message>
       <source>Chat was transferred to bot!</source>
-      <translation>Sohbet bota transfer edildi</translation>
+      <translation>聊天已转移至机器人！</translation>
     </message>
     <message>
       <source>Button action could not be found!</source>
-      <translation type="unfinished"/>
+      <translation>找不到按钮动作！</translation>
     </message>
     <message>
       <source>Trigger could not be found!</source>
-      <translation type="unfinished"/>
+      <translation>找不到触发器！</translation>
     </message>
     <message>
       <source>Update actions could not be found!</source>
-      <translation>Güncellenecek içerik bulunamadı.</translation>
+      <translation>找不到更新动作！</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
-      <translation type="unfinished"/>
+      <translation>请输入讯息，最大字元</translation>
     </message>
     <message>
       <source>You cannot send messages to this chat. Please refresh your browser.</source>
-      <translation>Bu sohbete mesaj gönderemezsiniz. Lütfen tarayıcınızı yeniden başlatın sorun devam ederse tarayıcı geçmişinizi temizleyin.</translation>
+      <translation>您无法向此聊天发送信息。 请刷新您的浏览器。</translation>
     </message>
     <message>
       <source>Pending Chat</source>
-      <translation>Bekleyen Sohbet</translation>
+      <translation>等待中交谈</translation>
     </message>
     <message>
       <source>Unread message</source>
-      <translation>Okunmamış mesaj</translation>
+      <translation>未读取讯息</translation>
     </message>
     <message>
       <source>New message from operator</source>
-      <translation type="unfinished"/>
+      <translation>来自客服人员的新信息</translation>
     </message>
     <message>
       <source>Transfer Chat</source>
-      <translation>Transfer Sohbet</translation>
+      <translation>转移聊天</translation>
     </message>
     <message>
       <source>Assigned Chat</source>
-      <translation>Tanımlanmış Sohbet</translation>
+      <translation>已经分配的聊天</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
-      <translation>Konuşmaya başlamak için formu doldurun</translation>
+      <translation>填写表单开始交谈</translation>
     </message>
     <message>
       <source>Enter a message</source>
-      <translation type="unfinished"/>
+      <translation>输入讯息</translation>
     </message>
     <message>
       <source>Pending to join...</source>
-      <translation type="unfinished"/>
+      <translation>等待加入...</translation>
     </message>
     <message>
       <source>Already a member</source>
-      <translation type="unfinished"/>
+      <translation>已经是会员</translation>
     </message>
     <message>
       <source>Invite</source>
-      <translation type="unfinished"/>
+      <translation>邀请</translation>
     </message>
     <message>
       <source>Cancel invite</source>
-      <translation type="unfinished"/>
+      <translation>取消邀请</translation>
     </message>
     <message>
       <source>Leave the group</source>
-      <translation type="unfinished"/>
+      <translation>离开群组</translation>
     </message>
     <message>
       <source>Enter operator name or surname or just click search to invite</source>
-      <translation type="unfinished"/>
+      <translation>输入客服人员姓名或姓氏，或单击搜索以邀请</translation>
     </message>
     <message>
       <source>Leave the group, you still can join anytime you want.</source>
-      <translation type="unfinished"/>
+      <translation>离开小组后，您仍然可以随时加入。</translation>
     </message>
     <message>
       <source>Please enter a message</source>
-      <translation type="unfinished"/>
+      <translation>请输入讯息</translation>
     </message>
     <message>
       <source>characters max.</source>
-      <translation type="unfinished"/>
+      <translation>最多字元数</translation>
     </message>
     <message>
       <source>Minimize</source>
-      <translation type="unfinished"/>
+      <translation>最小化</translation>
     </message>
     <message>
       <source>End chat</source>
-      <translation type="unfinished"/>
+      <translation>结束交谈</translation>
     </message>
     <message>
       <source>BB code</source>
-      <translation type="unfinished"/>
+      <translation>BB Code</translation>
     </message>
     <message>
       <source>Popup</source>
-      <translation type="unfinished"/>
+      <translation>快显视窗</translation>
     </message>
     <message>
       <source>This chat is closed now. You can close window.</source>
-      <translation type="unfinished"/>
+      <translation>此聊天现已关闭。 您可以关闭窗口。</translation>
     </message>
     <message>
       <source>Your message...</source>
-      <translation>İletiniz...</translation>
+      <translation>您的讯息...</translation>
     </message>
     <message>
       <source>Thank you for your feedback...</source>
-      <translation>Geri bildiriminiz için teşekkürler...</translation>
+      <translation>谢谢您的宝贵意见...</translation>
     </message>
     <message>
       <source>Chat can not be started now. Please try again later.</source>
-      <translation type="unfinished"/>
+      <translation>无法立即开始聊天。 请稍后再试。</translation>
     </message>
     <message>
       <source>Go to Survey.</source>
-      <translation type="unfinished"/>
+      <translation>去调查。</translation>
     </message>
     <message>
       <source>Please choose!</source>
-      <translation>Lütfen seçiniz</translation>
+      <translation>请选择!</translation>
     </message>
     <message>
       <source>Cancel voice message</source>
-      <translation type="unfinished"/>
+      <translation>取消语音讯息</translation>
     </message>
     <message>
       <source>Play recorded message</source>
-      <translation type="unfinished"/>
+      <translation>播放已录取语音</translation>
     </message>
     <message>
       <source>Stop playing recorded audio</source>
-      <translation type="unfinished"/>
+      <translation>停止播放已录取语音</translation>
     </message>
   </context>
   <context>
     <name>chat/syncadmininterface</name>
     <message>
       <source>Open in a new window</source>
-      <translation>Yeni pencerede aç</translation>
+      <translation>在新视窗中开启</translation>
     </message>
     <message>
       <source>No previous chats</source>
-      <translation>Geçmiş sohbet bulunamadı</translation>
+      <translation>没有之前的交谈记录</translation>
     </message>
     <message>
       <source>h.</source>
-      <translation>h.</translation>
+      <translation> 时</translation>
     </message>
     <message>
       <source>m.</source>
-      <translation>dk.</translation>
+      <translation> 分</translation>
     </message>
     <message>
       <source>s.</source>
-      <translation type="unfinished"/>
+      <translation> 秒</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation>öncew</translation>
+      <translation>以前</translation>
     </message>
     <message>
       <source>Nothing found</source>
-      <translation>Veri Bulunamadı</translation>
+      <translation>未找到任何内容</translation>
     </message>
     <message>
       <source>Add chat</source>
-      <translation>Konuşma ekle</translation>
+      <translation>加入交谈</translation>
     </message>
     <message>
       <source>Start chat</source>
-      <translation>Konuşma başlat</translation>
+      <translation>开始交谈</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Son aktivite</translation>
+      <translation>最近的活动</translation>
     </message>
     <message>
       <source>Accept chat</source>
-      <translation>Konuşmayı kabul et</translation>
+      <translation>接受交谈</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Boş...</translation>
+      <translation>无</translation>
     </message>
     <message>
       <source>Configure dashboard</source>
-      <translation>Panoyu düzenle</translation>
+      <translation>仪表板功能</translation>
     </message>
     <message>
       <source>All active chats will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>所有处理中的交谈都会出现在这里。</translation>
     </message>
     <message>
       <source>Location</source>
-      <translation type="unfinished"/>
+      <translation>位置</translation>
     </message>
     <message>
       <source>Sort by location</source>
-      <translation type="unfinished"/>
+      <translation>按位置排序</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Ziyaretçi</translation>
+      <translation>访客</translation>
     </message>
     <message>
       <source>Sort by visitor nick</source>
-      <translation type="unfinished"/>
+      <translation>按访客暱称排序</translation>
     </message>
     <message>
       <source>Sort by time</source>
-      <translation type="unfinished"/>
+      <translation>按时间排序</translation>
     </message>
     <message>
       <source>Sort by operator</source>
-      <translation type="unfinished"/>
+      <translation>按客服人员排序</translation>
     </message>
     <message>
       <source>Sort by department</source>
-      <translation type="unfinished"/>
+      <translation>按部门排序</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>名字</translation>
     </message>
     <message>
       <source>Accept invite</source>
-      <translation type="unfinished"/>
+      <translation>接受邀请</translation>
     </message>
     <message>
       <source>Reject invite</source>
-      <translation type="unfinished"/>
+      <translation>拒绝邀请</translation>
     </message>
     <message>
       <source>Join public chat</source>
-      <translation type="unfinished"/>
+      <translation>加入公开聊天</translation>
     </message>
     <message>
       <source>Already a member</source>
-      <translation type="unfinished"/>
+      <translation>已经是会员</translation>
     </message>
     <message>
       <source>Your new group name</source>
-      <translation type="unfinished"/>
+      <translation>您的新群组名称</translation>
     </message>
     <message>
       <source>Private group</source>
-      <translation type="unfinished"/>
+      <translation>私人群组</translation>
     </message>
     <message>
       <source>Public group</source>
-      <translation type="unfinished"/>
+      <translation>公开群组</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>新增</translation>
     </message>
     <message>
       <source>Status</source>
-      <translation type="unfinished"/>
+      <translation>状态</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>部门</translation>
     </message>
     <message>
       <source>Pending chat</source>
-      <translation>Bekleyen Sohbet</translation>
+      <translation>等待中的交谈</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>客服人员</translation>
     </message>
     <message>
       <source>Sort by online status</source>
-      <translation type="unfinished"/>
+      <translation>按在线状态排序</translation>
     </message>
     <message>
       <source>Last activity ago</source>
-      <translation>Son Aktivite Zamanı</translation>
+      <translation>最近一次活动到至今</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Aktif sohbetler</translation>
+      <translation>进行中交谈</translation>
     </message>
     <message>
       <source>Sort by active chats number</source>
-      <translation>Aktif Sohbet sayısına göre sırala</translation>
+      <translation>依进行中交谈编号排序</translation>
     </message>
     <message>
       <source>Sort</source>
-      <translation type="unfinished"/>
+      <translation>排序</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation>Bekleme Süresi</translation>
+      <translation>等待时间</translation>
     </message>
     <message>
       <source>Redirect user to contact form.</source>
-      <translation>Kullanıcıyı mesaj bırakın formuna yönlendir.</translation>
+      <translation>重新定位访客至连络人表单。</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Emin misiniz? </translation>
+      <translation>是否确定？</translation>
     </message>
     <message>
       <source>Time ago</source>
-      <translation>Önce</translation>
+      <translation>过去</translation>
     </message>
     <message>
       <source>Bot chats will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>机器人交谈将出现在这里。</translation>
     </message>
     <message>
       <source>Please enable bot chats list in your account!</source>
-      <translation>Lütfen hesabınız için bot sohbetlerini aktif ediniz.</translation>
+      <translation>请在您的帐户中启用机器人聊天列表！</translation>
     </message>
     <message>
       <source>Sort by close time</source>
-      <translation type="unfinished"/>
+      <translation>按关闭时间排序</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Bekleyen sohbetler</translation>
+      <translation>等待中交谈</translation>
     </message>
     <message>
       <source>Group chats will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>群组交谈将出现在这里。</translation>
     </message>
     <message>
       <source>Chats assigned to you will appear here. List includes pending and active chats.</source>
-      <translation type="unfinished"/>
+      <translation>分配给您的交谈将出现在这里。 列表包括待处理和处理中交谈。</translation>
     </message>
     <message>
       <source>You will see short list of your site visitors here.</source>
-      <translation type="unfinished"/>
+      <translation>您将在此处看到您的网站访问者的简短列表。</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Sohbeti sil</translation>
+      <translation>删除交谈</translation>
     </message>
     <message>
       <source>All pending chats will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>所有等待中的交谈都会出现在这里。</translation>
     </message>
     <message>
       <source>Created</source>
-      <translation type="unfinished"/>
+      <translation>已建立</translation>
     </message>
     <message>
       <source>Transferred chats to you will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>转移至您的交谈将出现在这里。</translation>
     </message>
     <message>
       <source>Transfer time</source>
-      <translation type="unfinished"/>
+      <translation>转接时间</translation>
     </message>
     <message>
       <source>Transferred chats to your department will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>转移到您部门的交谈将出现在这里。</translation>
     </message>
     <message>
       <source>Transferred chats to you or your department will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>已转移给您或您部门的交谈记录将显示在此处。</translation>
     </message>
   </context>
   <context>
     <name>chat/translation</name>
     <message>
       <source>Visitor language</source>
-      <translation>Kullanıcı dili</translation>
+      <translation>访客的语言</translation>
     </message>
     <message>
       <source>My language</source>
-      <translation>Benim dilim</translation>
+      <translation>我的语言</translation>
     </message>
     <message>
       <source>Auto translate</source>
-      <translation>Otomatik çeviri</translation>
+      <translation>自动翻译</translation>
     </message>
     <message>
       <source>Translating</source>
-      <translation>Çevriliyor</translation>
+      <translation>正在翻译</translation>
     </message>
     <message>
       <source>Automatically detected</source>
-      <translation>Otomatik olarak algılandı</translation>
+      <translation>自动检测</translation>
     </message>
     <message>
       <source>Automatic translation</source>
-      <translation>Otomatik çeviri</translation>
+      <translation>自动翻译</translation>
     </message>
     <message>
       <source>Translation settings</source>
-      <translation>Çeviri ayarları</translation>
+      <translation>翻译设定</translation>
     </message>
     <message>
       <source>Enter text for testing purposes</source>
-      <translation>Test amaçlı yazı girin</translation>
+      <translation>输入文字以测试</translation>
     </message>
     <message>
       <source>Translated text</source>
-      <translation>Çevirilen yazı</translation>
+      <translation>翻译文本</translation>
     </message>
     <message>
       <source>Detected language</source>
-      <translation>Algılanan dil</translation>
+      <translation>侦测到的语言</translation>
     </message>
     <message>
       <source>Detect language</source>
-      <translation>Dili algıla</translation>
+      <translation>侦测语言</translation>
     </message>
     <message>
       <source>Translate</source>
-      <translation>Çevir</translation>
+      <translation>翻译</translation>
     </message>
     <message>
       <source>Enable translation service</source>
-      <translation type="unfinished"/>
+      <translation>启用翻译服务</translation>
     </message>
     <message>
       <source>Bing</source>
@@ -5078,544 +5078,544 @@
     </message>
     <message>
       <source>Use Bing service</source>
-      <translation>Bing servisini kullanın</translation>
+      <translation>使用 Bing service</translation>
     </message>
     <message>
       <source>Bing client ID</source>
-      <translation type="unfinished"/>
+      <translation>Bing client ID</translation>
     </message>
     <message>
       <source>Bing client secret, key is never shown for security purposes</source>
-      <translation type="unfinished"/>
+      <translation>Bing 用户端密钥，出于安全考虑，永远不会显示密钥</translation>
     </message>
     <message>
       <source>Bing access token expires</source>
-      <translation type="unfinished"/>
+      <translation>Bing 应存取符记过期</translation>
     </message>
     <message>
       <source>Use Google service</source>
-      <translation>Google servisini kullanın</translation>
+      <translation>使用 Google 服务</translation>
     </message>
     <message>
       <source>API key, key is never shown for security purposes</source>
-      <translation type="unfinished"/>
+      <translation>API Key，为安全起见 Key 不会被显示</translation>
     </message>
     <message>
       <source>Set referrer, usefull if want to limit calls to specific referrer.</source>
-      <translation>Özel bir yönlendirici için limit sağlamak için kullanabilirsiniz</translation>
+      <translation>设置引荐来源网址，如果要限制对特定引荐来源网址的调用，则很有用。</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Ayarlar güncellendi</translation>
+      <translation>设定已更新</translation>
     </message>
     <message>
       <source>Missing text to translate</source>
-      <translation type="unfinished"/>
+      <translation>缺少翻译文字</translation>
     </message>
     <message>
       <source>Could not detect a language</source>
-      <translation type="unfinished"/>
+      <translation>无法侦测到语言</translation>
     </message>
     <message>
       <source>Could not translate</source>
-      <translation>Çevrilemedi</translation>
+      <translation>无法翻译</translation>
     </message>
     <message>
       <source>Could not detect language</source>
-      <translation>Dil algılanamıyor</translation>
+      <translation>无法侦测语言</translation>
     </message>
     <message>
       <source>We could not detect operator language</source>
-      <translation type="unfinished"/>
+      <translation>我们无法检测到客服人员语言</translation>
     </message>
     <message>
       <source>Detected operator and visitor languages matches, please choose languages manually</source>
-      <translation type="unfinished"/>
+      <translation>检测到客服人员和访客的语言匹配，请手动选择语言</translation>
     </message>
     <message>
       <source>Translation configuration</source>
-      <translation>Çeviri ayarı</translation>
+      <translation>翻译配置</translation>
     </message>
     <message>
       <source>Chat messages automatic translations has been stopped</source>
-      <translation>Sohbet mesajları için otomatik çeviri özelliği durduruldu</translation>
+      <translation>交谈信息自动翻译已停止</translation>
     </message>
     <message>
       <source>Messages has been translated</source>
-      <translation type="unfinished"/>
+      <translation>信息已翻译</translation>
     </message>
     <message>
       <source>Please choose translation languages manually and click Auto translate</source>
-      <translation type="unfinished"/>
+      <translation>请手动选择翻译语言，然后点击自动翻译</translation>
     </message>
   </context>
   <context>
     <name>files/files</name>
     <message>
       <source>Refresh</source>
-      <translation>Yenile</translation>
+      <translation>重新整理</translation>
     </message>
     <message>
       <source>Delete file</source>
-      <translation>Dosyayı sil</translation>
+      <translation>删除档案</translation>
     </message>
     <message>
       <source>Sent by Customer</source>
-      <translation type="unfinished"/>
+      <translation>由客户发送</translation>
     </message>
     <message>
       <source>Sent by Operator</source>
-      <translation type="unfinished"/>
+      <translation>已经由客服人员发送</translation>
     </message>
     <message>
       <source>Drop your files here.</source>
-      <translation>Dosyalarınızı buraya bırakın.</translation>
+      <translation>将您的档拖曳至此处。</translation>
     </message>
     <message>
       <source>Not an accepted file type</source>
-      <translation type="unfinished"/>
+      <translation>不接受的档案类型</translation>
     </message>
     <message>
       <source>Filesize is too big</source>
-      <translation>Dosya boyutu çok büyük</translation>
+      <translation>档案容量太大</translation>
     </message>
   </context>
   <context>
     <name>chat/screenshot</name>
     <message>
       <source>Take user screenshot</source>
-      <translation>Kullanıcının ekran görüntüsünü al</translation>
+      <translation>萤幕截图</translation>
     </message>
     <message>
       <source>Refresh</source>
-      <translation>Yenile</translation>
+      <translation>重新整理</translation>
     </message>
     <message>
       <source>Taken</source>
-      <translation type="unfinished"/>
+      <translation>已取</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Boş...</translation>
+      <translation>无</translation>
     </message>
     <message>
       <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
-      <translation type="unfinished"/>
+      <translation>也许萤幕截图正在进行，或截图不支援于用户端的浏览器，可以点击重新整理以检查萤幕截图</translation>
     </message>
     <message>
       <source>Screenshot</source>
-      <translation>Ekran görüntüsü</translation>
+      <translation>萤幕截图</translation>
     </message>
     <message>
       <source>Screenshot store error</source>
-      <translation type="unfinished"/>
+      <translation>萤幕撷取画面错误</translation>
     </message>
     <message>
       <source>Screenshot ready...</source>
-      <translation type="unfinished"/>
+      <translation>屏幕截图准备好了...</translation>
     </message>
   </context>
   <context>
     <name>chat/chatpreview</name>
     <message>
       <source>Chat preview</source>
-      <translation>Sohbeti Görüntüle</translation>
+      <translation>交谈预览</translation>
     </message>
     <message>
       <source>Send chat</source>
-      <translation>Sohbeti Gönder</translation>
+      <translation>发送聊天</translation>
     </message>
   </context>
   <context>
     <name>front/default</name>
     <message>
       <source>Pending confirm</source>
-      <translation>Onay bekleniyor</translation>
+      <translation>等待确认</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Aktif Konuşmalar</translation>
+      <translation>进行中交谈</translation>
     </message>
     <message>
       <source>Unread messages</source>
-      <translation>Okunmamış mesajlar</translation>
+      <translation>未读取讯息</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Kapatılan konuşmalar</translation>
+      <translation>已完成交谈</translation>
     </message>
     <message>
       <source>All pending chats</source>
-      <translation>Tüm bekleyen konuşmalar</translation>
+      <translation>所有等待中交谈</translation>
     </message>
     <message>
       <source>All active chats</source>
-      <translation>Tüm aktif Konuşmalar</translation>
+      <translation>所有进行中交谈</translation>
     </message>
     <message>
       <source>All unread chats</source>
-      <translation>Tüm okunmamış konuşmalar</translation>
+      <translation>所有未读取交谈</translation>
     </message>
     <message>
       <source>All closed chats</source>
-      <translation>Tüm kapatılan konuşmalar</translation>
+      <translation>所有已完成交谈</translation>
     </message>
     <message>
       <source>You do not have permission to use chattabschrome function</source>
-      <translation>Bu fonksiyonu kullanma yetkiniz bulunmamaktadır.</translation>
+      <translation>您没有权限使用 chattabschrome function</translation>
     </message>
     <message>
       <source>Please</source>
-      <translation type="unfinished"/>
+      <translation>请</translation>
     </message>
     <message>
       <source>login first.</source>
-      <translation type="unfinished"/>
+      <translation>先登入。</translation>
     </message>
     <message>
       <source>Online operators</source>
-      <translation>Çevrimiçi operatörler</translation>
+      <translation>在线客服</translation>
     </message>
     <message>
       <source>Open last 10 my active chats</source>
-      <translation>Son 10 aktif sohbetimi göster</translation>
+      <translation>打开我的最近 10 个进行中交谈</translation>
     </message>
     <message>
       <source>Open my active chats</source>
-      <translation>Aktif sohbetlerimi aç</translation>
+      <translation>打开我的进行中交谈</translation>
     </message>
     <message>
       <source>Last 10 your active chats will be always visible</source>
-      <translation>Son 10 aktif sohbet her zaman gösterilsin</translation>
+      <translation>您最近进行的10个交谈将始终可见</translation>
     </message>
     <message>
       <source>Keep my active chats</source>
-      <translation>Aktif sohbetlerimi hazır tut</translation>
+      <translation>保持我的进行中聊天</translation>
     </message>
     <message>
       <source>Hide nicknames for offline chats</source>
-      <translation>Offline chat&apos;ler için Takma Adı gizle</translation>
+      <translation>隐藏离线聊天的暱称</translation>
     </message>
     <message>
       <source>Mail settings</source>
-      <translation>Mail ayarları</translation>
+      <translation>Mail 设定</translation>
     </message>
     <message>
       <source>SMTP</source>
-      <translation type="unfinished"/>
+      <translation>SMTP</translation>
     </message>
     <message>
       <source>Expand or collapse right menu</source>
-      <translation type="unfinished"/>
+      <translation>展开或折叠右键菜单</translation>
     </message>
   </context>
   <context>
     <name>chat/checkchatstatus</name>
     <message>
       <source>You are talking with our bot now.</source>
-      <translation type="unfinished"/>
+      <translation>您正在与我们的机器人聊天。</translation>
     </message>
     <message>
       <source>A support staff member has closed this chat</source>
-      <translation>Bir destek takımı üyesi bu konuşmayı kapadı</translation>
+      <translation>客服人员已关闭此交谈</translation>
     </message>
     <message>
       <source>A support staff member has joined this chat</source>
-      <translation>Bir destek takım üyesi bu konuşmaya katıldı</translation>
+      <translation>客服人员加入了此交谈</translation>
     </message>
     <message>
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
-      <translation>Şu anda çevrimiçi destek takım üyesi yok, fakat siz mesajlarınızı bırakabilirsiniz</translation>
+      <translation>目前没有在线的客服人员，但您仍然可留下您的讯息</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
-      <translation>Katılmak için bekleyen bir destek takımı üyesi bulunmakta, sorularınızı yazabilirsiniz, ve destek takım üyesi bu konuşmayı doğrular doğrulamaz, mesajlarınızı alacak  </translation>
+      <translation>正在等待客服人员加入，可以在下方先输入您的问题，待客服人员确认交谈后，会马上收到您的讯息。</translation>
     </message>
     <message>
       <source>You have been transferred. Please wait for operator to join a chat...</source>
-      <translation>Size yardımcı olabilecek farklı bir operatöre yönlendirildiniz. Lütfen operatörün sohbete bağlanmasını bekleyiniz.</translation>
+      <translation>您已被转移。 请等待客服人员加入聊天...</translation>
     </message>
     <message>
       <source>You are number</source>
-      <translation type="unfinished"/>
+      <translation>您的号码</translation>
     </message>
     <message>
       <source>in the queue. Please wait...</source>
-      <translation type="unfinished"/>
+      <translation>在排序中。请稍候...</translation>
     </message>
     <message>
       <source>Chat status if customer is chatting with a bot</source>
-      <translation>Kullanıcı bot sohbetine yönlendirildiğinde sohbet durumunu güncelle</translation>
+      <translation>客户与机器人聊天时的聊天状态</translation>
     </message>
     <message>
       <source>Custom need help HTML</source>
-      <translation type="unfinished"/>
+      <translation>自定义需求帮助HTML</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
-      <translation>Destek ekibimizin sohbetinize bağlanması bekleniyor, bu süreçte sorununuz hakkında detaylı bilgi verebilirsiniz. İlgili operatör mesajınızı görecektir.</translation>
+      <translation>正在等待客服人员加入，可以在下方先输入您的问题，待客服人员确认交谈后，会马上收到您的讯息。</translation>
     </message>
     <message>
       <source>You are number {number} in the queue. Please wait...</source>
-      <translation type="unfinished"/>
+      <translation>您是队列中的数字{number}。 请稍候...</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
-      <translation type="unfinished"/>
+      <translation>在这里输入您的讯息并按下 Enter 送出......</translation>
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
-      <translation type="unfinished"/>
+      <translation>访客已被重新定位至连络人表单</translation>
     </message>
   </context>
   <context>
     <name>chat/part/operator_profile</name>
     <message>
       <source>Subscribe/Unsubscribe for notifications</source>
-      <translation type="unfinished"/>
+      <translation>订阅/取消订阅通知</translation>
     </message>
     <message>
       <source>Skype call</source>
-      <translation>Skype araması</translation>
+      <translation>Skype 电话</translation>
     </message>
     <message>
       <source>Switch To Human</source>
-      <translation type="unfinished"/>
+      <translation>切换到人工</translation>
     </message>
   </context>
   <context>
     <name>chat/user_settings</name>
     <message>
       <source>End the chat</source>
-      <translation>Sohbeti sonlandır</translation>
+      <translation>结束交谈</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
-      <translation>Operatörden gelen mesajlar için sesli bildirimleri, Etkinleştir / Devre dışı bırak </translation>
+      <translation>收到客服人员讯息时 开启 / 关闭 音效通知</translation>
     </message>
     <message>
       <source>Print</source>
-      <translation>Yazdır</translation>
+      <translation>列印</translation>
     </message>
     <message>
       <source>Send chat transcript to your e-mail</source>
-      <translation>Konuşma dökümünü e-posta adresinize gönderin</translation>
+      <translation>将交谈记录发送到您的 E-mail</translation>
     </message>
     <message>
       <source>Change my visibility to visible/invisible</source>
-      <translation type="unfinished"/>
+      <translation>更改我能见度为 显示 / 隐藏</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
-      <translation>Durumumu değiştir, online/offline</translation>
+      <translation>改变我的状态为 在线 / 离线</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from users</source>
-      <translation>Yeni mesajlar için sesli bildirimleri, Etkinleştir / Devre dışı bırak </translation>
+      <translation>收到访客讯息时 开启 / 关闭 音效通知</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new pending chats</source>
-      <translation>Beklemede olan yeni konuşmalar için sesli bildirimleri, Etkinleştir / Devre dışı bırak </translation>
+      <translation>有新的等待中交谈时 开启 / 关闭 音效通知</translation>
     </message>
     <message>
       <source>Change my persistent status to online</source>
-      <translation type="unfinished"/>
+      <translation>将我的永久状态更改为在线</translation>
     </message>
   </context>
   <context>
     <name>chat/dashboardwidgets</name>
     <message>
       <source>Choose what widgets you want to see</source>
-      <translation>Hangi widget&apos;ları görmek istediğinizi seçin</translation>
+      <translation>选择您想要看见的 Widget</translation>
     </message>
     <message>
       <source>Column number</source>
-      <translation type="unfinished"/>
+      <translation>列号</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Ayarlar güncellendi</translation>
+      <translation>设定已更新</translation>
     </message>
     <message>
       <source>Online operators</source>
-      <translation type="unfinished"/>
+      <translation>在线客服</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Aktif Sohbetler</translation>
+      <translation>进行中交谈</translation>
     </message>
     <message>
       <source>Online visitors</source>
-      <translation>Çevrimiçi ziyaretçiler</translation>
+      <translation>在线访客</translation>
     </message>
     <message>
       <source>Departments stats</source>
-      <translation>Departman istatistikleri</translation>
+      <translation>部门统计</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Bekleyen Sohbetler</translation>
+      <translation>等待中交谈</translation>
     </message>
     <message>
       <source>Transfered chats</source>
-      <translation>Transfer Edilmiş Sohbetler</translation>
+      <translation>已转接交谈</translation>
     </message>
     <message>
       <source>Group chats</source>
-      <translation type="unfinished"/>
+      <translation>群组交谈</translation>
     </message>
     <message>
       <source>Unread chats</source>
-      <translation>Okunmamış Sohbetler</translation>
+      <translation>未读取交谈</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Kapanmış Sohbetler</translation>
+      <translation>已完成交谈</translation>
     </message>
     <message>
       <source>My active and pending chats</source>
-      <translation>Aktif ve Bekleyen Sohbetler</translation>
+      <translation>我正在进行的和未完成的聊天</translation>
     </message>
     <message>
       <source>Bot chats</source>
-      <translation>Bot Sohbetleri</translation>
+      <translation>机器人聊天</translation>
     </message>
   </context>
   <context>
     <name>chat/editchatconfig</name>
     <message>
       <source>Edit</source>
-      <translation>Düzenle</translation>
+      <translation>编辑</translation>
     </message>
     <message>
       <source>Value in</source>
-      <translation>Değer</translation>
+      <translation>值在</translation>
     </message>
     <message>
       <source>site access</source>
-      <translation>site girişi</translation>
+      <translation>网站造访次数</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Güncelle</translation>
+      <translation>更新</translation>
     </message>
     <message>
       <source>Data updated</source>
-      <translation>Güncellendi</translation>
+      <translation>资料已更新</translation>
     </message>
   </context>
   <context>
     <name>chat/editnick</name>
     <message>
       <source>Your information</source>
-      <translation>Bilgileriniz</translation>
+      <translation>您的资讯</translation>
     </message>
     <message>
       <source>Updated!</source>
-      <translation>Güncellendi!</translation>
+      <translation>更新 ！</translation>
     </message>
   </context>
   <context>
     <name>chat/errors/adminchatnopermission</name>
     <message>
       <source>You do not have permission to access the current chat or chat was merged/deleted!</source>
-      <translation>Bu sohbeti silme yetkiniz bulunmamaktadır.</translation>
+      <translation>您无权访问当前聊天或聊天已被合并/删除！</translation>
     </message>
   </context>
   <context>
     <name>chat/syncuser</name>
     <message>
       <source>Support staff member has closed this chat</source>
-      <translation>Destek çalışanı bu görüşmeyi sonlandırdı</translation>
+      <translation>客服人员已关闭此交谈</translation>
     </message>
     <message>
       <source>Read more</source>
-      <translation>Daha fazla</translation>
+      <translation>阅读更多</translation>
     </message>
     <message>
       <source>Edit nick</source>
-      <translation type="unfinished"/>
+      <translation>编辑暱称</translation>
     </message>
     <message>
       <source>Typing...</source>
-      <translation type="unfinished"/>
+      <translation>输入中...</translation>
     </message>
     <message>
       <source>Transferred to</source>
-      <translation type="unfinished"/>
+      <translation>转接至</translation>
     </message>
     <message>
       <source>as no operators online in</source>
-      <translation type="unfinished"/>
+      <translation>因为没有客服人员在线</translation>
     </message>
     <message>
       <source>Chat was automatically transferred to</source>
-      <translation>Konuşma otomatik olarak aktarılan kişi</translation>
+      <translation>交谈已自动转接到</translation>
     </message>
     <message>
       <source>from</source>
-      <translation type="unfinished"/>
+      <translation>从</translation>
     </message>
     <message>
       <source>Chat was automatically closed by cron</source>
-      <translation>Görüşme cron tarafından otomatik olarak kapatıldı</translation>
+      <translation>藉著 cron 自动关闭交谈</translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Destek konuşma penceresini kapadı, fakat Siz mesajlarınızı bırakabilirsiniz, ve yönetici onları daha sonra okur.</translation>
+      <translation>客服人员已关闭交谈视窗，您可以留下你的讯息，待稍后管理员将会协助处理您的问题。</translation>
     </message>
     <message>
       <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Bu konuşmayı görmeye yetkiniz yok, ta da konuşma silinmiş</translation>
+      <translation>你没有权限查看此交谈，或是该交谈已被删除</translation>
     </message>
   </context>
   <context>
     <name>chat/chatnotexists</name>
     <message>
       <source>Chat was deleted</source>
-      <translation>Konuşma silindi</translation>
+      <translation>交谈已删除</translation>
     </message>
     <message>
       <source>Survey not exist please check embed code options</source>
-      <translation type="unfinished"/>
+      <translation>调查不存在，请检查 embed code 选项</translation>
     </message>
     <message>
       <source>Resume chat</source>
-      <translation>Konuşmaya devam et</translation>
+      <translation>恢复交谈</translation>
     </message>
   </context>
   <context>
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
-      <translation>Lüten metin girin!</translation>
+      <translation>请输入文字！</translation>
     </message>
   </context>
   <context>
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
-      <translation type="unfinished"/>
+      <translation>地理调整到活动状态</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Ayarlar güncellendi</translation>
+      <translation>设定已更新</translation>
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation type="unfinished"/>
+      <translation>XMPP 设定</translation>
     </message>
     <message>
       <source>XMPP active</source>
-      <translation type="unfinished"/>
+      <translation>XMPP 生效</translation>
     </message>
     <message>
       <source>XMPP Message content</source>
-      <translation type="unfinished"/>
+      <translation>XMPP 讯息内容</translation>
     </message>
     <message>
       <source>XMPP Message about accepted chat</source>
-      <translation>Sohbet kabul edildiğinde gönderilecek XMPP mesajı</translation>
+      <translation>XMPP 讯息关于接受交谈</translation>
     </message>
     <message>
       <source>XMPP</source>
@@ -5627,2392 +5627,2390 @@
     </message>
     <message>
       <source>Use standard XMPP service</source>
-      <translation>Standart XMPP servisi kullan</translation>
+      <translation>使用标准的 XMPP 服务</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation type="unfinished"/>
+      <translation>主机</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation type="unfinished"/>
+      <translation>埠</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation type="unfinished"/>
+      <translation>登录</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>密码</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation type="unfinished"/>
+      <translation>资源</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation type="unfinished"/>
+      <translation>服务器</translation>
     </message>
     <message>
       <source>Recipients</source>
-      <translation type="unfinished"/>
+      <translation>收件者</translation>
     </message>
     <message>
       <source>Default recipients</source>
-      <translation type="unfinished"/>
+      <translation>预设的收件者</translation>
     </message>
     <message>
       <source>Test recipients</source>
-      <translation type="unfinished"/>
+      <translation>测试收件者</translation>
     </message>
     <message>
       <source>Individual recipients</source>
-      <translation type="unfinished"/>
+      <translation>单个收件者</translation>
     </message>
     <message>
       <source>Test group recipients</source>
-      <translation type="unfinished"/>
+      <translation>测试群组收件者</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation type="unfinished"/>
+      <translation>测试讯息，将发送到您帐户的 E-mail</translation>
     </message>
     <message>
       <source>Use GTalk for messaging</source>
-      <translation>Mesajlaşma için GTalk kullan</translation>
+      <translation>使用 GTalk 的消息</translation>
     </message>
     <message>
       <source>Information for your google app</source>
-      <translation type="unfinished"/>
+      <translation>您的 Google App 资讯</translation>
     </message>
     <message>
       <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation type="unfinished"/>
+      <translation>重定向网址，您必须在Google应用配置中输入此网址</translation>
     </message>
     <message>
       <source>Enter your app information bellow</source>
-      <translation>Uygulama bilgilerinizi aşağıya girin</translation>
+      <translation>在下面输入您的应用信息</translation>
     </message>
     <message>
       <source>OAuth 2.0 Client ID</source>
-      <translation>OAuth 2.0 İstemci Kimliği</translation>
+      <translation>OAuth 2.0客户端ID</translation>
     </message>
     <message>
       <source>Please enter your Client ID</source>
-      <translation type="unfinished"/>
+      <translation>请输入您的客户 ID</translation>
     </message>
     <message>
       <source>Client secret</source>
-      <translation type="unfinished"/>
+      <translation>客户机密密码</translation>
     </message>
     <message>
       <source>Please enter to what gmail address test message should be send?</source>
-      <translation type="unfinished"/>
+      <translation>请输入应该发送什么样的 gmail 位址测试讯息？</translation>
     </message>
     <message>
       <source>This message will be send to test e-mail</source>
-      <translation type="unfinished"/>
+      <translation>此讯息将会发送测试 E-mail</translation>
     </message>
     <message>
       <source>Send test message</source>
-      <translation>Deneme mesajı gönder</translation>
+      <translation>发送测试讯息</translation>
     </message>
     <message>
       <source>Revoke access token</source>
-      <translation type="unfinished"/>
+      <translation>撤销 access token</translation>
     </message>
     <message>
       <source>Revoke permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>撤销发送讯息的权限</translation>
     </message>
     <message>
       <source>Authentificate and grant permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>认证和授予发送讯息的权限</translation>
     </message>
     <message>
       <source>Grant permission to send a message</source>
-      <translation type="unfinished"/>
+      <translation>给予发送讯息的权限</translation>
     </message>
     <message>
       <source>Succesfully authorised, now you can try to send a message</source>
-      <translation type="unfinished"/>
+      <translation>授权成功，现在您可以试着发送讯息</translation>
     </message>
     <message>
       <source>Token was revoked</source>
-      <translation type="unfinished"/>
+      <translation>Token 已被撤销</translation>
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
-      <translation type="unfinished"/>
+      <translation>XMPP 讯息已成功送出</translation>
     </message>
     <message>
       <source>Invalid test e-mail address</source>
-      <translation type="unfinished"/>
+      <translation>不正确的测试 E-mail 地址</translation>
     </message>
   </context>
   <context>
     <name>chat/geoadjustment</name>
     <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation type="unfinished"/>
+      <translation>交谈 Widget status indicator 也适用于这些规则吗？此选项可能会导致性能下降</translation>
     </message>
     <message>
       <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation type="unfinished"/>
+      <translation>让交谈状态对这些国家为正常，国家可以用逗号来分隔 &quot;de,gb,us,fr&quot; 意味着交谈将会跟平常一样只显示这些国家。</translation>
     </message>
     <message>
       <source>For</source>
-      <translation type="unfinished"/>
+      <translation>为</translation>
     </message>
     <message>
       <source>all</source>
-      <translation>Hepsi</translation>
+      <translation>所有</translation>
     </message>
     <message>
       <source>custom</source>
-      <translation type="unfinished"/>
+      <translation>自订</translation>
     </message>
     <message>
       <source>E.g. ar,pl</source>
-      <translation>Örn. tr,de</translation>
+      <translation>例如：ar，pl</translation>
     </message>
     <message>
       <source>Other countries, put widget/chat status to</source>
-      <translation>Diğer ülkeler için, sohbet durumu;</translation>
+      <translation>其他国家，把 Widget / Chat status </translation>
     </message>
     <message>
       <source>offline status</source>
-      <translation type="unfinished"/>
+      <translation>离线状态</translation>
     </message>
     <message>
       <source>hidden/disabled, widget will not be shown</source>
-      <translation type="unfinished"/>
+      <translation>隐藏 / 禁用，Widget 将不会显示</translation>
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
-      <translation>Belirlenemeyen ülkeler için sohbet durumu;</translation>
+      <translation>对于不匹配的国家/地区，将聊天状态设为</translation>
     </message>
     <message>
       <source>normal status</source>
-      <translation type="unfinished"/>
+      <translation>正常状态</translation>
     </message>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
+      <translation>地理调整</translation>
     </message>
   </context>
   <context>
     <name>chat/onlineusers</name>
     <message>
       <source>GEO detection configuration</source>
-      <translation>GEO saptama ayarları</translation>
+      <translation>GEO 侦测配置</translation>
     </message>
     <message>
       <source>Map location</source>
-      <translation>Harita konumu</translation>
+      <translation>地图位置</translation>
     </message>
     <message>
       <source>GEO Enabled</source>
-      <translation>GEO etkinleştirildi</translation>
+      <translation>GEO 已启用</translation>
     </message>
     <message>
       <source>Use this service</source>
-      <translation>Bu servisi kullan</translation>
+      <translation>使用这项服务</translation>
     </message>
     <message>
       <source>API Key</source>
-      <translation>API Anahtarı</translation>
+      <translation>API 金钥</translation>
     </message>
     <message>
       <source>Use mod_geoip2</source>
-      <translation>mod_geoip2&apos;yi kullan</translation>
+      <translation>使用 mod_geoip2</translation>
     </message>
     <message>
       <source>Country code server variable</source>
-      <translation>Ülke kodu servisi değişkeni</translation>
+      <translation>国家代码变数</translation>
     </message>
     <message>
       <source>Country name server variable</source>
-      <translation>Ülke ismi server değişkeni</translation>
+      <translation>国家名字变数</translation>
     </message>
     <message>
       <source>City name server variable</source>
-      <translation>Şehir ismi server değişkeni</translation>
+      <translation>城市名称变数</translation>
     </message>
     <message>
       <source>Region name server variable</source>
-      <translation>Bölge ismi için server değişkeni</translation>
+      <translation>区域名称伺服器变数</translation>
     </message>
     <message>
       <source>Latitude variable</source>
-      <translation>Enlem değişkeni</translation>
+      <translation>纬度变数</translation>
     </message>
     <message>
       <source>Longitude variable</source>
-      <translation>Boylam değişkeni</translation>
+      <translation>经度变数</translation>
     </message>
     <message>
       <source>Use http://ip-api.com</source>
-      <translation type="unfinished"/>
+      <translation>使用http://ip-api.com</translation>
     </message>
     <message>
       <source>Use MaxMind, does not depend on any third party remote service</source>
-      <translation>MaxMind kullan, herhangi bir 3. parti yazılım gerektirmez</translation>
+      <translation>使用 MaxMind，不依赖于任何第三方的远端服务</translation>
     </message>
     <message>
       <source>You can download city/country database from.</source>
-      <translation>Şehir/Ülke veritabanı bilgisini indirebilirsiniz.</translation>
+      <translation>您可以下载资料库从 城市 / 国家。</translation>
     </message>
     <message>
       <source>bcmath php extension detected</source>
-      <translation type="unfinished"/>
+      <translation>检测到bcmath php 扩展</translation>
     </message>
     <message>
       <source>Location of city database</source>
-      <translation>Şehir veritabanının konumu</translation>
+      <translation>城市资料库的位置</translation>
     </message>
     <message>
       <source>User country based detection, faster</source>
-      <translation>Kullanıcının ülke tespiti, hızlı</translation>
+      <translation>检测访客的国家，速度较快</translation>
     </message>
     <message>
       <source>File exists</source>
-      <translation type="unfinished"/>
+      <translation>档案存在</translation>
     </message>
     <message>
       <source>File does not exists</source>
-      <translation type="unfinished"/>
+      <translation>档案不存在</translation>
     </message>
     <message>
       <source>User city based detection, slower</source>
-      <translation>Kullanıcının şehir tespiti, yavaş</translation>
+      <translation>检测使用者城市，速度较慢</translation>
     </message>
     <message>
       <source>Use PHP-GeoIP module</source>
-      <translation>PHP-GeoIP modülünü kullan</translation>
+      <translation>使用PHP-GeoIP模块</translation>
     </message>
     <message>
       <source>Support for PHP-GeoIP detected</source>
-      <translation>PHP-GeoIP desteği bulundu</translation>
+      <translation>检测到对 PHP-GeoIP 的支持</translation>
     </message>
     <message>
       <source>Requests will be comming from</source>
-      <translation>&apos;dan gelen istekler</translation>
+      <translation>请求来源于</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Kullanıcı adı</translation>
+      <translation>使用者名称</translation>
     </message>
     <message>
       <source>IP, if your site remote IP is different from detected one, please provide correct remote IP address</source>
-      <translation type="unfinished"/>
+      <translation>IP，如果您的远端 IP 与网站检测到的不同，请提供正确的远端 IP 位址</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Kaydet</translation>
+      <translation>储存</translation>
     </message>
     <message>
       <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
-      <translation>Haritanın öntanımlı olarak ortalanmasını istediğini konuma işareti sürükleyin. Yakınlaştırma da kaydedilir.</translation>
+      <translation>将标记拖到默认情况下要使地图居中的位置。 变焦也被保存。</translation>
     </message>
     <message>
       <source>Google Maps API key, saved automatically. After pasting the key, refresh the page.</source>
-      <translation type="unfinished"/>
+      <translation>Google Maps API Key 会自动储存。贴上金钥后，重新整理页面即可。</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Ayarlar güncellendi</translation>
+      <translation>设定已更新</translation>
     </message>
     <message>
       <source>Send message</source>
-      <translation>Mesaj gönder</translation>
+      <translation>发送讯息</translation>
     </message>
     <message>
       <source>Chat list</source>
-      <translation>Sohbet listesi</translation>
+      <translation>交谈列表</translation>
     </message>
     <message>
       <source>Dashboard</source>
-      <translation>Pano</translation>
+      <translation>仪表板</translation>
     </message>
     <message>
       <source>City</source>
-      <translation>Şehir</translation>
+      <translation>城市</translation>
     </message>
     <message>
       <source>Lat.</source>
-      <translation>Enlem</translation>
+      <translation>Lat.</translation>
     </message>
     <message>
       <source>Lon.</source>
-      <translation>Boylam</translation>
+      <translation>Lon.</translation>
     </message>
     <message>
       <source>Time zone</source>
-      <translation>Zaman dilimi</translation>
+      <translation>时区</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Belirteç</translation>
+      <translation>识别码</translation>
     </message>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>暱称</translation>
     </message>
     <message>
       <source>Additional information</source>
-      <translation>Ek bilgiler</translation>
+      <translation>附加资讯</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Son aktivite</translation>
+      <translation>最近的活动</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation>önce</translation>
+      <translation>前</translation>
     </message>
     <message>
       <source>On page</source>
-      <translation>Bulunduğu Sayfa</translation>
+      <translation>在页面</translation>
     </message>
     <message>
       <source>Yes</source>
-      <translation>Evet</translation>
+      <translation>是</translation>
     </message>
     <message>
       <source>No</source>
-      <translation>Hayır</translation>
+      <translation>否</translation>
     </message>
     <message>
       <source>User does not have any message from operator</source>
-      <translation>Kullanıcı operatörden hiç mesaj almamış</translation>
+      <translation>访客没有收到任何来自客服人员的讯息</translation>
     </message>
     <message>
       <source>User have not seen message from operator, or message window still open.</source>
-      <translation>Kullanıcı operatörden gelen mesajı görmedi veya mesaj penceresi hâlâ açık.</translation>
+      <translation>用户尚未看到来自客服人员的信息，或者信息窗口仍处于打开状态。</translation>
     </message>
     <message>
       <source>User has seen message from operator.</source>
-      <translation>Kullanıcı operatörden gelen mesajı gördü.
-</translation>
+      <translation>访客已看过客服人员发送的讯息</translation>
     </message>
     <message>
       <source>User is chatting</source>
-      <translation>Kullanıcı mesajlaşıyor</translation>
+      <translation>访客正在交谈中</translation>
     </message>
     <message>
       <source>User is not having any chat right now</source>
-      <translation>Kullanıcı şu anda kimseyle mesajlaşmıyor</translation>
+      <translation>访客目前没有任何的客服服务</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>客服人员</translation>
     </message>
     <message>
       <source>has send message to user</source>
-      <translation>, kullanıcıya mesaj gönderdi</translation>
+      <translation>已向使用者传送讯息</translation>
     </message>
     <message>
       <source>No one has send any message to user yet</source>
-      <translation>Kullanıcıya kimse mesaj göndermedi</translation>
+      <translation>尚未有人向访客发送讯息</translation>
     </message>
     <message>
       <source>First visit</source>
-      <translation>İlk ziyaret</translation>
+      <translation>第一次访问</translation>
     </message>
     <message>
       <source>Last visit</source>
-      <translation>Son ziyaret</translation>
+      <translation>上一次访问</translation>
     </message>
     <message>
       <source>Total visits</source>
-      <translation type="unfinished"/>
+      <translation>总访问时间</translation>
     </message>
     <message>
       <source>time(s) invitation logic was applied</source>
-      <translation type="unfinished"/>
+      <translation>时间 （s） 邀请逻辑应用</translation>
     </message>
     <message>
       <source>Pageviews</source>
-      <translation>Sayfa görüntüleme sayısı</translation>
+      <translation>浏览量</translation>
     </message>
     <message>
       <source>Total pageviews</source>
-      <translation>Toplam sayfa görüntülenmesi</translation>
+      <translation>总浏览量</translation>
     </message>
     <message>
       <source>Time on site</source>
-      <translation>Sitede geçirilen süre</translation>
+      <translation>网站停留时间</translation>
     </message>
     <message>
       <source>Total time on site</source>
-      <translation>Sitede geçirilen toplam süre</translation>
+      <translation>网站上的总时间</translation>
     </message>
     <message>
       <source>Current page</source>
-      <translation>Kullanılan sayfa</translation>
+      <translation>目前所在页面</translation>
     </message>
     <message>
       <source>Came from</source>
-      <translation>den geldi</translation>
+      <translation>来自</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Emin misiniz? </translation>
+      <translation>是否确定？</translation>
     </message>
     <message>
       <source>Clear list</source>
-      <translation>Listeyi boşalt</translation>
+      <translation>清除列表</translation>
     </message>
     <message>
       <source>User tracking is disabled, enable it at</source>
-      <translation>Kullanıcı izleme etkin değil, etkinleştirin</translation>
+      <translation>使用者追踪停用，启用它</translation>
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Konuşma ayarı</translation>
+      <translation>交谈配置</translation>
     </message>
     <message>
       <source>Online visitors list</source>
-      <translation>Çevrimiçi ziyaretçi listesi</translation>
+      <translation>在线访客列表</translation>
     </message>
     <message>
       <source>Online visitors on map</source>
-      <translation>Haritadaki çevrimiçi ziyaretçiler</translation>
+      <translation>在线访客位置</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>开始 / 关闭 有新访客时的音效</translation>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
-      <translation type="unfinished"/>
+      <translation>启用 / 禁用 有新访客的浏览器通知</translation>
     </message>
     <message>
       <source>Online visitors</source>
-      <translation>Çevrimiçi Kullanıcılar</translation>
+      <translation>在线访客</translation>
     </message>
     <message>
       <source>User has message from operator</source>
-      <translation>Kullanıcı operatörden mesaj aldı</translation>
+      <translation>客户收到客服人员发送的讯息</translation>
     </message>
     <message>
       <source>Marker timeout before it dissapears from map</source>
-      <translation>Haritadan kaybolmadan önce işaretçi zamanaşımı</translation>
+      <translation>标记从地图中消失超时</translation>
     </message>
     <message>
       <source>seconds</source>
-      <translation>saniyeler</translation>
+      <translation>秒</translation>
     </message>
     <message>
       <source>minute</source>
-      <translation>dakika</translation>
+      <translation>分钟</translation>
     </message>
     <message>
       <source>minutes</source>
-      <translation>dakika</translation>
+      <translation>分钟</translation>
     </message>
     <message>
       <source>online users</source>
-      <translation>çevrimiçi kullanıcılar</translation>
+      <translation>在线使用者</translation>
     </message>
     <message>
       <source>Group list by</source>
-      <translation>Grup Listesi</translation>
+      <translation>依群组列表</translation>
     </message>
     <message>
       <source>Group by</source>
-      <translation>Grupla</translation>
+      <translation>分组</translation>
     </message>
     <message>
       <source>User country</source>
-      <translation>Kullanıcı Ülkesi</translation>
+      <translation>访客的国家</translation>
     </message>
     <message>
       <source>Page</source>
-      <translation>Sayfa</translation>
+      <translation>页面</translation>
     </message>
     <message>
       <source>Page title</source>
-      <translation>Sayfa Başlığı</translation>
+      <translation>页面标题</translation>
     </message>
     <message>
       <source>Referrer</source>
-      <translation>Yönlendirme</translation>
+      <translation>来源网站</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Departman</translation>
+      <translation>部门</translation>
     </message>
     <message>
       <source>Refresh list every</source>
-      <translation type="unfinished"/>
+      <translation>刷新清单</translation>
     </message>
     <message>
       <source>second</source>
-      <translation>saniye</translation>
+      <translation>秒</translation>
     </message>
     <message>
       <source>Show visitors who visited site in the past</source>
-      <translation>Geçmişte siteyi ziyaret eden ziyaretçileri göster</translation>
+      <translation>显示在过去访问过网站的访客</translation>
     </message>
     <message>
       <source>hour</source>
-      <translation>saat</translation>
+      <translation>小时</translation>
     </message>
     <message>
       <source>day</source>
-      <translation>gün</translation>
+      <translation>天</translation>
     </message>
     <message>
       <source>days</source>
-      <translation>gün</translation>
+      <translation>天</translation>
     </message>
     <message>
       <source>Max records to return</source>
-      <translation type="unfinished"/>
+      <translation>能返回的最大记录</translation>
     </message>
     <message>
       <source>Visitor local time</source>
-      <translation type="unfinished"/>
+      <translation>访客当地时间</translation>
     </message>
     <message>
       <source>By user status on site</source>
-      <translation>Kullanıcının sitedeki durumuna göre</translation>
+      <translation>依网站的使用者状态</translation>
     </message>
     <message>
       <source>Action</source>
-      <translation>Hareket</translation>
+      <translation>动作</translation>
     </message>
     <message>
       <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Kullanıcı operatörden gelen hiçbir mesajı görmedi, ya da mesaj penceresi hala açık.</translation>
+      <translation>访客并没有看过客服人员的讯息，或者是客服人员讯息视窗仍然开启著</translation>
     </message>
     <message>
       <source>Seen</source>
-      <translation type="unfinished"/>
+      <translation>见过</translation>
     </message>
     <message>
       <source>Unseen</source>
-      <translation type="unfinished"/>
+      <translation>看不见</translation>
     </message>
     <message>
       <source>User has seen the message from the operator.</source>
-      <translation>Kullanıcı operatörden gelen mesajı gördü.
-</translation>
+      <translation>访客已看过客服人员的讯息。</translation>
     </message>
     <message>
       <source>User does not have any messages from the operator</source>
-      <translation>Kullanıcını operatörden hiç mesaj almamış</translation>
+      <translation>访客没有收到任何来自客服人员的讯息</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation>Sohbet</translation>
+      <translation>交谈</translation>
     </message>
     <message>
       <source>Returning</source>
-      <translation type="unfinished"/>
+      <translation>返回</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>新闻</translation>
     </message>
     <message>
       <source>has sent a message to the user</source>
-      <translation>kullanıcıya mesaj gönderdi</translation>
+      <translation>已经发送讯息给客户</translation>
     </message>
     <message>
       <source>first visit</source>
-      <translation>ilk ziyaret</translation>
+      <translation>第一次访问</translation>
     </message>
     <message>
       <source>last visit</source>
-      <translation>son ziyaret</translation>
+      <translation>最近一次访问</translation>
     </message>
     <message>
       <source>From</source>
-      <translation type="unfinished"/>
+      <translation>从</translation>
     </message>
     <message>
       <source>+20 (More than 20 seconds spend on site) 20 (Less than 20 seconds spend on site)</source>
-      <translation>+20 (sitede 20 saniyeden fazla vakit geçirilmesi) 20 (sitede 20 saniyeden az vakit geçirilmesi)</translation>
+      <translation>+20（网站花费超过20秒）20（网站花费少于20秒）</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
-      <translation>Kullanıcılar için dosya yükleme aktif</translation>
+      <translation>允许访客上传档案</translation>
     </message>
     <message>
       <source>Files upload for operators is active</source>
-      <translation type="unfinished"/>
+      <translation>允许客服人员上传档案</translation>
     </message>
     <message>
       <source>Remove meta information from images</source>
-      <translation>Görsellerden meta bilgileri silinsin</translation>
+      <translation>从图像中删除元信息</translation>
     </message>
     <message>
       <source>Uploaded files from visitors are scanned</source>
-      <translation type="unfinished"/>
+      <translation>访客上传的文件已被扫描</translation>
     </message>
     <message>
       <source>Voice messages for visitors is active</source>
-      <translation type="unfinished"/>
+      <translation>访客语音信息处于启用状态</translation>
     </message>
     <message>
       <source>Voice messages for operators is active</source>
-      <translation type="unfinished"/>
+      <translation>客服人员的语音信息已激活</translation>
     </message>
     <message>
       <source>Preview chat</source>
-      <translation>Sohbeti Görüntüle</translation>
+      <translation>预览交谈</translation>
     </message>
     <message>
       <source>Visits</source>
-      <translation type="unfinished"/>
+      <translation>访问</translation>
     </message>
     <message>
       <source>Country code variable does not exist!</source>
-      <translation>Ülke kodu değişkeni mevcut değil!</translation>
+      <translation>国家代码变数不存在！</translation>
     </message>
     <message>
       <source>Country name variable does not exist!</source>
-      <translation>Ülke ismi değişkeni mevcut değil!</translation>
+      <translation>国家名称变数不存在！</translation>
     </message>
     <message>
       <source>Please enter city variable!</source>
-      <translation type="unfinished"/>
+      <translation>请输入城市变数 ！</translation>
     </message>
     <message>
       <source>Please enter latitude variable!</source>
-      <translation type="unfinished"/>
+      <translation>请输入纬度变数 ！</translation>
     </message>
     <message>
       <source>Please enter longitude variable!</source>
-      <translation type="unfinished"/>
+      <translation>请输入经度变数 ！</translation>
     </message>
     <message>
       <source>Please enter API Key!</source>
-      <translation type="unfinished"/>
+      <translation>请输入API密钥！</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
-      <translation>Ayar servis sağlayıcı başarısız oldu, lütfen servis sağlayıcınızın dolaylı sayfalara giriş talebinde bulunmanıza izin verip vermediğini kontrol edin!</translation>
+      <translation>设置服务提供商失败，请检查您的服务提供商是否允许您向远程页面发出请求！</translation>
     </message>
     <message>
       <source>MaxMind city file does not exists!</source>
-      <translation type="unfinished"/>
+      <translation>MaxMind 城市档案不存在 ！</translation>
     </message>
     <message>
       <source>MaxMind country file does not exists!</source>
-      <translation>MaxMind ülke dosyası bulunamadı</translation>
+      <translation>MaxMind 国家档案不存在 ！</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that MaxMind database files exists!</source>
-      <translation type="unfinished"/>
+      <translation>设置服务提供者时失败，请检查 MaxMind 资料库档案存在 ！</translation>
     </message>
     <message>
       <source>Please enter the API key!</source>
-      <translation>Lütfen API kodunu girin!</translation>
+      <translation>请输入API 金钥</translation>
     </message>
     <message>
       <source>Please enter the API username!</source>
-      <translation>Lütfen API kullanıcı adını girin!</translation>
+      <translation>请输入 API 使用者名称！</translation>
     </message>
     <message>
       <source>Please enter IP!</source>
-      <translation>Lütfen IP girin!</translation>
+      <translation>请输入 IP ！</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
-      <translation>Altyapınız ile ilgili teknik bir sorun tespit edildi. Lütfen altyapınıza ulaşarak uzak sayfalara talep gönderemediğinizi belirtiniz. API Key ve Kullanıcı adınız doğrudur.</translation>
+      <translation>设置服务提供商失败，请检查您的服务提供商是否允许您向远程页面发出请求，并且您的API密钥和用户名正确！</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
-      <translation>Altyapınız ile ilgili teknik bir sorun tespit edildi. Lütfen altyapınıza ulaşarak uzak sayfalara talep gönderemediğinizi belirtiniz. API Key doğrudur.</translation>
+      <translation>设置服务提供程式失败，请检查您的服务提供者允许您将要求传送到远端页面和您的 API 金钥正确 ！</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
-      <translation type="unfinished"/>
+      <translation>Setting service provider 失败，请检查您已安装 php GeoIP 模组和 GeoIPCity.dat 是有效的 ！</translation>
     </message>
     <message>
       <source>Please choose a service provider!</source>
-      <translation>Lütfen bir servis sağlayıcı seçin!</translation>
+      <translation>请选择一个服务提供者 ！</translation>
     </message>
     <message>
       <source>Online users</source>
-      <translation>Çevrimiçi kullanıcılar</translation>
+      <translation>在线使用者</translation>
     </message>
   </context>
   <context>
     <name>system/configuration</name>
     <message>
       <source>Request notification permission</source>
-      <translation>İstek bildirim izni</translation>
+      <translation>浏览器通知</translation>
     </message>
     <message>
       <source>Close button</source>
-      <translation type="unfinished"/>
+      <translation>关闭按钮</translation>
     </message>
     <message>
       <source>Chat duration</source>
-      <translation>Sohbet Süresi</translation>
+      <translation>交谈持续时间</translation>
     </message>
     <message>
       <source>New chat notification settings</source>
-      <translation>Yeni konuşma bildirimi ayarları</translation>
+      <translation>新的交谈通知设定</translation>
     </message>
     <message>
       <source>Supported: group_chats, online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats, bot_chats, my_chats</source>
-      <translation type="unfinished"/>
+      <translation>支持： group_chats, online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats, bot_chats, my_chats</translation>
     </message>
     <message>
       <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
-      <translation>Desteklenen: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</translation>
+      <translation>支持：仪表板，在线地图，在线用户，待处理聊天，在线地图，活动聊天，未读聊天，关闭聊天，在线客服人员</translation>
     </message>
     <message>
       <source>Default settings</source>
-      <translation>Varsayılan ayar</translation>
+      <translation>默认设置</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Departmanlar</translation>
+      <translation>部门</translation>
     </message>
     <message>
       <source>Departments groups</source>
-      <translation type="unfinished"/>
+      <translation>部门群组</translation>
     </message>
     <message>
       <source>Departments limit groups</source>
-      <translation type="unfinished"/>
+      <translation>部门限制群组</translation>
     </message>
     <message>
       <source>Time zone settings</source>
-      <translation>Saat dilimi ayarları</translation>
+      <translation>时区设定</translation>
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>E-posta şablonları</translation>
+      <translation>E-mail 范本</translation>
     </message>
     <message>
       <source>GEO detection configuration</source>
-      <translation>GEO saptama ayarları</translation>
+      <translation>GEO 侦测配置</translation>
     </message>
     <message>
       <source>Audit Logs</source>
-      <translation>Denetim Günlükleri</translation>
+      <translation>审核日志</translation>
     </message>
     <message>
       <source>Configuration</source>
-      <translation>Yapılandırma</translation>
+      <translation>设定</translation>
     </message>
     <message>
       <source>Auto responder</source>
-      <translation>Otomatik yanıtlayıcı</translation>
+      <translation>自动应答器</translation>
     </message>
     <message>
       <source>Blocked users</source>
-      <translation>Engelli kullanıcılar</translation>
+      <translation>被封锁的访客</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>机器人</translation>
     </message>
     <message>
       <source>Bot list</source>
-      <translation type="unfinished"/>
+      <translation>机器人列表</translation>
     </message>
     <message>
       <source>Bot exceptions</source>
-      <translation type="unfinished"/>
+      <translation>机器人例外</translation>
     </message>
     <message>
       <source>Translations groups</source>
-      <translation type="unfinished"/>
+      <translation>翻译群组</translation>
     </message>
     <message>
       <source>Rest API Calls</source>
-      <translation type="unfinished"/>
+      <translation>REST API 呼叫</translation>
     </message>
     <message>
       <source>Browse offers embed code</source>
-      <translation type="unfinished"/>
+      <translation>Browse offers embed code</translation>
     </message>
     <message>
       <source>Canned messages</source>
-      <translation>Arşivlenmiş mesajlar</translation>
+      <translation>罐头讯息</translation>
     </message>
     <message>
       <source>Chat archive</source>
-      <translation>Konuşma arşivi</translation>
+      <translation>交谈建档</translation>
     </message>
     <message>
       <source>Additional chat columns</source>
-      <translation>Ekstra Sohbet Bölümleri</translation>
+      <translation>其他聊天列</translation>
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Konuşma ayarı</translation>
+      <translation>交谈配置</translation>
     </message>
     <message>
       <source>Live help embed code</source>
-      <translation>Canlı yardım gömü kodu</translation>
+      <translation>Live help embed code</translation>
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Konuşmalar listesi</translation>
+      <translation>交谈列表</translation>
     </message>
     <message>
       <source>Chat priority</source>
-      <translation>Sohbet Önceliği</translation>
+      <translation>聊天优先顺序</translation>
     </message>
     <message>
       <source>Additional chat variables</source>
-      <translation>Ekstra Sohbet Verileri </translation>
+      <translation>其他聊天变量</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
-      <translation>Konuşma kutusu gömü kodu</translation>
+      <translation>Chatbox embed code</translation>
     </message>
     <message>
       <source>Mail settings</source>
-      <translation>E-posta seçenekleri</translation>
+      <translation>Mail 设定</translation>
     </message>
     <message>
       <source>FAQ embed code</source>
-      <translation>SSS gömü kodu</translation>
+      <translation>FAQ embed code</translation>
     </message>
     <message>
       <source>Files</source>
-      <translation>Dosyalar</translation>
+      <translation>档案</translation>
     </message>
     <message>
       <source>Files configuration</source>
-      <translation>Dosya yapılandırma</translation>
+      <translation>档案配置</translation>
     </message>
     <message>
       <source>List of files</source>
-      <translation>Dosyaların listesi</translation>
+      <translation>档案列表</translation>
     </message>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
+      <translation>地理调整</translation>
     </message>
     <message>
       <source>Group chat</source>
-      <translation type="unfinished"/>
+      <translation>群组交谈</translation>
     </message>
     <message>
       <source>Group chats list</source>
-      <translation type="unfinished"/>
+      <translation>群组交谈列表</translation>
     </message>
     <message>
       <source>Languages configuration</source>
-      <translation>Diller ayarı</translation>
+      <translation>语言配置</translation>
     </message>
     <message>
       <source>Maintenance</source>
-      <translation type="unfinished"/>
+      <translation>维护</translation>
     </message>
     <message>
       <source>Notifications</source>
-      <translation type="unfinished"/>
+      <translation>通知</translation>
     </message>
     <message>
       <source>Subscribers list</source>
-      <translation type="unfinished"/>
+      <translation>订阅者列表</translation>
     </message>
     <message>
       <source>Settings</source>
-      <translation type="unfinished"/>
+      <translation>设定</translation>
     </message>
     <message>
       <source>Offline settings</source>
-      <translation>Çevrimdışı ayarları</translation>
+      <translation>离线设定</translation>
     </message>
     <message>
       <source>Paid chat configuration</source>
-      <translation>Öncelikli Sohbet Ayarları</translation>
+      <translation>Paid chat 配置</translation>
     </message>
     <message>
       <source>Update information</source>
-      <translation>Bilgiyi güncelle</translation>
+      <translation>更新资讯</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
-      <translation>Pro aktif konuşma davetiyeleri</translation>
+      <translation>主动交谈邀请</translation>
     </message>
     <message>
       <source>Pro active chat campaigns</source>
-      <translation>Proaktif sohbet kampanyaları</translation>
+      <translation>主动交谈运动</translation>
     </message>
     <message>
       <source>Pro active chat events</source>
-      <translation>Proaktif Sohbet Etkinlikleri</translation>
+      <translation>主动交谈事件</translation>
     </message>
     <message>
       <source>Pro active chat variables</source>
-      <translation>Proaktif Sohbet Verileri</translation>
+      <translation>主动交谈邀请变数</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation>Ürün</translation>
+      <translation>产品</translation>
     </message>
     <message>
       <source>Questionary embed code</source>
-      <translation>Anket gömü kodu</translation>
+      <translation>Questionary embed code</translation>
     </message>
     <message>
       <source>Re-captcha settings</source>
-      <translation>Captcha ayarları</translation>
+      <translation>验证码设置</translation>
     </message>
     <message>
       <source>Rest API</source>
-      <translation type="unfinished"/>
+      <translation>Rest API</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation>Konuşma formu ayarları başlat</translation>
+      <translation>开始交谈表单设定</translation>
     </message>
     <message>
       <source>Statistic</source>
-      <translation>İstatistik</translation>
+      <translation>统计分析</translation>
     </message>
     <message>
       <source>Subjects</source>
-      <translation>Konular</translation>
+      <translation>主旨</translation>
     </message>
     <message>
       <source>Surveys</source>
-      <translation>Anketler</translation>
+      <translation>调查</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
-      <translation>Senkranizasyon ve ses ayarları</translation>
+      <translation>同步化与音效设定</translation>
     </message>
     <message>
       <source>Theming</source>
-      <translation>Temalar</translation>
+      <translation>主题</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>Eklenti Temaları</translation>
+      <translation>Widget 主题</translation>
     </message>
     <message>
       <source>Import new themes</source>
-      <translation>Yeni bir tema yükleyin</translation>
+      <translation>导入新的主题</translation>
     </message>
     <message>
       <source>Default theme</source>
-      <translation>Varsayılan tema</translation>
+      <translation>预设主题</translation>
     </message>
     <message>
       <source>Back office theming</source>
-      <translation type="unfinished"/>
+      <translation>后台主题</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation type="unfinished"/>
+      <translation>管理者主题</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation type="unfinished"/>
+      <translation>预设管理者主题</translation>
     </message>
     <message>
       <source>Personal theming</source>
-      <translation type="unfinished"/>
+      <translation>个人主题</translation>
     </message>
     <message>
       <source>Personal theme</source>
-      <translation type="unfinished"/>
+      <translation>个人主题</translation>
     </message>
     <message>
       <source>Chat transfer configuration</source>
-      <translation>Sohbet transfer ayarları</translation>
+      <translation>聊天转移配置</translation>
     </message>
     <message>
       <source>Automatic translations</source>
-      <translation>Otomatik çeviriler</translation>
+      <translation>自动翻译</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Kullanıcılar</translation>
+      <translation>使用者</translation>
     </message>
     <message>
       <source>List of groups</source>
-      <translation>Gruplar listesi</translation>
+      <translation>群组列表</translation>
     </message>
     <message>
       <source>List of roles</source>
-      <translation>Roller listesi</translation>
+      <translation> Role 列表</translation>
     </message>
     <message>
       <source>Import users</source>
-      <translation>Operatörleri İçe Aktar</translation>
+      <translation>导入用户</translation>
     </message>
     <message>
       <source>Password requirements</source>
-      <translation>Şifre gereksinimleri</translation>
+      <translation>密码要求</translation>
     </message>
     <message>
       <source>Advanced</source>
-      <translation>Gelişmiş</translation>
+      <translation>高级</translation>
     </message>
     <message>
       <source>Users actions</source>
-      <translation>Operatör Hareketleri (log)</translation>
+      <translation>用户动作</translation>
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation>XMPP ayarları</translation>
+      <translation>XMPP 设定</translation>
     </message>
     <message>
       <source>Speech</source>
-      <translation>Konuşma</translation>
+      <translation>语音</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Sistem ayarı</translation>
+      <translation>系统配置</translation>
     </message>
     <message>
       <source>Embed code</source>
-      <translation>Gömülü kod</translation>
+      <translation>Embed code</translation>
     </message>
     <message>
       <source>Live help configuration</source>
-      <translation>Canlı yardım ayarları</translation>
+      <translation>线上客服设定</translation>
     </message>
     <message>
       <source>System</source>
-      <translation>Sistem</translation>
+      <translation>系统</translation>
     </message>
     <message>
       <source>Show notification only if I am an owner pending chat</source>
-      <translation>Bekleyen sohbetin sahibi isem bildirim göster</translation>
+      <translation>仅当我是所有者等待聊天时才显示通知</translation>
     </message>
     <message>
       <source>You will stop receive notifications for pending chats if you are not an owner</source>
-      <translation>Eğer sohbetin sahibi değilseniz, bekleyen sohbetler için bildirim almayacaksınız</translation>
+      <translation>如果您不是所有者，则将停止接收有关待处理聊天的通知</translation>
     </message>
     <message>
       <source>Show notifications if I am offline</source>
-      <translation type="unfinished"/>
+      <translation>如果我离线，则显示通知</translation>
     </message>
     <message>
       <source>You will not receive notifications if you are not online</source>
-      <translation type="unfinished"/>
+      <translation>如果您不在线，则不会收到通知</translation>
     </message>
     <message>
       <source>Show alert for new chats</source>
-      <translation>Yeni sohbetler için bildirim göster</translation>
+      <translation>显示新聊天提醒</translation>
     </message>
     <message>
       <source>Show alerts for transferred chats</source>
-      <translation>Transfer edilmiş sohbetler için bildirim göster</translation>
+      <translation>显示已传输聊天的警示</translation>
     </message>
     <message>
       <source>You will receive alert notification if chat is transferred directly to you. You will be able to accept it directly from alert.</source>
-      <translation type="unfinished"/>
+      <translation>如果直接转移聊天给您，您将收到警报通知。 您将可以直接从警报中接受它。</translation>
     </message>
     <message>
       <source>Activity tracking is set at global level. Your settings will be be ignored. Timeout value still will be taken from your account settings.</source>
-      <translation type="unfinished"/>
+      <translation>活动跟踪设置为全局级别。 您的设置将被忽略。 超时值仍将从您的帐户设置中获取。</translation>
     </message>
     <message>
       <source>Change my online/offline status based on my activity</source>
-      <translation>Çevrimiçi / çevrimdışı durumumu etkinliğime göre değiştir</translation>
+      <translation>根据我的活动更改在线/离线状态</translation>
     </message>
     <message>
       <source>After certain period of time if no actions are detected you will be marked as offline automatically</source>
-      <translation type="unfinished"/>
+      <translation>一段时间后，如果未检测到任何操作，您将被自动标记为离线</translation>
     </message>
     <message>
       <source>Choose timeout value</source>
-      <translation type="unfinished"/>
+      <translation>选择超时值</translation>
     </message>
     <message>
       <source>Select after how long of inactivity you will be marked as offline automatically</source>
-      <translation>Ne kadar süre aktif olmazsanız otomatik olarak offline moduna geçeceğinizi seçiniz</translation>
+      <translation>选择闲置多长时间后，系统会自动将您标记为离线</translation>
     </message>
     <message>
       <source>Use default system value</source>
-      <translation type="unfinished"/>
+      <translation>使用默认预设值</translation>
     </message>
     <message>
       <source>minutes</source>
-      <translation>dakikalar</translation>
+      <translation>分钟</translation>
     </message>
     <message>
       <source>File configuration</source>
-      <translation>Dosya ayarı</translation>
+      <translation>档案配置</translation>
     </message>
     <message>
       <source>Edit file</source>
-      <translation type="unfinished"/>
+      <translation>编辑档案</translation>
     </message>
     <message>
       <source>New file</source>
-      <translation>Yeni dosya</translation>
+      <translation>新增档案</translation>
     </message>
   </context>
   <context>
     <name>chat/listchatconfig</name>
     <message>
       <source>Application name</source>
-      <translation>Uygulama adı</translation>
+      <translation>应用程式名称</translation>
     </message>
     <message>
       <source>Site settings</source>
-      <translation>Site ayarları</translation>
+      <translation>网站设定</translation>
     </message>
     <message>
       <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
-      <translation>(Araç açık) veya (araç kapalı ve kullanıcı son 5 dakikada aktif ve ping yanıt veriyor)</translation>
+      <translation>( Widget为开启 ) 或 ( Widget为关闭，使用者有5分钟的时间进行回应 )</translation>
     </message>
     <message>
       <source>(Widget is open or closed) and (user has activity in last 5 minutes and ping respond)</source>
-      <translation>(Araç açık yada kapalı) ve (kullanıcı son 5 dakikada aktif ve ping yanıt veriyor)</translation>
+      <translation>（Widget 是打开或关闭） 和 （使用者在最后 5 分钟有活动和有 ping 回应）</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Güncelle</translation>
+      <translation>更新</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Ayarlar güncellendi</translation>
+      <translation>设定已更新</translation>
     </message>
     <message>
       <source>Data protection</source>
-      <translation type="unfinished"/>
+      <translation>数据保护</translation>
     </message>
     <message>
       <source>Screen sharing</source>
-      <translation>Ekran paylaşımı</translation>
+      <translation>萤幕分享</translation>
     </message>
     <message>
       <source>Notifications about new chats</source>
-      <translation>Yeni konuşmalar için bildirimler</translation>
+      <translation>新的交谈通知</translation>
     </message>
     <message>
       <source>Copyright settings</source>
-      <translation>Telif ayarları</translation>
+      <translation>版权设定</translation>
     </message>
     <message>
       <source>Online tracking</source>
-      <translation>çevrimiçi takip</translation>
+      <translation>线上追踪</translation>
     </message>
     <message>
       <source>Misc</source>
-      <translation>Diğer</translation>
+      <translation>杂项</translation>
     </message>
     <message>
       <source>Visitor activity</source>
-      <translation>Ziyaretçi hareketleri</translation>
+      <translation>访客活动</translation>
     </message>
     <message>
       <source>Workflow</source>
-      <translation>İş akışı</translation>
+      <translation>工作流</translation>
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Konuşma yapılandırması</translation>
+      <translation>交谈配置</translation>
     </message>
     <message>
       <source>Online if</source>
-      <translation>Çevrimiçi ise</translation>
+      <translation>如果线上</translation>
     </message>
     <message>
       <source>Chat related</source>
-      <translation>Konuşma ilişkilendirildi</translation>
+      <translation>与聊天相关</translation>
     </message>
     <message>
       <source>Cookie related</source>
-      <translation>Çerez ilişkilendirildi</translation>
+      <translation>Cookie相关</translation>
     </message>
     <message>
       <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
-      <translation type="unfinished"/>
+      <translation>这确定一旦客服人员登录，小部件是否应更改其状态。 推荐值290</translation>
     </message>
     <message>
       <source>List chat configuration</source>
-      <translation>Konuşma ayarlarını listele</translation>
+      <translation>列举交谈配置</translation>
     </message>
   </context>
   <context>
     <name>chat/pendingchats</name>
     <message>
       <source>Information</source>
-      <translation>Bilgi</translation>
+      <translation>资讯</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>客服人员</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Departman</translation>
+      <translation>部门</translation>
     </message>
     <message>
       <source>Status</source>
-      <translation>Durum</translation>
+      <translation>状态</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Yeni pencerede aç</translation>
+      <translation>在新视窗中开启</translation>
     </message>
     <message>
       <source>Reject chat</source>
-      <translation>Konuşmayı reddet</translation>
+      <translation>拒绝此交谈</translation>
     </message>
     <message>
       <source>Pending chat</source>
-      <translation>Bekleyen sohbet</translation>
+      <translation>等待中交谈</translation>
     </message>
     <message>
       <source>Active chat</source>
-      <translation>Aktif sohbet</translation>
+      <translation>进行中交谈</translation>
     </message>
     <message>
       <source>Closed chat</source>
-      <translation>Kapanmış Sohbet</translation>
+      <translation>已完成交谈</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation>Site içi sohbet</translation>
+      <translation>Chatbox 交谈</translation>
     </message>
     <message>
       <source>Operators chat</source>
-      <translation>Operatör Sohbeti</translation>
+      <translation>客服人员交谈</translation>
     </message>
     <message>
       <source>Bot chat</source>
-      <translation type="unfinished"/>
+      <translation>机器人聊天</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Boş...</translation>
+      <translation>无</translation>
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Konuşmalar listesi</translation>
+      <translation>交谈列表</translation>
     </message>
     <message>
       <source>Bots</source>
-      <translation>Botlar</translation>
+      <translation>机器人</translation>
     </message>
     <message>
       <source>Rest API Calls</source>
-      <translation type="unfinished"/>
+      <translation>REST API 呼叫</translation>
     </message>
     <message>
       <source>Translations groups</source>
-      <translation type="unfinished"/>
+      <translation>翻译群组</translation>
     </message>
   </context>
   <context>
     <name>chat/activechats</name>
     <message>
       <source>Close chat</source>
-      <translation>Konuşmayı kapat</translation>
+      <translation>完成此交谈</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Konuşmayı sil</translation>
+      <translation>删除此交谈</translation>
     </message>
     <message>
       <source>Offline request</source>
-      <translation>Çevrimdışı istek</translation>
+      <translation>离线要求</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Yeni pencerede aç</translation>
+      <translation>同一个画面开启新的视窗</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Boş...</translation>
+      <translation>无</translation>
     </message>
   </context>
   <context>
     <name>chat/closedchats</name>
     <message>
       <source>Delete chat</source>
-      <translation>Konuşmayı sil</translation>
+      <translation>删除此交谈</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Boş...</translation>
+      <translation>无</translation>
     </message>
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
       <source>Empty...</source>
-      <translation>Boş...</translation>
+      <translation>无</translation>
     </message>
     <message>
       <source>Nothing found...</source>
-      <translation>Veri Bulunamadı...</translation>
+      <translation>未找到任何内容</translation>
     </message>
     <message>
       <source>collapse/expand</source>
-      <translation>daraltma / genişletme</translation>
+      <translation>折叠 / 展开</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Aktif konuşmalar</translation>
+      <translation>进行中交谈</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Kapatılmış konuşmalar </translation>
+      <translation>已完成交谈</translation>
     </message>
     <message>
       <source>My active and pending chats</source>
-      <translation>Etkin ve bekleyen sohbetlerim</translation>
+      <translation>我正在进行的和未完成的聊天</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Beklemede olan konuşmalar</translation>
+      <translation>等待中交谈</translation>
     </message>
     <message>
       <source>Unread messages</source>
-      <translation>Okunmamış mesajlar</translation>
+      <translation>未读取讯息</translation>
     </message>
     <message>
       <source>Chats transferred to you directly</source>
-      <translation>Doğrudan size aktarılan konuşmalar</translation>
+      <translation>有一个转接给你的交谈</translation>
     </message>
     <message>
       <source>Transferred to your department</source>
-      <translation>Sizin departmanınıza aktarıldı </translation>
+      <translation>转接给你的部门</translation>
     </message>
     <message>
       <source>Download XLS</source>
-      <translation>XLS arşivini indir</translation>
+      <translation>下载 XLS</translation>
     </message>
     <message>
       <source>Group chats</source>
-      <translation type="unfinished"/>
+      <translation>群组交谈</translation>
     </message>
     <message>
       <source>Number of elements in list</source>
-      <translation type="unfinished"/>
+      <translation>列表中元件数量</translation>
     </message>
     <message>
       <source>Main information</source>
-      <translation>Ana bilgi</translation>
+      <translation>主要资讯</translation>
     </message>
     <message>
       <source>All departments</source>
-      <translation>Tüm departmanlar</translation>
+      <translation>所有部门</translation>
     </message>
     <message>
       <source>Check all</source>
-      <translation>Hepsini kontrol et</translation>
+      <translation>检查所有</translation>
     </message>
     <message>
       <source>Only online</source>
-      <translation>Sadece çevrimiçi</translation>
+      <translation>只有在线上时</translation>
     </message>
     <message>
       <source>Only explicit online</source>
-      <translation type="unfinished"/>
+      <translation>只有明确在线上时</translation>
     </message>
     <message>
       <source>Hide hidden</source>
-      <translation type="unfinished"/>
+      <translation>隐藏 隐藏</translation>
     </message>
     <message>
       <source>Hide disabled</source>
-      <translation type="unfinished"/>
+      <translation>隐藏 已禁用</translation>
     </message>
     <message>
       <source>Department group</source>
-      <translation type="unfinished"/>
+      <translation>部门群组</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>部门</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Kullanıcılar</translation>
+      <translation>使用者</translation>
     </message>
     <message>
       <source>User group</source>
-      <translation>Kullanıcı Grubu</translation>
+      <translation>使用者群组</translation>
     </message>
     <message>
       <source>User</source>
-      <translation>Kullanıcı</translation>
+      <translation>使用者</translation>
     </message>
     <message>
       <source>Bot chats</source>
-      <translation>Bot sohbetleri</translation>
+      <translation>机器人聊天</translation>
     </message>
     <message>
       <source>Departments stats</source>
-      <translation>Departman istatistikleri</translation>
+      <translation>部门统计</translation>
     </message>
     <message>
       <source>Online operators</source>
-      <translation type="unfinished"/>
+      <translation>在线客服</translation>
     </message>
     <message>
       <source>Online visitors</source>
-      <translation>Online ziyaretçiler</translation>
+      <translation>在线访客</translation>
     </message>
     <message>
       <source>Transferred chats</source>
-      <translation>Transfer edilmiş sohbetler</translation>
+      <translation>已转接交谈</translation>
     </message>
     <message>
       <source>Clean cache</source>
-      <translation>Önbelleği temizle</translation>
+      <translation>清理系统暂存档</translation>
     </message>
     <message>
       <source>Home</source>
-      <translation>Anasayfa</translation>
+      <translation>首页</translation>
     </message>
     <message>
       <source>Modules</source>
-      <translation>Modüller</translation>
+      <translation>模组</translation>
     </message>
     <message>
       <source>Browse offers</source>
-      <translation>Tekliflere gözat</translation>
+      <translation>浏览优惠</translation>
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>Site içi sohbet</translation>
+      <translation>Chatbox</translation>
     </message>
     <message>
       <source>FAQ</source>
-      <translation>SSS</translation>
+      <translation>FAQ</translation>
     </message>
     <message>
       <source>Questionary</source>
-      <translation>Anket</translation>
+      <translation>问卷</translation>
     </message>
     <message>
       <source>New chat request</source>
-      <translation>Yeni konuşma isteği</translation>
+      <translation>新的交谈请求</translation>
     </message>
     <message>
       <source>New chat has been transferred to you directly!</source>
-      <translation>Yeni sohbet direk olarak size transfer edilmiştir!</translation>
+      <translation>新聊天已直接转移给您！</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation>Sohbet</translation>
+      <translation>交谈</translation>
     </message>
     <message>
       <source>Dashboard</source>
-      <translation>Pano</translation>
+      <translation>仪表板</translation>
     </message>
     <message>
       <source>Settings</source>
-      <translation>Ayarlar</translation>
+      <translation>设定</translation>
     </message>
     <message>
       <source>This window will be automatically refreshed in {{lhc.lhcVersionCounter}} seconds due to a version update.</source>
-      <translation>Servis güncellemesi sebebi ile sayfa {{lhc.lhcVersionCounter}} saniye sonra yenilenecektir.</translation>
+      <translation>由于版本更新，此窗口将在{{lhc.lhcVersionCounter}}秒内自动刷新。</translation>
     </message>
     <message>
       <source>Chat tabs</source>
-      <translation>Sohbet sekmesi</translation>
+      <translation>聊天室标签</translation>
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Konuşmalar listesi </translation>
+      <translation>交谈列表</translation>
     </message>
     <message>
       <source>Account</source>
-      <translation>Hesap</translation>
+      <translation>帐号</translation>
     </message>
     <message>
       <source>Logout</source>
-      <translation>Çıkış</translation>
+      <translation>登出</translation>
     </message>
     <message>
       <source>Configuration</source>
-      <translation>Yapılandırma</translation>
+      <translation>系统配置</translation>
     </message>
     <message>
       <source>New messages</source>
-      <translation type="unfinished"/>
+      <translation>新信息</translation>
     </message>
     <message>
       <source>New chats</source>
-      <translation type="unfinished"/>
+      <translation>新的交谈</translation>
     </message>
     <message>
       <source>Invisible</source>
-      <translation type="unfinished"/>
+      <translation>隐藏</translation>
     </message>
     <message>
       <source>Visible</source>
-      <translation type="unfinished"/>
+      <translation>可见</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>离线</translation>
     </message>
     <message>
       <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>在线</translation>
     </message>
     <message>
       <source>Always online</source>
-      <translation type="unfinished"/>
+      <translation>总是在线</translation>
     </message>
     <message>
       <source>Based on activity</source>
-      <translation type="unfinished"/>
+      <translation>根据活动</translation>
     </message>
   </context>
   <context>
     <name>chat/syncadmin</name>
     <message>
       <source>System assistant</source>
-      <translation>Sistem yardımcısı</translation>
+      <translation>系统小帮手</translation>
     </message>
   </context>
   <context>
     <name>chat/maintenance</name>
     <message>
       <source>Maintenance</source>
-      <translation type="unfinished"/>
+      <translation>维护</translation>
     </message>
     <message>
       <source>Automatic chats close, click to close old chats</source>
-      <translation>Eski tüm sonlanmış sohbetleri kapat</translation>
+      <translation>自动交谈关闭，点选关闭旧的交谈</translation>
     </message>
     <message>
       <source>Automatic chats purge, click to purge old chats</source>
-      <translation>Eski tüm sonlanmış sohbetleri sil</translation>
+      <translation>自动交谈记录清除，点选以清除旧的交谈</translation>
     </message>
     <message>
       <source>Update chats duration by using new algorithm</source>
-      <translation>Yeni algoritmayı kullanarak sohbet sürelerini güncelle</translation>
+      <translation>使用新的演算法更新交谈持续时间</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Kapanan konuşmalar</translation>
+      <translation>已完成交谈</translation>
     </message>
     <message>
       <source>Purged chats</source>
-      <translation>Silinmiş sohbetler</translation>
+      <translation>已清除交谈</translation>
     </message>
     <message>
       <source>Chats duration was updated</source>
-      <translation>Sohbet süreleri yeniden hesaplandı</translation>
+      <translation>交谈持续时间已更新</translation>
     </message>
   </context>
   <context>
     <name>chat/statistic</name>
     <message>
       <source>Statistic</source>
-      <translation>İstatistik</translation>
+      <translation>统计</translation>
     </message>
     <message>
       <source>What charts to display</source>
-      <translation type="unfinished"/>
+      <translation>显示什么图表</translation>
     </message>
     <message>
       <source>Chat numbers by status</source>
-      <translation>Durumuna göre sohbet sayıları</translation>
+      <translation>聊天号码（按状态）</translation>
     </message>
     <message>
       <source>Unanswered chat numbers</source>
-      <translation>Cevapsız sohbet sayısı</translation>
+      <translation>未回复交谈量</translation>
     </message>
     <message>
       <source>Message types</source>
-      <translation type="unfinished"/>
+      <translation>讯息种类</translation>
     </message>
     <message>
       <source>Proactive chats number vs visitors initiated</source>
-      <translation>Proaktif sohbetler ve Kullanıcı sayacı karşılaştırması</translation>
+      <translation>主动交谈量 vs 访客发起交谈量</translation>
     </message>
     <message>
       <source>Number of chats by subject</source>
-      <translation type="unfinished"/>
+      <translation>交谈量（依主旨）</translation>
     </message>
     <message>
       <source>Number of Thumbs Up/Down</source>
-      <translation type="unfinished"/>
+      <translation>正负评数量</translation>
     </message>
     <message>
       <source>Number of chats by country</source>
-      <translation>Ülkelere göre sohbet sayısı</translation>
+      <translation>交谈量（依国家）</translation>
     </message>
     <message>
       <source>Number of messages by user</source>
-      <translation>Kullanıcının mesaj sayısı</translation>
+      <translation>讯息量（依使用者）</translation>
     </message>
     <message>
       <source>Number of chats per hour, average chat duration</source>
-      <translation>Saat başına sohbet sayısı ve ortalama sohbet süreleri</translation>
+      <translation>每小时的交谈量，平均交谈时间</translation>
     </message>
     <message>
       <source>Average wait time in seconds (maximum of 10 minutes)</source>
-      <translation>Ortalama bekleme süresi (saniye) - maksimum 10 dakika</translation>
+      <translation>平均等待时间（以秒为单位, 最多10分钟）</translation>
     </message>
     <message>
       <source>Number of chats by user</source>
-      <translation>Operatör için sohbet sayısı</translation>
+      <translation>交谈量（依使用者）</translation>
     </message>
     <message>
       <source>Number of chats by department</source>
-      <translation>Departman için sohbet sayısı</translation>
+      <translation>部门聊天次数</translation>
     </message>
     <message>
       <source>AVG visitor wait time by operator</source>
-      <translation>Operatör için ortalama ziyaretçi bekleme süresi </translation>
+      <translation>访客平均等待时间（依客服人员）</translation>
     </message>
     <message>
       <source>Average chat duration by user in seconds</source>
-      <translation>Kullanıcı başına ortalama sohbet süresi (saniye)</translation>
+      <translation>依使用者平均交谈时间秒数</translation>
     </message>
     <message>
       <source>Usefull if you prefill usernames always</source>
-      <translation type="unfinished"/>
+      <translation>如果您总是预填用户名，则很有用</translation>
     </message>
     <message>
       <source>Unique group field records grouped by date</source>
-      <translation type="unfinished"/>
+      <translation>独特群组字段记录按日期分组</translation>
     </message>
     <message>
       <source>Chats number grouped by date and group field</source>
-      <translation type="unfinished"/>
+      <translation>聊天号码按日期和分组字段分组</translation>
     </message>
     <message>
       <source>Thumbs up</source>
-      <translation type="unfinished"/>
+      <translation>正评</translation>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation type="unfinished"/>
+      <translation>负评</translation>
     </message>
     <message>
       <source>Number of chats</source>
-      <translation>Sohbet sayıları</translation>
+      <translation>交谈量次数</translation>
     </message>
     <message>
       <source>Unique records</source>
-      <translation type="unfinished"/>
+      <translation>独特记录</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Aktif</translation>
+      <translation>进行中</translation>
     </message>
     <message>
       <source>Operators</source>
-      <translation>Opertatörler</translation>
+      <translation>客服人员</translation>
     </message>
     <message>
       <source>Pending</source>
-      <translation>Beklemede</translation>
+      <translation>等待中</translation>
     </message>
     <message>
       <source>Closed</source>
-      <translation>Kapandı</translation>
+      <translation>已关闭</translation>
     </message>
     <message>
       <source>Proactive</source>
-      <translation type="unfinished"/>
+      <translation>主动</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
-      <translation type="unfinished"/>
+      <translation>访客发起</translation>
     </message>
     <message>
       <source>Visitors</source>
-      <translation>Ziyaretciler</translation>
+      <translation>访客</translation>
     </message>
     <message>
       <source>System</source>
-      <translation>Sistem</translation>
+      <translation>系统</translation>
     </message>
     <message>
       <source>Bot and Auto responder</source>
-      <translation type="unfinished"/>
+      <translation>机器人和自动应答器</translation>
     </message>
     <message>
       <source>Average chats</source>
-      <translation>Ortalama sohbetler</translation>
+      <translation>平均聊天</translation>
     </message>
     <message>
       <source>Max chats</source>
-      <translation>Maksimum sohbet</translation>
+      <translation>最大聊天次数</translation>
     </message>
     <message>
       <source>All operators statistic will be downloaded</source>
-      <translation type="unfinished"/>
+      <translation>将下载所有客服人员的统计</translation>
     </message>
     <message>
       <source>Please choose statistic parameters first!</source>
-      <translation type="unfinished"/>
+      <translation>请先选择统计参数！</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation type="unfinished"/>
+      <translation>已更新</translation>
     </message>
     <message>
       <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>在线</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>已禁用</translation>
     </message>
     <message>
       <source>Overloaded</source>
-      <translation type="unfinished"/>
+      <translation>超载</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>离线</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation type="unfinished"/>
+      <translation>日期</translation>
     </message>
     <message>
       <source>Hour</source>
-      <translation type="unfinished"/>
+      <translation>小时</translation>
     </message>
     <message>
       <source>Parameter</source>
-      <translation>Parametre</translation>
+      <translation>参数</translation>
     </message>
     <message>
       <source>Value</source>
-      <translation>Değer</translation>
+      <translation>值</translation>
     </message>
     <message>
       <source>User</source>
-      <translation>Kullanıcı</translation>
+      <translation>使用者</translation>
     </message>
     <message>
       <source>Total chats</source>
-      <translation>Toplam konuşma</translation>
+      <translation>总交谈量</translation>
     </message>
     <message>
       <source>Total messages</source>
-      <translation>Tüm mesajlar</translation>
+      <translation>总讯息量</translation>
     </message>
     <message>
       <source>Votes</source>
-      <translation>Oylar</translation>
+      <translation>评价</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Son aktivite</translation>
+      <translation>最近一次活动</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation>önce</translation>
+      <translation>前</translation>
     </message>
     <message>
       <source>Avg. Wait Time</source>
-      <translation>Ortalama bekleme süresi</translation>
+      <translation>平均等待时间</translation>
     </message>
     <message>
       <source>Chats Started</source>
-      <translation>Sohbet Başladı</translation>
+      <translation>聊天开始</translation>
     </message>
     <message>
       <source>Abandoned Chats</source>
-      <translation>Terk edilen sohbetler</translation>
+      <translation>被遗弃的聊天</translation>
     </message>
     <message>
       <source>% of chats</source>
-      <translation>Sohbetlerin %</translation>
+      <translation>聊天百分比</translation>
     </message>
     <message>
       <source>Abandoned at time %</source>
-      <translation type="unfinished"/>
+      <translation>放弃时间％</translation>
     </message>
     <message>
       <source>Total</source>
-      <translation type="unfinished"/>
+      <translation>总计</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
-      <translation>Toplantı odası konuşmaları</translation>
+      <translation>Chatbox 交谈</translation>
     </message>
     <message>
       <source>Last 24h statistics</source>
-      <translation type="unfinished"/>
+      <translation>最近24小时统计</translation>
     </message>
     <message>
       <source>Unique</source>
-      <translation type="unfinished"/>
+      <translation>独特</translation>
     </message>
     <message>
       <source>grouped by date</source>
-      <translation type="unfinished"/>
+      <translation>按日期分组</translation>
     </message>
     <message>
       <source>nick&apos;s</source>
-      <translation type="unfinished"/>
+      <translation>暱称的</translation>
     </message>
     <message>
       <source>user agent&apos;s</source>
-      <translation type="unfinished"/>
+      <translation>使用者代理的</translation>
     </message>
     <message>
       <source>device type&apos;s</source>
-      <translation type="unfinished"/>
+      <translation>设备类型的</translation>
     </message>
     <message>
       <source>Chats number grouped by date and</source>
-      <translation type="unfinished"/>
+      <translation>交谈号码按日期和</translation>
     </message>
     <message>
       <source>nick</source>
-      <translation type="unfinished"/>
+      <translation>暱称</translation>
     </message>
     <message>
       <source>user agent</source>
-      <translation type="unfinished"/>
+      <translation>使用者代理</translation>
     </message>
     <message>
       <source>Average number of chats &amp; peak per hour</source>
-      <translation>Saat başına sohbet ortalamaları</translation>
+      <translation>每小时平均聊天次数和高峰</translation>
     </message>
     <message>
       <source>Number of Thumbs Down</source>
-      <translation type="unfinished"/>
+      <translation>负评数量</translation>
     </message>
     <message>
       <source>Number of Thumbs Up</source>
-      <translation type="unfinished"/>
+      <translation>正评数量</translation>
     </message>
     <message>
       <source>Operators statistic, top 100 by chats number</source>
-      <translation>Operatör istatistikleri, sohbet sayısı bakımından top 100</translation>
+      <translation>客服人员统计，前 100 位（依交谈量）</translation>
     </message>
     <message>
       <source>Agents statistics</source>
-      <translation type="unfinished"/>
+      <translation>代理统计</translation>
     </message>
     <message>
       <source>Chats statistic</source>
-      <translation>Sohbet istatistikleri</translation>
+      <translation>交谈统计</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation type="unfinished"/>
+      <translation>部门</translation>
     </message>
     <message>
       <source>Last 24 hours statistics</source>
-      <translation type="unfinished"/>
+      <translation>最近24小时统计</translation>
     </message>
     <message>
       <source>Total statistics</source>
-      <translation type="unfinished"/>
+      <translation>统计总数</translation>
     </message>
     <message>
       <source>Total active chats</source>
-      <translation>Toplam aktif konuşma</translation>
+      <translation>进行中交谈量总数</translation>
     </message>
     <message>
       <source>Total closed chats</source>
-      <translation>Toplam kapatılan konuşma</translation>
+      <translation>已完成交谈总数</translation>
     </message>
     <message>
       <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>Tüm mesajlar (Sistem, ziyaretçi ve operatör)</translation>
+      <translation>讯息总数 ( 包含访客，系统与客服讯息 )</translation>
     </message>
     <message>
       <source>Total messages (only operators)</source>
-      <translation>Tüm mesajlar (operatörler)</translation>
+      <translation>讯息总数 ( 只有客服人员 )</translation>
     </message>
     <message>
       <source>Total messages (only system messages)</source>
-      <translation>Toplam mesajlar (sadece sistem mesajları)</translation>
+      <translation>讯息总数 ( 只有系统讯息 )</translation>
     </message>
     <message>
       <source>Total messages (only visitors)</source>
-      <translation>Tüm mesajlar (ziyaretçiler)</translation>
+      <translation>讯息总数 ( 只有访客 )</translation>
     </message>
     <message>
       <source>Total pending chats</source>
-      <translation>Toplam bekleyen konuşma</translation>
+      <translation>等待中交谈总数</translation>
     </message>
     <message>
       <source>Unanswered chats</source>
-      <translation>Cevapsız sohbetler</translation>
+      <translation>未回复交谈</translation>
     </message>
     <message>
       <source>New visitors</source>
-      <translation type="unfinished"/>
+      <translation>新访客</translation>
     </message>
     <message>
       <source>Returning visitors</source>
-      <translation type="unfinished"/>
+      <translation>回访者</translation>
     </message>
     <message>
       <source>Countries</source>
-      <translation type="unfinished"/>
+      <translation>国家</translation>
     </message>
     <message>
       <source>Cities</source>
-      <translation type="unfinished"/>
+      <translation>城市</translation>
     </message>
     <message>
       <source>User agent</source>
-      <translation type="unfinished"/>
+      <translation>使用者代理</translation>
     </message>
     <message>
       <source>Time on site</source>
-      <translation type="unfinished"/>
+      <translation>网站停留时间</translation>
     </message>
     <message>
       <source>more than 10 min.</source>
-      <translation>10 dakikadan fazla</translation>
+      <translation>超过10分钟。</translation>
     </message>
   </context>
   <context>
     <name>chat/modifychat</name>
     <message>
       <source>User attribute</source>
-      <translation>Kullanıcı bilgileri</translation>
+      <translation>使用者属性</translation>
     </message>
     <message>
       <source>Chat attributes</source>
-      <translation>Sohbet Ekstra Verileri</translation>
+      <translation>聊天属性</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-posta</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation>Alıcı e-postası</translation>
+      <translation>收件者 E-mail</translation>
     </message>
     <message>
       <source>Inform me then visitor returns</source>
-      <translation type="unfinished"/>
+      <translation>当访客返回时通知我</translation>
     </message>
     <message>
       <source>E-mail is send then visitor starts new browsing session</source>
-      <translation type="unfinished"/>
+      <translation>发送电子邮件，然后访客开始新的浏览工作阶段</translation>
     </message>
     <message>
       <source>Nick</source>
-      <translation>Rumuz</translation>
+      <translation>暱称</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Telefon</translation>
+      <translation>电话</translation>
     </message>
     <message>
       <source>Update chat</source>
-      <translation>Konuşmayı güncelle</translation>
+      <translation>更新交谈</translation>
     </message>
     <message>
       <source>Unanswered chat</source>
-      <translation>Cevapsız Sohbet</translation>
+      <translation>未回复的交谈</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>部门</translation>
     </message>
     <message>
       <source>Chat information was updated</source>
-      <translation>Sohbet bilgileri güncellendi</translation>
+      <translation>交谈资讯已更新</translation>
     </message>
   </context>
   <context>
     <name>chat/sendchat</name>
     <message>
       <source>Enter your e-mail</source>
-      <translation>E-posta adresinizi giriniz</translation>
+      <translation>输入您的 E-mail</translation>
     </message>
   </context>
   <context>
     <name>chat/sendmail</name>
     <message>
       <source>Recipient</source>
-      <translation>Alıcı</translation>
+      <translation>收件人</translation>
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation>Alıcı e-maili</translation>
+      <translation>收件者 E-mail</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation>Konu</translation>
+      <translation>主旨</translation>
     </message>
     <message>
       <source>From name</source>
-      <translation>Adından</translation>
+      <translation>寄件人名称</translation>
     </message>
     <message>
       <source>Reply e-mail</source>
-      <translation>E-posta yanıtla</translation>
+      <translation>回复者 E-mail</translation>
     </message>
     <message>
       <source>From e-mail</source>
-      <translation>E-postadan</translation>
+      <translation>寄件者 E-mail</translation>
     </message>
     <message>
       <source>Type your message to the user</source>
-      <translation>Kullanıcıya mesajınızı yazın</translation>
+      <translation>输入您给客户的讯息</translation>
     </message>
     <message>
       <source>Send the mail</source>
-      <translation>Postayı gönder</translation>
+      <translation>发送邮件</translation>
     </message>
     <message>
       <source>Embed link to file</source>
-      <translation>Linki dosyaya ekle</translation>
+      <translation>嵌入档案连结</translation>
     </message>
     <message>
       <source>Send mail to the user</source>
-      <translation>Kullanıcıya posta gönder</translation>
+      <translation>寄送邮件给客户</translation>
     </message>
     <message>
       <source>Mail was sent to the user</source>
-      <translation>Posta kullanıcıya gönderildi</translation>
+      <translation>邮件已发送给客户</translation>
     </message>
     <message>
       <source>Please enter recipient e-mail!</source>
-      <translation>Lütfen alıcının e-postasını girin!</translation>
+      <translation>请输入收件者的 E-mail！</translation>
     </message>
     <message>
       <source>From e-mail is missing!</source>
-      <translation>E-postanın kimden geldiği girilmemiş!</translation>
+      <translation>找不到寄件者的 E-mail！</translation>
     </message>
     <message>
       <source>Reply e-mail is missing!</source>
-      <translation>E-posta yanıtlama girilmemiş!</translation>
+      <translation>找不到回复者的 E-mail！</translation>
     </message>
     <message>
       <source>Subject is missing!</source>
-      <translation>Konu girilmemiş!</translation>
+      <translation>主旨为空白！</translation>
     </message>
   </context>
   <context>
     <name>chat/sendnotice</name>
     <message>
       <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
-      <translation>Eğer mesaj zaten gönderilmişse, gönderilmedi olarak işaretlenecek ve  kullanıcı tekrar konuşma mesajlarında görünecek.  </translation>
+      <translation>如果讯息已送出给客户，讯息会标示为尚未送达并且该则讯息会再次显示给客户</translation>
     </message>
     <message>
       <source>Type your message to the user</source>
-      <translation>Kullanıcıya mesajınızı yazın</translation>
+      <translation>输入您给客户的讯息</translation>
     </message>
     <message>
       <source>Assign the chat to me if the visitor replies</source>
-      <translation>Kullanıcı cevap verirse sohbeti otomatik olarak bana yönlendir</translation>
+      <translation>若访客回复，将我加入交谈</translation>
     </message>
     <message>
       <source>Do not send automated messages if the customer replies</source>
-      <translation type="unfinished"/>
+      <translation>若访客回复，则不要发送自动信息</translation>
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation>E-posta gerektirir</translation>
+      <translation>E-mail 请求</translation>
     </message>
     <message>
       <source>Requires name</source>
-      <translation>İsim girilmeli</translation>
+      <translation>名称请求</translation>
     </message>
     <message>
       <source>Requires phone</source>
-      <translation>Telefon gerekli</translation>
+      <translation>电话请求</translation>
     </message>
     <message>
       <source>Campaign</source>
-      <translation type="unfinished"/>
+      <translation>运动</translation>
     </message>
     <message>
       <source>Canned message</source>
-      <translation type="unfinished"/>
+      <translation>罐头讯息</translation>
     </message>
     <message>
       <source>Send the message</source>
-      <translation>Mesajı gönder</translation>
+      <translation>送出讯息</translation>
     </message>
     <message>
       <source>Send a message to the user</source>
-      <translation>Kullanıcıya mesaj gönder</translation>
+      <translation>发送一个讯息给客户</translation>
     </message>
     <message>
       <source>Message was sent to the user</source>
-      <translation>Mesaj kullanıcıya gönderildi</translation>
+      <translation>讯息已发送给客户</translation>
     </message>
     <message>
       <source>Type your message to the operator</source>
-      <translation>Operatöre mesajınızı yazın</translation>
+      <translation>输入您的讯息给客服人员</translation>
     </message>
     <message>
       <source>Start chat with operator</source>
-      <translation>Öperator ile görüşme başlat</translation>
+      <translation>与客服人员开始聊天</translation>
     </message>
   </context>
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
       <source>Save</source>
-      <translation>Kaydet</translation>
+      <translation>储存</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Güncelle</translation>
+      <translation>更新</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>İptal</translation>
+      <translation>取消</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Ayarlar güncellendi</translation>
+      <translation>设定已更新</translation>
     </message>
     <message>
       <source>Synchronisation and sound settings</source>
-      <translation>Eşitleme ve ses ayarları</translation>
+      <translation>同步化和音效设定</translation>
     </message>
     <message>
       <source>How many seconds for a user to be considered as being online</source>
-      <translation>Bir kullanıcının çevrimiçi kabul edilmesi için kaç saniye geçmiş olması gerektiği</translation>
+      <translation>用户被认为是在线的秒数</translation>
     </message>
     <message>
       <source>Value in seconds</source>
-      <translation>Değer (saniye)</translation>
+      <translation>值，以秒为单位</translation>
     </message>
     <message>
       <source>Sync for new chats, interval in seconds</source>
-      <translation>Yeni konuşmalar için senkronizasyon, saniyelik aralıklarla</translation>
+      <translation>同步新的交谈，时间间隔以秒为单位</translation>
     </message>
     <message>
       <source>Check for messages from the operators, interval in seconds</source>
-      <translation>Operatörden gelen mesajları kontrol et, saniyelik aralıklarla</translation>
+      <translation>检查来自客服人员的消息，以秒为单位的时间间隔</translation>
     </message>
     <message>
       <source>Preload previous chat messages on chat open</source>
-      <translation>Sohbet başladığında eski mesajları yükle</translation>
+      <translation>在开启即时通讯时预先载入先前的即时通讯讯息</translation>
     </message>
     <message>
       <source>Messages settings</source>
-      <translation>Mesaj ayarları</translation>
+      <translation>讯息设定</translation>
     </message>
     <message>
       <source>Sync for a new user message, interval in seconds</source>
-      <translation>Yeni bir kullanıcı mesajı için senkronizasyon, saniyelik aralıklarla</translation>
+      <translation>对于新使用者消息，以秒为单位的时间间隔同步</translation>
     </message>
     <message>
       <source>Show browser notification for new messages</source>
-      <translation>Yeni mesajlar için tarayıcıda uyarı göster</translation>
+      <translation>显示新讯息的浏览器通知</translation>
     </message>
     <message>
       <source>Long polling (experimental)</source>
-      <translation type="unfinished"/>
+      <translation>长时间轮询（实验性）</translation>
     </message>
     <message>
       <source>Enable long polling</source>
-      <translation type="unfinished"/>
+      <translation>启用长时间轮询</translation>
     </message>
     <message>
       <source>How many seconds keep connection to server?</source>
-      <translation>Server ile bağlantı kaç saniye kalsın?</translation>
+      <translation>多少秒保持连接到伺服器？</translation>
     </message>
     <message>
       <source>New chat request notification settings</source>
-      <translation>Yeni konuşma bildirimi ayarları</translation>
+      <translation>设定新交谈的请求通知</translation>
     </message>
     <message>
       <source>Play a new pending chat sound on a new chat request</source>
-      <translation>Yeni bir konuşma isteğinde yeni bir konuşma beklemede sesi çal</translation>
+      <translation>在新的交谈请求出现时，播放等待中交谈音效</translation>
     </message>
     <message>
       <source>Play a sound on a new message for a back office user</source>
-      <translation>Bir arka ofis kullanıcısı için olan mesajı sesle bildir </translation>
+      <translation>为后台使用者出现新讯息时播放音效</translation>
     </message>
     <message>
       <source>Play a sound on a new message for a front end user</source>
-      <translation>Bir ön son kullanıcı için olan mesajı sesle bildir</translation>
+      <translation>为前台使用者出现新讯息时播放音效</translation>
     </message>
     <message>
       <source>Show alert message on a new chat request</source>
-      <translation>Yeni görüşme talebinde uyarı mesajı gönder</translation>
+      <translation>在一个新的交谈请求中，显示警报讯息</translation>
     </message>
     <message>
       <source>How many times play sound notification</source>
-      <translation>Bildirim için ses kaç kez çalınsın</translation>
+      <translation>播放多少次音效通知</translation>
     </message>
     <message>
       <source>Number</source>
-      <translation>Rakam</translation>
+      <translation>数量</translation>
     </message>
     <message>
       <source>Delay between sound notifications in seconds</source>
-      <translation type="unfinished"/>
+      <translation>音效通知的延迟时间（以秒为单位）</translation>
     </message>
     <message>
       <source>delay in seconds</source>
-      <translation type="unfinished"/>
+      <translation>延迟时间（秒）</translation>
     </message>
     <message>
       <source>Seconds</source>
-      <translation>Saniye</translation>
+      <translation>秒</translation>
     </message>
     <message>
       <source>Please enter a valid online timeout value!</source>
-      <translation>Lütfen geçerli bir online zamanaşımı değeri girin!</translation>
+      <translation>请输入一个有效的 online timeout value！</translation>
     </message>
     <message>
       <source>Please enter a valid server connection timeout value!</source>
-      <translation type="unfinished"/>
+      <translation>请输入一个有效的server connection timeout value！</translation>
     </message>
     <message>
       <source>Please enter a valid operator message timeout value!</source>
-      <translation>Lütfen geçerli bir operatör zamanaşımı mesaj değeri girin!</translation>
+      <translation>请输入一个有效的 operator message timeout value！</translation>
     </message>
     <message>
       <source>Please enter a valid new messages polling sync interval!</source>
-      <translation type="unfinished"/>
+      <translation>请输入一个有效的 new messages polling sync interval！</translation>
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
-      <translation>Lütfen geçerli bir arka ofis senkronizasyon aralığı değeri girin!</translation>
+      <translation>请输入一个有效的 back office sync interval！</translation>
     </message>
     <message>
       <source>Please enter a valid new messages sync interval!</source>
-      <translation>Lütfen geçerli bir yeni mesaj senkranizasyon aralığı değeri girin!</translation>
+      <translation>请输入一个有效的 new messages sync interval！</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
-      <translation>Senkranizasyon ve ses ayarları</translation>
+      <translation>同步化和声音设定</translation>
     </message>
   </context>
   <context>
     <name>user/account</name>
     <message>
       <source>Name</source>
-      <translation>İsim</translation>
+      <translation>名称</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation>Güncellendi</translation>
+      <translation>已更新</translation>
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>一般</translation>
     </message>
     <message>
       <source>Interface</source>
-      <translation type="unfinished"/>
+      <translation>界面</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Sil</translation>
+      <translation>删除</translation>
     </message>
     <message>
       <source>Hide bot profile while chat is in bot mode</source>
-      <translation type="unfinished"/>
+      <translation>在交谈处于机器人模式时隐藏机器人个人资料</translation>
     </message>
     <message>
       <source>Start chat with hidden message box</source>
-      <translation type="unfinished"/>
+      <translation>使用隐藏的信息框开始交谈</translation>
     </message>
     <message>
       <source>Updated!</source>
-      <translation>Güncellendi!</translation>
+      <translation>已更新 ！</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Güncelle</translation>
+      <translation>更新</translation>
     </message>
     <message>
       <source>What languages you speak?</source>
-      <translation type="unfinished"/>
+      <translation>您会说什么语言？</translation>
     </message>
     <message>
       <source>If pending chats comes in the same language as chosen one. To you will be assigned same language chats first.</source>
-      <translation>Eğer seçili dilim ile aynı dilde yeni bir sohbet talebi gelirse, bu sohbeti otomatik olarak kabul et</translation>
+      <translation>如果待处理的聊天与选择的语言相同。将首先为您分配相同语言的聊天。</translation>
     </message>
     <message>
       <source>Updating...</source>
-      <translation>Güncelleştiriliyor...</translation>
+      <translation>正在更新...</translation>
     </message>
     <message>
       <source>Logged user</source>
-      <translation>Giriş yapmış kullanıcı</translation>
+      <translation>记录的用户</translation>
     </message>
     <message>
       <source>Account data</source>
-      <translation>Hesap bilgisi</translation>
+      <translation>帐户资料</translation>
     </message>
     <message>
       <source>Assigned departments</source>
-      <translation>Görevlendirilmiş departmanlar</translation>
+      <translation>分配的部门</translation>
     </message>
     <message>
       <source>Visible lists</source>
-      <translation>Görülebilir listeler</translation>
+      <translation>显示的列表</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation>Sohbetler</translation>
+      <translation>交谈</translation>
     </message>
     <message>
       <source>Speech</source>
-      <translation type="unfinished"/>
+      <translation>语音功能</translation>
     </message>
     <message>
       <source>Permissions</source>
-      <translation>İzinler</translation>
+      <translation>权限</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation>Eğer değiştirmek istemiyorsanız bir parola girmeyin</translation>
+      <translation>如果您不想要更改密码，请勿变更密码栏位</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Kullanıcı adı</translation>
+      <translation>使用者名称</translation>
     </message>
     <message>
       <source>Your username</source>
-      <translation>Kullanıcı adınız</translation>
+      <translation>您的使用者名称</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Parola</translation>
+      <translation>密码</translation>
     </message>
     <message>
       <source>Enter a new password</source>
-      <translation>Yeni bir parola girin</translation>
+      <translation>输入新密码</translation>
     </message>
     <message>
       <source>Repeat password</source>
-      <translation>Parolayı tekrar edin</translation>
+      <translation>重复输入密码</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>Yeni parolayı tekrar edin</translation>
+      <translation>重复输入新密码</translation>
     </message>
     <message>
       <source>Email</source>
-      <translation>E-posta</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation>Sohbet Takma Adı</translation>
+      <translation>交谈暱称</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Soy isim</translation>
+      <translation>姓氏</translation>
     </message>
     <message>
       <source>Job title</source>
-      <translation>İş unvanı</translation>
+      <translation>职位名称</translation>
     </message>
     <message>
       <source>I receive other operators permissions request</source>
-      <translation type="unfinished"/>
+      <translation>我会收到其他客服人员的权限请求</translation>
     </message>
     <message>
       <source>Skype</source>
@@ -8020,1218 +8018,1218 @@
     </message>
     <message>
       <source>XMPP username</source>
-      <translation>XMPP kullanıcı adı</translation>
+      <translation>XMPP 使用者名称</translation>
     </message>
     <message>
       <source>Photo</source>
-      <translation>Fotoğraf</translation>
+      <translation>照片</translation>
     </message>
     <message>
       <source>Return</source>
-      <translation>Dön</translation>
+      <translation>返回</translation>
     </message>
     <message>
       <source>Pending chats list enabled</source>
-      <translation>Bekleyen sohbet listesi aktif</translation>
+      <translation>待处理的聊天列表已启用</translation>
     </message>
     <message>
       <source>Active chats list enabled</source>
-      <translation>Aktif sohbet listesi aktif</translation>
+      <translation>现行聊天列表已启用</translation>
     </message>
     <message>
       <source>Unread chats list enabled</source>
-      <translation>Okunmamış sohbet listesi aktif</translation>
+      <translation>未读聊天列表已启用</translation>
     </message>
     <message>
       <source>Closed chats list enabled</source>
-      <translation>Sonlanmış sohbet listesi aktif</translation>
+      <translation>关闭的聊天列表已启用</translation>
     </message>
     <message>
       <source>My pending and active chats list enabled</source>
-      <translation>Bekleyen ve Aktif Sohbetler listesi aktif</translation>
+      <translation>我的待处理和处理中聊天列表已启用</translation>
     </message>
     <message>
       <source>Bot chats list enabled</source>
-      <translation>Bot sohbet listesi aktif</translation>
+      <translation>机器人聊天列表已启用</translation>
     </message>
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
-      <translation>Bana ait olmayanlar dahil tüm bekleyen sohbetleri görebilirim.</translation>
+      <translation>我能看到所有等待中交谈，不仅限于分配给我的交谈</translation>
     </message>
     <message>
       <source>Automatically accept assigned chats</source>
-      <translation>Sohbetler otomatik olarak kabul edilsin ve operatöre atansın</translation>
+      <translation>自动接受分配的聊天</translation>
     </message>
     <message>
       <source>Auto join private chats</source>
-      <translation type="unfinished"/>
+      <translation>自动加入私人聊天</translation>
     </message>
     <message>
       <source>Exclude me from auto assign workflow</source>
-      <translation type="unfinished"/>
+      <translation>将我从自动分配工作流程中排除</translation>
     </message>
     <message>
       <source>Auto preload previous visitor chat messages</source>
-      <translation>Önceki mesajları otomatik olarak yükle</translation>
+      <translation>自动预载访客之前的聊天讯息</translation>
     </message>
     <message>
       <source>Auto uppercase sentences</source>
-      <translation type="unfinished"/>
+      <translation>自动大写句子</translation>
     </message>
     <message>
       <source>Maximum active chats</source>
-      <translation>Maksimum aktif sohbet</translation>
+      <translation>最多进行中的聊天数</translation>
     </message>
     <message>
       <source>Show permissions</source>
-      <translation>İzinleri göster</translation>
+      <translation>显示权限</translation>
     </message>
     <message>
       <source>Account updated</source>
-      <translation>Hesap güncellendi</translation>
+      <translation>帐户已更新</translation>
     </message>
     <message>
       <source>All departments</source>
-      <translation>Tüm departmanlar</translation>
+      <translation>所有部门</translation>
     </message>
     <message>
       <source>Individual departments</source>
-      <translation type="unfinished"/>
+      <translation>个别部门</translation>
     </message>
     <message>
       <source>Read only</source>
-      <translation type="unfinished"/>
+      <translation>唯读</translation>
     </message>
     <message>
       <source>Read Only</source>
-      <translation type="unfinished"/>
+      <translation>唯读</translation>
     </message>
     <message>
       <source>Departments groups</source>
-      <translation type="unfinished"/>
+      <translation>部门群组</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>离线</translation>
     </message>
     <message>
       <source>Chat status will not change upon pending chat opening</source>
-      <translation>Bekleyen sohbeti açtığında sohbet durumu değişmesin</translation>
+      <translation>开启之前的交谈后，不会改变交谈状态</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Bekleyen sohbetler</translation>
+      <translation>等待中交谈</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
-      <translation>Operatör diğer operatörlerin yetki taleplerini görüntüleyebilir</translation>
+      <translation>使用者会收到其他客服人员的权限请求</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
-      <translation>Kullanıcı kendi departmanında olmayanlar dahil bekleyen tüm sohbetleri görüntüleyebilir</translation>
+      <translation>使用者可以看到所有等待中交谈，不限于分配给他的交谈</translation>
     </message>
     <message>
       <source>Exclude from auto assign workflow</source>
-      <translation type="unfinished"/>
+      <translation>将从自动分配工作流程中排除</translation>
     </message>
     <message>
       <source>Created</source>
-      <translation type="unfinished"/>
+      <translation>已建立</translation>
     </message>
     <message>
       <source>Notifications</source>
-      <translation>Bildirimler</translation>
+      <translation>通知</translation>
     </message>
     <message>
       <source>Personal auto responder</source>
-      <translation>Kişisel otomatik yanıtlayıcı</translation>
+      <translation>个人自动应答器</translation>
     </message>
     <message>
       <source>Personal canned messages</source>
-      <translation>Kişisel hazır mesajlar</translation>
+      <translation>我的罐头讯息</translation>
     </message>
     <message>
       <source>Main</source>
-      <translation>Ana</translation>
+      <translation>主要</translation>
     </message>
     <message>
       <source>Add translation</source>
-      <translation>Çeviri ekle</translation>
+      <translation>新增翻译</translation>
     </message>
     <message>
       <source>Password was updated. Now you can go to back office.</source>
-      <translation>Şifre güncellendi. Şimdi dashboard&apos;a gidebilirsiniz.</translation>
+      <translation>密码已更新。 现在您可以回办公室了。</translation>
     </message>
   </context>
   <context>
     <name>chat/transferchat</name>
     <message>
       <source>Online</source>
-      <translation>Çevrimiçi</translation>
+      <translation>在线</translation>
     </message>
     <message>
       <source>current</source>
-      <translation type="unfinished"/>
+      <translation>目前</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation>Çevrimdışı</translation>
+      <translation>离线</translation>
     </message>
     <message>
       <source>Transfer to a user</source>
-      <translation>Bir kullanıcıya aktar</translation>
+      <translation>转接客服案件给客服人员</translation>
     </message>
     <message>
       <source>Transfer to a department</source>
-      <translation>Bir departmana aktar</translation>
+      <translation>转接客服案件给部门</translation>
     </message>
     <message>
       <source>Change owner</source>
-      <translation>Sahibi değişitir</translation>
+      <translation>变更拥有者</translation>
     </message>
     <message>
       <source>Logged in users</source>
-      <translation>Kullanıcılara giriş</translation>
+      <translation>登入的客服人员</translation>
     </message>
     <message>
       <source>Transfer a chat to one of your departments users</source>
-      <translation>Bir konuşmayı departman kullanıcılarınızdan birine aktar</translation>
+      <translation>转接交谈至你的部门人员</translation>
     </message>
     <message>
       <source>Only logged and online operators</source>
-      <translation type="unfinished"/>
+      <translation>仅登录和在线客服人员</translation>
     </message>
     <message>
       <source>Only operators from same departments</source>
-      <translation type="unfinished"/>
+      <translation>只同一部门的客服人员</translation>
     </message>
     <message>
       <source>Transfer</source>
-      <translation>Aktar</translation>
+      <translation>转接</translation>
     </message>
     <message>
       <source>Only departments which are online and explicitly assigned operator are online</source>
-      <translation type="unfinished"/>
+      <translation>只有在部门和确定分配的客服人员在线上时</translation>
     </message>
     <message>
       <source>Exclude hidden departments</source>
-      <translation type="unfinished"/>
+      <translation>排除已隐藏部门</translation>
     </message>
     <message>
       <source>Exclude disabled departments</source>
-      <translation type="unfinished"/>
+      <translation>排除已禁用部门</translation>
     </message>
     <message>
       <source>Transfer chat</source>
-      <translation>Sohbeti Aktar</translation>
+      <translation>转接交谈</translation>
     </message>
   </context>
   <context>
     <name>chat/userjoined</name>
     <message>
       <source>Visitor has joined the chat!</source>
-      <translation>Ziyaretçi sohbete katıldı!</translation>
+      <translation>访客已加入交谈 ！</translation>
     </message>
     <message>
       <source>Visitor has joined the chat from popup chat window!</source>
-      <translation>Kullanıcı sohbete pop-up ekran üzerinden yeniden bağlandı!</translation>
+      <translation>访客已从快显交谈视窗加入交谈 ！</translation>
     </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
     <message>
       <source>Visitor has left the chat!</source>
-      <translation>Ziyaretçi sohbetten ayrıldı!</translation>
+      <translation>访客已离开交谈 ！</translation>
     </message>
     <message>
       <source>Visitor has closed the chat explicitly!</source>
-      <translation>Ziyaretçi sohbeti kapattı!</translation>
+      <translation>访客已确定关闭交谈 ！</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/archive</name>
     <message>
       <source>Chat archive</source>
-      <translation>Konuşma arşivi</translation>
+      <translation>交谈建档</translation>
     </message>
     <message>
       <source>Archives list</source>
-      <translation>Arşiv listesi</translation>
+      <translation>档案列表</translation>
     </message>
     <message>
       <source>New archive</source>
-      <translation>Yeni arşiv</translation>
+      <translation>新的档案</translation>
     </message>
     <message>
       <source>Configuration</source>
-      <translation>Yapılandırma</translation>
+      <translation>设定</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/archivechats</name>
     <message>
       <source>Archiving has finished.</source>
-      <translation>Arşivleme tamamlandı.</translation>
+      <translation>存档完成。</translation>
     </message>
     <message>
       <source>See archived chats</source>
-      <translation>Konuşma arşivlerini göster</translation>
+      <translation>查看已建档的交谈</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/editarchive</name>
     <message>
       <source>Edit archive</source>
-      <translation>Arşivi düzenle</translation>
+      <translation>编辑档案</translation>
     </message>
     <message>
       <source>Archive updated</source>
-      <translation>Arşiv güncellendi</translation>
+      <translation>档案已更新</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/newarchive</name>
     <message>
       <source>Date from</source>
-      <translation type="unfinished"/>
+      <translation>从</translation>
     </message>
     <message>
       <source>E.g</source>
-      <translation>Örn.</translation>
+      <translation>例如：</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation type="unfinished"/>
+      <translation>到</translation>
     </message>
     <message>
       <source>New archive</source>
-      <translation>Yeni arşiv</translation>
+      <translation>新的档案</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation>Lütfen geçerli bir zaman aralığından girin!</translation>
+      <translation>请输入有效的日期范围 ！</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation>Lütfen geçerli zaman aralığı giriniz!</translation>
+      <translation>请输入有效的日期范围 ！</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/list</name>
     <message>
       <source>Archives list</source>
-      <translation>Arşiv listesi</translation>
+      <translation>档案列表</translation>
     </message>
     <message>
       <source>From date</source>
-      <translation type="unfinished"/>
+      <translation>从</translation>
     </message>
     <message>
       <source>Till date</source>
-      <translation type="unfinished"/>
+      <translation>到</translation>
     </message>
     <message>
       <source>List chats</source>
-      <translation>Konuşmaları listele</translation>
+      <translation>交谈列表</translation>
     </message>
     <message>
       <source>Process again</source>
-      <translation type="unfinished"/>
+      <translation>再次处理</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Düzenle</translation>
+      <translation>编辑</translation>
     </message>
     <message>
       <source>Archived chats</source>
-      <translation>Arşivlenen konuşmalar</translation>
+      <translation>已建档交谈</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/listarchivechats</name>
     <message>
       <source>Archived chats</source>
-      <translation>Arşivlenen konuşmalar</translation>
+      <translation>已建档交谈</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation>Bilgi</translation>
+      <translation>资讯</translation>
     </message>
   </context>
   <context>
     <name>chat/previewchat</name>
     <message>
       <source>Last 100 messages rows</source>
-      <translation>Son 100 mesaj satırı</translation>
+      <translation>最近 100 则讯息</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/process</name>
     <message>
       <source>Process archive</source>
-      <translation type="unfinished"/>
+      <translation>处理档案</translation>
     </message>
     <message>
       <source>Process</source>
-      <translation>İşlem</translation>
+      <translation>处理</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/process_content</name>
     <message>
       <source>Date from</source>
-      <translation type="unfinished"/>
+      <translation>从</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation type="unfinished"/>
+      <translation>到</translation>
     </message>
     <message>
       <source>Potential chats to archive</source>
-      <translation>Arşivdeki potansiyel sohbetler</translation>
+      <translation>潜在的聊天记录</translation>
     </message>
     <message>
       <source>Archived chats</source>
-      <translation>Arşivlenmiş sohbetler</translation>
+      <translation>存档的聊天</translation>
     </message>
     <message>
       <source>First archived chat ID</source>
-      <translation>Arşivlenen ilk sohbet ID</translation>
+      <translation>第一个已存档的聊天ID</translation>
     </message>
     <message>
       <source>Last archived chat ID</source>
-      <translation>Arşivlenen son sohbet ID</translation>
+      <translation>最后存档的聊天ID</translation>
     </message>
     <message>
       <source>Archive progress</source>
-      <translation>Arşiv ilerlemesi</translation>
+      <translation>储存进度</translation>
     </message>
     <message>
       <source>Pending for action...</source>
-      <translation>Bekleyen eylem için...</translation>
+      <translation>等待采取动作...</translation>
     </message>
     <message>
       <source>Terms dictionary</source>
-      <translation>Terimler sözlüğü</translation>
+      <translation>用语字典</translation>
     </message>
     <message>
       <source>first archived chat ID</source>
-      <translation>arşivlenen ilk sohbet ID</translation>
+      <translation>第一个已存档的聊天ID</translation>
     </message>
     <message>
       <source>last archived chat ID</source>
-      <translation>arşivlenen son sohbet ID</translation>
+      <translation>最后存档的聊天ID</translation>
     </message>
     <message>
       <source>number of archived chats</source>
-      <translation>arşive alınmış sohbetler</translation>
+      <translation>聊天记录数</translation>
     </message>
     <message>
       <source>number of archived messages</source>
-      <translation type="unfinished"/>
+      <translation>存档信息数目</translation>
     </message>
     <message>
       <source>Error accoured during archive process</source>
-      <translation type="unfinished"/>
+      <translation>建档过程发生错误</translation>
     </message>
   </context>
   <context>
     <name>chatbox/configuration</name>
     <message>
       <source>Chatbox</source>
-      <translation>Konuşma kutusu</translation>
+      <translation>Chatbox</translation>
     </message>
     <message>
       <source>General</source>
-      <translation>Genel</translation>
+      <translation>一般</translation>
     </message>
     <message>
       <source>General settings</source>
-      <translation>Genel ayarlar</translation>
+      <translation>一般设定</translation>
     </message>
     <message>
       <source>Chatbox list</source>
-      <translation>Konuşma kutusu listeleri</translation>
+      <translation>Chatbox 列表</translation>
     </message>
   </context>
   <context>
     <name>system/messages</name>
     <message>
       <source>Updated</source>
-      <translation>Güncellendi</translation>
+      <translation>已更新</translation>
     </message>
   </context>
   <context>
     <name>chatbox/form</name>
     <message>
       <source>Chatbox name</source>
-      <translation>Konuşma kutusu ismi</translation>
+      <translation>Chatbox 名称</translation>
     </message>
     <message>
       <source>Name of manager</source>
-      <translation>Yönetici adı</translation>
+      <translation>经理姓名</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Belirteç</translation>
+      <translation>识别码</translation>
     </message>
     <message>
       <source>Chatbox active</source>
-      <translation>Konuşma kutusu aktif</translation>
+      <translation>聊天框处于活动状态</translation>
     </message>
   </context>
   <context>
     <name>chatbox/generalsettings</name>
     <message>
       <source>Chatbox settings</source>
-      <translation>Konuşma kutusu ayarları</translation>
+      <translation>聊天框设置</translation>
     </message>
     <message>
       <source>Default new chatbox name</source>
-      <translation>Varsayılan yeni konuşma kutusu ismi</translation>
+      <translation>默认新聊天框名称</translation>
     </message>
     <message>
       <source>Default operator name</source>
-      <translation>Varsayılan operatör ismi</translation>
+      <translation>预设客服人员名称</translation>
     </message>
     <message>
       <source>Messages limit in the chatbox</source>
-      <translation>Konuşma kutusundaki mesajlar limiti</translation>
+      <translation>在 chatbox 中限制讯息</translation>
     </message>
     <message>
       <source>Auto creation by chatbox identifier is enabled</source>
-      <translation>Oto oluşum konuşma kutusu belirteci etkin</translation>
+      <translation>已启用: 通过聊天框标识符自动创建</translation>
     </message>
     <message>
       <source>Secret hash, this is used when auto creation is disabled</source>
-      <translation>Gizli ], bu oto yaratım devredışıyken kullanılır</translation>
+      <translation>秘密 Hash，在禁用自动创建时使用</translation>
     </message>
     <message>
       <source>more information on how to use it</source>
-      <translation>nasıl kullanılacağı dair daha fazla bilgi</translation>
+      <translation>如何使用的详细资讯</translation>
     </message>
     <message>
       <source>Paid chat settings</source>
-      <translation>Öncelikli sohbet ayarları</translation>
+      <translation>Paid chat 设定</translation>
     </message>
   </context>
   <context>
     <name>chatbox/list</name>
     <message>
       <source>Chatbox list</source>
-      <translation>Konuşma kutusu listesi</translation>
+      <translation>Chatbox 列表</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>İsim</translation>
+      <translation>名称</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Belirteç</translation>
+      <translation>识别码</translation>
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>Konuşma kutusu</translation>
+      <translation>Chatbox</translation>
     </message>
   </context>
   <context>
     <name>user/userlist</name>
     <message>
       <source>Edit</source>
-      <translation>Düzenle</translation>
+      <translation>编辑</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Sil</translation>
+      <translation>删除</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>İsim</translation>
+      <translation>名字</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>识别码</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Kullanıcı adı</translation>
+      <translation>使用者名称</translation>
     </message>
     <message>
       <source>Start activity</source>
-      <translation type="unfinished"/>
+      <translation>开始活动</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Son aktivite</translation>
+      <translation>最近一次活动</translation>
     </message>
     <message>
       <source>Duration</source>
-      <translation type="unfinished"/>
+      <translation>持续时间</translation>
     </message>
     <message>
       <source>Was offline for</source>
-      <translation type="unfinished"/>
+      <translation>已离线</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Aktif Sohbet</translation>
+      <translation>进行中交谈</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Bekleyen Sohbetler</translation>
+      <translation>等待中交谈</translation>
     </message>
     <message>
       <source>Inactive chats</source>
-      <translation>Bitmiş Sohbet</translation>
+      <translation>闲置交谈</translation>
     </message>
     <message>
       <source>RT Active chats</source>
-      <translation>Devam Eden Sohbetler</translation>
+      <translation>RT 现行聊天</translation>
     </message>
     <message>
       <source>Update stats</source>
-      <translation>İstatistikleri Güncelle</translation>
+      <translation>更新统计</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Kullanıcılar</translation>
+      <translation>使用者</translation>
     </message>
     <message>
       <source>Username (Nickname)</source>
-      <translation>Kullanıcı Adı(Takma Adı)</translation>
+      <translation>用户名 (暱称)</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-posta</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Login As</source>
-      <translation>Simule Et</translation>
+      <translation>登入为</translation>
     </message>
     <message>
       <source>New user</source>
-      <translation>Yeni kullanıcı</translation>
+      <translation>新增使用者</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Sistem ayarları</translation>
+      <translation>系统配置</translation>
     </message>
     <message>
       <source>Statistic</source>
-      <translation type="unfinished"/>
+      <translation>统计</translation>
     </message>
     <message>
       <source>Users Actions</source>
-      <translation>Operatör Hareketleri (log)</translation>
+      <translation>用户动作</translation>
     </message>
   </context>
   <context>
     <name>kernel/messages</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Emin misiniz? </translation>
+      <translation>是否确定？</translation>
     </message>
   </context>
   <context>
     <name>chatbox/new</name>
     <message>
       <source>New chatbox</source>
-      <translation>Yeni konuşma kutusu</translation>
+      <translation>新增 chatbox</translation>
     </message>
     <message>
       <source>New</source>
-      <translation>Yeni</translation>
+      <translation>新增功能</translation>
     </message>
   </context>
   <context>
     <name>department/departments</name>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>编辑</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation>Departmanlar</translation>
+      <translation>部门</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>İsim</translation>
+      <translation>名称</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-posta</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation type="unfinished"/>
+      <translation>隐藏</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>已禁用</translation>
     </message>
     <message>
       <source>Visible only if online</source>
-      <translation type="unfinished"/>
+      <translation>只有在线上时可见</translation>
     </message>
     <message>
       <source>Overloaded</source>
-      <translation type="unfinished"/>
+      <translation>超载</translation>
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>是</translation>
     </message>
     <message>
       <source>No</source>
-      <translation type="unfinished"/>
+      <translation>否</translation>
     </message>
     <message>
       <source>Edit department</source>
-      <translation>Departmanı düzenle</translation>
+      <translation>编辑部门</translation>
     </message>
     <message>
       <source>New department</source>
-      <translation>Yeni departman</translation>
+      <translation>新增部门</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Emin misiniz? </translation>
+      <translation>是否确定？</translation>
     </message>
     <message>
       <source>Departments groups</source>
-      <translation type="unfinished"/>
+      <translation>部门群组</translation>
     </message>
     <message>
       <source>Group</source>
-      <translation type="unfinished"/>
+      <translation>群组</translation>
     </message>
     <message>
       <source>Departments limit groups</source>
-      <translation type="unfinished"/>
+      <translation>部门限制群组</translation>
     </message>
     <message>
       <source>Group chat</source>
-      <translation type="unfinished"/>
+      <translation>群组交谈</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>客服人员</translation>
     </message>
     <message>
       <source>Type</source>
-      <translation type="unfinished"/>
+      <translation>类型</translation>
     </message>
     <message>
       <source>Creation time</source>
-      <translation type="unfinished"/>
+      <translation>创建时间</translation>
     </message>
     <message>
       <source>Public</source>
-      <translation type="unfinished"/>
+      <translation>公开</translation>
     </message>
     <message>
       <source>Private</source>
-      <translation type="unfinished"/>
+      <translation>私人</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Sistem ayarları</translation>
+      <translation>系统配置</translation>
     </message>
     <message>
       <source>Archive configuration</source>
-      <translation type="unfinished"/>
+      <translation>存档配置</translation>
     </message>
     <message>
       <source>Departments list</source>
-      <translation type="unfinished"/>
+      <translation>部门清单</translation>
     </message>
     <message>
       <source>Group chats</source>
-      <translation type="unfinished"/>
+      <translation>群组交谈</translation>
     </message>
   </context>
   <context>
     <name>cobrowse/browse</name>
     <message>
       <source>Click blue eye at the top to request screen share</source>
-      <translation type="unfinished"/>
+      <translation>点选画面上方的蓝眼睛请求以萤幕分享</translation>
     </message>
     <message>
       <source>Request screen share</source>
-      <translation type="unfinished"/>
+      <translation>请求萤幕分享</translation>
     </message>
     <message>
       <source>Show my mouse position to visitor</source>
-      <translation type="unfinished"/>
+      <translation>向访客显示我的滑鼠位置</translation>
     </message>
     <message>
       <source>On highlight scroll user window location to match my</source>
-      <translation>Kendi ekranımda yapmış olduğum scroll hareketlerini kullanıcıya yansıt</translation>
+      <translation>在突出卷动使用者视窗位置以符合我的</translation>
     </message>
     <message>
       <source>Follow user scroll position</source>
-      <translation>Kullanıcının fare pozisyonunu takip et</translation>
+      <translation>跟随访客滚动的位置</translation>
     </message>
     <message>
       <source>On click navigate user browser</source>
-      <translation>Tıkladığımda kullanıcının tarayıcısına yansıt</translation>
+      <translation>当点选时浏览使用者浏览器</translation>
     </message>
     <message>
       <source>Screen sharing session has finished</source>
-      <translation type="unfinished"/>
+      <translation>萤幕分享会议已完成</translation>
     </message>
     <message>
       <source>Screen is shared</source>
-      <translation>Ekran paylaşıldı</translation>
+      <translation>萤幕已分享</translation>
     </message>
     <message>
       <source>Co-browse is stopped by error</source>
-      <translation type="unfinished"/>
+      <translation>共同浏览因错误而停止</translation>
     </message>
     <message>
       <source>Co-browse is stopped!</source>
-      <translation type="unfinished"/>
+      <translation>共同浏览已停止！</translation>
     </message>
   </context>
   <context>
     <name>chat/operatorsbalancing</name>
     <message>
       <source>Active</source>
-      <translation>Etkin</translation>
+      <translation>启用</translation>
     </message>
     <message>
       <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
-      <translation>Bir operatör aynı anda kaç sohbet kabul edebilir, 0 - limitsiz</translation>
+      <translation>使用者能同时拥有的进行中交谈最大数量，0 - 无限</translation>
     </message>
     <message>
       <source>Maximum number of department active chats, 0 - unlimited</source>
-      <translation>Bir departmanda maksimum kaç aktif sohbet olabilir, 0 - limitsiz</translation>
+      <translation>部门同时进行中聊天的最大数量，0-无限</translation>
     </message>
     <message>
       <source>If this limit is reached, new chats will not be assigned to any operator.</source>
-      <translation>Limite ulaşıldığında yeni sohbetler operatörlere tanımlanmayacaktır</translation>
+      <translation>如果达到此限制，则新的聊天将不会分配给任何客服人员。</translation>
     </message>
     <message>
       <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
-      <translation>Sohbetin otomatik aktarıldığı operatör belirtilen süre içerisinde sohbeti aktif etmezse başka bir operatöre otomatik transfer edilsin, 0 - pasif</translation>
+      <translation>如果客服在几秒内没有接受交谈，将自动分配指派给另一位客服，0 - 禁用</translation>
     </message>
     <message>
       <source>Minimum delay between chat assignment to operator</source>
-      <translation>Operatöre sohbet ataması arasındaki minimum gecikme</translation>
+      <translation>聊天分配给客服人员之间的最小延迟</translation>
     </message>
     <message>
       <source>Delay in seconds before next chat can be assigned to operator.</source>
-      <translation>Operatöre bir sonraki sohbete başlamadan önce saniye cinsinden gecikme.</translation>
+      <translation>在下一次聊天可以分配给客服人员之前的延迟（秒）。</translation>
     </message>
     <message>
       <source>Exclude inactive chats</source>
-      <translation>Pasif sohbetleri sonlandır</translation>
+      <translation>排除闲置交谈</translation>
     </message>
     <message>
       <source>Pending and active chats which visitors has closed chats explicitly or visitors being redirected to survey will be excluded</source>
-      <translation>Aktif veya bekleyen sohbeti sonlandırmak isteyen ziyaretçileri ankete yönlendir</translation>
+      <translation>访客已明确关闭聊天或被重定向到调查的访客的待处理和进行中聊天将被排除在外</translation>
     </message>
     <message>
       <source>Try to assign chats first to the same language speaking operators</source>
-      <translation>Operatörlerin konuşma dilleri ile kullanıcıların konuşma dillerini eşleştirmeyi dene</translation>
+      <translation>尝试先将聊天分配给使用相同语言的客服人员</translation>
     </message>
     <message>
       <source>Check for presence of variable</source>
-      <translation type="unfinished"/>
+      <translation>检查变量是否存在</translation>
     </message>
     <message>
       <source>Resume auto assign if chat remains pending for n seconds</source>
-      <translation>Sohbet n saniye beklemede kalırsa otomatik atamaya devam et</translation>
+      <translation>如果聊天保持待处理状态n秒钟，则恢复自动分配</translation>
     </message>
     <message>
       <source>Hide send e-mail button for operators in chat window</source>
-      <translation type="unfinished"/>
+      <translation>为客服人员在聊天窗口中隐藏发送电子邮件按钮</translation>
     </message>
   </context>
   <context>
     <name>gallery/album_list_admin</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Emin misiniz? </translation>
+      <translation>是否确定？</translation>
     </message>
   </context>
   <context>
     <name>department/new</name>
     <message>
       <source>New department</source>
-      <translation>Yeni departman</translation>
+      <translation>新增部门</translation>
     </message>
     <message>
       <source>New department group</source>
-      <translation type="unfinished"/>
+      <translation>新增部门群组</translation>
     </message>
     <message>
       <source>New department limit group</source>
-      <translation type="unfinished"/>
+      <translation>新增部门限制群组</translation>
     </message>
     <message>
       <source>New bot</source>
-      <translation type="unfinished"/>
+      <translation>新机器人</translation>
     </message>
     <message>
       <source>New exception group</source>
-      <translation type="unfinished"/>
+      <translation>新的例外群组</translation>
     </message>
     <message>
       <source>New Rest API Call</source>
-      <translation type="unfinished"/>
+      <translation>新的Rest API 呼叫</translation>
     </message>
     <message>
       <source>New translation group</source>
-      <translation type="unfinished"/>
+      <translation>新翻译群组</translation>
     </message>
     <message>
       <source>New translation item</source>
-      <translation type="unfinished"/>
+      <translation>新翻译项目</translation>
     </message>
     <message>
       <source>New group chat</source>
-      <translation type="unfinished"/>
+      <translation>新增群组交谈</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Sistem ayarı</translation>
+      <translation>系统配置</translation>
     </message>
   </context>
   <context>
     <name>faq/faqwidget</name>
     <message>
       <source>FAQ</source>
-      <translation>SSS</translation>
+      <translation>FAQ</translation>
     </message>
     <message>
       <source>Ask a question</source>
-      <translation>Soru sor</translation>
+      <translation>问一个问题</translation>
     </message>
     <message>
       <source>Type your question</source>
-      <translation>Sorunuzu yazın</translation>
+      <translation>输入您的问题</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-posta</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>Soru</translation>
+      <translation>问题</translation>
     </message>
     <message>
       <source>Send your question</source>
-      <translation>Sorunuzu gönderin</translation>
+      <translation>发送您的问题</translation>
     </message>
     <message>
       <source>Your question was submitted!</source>
-      <translation>Sorunuz iletildi</translation>
+      <translation>您的问题已经提交 ！</translation>
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation>Lütfen bir soru girin!</translation>
+      <translation>请输入一个问题 ！</translation>
     </message>
     <message>
       <source>Please enter your email address!</source>
-      <translation>Lütfen e-postanızı girin !</translation>
+      <translation>请输入您的电子邮件地址 ！</translation>
     </message>
   </context>
   <context>
     <name>faq/new</name>
     <message>
       <source>Question</source>
-      <translation>Soru</translation>
+      <translation>问题</translation>
     </message>
     <message>
       <source>Answer</source>
-      <translation>Cevap</translation>
+      <translation>答案</translation>
     </message>
     <message>
       <source>URL, enter * at the end for the wildcard</source>
-      <translation type="unfinished"/>
+      <translation>网址，请输入* 于结尾</translation>
     </message>
     <message>
       <source>The URL where this question should appear, leave it empty for all</source>
-      <translation>Bu sorunun görüneceği URL, tümü için boş bırak</translation>
+      <translation>会出现此问题的网址，可空白</translation>
     </message>
     <message>
       <source>Submitter e-mail</source>
-      <translation type="unfinished"/>
+      <translation>提交者的E-mail </translation>
     </message>
     <message>
       <source>Identifier, can be used to filter questions by identifier</source>
-      <translation type="unfinished"/>
+      <translation>识别码，可使用识别码过滤问题</translation>
     </message>
     <message>
       <source>Question is active</source>
-      <translation>Soru aktif</translation>
+      <translation>问题正在进行中</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Yeni soru</translation>
+      <translation>新增问题</translation>
     </message>
   </context>
   <context>
     <name>faq/list</name>
     <message>
       <source>FAQ</source>
-      <translation>SSS</translation>
+      <translation>FAQ</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>Soru</translation>
+      <translation>问题</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Kimliği</translation>
+      <translation>识别码</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Aktif</translation>
+      <translation>启用</translation>
     </message>
     <message>
       <source>Y</source>
-      <translation>Evet</translation>
+      <translation>是</translation>
     </message>
     <message>
       <source>N</source>
-      <translation>Hayır</translation>
+      <translation>否</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Düzenle</translation>
+      <translation>编辑</translation>
     </message>
     <message>
       <source>Delete this question</source>
-      <translation>Bu soruyu sil</translation>
+      <translation>删除此问题</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Yeni soru</translation>
+      <translation>新增问题</translation>
     </message>
   </context>
   <context>
     <name>faq/view</name>
     <message>
       <source>View</source>
-      <translation>Göster</translation>
+      <translation>视图</translation>
     </message>
     <message>
       <source>Please enter a manager name!</source>
-      <translation>Lütfen bir yönetici adı girin!</translation>
+      <translation>请输入管理者名称 ！</translation>
     </message>
     <message>
       <source>Please enter a chatbox name!</source>
-      <translation>Lütfen bir konuşma kutusu adı girin!</translation>
+      <translation>请输入一个 chatbox 名称 ！</translation>
     </message>
     <message>
       <source>Please enter a chatbox identifier!</source>
-      <translation>Lütfen bir konuşma kutusu belirteci girin!</translation>
+      <translation>请输入一个 chatbox 识别码 ！</translation>
     </message>
     <message>
       <source>Please enter answer!</source>
-      <translation>Lütfen cevap girin!</translation>
+      <translation>请输入答案 ！</translation>
     </message>
     <message>
       <source>Identifier has to be shorter than 10 characters!</source>
-      <translation type="unfinished"/>
+      <translation>识别码必须是少于 10 个字元 ！</translation>
     </message>
     <message>
       <source>Please enter question!</source>
-      <translation>Lütfen sorunuzu yazın!</translation>
+      <translation>请输入问题 ！</translation>
     </message>
     <message>
       <source>FAQ</source>
-      <translation>SSS</translation>
+      <translation>FAQ</translation>
     </message>
     <message>
       <source>FAQ description</source>
-      <translation>SSS açıklama</translation>
+      <translation>FAQ 说明</translation>
     </message>
   </context>
   <context>
     <name>file/list</name>
     <message>
       <source>List of files</source>
-      <translation>Dosyaların listesi</translation>
+      <translation>档案列表</translation>
     </message>
     <message>
       <source>Upload a file</source>
-      <translation>Bir dosya yükle</translation>
+      <translation>上传档案</translation>
     </message>
     <message>
       <source>Upload name</source>
-      <translation>Yükleme adı</translation>
+      <translation>上传档名</translation>
     </message>
     <message>
       <source>File size</source>
-      <translation>Dosya boyutu</translation>
+      <translation>档案大小</translation>
     </message>
     <message>
       <source>Embed BB code</source>
-      <translation>BB kodu göm</translation>
+      <translation>嵌入 BB code</translation>
     </message>
     <message>
       <source>User</source>
-      <translation>Kullanıcı</translation>
+      <translation>使用者</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation>Konuşma</translation>
+      <translation>交谈</translation>
     </message>
     <message>
       <source>Persistent</source>
-      <translation type="unfinished"/>
+      <translation>持久的</translation>
     </message>
     <message>
       <source>Extension</source>
-      <translation>Dosya uzantısı</translation>
+      <translation>扩展</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Tarih</translation>
+      <translation>日期</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>编辑</translation>
     </message>
     <message>
       <source>Delete the file</source>
-      <translation>Dosyayı sil</translation>
+      <translation>删除档案</translation>
     </message>
   </context>
   <context>
     <name>file/configuration</name>
     <message>
       <source>Allowed files types for operators</source>
-      <translation type="unfinished"/>
+      <translation>允许客服人员的档案类型</translation>
     </message>
     <message>
       <source>Allowed files types for users</source>
-      <translation>Kullanıcılar için kabul edilen dosya tipleri</translation>
+      <translation>允许访客的档案类型</translation>
     </message>
     <message>
       <source>Maximum file size in KB</source>
-      <translation>Maksimum dosya boyutu KB</translation>
+      <translation>最大档案大小，以 kb 为单位</translation>
     </message>
     <message>
       <source>ClamAV antivirus configuration</source>
-      <translation type="unfinished"/>
+      <translation>ClamAV防毒配置</translation>
     </message>
     <message>
       <source>ClamAV socket path</source>
-      <translation type="unfinished"/>
+      <translation>ClamAV插座路径</translation>
     </message>
     <message>
       <source>ClamAV socket length</source>
-      <translation type="unfinished"/>
+      <translation>ClamAV插座长度</translation>
     </message>
     <message>
       <source>Voice messages</source>
-      <translation type="unfinished"/>
+      <translation>语音信息</translation>
     </message>
     <message>
       <source>Voice message max length in seconds</source>
-      <translation type="unfinished"/>
+      <translation>语音信息最长秒数</translation>
     </message>
     <message>
       <source>Maintenance</source>
-      <translation>Bakım</translation>
+      <translation>维护</translation>
     </message>
     <message>
       <source>Files will be deleted only if days is &gt; 0</source>
-      <translation>Dosya kaç günden sonra silinsin?</translation>
+      <translation>仅当天数&gt; 0时才会删除文件</translation>
     </message>
     <message>
       <source>Delete files</source>
-      <translation>Dosyaları sil</translation>
+      <translation>删除档案</translation>
     </message>
     <message>
       <source>if file is (OR)</source>
-      <translation type="unfinished"/>
+      <translation>如果文件是（或）</translation>
     </message>
     <message>
       <source>And operator file is older than n days</source>
-      <translation type="unfinished"/>
+      <translation>和客服人员档案早于n天</translation>
     </message>
     <message>
       <source>And visitor file is older than n days</source>
-      <translation type="unfinished"/>
+      <translation>访客档案早于 n 天</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Ayarlar güncellendi</translation>
+      <translation>设定已更新</translation>
     </message>
     <message>
       <source>File configuration</source>
-      <translation>Dosya yapılandırma</translation>
+      <translation>档案配置</translation>
     </message>
     <message>
       <source>Please enter valid file type!</source>
-      <translation>Lütfen geçerli bir dosya türü girin!</translation>
+      <translation>请输入有效的档案类型 ！</translation>
     </message>
     <message>
       <source>Please enter valid maximum file size!</source>
-      <translation>Lütfen geçerli en büyük dosya boyutunu girin.</translation>
+      <translation>请输入有效的最大档案大小 ！</translation>
     </message>
   </context>
   <context>
     <name>file/new</name>
     <message>
       <source>File name</source>
-      <translation>Dosya adı</translation>
+      <translation>档案名称</translation>
     </message>
     <message>
       <source>Persistent</source>
-      <translation>Kalıcı</translation>
+      <translation>持久的</translation>
     </message>
     <message>
       <source>Upload</source>
-      <translation>Yükle</translation>
+      <translation>上传</translation>
     </message>
     <message>
       <source>File updated</source>
-      <translation>Dosya güncellendi</translation>
+      <translation>档案已更新</translation>
     </message>
     <message>
       <source>File uploaded</source>
-      <translation>Yüklenen dosya</translation>
+      <translation>档案已上传</translation>
     </message>
     <message>
       <source>Edit file</source>
-      <translation>Dosyayı düzenle</translation>
+      <translation>编辑档案</translation>
     </message>
     <message>
       <source>New file</source>
-      <translation>Yeni dosya</translation>
+      <translation>新增档案</translation>
     </message>
   </context>
   <context>
     <name>form/collected</name>
     <message>
       <source>Download XLS</source>
-      <translation>XLS arşivini indir</translation>
+      <translation>下载 XLS</translation>
     </message>
     <message>
       <source>URL</source>
-      <translation>URL</translation>
+      <translation>网址</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Adı</translation>
+      <translation>名称</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>识别码</translation>
     </message>
     <message>
       <source>Intro</source>
-      <translation>Giriş</translation>
+      <translation>介绍</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation>Zaman</translation>
+      <translation>时间</translation>
     </message>
     <message>
       <source>IP</source>
@@ -9239,1118 +9237,1118 @@
     </message>
     <message>
       <source>View</source>
-      <translation>Göster</translation>
+      <translation>检视</translation>
     </message>
     <message>
       <source>Download</source>
-      <translation>İndir</translation>
+      <translation>下载</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Sil</translation>
+      <translation>删除</translation>
     </message>
   </context>
   <context>
     <name>form/fill</name>
     <message>
       <source>Return</source>
-      <translation>Geri dön</translation>
+      <translation>返回</translation>
     </message>
     <message>
       <source>Submit</source>
-      <translation>Gönder</translation>
+      <translation>提交</translation>
     </message>
     <message>
       <source>Information collected</source>
-      <translation type="unfinished"/>
+      <translation>收集的资讯</translation>
     </message>
     <message>
       <source>is required</source>
-      <translation>gereklidir</translation>
+      <translation>为必填栏位</translation>
     </message>
     <message>
       <source>invalid date format</source>
-      <translation>geçersiz tarih biçimi</translation>
+      <translation>无效的日期格式</translation>
     </message>
   </context>
   <context>
     <name>form/index</name>
     <message>
       <source>Form</source>
-      <translation>Form</translation>
+      <translation>表单</translation>
     </message>
     <message>
       <source>List of forms</source>
-      <translation>Formlar listesi</translation>
+      <translation>表单列表</translation>
     </message>
     <message>
       <source>Page embed code</source>
-      <translation>Sayfa gömü kodu</translation>
+      <translation>页面嵌入码</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Tarih</translation>
+      <translation>日期</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Tanımlayıcı</translation>
+      <translation>识别码</translation>
     </message>
   </context>
   <context>
     <name>form/viewcollected</name>
     <message>
       <source>collected information</source>
-      <translation type="unfinished"/>
+      <translation>收集的资讯</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>识别码</translation>
     </message>
     <message>
       <source>Download</source>
-      <translation>İndir</translation>
+      <translation>下载</translation>
     </message>
     <message>
       <source>Collected information</source>
-      <translation>Toplanan bilgi</translation>
+      <translation>收集的资讯</translation>
     </message>
   </context>
   <context>
     <name>genericbot/list</name>
     <message>
       <source>Download</source>
-      <translation>İndir</translation>
+      <translation>下载</translation>
     </message>
     <message>
       <source>Bot list</source>
-      <translation type="unfinished"/>
+      <translation>机器人列表</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>新增</translation>
     </message>
     <message>
       <source>Import</source>
-      <translation type="unfinished"/>
+      <translation>导入</translation>
     </message>
     <message>
       <source>Bot exceptions groups</source>
-      <translation type="unfinished"/>
+      <translation>机器人例外群组</translation>
     </message>
     <message>
       <source>Rest API Calls</source>
-      <translation type="unfinished"/>
+      <translation>REST API 呼叫</translation>
     </message>
     <message>
       <source>Translations groups</source>
-      <translation type="unfinished"/>
+      <translation>翻译群组</translation>
     </message>
     <message>
       <source>Translations items</source>
-      <translation type="unfinished"/>
+      <translation>翻译项目</translation>
     </message>
     <message>
       <source>Could not execute</source>
-      <translation type="unfinished"/>
+      <translation>无法执行</translation>
     </message>
     <message>
       <source>with args</source>
-      <translation type="unfinished"/>
+      <translation>与参数</translation>
     </message>
     <message>
       <source>Confirm</source>
-      <translation type="unfinished"/>
+      <translation>确认</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation type="unfinished"/>
+      <translation>取消</translation>
     </message>
     <message>
       <source>Function is not callable</source>
-      <translation type="unfinished"/>
+      <translation>函数不可调用</translation>
     </message>
     <message>
       <source>Choose</source>
-      <translation type="unfinished"/>
+      <translation>选择</translation>
     </message>
     <message>
       <source>Bots</source>
-      <translation type="unfinished"/>
+      <translation>机器人</translation>
     </message>
   </context>
   <context>
     <name>genericbot/import</name>
     <message>
       <source>Import group</source>
-      <translation type="unfinished"/>
+      <translation>导入群组</translation>
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>档案</translation>
     </message>
     <message>
       <source>Import</source>
-      <translation type="unfinished"/>
+      <translation>导入</translation>
     </message>
     <message>
       <source>Group imported</source>
-      <translation type="unfinished"/>
+      <translation>群组已导入</translation>
     </message>
     <message>
       <source>Import bot</source>
-      <translation type="unfinished"/>
+      <translation>导入机器人</translation>
     </message>
     <message>
       <source>Bot imported</source>
-      <translation type="unfinished"/>
+      <translation>机器人已导入</translation>
     </message>
     <message>
       <source>Invalid file!</source>
-      <translation type="unfinished"/>
+      <translation>无效的档案!</translation>
     </message>
   </context>
   <context>
     <name>user/edit</name>
     <message>
       <source>Photo</source>
-      <translation>Fotoğraf</translation>
+      <translation>照片</translation>
     </message>
     <message>
       <source>Server default time zone</source>
-      <translation>Sunucu öntanımlı saat dilimi</translation>
+      <translation>伺服器预设时区</translation>
     </message>
     <message>
       <source>Edit user</source>
-      <translation>Kullanıcı düzenle</translation>
+      <translation>编辑使用者</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation>Eğer değiştirmek istemiyorsanız bir parola girmeyin</translation>
+      <translation>如果您不想要更改密码，请勿变更密码栏位</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Kullanıcı adı</translation>
+      <translation>使用者名称</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Parola</translation>
+      <translation>密码</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>Yeni parolayı tekrar edin</translation>
+      <translation>重复输入新密码</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-posta</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation>Sohbet Takma Adı</translation>
+      <translation>交谈暱称</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>İsim</translation>
+      <translation>名称</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Soy isim</translation>
+      <translation>姓氏</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Kaydet</translation>
+      <translation>储存</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Güncelle</translation>
+      <translation>更新</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>İptal</translation>
+      <translation>取消</translation>
     </message>
     <message>
       <source>Assigned departments</source>
-      <translation>Görevlendirilmiş departmanlar</translation>
+      <translation>分配的部门</translation>
     </message>
     <message>
       <source>User time zone</source>
-      <translation>Kullanıcı saat dilimi</translation>
+      <translation>使用者时区</translation>
     </message>
     <message>
       <source>Application default time zone</source>
-      <translation>Uygulama öntanımlı saat dilimi</translation>
+      <translation>伺服器预设时区</translation>
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Geçersiz e-posta adresi</translation>
+      <translation>错误的电子邮件地址</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
+      <translation>无效的CSRF令牌！</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Sistem ayarı</translation>
+      <translation>系统配置</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Kullanıcılar</translation>
+      <translation>使用者</translation>
     </message>
     <message>
       <source>User edit</source>
-      <translation>Kullanıcı düzelti</translation>
+      <translation>使用者编辑</translation>
     </message>
   </context>
   <context>
     <name>genericbot/restapi</name>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>名字</translation>
     </message>
     <message>
       <source>Description</source>
-      <translation type="unfinished"/>
+      <translation>描述</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation type="unfinished"/>
+      <translation>主机</translation>
     </message>
     <message>
       <source>Add request</source>
-      <translation type="unfinished"/>
+      <translation>新增请求</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation type="unfinished"/>
+      <translation>删除</translation>
     </message>
     <message>
       <source>Name of the request</source>
-      <translation type="unfinished"/>
+      <translation>请求名称</translation>
     </message>
     <message>
       <source>Method</source>
-      <translation type="unfinished"/>
+      <translation>方法</translation>
     </message>
     <message>
       <source>Sub URL</source>
-      <translation type="unfinished"/>
+      <translation>子网址</translation>
     </message>
     <message>
       <source>Params</source>
-      <translation type="unfinished"/>
+      <translation>参数</translation>
     </message>
     <message>
       <source>Authorization</source>
-      <translation type="unfinished"/>
+      <translation>授权</translation>
     </message>
     <message>
       <source>Headers</source>
-      <translation type="unfinished"/>
+      <translation>标题</translation>
     </message>
     <message>
       <source>Body</source>
-      <translation type="unfinished"/>
+      <translation>Body</translation>
     </message>
     <message>
       <source>User parameters</source>
-      <translation type="unfinished"/>
+      <translation>使用者参数</translation>
     </message>
     <message>
       <source>Output parsing</source>
-      <translation type="unfinished"/>
+      <translation>输出解析</translation>
     </message>
     <message>
       <source>You can put visitor message as placeholder</source>
-      <translation type="unfinished"/>
+      <translation>您可以将访客信息作为占位符</translation>
     </message>
     <message>
       <source>Add param</source>
-      <translation type="unfinished"/>
+      <translation>添加参数</translation>
     </message>
     <message>
       <source>You can always just define custom header if you do not find authorisation method here.</source>
-      <translation type="unfinished"/>
+      <translation>如果您在此处找不到授权方法，则始终可以只定义自定义标头。</translation>
     </message>
     <message>
       <source>Authorization method</source>
-      <translation type="unfinished"/>
+      <translation>授权方式</translation>
     </message>
     <message>
       <source>Skip</source>
-      <translation type="unfinished"/>
+      <translation>跳过</translation>
     </message>
     <message>
       <source>API Key Location</source>
-      <translation type="unfinished"/>
+      <translation>API 金钥位置</translation>
     </message>
     <message>
       <source>Header</source>
-      <translation type="unfinished"/>
+      <translation>标题</translation>
     </message>
     <message>
       <source>Query Params</source>
-      <translation type="unfinished"/>
+      <translation>查询参数</translation>
     </message>
     <message>
       <source>Request Body</source>
-      <translation type="unfinished"/>
+      <translation>请求 Body</translation>
     </message>
     <message>
       <source>none</source>
-      <translation type="unfinished"/>
+      <translation>没有</translation>
     </message>
     <message>
       <source>raw (Use this to send JSON Body)</source>
-      <translation type="unfinished"/>
+      <translation>原始（使用此发送JSON正文）</translation>
     </message>
     <message>
       <source>form data (Use this to send post parameters)</source>
-      <translation type="unfinished"/>
+      <translation>表单数据（用于发送发布参数）</translation>
     </message>
     <message>
       <source>Paste your request here (E.g JSON body). You can put visitor message as placeholder</source>
-      <translation type="unfinished"/>
+      <translation>将您的请求粘贴到此处（例如JSON正文）。 您可以将访客留言作为占位符</translation>
     </message>
     <message>
       <source>You can define additional parameters user can enter in bot trigger directly.</source>
-      <translation type="unfinished"/>
+      <translation>您可以定义其他参数，用户可以直接在机器人触发器中输入。</translation>
     </message>
     <message>
       <source>Location</source>
-      <translation type="unfinished"/>
+      <translation>位置</translation>
     </message>
     <message>
       <source>Query</source>
-      <translation type="unfinished"/>
+      <translation>询问</translation>
     </message>
     <message>
       <source>Body Post Param</source>
-      <translation type="unfinished"/>
+      <translation>Body Post 参数</translation>
     </message>
     <message>
       <source>Body Param</source>
-      <translation type="unfinished"/>
+      <translation>body 参数</translation>
     </message>
     <message>
       <source>Name visible in trigger</source>
-      <translation type="unfinished"/>
+      <translation>名称在触发器中可见</translation>
     </message>
     <message>
       <source>Location/Key</source>
-      <translation type="unfinished"/>
+      <translation>位置/钥匙</translation>
     </message>
     <message>
       <source>Either key which will be used for replacement</source>
-      <translation type="unfinished"/>
+      <translation>任一密钥将用于替换</translation>
     </message>
     <message>
       <source>You can define response conditions to which you will be able to add corresponding triggers.</source>
-      <translation type="unfinished"/>
+      <translation>您可以定义回应条件，可以向其添加相应的触发器。</translation>
     </message>
     <message>
       <source>Add combination</source>
-      <translation type="unfinished"/>
+      <translation>添加组合</translation>
     </message>
     <message>
       <source>Expected output definition</source>
-      <translation type="unfinished"/>
+      <translation>预期输出定义</translation>
     </message>
     <message>
       <source>HTTP status code E.g 200,301,500</source>
-      <translation type="unfinished"/>
+      <translation>HTTP状态代码 例如 200, 301, 500</translation>
     </message>
     <message>
       <source>HTTP status code 200,301</source>
-      <translation type="unfinished"/>
+      <translation>HTTP 状态码 200,301</translation>
     </message>
     <message>
       <source>Response Location 1. Available as {content_1} in messages.</source>
-      <translation type="unfinished"/>
+      <translation>回应位置1.在信息中以{content_1}的形式提供。</translation>
     </message>
     <message>
       <source>response:msg you can leave an empty if you want forward whole response.</source>
-      <translation type="unfinished"/>
+      <translation>response：msg 如果要转发整个回应，则可以留空。</translation>
     </message>
     <message>
       <source>Response Location 2. Available as {content_2} in messages.</source>
-      <translation type="unfinished"/>
+      <translation>回应位置2.在信息中以{content_2}的形式提供。</translation>
     </message>
     <message>
       <source>Response Location 3. Available as {content_3} in messages.</source>
-      <translation type="unfinished"/>
+      <translation>回应位置3.在信息中以{content_3}的形式提供。</translation>
     </message>
     <message>
       <source>Response Location 4. Available as {content_4} in messages.</source>
-      <translation type="unfinished"/>
+      <translation>回应位置4.在信息中以{content_4}的形式提供。</translation>
     </message>
     <message>
       <source>If required you can have also condition to check</source>
-      <translation type="unfinished"/>
+      <translation>如果需要，您也可以检查</translation>
     </message>
     <message>
       <source>Response Location.</source>
-      <translation type="unfinished"/>
+      <translation>回应位置。</translation>
     </message>
     <message>
       <source>Response comparison</source>
-      <translation type="unfinished"/>
+      <translation>回应比较</translation>
     </message>
     <message>
       <source>Do nothing</source>
-      <translation type="unfinished"/>
+      <translation>什么都不做</translation>
     </message>
     <message>
       <source>Text like</source>
-      <translation type="unfinished"/>
+      <translation>文字像</translation>
     </message>
     <message>
       <source>Text not like</source>
-      <translation type="unfinished"/>
+      <translation>文字像</translation>
     </message>
     <message>
       <source>Comparison value</source>
-      <translation type="unfinished"/>
+      <translation>比较值</translation>
     </message>
     <message>
       <source>Value to compare</source>
-      <translation type="unfinished"/>
+      <translation>值去比较</translation>
     </message>
     <message>
       <source>Meta msg location. If you support Live Helper Chat json syntax you can set location of this response.</source>
-      <translation type="unfinished"/>
+      <translation>元信息位置。 如果支持Live Helper Chat json语法，则可以设置此响应的位置。</translation>
     </message>
   </context>
   <context>
     <name>system/buttoms</name>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>编辑</translation>
     </message>
   </context>
   <context>
     <name>kernel/nopermission</name>
     <message>
       <source>Go back</source>
-      <translation>Geri Dön</translation>
+      <translation>返回</translation>
     </message>
     <message>
       <source>You do not have permission to access the module</source>
-      <translation>Modüle erişim izniniz bulunmamakta</translation>
+      <translation>你没有权限存取这个模组</translation>
     </message>
     <message>
       <source>and use</source>
-      <translation>ve kullan</translation>
+      <translation>和使用</translation>
     </message>
     <message>
       <source>function</source>
-      <translation>fonksiyon</translation>
+      <translation>功能</translation>
     </message>
     <message>
       <source>You do not have permission to edit selected object</source>
-      <translation>Seçili objeyi düzenleyebilmeniz için izne sahip değilsiniz</translation>
+      <translation>您没有权限编辑选取的物件</translation>
     </message>
   </context>
   <context>
     <name>core/paginator</name>
     <message>
       <source>Page</source>
-      <translation>Sayfa</translation>
+      <translation>页面</translation>
     </message>
     <message>
       <source>of</source>
-      <translation type="unfinished"/>
+      <translation>的</translation>
     </message>
     <message>
       <source>Found</source>
-      <translation>Bulundu</translation>
+      <translation>发现</translation>
     </message>
     <message>
       <source>Go to page</source>
-      <translation>Sayfaya git</translation>
+      <translation>转到页面</translation>
     </message>
   </context>
   <context>
     <name>notifications/edit</name>
     <message>
       <source>Main</source>
-      <translation type="unfinished"/>
+      <translation>主要</translation>
     </message>
     <message>
       <source>Test notification</source>
-      <translation type="unfinished"/>
+      <translation>测试通知</translation>
     </message>
     <message>
       <source>Device</source>
-      <translation type="unfinished"/>
+      <translation>设备</translation>
     </message>
     <message>
       <source>User Agent</source>
-      <translation>Kullanıcı Tarayıcı Bilgileri</translation>
+      <translation>使用者代理</translation>
     </message>
     <message>
       <source>Chat ID</source>
-      <translation>Sohbet ID</translation>
+      <translation>交谈 ID</translation>
     </message>
     <message>
       <source>Online Visitor ID</source>
-      <translation>Çevrimiçi Ziyaretçi Kimliği</translation>
+      <translation>在线访客 ID</translation>
     </message>
     <message>
       <source>IP</source>
-      <translation type="unfinished"/>
+      <translation>IP</translation>
     </message>
     <message>
       <source>Last error</source>
-      <translation type="unfinished"/>
+      <translation>上次的错误</translation>
     </message>
     <message>
       <source>Created</source>
-      <translation type="unfinished"/>
+      <translation>已建立</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation>Güncellendi</translation>
+      <translation>已更新</translation>
     </message>
     <message>
       <source>Subscriber endpoint settings</source>
-      <translation type="unfinished"/>
+      <translation>订阅者端点设置</translation>
     </message>
   </context>
   <context>
     <name>notifications/admin</name>
     <message>
       <source>Notifications</source>
-      <translation type="unfinished"/>
+      <translation>通知</translation>
     </message>
     <message>
       <source>Settings</source>
-      <translation>Ayarlar</translation>
+      <translation>设定</translation>
     </message>
     <message>
       <source>Subscribers list</source>
-      <translation type="unfinished"/>
+      <translation>订阅者列表</translation>
     </message>
   </context>
   <context>
     <name>notifications/list</name>
     <message>
       <source>Subscribers list</source>
-      <translation type="unfinished"/>
+      <translation>订阅者列表</translation>
     </message>
     <message>
       <source>Notifications</source>
-      <translation type="unfinished"/>
+      <translation>通知</translation>
     </message>
   </context>
   <context>
     <name>notification/list</name>
     <message>
       <source>Chat ID</source>
-      <translation>Sohbet ID</translation>
+      <translation>交谈 ID</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>部门</translation>
     </message>
     <message>
       <source>Theme</source>
-      <translation type="unfinished"/>
+      <translation>主题</translation>
     </message>
     <message>
       <source>Device</source>
-      <translation type="unfinished"/>
+      <translation>设备</translation>
     </message>
     <message>
       <source>IP</source>
-      <translation type="unfinished"/>
+      <translation>IP</translation>
     </message>
     <message>
       <source>Registration time</source>
-      <translation type="unfinished"/>
+      <translation>注册时间</translation>
     </message>
     <message>
       <source>Update time</source>
-      <translation>Süreyi güncelle</translation>
+      <translation>更新时间</translation>
     </message>
   </context>
   <context>
     <name>notifications/notifications</name>
     <message>
       <source>Notifications settings</source>
-      <translation type="unfinished"/>
+      <translation>通知设定</translation>
     </message>
     <message>
       <source>For more information see</source>
-      <translation>Daha fazla bilgi için tıklayın</translation>
+      <translation>有关更多信息，请参见</translation>
     </message>
     <message>
       <source>You can generate your private and public key here</source>
-      <translation type="unfinished"/>
+      <translation>您可以在此处生成您的私钥和公钥</translation>
     </message>
     <message>
       <source>Explains were taken from:</source>
-      <translation type="unfinished"/>
+      <translation>解释来自：</translation>
     </message>
     <message>
       <source>Download Service Worker</source>
-      <translation type="unfinished"/>
+      <translation>下载服务人员</translation>
     </message>
     <message>
       <source>you will have to put this file in your domain root folder.</source>
-      <translation type="unfinished"/>
+      <translation>您将不得不将此文件放在域根文件夹中。</translation>
     </message>
     <message>
       <source>Enable notifications</source>
-      <translation type="unfinished"/>
+      <translation>启用通知</translation>
     </message>
     <message>
       <source>On desktop, a notification is only displayed for a short period of time. On Android, notifications are shown until the user interacts with it.</source>
-      <translation>Bilgisayarınızda, bir bildirim gösterilir ve kısa süre sonra kaybolur. Android cihazlarda bildirimler kullanıcı silene kadar saklanır.</translation>
+      <translation>在桌面上，通知仅显示一小段时间。 在Android上，通知会一直显示，直到用户与其交互为止。</translation>
     </message>
     <message>
       <source>To get the same behaviour on desktop and mobile you can set the &quot;require-interaction&quot; option to true, which means the user must click or dismiss the notification.</source>
-      <translation>Aynı özelliği bilgisayarda ve android cihazlarda sürekli edinmek için &quot;require-interaction&quot; opsiyonunu aktif etmeniz gerekmektedir. Bu kullanıcının bildirim için bir harekette bulunmasını zorunlu kılar.</translation>
+      <translation>要在台式机和移动设备上获得相同的行为，可以将“ require-interaction”选项设置为true，这意味着用户必须单击或取消该通知。</translation>
     </message>
     <message>
       <source>When you use the tag option, the default behavior of a new notification replacing an existing one is that there is no sound, vibration and the screen is kept asleep.</source>
-      <translation type="unfinished"/>
+      <translation>当您使用标签选项时，替换现有通知的新通知的默认行为是没有声音，振动并且屏幕保持睡眠状态。</translation>
     </message>
     <message>
       <source>With `renotify: true` a new notification will play a sound, vibrate and wake up the users device. This means replacing notifications have the same behavior as a completely new notification.</source>
-      <translation>Renotify seçeneğini aktif etmeniz durumunda bildirimlerin tamamı bir ses çalar ve yeni sohbet bildirimi taklit edilir. </translation>
+      <translation>使用“ renotify：true”，新的通知将播放声音，振动并唤醒用户设备。 这意味着替换通知的行为与全新通知的行为相同。</translation>
     </message>
     <message>
       <source>Note</source>
-      <translation type="unfinished"/>
+      <translation>备注</translation>
     </message>
     <message>
       <source>There is no visible affect on desktop, but on mobile, vibration and sound will be affected.</source>
-      <translation type="unfinished"/>
+      <translation>在台式机上没有可见的影响，但是在移动设备上，振动和声音会受到影响。</translation>
     </message>
     <message>
       <source>Subject*</source>
-      <translation>Konu*</translation>
+      <translation>主旨*</translation>
     </message>
     <message>
       <source>You must provide a subject that is either a mailto: or a URL.</source>
-      <translation>Bir konu belirlemeniz gerekmektedir. mailto: yada URL olabilir</translation>
+      <translation>您必须提供的主题. 可以是mailto：或URL。</translation>
     </message>
     <message>
       <source>HTTP Host*</source>
-      <translation type="unfinished"/>
+      <translation>HTTP主机*</translation>
     </message>
     <message>
       <source>Default Icon</source>
-      <translation type="unfinished"/>
+      <translation>预设图标</translation>
     </message>
     <message>
       <source>Badge Icon</source>
-      <translation type="unfinished"/>
+      <translation>徽章图标</translation>
     </message>
     <message>
       <source>Notification badges are only being used on mobile, at least at the time of writing. It is used to replace the browser icon that is shown by default.</source>
-      <translation type="unfinished"/>
+      <translation>至少在撰写本文时，通知徽章仅在移动设备上使用。 它用于替换预设情况下显示的浏览器图标。</translation>
     </message>
     <message>
       <source>Vibrate</source>
-      <translation type="unfinished"/>
+      <translation>震动</translation>
     </message>
     <message>
       <source>Public key*</source>
-      <translation type="unfinished"/>
+      <translation>公钥*</translation>
     </message>
     <message>
       <source>Private key*</source>
-      <translation type="unfinished"/>
+      <translation>私钥*</translation>
     </message>
     <message>
       <source>Private key is not shown after save</source>
-      <translation type="unfinished"/>
+      <translation>保存后不显示私钥</translation>
     </message>
   </context>
   <context>
     <name>paidchat/expiredchat</name>
     <message>
       <source>Chat</source>
-      <translation>Sohbet</translation>
+      <translation>交谈</translation>
     </message>
     <message>
       <source>Chat was closed.</source>
-      <translation>Sohbet sonlandırıldı.</translation>
+      <translation>交谈已关闭。</translation>
     </message>
     <message>
       <source>Invalid hash</source>
-      <translation type="unfinished"/>
+      <translation>无效 Hash</translation>
     </message>
     <message>
       <source>Removed paid chat</source>
-      <translation>Öncelikli Sohbet kaldırıldı</translation>
+      <translation>删除带薪的聊天</translation>
     </message>
   </context>
   <context>
     <name>paidchat/settings</name>
     <message>
       <source>Paid chat settings</source>
-      <translation>Öncelikli Sohbet Ayarları</translation>
+      <translation>Paid chat 设定</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation>Etkinleştirildi</translation>
+      <translation>启用</translation>
     </message>
     <message>
       <source>User can not access old chat if chat is closed</source>
-      <translation>Sohbet kapatıldıysa kullanıcı sohbete erişemez</translation>
+      <translation>完成交谈后，使用者将不能连接旧的交谈</translation>
     </message>
     <message>
       <source>Secret hash, used for verification</source>
-      <translation type="unfinished"/>
+      <translation>秘密的 Hash 值，用于验证</translation>
     </message>
   </context>
   <context>
     <name>permission/editrole</name>
     <message>
       <source>Edit function</source>
-      <translation type="unfinished"/>
+      <translation>编辑功能</translation>
     </message>
     <message>
       <source>Limitation</source>
-      <translation type="unfinished"/>
+      <translation>局限</translation>
     </message>
     <message>
       <source>Edit role</source>
-      <translation>Bir rol düzenle</translation>
+      <translation>编辑 role</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Başlık</translation>
+      <translation>标题</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Güncelle</translation>
+      <translation>更新</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>İptal</translation>
+      <translation>取消</translation>
     </message>
     <message>
       <source>Assigned functions</source>
-      <translation>Atanmış fonksiyonlar</translation>
+      <translation>分配的功能</translation>
     </message>
     <message>
       <source>Module</source>
-      <translation>Modül</translation>
+      <translation>模组</translation>
     </message>
     <message>
       <source>Function</source>
-      <translation>Fonksiyon</translation>
+      <translation>功能</translation>
     </message>
     <message>
       <source>Remove selected policy</source>
-      <translation>Seçilmiş ilkeyi kaldır</translation>
+      <translation>移除已选择的 policy</translation>
     </message>
     <message>
       <source>New policy</source>
-      <translation>Yeni ilke</translation>
+      <translation>新增 policy</translation>
     </message>
     <message>
       <source>Role assigned groups</source>
-      <translation>Rol atanmış gruplar</translation>
+      <translation> Role 被分配的群组</translation>
     </message>
     <message>
       <source>Remove selected role</source>
-      <translation>Seçilmiş rolü kaldır</translation>
+      <translation>移除已选择的 role</translation>
     </message>
     <message>
       <source>Assign a group</source>
-      <translation>Bir grubu görevlendir</translation>
+      <translation>分配群组</translation>
     </message>
     <message>
       <source>All modules</source>
-      <translation>Tüm modüller</translation>
+      <translation>所有模组</translation>
     </message>
     <message>
       <source>All functions</source>
-      <translation>Tüm fonksiyonlar</translation>
+      <translation>所有功能</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Sistem ayarı</translation>
+      <translation>系统配置</translation>
     </message>
     <message>
       <source>List of roles</source>
-      <translation>Roller listesi</translation>
+      <translation>Role 列表</translation>
     </message>
     <message>
       <source>Please enter role name</source>
-      <translation>Lütfen rol adı girin</translation>
+      <translation>请输入 role 名称</translation>
     </message>
     <message>
       <source>Please choose module</source>
-      <translation>Lütfen modül seçin</translation>
+      <translation>请选择模组</translation>
     </message>
     <message>
       <source>Please choose module function</source>
-      <translation>Lütfen modül fonksiyonu seçin</translation>
+      <translation>请选择模组功能</translation>
     </message>
     <message>
       <source>Role edit</source>
-      <translation>Rol düzenle</translation>
+      <translation>编辑 role</translation>
     </message>
   </context>
   <context>
     <name>permission/getpermissionssummary</name>
     <message>
       <source>Request permission</source>
-      <translation>İzin iste</translation>
+      <translation>权限请求</translation>
     </message>
     <message>
       <source>Please choose at least one permission</source>
-      <translation>Lütfen en az bir izin seçiniz</translation>
+      <translation>请选择至少一种权限</translation>
     </message>
   </context>
   <context>
     <name>permission/groupassignrole</name>
     <message>
       <source>Title</source>
-      <translation>Başlık</translation>
+      <translation>标题</translation>
     </message>
     <message>
       <source>Assign</source>
-      <translation>Görevlendir</translation>
+      <translation>分配</translation>
     </message>
   </context>
   <context>
     <name>permission/modulefunctions</name>
     <message>
       <source>All functions</source>
-      <translation>Tüm fonksiyonlar</translation>
+      <translation>所有功能</translation>
     </message>
   </context>
   <context>
     <name>permission/newpolicy</name>
     <message>
       <source>New policy</source>
-      <translation>Yeni ilke</translation>
+      <translation>新增 policy</translation>
     </message>
     <message>
       <source>Choose a module</source>
-      <translation>Bir modül seç</translation>
+      <translation>选择模组</translation>
     </message>
     <message>
       <source>All modules</source>
-      <translation>Tüm modüller</translation>
+      <translation>所有模组</translation>
     </message>
     <message>
       <source>Choose a module function</source>
-      <translation>Bir modül fonksiyonu seç</translation>
+      <translation>选择一模组功能</translation>
     </message>
     <message>
       <source>Limitation</source>
-      <translation type="unfinished"/>
+      <translation>局限</translation>
     </message>
     <message>
       <source>Enter any content which you will be able to get within users permissions</source>
-      <translation>Yeni Politika için talep edilen kullanıcı izinlerini ve tüm içeriği ekleyiniz.</translation>
+      <translation>输入您将能够在用户权限内获得的任何内容</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Kaydet</translation>
+      <translation>储存</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>İptal</translation>
+      <translation>取消</translation>
     </message>
     <message>
       <source>All functions</source>
-      <translation>Tüm fonksiyonlar</translation>
+      <translation>所有功能</translation>
     </message>
   </context>
   <context>
     <name>permission/newrole</name>
     <message>
       <source>New role</source>
-      <translation>Yeni rol</translation>
+      <translation>新增 role</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Başlık</translation>
+      <translation>标题</translation>
     </message>
     <message>
       <source>Policy list</source>
-      <translation>İlke listesi</translation>
+      <translation>Policy 列表</translation>
     </message>
     <message>
       <source>Module</source>
-      <translation>Modül</translation>
+      <translation>模组</translation>
     </message>
     <message>
       <source>Function</source>
-      <translation>Fonksiyon</translation>
+      <translation>功能</translation>
     </message>
     <message>
       <source>New policy</source>
-      <translation>Yeni İlke</translation>
+      <translation>新增 policy</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Kaydet</translation>
+      <translation>储存</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>İptal</translation>
+      <translation>取消</translation>
     </message>
     <message>
       <source>Please enter role name</source>
-      <translation>Lütfen rol adı girin</translation>
+      <translation>请输入 role 名称</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Sistem ayarı</translation>
+      <translation>系统配置</translation>
     </message>
     <message>
       <source>List of roles</source>
-      <translation>Roller listesi</translation>
+      <translation> Role 列表</translation>
     </message>
   </context>
   <context>
     <name>permission/request</name>
     <message>
       <source>Request permission</source>
-      <translation>İzni iste</translation>
+      <translation>请求权限</translation>
     </message>
     <message>
       <source>Request permissions</source>
-      <translation>İzinler iste</translation>
+      <translation>请求权限</translation>
     </message>
     <message>
       <source>Permission requested</source>
-      <translation>İzin istendi</translation>
+      <translation>权限已请求</translation>
     </message>
     <message>
       <source>Please choose a user!</source>
-      <translation>Lütfen bir kullanıcı seçiniz!</translation>
+      <translation>请选择使用者 ！</translation>
     </message>
     <message>
       <source>This user can not receive permision request!</source>
-      <translation>Bu kullanıcı yetki talebinde bulunamaz!</translation>
+      <translation>此使用者不能接收许可问题请求 ！</translation>
     </message>
     <message>
       <source>Permissions were not provided</source>
-      <translation>İzinler sağlanmadı</translation>
+      <translation>未提供权限</translation>
     </message>
   </context>
   <context>
     <name>permission/roleassigngroup</name>
     <message>
       <source>Title</source>
-      <translation>Başlık</translation>
+      <translation>标题</translation>
     </message>
     <message>
       <source>Assign</source>
-      <translation>Tayin et</translation>
+      <translation>分配</translation>
     </message>
   </context>
   <context>
     <name>permission/roles</name>
     <message>
       <source>List of roles</source>
-      <translation>Roller listesi</translation>
+      <translation> Role 列表</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Başlı</translation>
+      <translation>标题</translation>
     </message>
     <message>
       <source>Edit a role</source>
-      <translation>Bir rol düzenle</translation>
+      <translation>编辑 role</translation>
     </message>
     <message>
       <source>Delete a role</source>
-      <translation>Bir rol sil</translation>
+      <translation>删除 role</translation>
     </message>
     <message>
       <source>New role</source>
-      <translation>Yeni rol</translation>
+      <translation>新增 role</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Sistem ayarı</translation>
+      <translation>系统配置</translation>
     </message>
   </context>
   <context>
     <name>lhproduct/index</name>
     <message>
       <source>Products</source>
-      <translation>Ürün</translation>
+      <translation>产品</translation>
     </message>
   </context>
   <context>
     <name>theme/index</name>
     <message>
       <source>Products</source>
-      <translation>Ürünler</translation>
+      <translation>产品</translation>
     </message>
     <message>
       <source>My theme</source>
-      <translation type="unfinished"/>
+      <translation>我的主题</translation>
     </message>
     <message>
       <source>Default theme</source>
-      <translation>Varsayılan tema</translation>
+      <translation>预设主题</translation>
     </message>
     <message>
       <source>Theme</source>
-      <translation>Tema</translation>
+      <translation>主题</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>Eklenti Temaları</translation>
+      <translation>Widget 主题</translation>
     </message>
     <message>
       <source>Import a new theme</source>
-      <translation>Yeni bir tema yükleyin</translation>
+      <translation>导入新的主题</translation>
     </message>
     <message>
       <source>Admin</source>
-      <translation>Yönetici</translation>
+      <translation>管理员</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation>Yönetici temaları</translation>
+      <translation>管理者主题</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation>Varsayılan yönetici teması</translation>
+      <translation>预设管理者主题</translation>
     </message>
     <message>
       <source>Rest API</source>
-      <translation type="unfinished"/>
+      <translation>其他 API</translation>
     </message>
     <message>
       <source>Themes</source>
-      <translation>Temalar</translation>
+      <translation>主题</translation>
     </message>
     <message>
       <source>Import</source>
-      <translation type="unfinished"/>
+      <translation>导入</translation>
     </message>
     <message>
       <source>Import theme</source>
-      <translation>Tema yükleyin</translation>
+      <translation>导入主题</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation type="unfinished"/>
+      <translation>系统配置</translation>
     </message>
   </context>
   <context>
     <name>questionary/answers</name>
     <message>
       <source>Answer</source>
-      <translation>Cevap</translation>
+      <translation>答案</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Tarih</translation>
+      <translation>日期</translation>
     </message>
     <message>
       <source>IP</source>
@@ -10358,781 +10356,781 @@
     </message>
     <message>
       <source>View</source>
-      <translation>Göster</translation>
+      <translation>检视</translation>
     </message>
     <message>
       <source>Delete the answer</source>
-      <translation>Cevabı sil</translation>
+      <translation>删除答案</translation>
     </message>
     <message>
       <source>Option name</source>
-      <translation>Seçenek adı</translation>
+      <translation>选项名称</translation>
     </message>
     <message>
       <source>Progress</source>
-      <translation>Oluşum</translation>
+      <translation>进度</translation>
     </message>
     <message>
       <source>Votes</source>
-      <translation>Oylar</translation>
+      <translation>评价</translation>
     </message>
   </context>
   <context>
     <name>questionary/edit</name>
     <message>
       <source>Edit the question</source>
-      <translation>Soruyu düzenle</translation>
+      <translation>编辑问题</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>Soru</translation>
+      <translation>问题</translation>
     </message>
     <message>
       <source>Voting options</source>
-      <translation>Oy seçenekleri</translation>
+      <translation>投票选项</translation>
     </message>
     <message>
       <source>Answers</source>
-      <translation>Cevaplar</translation>
+      <translation>答案</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Kaydet</translation>
+      <translation>储存</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Güncelle</translation>
+      <translation>更新</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>İptal</translation>
+      <translation>取消</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation>Güncellendi</translation>
+      <translation>已更新</translation>
     </message>
     <message>
       <source>If there are no options to choose from, the user will be shown a text field where he will be able to enter his own answer.</source>
-      <translation>den seçenek yoksa, kullanıcı kendi cevabını girebileceği  bir yazı alanında gösterilecek. </translation>
+      <translation>如果没有选项，则会显示文字框给访客输入他的答案。</translation>
     </message>
     <message>
       <source>Option</source>
-      <translation>Seçenek</translation>
+      <translation>选项</translation>
     </message>
     <message>
       <source>Enter name...</source>
-      <translation>İsim girin...</translation>
+      <translation>输入名称...</translation>
     </message>
     <message>
       <source>Option position</source>
-      <translation>Seçenek pozisyonu</translation>
+      <translation>选项的位置</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation>Pozisyon</translation>
+      <translation>位置</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Düzenle</translation>
+      <translation>编辑</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Sil</translation>
+      <translation>删除</translation>
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation>Lütfen bir soru girin!</translation>
+      <translation>请输入问题！</translation>
     </message>
     <message>
       <source>Please enter an option!</source>
-      <translation>Lütfen bir seçenek girin!</translation>
+      <translation>请输入一个选项！</translation>
     </message>
     <message>
       <source>Edit a question</source>
-      <translation>Bir soruyu düzenle</translation>
+      <translation>编辑问题</translation>
     </message>
   </context>
   <context>
     <name>questionary/list</name>
     <message>
       <source>Questions</source>
-      <translation>Sorular</translation>
+      <translation>问题</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>Soru</translation>
+      <translation>问题</translation>
     </message>
     <message>
       <source>Location</source>
-      <translation>Konum</translation>
+      <translation>位置</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation>Öncelik</translation>
+      <translation>优先顺序</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Aktif</translation>
+      <translation>启用</translation>
     </message>
     <message>
       <source>Revote</source>
-      <translation>Tekrar oyla</translation>
+      <translation>重新评价</translation>
     </message>
     <message>
       <source>Y</source>
-      <translation>Evet</translation>
+      <translation>Y</translation>
     </message>
     <message>
       <source>N</source>
-      <translation>Hayır</translation>
+      <translation>N</translation>
     </message>
     <message>
       <source>Edit the question</source>
-      <translation>Soruyu düzenle</translation>
+      <translation>编辑问题</translation>
     </message>
     <message>
       <source>Delete the question</source>
-      <translation>Soruyu sil</translation>
+      <translation>删除问题</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Boş...</translation>
+      <translation>无</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Yeni soru</translation>
+      <translation>新增问题</translation>
     </message>
     <message>
       <source>Off</source>
-      <translation>Kapalı</translation>
+      <translation>关闭</translation>
     </message>
     <message>
       <source>Questionary</source>
-      <translation>Anket</translation>
+      <translation>问卷调查</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation type="unfinished"/>
+      <translation>管理者主题</translation>
     </message>
   </context>
   <context>
     <name>questionary/newquestion</name>
     <message>
       <source>Enter a new question</source>
-      <translation>Yeni bir soru girin</translation>
+      <translation>输入一个新的问题</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Kaydet</translation>
+      <translation>储存</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>İptal</translation>
+      <translation>取消</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Yeni soru</translation>
+      <translation>新增问题</translation>
     </message>
   </context>
   <context>
     <name>questionary/previewanswer</name>
     <message>
       <source>Preview the answer</source>
-      <translation>Cevabı görüntüle</translation>
+      <translation>预览答案</translation>
     </message>
   </context>
   <context>
     <name>questionary/form_question</name>
     <message>
       <source>Question</source>
-      <translation>Soru</translation>
+      <translation>问题</translation>
     </message>
     <message>
       <source>Question intro</source>
-      <translation>Soru girişi</translation>
+      <translation>问题介绍</translation>
     </message>
     <message>
       <source>Show questions for all the URLs containing this string E.g /shop/basket</source>
-      <translation>Slaş içeren tüm URL&apos;lerin sorularını göster Örn. /mağaza/basket</translation>
+      <translation>显示包含此字符串的所有网址的问题，例如 /shop/basket</translation>
     </message>
     <message>
       <source>Priority, if multiple questions match a location, the question with the higher priority will be shown</source>
-      <translation>Öncelik, eğer birden çok soru bir konumla eşleşiyorsa, en üst önceliğe sahip soru görünsün</translation>
+      <translation>优先顺序</translation>
     </message>
     <message>
       <source>Revote time (hours), before can revote. Default 0 - never. Higher value allow revote after seconds expire since last vote</source>
-      <translation type="unfinished"/>
+      <translation>重新评价的时间 ( 小时 )，之前可以重新评价。预设值为 0 - 永远不会。更高的值能允许在时间到期前重新评价</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Aktif</translation>
+      <translation>启用</translation>
     </message>
   </context>
   <context>
     <name>questionary/votingwidget</name>
     <message>
       <source>Questionary</source>
-      <translation>Anket</translation>
+      <translation>问卷</translation>
     </message>
     <message>
       <source>Thank you!</source>
-      <translation>Teşekkürler!</translation>
+      <translation>感谢您！</translation>
     </message>
     <message>
       <source>You have already voted, thank you!</source>
-      <translation>Zaten oy kullanmışsınız. Teşekkürler!</translation>
+      <translation>您已经评价过了，感谢您！</translation>
     </message>
     <message>
       <source>Vote</source>
-      <translation>Oy ver</translation>
+      <translation>评价</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Gönder</translation>
+      <translation>发送</translation>
     </message>
     <message>
       <source>We do not have any requests for now.</source>
-      <translation>Şuan hiç bir istek bulunmuyor.</translation>
+      <translation>我们现在没有任何的请求</translation>
     </message>
     <message>
       <source>Please choose one of the options!</source>
-      <translation>Lütfen birini seçin!</translation>
+      <translation>请选择一个选项！</translation>
     </message>
     <message>
       <source>No question was detected</source>
-      <translation>Soru bulunamadı</translation>
+      <translation>没有问题被侦测到</translation>
     </message>
     <message>
       <source>Please enter your feedback!</source>
-      <translation>Lütfen geri bildirim girin!</translation>
+      <translation>请输入您的建议！</translation>
     </message>
     <message>
       <source>You have already sent your feedback!</source>
-      <translation type="unfinished"/>
+      <translation>您已送出您的建议！</translation>
     </message>
   </context>
   <context>
     <name>lhrestapi/index</name>
     <message>
       <source>Rest API</source>
-      <translation type="unfinished"/>
+      <translation>REST API</translation>
     </message>
     <message>
       <source>Rest API Keys</source>
-      <translation type="unfinished"/>
+      <translation>REST API Keys</translation>
     </message>
     <message>
       <source>Rest API Remote Keys</source>
-      <translation type="unfinished"/>
+      <translation>Rest API远程密钥</translation>
     </message>
   </context>
   <context>
     <name>speech/language</name>
     <message>
       <source>Dialects</source>
-      <translation type="unfinished"/>
+      <translation>方言</translation>
     </message>
     <message>
       <source>Language</source>
-      <translation>Dil</translation>
+      <translation>语言</translation>
     </message>
     <message>
       <source>Dialect</source>
-      <translation type="unfinished"/>
+      <translation>方言</translation>
     </message>
     <message>
       <source>Language Code</source>
-      <translation type="unfinished"/>
+      <translation>语言代码</translation>
     </message>
     <message>
       <source>Short Code</source>
-      <translation type="unfinished"/>
+      <translation>短代码</translation>
     </message>
     <message>
       <source>New dialect</source>
-      <translation type="unfinished"/>
+      <translation>新增方言</translation>
     </message>
     <message>
       <source>Edit dialect</source>
-      <translation type="unfinished"/>
+      <translation>编辑方言</translation>
     </message>
     <message>
       <source>Edit language</source>
-      <translation type="unfinished"/>
+      <translation>编辑语言</translation>
     </message>
     <message>
       <source>Dialect name</source>
-      <translation>Lehçe(Ağız) Adı</translation>
+      <translation>方言名称</translation>
     </message>
     <message>
       <source>Language code</source>
-      <translation type="unfinished"/>
+      <translation>语言代码</translation>
     </message>
     <message>
       <source>Short code</source>
-      <translation type="unfinished"/>
+      <translation>短代码</translation>
     </message>
     <message>
       <source>Languages</source>
-      <translation type="unfinished"/>
+      <translation>语言</translation>
     </message>
     <message>
       <source>New language</source>
-      <translation type="unfinished"/>
+      <translation>新语言</translation>
     </message>
     <message>
       <source>Choose speech recognition language for this chat</source>
-      <translation>Bu sohbet için konuş-yazsın dili seçin</translation>
+      <translation>选择此交谈的语音辨识语言</translation>
     </message>
     <message>
       <source>Default speech recognition language</source>
-      <translation type="unfinished"/>
+      <translation>预设语音辨识语言</translation>
     </message>
   </context>
   <context>
     <name>speech/speech</name>
     <message>
       <source>Use application default recognition language</source>
-      <translation type="unfinished"/>
+      <translation>使用应用程式预设识别语言</translation>
     </message>
     <message>
       <source>Use application default recognition dialect</source>
-      <translation type="unfinished"/>
+      <translation>使用应用程式预设识别方言</translation>
     </message>
   </context>
   <context>
     <name>statistic/campaign</name>
     <message>
       <source>Parameter</source>
-      <translation type="unfinished"/>
+      <translation>参数</translation>
     </message>
     <message>
       <source>Value</source>
-      <translation type="unfinished"/>
+      <translation>值</translation>
     </message>
     <message>
       <source>Explanation</source>
-      <translation type="unfinished"/>
+      <translation>说明</translation>
     </message>
     <message>
       <source>Total send</source>
-      <translation type="unfinished"/>
+      <translation>已发送的总数</translation>
     </message>
     <message>
       <source>Invitation was assigned to online visitor</source>
-      <translation>Online ziyaretçiye davetiye atandı</translation>
+      <translation>已对在线访客送出邀请</translation>
     </message>
     <message>
       <source>Total shown</source>
-      <translation type="unfinished"/>
+      <translation>已显示的总数</translation>
     </message>
     <message>
       <source>widget was opened with invitation content</source>
-      <translation type="unfinished"/>
+      <translation>带有邀请内容的 Widget 已打开</translation>
     </message>
     <message>
       <source>Total seen</source>
-      <translation type="unfinished"/>
+      <translation>看到的总数</translation>
     </message>
     <message>
       <source>Widget was shown but visitor closed it without starting a chat</source>
-      <translation type="unfinished"/>
+      <translation>显示了 Widget，但访客没有开始聊天就将其关闭</translation>
     </message>
     <message>
       <source>Chat started</source>
-      <translation>Sohbet Başladı</translation>
+      <translation>开始交谈</translation>
     </message>
     <message>
       <source>Visitor started chat by online invitation</source>
-      <translation>Sohbet ziyaretçiye gönderilen davetiye ile başladı</translation>
+      <translation>访客通过在线邀请开始聊天</translation>
     </message>
   </context>
   <context>
     <name>survey/choosesurvey</name>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>调查</translation>
     </message>
     <message>
       <source>Collected information</source>
-      <translation type="unfinished"/>
+      <translation>收集的资讯</translation>
     </message>
     <message>
       <source>Visitor was redirected to survey, you can now close this window.</source>
-      <translation type="unfinished"/>
+      <translation>访客被重定向到调查,您现在可以关闭此视窗。</translation>
     </message>
   </context>
   <context>
     <name>survey/collected</name>
     <message>
       <source>List</source>
-      <translation type="unfinished"/>
+      <translation>列表</translation>
     </message>
     <message>
       <source>Chart</source>
-      <translation type="unfinished"/>
+      <translation>图表</translation>
     </message>
     <message>
       <source>Great chats with average of</source>
-      <translation>Ortalama üstü sohbetler</translation>
+      <translation>长的聊天平均</translation>
     </message>
     <message>
       <source>Not so great chats</source>
-      <translation>Ortalama altı sohbetler</translation>
+      <translation>聊天不太好</translation>
     </message>
     <message>
       <source>Average</source>
-      <translation type="unfinished"/>
+      <translation>平均</translation>
     </message>
     <message>
       <source>Stars</source>
-      <translation type="unfinished"/>
+      <translation>星星</translation>
     </message>
     <message>
       <source>Percentages</source>
-      <translation type="unfinished"/>
+      <translation>百分比</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation>Sohbetler</translation>
+      <translation>交谈记录</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation>Sohbet</translation>
+      <translation>交谈</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Departman</translation>
+      <translation>部门</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation>Operatör</translation>
+      <translation>客服人员</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>时间</translation>
     </message>
     <message>
       <source>View information</source>
-      <translation type="unfinished"/>
+      <translation>查看资讯</translation>
     </message>
     <message>
       <source>Collected information</source>
-      <translation type="unfinished"/>
+      <translation>收集的资讯</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>调查</translation>
     </message>
     <message>
       <source>Department name</source>
-      <translation>Departman Adı</translation>
+      <translation>部门名称</translation>
     </message>
     <message>
       <source>Survey ID</source>
-      <translation type="unfinished"/>
+      <translation>调查 ID</translation>
     </message>
   </context>
   <context>
     <name>survey/fill</name>
     <message>
       <source>Preview chat</source>
-      <translation>Sohbeti görüntüle</translation>
+      <translation>预览交谈</translation>
     </message>
     <message>
       <source>star</source>
-      <translation type="unfinished"/>
+      <translation>星星</translation>
     </message>
     <message>
       <source>Poor</source>
-      <translation type="unfinished"/>
+      <translation>较差</translation>
     </message>
     <message>
       <source>stars</source>
-      <translation type="unfinished"/>
+      <translation>星星</translation>
     </message>
     <message>
       <source>Excellent</source>
-      <translation type="unfinished"/>
+      <translation>非常好</translation>
     </message>
     <message>
       <source>Thank you for your feedback...</source>
-      <translation type="unfinished"/>
+      <translation>谢谢您的宝贵意见...</translation>
     </message>
     <message>
       <source>Please complete this short evaluation survey</source>
-      <translation type="unfinished"/>
+      <translation>请填写此简短的评价调查</translation>
     </message>
   </context>
   <context>
     <name>users/autologin</name>
     <message>
       <source>Auto login settings</source>
-      <translation>Otomatik giriş ayarları</translation>
+      <translation>自动登入设定</translation>
     </message>
     <message>
       <source>Custom auto logins</source>
-      <translation type="unfinished"/>
+      <translation>自定义自动登录</translation>
     </message>
     <message>
       <source>This module can be used if you are generating autologin link. See site for code examples</source>
-      <translation type="unfinished"/>
+      <translation>如果您正在产生自动登入连结，可以使用此模组。请参考网站的代码范例</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation>Etkinleştirildi</translation>
+      <translation>启用</translation>
     </message>
     <message>
       <source>Secret hash used for authentification token generation, min 10 characters</source>
-      <translation type="unfinished"/>
+      <translation>用于认证产生的 Secret Hash，最少 10 个字元</translation>
     </message>
     <message>
       <source>User ID</source>
-      <translation>Kullanıcı ID</translation>
+      <translation>使用者 ID</translation>
     </message>
     <message>
       <source>SiteAccess</source>
-      <translation type="unfinished"/>
+      <translation>网站访问</translation>
     </message>
     <message>
       <source>Default URL</source>
-      <translation type="unfinished"/>
+      <translation>预设网址</translation>
     </message>
     <message>
       <source>Secret hash</source>
-      <translation type="unfinished"/>
+      <translation>秘密 Hash</translation>
     </message>
     <message>
       <source>IP Allowed</source>
-      <translation type="unfinished"/>
+      <translation>允许的IP</translation>
     </message>
     <message>
       <source>Copied!</source>
-      <translation type="unfinished"/>
+      <translation>已复制!</translation>
     </message>
     <message>
       <source>Copy URL to clipboard</source>
-      <translation type="unfinished"/>
+      <translation>将网址复制到剪贴板</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Ayarlar güncellendi</translation>
+      <translation>设定已更新</translation>
     </message>
     <message>
       <source>User has to change password every n days</source>
-      <translation>Kullanıcı şifresini her n günde bir değiştirmek zorundadır</translation>
+      <translation>用户必须每n天更改一次密码</translation>
     </message>
     <message>
       <source>Minimal password length</source>
-      <translation type="unfinished"/>
+      <translation>密码最小长度</translation>
     </message>
     <message>
       <source>Uppercase letter required</source>
-      <translation type="unfinished"/>
+      <translation>需要大写字母</translation>
     </message>
     <message>
       <source>Number required</source>
-      <translation type="unfinished"/>
+      <translation>需要数量</translation>
     </message>
     <message>
       <source>Special character required</source>
-      <translation type="unfinished"/>
+      <translation>需要特殊字元</translation>
     </message>
     <message>
       <source>Autologin hash has expired</source>
-      <translation type="unfinished"/>
+      <translation>自动登录 Hash 已过期</translation>
     </message>
     <message>
       <source>Could not find a user</source>
-      <translation>Kullanıcı bulunamadı</translation>
+      <translation>找不到使用者</translation>
     </message>
     <message>
       <source>Could not find a provided user</source>
-      <translation>Bu bilgilerde bir kullanıcı bulunamadı</translation>
+      <translation>找不到提供的使用者</translation>
     </message>
     <message>
       <source>Invalid autologin hash</source>
-      <translation type="unfinished"/>
+      <translation>自动登入 Hash 无效</translation>
     </message>
     <message>
       <source>Auto login module is not enabled</source>
-      <translation type="unfinished"/>
+      <translation>未启用 自动登入模组</translation>
     </message>
     <message>
       <source>Invalid hash or user</source>
-      <translation>Yanlış hash yada kullanıcı adı</translation>
+      <translation>无效 Hash 或 用户</translation>
     </message>
     <message>
       <source>Password requirements</source>
-      <translation>Şifre gereksinimleri</translation>
+      <translation>密码要求</translation>
     </message>
     <message>
       <source>Update password</source>
-      <translation>Şifreyi güncelle</translation>
+      <translation>更新密码</translation>
     </message>
   </context>
   <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
-      <translation>Dil ayarı</translation>
+      <translation>语言配置</translation>
     </message>
     <message>
       <source>Your language</source>
-      <translation>Sizin diliniz</translation>
+      <translation>你的语言</translation>
     </message>
     <message>
       <source>General language settings</source>
-      <translation>Genel dil ayarları</translation>
+      <translation>一般语言设定</translation>
     </message>
     <message>
       <source>Language</source>
-      <translation>Dil</translation>
+      <translation>语言</translation>
     </message>
     <message>
       <source>Current site access</source>
-      <translation>Güncel site girişi</translation>
+      <translation>目前网站造访数</translation>
     </message>
     <message>
       <source>Site access</source>
-      <translation>Site girişi</translation>
+      <translation>网站造访数</translation>
     </message>
     <message>
       <source>options for</source>
-      <translation>ayarları</translation>
+      <translation>选项</translation>
     </message>
     <message>
       <source>Theme, separate themes by new line</source>
-      <translation>Tema, yeni satırla ayrılmış temalar</translation>
+      <translation>主题，分行以表示不同的主题</translation>
     </message>
     <message>
       <source>Default module</source>
-      <translation>Varsayılan modül</translation>
+      <translation>预设模组</translation>
     </message>
     <message>
       <source>Default view</source>
-      <translation>Varsayılan görünüm</translation>
+      <translation>预设页面</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Ayarlar güncellendi</translation>
+      <translation>设定已更新</translation>
     </message>
     <message>
       <source>Please choose correct language</source>
-      <translation>Lütfen doğru dili seçiniz</translation>
+      <translation>请选择正确的语言</translation>
     </message>
     <message>
       <source>Please enter theme</source>
-      <translation>Lütfen temayı seçin</translation>
+      <translation>请输入主题</translation>
     </message>
     <message>
       <source>Please enter module name</source>
-      <translation>Lütfen modül adını girin</translation>
+      <translation>请输入模组名称</translation>
     </message>
     <message>
       <source>Please enter view name</source>
-      <translation>Lütfen görünüm adı girin</translation>
+      <translation>请输入视图名称</translation>
     </message>
   </context>
   <context>
     <name>system/offlinesettings</name>
     <message>
       <source>Offline settings</source>
-      <translation type="unfinished"/>
+      <translation>离线设定</translation>
     </message>
     <message>
       <source>Offline chat request won&apos;t be saved.</source>
-      <translation>Offline sohbet talepleri kayıt edilmeyecek.</translation>
+      <translation>离线聊天请求将不会保存。</translation>
     </message>
     <message>
       <source>Then offline chat is registered it&apos;s status will be changed to closed chat.</source>
-      <translation>Offline sohbet kayıt edildi fakat durumu kapalı olarak güncellendi.</translation>
+      <translation>然后，离线聊天被注册，其状态将更改为封闭聊天。</translation>
     </message>
   </context>
   <context>
     <name>system/timezone</name>
     <message>
       <source>Do not save offline chats</source>
-      <translation>Offline sohbetleri kaydetme</translation>
+      <translation>不保存离线聊天</translation>
     </message>
     <message>
       <source>Automatically change offline chat status to closed</source>
-      <translation>Offline sohbet durumunu otomatik olarak kapalı yap</translation>
+      <translation>自动将离线聊天状态更改为已关闭</translation>
     </message>
     <message>
       <source>Enable</source>
-      <translation type="unfinished"/>
+      <translation>启用</translation>
     </message>
     <message>
       <source>Time zone settings</source>
-      <translation>Saat dilimi ayarları</translation>
+      <translation>时区设定</translation>
     </message>
     <message>
       <source>Set application specific time zone</source>
-      <translation>Servisi kullanacağınız saat dilimini seçin</translation>
+      <translation>设定应用程式的时区</translation>
     </message>
     <message>
       <source>Date format E.g (Y-m-d)</source>
-      <translation>Tarih biçimi (örn. Y-m-d)</translation>
+      <translation>日期格式 ( Y-m-d )</translation>
     </message>
     <message>
       <source>Full date format E.g (Y-m-d H:i:s)</source>
-      <translation>Tam tarih biçimi (örn. Y-m-d H:i:s)</translation>
+      <translation>完整日期格式 ( Y-m-d H:i:s )</translation>
     </message>
     <message>
       <source>Hour format E.g (H:i:s)</source>
-      <translation>Saat biçimi (örn. H:i:s)</translation>
+      <translation>时间格式 ( H:i:s )</translation>
     </message>
     <message>
       <source>Live Helper Chat update</source>
-      <translation>Sistemi Güncelle</translation>
+      <translation>Live Helper Chat 更新</translation>
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
-      <translation type="unfinished"/>
+      <translation>比较前的资料库结构，请稍候...</translation>
     </message>
     <message>
       <source>Time zone</source>
-      <translation>Saat dilimi</translation>
+      <translation>时区</translation>
     </message>
   </context>
   <context>
     <name>system/smtp</name>
     <message>
       <source>Settings updated</source>
-      <translation>Ayarlar güncellendi</translation>
+      <translation>设定已更新</translation>
     </message>
     <message>
       <source>Mail settings</source>
-      <translation>E-posta seçenekleri</translation>
+      <translation>Mail 设定</translation>
     </message>
     <message>
       <source>Sender address</source>
-      <translation type="unfinished"/>
+      <translation>寄件者位址</translation>
     </message>
     <message>
       <source>Default from e-mail address</source>
-      <translation type="unfinished"/>
+      <translation>预设 E-mail</translation>
     </message>
     <message>
       <source>Default from name</source>
-      <translation>Varsayılan İsim</translation>
+      <translation>预设名称</translation>
     </message>
     <message>
       <source>SMTP enabled</source>
-      <translation>SMTP etkinleştirildi</translation>
+      <translation>启用 SMTP</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation>Giriş</translation>
+      <translation>登录</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Parola</translation>
+      <translation>密码</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation>Sunucu</translation>
+      <translation>Host</translation>
     </message>
     <message>
       <source>Port</source>
@@ -11140,759 +11138,759 @@
     </message>
     <message>
       <source>Re-captcha settings</source>
-      <translation>Captcha ayarları</translation>
+      <translation>验证码设置</translation>
     </message>
     <message>
       <source>Transfer configuration</source>
-      <translation type="unfinished"/>
+      <translation>转接配置</translation>
     </message>
   </context>
   <context>
     <name>system/recaptcha</name>
     <message>
       <source>Re-captcha settings</source>
-      <translation type="unfinished"/>
+      <translation>验证码设置</translation>
     </message>
     <message>
       <source>This works with V3 re-captcha.</source>
-      <translation type="unfinished"/>
+      <translation>这适用于V3验证码。</translation>
     </message>
     <message>
       <source>Get Re-captcha keys</source>
-      <translation type="unfinished"/>
+      <translation>获取验证码</translation>
     </message>
     <message>
       <source>Site key</source>
-      <translation type="unfinished"/>
+      <translation>网站金钥</translation>
     </message>
     <message>
       <source>Secret key</source>
-      <translation type="unfinished"/>
+      <translation>秘密金钥</translation>
     </message>
     <message>
       <source>Secret key is not shown!</source>
-      <translation type="unfinished"/>
+      <translation>不显示密钥！</translation>
     </message>
   </context>
   <context>
     <name>system/transferconfiguration</name>
     <message>
       <source>Transfer configuration</source>
-      <translation type="unfinished"/>
+      <translation>转接配置</translation>
     </message>
     <message>
       <source>Options for chat transfer to department</source>
-      <translation type="unfinished"/>
+      <translation>聊天转移到部门的选项</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Ayarlar güncellendi</translation>
+      <translation>设定已更新</translation>
     </message>
   </context>
   <context>
     <name>user/new</name>
     <message>
       <source>Change chat department to transferred department on chat transfer</source>
-      <translation type="unfinished"/>
+      <translation>聊天转移时，将聊天部门更改为转移部门</translation>
     </message>
     <message>
       <source>Make chat status pending on transfer to department</source>
-      <translation type="unfinished"/>
+      <translation>使聊天状态待转移到部门</translation>
     </message>
     <message>
       <source>Make chat unassigned. Assigned operator will be unassigned</source>
-      <translation type="unfinished"/>
+      <translation>取消分配聊天。 已经被分配的客服人员将被取消分配</translation>
     </message>
     <message>
       <source>I receive other operators permissions request</source>
-      <translation type="unfinished"/>
+      <translation>我会收到其他客服人员的权限请求</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>离线</translation>
     </message>
     <message>
       <source>Invisible mode</source>
-      <translation>Görünmez mod</translation>
+      <translation>隐藏模式</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
-      <translation>Kullanıcı diğer operatörlerin yetki taleplerini görebilsin</translation>
+      <translation>使用者会收到其他客服人员的权限请求</translation>
     </message>
     <message>
       <source>User group</source>
-      <translation>Kullanıcı grubu</translation>
+      <translation>使用者群组</translation>
     </message>
     <message>
       <source>Required groups, choose one or more</source>
-      <translation>Grup zorunludur, bir veya daha fazla seçiniz</translation>
+      <translation>必填组，选择一个或多个</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Devre dışı bırakıldı</translation>
+      <translation>已禁用</translation>
     </message>
     <message>
       <source>User department</source>
-      <translation>Departmanlar</translation>
+      <translation>用户部门</translation>
     </message>
     <message>
       <source>New user</source>
-      <translation>Yeni kullanıcı</translation>
+      <translation>新增使用者</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Kullanıcı adı</translation>
+      <translation>使用者名称</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-posta</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Parola</translation>
+      <translation>密码</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>Yeni parolayı tekrar edin</translation>
+      <translation>重复输入新密码</translation>
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation>Sohbet Takma Adı</translation>
+      <translation>交谈暱称</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>İsim</translation>
+      <translation>名称</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Soy isim</translation>
+      <translation>姓氏</translation>
     </message>
     <message>
       <source>Photo</source>
-      <translation>Fotoğraf</translation>
+      <translation>照片</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Kaydet</translation>
+      <translation>储存</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Sistem ayarı</translation>
+      <translation>系统配置</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Kullanıcılar</translation>
+      <translation>使用者</translation>
     </message>
     <message>
       <source>Please enter a group name</source>
-      <translation>Lütfen bir grup adı girin</translation>
+      <translation>请输入群组名称</translation>
     </message>
   </context>
   <context>
     <name>system/update</name>
     <message>
       <source>Your version</source>
-      <translation>Kullandığınız sürüm</translation>
+      <translation>您的版本</translation>
     </message>
     <message>
       <source>Current version</source>
-      <translation>Güncel sürüm</translation>
+      <translation>目前版本</translation>
     </message>
     <message>
       <source>News</source>
-      <translation>Haberler</translation>
+      <translation>新闻</translation>
     </message>
     <message>
       <source>Update instructions</source>
-      <translation>Güncelleme talimatları</translation>
+      <translation>更新说明</translation>
     </message>
     <message>
       <source>Live Helper Chat update information</source>
-      <translation>Ssitem güncelleme bilgileri</translation>
+      <translation>Live Helper Chat 更新资讯</translation>
     </message>
   </context>
   <context>
     <name>update/statusdb</name>
     <message>
       <source>Database structure check</source>
-      <translation type="unfinished"/>
+      <translation>数据库结构检查</translation>
     </message>
     <message>
       <source>Your database does not require any updates</source>
-      <translation>Veritabanınız için gerekli bir güncelleme yok</translation>
+      <translation>您的资料库不需要任何更新</translation>
     </message>
     <message>
       <source>Update database</source>
-      <translation>Veritabanını güncelle</translation>
+      <translation>更新资料库</translation>
     </message>
     <message>
       <source>Queries which will be executed on update</source>
-      <translation>Güncelleme esnasında çalıştırılacak komutlar</translation>
+      <translation>将在更新时执行的查询</translation>
     </message>
   </context>
   <context>
     <name>icclicktocallform/form</name>
     <message>
       <source>Settings</source>
-      <translation>Ayarlar</translation>
+      <translation>设定</translation>
     </message>
     <message>
       <source>Chat attributes</source>
-      <translation type="unfinished"/>
+      <translation>聊天属性</translation>
     </message>
     <message>
       <source>Main attributes</source>
-      <translation type="unfinished"/>
+      <translation>主要属性</translation>
     </message>
     <message>
       <source>Header settings</source>
-      <translation type="unfinished"/>
+      <translation>标题设定</translation>
     </message>
     <message>
       <source>Header css</source>
-      <translation type="unfinished"/>
+      <translation>标题 CSS</translation>
     </message>
     <message>
       <source>Static content</source>
-      <translation type="unfinished"/>
+      <translation>静态内容</translation>
     </message>
     <message>
       <source>JS</source>
-      <translation type="unfinished"/>
+      <translation>JS</translation>
     </message>
     <message>
       <source>CSS</source>
-      <translation type="unfinished"/>
+      <translation>CSS</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>İsim</translation>
+      <translation>名称</translation>
     </message>
     <message>
       <source>Header content</source>
-      <translation type="unfinished"/>
+      <translation>标题内容</translation>
     </message>
     <message>
       <source>Resource name for replacement</source>
-      <translation>Yeniden düzenlemek için kaynak adı giriniz</translation>
+      <translation>资源名称替换</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Boş...</translation>
+      <translation>无</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
+      <translation>无效的CSRF令牌！</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation>Lütfen bir isim girin</translation>
+      <translation>请输入名称</translation>
     </message>
     <message>
       <source>File not chosen for</source>
-      <translation type="unfinished"/>
+      <translation>未选择文件</translation>
     </message>
   </context>
   <context>
     <name>lhtheme/admin</name>
     <message>
       <source>New admin theme</source>
-      <translation>Yeni yönetici teması</translation>
+      <translation>新的管理者主题</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation>Yönetici temaları</translation>
+      <translation>管理者主题</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>İsim</translation>
+      <translation>名称</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>客服人员</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation>Varsayılan yönetici teması</translation>
+      <translation>预设管理者主题</translation>
     </message>
     <message>
       <source>Edit admin theme</source>
-      <translation type="unfinished"/>
+      <translation>编辑管理者主题</translation>
     </message>
     <message>
       <source>Personal theme</source>
-      <translation type="unfinished"/>
+      <translation>个人主题</translation>
     </message>
   </context>
   <context>
     <name>admintheme/form</name>
     <message>
       <source>Edit theme</source>
-      <translation>Temayı düzenle</translation>
+      <translation>编辑主题</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation>Güncellendi</translation>
+      <translation>已更新</translation>
     </message>
     <message>
       <source>Personal theme</source>
-      <translation type="unfinished"/>
+      <translation>个人主题</translation>
     </message>
   </context>
   <context>
     <name>theme/default</name>
     <message>
       <source>Set as default theme</source>
-      <translation>Varsayılan tema olarak ayarla</translation>
+      <translation>设定成预设主题</translation>
     </message>
   </context>
   <context>
     <name>theme/import</name>
     <message>
       <source>Default theme was set</source>
-      <translation>Varsayılan tema olarak ayarlandı</translation>
+      <translation>预设主题已设定</translation>
     </message>
     <message>
       <source>Default admin theme was set</source>
-      <translation>Varsayılan yönetici teması ayarlandı</translation>
+      <translation>预设管理者主题已设定</translation>
     </message>
     <message>
       <source>Import theme</source>
-      <translation>Tema Yükleme</translation>
+      <translation>导入主题</translation>
     </message>
     <message>
       <source>File</source>
-      <translation>Dosya</translation>
+      <translation>档案</translation>
     </message>
     <message>
       <source>Import</source>
-      <translation>İçe aktarma</translation>
+      <translation>导入</translation>
     </message>
     <message>
       <source>Theme imported</source>
-      <translation>Tema yüklendi</translation>
+      <translation>主题已导入</translation>
     </message>
     <message>
       <source>Could not import a new theme!</source>
-      <translation>Yeni bir tema yükleyemedi!</translation>
+      <translation>无法导入新的主题 ！</translation>
     </message>
     <message>
       <source>Invalid file!</source>
-      <translation>Geçersiz dosya</translation>
+      <translation>无效的档案!</translation>
     </message>
   </context>
   <context>
     <name>user/editgroup</name>
     <message>
       <source>Group edit</source>
-      <translation>Grup düzenle</translation>
+      <translation>编辑群组</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Başlık</translation>
+      <translation>标题</translation>
     </message>
     <message>
       <source>Member of this group can work with the following groups</source>
-      <translation type="unfinished"/>
+      <translation>该小组的成员可以与以下小组一起工作</translation>
     </message>
     <message>
       <source>Direct members of this group cannot assign this group to other operators.</source>
-      <translation type="unfinished"/>
+      <translation>该组的直属成员不能将该组分配给其他客服人员。</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>已禁用</translation>
     </message>
     <message>
       <source>Required</source>
-      <translation type="unfinished"/>
+      <translation>必要</translation>
     </message>
     <message>
       <source>If group is required, at least one group of required groups has to be selected.</source>
-      <translation>Eğer bir grup zorunlu ise, en az bir grubun seçilmesi gerekmektedir.</translation>
+      <translation>如果需要群组，则必须至少选择一个必需的群组。</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Güncelle</translation>
+      <translation>更新</translation>
     </message>
     <message>
       <source>Assigned users</source>
-      <translation>Görevlendirilmiş kullanıcılar</translation>
+      <translation>分配的使用者</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Kullanıcı adı</translation>
+      <translation>使用者名称</translation>
     </message>
     <message>
       <source>Remove user from the group</source>
-      <translation>Gruptan kullanıcı çıkar</translation>
+      <translation>将使用者从群组移除</translation>
     </message>
     <message>
       <source>Assign user</source>
-      <translation>Kullanıcı görevlendir</translation>
+      <translation>分配使用者</translation>
     </message>
     <message>
       <source>Assigned roles</source>
-      <translation>Atanmış roller</translation>
+      <translation>分配的 roles</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>İsim</translation>
+      <translation>名字</translation>
     </message>
     <message>
       <source>Remove role from group</source>
-      <translation>Gruptan rol kaldır</translation>
+      <translation>从群组中移除 role </translation>
     </message>
     <message>
       <source>Assign role</source>
-      <translation>Rol ata</translation>
+      <translation>分配 role</translation>
     </message>
     <message>
       <source>Please enter a group name</source>
-      <translation>Lütfen bir grup adı girin</translation>
+      <translation>请输入群组名称</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Sistem ayarı</translation>
+      <translation>系统配置</translation>
     </message>
     <message>
       <source>Groups</source>
-      <translation>Gruplar</translation>
+      <translation>群组</translation>
     </message>
   </context>
   <context>
     <name>user/forgotpassword</name>
     <message>
       <source>Password reminder</source>
-      <translation>Parolamı unuttum</translation>
+      <translation>密码提示</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-posta</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Restore password</source>
-      <translation>Parola yenile</translation>
+      <translation>恢复密码</translation>
     </message>
     <message>
       <source>Invalid e-mail address!</source>
-      <translation>Geçersiz e-posta adresi!</translation>
+      <translation>无效的 E-mail 地址！</translation>
     </message>
     <message>
       <source>Password remind</source>
-      <translation>Şifre hatırlatma</translation>
+      <translation>密码提醒</translation>
     </message>
     <message>
       <source>Click this link and You will be sent a new password</source>
-      <translation>Yeni şifre gönderimi için buraya tıklayın</translation>
+      <translation>点击此连结，你将会收到一组新的密码</translation>
     </message>
   </context>
   <context>
     <name>user/forgotpasswordsent</name>
     <message>
       <source>Password reminder</source>
-      <translation>Parola hatırlatıcı</translation>
+      <translation>密码提示</translation>
     </message>
     <message>
       <source>E-mail sent. Click the link in the email and You will be sent out a new password.</source>
-      <translation>E-posta gönderildi. Postadaki linke tıkladığınızda size yeni bir parola gönderilecek.</translation>
+      <translation>寄出 E-mail。点选 E-mail 中的连结，系统将会给您一组新的密码。</translation>
     </message>
   </context>
   <context>
     <name>user/groupassignuser</name>
     <message>
       <source>Username</source>
-      <translation>Kullanıcı adı</translation>
+      <translation>使用者名称</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-posta</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>İsim</translation>
+      <translation>名字</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Soy isim</translation>
+      <translation>姓氏</translation>
     </message>
     <message>
       <source>Assign</source>
-      <translation>Görev</translation>
+      <translation>分配</translation>
     </message>
     <message>
       <source>User was assigned to the group!</source>
-      <translation>Kullancı bu gruba görevlendirildi!</translation>
+      <translation>使用者已分配至群组！</translation>
     </message>
   </context>
   <context>
     <name>user/grouplist</name>
     <message>
       <source>Name</source>
-      <translation>İsim</translation>
+      <translation>名称</translation>
     </message>
     <message>
       <source>Edit group</source>
-      <translation>Grubu düzenle</translation>
+      <translation>编辑群组</translation>
     </message>
     <message>
       <source>Delete group</source>
-      <translation>Grubu sil</translation>
+      <translation>删除群组</translation>
     </message>
     <message>
       <source>New group</source>
-      <translation>Yeni grup</translation>
+      <translation>新增群组</translation>
     </message>
     <message>
       <source>Groups</source>
-      <translation>Gruplar</translation>
+      <translation>群组</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Sistem ayarı</translation>
+      <translation>系统配置</translation>
     </message>
   </context>
   <context>
     <name>user/import</name>
     <message>
       <source>Import users</source>
-      <translation>Operatör İçe Aktar</translation>
+      <translation>导入用户</translation>
     </message>
     <message>
       <source>CSV Separator</source>
-      <translation type="unfinished"/>
+      <translation>CSV分隔符</translation>
     </message>
     <message>
       <source>Skip first row</source>
-      <translation type="unfinished"/>
+      <translation>跳过第一行</translation>
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>档案</translation>
     </message>
     <message>
       <source>Import only one record to test</source>
-      <translation type="unfinished"/>
+      <translation>仅输入一条记录进行测试</translation>
     </message>
     <message>
       <source>Enter column number starting from 1</source>
-      <translation type="unfinished"/>
+      <translation>从1开始输入列号</translation>
     </message>
     <message>
       <source>Import</source>
-      <translation type="unfinished"/>
+      <translation>导入</translation>
     </message>
     <message>
       <source>Updated!</source>
-      <translation>Güncellendi!</translation>
+      <translation>已更新 ！</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation>Güncellendi</translation>
+      <translation>已更新</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Kullanıcı Adı</translation>
+      <translation>使用者名称</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>密码</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>电子邮件信箱</translation>
     </message>
     <message>
       <source>First name</source>
-      <translation>Adı</translation>
+      <translation>名字</translation>
     </message>
     <message>
       <source>Last name</source>
-      <translation>Soyadı</translation>
+      <translation>姓</translation>
     </message>
     <message>
       <source>Nickname</source>
-      <translation>Takma Adı</translation>
+      <translation>暱称</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>已禁用</translation>
     </message>
     <message>
       <source>Hide Online</source>
-      <translation type="unfinished"/>
+      <translation>隐藏在线</translation>
     </message>
     <message>
       <source>Can access all departments</source>
-      <translation type="unfinished"/>
+      <translation>可以访问所有部门</translation>
     </message>
     <message>
       <source>Skype</source>
-      <translation type="unfinished"/>
+      <translation>Skype</translation>
     </message>
     <message>
       <source>Job title</source>
-      <translation type="unfinished"/>
+      <translation>职位名称</translation>
     </message>
     <message>
       <source>Time Zone</source>
-      <translation type="unfinished"/>
+      <translation>时区</translation>
     </message>
     <message>
       <source>Invisible</source>
-      <translation type="unfinished"/>
+      <translation>隐藏</translation>
     </message>
     <message>
       <source>Username field not found!</source>
-      <translation>Kullanıcı Adı boş olamaz!</translation>
+      <translation>找不到用户名字段！</translation>
     </message>
   </context>
   <context>
     <name>user/login</name>
     <message>
       <source>Please login</source>
-      <translation>Lütfen giriş yapın</translation>
+      <translation>登入系统</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Kullanıcı Adı</translation>
+      <translation>使用者名称</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Parola</translation>
+      <translation>密码</translation>
     </message>
     <message>
       <source>Remember me</source>
-      <translation>Beni hatırla</translation>
+      <translation>记住我的资讯</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation>Giriş</translation>
+      <translation>登入</translation>
     </message>
     <message>
       <source>Password reminder</source>
-      <translation>Parolamı unuttum</translation>
+      <translation>密码提示</translation>
     </message>
     <message>
       <source>Your session has ended. Please login!</source>
-      <translation type="unfinished"/>
+      <translation>您的工作阶段已结束。 请登录！</translation>
     </message>
     <message>
       <source>You were logged out because another user logged under same account</source>
-      <translation>Başka bir bilgisayardan hesabınıza giriş yapıldığı için otomatik olarak çıkış yaptınız.</translation>
+      <translation>您因为另一名使用者登录同个帐户而被登出</translation>
     </message>
     <message>
       <source>Your password has expired. Please update it</source>
-      <translation>Şifrenizin son kullanım tarihi doldu. Lütfen güncelleyiniz</translation>
+      <translation>您的密码已过期。 请更新</translation>
     </message>
     <message>
       <source>Go to back office</source>
-      <translation type="unfinished"/>
+      <translation>去后台办公室</translation>
     </message>
     <message>
       <source>Old password</source>
-      <translation type="unfinished"/>
+      <translation>旧密码</translation>
     </message>
     <message>
       <source>New password</source>
-      <translation type="unfinished"/>
+      <translation>新的密码</translation>
     </message>
     <message>
       <source>Repeat password</source>
-      <translation type="unfinished"/>
+      <translation>重复密码</translation>
     </message>
     <message>
       <source>Update password</source>
-      <translation>Şifre güncelle</translation>
+      <translation>更新密码</translation>
     </message>
     <message>
       <source>CSFR token is invalid, try to resubmit form</source>
-      <translation type="unfinished"/>
+      <translation>CSRF令牌无效，请尝试提交表单</translation>
     </message>
     <message>
       <source>Google re-captcha validation failed</source>
-      <translation type="unfinished"/>
+      <translation>Google验证码验证失败</translation>
     </message>
     <message>
       <source>Incorrect username or password</source>
-      <translation>Yanlış Kullanıcı Adı veya Parola</translation>
+      <translation>使用者名称或是密码不正确</translation>
     </message>
     <message>
       <source>Logged in successfully</source>
-      <translation type="unfinished"/>
+      <translation>登入成功</translation>
     </message>
     <message>
       <source>User could not be found!</source>
-      <translation>Kullanıcı bulunamadı!</translation>
+      <translation>找不到用户！</translation>
     </message>
   </context>
   <context>
     <name>user/newgroup</name>
     <message>
       <source>New group</source>
-      <translation>Yeni grup</translation>
+      <translation>新增群组</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Başlık</translation>
+      <translation>标题</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Kaydet</translation>
+      <translation>储存</translation>
     </message>
     <message>
       <source>Save and assign the user</source>
-      <translation>Kaydet ve kullanıcıyı görevlendir</translation>
+      <translation>储存并分配给使用者</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Sistem ayarı</translation>
+      <translation>系统配置</translation>
     </message>
     <message>
       <source>Groups</source>
-      <translation>Gruplar</translation>
+      <translation>群组</translation>
     </message>
   </context>
   <context>
     <name>user/remindpassword</name>
     <message>
       <source>New password</source>
-      <translation>Yeni parola</translation>
+      <translation>新的密码</translation>
     </message>
     <message>
       <source>Hash was not found or was used already</source>
-      <translation>] bulunamadı ya da zaten kullanılmış</translation>
+      <translation>找不到 Hash 或 Hash 已使用</translation>
     </message>
     <message>
       <source>Password remind - new password</source>
-      <translation>Şifre hatırlatma - yeni şifre</translation>
+      <translation>密码提醒 - 新的密码</translation>
     </message>
     <message>
       <source>New password:</source>
-      <translation>Yeni parola:</translation>
+      <translation>新的密码：</translation>
     </message>
     <message>
       <source>New password has been sent to your email.</source>
-      <translation>Yeni parolanız e-posta adresinize gönderildi.</translation>
+      <translation>新密码已经发送到您的 E-mail</translation>
     </message>
   </context>
   <context>
     <name>user/wentinactive</name>
     <message>
       <source>Because of inactivity you went offline, click continue to go online.</source>
-      <translation type="unfinished"/>
+      <translation>由于您处于不活动状态，因此您已离线，请单击&quot;继续&quot; 以便继续在线。</translation>
     </message>
     <message>
       <source>Continue</source>
-      <translation type="unfinished"/>
+      <translation>继续</translation>
     </message>
     <message>
       <source>Logout</source>
-      <translation type="unfinished"/>
+      <translation>登出</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>离线</translation>
     </message>
   </context>
   <context>
@@ -11903,261 +11901,261 @@
     </message>
     <message>
       <source>IP address</source>
-      <translation>IP adresi</translation>
+      <translation>IP 位址</translation>
     </message>
     <message>
       <source>Current page</source>
-      <translation>Şu anki sayfa</translation>
+      <translation>目前页面</translation>
     </message>
     <message>
       <source>Last visit</source>
-      <translation>Son ziyaret</translation>
+      <translation>上一次访问</translation>
     </message>
     <message>
       <source>User agent</source>
-      <translation>Kullanıcı tarayıcı bilgisi</translation>
+      <translation>使用者代理</translation>
     </message>
     <message>
       <source>Country code</source>
-      <translation>Ülke kodu</translation>
+      <translation>国家 / 地区代码</translation>
     </message>
     <message>
       <source>Country name</source>
-      <translation>Ülke adı</translation>
+      <translation>国家 / 地区名称</translation>
     </message>
     <message>
       <source>Message seen</source>
-      <translation>Mesaj görüldü</translation>
+      <translation>看过的讯息</translation>
     </message>
   </context>
   <context>
     <name>abstract/product</name>
     <message>
       <source>Name</source>
-      <translation>İsim</translation>
+      <translation>名称</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation>Öncelik</translation>
+      <translation>优先顺序</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation>Ürün</translation>
+      <translation>产品</translation>
     </message>
     <message>
       <source>API Key</source>
-      <translation type="unfinished"/>
+      <translation>API Key</translation>
     </message>
     <message>
       <source>Rest API Remote Keys</source>
-      <translation type="unfinished"/>
+      <translation>Rest API远程密钥</translation>
     </message>
   </context>
   <context>
     <name>abstract/survey</name>
     <message>
       <source>Name</source>
-      <translation>Adınız</translation>
+      <translation>名称</translation>
     </message>
     <message>
       <source>Feedback text</source>
-      <translation type="unfinished"/>
+      <translation>回复文字</translation>
     </message>
     <message>
       <source>Max stars for feedback</source>
-      <translation type="unfinished"/>
+      <translation>Stars 的最大值</translation>
     </message>
     <message>
       <source>Max stars pos</source>
-      <translation type="unfinished"/>
+      <translation>最高星数pos</translation>
     </message>
     <message>
       <source>Title for evaluation</source>
-      <translation type="unfinished"/>
+      <translation>评价的标题</translation>
     </message>
     <message>
       <source>Required</source>
-      <translation type="unfinished"/>
+      <translation>必填</translation>
     </message>
     <message>
       <source>Title for plain question</source>
-      <translation type="unfinished"/>
+      <translation>简单的问题的标题</translation>
     </message>
     <message>
       <source>Title for custom questions</source>
-      <translation type="unfinished"/>
+      <translation>自订问题的标题</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>调查</translation>
     </message>
   </context>
   <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
-      <translation type="unfinished"/>
+      <translation>下载档案</translation>
     </message>
     <message>
       <source>Collected survey data</source>
-      <translation type="unfinished"/>
+      <translation>收集的调查资料</translation>
     </message>
   </context>
   <context>
     <name>chat/chatcommand</name>
     <message>
       <source>Nick changed!</source>
-      <translation type="unfinished"/>
+      <translation>暱称已更改！</translation>
     </message>
     <message>
       <source>Chat status changed on-hold!</source>
-      <translation type="unfinished"/>
+      <translation>聊天状态已更改为等候接听！</translation>
     </message>
     <message>
       <source>Chat was transferred to bot!</source>
-      <translation type="unfinished"/>
+      <translation>聊天已转移至机器人！</translation>
     </message>
     <message>
       <source>E-mail changed!</source>
-      <translation type="unfinished"/>
+      <translation>电子邮件已更改！</translation>
     </message>
     <message>
       <source>You do not have permission to transfer chat directly!</source>
-      <translation type="unfinished"/>
+      <translation>您无权直接转移交谈！</translation>
     </message>
     <message>
       <source>User could not be found!</source>
-      <translation>Kullanıcı bulunamadı</translation>
+      <translation>找不到用户！</translation>
     </message>
     <message>
       <source>Phone changed!</source>
-      <translation type="unfinished"/>
+      <translation>电话号码已更改！</translation>
     </message>
     <message>
       <source>User was redirected!</source>
-      <translation>Kullanıcı yönlendirildi!</translation>
+      <translation>用户已被重定向！</translation>
     </message>
     <message>
       <source>Screenshot was scheduled!</source>
-      <translation type="unfinished"/>
+      <translation>屏幕截图已排定！</translation>
     </message>
     <message>
       <source>User was redirected to contact form!</source>
-      <translation>Kullanıcı mesaj bırakın formuna yönlendirildi</translation>
+      <translation>用户已重定向到联系表格！</translation>
     </message>
     <message>
       <source>User was blocked!</source>
-      <translation>Kullanıcı engellendi!</translation>
+      <translation>访客已被封锁！</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>部门</translation>
     </message>
     <message>
       <source>Started chat from</source>
-      <translation type="unfinished"/>
+      <translation>开始交谈从</translation>
     </message>
     <message>
       <source>Refered from</source>
-      <translation type="unfinished"/>
+      <translation>引自</translation>
     </message>
     <message>
       <source>Current page</source>
-      <translation>Şu anki sayfa</translation>
+      <translation>目前页面</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>电子邮件信箱</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>电话</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation>Ülke</translation>
+      <translation>国家</translation>
     </message>
     <message>
       <source>Chat was closed!</source>
-      <translation type="unfinished"/>
+      <translation>交谈已关闭。</translation>
     </message>
     <message>
       <source>You do not have permission to close a chat!</source>
-      <translation type="unfinished"/>
+      <translation>您无权关闭交谈！</translation>
     </message>
     <message>
       <source>Chat was deleted!</source>
-      <translation>Sohbet silindi!</translation>
+      <translation>交谈已删除！</translation>
     </message>
     <message>
       <source>You do not have permission to delete a chat!</source>
-      <translation>Sohbet silme yetkiniz bulunmamaktadır.</translation>
+      <translation>您无权删除交谈！</translation>
     </message>
     <message>
       <source>Chat status was changed to pending!</source>
-      <translation type="unfinished"/>
+      <translation>交谈状态已更改为待处理！</translation>
     </message>
     <message>
       <source>Chat status was changed to active!</source>
-      <translation type="unfinished"/>
+      <translation>交谈状态已更改为有效！</translation>
     </message>
     <message>
       <source>Remarks were saved!</source>
-      <translation type="unfinished"/>
+      <translation>备注已保存！</translation>
     </message>
   </context>
   <context>
     <name>chat/accepttrasnfer</name>
     <message>
       <source>Chat has been transfered to</source>
-      <translation type="unfinished"/>
+      <translation>聊天已自动转接到</translation>
     </message>
     <message>
       <source>has joined the chat!</source>
-      <translation>konuşmaya katıldı!</translation>
+      <translation>已加入交谈 ！</translation>
     </message>
     <message>
       <source>has accepted a chat!</source>
-      <translation>konuşmayı kabul etti!</translation>
+      <translation>已接受交谈 ！</translation>
     </message>
   </context>
   <context>
     <name>chat/chatexport</name>
     <message>
       <source>Department name</source>
-      <translation>Departman Adı</translation>
+      <translation>部门名称</translation>
     </message>
     <message>
       <source>Pending chats number</source>
-      <translation>Bekleyen sohbet sayısı</translation>
+      <translation>等待中交谈编号</translation>
     </message>
     <message>
       <source>Active chats number</source>
-      <translation>Aktif Sohbet sayısı</translation>
+      <translation>进行中交谈编号</translation>
     </message>
     <message>
       <source>Visitor Name</source>
-      <translation>Ziyaretçi adı</translation>
+      <translation>访客名称</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-posta</translation>
+      <translation>E-mail</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Telefon</translation>
+      <translation>电话</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation>Bekleme süresi</translation>
+      <translation>等待时间</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation>Ülke</translation>
+      <translation>国家</translation>
     </message>
     <message>
       <source>City</source>
-      <translation>Şehir</translation>
+      <translation>城市</translation>
     </message>
     <message>
       <source>IP</source>
@@ -12165,741 +12163,741 @@
     </message>
     <message>
       <source>Operator</source>
-      <translation>Operatör</translation>
+      <translation>客服人员</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Departman</translation>
+      <translation>部门</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Tarih</translation>
+      <translation>日期</translation>
     </message>
     <message>
       <source>Minutes</source>
-      <translation>Dakika</translation>
+      <translation>分钟</translation>
     </message>
     <message>
       <source>Vote status</source>
-      <translation>Anket Durumu</translation>
+      <translation>评价状态</translation>
     </message>
     <message>
       <source>Mail send</source>
-      <translation>Posta gönder</translation>
+      <translation>发送邮件</translation>
     </message>
     <message>
       <source>Page</source>
-      <translation>Sayfa</translation>
+      <translation>页面</translation>
     </message>
     <message>
       <source>Came from</source>
-      <translation type="unfinished"/>
+      <translation>来自</translation>
     </message>
     <message>
       <source>Link</source>
-      <translation>Bağlantı</translation>
+      <translation>连结</translation>
     </message>
     <message>
       <source>Remarks</source>
-      <translation type="unfinished"/>
+      <translation>备注</translation>
     </message>
     <message>
       <source>Additional data</source>
-      <translation type="unfinished"/>
+      <translation>附加资讯</translation>
     </message>
     <message>
       <source>Survey data</source>
-      <translation type="unfinished"/>
+      <translation>调查数据</translation>
     </message>
     <message>
       <source>Chat content</source>
-      <translation type="unfinished"/>
+      <translation>交谈内容</translation>
     </message>
     <message>
       <source>User ID</source>
-      <translation>Kullanıcı ID</translation>
+      <translation>使用者 ID</translation>
     </message>
     <message>
       <source>Chat average in seconds</source>
-      <translation type="unfinished"/>
+      <translation>平均交谈时间 / 秒</translation>
     </message>
     <message>
       <source>Agent</source>
-      <translation type="unfinished"/>
+      <translation>代理</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation>Sohbetler</translation>
+      <translation>交谈</translation>
     </message>
     <message>
       <source>Total number of chats</source>
-      <translation>Toplam sohbet sayısı</translation>
+      <translation>聊天次数总数</translation>
     </message>
     <message>
       <source>Number of chats while online</source>
-      <translation>Online iken toplam sohbet</translation>
+      <translation>在线聊天次数</translation>
     </message>
     <message>
       <source>Hours on chat (sum of chat duration)</source>
-      <translation>Sohbette geçirilen süre (toplam sohbet süresi)</translation>
+      <translation>聊天时间（聊天时间总和, 小时）</translation>
     </message>
     <message>
       <source>Time online (sum of time spend online)</source>
-      <translation type="unfinished"/>
+      <translation>在线时间（在线花费的时间总和）</translation>
     </message>
     <message>
       <source>AVG number of chat per hour</source>
-      <translation type="unfinished"/>
+      <translation>每小时平均聊天次数</translation>
     </message>
     <message>
       <source>Average pick-up time</source>
-      <translation type="unfinished"/>
+      <translation>平均接送时间</translation>
     </message>
     <message>
       <source>Average chat length</source>
-      <translation type="unfinished"/>
+      <translation>平均聊天时间</translation>
     </message>
     <message>
       <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>在线</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>已禁用</translation>
     </message>
     <message>
       <source>Overloaded</source>
-      <translation type="unfinished"/>
+      <translation>超载</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>离线</translation>
     </message>
     <message>
       <source>Hour</source>
-      <translation type="unfinished"/>
+      <translation>小时</translation>
     </message>
   </context>
   <context>
     <name>chat/closechatadmin</name>
     <message>
       <source>has redirected visitor to contact form!</source>
-      <translation type="unfinished"/>
+      <translation>已将访客重定向至联系表！</translation>
     </message>
     <message>
       <source>has redirected visitor to survey form!</source>
-      <translation type="unfinished"/>
+      <translation>已将访客重定向到调查表！</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>机器人</translation>
     </message>
     <message>
       <source>has closed the chat!</source>
-      <translation>konuşmayı kapattı!</translation>
+      <translation>已完成此交谈</translation>
     </message>
     <message>
       <source>Visitor auto responder was reset because of sync timeout, returned after</source>
-      <translation type="unfinished"/>
+      <translation>访问者自动应答器由于同步超时而被重置，在之后返回</translation>
     </message>
     <message>
       <source>seconds!</source>
-      <translation type="unfinished"/>
+      <translation>秒!</translation>
     </message>
     <message>
       <source>Visitor auto responder was reset because the visitor returned!</source>
-      <translation type="unfinished"/>
+      <translation>访客自动应答器被重置，因为访客返回了！</translation>
     </message>
     <message>
       <source>Visitor was redirected to survey by auto responder!</source>
-      <translation type="unfinished"/>
+      <translation>访客被自动应答器重定向到调查！</translation>
     </message>
     <message>
       <source>changed chat department from</source>
-      <translation type="unfinished"/>
+      <translation>的聊天部门从</translation>
     </message>
     <message>
       <source>to</source>
-      <translation type="unfinished"/>
+      <translation>至</translation>
     </message>
     <message>
       <source>changed visitor nick from</source>
-      <translation type="unfinished"/>
+      <translation>访客暱称从</translation>
     </message>
   </context>
   <context>
     <name>departament/edit</name>
     <message>
       <source>Please enter a name</source>
-      <translation type="unfinished"/>
+      <translation>请输入名称</translation>
     </message>
     <message>
       <source>Please enter a department name</source>
-      <translation>Lütfen bir departman adı girin</translation>
+      <translation>请输入你的˙部门名称</translation>
     </message>
     <message>
       <source>Minimum 5 seconds</source>
-      <translation>En az 5 saniye</translation>
+      <translation>最少 5 秒</translation>
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
-      <translation>Aktarılan departman kendinden farklı olmak zorundadır</translation>
+      <translation>转接部门必须不同于原本</translation>
     </message>
     <message>
       <source>Please enter bot name!</source>
-      <translation>Bir bot adı giriniz!</translation>
+      <translation>请输入机器人名称！</translation>
     </message>
     <message>
       <source>Please enter bot nick!</source>
-      <translation type="unfinished"/>
+      <translation>请输入机器人暱称！</translation>
     </message>
     <message>
       <source>Please enter Rest API Name!</source>
-      <translation type="unfinished"/>
+      <translation>请输入Rest API名称！</translation>
     </message>
     <message>
       <source>Please enter translation group name!</source>
-      <translation>Bir çeviri grup adı giriniz.</translation>
+      <translation>请输入翻译群组名称！</translation>
     </message>
     <message>
       <source>Please enter default translation!</source>
-      <translation type="unfinished"/>
+      <translation>请输入预设翻译！</translation>
     </message>
     <message>
       <source>Please choose a group!</source>
-      <translation type="unfinished"/>
+      <translation>请选择一个群组！</translation>
     </message>
     <message>
       <source>Please enter exception group name!</source>
-      <translation>İstisna için bir grup adı giriniz!</translation>
+      <translation>请输入例外群组名称！</translation>
     </message>
     <message>
       <source>Please enter chat id!</source>
-      <translation type="unfinished"/>
+      <translation>请输入交谈ID！</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation>Lütfen geçerli bir zaman aralığı girin!</translation>
+      <translation>请输入有效的日期范围-从！</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation>Lütfen geçerli zaman aralığı giriniz!</translation>
+      <translation>请输入有效的日期范围-至 ！</translation>
     </message>
   </context>
   <context>
     <name>departament/editgroup</name>
     <message>
       <source>Please enter a department group name</source>
-      <translation>Departman grubu adı giriniz</translation>
+      <translation>请输入部门群组名称</translation>
     </message>
   </context>
   <context>
     <name>lhrestapi/validation</name>
     <message>
       <source>Authorization failed!</source>
-      <translation type="unfinished"/>
+      <translation>验证失败!</translation>
     </message>
     <message>
       <source>You do not have permission to use REST API directly. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; is missing!</source>
-      <translation type="unfinished"/>
+      <translation>您无权直接使用REST API。 缺少“ lhrestapi”，“ use_direct_logins”！</translation>
     </message>
     <message>
       <source>Authorization header is missing!</source>
-      <translation type="unfinished"/>
+      <translation>授权标头丢失！</translation>
     </message>
     <message>
       <source>Could not find chat by chat_id!</source>
-      <translation type="unfinished"/>
+      <translation>找不到通过chat_id进行的交谈！</translation>
     </message>
     <message>
       <source>You do not have permission to read this chat!</source>
-      <translation type="unfinished"/>
+      <translation>您无权阅读此交谈！</translation>
     </message>
   </context>
   <context>
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
-      <translation>Lütfen rumuz girin</translation>
+      <translation>请输入一个使用者名称</translation>
     </message>
     <message>
       <source>User exists</source>
-      <translation>Kullancı mevcut</translation>
+      <translation>使用者已存在</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation>Parolalar uyuşmuyor</translation>
+      <translation>密码不正确</translation>
     </message>
     <message>
       <source>User action type not set</source>
-      <translation>Kullanıcı hareket tipi ayarlanmadı</translation>
+      <translation>使用者操作类型未设置</translation>
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Geçersiz e-posta adresi</translation>
+      <translation>错误的电子邮件地址</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation>Lütfen isim girin</translation>
+      <translation>请输入一个名称</translation>
     </message>
     <message>
       <source>You have to choose one of required groups!</source>
-      <translation type="unfinished"/>
+      <translation>您必须选择一个必要的群组!</translation>
     </message>
     <message>
       <source>You are trying to assign group which are not known!</source>
-      <translation type="unfinished"/>
+      <translation>您正在尝试分配未知的组！</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
-      <translation>Lütfen varsayılan bir kullanıcı grubu seçiniz</translation>
+      <translation>请选择一个预设的使用者群组</translation>
     </message>
     <message>
       <source>Password has to be atleast</source>
-      <translation type="unfinished"/>
+      <translation>密码必须至少</translation>
     </message>
     <message>
       <source>characters length</source>
-      <translation type="unfinished"/>
+      <translation>字元长度</translation>
     </message>
     <message>
       <source>Password has to have at-least one uppercase letter</source>
-      <translation type="unfinished"/>
+      <translation>密码必须至少包含一个大写字母</translation>
     </message>
     <message>
       <source>Password has to have at-least one number</source>
-      <translation type="unfinished"/>
+      <translation>密码必须至少有一个数字</translation>
     </message>
     <message>
       <source>Password has to have at-least one special character</source>
-      <translation type="unfinished"/>
+      <translation>密码必须至少包含一个特殊字符</translation>
     </message>
     <message>
       <source>Old password incorrect!</source>
-      <translation type="unfinished"/>
+      <translation>旧密码错误！</translation>
     </message>
     <message>
       <source>Passwords mismatch!</source>
-      <translation type="unfinished"/>
+      <translation>密码不正确</translation>
     </message>
     <message>
       <source>Old and new password has to be different!</source>
-      <translation type="unfinished"/>
+      <translation>新旧密码必须不同！</translation>
     </message>
   </context>
   <context>
     <name>abstract/browserofferinvitation</name>
     <message>
       <source>Name for personal purposes</source>
-      <translation>Kişisel amaçlar için isim</translation>
+      <translation>自订的名称</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation>Dil, tümü için boş bırakınız. Örn. tur, rus, eng vb.</translation>
+      <translation>语言，可空白。例如：lit, rus, ger etc...</translation>
     </message>
     <message>
       <source>Time on site on single page in seconds</source>
-      <translation>Sitedeki bir sayfada bulunma süresi (saniye)</translation>
+      <translation>在单个页面上的时间（秒）</translation>
     </message>
     <message>
       <source>Priority, the lower the higher</source>
-      <translation>Öncelik düşükten yükseğe</translation>
+      <translation>优先顺序，值越低为越高</translation>
     </message>
     <message>
       <source>Popup width</source>
-      <translation>Açılır pencere genişliği</translation>
+      <translation>快显视窗宽度</translation>
     </message>
     <message>
       <source>Popup height</source>
-      <translation>Açılır pencere yüksekliği</translation>
+      <translation>快显视窗高度</translation>
     </message>
     <message>
       <source>Measure units, px or percents</source>
-      <translation>Ölçü birimi, px veya yüzde</translation>
+      <translation>计量单位，px 或 percenta</translation>
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation>Referans site www olmadan, örneğin google kelimesi tüm google alt siteleri için geçerlidir.</translation>
+      <translation>没有www的引荐来源域名，例如google关键字将与任何google域匹配</translation>
     </message>
     <message>
       <source>URL, enter * at the end for the wildcard</source>
-      <translation type="unfinished"/>
+      <translation>URL，在末尾输入* 代表通配符</translation>
     </message>
     <message>
       <source>Custom iframe URL, takes priority over default content</source>
-      <translation type="unfinished"/>
+      <translation>自定义iframe网址，优先于默认内容</translation>
     </message>
     <message>
       <source>Default popup content</source>
-      <translation>Varsayılan açılır içerik</translation>
+      <translation>预设的快显视窗内容</translation>
     </message>
     <message>
       <source>Callback content, must be valid json</source>
-      <translation>Geri çağır &quot;Callback&quot; içeriği geçerli bir json içermelidir</translation>
+      <translation>回调内容，必须为有效的json</translation>
     </message>
     <message>
       <source>Load content in lhc iframe</source>
-      <translation>Sistemi iframe içerisinde yükle</translation>
+      <translation>在LHC iframe中加载内容</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Aktif</translation>
+      <translation>启用</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation type="unfinished"/>
+      <translation>识别码，什么识别码应该显示此讯息，可空白</translation>
     </message>
     <message>
       <source>Matched times</source>
-      <translation>Eşleşen zamanlar</translation>
+      <translation>已配对时间</translation>
     </message>
     <message>
       <source>Browser offer invitations</source>
-      <translation>Tarayıcı davetiyeleri öner</translation>
+      <translation>浏览优惠邀请</translation>
     </message>
     <message>
       <source>Content</source>
-      <translation>İçerik</translation>
+      <translation>内容</translation>
     </message>
     <message>
       <source>Name attributes</source>
-      <translation>Ad öznitelikleri</translation>
+      <translation>名称属性</translation>
     </message>
     <message>
       <source>Introduction attributes</source>
-      <translation>Giriş öznitelikleri</translation>
+      <translation>简介属性</translation>
     </message>
     <message>
       <source>XLS Columns</source>
-      <translation>XLS sütunları</translation>
+      <translation>XLS列</translation>
     </message>
     <message>
       <source>Recipient</source>
-      <translation>Alıcı</translation>
+      <translation>收件者</translation>
     </message>
     <message>
       <source>Post content after form is submitted</source>
-      <translation>Form gönderildikten sonra içeriği yayınla</translation>
+      <translation>发布内容后提交表单</translation>
     </message>
     <message>
       <source>Custom pagelayout</source>
-      <translation>Özel sayfa düzeni</translation>
+      <translation>自定义页面布局</translation>
     </message>
     <message>
       <source>Forms list</source>
-      <translation>Formlar listesi</translation>
+      <translation>表单列表</translation>
     </message>
   </context>
   <context>
     <name>abstract/email_template</name>
     <message>
       <source>Name, for personal purposes</source>
-      <translation>İsim, kişisel amaçlar için</translation>
+      <translation>名称，为自订</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation>Konu</translation>
+      <translation>主旨</translation>
     </message>
     <message>
       <source>Allow user to change subject</source>
-      <translation>Kullanıcının konuyu değiştirmesine izin ver</translation>
+      <translation>允许使用者更改主旨</translation>
     </message>
     <message>
       <source>From name</source>
-      <translation>İsimden </translation>
+      <translation>从名称</translation>
     </message>
     <message>
       <source>Allow to change from name</source>
-      <translation>isimden değiştirmeye izin ver</translation>
+      <translation>允许更改收件者名称</translation>
     </message>
     <message>
       <source>From e-mail</source>
-      <translation>E-mail&apos;den</translation>
+      <translation>从 E-mail</translation>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
-      <translation>E-postadan değiştirmeye izin ver</translation>
+      <translation>允许更改收件者 E-mail</translation>
     </message>
     <message>
       <source>Use user e-mail as from address</source>
-      <translation>Kullanıcı email adresini gönderici olarak kullan</translation>
+      <translation>以使用者 E-mail 作为发信地址</translation>
     </message>
     <message>
       <source>Reply to</source>
-      <translation>Yanıtla</translation>
+      <translation>回复</translation>
     </message>
     <message>
       <source>Allow to change reply e-mail</source>
-      <translation>E-posta yanıt değiştirmeye izin ver</translation>
+      <translation>允许更改回复者 E-mail</translation>
     </message>
     <message>
       <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-      <translation>Alıcı eposta, bu eğer aplikasyon kimin bir posta alması gerektiğini saptayamıyorsa kullanılır.</translation>
+      <translation>收件者的E-mail，如果应用程式无法判断谁应该收到Email时，则使用。</translation>
     </message>
     <message>
       <source>BCC recipients, can be separated by comma.</source>
-      <translation type="unfinished"/>
+      <translation>密件副本收件者，可用逗号分隔。</translation>
     </message>
     <message>
       <source>Content</source>
-      <translation>İçerik</translation>
+      <translation>内容</translation>
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>E-posta şablonları</translation>
+      <translation>E-mail 范本</translation>
     </message>
   </context>
   <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
-      <translation>Konuşma silmeye yetkiniz yoktur</translation>
+      <translation>您没有权限删除交谈</translation>
     </message>
   </context>
   <context>
     <name>chat/voteaction</name>
     <message>
       <source>User has updated his profile information</source>
-      <translation>Kullanıcı profil bilgilerini güncelledi</translation>
+      <translation>使用者已更新个人资讯</translation>
     </message>
     <message>
       <source>Thumbs up</source>
-      <translation>+ oy ver</translation>
+      <translation>正评</translation>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation>- oy ver</translation>
+      <translation>负评</translation>
     </message>
     <message>
       <source>Removed thumb vote</source>
-      <translation>Oy Kaldırıldı</translation>
+      <translation>已删除评价</translation>
     </message>
   </context>
   <context>
     <name>chat/refreshcustomfields</name>
     <message>
       <source>Custom chat data was saved</source>
-      <translation type="unfinished"/>
+      <translation>自订聊天资料已储存</translation>
     </message>
     <message>
       <source>Data refreshed</source>
-      <translation>Veriler yenilendi</translation>
+      <translation>数据已刷新</translation>
     </message>
   </context>
   <context>
     <name>chat/reopenchat</name>
     <message>
       <source>has reopened the chat!</source>
-      <translation>konuşmayı tekrar açtı!</translation>
+      <translation>已重启交谈 ！</translation>
     </message>
     <message>
       <source>No permission to reopen the chat!</source>
-      <translation>Konuşmayı tekrar açma izniniz yok!</translation>
+      <translation>没有权限重启交谈！</translation>
     </message>
   </context>
   <context>
     <name>chat/single</name>
     <message>
       <source>Chat started with</source>
-      <translation>ile konuşma başladı</translation>
+      <translation>开始交谈</translation>
     </message>
   </context>
   <context>
     <name>chat/transferuser</name>
     <message>
       <source>has changed owner to</source>
-      <translation type="unfinished"/>
+      <translation>已将所有者更改为</translation>
     </message>
     <message>
       <source>Chat owner was changed to</source>
-      <translation type="unfinished"/>
+      <translation>交谈所有者已更改为</translation>
     </message>
     <message>
       <source>has transferred chat to</source>
-      <translation>sohbeti aktardı</translation>
+      <translation>已将交谈转移到</translation>
     </message>
     <message>
       <source>department</source>
-      <translation type="unfinished"/>
+      <translation>部门</translation>
     </message>
     <message>
       <source>Chat was assigned to selected department</source>
-      <translation>Sohbet seçili departmana aktarıldı</translation>
+      <translation>交谈已分配给所选部门</translation>
     </message>
     <message>
       <source>Chat was assigned to selected user</source>
-      <translation>Sohbet seçili kullanıcıya atandı</translation>
+      <translation>聊天已分配给所选用户</translation>
     </message>
   </context>
   <context>
     <name>chat/updatemsguser</name>
     <message>
       <source>User has edited his last message</source>
-      <translation>Kullanıcının son mesajı düzenlenmiş</translation>
+      <translation>使用者已编辑他的上个讯息</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/viewarchivedchat</name>
     <message>
       <source>View archived chat</source>
-      <translation>Arşivlenmiş sohbeti gör</translation>
+      <translation>查看已存档的交谈</translation>
     </message>
   </context>
   <context>
     <name>lhchatsettings/startchat</name>
     <message>
       <source>Start chat form settings</source>
-      <translation type="unfinished"/>
+      <translation>开始交谈表单设定</translation>
     </message>
     <message>
       <source>Start chat settings list</source>
-      <translation type="unfinished"/>
+      <translation>开始交谈设置列表</translation>
     </message>
     <message>
       <source>Edit start chat settings</source>
-      <translation type="unfinished"/>
+      <translation>编辑开始交谈设置</translation>
     </message>
     <message>
       <source>New start chat settings</source>
-      <translation type="unfinished"/>
+      <translation>新的开始交谈设置</translation>
     </message>
   </context>
   <context>
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
-      <translation>Lütfen geçerli bir dosya türü girin!</translation>
+      <translation>请输入有效的档案类型 ！</translation>
     </message>
   </context>
   <context>
     <name>genericbot/new</name>
     <message>
       <source>System configuration</source>
-      <translation type="unfinished"/>
+      <translation>系统配置</translation>
     </message>
     <message>
       <source>Bots</source>
-      <translation type="unfinished"/>
+      <translation>机器人</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>新增</translation>
     </message>
     <message>
       <source>Translations groups</source>
-      <translation type="unfinished"/>
+      <translation>翻译群组</translation>
     </message>
   </context>
   <context>
     <name>genericbot/edit</name>
     <message>
       <source>System configuration</source>
-      <translation type="unfinished"/>
+      <translation>系统配置</translation>
     </message>
     <message>
       <source>Bots</source>
-      <translation type="unfinished"/>
+      <translation>机器人</translation>
     </message>
     <message>
       <source>Exceptions</source>
-      <translation type="unfinished"/>
+      <translation>例外</translation>
     </message>
     <message>
       <source>Rest API Calls</source>
-      <translation type="unfinished"/>
+      <translation>REST API 呼叫</translation>
     </message>
     <message>
       <source>Translations groups</source>
-      <translation type="unfinished"/>
+      <translation>翻译群组</translation>
     </message>
     <message>
       <source>Translations items</source>
-      <translation type="unfinished"/>
+      <translation>翻译项目</translation>
     </message>
     <message>
       <source>New</source>
-      <translation>Yeni</translation>
+      <translation>新增</translation>
     </message>
   </context>
   <context>
     <name>groupchat/group</name>
     <message>
       <source>System configuration</source>
-      <translation>Sistem yapılandırması</translation>
+      <translation>系统配置</translation>
     </message>
     <message>
       <source>Group chats list</source>
-      <translation>Grup konuşmaları listesi</translation>
+      <translation>群组交谈列表</translation>
     </message>
     <message>
       <source>Group chats</source>
-      <translation>Grup konuşmaları</translation>
+      <translation>群组交谈</translation>
     </message>
     <message>
       <source>New group chat</source>
-      <translation>Yeni grup konuşması</translation>
+      <translation>新增群组交谈</translation>
     </message>
   </context>
   <context>
     <name>notifications/index</name>
     <message>
       <source>Notifications</source>
-      <translation>Bildirimler</translation>
+      <translation>通知</translation>
     </message>
     <message>
       <source>Subscribers list</source>
-      <translation type="unfinished"/>
+      <translation>订阅者列表</translation>
     </message>
     <message>
       <source>Settings</source>
-      <translation>Ayarlar</translation>
+      <translation>设定</translation>
     </message>
   </context>
   <context>
     <name>statistic/onlinehours</name>
     <message>
       <source>Online Hours</source>
-      <translation>Çevrimiçi Saatler</translation>
+      <translation>在线时间</translation>
     </message>
   </context>
   <context>
     <name>chat/backtochat</name>
     <message>
       <source>Visitor has been redirected back to chat!</source>
-      <translation type="unfinished"/>
+      <translation>访客已被重定向回交谈！</translation>
     </message>
   </context>
   <context>
     <name>chat/file</name>
     <message>
       <source>Uploading</source>
-      <translation type="unfinished"/>
+      <translation>上传中</translation>
     </message>
     <message>
       <source>Incorrect file type!</source>
-      <translation type="unfinished"/>
+      <translation>文件类型不正确！</translation>
     </message>
     <message>
       <source>File to big!</source>
-      <translation type="unfinished"/>
+      <translation>档案容量太大</translation>
     </message>
   </context>
   <context>
     <name>chat/notifications</name>
     <message>
       <source>Subscribing...</source>
-      <translation type="unfinished"/>
+      <translation>正在订阅...</translation>
     </message>
   </context>
   <context>
     <name>chat/screenshare</name>
     <message>
       <source>Start screen share session</source>
-      <translation type="unfinished"/>
+      <translation>开始屏幕共享会话</translation>
     </message>
     <message>
       <source>Deny screen share</source>
-      <translation type="unfinished"/>
+      <translation>拒绝屏幕共享</translation>
     </message>
   </context>
 </TS>

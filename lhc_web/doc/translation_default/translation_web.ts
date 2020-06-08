@@ -4,22 +4,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -508,10 +492,6 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
-      <source>Use modern look</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Welcome message</source>
       <translation type="unfinished"/>
     </message>
@@ -684,7 +664,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Buble background color</source>
+      <source>Bubble background color</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1056,6 +1036,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Header HTML. Here you can paste custom head HTML.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom html before start chat form fields, widget</source>
       <translation type="unfinished"/>
     </message>
@@ -1156,6 +1140,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Thank you for your feedback text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help border color</source>
       <translation type="unfinished"/>
     </message>
@@ -1204,7 +1192,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Visitor buble background color</source>
+      <source>Visitor bubble background color</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1216,7 +1204,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator buble background color</source>
+      <source>Operator bubble background color</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1707,7 +1695,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Show invitation if visitor is iddle for n seconds</source>
+      <source>Show invitation if visitor is idle for n seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4677,6 +4665,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Bot Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New message from operator</source>
       <translation type="unfinished"/>
     </message>
@@ -4741,11 +4733,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Start a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>BB code</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Popup</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start a chat with us!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4869,6 +4869,22 @@
     </message>
     <message>
       <source>Sort by department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>More than</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>user messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5362,6 +5378,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Thank you for your feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation type="unfinished"/>
     </message>
@@ -5436,6 +5456,22 @@
     </message>
     <message>
       <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notifications about bot chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To receive browser notifications you have to enable them in your account Notifications settings.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notify me about bot conversation after defined number of user interactions.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notify me if visitor writes more than defined number messages.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8585,7 +8621,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>RT Active chats</source>
+      <source>Real Time Active chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9683,11 +9719,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>If required you can have also condition to check</source>
+      <source>Response Location 5. Available as {content_5} in messages.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Response Location.</source>
+      <source>Response Location 6. Available as {content_6} in messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Meta msg location. If you support Live Helper Chat JSON syntax you can set location of this response.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If required you can also have condition to check</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location. It will also fail if attribute is not found.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9695,7 +9743,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Do nothing</source>
+      <source>Check for presence of variable</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9712,10 +9760,6 @@
     </message>
     <message>
       <source>Value to compare</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Meta msg location. If you support Live Helper Chat json syntax you can set location of this response.</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -12455,7 +12499,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Password has to be atleast</source>
+      <source>Password has to be at least</source>
       <translation type="unfinished"/>
     </message>
     <message>

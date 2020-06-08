@@ -569,7 +569,7 @@ class erLhcoreClassUserValidator {
             $passwordData = (array)erLhcoreClassModelChatConfig::fetch('password_data')->data;
 
             if (isset($passwordData['length']) && $passwordData['length'] > 0 && $passwordData['length'] > mb_strlen($userData->password_temp_1)) {
-                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Password has to be atleast') .' '. $passwordData['length'] .' '. erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','characters length');
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Password has to be at least') .' '. $passwordData['length'] .' '. erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','characters length');
             }
 
             if (isset($passwordData['uppercase_required']) && $passwordData['uppercase_required'] == 1 && !(bool) preg_match('/[A-Z]/', $userData->password_temp_1)) {

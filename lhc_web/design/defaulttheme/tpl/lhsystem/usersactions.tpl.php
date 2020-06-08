@@ -14,7 +14,7 @@
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Active chats');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Pending chats');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Inactive chats');?></th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','RT Active chats');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Real Time Active chats');?></th>
     <?php include(erLhcoreClassDesign::designtpl('lhuser/userlist/column_multiinclude.tpl.php')); ?>
     <?php if ($canEdit) : ?><th width="1%">&nbsp;</th><?php endif;?>
 </tr>

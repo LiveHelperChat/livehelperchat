@@ -22,7 +22,7 @@
 
 	<div class="tab-content">
 	  <?php if ($currentUser->hasAccessTo('lhsystem','changelanguage')) : ?>
-	  <div role="tabpanel" class="tab-pane active" id="yourlanguage">
+	  <div role="tabpanel" class="tab-pane <?php if ($tab == '') : ?>active<?php endif;?>" id="yourlanguage">
 			<form action="<?php echo erLhcoreClassDesign::baseurl('system/languages')?>" method="post">
     				<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
     				
@@ -47,7 +47,7 @@
 	  
 	  
 	  <?php if ($currentUser->hasAccessTo('lhsystem','configurelanguages')) : ?>
-	       <div role="tabpanel" class="tab-pane" id="generalsettings">
+	       <div role="tabpanel" class="tab-pane <?php if ($tab == 'generalsettings') : ?>active<?php endif;?>" id="generalsettings">
 			<form action="<?php echo erLhcoreClassDesign::baseurl('system/languages')?>" method="post" name="siteaccess_change">
 				<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Current site access')?> - <strong><?php echo $current_site_access ?></strong>
 				</p>
@@ -70,7 +70,9 @@
 
 		      <input type="hidden" name="siteaccess" value="<?php echo $input->siteaccess?>" />
 
-		         <?php $siteAccessOptions = erConfigClassLhConfig::getInstance()->getSetting( 'site_access_options', $input->siteaccess ); ?>
+		         <?php
+                    $siteAccessOptions = erConfigClassLhConfig::getInstance()->getSetting( 'site_access_options', $input->siteaccess );
+		         ?>
 		          <h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','options for')?> (<?php echo $input->siteaccess?>)</h2>
 					
 					<div class="form-group">

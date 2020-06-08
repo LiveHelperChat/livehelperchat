@@ -2,6 +2,22 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por quantos dias o widget de votação não deve ser exibido após última exibição</translation>
     </message>
@@ -490,6 +506,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Use modern look</source>
+      <translation>Usar visual morderno</translation>
+    </message>
+    <message>
       <source>Welcome message</source>
       <translation>Mensagem de boas vindas</translation>
     </message>
@@ -620,6 +640,18 @@
     <message>
       <source>Operator messages style</source>
       <translation>Estilo das mensagens dos operadores</translation>
+    </message>
+    <message>
+      <source>Build your own need help widget layout</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set default HTML</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you want to get nerdy you can build your own eye catcher using default template as starting point. You can adjust need help widget dimensions above. Also see what placeholders we support.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>General settings</source>
@@ -906,6 +938,22 @@
       <translation>Após quantos segundos depois da página ser carregada será exibido o status do widget?</translation>
     </message>
     <message>
+      <source>Need help widget width</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help widget height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Position from right</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Position from bottom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show need help tooltip?</source>
       <translation>Mostrar lembrete de &quot;preciso de ajuda&quot;?</translation>
     </message>
@@ -914,8 +962,12 @@
       <translation>Ocultar o tempo da mensagem do visitante</translation>
     </message>
     <message>
-      <source>Use modern look</source>
-      <translation>Usar visual morderno</translation>
+      <source>Use modern look. It is used only in older widget.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use a new widget look for old embed code. If you can not change easily old embed codes you can force system to load new widget still.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help standard text</source>
@@ -1060,6 +1112,10 @@
     <message>
       <source>Widget border color</source>
       <translation>Cor da borda do widget</translation>
+    </message>
+    <message>
+      <source>Custom need help HTML</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help background color</source>
@@ -2235,6 +2291,22 @@
       <translation>Anonimizado</translation>
     </message>
     <message>
+      <source>Chats without an operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats with an operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats which had a bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats which did not had a bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Print</source>
       <translation>Imprimir</translation>
     </message>
@@ -2283,16 +2355,16 @@
       <translation>Escolha convite proativo</translation>
     </message>
     <message>
+      <source>Select bot</source>
+      <translation>Selecionar robô</translation>
+    </message>
+    <message>
       <source>Type to search</source>
       <translation>Digite para pesquisar</translation>
     </message>
     <message>
       <source>Transfer to bot only if department is offline</source>
       <translation>Tranferir para o robô apenas se o departamento estiver offline</translation>
-    </message>
-    <message>
-      <source>Select bot</source>
-      <translation>Selecionar robô</translation>
     </message>
     <message>
       <source>Select translations</source>
@@ -2337,6 +2409,10 @@
     <message>
       <source>Group field</source>
       <translation>Campo de grupo</translation>
+    </message>
+    <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Exclude offline requests from charts</source>
@@ -2729,6 +2805,10 @@
     <message>
       <source>Screen shared, click to finish</source>
       <translation>Tela compartilhada, click para finalizar</translation>
+    </message>
+    <message>
+      <source>Our staff are ready to help!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -5268,6 +5348,10 @@
       <translation>Status do bate-papo se o cliente estiver conversando com um robô</translation>
     </message>
     <message>
+      <source>Custom need help HTML</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
       <translation>Enquanto você não for atendido, você pode escrever suas perguntas, e logo que um atendente confirmar esse bate-papo, ele vai receber suas mensagens</translation>
     </message>
@@ -5332,6 +5416,10 @@
     <message>
       <source>Enable/Disable sound about new pending chats</source>
       <translation>Ativar/Desativar sons de novos bate-papos pendentes</translation>
+    </message>
+    <message>
+      <source>Change my persistent status to online</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -6794,6 +6882,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Operadores de bate-papo</translation>
     </message>
     <message>
+      <source>Bot chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Vazio...</translation>
     </message>
@@ -7027,10 +7119,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Abas do bate-papo</translation>
     </message>
     <message>
-      <source>Configuration</source>
-      <translation>Configuração</translation>
-    </message>
-    <message>
       <source>Chats list</source>
       <translation>Lista de bate-papos</translation>
     </message>
@@ -7041,6 +7129,42 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Logout</source>
       <translation>Sair</translation>
+    </message>
+    <message>
+      <source>Configuration</source>
+      <translation>Configuração</translation>
+    </message>
+    <message>
+      <source>New messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invisible</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Always online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on activity</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

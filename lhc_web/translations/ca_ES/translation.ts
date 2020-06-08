@@ -2,6 +2,22 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Quants dies després de l&apos;última visualització ha de romandre ocult el widget de votació</translation>
     </message>
@@ -490,6 +506,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Use modern look</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Welcome message</source>
       <translation type="unfinished"/>
     </message>
@@ -620,6 +640,18 @@
     <message>
       <source>Operator messages style</source>
       <translation>Estil els missatges dels agents</translation>
+    </message>
+    <message>
+      <source>Build your own need help widget layout</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set default HTML</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you want to get nerdy you can build your own eye catcher using default template as starting point. You can adjust need help widget dimensions above. Also see what placeholders we support.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>General settings</source>
@@ -906,6 +938,22 @@
       <translation>Temps d&apos;espera en segons des que es carrega la pàgina abans de mostrar el widget d&apos;estat.</translation>
     </message>
     <message>
+      <source>Need help widget width</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help widget height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Position from right</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Position from bottom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show need help tooltip?</source>
       <translation>Mostra el missatge emergent &quot;necessiteu ajuda&quot;</translation>
     </message>
@@ -914,7 +962,11 @@
       <translation>Oculta la hora dels missatges al visitant</translation>
     </message>
     <message>
-      <source>Use modern look</source>
+      <source>Use modern look. It is used only in older widget.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use a new widget look for old embed code. If you can not change easily old embed codes you can force system to load new widget still.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1060,6 +1112,10 @@
     <message>
       <source>Widget border color</source>
       <translation>Color de la vora del widget</translation>
+    </message>
+    <message>
+      <source>Custom need help HTML</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help background color</source>
@@ -2235,6 +2291,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chats without an operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats with an operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats which had a bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats which did not had a bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Print</source>
       <translation>Imprimeix</translation>
     </message>
@@ -2283,15 +2355,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Select bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Type to search</source>
       <translation>Escriviu per cercar</translation>
     </message>
     <message>
       <source>Transfer to bot only if department is offline</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Select bot</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2336,6 +2408,10 @@
     </message>
     <message>
       <source>Group field</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2729,6 +2805,10 @@
     <message>
       <source>Screen shared, click to finish</source>
       <translation>Pantalla compartida, feu clic per finalitzar</translation>
+    </message>
+    <message>
+      <source>Our staff are ready to help!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -5268,6 +5348,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Custom need help HTML</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
       <translation>Esperant que un administrador s&apos;hi uneixi, al xat. Podeu deixar les vostres preguntes i tan aviat com ho faci, rebrà els vostres missatges.</translation>
     </message>
@@ -5332,6 +5416,10 @@
     <message>
       <source>Enable/Disable sound about new pending chats</source>
       <translation>Alterna el so de xats nous pendents</translation>
+    </message>
+    <message>
+      <source>Change my persistent status to online</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -6794,6 +6882,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>Xat d&apos;agents</translation>
     </message>
     <message>
+      <source>Bot chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Buit...</translation>
     </message>
@@ -7027,10 +7119,6 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>Pestanyes de xats</translation>
     </message>
     <message>
-      <source>Configuration</source>
-      <translation>Configuració</translation>
-    </message>
-    <message>
       <source>Chats list</source>
       <translation>Llista de xats</translation>
     </message>
@@ -7041,6 +7129,42 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <message>
       <source>Logout</source>
       <translation>Tanca la sessió</translation>
+    </message>
+    <message>
+      <source>Configuration</source>
+      <translation>Configuració</translation>
+    </message>
+    <message>
+      <source>New messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invisible</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Always online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on activity</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

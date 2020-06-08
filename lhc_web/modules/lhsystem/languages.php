@@ -17,6 +17,7 @@ if ((string)$Params['user_parameters_unordered']['sa'] != ''){
 
 if (isset($_POST['changeSiteAccess'])) {
 	$input->siteaccess = $_POST['siteaccess'];
+    $tab = 'generalsettings';
 }
 
 if ( isset($_POST['StoreUserSettingsAction']) ) {
@@ -112,6 +113,11 @@ if ($currentUser->hasAccessTo('lhsystem','configurelanguages')){
 			// Clean cache
 			$CacheManager = erConfigClassLhCacheConfig::getInstance();
 			$CacheManager->expireCache();
+
+			// Invalidate cache if opcache is used
+			if (function_exists('opcache_invalidate')) {
+                opcache_invalidate('settings/settings.ini.php');
+            }
 
 			// Redirect for change to take effect
 			erLhcoreClassModule::redirect('system/languages','/(updated)/true/(sa)/'.$input->siteaccess);

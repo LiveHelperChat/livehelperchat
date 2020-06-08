@@ -29,14 +29,12 @@ class erLhcoreClassSiteaccessGenerator {
     	$translations = self::listDirectory('translations');
     	$rtl = array('ar_EG','fa_FA');
 
-    	//$languages[$translation] = array('locale' => $translation,'content_language' => substr($translation, 0,2), 'dir_language' => in_array($translation, $rtl) ? 'rtl' : 'ltr');
-
     	$languages = array();
     	$languages['en_EN'] = array('locale' => 'en_EN','content_language' => 'en', 'dir_language' => 'ltr');
 
     	foreach ($translations as $translation) {
     		$translation = str_replace('translations/', '', $translation);
-    		$languages[$translation] = array('locale' => $translation,'content_language' => substr($translation, 0,2), 'dir_language' => in_array($translation, $rtl) ? 'rtl' : 'ltr');
+    		$languages[$translation] = array('locale' => $translation, 'content_language' => substr($translation, 0,2), 'dir_language' => in_array($translation, $rtl) ? 'rtl' : 'ltr');
     	}
 
     	return $languages;

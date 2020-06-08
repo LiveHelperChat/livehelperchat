@@ -5,7 +5,7 @@ return array(
     'buble_visitor_background' => array(
         'type' => 'colorpicker',
         'main_attr' => 'css_attributes_array',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Buble background color'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Bubble background color'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
@@ -105,7 +105,7 @@ return array(
     'buble_sys_background' => array(
         'type' => 'colorpicker',
         'main_attr' => 'css_attributes_array',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Buble background color'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Bubble background color'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
