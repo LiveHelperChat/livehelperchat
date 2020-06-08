@@ -229,7 +229,7 @@ if ($currentUser->hasAccessTo('lhgroupchat','use')) {
         $chats[$indexChat]->member = isset($groupsPrivateMembers[$chat->id]) ? $groupsPrivateMembers[$chat->id] : null;
     }
 
-    erLhcoreClassChat::prefillGetAttributes($chats, array('time_front', 'jtime', 'is_member'), array('member','time','status','last_msg_op_id','last_msg_id','last_msg'), array('do_not_clean' => true,'clean_ignore' => true));
+    erLhcoreClassChat::prefillGetAttributes($chats, array('time_front', 'jtime', 'is_member', 'ls_id', 'last_msg_id'), array('member','time','status','last_msg_op_id','last_msg'), array('do_not_clean' => true,'clean_ignore' => true));
 
     $ReturnMessages['group_chats'] = array('list' => array_values($chats));
 

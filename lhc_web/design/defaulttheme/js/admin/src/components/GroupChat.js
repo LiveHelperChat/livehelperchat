@@ -103,6 +103,13 @@ const GroupChat = props => {
 
     useEffect(() => {
         messagesElement.current.scrollTop = messagesElement.current.scrollHeight;
+
+        var tab = document.getElementById('chat-tab-link-gc'+props.chatId);
+
+        if (state.messages.length > 1 && !tab.classList.contains('active')) {
+            tab.querySelector('.whatshot').classList.remove("d-none");
+        }
+
     },[state.messages.length]);
 
     const rememberChat = (chatId) => {
@@ -183,7 +190,18 @@ const GroupChat = props => {
             if (e == props.chatId) {
                 setTimeout(() => {
                     messageElement.current.focus();
-                },2)
+                    if (messagesElement.current.scrollHeight - (messagesElement.current.scrollTop + messagesElement.current.offsetHeight) < (messagesElement.current.offsetHeight - 50)) {
+                        messagesElement.current.scrollTop = messagesElement.current.scrollHeight;
+                    }
+                },2);
+
+                var tab = document.getElementById('chat-tab-link-gc'+props.chatId);
+                if (tab !== null) {
+                    var tabHot = tab.querySelector('.whatshot');
+                    if (!tabHot.classList.contains("d-none")) {
+                        tabHot.classList.add("d-none");
+                    }
+                }
             }
         }
 

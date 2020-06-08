@@ -14,7 +14,11 @@
     </thead>
     <tr ng-repeat="chat in group_chats.list track by chat.id">
         <td>
-            <a class="d-block action-image" ng-click="lhc.startGroupChat(chat.id,chat.name)"><i class="material-icons">{{chat.type == 1 ? 'security' : 'public'}}</i> <i ng-if="chat.user_id == current_user_id" class="material-icons">account_balance</i>[{{chat.tm}}] {{chat.name}}</a>
+            <a class="d-block action-image" ng-click="lhc.startGroupChat(chat.id,chat.name)">
+
+                <i class="material-icons text-warning" ng-if="chat.is_member == true && (!chat.ls_id || chat.ls_id < chat.last_msg_id)">whatshot</i>
+
+                <i class="material-icons">{{chat.type == 1 ? 'security' : 'public'}}</i> <i ng-if="chat.user_id == current_user_id" class="material-icons">account_balance</i>[{{chat.tm}}] {{chat.name}}</a>
         </td>
         <td>
             <button ng-if="chat.is_member == true && chat.jtime == 0" title="Accept invitation and join private chat" class="btn btn-xs btn-info" ng-click="lhc.startGroupChat(chat.id,chat.name)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Accept invite');?></button>

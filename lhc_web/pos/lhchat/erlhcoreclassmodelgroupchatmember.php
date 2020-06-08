@@ -30,6 +30,12 @@ $def->properties['jtime']->columnName   = 'jtime';
 $def->properties['jtime']->propertyName = 'jtime';
 $def->properties['jtime']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+// Last message id operator has fetched
+$def->properties['last_msg_id'] = new ezcPersistentObjectProperty();
+$def->properties['last_msg_id']->columnName   = 'last_msg_id';
+$def->properties['last_msg_id']->propertyName = 'last_msg_id';
+$def->properties['last_msg_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

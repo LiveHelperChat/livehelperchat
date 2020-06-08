@@ -70,24 +70,26 @@ if (is_array($payload) && count($payload) > 0)
                     // Fetch content
                     $templateResult = $tpl->fetch();
 
-                    $response = array('chat_id' => $chat_id,'nck' => $Chat->nick, 'msfrom' => $MessageID, 'msop' => $firstNewMessage['user_id'], 'lmsop' => $LastMessageIDs['user_id'], 'mn' => $newMessagesNumber, 'msg' => $msgText, 'content' => $templateResult, 'message_id' => $LastMessageIDs['id']);
+                    $response = array('chat_id' => $chat_id, 'nck' => $Chat->nick, 'msfrom' => $MessageID, 'msop' => $firstNewMessage['user_id'], 'lmsop' => $LastMessageIDs['user_id'], 'mn' => $newMessagesNumber, 'msg' => $msgText, 'content' => $templateResult, 'message_id' => $LastMessageIDs['id']);
 
                     $ReturnMessages[] = $response;
                 }
 
-                if ($lastGroupSync < time() - 15) {
-
+                if ($lastGroupSync < time() - 15 || $Chat->last_msg_id > (int)$MessageID) {
                     // Update last activity group member
                     $q = ezcDbInstance::get()->createUpdateQuery();
                     $q->update( 'lh_group_chat_member' )
                         ->set('last_activity',time())
+                        ->set('last_msg_id',$Chat->last_msg_id)
                         ->where(
-                        $q->expr->eq( 'user_id', $currentUser->getUserID() ),
-                        $q->expr->eq( 'group_id', $chat_id )
-                    );
+                            $q->expr->eq( 'user_id', $currentUser->getUserID() ),
+                            $q->expr->eq( 'group_id', $chat_id )
+                        );
                     $stmt = $q->prepare();
                     $stmt->execute();
+                }
 
+                if ($lastGroupSync < time() - 15) {
                     $resultStatusItem = array(
                         'chat_id' => $chat_id,
                         'lgsync' => time(),
