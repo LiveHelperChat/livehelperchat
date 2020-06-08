@@ -190,6 +190,9 @@ const GroupChat = props => {
             if (e == props.chatId) {
                 setTimeout(() => {
                     messageElement.current.focus();
+                    if (messagesElement.current.scrollHeight - (messagesElement.current.scrollTop + messagesElement.current.offsetHeight) < (messagesElement.current.offsetHeight - 50)) {
+                        messagesElement.current.scrollTop = messagesElement.current.scrollHeight;
+                    }
                 },2);
 
                 var tab = document.getElementById('chat-tab-link-gc'+props.chatId);
