@@ -676,7 +676,6 @@ textarea[name=ChatMessage] {
 }
 
 .message-row-typing {
-    margin:4px 0px;
     animation: blink 1500ms linear infinite;
 }
 

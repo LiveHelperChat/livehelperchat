@@ -219,7 +219,7 @@ class OnlineChat extends Component {
             this.addClass(msg,'hide');
         }
 
-        if (untillMessage == true && this.nextUntil(msg,'message-admin').length > 0) {
+        if (untillMessage == true && this.nextUntil(msg,'.message-admin').length > 0) {
             return;
         }
 
@@ -228,7 +228,7 @@ class OnlineChat extends Component {
                 if (untillMessage == true) {
                     clearInterval(this.intervalPending);
                     this.intervalPending = setInterval(() => {
-                        if (this.nextUntil(msg,'message-admin').length > 0) {
+                        if (this.nextUntil(msg,'.message-admin').length > 0) {
                             this.unhideDelayed(id);
                             clearInterval(this.intervalPending);
                         } else {
@@ -255,7 +255,7 @@ class OnlineChat extends Component {
                     this.addClass(msg,'meta-hider');
                     this.addClass(msg,'message-row-typing');
 
-                    this.nextUntil(msg,'meta-hider').forEach((item) => {
+                    this.nextUntil(msg,'.meta-hider').forEach((item) => {
                         this.addClass(item,'hide');
                     });
 
@@ -280,6 +280,7 @@ class OnlineChat extends Component {
 
             } else {
                 this.addClass(msg,'message-row-typing');
+                this.addClass(msg,'meta-hider');
                 this.delayQueue.push({'id' : id, 'delay' : duration});
             }
         },delay*1000);
@@ -293,7 +294,7 @@ class OnlineChat extends Component {
             return;
         }
 
-        this.nextUntil(msg,'meta-hider').forEach((item) => {
+        this.nextUntil(msg,'.meta-hider').forEach((item) => {
             this.removeClass(item,'hide');
         });
 
@@ -304,12 +305,14 @@ class OnlineChat extends Component {
 
         if (this.delayQueue.length > 0) {
             var data = this.delayQueue.pop();
+
             setTimeout(() => {
                 this.unhideDelayed(data.id);
             }, data.delay * 1000);
 
             var messageBlock = document.getElementById('msg-'+data.id);
             this.removeClass(messageBlock,'hide');
+            this.removeClass(messageBlock,'fade-in-fast');
 
             var elementsBody = messageBlock.getElementsByClassName("msg-body");
 
