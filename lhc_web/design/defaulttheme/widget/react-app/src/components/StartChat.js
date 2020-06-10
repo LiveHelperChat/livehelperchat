@@ -9,6 +9,7 @@ import ChatModal from './ChatModal';
 import ChatStartOptions from './ChatStartOptions';
 import { helperFunctions } from "../lib/helperFunctions";
 import ChatInvitationMessage from './ChatInvitationMessage';
+import ChatBotIntroMessage from './ChatBotIntroMessage';
 import { initOnlineForm, submitOnlineForm } from "../actions/chatActions"
 
 @connect((store) => {
@@ -27,6 +28,7 @@ class StartChat extends Component {
         this.enterKeyDown = this.enterKeyDown.bind(this);
         this.handleContentChange = this.handleContentChange.bind(this);
         this.handleContentChangeCustom = this.handleContentChangeCustom.bind(this);
+        this.setBotPayload = this.setBotPayload.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.textMessageRef = React.createRef();
     }
@@ -139,6 +141,10 @@ class StartChat extends Component {
         if (profileBody !== null) {
             this.props.setProfile(profileBody.innerHTML);
         }
+    }
+
+    setBotPayload(params) {
+        console.log(params);
     }
 
     updateOnlineFields(){
@@ -278,7 +284,7 @@ class StartChat extends Component {
                             <div className="bottom-message px-1" id="messages-scroll">
                                 {this.props.chatwidget.getIn(['proactive','has']) === true && <ChatInvitationMessage mode="message" invitation={this.props.chatwidget.getIn(['proactive','data'])} />}
 
-                                {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','cmmsg_widget']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','cmmsg_widget'])}}></div>}
+                                {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','cmmsg_widget']) && <ChatBotIntroMessage setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['chat_ui','cmmsg_widget'])} />}
 
                                 {this.props.chatwidget.get('processStatus') == 1 && this.state.Question != '' && <div data-op-id="0" className="message-row response">
                                     <div className="msg-date"></div>
