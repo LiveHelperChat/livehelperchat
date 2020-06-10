@@ -38,7 +38,14 @@ class erLhcoreClassGenericBotActionConditions {
                         $attr = $chatVariables[$condition['content']['attr']];
                     } elseif (isset($chatAttributesFrontend[$condition['content']['attr']])) {
                         $attr = $chatAttributesFrontend[$condition['content']['attr']];
-                    }
+                    } else {
+                        $attrData = erLhcoreClassGenericBotActionRestapi::extractAttribute($chatVariables, $condition['content']['attr']);
+                        if ($attrData['found'] == true) {
+                            $attr = $attrData['value'];
+                        } else {
+                            $attr = '';
+                        }
+                     }
 
                     if ($attr === null) {
                         $conditionsMet = false;

@@ -729,7 +729,7 @@ class erLhcoreClassGenericBotWorkflow {
 
                 // Success message
                 if (isset($eventData['content']['success_message']) && !empty($eventData['content']['success_message'])) {
-                    self::sendAsBot($chat, $eventData['content']['success_message']);
+                    self::sendAsBot($chat, self::translateMessage($eventData['content']['success_message'], array('chat' => $chat)));
                 }
 
                 // Initiate payload based callback if there is any
