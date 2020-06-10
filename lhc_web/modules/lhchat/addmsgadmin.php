@@ -141,7 +141,9 @@ if (trim($form->msg) != '')
                         $Chat->refreshThis();
                         $Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
 
-                        $Chat->wait_time = time() - ($Chat->pnd_time > 0 ? $Chat->pnd_time : $Chat->time);
+                        $Chat->pnd_time = time();
+                        $Chat->wait_time = 2;
+
                         $Chat->user_id = $currentUser->getUserID();
 
                         // User status in event of chat acceptance
