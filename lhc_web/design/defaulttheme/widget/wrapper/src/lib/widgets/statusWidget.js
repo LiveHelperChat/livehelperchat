@@ -36,7 +36,7 @@ export class statusWidget{
         }
     }
 
-    checkLoadStatus(){
+    checkLoadStatus() {
         if (this.loadStatus['theme'] == true && this.loadStatus['main'] == true) {
              this.cont.getElementById('lhc_status_container').style.display = "";
         }
