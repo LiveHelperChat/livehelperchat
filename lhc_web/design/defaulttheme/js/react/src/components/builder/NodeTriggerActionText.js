@@ -133,7 +133,7 @@ class NodeTriggerActionText extends Component {
 
         if (this.props.action.hasIn(['content','quick_replies'])) {
             quick_replies = this.props.action.getIn(['content','quick_replies']).map((reply, index) => {
-                return <NodeTriggerActionQuickReply onPayloadAttrChange={this.onPayloadAttrChange} onButtonIDChange={this.onButtonIDChange} onStoreValueChange={this.onStoreValueChange} onStoreNameChange={this.onStoreNameChange} onPrecheckChange={this.onPrecheckChange} onRenderArgsChange={this.onRenderArgsChange} onPayloadTypeChange={this.onQuickReplyPayloadTypeChange} deleteReply={this.onDeleteQuickReply} onNameChange={this.onQuickReplyNameChange}  onPayloadChange={this.onQuickReplyPayloadChange} id={index} key={index} reply={reply} />
+                return <NodeTriggerActionQuickReply onPayloadAttrChange={this.onPayloadAttrChange} onButtonIDChange={this.onButtonIDChange} onStoreValueChange={this.onStoreValueChange} onStoreNameChange={this.onStoreNameChange} onPrecheckChange={this.onPrecheckChange} onRenderArgsChange={this.onRenderArgsChange} onPayloadTypeChange={this.onQuickReplyPayloadTypeChange} deleteReply={this.onDeleteQuickReply} onNameChange={this.onQuickReplyNameChange}  onPayloadChange={this.onQuickReplyPayloadChange} id={index} key={reply.get('_id') || index} reply={reply} />
             });
         }
 
