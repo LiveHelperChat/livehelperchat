@@ -272,6 +272,16 @@ class erLhcoreClassGenericBotWorkflow {
     // Send default always message if there is any
     public static function sendAlwaysDefault(& $chat, $botId, $msg = null)
     {
+        $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_send_always', array(
+            'chat' => & $chat,
+            'bot_id' => $botId,
+            'msg' => $msg
+        ));
+
+        if ($handler !== false) {
+            return;
+        }
+
         $bot = erLhcoreClassModelGenericBotBot::fetch($botId);
 
         $trigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => array('default_always' => 1)));
