@@ -8,6 +8,11 @@ class erLhcoreClassGenericBotActionTbody {
         {
             $payload = isset($params['replace_array']) ? str_replace(array_keys($params['replace_array']), array_values($params['replace_array']), $action['content']['payload']) : $action['content']['payload'];
 
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_actionbody', array(
+                'payload' => & $payload,
+                'chat' => $chat
+            ));
+
             $triggerBody = json_decode($payload, true);
 
             if ($triggerBody !== null) {
