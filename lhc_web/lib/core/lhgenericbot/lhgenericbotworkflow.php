@@ -8,6 +8,10 @@ class erLhcoreClassGenericBotWorkflow {
     {
         $bot = erLhcoreClassModelGenericBotBot::fetch($botId);
 
+        if (!($bot instanceof erLhcoreClassModelGenericBotBot)) {
+            return null;
+        }
+
         // Avoid double execution
         if (self::$currentAlwaysEvent !== null) {
             $paramsFilter['filternot']['id'] = self::$currentAlwaysEvent->id;
@@ -49,6 +53,10 @@ class erLhcoreClassGenericBotWorkflow {
     public static function findTextMatchingEvent($messageText, $botId, $paramsFilter = array(), $paramsExecution = array())
     {
         $bot = erLhcoreClassModelGenericBotBot::fetch($botId);
+
+        if (!($bot instanceof erLhcoreClassModelGenericBotBot)) {
+            return null;
+        }
 
         // Avoid double execution
         if (self::$currentAlwaysEvent !== null) {
