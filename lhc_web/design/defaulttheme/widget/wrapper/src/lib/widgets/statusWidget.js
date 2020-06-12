@@ -29,10 +29,19 @@ export class statusWidget{
     toggleOfflineIcon(onlineStatus) {
         var icon = this.cont.getElementById("status-icon");
 
+
+
         if (onlineStatus) {
+            if (!this.attributes.leaveMessage) {
+                this.show();
+            }
             helperFunctions.removeClass(icon, "offline-status");
         } else {
-            helperFunctions.addClass(icon, "offline-status");
+            if (!this.attributes.leaveMessage) {
+                this.hide();
+            } else {
+                helperFunctions.addClass(icon, "offline-status");
+            }
         }
     }
 
@@ -83,7 +92,10 @@ export class statusWidget{
 
         if (this.attributes.mode !== 'popup') {
             attributes.widgetStatus.subscribe((data) => {
-                data == true ? this.hide() : this.show();
+
+                const chatParams = this.attributes['userSession'].getSessionAttributes();
+
+                (data == true || (!this.attributes.leaveMessage && this.attributes.onlineStatus.value == false && !chatParams['id'])) ? this.hide() : this.show();
             });
         } else {
             this.show()

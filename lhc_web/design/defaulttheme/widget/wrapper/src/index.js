@@ -163,9 +163,13 @@
                         document.location = LHC_API.args.offline_redirect;
                     }
 
-                    return;
+                    if (data.terminate) {
+                        return;
+                    }
                 }
 
+                attributesWidget.leaveMessage = attributesWidget.leaveMessage || data.chat_ui.leaveamessage;
+                
                 if (data.department) {
                     attributesWidget.department = data.department;
                 }
@@ -239,7 +243,7 @@
                     }
                 }
 
-                if (attributesWidget.mode == 'widget' && data.nh && attributesWidget.fresh === false && attributesWidget['position'] != 'api' && attributesWidget.userSession.id === null && data.isOnline === true) {
+                if (attributesWidget.mode == 'widget' && data.nh && attributesWidget.fresh === false && attributesWidget['position'] != 'api' && attributesWidget.userSession.id === null) {
                     import('./lib/widgets/needhelpWidget').then((module) => {
                         var needhelpWidget = new module.needhelpWidget();
                         containerChatObj.cont.elmDom.appendChild(needhelpWidget.cont.constructUI(),!0);
