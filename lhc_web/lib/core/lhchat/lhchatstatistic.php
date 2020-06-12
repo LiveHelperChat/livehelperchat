@@ -148,6 +148,11 @@ class erLhcoreClassChatStatistic {
         	    $msgFilter['filtergte']['lh_msg.time'] = $filter['filtergte']['time'];
         	}
 
+            if (isset($msgFilter['filtergt']['user_id'])) {
+                unset($msgFilter['filtergt']['user_id']);
+                $msgFilter['filtergt']['lh_chat.user_id'] = $filter['filtergt']['user_id'];
+            }
+
             $yearStart = date('y');
             $monthStart = date('m');
 
@@ -978,6 +983,11 @@ class erLhcoreClassChatStatistic {
         	    $filter['filterin']['lh_msg.user_id'] = $filter['filterin']['user_id'];
         	    unset($filter['filterin']['user_id']);
         	}
+
+            if (isset($filter['filtergt']['user_id'])) {
+                $filter['filtergt']['lh_msg.user_id'] = $filter['filtergt']['user_id'];
+                unset($filter['filtergt']['user_id']);
+            }
         	
         	$generalFilter = self::formatFilter($filter);
         	    	 

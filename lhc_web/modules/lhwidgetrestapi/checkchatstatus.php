@@ -158,7 +158,7 @@ try {
 $responseArray['error'] = 'false';
 $responseArray['ru'] = $ru;
 $responseArray['ott'] = $ott;
-$responseArray['result'] = $tpl->fetch();
+$responseArray['result'] = trim($tpl->fetch());
 $responseArray['activated'] = $activated;
 $responseArray['uid'] = (int)$chat->user_id;
 $responseArray['status'] = (int)$chat->status;
