@@ -276,6 +276,14 @@ class StartChat extends Component {
                     classMessageInput += " d-none ";
                 }
 
+                var msg_expand = "flex-grow-1 overflow-scroll position-relative";
+                var bottom_messages = "bottom-message px-1";
+
+                if (this.props.chatwidget.hasIn(['chat_ui','msg_expand'])) {
+                    msg_expand = "overflow-scroll position-relative";
+                    bottom_messages += " position-relative";
+                }
+
                 return (
                     <React.Fragment>
 
@@ -287,8 +295,8 @@ class StartChat extends Component {
                             (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div id="lhc-profile-body"><div className="p-2 border-bottom" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div></div>)
                         }
 
-                        <div className="flex-grow-1 overflow-scroll position-relative" id="messagesBlock">
-                            <div className="bottom-message px-1" id="messages-scroll">
+                        <div className={msg_expand} id="messagesBlock">
+                            <div className={bottom_messages} id="messages-scroll">
                                 {this.props.chatwidget.getIn(['proactive','has']) === true && <ChatInvitationMessage mode="message" invitation={this.props.chatwidget.getIn(['proactive','data'])} />}
 
                                 {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','cmmsg_widget']) && <ChatBotIntroMessage setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['chat_ui','cmmsg_widget'])} />}

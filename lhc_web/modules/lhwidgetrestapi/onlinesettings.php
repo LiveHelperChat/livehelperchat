@@ -536,6 +536,10 @@ if ($theme !== false) {
         $chat_ui['custom_html_widget'] .= erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->explain_text));
     }
 
+    if (isset($theme->bot_configuration_array['msg_expand']) && $theme->bot_configuration_array['msg_expand'] == true) {
+        $chat_ui['msg_expand'] = true;
+    }
+
     if ($Params['user_parameters_unordered']['online'] == '0' && isset($theme->bot_configuration_array['custom_start_button_offline']) && $theme->bot_configuration_array['custom_start_button_offline'] != '') {
         $chat_ui['custom_start_button'] = $theme->bot_configuration_array['custom_start_button_offline'];
     }
