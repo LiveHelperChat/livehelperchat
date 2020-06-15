@@ -241,7 +241,10 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
 			
 			<br />
 			<label><input type="checkbox" value="on" name="ShowMessagesBox" <?php (isset($start_chat_data['show_messages_box']) && $start_chat_data['show_messages_box'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Show messages box above input fields, usefull for UX combinations.');?></label>
-			
+
+            <br />
+			<label><input type="checkbox" value="on" name="HideStartButton" <?php (isset($start_chat_data['hide_start_button']) && $start_chat_data['hide_start_button'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.');?></label>
+
 			<div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Initial user message height in pixels');?></label> <input class="form-control" type="text" name="UserMessageHeight" value="<?php (isset($start_chat_data['user_msg_height'])) ? print htmlspecialchars($start_chat_data['user_msg_height']) : ''?>" />
 			</div>

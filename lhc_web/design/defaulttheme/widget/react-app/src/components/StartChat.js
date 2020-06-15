@@ -323,7 +323,7 @@ class StartChat extends Component {
                                 </div>
                             </React.Fragment>}
 
-                            {this.props.chatwidget.getIn(['onlineData','fields_visible']) == 0 && <button className="mx-auto pb-1 w-100 btn btn-light rounded-0" onClick={this.handleSubmit} title={t('button.start_chat')}>
+                            {this.props.chatwidget.getIn(['onlineData','fields_visible']) == 0 && !this.props.chatwidget.hasIn(['chat_ui','hstr_btn']) && <button className="mx-auto pb-1 w-100 btn btn-light rounded-0" onClick={this.handleSubmit} title={t('button.start_chat')}>
                                 {this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || t('button.start_chat_With_us')}
                             </button>}
 

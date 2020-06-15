@@ -241,6 +241,7 @@ if (empty($Errors)) {
             && !isset($requestPayload['bpayload']['payload'])
         ) {
             $trigger = erLhcoreClassModelGenericBotTrigger::fetch($additionalParams['theme']->bot_configuration_array['trigger_id']);
+            $paramsExecution['trigger_id_executed'] = $additionalParams['theme']->bot_configuration_array['trigger_id'];
             if (is_object($trigger)) {
                 erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger);
             }

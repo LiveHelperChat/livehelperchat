@@ -115,6 +115,10 @@ if (isset($startDataFields['user_msg_height']) && $startDataFields['user_msg_hei
     $chat_ui['user_msg_height'] = (int)$startDataFields['user_msg_height'];
 }
 
+if (isset($startDataFields['hide_start_button']) && $startDataFields['hide_start_button'] == true) {
+    $chat_ui['hstr_btn'] = true;
+}
+
 if ($Params['user_parameters_unordered']['online'] == '0') {
 
     if (isset($start_data_fields['pre_offline_chat_html']) && $start_data_fields['pre_offline_chat_html'] != '') {

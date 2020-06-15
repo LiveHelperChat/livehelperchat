@@ -363,6 +363,9 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'ShowMessagesBox' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
+            'HideStartButton' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
 	    
 	        // Custom fields from back office
 	        'customFieldLabel' => new ezcInputFormDefinitionElement(
@@ -422,6 +425,12 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        $data['auto_start_chat'] = true;
 	    } else {
 	        $data['auto_start_chat'] = false;
+	    }
+
+	    if ( $form->hasValidData( 'HideStartButton' ) && $form->HideStartButton == true ) {
+	        $data['hide_start_button'] = true;
+	    } else {
+	        $data['hide_start_button'] = false;
 	    }
 
 	    if ( $form->hasValidData( 'MobilePopup' ) && $form->MobilePopup == true ) {
