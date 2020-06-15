@@ -1658,6 +1658,14 @@ class erLhcoreClassChatValidator {
 
                     $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $botTrigger, false, array('args' => $params));
 
+                    if (isset($params['trigger_button_id'])) {
+                        $chat->saveThis();
+                        erLhcoreClassGenericBotWorkflow::processTriggerClick($chat, $message, $params['trigger_button_id'], array('processed' => (isset($params['processed']) && $params['processed'] == true)));
+                    } else if (isset($params['trigger_payload_id'])) {
+                        $chat->saveThis();
+                        erLhcoreClassGenericBotWorkflow::processButtonClick($chat, $message, $params['trigger_payload_id'], array('processed' => (isset($params['processed']) && $params['processed'] == true)));
+                    }
+
                     if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
                         $chat->last_msg_id = $message->id;
                     }

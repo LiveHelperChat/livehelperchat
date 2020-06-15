@@ -234,7 +234,12 @@ if (empty($Errors)) {
 
         // Store theme trigger message as first message
         // But only if invitation have not set those
-        if ((!isset($requestPayload['invitation_id']) || !is_numeric($requestPayload['invitation_id'])) && !isset($msg) && isset($additionalParams['theme']) && isset($additionalParams['theme']->bot_configuration_array['trigger_id']) && !empty($additionalParams['theme']->bot_configuration_array['trigger_id']) && $additionalParams['theme']->bot_configuration_array['trigger_id'] > 0) {
+        // And only if it's not button click
+        if ((!isset($requestPayload['invitation_id']) || !is_numeric($requestPayload['invitation_id'])) && !isset($msg) && isset($additionalParams['theme']) && isset($additionalParams['theme']->bot_configuration_array['trigger_id'])
+            && !empty($additionalParams['theme']->bot_configuration_array['trigger_id'])
+            && $additionalParams['theme']->bot_configuration_array['trigger_id'] > 0
+            && !isset($requestPayload['bpayload']['payload'])
+        ) {
             $trigger = erLhcoreClassModelGenericBotTrigger::fetch($additionalParams['theme']->bot_configuration_array['trigger_id']);
             if (is_object($trigger)) {
                 erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger);
@@ -264,6 +269,16 @@ if (empty($Errors)) {
 
         if (is_numeric($inputData->bot_id) && !isset($paramsExecution['bot_id'])) {
             $paramsExecution['bot_id'] = (int)$inputData->bot_id;
+        }
+
+        if (isset($requestPayload['bpayload']['payload']) && isset($requestPayload['bpayload']['type']) && $requestPayload['bpayload']['type'] == 'triggerclicked') {
+            $paramsExecution['trigger_id'] = $requestPayload['bpayload']['id'];
+            $paramsExecution['trigger_button_id'] = $requestPayload['bpayload']['payload'];
+            $paramsExecution['processed'] = $requestPayload['bpayload']['processed'];
+        }else if (isset($requestPayload['bpayload']['payload']) && isset($requestPayload['bpayload']['type']) && $requestPayload['bpayload']['type'] == '') {
+            $paramsExecution['trigger_id'] = $requestPayload['bpayload']['id'];
+            $paramsExecution['trigger_payload_id'] = $requestPayload['bpayload']['payload'];
+            $paramsExecution['processed'] = $requestPayload['bpayload']['processed'];
         }
 
         if (!isset($restAPI) || (isset($restAPI) && (!isset($requestPayload['ignore_bot']) || $requestPayload['ignore_bot'] == false))) {

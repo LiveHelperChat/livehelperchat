@@ -507,6 +507,7 @@ if ($theme !== false) {
             $tpl = new erLhcoreClassTemplate('lhchat/part/render_intro.tpl.php');
             $tpl->set('theme',$theme);
             $tpl->set('no_wrap_intro',true);
+            $tpl->set('triggerMessageId',$theme->bot_configuration_array['trigger_id']);
             $chat_ui['cmmsg_widget'] = $tpl->fetch();
         }
     }

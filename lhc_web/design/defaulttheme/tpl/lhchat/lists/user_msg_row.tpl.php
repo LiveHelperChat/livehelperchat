@@ -3,7 +3,7 @@
     $metaMessageDataByBBCode = erLhcoreClassBBCode::extractMetaByMessage($msg['msg']);
 
     if (isset($msg['meta_msg']) && $msg['meta_msg'] != '') {
-        $metaMessageData = json_decode($msg['meta_msg'], true); $messageId = $msg['id'];
+        $metaMessageData = json_decode($msg['meta_msg'], true); $messageId = isset($triggerMessageId) ? $triggerMessageId : $msg['id'];
     } else if (isset($metaMessageData)) {
         unset($metaMessageData);
     }
