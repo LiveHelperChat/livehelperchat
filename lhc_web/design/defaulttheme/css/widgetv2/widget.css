@@ -872,10 +872,15 @@ textarea[name=ChatMessage] {
     }
 }
 
+#CSChatMessage.loader-submit,
 .loader-submit,
  .content-loader {
      background: url(../images/icons/loading.png) no-repeat center center;
  }
+
+#CSChatMessage.loader-submit{
+    background-position: center right;
+}
 
 .loader-submit{
     width: 100%;

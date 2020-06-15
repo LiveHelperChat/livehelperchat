@@ -509,6 +509,7 @@ class OnlineChat extends Component {
     }
 
     render() {
+        const { t } = this.props;
 
         if (this.props.chatwidget.get('initLoaded') === false || this.props.chatwidget.get('msgLoaded') === false) {
 
@@ -524,14 +525,12 @@ class OnlineChat extends Component {
                     <div className="d-flex flex-row border-top position-relative message-send-area" >
                         <div className="btn-group dropup disable-select pl-2 pt-2"><i className="material-icons settings text-muted" id="chat-dropdown-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">settings</i></div>
                         <div className="mx-auto pb-1 w-100">
-                            <textarea aria-label="Type your message here..." id="CSChatMessage" rows="1" className="pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0" />
+                            <textarea aria-label="Type your message here..." placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} id="CSChatMessage" rows="1" className="pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0" />
                         </div>
                     </div>
                 </React.Fragment>);
         }
-
-        const { t } = this.props;
-
+        
         if (this.props.chatwidget.hasIn(['chatLiveData','ru']) && this.props.chatwidget.getIn(['chatLiveData','ru'])) {
 
             location = this.props.chatwidget.get('base_url') + this.props.chatwidget.getIn(['chatLiveData','ru']);
