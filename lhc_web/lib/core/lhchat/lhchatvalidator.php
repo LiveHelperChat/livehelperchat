@@ -1632,42 +1632,45 @@ class erLhcoreClassChatValidator {
                 $chat->status = erLhcoreClassModelChat::STATUS_BOT_CHAT;
                 $chat->gbot_id = $bot->id;
 
-                if (isset($params['trigger_id']) && $params['trigger_id'] > 0) {
-                    $botTrigger = erLhcoreClassModelGenericBotTrigger::fetch($params['trigger_id']);
-                } else {
-                    $botIds = $bot->getBotIds();
-                    // Find default messages if there are any
-                    $botTrigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $botIds), 'filter' => array('default' => 1)));
-                }
+                if (!isset($params['ignore_default']) || $params['ignore_default'] == false)
+                {
+                    if (isset($params['trigger_id']) && $params['trigger_id'] > 0) {
+                        $botTrigger = erLhcoreClassModelGenericBotTrigger::fetch($params['trigger_id']);
+                    } else {
+                        $botIds = $bot->getBotIds();
+                        // Find default messages if there are any
+                        $botTrigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $botIds), 'filter' => array('default' => 1)));
+                    }
 
-                if ($botTrigger instanceof erLhcoreClassModelGenericBotTrigger && (!isset($params['trigger_id_executed']) || $params['trigger_id_executed'] != $botTrigger->id)) {
+                    if ($botTrigger instanceof erLhcoreClassModelGenericBotTrigger && (!isset($params['trigger_id_executed']) || $params['trigger_id_executed'] != $botTrigger->id)) {
 
-                    // set flag that we are executing everthing in start chat mode
-                    erLhcoreClassGenericBotWorkflow::$startChat = true;
+                        // set flag that we are executing everthing in start chat mode
+                        erLhcoreClassGenericBotWorkflow::$startChat = true;
 
-                    if (isset($params['msg']) && $chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
-                        $chatVariables = $chat->chat_variables_array;
-                        if (!isset($chatVariables['msg_v'])) {
-                            $chatVariables['msg_v'] = 1;
-                        } else {
-                            $chatVariables['msg_v']++;
+                        if (isset($params['msg']) && $chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
+                            $chatVariables = $chat->chat_variables_array;
+                            if (!isset($chatVariables['msg_v'])) {
+                                $chatVariables['msg_v'] = 1;
+                            } else {
+                                $chatVariables['msg_v']++;
+                            }
+                            $chat->chat_variables_array = $chatVariables;
+                            $chat->chat_variables = json_encode($chatVariables);
                         }
-                        $chat->chat_variables_array = $chatVariables;
-                        $chat->chat_variables = json_encode($chatVariables);
-                    }
 
-                    $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $botTrigger, false, array('args' => $params));
+                        $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $botTrigger, false, array('args' => $params));
 
-                    if (isset($params['trigger_button_id'])) {
-                        $chat->saveThis();
-                        erLhcoreClassGenericBotWorkflow::processTriggerClick($chat, $message, $params['trigger_button_id'], array('processed' => (isset($params['processed']) && $params['processed'] == true)));
-                    } else if (isset($params['trigger_payload_id'])) {
-                        $chat->saveThis();
-                        erLhcoreClassGenericBotWorkflow::processButtonClick($chat, $message, $params['trigger_payload_id'], array('processed' => (isset($params['processed']) && $params['processed'] == true)));
-                    }
+                        if (isset($params['trigger_button_id'])) {
+                            $chat->saveThis();
+                            erLhcoreClassGenericBotWorkflow::processTriggerClick($chat, $message, $params['trigger_button_id'], array('processed' => (isset($params['processed']) && $params['processed'] == true)));
+                        } else if (isset($params['trigger_payload_id'])) {
+                            $chat->saveThis();
+                            erLhcoreClassGenericBotWorkflow::processButtonClick($chat, $message, $params['trigger_payload_id'], array('processed' => (isset($params['processed']) && $params['processed'] == true)));
+                        }
 
-                    if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
-                        $chat->last_msg_id = $message->id;
+                        if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
+                            $chat->last_msg_id = $message->id;
+                        }
                     }
                 }
 

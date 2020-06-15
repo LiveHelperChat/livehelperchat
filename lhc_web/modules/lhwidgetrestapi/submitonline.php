@@ -244,6 +244,7 @@ if (empty($Errors)) {
             $paramsExecution['trigger_id_executed'] = $additionalParams['theme']->bot_configuration_array['trigger_id'];
             if (is_object($trigger)) {
                 erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger);
+                $triggerEvent = erLhcoreClassModelGenericBotChatEvent::findOne(array('filter' => array('chat_id' => $chat->id)));
             }
         }
 
@@ -265,6 +266,11 @@ if (empty($Errors)) {
                 $chat->unanswered_chat = 1;
                 $chat->last_msg_id = $msg->id;
                 $chat->saveThis();
+
+                if (isset($triggerEvent) && $triggerEvent instanceof erLhcoreClassModelGenericBotChatEvent){
+                    erLhcoreClassGenericBotWorkflow::userMessageAdded($chat, $msg);
+                    $paramsExecution['ignore_default'] = true;
+                }
             }
         }
 

@@ -372,8 +372,12 @@ class OnlineChat extends Component {
         ) {
             this.scrollBottom();
 
-            if (!(this.props.chatwidget.getIn(['chat_ui','auto_start']) === true && this.props.chatwidget.get('mode') == 'embed') || (prevState.enabledEditor === false && prevState.enabledEditor != this.state.enabledEditor)) {
+            if (!(this.props.chatwidget.getIn(['chat_ui','auto_start']) === true && this.props.chatwidget.get('mode') == 'embed') || (this.props.chatwidget.getIn(['chat_ui','auto_start']) === false && this.props.chatwidget.get('mode') == 'embed') || (prevState.enabledEditor === false && prevState.enabledEditor != this.state.enabledEditor)) {
                 this.focusMessage();
+                // Sometimes component is not rendered itself. We want to be 100% sure it will always have a focus.
+                setTimeout(() => {
+                    this.focusMessage();
+                },500);
             }
         }
 
