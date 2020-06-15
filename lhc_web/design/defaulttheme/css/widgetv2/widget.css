@@ -881,3 +881,10 @@ textarea[name=ChatMessage] {
     width: 100%;
     height: 36px;
 }
+
+.desktop-embed-body .message-send-area,
+.mobile-embed-body .message-send-area{
+    border-radius: 20px;
+    border:1px solid #dee2e6!important;
+}
+
