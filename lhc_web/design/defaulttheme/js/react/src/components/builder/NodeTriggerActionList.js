@@ -52,12 +52,12 @@ class NodeTriggerActionList extends Component {
         this.props.deleteSubelement({id : this.props.id, 'path' : ['content','list'].concat(e.path)});
     }
 
-    onMoveUpField(fieldIndex) {
-        this.props.moveUpSubelement({id : this.props.id, 'index' : fieldIndex, 'path' : ['content','list']});
+    onMoveUpField(fieldIndex, path) {
+        this.props.moveUpSubelement({id : this.props.id, 'index' : fieldIndex, 'path' : path});
     }
 
-    onMoveDownField(fieldIndex) {
-        this.props.moveDownSubelement({id : this.props.id, 'index' : fieldIndex, 'path' : ['content','list']});
+    onMoveDownField(fieldIndex, path) {
+        this.props.moveDownSubelement({id : this.props.id, 'index' : fieldIndex, 'path' : path});
     }
 
     onChangeMainAttr(field, e) {
@@ -74,21 +74,26 @@ class NodeTriggerActionList extends Component {
 
         if (this.props.action.hasIn(['content','list'])) {
             element_list = this.props.action.getIn(['content','list']).map((field, index) => {
-                return <NodeActionListItem id={index} isFirst={index == 0} isLast={index +1 == this.props.action.getIn(['content','list']).size} onDeleteSubField={this.onDeleteSubField} addSubelement={this.addSubelement} key={field.get('_id')} item={field} onMoveDownField={this.onMoveDownField} onMoveUpField={this.onMoveUpField} onDeleteField={this.onDeleteField} onChangeFieldAttr={this.onchangeFieldAttr}/>
+                return <NodeActionListItem id={index} isFirst={index == 0} isLast={index +1 == this.props.action.getIn(['content','list']).size} onDeleteSubField={this.onDeleteSubField} addSubelement={this.addSubelement} key={field.get('_id')} item={field} onMoveDownField={(e) => this.onMoveDownField(index,['content','list'])} onMoveUpField={(e) => this.onMoveUpField(index,['content','list'])} onDeleteField={this.onDeleteField} onChangeFieldAttr={this.onchangeFieldAttr}/>
             });
         }
 
         var button_list = [];
 
         if (this.props.action.hasIn(['content','quick_replies'])) {
+            var totalButtons = this.props.action.getIn(['content','quick_replies']).size;
             button_list = this.props.action.getIn(['content','quick_replies']).map((reply, index) => {
                 return <NodeTriggerActionQuickReply onPayloadAttrChange={(e) => this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content', e.payload.attr], value : e.payload.value})}
                                                     onPayloadTypeChange={(e) => this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'type'], value : e.value})}
                                                     deleteReply={(e) => this.props.removeQuickReply({id : this.props.id, 'path' : ['content','quick_replies',e.id]})}
                                                     onNameChange={(e) => this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content','name'], value : e.value})}
                                                     onPayloadChange={(e) => this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content','payload'], value : e.value})}
+                                                    upField={(e) => this.onMoveUpField(index, ['content','quick_replies'])}
+                                                    downField={(e) => this.onMoveDownField(index, ['content','quick_replies'])}
+                                                    isFirst={index == 0}
+                                                    isLast={index + 1 == totalButtons}
                                                     id={index}
-                                                    key={index}
+                                                    key={reply.get('_id') || index}
                                                     reply={reply} />
             });
         }

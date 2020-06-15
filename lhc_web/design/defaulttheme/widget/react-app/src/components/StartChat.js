@@ -24,6 +24,7 @@ class StartChat extends Component {
         super(props);
 
         this.state = {showBBCode : null, Question:''};
+        this.botPayload = null;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.enterKeyDown = this.enterKeyDown.bind(this);
         this.handleContentChange = this.handleContentChange.bind(this);
@@ -94,12 +95,17 @@ class StartChat extends Component {
             'fields' : fields
         };
 
+        if (this.botPayload) {
+            submitData['bpayload'] = this.botPayload;
+        }
+
         if (this.props.chatwidget.hasIn(['proactive','data','invitation_id']) === true) {
             submitData['invitation_id'] = this.props.chatwidget.getIn(['proactive','data','invitation_id']);
         }
 
         this.props.dispatch(submitOnlineForm(submitData));
 
+        if (event)
         event.preventDefault();
     }
 
@@ -144,7 +150,8 @@ class StartChat extends Component {
     }
 
     setBotPayload(params) {
-        console.log(params);
+        this.botPayload = params;
+        this.handleSubmit();
     }
 
     updateOnlineFields(){

@@ -61,6 +61,20 @@ export class needhelpWidget{
             attributes.widgetStatus.subscribe((data) => {
                 data == true ? this.hide() : this.show();
             });
+
+            attributes.onlineStatus.subscribe((data) => {
+                if (data == false) {
+                    let needHide = this.hidden;
+                    this.hide();
+                    // Show next time only if it was not hidden already
+                    if (needHide === false) {
+                        this.hidden = false;
+                    }
+                } else {
+                    this.show();
+                }
+            });
+
         }, settings.delay);
 
     }

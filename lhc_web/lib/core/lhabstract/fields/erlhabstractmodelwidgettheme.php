@@ -1121,7 +1121,17 @@ $fields = array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 )),
-   		);
+       'header_icon_color' => array(
+            'type' => 'colorpicker',
+            'main_attr' => 'bot_configuration_array',
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Header icons color'),
+            'required' => true,
+            'hidden' => true,
+            'validation_definition' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+       ),
+);
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('lhabstract.erlhabstractmodelwidgettheme.fields',array('fields' => & $fields));
 
 return $fields;

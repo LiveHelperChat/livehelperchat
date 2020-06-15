@@ -98,8 +98,14 @@ class NodeTriggerActionQuickReply extends Component {
                     <NodeTriggerActionQuickReplyPayload onPayloadAttrChange={this.onPayloadAttrChange} onPayloadTypeChange={this.onPayloadTypeChange} onPayloadChange={this.onPayloadChange} payloadType={this.props.reply.get('type')} currentPayload={this.props.reply.getIn(['content'])} />
                 </div>
                 <div className="col-2">
-                    <div className="form-group">
-                        <label>&nbsp;</label>
+
+                    <div className="btn-group float-left mt-4 pt-2" role="group" aria-label="Trigger actions">
+                        <button disabled="disabled" className="btn btn-xs btn-secondary">{this.props.id + 1}</button>
+                        {this.props.isFirst == false && <button className="btn btn-secondary btn-xs" onClick={this.props.upField}><i className="material-icons mr-0">keyboard_arrow_up</i></button>}
+                        {this.props.isLast == false && <button className="btn btn-secondary btn-xs" onClick={this.props.downField}><i className="material-icons mr-0">keyboard_arrow_down</i></button>}
+                    </div>
+
+                    <div className="form-group float-right mt-4 pt-1">
                         <div>
                             <a onClick={this.deleteReply}><i className="material-icons mr-0">delete</i></a>
                         </div>

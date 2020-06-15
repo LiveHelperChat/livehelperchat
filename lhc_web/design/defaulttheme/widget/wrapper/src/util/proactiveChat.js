@@ -30,6 +30,12 @@ class _proactiveChat {
         this.attributes.eventEmitter.addListener('checkMessageOperator', () => {
             this.initInvitation({init: 0});
         });
+
+        this.attributes.onlineStatus.subscribe((data) => {
+            if (data == true) {
+                this.initInvitation({init: 0});
+            }
+        });
     }
 
     showInvitation(params, init) {

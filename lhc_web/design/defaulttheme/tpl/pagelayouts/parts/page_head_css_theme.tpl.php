@@ -125,6 +125,11 @@ div.message-admin div.meta-message{
     <?php endif; ?>
 }
 
+<?php if (isset($theme->bot_configuration_array['header_icon_color']) && $theme->bot_configuration_array['header_icon_color'] != '') : ?>
+.header-link .material-icons{
+    color: #<?php echo $theme->bot_configuration_array['header_icon_color']?>!important;
+}
+<?php endif; ?>
 
 <?php echo $theme->custom_widget_css?>
 

@@ -208,7 +208,12 @@
 						<label><?php echo $fields['widget_border_color']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('widget_border_color', $fields['widget_border_color'], $object)?>		
 						</div>
-						
+
+                        <div class="form-group">
+						<label><?php echo $fields['header_icon_color']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('header_icon_color', $fields['header_icon_color'], $object)?>
+						</div>
+
 						<div class="form-group">											
 						<label><?php echo $fields['widget_border_width']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('widget_border_width', $fields['widget_border_width'], $object)?>		

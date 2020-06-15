@@ -139,6 +139,8 @@
 	<input type="submit" class="btn btn-secondary" name="UpdateClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
 	<input type="submit" class="btn btn-secondary" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
 </div>
+    
+    <?php include(erLhcoreClassDesign::designtpl('lhabstract/parts/after_form.tpl.php'));?>
 
 </div>
 
