@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 
 import HeaderChat from './HeaderChat';
+import StartChat from './StartChat';
+import OnlineChat from './OnlineChat';
 
 import { endChat } from "../actions/chatActions"
 import { helperFunctions } from "../lib/helperFunctions";
@@ -10,8 +12,6 @@ import { Suspense, lazy } from 'react';
 import { STATUS_CLOSED_CHAT, STATUS_BOT_CHAT, STATUS_SUB_SURVEY_SHOW, STATUS_SUB_USER_CLOSED_CHAT, STATUS_SUB_CONTACT_FORM } from "../constants/chat-status";
 
 const OfflineChat = React.lazy(() => import('./OfflineChat'));
-const StartChat = React.lazy(() => import('./StartChat'));
-const OnlineChat = React.lazy(() => import('./OnlineChat'));
 const ProactiveInvitation = React.lazy(() => import('./ProactiveInvitation'));
 
 @connect((store) => {
@@ -135,9 +135,9 @@ class BodyChat extends Component {
         }
 
         if (this.props.chatwidget.get('isChatting') === true) {
-            return (<React.Fragment>{this.props.chatwidget.hasIn(['chat_ui','custom_html_header']) && <div className="lhc-custom-header-above" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header'])}}></div>}{this.props.chatwidget.get('mode') == 'widget' && <HeaderChat popupChat={this.popupChat} endChat={this.endChat} />}<div className={className}><Suspense fallback=""><OnlineChat profileBefore={this.profileHTML} messagesBefore={this.messagesHTML} cancelClose={this.cancelClose} endChat={this.endChat} /></Suspense></div></React.Fragment>)
+            return (<React.Fragment>{this.props.chatwidget.hasIn(['chat_ui','custom_html_header']) && <div className="lhc-custom-header-above" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header'])}}></div>}{this.props.chatwidget.get('mode') == 'widget' && <HeaderChat popupChat={this.popupChat} endChat={this.endChat} />}<div className={className}><OnlineChat profileBefore={this.profileHTML} messagesBefore={this.messagesHTML} cancelClose={this.cancelClose} endChat={this.endChat} /></div></React.Fragment>)
         } else if (this.props.chatwidget.get('isOnline') === true) {
-            return (<React.Fragment>{this.props.chatwidget.hasIn(['chat_ui','custom_html_header']) && <div className="lhc-custom-header-above" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header'])}}></div>}{this.props.chatwidget.get('mode') == 'widget' && <HeaderChat popupChat={this.popupChat} endChat={this.endChat} />}<div className={className}><Suspense fallback=""><StartChat setProfile={this.setProfile} setMessages={this.setMessages} /></Suspense></div></React.Fragment>)
+            return (<React.Fragment>{this.props.chatwidget.hasIn(['chat_ui','custom_html_header']) && <div className="lhc-custom-header-above" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header'])}}></div>}{this.props.chatwidget.get('mode') == 'widget' && <HeaderChat popupChat={this.popupChat} endChat={this.endChat} />}<div className={className}><StartChat setProfile={this.setProfile} setMessages={this.setMessages} /></div></React.Fragment>)
         } else {
             return (<React.Fragment>{this.props.chatwidget.hasIn(['chat_ui','custom_html_header']) && <div className="lhc-custom-header-above" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header'])}}></div>}{this.props.chatwidget.get('mode') == 'widget' && <HeaderChat popupChat={this.popupChat} endChat={this.endChat} />}<div className={className}><Suspense fallback=""><OfflineChat /></Suspense></div></React.Fragment>)
         }
