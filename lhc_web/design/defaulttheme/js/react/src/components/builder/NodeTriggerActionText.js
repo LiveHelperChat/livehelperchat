@@ -33,6 +33,9 @@ class NodeTriggerActionText extends Component {
         this.onDeleteField = this.onDeleteField.bind(this);
         this.onchangeFieldAttr = this.onchangeFieldAttr.bind(this);
 
+        this.upChildField = this.upChildField.bind(this);
+        this.downChildField = this.downChildField.bind(this);
+
         // Text area focys
         this.textMessageRef = React.createRef();
     }
@@ -127,13 +130,23 @@ class NodeTriggerActionText extends Component {
         lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/'+e});
     }
 
+    upChildField(fieldIndex) {
+        this.props.moveUpSubelement({id : this.props.id, 'index' : fieldIndex, 'path' : ['content','quick_replies']});
+    }
+
+    downChildField(fieldIndex) {
+        this.props.moveDownSubelement({id : this.props.id, 'index' : fieldIndex, 'path' : ['content','quick_replies']});
+    }
+
     render() {
 
         var quick_replies = [];
 
         if (this.props.action.hasIn(['content','quick_replies'])) {
+            var totalButtons = this.props.action.getIn(['content','quick_replies']).size;
+
             quick_replies = this.props.action.getIn(['content','quick_replies']).map((reply, index) => {
-                return <NodeTriggerActionQuickReply onPayloadAttrChange={this.onPayloadAttrChange} onButtonIDChange={this.onButtonIDChange} onStoreValueChange={this.onStoreValueChange} onStoreNameChange={this.onStoreNameChange} onPrecheckChange={this.onPrecheckChange} onRenderArgsChange={this.onRenderArgsChange} onPayloadTypeChange={this.onQuickReplyPayloadTypeChange} deleteReply={this.onDeleteQuickReply} onNameChange={this.onQuickReplyNameChange}  onPayloadChange={this.onQuickReplyPayloadChange} id={index} key={reply.get('_id') || index} reply={reply} />
+                return <NodeTriggerActionQuickReply onPayloadAttrChange={this.onPayloadAttrChange} upField={(e) => this.upChildField(index)} downField={(e) => this.downChildField(index)} onButtonIDChange={this.onButtonIDChange} isFirst={index == 0} isLast={index + 1 == totalButtons} onStoreValueChange={this.onStoreValueChange} onStoreNameChange={this.onStoreNameChange} onPrecheckChange={this.onPrecheckChange} onRenderArgsChange={this.onRenderArgsChange} onPayloadTypeChange={this.onQuickReplyPayloadTypeChange} deleteReply={this.onDeleteQuickReply} onNameChange={this.onQuickReplyNameChange}  onPayloadChange={this.onQuickReplyPayloadChange} id={index} key={reply.get('_id') || index} reply={reply} />
             });
         }
 
