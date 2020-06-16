@@ -893,3 +893,6 @@ textarea[name=ChatMessage] {
     border:1px solid #dee2e6!important;
 }
 
+.tr-msg{
+    display: none;
+}

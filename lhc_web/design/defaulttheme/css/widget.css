@@ -18,10 +18,14 @@ body.embed-widget {
 	padding-top:0px;
 }
 
-/*#widget-layout #status-chat h4{
-	font-size:12px;
-	margin:3px 0px 6px;
-}*/
+.tr-msg{
+    font-style: italic;
+    display: block;
+    background-color: #F4F3F3;
+    border-radius: 10px;
+    padding: 3px 6px;
+    color: #4A4A4A;
+}
 
 ::-webkit-scrollbar {
 width: 0.7em;
