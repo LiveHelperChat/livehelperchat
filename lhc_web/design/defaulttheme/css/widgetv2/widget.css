@@ -434,7 +434,7 @@ div.message-row.response div.msg-body{
 
 .hidden-download::after{
     font-family: 'Material Icons';
-    content:'\e2c0';
+    content:'\f119';
     font-size: 25px;
     color: #007bff;
     display: none;
