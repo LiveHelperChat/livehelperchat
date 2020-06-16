@@ -143,19 +143,6 @@ if ($Params['user_parameters_unordered']['online'] == '0') {
     }
 }
 
-if ($Params['user_parameters_unordered']['online'] == '1' && isset($startDataFields['show_operator_profile']) && $startDataFields['show_operator_profile'] != '') {
-    $tpl = new erLhcoreClassTemplate('lhchat/part/operator_profile_start_chat.tpl.php');
-    $tpl->set('theme',$theme);
-    $tpl->set('start_data_fields',$startDataFields);
-    $tpl->set('react',true);
-
-    if (!isset($chat_ui['operator_profile'])) {
-        $chat_ui['operator_profile'] = '';
-    }
-
-    $chat_ui['operator_profile'] .= $tpl->fetch();
-}
-
 $fields = array();
 
 if ($Params['user_parameters_unordered']['online'] == '0')
@@ -508,6 +495,14 @@ if ($theme !== false) {
         }
 
         if (isset($theme->bot_configuration_array['trigger_id']) && !empty($theme->bot_configuration_array['trigger_id']) && $theme->bot_configuration_array['trigger_id'] > 0) {
+
+            // Use bot photo in case it's bot messages
+            $bot = erLhcoreClassModelGenericBotBot::fetch($theme->bot_configuration_array['bot_id']);
+            if ($bot instanceof erLhcoreClassModelGenericBotBot && $bot->has_photo)
+            {
+                $theme->operator_image_url = $bot->photo_path;
+            }
+
             $tpl = new erLhcoreClassTemplate('lhchat/part/render_intro.tpl.php');
             $tpl->set('theme',$theme);
             $tpl->set('no_wrap_intro',true);
@@ -568,6 +563,19 @@ if ($theme !== false) {
     if (isset($theme->bot_configuration_array['custom_html_header_body']) && $theme->bot_configuration_array['custom_html_header_body'] != '') {
         $chat_ui['custom_html_header_body'] = $theme->bot_configuration_array['custom_html_header_body'];
     }
+}
+
+if ($Params['user_parameters_unordered']['online'] == '1' && isset($startDataFields['show_operator_profile']) && $startDataFields['show_operator_profile'] != '') {
+    $tpl = new erLhcoreClassTemplate('lhchat/part/operator_profile_start_chat.tpl.php');
+    $tpl->set('theme',$theme);
+    $tpl->set('start_data_fields',$startDataFields);
+    $tpl->set('react',true);
+
+    if (!isset($chat_ui['operator_profile'])) {
+        $chat_ui['operator_profile'] = '';
+    }
+
+    $chat_ui['operator_profile'] .= $tpl->fetch();
 }
 
 if ($theme !== false && $theme->hide_popup == 1) {
