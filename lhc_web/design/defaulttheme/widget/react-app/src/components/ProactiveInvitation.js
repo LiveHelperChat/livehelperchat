@@ -68,7 +68,7 @@ class ProactiveInvitation extends Component {
 
         return (
             <div className={className} onClick={this.fullInvitation} id="id-invitation-height">
-                <button title="Close" onClick={(e) => this.hideInvitation(e)} className="float-right btn btn-sm rounded"><i className="material-icons mr-0">close</i></button>
+                <button title="Close" onClick={(e) => this.hideInvitation(e)} className="float-right btn btn-sm rounded"><i className="material-icons mr-0">&#xf10a</i></button>
                 <div className="fs14"><b>{this.props.chatwidget.getIn(['proactive','data','name_support']) || this.props.chatwidget.getIn(['proactive','data','extra_profile'])}</b></div>
                 <p className="fs12" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['proactive','data','message'])}}></p>
             </div>

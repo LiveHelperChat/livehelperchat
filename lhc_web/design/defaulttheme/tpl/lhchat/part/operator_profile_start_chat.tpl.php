@@ -3,7 +3,9 @@
      	<?php if ($theme !== false && $theme->operator_image_url != '') : ?>
      			<img width="48" height="48" src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo $theme->operator_image_url?>" alt="" />
      	<?php else : ?>
-     		<i class="icon-assistant material-icons">account_box</i>
+     		<i class="icon-assistant material-icons">
+                <?php if (isset($react) && $react == true) : ?>&#xf10d;<?php else : ?>account_box<?php endif; ?>
+            </i>
      	<?php endif;?> 
      </div>
      <div class="p-1 pl-2 w-100">

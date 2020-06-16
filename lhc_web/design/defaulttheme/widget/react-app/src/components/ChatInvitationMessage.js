@@ -14,7 +14,7 @@ class ChatInvitationMessage extends PureComponent {
                     <span className="usr-tit op-tit">
                          {this.props.invitation.bubble && <i title={this.props.invitation.name_support || this.props.invitation.extra_profile} className="chat-operators mi-fs15 mr-0">
                              {this.props.invitation.photo && <img src={this.props.invitation.photo} alt="" className="profile-msg-pic" />}
-                             {!this.props.invitation.photo && <i className="icon-assistant material-icons mr-0">account_box</i>}
+                             {!this.props.invitation.photo && <i className="icon-assistant material-icons mr-0">&#xf10d;</i>}
                          </i>}
                         {!this.props.invitation.bubble && (this.props.invitation.name_support || this.props.invitation.extra_profile)}
                      </span>
@@ -28,7 +28,7 @@ class ChatInvitationMessage extends PureComponent {
                         <div className="operator-info d-flex border-bottom p-2">
                              <div>
                                  {this.props.invitation.photo && <img width="48" height="48" src={this.props.invitation.photo} title={this.props.invitation.photo_title} alt=""/>}
-                                 {!this.props.invitation.photo && <i className="icon-assistant material-icons mr-0">account_box</i>}
+                                 {!this.props.invitation.photo && <i className="icon-assistant material-icons mr-0">&#xf10d;</i>}
                              </div>
                              <div className="p-1 pl-2 w-100">
                                  <div>

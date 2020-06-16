@@ -303,7 +303,7 @@ class StartChat extends Component {
 
                                 {this.props.chatwidget.get('processStatus') == 1 && this.state.Question != '' && <div data-op-id="0" className="message-row response">
                                     <div className="msg-date"></div>
-                                    <span title="" className="usr-tit vis-tit"><i title={t('start_chat.visitor')} className="material-icons chat-operators mi-fs15 mr-0">face</i><span className="user-nick-title">{t('start_chat.visitor')}</span></span>
+                                    <span title="" className="usr-tit vis-tit"><i title={t('start_chat.visitor')} className="material-icons chat-operators mi-fs15 mr-0">&#xf104;</i><span className="user-nick-title">{t('start_chat.visitor')}</span></span>
                                     <div className="msg-body">{this.state.Question}</div>
                                 </div>}
 
@@ -325,7 +325,7 @@ class StartChat extends Component {
                                 <div className="disable-select">
                                     <div className="user-chatwidget-buttons pt-1" id="ChatSendButtonContainer">
                                         <a onClick={this.handleSubmit} title={t('button.start_chat')}>
-                                            <i className="material-icons text-muted settings">send</i>
+                                            <i className="material-icons text-muted settings">&#xf107;</i>
                                         </a>
                                     </div>
                                 </div>

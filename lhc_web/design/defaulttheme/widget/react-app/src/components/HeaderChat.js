@@ -49,7 +49,7 @@ class HeaderChat extends Component {
             <div className={className}>
                 {this.props.chatwidget.hasIn(['chat_ui','custom_html_header_body']) && <div className="lhc-custom-header-inside" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header_body'])}}></div>}
                 <div className="col-6 pl-1">
-                    <span className="header-link" title={t('button.minimize')} onClick={this.closeWidget}><i className="material-icons">arrow_drop_down</i></span>
+                    <span className="header-link" title={t('button.minimize')} onClick={this.closeWidget}><i className="material-icons">&#xf103;</i></span>
                 </div>
                 <div className={classNameMenu}>
                     <div className="d-flex">
@@ -57,16 +57,16 @@ class HeaderChat extends Component {
                             {!this.props.chatwidget.hasIn(['chat_ui','hide_popup']) &&
                             <React.Fragment>
                                 <a className="header-link" id="headerDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,5">
-                                    <i className="material-icons">menu</i>
+                                    <i className="material-icons">&#xf105;</i>
                                 </a>
                                 <div className="dropdown-menu dropdown-menu-right dropdown-menu-header mr-3" aria-labelledby="dropdownMenuOffset">
                                     {this.props.chatwidget.get('isChatting') === true && !this.props.chatwidget.hasIn(['chat_ui','hide_close']) ? (
-                                            <a className="dropdown-item header-link-item" onClick={this.endChat} ><i className="material-icons">close</i>{t('button.end_chat')}</a>
+                                            <a className="dropdown-item header-link-item" onClick={this.endChat} ><i className="material-icons">&#xf10a;</i>{t('button.end_chat')}</a>
                                     ) : ''}
-                                    {!this.props.chatwidget.hasIn(['chat_ui','hide_popup']) ? (<a className="dropdown-item header-link-item" onClick={this.popup}><i className="material-icons">open_in_new</i>{t('button.popup')}</a>) : ''}
+                                    {!this.props.chatwidget.hasIn(['chat_ui','hide_popup']) ? (<a className="dropdown-item header-link-item" onClick={this.popup}><i className="material-icons">&#xf106;</i>{t('button.popup')}</a>) : ''}
                                 </div>
                             </React.Fragment>}
-                            {this.props.chatwidget.hasIn(['chat_ui','hide_popup']) && this.props.chatwidget.get('isChatting') === true && !this.props.chatwidget.hasIn(['chat_ui','hide_close']) && <a title={t('button.end_chat')} className="header-link" onClick={this.endChat}><i className="material-icons">close</i></a>}
+                            {this.props.chatwidget.hasIn(['chat_ui','hide_popup']) && this.props.chatwidget.get('isChatting') === true && !this.props.chatwidget.hasIn(['chat_ui','hide_close']) && <a title={t('button.end_chat')} className="header-link" onClick={this.endChat}><i className="material-icons">&#xf10a;</i></a>}
                         </div>
                     </div>
                 </div>

@@ -6,12 +6,12 @@ body {
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/MaterialIcons-Regularv2.eot'); /* For IE6-8 */
+    src: url('../fonts/MaterialIcons-lhc.eot'); /* For IE6-8 */
     src: local('Material Icons'),
     local('MaterialIcons-Regular'),
-    url('../fonts/MaterialIcons-Regularv2.woff2') format('woff2'),
-    url('../fonts/MaterialIcons-Regularv2.woff') format('woff'),
-    url('../fonts/MaterialIcons-Regularv2.ttf') format('truetype');
+    url('../fonts/MaterialIcons-lhc.woff2') format('woff2'),
+    url('../fonts/MaterialIcons-lhc.woff') format('woff'),
+    url('../fonts/MaterialIcons-lhc.ttf') format('truetype');
     font-display: swap;
 }
 

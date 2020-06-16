@@ -1,2 +1,2 @@
-<i class="material-icons<?php if ($chat->fbst == 1) : ?> up-voted<?php endif;?> up-vote-action" role="button" data-id="1" onclick="lhinst.voteAction($(this))" >thumb_up</i>
-<i class="material-icons<?php if ($chat->fbst == 2) : ?> down-voted<?php endif;?> down-vote-action" role="button" data-id="2" onclick="lhinst.voteAction($(this))">thumb_down</i>
+<i class="material-icons<?php if ($chat->fbst == 1) : ?> up-voted<?php endif;?> up-vote-action" role="button" data-id="1" onclick="lhinst.voteAction($(this))" ><?php if (isset($react) && $react === true) : ?>&#xf109;<?php else : ?>thumb_up<?php endif; ?></i>
+<i class="material-icons<?php if ($chat->fbst == 2) : ?> down-voted<?php endif;?> down-vote-action" role="button" data-id="2" onclick="lhinst.voteAction($(this))"><?php if (isset($react) && $react === true) : ?>&#xf108;<?php else : ?>thumb_down<?php endif; ?></i>

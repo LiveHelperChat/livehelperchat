@@ -20,7 +20,7 @@
             <img class="profile-msg-pic" src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo $theme->operator_image_url?>" alt="">
         </i>
     <?php else : ?>
-        <i title="<?php echo htmlspecialchars($msg['name_support'])?>" class="material-icons chat-operators mi-fs15 mr-0">account_box</i>
+        <i title="<?php echo htmlspecialchars($msg['name_support'])?>" class="material-icons chat-operators mi-fs15 mr-0"><?php if (isset($react) && $react == true) : ?>&#xf10d;<?php else : ?>account_box<?php endif; ?> </i>
         <span class="op-nick-title"><?php echo htmlspecialchars($msg['name_support'])?></span>
     <?php endif; ?>
 </span>

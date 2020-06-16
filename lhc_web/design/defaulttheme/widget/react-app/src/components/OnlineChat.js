@@ -523,7 +523,7 @@ class OnlineChat extends Component {
                     {this.props.profileBefore !== null && <div dangerouslySetInnerHTML={{__html:this.props.profileBefore}}></div>}
                     <div className={msg_expand} id="messagesBlock" dangerouslySetInnerHTML={{__html:this.props.messagesBefore}}></div>
                     <div className="d-flex flex-row border-top position-relative message-send-area" >
-                        <div className="btn-group dropup disable-select pl-2 pt-2"><i className="material-icons settings text-muted" aria-haspopup="true" aria-expanded="false">settings</i></div>
+                        <div className="btn-group dropup disable-select pl-2 pt-2"><i className="material-icons settings text-muted" aria-haspopup="true" aria-expanded="false">&#xf100;</i></div>
                         <div className="mx-auto pb-1 w-100">
                             <textarea aria-label="Type your message here..." placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} id="CSChatMessage" rows="1" className="pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0" />
                         </div>
@@ -662,14 +662,14 @@ class OnlineChat extends Component {
 
                         <ChatOptions elementId="chat-dropdown-options">
                             <div className="btn-group dropup disable-select pl-2 pt-2">
-                                <i className="material-icons settings text-muted" id="chat-dropdown-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">settings</i>
+                                <i className="material-icons settings text-muted" id="chat-dropdown-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#xf100;</i>
                                 <div className="dropdown-menu shadow bg-white rounded lhc-dropdown-menu ml-1">
                                     <div className="d-flex flex-row pl-1">
-                                        <a onClick={this.toggleSound} title={t('chat.option_sound')}><i className="material-icons chat-setting-item text-muted">{this.props.chatwidget.getIn(['usersettings','soundOn']) === true ? 'volume_up' : 'volume_off'}</i></a>
-                                        {this.props.chatwidget.hasIn(['chat_ui','print']) && <a target="_blank" href={this.props.chatwidget.get('base_url') + "chat/printchat/" +this.props.chatwidget.getIn(['chatData','id']) + "/" + this.props.chatwidget.getIn(['chatData','hash'])} title={t('button.print')}><i className="material-icons chat-setting-item text-muted">print</i></a>}
+                                        <a onClick={this.toggleSound} title={t('chat.option_sound')}><i className="material-icons chat-setting-item text-muted">{this.props.chatwidget.getIn(['usersettings','soundOn']) === true ? <React.Fragment>&#xf102;</React.Fragment> : <React.Fragment>&#xf101;</React.Fragment>}</i></a>
+                                        {this.props.chatwidget.hasIn(['chat_ui','print']) && <a target="_blank" href={this.props.chatwidget.get('base_url') + "chat/printchat/" +this.props.chatwidget.getIn(['chatData','id']) + "/" + this.props.chatwidget.getIn(['chatData','hash'])} title={t('button.print')}><i className="material-icons chat-setting-item text-muted">&#xf10c;</i></a>}
                                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.hasIn(['chat_ui','file']) && <ChatFileUploader fileOptions={this.props.chatwidget.getIn(['chat_ui','file_options'])} onDrag={this.dragging} dropArea={this.textMessageRef} onCompletion={this.updateMessages} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} link={true}/>}
-                                        {!this.props.chatwidget.getIn(['chatLiveData','closed']) && <a onClick={this.toggleModal} title={t('button.bb_code')}><i className="material-icons chat-setting-item text-muted">face</i></a>}
-                                        {this.props.chatwidget.hasIn(['chat_ui','close_btn']) && <a onClick={this.endChat} title={t('button.end_chat')} ><i className="material-icons chat-setting-item text-muted">close</i></a>}
+                                        {!this.props.chatwidget.getIn(['chatLiveData','closed']) && <a onClick={this.toggleModal} title={t('button.bb_code')}><i className="material-icons chat-setting-item text-muted">&#xf104;</i></a>}
+                                        {this.props.chatwidget.hasIn(['chat_ui','close_btn']) && <a onClick={this.endChat} title={t('button.end_chat')} ><i className="material-icons chat-setting-item text-muted">&#xf10a;</i></a>}
                                     </div>
                                 </div>
                             </div>
@@ -687,11 +687,11 @@ class OnlineChat extends Component {
                                     {this.state.voiceMode === true && <Suspense fallback="..."><VoiceMessage onCompletion={this.updateMessages} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} maxSeconds="30" cancel={this.cancelVoiceRecording} /></Suspense>}
 
                                     {this.props.chatwidget.hasIn(['chat_ui','voice_message']) && this.state.value.length == 0 && this.state.voiceMode === false && <a onClick={this.startVoiceRecording} title={t('button.record_voice')}>
-                                       <i className="material-icons text-muted settings mr-0">mic_none</i>
+                                       <i className="material-icons text-muted settings mr-0">&#xf10b;</i>
                                     </a>}
 
                                     {(!this.props.chatwidget.hasIn(['chat_ui','voice_message']) || (this.state.value.length > 0 && this.state.voiceMode === false)) && <a onClick={this.sendMessage} title={t('button.send')}>
-                                       <i className="material-icons text-muted settings mr-0">send</i>
+                                       <i className="material-icons text-muted settings mr-0">&#xf107;</i>
                                     </a>}
 
                                 </div>

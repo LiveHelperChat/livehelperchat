@@ -8,7 +8,7 @@
                         <?php if (isset($metaMessageData['content']['collectable_options']['edit_image_url']) && !empty($metaMessageData['content']['collectable_options']['edit_image_url'])) : ?>
                             <img src="<?php echo htmlspecialchars($metaMessageData['content']['collectable_options']['edit_image_url'])?>" />
                         <?php else : ?>
-                            <i class="material-icons">edit</i>
+                            <i class="material-icons"><?php if (isset($react) && $react == true) : ?>&#xf116;<?php else : ?>edit<?php endif; ?></i>
                         <?php endif; ?>
                     </a>
                     <?php endif; ?>
