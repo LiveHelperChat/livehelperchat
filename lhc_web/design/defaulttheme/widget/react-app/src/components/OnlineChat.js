@@ -521,7 +521,7 @@ class OnlineChat extends Component {
 
                 return (<React.Fragment>
                     {this.props.profileBefore !== null && <div dangerouslySetInnerHTML={{__html:this.props.profileBefore}}></div>}
-                    {this.props.messagesBefore !== null && <div className={msg_expand} id="messagesBlock" dangerouslySetInnerHTML={{__html:this.props.messagesBefore}}></div>}
+                    <div className={msg_expand} id="messagesBlock" dangerouslySetInnerHTML={{__html:this.props.messagesBefore}}></div>
                     <div className="d-flex flex-row border-top position-relative message-send-area" >
                         <div className="btn-group dropup disable-select pl-2 pt-2"><i className="material-icons settings text-muted" aria-haspopup="true" aria-expanded="false">settings</i></div>
                         <div className="mx-auto pb-1 w-100">

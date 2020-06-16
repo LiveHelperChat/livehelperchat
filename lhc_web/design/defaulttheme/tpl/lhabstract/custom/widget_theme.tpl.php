@@ -526,7 +526,7 @@
 
                             <div class="form-group">
                                 <label><?php echo $fields['trigger_id']['trans'];?></label>
-                                <div id="trigger-list-id"></div>
+                                <div id="trigger-list-id"><input type="hidden" value="0" name="AbstractInput_trigger_id" /></div>
                             </div>
                         </div>
                         <div class="col-6">
@@ -720,16 +720,24 @@
 
         $('select[name="AbstractInput_bot_id"]').change(function(){
             $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $(this).val() + '/0/(preview)/1', { }, function(data) {
-                $('#trigger-list-id').html(data);
-                renderPreview($('select[name="AbstractInput_trigger_id"]'));
+
+                if (data != '') {
+                    $('#trigger-list-id').html(data);
+                    renderPreview($('select[name="AbstractInput_trigger_id"]'));
+                } else {
+                    $('#trigger-list-id').html('<input type="hidden" value="0" name="AbstractInput_trigger_id" />');
+                }
+
             }).fail(function() {
 
             });
         });
 
         $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $('select[name="AbstractInput_bot_id"]').val() + '/<?php echo (isset($object->bot_configuration_array['trigger_id'])) ? $object->bot_configuration_array['trigger_id'] : 0 ?>/(preview)/1', { }, function(data) {
-            $('#trigger-list-id').html(data);
-            renderPreview($('select[name="AbstractInput_trigger_id"]'));
+            if (data != '') {
+                $('#trigger-list-id').html(data);
+                renderPreview($('select[name="AbstractInput_trigger_id"]'));
+            }
         }).fail(function() {
 
         });

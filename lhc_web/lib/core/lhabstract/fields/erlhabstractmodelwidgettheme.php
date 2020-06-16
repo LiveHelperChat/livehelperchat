@@ -471,7 +471,7 @@ $fields = array(
                         'params_call' => array(),
    						'main_attr' => 'bot_configuration_array',
    						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+   								ezcInputFormDefinitionElement::OPTIONAL, 'string'
    						)),
                 'trigger_id' => array(
    						'type' => 'combobox',
@@ -483,7 +483,7 @@ $fields = array(
    						'main_attr' => 'bot_configuration_array',
                         'params_call' => array('filter' => array('bot_id' => (isset($this->bot_configuration_array['bot_id']) ? $this->bot_configuration_array['bot_id'] : 0))),
    						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+   								ezcInputFormDefinitionElement::OPTIONAL, 'string'
    						)),
                 'custom_start_button_offline' => array(
    						'type' => 'text',
