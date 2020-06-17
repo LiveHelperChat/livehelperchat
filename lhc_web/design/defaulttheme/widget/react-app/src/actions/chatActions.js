@@ -250,6 +250,19 @@ export function submitOfflineForm(obj) {
     }
 }
 
+export function updateUISettings(obj) {
+    return function(dispatch, getState) {
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/uisettings", obj)
+            .then((response) => {
+                dispatch({type: "REFRESH_UI_COMPLETED", data: response.data})
+            })
+            .catch((err) => {
+                console.log(err);
+                dispatch({type: "REFRESH_UI_REJECTED", data: err})
+            })
+    }
+}
+
 export function initChatUI(obj) {
     return function(dispatch, getState) {
         axios.post(window.lhcChat['base_url'] + "widgetrestapi/initchat", obj)
@@ -275,7 +288,7 @@ export function initChatUI(obj) {
     }
 }
 
-function processResponseCheckStatus(response, getState) {
+function processResponseCheckStatus(response, getState, dispatch) {
     if (response.op) {
 
         response.op.forEach((op) => {
@@ -301,6 +314,9 @@ function processResponseCheckStatus(response, getState) {
                 helperFunctions.sendMessageParent('screenshare',[]);
             } else if (action == 'lhc_cobrowse_cmd') {
                 helperFunctions.sendMessageParent('screenshareCommand',[op]);
+            } else if (action == 'lhc_ui_refresh') {
+                const state = getState();
+                updateUISettings({'id' : state.chatwidget.getIn(['chatData','id']), 'hash' : state.chatwidget.getIn(['chatData','hash'])})(dispatch, getState);
             }
         });
     }
@@ -321,7 +337,7 @@ export function fetchMessages(obj) {
         .then((response) => {
             dispatch({type: "FETCH_MESSAGES_SUBMITTED", data: response.data});
 
-            processResponseCheckStatus(response.data, getState);
+            processResponseCheckStatus(response.data, getState, dispatch);
 
             helperFunctions.emitEvent('chat.fetch_messages',[response.data, dispatch, getState]);
 

@@ -246,6 +246,10 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .setIn(['chatLiveData','closed'], action.data.closed && action.data.closed === true);
         }
 
+        case 'REFRESH_UI_COMPLETED' : {
+            return state.set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)));
+        }
+
         case 'FETCH_MESSAGES_STARTED': {
             return state.setIn(['syncStatus','msg'],true);
         }

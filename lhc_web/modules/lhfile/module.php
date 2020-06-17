@@ -14,6 +14,11 @@ $ViewList['uploadfile'] = array(
 		'uparams' => array(),
 );
 
+$ViewList['fileoptions'] = array(
+		'params' => array('chat_id','hash'),
+		'uparams' => array(),
+);
+
 $ViewList['uploadfileonline'] = array(
 		'params' => array('vid'),
 		'uparams' => array(),

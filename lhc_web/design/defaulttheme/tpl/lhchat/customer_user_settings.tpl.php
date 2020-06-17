@@ -38,7 +38,18 @@ $soundMessageEnabled = erLhcoreClassModelUserSetting::getSetting('chat_message',
   </div>
 
 
-<?php if ( isset($chat) && isset($fileData['active_user_upload']) && $fileData['active_user_upload'] == true ) : ?>
+<?php
+
+$chatUploadEnabled = false;
+
+if (isset($chat)) {
+    $chatVariables = $chat->chat_variables_array;
+    if (isset($chatVariables['lhc_fu']) && $chatVariables['lhc_fu'] == 1) {
+        $chatUploadEnabled = true;
+    }
+}
+
+if ( (isset($chat) && isset($fileData['active_user_upload']) && $fileData['active_user_upload'] == true) || $chatUploadEnabled == true) : ?>
 <script>
 lhinst.addFileUserUpload({ft_msg:'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('files/files','Not an accepted file type')?>',fs_msg:'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('files/files','Filesize is too big')?>',hash:'<?php echo $chat->hash?>',chat_id:'<?php echo $chat->id?>',fs:<?php echo $fileData['fs_max']*1024?>,ft_us:/(\.|\/)(<?php echo $fileData['ft_us']?>)$/i});
 </script>
