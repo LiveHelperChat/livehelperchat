@@ -3,7 +3,7 @@
     <style>
 <?php endif; ?>
         <?php if ($Result['theme']->buble_visitor_background != '') : ?>
-        #messagesBlock div.message-row.response div.msg-body{background-color:#<?php echo htmlspecialchars($Result['theme']->buble_visitor_background)?>!important;}
+        #messagesBlock div.message-row.response div.msg-body:not(.msg-body-media){background-color:#<?php echo htmlspecialchars($Result['theme']->buble_visitor_background)?>!important;}
         <?php endif;?>
 
         <?php if ($Result['theme']->buble_visitor_text_color != '') : ?>
@@ -17,7 +17,7 @@
         <?php endif;?>
 
         <?php if ($Result['theme']->buble_operator_background != '') : ?>
-        #messagesBlock div.message-admin div.msg-body{background-color:#<?php echo htmlspecialchars($Result['theme']->buble_operator_background)?>!important;}
+        #messagesBlock div.message-admin div.msg-body:not(.msg-body-media){background-color:#<?php echo htmlspecialchars($Result['theme']->buble_operator_background)?>!important;}
         <?php endif;?>
 
         <?php if ($Result['theme']->buble_operator_text_color != '') : ?>
