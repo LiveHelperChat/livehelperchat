@@ -56,6 +56,12 @@ $ViewList['initchat'] = array(
 	'multiple_arguments' => array ()
 );
 
+$ViewList['uisettings'] = array(
+    'params' => array(),
+    'uparams' => array(),
+	'multiple_arguments' => array ()
+);
+
 $ViewList['fetchmessages'] = array(
     'params' => array(),
     'uparams' => array(),

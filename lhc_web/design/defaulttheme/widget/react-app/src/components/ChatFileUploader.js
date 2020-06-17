@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { withTranslation } from 'react-i18next';
+import { helperFunctions } from "../lib/helperFunctions";
 
 /**
  * https://github.com/LukasMarx/react-file-upload
@@ -148,6 +149,10 @@ class ChatFileUploader extends PureComponent {
                 this.props.dropArea.current.ondragleave = this.onDragLeave;
                 this.props.dropArea.current.ondrop = this.onDrop;
                 document.addEventListener("paste", this.onPaste);
+
+                helperFunctions.eventEmitter.addListener('fileupload', (e) => {
+                    this.openFileDialog()
+                });
             }
         }, 1000);
     }

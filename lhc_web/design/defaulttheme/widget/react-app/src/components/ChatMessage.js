@@ -44,6 +44,8 @@ class ChatMessage extends PureComponent {
 
         } else if (attrs.onclick.indexOf('lhinst.buttonClicked') !== -1) {
             this.updateTriggerClicked({type:''}, attrs, e.target);
+        } else if (attrs.onclick.indexOf('lhinst.chooseFile') !== -1) {
+            this.props.abstractAction('fileupload');
         } else if (attrs.onclick.indexOf('lhinst.updateChatClicked') !== -1) {
             this.updateTriggerClicked({type:'',mainType: 'updatebuttonclicked'}, attrs, e.target);
         } else if (attrs.onclick.indexOf('lhinst.editGenericStep') !== -1) {

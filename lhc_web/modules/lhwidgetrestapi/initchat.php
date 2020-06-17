@@ -157,7 +157,9 @@ try {
 
         $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
 
-        if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] == true){
+        $chatVariables = $chat->chat_variables_array;
+
+        if ((isset($fileData['active_user_upload']) && $fileData['active_user_upload'] == true) || (isset($chatVariables['lhc_fu']) && $chatVariables['lhc_fu'] == 1)) {
             $outputResponse['chat_ui']['file'] = true;
             $outputResponse['chat_ui']['file_options'] = array(
                 'fs' => $fileData['fs_max']*1024,
@@ -165,7 +167,7 @@ try {
             );
         }
 
-        if (isset($fileData['sound_messages']) && $fileData['sound_messages'] == true){
+        if (isset($fileData['sound_messages']) && $fileData['sound_messages'] == true) {
             $outputResponse['chat_ui']['voice_message'] = $fileData['sound_length'];
         }
 

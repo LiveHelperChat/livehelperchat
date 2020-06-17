@@ -1088,6 +1088,8 @@ function lh(){
     	 $.each(operations,function(i,item) {
 			 	 if (item.indexOf('lhinst.') != -1) { // Internal operation
 			 		eval(item);
+			 	 } else if (item.indexOf('lhc_ui_refresh') != -1) { // This can happen only if operator enables files upload. To support legacy widget.
+			 	     lhinst.enableFileUpload();
 			 	 } else if (inst.isWidgetMode) {
 			 		 parent.postMessage(item, '*');
 				 } else if (window.opener) {
@@ -3150,6 +3152,18 @@ function lh(){
     		}
     	});
     };
+
+    this.chooseFile = function () {
+        document.getElementById('fileupload').click();
+    }
+
+    this.enableFileUpload = function () {
+        $.getJSON(this.wwwDir + 'file/fileoptions/' + this.chat_id + '/' + this.hash, function(data){
+            $('#ChatMessageContainer .dropdown-menu .flex-row').prepend(data.html);
+            data.options.ft_us = new RegExp('(\.|\/)(' +data.options.ft_us + ')$','i');
+            lhinst.addFileUserUpload(data.options);
+        });
+    }
 
     this.addFileUserUpload = function(data_config) {
     	$('#fileupload').fileupload({

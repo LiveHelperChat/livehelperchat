@@ -784,6 +784,11 @@ class erLhcoreClassBBCode
          }
    }
 
+   public static function _make_upload_link($matches){
+       $data = $matches[1];
+       return '<a class="action-image alert-link" onclick="lhinst.chooseFile()">' . htmlspecialchars($data) . '</a>';
+   }
+
    public static function _make_url_file($matches)
    {
 
@@ -1097,6 +1102,9 @@ class erLhcoreClassBBCode
 
     	// Youtube block
     	$ret = preg_replace_callback('#\[youtube\](.*?)\[/youtube\]#is', 'erLhcoreClassBBCode::_make_youtube_block', $ret);
+
+    	// File upload link directly in chat message
+    	$ret = preg_replace_callback('#\[fupload\](.*?)\[/fupload\]#is', 'erLhcoreClassBBCode::_make_upload_link', $ret);
 
     	$ret = preg_replace('#\[translation\](.*?)\[/translation\]#is', '<span class="tr-msg">$1</span>', $ret);
 
