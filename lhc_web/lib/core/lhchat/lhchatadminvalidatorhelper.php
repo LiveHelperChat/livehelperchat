@@ -366,6 +366,9 @@ class erLhcoreClassAdminChatValidatorHelper {
             'HideStartButton' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
+            'LazyLoad' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
 	    
 	        // Custom fields from back office
 	        'customFieldLabel' => new ezcInputFormDefinitionElement(
@@ -431,6 +434,12 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        $data['hide_start_button'] = true;
 	    } else {
 	        $data['hide_start_button'] = false;
+	    }
+
+	    if ( $form->hasValidData( 'LazyLoad' ) && $form->LazyLoad == true ) {
+	        $data['lazy_load'] = true;
+	    } else {
+	        $data['lazy_load'] = false;
 	    }
 
 	    if ( $form->hasValidData( 'MobilePopup' ) && $form->MobilePopup == true ) {

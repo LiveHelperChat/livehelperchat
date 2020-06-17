@@ -56,7 +56,13 @@ class _proactiveChat {
 
         if (!params.only_inject) {
             this.attributes.proactive = params;
-            this.chatEvents.sendChildEvent('proactive', [params]);
+
+            if (this.attributes.mainWidget.isLoaded === false) {
+                this.attributes.mainWidget.bootstrap();
+            } else {
+                this.chatEvents.sendChildEvent('proactive', [params]);
+            }
+
             clearTimeout(this.checkMessageTimeout);
             clearTimeout(this.nextRescheduleTimeout);
         }

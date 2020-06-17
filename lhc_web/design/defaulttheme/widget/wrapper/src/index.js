@@ -270,7 +270,7 @@
                 }
 
                 if (!(attributesWidget.position == 'api' && attributesWidget.mode == 'embed')) {
-                    attributesWidget.mainWidget.init(attributesWidget);
+                    attributesWidget.mainWidget.init(attributesWidget, data.ll);
                 }
 
                 // Show status widget
@@ -287,6 +287,25 @@
                 }
 
                 attributesWidget.proactive_interval = data.chat_ui.proactive_interval;
+
+                if ( (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') && (typeof LHC_API.args.proactive === 'undefined' || LHC_API.args.proactive === true) && attributesWidget.storageHandler.getSessionStorage('LHC_invt') === null) {
+                    import('./util/proactiveChat').then((module) => {
+                        module.proactiveChat.setParams({
+                            'interval' : attributesWidget.proactive_interval
+                        }, attributesWidget, chatEvents);
+                    });
+                }
+
+                if (attributesWidget.init_calls.length > 0) {
+                    attributesWidget.init_calls.forEach((item) => {
+                        if (item.extension == 'nodeJSChat') {
+                            import('./util/nodeJSChat').then((module) => {
+                                module.nodeJSChat.setParams(item.params, attributesWidget, chatEvents);
+                            });
+                        }
+                    });
+                }
+
             })
 
             // Widget Hide event
@@ -515,24 +534,6 @@
 
                 if (parts[1] == 'ready') {
                     chatEvents.sendReadyEvent(parts[2] == 'true');
-
-                    if ( (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') && (typeof LHC_API.args.proactive === 'undefined' || LHC_API.args.proactive === true) && attributesWidget.storageHandler.getSessionStorage('LHC_invt') === null) {
-                        import('./util/proactiveChat').then((module) => {
-                            module.proactiveChat.setParams({
-                                'interval' : attributesWidget.proactive_interval
-                            }, attributesWidget, chatEvents);
-                        });
-                    }
-
-                    if (attributesWidget.init_calls.length > 0) {
-                        attributesWidget.init_calls.forEach((item) => {
-                            if (item.extension == 'nodeJSChat') {
-                                import('./util/nodeJSChat').then((module) => {
-                                    module.nodeJSChat.setParams(item.params, attributesWidget, chatEvents);
-                                });
-                            }
-                        });
-                    }
 
                     if (attributesWidget.storageHandler.getSessionStorage('LHC_screenshare')){
                         attributesWidget.eventEmitter.emitEvent('screenshare',[{'auto_start' : true}]);

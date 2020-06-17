@@ -271,12 +271,15 @@ if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme-
     }
 }
 
-
 $outputResponse['chat_ui']['leaveamessage'] = (isset($startDataFields['force_leave_a_message']) && $startDataFields['force_leave_a_message'] == true) ? true : false;
 $outputResponse['chat_ui']['mobile_popup'] = isset($startDataFields['mobile_popup']) && $startDataFields['mobile_popup'] == true;
 
+if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == true) {
+    $outputResponse['ll'] = true;
+}
+
 $ts = time();
-$outputResponse['v'] = 68;
+$outputResponse['v'] = 69;
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
 

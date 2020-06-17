@@ -28,6 +28,8 @@ export class mainWidget{
         }), null, "iframe");
 
         this.cont.tmpl = '<div id="root" class="container-fluid d-flex flex-column flex-grow-1 overflow-auto fade-in"></div>';
+        
+        this.isLoaded = false;
     }
 
     resize() {
@@ -55,7 +57,7 @@ export class mainWidget{
         this.cont.massRestyle(restyleStyle);
     }
 
-    init(attributes) {
+    init(attributes, lazyLoad) {
 
         this.attributes = attributes;
 
@@ -65,7 +67,30 @@ export class mainWidget{
             this.originalCSS = this.cont.elmDom.style.cssText;
             this.cont.elmDom.style.cssText += this.attributes.cont_ss;
         }
+
+        const chatParams = this.attributes['userSession'].getSessionAttributes();
+
+        if (chatParams['id'] || !lazyLoad) {
+            this.bootstrap();
+        }
         
+        this.toggleVisibilityWrap = (data) => {
+                this.toggleVisibility(data);
+        };
+
+        attributes.widgetStatus.subscribe(this.toggleVisibilityWrap);
+
+        this.monitorDimensionsWrap = (data) => {
+            this.monitorDimensions(data);
+        };
+
+        attributes.widgetDimesions.subscribe(this.monitorDimensionsWrap);
+    }
+
+    bootstrap() {
+
+        this.isLoaded = true;
+
         if (this.attributes.staticJS['fontCSS']) {
             this.cont.insertCssRemoteFile({rel:"stylesheet", crossOrigin : "anonymous",  href : this.attributes.staticJS['fontCSS']});
         }
@@ -79,7 +104,7 @@ export class mainWidget{
         }
 
         this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_css']}, true);
-        
+
         if (this.attributes.isMobile == true && this.attributes.mode == 'widget') {
             this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_mobile_css']});
         }
@@ -95,18 +120,6 @@ export class mainWidget{
                 this.cont.insertJSFile(item, false);
             });
         }
-        
-        this.toggleVisibilityWrap = (data) => {
-                this.toggleVisibility(data);
-        };
-
-        attributes.widgetStatus.subscribe(this.toggleVisibilityWrap);
-
-        this.monitorDimensionsWrap = (data) => {
-            this.monitorDimensions(data);
-        };
-
-        attributes.widgetDimesions.subscribe(this.monitorDimensionsWrap);
     }
 
     toggleVisibility(data) {
@@ -141,6 +154,9 @@ export class mainWidget{
     }
 
     show () {
+         if (this.isLoaded === false) {
+             this.bootstrap();
+         }
          this.cont.show();
     }
 }
