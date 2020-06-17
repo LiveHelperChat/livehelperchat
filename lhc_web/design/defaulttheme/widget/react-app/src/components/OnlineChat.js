@@ -28,6 +28,7 @@ class OnlineChat extends Component {
 
     state = {
         value: '',
+        valueSend: false,
         showBBCode : null,
         dragging : false,
         enabledEditor : true,
@@ -338,6 +339,8 @@ class OnlineChat extends Component {
                 helperFunctions.emitEvent('play_sound', [{'type' : 'new_message','sound_on' : (this.props.chatwidget.getIn(['usersettings','soundOn']) === true), 'widget_open' : ((this.props.chatwidget.get('shown') && this.props.chatwidget.get('mode') == 'widget') || document.hasFocus())}]);
             }
 
+            this.setState({valueSend: false});
+
             if (this.messagesAreaRef.current){
                 let scrollValue = this.messagesAreaRef.current.scrollHeight - this.messagesAreaRef.current.scrollTop;
 
@@ -446,7 +449,8 @@ class OnlineChat extends Component {
             'theme' : this.props.chatwidget.get('theme'),
             'lmgsid' : this.props.chatwidget.getIn(['chatLiveData','lmsgid'])
         }));
-        this.setState({value: ''});
+
+        this.setState({value: '',valueSend: true});
         this.currentMessageTyping = '';
         this.focusMessage();
     }
@@ -526,6 +530,11 @@ class OnlineChat extends Component {
                         <div className="btn-group dropup disable-select pl-2 pt-2"><i className="material-icons settings text-muted" aria-haspopup="true" aria-expanded="false">&#xf100;</i></div>
                         <div className="mx-auto pb-1 w-100">
                             <textarea aria-label="Type your message here..." placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} id="CSChatMessage" rows="1" className="pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0" />
+                        </div>
+                        <div className="disable-select">
+                            <div className="user-chatwidget-buttons pt-1" id="ChatSendButtonContainer">
+                               <i className="material-icons text-muted settings mr-0">&#xf113;</i>
+                            </div>
                         </div>
                     </div>
                 </React.Fragment>);
@@ -686,13 +695,15 @@ class OnlineChat extends Component {
 
                                     {this.state.voiceMode === true && <Suspense fallback="..."><VoiceMessage onCompletion={this.updateMessages} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} maxSeconds="30" cancel={this.cancelVoiceRecording} /></Suspense>}
 
-                                    {this.props.chatwidget.hasIn(['chat_ui','voice_message']) && this.state.value.length == 0 && this.state.voiceMode === false && <a onClick={this.startVoiceRecording} title={t('button.record_voice')}>
+                                    {!this.state.valueSend && this.props.chatwidget.hasIn(['chat_ui','voice_message']) && this.state.value.length == 0 && this.state.voiceMode === false && <a onClick={this.startVoiceRecording} title={t('button.record_voice')}>
                                        <i className="material-icons text-muted settings mr-0">&#xf10b;</i>
                                     </a>}
 
-                                    {(!this.props.chatwidget.hasIn(['chat_ui','voice_message']) || (this.state.value.length > 0 && this.state.voiceMode === false)) && <a onClick={this.sendMessage} title={t('button.send')}>
+                                    {!this.state.valueSend && (!this.props.chatwidget.hasIn(['chat_ui','voice_message']) || (this.state.value.length > 0 && this.state.voiceMode === false)) && <a onClick={this.sendMessage} title={t('button.send')}>
                                        <i className="material-icons text-muted settings mr-0">&#xf107;</i>
                                     </a>}
+
+                                    {this.state.valueSend && <i className="material-icons text-muted settings mr-0">&#xf113;</i>}
 
                                 </div>
 

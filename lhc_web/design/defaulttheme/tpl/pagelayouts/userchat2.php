@@ -21,9 +21,9 @@
 <?php
 $detect = new Mobile_Detect();
 if ($detect->version('IE') !== false) : ?>
-    <script src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.ie.js')?>?t=69"></script>
+    <script src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.ie.js')?>?t=70"></script>
 <?php else : ?>
-    <script src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.js')?>?t=69"></script>
+    <script src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.js')?>?t=70"></script>
 <?php endif; ?>
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer_widget2_js_extension_multiinclude.tpl.php'));?>
