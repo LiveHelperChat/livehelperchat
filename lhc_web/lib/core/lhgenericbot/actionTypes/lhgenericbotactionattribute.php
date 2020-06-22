@@ -46,6 +46,11 @@ class erLhcoreClassGenericBotActionAttribute {
             $msg->msg = $msgText;
 
             $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';
+
+            if ($msg->meta_msg != '') {
+                $msg->meta_msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->meta_msg, array('chat' => $chat));
+            }
+
             $msg->chat_id = $chat->id;
             $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
             $msg->user_id = -2;

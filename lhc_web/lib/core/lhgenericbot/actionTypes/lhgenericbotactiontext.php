@@ -88,7 +88,7 @@ class erLhcoreClassGenericBotActionText {
 
         if (isset($action['content']['html']) && !empty($action['content']['html']))
         {
-            $metaMessage['content']['html']['content'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['html'], array('chat' => $chat));
+            $metaMessage['content']['html']['content'] = $action['content']['html'];
         }
 
         if (isset($action['content']['attr_options']) && !empty($action['content']['attr_options']))
@@ -96,7 +96,7 @@ class erLhcoreClassGenericBotActionText {
             $metaMessage['content']['attr_options'] = $action['content']['attr_options'];
         }
 
-        $action['content']['text'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['text'], array('chat' => $chat));
+        $action['content']['text'] = $action['content']['text'];
 
         $msgData = explode('|||',(isset($action['content']['text']) ? trim($action['content']['text']) : ''));
 
@@ -124,7 +124,13 @@ class erLhcoreClassGenericBotActionText {
             $msg->msg = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$msg->msg);
         }
 
+        $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->msg, array('chat' => $chat));
         $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : (isset($params['meta_msg']) && !empty($params['meta_msg']) ? json_encode($params['meta_msg']) : '');
+
+        if (!empty($msg->meta_msg)){
+            $msg->meta_msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->meta_msg, array('chat' => $chat));
+        }
+
         $msg->chat_id = $chat->id;
         $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
         $msg->user_id = -2;
