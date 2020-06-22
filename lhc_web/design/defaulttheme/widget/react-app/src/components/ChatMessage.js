@@ -19,7 +19,7 @@ class ChatMessage extends PureComponent {
     addLoader(attrs, element) {
         if (!attrs["data-no-change"] && attrs.type == 'button') {
             element.setAttribute("disabled","disabled");
-            element.innerHTML = "<i class=\"material-icons lhc-spin\">&#xf113;</i>" + element.innerHTML;
+            element.innerHTML = "<i class=\"material-icons\">&#xf113;</i>" + element.innerHTML;
         }
     }
     

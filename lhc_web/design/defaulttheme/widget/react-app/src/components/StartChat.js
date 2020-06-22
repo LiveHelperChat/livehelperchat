@@ -147,6 +147,10 @@ class StartChat extends Component {
         if (profileBody !== null) {
             this.props.setProfile(profileBody.innerHTML);
         }
+
+        if (document.getElementById('CSChatMessage') === null) {
+            this.props.setHideMessageField(true);
+        }
     }
 
     setBotPayload(params) {
