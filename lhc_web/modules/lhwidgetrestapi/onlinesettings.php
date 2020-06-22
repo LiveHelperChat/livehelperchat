@@ -509,6 +509,37 @@ if ($theme !== false) {
             $tpl->set('no_wrap_intro',true);
             $tpl->set('triggerMessageId',$theme->bot_configuration_array['trigger_id']);
             $chat_ui['cmmsg_widget'] = $tpl->fetch();
+        } elseif (isset($theme->bot_configuration_array['auto_bot_intro']) && $theme->bot_configuration_array['auto_bot_intro'] == true) {
+
+            if (isset($requestPayload['bot_id']) && is_numeric($requestPayload['bot_id']) && $requestPayload['bot_id'] > 0) {
+                $bot = erLhcoreClassModelGenericBotBot::fetch($requestPayload['bot_id']);
+            } elseif ($departament_id > 0) {
+                $department = erLhcoreClassModelDepartament::fetch($departament_id);
+                if (isset($department->bot_configuration_array['bot_id']) && is_numeric($department->bot_configuration_array['bot_id']) && $department->bot_configuration_array['bot_id'] > 0) {
+                    $bot = erLhcoreClassModelGenericBotBot::fetch($department->bot_configuration_array['bot_id']);
+                }
+            }
+
+            if (isset($bot) && $bot instanceof erLhcoreClassModelGenericBotBot) {
+
+                $botIds = $bot->getBotIds();
+
+                if ($bot instanceof erLhcoreClassModelGenericBotBot && $bot->has_photo)
+                {
+                    $theme->operator_image_url = $bot->photo_path;
+                }
+
+                $triggerDefault = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $botIds), 'filter' => array('default' => 1)));
+
+                if ($triggerDefault instanceof erLhcoreClassModelGenericBotTrigger) {
+                    $tpl = new erLhcoreClassTemplate('lhchat/part/render_intro.tpl.php');
+                    $tpl->set('theme',$theme);
+                    $tpl->set('react',true);
+                    $tpl->set('no_wrap_intro',true);
+                    $tpl->set('triggerMessageId',$triggerDefault->id);
+                    $chat_ui['cmmsg_widget'] = $tpl->fetch();
+                }
+            }
         }
     }
 

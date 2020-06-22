@@ -446,6 +446,15 @@
                     <?php $translatableItem = array('identifier' => 'thank_feedback'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
+                    <?php $translatableItem = array('identifier' => 'custom_start_button'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'custom_start_button_bot'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'custom_start_button_offline'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
         		</div>
         		
         		<div role="tabpanel" class="tab-pane" id="customcss">
@@ -506,16 +515,13 @@
                     <?php $translatableItem = array('identifier' => 'header_html'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
-                    <?php $translatableItem = array('identifier' => 'custom_start_button'); ?>
-                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
-
-                    <?php $translatableItem = array('identifier' => 'custom_start_button_bot'); ?>
-                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
-
-                    <?php $translatableItem = array('identifier' => 'custom_start_button_offline'); ?>
-                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
-
                     <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text content before user fields')?></h4>
+
+                    <div class="form-group">
+                        <label><?php echo erLhcoreClassAbstract::renderInput('auto_bot_intro', $fields['auto_bot_intro'], $object)?> <?php echo $fields['auto_bot_intro']['trans'];?></label>
+                    </div>
+
+                    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Choose manually bot ant trigger')?></h5>
 
                     <div class="row">
                         <div class="col-6">

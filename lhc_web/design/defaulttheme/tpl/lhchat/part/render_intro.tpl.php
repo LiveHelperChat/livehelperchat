@@ -1,10 +1,9 @@
 <?php
-    $trigger = erLhcoreClassModelGenericBotTrigger::fetch($theme->bot_configuration_array['trigger_id']);
+    $trigger = erLhcoreClassModelGenericBotTrigger::fetch((isset($triggerMessageId) && $triggerMessageId > 0) ? $triggerMessageId : $theme->bot_configuration_array['trigger_id']);
     $chat = new erLhcoreClassModelChat();
     $messages = erLhcoreClassGenericBotWorkflow::processTriggerPreview($chat, $trigger, array('args' => array('do_not_save' => true)));
 ?>
 <br/>
-
 
 <?php if (!isset($no_wrap_intro)):?>
 <div id="messages">
