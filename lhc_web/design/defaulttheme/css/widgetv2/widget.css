@@ -887,5 +887,10 @@ textarea[name=ChatMessage] {
 }
 
 .tr-msg{
-    display: none;
+    font-style: italic;
+    display: block;
+    background-color: #F4F3F3;
+    border-radius: 10px;
+    padding: 3px 6px;
+    color: #4A4A4A;
 }
