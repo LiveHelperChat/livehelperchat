@@ -19,7 +19,7 @@ class ChatMessage extends PureComponent {
     addLoader(attrs, element) {
         if (!attrs["data-no-change"] && attrs.type == 'button') {
             element.setAttribute("disabled","disabled");
-            element.innerHTML = "<i class=\"material-icons\">&#xf113;</i>" + element.innerHTML;
+            element.innerHTML = "<i class=\"material-icons lhc-spin\">&#xf113;</i>" + element.innerHTML;
         }
     }
     
@@ -142,6 +142,9 @@ class ChatMessage extends PureComponent {
 
                         // Animate only if it's not first sync call
                         if (domNode.attribs.className.indexOf('message-row') !== -1 && this.props.id > 0) {
+
+                            domNode.attribs.className += ' fade-in-fast';
+
                             if (this.props.msg['msop'] > 0 && this.props.msg['msop'] != this.props.msg['lmsop'] && operatorChanged == false) {
                                 domNode.attribs.className += ' operator-changes';
                                 operatorChanged = true;
