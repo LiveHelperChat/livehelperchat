@@ -35,7 +35,9 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
         $Departament_group->updateThis();
 
         erLhcoreClassDepartament::validateDepartmentGroupDepartments($Departament_group);
-        
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('department.edit_department_group',array('department_group' => & $Departament_group));
+
         if (isset($_POST['Save_departament'])) {
             erLhcoreClassModule::redirect('department/group');
             exit;

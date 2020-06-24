@@ -112,10 +112,14 @@ class erLhcoreClassGenericBotActionCommand {
 
                 // Update and insert new one.
                 foreach ($variablesAppend as $value) {
-                    if (isset($value['identifier']) && isset($value['key']) && isset($value['value']) && $value['key'] != '' && $value['identifier'] != '' && $value['value'] != '') {
+                    if (isset($value['identifier']) && isset($value['key']) && $value['key'] != '' && $value['identifier'] != '') {
                         foreach ($variablesArray as $indexVariable => $variableData) {
                             if ($variableData['identifier'] == $value['identifier']) {
-                                $variablesArray[$indexVariable]['value'] = isset($params['replace_array']) ? str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$value['value']) : $value['value'];
+                                if (isset($value['value'])) {
+                                    $variablesArray[$indexVariable]['value'] = isset($params['replace_array']) ? str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$value['value']) : $value['value'];
+                                } else {
+                                    unset($variablesArray[$indexVariable]);
+                                }
                                 $updatedIdentifiers[] = $value['identifier'];
                             }
                         }
@@ -123,7 +127,7 @@ class erLhcoreClassGenericBotActionCommand {
                 }
 
                 foreach ($variablesAppend as $value) {
-                    if (isset($value['identifier']) && isset($value['key']) && isset($value['value']) && $value['key'] != '' && $value['identifier'] != '' && $value['value'] != '' && !in_array($value['identifier'],$updatedIdentifiers)) {
+                    if (isset($value['identifier']) && isset($value['key']) && isset($value['value']) && $value['key'] != '' && $value['identifier'] != '' && !in_array($value['identifier'],$updatedIdentifiers)) {
                         $variablesArray[] = array(
                             'identifier' => $value['identifier'],
                             'key' => $value['key'],
@@ -131,6 +135,8 @@ class erLhcoreClassGenericBotActionCommand {
                         );
                     }
                 }
+
+                $variablesArray = array_values($variablesArray);
 
                 $chat->additional_data = json_encode($variablesArray);
                 $chat->additional_data_array = $variablesArray;
@@ -145,10 +151,14 @@ class erLhcoreClassGenericBotActionCommand {
 
                 if (is_array($variablesAppend)) {
                     foreach ($variablesAppend as $key => $value) {
-                        if (isset($params['replace_array'])) {
+                        if (isset($params['replace_array']) && isset($value)) {
                             $variablesArray[$key] = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$value);
                         } else {
-                            $variablesArray[$key] = $value;
+                            if (isset($value)) {
+                                $variablesArray[$key] = $value;
+                            } elseif (isset($variablesArray[$key])) {
+                                unset($variablesArray[$key]);
+                            }
                         }
                     }
                 }
