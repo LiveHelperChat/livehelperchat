@@ -66,12 +66,27 @@
 	<div class="tab-content">
 		<div role="tabpanel" class="tab-pane <?php if ( (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'bing') ) : ?>active<?php endif;?>" id="bing">
 		        <label><input type="radio" name="translation_handler" value="bing" <?php ( (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'bing') ) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Use Bing service'); ?></label>
-		              
+		        
+				<?php 
+					$regions = array(
+"australiaeast", "brazilsouth", "canadacentral", "centralindia", "centralus", "centraluseuap", "eastasia", "eastus", "eastus2", "francecentral", "japaneast", "japanwest", "koreacentral", "northcentralus", "northeurope", "southcentralus", "southeastasia", "uksouth", "westcentralus", "westeurope", "westus", "westus2", "southafricanorth");
+				?>
 				<div class="form-group">
-					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Bing client ID');?></label>
-					<input class="form-control" type="text" name="bing_client_id" value="<?php (isset($translation_data['bing_client_id']) && $translation_data['bing_client_id'] != '') ? print htmlspecialchars($translation_data['bing_client_id']) : print '' ?>" />
+					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Select Region');?></label>
+					<select name="bing_region" class="form-control">
+						<?php 
+							if( !isset($translation_data['bing_region']) )
+								echo '<option value="0" selected="selected">Select Region</option>';
+							foreach ($regions as $region) {
+								if(isset($translation_data['bing_region']) && $region === $translation_data['bing_region'])
+									echo "<option value=\"$region\" selected=\"selected\">$region</option>";
+								else
+									echo "<option value=\"$region\">$region</option>";
+							}
+						?>
+					</select>
 				</div>
-				
+						
 				<div class="form-group">
 					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Bing client secret, key is never shown for security purposes');?></label>
 					<input class="form-control" type="text" name="bing_client_secret" value="" />
@@ -98,19 +113,19 @@
 				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Set referrer, usefull if want to limit calls to specific referrer.');?></label>
 				    <input class="form-control" type="text" name="google_referrer" value="<?php (isset($translation_data['google_referrer']) && $translation_data['google_referrer'] != '') ? print htmlspecialchars($translation_data['google_referrer']) : print '' ?>" />
 				</div>
-																
+
 				<div class="btn-group" role="group" aria-label="...">
 				    <input type="submit" class="btn btn-secondary" name="StoreLanguageSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 				</div>
 		</div>
 		<div role="tabpanel" class="tab-pane <?php if (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'yandex' ) : ?>active<?php endif;?>" id="yandex">
 		        <label><input type="radio" name="translation_handler" value="yandex" <?php ( (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'yandex') ) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Use Yandex service'); ?></label>
-								
+
 				<div class="form-group">
 				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','API key, key is never shown for security purposes');?></label>
 				    <input class="form-control" type="text" name="yandex_api_key" value="" />
 				</div>
-																
+											
 				<div class="btn-group" role="group" aria-label="...">
 				    <input type="submit" class="btn btn-secondary" name="StoreLanguageSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 				</div>

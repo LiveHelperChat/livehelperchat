@@ -9,10 +9,9 @@ class erLhcoreClassTranslate
     public static function getBingAccessToken(& $translationConfig, & $translationData)
     {
         if (! isset($translationData['bing_access_token']) || $translationData['bing_access_token_expire'] < time() + 10) {
-            $accessTokenData = erLhcoreClassTranslateBing::getAccessToken($translationData['bing_client_id'], $translationData['bing_client_secret']);
+            $accessTokenData = erLhcoreClassTranslateBing::getAccessToken($translationData['bing_client_secret'], $translationData['bing_region']);
             $translationData['bing_access_token'] = $accessTokenData['at'];
             $translationData['bing_access_token_expire'] = time() + $accessTokenData['exp'];
-            
             $translationConfig->value = serialize($translationData);
             $translationConfig->saveThis();
         }

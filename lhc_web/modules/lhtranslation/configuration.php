@@ -30,10 +30,10 @@ if ( isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSettin
         'enable_translations' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
-        'bing_client_id' => new ezcInputFormDefinitionElement(
+        'bing_client_secret' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
-        'bing_client_secret' => new ezcInputFormDefinitionElement(
+        'bing_region' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
         'google_api_key' => new ezcInputFormDefinitionElement(
@@ -69,10 +69,8 @@ if ( isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSettin
         $data['enable_translations'] = false;
     }
     
-    if ( $form->hasValidData( 'bing_client_id' )) {
-        $data['bing_client_id'] = $form->bing_client_id;
-    } else {
-        $data['bing_client_id'] = '';
+    if ( $form->hasValidData( 'bing_region' ) && $form->bing_region != '' && $form->bing_region != '0') {
+        $data['bing_region'] = $form->bing_region;
     }
 
     if ( $form->hasValidData( 'bing_client_secret' ) && $form->bing_client_secret != '') {
@@ -92,7 +90,7 @@ if ( isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSettin
     if ( $form->hasValidData( 'yandex_api_key' ) && $form->yandex_api_key != '') {
         $data['yandex_api_key'] = $form->yandex_api_key;
     }
-
+    
     $translationData->value = serialize($data);
     $translationData->saveThis();
 
