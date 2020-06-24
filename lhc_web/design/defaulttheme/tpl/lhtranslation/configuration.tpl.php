@@ -60,6 +60,7 @@
 	<ul class="nav nav-tabs" role="tablist">
 		<li role="presentation" class="nav-item"><a class="nav-link <?php if ( (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'bing') ) : ?>active<?php endif;?>" href="#bing" aria-controls="bing" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Bing');?></a></li>
 		<li role="presentation" class="nav-item"><a class="nav-link <?php if (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'google' ) : ?>active<?php endif;?>" href="#google" aria-controls="google" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Google');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link <?php if (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'yandex' ) : ?>active<?php endif;?>" href="#yandex" aria-controls="yandex" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Yandex');?></a></li>
 	</ul>
 
 	<div class="tab-content">
@@ -96,6 +97,18 @@
 				<div class="form-group">
 				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Set referrer, usefull if want to limit calls to specific referrer.');?></label>
 				    <input class="form-control" type="text" name="google_referrer" value="<?php (isset($translation_data['google_referrer']) && $translation_data['google_referrer'] != '') ? print htmlspecialchars($translation_data['google_referrer']) : print '' ?>" />
+				</div>
+																
+				<div class="btn-group" role="group" aria-label="...">
+				    <input type="submit" class="btn btn-secondary" name="StoreLanguageSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
+				</div>
+		</div>
+		<div role="tabpanel" class="tab-pane <?php if (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'yandex' ) : ?>active<?php endif;?>" id="yandex">
+		        <label><input type="radio" name="translation_handler" value="yandex" <?php ( (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'yandex') ) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Use Yandex service'); ?></label>
+								
+				<div class="form-group">
+				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','API key, key is never shown for security purposes');?></label>
+				    <input class="form-control" type="text" name="yandex_api_key" value="" />
 				</div>
 																
 				<div class="btn-group" role="group" aria-label="...">

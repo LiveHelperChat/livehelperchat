@@ -42,6 +42,9 @@ if ( isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSettin
         'google_referrer' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
+        'yandex_api_key' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
     );
 
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -84,6 +87,10 @@ if ( isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSettin
         $data['google_referrer'] = $form->google_referrer;
     } else {
         $data['google_referrer'] = '';
+    }
+
+    if ( $form->hasValidData( 'yandex_api_key' ) && $form->yandex_api_key != '') {
+        $data['yandex_api_key'] = $form->yandex_api_key;
     }
 
     $translationData->value = serialize($data);

@@ -30,11 +30,15 @@ class erLhcoreClassTranslateBing {
                 throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Missing text to translate'));
             }
             
-            $url = "http://api.microsofttranslator.com/V2/Http.svc/Detect?text=".urlencode($text);
+            $url = "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0";
+            $postParams = json_encode(array('Text' => $text));
             
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization:bearer '.$accessToken));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Length: '.strlen($postParams)));
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $postParams);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             curl_setopt($ch, CURLOPT_TIMEOUT, 5);
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT , 5);
@@ -42,13 +46,12 @@ class erLhcoreClassTranslateBing {
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
             $rsp = curl_exec($ch);
             
-            //Interprets a string of XML into an object.
-            $xmlObj = simplexml_load_string($rsp);
+            $data = json_decode($rsp, true);
                         
             $languageCode = '';
-            
-            foreach((array)$xmlObj[0] as $val){
-                $languageCode = $val;
+
+            if(array_key_exists('language', $data[0]) && $data[0]['language'] != ''){
+                $languageCode = $data[0]['language'];
             }
 
             if ($languageCode == ''){
@@ -60,7 +63,8 @@ class erLhcoreClassTranslateBing {
 
         public static function translate($access_token, $word, $from, $to)
         {
-            $url = 'http://api.microsofttranslator.com/V2/Http.svc/Translate?text='.urlencode($word).'&from='.$from.'&to='.$to;
+            $url = 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from='.$from.'&to='.$to;
+            $postParams = json_encode(array('Text' => $word));
 
             if (empty($word)){
                 throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Missing text to translate'));
@@ -69,6 +73,9 @@ class erLhcoreClassTranslateBing {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url); 
             curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization:bearer '.$access_token));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Length: '.strlen($postParams)));
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $postParams);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);  
             curl_setopt($ch, CURLOPT_TIMEOUT, 5);
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT , 5);
@@ -76,7 +83,9 @@ class erLhcoreClassTranslateBing {
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
             $rsp = curl_exec($ch);
 
-            if (strpos($rsp, '<string') === false){
+            $data = json_decode($rsp, true);
+
+            if(!array_key_exists('translations', $data[0])){
                 throw new Exception($rsp);
             }
 
@@ -86,8 +95,7 @@ class erLhcoreClassTranslateBing {
                 throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Could not translate').' - '.implode('; ', $errors));
             }
 
-            preg_match_all('/<string (.*?)>(.*?)<\/string>/s', $rsp, $matches);            
-            return htmlspecialchars_decode($matches[2][0]); 
+            return $data[0]["translations"][0]["text"]; 
         }
     }
 ?>
