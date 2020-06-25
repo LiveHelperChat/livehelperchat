@@ -2612,6 +2612,23 @@ function lh(){
 		return defaultValue;
 	};
 
+	this.executeExtension = function (extension, params) {
+        if (document.getElementById('ext-' + extension) === null) {
+            var th = document.getElementsByTagName('head')[0];
+            var s = document.createElement('script');
+            var date = new Date();
+            s.setAttribute('type','text/javascript');
+            s.setAttribute('src', WWW_DIR_LHC_WEBPACK_ADMIN.replace('/design/defaulttheme/js/admin/dist/','') + '/extension/' + extension + '/design/' + extension + 'theme/js/'  + extension + '.legacy.js?v=' + ("" + date.getFullYear() + date.getMonth() + date.getDate()) );
+            s.setAttribute('id','ext-' + extension);
+            th.appendChild(s);
+            s.onreadystatechange = s.onload = function() {
+                ee.emitEvent(extension + '.init', [params]);
+            };
+        } else {
+            ee.emitEvent(extension + '.init', [params]);
+        }
+    }
+
 	this.setLocalValue = function(key,val){
 		try {
 	    	if (localStorage) {

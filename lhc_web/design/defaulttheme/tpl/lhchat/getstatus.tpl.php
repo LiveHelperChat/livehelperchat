@@ -59,8 +59,10 @@ var lh_inst  = {
     surveyShown : false,
     isMinimized : false,
     explicitClose : false,
+    iframeLoaded : false,
     isProactivePending : 0,
     dynamicAssigned : [],
+    extensionCommands : [],
     windowname : "startchatwindow",
 	substatus : '',
     cookieData : {},
@@ -784,6 +786,23 @@ var lh_inst  = {
     	}
     },
 
+    executeExtension : function(extension, args) {
+        if (this.iframeLoaded) {
+            if (this.isMinimized === true) {
+                this.min()
+            } else {
+                this.showStartWindow();
+            }
+            var iframe = document.getElementById('<?php echo $chatCSSPrefix?>_iframe');
+            if (iframe !== null) {
+                iframe.contentWindow.postMessage('lhc_load_ext:'+extension + '::' + this.JSON.stringify(typeof args !== 'undefined' ? args : null), '*');
+            }
+        } else {
+            this.showStartWindow();
+            this.extensionCommands.push({'ext':extension, 'arg':args});
+        }
+    },
+
     makeScreenshot : function() {
     	var inst = this;
     	if (typeof html2canvas == "undefined") {
@@ -1058,10 +1077,22 @@ var lh_inst  = {
     	} else if (action == 'lhc_open_restore') {
     		lh_inst.lh_openchatWindow();
         } else if (action == 'lhc_widget_loaded') {
+            lh_inst.iframeLoaded = true;
             if (lh_inst.iframePreloaded == false) {
                 lh_inst.toggleStatusWidget(true);
                 lh_inst.removeClass(document.getElementById('<?php echo $chatCSSLayoutOptions['container_id']?>'),'<?php echo $chatCSSPrefix?>-delayed');
             }
+
+            if (lh_inst.extensionCommands.length > 0) {
+                lh_inst.extensionCommands.forEach(function(evt) {
+                    var iframe = document.getElementById('<?php echo $chatCSSPrefix?>_iframe');
+                    if (iframe !== null) {
+                        iframe.contentWindow.postMessage('lhc_load_ext:' + evt['ext'] + '::' + lh_inst.JSON.stringify(typeof evt['arg'] !== 'undefined' ? evt['arg'] : null), '*');
+                    }
+                });
+                lh_inst.extensionCommands = [];
+            }
+
     	} else if (action == 'lhc_continue_chat') {
     		lh_inst.showStartWindow();
         } else if (action == 'lhc_html_snippet') {

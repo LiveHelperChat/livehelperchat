@@ -271,16 +271,16 @@ class erLhAbstractModelWidgetTheme {
                    ),
                    'replace' => array(
                        $host,
-                       $host . $this->logo_image_url,
-                       $host . $this->minimize_image_url,
-                       $host . $this->restore_image_url,
-                       $host . $this->close_image_url,
-                       $host . $this->popup_image_url,
-                       $host . $this->operator_image_url,
-                       $host . $this->copyright_image_url,
-                       $host . $this->need_help_image_url,
-                       $host . $this->online_image_url,
-                       $host . $this->offline_image_url,
+                       $this->logo_image_url,
+                       $this->minimize_image_url,
+                       $this->restore_image_url,
+                       $this->close_image_url,
+                       $this->popup_image_url,
+                       $this->operator_image_url,
+                       $this->copyright_image_url,
+                       $this->need_help_image_url,
+                       $this->online_image_url,
+                       $this->offline_image_url,
                    ));
                return $this->replace_array;
                break;
@@ -299,7 +299,7 @@ class erLhAbstractModelWidgetTheme {
 	   	       $attr = str_replace('_url', '', $var);	   	       	   	       
 	   	       $this->$var = false;	   	        
 	   	       if ($this->$attr != ''){
-	   	           $this->$var =  ($this->{$attr.'_path'} != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) . '/' . $this->{$attr.'_path'} . $this->$attr;
+	   	           $this->$var =  ($this->{$attr.'_path'} != '' ? '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) . '/' . $this->{$attr.'_path'} . $this->$attr;
 	   	       }	   	        
 	   	       return $this->$var;
 	   	    break;
@@ -317,7 +317,7 @@ class erLhAbstractModelWidgetTheme {
 	   	        $attr = str_replace('_url_img', '', $var);	   	    
 	   			$this->$var = false;	   		
 	   			if($this->$attr != ''){
-	   				$this->$var = '<img src="'.($this->{$attr.'_path'} != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->{$attr.'_path'} . $this->$attr.'"/>';
+	   				$this->$var = '<img src="'.($this->{$attr.'_path'} != '' ? '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->{$attr.'_path'} . $this->$attr.'"/>';
 	   			}
 	   			return $this->$var;
 	   		break;

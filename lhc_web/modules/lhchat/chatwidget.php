@@ -731,6 +731,24 @@ $Result['dynamic_height'] = true;
 $Result['dynamic_height_message'] = 'lhc_sizing_chat';
 $Result['pagelayout_css_append'] = 'widget-chat';
 
+$chatInitData = array();
+
+if (isset($inputData->vid) && !empty($inputData->vid)) {
+    $chatInitData['vid'] = $inputData->vid;
+}
+
+if (isset($inputData->username) && !empty($inputData->username)) {
+    $chatInitData['username'] = $inputData->username;
+}
+
+if (isset($inputData->departament_id) && is_numeric($inputData->departament_id)) {
+    $chatInitData['dep_id'] = $inputData->departament_id;
+}
+
+if (!empty($chatInitData)) {
+    $Result['chat_init_data'] = $chatInitData;
+}
+
 if ($noMobile === true) {
     $Result['no_mobile_css'] = true;
 }

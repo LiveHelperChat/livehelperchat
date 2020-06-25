@@ -111,6 +111,8 @@
                 storageHandler : storageHandler,
                 staticJS : {},
                 init_calls : [],
+                childCommands : [],
+                childExtCommands : [],
                 loadcb : LHC_API.args.loadcb || null,
                 LHCChatOptions : global.LHCChatOptions ? global.LHCChatOptions : {}
             };
@@ -312,7 +314,26 @@
             attributesWidget.eventEmitter.addListener('closeWidget',function () {
                 attributesWidget.widgetStatus.next(false);
                 chatEvents.sendChildEvent('closedWidget', [{'sender' : 'closeButton'}]);
+            });
 
+            // Send event to the child instantly
+            attributesWidget.eventEmitter.addListener('sendChildEvent',function (params) {
+                if (attributesWidget.mainWidget.isLoaded == true) {
+                    chatEvents.sendChildEvent(params['cmd'], [params['arg']]);
+                } else {
+                    attributesWidget.childCommands.push(params);
+                    attributesWidget.mainWidget.bootstrap();
+                }
+            });
+
+            // Send smart event to the child
+            attributesWidget.eventEmitter.addListener('sendChildExtEvent',function (params) {
+                if (attributesWidget.mainWidget.isLoaded == true) {
+                    chatEvents.sendChildEvent(params['cmd'], [params['arg']], 'lhc_load_ext');
+                } else {
+                    attributesWidget.childExtCommands.push(params);
+                    attributesWidget.mainWidget.bootstrap();
+                }
             });
 
             // Toggle sound user
@@ -549,6 +570,18 @@
                     window.addEventListener('blur',focusChangeCb);
                     window.addEventListener('pageshow',focusChangeCb);
                     window.addEventListener('pagehide',focusChangeCb);
+
+                    chatEvents.sendChildEvent('ext_modules', [attributesWidget.staticJS['ex_cb_js']]);
+                    
+                    // send child commands if there is any
+                    attributesWidget.childExtCommands.forEach((params) => {
+                        chatEvents.sendChildEvent(params['cmd'], [params['arg']], 'lhc_load_ext');
+                    });
+
+                    // send child commands if there is any
+                    attributesWidget.childCommands.forEach((params) => {
+                        chatEvents.sendChildEvent(params['cmd'], [params['arg']]);
+                    });
 
                 } else {
                      attributesWidget.eventEmitter.emitEvent(parts[1], JSON.parse(parts[2]));

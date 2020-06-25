@@ -53,7 +53,19 @@ class NodeTriggerActionExecuteJS extends Component {
                         <div className="form-group">
                             <a title="Need help?" className="float-right" onClick={(e) => this.showHelp('execute_js')}><i className="material-icons mr-0">help</i></a>
                             <label>Execute JS</label>
-                            <textarea rows="3" placeholder="Write your javascript here!" onChange={(e) => this.onchangeAttr({'path' : ['payload'], 'value' : e.target.value})}  defaultValue={this.props.action.getIn(['content','payload'])} className="form-control form-control-sm"></textarea>
+                            <textarea rows="3" placeholder="Write your javascript here!" onChange={(e) => this.onchangeAttr({'path' : ['payload'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} className="form-control form-control-sm"></textarea>
+                        </div>
+                    </div>
+                    <div className="col-6">
+                        <div className="form-group">
+                            <label>Script identifier</label>
+                            <input type="text" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['ext_execute'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','ext_execute'])} />
+                        </div>
+                    </div>
+                    <div className="col-6">
+                        <div className="form-group">
+                            <label>Arguments for the callback</label>
+                            <input type="text" className="form-control form-control-sm" placeholder="{show:true}" onChange={(e) => this.onchangeAttr({'path' : ['ext_args'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','ext_args'])} />
                         </div>
                     </div>
                 </div>

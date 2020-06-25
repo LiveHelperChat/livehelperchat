@@ -26,6 +26,9 @@ confLH.auto_uppercase = <?php echo (int)erLhcoreClassModelUserSetting::getSettin
 <?php else : ?>
 confLH.csrf_token = '<?php echo erLhcoreClassUser::anonymousGetCSFRToken()?>';
 <?php endif;?>
+<?php if (isset($Result['chat_init_data'])) : ?>
+confLH.chat_init = <?php echo json_encode($Result['chat_init_data']);?>;
+<?php endif; ?>
 confLH.repeat_sound = <?php echo (int)$soundData['repeat_sound']?>;
 confLH.repeat_sound_delay = <?php echo (int)$soundData['repeat_sound_delay']?>;
 confLH.content_language = '<?php echo erLhcoreClassSystem::instance()->ContentLanguage?>';

@@ -158,8 +158,11 @@ class chatEventsHandler {
 
      }
 
-    sendChildEvent(event, args) {
-        this.sendChildCommand('lhc_event:'+event + '::' + JSON.stringify(args));
+    sendChildEvent(event, args, type) {
+        if (typeof type === 'undefined') {
+            type = 'lhc_event';
+        }
+        this.sendChildCommand(type+':'+event + '::' + JSON.stringify(args));
     }
 }
 

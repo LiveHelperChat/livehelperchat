@@ -8,7 +8,7 @@ class erLhcoreClassGenericBotActionExecute_js {
 
         $metaMessage = array();
 
-        if (isset($action['content']['payload']) && !empty($action['content']['payload']))
+        if ((isset($action['content']['payload']) && !empty($action['content']['payload'])) || (isset($action['content']['ext_execute']) && !empty($action['content']['ext_execute'])))
         {
             $metaMessage['content']['execute_js'] = $action['content'];
 

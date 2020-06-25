@@ -3,6 +3,7 @@ import parse, { domToReact } from 'html-react-parser';
 import { connect } from "react-redux";
 import { updateTriggerClicked, subscribeNotifications } from "../actions/chatActions";
 import { withTranslation } from 'react-i18next';
+import { helperFunctions } from "../lib/helperFunctions";
 
 class ChatMessage extends PureComponent {
 
@@ -122,7 +123,17 @@ class ChatMessage extends PureComponent {
         } else if (attr['data-bot-action'] == 'lhinst.setDelay') {
             this.delayData.push(JSON.parse(attr['data-bot-args']));
         } else if (attr['data-bot-action'] == 'execute-js') {
-            eval(domNode.children[0]['data']);
+            if (attr['data-bot-extension']) {
+
+                var args = {};
+                if (typeof attr['data-bot-args'] !== 'undefined') {
+                    args = JSON.parse(attr['data-bot-args']);
+                }
+
+                helperFunctions.emitEvent('extensionExecute',[attr['data-bot-extension'],[args]]);
+            } else {
+                eval(domNode.children[0]['data']);
+            }
         }
     }
 
