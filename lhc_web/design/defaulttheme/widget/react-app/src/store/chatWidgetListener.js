@@ -6,6 +6,7 @@ export default function (dispatch, getState) {
 
     // Holds extensions
     let extensions = {};
+    let readyReceived = false;
 
     function executeExtension(extension, args) {
         if (typeof extensions[extension] !== 'undefined') {
@@ -51,7 +52,11 @@ export default function (dispatch, getState) {
         {id : 'extensionExecute',cb : (extension, args) => {
                 executeExtension(extension, args);
         }},
-        {id : 'proactive', cb : (data) => {dispatch(initProactive(data))}},
+        {id : 'proactive', cb : (data) => {
+            setTimeout(() => {
+                dispatch(initProactive(data))
+            }, readyReceived === true ? 0 : 700);
+        }},
         {id : 'focus_changed', cb : (data) => {
                 var newValue = data.status || document.hasFocus();
                 if (newValue != window.lhcChat['is_focused']){
@@ -67,8 +72,6 @@ export default function (dispatch, getState) {
     events.forEach((evt) => {
        helperFunctions.eventEmitter.addListener(evt.id, evt.cb);
     });
-
-    let readyReceived = false;
 
     function handleParentMessage(e) {
         if (typeof e.data !== 'string') { return; }
@@ -174,7 +177,9 @@ export default function (dispatch, getState) {
                         data: {'ref' : value}
                     })
                 } else if (key === 'proactive') {
-                    dispatch(initProactive(value))
+                    setTimeout(() => {
+                        dispatch(initProactive(value))
+                    }, readyReceived === true ? 0 : 700);
                 } else {
                     dispatch({
                         type: key,
