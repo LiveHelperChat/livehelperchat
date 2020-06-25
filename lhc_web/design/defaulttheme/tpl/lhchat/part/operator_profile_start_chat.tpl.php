@@ -1,7 +1,7 @@
 <div class="operator-info d-flex">
 	<div>
      	<?php if ($theme !== false && $theme->operator_image_url != '') : ?>
-     			<img width="48" height="48" src="//<?php echo $_SERVER['HTTP_HOST']?><?php echo $theme->operator_image_url?>" alt="" />
+     			<img width="48" height="48" src="<?php echo $theme->operator_image_url?>" alt="" />
      	<?php else : ?>
      		<i class="icon-assistant material-icons">
                 <?php if (isset($react) && $react == true) : ?>&#xf10d;<?php else : ?>account_box<?php endif; ?>

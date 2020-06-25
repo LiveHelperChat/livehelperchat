@@ -62,7 +62,7 @@ if (isset($payload['theme']) && $payload['theme'] > 0) {
     }
 
     if (!isset($outputResponse['photo']) && $theme instanceof erLhAbstractModelWidgetTheme && $theme->operator_image_url !== false) {
-        $outputResponse['photo'] = '//' . $_SERVER['HTTP_HOST'] . $theme->operator_image_url;
+        $outputResponse['photo'] = $theme->operator_image_url;
     }
 }
 

@@ -54,7 +54,7 @@ class erLhcoreClassChatCommand
                 $params
             ));
         } else { // Perhaps some extension has implemented this command?
-            $commandResponse = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.customcommand', array('command' => $commandData['command'], 'params' => $params));
+            $commandResponse = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.customcommand', array('command' => $commandData['command'], 'argument' => $commandData['argument'], 'params' => $params));
             
             if (isset($commandResponse['processed']) && $commandResponse['processed'] == true) {
                 return $commandResponse;

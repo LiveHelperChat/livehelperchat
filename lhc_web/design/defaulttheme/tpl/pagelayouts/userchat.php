@@ -15,11 +15,10 @@
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/userchat/before_userchat.tpl.php'));?>
 	<div class="modal-dialog modal-lg" id="user-popup-window">
 		<div class="modal-content">
+
+            <?php if (!isset($Result['hide_modal_header'])) : ?>
 			<div class="modal-header">
-
             		  <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_logo.tpl.php'));?>
-            	
-
                 <div class="btn-group float-right" role="group" aria-label="...">
                     <?php if (!isset($Result['hide_close_window'])) : ?>
 
@@ -35,6 +34,8 @@
                     <?php endif; ?>
                 </div>
 			</div>
+            <?php endif; ?>
+
 			<div class="modal-body">
                 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/userchat/before_content.tpl.php'));?>
                     <?php echo $Result['content'];?>

@@ -4,6 +4,33 @@ import i18n from "../i18n";
 
 export default function (dispatch, getState) {
 
+    // Holds extensions
+    let extensions = {};
+
+    function executeExtension(extension, args) {
+        if (typeof extensions[extension] !== 'undefined') {
+
+            if (Array.isArray(args)) {
+                args.push(dispatch);
+                args.push(getState);
+            }
+
+            if (document.getElementById('ext-' + extension) === null) {
+                var th = document.getElementsByTagName('head')[0];
+                var s = document.createElement('script');
+                s.setAttribute('type','text/javascript');
+                s.setAttribute('src',extensions[extension]);
+                s.setAttribute('id','ext-' + extension);
+                th.appendChild(s);
+                s.onreadystatechange = s.onload = function() {
+                    helperFunctions.emitEvent(extension + '.init', args);
+                };
+            } else {
+                helperFunctions.emitEvent(extension + '.init', args);
+            }
+        }
+    }
+
     const events = [
         {id : 'closedWidget', cb : (data) => {dispatch({type: 'closedWidget', data: data})}},
         {id : 'endedChat', cb : (data) => {
@@ -18,6 +45,12 @@ export default function (dispatch, getState) {
         {id : 'toggleSound',cb : (data) => {dispatch({type: 'toggleSound', data: data})}},
         {id : 'widgetStatus',cb : (data) => {dispatch({type: 'widgetStatus', data: data})}},
         {id : 'jsVars',cb : (data) => {dispatch({type: 'jsVars', data: data})}},
+        {id : 'ext_modules',cb : (data) => {
+                extensions = data;
+        }},
+        {id : 'extensionExecute',cb : (extension, args) => {
+                executeExtension(extension, args);
+        }},
         {id : 'proactive', cb : (data) => {dispatch(initProactive(data))}},
         {id : 'focus_changed', cb : (data) => {
                 var newValue = data.status || document.hasFocus();
@@ -63,9 +96,19 @@ export default function (dispatch, getState) {
                 }
             }
 
+        } else if (action == 'lhc_load_ext') {
+            const parts = e.data.replace('lhc_load_ext:','').split('::');
+            executeExtension(parts[0],JSON.parse(parts[1]));
         } else if (action == 'lhc_event') {
             const parts = e.data.replace('lhc_event:','').split('::');
-            helperFunctions.emitEvent(parts[0],JSON.parse(parts[1]));
+            let args = JSON.parse(parts[1]);
+
+            if (Array.isArray(args)) {
+                args.push(dispatch);
+                args.push(getState);
+            }
+
+            helperFunctions.emitEvent(parts[0],args);
         } else if (action == 'lhc_sizing_chat') {
             helperFunctions.sendMessageParent('widgetHeight', [{'height' : (parseInt(e.data.split(':')[1]) + 50)}]);
         } else if (action == 'lhc_init') {
