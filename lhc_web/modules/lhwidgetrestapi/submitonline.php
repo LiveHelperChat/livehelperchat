@@ -288,7 +288,7 @@ if (empty($Errors)) {
             $paramsExecution['processed'] = $requestPayload['bpayload']['processed'];
         }
 
-        if (!isset($restAPI) || (isset($restAPI) && (!isset($requestPayload['ignore_bot']) || $requestPayload['ignore_bot'] == false))) {
+        if (!isset($requestPayload['ignore_bot']) || $requestPayload['ignore_bot'] == false) {
             // Set bot workflow if required
             erLhcoreClassChatValidator::setBot($chat, $paramsExecution);
         }

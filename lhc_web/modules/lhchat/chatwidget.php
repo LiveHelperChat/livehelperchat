@@ -422,8 +422,10 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
                    $paramsExecution['bot_id'] = $inputData->bot_id;
                }
 
-               // Set bot workflow if required
-               erLhcoreClassChatValidator::setBot($chat, $paramsExecution);
+               if (!isset($_POST['ignoreBot'])) {
+                   // Set bot workflow if required
+                   erLhcoreClassChatValidator::setBot($chat, $paramsExecution);
+               }
 
     	       // Auto responder does not make sense in this mode
     	       if ($inputData->key_up_started == false) {
