@@ -115,22 +115,20 @@ class ChatMessage extends PureComponent {
     }
 
     processBotAction(domNode) {
-
         const attr = domNode.attribs;
-
         if (attr['data-bot-action'] == 'lhinst.disableVisitorEditor') {
             this.disableEditor = true;
         } else if (attr['data-bot-action'] == 'lhinst.setDelay') {
             this.delayData.push(JSON.parse(attr['data-bot-args']));
         } else if (attr['data-bot-action'] == 'execute-js') {
             if (attr['data-bot-extension']) {
-
                 var args = {};
                 if (typeof attr['data-bot-args'] !== 'undefined') {
                     args = JSON.parse(attr['data-bot-args']);
                 }
-
                 helperFunctions.emitEvent('extensionExecute',[attr['data-bot-extension'],[args]]);
+            } else if (attr['data-bot-event']) {
+                this.props[attr['data-bot-event']]();
             } else {
                 eval(domNode.children[0]['data']);
             }

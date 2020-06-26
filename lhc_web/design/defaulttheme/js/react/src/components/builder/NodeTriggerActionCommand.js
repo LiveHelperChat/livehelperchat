@@ -62,6 +62,10 @@ class NodeTriggerActionCommand extends Component {
                     </div>
                 </div>
 
+                {this.props.action.getIn(['content','command']) == 'closechat' && <div>
+                    <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['close_widget'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','close_widget'])} /> Close widget also.</label>
+                </div>}
+
                 {this.props.action.getIn(['content','command']) == 'stopchat' &&
                 <div>
                     <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['payload_ignore_status'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','payload_ignore_status'])} /> Ignore department status and always transfer to operator.</label>

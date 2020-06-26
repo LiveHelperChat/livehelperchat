@@ -88,6 +88,18 @@ class erLhcoreClassGenericBotActionCommand {
             $chat->pnd_time = time();
             $chat->last_op_msg_time = time();
 
+            if (isset($action['content']['close_widget']) && $action['content']['close_widget'] == true) {
+                // Send execute JS message
+                $msg = new erLhcoreClassModelmsg();
+                $msg->msg = '';
+                $msg->meta_msg = '{"content":{"execute_js":{"chat_event":"endChat","payload":""}}}';
+                $msg->chat_id = $chat->id;
+                $msg->user_id = -2;
+                $msg->time = time();
+                $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);;
+                $msg->saveThis();
+            }
+
             $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_chat_command_transfer', array(
                 'action' => $action,
                 'chat' => & $chat,
