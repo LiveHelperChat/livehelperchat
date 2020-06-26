@@ -25,13 +25,35 @@ class StartChat extends Component {
 
         this.state = {showBBCode : null, Question:''};
         this.botPayload = null;
+        this.ignoreBot = false;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.enterKeyDown = this.enterKeyDown.bind(this);
         this.handleContentChange = this.handleContentChange.bind(this);
         this.handleContentChangeCustom = this.handleContentChangeCustom.bind(this);
         this.setBotPayload = this.setBotPayload.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
+        this.startChatEvent = this.startChatEvent.bind(this);
         this.textMessageRef = React.createRef();
+
+        helperFunctions.eventEmitter.addListener('lhc.start_chat_event', (e) => {
+            this.startChatEvent(e)
+        });
+    }
+
+    startChatEvent(e) {
+        if (e.type == 'start_chat') {
+            if (typeof e.fields !== 'undefined') {
+                var currentState = this.state;
+                currentState = {...currentState, ...e.fields};
+                this.setState(currentState);
+            }
+
+            if (e.ignoreBot) {
+                this.ignoreBot = true;
+            }
+
+            this.handleSubmit();
+        }
     }
 
     toggleModal() {
@@ -97,6 +119,10 @@ class StartChat extends Component {
 
         if (this.botPayload) {
             submitData['bpayload'] = this.botPayload;
+        }
+
+        if (this.ignoreBot) {
+            submitData['ignore_bot'] = true;
         }
 
         if (this.props.chatwidget.hasIn(['proactive','data','invitation_id']) === true) {
