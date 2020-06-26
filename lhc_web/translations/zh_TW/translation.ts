@@ -2,22 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>在投票Widget顯示後，有多少天不會再次啟用</translation>
     </message>
@@ -506,10 +490,6 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
-      <source>Use modern look</source>
-      <translation>使用現代外觀</translation>
-    </message>
-    <message>
       <source>Welcome message</source>
       <translation>歡迎信息</translation>
     </message>
@@ -643,7 +623,7 @@
     </message>
     <message>
       <source>Build your own need help widget layout</source>
-      <translation>建立自己的幫助小部件佈局</translation>
+      <translation>建立自己的需要幫助小部件佈局</translation>
     </message>
     <message>
       <source>Set default HTML</source>
@@ -651,7 +631,7 @@
     </message>
     <message>
       <source>If you want to get nerdy you can build your own eye catcher using default template as starting point. You can adjust need help widget dimensions above. Also see what placeholders we support.</source>
-      <translation>如果您想书呆子，可以使用默認模板作為起點來構建自己的惹眼小部件。 您可以在上方調整需要幫助窗口小部件的尺寸。 另請參閱我們支持的佔位符。</translation>
+      <translation>如果您想书呆子，可以使用默認模板作為起點來構建自己的惹眼小部件。 您可以在上方調整需要幫助小部件的尺寸。 另請參閱我們支持的佔位符。</translation>
     </message>
     <message>
       <source>General settings</source>
@@ -682,8 +662,8 @@
       <translation>一般</translation>
     </message>
     <message>
-      <source>Buble background color</source>
-      <translation>氣泡背景色</translation>
+      <source>Bubble background color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title color</source>
@@ -1054,6 +1034,10 @@
       <translation>在 Widget 打開時注入HTML</translation>
     </message>
     <message>
+      <source>Header HTML. Here you can paste custom head HTML.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom html before start chat form fields, widget</source>
       <translation>開始聊天表單字段/Widget 之前的自定義html</translation>
     </message>
@@ -1115,7 +1099,7 @@
     </message>
     <message>
       <source>Custom need help HTML</source>
-      <translation>自定義需求幫助HTML</translation>
+      <translation>自定義需要幫助的HTML</translation>
     </message>
     <message>
       <source>Need help background color</source>
@@ -1152,6 +1136,10 @@
     <message>
       <source>Leave a message form text</source>
       <translation>留言表單文字</translation>
+    </message>
+    <message>
+      <source>Thank you for your feedback text</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help border color</source>
@@ -1202,8 +1190,8 @@
       <translation>快顯視窗 圖片</translation>
     </message>
     <message>
-      <source>Visitor buble background color</source>
-      <translation>訪客背景顏色</translation>
+      <source>Visitor bubble background color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor title color</source>
@@ -1214,8 +1202,8 @@
       <translation>訪客文字顏色</translation>
     </message>
     <message>
-      <source>Operator buble background color</source>
-      <translation>客服人員背景顏色</translation>
+      <source>Operator bubble background color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Operator title color</source>
@@ -1705,8 +1693,8 @@
       <translation>選擇一個動態事件</translation>
     </message>
     <message>
-      <source>Show invitation if visitor is iddle for n seconds</source>
-      <translation>如果訪客閒置了n秒，則顯示邀請</translation>
+      <source>Show invitation if visitor is idle for n seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disabled</source>
@@ -4675,6 +4663,10 @@
       <translation>未讀取訊息</translation>
     </message>
     <message>
+      <source>Bot Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New message from operator</source>
       <translation>來自客服人員的新信息</translation>
     </message>
@@ -4739,12 +4731,20 @@
       <translation>結束交談</translation>
     </message>
     <message>
+      <source>Start a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>BB code</source>
       <translation>BB Code</translation>
     </message>
     <message>
       <source>Popup</source>
       <translation>快顯視窗</translation>
+    </message>
+    <message>
+      <source>Start a chat with us!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This chat is closed now. You can close window.</source>
@@ -4868,6 +4868,22 @@
     <message>
       <source>Sort by department</source>
       <translation>按部門排序</translation>
+    </message>
+    <message>
+      <source>Offline request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>More than</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>user messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>
@@ -5349,7 +5365,7 @@
     </message>
     <message>
       <source>Custom need help HTML</source>
-      <translation>自定義需求幫助HTML</translation>
+      <translation>自定義需要幫助的HTML</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
@@ -5358,6 +5374,10 @@
     <message>
       <source>You are number {number} in the queue. Please wait...</source>
       <translation>您是隊列中的數字{number}。 請稍候...</translation>
+    </message>
+    <message>
+      <source>Thank you for your feedback</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -5435,6 +5455,22 @@
     <message>
       <source>Settings updated</source>
       <translation>設定已更新</translation>
+    </message>
+    <message>
+      <source>Notifications about bot chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To receive browser notifications you have to enable them in your account Notifications settings.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notify me about bot conversation after defined number of user interactions.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notify me if visitor writes more than defined number messages.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online operators</source>
@@ -8583,8 +8619,8 @@
       <translation>閒置交談</translation>
     </message>
     <message>
-      <source>RT Active chats</source>
-      <translation>RT 現行聊天</translation>
+      <source>Real Time Active chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update stats</source>
@@ -9681,20 +9717,32 @@
       <translation>回應位置4.在信息中以{content_4}的形式提供。</translation>
     </message>
     <message>
-      <source>If required you can have also condition to check</source>
-      <translation>如果需要，您也可以檢查</translation>
+      <source>Response Location 5. Available as {content_5} in messages.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Response Location.</source>
-      <translation>回應位置。</translation>
+      <source>Response Location 6. Available as {content_6} in messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Meta msg location. If you support Live Helper Chat JSON syntax you can set location of this response.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If required you can also have condition to check</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location. It will also fail if attribute is not found.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Response comparison</source>
       <translation>回應比較</translation>
     </message>
     <message>
-      <source>Do nothing</source>
-      <translation>什麼都不做</translation>
+      <source>Check for presence of variable</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text like</source>
@@ -9711,10 +9759,6 @@
     <message>
       <source>Value to compare</source>
       <translation>值去比較</translation>
-    </message>
-    <message>
-      <source>Meta msg location. If you support Live Helper Chat json syntax you can set location of this response.</source>
-      <translation>元信息位置。 如果支持Live Helper Chat json語法，則可以設置此響應的位置。</translation>
     </message>
   </context>
   <context>
@@ -12453,8 +12497,8 @@
       <translation>請選擇一個預設的使用者群組</translation>
     </message>
     <message>
-      <source>Password has to be atleast</source>
-      <translation>密碼必須至少</translation>
+      <source>Password has to be at least</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>characters length</source>

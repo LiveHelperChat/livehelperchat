@@ -648,6 +648,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Choose manually bot ant trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Default</source>
       <translation type="unfinished"/>
     </message>
@@ -1284,6 +1288,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Automatically determine intro message by bot default message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Try to detect language from browser headers</source>
       <translation type="unfinished"/>
     </message>
@@ -1313,6 +1321,10 @@
     </message>
     <message>
       <source>Notification domain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header icons color</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2027,6 +2039,14 @@
     </message>
     <message>
       <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4956,6 +4976,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Change operator status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Sort</source>
       <translation type="unfinished"/>
     </message>
@@ -5095,11 +5119,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Yandex</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Use Bing service</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Bing client ID</source>
+      <source>Select Region</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5123,7 +5151,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Use Yandex service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Missing translate region</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5472,6 +5508,10 @@
     </message>
     <message>
       <source>Notify me if visitor writes more than defined number messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>online status</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7104,6 +7144,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Home</source>
       <translation type="unfinished"/>
     </message>
@@ -7185,14 +7233,6 @@
     </message>
     <message>
       <source>Visible</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12051,6 +12091,14 @@
     <name>chat/chatcommand</name>
     <message>
       <source>Nick changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>I have enabled files upload for you. [fupload]Upload a file[/fupload].</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files upload enabled.</source>
       <translation type="unfinished"/>
     </message>
     <message>

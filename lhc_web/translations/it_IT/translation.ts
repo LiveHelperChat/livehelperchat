@@ -2,22 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -506,10 +490,6 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
-      <source>Use modern look</source>
-      <translation>Usa il look moderno</translation>
-    </message>
-    <message>
       <source>Welcome message</source>
       <translation>Messaggio di benvenuto</translation>
     </message>
@@ -682,8 +662,8 @@
       <translation>Generale</translation>
     </message>
     <message>
-      <source>Buble background color</source>
-      <translation>Colore di sfondo bolle</translation>
+      <source>Bubble background color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title color</source>
@@ -1054,6 +1034,10 @@
       <translation>Inietti HTML all&apos;apertura del widget</translation>
     </message>
     <message>
+      <source>Header HTML. Here you can paste custom head HTML.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom html before start chat form fields, widget</source>
       <translation>Html personalizzato prima di avviare i campi del modulo di chat, widget</translation>
     </message>
@@ -1155,6 +1139,10 @@ CSS pagina personalizzata (solo nuovo widget)</translation>
       <translation>testo per la pagina lasciare un messaggio</translation>
     </message>
     <message>
+      <source>Thank you for your feedback text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help border color</source>
       <translation>Colore del bordo &quot;serve aiuto&quot;</translation>
     </message>
@@ -1203,8 +1191,8 @@ CSS pagina personalizzata (solo nuovo widget)</translation>
       <translation>Immagine popup</translation>
     </message>
     <message>
-      <source>Visitor buble background color</source>
-      <translation>Colore di sfondo della bolla del visitatore</translation>
+      <source>Visitor bubble background color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor title color</source>
@@ -1215,8 +1203,8 @@ CSS pagina personalizzata (solo nuovo widget)</translation>
       <translation>Colore del testo del visitatore</translation>
     </message>
     <message>
-      <source>Operator buble background color</source>
-      <translation>Colore di sfondo della bolla dell&apos;operatore</translation>
+      <source>Operator bubble background color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Operator title color</source>
@@ -1711,8 +1699,8 @@ Icona colonna, testo icone materiale</translation>
       <translation>Scegli un evento dinamico</translation>
     </message>
     <message>
-      <source>Show invitation if visitor is iddle for n seconds</source>
-      <translation>Mostra invito se l&apos;utente è inattivo per n secondi</translation>
+      <source>Show invitation if visitor is idle for n seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disabled</source>
@@ -4681,6 +4669,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Messaggio non letto</translation>
     </message>
     <message>
+      <source>Bot Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New message from operator</source>
       <translation>Nuovo messaggio dall&apos;operatore</translation>
     </message>
@@ -4745,12 +4737,20 @@ Icona colonna, testo icone materiale</translation>
       <translation>Termina chat</translation>
     </message>
     <message>
+      <source>Start a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>BB code</source>
       <translation>BB code</translation>
     </message>
     <message>
       <source>Popup</source>
       <translation>Popup</translation>
+    </message>
+    <message>
+      <source>Start a chat with us!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This chat is closed now. You can close window.</source>
@@ -4874,6 +4874,22 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Sort by department</source>
       <translation>Ordina per reparto</translation>
+    </message>
+    <message>
+      <source>Offline request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>More than</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>user messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>
@@ -5366,6 +5382,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Sei il numero {numero} in coda. Attendere prego...</translation>
     </message>
     <message>
+      <source>Thank you for your feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>Inserire qui il messaggio e premere Invio per inviare...</translation>
     </message>
@@ -5441,6 +5461,22 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Settings updated</source>
       <translation>Impostazioni aggiornate</translation>
+    </message>
+    <message>
+      <source>Notifications about bot chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To receive browser notifications you have to enable them in your account Notifications settings.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notify me about bot conversation after defined number of user interactions.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notify me if visitor writes more than defined number messages.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online operators</source>
@@ -8589,8 +8625,8 @@ Icona colonna, testo icone materiale</translation>
       <translation>Chat inattive</translation>
     </message>
     <message>
-      <source>RT Active chats</source>
-      <translation> Chat attive in tempo reale</translation>
+      <source>Real Time Active chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update stats</source>
@@ -9687,11 +9723,23 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>If required you can have also condition to check</source>
+      <source>Response Location 5. Available as {content_5} in messages.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Response Location.</source>
+      <source>Response Location 6. Available as {content_6} in messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Meta msg location. If you support Live Helper Chat JSON syntax you can set location of this response.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If required you can also have condition to check</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location. It will also fail if attribute is not found.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9699,7 +9747,7 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Do nothing</source>
+      <source>Check for presence of variable</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9716,10 +9764,6 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Value to compare</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Meta msg location. If you support Live Helper Chat json syntax you can set location of this response.</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -12459,8 +12503,8 @@ Icona colonna, testo icone materiale</translation>
       <translation>Selezionare un gruppo di utenti predefinito</translation>
     </message>
     <message>
-      <source>Password has to be atleast</source>
-      <translation>La password deve essere almeno</translation>
+      <source>Password has to be at least</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>characters length</source>

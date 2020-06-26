@@ -2,24 +2,8 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation>在投票Widget显示后，有多少天不会再次启用</translation>
+      <translation>在投票小部件显示后，有多少天不会再次启用</translation>
     </message>
     <message>
       <source>Domains where script can be embedded. E.g example.com, google.com</source>
@@ -83,7 +67,7 @@
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
-      <translation>在Widget中显示切换语言的使用者选项</translation>
+      <translation>在小部件中显示切换语言的使用者选项</translation>
     </message>
     <message>
       <source>Between what languages user should be able to switch</source>
@@ -151,7 +135,7 @@
     </message>
     <message>
       <source>Preload iframes. It will avoid loading delay after clicking widget</source>
-      <translation>预加载iframe。 这将避免单击 Widget 后的加载延迟</translation>
+      <translation>预加载iframe。 这将避免单击小部件后的加载延迟</translation>
     </message>
     <message>
       <source>How many seconds customer has to open already closed chat.</source>
@@ -235,7 +219,7 @@
     </message>
     <message>
       <source>Hide disabled department widget</source>
-      <translation>隐藏已禁用的部门 Wdiget</translation>
+      <translation>隐藏已禁用的部门小部件</translation>
     </message>
     <message>
       <source>Hide close button in dropdown</source>
@@ -283,7 +267,7 @@
     </message>
     <message>
       <source>Hide &apos;New Window&apos; option in Connector Widget</source>
-      <translation>在 Connector Widget 中隐藏 &quot;开新视窗&quot; 选项</translation>
+      <translation>在 Connector 小部件中隐藏 &quot;开新视窗&quot; 选项</translation>
     </message>
     <message>
       <source>Disable live auto assign</source>
@@ -307,7 +291,7 @@
     </message>
     <message>
       <source>Home page dashboard widgets order</source>
-      <translation>主页仪表板 Widget 顺序</translation>
+      <translation>主页仪表板 小部件顺序</translation>
     </message>
     <message>
       <source>Your site URL address</source>
@@ -347,7 +331,7 @@
     </message>
     <message>
       <source>Automatically reopen chat on widget open</source>
-      <translation>在 Widget 开启时自动重启交谈</translation>
+      <translation>在 小部件开启时自动重启交谈</translation>
     </message>
     <message>
       <source>Automatic pending chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
@@ -506,10 +490,6 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
-      <source>Use modern look</source>
-      <translation>使用现代外观</translation>
-    </message>
-    <message>
       <source>Welcome message</source>
       <translation>欢迎信息</translation>
     </message>
@@ -595,11 +575,11 @@
     </message>
     <message>
       <source>Status widget style</source>
-      <translation>状态 Widget 样式</translation>
+      <translation>状态小部件的样式</translation>
     </message>
     <message>
       <source>Widget container</source>
-      <translation>Widget 容器</translation>
+      <translation>小部件容器</translation>
     </message>
     <message>
       <source>Messages style</source>
@@ -607,11 +587,11 @@
     </message>
     <message>
       <source>Need help widget</source>
-      <translation>需要帮助 Widget</translation>
+      <translation>需要帮助小部件</translation>
     </message>
     <message>
       <source>Chat widget</source>
-      <translation>交谈 Widget</translation>
+      <translation>交谈小部件</translation>
     </message>
     <message>
       <source>Custom content</source>
@@ -643,7 +623,7 @@
     </message>
     <message>
       <source>Build your own need help widget layout</source>
-      <translation>建立自己的帮助小部件布局</translation>
+      <translation>建立自己的需要幫助小部件布局</translation>
     </message>
     <message>
       <source>Set default HTML</source>
@@ -682,8 +662,8 @@
       <translation>一般</translation>
     </message>
     <message>
-      <source>Buble background color</source>
-      <translation>气泡背景色</translation>
+      <source>Bubble background color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title color</source>
@@ -935,15 +915,15 @@
     </message>
     <message>
       <source>After how many seconds after page load show status widget</source>
-      <translation>页面加载后几秒钟后显示状态 Widget</translation>
+      <translation>页面加载后几秒钟后显示状态小部件</translation>
     </message>
     <message>
       <source>Need help widget width</source>
-      <translation>需要帮助小部件宽度</translation>
+      <translation>需要帮助小部件的宽度</translation>
     </message>
     <message>
       <source>Need help widget height</source>
-      <translation>需要帮助 Widget 高度</translation>
+      <translation>需要帮助小部件的高度</translation>
     </message>
     <message>
       <source>Position from right</source>
@@ -975,15 +955,15 @@
     </message>
     <message>
       <source>Widget border width (px)</source>
-      <translation>Widget的边框宽度 (px)</translation>
+      <translation>小部件的边框宽度 (px)</translation>
     </message>
     <message>
       <source>Online status text [old widget]</source>
-      <translation>在线状态文字[旧 Widget]</translation>
+      <translation>在线状态文字[旧 小部件]</translation>
     </message>
     <message>
       <source>Offline status text [old widget]</source>
-      <translation>离线状态文字[旧 Widget]</translation>
+      <translation>离线状态文字[旧 小部件]</translation>
     </message>
     <message>
       <source>Operator intro text</source>
@@ -999,11 +979,11 @@
     </message>
     <message>
       <source>Status widget border color</source>
-      <translation>客服状态 Widget 边框颜色</translation>
+      <translation>客服状态小部件的边框颜色</translation>
     </message>
     <message>
       <source>Operator image in chat widget</source>
-      <translation>交谈 Widget 中的客服人员图片</translation>
+      <translation>交谈小部件的中的客服人员图片</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
@@ -1011,15 +991,15 @@
     </message>
     <message>
       <source>Logo image, visible in widget left corner, 16x16</source>
-      <translation>商标 图片，显示于 Widget 左上角，16 x 16</translation>
+      <translation>商标 图片，显示于小部件的左上角，16 x 16</translation>
     </message>
     <message>
       <source>Show copyright widget logo in left corner</source>
-      <translation>在左上角显示版权 Widget logo</translation>
+      <translation>在左上角显示版权小部件的商標</translation>
     </message>
     <message>
       <source>Hide widget close button</source>
-      <translation>隐藏 Widget 关闭按钮</translation>
+      <translation>隐藏小部件的关闭按钮</translation>
     </message>
     <message>
       <source>Hide popup option</source>
@@ -1031,7 +1011,7 @@
     </message>
     <message>
       <source>Widget response layout width trigger (px)</source>
-      <translation>Widget 响应布局宽度触发器（像素）</translation>
+      <translation>小部件响应布局的宽度触发器（像素）</translation>
     </message>
     <message>
       <source>Header padding (px)</source>
@@ -1051,15 +1031,19 @@
     </message>
     <message>
       <source>Inject HTML on widget open</source>
-      <translation>在 Widget 打开时注入HTML</translation>
+      <translation>在小部件打开时注入HTML</translation>
+    </message>
+    <message>
+      <source>Header HTML. Here you can paste custom head HTML.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Custom html before start chat form fields, widget</source>
-      <translation>开始聊天表单字段/Widget 之前的自定义html</translation>
+      <translation>开始聊天表单字段/小部件之前的自定义html</translation>
     </message>
     <message>
       <source>Custom page CSS (new widget only)</source>
-      <translation>自定义页面CSS（仅限新 Widget）</translation>
+      <translation>自定义页面CSS（仅限新小部件）</translation>
     </message>
     <message>
       <source>Custom html before start chat form fields, popup (bot mode)</source>
@@ -1067,19 +1051,19 @@
     </message>
     <message>
       <source>Custom html before start chat form fields, widget (bot mode)</source>
-      <translation>开始聊天表单字段前的自定义html/widget（机器人模式）</translation>
+      <translation>开始聊天表单字段前的自定义html/小部件（机器人模式）</translation>
     </message>
     <message>
       <source>Custom html before standard widget header</source>
-      <translation>标准 Widget 标题内的自定义html</translation>
+      <translation>标准小部件标题内的自定义html</translation>
     </message>
     <message>
       <source>Custom html inside standard widget header</source>
-      <translation>标准 Widget 标题内的自定义html</translation>
+      <translation>标准小部件标题内的自定义html</translation>
     </message>
     <message>
       <source>Custom html before standard widget status header</source>
-      <translation>标准 Widget 状态标题内的自定义html</translation>
+      <translation>标准小部件状态标题内的自定义html</translation>
     </message>
     <message>
       <source>Start chat button text, standard chat</source>
@@ -1107,15 +1091,15 @@
     </message>
     <message>
       <source>Widget header background color</source>
-      <translation>Widget 标题背景颜色</translation>
+      <translation>小部件标题的背景颜色</translation>
     </message>
     <message>
       <source>Widget border color</source>
-      <translation>Widget 边框颜色</translation>
+      <translation>小部件边框颜色</translation>
     </message>
     <message>
       <source>Custom need help HTML</source>
-      <translation>自定义需求帮助HTML</translation>
+      <translation>自定义需要帮助的HTML</translation>
     </message>
     <message>
       <source>Need help background color</source>
@@ -1154,6 +1138,10 @@
       <translation>留言表单文字</translation>
     </message>
     <message>
+      <source>Thank you for your feedback text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Need help border color</source>
       <translation>需要帮助边框颜色</translation>
     </message>
@@ -1171,7 +1159,7 @@
     </message>
     <message>
       <source>Status widget additional CSS, takes effect after save</source>
-      <translation>状态Widget 附加的 CSS，保存后生效</translation>
+      <translation>状态小部件的附加 CSS，保存后生效</translation>
     </message>
     <message>
       <source>Background color for popup</source>
@@ -1179,11 +1167,11 @@
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
-      <translation>Widget 容器附加的 CSS，保存后生效</translation>
+      <translation>小部件容器的附加 CSS，保存后生效</translation>
     </message>
     <message>
       <source>Widget body additional CSS, takes effect after save</source>
-      <translation>Widget Body 主体附加的 CSS，保存后生效</translation>
+      <translation>小部件 Body 的附加 CSS，保存后生效</translation>
     </message>
     <message>
       <source>Minimize image</source>
@@ -1202,8 +1190,8 @@
       <translation>快显视窗 图片</translation>
     </message>
     <message>
-      <source>Visitor buble background color</source>
-      <translation>访客背景颜色</translation>
+      <source>Visitor bubble background color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor title color</source>
@@ -1214,8 +1202,8 @@
       <translation>访客文字颜色</translation>
     </message>
     <message>
-      <source>Operator buble background color</source>
-      <translation>客服人员背景颜色</translation>
+      <source>Operator bubble background color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Operator title color</source>
@@ -1263,11 +1251,11 @@
     </message>
     <message>
       <source>Widget height (px)</source>
-      <translation>Widget 高度 (px)</translation>
+      <translation>小部件高度 (px)</translation>
     </message>
     <message>
       <source>Widget width (px)</source>
-      <translation>Widget 宽度 (px)</translation>
+      <translation>小部件宽度 (px)</translation>
     </message>
     <message>
       <source>After how many user messages show switch to human button. empty - never, 0 - always</source>
@@ -1327,7 +1315,7 @@
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>Widget 主题</translation>
+      <translation>小部件主题</translation>
     </message>
   </context>
   <context>
@@ -1598,11 +1586,11 @@
     </message>
     <message>
       <source>Delay invitation widget show for N seconds if invitation was already matched.</source>
-      <translation>如果邀请已经匹配，则将邀请 Widget 显示延迟N秒。</translation>
+      <translation>如果邀请已经匹配，则将邀请小部件 显示延迟N秒。</translation>
     </message>
     <message>
       <source>Delay invitation widget show for N seconds if trigger is matched for first time.</source>
-      <translation>如果触发器首次匹配，则延迟邀请 Widget 显示N秒。</translation>
+      <translation>如果触发器首次匹配，则延迟邀请小部件显示N秒。</translation>
     </message>
     <message>
       <source>If dynamic invitation was matched on page refresh show instantly. Otherwise dynamic conditions will have to be matched again.</source>
@@ -1610,7 +1598,7 @@
     </message>
     <message>
       <source>Inject only HTML, widget state will not be changed. Matched invitation is executed on each page load.</source>
-      <translation>仅注入HTML，Widget 状态不会更改。 匹配的邀请在每次加载页面时执行。</translation>
+      <translation>仅注入HTML，小部件状态不会更改。 匹配的邀请在每次加载页面时执行。</translation>
     </message>
     <message>
       <source>Pageviews</source>
@@ -1705,8 +1693,8 @@
       <translation>选择一个动态事件</translation>
     </message>
     <message>
-      <source>Show invitation if visitor is iddle for n seconds</source>
-      <translation>如果访客闲置了n秒，则显示邀请</translation>
+      <source>Show invitation if visitor is idle for n seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disabled</source>
@@ -1722,7 +1710,7 @@
     </message>
     <message>
       <source>Do not show widget automatically</source>
-      <translation>不自动显示 Widget</translation>
+      <translation>不自动显示小部件</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -1817,7 +1805,7 @@
     </message>
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
-      <translation>至少一个栏位必须是可见的，并需要快显视窗和页面Widget </translation>
+      <translation>至少一个栏位必须是可见的，并需要快显视窗和页面小部件</translation>
     </message>
     <message>
       <source>Custom fields generator, these fields will be visible in start chat forms</source>
@@ -1965,7 +1953,7 @@
     </message>
     <message>
       <source>This field is visible in the page widget</source>
-      <translation>此栏位会显示于页面的 Widget 里</translation>
+      <translation>此栏位会显示于页面的小部件里</translation>
     </message>
     <message>
       <source>This field is invisible but prefilled data is collected</source>
@@ -3372,7 +3360,7 @@
     </message>
     <message>
       <source>Disable responsive layout for status widget.</source>
-      <translation>禁用 responsive layout for status widget.。</translation>
+      <translation>禁用狀態小部件的響應式佈局。</translation>
     </message>
     <message>
       <source>Disable minimize icon</source>
@@ -3440,11 +3428,11 @@
     </message>
     <message>
       <source>Widget embed code (new)</source>
-      <translation>Widget 嵌入代码（新）</translation>
+      <translation>小部件的嵌入代码（新）</translation>
     </message>
     <message>
       <source>Widget embed code (legacy)</source>
-      <translation>Widget 嵌入代码（旧版）</translation>
+      <translation>小部件的嵌入代码（旧版）</translation>
     </message>
     <message>
       <source>Page embed code (legacy)</source>
@@ -3452,7 +3440,7 @@
     </message>
     <message>
       <source>Widget embed code</source>
-      <translation>Widget 嵌入码</translation>
+      <translation>小部件的嵌入码</translation>
     </message>
     <message>
       <source>Page embed code</source>
@@ -3520,7 +3508,7 @@
     </message>
     <message>
       <source>Show the page widget when a mouse is clicked</source>
-      <translation>单击鼠标时显示页面 widget</translation>
+      <translation>单击鼠标时显示页面小部件</translation>
     </message>
     <message>
       <source>Disable proactive invitations</source>
@@ -3548,7 +3536,7 @@
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>最小化的行动，只有当Widget在底部适用</translation>
+      <translation>最小化的行动，只有当小部件在底部适用</translation>
     </message>
     <message>
       <source>Keep where it was</source>
@@ -3588,15 +3576,15 @@
     </message>
     <message>
       <source>Widget width</source>
-      <translation>Widget 宽度</translation>
+      <translation>小部件宽度</translation>
     </message>
     <message>
       <source>Widget width in pixels</source>
-      <translation>Widget 宽度，以 px 为单位</translation>
+      <translation>小部件宽度，以 px 为单位</translation>
     </message>
     <message>
       <source>Widget height in pixels</source>
-      <translation>Widget 高度，以 px 为单位</translation>
+      <translation>小部件高度，以 px 为单位</translation>
     </message>
     <message>
       <source>Position from the top, only used if the middle left or the middle right side is chosen</source>
@@ -3640,15 +3628,15 @@
     </message>
     <message>
       <source>Widget embed/click mode</source>
-      <translation>Widget 嵌入/点击模式</translation>
+      <translation>小部件嵌入/点击模式</translation>
     </message>
     <message>
       <source>widget (default)</source>
-      <translation>widget (预设)</translation>
+      <translation>小部件 (预设)</translation>
     </message>
     <message>
       <source>Widget position</source>
-      <translation>Widget 位置</translation>
+      <translation>小部件位置</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -3687,7 +3675,7 @@
     </message>
     <message>
       <source>Expand the widget automatically for new users</source>
-      <translation>自动为新的使用者展开 Widget</translation>
+      <translation>自动为新的使用者展开小部件</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
@@ -3821,7 +3809,7 @@
     </message>
     <message>
       <source>Switch to widget</source>
-      <translation>切换到 Widget</translation>
+      <translation>切换到小部件</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -4675,6 +4663,10 @@
       <translation>未读取讯息</translation>
     </message>
     <message>
+      <source>Bot Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New message from operator</source>
       <translation>来自客服人员的新信息</translation>
     </message>
@@ -4739,12 +4731,20 @@
       <translation>结束交谈</translation>
     </message>
     <message>
+      <source>Start a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>BB code</source>
       <translation>BB Code</translation>
     </message>
     <message>
       <source>Popup</source>
       <translation>快显视窗</translation>
+    </message>
+    <message>
+      <source>Start a chat with us!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This chat is closed now. You can close window.</source>
@@ -4868,6 +4868,22 @@
     <message>
       <source>Sort by department</source>
       <translation>按部门排序</translation>
+    </message>
+    <message>
+      <source>Offline request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>More than</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>user messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>
@@ -5349,7 +5365,7 @@
     </message>
     <message>
       <source>Custom need help HTML</source>
-      <translation>自定义需求帮助HTML</translation>
+      <translation>自定义需要帮助的HTML</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
@@ -5358,6 +5374,10 @@
     <message>
       <source>You are number {number} in the queue. Please wait...</source>
       <translation>您是队列中的数字{number}。 请稍候...</translation>
+    </message>
+    <message>
+      <source>Thank you for your feedback</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -5426,7 +5446,7 @@
     <name>chat/dashboardwidgets</name>
     <message>
       <source>Choose what widgets you want to see</source>
-      <translation>选择您想要看见的 Widget</translation>
+      <translation>选择您想要看见的小部件</translation>
     </message>
     <message>
       <source>Column number</source>
@@ -5435,6 +5455,22 @@
     <message>
       <source>Settings updated</source>
       <translation>设定已更新</translation>
+    </message>
+    <message>
+      <source>Notifications about bot chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To receive browser notifications you have to enable them in your account Notifications settings.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notify me about bot conversation after defined number of user interactions.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notify me if visitor writes more than defined number messages.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online operators</source>
@@ -5754,7 +5790,7 @@
     <name>chat/geoadjustment</name>
     <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation>交谈 Widget status indicator 也适用于这些规则吗？此选项可能会导致性能下降</translation>
+      <translation>交谈小部件狀態指示燈也适用于这些规则吗？此选项可能会导致性能下降</translation>
     </message>
     <message>
       <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
@@ -5778,7 +5814,7 @@
     </message>
     <message>
       <source>Other countries, put widget/chat status to</source>
-      <translation>其他国家，把 Widget / Chat status </translation>
+      <translation>其他国家，把 小部件/ 交谈狀態</translation>
     </message>
     <message>
       <source>offline status</source>
@@ -5786,7 +5822,7 @@
     </message>
     <message>
       <source>hidden/disabled, widget will not be shown</source>
-      <translation>隐藏 / 禁用，Widget 将不会显示</translation>
+      <translation>隐藏 / 禁用，小部件将不会显示</translation>
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
@@ -6592,7 +6628,7 @@
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>Widget 主题</translation>
+      <translation>小部件主题</translation>
     </message>
     <message>
       <source>Import new themes</source>
@@ -6763,11 +6799,11 @@
     </message>
     <message>
       <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
-      <translation>( Widget为开启 ) 或 ( Widget为关闭，使用者有5分钟的时间进行回应 )</translation>
+      <translation>( 小部件为开启 ) 或 ( 小部件为关闭，使用者有5分钟的时间进行回应 )</translation>
     </message>
     <message>
       <source>(Widget is open or closed) and (user has activity in last 5 minutes and ping respond)</source>
-      <translation>（Widget 是打开或关闭） 和 （使用者在最后 5 分钟有活动和有 ping 回应）</translation>
+      <translation>（小部件是打开或关闭） 和 （使用者在最后 5 分钟有活动和有 ping 回应）</translation>
     </message>
     <message>
       <source>Update</source>
@@ -7336,7 +7372,7 @@
     </message>
     <message>
       <source>Average chats</source>
-      <translation>平均聊天</translation>
+      <translation>平均交谈</translation>
     </message>
     <message>
       <source>Max chats</source>
@@ -7416,7 +7452,7 @@
     </message>
     <message>
       <source>Chats Started</source>
-      <translation>聊天开始</translation>
+      <translation>交谈开始</translation>
     </message>
     <message>
       <source>Abandoned Chats</source>
@@ -8583,8 +8619,8 @@
       <translation>闲置交谈</translation>
     </message>
     <message>
-      <source>RT Active chats</source>
-      <translation>RT 现行聊天</translation>
+      <source>Real Time Active chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update stats</source>
@@ -9681,20 +9717,32 @@
       <translation>回应位置4.在信息中以{content_4}的形式提供。</translation>
     </message>
     <message>
-      <source>If required you can have also condition to check</source>
-      <translation>如果需要，您也可以检查</translation>
+      <source>Response Location 5. Available as {content_5} in messages.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Response Location.</source>
-      <translation>回应位置。</translation>
+      <source>Response Location 6. Available as {content_6} in messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Meta msg location. If you support Live Helper Chat JSON syntax you can set location of this response.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If required you can also have condition to check</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location. It will also fail if attribute is not found.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Response comparison</source>
       <translation>回应比较</translation>
     </message>
     <message>
-      <source>Do nothing</source>
-      <translation>什么都不做</translation>
+      <source>Check for presence of variable</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text like</source>
@@ -9711,10 +9759,6 @@
     <message>
       <source>Value to compare</source>
       <translation>值去比较</translation>
-    </message>
-    <message>
-      <source>Meta msg location. If you support Live Helper Chat json syntax you can set location of this response.</source>
-      <translation>元信息位置。 如果支持Live Helper Chat json语法，则可以设置此响应的位置。</translation>
     </message>
   </context>
   <context>
@@ -10301,7 +10345,7 @@
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>Widget 主题</translation>
+      <translation>小部件主题</translation>
     </message>
     <message>
       <source>Import a new theme</source>
@@ -10726,7 +10770,7 @@
     </message>
     <message>
       <source>widget was opened with invitation content</source>
-      <translation>带有邀请内容的 Widget 已打开</translation>
+      <translation>带有邀请内容的小部件已打开</translation>
     </message>
     <message>
       <source>Total seen</source>
@@ -10734,7 +10778,7 @@
     </message>
     <message>
       <source>Widget was shown but visitor closed it without starting a chat</source>
-      <translation>显示了 Widget，但访客没有开始聊天就将其关闭</translation>
+      <translation>显示了小部件，但访客没有开始聊天就将其关闭</translation>
     </message>
     <message>
       <source>Chat started</source>
@@ -12453,8 +12497,8 @@
       <translation>请选择一个预设的使用者群组</translation>
     </message>
     <message>
-      <source>Password has to be atleast</source>
-      <translation>密码必须至少</translation>
+      <source>Password has to be at least</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>characters length</source>
