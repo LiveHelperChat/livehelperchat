@@ -23,6 +23,7 @@ const initialState = fromJS({
     offlineData: {'fetched' : false},
     onlineData: {'fetched' : false},
     customData: {'fields' : []},
+    api_data: null,
     attr_prefill: [],
     attr_prefill_admin: [],
     extension: {}, // Holds extensions data for reuse
@@ -71,16 +72,23 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.set('loadedCore',true);
         }
 
+        case 'attr_set': {
+            return state.setIn(action.attr, action.data);
+        }
+
+        case 'operator':
+        case 'phash':
+        case 'pvhash':
+        case 'attr_prefill':
+        case 'attr_prefill_admin':
+        case IS_MOBILE:
+        case 'base_url':
+        case 'theme':
+        case 'jsVars':
+        case 'bot_id':
+        case 'priority':
         case 'lang': {
-            return state.set('lang',action.data);
-        }
-
-        case 'bot_id': {
-            return state.set('bot_id',action.data);
-        }
-
-        case 'priority': {
-            return state.set('priority',action.data);
+            return state.set(action.type,action.data);
         }
 
         case 'widgetStatus': {
@@ -89,10 +97,6 @@ const chatWidgetReducer = (state = initialState, action) => {
                 state = state.setIn(['proactive','pending'],false);
             }
             return state.set('shown',action.data);
-        }
-
-        case 'jsVars': {
-            return state.set('jsVars',action.data);
         }
 
         // Proactive invitation has arrived
@@ -133,10 +137,6 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.setIn(['chatLiveData','ott'],action.data.text);
         }
 
-        case IS_MOBILE : {
-            return state.set('isMobile',action.data);
-        }
-
         case IS_ONLINE : {
             return state.set('isOnline',action.data);
         }
@@ -145,8 +145,11 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.set('offlineData', fromJS({'fetched' : true, 'disabled': action.data.disabled, 'fields_visible': action.data.fields_visible, 'fields' : action.data.fields, 'department' : action.data.department})).set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)));
         }
 
+        case 'department':
+        case 'mode':
+        case 'product':
         case 'captcha': {
-            return state.set('captcha',fromJS(action.data));
+            return state.set(action.type,fromJS(action.data));
         }
         
         case 'INIT_PRODUCTS': {
@@ -157,32 +160,12 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.set('ses_ref',action.data.ref);
         }
 
-        case 'department' : {
-            return state.set('department',fromJS(action.data));
-        }
-
-        case 'product' : {
-            return state.set('product',fromJS(action.data));
-        }
-
-        case 'mode' : {
-            return state.set('mode',fromJS(action.data));
-        }
-
-        case 'theme' : {
-            return state.set('theme',action.data);
-        }
-
         case 'CHAT_ADD_OVERRIDE' : {
             return state.update('overrides',list => list.push(action.data));
         }
 
         case 'CHAT_REMOVE_OVERRIDE': {
             return state.update('overrides',list => list.filter(item => item != action.data));
-        }
-
-        case 'base_url': {
-            return state.set('base_url',action.data);
         }
 
         case ONLINE_SUBMITTED : {
@@ -334,28 +317,8 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.set('departmentDefault',action.data);
         }
 
-        case 'attr_prefill': {
-            return state.set('attr_prefill', action.data);
-        }
-
-        case 'attr_prefill_admin': {
-            return state.set('attr_prefill_admin', action.data);
-        }
-
-        case 'phash': {
-            return state.set('phash', action.data);
-        }
-
-        case 'pvhash': {
-            return state.set('pvhash', action.data);
-        }
-
         case 'survey': {
             return state.setIn(['chat_ui','survey_id'], action.data);
-        }
-
-        case 'operator': {
-            return state.set('operator', action.data);
         }
 
         case 'CUSTOM_FIELDS_ITEM': {

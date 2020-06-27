@@ -25,35 +25,13 @@ class StartChat extends Component {
 
         this.state = {showBBCode : null, Question:''};
         this.botPayload = null;
-        this.ignoreBot = false;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.enterKeyDown = this.enterKeyDown.bind(this);
         this.handleContentChange = this.handleContentChange.bind(this);
         this.handleContentChangeCustom = this.handleContentChangeCustom.bind(this);
         this.setBotPayload = this.setBotPayload.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
-        this.startChatEvent = this.startChatEvent.bind(this);
         this.textMessageRef = React.createRef();
-
-        helperFunctions.eventEmitter.addListener('lhc.start_chat_event', (e) => {
-            this.startChatEvent(e)
-        });
-    }
-
-    startChatEvent(e) {
-        if (e.type == 'start_chat') {
-            if (typeof e.fields !== 'undefined') {
-                var currentState = this.state;
-                currentState = {...currentState, ...e.fields};
-                this.setState(currentState);
-            }
-
-            if (e.ignoreBot) {
-                this.ignoreBot = true;
-            }
-
-            this.handleSubmit();
-        }
     }
 
     toggleModal() {
@@ -117,12 +95,12 @@ class StartChat extends Component {
             'fields' : fields
         };
 
-        if (this.botPayload) {
-            submitData['bpayload'] = this.botPayload;
+        if (this.props.chatwidget.has('ignore_bot') && this.props.chatwidget.get('ignore_bot') === true) {
+            submitData['ignore_bot'] = true;
         }
 
-        if (this.ignoreBot) {
-            submitData['ignore_bot'] = true;
+        if (this.botPayload) {
+            submitData['bpayload'] = this.botPayload;
         }
 
         if (this.props.chatwidget.hasIn(['proactive','data','invitation_id']) === true) {
@@ -211,12 +189,20 @@ class StartChat extends Component {
             this.textMessageRef.current.focus();
         }
 
+        if (this.props.chatwidget.get('api_data') !== null) {
+            let apiData = this.props.chatwidget.get('api_data');
+            this.props.dispatch({'type':'attr_set', 'attr':['api_data'],'data':null});
+            this.setState({...this.state, ...apiData});
+        }
+
     }
 
     static getDerivedStateFromProps(props, state) {
 
         if (props.chatwidget.getIn(['chat_ui','auto_start']) && props.chatwidget.get('processStatus') == 0 && (props.chatwidget.get('mode') == 'embed' || props.chatwidget.get('mode') == 'popup' || (props.chatwidget.get('mode') == 'widget' && props.chatwidget.get('shown') == 1) )) {
-            let fields = {'jsvar' : props.chatwidget.get('jsVars')};
+
+            var fields = state;
+            fields['jsvar'] = props.chatwidget.get('jsVars');
             fields['captcha_' + props.chatwidget.getIn(['captcha','hash'])] = props.chatwidget.getIn(['captcha','ts']);
             fields['tscaptcha'] = props.chatwidget.getIn(['captcha','ts']);
             fields['user_timezone'] = helperFunctions.getTimeZone();
@@ -244,17 +230,28 @@ class StartChat extends Component {
             }
 
             const customFields = helperFunctions.getCustomFieldsSubmit(props.chatwidget.getIn(['customData','fields']));
+
             if (customFields !== null) {
                 fields = {...fields, ...customFields};
             }
 
-            props.dispatch(submitOnlineForm({
+            if (props.chatwidget.get('api_data') !== null) {
+                fields = {...fields, ...props.chatwidget.get('api_data')}
+            }
+
+            let submitData = {
                 'department':props.chatwidget.get('department'),
                 'theme' : props.chatwidget.get('theme'),
                 'mode' : props.chatwidget.get('mode'),
                 'vid' : props.chatwidget.get('vid'),
                 'fields' : fields
-            }));
+            };
+
+            if (props.chatwidget.has('ignore_bot') && props.chatwidget.get('ignore_bot') === true) {
+                submitData['ignore_bot'] = true;
+            }
+
+            props.dispatch(submitOnlineForm(submitData));
         }
 
         return null;

@@ -42,6 +42,7 @@ export default function (dispatch, getState) {
         }},
         {id : 'reopenNotification', cb : (data) => {dispatch({type: 'CHAT_ALREADY_STARTED', data: {'id' : data.id, 'hash' : data.hash}})}},
         {id : 'subcribedEvent', cb : (e) => {dispatch(storeSubscriber(e.payload))}},
+        {id : 'attr_set', cb : (data) => {dispatch({type: 'attr_set', attr : data.attr, data : data.data})}},
         {id : 'onlineStatus',cb : (data) => {dispatch({type: 'onlineStatus', data: data})}},
         {id : 'toggleSound',cb : (data) => {dispatch({type: 'toggleSound', data: data})}},
         {id : 'widgetStatus',cb : (data) => {dispatch({type: 'widgetStatus', data: data})}},
@@ -105,12 +106,10 @@ export default function (dispatch, getState) {
         } else if (action == 'lhc_event') {
             const parts = e.data.replace('lhc_event:','').split('::');
             let args = JSON.parse(parts[1]);
-
             if (Array.isArray(args)) {
                 args.push(dispatch);
                 args.push(getState);
             }
-
             helperFunctions.emitEvent(parts[0],args);
         } else if (action == 'lhc_sizing_chat') {
             helperFunctions.sendMessageParent('widgetHeight', [{'height' : (parseInt(e.data.split(':')[1]) + 50)}]);
