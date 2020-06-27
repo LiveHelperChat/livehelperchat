@@ -332,7 +332,7 @@
                     chatEvents.sendChildEvent(params['cmd'], [params['arg']], 'lhc_load_ext');
                 } else {
                     attributesWidget.childExtCommands.push(params);
-                    attributesWidget.mainWidget.bootstrap();
+                    //attributesWidget.mainWidget.bootstrap();
                 }
             });
 

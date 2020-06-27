@@ -23,6 +23,8 @@ class StartChat extends Component {
     constructor(props) {
         super(props);
 
+        this.apiLoaded = false;
+
         this.state = {showBBCode : null, Question:''};
         this.botPayload = null;
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -94,10 +96,6 @@ class StartChat extends Component {
             'vid' : this.props.chatwidget.get('vid'),
             'fields' : fields
         };
-
-        if (this.props.chatwidget.has('ignore_bot') && this.props.chatwidget.get('ignore_bot') === true) {
-            submitData['ignore_bot'] = true;
-        }
 
         if (this.botPayload) {
             submitData['bpayload'] = this.botPayload;
@@ -184,17 +182,23 @@ class StartChat extends Component {
             helperFunctions.sendMessageParent('widgetHeight', [{'height' : document.getElementById('id-container-fluid').offsetHeight+40}]);
         }
 
+        let needFocus = false;
+        if (this.apiLoaded === false && this.props.chatwidget.get('api_data') !== null) {
+            this.apiLoaded = true;
+            this.setState({...this.state, ...this.props.chatwidget.get('api_data')});
+            needFocus = true;
+        }
+
         // Auto focus if it's show operation
-        if (prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true && this.props.chatwidget.get('mode') == 'widget' && this.textMessageRef.current) {
+        if ((needFocus === true || (prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true)) && this.props.chatwidget.get('mode') == 'widget' && this.textMessageRef.current) {
             this.textMessageRef.current.focus();
         }
+    }
 
-        if (this.props.chatwidget.get('api_data') !== null) {
-            let apiData = this.props.chatwidget.get('api_data');
-            this.props.dispatch({'type':'attr_set', 'attr':['api_data'],'data':null});
-            this.setState({...this.state, ...apiData});
-        }
-
+    moveCaretAtEnd(e) {
+        var temp_value = e.target.value;
+        e.target.value = '';
+        e.target.value = temp_value;
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -246,10 +250,6 @@ class StartChat extends Component {
                 'vid' : props.chatwidget.get('vid'),
                 'fields' : fields
             };
-
-            if (props.chatwidget.has('ignore_bot') && props.chatwidget.get('ignore_bot') === true) {
-                submitData['ignore_bot'] = true;
-            }
 
             props.dispatch(submitOnlineForm(submitData));
         }
@@ -343,7 +343,7 @@ class StartChat extends Component {
                             {this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 && <React.Fragment>
                                 <ChatStartOptions toggleModal={this.toggleModal} />
                                 <div className="mx-auto pb-1 w-100">
-                                    <textarea autoFocus={this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('shown') === true} readOnly={this.props.chatwidget.get('processStatus') == 1} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} style={{height: this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.Question) || (this.state.Question.length > this.textMessageRef.current.offsetWidth/8.6)) ? '60px' : '36px'}} aria-label="Type your message here..." id="CSChatMessage" value={this.props.chatwidget.get('processStatus') == 1 ? '' : this.state.Question} placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} onKeyDown={this.enterKeyDown} onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})} ref={this.textMessageRef} rows="1" className={classMessageInput} />
+                                    <textarea autoFocus={this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('shown') === true} onFocus={this.moveCaretAtEnd} readOnly={this.props.chatwidget.get('processStatus') == 1} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} style={{height: this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.Question) || (this.state.Question.length > this.textMessageRef.current.offsetWidth/8.6)) ? '60px' : '36px'}} aria-label="Type your message here..." id="CSChatMessage" value={this.props.chatwidget.get('processStatus') == 1 ? '' : this.state.Question} placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} onKeyDown={this.enterKeyDown} onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})} ref={this.textMessageRef} rows="1" className={classMessageInput} />
                                 </div>
                                 <div className="disable-select">
                                     <div className="user-chatwidget-buttons pt-1" id="ChatSendButtonContainer">
