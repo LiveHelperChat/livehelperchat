@@ -89,6 +89,10 @@ export class mainWidget{
 
     bootstrap() {
 
+        if (this.isLoaded === true) {
+            return ;
+        }
+
         this.isLoaded = true;
 
         if (this.attributes.staticJS['fontCSS']) {
