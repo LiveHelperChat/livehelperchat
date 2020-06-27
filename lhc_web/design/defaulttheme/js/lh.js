@@ -1150,7 +1150,6 @@ function lh(){
         }).fail(function(jqXHR, textStatus, errorThrown) {
             lhcController.syncDisabled(false);
             console.dir(jqXHR);
-            alert('postJSON request failed! ' + textStatus + ':' + errorThrown + ':' + jqXHR.responseText);
         });
 
         if ($('#CSChatMessage-'+chat_id).length != 0) {
