@@ -318,21 +318,27 @@
 
             // Send event to the child instantly
             attributesWidget.eventEmitter.addListener('sendChildEvent',function (params) {
-                if (attributesWidget.mainWidget.isLoaded == true) {
-                    chatEvents.sendChildEvent(params['cmd'], [params['arg']]);
-                } else {
-                    attributesWidget.childCommands.push(params);
+                if (typeof params['boot'] !== 'undefined') {
                     attributesWidget.mainWidget.bootstrap();
+                } else {
+                    if (attributesWidget.mainWidget.isLoaded == true) {
+                        chatEvents.sendChildEvent(params['cmd'], [params['arg']]);
+                    } else {
+                        attributesWidget.childCommands.push(params);
+                    }
                 }
             });
 
             // Send smart event to the child
             attributesWidget.eventEmitter.addListener('sendChildExtEvent',function (params) {
-                if (attributesWidget.mainWidget.isLoaded == true) {
-                    chatEvents.sendChildEvent(params['cmd'], [params['arg']], 'lhc_load_ext');
+                if (typeof params['boot'] !== 'undefined') {
+                    attributesWidget.mainWidget.bootstrap();
                 } else {
-                    attributesWidget.childExtCommands.push(params);
-                    //attributesWidget.mainWidget.bootstrap();
+                    if (attributesWidget.mainWidget.isLoaded == true) {
+                        chatEvents.sendChildEvent(params['cmd'], [params['arg']], 'lhc_load_ext');
+                    } else {
+                        attributesWidget.childExtCommands.push(params);
+                    }
                 }
             });
 
