@@ -321,7 +321,7 @@
                 if (typeof params['boot'] !== 'undefined') {
                     attributesWidget.mainWidget.bootstrap();
                 } else {
-                    if (attributesWidget.mainWidget.isLoaded == true) {
+                    if (attributesWidget.mainWidget.isLoaded == true && lhc.loaded == true) {
                         chatEvents.sendChildEvent(params['cmd'], [params['arg']]);
                     } else {
                         attributesWidget.childCommands.push(params);
@@ -334,7 +334,7 @@
                 if (typeof params['boot'] !== 'undefined') {
                     attributesWidget.mainWidget.bootstrap();
                 } else {
-                    if (attributesWidget.mainWidget.isLoaded == true) {
+                    if (attributesWidget.mainWidget.isLoaded == true && lhc.loaded == true) {
                         chatEvents.sendChildEvent(params['cmd'], [params['arg']], 'lhc_load_ext');
                     } else {
                         attributesWidget.childExtCommands.push(params);
@@ -576,6 +576,9 @@
                     window.addEventListener('blur',focusChangeCb);
                     window.addEventListener('pageshow',focusChangeCb);
                     window.addEventListener('pagehide',focusChangeCb);
+
+                    // App is fully loaded
+                    lhc.loaded = true;
 
                     chatEvents.sendChildEvent('ext_modules', [attributesWidget.staticJS['ex_cb_js']]);
                     
