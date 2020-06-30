@@ -88,7 +88,7 @@ class erLhcoreClassGenericBotActionText {
 
         if (isset($action['content']['html']) && !empty($action['content']['html']))
         {
-            $metaMessage['content']['html']['content'] = $action['content']['html'];
+            $metaMessage['content']['html']['content'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['html'], array('chat' => $chat));
         }
 
         if (isset($action['content']['attr_options']) && !empty($action['content']['attr_options']))
@@ -96,7 +96,7 @@ class erLhcoreClassGenericBotActionText {
             $metaMessage['content']['attr_options'] = $action['content']['attr_options'];
         }
 
-        $action['content']['text'] = $action['content']['text'];
+        $action['content']['text'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['text'], array('chat' => $chat));
 
         $msgData = explode('|||',(isset($action['content']['text']) ? trim($action['content']['text']) : ''));
 
