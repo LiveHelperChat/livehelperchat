@@ -2,7 +2,7 @@
 <?php if (!($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT && $chat->bot !== null && isset($chat->bot->configuration_array['profile_hide']) && $chat->bot->configuration_array['profile_hide'] == true)) : ?>
 <?php if (!isset($customChatStatus) || $customChatStatus == false) : ?>
 
-<?php if ($is_activated == true || $is_proactive_based == true) : ?>
+<?php if (($is_activated == true || $is_proactive_based == true) && ($chat->status != erLhcoreClassModelChat::STATUS_BOT_CHAT)) : ?>
     <?php if ($chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT && ($user = $chat->user) !== false) : ?>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_main_pre.tpl.php')); ?>
     	<?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile.tpl.php'));?>

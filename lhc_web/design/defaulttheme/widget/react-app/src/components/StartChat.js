@@ -321,7 +321,7 @@ class StartChat extends Component {
 
                         <div className={msg_expand} id="messagesBlock">
                             <div className={bottom_messages} id="messages-scroll">
-                                {this.props.chatwidget.getIn(['proactive','has']) === true && <ChatInvitationMessage mode="message" invitation={this.props.chatwidget.getIn(['proactive','data'])} />}
+                                {this.props.chatwidget.getIn(['proactive','has']) === true && <ChatInvitationMessage mode="message" setBotPayload={this.setBotPayload} invitation={this.props.chatwidget.getIn(['proactive','data'])} />}
 
                                 {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','cmmsg_widget']) && <ChatBotIntroMessage setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['chat_ui','cmmsg_widget'])} />}
 

@@ -66,6 +66,46 @@ if (isset($payload['theme']) && $payload['theme'] > 0) {
     }
 }
 
+// Bot message as full widget body
+if ($outputResponse['invitation_id'] > 0) {
+
+    $invitation = erLhAbstractModelProactiveChatInvitation::fetch($outputResponse['invitation_id']);
+
+    if ($invitation instanceof erLhAbstractModelProactiveChatInvitation && isset($invitation->design_data_array['append_bot']) && $invitation->design_data_array['append_bot'] == 1 && $invitation->bot_id > 0 && $invitation->trigger_id > 0) {
+
+        $bot = erLhcoreClassModelGenericBotBot::fetch($invitation->bot_id);
+
+        if ($bot instanceof erLhcoreClassModelGenericBotBot)
+        {
+            if ($bot->has_photo) {
+                $outputResponse['photo'] = '//' . $_SERVER['HTTP_HOST'] . $bot->photo_path;
+            }
+
+            $outputResponse['extra_profile'] = $bot->nick;
+        }
+
+        $tpl = new erLhcoreClassTemplate('lhchat/part/render_intro.tpl.php');
+
+        if (isset($theme)) {
+            $tpl->set('theme',$theme);
+        }
+
+        $chat = new erLhcoreClassModelChat();
+        $chat->bot = $bot;
+        $chat->gbot_id = $bot->id;
+
+        $tpl->set('chat',$chat);
+        $tpl->set('react',true);
+        $tpl->set('no_wrap_intro',true);
+        $tpl->set('no_br',true);
+        $tpl->set('triggerMessageId',$invitation->trigger_id);
+
+        $outputResponse['message_full'] = $tpl->fetch();
+    }
+}
+
+
+
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
 exit;
 ?>

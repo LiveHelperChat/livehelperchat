@@ -3,6 +3,10 @@
 </div>
 
 <div class="form-group">
+    <label><?php echo erLhcoreClassAbstract::renderInput('append_bot', $fields['append_bot'], $object)?> <?php echo $fields['append_bot']['trans'];?></label>
+</div>
+
+<div class="form-group">
     <label><?php echo $fields['bot_id']['trans'];?></label>
     <?php echo erLhcoreClassAbstract::renderInput('bot_id', $fields['bot_id'], $object)?>
 </div>
