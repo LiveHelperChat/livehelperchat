@@ -306,7 +306,7 @@ class OnlineChat extends Component {
         this.scrollBottom();
 
         if (this.delayQueue.length > 0) {
-            var data = this.delayQueue.pop();
+            var data = this.delayQueue.shift();
 
             setTimeout(() => {
                 this.unhideDelayed(data.id);
