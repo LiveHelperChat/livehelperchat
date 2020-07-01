@@ -260,15 +260,15 @@
 
                     // Monitor js vars if required
                     if (data.js_vars.length > 0) {
-                        attributesWidget.userSession.setupVarsMonitoring(data.js_vars);
+                        attributesWidget.userSession.setupVarsMonitoring(data.js_vars, (vars) => {
+                            chatEvents.sendChildEvent('jsVars', [vars]);
+                        });
                     }
                 }
 
                 // Init main widgets
                 if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
-                    //if (attributesWidget.position != 'api') {
                         attributesWidget.viewHandler.init(attributesWidget);
-                    //}
                 }
 
                 if (!(attributesWidget.position == 'api' && attributesWidget.mode == 'embed')) {

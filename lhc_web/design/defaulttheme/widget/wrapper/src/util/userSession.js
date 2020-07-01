@@ -61,7 +61,7 @@ export class userSession {
         return attr
     }
 
-    setupVarsMonitoring(jsVars) {
+    setupVarsMonitoring(jsVars, cb) {
         this.jsVars = jsVars;
 
         // Try to monitor variable if it's lhc_var
@@ -74,7 +74,7 @@ export class userSession {
                         obj[prop] = value;
 
                         clearTimeout(this.updateVarsTimeout);
-                        this.updateVarsTimeout = setTimeout( () =>{ this.updateJSVars(obj);  },1000);
+                        this.updateVarsTimeout = setTimeout( () =>{ this.updateJSVars(obj, cb);  },1000);
 
                         // Indicate success
                         return true;
@@ -126,11 +126,18 @@ export class userSession {
         return append;
     }
 
-    updateJSVars(vars) {
+    updateJSVars(vars, cb) {
+
+        let varsJSON = this.getVars(vars);
+
         var xhr = new XMLHttpRequest();
         xhr.open( "POST", LHC_API.args.lhc_base_url + '/chat/updatejsvars' + this.getAppendVariables(), true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhr.send( "data=" + encodeURIComponent( this.JSON.stringify(this.getVars(vars)) ) );
+        xhr.send( "data=" + encodeURIComponent( this.JSON.stringify(varsJSON) ) );
+
+        if (typeof cb !== 'undefined' && this.hash === null && this.id === null) {
+            cb(varsJSON);
+        }
     }
 
     setChatInformation(data) {
