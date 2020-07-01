@@ -3,8 +3,6 @@
 erLhcoreClassRestAPIHandler::setHeaders();
 $requestPayload = json_decode(file_get_contents('php://input'),true);
 
-erLhcoreClassSystem::$prependDomain = true;
-
 $Params['user_parameters_unordered'] = $requestPayload;
 $Params['user_parameters'] = $requestPayload;
 
