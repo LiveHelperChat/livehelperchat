@@ -50,7 +50,7 @@ class erLhcoreClassModelGenericBotTrGroup {
                 break;
 
             case 'photo_path':
-                $this->photo_path = ($this->filepath != '' ? erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'. $this->filepath . $this->filename;
+                $this->photo_path = ($this->filepath != '' ? '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'. $this->filepath . $this->filename;
                 return $this->photo_path;
                 break;
 

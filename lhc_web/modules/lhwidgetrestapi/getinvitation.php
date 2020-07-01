@@ -37,7 +37,7 @@ if (($user = $onlineUser->operator_user) !== false) {
     $outputResponse['extra_profile'] = $user->job_title != '' ? htmlspecialchars($user->job_title) : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Personal assistant');
 
     if ($user->has_photo) {
-        $outputResponse['photo'] = '//' . $_SERVER['HTTP_HOST'] . $user->photo_path;
+        $outputResponse['photo'] = $user->photo_path;
         $outputResponse['photo_title'] = $user->name_support;
     }
 
@@ -78,7 +78,7 @@ if ($outputResponse['invitation_id'] > 0) {
         if ($bot instanceof erLhcoreClassModelGenericBotBot)
         {
             if ($bot->has_photo) {
-                $outputResponse['photo'] = '//' . $_SERVER['HTTP_HOST'] . $bot->photo_path;
+                $outputResponse['photo'] = $bot->photo_path;
             }
 
             $outputResponse['extra_profile'] = $bot->nick;
