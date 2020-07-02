@@ -822,7 +822,7 @@ class erLhcoreClassChat {
 
                 if (!empty($result['bot_configuration'])) {
                     $botData = json_decode($result['bot_configuration'], true);
-                    if (isset($botData['bot_id']) && $botData['bot_id'] > 0) {
+                    if (isset($botData['bot_id']) && $botData['bot_id'] > 0 && (!isset($botData['bot_foh']) || $botData['bot_foh'] == false)) {
                         $rowsNumber = 1;
                         self::$botOnlyOnline = true;
                     }

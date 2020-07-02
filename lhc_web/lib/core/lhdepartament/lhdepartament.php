@@ -153,6 +153,9 @@ class erLhcoreClassDepartament{
                 'bot_only_offline' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
                 ),
+                'bot_foh' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+                ),
                 'auto_delay_timeout' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
                 ),
@@ -541,6 +544,12 @@ class erLhcoreClassDepartament{
            $botConfiguration['bot_only_offline'] = true;
        } else {
            $botConfiguration['bot_only_offline'] = false;
+       }
+
+       if ( $form->hasValidData( 'bot_foh' ) ) {
+           $botConfiguration['bot_foh'] = true;
+       } else {
+           $botConfiguration['bot_foh'] = false;
        }
 
        if ( $form->hasValidData( 'auto_delay_timeout' ) ) {
