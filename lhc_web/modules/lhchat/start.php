@@ -9,6 +9,32 @@ if (is_array($Params['user_parameters_unordered']['department'])) {
     $dep = $Params['user_parameters_unordered']['department'];
 }
 
+
+if (isset($Params['user_parameters_unordered']['h']) && !empty($Params['user_parameters_unordered']['h'])) {
+
+    $cfg = erConfigClassLhConfig::getInstance();
+
+    $validHashItems = array(
+        'department',
+        'theme',
+    );
+
+    $hashStringParts = [];
+
+    foreach ($validHashItems as $validHashItem) {
+        if (isset($Params['user_parameters_unordered'][$validHashItem]) && !empty($Params['user_parameters_unordered'][$validHashItem])) {
+            $hashStringParts[] = '/(' . $validHashItem . ')/' . (is_array($Params['user_parameters_unordered'][$validHashItem]) ? implode('/', $Params['user_parameters_unordered'][$validHashItem]) : $Params['user_parameters_unordered'][$validHashItem]);
+        }
+    }
+
+    if (md5(implode('',$hashStringParts) . $cfg->getSetting( 'site', 'secrethash' )) !== $Params['user_parameters_unordered']['h']) {
+        $Result['pagelayout'] = 'userchat2';
+        $Result['content'] = 'some error';
+        return $Result;
+    }
+}
+
+
 $startDataDepartment = false;
 
 if (is_array($dep) && !empty($dep) && count($dep) == 1) {

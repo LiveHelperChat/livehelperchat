@@ -245,6 +245,11 @@
 <textarea style="width: 100%; height: 200px; font-size: 11px;" class="form-control" id="HMLTContent"></textarea>
 
 <p>Static URL. You can send this url to your customers</p>
+
+<div class="form-group">
+    <label><input type="checkbox" id="hash_args" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Hash arguments. Visitor will not be able to change passed arguments.');?> </label>
+</div>
+
 <input type="text" class="form-control form-control-sm" value="" id="static-url-generated">
 
 <script type="text/javascript">
@@ -344,7 +349,14 @@
                 "} else {_l = _l[0].toLowerCase() + _l[1].toLowerCase(); if ('<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'default_site_access' )?>' == _l) {_l = ''} else {LHC_API.args.lang = _l + '/';}}\n";
         }
 
-        $('#static-url-generated').val($('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccessStatic +'chat/start'+id_survey_static+id_operator_static+id_fresh_status+id_department_static+id_theme_static+id_identifier_static);
+
+        if (!$('#hash_args').is(':checked')) {
+            $('#static-url-generated').val($('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccessStatic +'chat/start'+id_survey_static+id_operator_static+id_fresh_status+id_department_static+id_theme_static+id_identifier_static);
+        } else {
+            $.postJSON('<?php echo erLhcoreClassDesign::baseurl('system/hashargs')?>',{'args' : id_survey_static+id_operator_static+id_fresh_status+id_department_static+id_theme_static+id_identifier_static}, function(data) {
+                $('#static-url-generated').val($('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccessStatic +'chat/start'+data);
+            });
+        }
 
         var script = '<script>'+
             'var LHC_API = LHC_API||{};'+"\n"+'LHC_API.args = {mode:\''+id_widget_mode+'\',lhc_base_url:\'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>\',wheight:'+$('#id_widget_height').val()+',wwidth:'+$('#id_widget_width').val()+',pheight:'+$('#id_popup_height').val()+',pwidth:'+$('#id_popup_width').val()+id_operator+id_embed_domain+id_fresh+id_show_leave_form+id_department+id_theme+id_survey+id_widget_position+id_check_messages_operator+id_disable_pro_active_invitations+id_identifier+siteAccess+'};\n'+
@@ -359,7 +371,7 @@
         $('#HMLTContent').text(id_tag+script);
     };
 
-    $('#id_widget_mode,#id_check_messages_operator,#id_disable_subdomain,#id_fresh,#id_widget_position,#LocaleID,#id_embed_domain,#DetectLanguage,#id_product_id,#id_disable_online_tracking,#MinimizeID,#id_operator,#DepartmentID,#HttpMode,#ThemeID,#id_Survey,#id_disable_pro_active_invitations,#id_site_identifier,#id_internal_popup,#id_position_bottom,#PositionID,#id_show_leave_form,#id_hide_then_offline,#UnitsTop,#id_top_text,#id_popup_width,#id_popup_height,#id_widget_width,#id_widget_height').change(function(){
+    $('#id_widget_mode,#hash_args,#id_check_messages_operator,#id_disable_subdomain,#id_fresh,#id_widget_position,#LocaleID,#id_embed_domain,#DetectLanguage,#id_product_id,#id_disable_online_tracking,#MinimizeID,#id_operator,#DepartmentID,#HttpMode,#ThemeID,#id_Survey,#id_disable_pro_active_invitations,#id_site_identifier,#id_internal_popup,#id_position_bottom,#PositionID,#id_show_leave_form,#id_hide_then_offline,#UnitsTop,#id_top_text,#id_popup_width,#id_popup_height,#id_widget_width,#id_widget_height').change(function(){
         generateEmbedCode();
     });
 
