@@ -9,8 +9,34 @@ if (is_array($Params['user_parameters_unordered']['department'])) {
     $dep = $Params['user_parameters_unordered']['department'];
 }
 
+$startDataDepartment = false;
 
-if (isset($Params['user_parameters_unordered']['h']) && !empty($Params['user_parameters_unordered']['h'])) {
+if (is_array($dep) && !empty($dep) && count($dep) == 1) {
+    $dep_id = $dep[0];
+    $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('filter' => array('department_id' => $dep_id)));
+    if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
+        $startDataFields = $startDataDepartment->data_array;
+    }
+}
+
+if ($startDataDepartment === false) {
+    $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
+    $start_data_fields = $startDataFields = (array)$startData->data;
+}
+
+if (isset($startDataFields['requires_dep']) && $startDataFields['requires_dep'] == true && empty($dep)) {
+
+    $Result['pagelayout'] = 'userchat';
+    $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/alert_info.tpl.php');
+    $tpl->set('msg',erTranslationClassLhTranslation::getInstance()->getTranslation('chat/start','Department is required!'));
+    $tpl->set('hide_close_icon',true);
+    $Result['hide_close_window'] = true;
+    $Result['content'] = $tpl->fetch();
+
+    return $Result;
+}
+
+if ((isset($Params['user_parameters_unordered']['h']) && !empty($Params['user_parameters_unordered']['h'])) || (isset($startDataFields['requires_dep_lock']) && $startDataFields['requires_dep_lock'] == true)) {
 
     $cfg = erConfigClassLhConfig::getInstance();
 
@@ -27,27 +53,15 @@ if (isset($Params['user_parameters_unordered']['h']) && !empty($Params['user_par
         }
     }
 
-    if (md5(implode('',$hashStringParts) . $cfg->getSetting( 'site', 'secrethash' )) !== $Params['user_parameters_unordered']['h']) {
-        $Result['pagelayout'] = 'userchat2';
-        $Result['content'] = 'some error';
+    if (empty($Params['user_parameters_unordered']['h']) || md5(implode('',$hashStringParts) . $cfg->getSetting( 'site', 'secrethash' )) !== $Params['user_parameters_unordered']['h']) {
+        $Result['pagelayout'] = 'userchat';
+        $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/alert_info.tpl.php');
+        $tpl->set('msg',erTranslationClassLhTranslation::getInstance()->getTranslation('chat/start','Department is disabled!'));
+        $tpl->set('hide_close_icon',true);
+        $Result['content'] = $tpl->fetch();
+        $Result['hide_close_window'] = true;
         return $Result;
     }
-}
-
-
-$startDataDepartment = false;
-
-if (is_array($dep) && !empty($dep) && count($dep) == 1) {
-    $dep_id = $dep[0];
-    $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('filter' => array('department_id' => $dep_id)));
-    if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
-        $startDataFields = $startDataDepartment->data_array;
-    }
-}
-
-if ($startDataDepartment === false) {
-    $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
-    $start_data_fields = $startDataFields = (array)$startData->data;
 }
 
 $online = erLhcoreClassChat::isOnline($dep, false, array(
@@ -129,9 +143,10 @@ if (isset($_GET['jsvar']) && is_array($_GET['jsvar']) && !empty($_GET['jsvar']))
 }
 
 if ($Params['user_parameters_unordered']['theme'] > 0) {
-    $Result['theme'] = $Params['user_parameters_unordered']['theme'];
     $themeObject = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+
     if ($themeObject instanceof erLhAbstractModelWidgetTheme) {
+        $Result['theme'] = $themeObject;
         $Result['theme_v'] = $themeObject->modified;
     } else {
         $Result['theme_v'] = time();
