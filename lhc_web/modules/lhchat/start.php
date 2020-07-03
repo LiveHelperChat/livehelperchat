@@ -24,6 +24,46 @@ if ($startDataDepartment === false) {
     $start_data_fields = $startDataFields = (array)$startData->data;
 }
 
+if (isset($startDataFields['requires_dep']) && $startDataFields['requires_dep'] == true && empty($dep)) {
+
+    $Result['pagelayout'] = 'userchat';
+    $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/alert_info.tpl.php');
+    $tpl->set('msg',erTranslationClassLhTranslation::getInstance()->getTranslation('chat/start','Department is required!'));
+    $tpl->set('hide_close_icon',true);
+    $Result['hide_close_window'] = true;
+    $Result['content'] = $tpl->fetch();
+
+    return $Result;
+}
+
+if ((isset($Params['user_parameters_unordered']['h']) && !empty($Params['user_parameters_unordered']['h'])) || (isset($startDataFields['requires_dep_lock']) && $startDataFields['requires_dep_lock'] == true)) {
+
+    $cfg = erConfigClassLhConfig::getInstance();
+
+    $validHashItems = array(
+        'department',
+        'theme',
+    );
+
+    $hashStringParts = [];
+
+    foreach ($validHashItems as $validHashItem) {
+        if (isset($Params['user_parameters_unordered'][$validHashItem]) && !empty($Params['user_parameters_unordered'][$validHashItem])) {
+            $hashStringParts[] = '/(' . $validHashItem . ')/' . (is_array($Params['user_parameters_unordered'][$validHashItem]) ? implode('/', $Params['user_parameters_unordered'][$validHashItem]) : $Params['user_parameters_unordered'][$validHashItem]);
+        }
+    }
+
+    if (empty($Params['user_parameters_unordered']['h']) || md5(implode('',$hashStringParts) . $cfg->getSetting( 'site', 'secrethash' )) !== $Params['user_parameters_unordered']['h']) {
+        $Result['pagelayout'] = 'userchat';
+        $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/alert_info.tpl.php');
+        $tpl->set('msg',erTranslationClassLhTranslation::getInstance()->getTranslation('chat/start','Department is disabled!'));
+        $tpl->set('hide_close_icon',true);
+        $Result['content'] = $tpl->fetch();
+        $Result['hide_close_window'] = true;
+        return $Result;
+    }
+}
+
 $online = erLhcoreClassChat::isOnline($dep, false, array(
     'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
     'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value
@@ -103,9 +143,10 @@ if (isset($_GET['jsvar']) && is_array($_GET['jsvar']) && !empty($_GET['jsvar']))
 }
 
 if ($Params['user_parameters_unordered']['theme'] > 0) {
-    $Result['theme'] = $Params['user_parameters_unordered']['theme'];
     $themeObject = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+
     if ($themeObject instanceof erLhAbstractModelWidgetTheme) {
+        $Result['theme'] = $themeObject;
         $Result['theme_v'] = $themeObject->modified;
     } else {
         $Result['theme_v'] = time();
