@@ -4,7 +4,7 @@
 <script>
     window.initializeLHC = "lhc_init:"+JSON.stringify(<?php
         $params = array(
-            'mode' => 'popup',
+            'mode' => $mode,
             'onlineStatus' => $online,
             'widgetStatus' => true,
             'isMobile' => $isMobile,

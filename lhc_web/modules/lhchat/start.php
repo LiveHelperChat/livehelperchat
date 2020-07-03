@@ -84,6 +84,7 @@ $tpl->set('survey',$Params['user_parameters_unordered']['survey'] != '' ? $Param
 $tpl->set('priority',$Params['user_parameters_unordered']['priority'] != '' ? $Params['user_parameters_unordered']['priority'] : null);
 $tpl->set('operator',$Params['user_parameters_unordered']['operator'] != '' ? (int)$Params['user_parameters_unordered']['operator'] : null);
 $tpl->set('online',$online);
+$tpl->set('mode',$Params['user_parameters_unordered']['mode'] != '' && in_array($Params['user_parameters_unordered']['mode'],['embed','popup']) ? $Params['user_parameters_unordered']['mode']  : 'popup');
 
 $ts = time();
 $tpl->set('captcha',array(
@@ -162,6 +163,9 @@ $Result['content'] = $tpl->fetch();
 if ($leaveamessage === false && $online === false){
     $Result['pagelayout'] = 'userchat';
 } else {
+    if (isset( $Result['theme']) && is_object($Result['theme'])) {
+        $Result['theme'] = $Result['theme']->id;
+    }
     $Result['pagelayout'] = 'userchat2';
 }
 
