@@ -65,6 +65,9 @@ class erLhcoreClassGenericBotWorkflow {
 
         $rulesMatching = erLhcoreClassModelGenericBotTriggerEvent::getList(array_merge_recursive(array('sort' => 'priority ASC', 'filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => array('type' => 2)), $paramsFilter));
 
+        // We want always want to return trigger with lowest number of typos
+        $validRules = []; // trigger id => typos detected
+
         foreach ($rulesMatching as $ruleMatching) {
 
             if ($ruleMatching->pattern != '') {
@@ -94,24 +97,32 @@ class erLhcoreClassGenericBotWorkflow {
                 $wordsTypo = isset($configurationMatching['words_typo']) && is_numeric($configurationMatching['words_typo']) ? (int)$configurationMatching['words_typo'] : 0;
                 $wordsTypoExc = isset($configurationMatching['exc_words_typo']) && is_numeric($configurationMatching['exc_words_typo']) ? (int)$configurationMatching['exc_words_typo'] : 0;
 
+                $typosUsed = 0;
+
                 // // We should include at-least one word from group
                 if ($wordsFound == true && isset($configurationMatching['only_these']) && $configurationMatching['only_these'] == true) {
                     $words = explode(' ', $messageText);
                     $mustCombinations = explode('&&', $ruleMatching->pattern);
                     foreach ($words as $messageWord) {
                         foreach ($mustCombinations as $mustCombination) {
-                            if (!self::checkPresence(explode(',', $mustCombination), $messageWord, $wordsTypo)) {
+                            $presenceData = self::checkPresence(explode(',', $mustCombination), $messageWord, $wordsTypo, ['stats' => true]);
+                            if (!$presenceData['valid']) {
                                 $wordsFound = false;
                                 break;
+                            } else {
+                                $typosUsed += $presenceData['number'];
                             }
                         }
                     }
                 } else if (isset($ruleMatching->pattern) && $ruleMatching->pattern != '') {
                     $mustCombinations = explode('&&', $ruleMatching->pattern);
                     foreach ($mustCombinations as $mustCombination) {
-                        if (!self::checkPresence(explode(',', $mustCombination), $messageText, $wordsTypo)) {
+                        $presenceData = self::checkPresence(explode(',', $mustCombination), $messageText, $wordsTypo, ['stats' => true]);
+                        if (!$presenceData['valid']) {
                             $wordsFound = false;
                             break;
+                        } else {
+                            $typosUsed += $presenceData['number'];
                         }
                     }
                 }
@@ -120,7 +131,8 @@ class erLhcoreClassGenericBotWorkflow {
                 if ($wordsFound == true && isset($ruleMatching->pattern_exc) && $ruleMatching->pattern_exc != '') {
                     $mustCombinations = explode('&&', $ruleMatching->pattern_exc);
                     foreach ($mustCombinations as $mustCombination) {
-                        if (self::checkPresence(explode(',', $mustCombination), $messageText, $wordsTypoExc) == true) {
+                        $presenceData = self::checkPresence(explode(',', $mustCombination), $messageText, $wordsTypoExc, ['stats' => true]);
+                        if ($presenceData['valid'] == true) {
                             $wordsFound = false;
                             break;
                         }
@@ -128,9 +140,23 @@ class erLhcoreClassGenericBotWorkflow {
                 }
 
                 if ($wordsFound == true) {
-                    return $ruleMatching;
+                    $validRules[$ruleMatching->id] = $typosUsed;
                 }
             }
+        }
+
+        if (!empty($validRules)) {
+            // Sort to get matching rules with lowest typo number
+            asort($validRules);
+
+            // Flip id with values
+            $flipped = array_flip($validRules);
+
+            // Take ID
+            $item = array_shift($flipped);
+
+            // return element by id
+            return $rulesMatching[$item];
         }
     }
 
@@ -346,7 +372,7 @@ class erLhcoreClassGenericBotWorkflow {
         return array('typos' => $numberTypos, 'word' => $word, 'noendtypo' => $noEndTypo);
     }
 
-    public static function checkPresence($words, $text, $mistypeLetters = 1) {
+    public static function checkPresence($words, $text, $mistypeLetters = 1, $paramsExecution = []) {
 
         $textLetters = self::splitWord($text);
 
@@ -396,9 +422,12 @@ class erLhcoreClassGenericBotWorkflow {
                             $currentWordLetterIndex = 0;
                             $mistypedCount = 0;
                         } else {
-                            return true;
+                            if (isset($paramsExecution['stats']) && $paramsExecution['stats'] == true) {
+                                return ['valid' => true, 'number' => $mistypedCount];
+                            } else {
+                                return true;
+                            }
                         }
-
                     } else {
                         $currentWordLetterIndex = 0;
                         $mistypedCount = 0;
@@ -407,7 +436,11 @@ class erLhcoreClassGenericBotWorkflow {
             }
         }
 
-        return false;
+        if (isset($paramsExecution['stats']) && $paramsExecution['stats'] == true) {
+            return ['valid' => false];
+        } else {
+            return false;
+        }
     }
 
     public static function splitWord($word){
