@@ -44,6 +44,10 @@
             $params['operator'] = (int)$operator;
         }
 
+        if (isset($bot) && is_numeric($bot)) {
+            $params['bot_id'] = (int)$bot;
+        }
+
         if (isset($custom_fields)) {
             $params['CUSTOM_FIELDS'] = $custom_fields;
         }
