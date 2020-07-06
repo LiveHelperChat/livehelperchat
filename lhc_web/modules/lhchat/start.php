@@ -64,6 +64,13 @@ if ((isset($Params['user_parameters_unordered']['h']) && !empty($Params['user_pa
     }
 }
 
+if (!is_numeric($Params['user_parameters_unordered']['theme'])) {
+    $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
+    if ($defaultTheme > 0) {
+        $Params['user_parameters_unordered']['theme'] = (int)$defaultTheme;
+    }
+}
+
 $online = erLhcoreClassChat::isOnline($dep, false, array(
     'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
     'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value
@@ -85,7 +92,7 @@ $tpl->set('priority',$Params['user_parameters_unordered']['priority'] != '' ? $P
 $tpl->set('operator',$Params['user_parameters_unordered']['operator'] != '' ? (int)$Params['user_parameters_unordered']['operator'] : null);
 $tpl->set('bot',$Params['user_parameters_unordered']['bot'] != '' ? (int)$Params['user_parameters_unordered']['bot'] : null);
 $tpl->set('online',$online);
-$tpl->set('mode',$Params['user_parameters_unordered']['mode'] != '' && in_array($Params['user_parameters_unordered']['mode'],['embed','popup']) ? $Params['user_parameters_unordered']['mode']  : 'popup');
+$tpl->set('mode',$Params['user_parameters_unordered']['mode'] != '' && in_array($Params['user_parameters_unordered']['mode'],['embed','popup','widget']) ? $Params['user_parameters_unordered']['mode']  : 'popup');
 
 $ts = time();
 $tpl->set('captcha',array(
