@@ -150,7 +150,7 @@ class erLhcoreClassGenericBotWorkflow {
             asort($validRules);
 
             // Flip id with values
-            $flipped = array_flip($validRules);
+            $flipped = array_keys($validRules);
 
             // Take ID
             $item = array_shift($flipped);
