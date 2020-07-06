@@ -1101,8 +1101,6 @@ var lh_inst  = {
     		lh_inst.addTag({tag:e.data.split(':')[1]});
     	} else if (action == 'lhc_cfrefresh') {
     		lh_inst.refreshCustomFields();
-        } else if (action == 'lhc_eval') {
-            eval(e.data.split(':')[1]);
     	} else if (action == 'lhc_screenshot') {
     		lh_inst.makeScreenshot();
     	} else if (action == 'lhc_disable_survey') {
