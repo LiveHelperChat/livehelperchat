@@ -316,7 +316,7 @@ class StartChat extends Component {
                         {
                             (this.props.chatwidget.getIn(['proactive','has']) === true && <ChatInvitationMessage mode='profile_only' invitation={this.props.chatwidget.getIn(['proactive','data'])} />)
                             ||
-                            (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div id="lhc-profile-body"><div className="p-2 border-bottom chat-status-container" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div></div>)
+                            (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div id="lhc-profile-body"><div id="chat-status-container" className="p-2 border-bottom" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div></div>)
                         }
 
                         <div className={msg_expand} id="messagesBlock">
