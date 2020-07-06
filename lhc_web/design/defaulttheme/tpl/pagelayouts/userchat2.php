@@ -12,7 +12,7 @@
     <?php endif; ?>
 
     <?php if (isset($Result['theme']) && $Result['theme'] > 0) : ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::baseurl('widgetrestapi/theme')?>/<?php echo $Result['theme']?>?v=<?php echo $Result['theme_v']?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::baseurl('widgetrestapi/theme')?>/<?php echo $Result['theme']?>/(p)/1?v=<?php echo $Result['theme_v']?>" />
     <?php endif; ?>
 
     <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_header_widget2_extension_multiinclude.tpl.php'));?>

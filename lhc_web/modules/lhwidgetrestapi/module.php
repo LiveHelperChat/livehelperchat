@@ -101,7 +101,7 @@ $ViewList['themeneedhelp'] = array(
 
 $ViewList['theme'] = array(
     'params' => array('theme'),
-    'uparams' => array()
+    'uparams' => array('p')
 );
 
 $ViewList['themestatus'] = array(

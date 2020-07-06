@@ -16,6 +16,7 @@ if ($theme->modified > 0) {
 
 $tpl = erLhcoreClassTemplate::getInstance('lhwidgetrestapi/theme.tpl.php');
 $tpl->set('theme',$theme);
+$tpl->set('popup',$Params['user_parameters_unordered']['p'] == 1);
 
 echo $tpl->fetch();
 

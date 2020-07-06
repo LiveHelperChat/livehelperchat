@@ -133,6 +133,10 @@ div.message-admin div.meta-message{
 
 <?php echo $theme->custom_widget_css?>
 
+<?php if (isset($popup) && $popup == true) : ?>
+    <?php echo $theme->custom_popup_css?>
+<?php endif; ?>
+
 <?php endif; ?>
 
 
