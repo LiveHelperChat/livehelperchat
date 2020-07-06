@@ -29,7 +29,7 @@ class ChatInvitationMessage extends PureComponent {
             return (
                 <React.Fragment>
                     <div id="lhc-profile-body">
-                        <div className="operator-info d-flex border-bottom p-2">
+                        <div className="operator-info d-flex border-bottom p-2 chat-status-container">
                              <div>
                                  {this.props.invitation.photo && <img width="48" height="48" src={this.props.invitation.photo} title={this.props.invitation.photo_title} alt=""/>}
                                  {!this.props.invitation.photo && <i className="icon-assistant material-icons mr-0">&#xf10d;</i>}
