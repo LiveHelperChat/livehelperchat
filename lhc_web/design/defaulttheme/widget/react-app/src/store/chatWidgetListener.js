@@ -1,4 +1,4 @@
-import { endChat, initChatUI, pageUnload, storeSubscriber, initProactive } from "../actions/chatActions"
+import { endChat, initChatUI, pageUnload, storeSubscriber, initProactive, checkChatStatus, fetchMessages } from "../actions/chatActions"
 import { helperFunctions } from "../lib/helperFunctions";
 import i18n from "../i18n";
 
@@ -52,6 +52,28 @@ export default function (dispatch, getState) {
         }},
         {id : 'extensionExecute',cb : (extension, args) => {
                 executeExtension(extension, args);
+        }},
+        {id : 'chat_check_messages', cb : () => {
+                const state = getState();
+                if (state.chatwidget.hasIn(['chatData','id'])){
+                    dispatch(fetchMessages({
+                        'chat_id': state.chatwidget.getIn(['chatData','id']),
+                        'hash' : state.chatwidget.getIn(['chatData','hash']),
+                        'lmgsid' : state.chatwidget.getIn(['chatLiveData','lmsgid']),
+                        'theme' : state.chatwidget.get('theme')
+                    }));
+                }
+        }},
+        {id : 'chat_check_status',cb : () => {
+                const state = getState();
+                if (state.chatwidget.hasIn(['chatData','id'])){
+                    dispatch(checkChatStatus({
+                        'chat_id': state.chatwidget.getIn(['chatData','id']),
+                        'hash' : state.chatwidget.getIn(['chatData','hash']),
+                        'mode' : state.chatwidget.get('mode'),
+                        'theme' : state.chatwidget.get('theme')
+                    }));
+                }
         }},
         {id : 'proactive', cb : (data) => {
             setTimeout(() => {
