@@ -122,6 +122,7 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.set('shown',false)
                 .set('processStatus', 0)
                 .set('isChatting',false)
+                .set('newChat',true)
                 .set('chatData',fromJS({}))
                 .setIn(['onlineData','fetched'],false)
                 .set('chatLiveData',fromJS({'lmsop':0, 'vtm':0, 'msop':0, 'uid':0, 'status' : 0, 'status_sub' : 0, 'uw' : false, 'ott' : '', 'closed' : false, 'lmsgid' : 0, 'operator' : '', 'messages' : []}))
