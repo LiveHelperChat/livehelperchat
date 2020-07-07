@@ -1041,6 +1041,12 @@ var lh_inst  = {
     handleMessage : function(e) {
         if (typeof e.data !== 'string') { return; }
     	var action = e.data.split(':')[0];
+        var originDomain = e.origin.replace("http://", "").replace("https://", "");
+
+        // We allow to send events only from chat installation or page where script is embeded.
+        if (originDomain !== '<?php echo $_SERVER['HTTP_HOST']?>' && originDomain !== document.domain) {
+            return;
+        }
 
         if (action == 'lhc_newopmsg') {
             if ( lh_inst.isMinimized == true) {

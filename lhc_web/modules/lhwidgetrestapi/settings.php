@@ -301,10 +301,11 @@ $outputResponse['static'] = array(
     'chunk_js' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('js/widgetv2'),
     'page_css' => $pageCSS,
     'ex_js' => [],
-    'ex_cb_js' => [],
+    'ex_cb_js' => []
 );
 
 $outputResponse['chunks_location'] = erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('js/widgetv2');
+$outputResponse['domain_lhc'] = $_SERVER['HTTP_HOST'];
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.settings', array('output' => & $outputResponse));
 

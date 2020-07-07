@@ -77,6 +77,15 @@ export default function (dispatch, getState) {
     function handleParentMessage(e) {
         if (typeof e.data !== 'string') { return; }
 
+        if (typeof e.origin !== 'undefined') {
+            var originDomain = e.origin.replace("http://", "").replace("https://", "");
+
+            // We allow to send events only from chat installation or page where script is embeded.
+            if (originDomain !== document.domain) {
+                return;
+            }
+        }
+
         var action = e.data.split(':')[0];
 
         if (action == 'lhc_chat_closed_explicit') {

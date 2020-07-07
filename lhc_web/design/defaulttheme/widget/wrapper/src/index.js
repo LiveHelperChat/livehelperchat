@@ -88,6 +88,7 @@
                 theme : LHC_API.args.theme || null,
                 theme_v : null,
                 domain: LHC_API.args.domain || null,
+                domain_lhc: null,
                 position: LHC_API.args.position || 'bottom_right',
                 base_url : LHC_API.args.lhc_base_url,
                 mode: LHC_API.args.mode || 'widget',
@@ -192,6 +193,10 @@
 
                 if (data.static) {
                     attributesWidget.staticJS = data.static;
+                }
+
+                if (data.domain_lhc) {
+                    attributesWidget.domain_lhc = data.domain_lhc;
                 }
 
                 if (data.cont_css) {
@@ -558,6 +563,14 @@
                 if (typeof e.data !== 'string' || e.data.indexOf('lhc::')) { return; }
 
                 const parts = e.data.split('::');
+
+                if (typeof e.origin !== 'undefined') {
+                    var originDomain = e.origin.replace("http://", "").replace("https://", "");
+                    // We allow to send events only from chat installation or page where script is embeded.
+                    if (originDomain !== document.domain && attributesWidget.domain_lhc !== originDomain) {
+                        return;
+                    }
+                }
 
                 if (parts[1] == 'ready') {
                     chatEvents.sendReadyEvent(parts[2] == 'true');

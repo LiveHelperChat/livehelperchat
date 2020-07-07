@@ -13,9 +13,9 @@ class _helperFunctions {
 
     sendMessageParent(key, data) {
         if (window.opener && window.opener.closed === false) {
-            window.opener.postMessage('lhc::'+key+'::'+JSON.stringify(data || null),'*');
+            window.opener.postMessage('lhc::'+key+'::'+JSON.stringify(data || null),'/');
         } else if (window.parent && window.parent.closed === false) {
-            window.parent.postMessage('lhc::'+key+'::'+JSON.stringify(data || null),'*');
+            window.parent.postMessage('lhc::'+key+'::'+JSON.stringify(data || null),'/');
         }
     }
 
