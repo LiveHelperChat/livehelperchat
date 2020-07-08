@@ -1,0 +1,10 @@
+<?php if ($currentUser->hasAccessTo('lhmailconv','use_admin')) : ?>
+<div role="tabpanel" class="tab-pane" id="mailconv">
+    <ul class="circle small-list">
+        <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Mailbox list')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/mailbox')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Mailbox');?></a></li>
+        <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Matching rules')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/matchingrules')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Matching rules');?></a></li>
+        <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Response templates')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/responsetemplates')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Response templates');?></a></li>
+        <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Conversations')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/conversations')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Conversations');?></a></li>
+    </ul>
+</div>
+<?php endif; ?>

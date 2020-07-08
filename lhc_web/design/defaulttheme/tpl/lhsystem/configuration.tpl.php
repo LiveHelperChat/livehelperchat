@@ -12,7 +12,9 @@
         <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs/chat.tpl.php'));?>
          
         <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs/speech.tpl.php'));?>
-        
+
+        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs/mailconv.tpl.php'));?>
+
         <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs/tab_multiinclude.tpl.php'));?>
 	</ul>
 
@@ -70,7 +72,9 @@
     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs_content/chat_embed_js.tpl.php'));?>
     
     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs_content/speech.tpl.php'));?>
-    
+
+    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs_content/mailconv.tpl.php'));?>
+
     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs_content/tab_content_multiinclude.tpl.php'));?>
      
     </div>

@@ -301,7 +301,13 @@ return array_merge(array (
 
         // Notifications
         'erLhcoreClassNotifications'                => 'lib/core/lhnotifications/lhnotifications.php',
-        'erLhcoreClassModelNotificationSubscriber'  => 'lib/models/lhnotifications/erlhcoreclassmodelnotificationsubscriber.php'
+        'erLhcoreClassModelNotificationSubscriber'  => 'lib/models/lhnotifications/erlhcoreclassmodelnotificationsubscriber.php',
+
+        // Mail conversations
+        'erLhcoreClassModelMailconvMailbox'         => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmailbox.php',
+        'erLhcoreClassMailconv'                     => 'lib/core/lhmailconv/lhmailconv.php',
+        'erLhcoreClassMailconvValidator'            => 'lib/core/lhmailconv/lhmailconvvalidator.php',
+        'erLhcoreClassModelMailconvMatchRule'       => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmatchrule.php',
 
 ),
 include('var/autoloads/lhextension_autoload.php')
