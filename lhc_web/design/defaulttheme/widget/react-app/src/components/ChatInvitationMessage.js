@@ -35,10 +35,8 @@ class ChatInvitationMessage extends PureComponent {
                                  {!this.props.invitation.photo && <i className="icon-assistant material-icons mr-0">&#xf10d;</i>}
                              </div>
                              <div className="p-1 pl-2 w-100">
-                                 <div>
-                                     <strong>{this.props.invitation.name_support || this.props.invitation.extra_profile}<br/></strong>
-                                     {this.props.invitation.name_support && <span><i>{this.props.invitation.extra_profile}</i></span>}
-                                </div>
+                                 {this.props.invitation.name_support && !this.props.invitation.hide_name && <div className="font-weight-bold">{this.props.invitation.name_support}</div>}
+                                 {this.props.invitation.extra_profile && <i>{this.props.invitation.extra_profile}</i>}
                             </div>
                         </div>
                     </div>

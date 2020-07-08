@@ -57,12 +57,22 @@ $outputResponse['bubble'] = false;
 
 if (isset($payload['theme']) && $payload['theme'] > 0) {
     $theme = erLhAbstractModelWidgetTheme::fetch($payload['theme']);
-    if ($theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['bubble_style_profile']) && $theme->bot_configuration_array['bubble_style_profile'] == 1) {
-        $outputResponse['bubble'] = true;
-    }
 
-    if (!isset($outputResponse['photo']) && $theme instanceof erLhAbstractModelWidgetTheme && $theme->operator_image_url !== false) {
-        $outputResponse['photo'] = $theme->operator_image_url;
+    if ($theme instanceof erLhAbstractModelWidgetTheme)
+    {
+        $theme->translate();
+
+        if (isset($theme->bot_configuration_array['bubble_style_profile']) && $theme->bot_configuration_array['bubble_style_profile'] == 1) {
+            $outputResponse['bubble'] = true;
+        }
+
+        if (!isset($outputResponse['photo']) && $theme->operator_image_url !== false) {
+            $outputResponse['photo'] = $theme->operator_image_url;
+        }
+
+        if ($theme->intro_operator_text != '') {
+            $outputResponse['extra_profile'] = $theme->intro_operator_text;
+        }
     }
 }
 
@@ -81,7 +91,7 @@ if ($outputResponse['invitation_id'] > 0) {
                 $outputResponse['photo'] = $bot->photo_path;
             }
 
-            $outputResponse['extra_profile'] = $bot->nick;
+            $outputResponse['name_support'] = $bot->nick;
         }
 
         $tpl = new erLhcoreClassTemplate('lhchat/part/render_intro.tpl.php');
@@ -104,7 +114,7 @@ if ($outputResponse['invitation_id'] > 0) {
     }
 }
 
-
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.getinvitation',array('output' => & $outputResponse, 'ou' => $onlineUser));
 
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
 exit;
