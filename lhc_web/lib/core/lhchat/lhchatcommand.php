@@ -29,6 +29,7 @@ class erLhcoreClassChatCommand
     	'!gotobot' => 'self::goToBot',
     	'!transferforce' => 'self::transferforce',
     	'!files' => 'self::enableFiles',
+    	'!stopfiles' => 'self::disableFiles',
     );
 
     private static function extractCommand($message)
@@ -109,6 +110,37 @@ class erLhcoreClassChatCommand
     			'process_status' => '',
     			'raw_message' => $params['argument']
     	);
+    }
+
+    public static function disableFiles($params)
+    {
+        $chatVariables = $params['chat']->chat_variables_array;
+
+        if (isset($chatVariables['lhc_fu'])) {
+            unset($chatVariables['lhc_fu']);
+            $params['chat']->chat_variables = json_encode($chatVariables);
+            $params['chat']->chat_variables_array = $chatVariables;
+        }
+
+        $msg = new erLhcoreClassModelmsg();
+        $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Files upload was disabled!');
+        $msg->chat_id = $params['chat']->id;
+        $msg->user_id = -1;
+        $msg->time = time();
+        $msg->name_support = $params['user']->name_support;
+        $msg->saveThis();
+
+        // Schedule UI Refresh
+        $params['chat']->operation .= "lhc_ui_refresh\n";
+
+        // Store permanently
+        $params['chat']->updateThis(array('update' => array('chat_variables', 'operation')));
+
+        return array(
+            'processed' => true,
+            'process_status' => '',
+            'raw_message' => '!stopfiles'
+        );
     }
 
     public static function enableFiles($params)
