@@ -36,6 +36,10 @@ if (($user = $onlineUser->operator_user) !== false) {
     $outputResponse['name_support'] = $user->name_support;
     $outputResponse['extra_profile'] = $user->job_title != '' ? htmlspecialchars($user->job_title) : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Personal assistant');
 
+    if (isset($onlineUser->online_attr_system_array['lhc_full_widget'])) {
+        $outputResponse['full_widget'] = 1;
+    }
+
     if ($user->has_photo) {
         $outputResponse['photo'] = $user->photo_path;
         $outputResponse['photo_title'] = $user->name_support;
@@ -112,6 +116,11 @@ if ($outputResponse['invitation_id'] > 0) {
 
         $outputResponse['message_full'] = $tpl->fetch();
     }
+
+    if ($invitation instanceof erLhAbstractModelProactiveChatInvitation && isset($invitation->design_data_array['full_on_invitation']) && $invitation->design_data_array['full_on_invitation'] == true) {
+        $outputResponse['full_widget'] = true;
+    }
+
 }
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.getinvitation',array('output' => & $outputResponse, 'ou' => $onlineUser));
