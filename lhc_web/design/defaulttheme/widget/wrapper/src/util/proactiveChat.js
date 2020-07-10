@@ -20,11 +20,20 @@ class _proactiveChat {
         this.params = params;
         this.attributes = attributes;
         this.chatEvents = chatEvents;
-        this.initInvitation();
+
+        if (this.attributes.events.length > 0) {
+            this.storeEvents(this.attributes.events);
+        } else {
+            this.initInvitation();
+        }
 
         // check invitaiton then tag is added
         this.attributes.eventEmitter.addListener('tagAdded', () => {
             this.initInvitation({init: 0});
+        });
+
+        this.attributes.eventEmitter.addListener('eventAdded', () => {
+            this.storeEvents(this.attributes.events);
         });
 
         this.attributes.eventEmitter.addListener('checkMessageOperator', () => {
@@ -65,6 +74,15 @@ class _proactiveChat {
 
             clearTimeout(this.checkMessageTimeout);
             clearTimeout(this.nextRescheduleTimeout);
+        }
+    }
+
+    storeEvents(events) {
+        const chatParams = this.attributes['userSession'].getSessionAttributes();
+        if (!chatParams['id'] && this.attributes['onlineStatus'].value == true) {
+            helperFunctions.makeRequest(LHC_API.args.lhc_base_url + this.attributes['lang'] + 'chat/logevent/(vid)/' + this.attributes.userSession.getVID(), {params: {'data' : JSON.stringify(events)}}, (data) => {
+                this.initInvitation({init: 0});
+            })
         }
     }
 
