@@ -288,6 +288,13 @@ return array(
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
+    'full_on_invitation' => array(
+        'type' => 'checkbox',
+        'main_attr' => 'design_data_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Show widget on invitation to chat. Applies only to desktop devices.'),
+        'required' => false,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
+    ),
     'append_bot' => array(
         'type' => 'checkbox',
         'main_attr' => 'design_data_array',

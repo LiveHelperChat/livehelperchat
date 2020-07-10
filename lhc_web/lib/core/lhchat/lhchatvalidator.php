@@ -360,6 +360,7 @@ class erLhcoreClassChatValidator {
         
         if ($form->hasValidData( 'operator' ) && erLhcoreClassModelUser::getUserCount(array('filter' => array('id' => $form->operator, 'disabled' => 0))) > 0) {
         	$inputForm->operator = $chat->user_id = $form->operator;
+            $chat->tslasign = time();
         }
         
         /**

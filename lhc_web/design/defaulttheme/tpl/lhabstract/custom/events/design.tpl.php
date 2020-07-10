@@ -26,12 +26,19 @@ for ($i = 1; $i < 5; $i++) {
         </p>
     </div>
 
+    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'New widget options');?></h5>
+    <div class="col-12">
+        <div class="form-group">
+            <label><?php echo erLhcoreClassAbstract::renderInput('full_on_invitation', $fields['full_on_invitation'], $object)?> <?php echo $fields['full_on_invitation']['trans'];?></label>
+        </div>
+    </div>
+
+    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Old widget options');?></h5>
     <div class="col-12">
         <div class="form-group">
             <label><?php echo erLhcoreClassAbstract::renderInput('api_do_not_show', $fields['api_do_not_show'], $object)?> <?php echo $fields['api_do_not_show']['trans'];?></label>
         </div>
     </div>
-
 
     <div class="col-12">
         <div class="form-group">

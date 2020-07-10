@@ -102,6 +102,7 @@
                 lang : LHC_API.args.lang || '',
                 bot_id : LHC_API.args.bot_id || '',
                 priority : LHC_API.args.priority || '',
+                events : LHC_API.args.events || [],
                 hhtml : LHC_API.args.hhtml || '',
                 survey : LHC_API.args.survey || null,
                 operator : LHC_API.args.operator || null,
@@ -409,6 +410,12 @@
             attributesWidget.eventEmitter.addListener('addTag',function (tag) {
                 attributesWidget.tag = attributesWidget.tag != '' ? attributesWidget.tag + ',' + tag : tag;
                 attributesWidget.eventEmitter.emitEvent('tagAdded');
+            });
+
+            // Events
+            attributesWidget.eventEmitter.addListener('addEvent',function (events) {
+                attributesWidget.events = events ;
+                attributesWidget.eventEmitter.emitEvent('eventAdded');
             });
 
             // Popup open event

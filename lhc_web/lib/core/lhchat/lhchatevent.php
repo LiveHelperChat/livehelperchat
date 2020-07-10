@@ -116,7 +116,7 @@ class erLhcoreClassChatEvent
         }
 
         $invitationsValid = array();
-        
+
         foreach ($invitationsConditions as $invitationId => $conditionGroup) {
             
             $conditionsMet = true;
@@ -132,19 +132,19 @@ class erLhcoreClassChatEvent
                 $sqlConditions['filter']['ev_id'] = $condition->event_id;
 
                 $foundTimes = erLhAbstractModelProactiveChatEvent::getCount($sqlConditions);
-                                
+
                 // No need to process any futher if atleast one condition is not met
-                if ($foundTimes == 0 || ($foundTimes <= $condition->min_number)) {                                        
+                if ($foundTimes == 0 || ($foundTimes < $condition->min_number)) {
                     $conditionsMet = false;
                     break;
                 }                
             }
-            
+
             if ($conditionsMet == true) {
                 $invitationsValid[] = $invitationId;
             }
         }
-        
+
         if (!empty($invitationsValid)) {
 
             $enabledInvitations = true;

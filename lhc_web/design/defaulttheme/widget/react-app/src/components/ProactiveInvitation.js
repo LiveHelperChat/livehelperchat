@@ -59,6 +59,10 @@ class ProactiveInvitation extends Component {
 
     render() {
 
+        if (this.props.chatwidget.hasIn(['proactive','data','full_widget'])) {
+            this.fullInvitation();
+        }
+
         let className = "proactive-need-help p-2 float-right pointer";
         if (this.state.shown === false) {
             className += " invisible";
