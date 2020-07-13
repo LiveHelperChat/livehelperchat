@@ -4,6 +4,10 @@ $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/editmailbox.tpl.php');
 
 $item =  erLhcoreClassModelMailconvMailbox::fetch($Params['user_parameters']['id']);
 
+if (isset($Params['user_parameters_unordered']['action']) && $Params['user_parameters_unordered']['action'] == 'sync') {
+    erLhcoreClassMailconvParser::syncMailbox($item);
+}
+
 if (ezcInputForm::hasPostData()) {
 
     if (isset($_POST['Cancel_action'])) {
@@ -35,6 +39,7 @@ if (ezcInputForm::hasPostData()) {
 
 $tpl->setArray(array(
     'item' => $item,
+    'tab' => '',
 ));
 
 $Result['content'] = $tpl->fetch();

@@ -34,10 +34,30 @@ $def->properties['subject']->columnName   = 'subject';
 $def->properties['subject']->propertyName = 'subject';
 $def->properties['subject']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
-$def->properties['sender'] = new ezcPersistentObjectProperty();
-$def->properties['sender']->columnName   = 'sender';
-$def->properties['sender']->propertyName = 'sender';
-$def->properties['sender']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+$def->properties['body'] = new ezcPersistentObjectProperty();
+$def->properties['body']->columnName   = 'body';
+$def->properties['body']->propertyName = 'body';
+$def->properties['body']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['from_name'] = new ezcPersistentObjectProperty();
+$def->properties['from_name']->columnName   = 'from_name';
+$def->properties['from_name']->propertyName = 'from_name';
+$def->properties['from_name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['from_address'] = new ezcPersistentObjectProperty();
+$def->properties['from_address']->columnName   = 'from_address';
+$def->properties['from_address']->propertyName = 'from_address';
+$def->properties['from_address']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['last_message_id'] = new ezcPersistentObjectProperty();
+$def->properties['last_message_id']->columnName   = 'last_message_id';
+$def->properties['last_message_id']->propertyName = 'last_message_id';
+$def->properties['last_message_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['priority'] = new ezcPersistentObjectProperty();
+$def->properties['priority']->columnName   = 'priority';
+$def->properties['priority']->propertyName = 'priority';
+$def->properties['priority']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def;
 

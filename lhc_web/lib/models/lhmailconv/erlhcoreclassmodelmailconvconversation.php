@@ -21,14 +21,25 @@ class erLhcoreClassModelMailconvConversation
             'user_id' => $this->user_id,
             'status' => $this->status,
             'subject' => $this->subject,
-            'sender' => $this->sender,
+            'from_name' => $this->from_name,
+            'from_address' => $this->from_address,
+            'body' => $this->body,
             'ctime' => $this->ctime,
+            'priority' => $this->priority,
+            'last_message_id' => $this->last_message_id,
         );
     }
 
     public function __toString()
     {
         return $this->mail;
+    }
+
+    public function beforeSave()
+    {
+        if ($this->ctime == 0) {
+            $this->ctime = time();
+        }
     }
 
     public function __get($var)
@@ -47,10 +58,14 @@ class erLhcoreClassModelMailconvConversation
     public $id = NULL;
     public $dep_id = null;
     public $user_id = 0;
-    public $status = '';
+    public $status = 0;
     public $subject = '';
-    public $sender = '';
+    public $body = '';
+    public $from_name = '';
+    public $from_address = '';
+    public $last_message_id = 0;
     public $ctime = 0;
+    public $priority = 0;
 }
 
 ?>

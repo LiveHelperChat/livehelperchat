@@ -14,8 +14,18 @@ $ViewList['mailbox'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['conversations'] = array(
+    'params' => array(),
+    'functions' => array( 'use_admin' )
+);
+
 $ViewList['newmailbox'] = array(
     'params' => array(),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['syncmailbox'] = array(
+    'params' => array('id'),
     'functions' => array( 'use_admin' )
 );
 
@@ -31,6 +41,7 @@ $ViewList['newmatchrule'] = array(
 
 $ViewList['editmailbox'] = array(
     'params' => array('id'),
+    'uparams' => array('action'),
     'functions' => array( 'use_admin' )
 );
 
@@ -40,6 +51,12 @@ $ViewList['editmatchrule'] = array(
 );
 
 $ViewList['deletemailbox'] = array(
+    'params' => array('id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['deleteconversation'] = array(
     'params' => array('id'),
     'uparams' => array('csfr'),
     'functions' => array( 'use_admin' )

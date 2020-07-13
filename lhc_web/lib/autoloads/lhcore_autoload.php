@@ -308,6 +308,10 @@ return array_merge(array (
         'erLhcoreClassMailconv'                     => 'lib/core/lhmailconv/lhmailconv.php',
         'erLhcoreClassMailconvValidator'            => 'lib/core/lhmailconv/lhmailconvvalidator.php',
         'erLhcoreClassModelMailconvMatchRule'       => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmatchrule.php',
+        'erLhcoreClassModelMailconvConversation'    => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvconversation.php',
+        'erLhcoreClassMailconvParser'               => 'lib/core/lhmailconv/lhmailconvparser.php',
+        'erLhcoreClassModelMailconvMessage'         => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmessage.php',
+        'erLhcoreClassModelMailconvFile'            => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvfile.php',
 
 ),
 include('var/autoloads/lhextension_autoload.php')
