@@ -19,6 +19,11 @@ $def->properties['conversation_id']->columnName   = 'conversation_id';
 $def->properties['conversation_id']->propertyName = 'conversation_id';
 $def->properties['conversation_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['mailbox_id'] = new ezcPersistentObjectProperty();
+$def->properties['mailbox_id']->columnName   = 'mailbox_id';
+$def->properties['mailbox_id']->propertyName = 'mailbox_id';
+$def->properties['mailbox_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['message_id'] = new ezcPersistentObjectProperty();
 $def->properties['message_id']->columnName   = 'message_id';
 $def->properties['message_id']->propertyName = 'message_id';

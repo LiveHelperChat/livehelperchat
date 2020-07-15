@@ -4,7 +4,7 @@ class erLhcoreClassModelMailconvMessage
 {
     use erLhcoreClassDBTrait;
 
-    public static $dbTable = 'lhc_mailconv_message';
+    public static $dbTable = 'lhc_mailconv_msg';
 
     public static $dbTableId = 'id';
 
@@ -18,6 +18,7 @@ class erLhcoreClassModelMailconvMessage
             'id' => $this->id,
             'status' => $this->status,
             'conversation_id' => $this->conversation_id,
+            'mailbox_id' => $this->mailbox_id,
 
             'body' => $this->body,
             'alt_body' => $this->alt_body,
@@ -87,6 +88,10 @@ class erLhcoreClassModelMailconvMessage
                 return date('Ymd') == date('Ymd', $this->msg_time) ? date(erLhcoreClassModule::$dateHourFormat, $this->msg_time) : date(erLhcoreClassModule::$dateDateHourFormat, $this->msg_time);
                 break;
 
+            case 'conversation':
+                return $this->conversation = erLhcoreClassModelMailconvConversation::fetch($this->conversation_id);
+                break;
+
             default:
                 ;
                 break;
@@ -95,6 +100,7 @@ class erLhcoreClassModelMailconvMessage
 
     public $id = NULL;
     public $status = 0;
+    public $mailbox_id = 0;
     public $conversation_id = 0;
     public $message_id = '';
     public $in_reply_to = '';

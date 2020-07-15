@@ -1,3 +1,6 @@
+
+<h5>Send e-mail settings SMTP</h5>
+
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mail');?></label>
     <input type="text" maxlength="250" class="form-control form-control-sm" name="mail" value="<?php echo htmlspecialchars($item->mail)?>" />
@@ -33,6 +36,18 @@
     </div>
 </div>
 
+<h5>Receive e-mail IMAP settings.</h5>
+
+<div class="form-group">
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','IMAP Server address');?></label>
+    <input type="text" placeholder="{imap.gmail.com:993/imap/ssl}INBOX" maxlength="250" class="form-control form-control-sm" name="imap" value="<?php echo htmlspecialchars($item->imap == '' ? '{imap.gmail.com:993/imap/ssl}INBOX' : $item->imap)?>" />
+</div>
+
 <div class="form-group">
     <label><input type="checkbox" name="active" value="on" <?php $item->active == 1 ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Active');?></label>
+</div>
+
+<div class="form-group">
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Check for new messages interval in seconds.');?></label>
+    <input type="text" placeholder="60" maxlength="250" class="form-control form-control-sm" name="sync_interval" value="<?php echo htmlspecialchars($item->sync_interval)?>" />
 </div>

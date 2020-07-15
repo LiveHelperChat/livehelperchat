@@ -14,6 +14,11 @@ $ViewList['mailbox'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['view'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
 $ViewList['conversations'] = array(
     'params' => array(),
     'functions' => array( 'use_admin' )

@@ -8,7 +8,27 @@ if (isset($Params['user_parameters_unordered']['action']) && $Params['user_param
     erLhcoreClassMailconvParser::syncMailbox($item);
 }
 
-if (ezcInputForm::hasPostData()) {
+if (isset($Params['user_parameters_unordered']['action']) && $Params['user_parameters_unordered']['action'] == 'mailbox') {
+    erLhcoreClassMailconvParser::getMailBox($item);
+}
+
+if (isset($_POST['Save_mailbox'])) {
+
+    $mailBoxes = $item->mailbox_sync_array;
+
+    foreach ($mailBoxes as $index => $mailBox) {
+        if (in_array($mailBox['path'], $_POST['Mailbox'])) {
+            $mailBoxes[$index]['sync'] = true;
+        } else {
+            $mailBoxes[$index]['sync'] = false;
+        }
+    }
+
+    $item->mailbox_sync_array = $mailBoxes;
+    $item->mailbox_sync = json_encode($item->mailbox_sync_array);
+    $item->saveThis();
+
+} else if (ezcInputForm::hasPostData()) {
 
     if (isset($_POST['Cancel_action'])) {
         erLhcoreClassModule::redirect('mailconv/mailbox');

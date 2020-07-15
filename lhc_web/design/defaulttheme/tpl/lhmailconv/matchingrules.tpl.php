@@ -4,6 +4,8 @@
     <table cellpadding="0" cellspacing="0" class="table table-sm" width="100%">
         <thead>
         <tr>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Priority');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Conversation priority');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Conditions');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Active');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Department');?></th>
@@ -12,7 +14,14 @@
         </thead>
         <?php foreach ($items as $item) : ?>
             <tr>
-                <td><?php echo htmlspecialchars($item->conditions_front)?></td>
+                <td><?php echo htmlspecialchars($item->priority_rule)?></td>
+                <td><?php echo htmlspecialchars($item->priority)?></td>
+                <td>
+                    <b>TO:</b> <?php echo htmlspecialchars(implode(', ',$item->mailbox_object_ids))?><br>
+                    <?php if ($item->from_name != '') : ?><b>From name matches</b>: <?php echo htmlspecialchars($item->from_name)?><br/><?php endif; ?>
+                    <?php if ($item->subject_contains != '') : ?><b>Subject contains</b>: <?php echo htmlspecialchars($item->subject_contains)?><br/><?php endif; ?>
+                    <?php if ($item->from_mail != '') : ?><b>From mail</b>: <?php echo htmlspecialchars($item->from_mail)?><br/><?php endif; ?>
+                </td>
                 <td>
                     <?php if ($item->active == 1) : ?>
                         <i title="Ok" class="material-icons chat-active">&#xE5CA;</i>

@@ -45,8 +45,8 @@ $Result['path'] = array(
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mail conversation')
     ),
     array(
-        'url' => erLhcoreClassDesign::baseurl('mailconv/mailbox'),
-        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv', 'Mailbox')
+        'url' => erLhcoreClassDesign::baseurl('mailconv/matchingrules'),
+        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv', 'Matching rules')
     ),
     array(
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv', 'Edit')
