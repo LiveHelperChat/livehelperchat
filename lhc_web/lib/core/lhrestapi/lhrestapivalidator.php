@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Status -
- * 0 - Pending
- * 1 - Active
- * 2 - Closed
- * 3 - Blocked
- * */
 class erLhcoreClassRestAPIHandler
 {
     public static function executeRequest(erLhAbstractModelRestAPIKeyRemote $apiKey, $function, $params = array(), $uparams = array(), $method = 'GET', $manualAppend = '')

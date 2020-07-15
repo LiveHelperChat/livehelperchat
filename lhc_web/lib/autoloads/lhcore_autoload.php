@@ -16,7 +16,8 @@ return array_merge(array (
 
         'erConfigClassLhCacheConfig' => 'lib/core/lhconfig/lhcacheconfig.php',
         'erLhcoreClassRestAPIHandler' => 'lib/core/lhrestapi/lhrestapivalidator.php',
-    
+        'erLhcoreClassRestAPIUserValidator' => 'lib/core/lhrestapi/lhrestapiuservalidator.php',
+
         'erLhcoreClassTransfer' => 'lib/core/lhcore/lhtransfer.php',
         'PHPMailer'             => 'lib/core/lhcore/class.phpmailer.php',
         'SMTP'                  => 'lib/core/lhcore/class.smtp.php',
