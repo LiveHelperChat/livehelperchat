@@ -108,9 +108,11 @@ class erLhcoreClassRestAPIHandler
 
         $headers = self::getHeaders();
 
-        if (isset($headers['Authorization'])) {
+        $authorization = isset($headers['Authorization']) ? $headers['Authorization'] : (isset($headers['authorization']) ? $headers['authorization'] : null);
+
+        if ($authorization !== null) {
             
-            $dataAuthorisation = explode(' ', $headers['Authorization']);
+            $dataAuthorisation = explode(' ', $authorization);
             $apiData = explode(':', base64_decode($dataAuthorisation[1]));
             
             if (count($apiData) != 2) {
