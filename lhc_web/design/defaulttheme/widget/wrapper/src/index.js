@@ -572,7 +572,8 @@
                 const parts = e.data.split('::');
 
                 if (typeof e.origin !== 'undefined') {
-                    var originDomain = e.origin.replace("http://", "").replace("https://", "");
+                    var originDomain = e.origin.replace("http://", "").replace("https://", "").replace(/:(\d+)$/,'');
+
                     // We allow to send events only from chat installation or page where script is embeded.
                     if (originDomain !== document.domain && attributesWidget.domain_lhc !== originDomain) {
                         return;
