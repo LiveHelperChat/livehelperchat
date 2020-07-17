@@ -3,9 +3,9 @@
 return array(
     'user_id' => array(
         'type' => 'combobox',
-        'trans' => 'User',
+        'trans' => 'Username',
         'required' => true,
-        'frontend' => 'user',
+        'frontend' => 'username',
         'params_call' => array(),
         'source' => 'erLhcoreClassModelUser::getUserList',
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::REQUIRED, 'int')

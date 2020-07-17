@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Status -
- * 0 - Pending
- * 1 - Active
- * 2 - Closed
- * 3 - Blocked
- * */
 class erLhcoreClassRestAPIHandler
 {
     public static function executeRequest(erLhAbstractModelRestAPIKeyRemote $apiKey, $function, $params = array(), $uparams = array(), $method = 'GET', $manualAppend = '')
@@ -108,9 +101,11 @@ class erLhcoreClassRestAPIHandler
 
         $headers = self::getHeaders();
 
-        if (isset($headers['Authorization'])) {
+        $authorization = isset($headers['Authorization']) ? $headers['Authorization'] : (isset($headers['authorization']) ? $headers['authorization'] : null);
+
+        if ($authorization !== null) {
             
-            $dataAuthorisation = explode(' ', $headers['Authorization']);
+            $dataAuthorisation = explode(' ', $authorization);
             $apiData = explode(':', base64_decode($dataAuthorisation[1]));
             
             if (count($apiData) != 2) {

@@ -93,6 +93,10 @@ $ViewList['bots'] = array(
     'params' => array()
 );
 
+$ViewList['user'] = array(
+    'params' => array('id')
+);
+
 $ViewList['lang'] = array(
     'params' => array('ns')
 );
@@ -122,6 +126,10 @@ $ViewList['loginbytoken'] = array(
 );
 
 $ViewList['logout'] = array(
+    'params' => array()
+);
+
+$ViewList['generateautologin'] = array(
     'params' => array()
 );
 
