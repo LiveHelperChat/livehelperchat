@@ -14,13 +14,13 @@ try
 
         $dep = erLhcoreClassModelDepartament::fetch((int)$Params['user_parameters']['id']);
         if (!($dep instanceof erLhcoreClassModelDepartament)) {
-            throw new Exception('Bot could not be found!');
+            throw new Exception('Department could not be found!');
         }
 
     } elseif ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
         $dep = erLhcoreClassModelDepartament::fetch((int)$Params['user_parameters']['id']);
         if (!($dep instanceof erLhcoreClassModelDepartament)) {
-            throw new Exception('Bot could not be found!');
+            throw new Exception('Department could not be found!');
         }
 
         if ($dep->can_delete = true) {
