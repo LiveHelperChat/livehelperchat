@@ -217,7 +217,7 @@ class erLhcoreClassDepartament{
 	   		$department->name = $form->Name;
 	   	}
 
-	   	if ( erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actautoassignment') ) {
+	   	if ((isset($additionalParams['payload_data']) && erLhcoreClassRestAPIHandler::hasAccessTo('lhdepartment', 'actautoassignment')) || erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actautoassignment') ) {
 		   	if ( $form->hasValidData( 'AutoAssignActive' ) && $form->AutoAssignActive == true )	{
 		   		$department->active_balancing = 1;
 		   	} else {
@@ -263,7 +263,7 @@ class erLhcoreClassDepartament{
 
         $botConfiguration = $department->bot_configuration_array;
 
-	   	if ( erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actworkflow') ) {
+	   	if ((isset($additionalParams['payload_data']) && erLhcoreClassRestAPIHandler::hasAccessTo('lhdepartment', 'actworkflow')) || erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actworkflow') ) {
 		   	if ( $form->hasValidData( 'TansferDepartmentID' ) )
 		   	{
 		   		$department->department_transfer_id = $form->TansferDepartmentID;
@@ -411,7 +411,7 @@ class erLhcoreClassDepartament{
 	   	if ($form->hasValidData( 'inform_unread_delay' )) {
 	   		$department->inform_unread_delay = $form->inform_unread_delay;
 	   	} elseif ($department->inform_unread == 1) {
-	   		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Minimum 5 seconds');
+	   		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Minimum 5 seconds');
 	   	} else {
 	   		$department->inform_unread_delay = 0;
 	   	}
@@ -532,7 +532,7 @@ class erLhcoreClassDepartament{
            $botConfiguration['bot_tr_id'] = 0;
        }
 
-       if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment', 'managesurvey')) {
+       if ((isset($additionalParams['payload_data']) && erLhcoreClassRestAPIHandler::hasAccessTo('lhdepartment', 'managesurvey')) || erLhcoreClassUser::instance()->hasAccessTo('lhdepartment', 'managesurvey')) {
            if ($form->hasValidData('survey_id')) {
                $botConfiguration['survey_id'] = $form->survey_id;
            } else {
