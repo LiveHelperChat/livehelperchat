@@ -172,6 +172,35 @@ class erLhcoreClassMailconvValidator {
 
         return $Errors;
     }
+    
+    public static function validateResponseTemplate($item) {
+        $definition = array(
+            'name' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'template' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = array();
+
+        if ( $form->hasValidData( 'name' ) && $form->name != '')
+        {
+            $item->name = $form->name;
+        } else {
+            $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Please enter a name!');
+        }
+
+        if ( $form->hasValidData( 'template' )) {
+            $item->template = $form->template;
+        } else {
+            $item->template = '';
+        }
+
+        return $Errors;
+    }
 
 }
 

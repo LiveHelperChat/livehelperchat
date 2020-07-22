@@ -147,7 +147,29 @@ if (is_array($Params['user_parameters_unordered']['chatgopen']) && !empty($Param
     }
 }
 
+$chatmDel = array();
+$chatmOpen = array();
 
+if (is_array($Params['user_parameters_unordered']['chatmopen']) && !empty($Params['user_parameters_unordered']['chatmopen'])) {
+
+    $originalIds = $Params['user_parameters_unordered']['chatmopen'];
+
+    erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['chatmopen']);
+    $chats = erLhcoreClassModelMailconvConversation::getList(array('filterin' => array('id' => $Params['user_parameters_unordered']['chatmopen'])));
+
+    // Delete any old chat if it exists
+    $deleteKeys = array_diff($originalIds, array_keys($chats));
+    foreach ($deleteKeys as $chat_id) {
+        $chatmDel[] = (int)$chat_id;
+    }
+
+    foreach ($chats as $chat) {
+        $chatmOpen[] = array(
+            'id' => $chat->id,
+            'subject' => erLhcoreClassDesign::shrt($chat->subject,10,'...',30,ENT_QUOTES)
+        );
+    }
+}
 
 $userListParams = erLhcoreClassGroupUser::getConditionalUserFilter();
 $userListParams['sort'] = 'name ASC';
@@ -189,6 +211,8 @@ $response = array(
     'track_activity' => $trackActivity,
     'cgdel' => $chatgDel,
     'cgopen' => $chatgOpen,
+    'cmdel' => $chatmDel,
+    'cmopen' => $chatmOpen,
     'cdel' => $chatDel,
     'copen' => $chatOpen,
     'timeout_activity' => $activityTimeout,

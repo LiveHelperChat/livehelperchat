@@ -33,6 +33,15 @@ class erLhcoreClassMailconvParser {
 
         $statsImport = array();
 
+
+        $filteredMatchingRules = array();
+        $matchingRulesByMailbox = erLhcoreClassModelMailconvMatchRule::getList(['filter' => ['active' => 1]]);
+        foreach ($matchingRulesByMailbox as $matchingRule) {
+            if (in_array($mailbox->id,$matchingRule->mailbox_ids)) {
+                $filteredMatchingRules[] = $matchingRule;
+            }
+        }
+
         try {
 
             $mailboxFolders = $mailbox->mailbox_sync_array;
@@ -44,25 +53,17 @@ class erLhcoreClassMailconvParser {
             $messages = [];
 
             // This mailbox is still in sync
-            if ($mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS) {
+            /*if ($mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS) {
                 return;
-            }
+            }*/
 
             // Sync has not passed required timeout
-            if ($mailbox->last_sync_time > time() - $mailbox->sync_interval) {
+            /*if ($mailbox->last_sync_time > time() - $mailbox->sync_interval) {
                 return;
-            }
+            }*/
 
             $mailbox->sync_status = erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS;
             $mailbox->saveThis(['update' => ['sync_status']]);
-
-            $filteredMatchingRules = array();
-            $matchingRulesByMailbox = erLhcoreClassModelMailconvMatchRule::getList(['filter' => ['active' => 1]]);
-            foreach ($matchingRulesByMailbox as $matchingRule) {
-                if (in_array($mailbox->id,$matchingRule->mailbox_ids)) {
-                    $filteredMatchingRules[] = $matchingRule;
-                }
-            }
 
             if (empty($filteredMatchingRules)) {
                 throw new Exception('No mail matching rules were found!');
@@ -95,7 +96,7 @@ class erLhcoreClassMailconvParser {
 
                     $vars = get_object_vars($mailInfo);
 
-                    $existingMail = erLhcoreClassModelMailconvMessage::findOne(array('filter' => ['message_id' => $vars['message_id']]));
+                    $existingMail = erLhcoreClassModelMailconvMessage::findOne(array('filter' => ['mailbox_id' => $mailbox->id, 'message_id' => $vars['message_id']]));
 
                     // check that we don't have already this e-mail
                     if ($existingMail instanceof erLhcoreClassModelMailconvMessage) {
@@ -122,33 +123,27 @@ class erLhcoreClassMailconvParser {
                         $message->sender_address = $head->senderAddress;
                         $message->mailbox_id = $mailbox->id;
 
-                        if (isset($head->headers->to)) {
-                            $message->toaddress = $head->headers->toaddress;
-                            $message->to_data = json_encode($head->headers->to);
+                        if (isset($head->to)) {
+                            $message->to_data = json_encode($head->to);
                         }
 
-                        if (isset($head->headers->from)) {
-                            $message->fromaddress = $head->headers->fromaddress;
-                            $message->from_data = json_encode($head->headers->from);
+                        if (isset($head->replyTo)) {
+                            $message->reply_to_data = json_encode($head->replyTo);
                         }
 
-                        if (isset($head->headers->reply_to)) {
-                            $message->reply_toaddress = $head->headers->reply_toaddress;
-                            $message->reply_to_data = json_encode($head->headers->reply_to);
+                        if (isset($head->cc)) {
+                            $message->cc_data = json_encode($head->cc);
                         }
 
-                        if (isset($head->headers->sender)) {
-                            $message->senderaddress = $head->headers->senderaddress;
-                            $message->sender_data = json_encode($head->headers->sender);
+                        if (isset($head->bcc)) {
+                            $message->bcc_data = json_encode($head->bcc);
                         }
 
                         $matchingRuleSelected = self::getMatchingRuleByMessage($message, $filteredMatchingRules);
 
-                        // Apply priority rule data
-                        print_r($matchingRuleSelected);
-
                         if (!($matchingRuleSelected instanceof erLhcoreClassModelMailconvMatchRule)) {
-                            throw new Exception('Matching rule could not be found!');
+                            $statsImport[] = 'No matching rule - Skipping e-mail - ' . $vars['message_id'] . ' - ' . $vars['subject'];
+                            continue;
                         }
 
                         // Parse body
@@ -165,7 +160,7 @@ class erLhcoreClassMailconvParser {
                         $message->saveThis();
 
                         $conversations = new erLhcoreClassModelMailconvConversation();
-                        $conversations->dep_id = 0;
+                        $conversations->dep_id = $matchingRuleSelected->dep_id;
                         $conversations->subject = $message->subject;
                         $conversations->from_name = $message->from_name;
                         $conversations->from_address = $message->from_address;
@@ -175,34 +170,40 @@ class erLhcoreClassMailconvParser {
                         $conversations->date = $message->date;
                         $conversations->mailbox_id = $mailbox->id;
                         $conversations->match_rule_id = $matchingRuleSelected->id;
+                        $conversations->priority = $matchingRuleSelected->priority;
+                        $conversations->total_messages = 1;
+                        $conversations->pnd_time = time();
+
+                        // It was just a send e-mail. We can mark conversations as finished. Until someone replies back to us.
+                        if ($conversations->from_address == $mailbox->mail) {
+                            $conversations->status = erLhcoreClassModelMailconvConversation::STATUS_CLOSED;
+                            $conversations->cls_time = time();
+                            $conversations->start_type = erLhcoreClassModelMailconvConversation::START_OUT;
+
+                            // It was just a send messages we can set all required attributes as this messages was processed
+                            $message->response_type = erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL;
+                            $message->status = erLhcoreClassModelMailconvMessage::STATUS_RESPONDED;
+                            $message->lr_time = time();
+                            $message->accept_time = time();
+                            $message->cls_time = time();
+                        }
+
                         $conversations->saveThis();
 
                         $message->conversation_id = $conversations->id;
-                        $message->updateThis(['update' => ['conversation_id']]);
+                        $message->updateThis(['update' => ['conversation_id','response_type','status','lr_time','accept_time','cls_time']]);
 
                         $messages[] = $message;
 
                         if ($mail->hasAttachments() == true) {
-                            foreach ($mail->getAttachments() as $attachment) {
-                                $mailAttatchement = new erLhcoreClassModelMailconvFile();
-                                $mailAttatchement->message_id = $message->id;
-                                $mailAttatchement->attachment_id = $attachment->id;
-                                $mailAttatchement->content_id = (string)$attachment->contentId;
-                                $mailAttatchement->disposition = (string)$attachment->disposition;
-                                $mailAttatchement->size = $attachment->sizeInBytes;
-                                $mailAttatchement->name = (string)$attachment->name;
-                                $mailAttatchement->description = (string)$attachment->description;
-                                $mailAttatchement->extension = (string)strtolower($attachment->subtype);
-                                $mailAttatchement->type = (string)$attachment->mime;
-                                $mailAttatchement->saveThis();
-                            }
+                            self::saveAttatchements($mail, $message);
                         }
                     // It's an reply
                     } else {
 
                         $conversation = null;
 
-                        $previousMessage = erLhcoreClassModelMailconvMessage::findOne(array('filter' => ['message_id' => $vars['in_reply_to']]));
+                        $previousMessage = erLhcoreClassModelMailconvMessage::findOne(array('filter' => ['mailbox_id' => $mailbox->id, 'message_id' => $vars['in_reply_to']]));
 
                         if ($previousMessage instanceof erLhcoreClassModelMailconvMessage && $previousMessage->conversation instanceof erLhcoreClassModelMailconvConversation) {
                             $conversation = $previousMessage->conversation;
@@ -215,8 +216,22 @@ class erLhcoreClassMailconvParser {
                         if ($conversation instanceof erLhcoreClassModelMailconvConversation && $conversation->udate < $message->udate) {
                             self::setLastConversationByMessage($conversation, $message);
                         }
+
+                        // If conversations is active we set accept time to import time
+                        if ($conversation instanceof erLhcoreClassModelMailconvConversation && $conversation->status == erLhcoreClassModelMailconvConversation::STATUS_ACTIVE) {
+                            $message->accept_time = time();
+                            $message->wait_time = $message->accept_time - $message->ctime;
+
+                            if ($message->status != erLhcoreClassModelMailconvMessage::STATUS_RESPONDED) {
+                                $message->status = erLhcoreClassModelMailconvMessage::STATUS_ACTIVE;
+                            }
+
+                            $message->user_id = $conversation->user_id;
+                            $message->saveThis(['update' => ['accept_time','status','wait_time','user_id']]);
+                        }
+
                         $statsImport[] = date('Y-m-d H:i:s').' | Importing reply - ' . $vars['message_id'] . ' - ' . $vars['subject'];
-                    }
+                   }
                 }
             }
         } catch (Exception $e) {
@@ -224,6 +239,47 @@ class erLhcoreClassMailconvParser {
         }
 
         self::setConversations($messages);
+
+        // We have to create a conversations for forwarded messages
+        // Because they have in reply-to-header
+        foreach ($messages as $message) {
+            if ($message->conversation_id == 0) {
+
+                $matchingRuleSelected = self::getMatchingRuleByMessage($message, $filteredMatchingRules);
+
+                if (!($matchingRuleSelected instanceof erLhcoreClassModelMailconvMatchRule)) {
+                    $statsImport[] = 'No matching rule - Skipping e-mail - ' . $vars['message_id'] . ' - ' . $vars['subject'];
+                    continue;
+                }
+
+                $conversations = new erLhcoreClassModelMailconvConversation();
+                $conversations->dep_id = $matchingRuleSelected->dep_id;
+                $conversations->subject = $message->subject;
+                $conversations->from_name = $message->from_name;
+                $conversations->from_address = $message->from_address;
+                $conversations->body = $message->alt_body != '' ? $message->alt_body : strip_tags($message->body);
+                $conversations->last_message_id = $conversations->message_id = $message->id;
+                $conversations->udate = $message->udate;
+                $conversations->date = $message->date;
+                $conversations->mailbox_id = $mailbox->id;
+                $conversations->match_rule_id = $matchingRuleSelected->id;
+                $conversations->priority = $matchingRuleSelected->priority;
+                $conversations->total_messages = 1;
+                $conversations->pnd_time = time();
+                $conversations->saveThis();
+
+                // Assign conversation
+                $message->conversation_id = $conversations->id;
+                $message->updateThis(['update' => ['conversation_id']]);
+            }
+        }
+
+        // We did not found any conversation for particular message
+        foreach ($messages as $message) {
+            if ($message->conversation_id == 0) {
+                $message->removeThis();
+            }
+        }
 
         $mailbox->last_sync_time = time();
         $log = $mailbox->last_sync_log_array;
@@ -242,6 +298,56 @@ class erLhcoreClassMailconvParser {
             if ($message->conversation_id == 0) {
                 self::setConversation($message);
             }
+        }
+    }
+
+    public static function saveAttatchements($mail, $message) {
+        foreach ($mail->getAttachments() as $attachment) {
+            $mailAttatchement = new erLhcoreClassModelMailconvFile();
+            $mailAttatchement->message_id = $message->id;
+            $mailAttatchement->attachment_id = $attachment->id;
+            $mailAttatchement->content_id = (string)$attachment->contentId;
+            $mailAttatchement->disposition = (string)$attachment->disposition;
+            $mailAttatchement->size = $attachment->sizeInBytes;
+            $mailAttatchement->name = (string)$attachment->name;
+            $mailAttatchement->description = (string)$attachment->description;
+            $mailAttatchement->extension = (string)strtolower($attachment->subtype);
+            $mailAttatchement->type = (string)$attachment->mime;
+            $mailAttatchement->saveThis();
+
+            $fileBody = $attachment->getContents();
+
+            $dir = 'var/tmpfiles/';
+            $fileName = md5($mailAttatchement->id . '_' . $mailAttatchement->name . '_' . $mailAttatchement->attachment_id);
+
+            $cfg = erConfigClassLhConfig::getInstance();
+
+            $defaultGroup = $cfg->getSetting( 'site', 'default_group', false );
+            $defaultUser = $cfg->getSetting( 'site', 'default_user', false );
+
+            erLhcoreClassFileUpload::mkdirRecursive( $dir, true, $defaultUser, $defaultGroup);
+
+            $localFile = $dir . $fileName;
+            file_put_contents($localFile, $fileBody);
+
+            $dir = 'var/storagemail/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $mailAttatchement->id . '/';
+
+            erLhcoreClassFileUpload::mkdirRecursive( $dir, true, $defaultUser, $defaultGroup);
+
+            rename($localFile, $dir . $fileName);
+            chmod($dir . $fileName, 0644);
+
+            if ($defaultUser != '') {;
+                chown($dir, $defaultUser);
+            }
+
+            if ($defaultGroup != '') {
+                chgrp($dir, $defaultGroup);
+            }
+
+            $mailAttatchement->file_name = $fileName;
+            $mailAttatchement->file_path = $dir;
+            $mailAttatchement->saveThis();
         }
     }
 
@@ -343,6 +449,17 @@ class erLhcoreClassMailconvParser {
             $conversation->udate = $message->udate;
             $conversation->date = $message->date;
             $conversation->subject = $message->subject;
+
+            // We have to reopen conversation
+            if ($conversation->status == erLhcoreClassModelMailconvConversation::STATUS_CLOSED && $message->status != erLhcoreClassModelMailconvMessage::STATUS_RESPONDED) {
+                $conversation->pnd_time = time();
+                $conversation->accept_time = 0;
+                $conversation->tslasign = 0;
+                $conversation->user_id = 0;         // Reset operator
+                $conversation->cls_time = 0;        // Reset close time
+                $conversation->status = erLhcoreClassModelMailconvConversation::STATUS_PENDING;
+            }
+
             $conversation->saveThis();
         }
     }
@@ -363,24 +480,20 @@ class erLhcoreClassMailconvParser {
         $message->sender_address = $head->senderAddress;
         $message->mailbox_id = $mailbox->id;
 
-        if (isset($head->headers->to)) {
-            $message->toaddress = $head->headers->toaddress;
-            $message->to_data = json_encode($head->headers->to);
+        if (isset($head->to)) {
+            $message->to_data = json_encode($head->to);
         }
 
-        if (isset($head->headers->from)) {
-            $message->fromaddress = $head->headers->fromaddress;
-            $message->from_data = json_encode($head->headers->from);
+        if (isset($head->replyTo)) {
+            $message->reply_to_data = json_encode($head->replyTo);
         }
 
-        if (isset($head->headers->reply_to)) {
-            $message->reply_toaddress = $head->headers->reply_toaddress;
-            $message->reply_to_data = json_encode($head->headers->reply_to);
+        if (isset($head->cc)) {
+            $message->cc_data = json_encode($head->cc);
         }
 
-        if (isset($head->headers->sender)) {
-            $message->senderaddress = $head->headers->senderaddress;
-            $message->sender_data = json_encode($head->headers->sender);
+        if (isset($head->bcc)) {
+            $message->bcc_data = json_encode($head->bcc);
         }
 
         // Parse body
@@ -398,22 +511,19 @@ class erLhcoreClassMailconvParser {
             $message->conversation_id = $conversation->id;
         }
 
+        if ($message->from_address == $mailbox->mail) {
+            // It was just a send messages we can set all required attributes as this messages was processed
+            $message->response_type = erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL;
+            $message->status = erLhcoreClassModelMailconvMessage::STATUS_RESPONDED;
+            $message->lr_time = time();
+            $message->accept_time = time();
+            $message->cls_time = time();
+        }
+
         $message->saveThis();
 
         if ($mail->hasAttachments() == true) {
-            foreach ($mail->getAttachments() as $attachment) {
-                $mailAttatchement = new erLhcoreClassModelMailconvFile();
-                $mailAttatchement->message_id = $message->id;
-                $mailAttatchement->attachment_id = $attachment->id;
-                $mailAttatchement->content_id = (string)$attachment->contentId;
-                $mailAttatchement->disposition = (string)$attachment->disposition;
-                $mailAttatchement->size = $attachment->sizeInBytes;
-                $mailAttatchement->name = (string)$attachment->name;
-                $mailAttatchement->description = (string)$attachment->description;
-                $mailAttatchement->extension = (string)strtolower($attachment->subtype);
-                $mailAttatchement->type = (string)$attachment->mime;
-                $mailAttatchement->saveThis();
-            }
+              self::saveAttatchements($mail, $message);
         }
 
         return $message;

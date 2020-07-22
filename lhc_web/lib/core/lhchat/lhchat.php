@@ -97,6 +97,105 @@ class erLhcoreClassChat {
     	return self::getList($filter);
     }
 
+    public static function getPendingMails($limit = 50, $offset = 0, $filterAdditional = array(), $filterAdditionalMainAttr = array(), $limitationDepartment = array())
+    {
+    	$limitation = self::getDepartmentLimitation('lhc_mailconv_conversation',$limitationDepartment);
+
+    	// Does not have any assigned department
+    	if ($limitation === false) { return array(); }
+
+    	$filter = array();
+    	$filter['filter'] = array('status' => 0);
+        $filter['use_index'] = 'status';
+
+    	if ($limitation !== true) {
+    		$filter['customfilter'][] = $limitation;
+    	}
+
+    	$filter['limit'] = $limit;
+    	$filter['offset'] = $offset;
+    	$filter['smart_select'] = true;
+    	$filter['sort'] = isset($filterAdditionalMainAttr['sort']) ? $filterAdditionalMainAttr['sort'] : 'priority DESC, id DESC';
+
+    	if (!empty($filterAdditional)) {
+    		$filter = array_merge_recursive($filter,$filterAdditional);
+    	}
+
+    	return erLhcoreClassModelMailconvConversation::getList($filter);
+    }
+
+    public static function getActiveMails($limit = 50, $offset = 0, $filterAdditional = array(), $filterAdditionalMainAttr = array(), $limitationDepartment = array())
+    {
+    	$limitation = self::getDepartmentLimitation('lhc_mailconv_conversation',$limitationDepartment);
+
+    	// Does not have any assigned department
+    	if ($limitation === false) { return array(); }
+
+    	$filter = array();
+    	$filter['filter'] = array('status' => 1);
+        $filter['use_index'] = 'status';
+
+    	if ($limitation !== true) {
+    		$filter['customfilter'][] = $limitation;
+    	}
+
+    	$filter['limit'] = $limit;
+    	$filter['offset'] = $offset;
+    	$filter['smart_select'] = true;
+    	$filter['sort'] = isset($filterAdditionalMainAttr['sort']) ? $filterAdditionalMainAttr['sort'] : 'priority DESC, id DESC';
+
+    	if (!empty($filterAdditional)) {
+    		$filter = array_merge_recursive($filter,$filterAdditional);
+    	}
+
+    	return erLhcoreClassModelMailconvConversation::getList($filter);
+    }
+
+    public static function getAlarmMails($limit = 50, $offset = 0, $filterAdditional = array(), $filterAdditionalMainAttr = array(), $limitationDepartment = array())
+    {
+        $limitation = self::getDepartmentLimitation('lhc_mailconv_conversation',$limitationDepartment);
+
+        // Does not have any assigned department
+        if ($limitation === false) { return array(); }
+
+        $pendingAlert = (int)erLhcoreClassModelUserSetting::getSetting('malarm_p', -1);
+        $pendingAlertResponse = (int)erLhcoreClassModelUserSetting::getSetting('malarm_pr', -1);
+
+        $filterOptions = [];
+        if ($pendingAlert > 0) {
+            $filterOptions[] = "(status = 0 AND (UNIX_TIMESTAMP() - pnd_time) > {$pendingAlert})";
+        }
+
+        if ($pendingAlertResponse > 0) {
+            $filterOptions[] = "(status = 1 AND lr_time = 0 && (UNIX_TIMESTAMP() - accept_time) > {$pendingAlertResponse})";
+        }
+
+        $filter = array();
+
+        if (!empty($filterOptions)){
+            $filter['customfilter'] = array(' ( '.implode(' OR ',$filterOptions). ' ) ');
+        } else {
+            return [];
+        }
+
+        $filter['use_index'] = 'status';
+
+        if ($limitation !== true) {
+            $filter['customfilter'][] = $limitation;
+        }
+
+        $filter['limit'] = $limit;
+        $filter['offset'] = $offset;
+        $filter['smart_select'] = true;
+        $filter['sort'] = 'status ASC, priority DESC, id DESC';
+
+        if (!empty($filterAdditional)) {
+            $filter = array_merge_recursive($filter,$filterAdditional);
+        }
+
+        return erLhcoreClassModelMailconvConversation::getList($filter);
+    }
+
     /**
      * @desc returns chats list for my active chats
      * 
@@ -1206,7 +1305,7 @@ class erLhcoreClassChat {
        return true;
    }
 
-   public static function formatSeconds($seconds) {
+   public static function formatSeconds($seconds, $biggestReturn = false) {
 
 	    $y = floor($seconds / (86400*365.25));
 	    $d = floor(($seconds - ($y*(86400*365.25))) / 86400);
@@ -1240,6 +1339,10 @@ class erLhcoreClassChat {
 	    {
 	    	$parts[] = $s . ' s.';
 	    }
+
+	    if ($biggestReturn == true) {
+	        return array_shift($parts);
+        }
 
 	    return implode($parts,' ');
    }
@@ -1915,11 +2018,11 @@ class erLhcoreClassChat {
                try {
 
                    if ($activeChats === null){
-                       $activeChats = erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)));
+                       $activeChats = erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))) + erLhcoreClassModelMailconvConversation::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelMailconvConversation::STATUS_ACTIVE)));
                    }
 
                    if ($pendingChats === null) {
-                       $pendingChats = erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT)));
+                       $pendingChats = erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))) + erLhcoreClassModelMailconvConversation::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelMailconvConversation::STATUS_PENDING)));
                    }
 
                    if ($inactiveChats === null) {

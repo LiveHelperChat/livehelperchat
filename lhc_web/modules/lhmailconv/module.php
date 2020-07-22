@@ -14,14 +14,57 @@ $ViewList['mailbox'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['inlinedownload'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['previewmail'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['apimaildownload'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
 $ViewList['view'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['single'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['apinoreplyrequired'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['apicloseconversation'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['loadmainconv'] = array(
     'params' => array('id'),
     'functions' => array( 'use_admin' )
 );
 
 $ViewList['conversations'] = array(
     'params' => array(),
-    'functions' => array( 'use_admin' )
+    'uparams' => array('department_ids','department_group_ids','user_ids','group_ids','subject_id','wait_time_from','wait_time_till','conversation_id','nick','email','timefrom','timeto','user_id','xls','conversation_status','hum','product_id','timefrom','timefrom_minutes','timefrom_hours','timeto', 'timeto_minutes', 'timeto_hours', 'department_group_id', 'group_id'),
+    'functions' => array( 'use_admin' ),
+    'multiple_arguments' => array(
+        'department_ids',
+        'department_group_ids',
+        'user_ids',
+        'group_ids',
+        'bot_ids',
+    )
 );
 
 $ViewList['newmailbox'] = array(
@@ -64,6 +107,33 @@ $ViewList['deletemailbox'] = array(
 $ViewList['deleteconversation'] = array(
     'params' => array('id'),
     'uparams' => array('csfr'),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['deleteresponsetemplate'] = array(
+    'params' => array('id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['responsetemplates'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['newresponsetemplate'] = array(
+    'params' => array(),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['editresponsetemplate'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['notifications'] = array(
+    'params' => array(),
     'functions' => array( 'use_admin' )
 );
 

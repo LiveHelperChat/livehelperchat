@@ -205,6 +205,7 @@
         <div class="col-2">
             <div class="btn-group" role="group" aria-label="...">
                 <input type="submit" name="doSearch" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
+                <input type="button" onclick="window.open('<?php echo $pages->serverURL?>/(xls)/1')" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export XLS')?>">
             </div>
         </div>
     </div>

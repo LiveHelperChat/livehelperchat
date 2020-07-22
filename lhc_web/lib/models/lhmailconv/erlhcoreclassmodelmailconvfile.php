@@ -24,6 +24,7 @@ class erLhcoreClassModelMailconvFile
             'type' => $this->type,
             'attachment_id' => $this->attachment_id,
             'file_path' => $this->file_path,
+            'file_name' => $this->file_name,
             'content_id' => $this->content_id,
             'disposition' => $this->disposition,
         );
@@ -34,12 +35,26 @@ class erLhcoreClassModelMailconvFile
         return $this->name;
     }
 
+    public function beforeRemove()
+    {
+        if (file_exists($this->file_path_server)){
+            unlink($this->file_path_server);
+        }
+
+        if ($this->file_path != '') {
+            erLhcoreClassFileUpload::removeRecursiveIfEmpty('var/', str_replace('var/', '', $this->file_path));
+        }
+    }
+
     public function __get($var)
     {
         switch ($var) {
             case 'ctime_front':
                 return date('Ymd') == date('Ymd', $this->ctime) ? date(erLhcoreClassModule::$dateHourFormat, $this->ctime) : date(erLhcoreClassModule::$dateDateHourFormat, $this->ctime);
-                break;
+
+            case 'file_path_server':
+                $this->file_path_server = $this->file_path . $this->file_name;
+                return $this->file_path_server;
 
             default:
                 ;
@@ -51,6 +66,7 @@ class erLhcoreClassModelMailconvFile
     public $message_id = null;
     public $size = 0;
     public $name = '';
+    public $file_name = '';
     public $description = '';
     public $extension = '';
     public $type = '0';

@@ -179,12 +179,6 @@ const GroupChat = props => {
         loadMainData();
         // Activate tabs
         var container = tabsContainer.current;
-        var bsn = require("bootstrap.native/dist/bootstrap-native-v4");
-        var tabs = container.querySelectorAll('[data-toggle="tab"]');
-
-        if (tabs.length > 0) {
-            Array.prototype.forEach.call(tabs, function(element){ new bsn.Tab( element) });
-        }
 
         const tabClicked = (e) => {
             if (e == props.chatId) {

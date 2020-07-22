@@ -313,6 +313,18 @@ return array_merge(array (
         'erLhcoreClassMailconvParser'               => 'lib/core/lhmailconv/lhmailconvparser.php',
         'erLhcoreClassModelMailconvMessage'         => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmessage.php',
         'erLhcoreClassModelMailconvFile'            => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvfile.php',
+        'erLhcoreClassModelMailconvResponseTemplate'=> 'lib/models/lhmailconv/erlhcoreclassmodelmailconvresponsetemplate.php',
+        'erLhcoreClassMailconvExport'               => 'lib/core/lhmailconv/lhmailconvexport.php',
+        'erLhcoreClassMailconvWorkflow'             => 'lib/core/lhmailconv/lhmailconvworkflow.php',
+
+        // Round Cube imported classes
+        'rcube_charset'                             => 'lib/core/lhmailconv/html_parsers/rcube_charset.php',
+        'rcube_washtml'                             => 'lib/core/lhmailconv/html_parsers/rcube_washtml.php',
+        'rcube_utils'                               => 'lib/core/lhmailconv/html_parsers/rcube_utils.php',
+        'rcube_mime'                                => 'lib/core/lhmailconv/html_parsers/rcube_mime.php',
+        'html'                                      => 'lib/core/lhmailconv/html_parsers/html.php',
+        'erLhcoreClassMailconvHTMLParser'           => 'lib/core/lhmailconv/lhmailconvhtmlparser.php',
+        'erLhcoreClassMailconvStatistic'            => 'lib/core/lhmailconv/lhmailconvstatistic.php',
 
 ),
 include('var/autoloads/lhextension_autoload.php')

@@ -36,6 +36,11 @@
     <div class="col-4"><label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Usefull if you prefill usernames always')?>"><input type="checkbox" name="chat_chart_type[]" value="nickgroupingdatenick" <?php if (in_array('nickgroupingdatenick',$configuration['chat_statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chats number grouped by date and group field')?></label></div>
 </div>
 
+<h5>Default checked charts for &quot;Mail statistic&quot;</h5>
+<div class="row">
+    <div class="col-4"><label><input type="checkbox" name="chat_chart_type[]" value="mmsgperinterval" <?php if (in_array('mmsgperinterval',$configuration['chat_statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages per interval.')?></label></div>
+</div>
+
 <input class="btn btn-secondary" type="submit" value="Store" name="StoreStatistic" />
 
 </form>

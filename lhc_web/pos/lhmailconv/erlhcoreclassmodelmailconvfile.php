@@ -49,6 +49,11 @@ $def->properties['file_path']->columnName   = 'file_path';
 $def->properties['file_path']->propertyName = 'file_path';
 $def->properties['file_path']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['file_name'] = new ezcPersistentObjectProperty();
+$def->properties['file_name']->columnName   = 'file_name';
+$def->properties['file_name']->propertyName = 'file_name';
+$def->properties['file_name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['content_id'] = new ezcPersistentObjectProperty();
 $def->properties['content_id']->columnName   = 'content_id';
 $def->properties['content_id']->propertyName = 'content_id';

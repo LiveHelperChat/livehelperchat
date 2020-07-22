@@ -63,10 +63,12 @@ class erLhcoreClassModelMailconvMatchRule
                 return $this->mailbox_object_ids;
 
             case 'from_mail_array':
-                $this->from_mail_array = explode(',',str_replace(["\n","\r"],"",$this->from_mail));
+                if ($this->from_mail != '') {
+                    $this->from_mail_array = explode(',',str_replace(["\n","\r"],"",$this->from_mail));
+                } else {
+                    $this->from_mail_array = [];
+                }
                 return $this->from_mail_array;
-                break;
-
 
             default:
                 ;

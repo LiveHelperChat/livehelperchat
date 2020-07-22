@@ -1629,3 +1629,21 @@ input[type="file"]{
     min-height:275px;
     overflow:auto;
 }
+
+.mail-message-body body{
+    font-size:13px!important;
+}
+
+.mail-message-body blockquote{
+    margin: 0px 0px 0px 0.8ex;
+    border-left-width: 1px;
+    border-left-style: solid;
+    padding-left: 1ex;
+    border-left-color: rgb(204,204,204);
+}
+
+.mail-message-body div[class^='_signature'], .mail-message-body div[class*='_signature'] {
+    color: #888888!important;
+    font-size: 13px;
+}
+

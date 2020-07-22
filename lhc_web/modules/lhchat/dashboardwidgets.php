@@ -39,6 +39,10 @@ if (erLhcoreClassModelChatConfig::fetchCache('list_closed')->current_value == 1)
 $supportedWidgets['my_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','My active and pending chats');
 $supportedWidgets['bot_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Bot chats');
 
+$supportedWidgets['pmails'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Pending mails');
+$supportedWidgets['amails'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Active mails');
+$supportedWidgets['malarms'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Mail queue alarm');
+
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.dashboardwidgets',array('supported_widgets' => & $supportedWidgets));
 
 if (ezcInputForm::hasPostData()) {

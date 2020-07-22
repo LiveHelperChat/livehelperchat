@@ -92,6 +92,8 @@ function lh(){
     // Notifications array
     this.notificationsArray = [];
 
+    this.notificationsArrayMail = [];
+
     this.speechHandler = false;
     
     // Block synchronization till message add finished
@@ -489,6 +491,12 @@ function lh(){
         var location = this.smartTabFocus(tabs, chat_id);
     };
 
+    this.removeDialogTabMail = function(chat_id, tabs)
+    {
+        ee.emitEvent('unloadMailChat', [chat_id]);
+        var location = this.smartTabFocus(tabs, chat_id);
+    };
+
     this.addGroupTab = function(tabs, name, chat_id, background) {
         // If tab already exits return
         if (tabs.find('#chat-tab-link-'+chat_id).length > 0) {
@@ -523,8 +531,47 @@ function lh(){
         });
     };
 
-    this.startGroupChat = function (chat_id,tabs,name, background) {
+    this.addMailTab = function(tabs, name, chat_id, background) {
+        // If tab already exits return
+        if (tabs.find('#chat-tab-link-'+chat_id).length > 0) {
+            tabs.find('> ul > li > a.active').removeClass("active");
+            tabs.find('> ul > li#chat-tab-li-'+chat_id+' > a').addClass("active");
+            tabs.find('> div.tab-content > div.active').removeClass('active');
+            tabs.find('> div.tab-content > #chat-id-'+chat_id).addClass('active');
+            ee.emitEvent('mailChatTabClicked', [chat_id]);
+            return ;
+        }
+
+        var contentLi = '<li role="presentation" id="chat-tab-li-'+chat_id+'" class="nav-item"><a class="nav-link" href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">send</i><i class="whatshot blink-ani d-none text-warning material-icons">whatshot</i><i id="user-chat-status-'+chat_id+'" class="'+this.tabIconClass+'">group</i><span class="ntab" id="ntab-chat-'+chat_id+'">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span><span onclick="return lhinst.removeDialogTabMail(\''+chat_id+'\',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>';
+
+        tabs.find('> ul').append(contentLi);
+        var hash = window.location.hash.replace('#/','#');
+
+        var inst = this;
+
+        if (background !== true) {
+            tabs.find('> ul > li > a.active').removeClass("active");
+            tabs.find('> ul > #chat-tab-li-'+chat_id+' > a').addClass("active");
+            tabs.find('> div.tab-content > div.active').removeClass('active');
+            tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane active" id="chat-id-'+chat_id+'"></div>');
+        } else {
+            tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane" id="chat-id-'+chat_id+'"></div>');
+        }
+
+        ee.emitEvent('mailChatTabLoaded', [chat_id]);
+
+        $('#chat-tab-link-'+chat_id).click(function() {
+            ee.emitEvent('mailChatTabClicked', [chat_id.replace('gc','')]);
+        });
+    };
+
+    this.startGroupChat = function (chat_id, tabs, name, background) {
         this.addGroupTab(tabs, name, 'gc'+chat_id, background);
+    }
+
+    this.startMailChat = function (chat_id, tabs, name, background) {
+        this.hideNotification(chat_id,'mail');
+        this.addMailTab(tabs, name, 'mc'+chat_id, background);
     }
 
     this.startChat = function (chat_id,tabs,name,focusTab,position) {
@@ -1339,6 +1386,15 @@ function lh(){
 
         ee.emitEvent('chatStartOpenWindow', [chat_id]);
 	};
+
+    this.startMailNewWindow = function(chat_id,name)
+    {
+        window.open(this.wwwDir + 'mailconv/single/'+chat_id,'mailwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=900,height=650").focus();
+        var inst = this;
+        setTimeout(function(){
+            inst.syncadmininterfacestatic();
+        },1000);
+    };
 
     this.startChatNewWindowArchive = function(archive_id, chat_id,name)
     {
@@ -2155,7 +2211,7 @@ function lh(){
 			return ;
 		}
 
-		if (confLH.new_chat_sound_enabled == 1 && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && (identifier == 'bot_chats' || identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered')) {
+		if (confLH.new_chat_sound_enabled == 1 && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && (identifier == 'bot_chats' || identifier == 'pending_chat' || identifier == 'pmails' || identifier == 'amails' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered')) {
 	    	this.soundPlayedTimes = 0;
 	        this.playNewChatAudio();
 	    };
@@ -2166,7 +2222,7 @@ function lh(){
 
 	    var inst = this;
 
-	    if ( (identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'bot_chats' || identifier == 'pending_transfered') && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && window.Notification && window.Notification.permission == 'granted') {
+	    if ( (identifier == 'pending_chat' || identifier == 'pmails' || identifier == 'amails' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'bot_chats' || identifier == 'pending_transfered') && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && window.Notification && window.Notification.permission == 'granted') {
 
 			var notification = new Notification(nick, { icon: WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png', body: message, requireInteraction : true });
 
@@ -2178,6 +2234,13 @@ function lh(){
     	    		} else {
     	    			inst.startChatNewWindow(chat_id,'ChatRequest');
     	    		}
+    	    	} else if (identifier == 'pmails' || identifier == 'amails') {
+                    if ($('#tabs').length > 0) {
+                        window.focus();
+                        inst.startMailChat(chat_id, $('#tabs'), nt);
+                    } else {
+                        inst.startMailNewWindow(chat_id,'ChatMail');
+                    }
     	    	} else {
     	    		inst.startChatNewWindowTransferByTransfer(chat_id, nt);
     	    	};
@@ -2185,11 +2248,22 @@ function lh(){
     	    };
 
     	    if (identifier != 'pending_transfered') {
-    	    	if (this.notificationsArray[chat_id] !== 'undefined') {
-    	    		 notification.close();
-    	    	}
+    	        if (identifier == 'pmails' || identifier == 'amails')
+                {
+                    if (this.notificationsArrayMail[chat_id] !== 'undefined') {
+                        notification.close();
+                    }
 
-    	    	this.notificationsArray[chat_id] = notification;
+                    this.notificationsArrayMail[chat_id] = notification;
+
+                } else {
+                    if (this.notificationsArray[chat_id] !== 'undefined') {
+                        notification.close();
+                    }
+
+                    this.notificationsArray[chat_id] = notification;
+                }
+
 			};
 	    };
 
@@ -2209,6 +2283,13 @@ function lh(){
     	    		} else {
     	    			inst.startChatNewWindow(chat_id,'ChatRequest');
     	    		}
+                } else if (identifier == 'pmails' || identifier == 'amails') {
+                    if ($('#tabs').length > 0) {
+                        window.focus();
+                        inst.startMailChat(chat_id, $('#tabs'), nt);
+                    } else {
+                        inst.startMailNewWindow(chat_id,'ChatMail');
+                    }
     	    	} else {
     	    		inst.startChatNewWindowTransferByTransfer(chat_id, nt);
     	    	};
@@ -2636,14 +2717,21 @@ function lh(){
     	} catch(e) {}
 	};
 
-	this.hideNotification = function(chat_id)
+	this.hideNotification = function(chat_id, type)
 	{
-		chat_id = parseInt(chat_id);
-		if (typeof this.notificationsArray[chat_id] !== 'undefined' && this.backgroundChats.indexOf(chat_id) == -1) {
-			this.notificationsArray[chat_id].close();
-			delete this.notificationsArray[chat_id];
-		};
+        chat_id = parseInt(chat_id);
 
+	    if (typeof type === 'undefined' || type != 'mail') {
+            if (typeof this.notificationsArray[chat_id] !== 'undefined' && this.backgroundChats.indexOf(chat_id) == -1) {
+                this.notificationsArray[chat_id].close();
+                delete this.notificationsArray[chat_id];
+            };
+        } else {
+            if (typeof this.notificationsArrayMail[chat_id] !== 'undefined') {
+                this.notificationsArrayMail[chat_id].close();
+                delete this.notificationsArrayMail[chat_id];
+            };
+        }
 		clearTimeout(this.soundIsPlaying);
 	}
 

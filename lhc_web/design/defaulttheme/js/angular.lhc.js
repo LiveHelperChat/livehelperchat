@@ -173,6 +173,13 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	$scope.predicate = 'last_visit';
 	$scope.pending_chats = {};
 	$scope.pending_chats_expanded = true;
+
+	$scope.pending_mails = {};
+	$scope.pending_mails_expanded = true;
+
+    $scope.active_mails = {};
+    $scope.active_mails_expanded = true;
+
 	$scope.active_chats = {};
 	$scope.active_chats_expanded = true;
 	$scope.my_active_chats_expanded = true;
@@ -237,11 +244,17 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.limitd = this.restoreLocalSetting('limitd','10',false);
 	this.limitmc = this.restoreLocalSetting('limitmc','10',false);
 	this.limitgc = this.restoreLocalSetting('limitgc','10',false);
+	this.limitpm = this.restoreLocalSetting('limitpm','10',false);
+	this.limitam = this.restoreLocalSetting('limitam','10',false);
+	this.limitalm = this.restoreLocalSetting('limitalm','10',false);
 
 	// Active chat's operators filter
 	this.activeu = this.restoreLocalSetting('activeu',[],true);
 	this.pendingu = this.restoreLocalSetting('pendingu',[],true);
-	
+	this.pendingmu = this.restoreLocalSetting('pendingmu',[],true);
+	this.activemu = this.restoreLocalSetting('activemu',[],true);
+	this.alarmmu = this.restoreLocalSetting('alarmmu',[],true);
+
 	// Main left menu of pagelayout
 	$scope.lmtoggle = this.restoreLocalSetting('lmtoggle','false',false) != 'false';
 	$scope.lmtoggler = this.restoreLocalSetting('lmtoggler','false',false) != 'false';
@@ -279,7 +292,24 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.actived_ugroups = this.restoreLocalSetting('actived_ugroups',[],true);
 	this.activedNames = [];
 
-	
+    this.pendingmd = this.restoreLocalSetting('pendingmd',[],true);
+    this.pendingmd_products = this.restoreLocalSetting('pendingmd_products',[],true);
+    this.pendingmd_dpgroups = this.restoreLocalSetting('pendingmd_dpgroups',[],true);
+    this.pendingmd_ugroups = this.restoreLocalSetting('pendingmd_ugroups',[],true);
+    this.pendingmdNames = [];
+
+    this.activemd = this.restoreLocalSetting('activemd',[],true);
+    this.activemd_products = this.restoreLocalSetting('activemd_products',[],true);
+    this.activemd_dpgroups = this.restoreLocalSetting('activemd_dpgroups',[],true);
+    this.activemd_ugroups = this.restoreLocalSetting('activemd_ugroups',[],true);
+    this.activemdNames = [];
+
+    this.alarmmd = this.restoreLocalSetting('alarmmd',[],true);
+    this.alarmmd_products = this.restoreLocalSetting('alarmmd_products',[],true);
+    this.alarmmd_dpgroups = this.restoreLocalSetting('alarmmd_dpgroups',[],true);
+    this.alarmmd_ugroups = this.restoreLocalSetting('alarmmd_ugroups',[],true);
+    this.alarmmdNames = [];
+
 	this.mcd = this.restoreLocalSetting('mcd',[],true);
 	this.mcd_products = this.restoreLocalSetting('mcd_products',[],true);
 	this.mcd_dpgroups = this.restoreLocalSetting('mcd_dpgroups',[],true);
@@ -319,7 +349,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.widgetsItems.push('operatord');
 	this.widgetsItems.push('closedd');
 	this.widgetsItems.push('mcd');
-	
+	this.widgetsItems.push('pendingmd');
+	this.widgetsItems.push('activemd');
+	this.widgetsItems.push('alarmmd');
+
 	this.timeoutActivity = null;
 	this.timeoutActivityTime = 300;
 	this.blockSync = false;
@@ -477,6 +510,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		filter += '/(limitmc)/'+parseInt(_that.limitmc);
 		filter += '/(limitb)/'+parseInt(_that.limitb);
 		filter += '/(limitgc)/'+parseInt(_that.limitgc);
+		filter += '/(limitpm)/'+parseInt(_that.limitpm);
+		filter += '/(limitam)/'+parseInt(_that.limitam);
+		filter += '/(limitalm)/'+parseInt(_that.limitalm);
 
         if (typeof _that.widgetsActive == 'object' && _that.widgetsActive.length > 0) {
             filter += '/(w)/'+_that.widgetsActive.join('/');
@@ -489,9 +525,33 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		if (typeof _that.pendingu == 'object' && _that.pendingu.length > 0) {
 			filter += '/(pendingu)/'+_that.pendingu.join('/');			
 		}
+
+		if (typeof _that.pendingmu == 'object' && _that.pendingmu.length > 0) {
+			filter += '/(pendingmu)/'+_that.pendingmu.join('/');
+		}
+
+		if (typeof _that.activemu == 'object' && _that.activemu.length > 0) {
+			filter += '/(activemu)/'+_that.activemu.join('/');
+		}
+
+		if (typeof _that.alarmmu == 'object' && _that.alarmmu.length > 0) {
+			filter += '/(alarmmu)/'+_that.alarmmu.join('/');
+		}
 		
 		if (typeof _that.actived_dpgroups == 'object' && _that.actived_dpgroups.length > 0) {
 			filter += '/(adgroups)/'+_that.actived_dpgroups.join('/');			
+		}
+
+		if (typeof _that.pendingmd_dpgroups == 'object' && _that.pendingmd_dpgroups.length > 0) {
+			filter += '/(pmd)/'+_that.pendingmd_dpgroups.join('/');
+		}
+
+		if (typeof _that.activemd_dpgroups == 'object' && _that.activemd_dpgroups.length > 0) {
+			filter += '/(amd)/'+_that.activemd_dpgroups.join('/');
+		}
+
+		if (typeof _that.alarmmd_dpgroups == 'object' && _that.alarmmd_dpgroups.length > 0) {
+			filter += '/(almd)/'+_that.alarmmd_dpgroups.join('/');
 		}
 		
 		if (typeof _that.pendingd_dpgroups == 'object' && _that.pendingd_dpgroups.length > 0) {
@@ -536,6 +596,39 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				var itemsFilter = _that.manualFilterByFilter('mcd');
 				if (itemsFilter.length > 0) {
 					filter += '/(mcd)/'+itemsFilter.join('/');
+				}
+			}
+		}
+
+		if (typeof _that.pendingmd == 'object') {
+			if (_that.pendingmd.length > 0) {
+				filter += '/(pendingmd)/'+_that.pendingmd.join('/');
+			} else {
+				var itemsFilter = _that.manualFilterByFilter('pendingmd');
+				if (itemsFilter.length > 0) {
+					filter += '/(pendingmd)/'+itemsFilter.join('/');
+				}
+			}
+		}
+
+		if (typeof _that.activemd == 'object') {
+			if (_that.activemd.length > 0) {
+				filter += '/(activemd)/'+_that.activemd.join('/');
+			} else {
+				var itemsFilter = _that.manualFilterByFilter('activemd');
+				if (itemsFilter.length > 0) {
+					filter += '/(activemd)/'+itemsFilter.join('/');
+				}
+			}
+		}
+
+		if (typeof _that.alarmmd == 'object') {
+			if (_that.alarmmd.length > 0) {
+				filter += '/(alarmmd)/'+_that.alarmmd.join('/');
+			} else {
+				var itemsFilter = _that.manualFilterByFilter('alarmmd');
+				if (itemsFilter.length > 0) {
+					filter += '/(alarmmd)/'+itemsFilter.join('/');
 				}
 			}
 		}
@@ -602,6 +695,18 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 		if (typeof _that.actived_ugroups == 'object' && _that.actived_ugroups.length > 0) {
 			filter += '/(augroups)/'+_that.actived_ugroups.join('/');
+		}
+
+		if (typeof _that.pendingmd_ugroups == 'object' && _that.pendingmd_ugroups.length > 0) {
+			filter += '/(pmug)/'+_that.pendingmd_ugroups.join('/');
+		}
+
+		if (typeof _that.activemd_ugroups == 'object' && _that.activemd_ugroups.length > 0) {
+			filter += '/(amug)/'+_that.activemd_ugroups.join('/');
+		}
+
+		if (typeof _that.alarmmd_ugroups == 'object' && _that.alarmmd_ugroups.length > 0) {
+			filter += '/(almug)/'+_that.alarmmd_ugroups.join('/');
 		}
 		
 		if (typeof _that.mcd_products == 'object' && _that.mcd_products.length > 0) {
@@ -947,6 +1052,14 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                                         }
                                     });
                                 }
+                            } else if (key == 'pending_mails') {
+                                if (tabs.length > 0 && confLH.auto_join_private  == 1) {
+                                    item.list.forEach(function (chat) {
+                                        if (typeof chat.user_id !== 'undefined' && chat.user_id == confLH.user_id && confLH.accept_chats == 1 && chat.status !== 1) {
+                                            lhinst.startMailChat(chat.id,tabs,LiveHelperChatFactory.truncate(chat.subject,10),true);
+                                        }
+                                    });
+                                }
                             }
                         }
 
@@ -996,7 +1109,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 							};
 
 							if (_that.isListLoaded == true) {
-								_that.compareNotificationsAndHide(_that.statusNotifications[item.last_id_identifier],currentStatusNotifications);
+								_that.compareNotificationsAndHide(_that.statusNotifications[item.last_id_identifier],currentStatusNotifications,item.last_id_identifier);
 							}
 
 							_that.statusNotifications[item.last_id_identifier] = currentStatusNotifications;
@@ -1083,12 +1196,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
         }, 1000);
 	};
 
-	this.compareNotificationsAndHide = function(oldStatus, newStatus) {
+	this.compareNotificationsAndHide = function(oldStatus, newStatus, type) {
 		if (typeof oldStatus !== 'undefined') {			
 			for (var i = oldStatus.length - 1; i >= 0; i--) {
 			  var key = oldStatus[i];
 			  if (-1 === newStatus.indexOf(key)) {				
-				  lhinst.hideNotification(key.split('_')[0]);
+				  lhinst.hideNotification(key.split('_')[0], type);
 			  }
 			}
 		}
@@ -1108,13 +1221,18 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		});
 	};
 
-	this.previewChat = function(chat_id){		
+	this.previewChat = function(chat_id){
 		lhc.previewChat(chat_id);
 	};
+
 	this.previewChatArchive = function(archive_id, chat_id){
 		lhc.previewChatArchive(archive_id, chat_id);
 	};
-	
+
+	this.previewMail = function(chat_id){
+        lhc.previewMail(chat_id);
+    };
+
 	this.redirectContact = function(chat_id,message) {	
 		return lhinst.redirectContact(chat_id,message);				
 	};
@@ -1130,6 +1248,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.startGroupChat = function (chat_id, name) {
         if ($('#tabs').length > 0) {
             return lhinst.startGroupChat(chat_id,$('#tabs'),LiveHelperChatFactory.truncate(name,10));
+        }
+    }
+
+	this.startMailChat = function (chat_id, name) {
+        if ($('#tabs').length > 0) {
+            return lhinst.startMailChat(chat_id,$('#tabs'),LiveHelperChatFactory.truncate(name,10));
         }
     }
 
@@ -1346,6 +1470,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		var appendURL = '';
 		var openedChats = this.getOpenedChatIds('achat_id');
 		var openedgChats = this.getOpenedChatIds('gachat_id');
+		var openedmChats = this.getOpenedChatIds('machat_id');
 
 		if ($('#tabs').length > 0 && lhinst.disableremember == false && openedChats.length > 0) {
             appendURL = '/(chatopen)/' + openedChats.join('/');
@@ -1353,6 +1478,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 		if ($('#tabs').length > 0 && lhinst.disableremember == false && openedgChats.length > 0) {
             appendURL += '/(chatgopen)/' + openedgChats.join('/');
+		}
+
+		if ($('#tabs').length > 0 && lhinst.disableremember == false && openedmChats.length > 0) {
+            appendURL += '/(chatmopen)/' + openedmChats.join('/');
 		}
 
 		LiveHelperChatFactory.loadInitialData(appendURL).then(function(data) {
@@ -1388,12 +1517,20 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                 lhinst.startGroupChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate(chatOpen.nick,10));
             });
 
+            angular.forEach(data.cmopen, function(chatOpen) {
+                lhinst.startMailChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate(chatOpen.subject,10));
+            });
+
             angular.forEach(data.cdel, function(chatOpen) {
                 lhinst.forgetChat(chatOpen,'achat_id');
             });
 
             angular.forEach(data.cgdel, function(chatOpen) {
                 lhinst.forgetChat(chatOpen,'gachat_id');
+            });
+
+            angular.forEach(data.cmdel, function(chatOpen) {
+                lhinst.forgetChat(chatOpen,'machat_id');
             });
 
             ee.emitEvent('eventLoadInitialData', [data, $scope, _that]);

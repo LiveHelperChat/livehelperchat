@@ -47,8 +47,7 @@ if ( isset($_POST['doClose']) ) {
         $userData = $currentUser->getUserData(true);
 
         foreach ($chats as $chatToClose) {
-            $chatToClose->status = erLhcoreClassModelMailconvConversation::STATUS_CLOSED;
-            $chatToClose->saveThis();
+            erLhcoreClassMailconvWorkflow::closeConversation(['conv' => $chatToClose, 'user_id' => $currentUser->getUserID()]);
         }
     }
 }
@@ -59,6 +58,11 @@ if (isset($_GET['doSearch'])) {
 } else {
     $filterParams = erLhcoreClassSearchHandler::getParams(array('customfilterfile' => 'lib/core/lhmailconv/filter/conversations.php', 'format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
     $filterParams['is_search'] = false;
+}
+
+if (in_array($Params['user_parameters_unordered']['xls'], array(1,2,3,4))) {
+    erLhcoreClassMailconvExport::exportXLS(erLhcoreClassModelMailconvConversation::getList(array_merge($filterParams['filter'],array('limit' => 100000,'offset' => 0))));
+    exit;
 }
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);

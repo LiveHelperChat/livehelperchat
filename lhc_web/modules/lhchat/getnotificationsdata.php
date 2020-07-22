@@ -5,25 +5,79 @@ $itemsTypes = array();
 $type = 'pending_chat';
 $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Pending Chat');
 
+$itemsGrouped = [];
+$returnArray = array();
+
+$validChatGroups = ['bot_chats','pending_chat','transfer_chat','transfer_chat_dep','unread_chat'];
+$validMailGroups = ['pmails','amails'];
+
 foreach ($Params['user_parameters_unordered']['id'] as $item) {
     if (is_numeric($item)) {
-        if (!in_array($item, $itemsID)) {
-            $itemsID[] = $item;
+        $itemsGrouped[$type][] = (int)$item;
+        if (in_array($type,$validChatGroups)) {
             $itemsTypes[$item] = $type;
+            $itemsID[] = (int)$item;
         }
     } else {
         $type = $item;
     }    
 }
 
-$items = erLhcoreClassChat::getList(array(
-    'ignore_fields' => erLhcoreClassChat::$chatListIgnoreField,
-    'filterin' => array(
-        'id' => $itemsID
-    )
-));
+$mails = [];
 
-$returnArray = array();
+if (isset($itemsGrouped['pmails'])) {
+
+    $itemsMail = erLhcoreClassModelMailconvConversation::getList(array(
+        'filterin' => array(
+            'id' => $itemsGrouped['pmails']
+        )
+    ));
+
+    foreach ($itemsMail as $itemMail)
+    {
+        $mails[] = $itemMail->id;
+        $returnArray[] = array(
+            'nick' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','New mail') . ' - ' . $itemMail->from_address,
+            'msg' => $itemMail->subject,
+            'nt' => $itemMail->subject,
+            'last_id_identifier' => 'pmails',
+            'last_id' => $itemMail->id
+        );
+    }
+}
+
+if (isset($itemsGrouped['amails'])) {
+    $itemsMail = erLhcoreClassModelMailconvConversation::getList(array(
+        'filterin' => array(
+            'id' => $itemsGrouped['amails']
+        )
+    ));
+
+    foreach ($itemsMail as $itemMail)
+    {
+        if (!in_array($itemMail->id,$mails)){
+            $returnArray[] = array(
+                'nick' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Unresponded mail') . ' - ' . $itemMail->from_address,
+                'msg' => $itemMail->subject,
+                'nt' => $itemMail->subject,
+                'last_id_identifier' => 'amails',
+                'last_id' => $itemMail->id
+            );
+        }
+    }
+}
+
+
+$items = [];
+
+if (!empty($itemsID)){
+    $items = erLhcoreClassChat::getList(array(
+        'ignore_fields' => erLhcoreClassChat::$chatListIgnoreField,
+        'filterin' => array(
+            'id' => $itemsID
+        )
+    ));
+}
 
 foreach ($items as $item) {
     

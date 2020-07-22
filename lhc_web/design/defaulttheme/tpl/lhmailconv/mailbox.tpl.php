@@ -11,7 +11,7 @@
         </thead>
         <?php foreach ($items as $item) : ?>
             <tr>
-                <td><?php echo htmlspecialchars($item->mail)?></td>
+                <td><a href="<?php echo erLhcoreClassDesign::baseurl('mailconv/editmailbox')?>/<?php echo $item->id?>" ><?php echo htmlspecialchars($item->mail)?></a></td>
                 <td>
                     <?php if ($item->active == 1) : ?>
                         <i title="Ok" class="material-icons chat-active">&#xE5CA;</i>

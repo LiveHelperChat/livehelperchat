@@ -13,28 +13,41 @@
             <th width="1%"><input class="mb-0" type="checkbox" ng-model="check_all_items" /></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Subject');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Sender');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Priority');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Operator');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Department');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Status');?></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Data');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Date');?></th>
+            <th width="1%"></th>
         </tr>
         </thead>
         <?php foreach ($items as $item) : ?>
             <tr>
                 <td><input ng-checked="check_all_items" class="mb-0" type="checkbox" name="ConversationID[]" value="<?php echo $item->id?>" /></td>
                 <td>
+
+                    <a onclick="lhc.previewMail(<?php echo $item->id?>);" class="material-icons">info_outline</a>
+
+                    <a class="action-image material-icons" data-title="<?php echo htmlspecialchars($item->subject)?>" onclick="lhinst.startMailNewWindow(<?php echo $item->id?>,$(this).attr('data-title'))" >open_in_new</a>
+
+                    <?php if ($item->start_type == erLhcoreClassModelMailconvConversation::START_OUT) : ?>
+                        <i class="material-icons">call_made</i>
+                    <?php else : ?>
+                        <i class="material-icons">call_received</i>
+                    <?php endif; ?>
                     <a href="<?php echo erLhcoreClassDesign::baseurl('mailconv/view')?>/<?php echo $item->id?>"><?php echo htmlspecialchars($item->subject)?> <small><?php echo $item->total_messages?></small></a>
                 </td>
                 <td><?php echo htmlspecialchars($item->from_name)?> &lt;<?php echo $item->from_address?>&gt;</td>
+                <td><?php echo htmlspecialchars($item->priority)?></td>
                 <td><?php echo htmlspecialchars($item->user)?></td>
                 <td><?php echo htmlspecialchars($item->department)?></td>
                 <td>
                     <?php if ($item->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING) : ?>
-                    Pending
+                        <i class="material-icons chat-pending">mail_outline</i> Pending
                     <?php elseif ($item->status == erLhcoreClassModelMailconvConversation::STATUS_ACTIVE) : ?>
-                    Active
+                        <i class="material-icons chat-active">mail_outline</i>Active
                     <?php elseif ($item->status == erLhcoreClassModelMailconvConversation::STATUS_CLOSED) : ?>
-                    Closed
+                        <i class="material-icons chat-closed">mail_outline</i>Closed
                     <?php endif; ?>
                 </td>
                 <td>

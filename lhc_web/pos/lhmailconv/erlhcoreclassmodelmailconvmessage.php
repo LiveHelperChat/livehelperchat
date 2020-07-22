@@ -96,11 +96,26 @@ $def->properties['size']->columnName   = 'size';
 $def->properties['size']->propertyName = 'size';
 $def->properties['size']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['user_id'] = new ezcPersistentObjectProperty();
+$def->properties['user_id']->columnName   = 'user_id';
+$def->properties['user_id']->propertyName = 'user_id';
+$def->properties['user_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['lr_time'] = new ezcPersistentObjectProperty();
+$def->properties['lr_time']->columnName   = 'lr_time';
+$def->properties['lr_time']->propertyName = 'lr_time';
+$def->properties['lr_time']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['response_type'] = new ezcPersistentObjectProperty();
+$def->properties['response_type']->columnName   = 'response_type';
+$def->properties['response_type']->propertyName = 'response_type';
+$def->properties['response_type']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $stringAttributes = array(
-    'from_host','from_name','from_address',
+    'cc_data','bcc_data','from_host','from_name','from_address',
     'sender_host','sender_name','sender_address',
-    'toaddress','fromaddress','reply_toaddress','senderaddress',
-    'to_data','from_data','reply_to_data','sender_data'
+    'to_data','reply_to_data',
+    'response_time','cls_time','wait_time','accept_time','interaction_time'
 );
 
 foreach ($stringAttributes as $stringAttribute) {
