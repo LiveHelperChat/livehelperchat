@@ -36,7 +36,6 @@
                 <select name="groupby" class="form-control form-control-sm">
                     <option value="0" <?php $input->groupby == 0 ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Month');?></option>
                     <option value="1" <?php $input->groupby == 1 ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Day');?></option>
-                    <option value="2" <?php $input->groupby == 2 ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Week');?></option>
                 </select>
             </div>
         </div>
@@ -160,3 +159,103 @@
     <input type="submit" name="doSearch" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
 
 </form>
+
+<script>
+    function redrawAllCharts(){
+        drawChartPerMonth();
+    };
+
+    function drawChartPerMonth() {
+        <?php if (in_array('mmsgperinterval',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
+        var barChartData = {
+            labels: [<?php $key = 0; foreach ($mmsgperinterval as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date($groupby,$monthUnix).'\'';$key++; endforeach;?>],
+            datasets: [
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Send messages');?>',
+                    backgroundColor: '#36c',
+                    borderColor: '#36c',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($mmsgperinterval as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['send']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Responded to messages');?>',
+                    backgroundColor: '#44d800',
+                    borderColor: '#44d800',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($mmsgperinterval as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['normal']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','No response required');?>',
+                    backgroundColor: '#ff9900',
+                    borderColor: '#ff9900',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($mmsgperinterval as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['notrequired']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Active');?>',
+                    backgroundColor: '#b3fe84',
+                    borderColor: '#b3fe84',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($mmsgperinterval as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['active']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Pending');?>',
+                    backgroundColor: '#ff3e5f',
+                    borderColor: '#ff3e5f',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($mmsgperinterval as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['pending']; $key++; endforeach;?>]
+                }
+            ]
+        };
+        var ctx = document.getElementById("mmsgperinterval").getContext("2d");
+        var myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                tooltips: {
+                    mode: 'index',
+                    intersect: false
+                },
+                layout: {
+                    padding: {
+                        top: 20
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        stacked: true,
+                        ticks: {
+                            fontSize: 11,
+                            stepSize: 1,
+                            min: 0,
+                            autoSkip: false
+                        }
+                    }
+                    ],
+                    yAxes: [{
+                        stacked: true,
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                title: {
+                    display: false
+                }
+            }
+        });
+        <?php endif; ?>
+    }
+
+    $( document ).ready(function() {
+        redrawAllCharts();
+    });
+
+</script>
+
+<?php if (in_array('mmsgperinterval',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
+    <hr>
+    <h5>Number of messages</h5>
+    <canvas id="mmsgperinterval"></canvas>
+<?php endif; ?>

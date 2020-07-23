@@ -66,6 +66,7 @@ class erLhcoreClassModelMailconvMessage
 
             'user_id' => $this->user_id,
             'response_type' => $this->response_type,
+            'dep_id' => $this->dep_id,
         );
     }
 
@@ -248,6 +249,7 @@ class erLhcoreClassModelMailconvMessage
     public $interaction_time = 0; // Is time between the agent accepting a and closing e-chat.
     public $lr_time = 0;          // Last response time by operator
     public $user_id = 0; // User who has accepted
+    public $dep_id = 0; // User who has accepted
 
     const RESPONSE_NORMAL = 0;          // Normal response by sending mail back.
     const RESPONSE_NOT_REQUIRED = 1;    // Visitor just send thank you message.

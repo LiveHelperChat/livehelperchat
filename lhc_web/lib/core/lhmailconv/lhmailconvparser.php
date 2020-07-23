@@ -191,7 +191,8 @@ class erLhcoreClassMailconvParser {
                         $conversations->saveThis();
 
                         $message->conversation_id = $conversations->id;
-                        $message->updateThis(['update' => ['conversation_id','response_type','status','lr_time','accept_time','cls_time']]);
+                        $message->dep_id = $conversations->dep_id;
+                        $message->updateThis(['update' => ['dep_id','conversation_id','response_type','status','lr_time','accept_time','cls_time']]);
 
                         $messages[] = $message;
 
@@ -270,7 +271,8 @@ class erLhcoreClassMailconvParser {
 
                 // Assign conversation
                 $message->conversation_id = $conversations->id;
-                $message->updateThis(['update' => ['conversation_id']]);
+                $message->dep_id = $conversations->dep_id;
+                $message->updateThis(['update' => ['conversation_id','dep_id']]);
             }
         }
 
@@ -423,14 +425,17 @@ class erLhcoreClassMailconvParser {
             {
                 if ($messageReply->conversation_id > 0) {
                     $message->conversation_id = $messageReply->conversation_id;
-                    $message->saveThis(array('update' => array('conversation_id')));
+                    $message->dep_id = $messageReply->dep_id;
+                    $message->saveThis(array('update' => array('conversation_id','dep_id')));
                     self::setLastConversationByMessage($message->conversation, $message);
                     return $message->conversation_id;
                 } else {
                     $conversationId = self::setConversation($messageReply);
                     if ($conversationId > 0) {
-                        $message->conversation_id = $conversationId;
-                        $message->saveThis(array('update' => array('conversation_id')));
+                        $conversation = erLhcoreClassModelMailconvConversation::fetch($conversationId);
+                        $message->conversation_id = $conversation->conversation_id;
+                        $message->dep_id = $conversation->dep_id;
+                        $message->saveThis(array('update' => array('conversation_id','dep_id')));
                         self::setLastConversationByMessage($message->conversation, $message);
                         return $message->conversation_id;
                     }
@@ -509,6 +514,7 @@ class erLhcoreClassMailconvParser {
 
         if ($conversation instanceof erLhcoreClassModelMailconvConversation) {
             $message->conversation_id = $conversation->id;
+            $message->dep_id = $conversation->dep_id;
         }
 
         if ($message->from_address == $mailbox->mail) {

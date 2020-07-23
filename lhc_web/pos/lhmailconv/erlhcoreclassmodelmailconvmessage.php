@@ -111,6 +111,11 @@ $def->properties['response_type']->columnName   = 'response_type';
 $def->properties['response_type']->propertyName = 'response_type';
 $def->properties['response_type']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['dep_id'] = new ezcPersistentObjectProperty();
+$def->properties['dep_id']->columnName   = 'dep_id';
+$def->properties['dep_id']->propertyName = 'dep_id';
+$def->properties['dep_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $stringAttributes = array(
     'cc_data','bcc_data','from_host','from_name','from_address',
     'sender_host','sender_name','sender_address',

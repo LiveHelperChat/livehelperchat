@@ -137,12 +137,13 @@ if ($tab == 'active') {
         }
     }
 
+    $tpl->set('groupby',$filterParams['input_form']->groupby == 1 ? 'Y.m.d' : ($filterParams['input_form']->groupby == 2 ? 'Y-m-d' : 'Y.m'));
     $tpl->set('input',$filterParams['input_form']);
 
     if (isset($_GET['doSearch'])) {
 
         $activeStats = array(
-            'mmsgperinterval' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('mmsgperinterval',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::messagesPerInterval($filterParams['filter']) : array()),
+            'mmsgperinterval' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('mmsgperinterval',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::messagesPerInterval($filterParams['filter'], ['group_by' => $filterParams['input_form']->groupby]) : array()),
             'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
         );
         $tpl->setArray($activeStats);
