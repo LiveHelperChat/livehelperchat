@@ -1089,7 +1089,15 @@ function lh(){
 			 	 if (item.indexOf('lhinst.') != -1) { // Internal operation
 			 		eval(item);
 			 	 } else if (item.indexOf('lhc_ui_refresh') != -1) { // This can happen only if operator enables files upload. To support legacy widget.
-			 	     lhinst.enableFileUpload();
+
+                     var option = item.split(':')[1];
+
+                     if (option == 1) {
+                         lhinst.enableFileUpload();
+                     } else {
+                         lhinst.disableFileUpload();
+                     }
+
 			 	 } else if (inst.isWidgetMode) {
 			 		 parent.postMessage(item, '*');
 				 } else if (window.opener) {
@@ -1097,7 +1105,12 @@ function lh(){
 				 };
 		 });
     };
-
+    
+    this.disableFileUpload = function () {
+         $('#fileupload').fileupload('destroy');
+         $('#ChatMessageContainer .dropdown-menu .flex-row .file-uploader').remove();
+    };
+    
     this.syncusercall = function()
 	{
 	    var inst = this;
@@ -3170,7 +3183,9 @@ function lh(){
     };
 
     this.chooseFile = function () {
-        document.getElementById('fileupload').click();
+        if (document.getElementById('fileupload')) {
+            document.getElementById('fileupload').click();
+        }
     }
 
     this.enableFileUpload = function () {

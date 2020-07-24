@@ -131,7 +131,7 @@ class erLhcoreClassChatCommand
         $msg->saveThis();
 
         // Schedule UI Refresh
-        $params['chat']->operation .= "lhc_ui_refresh\n";
+        $params['chat']->operation .= "lhc_ui_refresh:0\n";
 
         // Store permanently
         $params['chat']->updateThis(array('update' => array('chat_variables', 'operation')));
@@ -160,7 +160,7 @@ class erLhcoreClassChatCommand
         $msg->saveThis();
 
         // Schedule UI Refresh
-        $params['chat']->operation .= "lhc_ui_refresh\n";
+        $params['chat']->operation .= "lhc_ui_refresh:1\n";
 
         // Store permanently
         $params['chat']->updateThis(array('update' => array('chat_variables','operation')));
