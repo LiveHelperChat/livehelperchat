@@ -99,11 +99,11 @@ class erLhcoreClassChatHelper
             $args = json_decode($chat->status_sub_arg, true);            
             reset($args);
             $string = array();
-            
-	        while (list ($key, $value) = each($args)) {
-	            $string [] = $key . ':' . $value ;
-	        }
-	      	        
+
+            foreach ($args as $key => $value) {
+                $string [] = $key . ':' . $value ;
+            }
+
 	        return implode(':', $string);
         }
         
