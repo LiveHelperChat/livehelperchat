@@ -100,10 +100,11 @@ export default function (dispatch, getState) {
         if (typeof e.data !== 'string') { return; }
 
         if (typeof e.origin !== 'undefined') {
+            
             var originDomain = e.origin.replace("http://", "").replace("https://", "").replace(/:(\d+)$/,'');
 
             // We allow to send events only from chat installation or page where script is embeded.
-            if (originDomain !== document.domain) {
+            if (originDomain !== document.domain && (typeof window.lhcChat['domain_lhc'] === 'undefined' || window.lhcChat['domain_lhc'] !== originDomain)) {
                 return;
             }
         }
@@ -159,6 +160,7 @@ export default function (dispatch, getState) {
             window.lhcChat['staticJS'] = paramsInit['staticJS'];
             window.lhcChat['mode'] = paramsInit['mode'];
             window.lhcChat['is_focused'] = true;
+            window.lhcChat['domain_lhc'] = paramsInit['domain_lhc'] || null;
 
             __webpack_public_path__ = window.lhcChat['staticJS']['chunk_js'] + "/";
 

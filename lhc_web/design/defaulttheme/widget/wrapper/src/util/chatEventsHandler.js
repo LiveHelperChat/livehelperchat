@@ -41,7 +41,8 @@ class chatEventsHandler {
             'mode' : this.attributes['mode'],
             'captcha' : this.attributes['captcha'],
             'staticJS' : this.attributes['staticJS'],
-            'static_chat' : this.attributes['userSession'].getSessionAttributes()
+            'static_chat' : this.attributes['userSession'].getSessionAttributes(),
+            'domain_lhc': this.attributes['domain_lhc']
         };
 
         if (this.attributes['fresh'] == true) {
