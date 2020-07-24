@@ -137,7 +137,7 @@ const MailChat = props => {
     }
 
     const loadMainData = () => {
-        axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/loadmainconv/" + props.chatId).then(result => {
+        axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/loadmainconv/" + props.chatId + '/(mode)/' + (props.mode != '' ? props.mode : 'normal')).then(result => {
             dispatch({
                 type: 'update',
                 value: {

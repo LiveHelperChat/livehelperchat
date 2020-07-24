@@ -108,6 +108,10 @@ class erLhcoreClassModelMailconvMessage
                 $varObj = str_replace('_ago','',$var);
                 $this->$var = erLhcoreClassChat::formatSeconds(time() - $this->$varObj, true);
                 break;
+                
+            case 'department':
+                $this->department = erLhcoreClassModelDepartament::fetch($this->dep_id);
+                return $this->department;
 
             case 'conversation':
                 return $this->conversation = erLhcoreClassModelMailconvConversation::fetch($this->conversation_id);
@@ -138,6 +142,13 @@ class erLhcoreClassModelMailconvMessage
                     }
                 }
                 return $this->user;
+
+            case 'mailbox':
+                $this->mailbox = null;
+                if ($this->mailbox_id > 0) {
+                        $this->mailbox = erLhcoreClassModelMailconvMailbox::fetch($this->mailbox_id, true);
+                }
+                return $this->mailbox;
 
             case 'plain_user_name':
                 $this->plain_user_name = false;
@@ -251,11 +262,12 @@ class erLhcoreClassModelMailconvMessage
     public $user_id = 0; // User who has accepted
     public $dep_id = 0; // User who has accepted
 
-    const RESPONSE_NORMAL = 0;          // Normal response by sending mail back.
-    const RESPONSE_NOT_REQUIRED = 1;    // Visitor just send thank you message.
-    const RESPONSE_INTERNAL = 2;        // We have send this message
+    const RESPONSE_UNRESPONDED = 0;    // Normal response by sending mail back.
+    const RESPONSE_NOT_REQUIRED = 1;   // Visitor just send thank you message.
+    const RESPONSE_INTERNAL = 2;       // We have send this message
+    const RESPONSE_NORMAL = 3;         // We have send this message
 
-    public $response_type = self::RESPONSE_NORMAL; // Normal mail based response
+    public $response_type = self::RESPONSE_UNRESPONDED; // Normal mail based response
 
 }
 

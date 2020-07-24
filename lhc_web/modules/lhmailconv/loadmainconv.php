@@ -18,7 +18,7 @@ try {
         $operatorChanged = false;
         $chatAccepted = false;
 
-        if ($userData->invisible_mode == 0 && erLhcoreClassChat::hasAccessToWrite($conv)) {
+        if ($Params['user_parameters_unordered']['mode'] == 'normal' && $userData->invisible_mode == 0 && erLhcoreClassChat::hasAccessToWrite($conv)) {
 
             if ($conv->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING && $conv->user_id != $userData->id && !$currentUser->hasAccessTo('lhchat','open_all')) {
                 throw new Exception('You do not have permission to open all pending chats.');

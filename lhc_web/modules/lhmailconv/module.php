@@ -51,6 +51,7 @@ $ViewList['apicloseconversation'] = array(
 
 $ViewList['loadmainconv'] = array(
     'params' => array('id'),
+    'uparams' => array('mode'),
     'functions' => array( 'use_admin' )
 );
 
