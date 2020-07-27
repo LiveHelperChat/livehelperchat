@@ -922,3 +922,7 @@ textarea[name=ChatMessage] {
     font-size:13px;
     padding: .12rem 0.3rem;
 }
+
+#id-invitation-height div.message-admin div.msg-body, #id-invitation-height div.message-admin div.meta-message{
+    margin-left:0!important;
+}
