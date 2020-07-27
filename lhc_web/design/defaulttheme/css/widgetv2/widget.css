@@ -692,7 +692,6 @@ textarea[name=ChatMessage] {
 .proactive-need-help {
     background-color: #fff;
     border-radius: 10px;
-    width: 200px;
     right: 0;
     box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.25);
     margin:9px;
@@ -701,6 +700,10 @@ textarea[name=ChatMessage] {
 
 .fs12{
     font-size:12px;
+}
+
+.fs13{
+    font-size:13px;
 }
 
 .fs11{
@@ -893,4 +896,29 @@ textarea[name=ChatMessage] {
     border-radius: 10px;
     padding: 3px 6px;
     color: #4A4A4A;
+}
+
+#id-invitation-height .usr-tit{
+    display: none;
+}
+
+#id-invitation-height div.message-admin{
+    text-align: left;
+}
+
+#id-invitation-height div.message-admin div.msg-body{
+    background-color: transparent!important;
+    color:#000;
+    max-width: 100%;
+    padding:0;
+    font-size: 13px;
+}
+
+#id-invitation-height ul.quick-replies{
+    margin-bottom: 0;
+}
+
+#id-invitation-height .quick-replies .btn-sm{
+    font-size:13px;
+    padding: .12rem 0.3rem;
 }

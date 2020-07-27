@@ -115,10 +115,22 @@ if ($outputResponse['invitation_id'] > 0) {
         $tpl->set('triggerMessageId',$invitation->trigger_id);
 
         $outputResponse['message_full'] = $tpl->fetch();
+
+        if (isset($invitation->design_data_array['append_intro_bot']) && $invitation->design_data_array['append_intro_bot'] == 1) {
+            $outputResponse['bot_intro'] = true;
+        }
+
+
     }
 
-    if ($invitation instanceof erLhAbstractModelProactiveChatInvitation && isset($invitation->design_data_array['full_on_invitation']) && $invitation->design_data_array['full_on_invitation'] == true) {
-        $outputResponse['full_widget'] = true;
+    if ($invitation instanceof erLhAbstractModelProactiveChatInvitation){
+        if (isset($invitation->design_data_array['full_on_invitation']) && $invitation->design_data_array['full_on_invitation'] == true) {
+            $outputResponse['full_widget'] = true;
+        }
+        
+        if (isset($invitation->design_data_array['message_width']) && is_numeric($invitation->design_data_array['message_width']) && $invitation->design_data_array['message_width'] > 0) {
+            $outputResponse['message_width'] = (int)$invitation->design_data_array['message_width'];
+        }
     }
 
 }

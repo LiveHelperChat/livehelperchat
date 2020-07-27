@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { hideInvitation } from "../actions/chatActions"
 import { helperFunctions } from "../lib/helperFunctions";
+import ChatBotIntroMessage from './ChatBotIntroMessage';
 
 @connect((store) => {
     return {
@@ -19,6 +20,7 @@ class ProactiveInvitation extends Component {
         super(props);
         this.hideInvitation = this.hideInvitation.bind(this);
         this.fullInvitation = this.fullInvitation.bind(this);
+        this.setBotPayload = this.setBotPayload.bind(this);
     }
 
     componentDidMount() {
@@ -31,7 +33,7 @@ class ProactiveInvitation extends Component {
         if (document.getElementById('id-invitation-height')) {
             setTimeout(()=> {
                 helperFunctions.sendMessageParent('widgetHeight', [{
-                    'force_width' : 240,
+                    'force_width' : (this.props.chatwidget.hasIn(['proactive','data','message_width']) ? this.props.chatwidget.getIn(['proactive','data','message_width']) + 40 : 240),
                     'force_height' : document.getElementById('id-invitation-height').offsetHeight+20}]);
                 this.setState({shown : true});
              }, 50);
@@ -49,12 +51,27 @@ class ProactiveInvitation extends Component {
     }
 
     fullInvitation() {
-
         helperFunctions.sendMessageParentDirect('hideInvitation', [{'full' : true}]);
-
         this.props.dispatch({
             'type' : 'FULL_INVITATION'
         });
+    }
+
+    setBotPayload(params) {
+        // Set payload parameter
+        this.props.setBotPayload(params);
+
+        // Set auto start
+        // This way it's faster just user might see blank screen while submiting
+        // So just decided to show full invitation and submit in the background.
+        /*this.props.dispatch({
+            'type' : 'attr_set',
+            'attr' : ['chat_ui','auto_start'],
+            'data' : true,
+        });*/
+
+        // Show full invitation show auto submit will work
+        this.fullInvitation();
     }
 
     render() {
@@ -71,10 +88,11 @@ class ProactiveInvitation extends Component {
         }
 
         return (
-            <div className={className} onClick={this.fullInvitation} id="id-invitation-height">
+            <div className={className} style={{width:(this.props.chatwidget.hasIn(['proactive','data','message_width']) ? this.props.chatwidget.getIn(['proactive','data','message_width']) : 200)}} onClick={this.fullInvitation} id="id-invitation-height">
                 <button title="Close" onClick={(e) => this.hideInvitation(e)} className="float-right btn btn-sm rounded"><i className="material-icons mr-0">&#xf10a;</i></button>
                 <div className="fs14"><b>{this.props.chatwidget.getIn(['proactive','data','name_support']) || this.props.chatwidget.getIn(['proactive','data','extra_profile'])}</b></div>
-                <p className="fs12" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['proactive','data','message'])}}></p>
+                <p className="fs13 mb-0" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['proactive','data','message'])}}></p>
+                {this.props.chatwidget.hasIn(['proactive','data','bot_intro']) && <ChatBotIntroMessage setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['proactive','data','message_full'])} />}
             </div>
         );
     }
