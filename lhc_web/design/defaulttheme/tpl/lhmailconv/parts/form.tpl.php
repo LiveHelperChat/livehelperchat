@@ -10,13 +10,13 @@
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Host');?></label>
-            <input type="text" maxlength="250" class="form-control form-control-sm" name="host" value="<?php echo htmlspecialchars($item->host)?>" />
+            <input type="text" placeholder="tls://smtp.gmail.com" maxlength="250" class="form-control form-control-sm" name="host" value="<?php echo htmlspecialchars($item->host)?>" />
         </div>
     </div>
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Port');?></label>
-            <input type="text" maxlength="250" class="form-control form-control-sm" name="port" value="<?php echo htmlspecialchars($item->port)?>" />
+            <input type="text" placeholder="587" maxlength="250" class="form-control form-control-sm" name="port" value="<?php echo htmlspecialchars($item->port)?>" />
         </div>
     </div>
 </div>
@@ -25,7 +25,7 @@
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Username');?></label>
-            <input type="text" maxlength="250" class="form-control form-control-sm" name="username" value="<?php echo htmlspecialchars($item->username)?>" />
+            <input type="text" placeholder="example@example.org" maxlength="250" class="form-control form-control-sm" name="username" value="<?php echo htmlspecialchars($item->username)?>" />
         </div>
     </div>
     <div class="col-6">

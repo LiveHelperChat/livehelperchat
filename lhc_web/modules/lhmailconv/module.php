@@ -134,6 +134,12 @@ $ViewList['deleteresponsetemplate'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['deletematchingrule'] = array(
+    'params' => array('id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'use_admin' )
+);
+
 $ViewList['responsetemplates'] = array(
     'params' => array(),
     'uparams' => array(),

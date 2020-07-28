@@ -115,11 +115,11 @@ class erLhcoreClassMailconvParser {
                         $head = $mailboxHandler->getMailHeader($mailInfo->uid);
 
                         $message->from_host = $head->fromHost;
-                        $message->from_name = $head->fromName;
+                        $message->from_name = (string)$head->fromName;
                         $message->from_address = $head->fromAddress;
 
                         $message->sender_host = $head->senderHost;
-                        $message->sender_name = $head->senderName;
+                        $message->sender_name = (string)$head->senderName;
                         $message->sender_address = $head->senderAddress;
                         $message->mailbox_id = $mailbox->id;
 
@@ -161,8 +161,8 @@ class erLhcoreClassMailconvParser {
 
                         $conversations = new erLhcoreClassModelMailconvConversation();
                         $conversations->dep_id = $matchingRuleSelected->dep_id;
-                        $conversations->subject = $message->subject;
-                        $conversations->from_name = $message->from_name;
+                        $conversations->subject = (string)$message->subject;
+                        $conversations->from_name = (string)$message->from_name;
                         $conversations->from_address = $message->from_address;
                         $conversations->body = $message->alt_body != '' ? $message->alt_body : strip_tags($message->body);
                         $conversations->last_message_id = $conversations->message_id = $message->id;
@@ -236,7 +236,7 @@ class erLhcoreClassMailconvParser {
                 }
             }
         } catch (Exception $e) {
-            $statsImport[] = date('Y-m-d H:i:s').' | ' . $e->getMessage() . ' - ' . $e->getFile() . ' - ' . $e->getLine();
+            $statsImport[] = date('Y-m-d H:i:s').' | ' . $e->getTraceAsString() . ' - ' . $e->getFile() . ' - ' . $e->getLine();
         }
 
         self::setConversations($messages);
@@ -255,8 +255,8 @@ class erLhcoreClassMailconvParser {
 
                 $conversations = new erLhcoreClassModelMailconvConversation();
                 $conversations->dep_id = $matchingRuleSelected->dep_id;
-                $conversations->subject = $message->subject;
-                $conversations->from_name = $message->from_name;
+                $conversations->subject = (string)$message->subject;
+                $conversations->from_name = (string)$message->from_name;
                 $conversations->from_address = $message->from_address;
                 $conversations->body = $message->alt_body != '' ? $message->alt_body : strip_tags($message->body);
                 $conversations->last_message_id = $conversations->message_id = $message->id;
@@ -477,11 +477,11 @@ class erLhcoreClassMailconvParser {
         $head = $mailboxHandler->getMailHeader($mailInfo['uid']);
 
         $message->from_host = $head->fromHost;
-        $message->from_name = $head->fromName;
+        $message->from_name = (string)$head->fromName;
         $message->from_address = $head->fromAddress;
 
         $message->sender_host = $head->senderHost;
-        $message->sender_name = $head->senderName;
+        $message->sender_name = (string)$head->senderName;
         $message->sender_address = $head->senderAddress;
         $message->mailbox_id = $mailbox->id;
 
