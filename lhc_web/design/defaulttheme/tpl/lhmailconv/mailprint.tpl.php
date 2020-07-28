@@ -5,6 +5,8 @@
     <li><b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','To');?></b> <?php echo htmlspecialchars($chat->to_data_front)?></li>
 </ul>
 
+<hr>
+
 <?php echo $chat->body_front ?>
 
 <hr>

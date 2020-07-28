@@ -281,6 +281,7 @@ const MailChat = props => {
                                         <td colSpan="2">
                                             <i className="material-icons action-image" onClick={() => showModal({url: "mailconv/mailhistory/" + props.chatId})}>history</i>
                                             <a className="material-icons action-image" onClick={() => showModal({url: "mailconv/transfermail/" + props.chatId})} title="Transfer chat">supervisor_account</a>
+                                            <a className="text-dark material-icons" target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/mailprintcovnersation/" + props.chatId} >print</a>
                                             <a className="material-icons mr-0" onClick={(e) => deleteConversation()} title="Delete chat">delete</a>
                                         </td>
                                     </tr>
