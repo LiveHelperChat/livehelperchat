@@ -1,5 +1,5 @@
 
-<h5>Send e-mail settings SMTP</h5>
+<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Send e-mail settings SMTP');?></h5>
 
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mail');?></label>
@@ -36,7 +36,7 @@
     </div>
 </div>
 
-<h5>Receive e-mail IMAP settings.</h5>
+<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Receive e-mail IMAP settings.');?></h5>
 
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','IMAP Server address');?></label>

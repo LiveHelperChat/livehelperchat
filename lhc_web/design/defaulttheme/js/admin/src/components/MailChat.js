@@ -98,6 +98,21 @@ const MailChat = props => {
         }
     }
 
+    const deleteConversation = () => {
+        if (confirm('Are you sure?')) {
+            axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/apideleteconversation/" + state.conv.id).then(result => {
+                // If we are in the tab close tab also
+                if (document.getElementById('chat-tab-link-mc'+state.conv.id)) {
+                    lhinst.removeDialogTabMail('mc'+state.conv.id,$('#tabs'),true);
+                } else {
+                    document.location = WWW_DIR_JAVASCRIPT + "mailconv/conversations";
+                }
+            }).catch((error) => {
+
+            });
+        }
+    }
+
     const closeConversation = () => {
         let hasUnrespondedMessages = false;
         state.messages.forEach((message) => {
@@ -266,6 +281,7 @@ const MailChat = props => {
                                         <td colSpan="2">
                                             <i className="material-icons action-image" onClick={() => showModal({url: "mailconv/mailhistory/" + props.chatId})}>history</i>
                                             <a className="material-icons action-image" onClick={() => showModal({url: "mailconv/transfermail/" + props.chatId})} title="Transfer chat">supervisor_account</a>
+                                            <a className="material-icons mr-0" onClick={(e) => deleteConversation()} title="Delete chat">delete</a>
                                         </td>
                                     </tr>
                                     <tr>

@@ -34,6 +34,11 @@ $ViewList['apimaildownload'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['mailprint'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
 $ViewList['view'] = array(
     'params' => array('id'),
     'functions' => array( 'use_admin' )
@@ -50,6 +55,11 @@ $ViewList['apinoreplyrequired'] = array(
 );
 
 $ViewList['apicloseconversation'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['apideleteconversation'] = array(
     'params' => array('id'),
     'functions' => array( 'use_admin' )
 );

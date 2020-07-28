@@ -57,6 +57,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode})
                 <div className="dropdown-menu" aria-labelledby={"message-id-"+message.id}>
                     <a className="dropdown-item" href="#"><i className="material-icons text-muted">reply</i>Reply</a>
                     <a className="dropdown-item" href="#"><i className="material-icons text-muted">forward</i>Forward</a>
+                    <a className="dropdown-item" target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/mailprint/" + message.id} ><i className="material-icons text-muted">print</i>Print</a>
                     <a className="dropdown-item" href={WWW_DIR_JAVASCRIPT  + "mailconv/apimaildownload/" + message.id} ><i className="material-icons text-muted">cloud_download</i>Download</a>
                     <a className="dropdown-item" href="#" onClick={() => noReplyRequired(message)}><i className="material-icons text-muted">done</i>No reply required</a>
                 </div>
