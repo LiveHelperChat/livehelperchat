@@ -4,12 +4,16 @@ $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/editmailbox.tpl.php');
 
 $item =  erLhcoreClassModelMailconvMailbox::fetch($Params['user_parameters']['id']);
 
+$tab = '';
+
 if (isset($Params['user_parameters_unordered']['action']) && $Params['user_parameters_unordered']['action'] == 'sync') {
     erLhcoreClassMailconvParser::syncMailbox($item);
+    $tab = 'tab_utilities';
 }
 
 if (isset($Params['user_parameters_unordered']['action']) && $Params['user_parameters_unordered']['action'] == 'mailbox') {
     erLhcoreClassMailconvParser::getMailBox($item);
+    $tab = 'tab_mailbox';
 }
 
 if (isset($_POST['Save_mailbox'])) {
