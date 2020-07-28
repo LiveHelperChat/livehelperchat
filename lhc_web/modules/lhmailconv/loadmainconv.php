@@ -39,6 +39,10 @@ try {
                 $chatAccepted = true;
             }
 
+            if ($conv->transfer_uid > 0) {
+                erLhcoreClassTransfer::handleTransferredChatOpen($conv, $currentUser->getUserID(), erLhcoreClassModelTransfer::SCOPE_MAIL);
+            }
+
             $conv->updateThis();
         }
 

@@ -6755,6 +6755,14 @@
         "extra": ""
       },
       {
+        "field": "transfer_scope",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "ctime",
         "type": "int(11)",
         "null": "NO",

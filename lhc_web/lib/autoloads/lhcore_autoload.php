@@ -316,6 +316,7 @@ return array_merge(array (
         'erLhcoreClassModelMailconvResponseTemplate'=> 'lib/models/lhmailconv/erlhcoreclassmodelmailconvresponsetemplate.php',
         'erLhcoreClassMailconvExport'               => 'lib/core/lhmailconv/lhmailconvexport.php',
         'erLhcoreClassMailconvWorkflow'             => 'lib/core/lhmailconv/lhmailconvworkflow.php',
+        'erLhcoreClassModelMailconvMessageInternal' => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmessageinternal.php',
 
         // Round Cube imported classes
         'rcube_charset'                             => 'lib/core/lhmailconv/html_parsers/rcube_charset.php',

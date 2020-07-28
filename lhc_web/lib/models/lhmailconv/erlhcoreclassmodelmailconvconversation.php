@@ -45,6 +45,8 @@ class erLhcoreClassModelMailconvConversation
             'lr_time' => $this->lr_time,
             'tslasign' => $this->tslasign,
             'start_type' => $this->start_type,
+            'transfer_uid' => $this->transfer_uid,
+            'remarks' => $this->remarks,
         );
     }
 
@@ -148,6 +150,7 @@ class erLhcoreClassModelMailconvConversation
     public $body = '';
     public $from_name = '';
     public $from_address = '';
+    public $remarks = '';
     public $last_message_id = 0;
     public $message_id = 0;
     // Create record time
@@ -155,6 +158,9 @@ class erLhcoreClassModelMailconvConversation
 
     // Mail time from mail server
     public $udate = 0;
+
+    // User who transfered a chat
+    public $transfer_uid = 0;
 
     // Date
     public $date = '';

@@ -1,0 +1,1 @@
+ALTER TABLE `lh_transfer` ADD `transfer_scope` int(11) NOT NULL DEFAULT '0', COMMENT='';

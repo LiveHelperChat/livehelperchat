@@ -8,7 +8,7 @@ $notification_message_type = erTranslationClassLhTranslation::getInstance()->get
 $itemsGrouped = [];
 $returnArray = array();
 
-$validChatGroups = ['bot_chats','pending_chat','transfer_chat','transfer_chat_dep','unread_chat'];
+$validChatGroups = ['bot_chats', 'pending_chat', 'unread_chat', 'transfer_chat', 'transfer_chat_dep'];
 $validMailGroups = ['pmails','amails'];
 
 foreach ($Params['user_parameters_unordered']['id'] as $item) {
@@ -16,6 +16,7 @@ foreach ($Params['user_parameters_unordered']['id'] as $item) {
         $itemsGrouped[$type][] = (int)$item;
         if (in_array($type,$validChatGroups)) {
             $itemsTypes[$item] = $type;
+            if ($type != 'transfer_chat' && $type != 'transfer_chat_dep')
             $itemsID[] = (int)$item;
         }
     } else {
@@ -63,9 +64,56 @@ if (isset($itemsGrouped['amails'])) {
                 'last_id_identifier' => 'amails',
                 'last_id' => $itemMail->id
             );
+            $mails[] = $itemMail->id;
         }
     }
 }
+
+if (isset($itemsGrouped['transfer_chat']) || isset($itemsGrouped['transfer_chat_dep'])) {
+
+    $ids = array_merge((isset($itemsGrouped['transfer_chat']) ? $itemsGrouped['transfer_chat'] : []),(isset($itemsGrouped['transfer_chat_dep']) ? $itemsGrouped['transfer_chat_dep'] : []));
+    erLhcoreClassChat::validateFilterIn($ids);
+
+    $db = ezcDbInstance::get();
+    $stmt = $db->prepare( "SELECT * FROM lh_transfer WHERE chat_id IN (".implode(',',$ids).")");
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    $rows = $stmt->fetchAll();
+
+    $itemsTransferedMailsID = [];
+    foreach ($rows as $row) {
+        // It was chat transfer it can continue as normal chat
+        if ($row['transfer_scope'] == 0) {
+            $itemsID[] = $row['chat_id'];
+        } else {
+            $itemsTransferedMailsID[] = $row['chat_id'];
+        }
+    }
+
+    if (!empty($itemsTransferedMailsID)){
+        $itemsMail = erLhcoreClassModelMailconvConversation::getList(array(
+            'filterin' => array(
+                'id' => $itemsTransferedMailsID
+            )
+        ));
+
+        foreach ($itemsMail as $itemMail)
+        {
+            if (!in_array($itemMail->id,$mails)){
+                $returnArray[] = array(
+                    'nick' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Transferred mail') . ' - ' . $itemMail->from_address,
+                    'msg' => $itemMail->subject,
+                    'nt' => $itemMail->subject,
+                    'last_id_identifier' => 'transferred_mail',
+                    'last_id' => $itemMail->id
+                );
+            }
+        }
+    }
+
+}
+
+
 
 
 $items = [];

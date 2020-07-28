@@ -1265,12 +1265,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		}
 	};
 	
-	this.startChatNewWindowTransfer = function(chat_id,name,transfer_id) {
-		return lhinst.startChatNewWindowTransfer(chat_id,name,transfer_id);
+	this.startChatNewWindowTransfer = function(chat_id,name,transfer_id, transfer_scope) {
+		return lhinst.startChatNewWindowTransfer(chat_id,name,transfer_id, transfer_scope);
 	};
 		
-	this.startChatTransfer = function(chat_id,name,transfer_id) {
-		return lhinst.startChatTransfer(chat_id,$('#tabs'),name,transfer_id);
+	this.startChatTransfer = function(chat_id,name,transfer_id, transfer_scope) {
+		return lhinst.startChatTransfer(chat_id,$('#tabs'),name,transfer_id, transfer_scope);
 	};
 
 	$scope.startChatOperatorPublic = function(user_id){

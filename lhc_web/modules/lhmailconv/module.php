@@ -24,6 +24,11 @@ $ViewList['previewmail'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['transfermail'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
 $ViewList['apimaildownload'] = array(
     'params' => array('id'),
     'functions' => array( 'use_admin' )
@@ -52,6 +57,18 @@ $ViewList['apicloseconversation'] = array(
 $ViewList['loadmainconv'] = array(
     'params' => array('id'),
     'uparams' => array('mode'),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['saveremarks'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['mailhistory'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
     'functions' => array( 'use_admin' )
 );
 

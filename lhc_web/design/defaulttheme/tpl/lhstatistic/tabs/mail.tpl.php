@@ -159,6 +159,21 @@
             </div>
         </div>
 
+        <div class="col-md-6">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Message types to include');?></label>
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'response_type[]',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose'),
+                    'selected_id'    => $input->response_type,
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'name',
+                    'list_function_params' => [],
+                    'list_function'  => 'erLhcoreClassMailconvStatistic::getResponseTypes'
+                )); ?>
+            </div>
+        </div>
+
         <div class="col-md-12">
             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','What charts to display')?></h6>
             <div class="row">

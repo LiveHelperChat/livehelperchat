@@ -172,7 +172,7 @@ $ViewList['transferchat'] = array(
 
 $ViewList['accepttransfer'] = array(
     'params' => array('transfer_id'),
-    'uparams' => array('postaction','mode'),
+    'uparams' => array('postaction','mode','scope'),
     'functions' => array( 'use' )
 );
 
@@ -573,7 +573,7 @@ $ViewList['sendchat'] = array(
 
 $ViewList['transferchatrefilter'] = array(
     'params' => array('chat_id'),
-    'uparams' => array('mode'),
+    'uparams' => array('mode','obj'),
     'functions' => array( 'use' )
 );
 

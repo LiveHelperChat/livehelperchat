@@ -6,10 +6,17 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
     $db->beginTransaction();
     try {
 
-        $Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
+        $transferScope = isset($_POST['obj']) && $_POST['obj'] == 'mail' ? erLhcoreClassModelTransfer::SCOPE_MAIL : erLhcoreClassModelTransfer::SCOPE_CHAT;
+
+        if ($transferScope == erLhcoreClassModelTransfer::SCOPE_CHAT) {
+            $Chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
+        } else {
+            $Chat = erLhcoreClassModelMailconvConversation::fetch($Params['user_parameters']['chat_id']);
+        }
+
         $errors = array();
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_transfered', array('chat' => & $Chat, 'errors' => & $errors));
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_transfered', array('chat' => & $Chat, 'errors' => & $errors, 'scope' => $transferScope));
 
         if ( erLhcoreClassChat::hasAccessToRead($Chat) && empty($errors) )
         {
@@ -23,12 +30,14 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
 
                     if ($user instanceof erLhcoreClassModelUser)
                     {
-                        $msg = new erLhcoreClassModelmsg();
+
+                        $msg = ($transferScope == erLhcoreClassModelTransfer::SCOPE_CHAT) ? (new erLhcoreClassModelmsg()) : (new erLhcoreClassModelMailconvMessageInternal());
                         $msg->chat_id = $Chat->id;
                         $msg->user_id = -1;
                         $msg->msg = (string)$currentUser->getUserData() . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'has changed owner to') . ' ' . $user->name_support;
                         $msg->time = time();
                         $msg->saveThis();
+                        $Chat->last_msg_id = $msg->id;
 
                         $oldUserId = 0;
 
@@ -36,7 +45,6 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                             $oldUserId = $Chat->user_id;
                         }
 
-                        $Chat->last_msg_id = $msg->id;
                         $Chat->last_user_msg_time = time();
                         $Chat->user_id = $user->id;
                         $Chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
@@ -65,7 +73,7 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
             } else {
 
                 // Delete any existing transfer for this chat already underway
-                $transferLegacy = erLhcoreClassTransfer::getTransferByChat($Params['user_parameters']['chat_id']);
+                $transferLegacy = erLhcoreClassTransfer::getTransferByChat($Params['user_parameters']['chat_id'], $transferScope);
 
                 if (is_array($transferLegacy)) {
                     $chatTransfer = erLhcoreClassTransfer::getSession()->load('erLhcoreClassModelTransfer', $transferLegacy['id']);
@@ -75,8 +83,9 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                 $Transfer = new erLhcoreClassModelTransfer();
                 $Transfer->chat_id = $Chat->id;
                 $Transfer->ctime = time();
+                $Transfer->transfer_scope = $transferScope;
 
-                $msg = new erLhcoreClassModelmsg();
+                $msg = ($transferScope == erLhcoreClassModelTransfer::SCOPE_CHAT) ? (new erLhcoreClassModelmsg()) : (new erLhcoreClassModelMailconvMessageInternal());
                 $msg->chat_id = $Chat->id;
                 $msg->user_id = -1;
 
@@ -91,7 +100,11 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                     }
 
                     if (isset($transferConfiguration['make_pending']) && $transferConfiguration['make_pending'] == true) {
-                        $Chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
+                        if ($transferScope == erLhcoreClassModelTransfer::SCOPE_CHAT) {
+                            $Chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
+                        } else {
+                            $Chat->status = erLhcoreClassModelMailconvConversation::STATUS_PENDING;
+                        }
                     }
 
                     if (isset($transferConfiguration['make_unassigned']) && $transferConfiguration['make_unassigned'] == true) {
@@ -125,14 +138,14 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                 }
 
                 // Save message
-                erLhcoreClassChat::getSession()->save($msg);
+                $msg->saveThis();
 
                 // User who transferred chat
                 $Chat->last_msg_id = $msg->id;
                 $Chat->transfer_uid = $currentUser->getUserID();
                 $Chat->saveThis();
 
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_transfered', array('chat' => & $Chat, 'transfer' => $Transfer));
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_transfered', array('scope' => $transferScope, 'chat' => & $Chat, 'transfer' => $Transfer));
 
                 echo json_encode(['error' => 'false', 'result' => $tpl->fetch(), 'chat_id' => $Params['user_parameters']['chat_id']]);
             }

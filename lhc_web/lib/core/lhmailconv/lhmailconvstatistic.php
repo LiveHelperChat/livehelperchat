@@ -362,6 +362,25 @@ class erLhcoreClassMailconvStatistic {
 
         return array('labels' => $numberOfChats, 'data' => $returnReversed);
     }
+    
+    public static function getResponseTypes()
+    {
+        $items = [];
+
+        foreach (array(
+            erLhcoreClassModelMailconvMessage::RESPONSE_UNRESPONDED => 'Unresponded',
+            erLhcoreClassModelMailconvMessage::RESPONSE_NOT_REQUIRED => 'No response required',
+            erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL => 'Send messages',
+            erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL => 'Responded to messages',
+        ) as $id => $item) {
+            $itemSTD = new stdClass();
+            $itemSTD->id = $id;
+            $itemSTD->name = $item;
+            $items[] = $itemSTD;
+        }
+
+        return $items;
+    }
 
 }
 

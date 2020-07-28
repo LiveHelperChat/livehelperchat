@@ -1422,7 +1422,12 @@ function lh(){
 	this.startChatTransfer = function(chat_id,tabs,name,transfer_id){
 		var inst = this;
 	    $.getJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){
-	    	inst.startChat(chat_id,tabs,name);
+
+	        if (data.scope == 1) {
+                inst.startMailChat(chat_id,tabs,name);
+            } else {
+                inst.startChat(chat_id,tabs,name);
+            }
 
 	    	if (LHCCallbacks.operatorAcceptedTransfer) {
 	       		LHCCallbacks.operatorAcceptedTransfer(chat_id);
@@ -1433,31 +1438,44 @@ function lh(){
 	    });
 	};
 
-	this.startChatNewWindowTransfer = function(chat_id,name,transfer_id)
+	this.startChatNewWindowTransfer = function(chat_id, name, transfer_id, transfer_scope)
 	{
 		$.getJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){
 			if (LHCCallbacks.operatorAcceptedTransfer) {
 	       		LHCCallbacks.operatorAcceptedTransfer(chat_id);
 	    	};
 		});
-		return this.startChatNewWindow(chat_id,name);
+
+		if (transfer_scope == 1) {
+            return this.startMailNewWindow(chat_id,name);
+        } else {
+            return this.startChatNewWindow(chat_id,name);
+        }
 	};
 
-	this.startChatNewWindowTransferByTransfer = function(chat_id, nt)
+	this.startChatNewWindowTransferByTransfer = function(chat_id, nt, transferScope)
 	{
 		var inst = this;
 		$.ajax({
 	        type: "GET",
-	        url: this.wwwDir + this.accepttransfer + chat_id+'/(mode)/chat',
+	        url: this.wwwDir + this.accepttransfer + chat_id+'/(mode)/chat/(scope)/' + transferScope,
 	        cache: false,
 	        dataType: 'json'
 	    }).done(function(data){
 
 	    	if ($('#tabs').length > 0) {
     			window.focus();
-    			inst.startChat(data.chat_id, $('#tabs'), nt);
+    			if (transferScope == 1) {
+                    inst.startMailChat(data.chat_id, $('#tabs'), nt);
+                } else {
+                    inst.startChat(data.chat_id, $('#tabs'), nt);
+                }
     		} else {
-    			inst.startChatNewWindow(data.chat_id,'');
+                if (transferScope == 1) {
+                    inst.startMailNewWindow(data.chat_id,'ChatMail');
+                } else {
+    			    inst.startChatNewWindow(data.chat_id,'');
+                }
     		}
 
 	    	if (LHCCallbacks.operatorAcceptedTransfer) {
@@ -1504,39 +1522,43 @@ function lh(){
 		$('#embed-button-'+file_id).addClass('btn-success');
 	};
 
-	this.hideTransferModal = function(chat_id)
+	this.hideTransferModal = function(chat_id, obj)
 	{
 		var inst = this;
 
         setTimeout(function(){
             $('#myModal').modal('hide');
             if ($('#tabs').length > 0) {
-                inst.removeDialogTab(chat_id,$('#tabs'),true)
+                if (obj === 'mail'){
+                    inst.removeDialogTabMail('mc'+chat_id,$('#tabs'),true)
+                } else {
+                    inst.removeDialogTab(chat_id,$('#tabs'),true)
+                }
             }
         },1000);
 	};
 
-	this.transferChat = function(chat_id)
+	this.transferChat = function(chat_id, obj)
 	{
         var inst = this;
 
 		var user_id = $('[name=TransferTo'+chat_id+']:checked').val();
 
-		$.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{'type':'user'}, function(data){
+		$.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{'type':'user', 'obj': obj}, function(data){
 			if (data.error == 'false') {
 				$('#transfer-block-'+data.chat_id).html(data.result);
-                inst.hideTransferModal(chat_id);
+                inst.hideTransferModal(chat_id, obj);
 			};
 		});
 	};
 
-	this.changeOwner = function(chat_id) {
+	this.changeOwner = function(chat_id, obj) {
         var inst = this;
         var user_id = $('#id_new_user_id').val();
-        $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id, {'type':'change_owner'}, function(data){
+        $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id, {'type' : 'change_owner','obj' : obj}, function(data){
             if (data.error == 'false') {
                 $('#transfer-block-'+data.chat_id).html(data.result);
-                inst.hideTransferModal(chat_id);
+                inst.hideTransferModal(chat_id, obj);
             };
         });
     };
@@ -1578,14 +1600,14 @@ function lh(){
 		}
 	};
 
-	this.transferChatDep = function(chat_id)
+	this.transferChatDep = function(chat_id, obj)
 	{
 		var inst = this;
 	    var user_id = $('[name=DepartamentID'+chat_id+']:checked').val();
-	    $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{'type':'dep'}, function(data){
+	    $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{'type':'dep', 'obj' : obj}, function(data){
 	        if (data.error == 'false') {
 	        	$('#transfer-block-'+data.chat_id).html(data.result);
-                inst.hideTransferModal(chat_id);
+                inst.hideTransferModal(chat_id, obj);
 	        };
 	    });
 	};
@@ -2211,7 +2233,7 @@ function lh(){
 			return ;
 		}
 
-		if (confLH.new_chat_sound_enabled == 1 && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && (identifier == 'bot_chats' || identifier == 'pending_chat' || identifier == 'pmails' || identifier == 'amails' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered')) {
+		if (confLH.new_chat_sound_enabled == 1 && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && (identifier == 'bot_chats' || identifier == 'pending_chat' || identifier == 'pmails' || identifier == 'amails' || identifier == 'transferred_mail' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered')) {
 	    	this.soundPlayedTimes = 0;
 	        this.playNewChatAudio();
 	    };
@@ -2222,7 +2244,7 @@ function lh(){
 
 	    var inst = this;
 
-	    if ( (identifier == 'pending_chat' || identifier == 'pmails' || identifier == 'amails' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'bot_chats' || identifier == 'pending_transfered') && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && window.Notification && window.Notification.permission == 'granted') {
+	    if ( (identifier == 'pending_chat' || identifier == 'pmails' || identifier == 'amails' || identifier == 'transferred_mail' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'bot_chats' || identifier == 'pending_transfered') && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && window.Notification && window.Notification.permission == 'granted') {
 
 			var notification = new Notification(nick, { icon: WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png', body: message, requireInteraction : true });
 
@@ -2241,14 +2263,16 @@ function lh(){
                     } else {
                         inst.startMailNewWindow(chat_id,'ChatMail');
                     }
-    	    	} else {
-    	    		inst.startChatNewWindowTransferByTransfer(chat_id, nt);
+                } else if (identifier == 'transferred_mail') {
+                    inst.startChatNewWindowTransferByTransfer(chat_id, nt, 1);
+                 } else {
+    	    		inst.startChatNewWindowTransferByTransfer(chat_id, nt, 0);
     	    	};
     	        notification.close();
     	    };
 
     	    if (identifier != 'pending_transfered') {
-    	        if (identifier == 'pmails' || identifier == 'amails')
+    	        if (identifier == 'pmails' || identifier == 'amails' || identifier == 'transferred_mail')
                 {
                     if (this.notificationsArrayMail[chat_id] !== 'undefined') {
                         notification.close();
@@ -2263,13 +2287,18 @@ function lh(){
 
                     this.notificationsArray[chat_id] = notification;
                 }
-
 			};
 	    };
 
         if (identifier == 'transfer_chat' && confLH.show_alert_transfer == 1) {
             if (confirm(confLH.transLation.transfered + "\n\n" + message)) {
-                inst.startChatNewWindowTransferByTransfer(chat_id, nt);
+                inst.startChatNewWindowTransferByTransfer(chat_id, nt, 0);
+			}
+        }
+
+        if (identifier == 'transferred_mail' && confLH.show_alert_transfer == 1) {
+            if (confirm(confLH.transLation.transfered + "\n\n" + message)) {
+                inst.startChatNewWindowTransferByTransfer(chat_id, nt, 1);
 			}
         }
 
@@ -2290,8 +2319,10 @@ function lh(){
                     } else {
                         inst.startMailNewWindow(chat_id,'ChatMail');
                     }
+    	    	} else if (identifier == 'transferred_mail') {
+                    inst.startChatNewWindowTransferByTransfer(chat_id, nt, 1);
     	    	} else {
-    	    		inst.startChatNewWindowTransferByTransfer(chat_id, nt);
+    	    		inst.startChatNewWindowTransferByTransfer(chat_id, nt, 0);
     	    	};
     		};
 	    };

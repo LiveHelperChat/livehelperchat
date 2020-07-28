@@ -6,6 +6,7 @@ import axios from "axios";
 import {useTranslation} from 'react-i18next';
 import MailChatMessage from "./parts_mail/MailChatMessage";
 
+
 function reducer(state, action) {
     switch (action.type) {
         case 'increment':
@@ -67,8 +68,10 @@ const MailChat = props => {
         operators: [],
         conv: null,
         loaded: false,
+        saving_remarks: false,
         old_message_id: 0,
         last_message: '',
+        remarks: '',
         last_message_id: 0,
         lmsop: 0,
         lgsync: 0
@@ -156,6 +159,35 @@ const MailChat = props => {
         });
     }
 
+    const showModal = (params) => {
+        lhc.revealModal({'url':WWW_DIR_JAVASCRIPT + params.url});
+    }
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/saveremarks/" + props.chatId, {data: state.remarks}).then(result => {
+                dispatch({
+                    type: 'update',
+                    value: {
+                        'saving_remarks': false
+                    }
+                });
+            });
+        }, 500);
+
+        return () => clearTimeout(timeout);
+    },[state.remarks]);
+
+    const saveRemarks = (params) => {
+        dispatch({
+            type: 'update',
+            value: {
+                'saving_remarks': true,
+                'remarks': params
+            }
+        });
+    }
+
     const forgetChat = (chatId) => {
         if (localStorage) {
             try {
@@ -214,19 +246,28 @@ const MailChat = props => {
                     <div role="tabpanel">
                         <ul className="nav nav-pills" role="tablist" ref={tabsContainer}>
                             <li role="presentation" className="nav-item"><a className="nav-link active" href={"#mail-chat-info-"+props.chatId} aria-controls={"#mail-chat-info-"+props.chatId} title="Information" role="tab" data-toggle="tab"><i className="material-icons mr-0">info_outline</i></a></li>
-                            <li role="presentation" className="nav-item"><a className="nav-link" href={"#mail-chat-"+props.chatId} aria-controls={"#mail-chat-"+props.chatId} role="tab" data-toggle="tab" title="Operators"><i className="material-icons mr-0">face</i></a></li>
+                            <li role="presentation" className="nav-item"><a className="nav-link" href={"#mail-chat-remarks-"+props.chatId} aria-controls={"#mail-chat-remarks-"+props.chatId} role="tab" data-toggle="tab" title="Remarks"><i className="material-icons mr-0">mode_edit</i></a></li>
                         </ul>
                         <div className="tab-content">
-                            <div role="tabpanel" className="tab-pane" id={"mail-chat-"+props.chatId}>
-                                Other info
+                            <div role="tabpanel" className="tab-pane" id={"mail-chat-remarks-"+props.chatId}>
+                                <div className={"material-icons pb-1 text-success" + (state.saving_remarks ? ' text-warning' : '')}>mode_edit</div>
+                                <div>
+                                    {state.conv && <textarea placeholder="Enter your remarks here." onKeyUp={(e) => saveRemarks(e.target.value)} class="form-control mh150" defaultValue={state.conv.remarks}></textarea>}
+                                </div>
                             </div>
                             <div role="tabpanel" className="tab-pane active" id={"mail-chat-info-"+props.chatId}>
 
                                 <div className="pb-2">
-                                    <a className="material-icons mr-0" onClick={() => closeConversation()}>close</a>
+                                    <a className="btn btn-outline-secondary btn-sm" onClick={() => closeConversation()}><i className="material-icons">close</i>Close</a>
                                 </div>
 
                                 {state.conv && <table className="table table-sm">
+                                    <tr>
+                                        <td colSpan="2">
+                                            <i className="material-icons action-image" onClick={() => showModal({url: "mailconv/mailhistory/" + props.chatId})}>history</i>
+                                            <a className="material-icons action-image" onClick={() => showModal({url: "mailconv/transfermail/" + props.chatId})} title="Transfer chat">supervisor_account</a>
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <td>Sender</td>
                                         <td>{state.conv.from_address} &lt;{state.conv.from_name}&gt;</td>
@@ -270,6 +311,11 @@ const MailChat = props => {
                                     {state.conv.interaction_time && <tr>
                                         <td>Interaction time</td>
                                         <td>{state.conv.interaction_time_duration}</td>
+                                    </tr>}
+
+                                    {state.conv.priority && <tr>
+                                        <td>Priority</td>
+                                        <td>{state.conv.priority}</td>
                                     </tr>}
 
                                     <tr>

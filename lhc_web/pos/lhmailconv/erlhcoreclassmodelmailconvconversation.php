@@ -34,8 +34,13 @@ $def->properties['date']->columnName   = 'date';
 $def->properties['date']->propertyName = 'date';
 $def->properties['date']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['remarks'] = new ezcPersistentObjectProperty();
+$def->properties['remarks']->columnName   = 'remarks';
+$def->properties['remarks']->propertyName = 'remarks';
+$def->properties['remarks']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $intAttributes = array(
-    'start_type','lr_time','dep_id','ctime','user_id','status','last_message_id','mailbox_id','message_id','priority','udate',
+    'transfer_uid','start_type','lr_time','dep_id','ctime','user_id','status','last_message_id','mailbox_id','message_id','priority','udate',
     'total_messages','match_rule_id','cls_time','pnd_time','wait_time',
     'accept_time','response_time','interaction_time','tslasign'
 );
