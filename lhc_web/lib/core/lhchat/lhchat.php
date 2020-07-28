@@ -1241,7 +1241,7 @@ class erLhcoreClassChat {
 	    	$parts[] = $s . ' s.';
 	    }
 
-	    return implode($parts,' ');
+	    return implode(' ',$parts);
    }
 
    /**
