@@ -231,6 +231,13 @@ const chatWidgetReducer = (state = initialState, action) => {
         }
 
         case 'REFRESH_UI_COMPLETED' : {
+            
+            if (action.data.chat_ui_remove) {
+                action.data.chat_ui_remove.forEach((item) => {
+                    state = state.removeIn(item);
+                })
+            }
+
             return state.set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)));
         }
 
@@ -307,6 +314,8 @@ const chatWidgetReducer = (state = initialState, action) => {
         }
 
         case 'CHAT_UI_UPDATE' : {
+
+
             return state.set('chat_ui',state.get('chat_ui').merge(fromJS(action.data)));
         }
 

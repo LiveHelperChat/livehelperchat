@@ -123,15 +123,15 @@ class erLhcoreClassChatCommand
         }
 
         $msg = new erLhcoreClassModelmsg();
-        $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Files upload was disabled!');
+        $msg->msg = (isset($params['argument']) && $params['argument'] != '') ? $params['argument'] : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Files upload was disabled!');
         $msg->chat_id = $params['chat']->id;
-        $msg->user_id = -1;
+        $msg->user_id = $params['user']->id;
         $msg->time = time();
         $msg->name_support = $params['user']->name_support;
         $msg->saveThis();
 
         // Schedule UI Refresh
-        $params['chat']->operation .= "lhc_ui_refresh\n";
+        $params['chat']->operation .= "lhc_ui_refresh:0\n";
 
         // Store permanently
         $params['chat']->updateThis(array('update' => array('chat_variables', 'operation')));
@@ -160,7 +160,7 @@ class erLhcoreClassChatCommand
         $msg->saveThis();
 
         // Schedule UI Refresh
-        $params['chat']->operation .= "lhc_ui_refresh\n";
+        $params['chat']->operation .= "lhc_ui_refresh:1\n";
 
         // Store permanently
         $params['chat']->updateThis(array('update' => array('chat_variables','operation')));

@@ -15,9 +15,8 @@ try {
     {
         $outputResponse = array(
             'operator' => 'operator',
-            'chat_ui' => array(
-
-            )
+            'chat_ui' => array(),
+            'chat_ui_remove' => array(),
         );
 
         $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
@@ -30,6 +29,9 @@ try {
                 'fs' => $fileData['fs_max']*1024,
                 'ft_us' => $fileData['ft_us'],
             );
+        } else {
+            $outputResponse['chat_ui_remove'][] = ['chat_ui','file'];
+            $outputResponse['chat_ui_remove'][] = ['chat_ui','file_options'];
         }
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.uisettings', array('output' => & $outputResponse, 'chat' => $chat));

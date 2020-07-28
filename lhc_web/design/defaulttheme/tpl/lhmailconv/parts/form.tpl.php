@@ -40,7 +40,7 @@
 
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','IMAP Server address');?></label>
-    <input type="text" placeholder="{imap.gmail.com:993/imap/ssl}INBOX" maxlength="250" class="form-control form-control-sm" name="imap" value="<?php echo htmlspecialchars($item->imap == '' ? '{imap.gmail.com:993/imap/ssl}INBOX' : $item->imap)?>" />
+    <input type="text" placeholder="{imap.gmail.com:993/imap/ssl}" maxlength="250" class="form-control form-control-sm" name="imap" value="<?php echo htmlspecialchars($item->imap == '' ? '{imap.gmail.com:993/imap/ssl}' : $item->imap)?>" />
 </div>
 
 <div class="form-group">

@@ -1344,7 +1344,8 @@ class erLhcoreClassChat {
 	        return array_shift($parts);
         }
 
-	    return implode($parts,' ');
+	    return implode(' ', $parts);
+
    }
 
    /**

@@ -99,6 +99,7 @@ class StartChat extends Component {
 
         if (this.botPayload) {
             submitData['bpayload'] = this.botPayload;
+            this.botPayload = null;
         }
 
         if (this.props.chatwidget.hasIn(['proactive','data','invitation_id']) === true) {
@@ -135,8 +136,13 @@ class StartChat extends Component {
     }
 
     componentDidMount() {
+
         helperFunctions.prefillFields(this);
         this.updateOnlineFields();
+
+        if (this.props.botPayload !== null) {
+            this.setBotPayload(this.props.botPayload);
+        }
     }
 
     componentWillUnmount() {
@@ -250,6 +256,14 @@ class StartChat extends Component {
                 'vid' : props.chatwidget.get('vid'),
                 'fields' : fields
             };
+
+            if (props.botPayload !== null) {
+                submitData['bpayload'] = props.botPayload;
+            }
+
+            if (props.chatwidget.hasIn(['proactive','data','invitation_id']) === true) {
+                submitData['invitation_id'] = props.chatwidget.getIn(['proactive','data','invitation_id']);
+            }
 
             props.dispatch(submitOnlineForm(submitData));
         }
