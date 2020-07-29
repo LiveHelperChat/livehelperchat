@@ -180,6 +180,9 @@ class erLhcoreClassMailconvValidator {
             ),
             'template' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'dep_id' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
             )
         );
 
@@ -197,6 +200,12 @@ class erLhcoreClassMailconvValidator {
             $item->template = $form->template;
         } else {
             $item->template = '';
+        }
+
+        if ( $form->hasValidData( 'dep_id' )) {
+            $item->dep_id = $form->dep_id;
+        } else {
+            $item->dep_id = 0;
         }
 
         return $Errors;

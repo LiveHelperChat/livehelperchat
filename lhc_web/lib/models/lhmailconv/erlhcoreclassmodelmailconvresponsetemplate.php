@@ -17,6 +17,7 @@ class erLhcoreClassModelMailconvResponseTemplate
         return array(
             'id' => $this->id,
             'name' => $this->name,
+            'dep_id' => $this->dep_id,
             'template' => $this->template
         );
     }
@@ -41,6 +42,7 @@ class erLhcoreClassModelMailconvResponseTemplate
 
     public $id = NULL;
     public $name = '';
+    public $dep_id = 0;
     public $template = '';
 }
 

@@ -27,6 +27,7 @@ class erLhcoreClassModelMailconvFile
             'file_name' => $this->file_name,
             'content_id' => $this->content_id,
             'disposition' => $this->disposition,
+            'conversation_id' => $this->conversation_id,
         );
     }
 
@@ -74,6 +75,7 @@ class erLhcoreClassModelMailconvFile
     public $file_path = '';
     public $content_id = '';
     public $disposition = '';
+    public $conversation_id = 0;
 }
 
 ?>

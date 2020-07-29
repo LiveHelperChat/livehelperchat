@@ -59,6 +59,17 @@ $ViewList['apinoreplyrequired'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['apilabelmessage'] = array(
+    'params' => array('id'),
+    'uparams' => array('subject','status'),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['apigetlabels'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
 $ViewList['apicloseconversation'] = array(
     'params' => array('id'),
     'functions' => array( 'use_admin' )

@@ -187,6 +187,19 @@ class erLhcoreClassModelMailconvMessage
                 }
                 return $this->attachments;
 
+            case 'subjects':
+                $messageSubjects = erLhcoreClassModelMailconvMessageSubject::getList(['filter' => ['message_id' => $this->id]]);
+                $ids = [];
+                $this->subjects = [];
+                foreach ($messageSubjects as $messageSubject) {
+                    $ids[] = $messageSubject->subject_id;
+                }
+                if (!empty($ids)) {
+                    $this->subjects = array_values(erLhAbstractModelSubject::getList(['filterin' => ['id' => $ids]]));
+                }
+
+                return $this->subjects;
+
             case 'to_data_front':
             case 'reply_to_data_front':
             case 'cc_data_front':

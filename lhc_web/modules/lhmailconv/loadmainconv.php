@@ -90,6 +90,7 @@ try {
             'cc_data_front',
             'attachments',
             'bcc_data_front',
+            'subjects'
         ), array('user'));
 
         echo json_encode(array(

@@ -154,6 +154,19 @@ const MailChat = props => {
         });
     }
 
+    const addLabel = (message) => {
+        lhc.revealModal({'url':WWW_DIR_JAVASCRIPT + "mailconv/apilabelmessage/" + message.id,hidecallback : () => {
+                axios.get(WWW_DIR_JAVASCRIPT  + "mailconv/apigetlabels/" + message.id).then(result => {
+                    dispatch({
+                        type: 'update_message',
+                        message: result.data.message
+                    });
+                }).catch((error) => {
+
+                });
+        }});
+    }
+
     const loadMainData = () => {
         axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/loadmainconv/" + props.chatId + '/(mode)/' + (props.mode != '' ? props.mode : 'normal')).then(result => {
             dispatch({
@@ -253,7 +266,7 @@ const MailChat = props => {
 
                     <div>
                         {state.messages.map((message, index) => (
-                            <MailChatMessage mode={props.mode} key={'msg_mail_' + props.chatId + '_' + index + '_' + message.id} totalMessages={state.messages.length} index={index} message={message} noReplyRequired={(e) => noReplyRequired(message)} />
+                            <MailChatMessage mode={props.mode} key={'msg_mail_' + props.chatId + '_' + index + '_' + message.id} totalMessages={state.messages.length} index={index} message={message} noReplyRequired={(e) => noReplyRequired(message)} addLabel={(e) => addLabel(message)} />
                         ))}
                     </div>
                 </div>
@@ -287,7 +300,7 @@ const MailChat = props => {
                                     </tr>
                                     <tr>
                                         <td>Sender</td>
-                                        <td>{state.conv.from_address} &lt;{state.conv.from_name}&gt;</td>
+                                        <td>{state.conv.from_name} &lt;{state.conv.from_address}&gt;</td>
                                     </tr>
                                     <tr>
                                         <td>Status</td>

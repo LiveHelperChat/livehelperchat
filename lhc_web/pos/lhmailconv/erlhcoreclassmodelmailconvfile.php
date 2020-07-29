@@ -64,6 +64,11 @@ $def->properties['disposition']->columnName   = 'disposition';
 $def->properties['disposition']->propertyName = 'disposition';
 $def->properties['disposition']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['conversation_id'] = new ezcPersistentObjectProperty();
+$def->properties['conversation_id']->columnName   = 'conversation_id';
+$def->properties['conversation_id']->propertyName = 'conversation_id';
+$def->properties['conversation_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

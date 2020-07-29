@@ -33,7 +33,9 @@ try {
             'to_data_front',
             'reply_to_data_front',
             'cc_data_front',
+            'attachments',
             'bcc_data_front',
+            'subjects'
         ), array('user','conversation'));
 
         $returnAttributes = ['message' => $message];

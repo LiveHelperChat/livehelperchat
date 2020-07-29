@@ -2,7 +2,7 @@ import parse, { domToReact } from 'html-react-parser';
 import React, { useEffect, useState, useReducer, useRef } from "react";
 import MailChatQuote from "./MailChatQuote";
 
-const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode}) => {
+const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, addLabel}) => {
 
     const [expandHeader, setExpandHeader] = useState(false);
     const [expandBody, setExpandBody] = useState(index + 1 == totalMessages);
@@ -37,7 +37,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode})
     };
 
     return <div className={"row pb-2 mb-2 border-bottom" + (index == 0 && mode !== 'preview' ? ' border-top pt-2' : '')}>
-        <div className="col-8 action-image" onClick={() => setExpandBody(!expandBody)}>
+        <div className="col-7 action-image" onClick={() => setExpandBody(!expandBody)}>
             <span title={"Expand message " + message.id} ><i className="material-icons">{expandBody ? 'expand_less' : 'expand_more'}</i></span>
             <b>{message.from_name}</b>
             <small>&nbsp;&lt;{message.from_address}&gt;&nbsp;</small>
@@ -46,7 +46,14 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode})
                 {!message.status || message.status == 1 ? 'Pending response' : 'Responded'}
             </small>
         </div>
-        <div className="col-4 text-right text-muted">
+        <div className="col-5 text-right text-muted">
+            <small className="pr-1">
+                {message.subjects && message.subjects.map((label, index) => (
+                        <span className="badge badge-info mr-1">{label.name}</span>
+                    ))}
+                <i title="Add/Remove label" onClick={() => addLabel(message)} className="material-icons action-image text-muted">label</i> |
+            </small>
+
             <small className="pr-2">{message.udate_front} | {message.udate_ago} ago.</small>
             {mode !== 'preview' && <i className="material-icons settings text-muted">reply</i>}
 

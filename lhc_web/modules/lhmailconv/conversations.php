@@ -27,8 +27,6 @@ if ( isset($_POST['doDelete']) ) {
 
 if ( isset($_POST['doClose']) ) {
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
-        echo "Asdasd";exit;
-
         erLhcoreClassModule::redirect('mailconv/conversations');
         exit;
     }
@@ -63,6 +61,11 @@ if (isset($_GET['doSearch'])) {
 if (in_array($Params['user_parameters_unordered']['xls'], array(1,2,3,4))) {
     erLhcoreClassMailconvExport::exportXLS(erLhcoreClassModelMailconvConversation::getList(array_merge($filterParams['filter'],array('limit' => 100000,'offset' => 0))));
     exit;
+}
+
+if ($filterParams['input_form']->subject_id > 0) {
+    $filterParams['filter']['innerjoin']['lhc_mailconv_msg_subject'] = array('`lhc_mailconv_msg_subject`.`conversation_id`','`lhc_mailconv_conversation` . `id`');
+    $filterParams['filter']['filter']['`lhc_mailconv_msg_subject`.`subject_id`'] = $filterParams['input_form']->subject_id;
 }
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);

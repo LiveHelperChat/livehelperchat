@@ -33,7 +33,6 @@ class erLhcoreClassMailconvParser {
 
         $statsImport = array();
 
-
         $filteredMatchingRules = array();
         $matchingRulesByMailbox = erLhcoreClassModelMailconvMatchRule::getList(['filter' => ['active' => 1]]);
         foreach ($matchingRulesByMailbox as $matchingRule) {
@@ -236,7 +235,7 @@ class erLhcoreClassMailconvParser {
                 }
             }
         } catch (Exception $e) {
-            $statsImport[] = date('Y-m-d H:i:s').' | ' . $e->getTraceAsString() . ' - ' . $e->getFile() . ' - ' . $e->getLine();
+            $statsImport[] = date('Y-m-d H:i:s').' | ' . $e->getMessage() . ' - ' . $e->getTraceAsString() . ' - ' . $e->getFile() . ' - ' . $e->getLine();
         }
 
         self::setConversations($messages);
@@ -315,6 +314,7 @@ class erLhcoreClassMailconvParser {
             $mailAttatchement->description = (string)$attachment->description;
             $mailAttatchement->extension = (string)strtolower($attachment->subtype);
             $mailAttatchement->type = (string)$attachment->mime;
+            $mailAttatchement->conversation_id = $message->conversation_id;
             $mailAttatchement->saveThis();
 
             $fileBody = $attachment->getContents();
