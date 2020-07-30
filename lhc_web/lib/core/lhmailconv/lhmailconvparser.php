@@ -83,7 +83,7 @@ class erLhcoreClassMailconvParser {
                     false
                 );
 
-                $mailsIds = $mailboxHandler->searchMailbox('SINCE "'.date('d M Y',($mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) - 24*3600).'"');
+                $mailsIds = $mailboxHandler->searchMailbox('SINCE "'.date('d M Y',($mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) - 4*24*3600).'"');
 
                 if (empty($mailsIds)) {
                     continue;

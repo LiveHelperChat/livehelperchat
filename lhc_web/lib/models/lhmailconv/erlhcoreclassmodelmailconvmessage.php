@@ -119,13 +119,15 @@ class erLhcoreClassModelMailconvMessage
             case 'body_front':
                 if ($this->body != '') {
 
+                    $body = $this->body;
+
                     foreach ($this->files as $file) {
                         if ($file->content_id != '') {
-                            $this->body = str_replace('cid:' . $file->content_id,'https://' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('mailconv/inlinedownload') .'/' . $file->id, $this->body);
+                            $body = str_replace('cid:' . $file->content_id,'https://' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('mailconv/inlinedownload') .'/' . $file->id, $body);
                         }
                     }
 
-                    $this->body_front = erLhcoreClassMailconvHTMLParser::getHTMLPreview($this->body);
+                    $this->body_front = erLhcoreClassMailconvHTMLParser::getHTMLPreview($body);
 
                 } else {
                     $this->body_front = $this->alt_body;
@@ -177,12 +179,14 @@ class erLhcoreClassModelMailconvMessage
                 $this->attachments = [];
                 foreach ($this->files as $file) {
                     if ($file->disposition == 'ATTACHMENT') {
-                        $this->attachments[] = [
-                            'id' => $file->id,
-                            'name' => $file->name,
-                            'description' => $file->description,
-                            'download_url' => erLhcoreClassDesign::baseurl('mailconv/inlinedownload') .'/' . $file->id,
-                        ];
+                        if ($file->content_id == '' || !in_array($file->extension,['jpg','jpeg','png','bmp','gif']) || strpos($this->body,'cid:' . $file->content_id) === false) {
+                            $this->attachments[] = [
+                                'id' => $file->id,
+                                'name' => $file->name,
+                                'description' => $file->description,
+                                'download_url' => erLhcoreClassDesign::baseurl('mailconv/inlinedownload') . '/' . $file->id,
+                            ];
+                        }
                     }
                 }
                 return $this->attachments;

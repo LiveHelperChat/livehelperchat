@@ -69,6 +69,11 @@ $def->properties['mailbox_sync']->columnName   = 'mailbox_sync';
 $def->properties['mailbox_sync']->propertyName = 'mailbox_sync';
 $def->properties['mailbox_sync']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['signature'] = new ezcPersistentObjectProperty();
+$def->properties['signature']->columnName   = 'signature';
+$def->properties['signature']->propertyName = 'signature';
+$def->properties['signature']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

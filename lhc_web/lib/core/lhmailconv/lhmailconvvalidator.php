@@ -107,6 +107,9 @@ class erLhcoreClassMailconvValidator {
             'imap' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'signature' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
             'port' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
             ),
@@ -138,6 +141,12 @@ class erLhcoreClassMailconvValidator {
             $item->imap = $form->imap;
         } else {
             $item->imap = '';
+        }
+
+        if ( $form->hasValidData( 'signature' )) {
+            $item->signature = $form->signature;
+        } else {
+            $item->signature = '';
         }
 
         if ( $form->hasValidData( 'sync_interval' )) {

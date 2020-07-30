@@ -1067,8 +1067,10 @@ function rcmail_washtml_link_callback($tag, $attribs, $content, $washtml)
     $attrib = html::parse_attrib_string($attribs);
 
     // Remove non-printable characters in URL (#1487805)
-    if ($attrib['href']) {
+    if (isset($attrib['href'])) {
         $attrib['href'] = preg_replace('/[\x00-\x1F]/', '', $attrib['href']);
+    } else {
+        $attrib['href'] = '';
     }
 
     if ($tag == 'link' && preg_match('/^https?:\/\//i', $attrib['href'])) {

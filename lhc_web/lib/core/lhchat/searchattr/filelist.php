@@ -50,6 +50,18 @@ $fieldsSearch['persistent'] = array (
 	)
 );
 
+$fieldsSearch['attachment'] = array (
+	'type' => 'boolean',
+	'trans' => 'User',
+	'required' => false,
+	'valid_if_filled' => false,
+	'filter_type' => 'none',
+	'filter_table_field' => 'persistent',
+	'validation_definition' => new ezcInputFormDefinitionElement(
+		ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	)
+);
+
 $fieldSortAttr = array (
 'field'      => false,
 'default'    => false,

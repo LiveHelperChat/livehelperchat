@@ -1647,3 +1647,6 @@ input[type="file"]{
     font-size: 13px;
 }
 
+.modal-xl{
+    max-width: 800px!important;
+}

@@ -9,6 +9,21 @@ $ViewList['index'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['uploadimage'] = array(
+    'params' => array(),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['uploadfile'] = array(
+    'params' => array(),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['attatchfiledata'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
 $ViewList['mailbox'] = array(
     'params' => array(),
     'functions' => array( 'use_admin' )
@@ -30,6 +45,23 @@ $ViewList['transfermail'] = array(
 );
 
 $ViewList['apimaildownload'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['attatchfile'] = array(
+    'params' => array(),
+    'uparams' => array('persistent','user_id','visitor','upload_name','attachment'),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['insertfile'] = array(
+    'params' => array('id'),
+    'uparams' => array('mode'),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['getreplydata'] = array(
     'params' => array('id'),
     'functions' => array( 'use_admin' )
 );
@@ -168,6 +200,12 @@ $ViewList['deletematchingrule'] = array(
 
 $ViewList['responsetemplates'] = array(
     'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['apiresponsetemplates'] = array(
+    'params' => array('id'),
     'uparams' => array(),
     'functions' => array( 'use_admin' )
 );

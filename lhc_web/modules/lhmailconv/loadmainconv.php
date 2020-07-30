@@ -91,7 +91,7 @@ try {
             'attachments',
             'bcc_data_front',
             'subjects'
-        ), array('user'));
+        ), array('user','files'));
 
         echo json_encode(array(
             'conv' => $conv,

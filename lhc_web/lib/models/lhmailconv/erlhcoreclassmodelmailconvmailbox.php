@@ -29,6 +29,7 @@ class erLhcoreClassModelMailconvMailbox
             'mailbox_sync' => $this->mailbox_sync,
             'sync_status' => $this->sync_status,
             'sync_interval' => $this->sync_interval,
+            'signature' => $this->signature,
         );
     }
 
@@ -83,6 +84,7 @@ class erLhcoreClassModelMailconvMailbox
     public $last_sync_time = 0;
     public $last_sync_log = '';
     public $mailbox_sync = '';
+    public $signature = '';
     public $sync_status = 0;
     public $sync_interval = 60;
 }

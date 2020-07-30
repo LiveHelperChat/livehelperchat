@@ -93,6 +93,10 @@ class erLhcoreClassModelMailconvConversation
                 $this->department = erLhcoreClassModelDepartament::fetch($this->dep_id);
                 return $this->department;
 
+            case 'mailbox':
+                $this->mailbox = erLhcoreClassModelMailconvMailbox::fetch($this->mailbox_id);
+                return $this->mailbox;
+
             case 'department_name':
                 return $this->department_name = (string)$this->department;
 

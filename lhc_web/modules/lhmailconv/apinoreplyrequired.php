@@ -19,6 +19,30 @@ try {
         $message->status = erLhcoreClassModelMailconvMessage::STATUS_RESPONDED;
         $message->updateThis();
 
+        $returnAttributes = [];
+
+        // There are no more unresponded messages in this conversation.
+        if (erLhcoreClassModelMailconvMessage::getCount(['filternot' => ['status' => erLhcoreClassModelMailconvMessage::STATUS_RESPONDED],'filter' => ['conversation_id' => $conv->id]]) == 0) {
+
+            erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conv, 'user_id' => $currentUser->getUserID()]);
+
+            erLhcoreClassChat::prefillGetAttributesObject($conv, array(
+                'plain_user_name',
+                'udate_front',
+                'department_name',
+                'accept_time_front',
+                'cls_time_front',
+                'wait_time_pending',
+                'wait_time_response',
+                'lr_time_front',
+                'interaction_time_duration',
+            ), array('department','user'));
+
+            $message->refreshThis();
+
+            $returnAttributes['conv'] = $conv;
+        }
+
         erLhcoreClassChat::prefillGetAttributesObject($message, array(
             'udate_front',
             'udate_ago',
@@ -38,27 +62,7 @@ try {
             'subjects'
         ), array('user','conversation'));
 
-        $returnAttributes = ['message' => $message];
-
-        // There are no more unresponded messages in this conversation.
-        if (erLhcoreClassModelMailconvMessage::getCount(['filternot' => ['status' => erLhcoreClassModelMailconvMessage::STATUS_RESPONDED],'filter' => ['conversation_id' => $conv->id]]) == 0) {
-
-            erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conv, 'user_id' => $currentUser->getUserID()]);
-
-            erLhcoreClassChat::prefillGetAttributesObject($conv, array(
-                'plain_user_name',
-                'udate_front',
-                'department_name',
-                'accept_time_front',
-                'cls_time_front',
-                'wait_time_pending',
-                'wait_time_response',
-                'lr_time_front',
-                'interaction_time_duration',
-            ), array('department','user'));
-
-            $returnAttributes['conv'] = $conv;
-        }
+        $returnAttributes['message'] = $message;
 
         $db->commit();
 

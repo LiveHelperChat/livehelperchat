@@ -812,10 +812,15 @@ class erLhcoreClassBBCode
                             $append = '';
                             if (isset($mainData[1])) {
                                 $subpartParts = explode('=',$mainData[1]);
-                                if ($subpartParts[0] == 'link') {
+                                if ($subpartParts[0] == 'link' || $subpartParts[0] == 'linkdirect') {
                                     if (!isset($subpartParts[1])) {
                                         $prepend = '<a class="link" rel="noreferrer" target="_blank" href="//'. $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}\">";
                                         $append = '</a>';
+
+                                        if ($subpartParts[0] == 'linkdirect') {
+                                            return"<a href=\"//" . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}\" target=\"_blank\" rel=\"noreferrer\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file', 'Download file') . ' - ' . htmlspecialchars($file->upload_name) . ' [' . $file->extension . ']' . "</a>";
+                                        }
+
                                     } else {
                                         $url = self::esc_url($subpartParts[1]);
                                         if ($url != ''){
@@ -828,7 +833,13 @@ class erLhcoreClassBBCode
                                 $prepend = '';
                                 $append = '<a class="hidden-download" rel="noreferrer" href="//'. $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}".'"></a>';
                             }
-                            return $prepend . '<img id="img-file-' . $file->id . '" class="img-fluid" src="//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />' . $append;
+
+                            if (isset($displayType) && $displayType == 'rawimg'){
+                                return '<img id="img-file-' . $file->id . '" class="img-fluid" src="//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />';
+                            } else {
+                                return $prepend . '<img id="img-file-' . $file->id . '" class="img-fluid" src="//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />' . $append;
+                            }
+
                         }
 
                         $audio = '';

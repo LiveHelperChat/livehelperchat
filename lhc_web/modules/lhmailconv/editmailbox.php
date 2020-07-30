@@ -45,7 +45,12 @@ if (isset($_POST['Save_mailbox'])) {
         try {
             $item->saveThis();
 
-            if (isset($_POST['Update_page'])) {
+            if (isset($_POST['Update_page']) || isset($_POST['UpdateSignature_page'])) {
+
+                if (isset($_POST['UpdateSignature_page'])) {
+                    $tab = 'tab_signature';
+                }
+
                 $tpl->set('updated',true);
             } else {
                 erLhcoreClassModule::redirect('mailconv/mailbox');
@@ -63,10 +68,11 @@ if (isset($_POST['Save_mailbox'])) {
 
 $tpl->setArray(array(
     'item' => $item,
-    'tab' => '',
+    'tab' => $tab,
 ));
 
 $Result['content'] = $tpl->fetch();
+$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::design('js/tinymce/js/tinymce/tinymce.min.js').'"></script>';
 
 $Result['path'] = array(
     array(

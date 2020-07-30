@@ -1,11 +1,13 @@
 import parse, { domToReact } from 'html-react-parser';
 import React, { useEffect, useState, useReducer, useRef } from "react";
 import MailChatQuote from "./MailChatQuote";
+import MailChatReply from "./MailChatReply";
 
 const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, addLabel}) => {
 
     const [expandHeader, setExpandHeader] = useState(false);
     const [expandBody, setExpandBody] = useState(index + 1 == totalMessages);
+    const [replyMode, setReplyMode] = useState(false);
 
     useEffect(() => {
 
@@ -36,7 +38,8 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
         return style;
     };
 
-    return <div className={"row pb-2 mb-2 border-bottom" + (index == 0 && mode !== 'preview' ? ' border-top pt-2' : '')}>
+
+    return <div className={"row pb-2 mb-2 border-bottom border-secondary" + (index == 0 && mode !== 'preview' ? ' border-top pt-2' : '')}>
         <div className="col-7 action-image" onClick={() => setExpandBody(!expandBody)}>
             <span title={"Expand message " + message.id} ><i className="material-icons">{expandBody ? 'expand_less' : 'expand_more'}</i></span>
             <b>{message.from_name}</b>
@@ -55,14 +58,14 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
             </small>
 
             <small className="pr-2">{message.udate_front} | {message.udate_ago} ago.</small>
-            {mode !== 'preview' && <i className="material-icons settings text-muted">reply</i>}
+            {mode !== 'preview' && <i onClick={(e) => {e.stopPropagation();setReplyMode(true)}} className="material-icons settings text-muted">reply</i>}
 
             <i onClick={(e) => {e.stopPropagation(); setExpandHeader(!expandHeader)}} className="material-icons settings text-muted">{expandHeader ? 'expand_less' : 'expand_more'}</i>
 
             {mode !== 'preview' && <div className="dropdown float-right">
                 <i className="material-icons settings text-muted" id={"message-id-"+message.id} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">more_vert</i>
                 <div className="dropdown-menu" aria-labelledby={"message-id-"+message.id}>
-                    <a className="dropdown-item" href="#"><i className="material-icons text-muted">reply</i>Reply</a>
+                    <a className="dropdown-item" href="#" onClick={(e) => {e.stopPropagation();setReplyMode(true)}}><i className="material-icons text-muted" >reply</i>Reply</a>
                     <a className="dropdown-item" href="#"><i className="material-icons text-muted">forward</i>Forward</a>
                     <a className="dropdown-item" target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/mailprint/" + message.id} ><i className="material-icons text-muted">print</i>Print</a>
                     <a className="dropdown-item" href={WWW_DIR_JAVASCRIPT  + "mailconv/apimaildownload/" + message.id} ><i className="material-icons text-muted">cloud_download</i>Download</a>
@@ -151,11 +154,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
 
     </div>}
 
-        {mode !== 'preview' && (index + 1 == totalMessages) && <div className="col-12 mt-2 pt-3 pb-2"><div className="btn-group" role="group" aria-label="Mail actions">
-            <button type="button" className="btn btn-sm btn-outline-secondary"><i className="material-icons">reply</i>Reply</button>
-            <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => noReplyRequired(message)}><i className="material-icons">done</i>No reply required</button>
-            <button type="button" className="btn btn-sm btn-outline-secondary"><i className="material-icons">forward</i>Forward</button>
-        </div></div>}
+        {mode !== 'preview' && ((index + 1 == totalMessages) || replyMode) && <MailChatReply cancelReply={(e) => setReplyMode(false)} replyMode={replyMode} lastMessage={index + 1 == totalMessages} message={message} noReplyRequired={() => noReplyRequired(message)} />}
 
     </div>
 }
