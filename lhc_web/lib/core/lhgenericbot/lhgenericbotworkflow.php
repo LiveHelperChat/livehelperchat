@@ -369,14 +369,39 @@ class erLhcoreClassGenericBotWorkflow {
             $word = str_replace('$','',$word);
         }
 
-        return array('typos' => $numberTypos, 'word' => $word, 'noendtypo' => $noEndTypo);
+        $wildCardEnd = false;
+        if (preg_match('/\*$/is',$word)) {
+            $wildCardEnd = true;
+            $word = preg_replace('/\*$/is','',$word);
+        }
+
+        $wildCardStart = false;
+        if (preg_match('/^\*/is',$word)) {
+            $wildCardStart = true;
+            $word = preg_replace('/^\*/is','',$word);
+        }
+
+        return array('typos' => $numberTypos, 'word' => $word, 'noendtypo' => $noEndTypo, 'wildcardend' => $wildCardEnd, 'wildcardstart' => $wildCardStart);
     }
 
     public static function checkPresence($words, $text, $mistypeLetters = 1, $paramsExecution = []) {
 
-        $textLetters = self::splitWord($text);
-
         foreach ($words as $word) {
+
+            if (preg_match('/^\/(.*?)((\/[a-z]+)|(\/))$/',$word)) {
+                if (preg_match($word,$text) === 1) {
+                    if (isset($paramsExecution['stats']) && $paramsExecution['stats'] == true) {
+                        return ['valid' => true, 'number' => 0];
+                    } else {
+                        return true;
+                    }
+                } else {
+                    continue;
+                }
+            }
+
+
+            $textLetters = self::splitWord($text);
 
             $word = trim($word);
             
@@ -387,6 +412,14 @@ class erLhcoreClassGenericBotWorkflow {
             $wordSettings = self::getWordParams(trim($word));
 
             $wordLetters = self::splitWord($wordSettings['word']);
+
+            if ($wordSettings['wildcardstart'] == true) {
+                $indexFirstLetter = array_search($wordLetters[0], $textLetters);
+                if ($indexFirstLetter !== false) {
+                    $textLetters = array_splice($textLetters, $indexFirstLetter);
+                }
+            }
+
             $currentWordLetterIndex = 0;
             $mistypedCount = 0;
 
@@ -416,8 +449,7 @@ class erLhcoreClassGenericBotWorkflow {
                 }
 
                 if (count($wordLetters) == $currentWordLetterIndex) {
-                    if (!isset($textLetters[$indexLetter+1]) || in_array($textLetters[$indexLetter+1],array('"',',',' ',"'",':','.','?','!'))){
-
+                    if (!isset($textLetters[$indexLetter+1]) || (isset($textLetters[$indexLetter+1]) && $wordSettings['wildcardend'] == true) || in_array($textLetters[$indexLetter+1],array('"',',',' ',"'",':','.','?','!'))){
                         if ($wordSettings['noendtypo'] == true && $lastLetterMatch == false) {
                             $currentWordLetterIndex = 0;
                             $mistypedCount = 0;
