@@ -40,7 +40,7 @@ class MailChatAttatchement extends PureComponent {
     onFilesAdded(files) {
         const { t } = this.props;
 
-        const ruleTest = new RegExp("(\.|\/)(" + 'zip|doc|pdf' /*this.props.fileOptions.get('ft_us')*/ + ")$","i");
+        const ruleTest = new RegExp("(\.|\/)(" + this.props.moptions['fop_op'] + ")$","i");
 
         let uploadErrors = [];
         files.forEach(file => {
@@ -49,7 +49,7 @@ class MailChatAttatchement extends PureComponent {
                 uploadErrors.push(file.name + ': ' + t('file.incorrect_type'));
             }
 
-            if (file.size > 1000000/*this.props.fileOptions.get('fs')*/) {
+            if (file.size > this.props.moptions['fop_size']) {
                 uploadErrors.push(file.name + ': '+ t('file.to_big_file'));
             }
         });

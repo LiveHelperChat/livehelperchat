@@ -174,6 +174,7 @@ const MailChat = props => {
                 value: {
                     'conv': result.data.conv,
                     'messages' : result.data.messages,
+                    'moptions' : result.data.moptions,
                     'loaded' : true,
                 }
             });
@@ -266,7 +267,7 @@ const MailChat = props => {
 
                     <div>
                         {state.messages.map((message, index) => (
-                            <MailChatMessage mode={props.mode} key={'msg_mail_' + props.chatId + '_' + index + '_' + message.id} totalMessages={state.messages.length} index={index} message={message} noReplyRequired={(e) => noReplyRequired(message)} addLabel={(e) => addLabel(message)} />
+                            <MailChatMessage moptions={state.moptions} mode={props.mode} key={'msg_mail_' + props.chatId + '_' + index + '_' + message.id} totalMessages={state.messages.length} index={index} message={message} noReplyRequired={(e) => noReplyRequired(message)} addLabel={(e) => addLabel(message)} />
                         ))}
                     </div>
                 </div>

@@ -3,7 +3,7 @@ import React, { useEffect, useState, useReducer, useRef } from "react";
 import MailChatQuote from "./MailChatQuote";
 import MailChatReply from "./MailChatReply";
 
-const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, addLabel}) => {
+const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, addLabel, moptions}) => {
 
     const [expandHeader, setExpandHeader] = useState(false);
     const [expandBody, setExpandBody] = useState(index + 1 == totalMessages);
@@ -39,7 +39,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
     };
 
 
-    return <div className={"row pb-2 mb-2 border-bottom border-secondary" + (index == 0 && mode !== 'preview' ? ' border-top pt-2' : '')}>
+    return <div className={"row pb-2 mb-2 border-secondary" + (mode !== 'preview' ? ' border-top pt-2' : ' border-bottom')}>
         <div className="col-7 action-image" onClick={() => setExpandBody(!expandBody)}>
             <span title={"Expand message " + message.id} ><i className="material-icons">{expandBody ? 'expand_less' : 'expand_more'}</i></span>
             <b>{message.from_name}</b>
@@ -54,7 +54,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                 {message.subjects && message.subjects.map((label, index) => (
                         <span className="badge badge-info mr-1">{label.name}</span>
                     ))}
-                <i title="Add/Remove label" onClick={() => addLabel(message)} className="material-icons action-image text-muted">label</i> |
+                {mode !== 'preview' && <React.Fragment><i title="Add/Remove label" onClick={() => addLabel(message)} className="material-icons action-image text-muted">label</i> |</React.Fragment>}
             </small>
 
             <small className="pr-2">{message.udate_front} | {message.udate_ago} ago.</small>
@@ -154,7 +154,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
 
     </div>}
 
-        {mode !== 'preview' && ((index + 1 == totalMessages) || replyMode) && <MailChatReply cancelReply={(e) => setReplyMode(false)} replyMode={replyMode} lastMessage={index + 1 == totalMessages} message={message} noReplyRequired={() => noReplyRequired(message)} />}
+        {mode !== 'preview' && ((index + 1 == totalMessages) || replyMode) && <MailChatReply moptions={moptions} cancelReply={(e) => setReplyMode(false)} replyMode={replyMode} lastMessage={index + 1 == totalMessages} message={message} noReplyRequired={() => noReplyRequired(message)} />}
 
     </div>
 }

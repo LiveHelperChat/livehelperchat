@@ -93,9 +93,16 @@ try {
             'subjects'
         ), array('user','files'));
 
+        $fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
+        $data = (array)$fileData->data;
+
         echo json_encode(array(
             'conv' => $conv,
-            'messages' => array_values($messages)
+            'messages' => array_values($messages),
+            'moptions' => [
+                'fop_op' => $data['ft_op'],
+                'fop_size' => $data['fs_max'] * 1024,
+            ]
         ));
 
         $db->commit();

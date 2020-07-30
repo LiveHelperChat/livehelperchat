@@ -128,12 +128,12 @@ const MailChatReply = props => {
 
                 <div className="btn-group mt-1" role="group" aria-label="Mail actions">
                     <button type="button" className="btn btn-sm btn-outline-primary" onClick={() => sendReply()}><i className="material-icons">send</i>Send</button>
-                    <MailChatAttachement fileAttached={(file) => dispatch({ type: "add", value: file})} message={props.message}></MailChatAttachement>
+                    <MailChatAttachement moptions={props.moptions} fileAttached={(file) => dispatch({ type: "add", value: file})} message={props.message}></MailChatAttachement>
                 </div>
 
                 {attachedFiles && attachedFiles.length > 0 &&
                 <div className="pt-2">{attachedFiles.map((file, index) => (
-                    <button title="Click to remove" onClick={() => removeAttatchedFile(file, index)} className="btn btn-sm btn-outline-info mr-1" title={file.id}>{file.name}</button>
+                    <button title="Click to remove" onClick={() => removeAttatchedFile(file, index)} className="btn btn-sm btn-outline-info mr-1 mb-1" title={file.id}>{file.name}</button>
                 ))}</div>}
 
             </div>}
