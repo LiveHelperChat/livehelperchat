@@ -646,6 +646,10 @@
       <translation>用户字段之前的文本内容</translation>
     </message>
     <message>
+      <source>Choose manually bot ant trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Default</source>
       <translation>预设</translation>
     </message>
@@ -1282,6 +1286,10 @@
       <translation>在交谈关闭时显示转到调查按钮</translation>
     </message>
     <message>
+      <source>Automatically determine intro message by bot default message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Try to detect language from browser headers</source>
       <translation>尝试从浏览器标题中检测语言</translation>
     </message>
@@ -1312,6 +1320,10 @@
     <message>
       <source>Notification domain</source>
       <translation>通知域</translation>
+    </message>
+    <message>
+      <source>Header icons color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget themes</source>
@@ -2026,6 +2038,14 @@
     <message>
       <source>Show messages box above input fields, usefull for UX combinations.</source>
       <translation>显示讯息方块上面输入栏位，使用者体验组合有用。</translation>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
@@ -4954,6 +4974,10 @@
       <translation>依进行中交谈编号排序</translation>
     </message>
     <message>
+      <source>Change operator status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Sort</source>
       <translation>排序</translation>
     </message>
@@ -5093,12 +5117,16 @@
       <translation>Google</translation>
     </message>
     <message>
+      <source>Yandex</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Use Bing service</source>
       <translation>使用 Bing service</translation>
     </message>
     <message>
-      <source>Bing client ID</source>
-      <translation>Bing client ID</translation>
+      <source>Select Region</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Bing client secret, key is never shown for security purposes</source>
@@ -5121,8 +5149,16 @@
       <translation>设置引荐来源网址，如果要限制对特定引荐来源网址的调用，则很有用。</translation>
     </message>
     <message>
+      <source>Use Yandex service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Settings updated</source>
       <translation>设定已更新</translation>
+    </message>
+    <message>
+      <source>Missing translate region</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Missing text to translate</source>
@@ -5470,6 +5506,10 @@
     </message>
     <message>
       <source>Notify me if visitor writes more than defined number messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>online status</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7102,6 +7142,14 @@
       <translation>清理系统暂存档</translation>
     </message>
     <message>
+      <source>Offline</source>
+      <translation>离线</translation>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation>在线</translation>
+    </message>
+    <message>
       <source>Home</source>
       <translation>首页</translation>
     </message>
@@ -7184,14 +7232,6 @@
     <message>
       <source>Visible</source>
       <translation>可见</translation>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation>离线</translation>
-    </message>
-    <message>
-      <source>Online</source>
-      <translation>在线</translation>
     </message>
     <message>
       <source>Always online</source>
@@ -12050,6 +12090,14 @@
     <message>
       <source>Nick changed!</source>
       <translation>暱称已更改！</translation>
+    </message>
+    <message>
+      <source>I have enabled files upload for you. [fupload]Upload a file[/fupload].</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files upload enabled.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat status changed on-hold!</source>

@@ -7,7 +7,7 @@
     </message>
     <message>
       <source>Domains where script can be embedded. E.g example.com, google.com</source>
-      <translation type="unfinished"/>
+      <translation>Домены, куда будет вставлен скрипт. Например, example.com, google.com</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
@@ -311,11 +311,11 @@
     </message>
     <message>
       <source>How long operator can wait for message from visitor before time between messages are ignored. Values in minutes.</source>
-      <translation type="unfinished"/>
+      <translation>Сколько оператор может ждать сообщения от посетителя прежде чем интервал между сообщениями будет проигнорирован. Значение в минутах.</translation>
     </message>
     <message>
       <source>How long visitor can wait for message from operator before time between messages are ignored. Values in minutes.</source>
-      <translation type="unfinished"/>
+      <translation>Сколько посетитель может ждать сообщения от оператора прежде чем интервал между сообщениями будет проигнорирован. Значение в минутах.</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
@@ -523,7 +523,7 @@
     </message>
     <message>
       <source>Multi-language chat</source>
-      <translation type="unfinished"/>
+      <translation>Мульти-язычный чат</translation>
     </message>
     <message>
       <source>Add translation</source>
@@ -531,11 +531,11 @@
     </message>
     <message>
       <source>Search for language. Enter * to see all.</source>
-      <translation type="unfinished"/>
+      <translation>Поиск языка. Введите * для просмотра всех языков.</translation>
     </message>
     <message>
       <source>See all variations</source>
-      <translation type="unfinished"/>
+      <translation>Просмотреть все варианты</translation>
     </message>
     <message>
       <source>Invitation</source>
@@ -559,11 +559,11 @@
     </message>
     <message>
       <source>Inject HTML</source>
-      <translation type="unfinished"/>
+      <translation>Встроенный HTML</translation>
     </message>
     <message>
       <source>Choose what bot trigger element append after auto responder message</source>
-      <translation type="unfinished"/>
+      <translation>Выберите, что триггер бота добавит в конец ответа автоответчика</translation>
     </message>
     <message>
       <source>Preview</source>
@@ -595,7 +595,7 @@
     </message>
     <message>
       <source>Custom content</source>
-      <translation type="unfinished"/>
+      <translation>Пользовательский контент</translation>
     </message>
     <message>
       <source>Custom CSS</source>
@@ -603,7 +603,7 @@
     </message>
     <message>
       <source>Custom bot style</source>
-      <translation type="unfinished"/>
+      <translation>Пользовательский стиль бота</translation>
     </message>
     <message>
       <source>Notification</source>
@@ -623,7 +623,7 @@
     </message>
     <message>
       <source>Build your own need help widget layout</source>
-      <translation type="unfinished"/>
+      <translation>Постройте свой собственный макет виджета о помощи</translation>
     </message>
     <message>
       <source>Set default HTML</source>
@@ -631,7 +631,7 @@
     </message>
     <message>
       <source>If you want to get nerdy you can build your own eye catcher using default template as starting point. You can adjust need help widget dimensions above. Also see what placeholders we support.</source>
-      <translation type="unfinished"/>
+      <translation>Если вы хотите поумничать, вы можете создать свой eye catcher, используя шаблон по умолчанию в качестве отправной точки.  Выше вы можете настроить размеры виджета запроса помощи. Также посмотрите, какие плейсхолдеры мы поддерживаем.</translation>
     </message>
     <message>
       <source>General settings</source>
@@ -646,16 +646,20 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Choose manually bot ant trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Default</source>
       <translation>По умолчанию</translation>
     </message>
     <message>
       <source>Other Operator messages style</source>
-      <translation type="unfinished"/>
+      <translation>Стиль сообщений других операторов</translation>
     </message>
     <message>
       <source>System assistant messages style</source>
-      <translation type="unfinished"/>
+      <translation>Стиль сообщений системного помощника</translation>
     </message>
     <message>
       <source>General</source>
@@ -663,11 +667,11 @@
     </message>
     <message>
       <source>Bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет фона пузырька</translation>
     </message>
     <message>
       <source>Title color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет титула</translation>
     </message>
     <message>
       <source>Text color</source>
@@ -675,155 +679,155 @@
     </message>
     <message>
       <source>My messages bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет фона пузырька моих сообщений</translation>
     </message>
     <message>
       <source>Other operator bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет фона пузырька других операторов</translation>
     </message>
     <message>
       <source>Chat background color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет фона чата</translation>
     </message>
     <message>
       <source>Time text color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет текста времени</translation>
     </message>
     <message>
       <source>Title text colorr</source>
-      <translation type="unfinished"/>
+      <translation>Цвет текста титула</translation>
     </message>
     <message>
       <source>Message text color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет текста сообщения</translation>
     </message>
     <message>
       <source>Main background color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет основного фона</translation>
     </message>
     <message>
       <source>Link default text color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет текста ссылки по умолчанию</translation>
     </message>
     <message>
       <source>Default text color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет текста по умолчанию</translation>
     </message>
     <message>
       <source>Dropdown background color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет фона выпадающего списка</translation>
     </message>
     <message>
       <source>Navigation bar icons text color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет текста иконки навигационной панели</translation>
     </message>
     <message>
       <source>Navigation bar icons hover text color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет текста активной иконки навигационной панели</translation>
     </message>
     <message>
       <source>Tab border color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет окантовки вкладки</translation>
     </message>
     <message>
       <source>Button text color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет текста кнопки</translation>
     </message>
     <message>
       <source>Button background color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет фона кнопки</translation>
     </message>
     <message>
       <source>Button border color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет окантовки кнопки</translation>
     </message>
     <message>
       <source>Button active text color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет текста активной кнопки</translation>
     </message>
     <message>
       <source>Button active background color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет фона активной кнопки</translation>
     </message>
     <message>
       <source>Button active border color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет окантовки активной кнопки</translation>
     </message>
     <message>
       <source>Dropdown hover background color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет фона активного выпадающего списка</translation>
     </message>
     <message>
       <source>Dropdown border color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет окантовки выпадающего списка</translation>
     </message>
     <message>
       <source>Online background color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет фона онлайн</translation>
     </message>
     <message>
       <source>Panel header background color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет фона заголовка панели</translation>
     </message>
     <message>
       <source>Panel header border color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет окантовки заголовка панели</translation>
     </message>
     <message>
       <source>Header background color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет фона заголовка</translation>
     </message>
     <message>
       <source>Panel background color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет фона панели</translation>
     </message>
     <message>
       <source>Active tab background color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет фона активной вкладки</translation>
     </message>
     <message>
       <source>Breadcrumb background color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет фона хлебных крошек</translation>
     </message>
     <message>
       <source>Breadcrumb border color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет окантовки хлебных крошек</translation>
     </message>
     <message>
       <source>Menu active background color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет фона активного меню</translation>
     </message>
     <message>
       <source>Menu text color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет текста меню</translation>
     </message>
     <message>
       <source>Tab text color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет текста вкладки</translation>
     </message>
     <message>
       <source>Table border color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет окантовки таблицы</translation>
     </message>
     <message>
       <source>Navbar toggle background color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет фона переключателя навигационной панели</translation>
     </message>
     <message>
       <source>Navbar toggle border color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет окантовки переключателя навигационной панели</translation>
     </message>
     <message>
       <source>Tab active text color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет текста активной вкладки</translation>
     </message>
     <message>
       <source>Header border color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет окантовки заголовка</translation>
     </message>
     <message>
       <source>Button border radius</source>
-      <translation type="unfinished"/>
+      <translation>Радиус окантовки кнопки</translation>
     </message>
     <message>
       <source>Choose a bot</source>
@@ -831,7 +835,7 @@
     </message>
     <message>
       <source>Choose a trigger</source>
-      <translation type="unfinished"/>
+      <translation>Выберите триггер</translation>
     </message>
     <message>
       <source>Minimum time in second how long sync has to be stopped before allowing reset auto responder</source>
@@ -859,31 +863,31 @@
     </message>
     <message>
       <source>Mobile HTML</source>
-      <translation type="unfinished"/>
+      <translation>Мобильный HTML</translation>
     </message>
     <message>
       <source>Mobile style</source>
-      <translation type="unfinished"/>
+      <translation>Мобильный стиль</translation>
     </message>
     <message>
       <source>Custom image 1</source>
-      <translation type="unfinished"/>
+      <translation>Пользовательская картинка 1</translation>
     </message>
     <message>
       <source>Custom image 2</source>
-      <translation type="unfinished"/>
+      <translation>Пользовательская картинка 2</translation>
     </message>
     <message>
       <source>Custom image 3</source>
-      <translation type="unfinished"/>
+      <translation>Пользовательская картинка 3</translation>
     </message>
     <message>
       <source>Custom image 4</source>
-      <translation type="unfinished"/>
+      <translation>Пользовательская картинка 4</translation>
     </message>
     <message>
       <source>Custom image 5</source>
-      <translation type="unfinished"/>
+      <translation>Пользовательская картинка 5</translation>
     </message>
     <message>
       <source>Disabled</source>
@@ -907,11 +911,11 @@
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Таймаут подсказки запроса помощи, через сколько часов её снова показать?</translation>
     </message>
     <message>
       <source>After how many seconds after page load show need help tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Через сколько секунд после загрузки страницы показать запрос о помощи?</translation>
     </message>
     <message>
       <source>After how many seconds after page load show status widget</source>
@@ -919,23 +923,23 @@
     </message>
     <message>
       <source>Need help widget width</source>
-      <translation type="unfinished"/>
+      <translation>Ширина виджета запроса помощи</translation>
     </message>
     <message>
       <source>Need help widget height</source>
-      <translation type="unfinished"/>
+      <translation>Высота виджета запроса о помощи</translation>
     </message>
     <message>
       <source>Position from right</source>
-      <translation type="unfinished"/>
+      <translation>Позиция справа</translation>
     </message>
     <message>
       <source>Position from bottom</source>
-      <translation type="unfinished"/>
+      <translation>Позиция снизу</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Показать подсказку запроса помощи?</translation>
     </message>
     <message>
       <source>Hide message time from visitor</source>
@@ -1011,7 +1015,7 @@
     </message>
     <message>
       <source>Widget response layout width trigger (px)</source>
-      <translation type="unfinished"/>
+      <translation>Виджет ответа, ширина макета триггера (пикселей) </translation>
     </message>
     <message>
       <source>Header padding (px)</source>
@@ -1067,15 +1071,15 @@
     </message>
     <message>
       <source>Start chat button text, standard chat</source>
-      <translation type="unfinished"/>
+      <translation>Текст кнопки начала чата, стандартный чат</translation>
     </message>
     <message>
       <source>Start chat button text, bot chat</source>
-      <translation type="unfinished"/>
+      <translation>Текст кнопки начала чата, чат с ботом</translation>
     </message>
     <message>
       <source>Leave a message button text</source>
-      <translation type="unfinished"/>
+      <translation>Текст кнопки &quot;Оставьте сообщение&quot;</translation>
     </message>
     <message>
       <source>Online image</source>
@@ -1099,7 +1103,7 @@
     </message>
     <message>
       <source>Custom need help HTML</source>
-      <translation type="unfinished"/>
+      <translation>Пользовательский HTML запроса помощи</translation>
     </message>
     <message>
       <source>Need help background color</source>
@@ -1191,7 +1195,7 @@
     </message>
     <message>
       <source>Visitor bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет фона пузырька посетителя</translation>
     </message>
     <message>
       <source>Visitor title color</source>
@@ -1203,7 +1207,7 @@
     </message>
     <message>
       <source>Operator bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет фона пузырька оператора</translation>
     </message>
     <message>
       <source>Operator title color</source>
@@ -1235,7 +1239,7 @@
     </message>
     <message>
       <source>Button background hover color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет фона кнопки при наведении</translation>
     </message>
     <message>
       <source>Button top and bottom</source>
@@ -1243,27 +1247,27 @@
     </message>
     <message>
       <source>Button padding right and left</source>
-      <translation type="unfinished"/>
+      <translation>Внутренние отступы кнопки, правый и левый</translation>
     </message>
     <message>
       <source>Button font size</source>
-      <translation type="unfinished"/>
+      <translation>Размер шрифта кнопки</translation>
     </message>
     <message>
       <source>Widget height (px)</source>
-      <translation type="unfinished"/>
+      <translation>Высота виджета (px)</translation>
     </message>
     <message>
       <source>Widget width (px)</source>
-      <translation type="unfinished"/>
+      <translation>Ширина виджета (px)</translation>
     </message>
     <message>
       <source>After how many user messages show switch to human button. empty - never, 0 - always</source>
-      <translation type="unfinished"/>
+      <translation>Сколько сообщений пользователя требуется для переключения на человека, если пусто - то никогда, 0 - всегда сразу</translation>
     </message>
     <message>
       <source>Placeholder for message text</source>
-      <translation type="unfinished"/>
+      <translation>Плейсхолдре для текста сообщения</translation>
     </message>
     <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
@@ -1279,6 +1283,10 @@
     </message>
     <message>
       <source>Show go to survey button on chat close</source>
+      <translation>Показать кнопку &quot;пройти опрос&quot; после закрытия чата</translation>
+    </message>
+    <message>
+      <source>Automatically determine intro message by bot default message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1287,7 +1295,7 @@
     </message>
     <message>
       <source>Bubble style messages</source>
-      <translation type="unfinished"/>
+      <translation>Стиль пузырька сообщений</translation>
     </message>
     <message>
       <source>Hide chat status block</source>
@@ -1314,6 +1322,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Header icons color</source>
+      <translation>Цвет иконок заголовка</translation>
+    </message>
+    <message>
       <source>Widget themes</source>
       <translation>Темы виджетов</translation>
     </message>
@@ -1330,7 +1342,7 @@
     </message>
     <message>
       <source>You can also use 5 images using keywords as {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}. You can use these events. These events should be used on onclick event.</source>
-      <translation type="unfinished"/>
+      <translation>Вы также можете использовать 5 картинок использую ключевые слова {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}. Вы можете использовать их в событиях. Эти события должны использоваться в событии onclick.</translation>
     </message>
     <message>
       <source>Main wrapper element should have id of</source>
@@ -1366,19 +1378,19 @@
     </message>
     <message>
       <source>Object ID</source>
-      <translation type="unfinished"/>
+      <translation>Object ID</translation>
     </message>
     <message>
       <source>Category</source>
-      <translation type="unfinished"/>
+      <translation>Категория</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation type="unfinished"/>
+      <translation>Сообщение</translation>
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>Файл</translation>
     </message>
     <message>
       <source>If same identifier used for two columns, both values will be represented in single column.</source>
@@ -1386,7 +1398,7 @@
     </message>
     <message>
       <source>Line</source>
-      <translation type="unfinished"/>
+      <translation>Линия</translation>
     </message>
     <message>
       <source>Severity</source>
@@ -1394,11 +1406,11 @@
     </message>
     <message>
       <source>Source</source>
-      <translation type="unfinished"/>
+      <translation>Источник</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>Время</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
@@ -1406,15 +1418,15 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Имя</translation>
     </message>
     <message>
       <source>Operator. Visitor will see this operator nick.</source>
-      <translation type="unfinished"/>
+      <translation>Оператор. Посетитель будет видеть этот ник оператора.</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation type="unfinished"/>
+      <translation>Позиция</translation>
     </message>
     <message>
       <source>Department</source>
@@ -1422,7 +1434,7 @@
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Пользователь</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
@@ -1446,7 +1458,7 @@
     </message>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>Опрос</translation>
     </message>
     <message>
       <source>Timeout. [1]</source>
@@ -1506,11 +1518,11 @@
     </message>
     <message>
       <source>Column name</source>
-      <translation type="unfinished"/>
+      <translation>Название колонки</translation>
     </message>
     <message>
       <source>Column identifier</source>
-      <translation type="unfinished"/>
+      <translation>Идентификатор колонки</translation>
     </message>
     <message>
       <source>Column icon, material icons text</source>
@@ -1570,7 +1582,7 @@
     </message>
     <message>
       <source>Value</source>
-      <translation type="unfinished"/>
+      <translation>Значение</translation>
     </message>
     <message>
       <source>Name for personal purposes</source>
@@ -1614,11 +1626,11 @@
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Требуется адрес почты</translation>
     </message>
     <message>
       <source>Requires name</source>
-      <translation type="unfinished"/>
+      <translation>Требуется имя</translation>
     </message>
     <message>
       <source>Show on mobile</source>
@@ -1630,7 +1642,7 @@
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>Требуется телефон</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
@@ -1646,7 +1658,7 @@
     </message>
     <message>
       <source>Tag</source>
-      <translation type="unfinished"/>
+      <translation>Тег</translation>
     </message>
     <message>
       <source>Auto responder to apply</source>
@@ -1654,11 +1666,11 @@
     </message>
     <message>
       <source>Campaign</source>
-      <translation type="unfinished"/>
+      <translation>Кампания</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>Бот</translation>
     </message>
     <message>
       <source>Trigger to execute</source>
@@ -1666,7 +1678,7 @@
     </message>
     <message>
       <source>Execute bot only if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Запустить бота только если нет операторов в онлайне</translation>
     </message>
     <message>
       <source>Matched times</source>
@@ -1674,11 +1686,11 @@
     </message>
     <message>
       <source>Message to user</source>
-      <translation type="unfinished"/>
+      <translation>Сообщение пользователю</translation>
     </message>
     <message>
       <source>Message to returning user</source>
-      <translation type="unfinished"/>
+      <translation>Сообщение вернувшемуся пользователю</translation>
     </message>
     <message>
       <source>Nick which will be used if we cannot determine returning user name</source>
@@ -1686,11 +1698,11 @@
     </message>
     <message>
       <source>This is dynamic invitation</source>
-      <translation type="unfinished"/>
+      <translation>Это динамическое приглашение</translation>
     </message>
     <message>
       <source>Choose a dynamic event</source>
-      <translation type="unfinished"/>
+      <translation>Выберите динамическое событие</translation>
     </message>
     <message>
       <source>Show invitation if visitor is idle for n seconds</source>
@@ -1698,7 +1710,7 @@
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Выключено</translation>
     </message>
     <message>
       <source>Apply HTML invitation only to mobile devices</source>
@@ -1710,11 +1722,11 @@
     </message>
     <message>
       <source>Do not show widget automatically</source>
-      <translation type="unfinished"/>
+      <translation>Не показывать виджет автоматически</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Идентификатор</translation>
     </message>
     <message>
       <source>Do not store event if from last event has passed less than x seconds.</source>
@@ -1726,7 +1738,7 @@
     </message>
     <message>
       <source>Audit log</source>
-      <translation type="unfinished"/>
+      <translation>Журнал аудита</translation>
     </message>
     <message>
       <source>Auto responder</source>
@@ -1913,7 +1925,7 @@
     </message>
     <message>
       <source>Open popup on mobile devices using mobile layout.</source>
-      <translation type="unfinished"/>
+      <translation>Открывать всплывающее окно на мобильных устройствах с помощью мобильного шаблона.</translation>
     </message>
     <message>
       <source>Do not process internal pages and use redirects.</source>
@@ -2025,6 +2037,14 @@
     </message>
     <message>
       <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>Скрыть кнопку &quot;Начать чат&quot;. Полезно, если в теме вы выбрали бота и триггер с кнопками.</translation>
+    </message>
+    <message>
+      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2764,7 +2784,7 @@
     </message>
     <message>
       <source>Our staff are always ready to help</source>
-      <translation type="unfinished"/>
+      <translation>Наши сотрудники всегда готовы помочь</translation>
     </message>
     <message>
       <source>Live help is online...</source>
@@ -2796,7 +2816,7 @@
     </message>
     <message>
       <source>Our staff are ready to help!</source>
-      <translation type="unfinished"/>
+      <translation>Наши сотрудники готовы помочь!</translation>
     </message>
   </context>
   <context>
@@ -2865,7 +2885,7 @@
     </message>
     <message>
       <source>Color</source>
-      <translation type="unfinished"/>
+      <translation>Цвет</translation>
     </message>
     <message>
       <source>Apply</source>
@@ -2873,7 +2893,7 @@
     </message>
     <message>
       <source>Insert image or file</source>
-      <translation type="unfinished"/>
+      <translation>Вставьте изображение или файл</translation>
     </message>
     <message>
       <source>Preview</source>
@@ -3840,15 +3860,15 @@
     <name>chat/bbcodeinsert</name>
     <message>
       <source>Image</source>
-      <translation type="unfinished"/>
+      <translation>Изображение</translation>
     </message>
     <message>
       <source>Link</source>
-      <translation type="unfinished"/>
+      <translation>Ссылка</translation>
     </message>
     <message>
       <source>Link title</source>
-      <translation type="unfinished"/>
+      <translation>Название ссылки</translation>
     </message>
     <message>
       <source>Bold</source>
@@ -3860,15 +3880,15 @@
     </message>
     <message>
       <source>Please enter link to an image</source>
-      <translation type="unfinished"/>
+      <translation>Пожалуйста, вставьте ссылку на изображение</translation>
     </message>
     <message>
       <source>Please enter a link</source>
-      <translation type="unfinished"/>
+      <translation>Пожалуйста, вставьте ссылку</translation>
     </message>
     <message>
       <source>Here is a link</source>
-      <translation type="unfinished"/>
+      <translation>Это ссылка</translation>
     </message>
     <message>
       <source>Positive</source>
@@ -3892,11 +3912,11 @@
     </message>
     <message>
       <source>Please enter link to an image!</source>
-      <translation type="unfinished"/>
+      <translation>Пожалуйста, вставьте ссылку на изображение!</translation>
     </message>
     <message>
       <source>Please enter a link!</source>
-      <translation type="unfinished"/>
+      <translation>Пожалуйста, вставьте ссылку!</translation>
     </message>
   </context>
   <context>
@@ -4637,7 +4657,7 @@
     </message>
     <message>
       <source>Button action could not be found!</source>
-      <translation type="unfinished"/>
+      <translation>Действие для кнопки не может быть найдено!</translation>
     </message>
     <message>
       <source>Trigger could not be found!</source>
@@ -4955,6 +4975,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Change operator status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Sort</source>
       <translation>Сортировать</translation>
     </message>
@@ -5094,12 +5118,16 @@
       <translation>Google</translation>
     </message>
     <message>
+      <source>Yandex</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Use Bing service</source>
       <translation>Использовать службу Bing</translation>
     </message>
     <message>
-      <source>Bing client ID</source>
-      <translation>ID клиента Bing</translation>
+      <source>Select Region</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Bing client secret, key is never shown for security purposes</source>
@@ -5122,8 +5150,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Use Yandex service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Settings updated</source>
       <translation>Настройки обновлены</translation>
+    </message>
+    <message>
+      <source>Missing translate region</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Missing text to translate</source>
@@ -5366,7 +5402,7 @@
     </message>
     <message>
       <source>Custom need help HTML</source>
-      <translation type="unfinished"/>
+      <translation>Пользовательский HTML запроса помощи</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
@@ -5471,6 +5507,10 @@
     </message>
     <message>
       <source>Notify me if visitor writes more than defined number messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>online status</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6282,7 +6322,7 @@
     </message>
     <message>
       <source>Remove meta information from images</source>
-      <translation type="unfinished"/>
+      <translation>Удалить мета данные из изображений</translation>
     </message>
     <message>
       <source>Uploaded files from visitors are scanned</source>
@@ -7103,6 +7143,14 @@
       <translation>Очистить кэш</translation>
     </message>
     <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Home</source>
       <translation>Домой</translation>
     </message>
@@ -7184,14 +7232,6 @@
     </message>
     <message>
       <source>Visible</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8880,7 +8920,7 @@
     </message>
     <message>
       <source>Hide send e-mail button for operators in chat window</source>
-      <translation type="unfinished"/>
+      <translation>Скрыть кнопку &quot;отправить почту&quot; для операторов в окне чата</translation>
     </message>
   </context>
   <context>
@@ -9727,7 +9767,7 @@
     </message>
     <message>
       <source>Meta msg location. If you support Live Helper Chat JSON syntax you can set location of this response.</source>
-      <translation type="unfinished"/>
+      <translation>Расположение Meta msg . Если вы поддерживает синтаксис Live Helper Chat JSON, то можете указать расположение этого ответчика.</translation>
     </message>
     <message>
       <source>If required you can also have condition to check</source>
@@ -12050,6 +12090,14 @@
     <name>chat/chatcommand</name>
     <message>
       <source>Nick changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>I have enabled files upload for you. [fupload]Upload a file[/fupload].</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files upload enabled.</source>
       <translation type="unfinished"/>
     </message>
     <message>

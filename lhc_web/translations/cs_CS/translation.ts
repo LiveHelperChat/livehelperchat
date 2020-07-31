@@ -75,7 +75,7 @@
     </message>
     <message>
       <source>Host where NodeJs is running</source>
-      <translation>Host, kde běží NodeJS</translation>
+      <translation>Server, kde běží NodeJS</translation>
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
@@ -175,7 +175,7 @@
     </message>
     <message>
       <source>Messages box height</source>
-      <translation>Výška pole zprávy</translation>
+      <translation>Výška okna pro zprávy</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
@@ -406,7 +406,7 @@
     </message>
     <message>
       <source>New</source>
-      <translation>Nová</translation>
+      <translation>Nový</translation>
     </message>
     <message>
       <source>Updated</source>
@@ -414,11 +414,11 @@
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>Ano</translation>
     </message>
     <message>
       <source>No</source>
-      <translation type="unfinished"/>
+      <translation>Ne</translation>
     </message>
     <message>
       <source>Send</source>
@@ -491,11 +491,11 @@
     <name>abstract/widgettheme</name>
     <message>
       <source>Welcome message</source>
-      <translation type="unfinished"/>
+      <translation>Uvítací zpráva</translation>
     </message>
     <message>
       <source>Offline message</source>
-      <translation type="unfinished"/>
+      <translation>Offline zpráva</translation>
     </message>
     <message>
       <source>Pending chat messaging</source>
@@ -515,7 +515,7 @@
     </message>
     <message>
       <source>Close messaging</source>
-      <translation type="unfinished"/>
+      <translation>Uzavřít komunikaci</translation>
     </message>
     <message>
       <source>Survey</source>
@@ -523,7 +523,7 @@
     </message>
     <message>
       <source>Multi-language chat</source>
-      <translation type="unfinished"/>
+      <translation>Vícejazyčný rozhovor</translation>
     </message>
     <message>
       <source>Add translation</source>
@@ -535,7 +535,7 @@
     </message>
     <message>
       <source>See all variations</source>
-      <translation type="unfinished"/>
+      <translation>Zobrazit všechny varianty</translation>
     </message>
     <message>
       <source>Invitation</source>
@@ -579,7 +579,7 @@
     </message>
     <message>
       <source>Widget container</source>
-      <translation>Kontejnér widgetu</translation>
+      <translation>Kontejner widgetu</translation>
     </message>
     <message>
       <source>Messages style</source>
@@ -611,7 +611,7 @@
     </message>
     <message>
       <source>Live preview</source>
-      <translation>Živý náhled</translation>
+      <translation>Skutečný náhled</translation>
     </message>
     <message>
       <source>Visitor messages style</source>
@@ -627,7 +627,7 @@
     </message>
     <message>
       <source>Set default HTML</source>
-      <translation type="unfinished"/>
+      <translation>Nastavit výchozí HTML</translation>
     </message>
     <message>
       <source>If you want to get nerdy you can build your own eye catcher using default template as starting point. You can adjust need help widget dimensions above. Also see what placeholders we support.</source>
@@ -635,7 +635,7 @@
     </message>
     <message>
       <source>General settings</source>
-      <translation>Obecné nastavení</translation>
+      <translation>Obecná nastavení</translation>
     </message>
     <message>
       <source>Text changes</source>
@@ -643,6 +643,10 @@
     </message>
     <message>
       <source>Text content before user fields</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose manually bot ant trigger</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -663,7 +667,7 @@
     </message>
     <message>
       <source>Bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>Barva pozadí bubliny</translation>
     </message>
     <message>
       <source>Title color</source>
@@ -927,11 +931,11 @@
     </message>
     <message>
       <source>Position from right</source>
-      <translation type="unfinished"/>
+      <translation>Vzdálenost od pravé strany</translation>
     </message>
     <message>
       <source>Position from bottom</source>
-      <translation type="unfinished"/>
+      <translation>Vzdálenost od horní strany</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
@@ -939,7 +943,7 @@
     </message>
     <message>
       <source>Hide message time from visitor</source>
-      <translation type="unfinished"/>
+      <translation>Nezobrazovat návštěvníkovi čas zprávy</translation>
     </message>
     <message>
       <source>Use modern look. It is used only in older widget.</source>
@@ -1003,7 +1007,7 @@
     </message>
     <message>
       <source>Hide popup option</source>
-      <translation>Skrýt zobrazení v okně</translation>
+      <translation>Skrýt ikonu možnosti zobrazení rozhovoru v okně</translation>
     </message>
     <message>
       <source>Header height (px)</source>
@@ -1043,7 +1047,7 @@
     </message>
     <message>
       <source>Custom page CSS (new widget only)</source>
-      <translation type="unfinished"/>
+      <translation>Vlastní CSS stránky (pouze pro nový vzhled widgetu)</translation>
     </message>
     <message>
       <source>Custom html before start chat form fields, popup (bot mode)</source>
@@ -1075,7 +1079,7 @@
     </message>
     <message>
       <source>Leave a message button text</source>
-      <translation type="unfinished"/>
+      <translation>Popis tlačítka Zanechte zprávu</translation>
     </message>
     <message>
       <source>Online image</source>
@@ -1139,7 +1143,7 @@
     </message>
     <message>
       <source>Thank you for your feedback text</source>
-      <translation type="unfinished"/>
+      <translation>Text poděkování za zpětnou vazbu</translation>
     </message>
     <message>
       <source>Need help border color</source>
@@ -1159,7 +1163,7 @@
     </message>
     <message>
       <source>Status widget additional CSS, takes effect after save</source>
-      <translation>Dodatečný CSS widgetu stavu, projeví se po uložení</translation>
+      <translation>Rozšířený CSS widgetu stavu, projeví se po uložení</translation>
     </message>
     <message>
       <source>Background color for popup</source>
@@ -1167,11 +1171,11 @@
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
-      <translation>Dodatečný CSS kontejnéru widgetu, projeví se po uložení</translation>
+      <translation>Rozšířený CSS kontejneru widgetu, projeví se po uložení</translation>
     </message>
     <message>
       <source>Widget body additional CSS, takes effect after save</source>
-      <translation>Dodatečný CSS těla widgetu, projeví se po uložení</translation>
+      <translation>Rozšířený CSS těla widgetu, projeví se po uložení</translation>
     </message>
     <message>
       <source>Minimize image</source>
@@ -1191,7 +1195,7 @@
     </message>
     <message>
       <source>Visitor bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>Barva pozadí bubliny návštěvníka</translation>
     </message>
     <message>
       <source>Visitor title color</source>
@@ -1203,7 +1207,7 @@
     </message>
     <message>
       <source>Operator bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>Barva pozadí bubliny operátora</translation>
     </message>
     <message>
       <source>Operator title color</source>
@@ -1215,7 +1219,7 @@
     </message>
     <message>
       <source>Show voting thumbs?</source>
-      <translation>Zobrazit volební palce?</translation>
+      <translation>Zobrazit ikony palců pro hodnocení operátora?</translation>
     </message>
     <message>
       <source>Use different title for department? E.g Location</source>
@@ -1267,7 +1271,7 @@
     </message>
     <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
-      <translation type="unfinished"/>
+      <translation>Neumožnit návštevníkovi editaci předchozích zpráv stiskem šipky nahoru</translation>
     </message>
     <message>
       <source>Before closing chat ask user does he really want to to close chat</source>
@@ -1282,12 +1286,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Try to detect language from browser headers</source>
+      <source>Automatically determine intro message by bot default message</source>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Try to detect language from browser headers</source>
+      <translation>Pokusit se detekovat jazyk prohlížeče z hlaviček</translation>
+    </message>
+    <message>
       <source>Bubble style messages</source>
-      <translation type="unfinished"/>
+      <translation>Bublinový styl zpráv</translation>
     </message>
     <message>
       <source>Hide chat status block</source>
@@ -1299,18 +1307,22 @@
     </message>
     <message>
       <source>Hide visitor profile</source>
-      <translation type="unfinished"/>
+      <translation>Skrýt profil návštevníka</translation>
     </message>
     <message>
       <source>Notifications enabled</source>
-      <translation type="unfinished"/>
+      <translation>Zapnout upozornění</translation>
     </message>
     <message>
       <source>Notification title</source>
-      <translation type="unfinished"/>
+      <translation>Název upozornění</translation>
     </message>
     <message>
       <source>Notification domain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header icons color</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1390,7 +1402,7 @@
     </message>
     <message>
       <source>Severity</source>
-      <translation type="unfinished"/>
+      <translation>Závažnost</translation>
     </message>
     <message>
       <source>Source</source>
@@ -1422,7 +1434,7 @@
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Uživatel</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
@@ -1446,11 +1458,11 @@
     </message>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>Průzkum</translation>
     </message>
     <message>
       <source>Timeout. [1]</source>
-      <translation type="unfinished"/>
+      <translation>Čas vypršel. [1]</translation>
     </message>
     <message>
       <source>Default on hold message</source>
@@ -1478,19 +1490,19 @@
     </message>
     <message>
       <source>Timeout. [2]</source>
-      <translation type="unfinished"/>
+      <translation>Čas vypršel. [2]</translation>
     </message>
     <message>
       <source>Timeout. [3]</source>
-      <translation type="unfinished"/>
+      <translation>Čas vypršel. [3]</translation>
     </message>
     <message>
       <source>Timeout. [4]</source>
-      <translation type="unfinished"/>
+      <translation>Čas vypršel. [4]</translation>
     </message>
     <message>
       <source>Timeout. [5]</source>
-      <translation type="unfinished"/>
+      <translation>Čas vypršel. [5]</translation>
     </message>
     <message>
       <source>Message to visitor on chat close</source>
@@ -1506,11 +1518,11 @@
     </message>
     <message>
       <source>Column name</source>
-      <translation type="unfinished"/>
+      <translation>Název sloupce</translation>
     </message>
     <message>
       <source>Column identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifikátor sloupce</translation>
     </message>
     <message>
       <source>Column icon, material icons text</source>
@@ -1522,7 +1534,7 @@
     </message>
     <message>
       <source>Enabled</source>
-      <translation type="unfinished"/>
+      <translation>Zapnuto</translation>
     </message>
     <message>
       <source>Visible in chat list</source>
@@ -1538,7 +1550,7 @@
     </message>
     <message>
       <source>Set priority to</source>
-      <translation type="unfinished"/>
+      <translation>Nastavit prioritu na</translation>
     </message>
     <message>
       <source>Javascript variable value</source>
@@ -1554,7 +1566,7 @@
     </message>
     <message>
       <source>Default message</source>
-      <translation type="unfinished"/>
+      <translation>Výchozí zpráva</translation>
     </message>
     <message>
       <source>Visitor ID</source>
@@ -1578,7 +1590,7 @@
     </message>
     <message>
       <source>Operator name</source>
-      <translation type="unfinished"/>
+      <translation>Jméno operátora</translation>
     </message>
     <message>
       <source>Time on site in seconds</source>
@@ -1618,11 +1630,11 @@
     </message>
     <message>
       <source>Requires name</source>
-      <translation type="unfinished"/>
+      <translation>Vyžaduje jméno</translation>
     </message>
     <message>
       <source>Show on mobile</source>
-      <translation type="unfinished"/>
+      <translation>Zobrazit na telefonu</translation>
     </message>
     <message>
       <source>Show everytime it is matched</source>
@@ -1674,11 +1686,11 @@
     </message>
     <message>
       <source>Message to user</source>
-      <translation type="unfinished"/>
+      <translation>Zpráva uživateli</translation>
     </message>
     <message>
       <source>Message to returning user</source>
-      <translation type="unfinished"/>
+      <translation>Zpráva vracejícímu se uživateli</translation>
     </message>
     <message>
       <source>Nick which will be used if we cannot determine returning user name</source>
@@ -1686,7 +1698,7 @@
     </message>
     <message>
       <source>This is dynamic invitation</source>
-      <translation type="unfinished"/>
+      <translation>Toto je dynamická pozvánka</translation>
     </message>
     <message>
       <source>Choose a dynamic event</source>
@@ -1710,7 +1722,7 @@
     </message>
     <message>
       <source>Do not show widget automatically</source>
-      <translation type="unfinished"/>
+      <translation>Nezobrazovat widget automaticky</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -1734,11 +1746,11 @@
     </message>
     <message>
       <source>Chat columns</source>
-      <translation type="unfinished"/>
+      <translation>Sloupce rozhovoru</translation>
     </message>
     <message>
       <source>Chat priority</source>
-      <translation type="unfinished"/>
+      <translation>Priorita rozhovoru</translation>
     </message>
     <message>
       <source>String</source>
@@ -1754,7 +1766,7 @@
     </message>
     <message>
       <source>Encrypted</source>
-      <translation type="unfinished"/>
+      <translation>Šifrováno</translation>
     </message>
     <message>
       <source>Chat variables</source>
@@ -1829,7 +1841,7 @@
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>Heslo</translation>
     </message>
     <message>
       <source>Hidden</source>
@@ -1881,7 +1893,7 @@
     </message>
     <message>
       <source>Hide if prefilled</source>
-      <translation type="unfinished"/>
+      <translation>Skrýt pokud je předvyplněno</translation>
     </message>
     <message>
       <source>Options</source>
@@ -1889,7 +1901,7 @@
     </message>
     <message>
       <source>Each option in new line</source>
-      <translation type="unfinished"/>
+      <translation>Každá z možností musí být na novém řádku</translation>
     </message>
     <message>
       <source>Add a field</source>
@@ -2028,6 +2040,14 @@
       <translation>Zobrazit pole zprávy nad poli, užitečné pro UX kombinace.</translation>
     </message>
     <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Initial user message height in pixels</source>
       <translation>Uvodní výška zprávy uživatele v pixelech</translation>
     </message>
@@ -2049,7 +2069,7 @@
     </message>
     <message>
       <source>Encryption key, min length 40</source>
-      <translation>Šifrovací klíč, mnimimálně 40 znaků</translation>
+      <translation>Šifrovací klíč, minimálně 40 znaků</translation>
     </message>
     <message>
       <source>Argument identifier</source>
@@ -2312,7 +2332,7 @@
     </message>
     <message>
       <source>XLS (with content and survey)</source>
-      <translation type="unfinished"/>
+      <translation>XLS (s obsahem a průzkumem)</translation>
     </message>
     <message>
       <source>Export</source>
@@ -2356,7 +2376,7 @@
     </message>
     <message>
       <source>Select translations</source>
-      <translation type="unfinished"/>
+      <translation>Zvolte překlad</translation>
     </message>
     <message>
       <source>Name</source>
@@ -2368,7 +2388,7 @@
     </message>
     <message>
       <source>Visible only if online</source>
-      <translation type="unfinished"/>
+      <translation>Viditelný pouze pokud online</translation>
     </message>
     <message>
       <source>Disabled</source>
@@ -2384,7 +2404,7 @@
     </message>
     <message>
       <source>File name</source>
-      <translation type="unfinished"/>
+      <translation>Název souboru</translation>
     </message>
     <message>
       <source>Please choose</source>
@@ -2400,7 +2420,7 @@
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>Bot</translation>
     </message>
     <message>
       <source>Exclude offline requests from charts</source>
@@ -2412,7 +2432,7 @@
     </message>
     <message>
       <source>Compare to past</source>
-      <translation type="unfinished"/>
+      <translation>Porovnat s minulostí</translation>
     </message>
     <message>
       <source>Agent</source>
@@ -2543,19 +2563,19 @@
     </message>
     <message>
       <source>Set a subject</source>
-      <translation type="unfinished"/>
+      <translation>Nastavit předmět</translation>
     </message>
     <message>
       <source>Subject selected!</source>
-      <translation type="unfinished"/>
+      <translation>Předmět vybrán!</translation>
     </message>
     <message>
       <source>Subject unselected!</source>
-      <translation type="unfinished"/>
+      <translation>Předmětu odebrán!</translation>
     </message>
     <message>
       <source>Please choose a subject</source>
-      <translation type="unfinished"/>
+      <translation>Prosím zvolte předmět</translation>
     </message>
   </context>
   <context>
@@ -2585,7 +2605,7 @@
     <name>chat/cannedmsg</name>
     <message>
       <source>Main</source>
-      <translation type="unfinished"/>
+      <translation>Hlavní</translation>
     </message>
     <message>
       <source>Add translation</source>
@@ -2697,11 +2717,11 @@
     </message>
     <message>
       <source>Siteaccess</source>
-      <translation type="unfinished"/>
+      <translation>Přístup ke stránce</translation>
     </message>
     <message>
       <source>Personal canned message</source>
-      <translation>Osobní připravené zprávy</translation>
+      <translation>Osobní předpřipravené zprávy</translation>
     </message>
     <message>
       <source>Canned message was saved</source>
@@ -2737,11 +2757,11 @@
     </message>
     <message>
       <source>Dialects</source>
-      <translation>Nářečí</translation>
+      <translation>Varianta jazyka</translation>
     </message>
     <message>
       <source>Edit dialect</source>
-      <translation type="unfinished"/>
+      <translation>Upravit variantu jazyka</translation>
     </message>
     <message>
       <source>Languages</source>
@@ -2822,7 +2842,7 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Nastavení aktualizována</translation>
     </message>
     <message>
       <source>Options</source>
@@ -2833,11 +2853,11 @@
     <name>chat/adminchat</name>
     <message>
       <source>Strike</source>
-      <translation type="unfinished"/>
+      <translation>Přeškrtnuté</translation>
     </message>
     <message>
       <source>Quote</source>
-      <translation type="unfinished"/>
+      <translation>Citace</translation>
     </message>
     <message>
       <source>Youtube</source>
@@ -2857,7 +2877,7 @@
     </message>
     <message>
       <source>Underline</source>
-      <translation type="unfinished"/>
+      <translation>Podržené</translation>
     </message>
     <message>
       <source>Font Size</source>
@@ -2909,11 +2929,11 @@
     </message>
     <message>
       <source>Modify chat</source>
-      <translation type="unfinished"/>
+      <translation>Upravit rozhovor</translation>
     </message>
     <message>
       <source>Edit chat information</source>
-      <translation type="unfinished"/>
+      <translation>Upravit informace o rozhovoru</translation>
     </message>
     <message>
       <source>Print</source>
@@ -2941,7 +2961,7 @@
     </message>
     <message>
       <source>Redirect user to survey</source>
-      <translation type="unfinished"/>
+      <translation>Přesměrování uživatele na průzkum</translation>
     </message>
     <message>
       <source>Choose other than default recognition language</source>
@@ -2993,7 +3013,7 @@
     </message>
     <message>
       <source>Created at</source>
-      <translation type="unfinished"/>
+      <translation>Vytvořeno</translation>
     </message>
     <message>
       <source>Started at</source>
@@ -3093,7 +3113,7 @@
     </message>
     <message>
       <source>Bot chat</source>
-      <translation type="unfinished"/>
+      <translation>Rozhovor s botem</translation>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
@@ -3173,7 +3193,7 @@
     </message>
     <message>
       <source>Hold/Un-Hold chat</source>
-      <translation type="unfinished"/>
+      <translation>Přidržet/Uvolnit rozhovor</translation>
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
@@ -3209,11 +3229,11 @@
     </message>
     <message>
       <source>Chat was assigned to</source>
-      <translation type="unfinished"/>
+      <translation>Rozhovor byl přiřazen</translation>
     </message>
     <message>
       <source>Hold removed!</source>
-      <translation type="unfinished"/>
+      <translation>Přidržení zrušeno!</translation>
     </message>
     <message>
       <source>has accepted the chat!</source>
@@ -3428,15 +3448,15 @@
     </message>
     <message>
       <source>Widget embed code (new)</source>
-      <translation type="unfinished"/>
+      <translation>Vložený kód widgetu (nový)</translation>
     </message>
     <message>
       <source>Widget embed code (legacy)</source>
-      <translation type="unfinished"/>
+      <translation>Vložený kód widgetu (původní)</translation>
     </message>
     <message>
       <source>Page embed code (legacy)</source>
-      <translation type="unfinished"/>
+      <translation>Vložený kód na stránku (původní)</translation>
     </message>
     <message>
       <source>Widget embed code</source>
@@ -3460,7 +3480,7 @@
     </message>
     <message>
       <source>Dialects</source>
-      <translation>Nářečí</translation>
+      <translation>Varianta jazyka</translation>
     </message>
     <message>
       <source>Operator ID</source>
@@ -3616,7 +3636,7 @@
     </message>
     <message>
       <source>HTML code (beta)</source>
-      <translation type="unfinished"/>
+      <translation>HTML kód (beta)</translation>
     </message>
     <message>
       <source>On each refresh start a new chat. Users will loose chat session browsing through pages! Usefull in embed mode.</source>
@@ -3729,7 +3749,7 @@
     </message>
     <message>
       <source>You are not chat owner, type with caution</source>
-      <translation type="unfinished"/>
+      <translation>Nejste vlastníkem rozhovoru, pokračujte s opatrností</translation>
     </message>
     <message>
       <source>Pending</source>
@@ -3753,7 +3773,7 @@
     </message>
     <message>
       <source>Bot chat</source>
-      <translation type="unfinished"/>
+      <translation>Rozhovor s botem</translation>
     </message>
     <message>
       <source>Change chat status</source>
@@ -3765,7 +3785,7 @@
     </message>
     <message>
       <source>Type your message here...</source>
-      <translation type="unfinished"/>
+      <translation>Zde napište text vašeho dotazu...</translation>
     </message>
     <message>
       <source>Close</source>
@@ -3829,7 +3849,7 @@
     </message>
     <message>
       <source>You have closed this chat!</source>
-      <translation type="unfinished"/>
+      <translation>Uzavřeli jste tento rozhovor!</translation>
     </message>
     <message>
       <source>You have been redirected to survey!</source>
@@ -3860,11 +3880,11 @@
     </message>
     <message>
       <source>Please enter link to an image</source>
-      <translation type="unfinished"/>
+      <translation>Prosím vložte odkaz na obrázek</translation>
     </message>
     <message>
       <source>Please enter a link</source>
-      <translation type="unfinished"/>
+      <translation>Prosím vložte odkaz</translation>
     </message>
     <message>
       <source>Here is a link</source>
@@ -3896,7 +3916,7 @@
     </message>
     <message>
       <source>Please enter a link!</source>
-      <translation type="unfinished"/>
+      <translation>Prosím vložte odkaz!</translation>
     </message>
   </context>
   <context>
@@ -4017,7 +4037,7 @@
     </message>
     <message>
       <source>Chat transfer worklow</source>
-      <translation>Workflow převodu rozhovoru</translation>
+      <translation>Workflow přesměrování rozhovoru</translation>
     </message>
     <message>
       <source>Auto assignment</source>
@@ -4285,7 +4305,7 @@
     </message>
     <message>
       <source>Private</source>
-      <translation type="unfinished"/>
+      <translation>Soukromý</translation>
     </message>
     <message>
       <source>Monday</source>
@@ -4432,27 +4452,27 @@
     </message>
     <message>
       <source>Cancel</source>
-      <translation type="unfinished"/>
+      <translation>Zrušit</translation>
     </message>
     <message>
       <source>Record voice message</source>
-      <translation type="unfinished"/>
+      <translation>Nahrát hlasovou zprávu</translation>
     </message>
     <message>
       <source>Stop recording</source>
-      <translation type="unfinished"/>
+      <translation>Zastavit nahrávání</translation>
     </message>
     <message>
       <source>Play recorded audio</source>
-      <translation type="unfinished"/>
+      <translation>Přehrát nahranou hlasovou zprávu</translation>
     </message>
     <message>
       <source>Stop playing</source>
-      <translation type="unfinished"/>
+      <translation>Zastavit přehrávání</translation>
     </message>
     <message>
       <source>Send voice message</source>
-      <translation type="unfinished"/>
+      <translation>Poslat hlasovou zprávu</translation>
     </message>
     <message>
       <source>I accept my personal data will be handled according to</source>
@@ -4628,11 +4648,11 @@
     </message>
     <message>
       <source>Chat was transferred to operator!</source>
-      <translation type="unfinished"/>
+      <translation>Rozhovor byl přesměrován na operátora!</translation>
     </message>
     <message>
       <source>Chat was transferred to bot!</source>
-      <translation type="unfinished"/>
+      <translation>Rozhovor byl přesměrován na bota!</translation>
     </message>
     <message>
       <source>Button action could not be found!</source>
@@ -4656,7 +4676,7 @@
     </message>
     <message>
       <source>Pending Chat</source>
-      <translation type="unfinished"/>
+      <translation>Čekající rozhovor</translation>
     </message>
     <message>
       <source>Unread message</source>
@@ -4664,7 +4684,7 @@
     </message>
     <message>
       <source>Bot Chat</source>
-      <translation type="unfinished"/>
+      <translation>Rozhovor s botem</translation>
     </message>
     <message>
       <source>New message from operator</source>
@@ -4672,11 +4692,11 @@
     </message>
     <message>
       <source>Transfer Chat</source>
-      <translation>Přesun rozhovoru</translation>
+      <translation>Přesměrování rozhovoru</translation>
     </message>
     <message>
       <source>Assigned Chat</source>
-      <translation type="unfinished"/>
+      <translation>Přiřazený rozhovor</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
@@ -4684,7 +4704,7 @@
     </message>
     <message>
       <source>Enter a message</source>
-      <translation type="unfinished"/>
+      <translation>Vložte zprávu</translation>
     </message>
     <message>
       <source>Pending to join...</source>
@@ -4692,19 +4712,19 @@
     </message>
     <message>
       <source>Already a member</source>
-      <translation type="unfinished"/>
+      <translation>Již jste členem</translation>
     </message>
     <message>
       <source>Invite</source>
-      <translation type="unfinished"/>
+      <translation>Pozvání</translation>
     </message>
     <message>
       <source>Cancel invite</source>
-      <translation type="unfinished"/>
+      <translation>Zrušit pozvání</translation>
     </message>
     <message>
       <source>Leave the group</source>
-      <translation type="unfinished"/>
+      <translation>Opustit skupinu</translation>
     </message>
     <message>
       <source>Enter operator name or surname or just click search to invite</source>
@@ -4716,35 +4736,35 @@
     </message>
     <message>
       <source>Please enter a message</source>
-      <translation type="unfinished"/>
+      <translation>Prosím vložte zprávu</translation>
     </message>
     <message>
       <source>characters max.</source>
-      <translation type="unfinished"/>
+      <translation>maximální počet znaků</translation>
     </message>
     <message>
       <source>Minimize</source>
-      <translation type="unfinished"/>
+      <translation>Minimalizovat</translation>
     </message>
     <message>
       <source>End chat</source>
-      <translation type="unfinished"/>
+      <translation>Ukončit rozhovor</translation>
     </message>
     <message>
       <source>Start a chat</source>
-      <translation type="unfinished"/>
+      <translation>Spustit rozhovor</translation>
     </message>
     <message>
       <source>BB code</source>
-      <translation type="unfinished"/>
+      <translation>BB kód</translation>
     </message>
     <message>
       <source>Popup</source>
-      <translation type="unfinished"/>
+      <translation>Vyskakovací okno</translation>
     </message>
     <message>
       <source>Start a chat with us!</source>
-      <translation type="unfinished"/>
+      <translation>Začněte si s námi povídat!</translation>
     </message>
     <message>
       <source>This chat is closed now. You can close window.</source>
@@ -4752,11 +4772,11 @@
     </message>
     <message>
       <source>Your message...</source>
-      <translation type="unfinished"/>
+      <translation>Váš dotaz...</translation>
     </message>
     <message>
       <source>Thank you for your feedback...</source>
-      <translation type="unfinished"/>
+      <translation>Děkujeme za vaši zpětnou vazbu...</translation>
     </message>
     <message>
       <source>Chat can not be started now. Please try again later.</source>
@@ -4764,23 +4784,23 @@
     </message>
     <message>
       <source>Go to Survey.</source>
-      <translation type="unfinished"/>
+      <translation>Přejít na průzkum.</translation>
     </message>
     <message>
       <source>Please choose!</source>
-      <translation type="unfinished"/>
+      <translation>Prosím zvolte!</translation>
     </message>
     <message>
       <source>Cancel voice message</source>
-      <translation type="unfinished"/>
+      <translation>Zrušit hlasovou zprávu</translation>
     </message>
     <message>
       <source>Play recorded message</source>
-      <translation type="unfinished"/>
+      <translation>Přehrát nahranou hlasovou zprávu</translation>
     </message>
     <message>
       <source>Stop playing recorded audio</source>
-      <translation type="unfinished"/>
+      <translation>Zastavit přehrávání nahrané zprávy</translation>
     </message>
   </context>
   <context>
@@ -4871,7 +4891,7 @@
     </message>
     <message>
       <source>Offline request</source>
-      <translation type="unfinished"/>
+      <translation>Offline požadavek</translation>
     </message>
     <message>
       <source>Number of messages by user</source>
@@ -4879,47 +4899,47 @@
     </message>
     <message>
       <source>More than</source>
-      <translation type="unfinished"/>
+      <translation>Více než</translation>
     </message>
     <message>
       <source>user messages</source>
-      <translation type="unfinished"/>
+      <translation>zprávy uživatele</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Jméno</translation>
     </message>
     <message>
       <source>Accept invite</source>
-      <translation type="unfinished"/>
+      <translation>Přijmout pozvání</translation>
     </message>
     <message>
       <source>Reject invite</source>
-      <translation type="unfinished"/>
+      <translation>Odmítnout pozvání</translation>
     </message>
     <message>
       <source>Join public chat</source>
-      <translation type="unfinished"/>
+      <translation>Připojit se k veřejnému rozhovoru</translation>
     </message>
     <message>
       <source>Already a member</source>
-      <translation type="unfinished"/>
+      <translation>Již je členem</translation>
     </message>
     <message>
       <source>Your new group name</source>
-      <translation type="unfinished"/>
+      <translation>Zobrazit nový název skupiny</translation>
     </message>
     <message>
       <source>Private group</source>
-      <translation type="unfinished"/>
+      <translation>Soukromá skupina</translation>
     </message>
     <message>
       <source>Public group</source>
-      <translation type="unfinished"/>
+      <translation>Veřejná skupina</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Nový</translation>
     </message>
     <message>
       <source>Status</source>
@@ -4951,6 +4971,10 @@
     </message>
     <message>
       <source>Sort by active chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Change operator status</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5019,7 +5043,7 @@
     </message>
     <message>
       <source>Transfer time</source>
-      <translation>Čas předání</translation>
+      <translation>Čas přesměrování</translation>
     </message>
     <message>
       <source>Transferred chats to your department will appear here.</source>
@@ -5093,12 +5117,16 @@
       <translation>Google</translation>
     </message>
     <message>
+      <source>Yandex</source>
+      <translation>Yandex</translation>
+    </message>
+    <message>
       <source>Use Bing service</source>
       <translation>Použít službu Bing</translation>
     </message>
     <message>
-      <source>Bing client ID</source>
-      <translation>ID klienta Bing</translation>
+      <source>Select Region</source>
+      <translation>Zvolte region</translation>
     </message>
     <message>
       <source>Bing client secret, key is never shown for security purposes</source>
@@ -5121,8 +5149,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Use Yandex service</source>
+      <translation>Použít službu Yandex</translation>
+    </message>
+    <message>
       <source>Settings updated</source>
       <translation>Nastavení bylo aktualizováno</translation>
+    </message>
+    <message>
+      <source>Missing translate region</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Missing text to translate</source>
@@ -5294,7 +5330,7 @@
     </message>
     <message>
       <source>Open last 10 my active chats</source>
-      <translation type="unfinished"/>
+      <translation>Otevřít 10 posledních aktivních rozhovorů</translation>
     </message>
     <message>
       <source>Open my active chats</source>
@@ -5306,11 +5342,11 @@
     </message>
     <message>
       <source>Keep my active chats</source>
-      <translation type="unfinished"/>
+      <translation>Zachovat mé aktivní rozhovory</translation>
     </message>
     <message>
       <source>Hide nicknames for offline chats</source>
-      <translation type="unfinished"/>
+      <translation>Skrýt přezdívky u offline rozhovorů</translation>
     </message>
     <message>
       <source>Mail settings</source>
@@ -5329,7 +5365,7 @@
     <name>chat/checkchatstatus</name>
     <message>
       <source>You are talking with our bot now.</source>
-      <translation type="unfinished"/>
+      <translation>Nyní si píšete s naším botem.</translation>
     </message>
     <message>
       <source>A support staff member has closed this chat</source>
@@ -5400,7 +5436,7 @@
     </message>
     <message>
       <source>Switch To Human</source>
-      <translation type="unfinished"/>
+      <translation>Přepnout na člověka</translation>
     </message>
   </context>
   <context>
@@ -5450,7 +5486,7 @@
     </message>
     <message>
       <source>Column number</source>
-      <translation type="unfinished"/>
+      <translation>Číslo sloupce</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -5471,6 +5507,10 @@
     <message>
       <source>Notify me if visitor writes more than defined number messages.</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>online status</source>
+      <translation>online stav</translation>
     </message>
     <message>
       <source>Online operators</source>
@@ -5498,7 +5538,7 @@
     </message>
     <message>
       <source>Group chats</source>
-      <translation type="unfinished"/>
+      <translation>Skupinové rozhovory</translation>
     </message>
     <message>
       <source>Unread chats</source>
@@ -5510,7 +5550,7 @@
     </message>
     <message>
       <source>My active and pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Moje aktivní a čekající rozhovory</translation>
     </message>
     <message>
       <source>Bot chats</source>
@@ -5578,7 +5618,7 @@
     </message>
     <message>
       <source>Transferred to</source>
-      <translation type="unfinished"/>
+      <translation>Přesměrováno na</translation>
     </message>
     <message>
       <source>as no operators online in</source>
@@ -5889,7 +5929,7 @@
     </message>
     <message>
       <source>Use http://ip-api.com</source>
-      <translation type="unfinished"/>
+      <translation>Použít http://ip-api.com</translation>
     </message>
     <message>
       <source>Use MaxMind, does not depend on any third party remote service</source>
@@ -6281,19 +6321,19 @@
     </message>
     <message>
       <source>Remove meta information from images</source>
-      <translation type="unfinished"/>
+      <translation>Odstranit metadata z obrázků</translation>
     </message>
     <message>
       <source>Uploaded files from visitors are scanned</source>
-      <translation type="unfinished"/>
+      <translation>Soubory nahrávané uživateli jsou kontrolovány</translation>
     </message>
     <message>
       <source>Voice messages for visitors is active</source>
-      <translation type="unfinished"/>
+      <translation>Hlasové zprávy pro návštěvníky jsou povoleny</translation>
     </message>
     <message>
       <source>Voice messages for operators is active</source>
-      <translation type="unfinished"/>
+      <translation>Hlasové zprávy pro operátory jsou povoleny</translation>
     </message>
     <message>
       <source>Preview chat</source>
@@ -6464,7 +6504,7 @@
     </message>
     <message>
       <source>Rest API Calls</source>
-      <translation type="unfinished"/>
+      <translation>Volání Rest API</translation>
     </message>
     <message>
       <source>Browse offers embed code</source>
@@ -6520,7 +6560,7 @@
     </message>
     <message>
       <source>Files configuration</source>
-      <translation type="unfinished"/>
+      <translation>Nastavení souborů</translation>
     </message>
     <message>
       <source>List of files</source>
@@ -6532,11 +6572,11 @@
     </message>
     <message>
       <source>Group chat</source>
-      <translation type="unfinished"/>
+      <translation>Skupinový rozhovor</translation>
     </message>
     <message>
       <source>Group chats list</source>
-      <translation type="unfinished"/>
+      <translation>Seznam skupinových rozhovorů</translation>
     </message>
     <message>
       <source>Languages configuration</source>
@@ -6596,7 +6636,7 @@
     </message>
     <message>
       <source>Re-captcha settings</source>
-      <translation type="unfinished"/>
+      <translation>Nastavení Re-captcha</translation>
     </message>
     <message>
       <source>Rest API</source>
@@ -6652,7 +6692,7 @@
     </message>
     <message>
       <source>Personal theming</source>
-      <translation type="unfinished"/>
+      <translation>Osobní vzhled</translation>
     </message>
     <message>
       <source>Personal theme</source>
@@ -6660,7 +6700,7 @@
     </message>
     <message>
       <source>Chat transfer configuration</source>
-      <translation type="unfinished"/>
+      <translation>Nastavení přesměrování rozhovorů</translation>
     </message>
     <message>
       <source>Automatic translations</source>
@@ -6823,7 +6863,7 @@
     </message>
     <message>
       <source>Notifications about new chats</source>
-      <translation>Upozornění nových rozhovorů</translation>
+      <translation>Upozornění na nové rozhovory</translation>
     </message>
     <message>
       <source>Copyright settings</source>
@@ -6918,7 +6958,7 @@
     </message>
     <message>
       <source>Bot chat</source>
-      <translation type="unfinished"/>
+      <translation>Rozhovor s botem</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -6934,7 +6974,7 @@
     </message>
     <message>
       <source>Rest API Calls</source>
-      <translation type="unfinished"/>
+      <translation>Volání Rest API</translation>
     </message>
     <message>
       <source>Translations groups</source>
@@ -6953,7 +6993,7 @@
     </message>
     <message>
       <source>Offline request</source>
-      <translation type="unfinished"/>
+      <translation>Offline požadavky</translation>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -7023,7 +7063,7 @@
     </message>
     <message>
       <source>Group chats</source>
-      <translation type="unfinished"/>
+      <translation>Skupinové rozhovory</translation>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -7031,11 +7071,11 @@
     </message>
     <message>
       <source>Main information</source>
-      <translation type="unfinished"/>
+      <translation>Základní informace</translation>
     </message>
     <message>
       <source>All departments</source>
-      <translation>Všechna oddělen</translation>
+      <translation>Všechna oddělení</translation>
     </message>
     <message>
       <source>Check all</source>
@@ -7059,7 +7099,7 @@
     </message>
     <message>
       <source>Department group</source>
-      <translation type="unfinished"/>
+      <translation>Skupina oddělení</translation>
     </message>
     <message>
       <source>Department</source>
@@ -7079,7 +7119,7 @@
     </message>
     <message>
       <source>Bot chats</source>
-      <translation type="unfinished"/>
+      <translation>Rozhovory s botem</translation>
     </message>
     <message>
       <source>Departments stats</source>
@@ -7100,6 +7140,14 @@
     <message>
       <source>Clean cache</source>
       <translation>Vyčistit cache</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation>Offline</translation>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation>Online</translation>
     </message>
     <message>
       <source>Home</source>
@@ -7171,35 +7219,27 @@
     </message>
     <message>
       <source>New messages</source>
-      <translation type="unfinished"/>
+      <translation>Nové zprávy</translation>
     </message>
     <message>
       <source>New chats</source>
-      <translation type="unfinished"/>
+      <translation>Nové rozhovory</translation>
     </message>
     <message>
       <source>Invisible</source>
-      <translation type="unfinished"/>
+      <translation>Neviditelný</translation>
     </message>
     <message>
       <source>Visible</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>Viditelný</translation>
     </message>
     <message>
       <source>Always online</source>
-      <translation type="unfinished"/>
+      <translation>Vždy online</translation>
     </message>
     <message>
       <source>Based on activity</source>
-      <translation type="unfinished"/>
+      <translation>Založeno na aktivitě</translation>
     </message>
   </context>
   <context>
@@ -7272,7 +7312,7 @@
     </message>
     <message>
       <source>Number of Thumbs Up/Down</source>
-      <translation type="unfinished"/>
+      <translation>Počet palců nahoru/dolů</translation>
     </message>
     <message>
       <source>Number of chats by country</source>
@@ -7332,7 +7372,7 @@
     </message>
     <message>
       <source>Unique records</source>
-      <translation type="unfinished"/>
+      <translation>Unikátní záznamy</translation>
     </message>
     <message>
       <source>Active</source>
@@ -7388,7 +7428,7 @@
     </message>
     <message>
       <source>Updated</source>
-      <translation type="unfinished"/>
+      <translation>Aktualizováno</translation>
     </message>
     <message>
       <source>Online</source>
@@ -7412,7 +7452,7 @@
     </message>
     <message>
       <source>Hour</source>
-      <translation type="unfinished"/>
+      <translation>Hodina</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -7456,7 +7496,7 @@
     </message>
     <message>
       <source>Abandoned Chats</source>
-      <translation type="unfinished"/>
+      <translation>Zrušené rozhovory</translation>
     </message>
     <message>
       <source>% of chats</source>
@@ -7480,15 +7520,15 @@
     </message>
     <message>
       <source>Unique</source>
-      <translation type="unfinished"/>
+      <translation>Unikátní</translation>
     </message>
     <message>
       <source>grouped by date</source>
-      <translation type="unfinished"/>
+      <translation>seskupeno podle data</translation>
     </message>
     <message>
       <source>nick&apos;s</source>
-      <translation type="unfinished"/>
+      <translation>přezdívky</translation>
     </message>
     <message>
       <source>user agent&apos;s</source>
@@ -7496,7 +7536,7 @@
     </message>
     <message>
       <source>device type&apos;s</source>
-      <translation type="unfinished"/>
+      <translation>typy zařízení</translation>
     </message>
     <message>
       <source>Chats number grouped by date and</source>
@@ -7504,7 +7544,7 @@
     </message>
     <message>
       <source>nick</source>
-      <translation type="unfinished"/>
+      <translation>přezdívka</translation>
     </message>
     <message>
       <source>user agent</source>
@@ -7580,19 +7620,19 @@
     </message>
     <message>
       <source>New visitors</source>
-      <translation type="unfinished"/>
+      <translation>Nový návštevníci</translation>
     </message>
     <message>
       <source>Returning visitors</source>
-      <translation type="unfinished"/>
+      <translation>Vracející se návštěvníci</translation>
     </message>
     <message>
       <source>Countries</source>
-      <translation type="unfinished"/>
+      <translation>Země</translation>
     </message>
     <message>
       <source>Cities</source>
-      <translation type="unfinished"/>
+      <translation>Města</translation>
     </message>
     <message>
       <source>User agent</source>
@@ -7600,7 +7640,7 @@
     </message>
     <message>
       <source>Time on site</source>
-      <translation type="unfinished"/>
+      <translation>Čas na stránce</translation>
     </message>
     <message>
       <source>more than 10 min.</source>
@@ -7647,7 +7687,7 @@
     </message>
     <message>
       <source>Unanswered chat</source>
-      <translation type="unfinished"/>
+      <translation>Nezodpovezené rozhovory</translation>
     </message>
     <message>
       <source>Department</source>
@@ -7764,7 +7804,7 @@
     </message>
     <message>
       <source>Canned message</source>
-      <translation type="unfinished"/>
+      <translation>Předpřipravená zpráva</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -7934,11 +7974,11 @@
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Obecné</translation>
     </message>
     <message>
       <source>Interface</source>
-      <translation type="unfinished"/>
+      <translation>Rozhraní</translation>
     </message>
     <message>
       <source>Delete</source>
@@ -8114,7 +8154,7 @@
     </message>
     <message>
       <source>Maximum active chats</source>
-      <translation type="unfinished"/>
+      <translation>Maximální počet aktivních rozhovorů</translation>
     </message>
     <message>
       <source>Show permissions</source>
@@ -8138,7 +8178,7 @@
     </message>
     <message>
       <source>Read Only</source>
-      <translation type="unfinished"/>
+      <translation>Pouze pro čtení</translation>
     </message>
     <message>
       <source>Departments groups</source>
@@ -8178,7 +8218,7 @@
     </message>
     <message>
       <source>Personal auto responder</source>
-      <translation type="unfinished"/>
+      <translation>Osobní automatický odpovídač</translation>
     </message>
     <message>
       <source>Personal canned messages</source>
@@ -8194,7 +8234,7 @@
     </message>
     <message>
       <source>Password was updated. Now you can go to back office.</source>
-      <translation type="unfinished"/>
+      <translation>Heslo bylo aktualizováno. Můžete se přihlásit do administrace.</translation>
     </message>
   </context>
   <context>
@@ -8221,7 +8261,7 @@
     </message>
     <message>
       <source>Change owner</source>
-      <translation>Změna vlastníka</translation>
+      <translation>Změnit vlastníka</translation>
     </message>
     <message>
       <source>Logged in users</source>
@@ -8257,7 +8297,7 @@
     </message>
     <message>
       <source>Transfer chat</source>
-      <translation>Přenos rozhovoru</translation>
+      <translation>Přesměrovat rozhovor</translation>
     </message>
   </context>
   <context>
@@ -8327,7 +8367,7 @@
     <name>chatarchive/newarchive</name>
     <message>
       <source>Date from</source>
-      <translation>Datumy od</translation>
+      <translation>Datum od</translation>
     </message>
     <message>
       <source>E.g</source>
@@ -8335,7 +8375,7 @@
     </message>
     <message>
       <source>Date to</source>
-      <translation>Datumy do</translation>
+      <translation>Datum do</translation>
     </message>
     <message>
       <source>New archive</source>
@@ -8414,11 +8454,11 @@
     <name>chatarchive/process_content</name>
     <message>
       <source>Date from</source>
-      <translation>Od data</translation>
+      <translation>Datum od</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation>Do data</translation>
+      <translation>Datum do</translation>
     </message>
     <message>
       <source>Potential chats to archive</source>
@@ -8477,11 +8517,11 @@
     </message>
     <message>
       <source>General</source>
-      <translation>Hlavní</translation>
+      <translation>Obecné</translation>
     </message>
     <message>
       <source>General settings</source>
-      <translation>Hlavní nastavení</translation>
+      <translation>Obecná nastavení</translation>
     </message>
     <message>
       <source>Chatbox list</source>
@@ -8608,23 +8648,23 @@
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Aktivní rozhovory</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Čekající rozhovory</translation>
     </message>
     <message>
       <source>Inactive chats</source>
-      <translation type="unfinished"/>
+      <translation>Neaktivní rozhovory</translation>
     </message>
     <message>
       <source>Real Time Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Právě probíhající rozhovory</translation>
     </message>
     <message>
       <source>Update stats</source>
-      <translation type="unfinished"/>
+      <translation>Aktualizovat statistiky</translation>
     </message>
     <message>
       <source>Users</source>
@@ -8749,23 +8789,23 @@
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operátor</translation>
     </message>
     <message>
       <source>Type</source>
-      <translation type="unfinished"/>
+      <translation>Typ</translation>
     </message>
     <message>
       <source>Creation time</source>
-      <translation type="unfinished"/>
+      <translation>Čas vytvoření</translation>
     </message>
     <message>
       <source>Public</source>
-      <translation type="unfinished"/>
+      <translation>Veřejný</translation>
     </message>
     <message>
       <source>Private</source>
-      <translation type="unfinished"/>
+      <translation>Soukromý</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -8773,7 +8813,7 @@
     </message>
     <message>
       <source>Archive configuration</source>
-      <translation type="unfinished"/>
+      <translation>Zálohovat nastavení</translation>
     </message>
     <message>
       <source>Departments list</source>
@@ -9163,11 +9203,11 @@
     </message>
     <message>
       <source>Voice messages</source>
-      <translation type="unfinished"/>
+      <translation>Hlasové zprávy</translation>
     </message>
     <message>
       <source>Voice message max length in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Maximální délka hlasové zprávy v sekundách</translation>
     </message>
     <message>
       <source>Maintenance</source>
@@ -9416,7 +9456,7 @@
     <name>genericbot/import</name>
     <message>
       <source>Import group</source>
-      <translation type="unfinished"/>
+      <translation>Import skupiny</translation>
     </message>
     <message>
       <source>File</source>
@@ -9538,23 +9578,23 @@
     <name>genericbot/restapi</name>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Jméno</translation>
     </message>
     <message>
       <source>Description</source>
-      <translation type="unfinished"/>
+      <translation>Popis</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation type="unfinished"/>
+      <translation>Host</translation>
     </message>
     <message>
       <source>Add request</source>
-      <translation type="unfinished"/>
+      <translation>Vložit požadavek</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation type="unfinished"/>
+      <translation>Smazat</translation>
     </message>
     <message>
       <source>Name of the request</source>
@@ -9562,27 +9602,27 @@
     </message>
     <message>
       <source>Method</source>
-      <translation type="unfinished"/>
+      <translation>Metoda</translation>
     </message>
     <message>
       <source>Sub URL</source>
-      <translation type="unfinished"/>
+      <translation>Sub URL</translation>
     </message>
     <message>
       <source>Params</source>
-      <translation type="unfinished"/>
+      <translation>Parametry</translation>
     </message>
     <message>
       <source>Authorization</source>
-      <translation type="unfinished"/>
+      <translation>Autorizace</translation>
     </message>
     <message>
       <source>Headers</source>
-      <translation type="unfinished"/>
+      <translation>Hlavičky</translation>
     </message>
     <message>
       <source>Body</source>
-      <translation type="unfinished"/>
+      <translation>Tělo</translation>
     </message>
     <message>
       <source>User parameters</source>
@@ -9598,7 +9638,7 @@
     </message>
     <message>
       <source>Add param</source>
-      <translation type="unfinished"/>
+      <translation>Přidat parametr</translation>
     </message>
     <message>
       <source>You can always just define custom header if you do not find authorisation method here.</source>
@@ -9606,19 +9646,19 @@
     </message>
     <message>
       <source>Authorization method</source>
-      <translation type="unfinished"/>
+      <translation>Autorizační metoda</translation>
     </message>
     <message>
       <source>Skip</source>
-      <translation type="unfinished"/>
+      <translation>Přeskočit</translation>
     </message>
     <message>
       <source>API Key Location</source>
-      <translation type="unfinished"/>
+      <translation>Umístění API klíče</translation>
     </message>
     <message>
       <source>Header</source>
-      <translation type="unfinished"/>
+      <translation>Hlavička</translation>
     </message>
     <message>
       <source>Query Params</source>
@@ -9650,11 +9690,11 @@
     </message>
     <message>
       <source>Location</source>
-      <translation type="unfinished"/>
+      <translation>Umístění</translation>
     </message>
     <message>
       <source>Query</source>
-      <translation type="unfinished"/>
+      <translation>Dotaz</translation>
     </message>
     <message>
       <source>Body Post Param</source>
@@ -9746,11 +9786,11 @@
     </message>
     <message>
       <source>Text like</source>
-      <translation type="unfinished"/>
+      <translation>Text líbí</translation>
     </message>
     <message>
       <source>Text not like</source>
-      <translation type="unfinished"/>
+      <translation>Text nelíbí</translation>
     </message>
     <message>
       <source>Comparison value</source>
@@ -9765,7 +9805,7 @@
     <name>system/buttoms</name>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Upravit</translation>
     </message>
   </context>
   <context>
@@ -9986,7 +10026,7 @@
     </message>
     <message>
       <source>Badge Icon</source>
-      <translation type="unfinished"/>
+      <translation>Ikona placky</translation>
     </message>
     <message>
       <source>Notification badges are only being used on mobile, at least at the time of writing. It is used to replace the browser icon that is shown by default.</source>
@@ -10006,7 +10046,7 @@
     </message>
     <message>
       <source>Private key is not shown after save</source>
-      <translation type="unfinished"/>
+      <translation>Soukromý klíč nebude po uložení zobrazen</translation>
     </message>
   </context>
   <context>
@@ -10672,7 +10712,7 @@
     <name>speech/language</name>
     <message>
       <source>Dialects</source>
-      <translation>Nářečí</translation>
+      <translation>Varianty jazyka</translation>
     </message>
     <message>
       <source>Language</source>
@@ -10680,7 +10720,7 @@
     </message>
     <message>
       <source>Dialect</source>
-      <translation>Dialekt</translation>
+      <translation>Varianta jazyka</translation>
     </message>
     <message>
       <source>Language Code</source>
@@ -10692,11 +10732,11 @@
     </message>
     <message>
       <source>New dialect</source>
-      <translation>Nové nářečí</translation>
+      <translation>Nová varianta jazyka</translation>
     </message>
     <message>
       <source>Edit dialect</source>
-      <translation type="unfinished"/>
+      <translation>Upravit variantu jazyka</translation>
     </message>
     <message>
       <source>Edit language</source>
@@ -10704,7 +10744,7 @@
     </message>
     <message>
       <source>Dialect name</source>
-      <translation type="unfinished"/>
+      <translation>Název varianty jazyka</translation>
     </message>
     <message>
       <source>Language code</source>
@@ -11186,7 +11226,7 @@
     </message>
     <message>
       <source>Transfer configuration</source>
-      <translation>Přenos nastavení</translation>
+      <translation>Nastavení přesměrování</translation>
     </message>
   </context>
   <context>
@@ -11224,7 +11264,7 @@
     </message>
     <message>
       <source>Options for chat transfer to department</source>
-      <translation type="unfinished"/>
+      <translation>Možnosti pro přesměrování do oddělení</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -11762,11 +11802,11 @@
     </message>
     <message>
       <source>Hide Online</source>
-      <translation type="unfinished"/>
+      <translation>Skrýt online</translation>
     </message>
     <message>
       <source>Can access all departments</source>
-      <translation type="unfinished"/>
+      <translation>Mohou přistupovat ke všem oddělením</translation>
     </message>
     <message>
       <source>Skype</source>
@@ -11829,7 +11869,7 @@
     </message>
     <message>
       <source>Go to back office</source>
-      <translation type="unfinished"/>
+      <translation>Vrátit se administrace</translation>
     </message>
     <message>
       <source>Old password</source>
@@ -12049,6 +12089,14 @@
     <name>chat/chatcommand</name>
     <message>
       <source>Nick changed!</source>
+      <translation>Přezdívka změněna!</translation>
+    </message>
+    <message>
+      <source>I have enabled files upload for you. [fupload]Upload a file[/fupload].</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files upload enabled.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12057,7 +12105,7 @@
     </message>
     <message>
       <source>Chat was transferred to bot!</source>
-      <translation type="unfinished"/>
+      <translation>Rozhovor byl přesměrován na bota!</translation>
     </message>
     <message>
       <source>E-mail changed!</source>
@@ -12065,7 +12113,7 @@
     </message>
     <message>
       <source>You do not have permission to transfer chat directly!</source>
-      <translation type="unfinished"/>
+      <translation>Nemáte oprávnění k přímému přesměrování rozhovoru!</translation>
     </message>
     <message>
       <source>User could not be found!</source>
@@ -12319,7 +12367,7 @@
     </message>
     <message>
       <source>Hour</source>
-      <translation type="unfinished"/>
+      <translation>Hodina</translation>
     </message>
   </context>
   <context>
@@ -12373,7 +12421,7 @@
     <name>departament/edit</name>
     <message>
       <source>Please enter a name</source>
-      <translation type="unfinished"/>
+      <translation>Prosím zadejte jméno</translation>
     </message>
     <message>
       <source>Please enter a department name</source>
@@ -12750,15 +12798,15 @@
     <name>chat/transferuser</name>
     <message>
       <source>has changed owner to</source>
-      <translation type="unfinished"/>
+      <translation>majitel změněn na</translation>
     </message>
     <message>
       <source>Chat owner was changed to</source>
-      <translation type="unfinished"/>
+      <translation>Vlastník rozhovoru byl změněn na</translation>
     </message>
     <message>
       <source>has transferred chat to</source>
-      <translation type="unfinished"/>
+      <translation>rozhovor přesměrován na</translation>
     </message>
     <message>
       <source>department</source>
@@ -12836,7 +12884,7 @@
     <name>genericbot/edit</name>
     <message>
       <source>System configuration</source>
-      <translation type="unfinished"/>
+      <translation>Nastavení systému</translation>
     </message>
     <message>
       <source>Bots</source>
@@ -12844,7 +12892,7 @@
     </message>
     <message>
       <source>Exceptions</source>
-      <translation type="unfinished"/>
+      <translation>Vyjímky</translation>
     </message>
     <message>
       <source>Rest API Calls</source>
@@ -12867,11 +12915,11 @@
     <name>groupchat/group</name>
     <message>
       <source>System configuration</source>
-      <translation type="unfinished"/>
+      <translation>Nastavení systému</translation>
     </message>
     <message>
       <source>Group chats list</source>
-      <translation type="unfinished"/>
+      <translation>Seznam skupinových rozhovorů</translation>
     </message>
     <message>
       <source>Group chats</source>
@@ -12915,15 +12963,15 @@
     <name>chat/file</name>
     <message>
       <source>Uploading</source>
-      <translation type="unfinished"/>
+      <translation>Nahrávání</translation>
     </message>
     <message>
       <source>Incorrect file type!</source>
-      <translation type="unfinished"/>
+      <translation>Nesprávný typ souboru!</translation>
     </message>
     <message>
       <source>File to big!</source>
-      <translation type="unfinished"/>
+      <translation>Soubor je příliš velký!</translation>
     </message>
   </context>
   <context>
@@ -12941,7 +12989,7 @@
     </message>
     <message>
       <source>Deny screen share</source>
-      <translation type="unfinished"/>
+      <translation>Zakázat sdílení obrazovky</translation>
     </message>
   </context>
 </TS>
