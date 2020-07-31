@@ -123,8 +123,8 @@ class erLhcoreClassUpdate
 					foreach ($columnsData as $column) {
 						if ($columnDesired['field'] == $column['field']) {
 							$columnFound = true;
-							
-							if ($columnDesired['type'] != $column['type']) {
+
+                            if (($columnDesired['type'] != $column['type'] && strpos($column['type'],'(') !== false) || (strpos($column['type'],'(') === false && explode('(',$columnDesired['type'])[0] != explode(' ',$column['type'])[0])) {
 								$typeMatch = false;
 							}
 
