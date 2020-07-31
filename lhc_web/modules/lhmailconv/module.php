@@ -109,7 +109,7 @@ $ViewList['apicloseconversation'] = array(
 
 $ViewList['apideleteconversation'] = array(
     'params' => array('id'),
-    'functions' => array( 'use_admin' )
+    'functions' => array( 'delete_conversation' )
 );
 
 $ViewList['loadmainconv'] = array(
@@ -231,5 +231,6 @@ $FunctionList['mailbox_manage'] = array('explain' => 'Permission to manage mailb
 $FunctionList['mrules_manage'] = array('explain' => 'Permission to manage matching rules');
 $FunctionList['rtemplates_manage'] = array('explain' => 'Permission to manage response templates');
 $FunctionList['use_alarms'] = array('explain' => 'Permission to use alarm widget');
+$FunctionList['delete_conversation'] = array('explain' => 'Permission to delete conversation');
 
 ?>

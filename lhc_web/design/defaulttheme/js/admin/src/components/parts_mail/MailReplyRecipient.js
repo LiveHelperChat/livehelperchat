@@ -29,16 +29,22 @@ const MailReplyRecipient = props => {
         }
     }, []);
 
+    const setReciepints = (type, value) => {
+        dispatch({'type' : type, "value" : value});
+        props.setRecipients(recipients);
+    }
+
     useEffect(() => {
         dispatch({"type" : "set", "value" : props.recipients});
+        props.setRecipients(props.recipients);
     },[props.recipients]);
 
     return <div className="row">
 
-            <div className="col-12 text-secondary font-weight-bold fs13 pb-1">Recipients <i className="material-icons settings text-muted" onClick={(e) => dispatch({'type' : "add_recipient","value" : "to"})} style={{fontSize: "20px"}}>add</i> Cc <i className="material-icons settings text-muted" onClick={(e) => dispatch({'type' : "add_recipient","value" : "cc"})} style={{fontSize: "20px"}}>add</i> Bcc <i onClick={(e) => dispatch({'type' : "add_recipient","value" : "bcc"})} className="material-icons settings text-muted" style={{fontSize: "20px"}}>add</i></div>
+        <div className="col-12 text-secondary font-weight-bold fs13 pb-1">Recipients <i className="material-icons settings text-muted" onClick={(e) => setReciepints("add_recipient","reply")} style={{fontSize: "20px"}}>add</i> Cc <i className="material-icons settings text-muted" onClick={(e) => setReciepints("add_recipient","cc")} style={{fontSize: "20px"}}>add</i> Bcc <i onClick={(e) => setReciepints("add_recipient","bcc")} className="material-icons settings text-muted" style={{fontSize: "20px"}}>add</i></div>
 
         <div className="col-6">
-            {recipients.to && recipients.to.map((mail, index) => (
+            {recipients.reply && recipients.reply.map((mail, index) => (
                 <div className="form-row pb-1">
                     <div className="col-1 text-secondary fs13 pt-1">To:</div>
                     <div className="col-5">
@@ -50,7 +56,7 @@ const MailReplyRecipient = props => {
                         </div>
                     </div>
                     <div className="col-5"><input type="text" placeholder="Recipient name" defaultValue={mail.name} className="form-control form-control-sm" /></div>
-                    {index > 0 && <div className="col"><i className="material-icons settings text-muted" onClick={(e) => dispatch({'type' : "remove_recipient","value" : {"recipient":"to", "index" : index}})}>remove</i></div>}
+                    {index > 0 && <div className="col"><i className="material-icons settings text-muted" onClick={(e) => setReciepints("remove_recipient",{"recipient":"reply", "index" : index})}>remove</i></div>}
                 </div>
             ))}
         </div>
@@ -68,7 +74,7 @@ const MailReplyRecipient = props => {
                     </div>
                 </div>
                 <div className="col-5"><input type="text" placeholder="Recipient name" defaultValue={mail.name} className="form-control form-control-sm" /></div>
-                <div className="col"><i className="material-icons settings text-muted" onClick={(e) => dispatch({'type' : "remove_recipient","value" : {"recipient":"cc", "index" : index}})}>remove</i></div>
+                <div className="col"><i className="material-icons settings text-muted" onClick={(e) => setReciepints("remove_recipient",{"recipient":"cc", "index" : index})}>remove</i></div>
             </div>
         ))}
         </div>
@@ -86,7 +92,7 @@ const MailReplyRecipient = props => {
                     </div>
                 </div>
                 <div className="col-5"><input type="text" placeholder="Recipient name" defaultValue={mail.name} className="form-control form-control-sm" /></div>
-                <div className="col"><i className="material-icons settings text-muted" onClick={(e) => dispatch({'type' : "remove_recipient","value" : {"recipient":"bcc", "index" : index}})}>remove</i></div>
+                <div className="col"><i className="material-icons settings text-muted" onClick={(e) => setReciepints("remove_recipient",{"recipient":"bcc", "index" : index})}>remove</i></div>
             </div>
         ))}
         </div>

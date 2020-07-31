@@ -221,6 +221,17 @@ class erLhcoreClassModelMailconvMessage
                 }
                 return $this->$var;
 
+            case 'to_data_keyed':
+            case 'reply_to_data_keyed':
+            case 'cc_data_keyed':
+            case 'bcc_data_keyed':
+                $varObj = str_replace('_keyed','',$var);
+                $this->$var = [];
+                $data = $this->$varObj;
+                if ($data != '') {
+                    $this->$var = json_decode($data,true);
+                }
+                return $this->$var;
 
             case 'to_data_front':
             case 'reply_to_data_front':

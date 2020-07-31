@@ -18,7 +18,9 @@
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Department');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Status');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Date');?></th>
-            <th width="1%"></th>
+            <?php if ($can_delete === true) : ?>
+                    <th width="1%"></th>
+            <?php endif; ?>
         </tr>
         </thead>
         <?php foreach ($items as $item) : ?>
@@ -53,11 +55,13 @@
                 <td>
                     <?php echo $item->udate_front;?>
                 </td>
+                <?php if ($can_delete === true) : ?>
                 <td>
                     <div class="btn-group" role="group" aria-label="..." style="width:60px;">
                         <a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/deleteconversation')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE872;</i></a>
                     </div>
                 </td>
+                <?php endif; ?>
             </tr>
         <?php endforeach; ?>
     </table>

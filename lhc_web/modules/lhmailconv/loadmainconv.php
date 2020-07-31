@@ -64,6 +64,7 @@ try {
 
         erLhcoreClassChat::prefillGetAttributesObject($conv, array(
             'plain_user_name',
+            'can_delete',
             'udate_front',
             'department_name',
             'accept_time_front',

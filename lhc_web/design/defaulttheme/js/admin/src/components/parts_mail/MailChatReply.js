@@ -13,6 +13,7 @@ const MailChatReply = props => {
     const [replySignature, setReplySignature] = useState(null);
     const [loadedReplyData, setLoadedReplyData] = useState(false);
     const [recipients, setRecipients] = useState([]);
+    const [recipientsModified, setModifiedRecipients] = useState([]);
 
     const [attachedFiles, dispatch] = useReducer((attachedFiles, { type, value }) => {
         switch (type) {
@@ -39,6 +40,7 @@ const MailChatReply = props => {
 
     const sendReply = () => {
         console.log(tinyMCE.get("reply-to-mce-"+props.message.id).getContent());
+        console.log(recipientsModified);
     }
 
     const removeAttatchedFile = (file, index) => {
@@ -47,6 +49,8 @@ const MailChatReply = props => {
             axios.get(WWW_DIR_JAVASCRIPT  + "file/delete/" + file.id + '/(csfr)/' + confLH.csrf_token + '?react=1');
         }
     }
+
+
 
     useEffect(() => {
         return () => {
@@ -95,7 +99,7 @@ const MailChatReply = props => {
 
             {replyMode && loadedReplyData && <div className="shadow p-2">
 
-                <MailReplyRecipient message={props.message} recipients={recipients} />
+                <MailReplyRecipient setRecipients={(recipients) => setModifiedRecipients(recipients)} message={props.message} recipients={recipients} />
 
                 <Editor
                     tinymceScriptSrc="/design/defaulttheme/js/tinymce/js/tinymce/tinymce.min.js"

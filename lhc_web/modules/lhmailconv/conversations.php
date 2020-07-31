@@ -2,25 +2,27 @@
 
 $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/conversations.tpl.php');
 
-if ( isset($_POST['doDelete']) ) {
-    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
-        erLhcoreClassModule::redirect('mailconv/conversations');
-        exit;
-    }
+if ($currentUser->hasAccessTo('lhmailconv','delete_conversation')) {
+    if ( isset($_POST['doDelete']) ) {
+        if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+            erLhcoreClassModule::redirect('mailconv/conversations');
+            exit;
+        }
 
-    $definition = array(
-        'ConversationID' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'int', null, FILTER_REQUIRE_ARRAY
-        ),
-    );
+        $definition = array(
+            'ConversationID' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', null, FILTER_REQUIRE_ARRAY
+            ),
+        );
 
-    $form = new ezcInputForm( INPUT_POST, $definition );
-    $Errors = array();
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = array();
 
-    if ( $form->hasValidData( 'ConversationID' ) && !empty($form->ConversationID) ) {
-        $chats = erLhcoreClassModelMailconvConversation::getList(array('filterin' => array('id' => $form->ConversationID)));
-        foreach ($chats as $chatToDelete) {
-             $chatToDelete->removeThis();
+        if ( $form->hasValidData( 'ConversationID' ) && !empty($form->ConversationID) ) {
+            $chats = erLhcoreClassModelMailconvConversation::getList(array('filterin' => array('id' => $form->ConversationID)));
+            foreach ($chats as $chatToDelete) {
+                $chatToDelete->removeThis();
+            }
         }
     }
 }
@@ -85,6 +87,7 @@ if ($pages->items_total > 0) {
 $filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('mailconv/conversations');
 $tpl->set('input',$filterParams['input_form']);
 $tpl->set('inputAppend',$append);
+$tpl->set('can_delete',$currentUser->hasAccessTo('lhmailconv','delete_conversation'));
 
 $Result['content'] = $tpl->fetch();
 

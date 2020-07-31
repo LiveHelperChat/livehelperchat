@@ -97,6 +97,10 @@ class erLhcoreClassModelMailconvConversation
                 $this->mailbox = erLhcoreClassModelMailconvMailbox::fetch($this->mailbox_id);
                 return $this->mailbox;
 
+            case 'can_delete':
+                $this->can_delete = erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','delete_conversation');
+                return $this->can_delete;
+
             case 'department_name':
                 return $this->department_name = (string)$this->department;
 
