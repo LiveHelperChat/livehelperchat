@@ -115,7 +115,7 @@ return array(
     'buble_sys_title_color' => array(
         'type' => 'colorpicker',
         'main_attr' => 'css_attributes_array',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Title text colorr'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Title text color'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
