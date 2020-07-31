@@ -4579,6 +4579,14 @@
         "extra": ""
       },
       {
+        "field": "device_type",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "conversion_id",
         "type": "int(11)",
         "null": "NO",
@@ -9115,7 +9123,8 @@
     "lh_abstract_proactive_chat_invitation" : {
       "new" : {
         "tag" : "ALTER TABLE `lh_abstract_proactive_chat_invitation` ADD INDEX `tag` (`tag`);",
-        "dynamic_invitation" : "ALTER TABLE `lh_abstract_proactive_chat_invitation` ADD INDEX `dynamic_invitation` (`dynamic_invitation`);"
+        "dynamic_invitation" : "ALTER TABLE `lh_abstract_proactive_chat_invitation` ADD INDEX `dynamic_invitation` (`dynamic_invitation`);",
+        "show_on_mobile" : "ALTER TABLE `lh_abstract_proactive_chat_invitation` ADD INDEX `show_on_mobile` (`show_on_mobile`)"
       },
       "old" : []
     },

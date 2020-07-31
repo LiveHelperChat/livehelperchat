@@ -58,7 +58,8 @@ class erLhcoreClassModelChatOnlineUser
             'visitor_tz' => $this->visitor_tz,
             'last_check_time' => $this->last_check_time,
             'user_active' => $this->user_active,
-            'notes' => $this->notes
+            'notes' => $this->notes,
+            'device_type' => $this->device_type,
         );
     }
 
@@ -721,7 +722,7 @@ class erLhcoreClassModelChatOnlineUser
                 erLhcoreClassChatCleanup::cleanupOnlineUsers();
                 return false;
             }
-            
+
             $ip = isset($paramsHandle['ip']) ? $paramsHandle['ip'] : erLhcoreClassIPDetect::getIP();
             
             if ($item->ip != $ip) {
@@ -845,9 +846,12 @@ class erLhcoreClassModelChatOnlineUser
                 $item->last_visit = time();
                 $item->store_chat = true;
                 $logPageView = true;
+
+                if ($item->device_type == 0) {
+                    $detect = new Mobile_Detect;
+                    $item->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 3 : 2) : 1);
+                }
             }
-
-
 
             if ((!isset($paramsHandle['wopen']) || $paramsHandle['wopen'] == 0) && $item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1 && isset($paramsHandle['pro_active_limitation']) && ($paramsHandle['pro_active_limitation'] == -1 || erLhcoreClassChat::getPendingChatsCountPublic($item->dep_id > 0 ? $item->dep_id : false) <= $paramsHandle['pro_active_limitation'])) {
                 $errors = array();
@@ -952,6 +956,7 @@ class erLhcoreClassModelChatOnlineUser
     public $last_check_time = 0;
     public $user_active = 0;
     public $conversion_id = 0;
+    public $device_type = 0;
 
     public $has_nick = false;
 
