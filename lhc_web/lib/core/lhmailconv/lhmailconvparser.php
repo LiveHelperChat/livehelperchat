@@ -534,6 +534,19 @@ class erLhcoreClassMailconvParser {
 
         return $message;
     }
+
+    public static function purgeMessage($message)
+    {
+        $mailbox = erLhcoreClassModelMailconvMailbox::fetch($message->mailbox_id);
+        $mailboxHandler = new PhpImap\Mailbox(
+            $mailbox->imap, // IMAP server incl. flags and optional mailbox folder
+            $mailbox->username, // Username for the before configured mailbox
+            $mailbox->password, // Password for the before configured username
+            false
+        );
+        $mailboxHandler->moveMail($message->uid,'[Gmail]/Trash');
+        $mailboxHandler->expungeDeletedMails();
+    }
 }
 
 ?>

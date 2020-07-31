@@ -89,6 +89,8 @@ class erLhcoreClassModelMailconvMessage
         foreach ($files as $file) {
             $file->removeThis();
         }
+
+        erLhcoreClassMailconvParser::purgeMessage($this);
     }
 
     public function __get($var)
