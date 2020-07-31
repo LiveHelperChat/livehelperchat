@@ -92,7 +92,7 @@ class ProactiveInvitation extends Component {
                 <button title="Close" onClick={(e) => this.hideInvitation(e)} className="float-right btn btn-sm rounded"><i className="material-icons mr-0">&#xf10a;</i></button>
                 <div className="fs14">
 
-                    {this.props.chatwidget.getIn(['proactive','data','photo']) && <img className="rounded" width="30" alt={this.props.chatwidget.getIn(['proactive','data','name_support']) || this.props.chatwidget.getIn(['proactive','data','extra_profile'])} title={this.props.chatwidget.getIn(['proactive','data','name_support']) || this.props.chatwidget.getIn(['proactive','data','extra_profile'])} className="mr-2" src={this.props.chatwidget.getIn(['proactive','data','photo'])} />}
+                    {this.props.chatwidget.getIn(['proactive','data','photo']) && <img width="30" alt={this.props.chatwidget.getIn(['proactive','data','name_support']) || this.props.chatwidget.getIn(['proactive','data','extra_profile'])} title={this.props.chatwidget.getIn(['proactive','data','name_support']) || this.props.chatwidget.getIn(['proactive','data','extra_profile'])} className="mr-2 rounded" src={this.props.chatwidget.getIn(['proactive','data','photo'])} />}
 
                     <b>{this.props.chatwidget.getIn(['proactive','data','name_support']) || this.props.chatwidget.getIn(['proactive','data','extra_profile'])}</b>
 
