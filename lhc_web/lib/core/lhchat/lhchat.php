@@ -1156,11 +1156,23 @@ class erLhcoreClassChat {
    public static function getFirstUserMessage($chat_id)
    {
 	   	$db = ezcDbInstance::get();
-	   	$stmt = $db->prepare('SELECT lh_msg.msg FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id AND user_id = 0 ORDER BY id ASC LIMIT 1) AS items ON lh_msg.id = items.id');
+	   	$stmt = $db->prepare('SELECT lh_msg.msg,lh_msg.user_id FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id AND (user_id = 0 OR user_id = -2) ORDER BY id ASC LIMIT 10) AS items ON lh_msg.id = items.id');
 	   	$stmt->bindValue( ':chat_id',$chat_id,PDO::PARAM_INT);
 	   	$stmt->setFetchMode(PDO::FETCH_ASSOC);
-	   	$stmt->execute();  
-	   	return $stmt->fetchColumn();
+	   	$stmt->execute();
+
+	   	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+	   	$responseRows = [];
+	   	foreach ($rows as $row) {
+            $responseRows[] = ($row['user_id'] == 0 ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You') : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Us')) . ': ' . $row['msg'];
+        }
+
+	   	if (empty($responseRows)) {
+	   	    return '';
+        }
+
+	   	return erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Summary') . ":\n".implode("\n",$responseRows);
    }
 
    public static function hasAccessToWrite($chat)
