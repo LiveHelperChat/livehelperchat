@@ -20,8 +20,8 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
 	}
 	
 	$userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('uactiv' => (int)$Params['user_parameters_unordered']['uactiv'], 'wopen' => (int)$Params['user_parameters_unordered']['wopen'], 'tz' => $Params['user_parameters_unordered']['tz'], 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'department' => $department, 'identifier' => (string)$Params['user_parameters_unordered']['identifier'], 'pages_count' => true, 'vid' => (string)$Params['user_parameters_unordered']['vid']));
-	
-	if (erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1 && isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
+
+	if (erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1 && erLhcoreClassModelChatOnlineUser::getReferer() != '') {
 		erLhcoreClassModelChatOnlineUserFootprint::addPageView($userInstance);
 	}		
 }

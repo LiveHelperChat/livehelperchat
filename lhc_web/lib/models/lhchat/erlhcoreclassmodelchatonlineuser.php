@@ -618,6 +618,16 @@ class erLhcoreClassModelChatOnlineUser
         return erLhAbstractModelProactiveChatInvitation::processInjectHTMLInvitation($paramsHandle['online_user'], array('tag' => isset($paramsHandle['tag']) ? $paramsHandle['tag'] : ''));
     }
 
+    public static function getReferer(){
+        if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
+            return $_SERVER['HTTP_REFERER'];
+        } elseif (isset($_SERVER['HTTP_ORIGIN']) && $_SERVER['HTTP_ORIGIN'] != '') {
+            return $_SERVER['HTTP_ORIGIN'];
+        }
+
+        return '';
+    }
+
     public static function handleRequest($paramsHandle = array())
     {
         if (isset($_SERVER['HTTP_USER_AGENT']) && !self::isBot($_SERVER['HTTP_USER_AGENT'])) {
@@ -830,7 +840,7 @@ class erLhcoreClassModelChatOnlineUser
             // Update variables only if it's not JS to check for operator message
             if (!isset($paramsHandle['check_message_operator']) || (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true)) {
                 $item->user_agent = isset($_POST['ua']) ? $_POST['ua'] : (isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '');
-                $item->current_page = isset($_POST['l']) ? $_POST['l'] : (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '');
+                $item->current_page = isset($_POST['l']) ? $_POST['l'] : self::getReferer();
                 $item->page_title = isset($_POST['dt']) ? $_POST['dt'] : (isset($_GET['dt']) ? substr((string)rawurldecode($_GET['dt']),0,250) : '');
                 $item->last_visit = time();
                 $item->store_chat = true;

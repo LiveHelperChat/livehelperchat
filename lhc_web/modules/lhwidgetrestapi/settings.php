@@ -97,7 +97,7 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
         $outputResponse['isOnline'] = false;
     }
 
-    if (erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1 && isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
+    if (erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1 && erLhcoreClassModelChatOnlineUser::getReferer() != '') {
         erLhcoreClassModelChatOnlineUserFootprint::addPageView($userInstance);
     }
 
