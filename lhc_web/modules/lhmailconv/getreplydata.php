@@ -17,10 +17,16 @@ try {
             $currentUser->getUserData()->name_official,
             $conv->department_name
             ],$signature);
-        
+
         echo json_encode([
             'intro' => '<p>' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','On') . ' ' . date('Y-m-d H:i',$message->udate).', '. ($message->from_name != '' ? $message->from_name : $message->from_address) . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','wrote') . ':</p>',
-            'signature' => '<div class="gmail_signature">' . $signature . '</div>']);
+            'signature' => '<div class="gmail_signature">' . $signature . '</div>',
+            'recipients' => [
+            'to' => $message->to_data_array,
+            'reply' => $message->reply_to_data_array,
+            'cc' => $message->cc_data_array,
+            'bcc' => $message->bcc_data_array]
+        ]);
         exit;
 
     } else {

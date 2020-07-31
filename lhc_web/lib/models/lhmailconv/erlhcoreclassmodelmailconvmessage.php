@@ -204,6 +204,24 @@ class erLhcoreClassModelMailconvMessage
 
                 return $this->subjects;
 
+            case 'to_data_array':
+            case 'reply_to_data_array':
+            case 'cc_data_array':
+            case 'bcc_data_array':
+                $varObj = str_replace('_array','',$var);
+                $this->$var = [];
+                $data = $this->$varObj;
+                if ($data != '') {
+                    $items = json_decode($data,true);
+                    $itemsFormatted = [];
+                    foreach ($items as $mail => $mailTitle) {
+                        $itemsFormatted[] = ['email' => $mail, 'name' => $mailTitle];
+                    }
+                    $this->$var = $itemsFormatted;
+                }
+                return $this->$var;
+
+
             case 'to_data_front':
             case 'reply_to_data_front':
             case 'cc_data_front':

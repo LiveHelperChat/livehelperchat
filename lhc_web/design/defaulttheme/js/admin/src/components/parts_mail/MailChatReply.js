@@ -3,6 +3,7 @@ import React, { useEffect, useState, useReducer, useRef } from "react";
 import { Editor } from '@tinymce/tinymce-react';
 import axios from "axios";
 import MailChatAttachement from "./MailChatAttachement";
+import MailReplyRecipient from "./MailReplyRecipient";
 
 const MailChatReply = props => {
 
@@ -11,6 +12,7 @@ const MailChatReply = props => {
     const [replyIntro, setReplyIntro] = useState(null);
     const [replySignature, setReplySignature] = useState(null);
     const [loadedReplyData, setLoadedReplyData] = useState(false);
+    const [recipients, setRecipients] = useState([]);
 
     const [attachedFiles, dispatch] = useReducer((attachedFiles, { type, value }) => {
         switch (type) {
@@ -62,6 +64,7 @@ const MailChatReply = props => {
                 setLoadedReplyData(true);
                 setReplyIntro(result.data.intro);
                 setReplySignature(result.data.signature);
+                setRecipients(result.data.recipients);
             });
         } else if (replyMode == false && loadedReplyData == true) {
             if (currentAttatchedFiles.current.length > 0) {
@@ -80,6 +83,8 @@ const MailChatReply = props => {
         setReplyMode(true);
     }
 
+
+
     return <React.Fragment>
         <div className="col-12 mt-2 pt-3 pb-2">
             {!replyMode && <div className="btn-group" role="group" aria-label="Mail actions">
@@ -89,6 +94,9 @@ const MailChatReply = props => {
             </div>}
 
             {replyMode && loadedReplyData && <div className="shadow p-2">
+
+                <MailReplyRecipient message={props.message} recipients={recipients} />
+
                 <Editor
                     tinymceScriptSrc="/design/defaulttheme/js/tinymce/js/tinymce/tinymce.min.js"
                     initialValue={"<p></p>" + replyIntro + "<blockquote>" + props.message.body_front + "</blockquote>" + replySignature}
