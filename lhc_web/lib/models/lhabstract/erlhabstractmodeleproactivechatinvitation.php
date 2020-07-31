@@ -738,7 +738,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $iddle_for = 0;
 	public $event_type = 0;
 	public $autoresponder_id = 0;
-	public $show_on_mobile = 0;
+	public $show_on_mobile = 1;
 	public $delay = 0;
 	public $delay_init = 0;
 	public $show_instant = 0;
