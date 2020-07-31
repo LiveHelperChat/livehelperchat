@@ -630,7 +630,7 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array('amails',$Pa
 }
 
 
-if (is_array($Params['user_parameters_unordered']['w']) && in_array('malarms',$Params['user_parameters_unordered']['w'])) {
+if (is_array($Params['user_parameters_unordered']['w']) && in_array('malarms',$Params['user_parameters_unordered']['w']) && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'use_alarms')) {
     $additionalFilter = array();
 
     if (is_array($Params['user_parameters_unordered']['alarmmu']) && !empty($Params['user_parameters_unordered']['alarmmu'])) {

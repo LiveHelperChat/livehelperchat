@@ -26,7 +26,7 @@ $ViewList['attatchfiledata'] = array(
 
 $ViewList['mailbox'] = array(
     'params' => array(),
-    'functions' => array( 'use_admin' )
+    'functions' => array( 'mailbox_manage' )
 );
 
 $ViewList['inlinedownload'] = array(
@@ -145,7 +145,7 @@ $ViewList['conversations'] = array(
 
 $ViewList['newmailbox'] = array(
     'params' => array(),
-    'functions' => array( 'use_admin' )
+    'functions' => array( 'mailbox_manage' )
 );
 
 $ViewList['syncmailbox'] = array(
@@ -155,29 +155,29 @@ $ViewList['syncmailbox'] = array(
 
 $ViewList['matchingrules'] = array(
     'params' => array(),
-    'functions' => array( 'use_admin' )
+    'functions' => array( 'mrules_manage' )
 );
 
 $ViewList['newmatchrule'] = array(
     'params' => array(),
-    'functions' => array( 'use_admin' )
+    'functions' => array( 'mrules_manage' )
 );
 
 $ViewList['editmailbox'] = array(
     'params' => array('id'),
     'uparams' => array('action'),
-    'functions' => array( 'use_admin' )
+    'functions' => array( 'mailbox_manage' )
 );
 
 $ViewList['editmatchrule'] = array(
     'params' => array('id'),
-    'functions' => array( 'use_admin' )
+    'functions' => array( 'mrules_manage' )
 );
 
 $ViewList['deletemailbox'] = array(
     'params' => array('id'),
     'uparams' => array('csfr'),
-    'functions' => array( 'use_admin' )
+    'functions' => array( 'mailbox_manage' )
 );
 
 $ViewList['deleteconversation'] = array(
@@ -189,19 +189,19 @@ $ViewList['deleteconversation'] = array(
 $ViewList['deleteresponsetemplate'] = array(
     'params' => array('id'),
     'uparams' => array('csfr'),
-    'functions' => array( 'use_admin' )
+    'functions' => array( 'rtemplates_manage' )
 );
 
 $ViewList['deletematchingrule'] = array(
     'params' => array('id'),
     'uparams' => array('csfr'),
-    'functions' => array( 'use_admin' )
+    'functions' => array( 'mrules_manage' )
 );
 
 $ViewList['responsetemplates'] = array(
     'params' => array(),
     'uparams' => array(),
-    'functions' => array( 'use_admin' )
+    'functions' => array( 'rtemplates_manage' )
 );
 
 $ViewList['apiresponsetemplates'] = array(
@@ -212,20 +212,24 @@ $ViewList['apiresponsetemplates'] = array(
 
 $ViewList['newresponsetemplate'] = array(
     'params' => array(),
-    'functions' => array( 'use_admin' )
+    'functions' => array( 'rtemplates_manage' )
 );
 
 $ViewList['editresponsetemplate'] = array(
     'params' => array('id'),
-    'functions' => array( 'use_admin' )
+    'functions' => array( 'rtemplates_manage' )
 );
 
 $ViewList['notifications'] = array(
     'params' => array(),
-    'functions' => array( 'use_admin' )
+    'functions' => array( 'use_alarms' )
 );
 
 $FunctionList = array();
 $FunctionList['use_admin'] = array('explain' => 'Permission to use mail conversation module');
+$FunctionList['mailbox_manage'] = array('explain' => 'Permission to manage mailbox');
+$FunctionList['mrules_manage'] = array('explain' => 'Permission to manage matching rules');
+$FunctionList['rtemplates_manage'] = array('explain' => 'Permission to manage response templates');
+$FunctionList['use_alarms'] = array('explain' => 'Permission to use alarm widget');
 
 ?>
