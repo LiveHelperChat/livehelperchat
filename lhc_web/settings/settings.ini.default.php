@@ -169,7 +169,7 @@ return array (
                             'default_url' =>
                                 array (
                                     'module' => 'chat',
-                                    'view' => 'startchat',
+                                    'view' => 'start',
                                 ),
                         ),
                     'hrv' =>
