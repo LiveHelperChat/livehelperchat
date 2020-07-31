@@ -420,7 +420,7 @@ class ezcUrl
         {
             $param = $this->path[$i];
             if ( strlen( $param ) > 1 &&
-                 $param{0} == $urlCfg->unorderedDelimiters[0] )
+                 $param[0] == $urlCfg->unorderedDelimiters[0] )
             {
                 $param = trim( trim( $param, $urlCfg->unorderedDelimiters[0] ), $urlCfg->unorderedDelimiters[1] );
                 if ( isset( $encounters[$param] ) )
@@ -433,7 +433,7 @@ class ezcUrl
                 }
                 $result[$param][$encounters[$param]] = array();
                 $j = 1;
-                while ( ( $i + $j ) < $pathCount && $this->path[$i + $j]{0} != $urlCfg->unorderedDelimiters[0] )
+                while ( ( $i + $j ) < $pathCount && $this->path[$i + $j][0] != $urlCfg->unorderedDelimiters[0] )
                 {
                     $result[$param][$encounters[$param]][] = trim( trim( $this->path[$i + $j], $urlCfg->unorderedDelimiters[0] ), $urlCfg->unorderedDelimiters[1] );
                     $j++;
