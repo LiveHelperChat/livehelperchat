@@ -97,7 +97,7 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
         $outputResponse['isOnline'] = false;
     }
 
-    if (erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1 && isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
+    if (erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1 && erLhcoreClassModelChatOnlineUser::getReferer() != '') {
         erLhcoreClassModelChatOnlineUserFootprint::addPageView($userInstance);
     }
 
@@ -279,7 +279,7 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 }
 
 $ts = time();
-$outputResponse['v'] = 91;
+$outputResponse['v'] = 92;
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
 

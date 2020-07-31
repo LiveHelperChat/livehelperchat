@@ -58,7 +58,8 @@ class erLhcoreClassModelChatOnlineUser
             'visitor_tz' => $this->visitor_tz,
             'last_check_time' => $this->last_check_time,
             'user_active' => $this->user_active,
-            'notes' => $this->notes
+            'notes' => $this->notes,
+            'device_type' => $this->device_type,
         );
     }
 
@@ -618,6 +619,16 @@ class erLhcoreClassModelChatOnlineUser
         return erLhAbstractModelProactiveChatInvitation::processInjectHTMLInvitation($paramsHandle['online_user'], array('tag' => isset($paramsHandle['tag']) ? $paramsHandle['tag'] : ''));
     }
 
+    public static function getReferer(){
+        if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
+            return $_SERVER['HTTP_REFERER'];
+        } elseif (isset($_SERVER['HTTP_ORIGIN']) && $_SERVER['HTTP_ORIGIN'] != '') {
+            return $_SERVER['HTTP_ORIGIN'];
+        }
+
+        return '';
+    }
+
     public static function handleRequest($paramsHandle = array())
     {
         if (isset($_SERVER['HTTP_USER_AGENT']) && !self::isBot($_SERVER['HTTP_USER_AGENT'])) {
@@ -711,7 +722,7 @@ class erLhcoreClassModelChatOnlineUser
                 erLhcoreClassChatCleanup::cleanupOnlineUsers();
                 return false;
             }
-            
+
             $ip = isset($paramsHandle['ip']) ? $paramsHandle['ip'] : erLhcoreClassIPDetect::getIP();
             
             if ($item->ip != $ip) {
@@ -830,14 +841,17 @@ class erLhcoreClassModelChatOnlineUser
             // Update variables only if it's not JS to check for operator message
             if (!isset($paramsHandle['check_message_operator']) || (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true)) {
                 $item->user_agent = isset($_POST['ua']) ? $_POST['ua'] : (isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '');
-                $item->current_page = isset($_POST['l']) ? $_POST['l'] : (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '');
+                $item->current_page = isset($_POST['l']) ? $_POST['l'] : self::getReferer();
                 $item->page_title = isset($_POST['dt']) ? $_POST['dt'] : (isset($_GET['dt']) ? substr((string)rawurldecode($_GET['dt']),0,250) : '');
                 $item->last_visit = time();
                 $item->store_chat = true;
                 $logPageView = true;
+
+                if ($item->device_type == 0) {
+                    $detect = new Mobile_Detect;
+                    $item->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 3 : 2) : 1);
+                }
             }
-
-
 
             if ((!isset($paramsHandle['wopen']) || $paramsHandle['wopen'] == 0) && $item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1 && isset($paramsHandle['pro_active_limitation']) && ($paramsHandle['pro_active_limitation'] == -1 || erLhcoreClassChat::getPendingChatsCountPublic($item->dep_id > 0 ? $item->dep_id : false) <= $paramsHandle['pro_active_limitation'])) {
                 $errors = array();
@@ -942,6 +956,7 @@ class erLhcoreClassModelChatOnlineUser
     public $last_check_time = 0;
     public $user_active = 0;
     public $conversion_id = 0;
+    public $device_type = 0;
 
     public $has_nick = false;
 

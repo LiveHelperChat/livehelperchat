@@ -98,10 +98,15 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
     ),
     'show_on_mobile' => array(
-        'type' => 'checkbox',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Show on mobile'),
+        'type' => 'combobox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Show on these devices only'),
         'required' => false,
-        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
+        'hidden' => true,
+        'name_attr' => 'name',
+        'hide_optional' => true,
+        'source' => 'erLhAbstractModelProactiveChatInvitation::getDeviceOptions',
+        'params_call' => array(),
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'show_everytime' => array(
         'type' => 'checkbox',

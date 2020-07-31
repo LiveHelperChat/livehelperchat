@@ -646,6 +646,10 @@
       <translation>Contenuto di testo prima dei campi utente</translation>
     </message>
     <message>
+      <source>Choose manually bot ant trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Default</source>
       <translation>Predefinito</translation>
     </message>
@@ -1284,6 +1288,10 @@ Chiudi la chat se la pagina viene aggiornata. Utile se hai incorporato il codice
       <translation>Mostrare il sondaggio alla chiusura della chat</translation>
     </message>
     <message>
+      <source>Automatically determine intro message by bot default message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Try to detect language from browser headers</source>
       <translation>Provare a determinare la lingua dagli headers del browser</translation>
     </message>
@@ -1315,6 +1323,10 @@ Messaggi in stile bolla</translation>
     <message>
       <source>Notification domain</source>
       <translation>Dominio di notifica</translation>
+    </message>
+    <message>
+      <source>Header icons color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget themes</source>
@@ -2032,6 +2044,14 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Show messages box above input fields, usefull for UX combinations.</source>
       <translation>Mostra i riquadri dei messaggi sopra i campi di input, utili per le combinazioni UX.</translation>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
@@ -4960,6 +4980,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Ordina per numero di chat attive</translation>
     </message>
     <message>
+      <source>Change operator status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Sort</source>
       <translation>Ordinare</translation>
     </message>
@@ -5099,12 +5123,16 @@ Icona colonna, testo icone materiale</translation>
       <translation>Google</translation>
     </message>
     <message>
+      <source>Yandex</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Use Bing service</source>
       <translation>Utilizzare il servizio Bing</translation>
     </message>
     <message>
-      <source>Bing client ID</source>
-      <translation>ID client Bing</translation>
+      <source>Select Region</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Bing client secret, key is never shown for security purposes</source>
@@ -5127,8 +5155,16 @@ Icona colonna, testo icone materiale</translation>
       <translation>Imposta referente, utile se vuoi limitare le chiamate a referenti specifici.</translation>
     </message>
     <message>
+      <source>Use Yandex service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Settings updated</source>
       <translation>Impostazioni aggiornate</translation>
+    </message>
+    <message>
+      <source>Missing translate region</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Missing text to translate</source>
@@ -5476,6 +5512,10 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Notify me if visitor writes more than defined number messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>online status</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7108,6 +7148,14 @@ Icona colonna, testo icone materiale</translation>
       <translation>Pulisci la cache</translation>
     </message>
     <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Home</source>
       <translation>Home</translation>
     </message>
@@ -7189,14 +7237,6 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Visible</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12056,6 +12096,14 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Nick changed!</source>
       <translation>Nick modificato!</translation>
+    </message>
+    <message>
+      <source>I have enabled files upload for you. [fupload]Upload a file[/fupload].</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files upload enabled.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat status changed on-hold!</source>

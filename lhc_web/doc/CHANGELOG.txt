@@ -1,3 +1,20 @@
+3.39v
+
+1. Security improvements regarding postMessage workflow.
+2. In proactive invitation you will be able to choose on what device invitation should be triggered.
+3. Text matching rules for bot now supports wildcard and preg_match rules. Please refer to documentation.
+4. You now can prepend bot button directly in proactive invitation message.
+5. Proactive invitation will show small logo image of the operator.
+6. Slovakian siteaccess
+7. If HTTP_REFERER header not found we check also HTTP_ORIGIN now.
+8. !stopfiles will update visitor UI also.
+9. Rest API methods to work with a user.
+10. Proactive invitation if required can show full widget on invitation.
+
+And many many more various changes...
+
+execute doc/update_db/update_213.sql for update
+
 3.38v
 
 1. Bot conditional changes

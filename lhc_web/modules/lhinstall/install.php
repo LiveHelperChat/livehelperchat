@@ -776,7 +776,7 @@ try {
 				(2,	'Bahasa Indonesia',''),
 				(3,	'Bahasa Melayu',''),
 				(4,	'Català',''),
-				(5,	'Čeština',''),
+				(5,	'Čeština','cse'),
 				(6,	'Deutsch','ger'),
 				(7,	'English',''),
 				(8,	'Español','esp'),
@@ -793,7 +793,7 @@ try {
 				(19,	'Polski','pol'),
 				(20,	'Português','por'),
 				(21,	'Română',''),
-				(22,	'Slovenčina',''),
+				(22,	'Slovenčina','svk'),
 				(23,	'Suomi','fin'),
 				(24,	'Svenska',''),
 				(25,	'Türkçe','tur'),
@@ -1509,6 +1509,7 @@ try {
         	   	  `online_attr_system` text NOT NULL,
         	   	  `operation_chat` text NOT NULL,
         	   	  `online_attr` text NOT NULL,
+        	   	  `device_type` tinyint(1) NOT NULL DEFAULT '0',
                   PRIMARY KEY (`id`),
                   KEY `vid` (`vid`),
 				  KEY `dep_id` (`dep_id`),
@@ -1558,6 +1559,7 @@ try {
         	      KEY `identifier` (`identifier`),
         	      KEY `dynamic_invitation` (`dynamic_invitation`),
         	      KEY `tag` (`tag`),
+        	      KEY `show_on_mobile` (`show_on_mobile`),
         	      KEY `dep_id` (`dep_id`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 

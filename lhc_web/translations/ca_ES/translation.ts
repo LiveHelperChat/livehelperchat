@@ -646,6 +646,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Choose manually bot ant trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Default</source>
       <translation type="unfinished"/>
     </message>
@@ -1282,6 +1286,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Automatically determine intro message by bot default message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Try to detect language from browser headers</source>
       <translation type="unfinished"/>
     </message>
@@ -1311,6 +1319,10 @@
     </message>
     <message>
       <source>Notification domain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header icons color</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2026,6 +2038,14 @@
     <message>
       <source>Show messages box above input fields, usefull for UX combinations.</source>
       <translation>Mostra el quadre de missatges per sobre dels camps d&apos;entrada, útil per a combinacions UX.</translation>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
@@ -4954,6 +4974,10 @@
       <translation>Ordena pel nombre de xats actius</translation>
     </message>
     <message>
+      <source>Change operator status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Sort</source>
       <translation>Ordena</translation>
     </message>
@@ -5093,12 +5117,16 @@
       <translation>Google</translation>
     </message>
     <message>
+      <source>Yandex</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Use Bing service</source>
       <translation>Utilitza el servei de Bing</translation>
     </message>
     <message>
-      <source>Bing client ID</source>
-      <translation>ID de client de Bing</translation>
+      <source>Select Region</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Bing client secret, key is never shown for security purposes</source>
@@ -5121,8 +5149,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Use Yandex service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Settings updated</source>
       <translation>Configuració actualitzada</translation>
+    </message>
+    <message>
+      <source>Missing translate region</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Missing text to translate</source>
@@ -5470,6 +5506,10 @@
     </message>
     <message>
       <source>Notify me if visitor writes more than defined number messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>online status</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7103,6 +7143,14 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>Buida la mem. cau</translation>
     </message>
     <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Home</source>
       <translation>Inici</translation>
     </message>
@@ -7184,14 +7232,6 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     </message>
     <message>
       <source>Visible</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12050,6 +12090,14 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <name>chat/chatcommand</name>
     <message>
       <source>Nick changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>I have enabled files upload for you. [fupload]Upload a file[/fupload].</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files upload enabled.</source>
       <translation type="unfinished"/>
     </message>
     <message>

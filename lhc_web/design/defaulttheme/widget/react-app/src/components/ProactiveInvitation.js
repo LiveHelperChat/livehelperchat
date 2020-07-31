@@ -90,7 +90,13 @@ class ProactiveInvitation extends Component {
         return (
             <div className={className} style={{width:(this.props.chatwidget.hasIn(['proactive','data','message_width']) ? this.props.chatwidget.getIn(['proactive','data','message_width']) : 200)}} onClick={this.fullInvitation} id="id-invitation-height">
                 <button title="Close" onClick={(e) => this.hideInvitation(e)} className="float-right btn btn-sm rounded"><i className="material-icons mr-0">&#xf10a;</i></button>
-                <div className="fs14"><b>{this.props.chatwidget.getIn(['proactive','data','name_support']) || this.props.chatwidget.getIn(['proactive','data','extra_profile'])}</b></div>
+                <div className="fs14">
+
+                    {this.props.chatwidget.getIn(['proactive','data','photo']) && <img width="30" alt={this.props.chatwidget.getIn(['proactive','data','name_support']) || this.props.chatwidget.getIn(['proactive','data','extra_profile'])} title={this.props.chatwidget.getIn(['proactive','data','name_support']) || this.props.chatwidget.getIn(['proactive','data','extra_profile'])} className="mr-2 rounded" src={this.props.chatwidget.getIn(['proactive','data','photo'])} />}
+
+                    <b>{this.props.chatwidget.getIn(['proactive','data','name_support']) || this.props.chatwidget.getIn(['proactive','data','extra_profile'])}</b>
+
+                </div>
                 <p className="fs13 mb-0" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['proactive','data','message'])}}></p>
                 {this.props.chatwidget.hasIn(['proactive','data','bot_intro']) && <ChatBotIntroMessage setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['proactive','data','message_full'])} />}
             </div>
