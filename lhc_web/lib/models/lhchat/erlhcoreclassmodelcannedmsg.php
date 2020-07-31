@@ -161,8 +161,6 @@ class erLhcoreClassModelCannedMsg
                 $tagLink->saveThis();
             }
             
-            // Update number of assigned canned messages to specific tag
-            $tag->cnt = erLhcoreClassModelCannedMsgTagLink::getCount(array('filter' => array('tag_id' => $tag->id)));
             $tag->saveThis();
             
             $tagsArrayLinkId[] = $tagLink->id;
