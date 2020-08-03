@@ -5639,7 +5639,7 @@
         "type": "varchar(250)",
         "null": "NO",
         "key": "",
-        "default": 0,
+        "default": null,
         "extra": "",
         "collation": "utf8mb4_unicode_ci"
       },
@@ -5648,7 +5648,7 @@
         "type": "text",
         "null": "NO",
         "key": "",
-        "default": 0,
+        "default": null,
         "extra": "",
         "collation": "utf8mb4_unicode_ci"
       }
