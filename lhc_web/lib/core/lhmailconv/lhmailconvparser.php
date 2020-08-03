@@ -54,10 +54,10 @@ class erLhcoreClassMailconvParser {
             // This mailbox is still in sync
             /*if ($mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS) {
                 return;
-            }*/
+            }
 
             // Sync has not passed required timeout
-            /*if ($mailbox->last_sync_time > time() - $mailbox->sync_interval) {
+            if ($mailbox->last_sync_time > time() - $mailbox->sync_interval) {
                 return;
             }*/
 
@@ -83,7 +83,7 @@ class erLhcoreClassMailconvParser {
                     false
                 );
 
-                $mailsIds = $mailboxHandler->searchMailbox('SINCE "'.date('d M Y',($mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) - 4*24*3600).'"');
+                $mailsIds = $mailboxHandler->searchMailbox('SINCE "'.date('d M Y',($mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) - 1*24*3600).'"');
 
                 if (empty($mailsIds)) {
                     continue;
@@ -317,7 +317,7 @@ class erLhcoreClassMailconvParser {
             $mailAttatchement->size = $attachment->sizeInBytes;
             $mailAttatchement->name = (string)$attachment->name;
             $mailAttatchement->description = (string)$attachment->description;
-            $mailAttatchement->extension = (string)strtolower($attachment->subtype);
+            $mailAttatchement->extension = mb_substr((string)strtolower($attachment->subtype),0,10);
             $mailAttatchement->type = (string)$attachment->mime;
             $mailAttatchement->conversation_id = $message->conversation_id;
             $mailAttatchement->saveThis();

@@ -18,6 +18,7 @@ class erLhcoreClassModelMailconvMailbox
         return array(
             'id' => $this->id,
             'mail' => $this->mail,
+            'name' => $this->name,
             'username' => $this->username,
             'password' => $this->password,
             'host' => $this->host,
@@ -96,6 +97,7 @@ class erLhcoreClassModelMailconvMailbox
     public $signature = '';
     public $sync_status = 0;
     public $sync_interval = 60;
+    public $name = '';
 }
 
 ?>

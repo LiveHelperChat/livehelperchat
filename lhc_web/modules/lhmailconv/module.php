@@ -49,6 +49,11 @@ $ViewList['apimaildownload'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['apisendreply'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
 $ViewList['attatchfile'] = array(
     'params' => array(),
     'uparams' => array('persistent','user_id','visitor','upload_name','attachment'),
@@ -62,7 +67,7 @@ $ViewList['insertfile'] = array(
 );
 
 $ViewList['getreplydata'] = array(
-    'params' => array('id'),
+    'params' => array('id','mode'),
     'functions' => array( 'use_admin' )
 );
 

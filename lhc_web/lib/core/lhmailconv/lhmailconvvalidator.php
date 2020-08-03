@@ -98,6 +98,9 @@ class erLhcoreClassMailconvValidator {
             'username' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'name' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
             'password' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
@@ -135,6 +138,12 @@ class erLhcoreClassMailconvValidator {
             $item->username = $form->username;
         } else {
             $item->username = '';
+        }
+
+        if ( $form->hasValidData( 'name' )) {
+            $item->name = $form->name;
+        } else {
+            $item->name = '';
         }
 
         if ( $form->hasValidData( 'imap' )) {
@@ -202,7 +211,7 @@ class erLhcoreClassMailconvValidator {
         {
             $item->name = $form->name;
         } else {
-            $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Please enter a name!');
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Please enter a name!');
         }
 
         if ( $form->hasValidData( 'template' )) {
@@ -220,6 +229,121 @@ class erLhcoreClassMailconvValidator {
         return $Errors;
     }
 
+    public static function setSendParameters($mailbox, $phpmailer)
+    {
+        $phpmailer->IsSMTP();
+        $phpmailer->Host = $mailbox->host;
+        $phpmailer->Port = $mailbox->port;
+
+        $phpmailer->From = $mailbox->mail;
+        $phpmailer->FromName = $mailbox->name;
+
+        if ($mailbox->username != '') {
+            $phpmailer->Username = $mailbox->username;
+            $phpmailer->Password = $mailbox->password;
+            $phpmailer->SMTPAuth = true;
+        } else {
+            $phpmailer->From = '';
+        }
+    }
+
+    public static function prepareMailContent($content, $mailReply) {
+
+        // Parse links
+        $matches = [];
+
+        $string = '/href="' . str_replace('/','\/',erLhcoreClassDesign::baseurl('file/downloadfile')) . '([a-zA-Z0-9-\.-\/\_]+)"/';
+
+        preg_match_all($string,$content,$matches);
+
+        foreach ($matches[1] as $index => $file) {
+            $paramsFile = explode('/',trim($file,'/'));
+            $fileObj = erLhcoreClassModelChatFile::fetch($paramsFile[0]);
+            if ($fileObj instanceof erLhcoreClassModelChatFile && $fileObj->security_hash == $paramsFile[1]) {
+                $content = str_replace($matches[0][$index],'href="' . erLhcoreClassXMP::getBaseHost().  $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$fileObj->id}/{$fileObj->security_hash}",$content);
+            }
+        }
+
+        // Parse images
+        $string = '/src="' . str_replace('/','\/',erLhcoreClassDesign::baseurl('file/downloadfile')) . '([a-zA-Z0-9-\.-\/\_]+)"/';
+
+        preg_match_all($string,$content,$matches);
+
+        foreach ($matches[1] as $index => $file) {
+            $paramsFile = explode('/',trim($file,'/'));
+            $fileObj = erLhcoreClassModelChatFile::fetch($paramsFile[0]);
+            if ($fileObj instanceof erLhcoreClassModelChatFile && $fileObj->security_hash == $paramsFile[1]) {
+                $cid = 'lhc-file-' . $fileObj->id . '-' . time();
+                $mailReply->AddEmbeddedImage($fileObj->file_path_server, $cid, $fileObj->upload_name);
+                $content = str_replace($matches[0][$index],'src="' . 'cid:' . $cid .'"', $content);
+            }
+        }
+
+        return $content;
+    }
+
+    public static function sendReply($params, & $response, $mail) {
+
+        $response['errors'] = [];
+
+        if (!isset($params['content'])) {
+            $response['errors']['content'] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Content is required!');
+        }
+
+        if (!isset($params['recipients']['reply']) || empty($params['recipients']['reply'])) {
+            $response['errors']['reply'] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Please enter at-least one recipient!');
+        }
+
+        if (empty($response['errors'])) {
+
+            try {
+                $mailReply = new PHPMailer(true);
+                $mailReply->CharSet = "UTF-8";
+
+                // If it's first reply append 'Re: ' to subject.
+                $mailReply->Subject = ($mail->in_reply_to == '' ? 'Re: ' : '') . $mail->subject;
+
+                $params['content'] = self::prepareMailContent($params['content'], $mailReply);
+
+                $mailReply->Body = $params['content'];
+                $mailReply->AltBody = strip_tags(str_replace(['<br />','<br/>'],"\n",$params['content']));
+
+                $mailReply->AddReplyTo($mail->mailbox->mail,(string)$mail->mailbox->name);
+
+                self::setSendParameters($mail->mailbox, $mailReply);
+
+                if ($mail->message_id != '') {
+                    $mailReply->addCustomHeader('In-Reply-To', $mail->message_id);
+                    $mailReply->addCustomHeader('References', $mail->message_id);
+                }
+
+                // @todo add validation
+                foreach ($params['recipients']['reply'] as $recipient) {
+                    $mailReply->AddAddress( $recipient['email'],'' );
+                }
+
+                foreach ($params['recipients']['cc'] as $recipient) {
+                    $mailReply->addCC( $recipient['email'],'' );
+                }
+
+                foreach ($params['recipients']['bcc'] as $recipient) {
+                    $mailReply->addBCC( $recipient['email'],'' );
+                }
+
+                // Assign attatchements
+                foreach ($params['attatchements'] as $attatchement) {
+                    $fileObj = erLhcoreClassModelChatFile::fetch($attatchement['id']);
+                    if ($fileObj instanceof erLhcoreClassModelChatFile) {
+                        $mailReply->addAttachment($fileObj->file_path_server, $fileObj->upload_name);
+                    }
+                }
+
+                $response['send'] = $mailReply->Send();
+            } catch (Exception $e) {
+                $response['errors']['general'] = $e->getMessage();
+            }
+        }
+    }
 }
 
 ?>

@@ -8,12 +8,14 @@ import MailReplyRecipient from "./MailReplyRecipient";
 const MailChatReply = props => {
 
     const [replyMode, setReplyMode] = useState(false);
+    const [forwardMode, setForwardMode] = useState(false);
     const [replyContent, setReplyContent] = useState(null);
     const [replyIntro, setReplyIntro] = useState(null);
     const [replySignature, setReplySignature] = useState(null);
     const [loadedReplyData, setLoadedReplyData] = useState(false);
     const [recipients, setRecipients] = useState([]);
     const [recipientsModified, setModifiedRecipients] = useState([]);
+    const [replySendStatus, setReplySendStatus] = useState([]);
 
     const [attachedFiles, dispatch] = useReducer((attachedFiles, { type, value }) => {
         switch (type) {
@@ -31,7 +33,6 @@ const MailChatReply = props => {
     const currentAttatchedFiles = useRef();
     currentAttatchedFiles.current = attachedFiles;
 
-
     let replyContentDirect = null;
 
     const handleEditorChange = (content, editor) => {
@@ -39,8 +40,15 @@ const MailChatReply = props => {
     }
 
     const sendReply = () => {
-        console.log(tinyMCE.get("reply-to-mce-"+props.message.id).getContent());
-        console.log(recipientsModified);
+        let replyPayload = {
+            'recipients' : recipientsModified,
+            'content' : tinyMCE.get("reply-to-mce-"+props.message.id).getContent(),
+            'attatchements' : attachedFiles
+        };
+
+        axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/apisendreply/" + props.message.id, replyPayload).then(result => {
+            setReplySendStatus(result.data);
+        });
     }
 
     const removeAttatchedFile = (file, index) => {
@@ -49,8 +57,6 @@ const MailChatReply = props => {
             axios.get(WWW_DIR_JAVASCRIPT  + "file/delete/" + file.id + '/(csfr)/' + confLH.csrf_token + '?react=1');
         }
     }
-
-
 
     useEffect(() => {
         return () => {
@@ -63,14 +69,15 @@ const MailChatReply = props => {
     },[]);
 
     useEffect(() => {
-        if (replyMode == true && loadedReplyData == false){
-            axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/getreplydata/" + props.message.id).then(result => {
+        if ((replyMode == true || forwardMode == true) && loadedReplyData == false) {
+            axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/getreplydata/" + props.message.id + '/' + (replyMode == true ? 'reply' : 'forward')).then(result => {
                 setLoadedReplyData(true);
                 setReplyIntro(result.data.intro);
                 setReplySignature(result.data.signature);
                 setRecipients(result.data.recipients);
             });
-        } else if (replyMode == false && loadedReplyData == true) {
+        } else if (replyMode == false && forwardMode == false && loadedReplyData == true) {
+            setLoadedReplyData(false);
             if (currentAttatchedFiles.current.length > 0) {
                 currentAttatchedFiles.current.map((file, index) => {
                     if (file.new === true) {
@@ -79,27 +86,36 @@ const MailChatReply = props => {
                 });
                 dispatch({ type: "cleanup"})
             }
-
         }
-    },[replyMode]);
+    },[replyMode,forwardMode]);
 
     if (props.replyMode == true && replyMode == false) {
+        if (forwardMode == true) {
+            setLoadedReplyData(false);
+            setForwardMode(false);
+        }
         setReplyMode(true);
     }
 
-
+    if (props.forwardMode == true && forwardMode == false) {
+        if (replyMode == true) {
+            setLoadedReplyData(false);
+            setReplyMode(false);
+        }
+        setForwardMode(true);
+    }
 
     return <React.Fragment>
         <div className="col-12 mt-2 pt-3 pb-2">
-            {!replyMode && <div className="btn-group" role="group" aria-label="Mail actions">
-                <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => setReplyMode(true)}><i className="material-icons">reply</i>Reply</button>
+            {!replyMode && !forwardMode && <div className="btn-group" role="group" aria-label="Mail actions">
+                <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => {setForwardMode(false);setReplyMode(true);}}><i className="material-icons">reply</i>Reply</button>
                 <button disabled={props.message.response_type == 1} type="button" className="btn btn-sm btn-outline-secondary" onClick={() => props.noReplyRequired()}><i className="material-icons">done</i>No reply required</button>
-                <button type="button" className="btn btn-sm btn-outline-secondary"><i className="material-icons">forward</i>Forward</button>
+                <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => {setReplyMode(false);setForwardMode(true)}}><i className="material-icons">forward</i>Forward</button>
             </div>}
 
-            {replyMode && loadedReplyData && <div className="shadow p-2">
+            {(replyMode || forwardMode) && loadedReplyData && <div className="shadow p-2">
 
-                <MailReplyRecipient setRecipients={(recipients) => setModifiedRecipients(recipients)} message={props.message} recipients={recipients} />
+                <MailReplyRecipient setRecipients={(recipients) => setModifiedRecipients(recipients)} mode={replyMode == true ? 'reply' : 'forward'} message={props.message} recipients={recipients} />
 
                 <Editor
                     tinymceScriptSrc="/design/defaulttheme/js/tinymce/js/tinymce/tinymce.min.js"
@@ -134,9 +150,13 @@ const MailChatReply = props => {
                     }}
                 />
 
-                <div className="float-right">
+                {replyMode && <div className="float-right">
                     <a className="action-image" onClick={() => {setReplyMode(false); props.cancelReply()}}><i className="material-icons">delete</i></a>
-                </div>
+                </div>}
+
+                {forwardMode && <div className="float-right">
+                    <a className="action-image" onClick={() => {setForwardMode(false); props.cancelForward()}}><i className="material-icons">delete</i></a>
+                </div>}
 
                 <div className="btn-group mt-1" role="group" aria-label="Mail actions">
                     <button type="button" className="btn btn-sm btn-outline-primary" onClick={() => sendReply()}><i className="material-icons">send</i>Send</button>

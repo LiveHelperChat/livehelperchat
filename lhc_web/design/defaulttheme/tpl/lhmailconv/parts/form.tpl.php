@@ -1,9 +1,19 @@
 
 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Send e-mail settings SMTP');?></h5>
 
-<div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mail');?></label>
-    <input type="text" maxlength="250" class="form-control form-control-sm" name="mail" value="<?php echo htmlspecialchars($item->mail)?>" />
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mail');?></label>
+            <input type="text" maxlength="250" class="form-control form-control-sm" name="mail" value="<?php echo htmlspecialchars($item->mail)?>" />
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','From name');?></label>
+            <input type="text" maxlength="250" class="form-control form-control-sm" name="name" value="<?php echo htmlspecialchars($item->name)?>" />
+        </div>
+    </div>
 </div>
 
 <div class="row">

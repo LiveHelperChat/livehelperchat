@@ -35,6 +35,12 @@ try {
             }
         }
 
+        if ($Params['user_parameters']['mode'] == 'forward') {
+            $replyRecipientsMapped = [['email' => '', 'name' => '']];
+            $message->cc_data_array = [];
+            $message->bcc_data_array = [];
+        }
+
         echo json_encode([
             'intro' => '<p>' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','On') . ' ' . date('Y-m-d H:i',$message->udate).', '. ($message->from_name != '' ? $message->from_name : $message->from_address) . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','wrote') . ':</p>',
             'signature' => '<div class="gmail_signature">' . $signature . '</div>',

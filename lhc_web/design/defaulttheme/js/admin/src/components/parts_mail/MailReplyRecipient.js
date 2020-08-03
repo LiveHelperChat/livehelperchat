@@ -20,6 +20,7 @@ const MailReplyRecipient = props => {
             case "set":
                 console.log(value);
                 return value;
+
             case "cleanup":
                 return [];
             case "remove":
