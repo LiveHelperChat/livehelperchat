@@ -117,7 +117,7 @@ $def->properties['dep_id']->propertyName = 'dep_id';
 $def->properties['dep_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 $stringAttributes = array(
-    'cc_data','bcc_data','from_host','from_name','from_address',
+    'mb_folder','cc_data','bcc_data','from_host','from_name','from_address',
     'sender_host','sender_name','sender_address',
     'to_data','reply_to_data',
     'response_time','cls_time','wait_time','accept_time','interaction_time'

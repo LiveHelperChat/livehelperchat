@@ -58,6 +58,15 @@ class erLhcoreClassModelMailconvMailbox
                 }
                 return $this->mailbox_sync_array;
 
+            case 'trash_mailbox':
+                $this->trash_mailbox = null;
+                foreach ($this->mailbox_sync_array as $path) {
+                    if (isset($path['sync_deleted']) && $path['sync_deleted'] == true) {
+                        $this->trash_mailbox =  preg_replace('/^\{.*\}/','',$path['path']);
+                    }
+                }
+                return $this->trash_mailbox;
+
             case 'name':
                 return $this->mail;
 

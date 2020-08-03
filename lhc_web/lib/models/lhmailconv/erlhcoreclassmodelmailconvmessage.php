@@ -67,6 +67,7 @@ class erLhcoreClassModelMailconvMessage
             'user_id' => $this->user_id,
             'response_type' => $this->response_type,
             'dep_id' => $this->dep_id,
+            'mb_folder' => $this->mb_folder,
         );
     }
 
@@ -299,6 +300,9 @@ class erLhcoreClassModelMailconvMessage
     public $reply_to_data = '';
     public $cc_data = '';
     public $bcc_data = '';
+
+    // Mailbox folder. We need to know it while moving or deleting mail.
+    public $mb_folder = '';
 
     // Logical attributes
     public $response_time = 0; // How long chat was in accepted state before it was responded.

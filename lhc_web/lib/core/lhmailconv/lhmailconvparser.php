@@ -110,6 +110,7 @@ class erLhcoreClassMailconvParser {
 
                         $message = new erLhcoreClassModelMailconvMessage();
                         $message->setState($vars);
+                        $message->mb_folder = $mailboxFolder['path'];
 
                         $head = $mailboxHandler->getMailHeader($mailInfo->uid);
 
@@ -210,6 +211,10 @@ class erLhcoreClassMailconvParser {
                         }
 
                         $message = self::importMessage($vars, $mailbox, $mailboxHandler, $conversation);
+
+                        // Set folder from where message was taken;
+                        $message->mb_folder = $mailboxFolder['path'];
+                        $message->updateThis(['update' => ['mb_folder']]);
 
                         $messages[] = $message;
 
@@ -539,13 +544,17 @@ class erLhcoreClassMailconvParser {
     {
         $mailbox = erLhcoreClassModelMailconvMailbox::fetch($message->mailbox_id);
         $mailboxHandler = new PhpImap\Mailbox(
-            $mailbox->imap, // IMAP server incl. flags and optional mailbox folder
+            $message->mb_folder, // We use message mailbox folder.
             $mailbox->username, // Username for the before configured mailbox
             $mailbox->password, // Password for the before configured username
             false
         );
-        $mailboxHandler->moveMail($message->uid,'[Gmail]/Trash');
-        $mailboxHandler->expungeDeletedMails();
+
+        // Check that we have trash mailbox configured
+        if ($mailbox->trash_mailbox != null) {
+            $mailboxHandler->moveMail($message->uid,$mailbox->trash_mailbox);
+            $mailboxHandler->expungeDeletedMails();
+        }
     }
 }
 
