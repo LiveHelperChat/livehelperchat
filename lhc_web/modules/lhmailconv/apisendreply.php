@@ -1,19 +1,43 @@
 <?php
 
+session_write_close();
+
 erLhcoreClassRestAPIHandler::setHeaders();
 
-$message = erLhcoreClassModelMailconvMessage::fetch($Params['user_parameters']['id']);
+try {
 
-$conv = $message->conversation;
+    $message = erLhcoreClassModelMailconvMessage::fetch($Params['user_parameters']['id']);
 
-$response = null;
+    $conv = $message->conversation;
 
-if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv) ) {
-    $requestPayload = json_decode(file_get_contents('php://input'),true);
-    erLhcoreClassMailconvValidator::sendReply($requestPayload, $response, $message);
+    $response = null;
+
+    if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv) ) {
+        $requestPayload = json_decode(file_get_contents('php://input'),true);
+        erLhcoreClassMailconvValidator::sendReply($requestPayload, $response, $message);
+    }
+
+    // We have tried to send an e-mail
+    $response['send_tried'] = true;
+
+    if ($response['send'] == true) {
+
+        // There are no more unresponded messages in this conversation we can close this conversation
+        if (erLhcoreClassModelMailconvMessage::getCount(['filternot' => ['status' => erLhcoreClassModelMailconvMessage::STATUS_RESPONDED],'filter' => ['conversation_id' => $conv->id]]) == 0) {
+            erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conv, 'user_id' => $currentUser->getUserID()]);
+        }
+
+        echo json_encode($response);
+    } else {
+        http_response_code(400);
+        echo json_encode($response);
+    }
+
+} catch (Exception $e) {
+    http_response_code(400);
+    echo json_encode(['send_tried' => true, 'errors' => ['general' => $e->getMessage()]]);
 }
 
-echo json_encode($response);
 exit;
 
 ?>

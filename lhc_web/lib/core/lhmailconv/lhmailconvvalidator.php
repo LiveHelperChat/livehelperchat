@@ -286,7 +286,7 @@ class erLhcoreClassMailconvValidator {
 
         $response['errors'] = [];
 
-        if (!isset($params['content'])) {
+        if (!isset($params['content']) || empty($params['content'])) {
             $response['errors']['content'] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Content is required!');
         }
 
@@ -294,14 +294,41 @@ class erLhcoreClassMailconvValidator {
             $response['errors']['reply'] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Please enter at-least one recipient!');
         }
 
-        if (empty($response['errors'])) {
+        foreach ($params['recipients']['reply'] as $recipient) {
+            if (!isset($recipient['email']) || empty($recipient['email'])) {
+                $response['errors']['reply'] = 'To: Please enter a valid recipient e-mail!';
+            } else if (!filter_var($recipient['email'], FILTER_VALIDATE_EMAIL)) {
+                $response['errors']['reply'] = 'To: Invalid e-mail recipient!';
+            }
+        }
 
+        foreach ($params['recipients']['bcc'] as $recipient) {
+            if (!isset($recipient['email']) || empty($recipient['email'])) {
+                $response['errors']['reply'] = 'Bcc: Please enter a valid recipient e-mail!';
+            } else if (!filter_var($recipient['email'], FILTER_VALIDATE_EMAIL)) {
+                $response['errors']['reply'] = 'Bcc: Invalid e-mail recipient!';
+            }
+        }
+
+        foreach ($params['recipients']['cc'] as $recipient) {
+            if (!isset($recipient['email']) || empty($recipient['email'])) {
+                $response['errors']['reply'] = 'Cc: Please enter a valid recipient e-mail!';
+            } else if (!filter_var($recipient['email'], FILTER_VALIDATE_EMAIL)) {
+                $response['errors']['reply'] = 'Cc: Invalid e-mail recipient!';
+            }
+        }
+
+        if (empty($response['errors'])) {
             try {
                 $mailReply = new PHPMailer(true);
                 $mailReply->CharSet = "UTF-8";
 
                 // If it's first reply append 'Re: ' to subject.
-                $mailReply->Subject = ($mail->in_reply_to == '' ? 'Re: ' : '') . $mail->subject;
+                if (isset($params['mode']) && $params['mode'] === 'forward') {
+                    $mailReply->Subject = 'Fwd: ' . $mail->subject;
+                } else {
+                    $mailReply->Subject = ($mail->in_reply_to == '' ? 'Re: ' : '') . $mail->subject;
+                }
 
                 $params['content'] = self::prepareMailContent($params['content'], $mailReply);
 
@@ -339,9 +366,20 @@ class erLhcoreClassMailconvValidator {
                 }
 
                 $response['send'] = $mailReply->Send();
+
+                // Now we can set appropriate attributes for the message itself.
+                $mail->lr_time = time();
+                $mail->response_type = erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL;
+                $mail->response_time = $mail->lr_time - $mail->accept_time;
+                $mail->status = erLhcoreClassModelMailconvMessage::STATUS_RESPONDED;
+                $mail->updateThis();
+
             } catch (Exception $e) {
+                $response['send'] = false;
                 $response['errors']['general'] = $e->getMessage();
             }
+        } else {
+            $response['send'] = false;
         }
     }
 }

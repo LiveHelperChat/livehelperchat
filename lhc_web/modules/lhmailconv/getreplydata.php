@@ -35,14 +35,33 @@ try {
             }
         }
 
+        $prepend = '<p>' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','On') . ' ' . date('Y-m-d H:i',$message->udate).', '. ($message->from_name != '' ? $message->from_name : $message->from_address) . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','wrote') . ':</p>';
+
         if ($Params['user_parameters']['mode'] == 'forward') {
             $replyRecipientsMapped = [['email' => '', 'name' => '']];
             $message->cc_data_array = [];
             $message->bcc_data_array = [];
+            $partsIntro = [
+                'From: ' . ($message->from_name != '' ? '<b>' . $message->from_name .'</b>' : '') . ' <' . $message->from_address .'>',
+                'Date: ' . date('D',$message->udate) . ', ' . date('d',$message->udate) . ' ' . date('M',$message->udate) . ' ' . date('Y',$message->udate) . ' at ' . date('H:i',$message->udate),
+                'Subject: ' . $message->subject,
+                'To: ' . $message->to_data_front,
+            ];
+
+            if (!empty($message->cc_data_front)) {
+                $partsIntro[] = 'Cc: ' . $message->cc_data_front;
+            }
+
+            if (!empty($message->bcc_data_front)) {
+                $partsIntro[] = 'Bcc: ' . $message->bcc_data_front;
+            }
+
+            $prepend = "---------- Forwarded message ---------<br/>";
+            $prepend .= implode("<br/>",$partsIntro);
         }
 
         echo json_encode([
-            'intro' => '<p>' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','On') . ' ' . date('Y-m-d H:i',$message->udate).', '. ($message->from_name != '' ? $message->from_name : $message->from_address) . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','wrote') . ':</p>',
+            'intro' => $prepend,
             'signature' => '<div class="gmail_signature">' . $signature . '</div>',
             'recipients' => [
             'to' => $message->to_data_array,

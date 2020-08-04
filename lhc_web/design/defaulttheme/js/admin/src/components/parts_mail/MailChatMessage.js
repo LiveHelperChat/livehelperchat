@@ -3,7 +3,7 @@ import React, { useEffect, useState, useReducer, useRef } from "react";
 import MailChatQuote from "./MailChatQuote";
 import MailChatReply from "./MailChatReply";
 
-const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, addLabel, moptions}) => {
+const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, addLabel, moptions, fetchMessages, fetchingMessages}) => {
 
     const [expandHeader, setExpandHeader] = useState(false);
     const [expandBody, setExpandBody] = useState(index + 1 == totalMessages);
@@ -39,6 +39,10 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
         return style;
     };
 
+    if (fetchingMessages == true && (replyMode == true || forwardMode == true)) {
+        setReplyMode(false);
+        setForwardMode(false);
+    }
 
     return <div className={"row pb-2 mb-2 border-secondary" + (mode !== 'preview' ? ' border-top pt-2' : ' border-bottom')}>
         <div className="col-7 action-image" onClick={() => setExpandBody(!expandBody)}>
@@ -110,7 +114,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                                 {message.plain_user_name && <li>Accepted by: <b>{message.plain_user_name}</b></li>}
                                 {message.wait_time && <li>Accept wait time: {message.wait_time_pending}</li>}
                                 {message.lr_time && message.response_time && <li>Response wait time: {message.wait_time_response}</li>}
-                                {message.lr_time && <li>Response type: {message.response_type == 1 ? 'No response required' : (message.response_type == 2 ? 'Our response message' : 'Responeded by e-mail')}</li>}
+                                {message.lr_time && <li>Response type: {message.response_type == 1 ? 'No response required' : (message.response_type == 2 ? 'This is our response message' : 'Responeded by e-mail')}</li>}
                                 {message.interaction_time && <li>Interaction time: {message.interaction_time_duration}</li>}
                                 {message.cls_time && <li>Close time: {message.cls_time_front}</li>}
                             </ul>
@@ -155,7 +159,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
 
     </div>}
 
-        {mode !== 'preview' && ((index + 1 == totalMessages) || replyMode || forwardMode) && <MailChatReply moptions={moptions} forwardMode={forwardMode} cancelForward={(e) => setForwardMode(false)} cancelReply={(e) => setReplyMode(false)} replyMode={replyMode} lastMessage={index + 1 == totalMessages} message={message} noReplyRequired={() => noReplyRequired(message)} />}
+        {mode !== 'preview' && !fetchingMessages && ((index + 1 == totalMessages) || replyMode || forwardMode) && <MailChatReply fetchingMessages={fetchingMessages} fetchMessages={(e) => fetchMessages()} moptions={moptions} forwardMode={forwardMode} cancelForward={(e) => setForwardMode(false)} cancelReply={(e) => setReplyMode(false)} replyMode={replyMode} lastMessage={index + 1 == totalMessages} message={message} noReplyRequired={() => noReplyRequired(message)} />}
 
     </div>
 }

@@ -32,6 +32,12 @@ if (isset($_POST['Save_mailbox'])) {
         } else {
             $mailBoxes[$index]['sync_deleted'] = false;
         }
+
+        if ($_POST['MailboxSend'] && $_POST['MailboxSend'] == $mailBox['path']) {
+            $mailBoxes[$index]['send_folder'] = true;
+        } else {
+            $mailBoxes[$index]['send_folder'] = false;
+        }
     }
 
     $item->mailbox_sync_array = $mailBoxes;

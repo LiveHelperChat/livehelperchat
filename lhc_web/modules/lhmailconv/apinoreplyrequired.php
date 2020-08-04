@@ -13,11 +13,14 @@ try {
 
     if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv) )
     {
-        $message->lr_time = time();
-        $message->response_type = erLhcoreClassModelMailconvMessage::RESPONSE_NOT_REQUIRED;
-        $message->response_time = $message->lr_time - $message->accept_time;
-        $message->status = erLhcoreClassModelMailconvMessage::STATUS_RESPONDED;
-        $message->updateThis();
+
+        if ($message->status != erLhcoreClassModelMailconvMessage::STATUS_RESPONDED) {
+            $message->lr_time = time();
+            $message->response_type = erLhcoreClassModelMailconvMessage::RESPONSE_NOT_REQUIRED;
+            $message->response_time = $message->lr_time - $message->accept_time;
+            $message->status = erLhcoreClassModelMailconvMessage::STATUS_RESPONDED;
+            $message->updateThis();
+        }
 
         $returnAttributes = [];
 

@@ -316,8 +316,8 @@ class erLhcoreClassModelMailconvMessage
 
     const RESPONSE_UNRESPONDED = 0;    // Normal response by sending mail back.
     const RESPONSE_NOT_REQUIRED = 1;   // Visitor just send thank you message.
-    const RESPONSE_INTERNAL = 2;       // We have send this message
-    const RESPONSE_NORMAL = 3;         // We have send this message
+    const RESPONSE_INTERNAL = 2;       // We have send this message as reply or forward
+    const RESPONSE_NORMAL = 3;         // To this message was responded by us.
 
     public $response_type = self::RESPONSE_UNRESPONDED; // Normal mail based response
 

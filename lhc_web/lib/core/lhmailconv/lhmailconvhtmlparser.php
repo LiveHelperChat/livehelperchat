@@ -38,6 +38,8 @@ class erLhcoreClassMailconvHTMLParser {
         // Parse the part content for display
         $body = rcmail_print_body($body, $part, $body_args);
 
+        $body = str_replace(['<!-- html ignored -->','<!-- head ignored -->','<!-- meta ignored -->'],'',$body);
+
         return $body;
     }
 

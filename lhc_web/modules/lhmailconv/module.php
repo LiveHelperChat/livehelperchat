@@ -54,6 +54,11 @@ $ViewList['apisendreply'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['apifetchmails'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
 $ViewList['attatchfile'] = array(
     'params' => array(),
     'uparams' => array('persistent','user_id','visitor','upload_name','attachment'),

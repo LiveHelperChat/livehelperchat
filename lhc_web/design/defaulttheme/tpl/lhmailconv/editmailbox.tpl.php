@@ -35,23 +35,31 @@
 
 
             <div class="row">
-                <div class="col-6">
+                <div class="col-4">
                     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/mailbox','Choose what mailbox you want to sync');?></h5>
                 </div>
-                <div class="col-6">
+                <div class="col-4">
                     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/mailbox','Choose where deleted e-mails should be moved');?></h5>
+                </div>
+                <div class="col-4">
+                    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/mailbox','Choose a send folder');?></h5>
                 </div>
             </div>
             <?php foreach ($item->mailbox_sync_array as $mailbox) : ?>
             <div class="row">
-                <div class="col-6">
+                <div class="col-4">
                     <div class="form-group">
                         <label><input type="checkbox" value="<?php echo htmlspecialchars($mailbox['path'])?>" <?php if ($mailbox['sync'] == true) : ?>checked="checked"<?php endif; ?> name="Mailbox[]"> <?php echo htmlspecialchars($mailbox['path'])?></label>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-4">
                     <div class="form-group">
                         <label><input type="radio" value="<?php echo htmlspecialchars($mailbox['path'])?>" <?php if (isset($mailbox['sync_deleted']) && $mailbox['sync_deleted'] == true) : ?>checked="checked"<?php endif; ?> name="MailboxDeleted"> <?php echo htmlspecialchars($mailbox['path'])?></label>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label><input type="radio" value="<?php echo htmlspecialchars($mailbox['path'])?>" <?php if (isset($mailbox['send_folder']) && $mailbox['send_folder'] == true) : ?>checked="checked"<?php endif; ?> name="MailboxSend"> <?php echo htmlspecialchars($mailbox['path'])?></label>
                     </div>
                 </div>
             </div>

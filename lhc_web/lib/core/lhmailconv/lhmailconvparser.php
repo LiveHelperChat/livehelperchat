@@ -29,7 +29,7 @@ class erLhcoreClassMailconvParser {
         $mailbox->saveThis();
     }
 
-    public static function syncMailbox($mailbox) {
+    public static function syncMailbox($mailbox, $params = []) {
 
         $statsImport = array();
 
@@ -51,15 +51,17 @@ class erLhcoreClassMailconvParser {
 
             $messages = [];
 
-            // This mailbox is still in sync
-            /*if ($mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS) {
-                return;
-            }
+            if (!isset($params['live']) || $params['live'] == false){
+                // This mailbox is still in sync
+                if ($mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS) {
+                    return;
+                }
 
-            // Sync has not passed required timeout
-            if ($mailbox->last_sync_time > time() - $mailbox->sync_interval) {
-                return;
-            }*/
+                // Sync has not passed required timeout
+                if ($mailbox->last_sync_time > time() - $mailbox->sync_interval) {
+                    return;
+                }
+            }
 
             $mailbox->sync_status = erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS;
             $mailbox->saveThis(['update' => ['sync_status']]);
@@ -73,6 +75,10 @@ class erLhcoreClassMailconvParser {
 
                 // This folder is not synced
                 if ($mailboxFolder['sync'] === false) {
+                    continue;
+                }
+
+                if (isset($params['only_send']) && $params['only_send'] == true && (!isset($mailboxFolder['send_folder']) || $mailboxFolder['send_folder'] === false)) {
                     continue;
                 }
 
@@ -219,6 +225,8 @@ class erLhcoreClassMailconvParser {
                         $messages[] = $message;
 
                         if ($conversation instanceof erLhcoreClassModelMailconvConversation && $conversation->udate < $message->udate) {
+                            $conversation->last_message_id = $message->id;
+                            $conversation->updateThis(['update' => ['last_message_id']]);
                             self::setLastConversationByMessage($conversation, $message);
                         }
 
@@ -455,7 +463,6 @@ class erLhcoreClassMailconvParser {
             $message->udate > $conversation->udate
         ) {
             $conversation->body = $message->alt_body != '' ? $message->alt_body : strip_tags($message->body);
-            $conversation->message_id = $message->id;
             $conversation->udate = $message->udate;
             $conversation->date = $message->date;
             $conversation->subject = $message->subject;

@@ -25,24 +25,15 @@ function reducer(state, action) {
                 state.conv = action.conv;
             }
 
+            if (action.fetching_messages) {
+                state.fetching_messages = action.fetching_messages;
+            }
+
             state = { ... state};
 
             return state;
         }
 
-        case 'update_messages': {
-
-            // Set last operator from previous state
-            action.messages['lmsop'] = state.lmsop || action.value.lmsop;
-
-            // Update state
-            state = { ...state, ...action.value };
-
-            // Update message
-            state.messages.push(action.messages);
-
-            return state;
-        }
         case 'update_history': {
             state = { ...state, ...action.value };
             if (action.history.msg != '') {
@@ -74,7 +65,8 @@ const MailChat = props => {
         remarks: '',
         last_message_id: 0,
         lmsop: 0,
-        lgsync: 0
+        lgsync: 0,
+        fetching_messages: false
     });
 
     const rememberChat = (chatId) => {
@@ -176,15 +168,31 @@ const MailChat = props => {
                     'messages' : result.data.messages,
                     'moptions' : result.data.moptions,
                     'loaded' : true,
+                    'fetching_messages' : false,
                 }
             });
 
-            if (props.mode !== 'preview') {
+            if (props.disableRemember === false && props.mode !== 'preview') {
                 rememberChat(props.chatId);
             }
 
         }).catch((error) => {
 
+        });
+    }
+
+    const fetchMessages = (message) => {
+        // Reset previous state
+        dispatch({
+            type: 'update',
+            value: {
+                'fetching_messages': true
+            }
+        });
+
+        // We have send an e-mail so we have to fetch a new e-mail now
+        axios.get(WWW_DIR_JAVASCRIPT  + "mailconv/apifetchmails/" + props.chatId).then(result => {
+            loadMainData();
         });
     }
 
@@ -267,8 +275,10 @@ const MailChat = props => {
 
                     <div>
                         {state.messages.map((message, index) => (
-                            <MailChatMessage moptions={state.moptions} mode={props.mode} key={'msg_mail_' + props.chatId + '_' + index + '_' + message.id} totalMessages={state.messages.length} index={index} message={message} noReplyRequired={(e) => noReplyRequired(message)} addLabel={(e) => addLabel(message)} />
+                            <MailChatMessage moptions={state.moptions} fetchMessages={(e) => fetchMessages(message)} fetchingMessages={state.fetching_messages} mode={props.mode} key={'msg_mail_' + props.chatId + '_' + index + '_' + message.id} totalMessages={state.messages.length} index={index} message={message} noReplyRequired={(e) => noReplyRequired(message)} addLabel={(e) => addLabel(message)} />
                         ))}
+
+                        {state.fetching_messages && <div className="alert alert-success p-1 pl-2" role="alert">Send. Your send message will appear here... You can close this conversation in any case.</div>}
                     </div>
                 </div>
                 <div className={"chat-main-right-column " + (props.mode == 'preview' ? 'd-none' : 'col-5')}>

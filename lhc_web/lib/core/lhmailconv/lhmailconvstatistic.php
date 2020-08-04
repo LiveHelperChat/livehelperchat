@@ -370,8 +370,8 @@ class erLhcoreClassMailconvStatistic {
         foreach (array(
             erLhcoreClassModelMailconvMessage::RESPONSE_UNRESPONDED => 'Unresponded',
             erLhcoreClassModelMailconvMessage::RESPONSE_NOT_REQUIRED => 'No response required',
-            erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL => 'Send messages',
-            erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL => 'Responded to messages',
+            erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL => 'We have send this message as reply or forward',
+            erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL => 'To this message was responded by us.',
         ) as $id => $item) {
             $itemSTD = new stdClass();
             $itemSTD->id = $id;

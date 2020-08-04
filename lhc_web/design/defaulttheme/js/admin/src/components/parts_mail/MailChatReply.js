@@ -4,6 +4,7 @@ import { Editor } from '@tinymce/tinymce-react';
 import axios from "axios";
 import MailChatAttachement from "./MailChatAttachement";
 import MailReplyRecipient from "./MailReplyRecipient";
+import MailSendStatus from "./MailSendStatus";
 
 const MailChatReply = props => {
 
@@ -16,6 +17,7 @@ const MailChatReply = props => {
     const [recipients, setRecipients] = useState([]);
     const [recipientsModified, setModifiedRecipients] = useState([]);
     const [replySendStatus, setReplySendStatus] = useState([]);
+    const [sendInProgress, setSendInProgress] = useState(false);
 
     const [attachedFiles, dispatch] = useReducer((attachedFiles, { type, value }) => {
         switch (type) {
@@ -43,11 +45,48 @@ const MailChatReply = props => {
         let replyPayload = {
             'recipients' : recipientsModified,
             'content' : tinyMCE.get("reply-to-mce-"+props.message.id).getContent(),
-            'attatchements' : attachedFiles
+            'attatchements' : attachedFiles,
+            'mode' : (replyMode == true ? 'reply' : 'forward')
         };
+
+        setSendInProgress(true);
 
         axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/apisendreply/" + props.message.id, replyPayload).then(result => {
             setReplySendStatus(result.data);
+            setSendInProgress(false);
+
+            if (result.data.send == true) {
+                props.fetchMessages();
+            }
+
+        }).catch(error => {
+            setSendInProgress(false);
+            // Error 😨
+            if (error.response) {
+                /*
+                 * The request was made and the server responded with a
+                 * status code that falls out of the range of 2xx
+                 */
+                if (error.response.status === 400) {
+                    setReplySendStatus(error.response.data);
+                } else {
+                    alert('Unhandled error.' + error.response.data);
+                }
+
+            } else if (error.request) {
+                /*
+                 * The request was made but no response was received, `error.request`
+                 * is an instance of XMLHttpRequest in the browser and an instance
+                 * of http.ClientRequest in Node.js
+                 */
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request and triggered an Error
+                console.log('Error', error.message);
+            }
+
+            console.log(error.config);
+
         });
     }
 
@@ -107,14 +146,17 @@ const MailChatReply = props => {
 
     return <React.Fragment>
         <div className="col-12 mt-2 pt-3 pb-2">
-            {!replyMode && !forwardMode && <div className="btn-group" role="group" aria-label="Mail actions">
+
+            {!replyMode && !forwardMode && !props.fetchingMessages && <div className="btn-group" role="group" aria-label="Mail actions">
                 <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => {setForwardMode(false);setReplyMode(true);}}><i className="material-icons">reply</i>Reply</button>
                 <button disabled={props.message.response_type == 1} type="button" className="btn btn-sm btn-outline-secondary" onClick={() => props.noReplyRequired()}><i className="material-icons">done</i>No reply required</button>
                 <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => {setReplyMode(false);setForwardMode(true)}}><i className="material-icons">forward</i>Forward</button>
             </div>}
 
-            {(replyMode || forwardMode) && loadedReplyData && <div className="shadow p-2">
+            {!props.fetchingMessages && (replyMode || forwardMode) && loadedReplyData && <div className="shadow p-2">
 
+                {replySendStatus.send_tried && <MailSendStatus status={replySendStatus} />}
+                
                 <MailReplyRecipient setRecipients={(recipients) => setModifiedRecipients(recipients)} mode={replyMode == true ? 'reply' : 'forward'} message={props.message} recipients={recipients} />
 
                 <Editor
@@ -159,7 +201,7 @@ const MailChatReply = props => {
                 </div>}
 
                 <div className="btn-group mt-1" role="group" aria-label="Mail actions">
-                    <button type="button" className="btn btn-sm btn-outline-primary" onClick={() => sendReply()}><i className="material-icons">send</i>Send</button>
+                    <button type="button" disabled={sendInProgress} className="btn btn-sm btn-outline-primary" onClick={() => sendReply()}><i className="material-icons">send</i>{sendInProgress == true ? 'Sending...' : 'Send'}</button>
                     <MailChatAttachement moptions={props.moptions} fileAttached={(file) => dispatch({ type: "add", value: file})} message={props.message}></MailChatAttachement>
                 </div>
 
