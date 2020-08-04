@@ -1,4 +1,6 @@
-import React, { useEffect, useState, useReducer, useRef } from "react";
+import React, { useEffect, useState, useReducer } from "react";
+
+import {useTranslation} from 'react-i18next';
 
 const MailReplyRecipient = props => {
 
@@ -45,23 +47,25 @@ const MailReplyRecipient = props => {
         props.setRecipients(props.recipients);
     },[props.recipients]);
 
+    const { t, i18n } = useTranslation('mail_chat');
+    
     return <div className="row">
 
-        <div className="col-12 text-secondary font-weight-bold fs13 pb-1">Recipients <i className="material-icons settings text-muted" onClick={(e) => setReciepints("add_recipient","reply")} style={{fontSize: "20px"}}>add</i> Cc <i className="material-icons settings text-muted" onClick={(e) => setReciepints("add_recipient","cc")} style={{fontSize: "20px"}}>add</i> Bcc <i onClick={(e) => setReciepints("add_recipient","bcc")} className="material-icons settings text-muted" style={{fontSize: "20px"}}>add</i></div>
+        <div className="col-12 text-secondary font-weight-bold fs13 pb-1">{t('r.recipients')} <i className="material-icons settings text-muted" onClick={(e) => setReciepints("add_recipient","reply")} style={{fontSize: "20px"}}>add</i> Cc <i className="material-icons settings text-muted" onClick={(e) => setReciepints("add_recipient","cc")} style={{fontSize: "20px"}}>add</i> Bcc <i onClick={(e) => setReciepints("add_recipient","bcc")} className="material-icons settings text-muted" style={{fontSize: "20px"}}>add</i></div>
 
         <div className="col-6">
             {recipients.reply && recipients.reply.map((mail, index) => (
                 <div className="form-row pb-1">
-                    <div className="col-1 text-secondary fs13 pt-1">To:</div>
+                    <div className="col-1 text-secondary fs13 pt-1">{t('r.to')}:</div>
                     <div className="col-5">
                         <div className="input-group input-group-sm">
                             <div className="input-group-prepend">
                                 <span className="input-group-text" ><i className="material-icons mr-0">mail_outline</i></span>
                             </div>
-                            <input type="text" className="form-control form-control-sm" placeholder="E-mail" onChange={(e) => setReciepints("set_attribute",{value : {value: e.target.value, type: "reply", index: index, "field" : "email"}})} value={mail.email} placeholder="E-mail" aria-describedby="validationTooltipUsernamePrepend" />
+                            <input type="text" className="form-control form-control-sm" placeholder="E-mail" onChange={(e) => setReciepints("set_attribute",{value : {value: e.target.value, type: "reply", index: index, "field" : "email"}})} value={mail.email} placeholder={t('r.email')} aria-describedby="validationTooltipUsernamePrepend" />
                         </div>
                     </div>
-                    <div className="col-5"><input type="text" placeholder="Recipient name" onChange={(e) => setReciepints("set_attribute",{value : {value: e.target.value, type: "reply", index: index, "field" : "name"}})} value={mail.name} className="form-control form-control-sm" /></div>
+                    <div className="col-5"><input type="text" placeholder={t('r.name')} onChange={(e) => setReciepints("set_attribute",{value : {value: e.target.value, type: "reply", index: index, "field" : "name"}})} value={mail.name} className="form-control form-control-sm" /></div>
                     {index > 0 && <div className="col"><i className="material-icons settings text-muted" onClick={(e) => setReciepints("remove_recipient",{"recipient":"reply", "index" : index})}>remove</i></div>}
                 </div>
             ))}
@@ -76,10 +80,10 @@ const MailReplyRecipient = props => {
                         <div className="input-group-prepend">
                             <span className="input-group-text" ><i className="material-icons mr-0">mail_outline</i></span>
                         </div>
-                        <input type="text" className="form-control form-control-sm" placeholder="E-mail" onChange={(e) => setReciepints("set_attribute",{value : {value: e.target.value, type: "cc", index: index, "field" : "email"}})} value={mail.email} placeholder="E-mail" aria-describedby="validationTooltipUsernamePrepend" />
+                        <input type="text" className="form-control form-control-sm" placeholder="E-mail" onChange={(e) => setReciepints("set_attribute",{value : {value: e.target.value, type: "cc", index: index, "field" : "email"}})} value={mail.email} placeholder={t('r.email')} aria-describedby="validationTooltipUsernamePrepend" />
                     </div>
                 </div>
-                <div className="col-5"><input type="text" placeholder="Recipient name" onChange={(e) => setReciepints("set_attribute",{value : {value: e.target.value, type: "cc", index: index, "field" : "name"}})} value={mail.name} className="form-control form-control-sm" /></div>
+                <div className="col-5"><input type="text" placeholder={t('r.name')} onChange={(e) => setReciepints("set_attribute",{value : {value: e.target.value, type: "cc", index: index, "field" : "name"}})} value={mail.name} className="form-control form-control-sm" /></div>
                 <div className="col"><i className="material-icons settings text-muted" onClick={(e) => setReciepints("remove_recipient",{"recipient":"cc", "index" : index})}>remove</i></div>
             </div>
         ))}
@@ -94,10 +98,10 @@ const MailReplyRecipient = props => {
                         <div className="input-group-prepend">
                             <span className="input-group-text" ><i className="material-icons mr-0">mail_outline</i></span>
                         </div>
-                        <input type="text" className="form-control form-control-sm" placeholder="E-mail" onChange={(e) => setReciepints("set_attribute",{value : {value: e.target.value, type: "bcc", index: index, "field" : "email"}})} value={mail.email} placeholder="E-mail" aria-describedby="validationTooltipUsernamePrepend" />
+                        <input type="text" className="form-control form-control-sm" placeholder="E-mail" onChange={(e) => setReciepints("set_attribute",{value : {value: e.target.value, type: "bcc", index: index, "field" : "email"}})} value={mail.email} placeholder={t('r.email')} aria-describedby="validationTooltipUsernamePrepend" />
                     </div>
                 </div>
-                <div className="col-5"><input type="text" placeholder="Recipient name" onChange={(e) => setReciepints("set_attribute",{value : {value: e.target.value, type: "bcc", index: index, "field" : "name"}})} value={mail.name} className="form-control form-control-sm" /></div>
+                <div className="col-5"><input type="text" placeholder={t('r.name')} onChange={(e) => setReciepints("set_attribute",{value : {value: e.target.value, type: "bcc", index: index, "field" : "name"}})} value={mail.name} className="form-control form-control-sm" /></div>
                 <div className="col"><i className="material-icons settings text-muted" onClick={(e) => setReciepints("remove_recipient",{"recipient":"bcc", "index" : index})}>remove</i></div>
             </div>
         ))}

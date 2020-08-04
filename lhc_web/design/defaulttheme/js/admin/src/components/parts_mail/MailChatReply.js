@@ -1,10 +1,10 @@
-import parse, { domToReact } from 'html-react-parser';
 import React, { useEffect, useState, useReducer, useRef } from "react";
 import { Editor } from '@tinymce/tinymce-react';
 import axios from "axios";
 import MailChatAttachement from "./MailChatAttachement";
 import MailReplyRecipient from "./MailReplyRecipient";
 import MailSendStatus from "./MailSendStatus";
+import {useTranslation} from 'react-i18next';
 
 const MailChatReply = props => {
 
@@ -144,13 +144,15 @@ const MailChatReply = props => {
         setForwardMode(true);
     }
 
+    const { t, i18n } = useTranslation('mail_chat');
+
     return <React.Fragment>
         <div className="col-12 mt-2 pt-3 pb-2">
 
             {!replyMode && !forwardMode && !props.fetchingMessages && <div className="btn-group" role="group" aria-label="Mail actions">
-                <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => {setForwardMode(false);setReplyMode(true);}}><i className="material-icons">reply</i>Reply</button>
-                <button disabled={props.message.response_type == 1} type="button" className="btn btn-sm btn-outline-secondary" onClick={() => props.noReplyRequired()}><i className="material-icons">done</i>No reply required</button>
-                <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => {setReplyMode(false);setForwardMode(true)}}><i className="material-icons">forward</i>Forward</button>
+                <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => {setForwardMode(false);setReplyMode(true);}}><i className="material-icons">reply</i>{t('msg.reply')}</button>
+                <button disabled={props.message.response_type == 1} type="button" className="btn btn-sm btn-outline-secondary" onClick={() => props.noReplyRequired()}><i className="material-icons">done</i>{t('msg.nrr')}</button>
+                <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => {setReplyMode(false);setForwardMode(true)}}><i className="material-icons">forward</i>{t('msg.forward')}</button>
             </div>}
 
             {!props.fetchingMessages && (replyMode || forwardMode) && loadedReplyData && <div className="shadow p-2">
@@ -201,13 +203,13 @@ const MailChatReply = props => {
                 </div>}
 
                 <div className="btn-group mt-1" role="group" aria-label="Mail actions">
-                    <button type="button" disabled={sendInProgress} className="btn btn-sm btn-outline-primary" onClick={() => sendReply()}><i className="material-icons">send</i>{sendInProgress == true ? 'Sending...' : 'Send'}</button>
+                    <button type="button" disabled={sendInProgress} className="btn btn-sm btn-outline-primary" onClick={() => sendReply()}><i className="material-icons">send</i>{sendInProgress == true ? t('msg.sending') : t('msg.send')}</button>
                     <MailChatAttachement moptions={props.moptions} fileAttached={(file) => dispatch({ type: "add", value: file})} message={props.message}></MailChatAttachement>
                 </div>
 
                 {attachedFiles && attachedFiles.length > 0 &&
                 <div className="pt-2">{attachedFiles.map((file, index) => (
-                    <button title="Click to remove" onClick={() => removeAttatchedFile(file, index)} className="btn btn-sm btn-outline-info mr-1 mb-1" title={file.id}>{file.name}</button>
+                    <button title={t('msg.click_to_remove')} onClick={() => removeAttatchedFile(file, index)} className="btn btn-sm btn-outline-info mr-1 mb-1" title={file.id}>{file.name}</button>
                 ))}</div>}
 
             </div>}

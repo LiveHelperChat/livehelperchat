@@ -1,8 +1,8 @@
-<?php $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Set a subject')?>
+<?php $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvsb','Set a subject')?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 
     <div role="alert" class="alert alert-info alert-dismissible fade show">
-        <div id="subject-message-<?php echo $message->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Choose a subject')?></div>
+        <div id="subject-message-<?php echo $message->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvsb','Choose a subject')?></div>
     </div>
 
 <?php

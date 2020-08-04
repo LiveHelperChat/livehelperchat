@@ -44,14 +44,14 @@
 
             <td nowrap>
                 <?php if ($input->attachment != 1) : ?>
-                    <a onclick="insertContent(<?php echo $file->id?>)" href="#" class="csfr-required btn btn-secondary btn-xs"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Insert as content');?></a>
+                    <a onclick="insertContent(<?php echo $file->id?>)" href="#" class="csfr-required btn btn-secondary btn-xs"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Insert as content');?></a>
                 <?php else : ?>
-                    <a onclick="insertAttachment(<?php echo $file->id?>)" href="#" class="csfr-required btn btn-secondary btn-xs"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Attach');?></a>
+                    <a onclick="insertAttachment(<?php echo $file->id?>)" href="#" class="csfr-required btn btn-secondary btn-xs"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Attach');?></a>
                 <?php endif; ?>
             </td>
 
             <?php if ($input->attachment != 1) : ?>
-            <td nowrap><a onclick="insertLink(<?php echo $file->id?>)" href="#" class="csfr-required btn btn-secondary btn-xs"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Insert as link');?></a></td>
+            <td nowrap><a onclick="insertLink(<?php echo $file->id?>)" href="#" class="csfr-required btn btn-secondary btn-xs"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Insert as link');?></a></td>
             <?php endif; ?>
         </tr>
     <?php endforeach; ?>

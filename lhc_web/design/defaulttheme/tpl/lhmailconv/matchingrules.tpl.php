@@ -1,14 +1,14 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Matching rules');?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Matching rules');?></h1>
 
 <?php if (isset($items)) : ?>
     <table cellpadding="0" cellspacing="0" class="table table-sm" width="100%">
         <thead>
         <tr>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Priority');?></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Conversation priority');?></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Conditions');?></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Active');?></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Department');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Priority');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Conversation priority');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Conditions');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Active');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Department');?></th>
             <th width="1%"></th>
         </tr>
         </thead>
@@ -47,4 +47,4 @@
     <?php endif;?>
 <?php endif; ?>
 
-<a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/newmatchrule')?>">New</a>
+<a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/newmatchrule')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>

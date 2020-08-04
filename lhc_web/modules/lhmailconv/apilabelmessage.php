@@ -63,7 +63,7 @@ try {
 
 
     } else {
-        throw new Exception("No permission to read conversation.");
+        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','No permission to read conversation.'));
     }
 
 } catch (Exception $e) {

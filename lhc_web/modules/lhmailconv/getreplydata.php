@@ -42,10 +42,10 @@ try {
             $message->cc_data_array = [];
             $message->bcc_data_array = [];
             $partsIntro = [
-                'From: ' . ($message->from_name != '' ? '<b>' . $message->from_name .'</b>' : '') . ' <' . $message->from_address .'>',
-                'Date: ' . date('D',$message->udate) . ', ' . date('d',$message->udate) . ' ' . date('M',$message->udate) . ' ' . date('Y',$message->udate) . ' at ' . date('H:i',$message->udate),
-                'Subject: ' . $message->subject,
-                'To: ' . $message->to_data_front,
+                erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','From') . ': ' . ($message->from_name != '' ? '<b>' . $message->from_name .'</b>' : '') . ' <' . $message->from_address .'>',
+                erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Date') . ': ' . date('D',$message->udate) . ', ' . date('d',$message->udate) . ' ' . date('M',$message->udate) . ' ' . date('Y',$message->udate) . ' '. erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','at') . ' ' . date('H:i',$message->udate),
+                erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Subject') . ': ' . $message->subject,
+                erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','To') . ': ' . $message->to_data_front,
             ];
 
             if (!empty($message->cc_data_front)) {
@@ -72,7 +72,7 @@ try {
         exit;
 
     } else {
-        throw new Exception("No permission to read conversation.");
+        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','No permission to read conversation.'));
     }
 
 } catch (Exception $e) {

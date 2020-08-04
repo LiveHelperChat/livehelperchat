@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Conversations');?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Conversations');?></h1>
 
 <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/search_panel.tpl.php')); ?>
 
@@ -11,13 +11,13 @@
         <thead>
         <tr>
             <th width="1%"><input class="mb-0" type="checkbox" ng-model="check_all_items" /></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Subject');?></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Sender');?></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Priority');?></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Operator');?></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Department');?></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Status');?></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Date');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Subject');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Sender');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Priority');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Operator');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Department');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Status');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Date');?></th>
             <?php if ($can_delete === true) : ?>
                     <th width="1%"></th>
             <?php endif; ?>
@@ -45,11 +45,11 @@
                 <td><?php echo htmlspecialchars($item->department)?></td>
                 <td>
                     <?php if ($item->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING) : ?>
-                        <i class="material-icons chat-pending">mail_outline</i> Pending
+                        <i class="material-icons chat-pending">mail_outline</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Pending');?>
                     <?php elseif ($item->status == erLhcoreClassModelMailconvConversation::STATUS_ACTIVE) : ?>
-                        <i class="material-icons chat-active">mail_outline</i>Active
+                        <i class="material-icons chat-active">mail_outline</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Active');?>
                     <?php elseif ($item->status == erLhcoreClassModelMailconvConversation::STATUS_CLOSED) : ?>
-                        <i class="material-icons chat-closed">mail_outline</i>Closed
+                        <i class="material-icons chat-closed">mail_outline</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Closed');?>
                     <?php endif; ?>
                 </td>
                 <td>
@@ -73,8 +73,8 @@
     <?php endif;?>
 
     <div class="btn-group" role="group" aria-label="...">
-        <input type="submit" name="doClose" class="btn btn-warning" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Close selected');?>" />
-        <input type="submit" name="doDelete" class="btn btn-danger" onclick="return confirm(confLH.transLation.delete_confirm)" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete selected');?>" />
+        <input type="submit" name="doClose" class="btn btn-warning" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Close selected');?>" />
+        <input type="submit" name="doDelete" class="btn btn-danger" onclick="return confirm(confLH.transLation.delete_confirm)" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Delete selected');?>" />
     </div>
 
 </form>

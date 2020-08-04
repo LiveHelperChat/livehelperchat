@@ -40,7 +40,7 @@ class erLhcoreClassMailconvValidator {
         if ( $form->hasValidData( 'dep_id' )) {
             $item->dep_id = $form->dep_id;
         } else {
-            $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Please choose a department!');
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please choose a department!');
         }
 
         if ( $form->hasValidData( 'from_mail' )) {
@@ -131,7 +131,7 @@ class erLhcoreClassMailconvValidator {
         {
             $item->mail = $form->mail;
         } else {
-            $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Please enter a e-mail!');
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please enter an e-mail!');
         }
 
         if ( $form->hasValidData( 'username' )) {
@@ -211,7 +211,7 @@ class erLhcoreClassMailconvValidator {
         {
             $item->name = $form->name;
         } else {
-            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Please enter a name!');
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please enter a name!');
         }
 
         if ( $form->hasValidData( 'template' )) {
@@ -287,34 +287,34 @@ class erLhcoreClassMailconvValidator {
         $response['errors'] = [];
 
         if (!isset($params['content']) || empty($params['content'])) {
-            $response['errors']['content'] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Content is required!');
+            $response['errors']['content'] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Content is required!');
         }
 
         if (!isset($params['recipients']['reply']) || empty($params['recipients']['reply'])) {
-            $response['errors']['reply'] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Please enter at-least one recipient!');
+            $response['errors']['reply'] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please enter at-least one recipient!');
         }
 
         foreach ($params['recipients']['reply'] as $recipient) {
             if (!isset($recipient['email']) || empty($recipient['email'])) {
-                $response['errors']['reply'] = 'To: Please enter a valid recipient e-mail!';
+                $response['errors']['reply'] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','To: Please enter a valid recipient e-mail!');
             } else if (!filter_var($recipient['email'], FILTER_VALIDATE_EMAIL)) {
-                $response['errors']['reply'] = 'To: Invalid e-mail recipient!';
+                $response['errors']['reply'] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','To: Invalid e-mail recipient!');
             }
         }
 
         foreach ($params['recipients']['bcc'] as $recipient) {
             if (!isset($recipient['email']) || empty($recipient['email'])) {
-                $response['errors']['reply'] = 'Bcc: Please enter a valid recipient e-mail!';
+                $response['errors']['reply'] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Bcc: Please enter a valid recipient e-mail!');
             } else if (!filter_var($recipient['email'], FILTER_VALIDATE_EMAIL)) {
-                $response['errors']['reply'] = 'Bcc: Invalid e-mail recipient!';
+                $response['errors']['reply'] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Bcc: Invalid e-mail recipient!');
             }
         }
 
         foreach ($params['recipients']['cc'] as $recipient) {
             if (!isset($recipient['email']) || empty($recipient['email'])) {
-                $response['errors']['reply'] = 'Cc: Please enter a valid recipient e-mail!';
+                $response['errors']['reply'] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Cc: Please enter a valid recipient e-mail!');
             } else if (!filter_var($recipient['email'], FILTER_VALIDATE_EMAIL)) {
-                $response['errors']['reply'] = 'Cc: Invalid e-mail recipient!';
+                $response['errors']['reply'] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Cc: Invalid e-mail recipient!');
             }
         }
 

@@ -1,11 +1,7 @@
-//https://medium.com/@MilkMan/read-this-before-refactoring-your-big-react-class-components-to-hooks-515437e9d96f
-//https://reactjs.org/docs/hooks-reference.html#usereducer
-
 import React, { useEffect, useState, useReducer, useRef } from "react";
 import axios from "axios";
 import {useTranslation} from 'react-i18next';
 import MailChatMessage from "./parts_mail/MailChatMessage";
-
 
 function reducer(state, action) {
     switch (action.type) {
@@ -278,14 +274,14 @@ const MailChat = props => {
                             <MailChatMessage moptions={state.moptions} fetchMessages={(e) => fetchMessages(message)} fetchingMessages={state.fetching_messages} mode={props.mode} key={'msg_mail_' + props.chatId + '_' + index + '_' + message.id} totalMessages={state.messages.length} index={index} message={message} noReplyRequired={(e) => noReplyRequired(message)} addLabel={(e) => addLabel(message)} />
                         ))}
 
-                        {state.fetching_messages && <div className="alert alert-success p-1 pl-2" role="alert">Send. Your send message will appear here... You can close this conversation in any case.</div>}
+                        {state.fetching_messages && <div className="alert alert-success p-1 pl-2" role="alert">{t('mail.send_fetching')}</div>}
                     </div>
                 </div>
                 <div className={"chat-main-right-column " + (props.mode == 'preview' ? 'd-none' : 'col-5')}>
                     <div role="tabpanel">
                         <ul className="nav nav-pills" role="tablist" ref={tabsContainer}>
-                            <li role="presentation" className="nav-item"><a className="nav-link active" href={"#mail-chat-info-"+props.chatId} aria-controls={"#mail-chat-info-"+props.chatId} title="Information" role="tab" data-toggle="tab"><i className="material-icons mr-0">info_outline</i></a></li>
-                            <li role="presentation" className="nav-item"><a className="nav-link" href={"#mail-chat-remarks-"+props.chatId} aria-controls={"#mail-chat-remarks-"+props.chatId} role="tab" data-toggle="tab" title="Remarks"><i className="material-icons mr-0">mode_edit</i></a></li>
+                            <li role="presentation" className="nav-item"><a className="nav-link active" href={"#mail-chat-info-"+props.chatId} aria-controls={"#mail-chat-info-"+props.chatId} title={t('mail.information')} role="tab" data-toggle="tab"><i className="material-icons mr-0">info_outline</i></a></li>
+                            <li role="presentation" className="nav-item"><a className="nav-link" href={"#mail-chat-remarks-"+props.chatId} aria-controls={"#mail-chat-remarks-"+props.chatId} role="tab" data-toggle="tab" title={t('mail.remarks')}><i className="material-icons mr-0">mode_edit</i></a></li>
                         </ul>
                         <div className="tab-content">
                             <div role="tabpanel" className="tab-pane" id={"mail-chat-remarks-"+props.chatId}>
@@ -297,70 +293,64 @@ const MailChat = props => {
                             <div role="tabpanel" className="tab-pane active" id={"mail-chat-info-"+props.chatId}>
 
                                 <div className="pb-2">
-                                    <a className="btn btn-outline-secondary btn-sm" onClick={() => closeConversation()}><i className="material-icons">close</i>Close</a>
+                                    <a className="btn btn-outline-secondary btn-sm" onClick={() => closeConversation()}><i className="material-icons">close</i>{t('mail.close')}</a>
                                 </div>
 
                                 {state.conv && <table className="table table-sm">
                                     <tr>
                                         <td colSpan="2">
-                                            <i className="material-icons action-image" onClick={() => showModal({url: "mailconv/mailhistory/" + props.chatId})}>history</i>
-                                            <a className="material-icons action-image" onClick={() => showModal({url: "mailconv/transfermail/" + props.chatId})} title="Transfer chat">supervisor_account</a>
-                                            <a className="text-dark material-icons" target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/mailprintcovnersation/" + props.chatId} >print</a>
+                                            <i className="material-icons action-image" title={t('mail.interactions_history')} onClick={() => showModal({url: "mailconv/mailhistory/" + props.chatId})}>history</i>
+                                            <a className="material-icons action-image" onClick={() => showModal({url: "mailconv/transfermail/" + props.chatId})} title={t('mail.transfer_chat')} >supervisor_account</a>
+                                            <a className="text-dark material-icons" title={t('mail.print')} target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/mailprintcovnersation/" + props.chatId} >print</a>
                                             {state.conv.can_delete && <a className="material-icons mr-0" onClick={(e) => deleteConversation()} title="Delete chat">delete</a>}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Sender</td>
+                                        <td>{t('mail.sender')}</td>
                                         <td>{state.conv.from_name} &lt;{state.conv.from_address}&gt;</td>
                                     </tr>
                                     <tr>
-                                        <td>Status</td>
+                                        <td>{t('mail.status')}</td>
                                         <td>
-                                            {!state.conv.status && <span><i className="material-icons chat-pending">mail_outline</i>Pending</span>}
-                                            {state.conv.status == 1 && <span><i className="material-icons chat-active">mail_outline</i>Active</span>}
-                                            {state.conv.status == 2 && <span><i className="material-icons chat-closed">mail_outline</i>Closed</span>}
+                                            {!state.conv.status && <span><i className="material-icons chat-pending">mail_outline</i>{t('status.pending')}</span>}
+                                            {state.conv.status == 1 && <span><i className="material-icons chat-active">mail_outline</i>{t('status.active')}</span>}
+                                            {state.conv.status == 2 && <span><i className="material-icons chat-closed">mail_outline</i>{t('status.closed')}</span>}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Department</td>
+                                        <td>{t('mail.department')}</td>
                                         <td>{state.conv.department_name}</td>
                                     </tr>
                                     <tr>
-                                        <td>Received</td>
+                                        <td>{t('mail.received')}</td>
                                         <td>{state.conv.udate_front}</td>
                                     </tr>
                                     <tr>
                                         <td>ID</td>
                                         <td>{state.conv.id}</td>
                                     </tr>
-
                                     {state.conv.accept_time && <tr>
-                                        <td>Accepted at</td>
+                                        <td>{t('mail.accepted_at')}Accepted at</td>
                                         <td>{state.conv.accept_time_front} | Wait time {state.conv.wait_time_pending}</td>
                                     </tr>}
-
                                     {state.conv.response_time && <tr>
-                                        <td>Responded at</td>
+                                        <td>{t('mail.responded_at')}Responded at</td>
                                         <td>{state.conv.lr_time_front} | Wait time {state.conv.wait_time_response}</td>
                                     </tr>}
-
                                     {state.conv.cls_time && <tr>
-                                        <td>Closed at</td>
+                                        <td>{t('mail.closed_at')}</td>
                                         <td>{state.conv.cls_time_front}</td>
                                     </tr>}
-
                                     {state.conv.interaction_time && <tr>
-                                        <td>Interaction time</td>
+                                        <td>{t('mail.interaction_time')}</td>
                                         <td>{state.conv.interaction_time_duration}</td>
                                     </tr>}
-
                                     {state.conv.priority && <tr>
-                                        <td>Priority</td>
+                                        <td>{t('mail.priority')}</td>
                                         <td>{state.conv.priority}</td>
                                     </tr>}
-
                                     <tr>
-                                        <td>Chat owner</td>
+                                        <td>{t('mail.chat_owner')}</td>
                                         <td>{state.conv.plain_user_name}</td>
                                     </tr>
                                 </table>}

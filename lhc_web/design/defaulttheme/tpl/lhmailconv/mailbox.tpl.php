@@ -1,11 +1,11 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Mailbox');?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Mailbox');?></h1>
 
 <?php if (isset($items)) : ?>
     <table cellpadding="0" cellspacing="0" class="table table-sm" width="100%">
         <thead>
         <tr>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Mailbox');?></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Active');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Mailbox');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Active');?></th>
             <th width="1%"></th>
         </tr>
         </thead>
@@ -36,4 +36,4 @@
     <?php endif;?>
 <?php endif; ?>
 
-<a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/newmailbox')?>">New</a>
+<a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/newmailbox')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>

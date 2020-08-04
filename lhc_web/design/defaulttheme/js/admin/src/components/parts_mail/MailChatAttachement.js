@@ -212,8 +212,11 @@ class MailChatAttatchement extends PureComponent {
     }
 
     chooseFromUploaded() {
+
+        const { t } = this.props;
+        
         lhc.revealModal({
-            'title' : 'Attatch an already uploaded file',
+            'title' : t('file.choose_uploaded'),
             'iframe':true,
             'height':500,
             'url':WWW_DIR_JAVASCRIPT +'mailconv/attatchfile/(attachment)/1'
@@ -227,14 +230,17 @@ class MailChatAttatchement extends PureComponent {
     }
 
     render() {
+
+            const { t } = this.props;
+
             return (
                 <React.Fragment>
-                    <button className="btn btn-sm btn-outline-secondary" onClick={this.chooseFromUploaded} ><i className="material-icons">list</i> Choose file from uploaded files</button>
-                    <button ref={this.dropAreaRef} onClick={this.openFileDialog} className={"btn btn-sm " + (this.state.hightlight == true ? 'btn-outline-primary' : 'btn-outline-secondary')}><i className="material-icons">attach_file</i> {this.state.progress || 'Drop your files here or choose a new file'}</button>
+                    <button className="btn btn-sm btn-outline-secondary" onClick={this.chooseFromUploaded} ><i className="material-icons">list</i> {t('file.choose_uploaded')}</button>
+                    <button ref={this.dropAreaRef} onClick={this.openFileDialog} className={"btn btn-sm " + (this.state.hightlight == true ? 'btn-outline-primary' : 'btn-outline-secondary')}><i className="material-icons">attach_file</i> {this.state.progress || t('file.drop_here')}</button>
                     <input onChange={this.onFilesAddedUI} ref={this.fileInputRef} id="fileupload" type="file" name="files[]" multiple className="d-none" />
                 </React.Fragment>
             );
      }
 }
 
-export default withTranslation()(MailChatAttatchement);
+export default withTranslation('mail_chat')(MailChatAttatchement);

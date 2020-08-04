@@ -6,11 +6,11 @@
         </div>
         <div class="p-1 border-bottom">
             <i class="material-icons">label</i><small>ID - <?php echo $chat->id?></small>&nbsp;
-            <i class="material-icons">label</i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Created')?> - <?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->pnd_time)?></small>&nbsp;
-            <i class="material-icons">label</i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Wait response time')?> - <?php echo $chat->wait_time_response?></small>&nbsp;
-            <i class="material-icons">label</i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Wait time')?> - <?php echo $chat->wait_time_pending?></small>&nbsp;
-            <i class="material-icons">label</i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Priority')?> - (<?php echo $chat->priority?>)</small>
-            <i class="material-icons">label</i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','User')?> - (<?php echo htmlspecialchars($chat->plain_user_name)?>)</small>
+            <i class="material-icons">label</i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvpreview','Created')?> - <?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->pnd_time)?></small>&nbsp;
+            <i class="material-icons">label</i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvpreview','Wait response time')?> - <?php echo $chat->wait_time_response?></small>&nbsp;
+            <i class="material-icons">label</i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvpreview','Wait time')?> - <?php echo $chat->wait_time_pending?></small>&nbsp;
+            <i class="material-icons">label</i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvpreview','Priority')?> - (<?php echo $chat->priority?>)</small>
+            <i class="material-icons">label</i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvpreview','User')?> - (<?php echo htmlspecialchars($chat->plain_user_name)?>)</small>
         </div>
         <div class="modal-body">
             <div id="chat-id-previewmc<?php echo $chat->id?>"></div>

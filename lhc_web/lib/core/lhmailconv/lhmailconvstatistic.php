@@ -215,10 +215,10 @@ class erLhcoreClassMailconvStatistic {
         );
 
         $responseTypes = array(
-            erLhcoreClassModelMailconvMessage::RESPONSE_UNRESPONDED => 'Unresponded',
-            erLhcoreClassModelMailconvMessage::RESPONSE_NOT_REQUIRED => 'No response required',
-            erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL => 'Send messages',
-            erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL => 'Responded to messages',
+            erLhcoreClassModelMailconvMessage::RESPONSE_UNRESPONDED => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Unresponded'),
+            erLhcoreClassModelMailconvMessage::RESPONSE_NOT_REQUIRED => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','No reply required'),
+            erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Send messages'),
+            erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Responded by e-mail'),
         );
 
         for ($i = 0; $i < $limitDays;$i++) {
@@ -239,11 +239,11 @@ class erLhcoreClassMailconvStatistic {
                 $returnArray['color'][] = json_encode(erLhcoreClassChatStatistic::colorFromString($demoItem->{$attr}));
 
                 if ($attr == 'user_id') {
-                    $returnArray['nick'][] = json_encode($demoItem->{$attr} > 0 ? erLhcoreClassModelUser::fetch($demoItem->{$attr},true)->name_official : 'Not assigned');
+                    $returnArray['nick'][] = json_encode($demoItem->{$attr} > 0 ? erLhcoreClassModelUser::fetch($demoItem->{$attr},true)->name_official : erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Not assigned'));
                 } else if ($attr == 'dep_id') {
-                    $returnArray['nick'][] = json_encode($demoItem->{$attr} > 0 ? (string)$demoItem->department : 'Not assigned');
+                    $returnArray['nick'][] = json_encode($demoItem->{$attr} > 0 ? (string)$demoItem->department : erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Not assigned'));
                 } else if ($attr == 'mailbox_id') {
-                    $returnArray['nick'][] = json_encode($demoItem->{$attr} > 0 ? (string)$demoItem->mailbox : 'Not assigned');
+                    $returnArray['nick'][] = json_encode($demoItem->{$attr} > 0 ? (string)$demoItem->mailbox : erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Not assigned'));
                 } else if ($attr == 'response_type') {
                     $returnArray['nick'][] = json_encode($responseTypes[$demoItem->{$attr}]);
                 } else {
@@ -303,10 +303,10 @@ class erLhcoreClassMailconvStatistic {
         );
 
         $responseTypes = array(
-            erLhcoreClassModelMailconvMessage::RESPONSE_UNRESPONDED => 'Unresponded',
-            erLhcoreClassModelMailconvMessage::RESPONSE_NOT_REQUIRED => 'No response required',
-            erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL => 'Send messages',
-            erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL => 'Responded to messages',
+            erLhcoreClassModelMailconvMessage::RESPONSE_UNRESPONDED => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Unresponded'),
+            erLhcoreClassModelMailconvMessage::RESPONSE_NOT_REQUIRED => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','No reply required'),
+            erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Send messages'),
+            erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Responded by e-mail'),
         );
 
         for ($i = 0; $i < 12;$i++) {
@@ -330,11 +330,11 @@ class erLhcoreClassMailconvStatistic {
                     $returnArray['color'][] = json_encode(erLhcoreClassChatStatistic::colorFromString($demoItem->{$attr}));
 
                     if ($attr == 'user_id') {
-                        $returnArray['nick'][] = json_encode($demoItem->{$attr} > 0 ? erLhcoreClassModelUser::fetch($demoItem->{$attr},true)->name_official : 'Not assigned');
+                        $returnArray['nick'][] = json_encode($demoItem->{$attr} > 0 ? erLhcoreClassModelUser::fetch($demoItem->{$attr},true)->name_official : erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Not assigned'));
                     } else if ($attr == 'dep_id') {
-                        $returnArray['nick'][] = json_encode($demoItem->{$attr} > 0 ? (string)$demoItem->department : 'Not assigned');
+                        $returnArray['nick'][] = json_encode($demoItem->{$attr} > 0 ? (string)$demoItem->department : erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Not assigned'));
                     } else if ($attr == 'mailbox_id') {
-                        $returnArray['nick'][] = json_encode($demoItem->{$attr} > 0 ? (string)$demoItem->mailbox : 'Not assigned');
+                        $returnArray['nick'][] = json_encode($demoItem->{$attr} > 0 ? (string)$demoItem->mailbox : erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Not assigned'));
                     } else if ($attr == 'response_type') {
                         $returnArray['nick'][] = json_encode($responseTypes[$demoItem->{$attr}]);
                     } else {
@@ -368,10 +368,10 @@ class erLhcoreClassMailconvStatistic {
         $items = [];
 
         foreach (array(
-            erLhcoreClassModelMailconvMessage::RESPONSE_UNRESPONDED => 'Unresponded',
-            erLhcoreClassModelMailconvMessage::RESPONSE_NOT_REQUIRED => 'No response required',
-            erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL => 'We have send this message as reply or forward',
-            erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL => 'To this message was responded by us.',
+            erLhcoreClassModelMailconvMessage::RESPONSE_UNRESPONDED => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Unresponded'),
+            erLhcoreClassModelMailconvMessage::RESPONSE_NOT_REQUIRED => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','No reply required'),
+            erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','We have send this message as reply or forward'),
+            erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Responded by e-mail'),
         ) as $id => $item) {
             $itemSTD = new stdClass();
             $itemSTD->id = $id;

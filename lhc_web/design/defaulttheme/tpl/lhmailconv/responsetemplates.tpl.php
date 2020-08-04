@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/cbscheduler','Response templates');?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrp','Response templates');?></h1>
 
 <?php if (isset($items)) : ?>
     <table cellpadding="0" cellspacing="0" class="table table-sm" width="100%">
@@ -28,4 +28,4 @@
     <?php endif;?>
 <?php endif; ?>
 
-<a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/newresponsetemplate')?>">New</a>
+<a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/newresponsetemplate')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>

@@ -1,10 +1,10 @@
 <div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Name');?></label>
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Name');?></label>
     <input type="text" maxlength="250" class="form-control form-control-sm" name="name" value="<?php echo htmlspecialchars($item->name)?>" />
 </div>
 
 <div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Department');?></label>
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Department');?></label>
     <?php
     $params = array (
         'input_name'     => 'dep_id',
@@ -21,9 +21,9 @@
 
 
 <div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Template');?></label>
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Template');?></label>
     <textarea id="response-template" class="form-control form-control-sm" name="template"><?php echo htmlspecialchars($item->template)?></textarea>
-    <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/mailbox','Supported replaceable variable.');?> {operator}, {department}</small></p>
+    <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Supported replaceable variable.');?> {operator}, {department}</small></p>
 </div>
 
 <script>
