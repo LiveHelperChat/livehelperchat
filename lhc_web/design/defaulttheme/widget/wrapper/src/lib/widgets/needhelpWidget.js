@@ -7,6 +7,8 @@ export class needhelpWidget{
 
         this.attributes = {};
         this.hidden = false;
+        this.widgetOpen = false;
+        this.invitationOpen = false;
 
         this.cont = new UIConstructorIframe('lhc_needhelp_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "1000000",
@@ -37,7 +39,7 @@ export class needhelpWidget{
         this.cont.attachUserEventListener("click", function (a) {
             attributes.eventEmitter.emitEvent('nhClosed', [{'sender' : 'closeButton'}]);
             a.stopPropagation();
-            _that.hide();
+            _that.hide(true);
         }, "close-need-help-btn",'nhcls');
 
         if (settings.dimensions) {
@@ -54,12 +56,27 @@ export class needhelpWidget{
         }
 
         attributes.eventEmitter.addListener('showInvitation',() => {
+            this.invitationOpen = true;
             this.hide();
+        });
+        
+        attributes.eventEmitter.addListener('chatStarted',() => {
+            this.hide(true);
+        });
+
+        attributes.eventEmitter.addListener('hideInvitation',() => {
+            this.invitationOpen = false;
+            this.show();
+        });
+
+        attributes.eventEmitter.addListener('cancelInvitation',() => {
+            this.invitationOpen = false;
+            this.show();
         });
 
         setTimeout(() => {
             attributes.widgetStatus.subscribe((data) => {
-                data == true ? this.hide() : this.show();
+                data == true ? (this.widgetOpen = true,this.hide()) : (this.widgetOpen = false,this.show());
             });
 
             attributes.onlineStatus.subscribe((data) => {
@@ -79,18 +96,20 @@ export class needhelpWidget{
 
     }
 
-    hide () {
+    hide (persistent) {
 
-        this.attributes.userSession.hnh = Math.round(Date.now() / 1000);
-        this.attributes.storageHandler.storeSessionInformation(this.attributes.userSession.getSessionAttributes())
+        if (typeof persistent !== 'undefined' && persistent === true){
+            this.attributes.userSession.hnh = Math.round(Date.now() / 1000);
+            this.attributes.storageHandler.storeSessionInformation(this.attributes.userSession.getSessionAttributes());
+            this.hidden = true;
+        }
 
-        this.hidden = true;
         this.cont.hide();
     }
 
     show () {
 
-        if (this.hidden == true) {
+        if (this.hidden == true || this.widgetOpen == true ||  this.invitationOpen == true) {
             return;
         }
 
