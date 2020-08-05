@@ -138,7 +138,7 @@ class BodyChat extends Component {
             return  <Suspense fallback="..."><ProactiveInvitation setBotPayload={this.setBotPayload} /></Suspense>
         }
 
-        var className = 'd-flex flex-column flex-grow-1 overflow-auto reset-container-margins';
+        var className = 'd-flex flex-column flex-grow-1 reset-container-margins';
 
         if (this.props.chatwidget.get('mode') == 'widget') {
             className = className + (this.props.chatwidget.get('isMobile') == true ? ' mobile-body' : ' desktop-body');
