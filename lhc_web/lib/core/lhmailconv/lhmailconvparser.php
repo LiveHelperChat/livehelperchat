@@ -7,6 +7,11 @@ class erLhcoreClassMailconvParser {
     public static function getMailBox($mailbox) {
 
         $mail_con = imap_open($mailbox->imap, $mailbox->username,  $mailbox->password);
+
+        if ($mail_con === false) {
+            throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv', 'Connection could not be established. Please check your logins.'));
+        }
+
         $mailboxList = imap_list($mail_con, $mailbox->imap, '*');
 
         $mailboxPresentItems = $mailbox->mailbox_sync_array;

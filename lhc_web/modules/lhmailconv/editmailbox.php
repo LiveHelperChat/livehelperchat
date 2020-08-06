@@ -12,7 +12,11 @@ if (isset($Params['user_parameters_unordered']['action']) && $Params['user_param
 }
 
 if (isset($Params['user_parameters_unordered']['action']) && $Params['user_parameters_unordered']['action'] == 'mailbox') {
-    erLhcoreClassMailconvParser::getMailBox($item);
+    try {
+        erLhcoreClassMailconvParser::getMailBox($item);
+    } catch (Exception $e) {
+        $tpl->set('errors',[$e->getMessage()]);
+    }
     $tab = 'tab_mailbox';
 }
 
