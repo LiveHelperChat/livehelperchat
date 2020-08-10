@@ -527,6 +527,36 @@ function lh(){
         this.addGroupTab(tabs, name, 'gc'+chat_id, background);
     }
 
+    this.hideShowAction = function(options) {
+        var msg = $('#message-more-'+options['id']);
+        if (msg.hasClass('hide')) {
+            msg.removeClass('hide');
+            options['hide_show'] == false ? $('#hide-show-action-'+options['id']).remove() : $('#hide-show-action-'+options['id']).text(options['hide_text']);
+        } else {
+            msg.addClass('hide');
+            if (options['hide_show'] == true) {
+                $('#hide-show-action-'+options['id']).text(options['show_text']);
+            }
+        }
+
+        var messagesBlock = $('#messagesBlock-' + options['chat_id']);
+        messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
+
+    }
+
+    this.buttonAction = function(inst,payload) {
+        var row = inst.closest('.message-row');
+        $.getJSON(this.wwwDir + 'chat/abstractclick/' + row.attr('id').replace('msg-','') + '/' + payload, function(data) {
+            if (data.error) {
+                alert(data.error);
+            } else if (data.replace_id && data.html) {
+                $(data.replace_id).html(data.html);
+                var messagesBlock = $('#messagesBlock-' + data.chat_id);
+                messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
+            }
+        });
+    }
+    
     this.startChat = function (chat_id,tabs,name,focusTab,position) {
     	    	
     	this.removeBackgroundChat(chat_id);
@@ -2719,6 +2749,9 @@ function lh(){
     			setTimeout(function(){
     				$('#msg-'+msgid).removeClass('bg-success');
     			},2000);
+
+    			var messagesBlock = $('#messagesBlock-'+chat_id);
+                messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
     		}
 		});
     };

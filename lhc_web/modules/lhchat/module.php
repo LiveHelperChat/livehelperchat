@@ -127,6 +127,11 @@ $ViewList['closechatadmin'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['abstractclick'] = array(
+    'params' => array('msg_id','payload'),
+    'functions' => array( 'use' )
+);
+
 $ViewList['setsubstatus'] = array(
     'params' => array('chat_id','substatus'),
     'functions' => array( 'use' )

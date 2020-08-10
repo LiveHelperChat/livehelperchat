@@ -51,6 +51,16 @@ class ChatMessage extends PureComponent {
             this.updateTriggerClicked({type:'',mainType: 'updatebuttonclicked'}, attrs, e.target);
         } else if (attrs.onclick.indexOf('lhinst.editGenericStep') !== -1) {
             this.updateTriggerClicked({type:'/(type)/editgenericstep'}, attrs, e.target);
+        } else if (attrs.onclick.indexOf('lhinst.hideShowAction') !== -1) {
+            const args = JSON.parse(attrs['data-load']);
+            var more = document.getElementById('message-more-'+args['id']);
+            if (more.classList.contains('hide')) {
+                e.target.innerText = args['hide_text'];
+                more.classList.remove('hide');
+            } else {
+                e.target.innerText = args['show_text'];
+                more.classList.add('hide');
+            }
         } else if (attrs.onclick.indexOf('lhinst.dropdownClicked') !== -1) {
             const list = document.getElementById('id_generic_list-' + attrs['data-id']);
             if (list && list.value != "0" && list.value != "") {

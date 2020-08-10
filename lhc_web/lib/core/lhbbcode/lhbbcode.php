@@ -768,6 +768,10 @@ class erLhcoreClassBBCode
         }
    }
 
+   public static function _make_button_action($matches) {
+        return "<button type=\"button\" class=\"btn btn-xs text-white fs13 btn-secondary\" onclick=\"lhinst.buttonAction($(this),'" . htmlspecialchars(strip_tags($matches[1])) . "')\">" . htmlspecialchars($matches[2]) . "</button>";
+   }
+
    public static function _make_youtube_block($matches) {
 
          $data = parse_url($matches[1]);
@@ -1105,6 +1109,8 @@ class erLhcoreClassBBCode
 
     	// File upload link directly in chat message
     	$ret = preg_replace_callback('#\[fupload\](.*?)\[/fupload\]#is', 'erLhcoreClassBBCode::_make_upload_link', $ret);
+
+    	$ret = preg_replace_callback('#\[button_action="?(.*?)"?\](.*?)\[/button_action\]#is', 'erLhcoreClassBBCode::_make_button_action', $ret);
 
     	$ret = preg_replace('#\[translation\](.*?)\[/translation\]#is', '<span class="tr-msg">$1</span>', $ret);
 
