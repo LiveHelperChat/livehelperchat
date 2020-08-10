@@ -135,6 +135,31 @@ class ChatMessage extends PureComponent {
         }
     }
 
+    formatStringToCamelCase(str) {
+        const splitted = str.split("-");
+        if (splitted.length === 1) return splitted[0];
+        return (
+            splitted[0] +
+            splitted
+                .slice(1)
+                .map(word => word[0].toUpperCase() + word.slice(1))
+                .join("")
+        );
+    };
+
+    getStyleObjectFromString(str) {
+        const style = {};
+        str.split(";").forEach(el => {
+            const [property, value] = el.split(":");
+            if (!property) return;
+
+            const formattedProperty = this.formatStringToCamelCase(property.trim());
+            style[formattedProperty] = value.trim();
+        });
+
+        return style;
+    };
+
     render() {
 
         var operatorChanged = false;
@@ -168,13 +193,29 @@ class ChatMessage extends PureComponent {
                     }
 
                     if (domNode.name && domNode.name === 'img') {
+
+                        if (domNode.attribs.style) {
+                            domNode.attribs.style = this.getStyleObjectFromString(domNode.attribs.style);
+                        }
+
                         return <img {...domNode.attribs} onLoad={this.imageLoaded} onClick={(e) => this.abstractClick(cloneAttr, e)} />
+
                     } else if (domNode.name && domNode.name === 'button') {
                         if (cloneAttr.onclick) {
+
+                            if (domNode.attribs.style) {
+                                domNode.attribs.style = this.getStyleObjectFromString(domNode.attribs.style);
+                            }
+
                             return <button {...domNode.attribs} onClick={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</button>
                         }
                     } else if (domNode.name && domNode.name === 'a') {
                         if (cloneAttr.onclick) {
+
+                            if (domNode.attribs.style) {
+                                domNode.attribs.style = this.getStyleObjectFromString(domNode.attribs.style);
+                            }
+
                             return <a {...domNode.attribs} onClick={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</a>
                         }
                     } else if (domNode.name && domNode.name === 'script' && domNode.attribs['data-bot-action']) {
