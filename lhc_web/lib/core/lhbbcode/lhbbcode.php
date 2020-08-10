@@ -769,7 +769,7 @@ class erLhcoreClassBBCode
    }
 
    public static function _make_button_action($matches) {
-        return "<button type=\"button\" class=\"btn btn-xs text-white fs13 btn-secondary\" onclick=\"lhinst.buttonAction($(this),'" . $matches[1] . "')\">" . htmlspecialchars($matches[2]) . "</button>";
+        return "<button type=\"button\" class=\"btn btn-xs text-white fs13 btn-secondary\" onclick=\"lhinst.buttonAction($(this),'" . htmlspecialchars(strip_tags($matches[1])) . "')\">" . htmlspecialchars($matches[2]) . "</button>";
    }
 
    public static function _make_youtube_block($matches) {
