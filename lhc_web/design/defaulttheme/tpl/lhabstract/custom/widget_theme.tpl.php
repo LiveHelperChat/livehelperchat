@@ -73,22 +73,55 @@
 						<label><?php echo $fields['name_company']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('name_company', $fields['name_company'], $object)?>
 						</div>
-						
-						<div class="form-group">					
-						<label><?php echo $fields['onl_bcolor']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('onl_bcolor', $fields['onl_bcolor'], $object)?>
-						</div>
-						
-						<div class="form-group">
-						<label><?php echo $fields['text_color']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('text_color', $fields['text_color'], $object)?>
-						</div>
-						
-						<div class="form-group">
-						<label><?php echo $fields['bor_bcolor']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('bor_bcolor', $fields['bor_bcolor'], $object)?>
-						</div>
-						
+
+                        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Online status options')?></h5>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label><?php echo $fields['onl_bcolor']['trans'];?></label>
+                                <?php echo erLhcoreClassAbstract::renderInput('onl_bcolor', $fields['onl_bcolor'], $object)?>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label><?php echo $fields['text_color']['trans'];?></label>
+                                <?php echo erLhcoreClassAbstract::renderInput('text_color', $fields['text_color'], $object)?>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label><?php echo $fields['bor_bcolor']['trans'];?></label>
+                                <?php echo erLhcoreClassAbstract::renderInput('bor_bcolor', $fields['bor_bcolor'], $object)?>
+                            </div>
+                        </div>
+                    </div>
+
+                        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Offline status options')?></h5>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo $fields['offl_bcolor']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('offl_bcolor', $fields['offl_bcolor'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo $fields['offltxt_color']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('offltxt_color', $fields['offltxt_color'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo $fields['offlbor_bcolor']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('offlbor_bcolor', $fields['offlbor_bcolor'], $object)?>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Images')?></h5>
 						<div class="form-group">
 						<label><?php echo $fields['online_image']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('online_image', $fields['online_image'], $object)?>
@@ -98,7 +131,8 @@
 						<label><?php echo $fields['offline_image']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('offline_image', $fields['offline_image'], $object)?>
 						</div>
-						
+
+
 						<div class="form-group">
 						<label><?php echo $fields['operator_image']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('operator_image', $fields['operator_image'], $object)?>

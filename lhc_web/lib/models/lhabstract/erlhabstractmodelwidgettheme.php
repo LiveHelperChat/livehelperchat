@@ -503,7 +503,7 @@ class erLhAbstractModelWidgetTheme {
    	public $id = null;
 	public $name = '';
 	public $onl_bcolor = '0c8fc4';
-	public $text_color = '000000';
+	public $text_color = '';
 	public $bor_bcolor = 'e3e3e3';
 	public $online_image = '';
 	public $offline_image = '';

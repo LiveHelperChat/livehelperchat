@@ -109,7 +109,7 @@ export class needhelpWidget{
 
     show () {
 
-        if (this.hidden == true || this.widgetOpen == true ||  this.invitationOpen == true) {
+        if (this.hidden == true || this.widgetOpen == true ||  this.invitationOpen == true || this.attributes.onlineStatus.value == false) {
             return;
         }
 
