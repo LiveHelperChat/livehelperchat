@@ -273,6 +273,16 @@
 						<?php echo erLhcoreClassAbstract::renderInput('wheight', $fields['wheight'], $object)?>		
 						</div>
 
+						<div class="form-group">
+						<label><?php echo $fields['wright']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('wright', $fields['wright'], $object)?>
+						</div>
+
+						<div class="form-group">
+						<label><?php echo $fields['wbottom']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('wbottom', $fields['wbottom'], $object)?>
+						</div>
+
                         <input class="d-none" checked="checked" type="checkbox" name="AbstractInput_copyright_image_delete" value="1">
 
 						<div class="form-group">	
@@ -303,7 +313,11 @@
 						<?php /*<div class="form-group">
 						<label><?php echo erLhcoreClassAbstract::renderInput('show_copyright', $fields['show_copyright'], $object)?> <?php echo $fields['show_copyright']['trans'];?></label>	
 						</div>*/ ?>
-						
+
+                        <div class="form-group">
+                            <label><?php echo erLhcoreClassAbstract::renderInput('close_in_status', $fields['close_in_status'], $object)?> <?php echo $fields['close_in_status']['trans'];?></label>
+                        </div>
+
 						<div class="form-group">	
 						<label><?php echo erLhcoreClassAbstract::renderInput('hide_close', $fields['hide_close'], $object)?> <?php echo $fields['hide_close']['trans'];?></label>
 						</div>
@@ -322,6 +336,10 @@
 
 						<div class="form-group">
 						    <label><?php echo erLhcoreClassAbstract::renderInput('confirm_close', $fields['confirm_close'], $object)?> <?php echo $fields['confirm_close']['trans'];?></label>
+        		        </div>
+                    
+						<div class="form-group">
+						    <label><?php echo erLhcoreClassAbstract::renderInput('job_new_row', $fields['job_new_row'], $object)?> <?php echo $fields['job_new_row']['trans'];?></label>
         		        </div>
 
 						<div class="form-group">

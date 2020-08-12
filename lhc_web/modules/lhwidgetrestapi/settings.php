@@ -132,6 +132,14 @@ if (isset($outputResponse['theme'])){
             $outputResponse['chat_ui']['wheight'] = $theme->bot_configuration_array['wheight'];
         }
 
+        if (isset($theme->bot_configuration_array['wright']) && $theme->bot_configuration_array['wright'] > 0) {
+            $outputResponse['chat_ui']['wright'] = (int)$theme->bot_configuration_array['wright'];
+        }
+
+        if (isset($theme->bot_configuration_array['wbottom']) && $theme->bot_configuration_array['wbottom'] > 0) {
+            $outputResponse['chat_ui']['wbottom'] = (int)$theme->bot_configuration_array['wbottom'];
+        }
+
         $outputResponse['theme_v'] = $theme->modified;
 
         if ($theme->custom_container_css !== ''){
@@ -151,6 +159,10 @@ if (isset($outputResponse['theme'])){
 
         if (isset($theme->bot_configuration_array['header_html']) && $theme->bot_configuration_array['header_html'] != '') {
             $outputResponse['chat_ui']['hhtml'] = $theme->bot_configuration_array['header_html'];
+        }
+
+        if (isset($theme->bot_configuration_array['close_in_status']) && $theme->bot_configuration_array['close_in_status'] == true) {
+            $outputResponse['chat_ui']['clinst'] = true;
         }
 
     }
@@ -279,7 +291,7 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 }
 
 $ts = time();
-$outputResponse['v'] = 95;
+$outputResponse['v'] = 96;
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
 

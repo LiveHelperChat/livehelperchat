@@ -49,4 +49,15 @@
 }
 <?php endif; ?>
 
+<?php if ($theme->close_image_url != '') : ?>
+    #lhc_status_container #status-icon.close-status {
+    background-image: url(<?php echo $theme->close_image_url?>)!important;
+    background-repeat: no-repeat!important;
+    background-position: center center!important;
+    }
+    #lhc_status_container #status-icon.close-status:before{
+    content:''!important;
+    }
+<?php endif; ?>
+
 <?php echo $theme->custom_status_css;?>

@@ -123,12 +123,12 @@ if ($Params['user_parameters_unordered']['online'] == '0') {
 
     if (isset($start_data_fields['pre_offline_chat_html']) && $start_data_fields['pre_offline_chat_html'] != '') {
         $chat_ui['operator_profile'] = $start_data_fields['pre_offline_chat_html'];
-    }
-
-    if ($theme instanceof erLhAbstractModelWidgetTheme && $theme->noonline_operators_offline) {
-        $chat_ui['offline_intro'] = $theme->noonline_operators_offline;
     } else {
-        $chat_ui['offline_intro'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','There are no online operators at the moment, please leave a message');
+        if ($theme instanceof erLhAbstractModelWidgetTheme && $theme->noonline_operators_offline) {
+            $chat_ui['offline_intro'] = $theme->noonline_operators_offline;
+        } else {
+            $chat_ui['offline_intro'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','There are no online operators at the moment, please leave a message');
+        }
     }
 
     if ($Params['user_parameters_unordered']['online'] == '0') {
@@ -153,7 +153,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
     ) {
         $fields[] = array(
             'type' => (isset($start_data_fields['offline_name_hidden']) && $start_data_fields['offline_name_hidden'] == true ? 'hidden' : 'text'),
-            'width' => 6,
+            'width' => (isset($start_data_fields['offline_name_width']) && $start_data_fields['offline_name_width'] > 0 ? (int)$start_data_fields['offline_name_width'] : 6),
             'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name'),
             'class' => 'form-control form-control-sm',
             'required' => (isset($start_data_fields['offline_name_require_option']) && $start_data_fields['offline_name_require_option'] == 'required'),
@@ -166,7 +166,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
 
     $fields[] = array(
         'type' => (isset($start_data_fields['offline_email_hidden']) && $start_data_fields['offline_email_hidden'] == true ? 'hidden' : 'text'),
-        'width' => 6,
+        'width' => (isset($start_data_fields['offline_name_width']) && $start_data_fields['offline_email_width'] > 0 ? (int)$start_data_fields['offline_email_width'] : 6),
         'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail'),
         'class' => 'form-control form-control-sm',
         'required' => true,
@@ -182,7 +182,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
     ) {
         $fields[] = array(
             'type' => (isset($start_data_fields['offline_phone_hidden']) && $start_data_fields['offline_phone_hidden'] == true ? 'hidden' : 'text'),
-            'width' => 6,
+            'width' => (isset($start_data_fields['offline_name_width']) && $start_data_fields['offline_phone_width'] > 0 ? (int)$start_data_fields['offline_phone_width'] : 6),
             'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone'),
             'class' => 'form-control form-control-sm',
             'required' => (isset($start_data_fields['offline_phone_require_option']) && $start_data_fields['offline_phone_require_option'] == 'required'),
@@ -250,7 +250,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
     ) {
         $fields[] = array(
             'type' => (isset($start_data_fields['name_hidden']) && $start_data_fields['name_hidden'] == true ? 'hidden' : 'text'),
-            'width' => 6,
+            'width' => (isset($start_data_fields['offline_name_width']) && $start_data_fields['name_width'] > 0 ? (int)$start_data_fields['name_width'] : 6),
             'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Name'),
             'class' => 'form-control form-control-sm',
             'required' => (isset($start_data_fields['name_require_option']) && $start_data_fields['name_require_option'] == 'required'),
@@ -267,7 +267,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
     ) {
         $fields[] = array(
             'type' => (isset($start_data_fields['email_hidden']) && $start_data_fields['email_hidden'] == true ? 'hidden' : 'text'),
-            'width' => 6,
+            'width' => (isset($start_data_fields['offline_name_width']) && $start_data_fields['email_width'] > 0 ? (int)$start_data_fields['email_width'] : 6),
             'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'E-mail'),
             'class' => 'form-control form-control-sm',
             'required' => (isset($start_data_fields['email_require_option']) && $start_data_fields['email_require_option'] == 'required' ? true : false),
@@ -284,7 +284,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
     ) {
         $fields[] = array(
             'type' => (isset($start_data_fields['phone_hidden']) && $start_data_fields['phone_hidden'] == true ? 'hidden' : 'text'),
-            'width' => 6,
+            'width' => (isset($start_data_fields['offline_name_width']) && $start_data_fields['phone_width'] > 0 ? (int)$start_data_fields['phone_width'] : 6),
             'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Phone'),
             'class' => 'form-control form-control-sm',
             'required' => (isset($start_data_fields['phone_require_option']) && $start_data_fields['phone_require_option'] == 'required'),
@@ -561,6 +561,10 @@ if ($theme !== false) {
         }
 
         $chat_ui['custom_html_widget'] .= erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->explain_text));
+    }
+
+    if (isset($theme->bot_configuration_array['close_in_status']) && $theme->bot_configuration_array['close_in_status'] == true) {
+        $chat_ui['clinst'] = true;
     }
 
     if (isset($theme->bot_configuration_array['msg_expand']) && $theme->bot_configuration_array['msg_expand'] == true) {

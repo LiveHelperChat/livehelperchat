@@ -163,6 +163,10 @@ body {
     content:'\f11a';
 }
 
+#lhc_status_container #status-icon.close-status:before{
+    content:'\f10a';
+}
+
 #status-icon{
     text-shadow: 2px 2px rgba(130, 130, 130, 0.38);
 }

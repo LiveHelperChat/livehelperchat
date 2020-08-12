@@ -80,7 +80,7 @@
                 isMobile : isMobile,
                 isIE : (navigator.userAgent.toUpperCase().indexOf("TRIDENT/") != -1 || navigator.userAgent.toUpperCase().indexOf("MSIE") != -1),
                 fresh : LHC_API.args.fresh || false,
-                widgetDimesions : new BehaviorSubject({width: (isMobile ? 100 : (LHC_API.args.wwidth || 350)), height: (isMobile ? 100 : (LHC_API.args.wheight || 520)), units : (isMobile ? '%' : 'px')}),
+                widgetDimesions : new BehaviorSubject({wbottom:0, wright:0, width: (isMobile ? 100 : (LHC_API.args.wwidth || 350)), height: (isMobile ? 100 : (LHC_API.args.wheight || 520)), units : (isMobile ? '%' : 'px')}),
                 popupDimesnions : {pheight: (LHC_API.args.pheight || 520), pwidth:(LHC_API.args.pwidth || 500)},
                 leaveMessage : LHC_API.args.leaveamessage || null,
                 department : LHC_API.args.department || [],
@@ -96,6 +96,7 @@
                 proactive: {},
                 captcha : null,
                 focused : true,
+                clinst : false,
                 offline_redirect : LHC_API.args.offline_redirect || null,
                 identifier : LHC_API.args.identifier || '',
                 proactive_interval : null,
@@ -228,8 +229,20 @@
                         attributesWidget.hhtml = data.chat_ui.hhtml;
                     }
 
+                    if (data.chat_ui.clinst) {
+                        attributesWidget.clinst = true;
+                    }
+
                     if (data.chat_ui.wwidth && !isMobile) {
                         attributesWidget.widgetDimesions.nextProperty('width',data.chat_ui.wwidth);
+                    }
+
+                    if (data.chat_ui.wbottom && !isMobile) {
+                         attributesWidget.widgetDimesions.nextProperty('wbottom',data.chat_ui.wbottom);
+                    }
+
+                    if (data.chat_ui.wright && !isMobile) {
+                         attributesWidget.widgetDimesions.nextProperty('wright',data.chat_ui.wright);
                     }
 
                     if (data.chat_ui.mobile_popup && isMobile) {
