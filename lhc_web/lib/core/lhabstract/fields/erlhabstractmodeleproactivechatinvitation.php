@@ -276,6 +276,7 @@ return array(
         'main_attr' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Apply HTML invitation only to mobile devices'),
         'required' => false,
+        'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'dynamic_everytime' => array(
@@ -291,6 +292,7 @@ return array(
         'main_attr' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Do not show widget automatically'),
         'required' => false,
+        'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'full_on_invitation' => array(
@@ -298,6 +300,7 @@ return array(
         'main_attr' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Show widget on invitation to chat. Applies only to desktop devices.'),
         'required' => false,
+        'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'close_above_msg' => array(
@@ -305,11 +308,13 @@ return array(
         'main_attr' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Close button above invitation'),
         'required' => false,
+        'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'photo_left_column' => array(
         'type' => 'checkbox',
         'main_attr' => 'design_data_array',
+        'hidden' => true,
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Show profile photo on the left'),
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
@@ -319,6 +324,7 @@ return array(
         'main_attr' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Hide operator name in invitation widget'),
         'required' => false,
+        'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'append_bot' => array(
@@ -326,6 +332,7 @@ return array(
         'main_attr' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Append trigger content in full widget'),
         'required' => false,
+        'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'append_intro_bot' => array(
@@ -333,6 +340,7 @@ return array(
         'main_attr' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Append trigger content in intro message'),
         'required' => false,
+        'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'message_width' => array(
