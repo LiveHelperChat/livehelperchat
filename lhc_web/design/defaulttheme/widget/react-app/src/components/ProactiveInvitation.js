@@ -32,9 +32,10 @@ class ProactiveInvitation extends Component {
 
         if (document.getElementById('id-invitation-height')) {
             setTimeout(()=> {
+                console.log(document.getElementById('id-invitation-height').offsetHeight);
                 helperFunctions.sendMessageParent('widgetHeight', [{
                     'force_width' : (this.props.chatwidget.hasIn(['proactive','data','message_width']) ? this.props.chatwidget.getIn(['proactive','data','message_width']) + 40 : 240),
-                    'force_height' : document.getElementById('id-invitation-height').offsetHeight+35}]);
+                    'force_height' : document.getElementById('id-invitation-height').offsetHeight + 20}]);
                 this.setState({shown : true});
              }, 50);
         }
@@ -80,7 +81,7 @@ class ProactiveInvitation extends Component {
             this.fullInvitation();
         }
 
-        let className = "p-2 float-right pointer proactive-need-help";
+        let className = "";
         if (this.state.shown === false) {
             className += " invisible";
         } else {
@@ -88,10 +89,11 @@ class ProactiveInvitation extends Component {
         }
 
         return (
-                <div id="id-invitation-height">
-                    {this.props.chatwidget.hasIn(['proactive','data','close_above_msg']) && <button title="Close" onClick={(e) => this.hideInvitation(e)} id="invitation-close-btn" className="float-right btn btn-sm rounded"><i className="material-icons mr-0">&#xf10a;</i></button>}
+                <div id="id-invitation-height" className={className} >
 
-                    <div className={className} id="proactive-wrapper" style={{width:(this.props.chatwidget.hasIn(['proactive','data','message_width']) ? this.props.chatwidget.getIn(['proactive','data','message_width']) : 200)}} onClick={this.fullInvitation}>
+                    {this.props.chatwidget.hasIn(['proactive','data','close_above_msg']) && <div className="text-right"><button title="Close" onClick={(e) => this.hideInvitation(e)} id="invitation-close-btn" className="btn btn-sm rounded"><i className="material-icons mr-0">&#xf10a;</i></button></div>}
+
+                    <div className="p-2 pointer clearfix proactive-need-help" id="proactive-wrapper" style={{width:(this.props.chatwidget.hasIn(['proactive','data','message_width']) ? this.props.chatwidget.getIn(['proactive','data','message_width']) : 200)}} onClick={this.fullInvitation}>
 
                         {!this.props.chatwidget.hasIn(['proactive','data','close_above_msg']) && <button title="Close" onClick={(e) => this.hideInvitation(e)} id="invitation-close-btn" className="float-right btn btn-sm rounded"><i className="material-icons mr-0">&#xf10a;</i></button>}
 
