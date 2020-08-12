@@ -122,7 +122,7 @@ class erLhAbstractModelWidgetTheme {
 		}
 	}
 
-	public function movePhoto($attr, $isLocal = false, $localFile = false)
+    public function movePhoto($attr, $isLocal = false, $localFile = false)
 	{
 		$this->deletePhoto($attr);
 	
@@ -367,6 +367,14 @@ class erLhAbstractModelWidgetTheme {
 
 	public function beforeRemove()
     {
+        // If theme is removed we have to reset default theme if it was the one
+        $themeData = erLhcoreClassModelChatConfig::fetch('default_theme_id');
+
+        if ($themeData->value == $this->id) {
+            $themeData->value = 0;
+            $themeData->saveThis();
+        }
+        
         $imagesToRemove = array(
             'online_image',
             'offline_image',
