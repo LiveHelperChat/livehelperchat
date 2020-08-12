@@ -544,7 +544,7 @@ class erLhAbstractModelWidgetTheme {
 	public $explain_text = '';
 	public $intro_operator_text = '';
 	public $widget_border_color = 'cccccc';	
-	public $hide_close = 0;
+	public $hide_close = 1;
 	public $hide_popup = 0;	
 	public $minimize_image = '';
 	public $minimize_image_path = '';	

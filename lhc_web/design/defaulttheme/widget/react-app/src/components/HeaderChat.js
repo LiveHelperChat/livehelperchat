@@ -56,19 +56,8 @@ class HeaderChat extends Component {
                 <div className={classNameMenu}>
                     <div className="d-flex">
                         <div className="ml-auto">
-                            {!this.props.chatwidget.hasIn(['chat_ui','hide_popup']) &&
-                            <React.Fragment>
-                                <a className="header-link" id="headerDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,5">
-                                    <i className="material-icons">&#xf105;</i>
-                                </a>
-                                <div className="dropdown-menu dropdown-menu-right dropdown-menu-header mr-3" aria-labelledby="dropdownMenuOffset">
-                                    {this.props.chatwidget.get('isChatting') === true && !this.props.chatwidget.hasIn(['chat_ui','hide_close']) ? (
-                                            <a className="dropdown-item header-link-item" onClick={this.endChat} ><i className="material-icons">&#xf10a;</i>{t('button.end_chat')}</a>
-                                    ) : ''}
-                                    {!this.props.chatwidget.hasIn(['chat_ui','hide_popup']) ? (<a className="dropdown-item header-link-item" onClick={this.popup}><i className="material-icons">&#xf106;</i>{t('button.popup')}</a>) : ''}
-                                </div>
-                            </React.Fragment>}
-                            {this.props.chatwidget.hasIn(['chat_ui','hide_popup']) && this.props.chatwidget.get('isChatting') === true && !this.props.chatwidget.hasIn(['chat_ui','hide_close']) && <a title={t('button.end_chat')} className="header-link" onClick={this.endChat}><i className="material-icons">&#xf10a;</i></a>}
+                            {!this.props.chatwidget.hasIn(['chat_ui','hide_popup']) && <a className="header-link" title={t('button.popup')} onClick={this.popup}><i className="material-icons">&#xf106;</i></a>}
+                            {this.props.chatwidget.get('isChatting') === true && !this.props.chatwidget.hasIn(['chat_ui','hide_close']) && <a title={t('button.end_chat')} className="header-link" onClick={this.endChat}><i className="material-icons">&#xf10a;</i></a>}
                         </div>
                     </div>
                 </div>
