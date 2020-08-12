@@ -119,13 +119,24 @@ if ($outputResponse['invitation_id'] > 0) {
         if (isset($invitation->design_data_array['append_intro_bot']) && $invitation->design_data_array['append_intro_bot'] == 1) {
             $outputResponse['bot_intro'] = true;
         }
-
-
     }
 
-    if ($invitation instanceof erLhAbstractModelProactiveChatInvitation){
+    if ($invitation instanceof erLhAbstractModelProactiveChatInvitation) {
+
+        if (isset($invitation->design_data_array['close_above_msg']) && $invitation->design_data_array['close_above_msg'] == 1) {
+            $outputResponse['close_above_msg'] = true;
+        }
+
         if (isset($invitation->design_data_array['full_on_invitation']) && $invitation->design_data_array['full_on_invitation'] == true) {
             $outputResponse['full_widget'] = true;
+        }
+
+        if (isset($invitation->design_data_array['photo_left_column']) && $invitation->design_data_array['photo_left_column'] == true) {
+            $outputResponse['photo_left_column'] = true;
+        }
+        
+        if (isset($invitation->design_data_array['hide_op_name']) && $invitation->design_data_array['hide_op_name'] == true) {
+            $outputResponse['hide_op_name'] = true;
         }
         
         if (isset($invitation->design_data_array['message_width']) && is_numeric($invitation->design_data_array['message_width']) && $invitation->design_data_array['message_width'] > 0) {

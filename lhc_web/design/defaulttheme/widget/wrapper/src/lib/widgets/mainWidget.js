@@ -134,7 +134,7 @@ export class mainWidget{
         this.width = data.width_override || data.width;
         this.height = data.height_override || data.height;
         this.bottom = data.bottom_override ? (data.bottom_override + (data.wbottom ? data.wbottom : 0)) : (30 + (this.attributes.clinst === true ? 70 : 0) + (data.wbottom ? data.wbottom : 0));
-        this.right = data.right_override ? (data.right_override + (data.wright ? data.wright : 0)) : (30 + (data.wright ? data.wright : 0));
+        this.right = data.right_override ? (data.right_override + (data.wright_inv ? data.wright_inv : 0)) : (30 + (data.wright ? data.wright : 0));
         this.units = (data.width_override || data.height_override || data.bottom_override || data.right_override) ? 'px' : data.units;
         this.resize();
     }

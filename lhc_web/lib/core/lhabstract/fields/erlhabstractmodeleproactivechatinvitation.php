@@ -300,6 +300,27 @@ return array(
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
+    'close_above_msg' => array(
+        'type' => 'checkbox',
+        'main_attr' => 'design_data_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Close button above invitation'),
+        'required' => false,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
+    ),
+    'photo_left_column' => array(
+        'type' => 'checkbox',
+        'main_attr' => 'design_data_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Show profile photo on the left'),
+        'required' => false,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
+    ),
+    'hide_op_name' => array(
+        'type' => 'checkbox',
+        'main_attr' => 'design_data_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Hide operator name in invitation widget'),
+        'required' => false,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
+    ),
     'append_bot' => array(
         'type' => 'checkbox',
         'main_attr' => 'design_data_array',

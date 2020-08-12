@@ -32,6 +32,24 @@ for ($i = 1; $i < 5; $i++) {
             <label><?php echo erLhcoreClassAbstract::renderInput('full_on_invitation', $fields['full_on_invitation'], $object)?> <?php echo $fields['full_on_invitation']['trans'];?></label>
         </div>
     </div>
+    
+    <div class="col-12">
+        <div class="form-group">
+            <label><?php echo erLhcoreClassAbstract::renderInput('close_above_msg', $fields['close_above_msg'], $object)?> <?php echo $fields['close_above_msg']['trans'];?></label>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="form-group">
+            <label><?php echo erLhcoreClassAbstract::renderInput('photo_left_column', $fields['photo_left_column'], $object)?> <?php echo $fields['photo_left_column']['trans'];?></label>
+        </div>
+    </div>
+    
+    <div class="col-12">
+        <div class="form-group">
+            <label><?php echo erLhcoreClassAbstract::renderInput('hide_op_name', $fields['hide_op_name'], $object)?> <?php echo $fields['hide_op_name']['trans'];?></label>
+        </div>
+    </div>
 
     <div class="col-12">
         <div class="form-group">

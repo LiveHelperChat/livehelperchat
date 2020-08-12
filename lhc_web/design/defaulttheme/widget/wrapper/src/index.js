@@ -80,7 +80,7 @@
                 isMobile : isMobile,
                 isIE : (navigator.userAgent.toUpperCase().indexOf("TRIDENT/") != -1 || navigator.userAgent.toUpperCase().indexOf("MSIE") != -1),
                 fresh : LHC_API.args.fresh || false,
-                widgetDimesions : new BehaviorSubject({wbottom:0, wright:0, width: (isMobile ? 100 : (LHC_API.args.wwidth || 350)), height: (isMobile ? 100 : (LHC_API.args.wheight || 520)), units : (isMobile ? '%' : 'px')}),
+                widgetDimesions : new BehaviorSubject({wright_inv: 0, wbottom:0, wright:0, width: (isMobile ? 100 : (LHC_API.args.wwidth || 350)), height: (isMobile ? 100 : (LHC_API.args.wheight || 520)), units : (isMobile ? '%' : 'px')}),
                 popupDimesnions : {pheight: (LHC_API.args.pheight || 520), pwidth:(LHC_API.args.pwidth || 500)},
                 leaveMessage : LHC_API.args.leaveamessage || null,
                 department : LHC_API.args.department || [],
@@ -243,6 +243,10 @@
 
                     if (data.chat_ui.wright && !isMobile) {
                          attributesWidget.widgetDimesions.nextProperty('wright',data.chat_ui.wright);
+                    }
+                    
+                    if (data.chat_ui.wright_inv && !isMobile) {
+                         attributesWidget.widgetDimesions.nextProperty('wright_inv',data.chat_ui.wright_inv);
                     }
 
                     if (data.chat_ui.mobile_popup && isMobile) {

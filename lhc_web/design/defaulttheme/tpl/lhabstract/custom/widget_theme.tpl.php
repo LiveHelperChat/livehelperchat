@@ -282,6 +282,11 @@
 						<label><?php echo $fields['wbottom']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('wbottom', $fields['wbottom'], $object)?>
 						</div>
+                    
+						<div class="form-group">
+						<label><?php echo $fields['wright_inv']['trans'];?></label>
+						<?php echo erLhcoreClassAbstract::renderInput('wright_inv', $fields['wright_inv'], $object)?>
+						</div>
 
                         <input class="d-none" checked="checked" type="checkbox" name="AbstractInput_copyright_image_delete" value="1">
 
