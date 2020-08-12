@@ -55,8 +55,8 @@ class _helperFunctions {
             "outline:                    " + (params.outline ? params.outline : "none") + " !important; ",
             "visibility:                 " + (params.visibility ? params.visibility : "visible") + " !important; ",
             "resize:                     " + (params.resize ? params.resize : "none") + " !important; ",
-            "box-shadow:                 " + (params.boxshadow ? params.boxshadow : "none") + " !important; ",
-            "overflow:                   " + (params.overflow ? params.overflow : "visible") + " !important; ",
+            "box-shadow:                 " + (params.boxshadow ? params.boxshadow : "none") + " ; ",
+            "overflow:                   " + (params.overflow ? params.overflow : "visible") + " ; ",
             "background                  : " + (params.background ? params.background : "none") + " !important; ",
             "opacity                     : " + (params.opacity ? params.opacity : "1") + " !important; ",
             "filter                      : alpha(opacity=" + (params.opacity ? 100 * params.opacity : "100") + ") !important; ",
@@ -89,7 +89,7 @@ class _helperFunctions {
             "background-color            : " + (params.backgroundcolor ? params.backgroundcolor : "transparent") + " !important; ",
             "cursor                      : " + (params.cursor ? params.cursor : "auto") + " !important; ",
             "float                       : " + (params["float"] ? params["float"] : "none") + " !important; ",
-            "border-radius               : " + (params.borderRadius ? params.borderRadius : "unset") + " !important; "].join("").replace(/\s/gm, "")
+            "border-radius               : " + (params.borderRadius ? params.borderRadius : "unset") + "; "].join("").replace(/\s/gm, "")
     };
 
     hasClass(element, className) {

@@ -116,7 +116,7 @@ export class statusWidget{
 
     hide () {
 
-        if (this.attributes.clinst === true) {
+        if (this.attributes.clinst === true && this.attributes.isMobile == false) {
             const chatParams = this.attributes['userSession'].getSessionAttributes();
             if (this.attributes.leaveMessage == true || this.attributes.onlineStatus.value == true || chatParams['id']) {
 
@@ -153,7 +153,7 @@ export class statusWidget{
 
             const chatParams = this.attributes['userSession'].getSessionAttributes();
 
-            if (this.attributes.clinst === true) {
+            if (this.attributes.clinst === true && this.attributes.isMobile == false) {
                 var icon = this.cont.getElementById("status-icon");
                 helperFunctions.removeClass(icon, "close-status");
                 this.controlMode = false;
