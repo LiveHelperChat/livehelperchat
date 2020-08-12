@@ -262,7 +262,7 @@ $fields = array(
    						'hidden' => true,   						
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-   						)), 	
+   						)),
    				'hide_popup' => array(
    						'type' => 'checkbox',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Hide popup option'),
@@ -979,6 +979,29 @@ $fields = array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 )),
+
+                'wright' => array(
+                    'type' => 'text',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget position from right to append'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'wbottom' => array(
+                    'type' => 'text',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget position from bottom to append'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+
+
                 'switch_to_human' => array(
                     'type' => 'text',
                     'main_attr' => 'bot_configuration_array',
@@ -1165,6 +1188,26 @@ $fields = array(
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Offline text/icon color'),
         'required' => false,
         'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
+    'close_in_status' => array(
+        'type' => 'checkbox',
+        'main_attr' => 'bot_configuration_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Show close widget button in status widget'),
+        'required' => false,
+        'hidden' => true,
+        'nginit' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
+    'job_new_row' => array(
+        'type' => 'checkbox',
+        'main_attr' => 'bot_configuration_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Show operator profile in a new row'),
+        'required' => false,
+        'hidden' => true,
+        'nginit' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )),

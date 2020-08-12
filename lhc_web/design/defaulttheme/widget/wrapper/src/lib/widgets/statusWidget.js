@@ -6,7 +6,7 @@ export class statusWidget{
     constructor() {
 
        this.attributes = {};
-
+       this.controlMode = false;
        this.cont = new UIConstructorIframe('lhc_status_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "1000000",
             width: "95px",
@@ -28,8 +28,6 @@ export class statusWidget{
 
     toggleOfflineIcon(onlineStatus) {
         var icon = this.cont.getElementById("status-icon");
-
-
 
         if (onlineStatus) {
             if (!this.attributes.leaveMessage) {
@@ -57,12 +55,18 @@ export class statusWidget{
 
         this.cont.constructUIIframe('');
 
+        var _inst = this;
+
         this.cont.attachUserEventListener("click", function (a) {
 
             if (attributes.onlineStatus.value === false && attributes.offline_redirect !== null){
                 document.location = attributes.offline_redirect;
             } else {
-                attributes.eventEmitter.emitEvent('showWidget', [{'sender' : 'closeButton'}]);
+                if (_inst.controlMode == true) {
+                    attributes.eventEmitter.emitEvent('closeWidget', [{'sender' : 'closeButton'}]);
+                } else {
+                    attributes.eventEmitter.emitEvent('showWidget', [{'sender' : 'closeButton'}]);
+                }
             }
 
         }, "lhc_status_container", "minifiedclick");
@@ -111,7 +115,24 @@ export class statusWidget{
     }
 
     hide () {
+
+        if (this.attributes.clinst === true && this.attributes.isMobile == false) {
+            const chatParams = this.attributes['userSession'].getSessionAttributes();
+            if (this.attributes.leaveMessage == true || this.attributes.onlineStatus.value == true || chatParams['id']) {
+
+                if (this.attributes['position'] != 'api' || (this.attributes['position'] == 'api' && chatParams['id'] && chatParams['hash'])) {
+                    this.cont.show();
+                }
+
+                this.controlMode = true;
+                var icon = this.cont.getElementById("status-icon");
+                helperFunctions.addClass(icon, "close-status");
+                return ;
+            }
+        }
+
         this.cont.hide();
+
         this.removeUnreadIndicator();
     }
 
@@ -131,6 +152,12 @@ export class statusWidget{
         if (this.attributes.hideOffline === false) {
 
             const chatParams = this.attributes['userSession'].getSessionAttributes();
+
+            if (this.attributes.clinst === true && this.attributes.isMobile == false) {
+                var icon = this.cont.getElementById("status-icon");
+                helperFunctions.removeClass(icon, "close-status");
+                this.controlMode = false;
+            }
 
             // show status icon only if we are not in api mode or chat is going now
             if (this.attributes['position'] != 'api' || (this.attributes['position'] == 'api' && chatParams['id'] && chatParams['hash'])) {
