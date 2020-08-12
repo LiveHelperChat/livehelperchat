@@ -26,7 +26,7 @@ class ProactiveInvitation extends Component {
     componentDidMount() {
         helperFunctions.sendMessageParent('showInvitation', []);
 
-        if (this.props.chatwidget.getIn(['proactive','data','play_sound'])){
+        if (this.props.chatwidget.getIn(['proactive','data','play_sound'])) {
             helperFunctions.emitEvent('play_sound', [{'type' : 'new_invitation', 'sound_on' : (this.props.chatwidget.getIn(['proactive','data','play_sound']) === true), 'widget_open' : ((this.props.chatwidget.get('shown') && this.props.chatwidget.get('mode') == 'widget') || document.hasFocus())}]);
         }
 
@@ -34,7 +34,7 @@ class ProactiveInvitation extends Component {
             setTimeout(()=> {
                 helperFunctions.sendMessageParent('widgetHeight', [{
                     'force_width' : (this.props.chatwidget.hasIn(['proactive','data','message_width']) ? this.props.chatwidget.getIn(['proactive','data','message_width']) + 40 : 240),
-                    'force_height' : document.getElementById('id-invitation-height').offsetHeight+20}]);
+                    'force_height' : document.getElementById('id-invitation-height').offsetHeight+35}]);
                 this.setState({shown : true});
              }, 50);
         }
