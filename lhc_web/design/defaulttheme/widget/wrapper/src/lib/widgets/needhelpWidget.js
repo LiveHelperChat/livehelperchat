@@ -26,6 +26,14 @@ export class needhelpWidget{
     init(attributes, settings) {
 
         this.attributes = attributes;
+        
+        if (this.attributes.widgetDimesions.value.wbottom > 0 || this.attributes.widgetDimesions.value.wright > 0) {
+            this.cont.massRestyle({
+                "bottom" : (70+this.attributes.widgetDimesions.value.wbottom) + "px",
+                "right" : (45+this.attributes.widgetDimesions.value.wright) + "px",
+            });
+        }
+        
         this.cont.tmpl = settings['html'];
         this.cont.constructUIIframe('');
 
