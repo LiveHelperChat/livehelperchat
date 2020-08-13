@@ -146,6 +146,8 @@ if ($outputResponse['invitation_id'] > 0) {
 
 }
 
+$outputResponse['message'] = str_replace('{operator}',$outputResponse['name_support'],$outputResponse['message']);
+
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.getinvitation',array('output' => & $outputResponse, 'ou' => $onlineUser));
 
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
