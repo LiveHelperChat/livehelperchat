@@ -116,6 +116,8 @@ export class statusWidget{
 
     hide () {
 
+        this.removeUnreadIndicator();
+        
         if (this.attributes.clinst === true && this.attributes.isMobile == false) {
             const chatParams = this.attributes['userSession'].getSessionAttributes();
             if (this.attributes.leaveMessage == true || this.attributes.onlineStatus.value == true || chatParams['id']) {
@@ -132,8 +134,6 @@ export class statusWidget{
         }
 
         this.cont.hide();
-
-        this.removeUnreadIndicator();
     }
 
     showUnreadIndicator(){
