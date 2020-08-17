@@ -42,14 +42,14 @@ class HeaderChat extends Component {
     render() {
         const { t } = this.props;
 
-        var className = 'row header-chat justify-content-end' + (this.props.chatwidget.get('isMobile') == true ? ' mobile-header' : ' desktop-header');
+        var className = 'row header-chat' + (this.props.chatwidget.get('isMobile') == true ? ' mobile-header' : ' desktop-header');
         var classNameMenu = 'col-6 pr-1' + (this.props.chatwidget.get('isChatting') === false && this.props.chatwidget.hasIn(['chat_ui','hide_popup']) ? ' d-none' : '');
 
         return (
             <div id="widget-header-content" className={className}>
                 {this.props.chatwidget.hasIn(['chat_ui','custom_html_header_body']) && <div className="lhc-custom-header-inside" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header_body'])}}></div>}
 
-                {(!this.props.chatwidget.hasIn(['chat_ui','clinst']) || this.props.chatwidget.get('isMobile')) &&  <div className="col-6 pl-1">
+                {(!this.props.chatwidget.hasIn(['chat_ui','clinst']) || this.props.chatwidget.get('isMobile')) &&  <div className="col-6 pl-1 minimize-icon">
                     <span className="header-link" title={t('button.minimize')} onClick={this.closeWidget}><i className="material-icons">&#xf103;</i></span>
                 </div>}
 
