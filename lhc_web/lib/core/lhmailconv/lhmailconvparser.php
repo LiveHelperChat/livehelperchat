@@ -94,7 +94,9 @@ class erLhcoreClassMailconvParser {
                     false
                 );
 
-                $mailsIds = $mailboxHandler->searchMailbox('SINCE "'.date('d M Y',($mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) - 1*24*3600).'"');
+                // $mailsIds = $mailboxHandler->searchMailbox('SINCE "'.date('d M Y',($mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) - 1*24*3600).'"');
+                // We disable server encoding because exchange servers does not support UTF-8 encoding in search.
+                $mailsIds = $mailboxHandler->searchMailbox('SINCE "'.date('d M Y',($mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) - 5*24*3600).'"',true);
 
                 if (empty($mailsIds)) {
                     continue;
