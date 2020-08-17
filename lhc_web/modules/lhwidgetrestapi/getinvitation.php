@@ -143,10 +143,15 @@ if ($outputResponse['invitation_id'] > 0) {
             $outputResponse['message_width'] = (int)$invitation->design_data_array['message_width'];
         }
     }
-
 }
 
-$outputResponse['message'] = str_replace('{operator}',$outputResponse['name_support'],$outputResponse['message']);
+if (strpos($outputResponse['message'],'{operator}') !== false) {
+    $outputResponse['message'] = str_replace('{operator}',$outputResponse['name_support'], $outputResponse['message']);
+
+    // Update operator message so once chat is started it will have correct message.
+    $onlineUser->operator_message = str_replace('{operator}', $outputResponse['name_support'], $onlineUser->operator_message);
+    $onlineUser->updateThis(['update' => ['operator_message']]);
+}
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.getinvitation',array('output' => & $outputResponse, 'ou' => $onlineUser));
 
