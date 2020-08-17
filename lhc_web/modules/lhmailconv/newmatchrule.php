@@ -4,6 +4,11 @@ $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/newmatchrule.tpl.php');
 
 $item = new erLhcoreClassModelMailconvMatchRule();
 
+if (isset($_POST['Cancel_page'])) {
+    erLhcoreClassModule::redirect('mailconv/matchingrules');
+    exit ;
+}
+
 if (ezcInputForm::hasPostData()) {
 
     $items = array();
@@ -34,8 +39,8 @@ $Result['path'] = array(
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mail conversation')
     ),
     array(
-        'url' => erLhcoreClassDesign::baseurl('mailconv/mailbox'),
-        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv', 'Mailbox')
+        'url' => erLhcoreClassDesign::baseurl('mailconv/matchingrules'),
+        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv', 'Matching rules')
     ),
     array(
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv', 'New')

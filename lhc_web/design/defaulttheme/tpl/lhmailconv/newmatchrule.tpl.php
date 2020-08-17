@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','New mailbox');?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','New');?></h1>
 
 <?php if (isset($errors)) : ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>

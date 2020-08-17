@@ -6,7 +6,7 @@ $item =  erLhcoreClassModelMailconvMatchRule::fetch($Params['user_parameters']['
 
 if (ezcInputForm::hasPostData()) {
 
-    if (isset($_POST['Cancel_action'])) {
+    if (isset($_POST['Cancel_page'])) {
         erLhcoreClassModule::redirect('mailconv/matchingrules');
         exit ;
     }
