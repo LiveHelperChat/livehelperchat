@@ -37,7 +37,6 @@ export class mainWidgetPopup {
                 }
             }
 
-
             if (typeof LHCChatOptions.attr_prefill_admin != 'undefined') {
                 if (LHCChatOptions.attr_prefill_admin.length > 0) {
                     for (var index in LHCChatOptions.attr_prefill_admin) {
@@ -51,26 +50,6 @@ export class mainWidgetPopup {
             if (argumentsQuery.length > 0) {
                 paramsReturn = '&' + argumentsQuery.join('&');
             }
-        }
-
-
-        var js_vars = this.attributes['jsVars'].value;
-
-        var js_args = [];
-        var currentVar = null;
-        for (var index in js_vars) {
-            try {
-                currentVar = eval(js_vars[index].var);
-                if (typeof currentVar !== 'undefined' && currentVar !== null && currentVar !== '') {
-                    js_args.push('jsvar[' + js_vars[index].id + ']=' + encodeURIComponent(currentVar));
-                }
-            } catch (err) {
-
-            }
-        }
-
-        if (js_args.length > 0) {
-            paramsReturn = paramsReturn + '&' + js_args.join('&');
         }
 
         return paramsReturn;
@@ -140,9 +119,25 @@ export class mainWidgetPopup {
             }
 
             this.cont.elementReferrerPopup = window.open(this.attributes['base_url'] + this.attributes['lang'] + "chat/start" + urlArgumetns, 'lhc_popup_v2', "scrollbars=yes,menubar=1,resizable=1,width=" + this.attributes['popupDimesnions']['pwidth'] + ",height=" + this.attributes['popupDimesnions']['pheight']);
-
         }
+    }
 
+    sendParameters(chatEvents) {
+        if (this.cont.elementReferrerPopup && this.cont.elementReferrerPopup.closed === false) {
+            var js_vars = this.attributes['jsVars'].value;
+            var js_args = {};
+            var currentVar = null;
+            for (var index in js_vars) {
+                try {
+                    currentVar = eval(js_vars[index].var);
+                    if (typeof currentVar !== 'undefined' && currentVar !== null && currentVar !== '') {
+                        js_args[js_vars[index].id] = currentVar;
+                    }
+                } catch (err) {
 
+                }
+            }
+            chatEvents.sendChildEvent('jsVars', [js_args]);
+        }
     }
 }

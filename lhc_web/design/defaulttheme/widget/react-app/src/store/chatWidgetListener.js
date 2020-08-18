@@ -97,6 +97,7 @@ export default function (dispatch, getState) {
     });
 
     function handleParentMessage(e) {
+
         if (typeof e.data !== 'string') { return; }
 
         if (typeof e.origin !== 'undefined') {
@@ -285,6 +286,10 @@ export default function (dispatch, getState) {
         helperFunctions.sendMessageParent('ready', window.opener ? true : false);
     } else if (window.initializeLHC) {
         handleParentMessage({data : window.initializeLHC});
+        // Send message that popup is ready
+        // Parent window will send additional form data in a secure way
+        // Without exposing parameters in URL
+        helperFunctions.sendMessageParent('ready_popup', window.opener ? true : false);
     }
 
 }

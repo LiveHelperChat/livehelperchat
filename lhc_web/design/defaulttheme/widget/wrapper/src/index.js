@@ -630,6 +630,8 @@
                         chatEvents.sendChildEvent(params['cmd'], [params['arg']]);
                     });
 
+                } else if (parts[1] == 'ready_popup') {
+                    attributesWidget.popupWidget.sendParameters(chatEvents);
                 } else {
                      attributesWidget.eventEmitter.emitEvent(parts[1], JSON.parse(parts[2]));
                 }

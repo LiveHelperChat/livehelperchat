@@ -100,6 +100,17 @@ $tpl->set('captcha',array(
     'ts' => $ts
 ));
 
+$referrer = erLhcoreClassModelChatOnlineUser::getReferer();
+
+$tpl->set('domain_lhc',null);
+
+if (!empty($referrer)) {
+    $partsReferer = parse_url($referrer);
+    if (isset($partsReferer['host'])) {
+        $tpl->set('domain_lhc',$partsReferer['host']);
+    }
+}
+
 // Prefill by get
 if (isset($_GET['prefill']) && is_array($_GET['prefill']) && !empty($_GET['prefill'])) {
     $prefillOptions = array();
