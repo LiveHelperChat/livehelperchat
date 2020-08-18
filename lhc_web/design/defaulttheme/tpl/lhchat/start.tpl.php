@@ -11,6 +11,7 @@
             'department' => $department,
             'captcha' => $captcha,
             'theme' => $theme,
+            'domain_lhc' => $domain_lhc,
             'base_url' => erLhcoreClassDesign::baseurldirect(),
             'lang' => erLhcoreClassSystem::instance()->SiteAccess,
             'static_chat' => array(
