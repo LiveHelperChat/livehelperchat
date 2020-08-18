@@ -512,6 +512,9 @@
                     <?php $translatableItem = array('identifier' => 'custom_start_button_offline'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
+                    <?php $translatableItem = array('identifier' => 'custom_op_name'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
         		</div>
         		
         		<div role="tabpanel" class="tab-pane" id="customcss">
