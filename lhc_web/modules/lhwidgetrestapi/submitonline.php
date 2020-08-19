@@ -197,6 +197,17 @@ if (empty($Errors)) {
 
                             $paramsExecution['bot_id'] = $invitation->bot_id;
                             $paramsExecution['trigger_id'] = $invitation->trigger_id;
+
+                            // If bot is appended to a widget we should always execute it first.
+                            if (isset($invitation->design_data_array['append_bot']) && $invitation->design_data_array['append_bot'] == 1 && !isset($requestPayload['bpayload']['payload'])) {
+                                $trigger = erLhcoreClassModelGenericBotTrigger::fetch($paramsExecution['trigger_id']);
+                                $paramsExecution['trigger_id_executed'] = $paramsExecution['trigger_id'];
+                                if (is_object($trigger)) {
+                                    erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger);
+                                    $triggerEvent = erLhcoreClassModelGenericBotChatEvent::findOne(array('filter' => array('chat_id' => $chat->id)));
+                                    unset($paramsExecution['trigger_id']); // Now we let default trigger to be executed
+                                }
+                            }
                         }
                     }
 
