@@ -165,7 +165,7 @@ if (empty($Errors)) {
 
                     // Store Message from operator
                     $msg = new erLhcoreClassModelmsg();
-                    $msg->msg = trim($userInstance->operator_message);
+                    $msg->msg = trim($userInstance->operator_message_front);
 
                     if ($msg->msg == '') {
                         $inv = erLhAbstractModelProactiveChatInvitation::fetch($requestPayload['invitation_id']);

@@ -168,7 +168,7 @@ class erLhcoreClassModelChatOnlineUser
                         $this->operator_message_front = str_replace(array_keys($replaceArray), array_values($replaceArray), $this->operator_message_front);
                     }
                     
-                    $this->operator_message_front =  preg_replace('/{lhc.add.(.*)}/','',$this->operator_message_front);
+                    $this->operator_message_front = preg_replace('/{lhc.add.(.*)}/','',$this->operator_message_front);
 
                     return $this->operator_message_front;
                 break;

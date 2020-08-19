@@ -107,12 +107,16 @@ if ($outputResponse['invitation_id'] > 0) {
         $chat = new erLhcoreClassModelChat();
         $chat->bot = $bot;
         $chat->gbot_id = $bot->id;
+        $chat->additional_data_array = $onlineUser->online_attr_array;
+        $chat->chat_variables_array = $onlineUser->chat_variables_array;
 
         $tpl->set('chat',$chat);
         $tpl->set('react',true);
         $tpl->set('no_wrap_intro',true);
         $tpl->set('no_br',true);
         $tpl->set('triggerMessageId',$invitation->trigger_id);
+        $tpl->set('additionalDataArray', $onlineUser->online_attr_array );
+        $tpl->set('variablesDataArray', $onlineUser->chat_variables_array );
 
         $outputResponse['message_full'] = $tpl->fetch();
 
