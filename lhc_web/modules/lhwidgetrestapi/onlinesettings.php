@@ -496,19 +496,37 @@ if ($theme !== false) {
 
         if (isset($theme->bot_configuration_array['trigger_id']) && !empty($theme->bot_configuration_array['trigger_id']) && $theme->bot_configuration_array['trigger_id'] > 0) {
 
+            $tpl = new erLhcoreClassTemplate('lhchat/part/render_intro.tpl.php');
+
             // Use bot photo in case it's bot messages
             $bot = erLhcoreClassModelGenericBotBot::fetch($theme->bot_configuration_array['bot_id']);
-            if ($bot instanceof erLhcoreClassModelGenericBotBot && $bot->has_photo)
+
+            if ($bot instanceof erLhcoreClassModelGenericBotBot)
             {
-                $theme->operator_image_url = $bot->photo_path;
+                if ($bot->has_photo) {
+                    $theme->operator_image_url = $bot->photo_path;
+                }
+
+                if (isset($Params['user_parameters_unordered']['vid']) && !empty($Params['user_parameters_unordered']['vid'])){
+                    $onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($Params['user_parameters_unordered']['vid']);
+                    if ($onlineUser instanceof erLhcoreClassModelChatOnlineUser) {
+                        $chat = new erLhcoreClassModelChat();
+                        $chat->bot = $bot;
+                        $chat->gbot_id = $bot->id;
+                        $chat->additional_data_array = $onlineUser->online_attr_array;
+                        $chat->chat_variables_array = $onlineUser->chat_variables_array;
+                        $tpl->set('chat',$chat);
+                    }
+                }
             }
 
-            $tpl = new erLhcoreClassTemplate('lhchat/part/render_intro.tpl.php');
             $tpl->set('theme',$theme);
             $tpl->set('react',true);
             $tpl->set('no_wrap_intro',true);
             $tpl->set('triggerMessageId',$theme->bot_configuration_array['trigger_id']);
+
             $chat_ui['cmmsg_widget'] = $tpl->fetch();
+
         } elseif (isset($theme->bot_configuration_array['auto_bot_intro']) && $theme->bot_configuration_array['auto_bot_intro'] == true) {
 
             if (isset($requestPayload['bot_id']) && is_numeric($requestPayload['bot_id']) && $requestPayload['bot_id'] > 0) {

@@ -177,6 +177,7 @@ class StartChat extends Component {
                 'pvhash' : this.props.chatwidget.get('pvhash'),
                 'phash' : this.props.chatwidget.get('phash'),
                 'bot_id' : this.props.chatwidget.get('bot_id'),
+                'vid' : this.props.chatwidget.get('vid'),
                 'online' : 1
             }));
         }
