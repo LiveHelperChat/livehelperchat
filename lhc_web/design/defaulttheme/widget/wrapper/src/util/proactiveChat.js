@@ -43,6 +43,16 @@ class _proactiveChat {
         this.attributes.onlineStatus.subscribe((data) => {
             if (data == true) {
                 this.initInvitation({init: 0});
+            } else {
+                const chatParams = this.attributes['userSession'].getSessionAttributes();
+                if (!chatParams['id'] && this.attributes.proactive.invitation) {
+                    this.attributes.proactive = {};
+                    if (this.attributes.mainWidget.isLoaded !== false) {
+                        this.chatEvents.sendChildEvent('proactive', [{}]);
+                    }
+                    this.attributes.mainWidget.hideInvitation();
+                    this.attributes.eventEmitter.emitEvent('closeWidget', [{'sender' : 'closeButton'}]);
+                }
             }
         });
     }
