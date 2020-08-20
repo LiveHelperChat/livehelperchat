@@ -847,7 +847,7 @@ class erLhcoreClassChatValidator {
             foreach ($zone as $item)
                 $valid[$item['timezone_id']] = true;
         unset($valid['']);
-        return !!$valid[$tzid];
+        return isset($valid[$tzid]) && !!$valid[$tzid];
     }
 
     public static function validateJSVarsChat($chat, $data) {
