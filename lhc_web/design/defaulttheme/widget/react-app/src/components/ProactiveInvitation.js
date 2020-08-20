@@ -32,7 +32,6 @@ class ProactiveInvitation extends Component {
 
         if (document.getElementById('id-invitation-height')) {
             setTimeout(()=> {
-                console.log(document.getElementById('id-invitation-height').offsetHeight);
                 helperFunctions.sendMessageParent('widgetHeight', [{
                     'force_width' : (this.props.chatwidget.hasIn(['proactive','data','message_width']) ? this.props.chatwidget.getIn(['proactive','data','message_width']) + 40 : 240),
                     'force_height' : document.getElementById('id-invitation-height').offsetHeight + 20}]);
