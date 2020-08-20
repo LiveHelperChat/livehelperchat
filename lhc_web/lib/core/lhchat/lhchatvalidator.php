@@ -841,13 +841,7 @@ class erLhcoreClassChatValidator {
     }
 
     public static function isValidTimezoneId2($tzid) {
-        $valid = array();
-        $tza = timezone_abbreviations_list();
-        foreach ($tza as $zone)
-            foreach ($zone as $item)
-                $valid[$item['timezone_id']] = true;
-        unset($valid['']);
-        return isset($valid[$tzid]) && !!$valid[$tzid];
+        return in_array($tzid,DateTimeZone::listIdentifiers(DateTimeZone::ALL_WITH_BC));
     }
 
     public static function validateJSVarsChat($chat, $data) {
