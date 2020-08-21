@@ -16,7 +16,8 @@ $userDataTemp->id = $userData->id;
 
 if ($userData->hide_online == 0) { // change status only if he's not offline manually
     $userDataTemp->hide_online = $userData->inactive_mode;
-    
+    $userDataTemp->always_on = $userData->always_on;
+
     erLhcoreClassUserDep::setHideOnlineStatus($userDataTemp);
 }
 
