@@ -14,6 +14,8 @@ class _proactiveChat {
         this.iddleTimeoutActivity = null;
         this.checkMessageTimeout = null;
         this.nextRescheduleTimeout = null;
+        this.initCall = true;
+        this.inProgress = false;
     }
 
     setParams(params, attributes, chatEvents) {
@@ -98,6 +100,10 @@ class _proactiveChat {
 
     initInvitation(paramsExecution) {
 
+        if (this.inProgress == true) {
+            return ;
+        }
+
         clearTimeout(this.checkMessageTimeout);
 
         const chatParams = this.attributes['userSession'].getSessionAttributes();
@@ -105,6 +111,9 @@ class _proactiveChat {
         const init = (paramsExecution && paramsExecution['init'] === 0) ? 0 : 1;
 
         if (!chatParams['id'] && this.attributes['onlineStatus'].value == true) {
+
+            this.inProgress = true;
+
             let params = {
                 'vid': this.attributes.userSession.getVID(),
                 'dep': this.attributes.department.join(',')
@@ -128,9 +137,14 @@ class _proactiveChat {
 
             params['l'] = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
             params['dt'] = encodeURIComponent(document.title);
-            params['init'] = init;
+            params['init'] = this.initCall == true ? 1 : init;
+
+            this.initCall = false;
 
             helperFunctions.makeRequest(LHC_API.args.lhc_base_url + this.attributes['lang'] + 'widgetrestapi/checkinvitation', {params: params}, (data) => {
+
+                this.inProgress = false;
+                
                 if (data.invitation) {
                     const params = {'vid_id' : data.vid_id, 'invitation' : data.invitation, 'inject_html' :  data.inject_html, 'qinv' : data.qinv};
                     setTimeout(() => {
