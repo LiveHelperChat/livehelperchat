@@ -74,7 +74,8 @@ if ($userData->inactive_mode == 1) {
         $userDataTemp = new stdClass();
         $userDataTemp->id = $userData->id;
         $userDataTemp->hide_online = 0;
-        
+        $userDataTemp->always_on = $userData->always_on;
+
         erLhcoreClassUserDep::setHideOnlineStatus($userDataTemp);
     }
     
