@@ -93,6 +93,10 @@ try {
                 $outputResponse['chat_ui']['survey_button'] = true;
             }
 
+            if (isset($theme->bot_configuration_array['start_on_close']) && $theme->bot_configuration_array['start_on_close'] == true) {
+                $outputResponse['chat_ui']['start_on_close'] = true;
+            }
+
             if (isset($theme->bot_configuration_array['confirm_close']) && $theme->bot_configuration_array['confirm_close'] == true) {
                 $outputResponse['chat_ui']['confirm_close'] = true;
             }

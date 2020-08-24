@@ -380,14 +380,14 @@
                 attributesWidget.proactive = {};
             });
 
-            attributesWidget.eventEmitter.addListener('endChat',function () {
+            attributesWidget.eventEmitter.addListener('endChat',function (params) {
 
                 attributesWidget.userSession.setChatInformation({'id':null,'hash':null});
                 attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
 
                 attributesWidget.proactive = {};
 
-                if (attributesWidget.mode != 'popup') {
+                if (attributesWidget.mode != 'popup' && !params['show_start']) {
                     attributesWidget.widgetStatus.next(false);
                 }
 
@@ -395,7 +395,7 @@
 
                 chatEvents.sendChildEvent('endedChat', [{'sender' : 'endButton'}]);
 
-                if (attributesWidget.mode == 'embed') {
+                if (attributesWidget.mode == 'embed' || params['show_start']) {
                     attributesWidget.eventEmitter.emitEvent('showWidget', [{'sender' : 'closeButton'}]);
                 }
 

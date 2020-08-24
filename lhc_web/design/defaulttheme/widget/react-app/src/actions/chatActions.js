@@ -50,7 +50,7 @@ export function endChat(obj) {
                     helperFunctions.removeSessionStorage('lhc_chat');
                     window.close();
                 } else {
-                    helperFunctions.sendMessageParent('endChat', [{'sender' : 'endButton'}]);
+                    helperFunctions.sendMessageParent('endChat', [{show_start: obj['show_start'], 'sender' : 'endButton'}]);
                 }
             } else {
                 dispatch({type: "INIT_CLOSE", data: obj})

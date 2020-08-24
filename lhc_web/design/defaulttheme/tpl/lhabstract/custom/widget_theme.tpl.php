@@ -342,6 +342,10 @@
 						<div class="form-group">
 						    <label><?php echo erLhcoreClassAbstract::renderInput('confirm_close', $fields['confirm_close'], $object)?> <?php echo $fields['confirm_close']['trans'];?></label>
         		        </div>
+
+						<div class="form-group">
+						    <label><?php echo erLhcoreClassAbstract::renderInput('start_on_close', $fields['start_on_close'], $object)?> <?php echo $fields['start_on_close']['trans'];?></label>
+        		        </div>
                     
 						<div class="form-group">
 						    <label><?php echo erLhcoreClassAbstract::renderInput('job_new_row', $fields['job_new_row'], $object)?> <?php echo $fields['job_new_row']['trans'];?></label>
