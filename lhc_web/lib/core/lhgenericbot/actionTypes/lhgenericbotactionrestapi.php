@@ -283,6 +283,22 @@ class erLhcoreClassGenericBotActionRestapi
             $bodyPOST = str_replace(array_keys($replaceVariablesJSON), array_values($replaceVariablesJSON), $methodSettings['body_raw']);
             $bodyPOST = preg_replace('/{{lhc\.(var|add)\.(.*?)}}/','""',$bodyPOST);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyPOST);
+
+            if (isset($methodSettings['body_request_type_content'])) {
+                if ($methodSettings['body_request_type_content'] == 'json') {
+                    $headers[] = 'Content-Type: application/json';
+                } else if ($methodSettings['body_request_type_content'] == 'text') {
+                    $headers[] = 'Content-Type: text/plain';
+                } else if ($methodSettings['body_request_type_content'] == 'js') {
+                    $headers[] = 'Content-Type: application/javascript';
+                } else if ($methodSettings['body_request_type_content'] == 'appxml') {
+                    $headers[] = 'Content-Type: application/xml';
+                } else if ($methodSettings['body_request_type_content'] == 'textxml') {
+                    $headers[] = 'Content-Type: text/xml';
+                }else if ($methodSettings['body_request_type_content'] == 'texthtml') {
+                    $headers[] = 'Content-Type: text/html';
+                }
+            }
         }
 
         $url = rtrim($host) . str_replace(array_keys($replaceVariables), array_values($replaceVariables), (isset($methodSettings['suburl']) ? $methodSettings['suburl'] : '')) . '?' . http_build_query($queryArgs);
