@@ -146,6 +146,10 @@ if ($outputResponse['invitation_id'] > 0) {
         if (isset($invitation->design_data_array['message_width']) && is_numeric($invitation->design_data_array['message_width']) && $invitation->design_data_array['message_width'] > 0) {
             $outputResponse['message_width'] = (int)$invitation->design_data_array['message_width'];
         }
+
+        if (isset($invitation->design_data_array['std_header']) && $invitation->design_data_array['std_header'] == true) {
+            $outputResponse['std_header'] = true;
+        }
     }
 }
 
@@ -156,6 +160,8 @@ if (strpos($outputResponse['message'],'{operator}') !== false) {
     $onlineUser->operator_message = str_replace('{operator}', $outputResponse['name_support'], $onlineUser->operator_message);
     $onlineUser->updateThis(['update' => ['operator_message']]);
 }
+
+
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.getinvitation',array('output' => & $outputResponse, 'ou' => $onlineUser));
 

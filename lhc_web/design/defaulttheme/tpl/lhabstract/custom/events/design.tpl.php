@@ -53,6 +53,12 @@ for ($i = 1; $i < 5; $i++) {
 
     <div class="col-12">
         <div class="form-group">
+            <label><?php echo erLhcoreClassAbstract::renderInput('std_header', $fields['std_header'], $object)?> <?php echo $fields['std_header']['trans'];?></label>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="form-group">
             <label><?php echo $fields['message_width']['trans'];?></label>
             <?php echo erLhcoreClassAbstract::renderInput('message_width', $fields['message_width'], $object)?>
         </div>

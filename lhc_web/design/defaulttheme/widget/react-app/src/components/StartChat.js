@@ -329,7 +329,7 @@ class StartChat extends Component {
                         {this.state.showBBCode && <ChatModal showModal={this.state.showBBCode} insertText={this.insertText} toggle={this.toggleModal} dataUrl={"/chat/bbcodeinsert?react=1"} />}
 
                         {
-                            (this.props.chatwidget.getIn(['proactive','has']) === true && <ChatInvitationMessage mode='profile_only' invitation={this.props.chatwidget.getIn(['proactive','data'])} />)
+                            (this.props.chatwidget.getIn(['proactive','has']) === true && !this.props.chatwidget.hasIn(['proactive','data','std_header'])  && <ChatInvitationMessage mode='profile_only' invitation={this.props.chatwidget.getIn(['proactive','data'])} />)
                             ||
                             (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div id="lhc-profile-body"><div id="chat-status-container" className="p-2 border-bottom" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div></div>)
                         }
