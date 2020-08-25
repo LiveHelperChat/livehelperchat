@@ -34,6 +34,7 @@ class StartChat extends Component {
         this.setBotPayload = this.setBotPayload.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.textMessageRef = React.createRef();
+        this.messagesAreaRef = React.createRef();
     }
 
     toggleModal() {
@@ -199,6 +200,23 @@ class StartChat extends Component {
         // Auto focus if it's show operation
         if ((needFocus === true || (prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true)) && this.props.chatwidget.get('mode') == 'widget' && this.textMessageRef.current) {
             this.textMessageRef.current.focus();
+            this.scrollBottom();
+        }
+
+        // Rest API data was fetched we can scroll to bottomnow
+        if (this.props.chatwidget.getIn(['onlineData','fetched']) === true && prevProps.chatwidget.getIn(['onlineData','fetched']) === false) {
+            this.scrollBottom();
+        }
+    }
+
+    scrollBottom() {
+        if (this.messagesAreaRef.current) {
+            this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
+            setTimeout(() => {
+                if (this.messagesAreaRef.current) {
+                    this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
+                }
+            },450);
         }
     }
 
@@ -335,7 +353,7 @@ class StartChat extends Component {
                         }
 
                         <div className={msg_expand} id="messagesBlock">
-                            <div className={bottom_messages} id="messages-scroll">
+                            <div className={bottom_messages} id="messages-scroll" ref={this.messagesAreaRef}>
                                 {this.props.chatwidget.getIn(['proactive','has']) === true && <ChatInvitationMessage mode="message" setBotPayload={this.setBotPayload} invitation={this.props.chatwidget.getIn(['proactive','data'])} />}
 
                                 {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','cmmsg_widget']) && <ChatBotIntroMessage setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['chat_ui','cmmsg_widget'])} />}
