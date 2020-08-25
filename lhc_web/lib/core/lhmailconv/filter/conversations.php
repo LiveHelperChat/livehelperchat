@@ -14,6 +14,18 @@ $fieldsSearch['email'] = array (
     )
 );
 
+$fieldsSearch['subject'] = array (
+    'type' => 'text',
+    'trans' => 'Sort by',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'like',
+    'filter_table_field' => 'subject',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    )
+);
+
 $fieldsSearch['conversation_id'] = array (
     'type' => 'text',
     'trans' => 'id',

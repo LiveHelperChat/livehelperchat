@@ -190,7 +190,7 @@
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Subject');?></label>
                 <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                     'input_name'     => 'subject_id',
-                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Subject'),
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose a subject'),
                     'selected_id'    => $input->subject_id,
                     'css_class'      => 'form-control form-control-sm',
                     'display_name'   => 'name',
@@ -199,6 +199,13 @@
                 )); ?>
             </div>
         </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Mail subject');?></label>
+                <input type="text" class="form-control form-control-sm" name="subject" value="<?php echo htmlspecialchars($input->subject)?>" />
+            </div>
+        </div>
+
     </div>
 
     <div class="row">
