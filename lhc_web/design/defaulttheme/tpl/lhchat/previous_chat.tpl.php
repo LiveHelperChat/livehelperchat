@@ -1,2 +1,2 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/syncuser.tpl.php'));?>
-<div class="text-right text-secondary border-bottom fs13">Previous covnersation</div>
+<div class="text-right text-secondary border-bottom fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Previous conversation');?></div>

@@ -573,7 +573,7 @@ if ($theme !== false) {
             }
 
             if (isset($onlineUser) && $onlineUser instanceof erLhcoreClassModelChatOnlineUser) {
-                $previousChat = erLhcoreClassModelChat::findOne(array('limit' => 1, 'filter' => array('online_user_id' => $onlineUser->id)));
+                $previousChat = erLhcoreClassModelChat::findOne(array('sort' => 'id DESC', 'limit' => 1, 'filter' => array('online_user_id' => $onlineUser->id)));
                 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/previous_chat.tpl.php');
                 $tpl->set('messages', erLhcoreClassChat::getPendingMessages((int)$previousChat->id,  0));
                 $tpl->set('chat',$previousChat);
