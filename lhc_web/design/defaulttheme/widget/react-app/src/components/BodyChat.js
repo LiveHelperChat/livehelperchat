@@ -51,7 +51,11 @@ class BodyChat extends Component {
         this.botPayload = params;
     }
 
-    endChat() {
+    endChat(params) {
+
+        if (typeof params === 'undefined') {
+            params = {};
+        }
 
         let surveyMode = false;
         let navigateToSurvey = false;
@@ -93,9 +97,9 @@ class BodyChat extends Component {
         }
 
         if (this.props.chatwidget.get('initClose') === false && this.props.chatwidget.hasIn(['chat_ui','survey_id']) && surveyMode == false && (this.props.chatwidget.getIn(['chatLiveData','uid']) > 0 || this.props.chatwidget.getIn(['chatLiveData','status']) === STATUS_BOT_CHAT)) {
-            this.props.dispatch(endChat({'noCloseReason' : 'SHOW_SURVEY', 'noClose' : true, 'vid' : this.props.chatwidget.get('vid'), 'chat': {id : this.props.chatwidget.getIn(['chatData','id']), hash : this.props.chatwidget.getIn(['chatData','hash'])}}));
+            this.props.dispatch(endChat({'show_start' : params['show_start'],'noCloseReason' : 'SHOW_SURVEY', 'noClose' : true, 'vid' : this.props.chatwidget.get('vid'), 'chat': {id : this.props.chatwidget.getIn(['chatData','id']), hash : this.props.chatwidget.getIn(['chatData','hash'])}}));
         } else {
-            this.props.dispatch(endChat({'vid' : this.props.chatwidget.get('vid'), 'chat': {id : this.props.chatwidget.getIn(['chatData','id']), hash : this.props.chatwidget.getIn(['chatData','hash'])}}));
+            this.props.dispatch(endChat({'show_start' : params['show_start'],'vid' : this.props.chatwidget.get('vid'), 'chat': {id : this.props.chatwidget.getIn(['chatData','id']), hash : this.props.chatwidget.getIn(['chatData','hash'])}}));
         }
     }
 

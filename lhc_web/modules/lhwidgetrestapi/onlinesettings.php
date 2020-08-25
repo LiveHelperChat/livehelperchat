@@ -523,6 +523,7 @@ if ($theme !== false) {
             $tpl->set('theme',$theme);
             $tpl->set('react',true);
             $tpl->set('no_wrap_intro',true);
+            $tpl->set('no_br',true);
             $tpl->set('triggerMessageId',$theme->bot_configuration_array['trigger_id']);
 
             $chat_ui['cmmsg_widget'] = $tpl->fetch();
@@ -554,11 +555,37 @@ if ($theme !== false) {
                     $tpl->set('theme',$theme);
                     $tpl->set('react',true);
                     $tpl->set('no_wrap_intro',true);
+                    $tpl->set('no_br',true);
                     $tpl->set('triggerMessageId',$triggerDefault->id);
                     $chat_ui['cmmsg_widget'] = $tpl->fetch();
                 }
             }
         }
+
+        if (isset($theme->bot_configuration_array['prev_msg']) && $theme->bot_configuration_array['prev_msg'] == true) {
+            if (!isset($onlineUser) || !($onlineUser instanceof erLhcoreClassModelChatOnlineUser)) {
+                if (isset($Params['user_parameters_unordered']['vid']) && !empty($Params['user_parameters_unordered']['vid'])){
+                    $onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($Params['user_parameters_unordered']['vid']);
+                }
+            }
+
+            if (isset($onlineUser) && $onlineUser instanceof erLhcoreClassModelChatOnlineUser) {
+                if (!isset($chat_ui['cmmsg_widget'])) {
+                    $chat_ui['cmmsg_widget'] = '';
+                }
+
+                $previousChat = erLhcoreClassModelChat::findOne(array('sort' => 'id DESC', 'limit' => 1, 'filter' => array('online_user_id' => $onlineUser->id)));
+                $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/previous_chat.tpl.php');
+                $tpl->set('messages', erLhcoreClassChat::getPendingMessages((int)$previousChat->id,  0));
+                $tpl->set('chat',$previousChat);
+                $tpl->set('sync_mode','');
+                $tpl->set('async_call',true);
+                $tpl->set('theme',$theme);
+                $tpl->set('react',true);
+                $chat_ui['cmmsg_widget'] = $tpl->fetch() . $chat_ui['cmmsg_widget'];
+            }
+        }
+
     }
 
     if ($Params['user_parameters_unordered']['mode'] == 'popup') {

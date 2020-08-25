@@ -93,6 +93,10 @@ try {
                 $outputResponse['chat_ui']['survey_button'] = true;
             }
 
+            if (isset($theme->bot_configuration_array['start_on_close']) && $theme->bot_configuration_array['start_on_close'] == true) {
+                $outputResponse['chat_ui']['start_on_close'] = true;
+            }
+
             if (isset($theme->bot_configuration_array['confirm_close']) && $theme->bot_configuration_array['confirm_close'] == true) {
                 $outputResponse['chat_ui']['confirm_close'] = true;
             }
@@ -107,6 +111,20 @@ try {
 
             if (isset($theme->bot_configuration_array['close_in_status']) && $theme->bot_configuration_array['close_in_status'] == true) {
                 $outputResponse['chat_ui']['clinst'] = true;
+            }
+
+            if (isset($theme->bot_configuration_array['prev_msg']) && $theme->bot_configuration_array['prev_msg'] == true) {
+                if ($chat->online_user instanceof erLhcoreClassModelChatOnlineUser) {
+                    $previousChat = erLhcoreClassModelChat::findOne(array('sort' => 'id DESC', 'limit' => 1, 'filternot' => array('id' => $chat->id), 'filter' => array('online_user_id' => $chat->online_user->id)));
+                    $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/previous_chat.tpl.php');
+                    $tpl->set('messages', erLhcoreClassChat::getPendingMessages((int)$previousChat->id,  0));
+                    $tpl->set('chat',$previousChat);
+                    $tpl->set('sync_mode','');
+                    $tpl->set('async_call',true);
+                    $tpl->set('theme',$theme);
+                    $tpl->set('react',true);
+                    $outputResponse['chat_ui']['prev_chat'] = $tpl->fetch();
+                }
             }
         }
 

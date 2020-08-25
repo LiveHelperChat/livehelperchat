@@ -1064,6 +1064,26 @@ $fields = array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 )),
+                'start_on_close' => array(
+                    'type' => 'checkbox',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Show start chat form instantly after operator closes a chat.'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'prev_msg' => array(
+                    'type' => 'checkbox',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Show previous chat messages in chat widget.'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
                 'close_on_unload' => array(
                     'type' => 'checkbox',
                     'main_attr' => 'bot_configuration_array',

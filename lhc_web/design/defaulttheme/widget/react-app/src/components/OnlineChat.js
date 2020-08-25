@@ -400,6 +400,11 @@ class OnlineChat extends Component {
             this.textMessageRef.current.focus();
         }
 
+        // We show start form instantly if it's enabled
+        if (this.props.chatwidget.getIn(['chat_ui','start_on_close']) === true && this.props.chatwidget.getIn(['chatLiveData','closed']) === true && (typeof prevProps.chatwidget.getIn(['chatLiveData','closed']) === 'undefined' || prevProps.chatwidget.hasIn(['chatLiveData','closed']) === false || prevProps.chatwidget.getIn(['chatLiveData','closed']) === false)) {
+            this.props.endChat({"show_start":true});
+        }
+
     }
 
     scrollBottom() {
@@ -669,6 +674,7 @@ class OnlineChat extends Component {
 
                     <div className={msg_expand} id="messagesBlock">
                         <div className={bottom_messages} id="messages-scroll" ref={this.messagesAreaRef}>
+                            {this.props.chatwidget.hasIn(['chat_ui','prev_chat']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','prev_chat'])}}></div>}
                             {messages}
                         </div>
                     </div>
