@@ -402,7 +402,7 @@ class OnlineChat extends Component {
 
         // We show start form instantly if it's enabled
         if (this.props.chatwidget.getIn(['chat_ui','start_on_close']) === true && this.props.chatwidget.getIn(['chatLiveData','closed']) === true && (typeof prevProps.chatwidget.getIn(['chatLiveData','closed']) === 'undefined' || prevProps.chatwidget.hasIn(['chatLiveData','closed']) === false || prevProps.chatwidget.getIn(['chatLiveData','closed']) === false)) {
-            this.props.endChat({"show_start":true});
+            this.props.endChat({"show_start": this.props.chatwidget.get('shown')});
         }
 
     }
