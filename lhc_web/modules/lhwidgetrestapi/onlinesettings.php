@@ -570,19 +570,24 @@ if ($theme !== false) {
             }
 
             if (isset($onlineUser) && $onlineUser instanceof erLhcoreClassModelChatOnlineUser) {
-                if (!isset($chat_ui['cmmsg_widget'])) {
-                    $chat_ui['cmmsg_widget'] = '';
-                }
 
                 $previousChat = erLhcoreClassModelChat::findOne(array('sort' => 'id DESC', 'limit' => 1, 'filter' => array('online_user_id' => $onlineUser->id)));
-                $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/previous_chat.tpl.php');
-                $tpl->set('messages', erLhcoreClassChat::getPendingMessages((int)$previousChat->id,  0));
-                $tpl->set('chat',$previousChat);
-                $tpl->set('sync_mode','');
-                $tpl->set('async_call',true);
-                $tpl->set('theme',$theme);
-                $tpl->set('react',true);
-                $chat_ui['cmmsg_widget'] = $tpl->fetch() . $chat_ui['cmmsg_widget'];
+
+                if ($previousChat instanceof erLhcoreClassModelChat) {
+
+                    if (!isset($chat_ui['cmmsg_widget'])) {
+                        $chat_ui['cmmsg_widget'] = '';
+                    }
+
+                    $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/previous_chat.tpl.php');
+                    $tpl->set('messages', erLhcoreClassChat::getPendingMessages((int)$previousChat->id,  0));
+                    $tpl->set('chat',$previousChat);
+                    $tpl->set('sync_mode','');
+                    $tpl->set('async_call',true);
+                    $tpl->set('theme',$theme);
+                    $tpl->set('react',true);
+                    $chat_ui['cmmsg_widget'] = $tpl->fetch() . $chat_ui['cmmsg_widget'];
+                }
             }
         }
 

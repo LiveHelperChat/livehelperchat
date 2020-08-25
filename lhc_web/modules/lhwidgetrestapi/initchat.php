@@ -115,15 +115,19 @@ try {
 
             if (isset($theme->bot_configuration_array['prev_msg']) && $theme->bot_configuration_array['prev_msg'] == true) {
                 if ($chat->online_user instanceof erLhcoreClassModelChatOnlineUser) {
+                    
                     $previousChat = erLhcoreClassModelChat::findOne(array('sort' => 'id DESC', 'limit' => 1, 'filternot' => array('id' => $chat->id), 'filter' => array('online_user_id' => $chat->online_user->id)));
-                    $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/previous_chat.tpl.php');
-                    $tpl->set('messages', erLhcoreClassChat::getPendingMessages((int)$previousChat->id,  0));
-                    $tpl->set('chat',$previousChat);
-                    $tpl->set('sync_mode','');
-                    $tpl->set('async_call',true);
-                    $tpl->set('theme',$theme);
-                    $tpl->set('react',true);
-                    $outputResponse['chat_ui']['prev_chat'] = $tpl->fetch();
+
+                    if ($previousChat instanceof erLhcoreClassModelChat){
+                        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/previous_chat.tpl.php');
+                        $tpl->set('messages', erLhcoreClassChat::getPendingMessages((int)$previousChat->id,  0));
+                        $tpl->set('chat',$previousChat);
+                        $tpl->set('sync_mode','');
+                        $tpl->set('async_call',true);
+                        $tpl->set('theme',$theme);
+                        $tpl->set('react',true);
+                        $outputResponse['chat_ui']['prev_chat'] = $tpl->fetch();
+                    }
                 }
             }
         }
