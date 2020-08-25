@@ -11,7 +11,7 @@ export class needhelpWidget{
         this.invitationOpen = false;
 
         this.cont = new UIConstructorIframe('lhc_needhelp_widget_v2', helperFunctions.getAbstractStyle({
-            zindex: "1000000",
+            zindex: "2147483640",
             width: "320px",
             height: "135px",
             position: "fixed",

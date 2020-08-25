@@ -14,7 +14,7 @@ export class mainWidget{
         this.originalCSS = '';
 
         this.cont = new UIConstructorIframe('lhc_widget_v2', helperFunctions.getAbstractStyle({
-            zindex: "1000000",
+            zindex: "2147483640",
             width: "95px",
             height: "95px",
             position: "fixed",

@@ -8,7 +8,7 @@ export class statusWidget{
        this.attributes = {};
        this.controlMode = false;
        this.cont = new UIConstructorIframe('lhc_status_widget_v2', helperFunctions.getAbstractStyle({
-            zindex: "1000000",
+            zindex: "2147483640",
             width: "95px",
             height: "95px",
             position: "fixed",
