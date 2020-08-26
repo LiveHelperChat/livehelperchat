@@ -1626,7 +1626,7 @@ class erLhcoreClassGenericBotWorkflow {
                             $updateAdditionalData = false;
                             if (isset($messageClickData['store_name']) && $messageClickData['store_name'] != '') {
                                 foreach ($chatAdditionalData as $dataItemIndex => $dataItem) {
-                                    if ($dataItem['identifier'] == str_replace(' ','_',mb_strtolower($messageClickData['store_name']))) {
+                                    if ($dataItem['identifier'] == $messageClickData['store_name']) {
                                         $chatAdditionalData[$dataItemIndex]['value'] = (isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ?  $messageClickData['store_value'] : $messageClick;
                                         $updateAdditionalData = true;
                                         break;
@@ -1635,7 +1635,7 @@ class erLhcoreClassGenericBotWorkflow {
 
                                 if ($updateAdditionalData == false) {
                                     $chatAdditionalData[] = array(
-                                        'identifier' => str_replace(' ','_',mb_strtolower($messageClickData['store_name'])),
+                                        'identifier' => $messageClickData['store_name'],
                                         'key' => $messageClickData['store_name'],
                                         'value' => ((isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ?  $messageClickData['store_value'] : $messageClick),
                                     );
@@ -1744,7 +1744,7 @@ class erLhcoreClassGenericBotWorkflow {
                             $updateAdditionalData = false;
                             if (isset($messageClickData['store_name']) && $messageClickData['store_name'] != '') {
                                 foreach ($chatAdditionalData as $dataItemIndex => $dataItem) {
-                                    if ($dataItem['identifier'] == str_replace(' ','_',mb_strtolower($messageClickData['store_name']))) {
+                                    if ($dataItem['identifier'] == $messageClickData['store_name']) {
                                         $chatAdditionalData[$dataItemIndex]['value'] = (isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ?  $messageClickData['store_value'] : $messageClick;
                                         $updateAdditionalData = true;
                                         break;
@@ -1753,7 +1753,7 @@ class erLhcoreClassGenericBotWorkflow {
 
                                 if ($updateAdditionalData == false) {
                                     $chatAdditionalData[] = array(
-                                        'identifier' => str_replace(' ','_',mb_strtolower($messageClickData['store_name'])),
+                                        'identifier' => $messageClickData['store_name'],
                                         'key' => $messageClickData['store_name'],
                                         'value' => ((isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ?  $messageClickData['store_value'] : $messageClick),
                                     );
