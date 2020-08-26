@@ -1,3 +1,3 @@
-<div class="meta-message-<?php echo $messageId?>">
+<div class="meta-message-html-<?php echo $messageId?>">
     <?php echo $metaMessage['content']; ?>
 </div>
