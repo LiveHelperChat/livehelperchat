@@ -56,6 +56,13 @@ class StartChat extends Component {
             return;
         }
 
+        // Focus element so once OnlineChat component is mounted it remains focused
+        var elm = document.getElementById('CSChatMessage');
+        if (elm !== null) {
+            elm.focus();
+            this.props.setHideMessageField(false);
+        }
+
         var fields = this.state;
         fields['jsvar'] = this.props.chatwidget.get('jsVars');
         fields['captcha_' + this.props.chatwidget.getIn(['captcha','hash'])] = this.props.chatwidget.getIn(['captcha','ts']);
@@ -137,12 +144,17 @@ class StartChat extends Component {
     }
 
     componentDidMount() {
-
         helperFunctions.prefillFields(this);
         this.updateOnlineFields();
 
         if (this.props.botPayload !== null) {
             this.setBotPayload(this.props.botPayload);
+        }
+
+        // Just remove element if it exists
+        var elm = document.getElementById('CSChatMessage-tmp');
+        if (elm !== null) {
+            document.body.removeChild(elm);
         }
     }
 
@@ -157,8 +169,16 @@ class StartChat extends Component {
             this.props.setProfile(profileBody.innerHTML);
         }
 
-        if (document.getElementById('CSChatMessage') === null) {
+        var elm = document.getElementById('CSChatMessage');
+        if (elm === null) {
             this.props.setHideMessageField(true);
+        } else {
+            // Because online component has it's own text area we loose focus once we mount that component
+            // We keeps this element focused and just switch focus between elements. So we do not loose keyboard.
+            this.props.setHideMessageField(false);
+            elm.id = "CSChatMessage-tmp";
+            elm.style.cssText = "position:absolute;left:-999px;bottom:0px;";
+            document.body.appendChild(elm);
         }
     }
 
@@ -376,7 +396,7 @@ class StartChat extends Component {
                             {this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 && <React.Fragment>
                                 <ChatStartOptions toggleModal={this.toggleModal} />
                                 <div className="mx-auto pb-1 w-100">
-                                    <textarea autoFocus={this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('shown') === true} onFocus={this.moveCaretAtEnd} readOnly={this.props.chatwidget.get('processStatus') == 1} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} style={{height: this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.Question) || (this.state.Question.length > this.textMessageRef.current.offsetWidth/8.6)) ? '60px' : '36px'}} aria-label="Type your message here..." id="CSChatMessage" value={this.props.chatwidget.get('processStatus') == 1 ? '' : this.state.Question} placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} onKeyDown={this.enterKeyDown} onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})} ref={this.textMessageRef} rows="1" className={classMessageInput} />
+                                    <textarea autoFocus={this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('shown') === true} onFocus={this.moveCaretAtEnd} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} style={{height: this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.Question) || (this.state.Question.length > this.textMessageRef.current.offsetWidth/8.6)) ? '60px' : '36px'}} aria-label="Type your message here..." id="CSChatMessage" value={this.props.chatwidget.get('processStatus') == 1 ? '' : this.state.Question} placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} onKeyDown={this.enterKeyDown} onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})} ref={this.textMessageRef} rows="1" className={classMessageInput} />
                                 </div>
                                 <div className="disable-select">
                                     <div className="user-chatwidget-buttons pt-1" id="ChatSendButtonContainer">
