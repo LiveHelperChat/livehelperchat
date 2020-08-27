@@ -42,8 +42,9 @@ $ViewList['account'] = array(
 
 $ViewList['userlist'] = array(
     'params' => array(),
-    'uparams' => array('email' , 'name' , 'username' , 'surname'),
-    'functions' => array( 'userlist' )
+    'uparams' => array('email' , 'name' , 'username' , 'surname', 'group_ids'),
+    'functions' => array( 'userlist' ),
+    'multiple_arguments' => array('group_ids')
 );
 
 $ViewList['grouplist'] = array(

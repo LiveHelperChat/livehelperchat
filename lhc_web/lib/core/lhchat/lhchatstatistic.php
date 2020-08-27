@@ -1049,7 +1049,7 @@ class erLhcoreClassChatStatistic {
     	return implode(' AND ', $returnFilter);
     }
     
-    public static function formatUserFilter(& $filterParams, $table = 'lh_chat') {
+    public static function formatUserFilter(& $filterParams, $table = 'lh_chat', $column = 'user_id') {
         if (isset($filterParams['input']->group_id) && is_numeric($filterParams['input']->group_id) && $filterParams['input']->group_id > 0 ) {
             $db = ezcDbInstance::get();
             $stmt = $db->prepare('SELECT user_id FROM lh_groupuser WHERE group_id = :group_id');
@@ -1058,7 +1058,7 @@ class erLhcoreClassChatStatistic {
             $userIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
             
             if (!empty($userIds)) {
-                $filterParams['filter']['filterin'][$table . '.user_id'] = $userIds;
+                $filterParams['filter']['filterin'][$table . '.' . $column] = $userIds;
             }
         }
 
@@ -1072,10 +1072,10 @@ class erLhcoreClassChatStatistic {
             $userIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
             if (!empty($userIds)) {
-                if (isset($filterParams['filter']['filterin'][$table . '.user_id'])){
-                    $filterParams['filter']['filterin'][$table . '.user_id'] = array_merge($filterParams['filter']['filterin'][$table . '.user_id'],$userIds);
+                if (isset($filterParams['filter']['filterin'][$table . '.' . $column])) {
+                    $filterParams['filter']['filterin'][$table . '.' . $column] = array_merge($filterParams['filter']['filterin'][$table . '.' . $column],$userIds);
                 } else {
-                    $filterParams['filter']['filterin'][$table . '.user_id'] = $userIds;
+                    $filterParams['filter']['filterin'][$table . '.' . $column] = $userIds;
                 }
             }
         }
