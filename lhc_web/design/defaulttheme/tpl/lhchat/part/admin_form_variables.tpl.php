@@ -22,7 +22,7 @@ if (is_array($customAdminfields)) : ?>
                 <div class="form-group">
                     <label class="col-form-label" id="label-<?php echo htmlspecialchars('additional_admin_'.$key)?>"><?php echo htmlspecialchars($adminField['fieldname'])?>&nbsp;<?php $adminField['isrequired'] == 'true' ? print '*' : ''?></label>
                     <select name="value_items_admin[<?php echo $key?>]" class="form-control form-control-sm<?php if (isset($errors['additional_admin_'.$key])) : ?> is-invalid<?php endif;?>">
-                        <option value="">Please choose</option>
+                        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please choose') ?></option>
                         <?php foreach (explode("\n",$adminField['options']) as $option) : ?>
                             <option <?php isset($input_data->value_items_admin[$key]) && $option == $input_data->value_items_admin[$key] ? print 'selected="selected"' : ''?> value="<?php echo htmlspecialchars($option)?>"><?php echo htmlspecialchars($option)?></option>
                         <?php endforeach; ?>
