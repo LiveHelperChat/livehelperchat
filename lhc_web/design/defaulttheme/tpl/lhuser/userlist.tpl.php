@@ -27,7 +27,14 @@
         <td><?php echo htmlspecialchars($user->username)?><?php echo htmlspecialchars($user->chat_nickname !== '' ? ' ('. $user->chat_nickname .')' : '')?></td>
         <td><?php echo htmlspecialchars($user->email)?></td>
         <td>
-            <?php echo htmlspecialchars($user->max_active_chats)?>
+            <?php if ($user->exclude_autoasign == 1) : ?>
+                <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Excluded from auto assign workflow');?>" class="material-icons chat-closed mr-1">block</span>
+            <?php endif; ?>
+            <?php if ($user->max_active_chats == 0) : ?>
+                &#8734;
+            <?php else : ?>
+                <?php echo htmlspecialchars($user->max_active_chats)?>
+            <?php endif; ?>
         </td>
         <td><?php echo $user->lastactivity_ago?> ago</td>
         <?php include(erLhcoreClassDesign::designtpl('lhuser/userlist/column_data_multiinclude.tpl.php')); ?>
