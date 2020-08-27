@@ -231,7 +231,7 @@ class erLhcoreClassGenericBotActionRestapi
 
         if (isset($methodSettings['header']) && !empty($methodSettings['header'])) {
             foreach ($methodSettings['header'] as $header) {
-                $headers[] = $header['key'] . ': ' . $header['value'];
+                $headers[] = $header['key'] . ': ' . str_replace(array_keys($replaceVariables), array_values($replaceVariables), $header['value']);
             }
         }
 
