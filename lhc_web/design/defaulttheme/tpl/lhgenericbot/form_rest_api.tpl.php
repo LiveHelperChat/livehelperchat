@@ -45,6 +45,12 @@
                 <input type="text" class="form-control form-control-sm" ng-model="param.suburl" placeholder="" value="" />
             </div>
         </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Maximum execution time');?></label>
+                <input type="number" max="30" min="1" class="form-control form-control-sm" ng-model="param.max_execution_time" placeholder="10" value="" />
+            </div>
+        </div>
     </div>
     <ul class="nav nav-tabs mb-2" role="tablist" >
         <li role="presentation" class="nav-item"><a class="nav-link active" href="#params-rest-{{$index}}" aria-controls="params" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Params');?></a></li>
