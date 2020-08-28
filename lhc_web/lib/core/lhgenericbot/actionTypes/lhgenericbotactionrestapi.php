@@ -91,6 +91,10 @@ class erLhcoreClassGenericBotActionRestapi
 
                 if ($response['content'] != '' || (isset($response['meta']) && !empty($response['meta']))){
 
+                    if (isset($action['content']['attr_options']['no_body']) && $action['content']['attr_options']['no_body'] == true) {
+                        return;
+                    }
+
                     $msg = new erLhcoreClassModelmsg();
                     $msg->chat_id = $chat->id;
                     $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
