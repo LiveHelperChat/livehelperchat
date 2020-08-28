@@ -176,14 +176,18 @@ $fields = array(
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
-   				'intro_operator_text' => array(
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator intro text'),
-   						'required' => false,   						
-   						'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Have a question? Ask us!'),   						
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
+                'intro_operator_text' => array(
+                    'type' => 'text',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator intro text'),
+                    'translatable' => true,
+                    'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Have a question? Ask us!'),
+                    'main_attr_lang' => 'bot_configuration_array',
+                    'required' => false,
+                    'nginit' => true,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                    )),
    				'onl_bcolor' => array(
    						'type' => 'colorpicker',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Background color'),

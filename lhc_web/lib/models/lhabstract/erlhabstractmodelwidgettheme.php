@@ -453,6 +453,7 @@ class erLhAbstractModelWidgetTheme {
             'explain_text',
             'need_help_text',
             'need_help_header',
+            'intro_operator_text',
         );
 
         $translatableAttributes = array_merge(array(

@@ -53,12 +53,10 @@
 						<label><?php echo $fields['offline_text']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('offline_text', $fields['offline_text'], $object)?>
 						</div>
-						
-						<div class="form-group">						
-						<label><?php echo $fields['intro_operator_text']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('intro_operator_text', $fields['intro_operator_text'], $object)?>
-						</div>
-						
+
+                        <?php $translatableItem = array('identifier' => 'intro_operator_text'); ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
 						<div class="form-group">						
 						<label><?php echo $fields['logo_image']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('logo_image', $fields['logo_image'], $object)?>
