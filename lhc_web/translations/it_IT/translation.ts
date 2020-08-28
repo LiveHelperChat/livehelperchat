@@ -694,8 +694,8 @@
       <translation>Colore testo del Tempo</translation>
     </message>
     <message>
-      <source>Title text colorr</source>
-      <translation>Colore testo del titolo</translation>
+      <source>Title text color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Message text color</source>
@@ -859,6 +859,10 @@
     </message>
     <message>
       <source>If variable is not passed should we keep previously recorded value?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation message width</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1167,8 +1171,8 @@ CSS pagina personalizzata (solo nuovo widget)</translation>
       <translation>Widget di stato CSS addizionale, ha effetto dopo il salvataggio</translation>
     </message>
     <message>
-      <source>Background color for popup</source>
-      <translation>Colore di sfondo popup</translation>
+      <source>Custom CSS only for popup</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
@@ -1350,6 +1354,14 @@ Messaggi in stile bolla</translation>
     <message>
       <source>Main wrapper element should have id of</source>
       <translation>L&apos;elemento principale del wrapper dovrebbe avere l&apos;id di</translation>
+    </message>
+    <message>
+      <source>New widget options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Old widget options</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>If chat was accepted by the same language speaking operator you can send visitor a custom message on chat accept event.</source>
@@ -1637,8 +1649,8 @@ Icona colonna, testo icone materiale</translation>
       <translation>Nome richiesto</translation>
     </message>
     <message>
-      <source>Show on mobile</source>
-      <translation>Mostra sui dispositivi mobili</translation>
+      <source>Show on these devices only</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show everytime it is matched</source>
@@ -1729,6 +1741,18 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Do not show widget automatically</source>
       <translation>Non mostrare automaticamente il widget</translation>
+    </message>
+    <message>
+      <source>Show widget on invitation to chat. Applies only to desktop devices.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Append trigger content in full widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Append trigger content in intro message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Identifier</source>
@@ -2379,6 +2403,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Transfer to bot only if department is offline</source>
       <translation>Trasferisci al bot solo se il dipartmento è offline</translation>
+    </message>
+    <message>
+      <source>Bot follows online hours. Department will be offline if there is no online operators or it is outside work hours.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select translations</source>
@@ -3665,6 +3693,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Posizione Widget</translation>
     </message>
     <message>
+      <source>Hash arguments. Visitor will not be able to change passed arguments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Configurazione sistema</translation>
     </message>
@@ -4547,6 +4579,18 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Choose your language</source>
       <translation>Scegli la tua lingua</translation>
+    </message>
+    <message>
+      <source>You</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Us</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Summary</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
@@ -7787,6 +7831,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Assign the chat to me if the visitor replies</source>
       <translation>Assegna la chat a me se il visitatore risponde</translation>
+    </message>
+    <message>
+      <source>Open full widget for the visitor</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Do not send automated messages if the customer replies</source>
@@ -12098,6 +12146,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Nick modificato!</translation>
     </message>
     <message>
+      <source>Files upload was disabled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>I have enabled files upload for you. [fupload]Upload a file[/fupload].</source>
       <translation type="unfinished"/>
     </message>
@@ -12490,29 +12542,6 @@ Icona colonna, testo icone materiale</translation>
     </message>
   </context>
   <context>
-    <name>lhrestapi/validation</name>
-    <message>
-      <source>Authorization failed!</source>
-      <translation>Autorizzazione fallita!</translation>
-    </message>
-    <message>
-      <source>You do not have permission to use REST API directly. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; is missing!</source>
-      <translation>Non sei autorizzato a utilizzare direttamente l&apos;API REST. Manca &quot;lhrestapi&quot;, &quot;use_direct_logins&quot;!</translation>
-    </message>
-    <message>
-      <source>Authorization header is missing!</source>
-      <translation>Manca l&apos;intestazione dell&apos;autorizzazione!</translation>
-    </message>
-    <message>
-      <source>Could not find chat by chat_id!</source>
-      <translation>Non è possibile trovare la chat tramite chat_id!</translation>
-    </message>
-    <message>
-      <source>You do not have permission to read this chat!</source>
-      <translation>Non si ha il permesso di leggere questa chat!</translation>
-    </message>
-  </context>
-  <context>
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
@@ -12523,12 +12552,8 @@ Icona colonna, testo icone materiale</translation>
       <translation>Utente esistente</translation>
     </message>
     <message>
-      <source>Passwords mismatch</source>
-      <translation>Le password non corrispondono</translation>
-    </message>
-    <message>
-      <source>User action type not set</source>
-      <translation>Tipo di azione utente non impostata</translation>
+      <source>Password missing</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -12537,6 +12562,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Please enter a name</source>
       <translation>Specificare un nome</translation>
+    </message>
+    <message>
+      <source>In order to assign user all departments you have to provide  `departments` and `departments_read` argument.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You have to choose one of required groups!</source>
@@ -12549,6 +12578,14 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Please choose a default user group</source>
       <translation>Selezionare un gruppo di utenti predefinito</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Le password non corrispondono</translation>
+    </message>
+    <message>
+      <source>User action type not set</source>
+      <translation>Tipo di azione utente non impostata</translation>
     </message>
     <message>
       <source>Password has to be at least</source>
@@ -12581,6 +12618,29 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Old and new password has to be different!</source>
       <translation>La vecchia e la nuova password devono essere diverse!</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/validation</name>
+    <message>
+      <source>Authorization failed!</source>
+      <translation>Autorizzazione fallita!</translation>
+    </message>
+    <message>
+      <source>You do not have permission to use REST API directly. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; is missing!</source>
+      <translation>Non sei autorizzato a utilizzare direttamente l&apos;API REST. Manca &quot;lhrestapi&quot;, &quot;use_direct_logins&quot;!</translation>
+    </message>
+    <message>
+      <source>Authorization header is missing!</source>
+      <translation>Manca l&apos;intestazione dell&apos;autorizzazione!</translation>
+    </message>
+    <message>
+      <source>Could not find chat by chat_id!</source>
+      <translation>Non è possibile trovare la chat tramite chat_id!</translation>
+    </message>
+    <message>
+      <source>You do not have permission to read this chat!</source>
+      <translation>Non si ha il permesso di leggere questa chat!</translation>
     </message>
   </context>
   <context>
@@ -12774,12 +12834,12 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>chat/refreshcustomfields</name>
     <message>
-      <source>Custom chat data was saved</source>
-      <translation>I dati personalizzati della chat sono stati salvati</translation>
-    </message>
-    <message>
       <source>Data refreshed</source>
       <translation>Dati aggiornati</translation>
+    </message>
+    <message>
+      <source>Custom chat data was saved</source>
+      <translation>I dati personalizzati della chat sono stati salvati</translation>
     </message>
   </context>
   <context>
@@ -12798,6 +12858,17 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Chat started with</source>
       <translation>Chat iniziata con</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/start</name>
+    <message>
+      <source>Department is required!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department is disabled!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

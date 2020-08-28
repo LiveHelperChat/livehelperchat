@@ -694,8 +694,8 @@
       <translation>Zeitfarbe</translation>
     </message>
     <message>
-      <source>Title text colorr</source>
-      <translation>Titeltextfarbe</translation>
+      <source>Title text color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Message text color</source>
@@ -859,6 +859,10 @@
     </message>
     <message>
       <source>If variable is not passed should we keep previously recorded value?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation message width</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1166,7 +1170,7 @@
       <translation>Zusätzliches CSS für Status-Widget. Greift erst nach Speicherung</translation>
     </message>
     <message>
-      <source>Background color for popup</source>
+      <source>Custom CSS only for popup</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1346,6 +1350,14 @@
     </message>
     <message>
       <source>Main wrapper element should have id of</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New widget options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Old widget options</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1633,7 +1645,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Show on mobile</source>
+      <source>Show on these devices only</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1722,6 +1734,18 @@
     </message>
     <message>
       <source>Do not show widget automatically</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show widget on invitation to chat. Applies only to desktop devices.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Append trigger content in full widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Append trigger content in intro message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2372,6 +2396,10 @@
     </message>
     <message>
       <source>Transfer to bot only if department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot follows online hours. Department will be offline if there is no online operators or it is outside work hours.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3616,7 +3644,7 @@
     </message>
     <message>
       <source>Identifier – enter a unique identifier here. This is useful for separating messages and proactive chat invitations from different domains/web pages. Enter a string without special characters or spaces such as “homepage” or “website1”.</source>
-      <translation type="unfinished"/>
+      <translation>Bezeichner - geben Sie hier einen eindeutigen Bezeichner ein. Dies ist nützlich, um Nachrichten und proaktive Chat-Einladungen von verschiedenen Domänen/Webseiten zu trennen. Geben Sie eine Zeichenfolge ohne Sonderzeichen oder Leerzeichen ein, wie z.B. &quot;homepage&quot; oder &quot;website1&quot;.</translation>
     </message>
     <message>
       <source>no survey</source>
@@ -3657,6 +3685,10 @@
     <message>
       <source>Widget position</source>
       <translation>Widget Position</translation>
+    </message>
+    <message>
+      <source>Hash arguments. Visitor will not be able to change passed arguments.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -4543,6 +4575,18 @@
       <translation>Wählen Sie Ihre Sprache</translation>
     </message>
     <message>
+      <source>You</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Us</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Summary</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Invalid CSRF token!</source>
       <translation>Ungültiger CSRF-Token!</translation>
     </message>
@@ -4704,7 +4748,7 @@
     </message>
     <message>
       <source>Enter a message</source>
-      <translation type="unfinished"/>
+      <translation>Nachricht eingeben</translation>
     </message>
     <message>
       <source>Pending to join...</source>
@@ -4712,7 +4756,7 @@
     </message>
     <message>
       <source>Already a member</source>
-      <translation type="unfinished"/>
+      <translation>Bereits Mitglied</translation>
     </message>
     <message>
       <source>Invite</source>
@@ -4724,7 +4768,7 @@
     </message>
     <message>
       <source>Leave the group</source>
-      <translation type="unfinished"/>
+      <translation>Gruppe verlassen</translation>
     </message>
     <message>
       <source>Enter operator name or surname or just click search to invite</source>
@@ -4736,7 +4780,7 @@
     </message>
     <message>
       <source>Please enter a message</source>
-      <translation type="unfinished"/>
+      <translation>Bitte Nachricht eingeben</translation>
     </message>
     <message>
       <source>characters max.</source>
@@ -4923,15 +4967,15 @@
     </message>
     <message>
       <source>Already a member</source>
-      <translation type="unfinished"/>
+      <translation>Bereits Mitglied</translation>
     </message>
     <message>
       <source>Your new group name</source>
-      <translation type="unfinished"/>
+      <translation>Neue Gruppe</translation>
     </message>
     <message>
       <source>Private group</source>
-      <translation type="unfinished"/>
+      <translation>Private Gruppe</translation>
     </message>
     <message>
       <source>Public group</source>
@@ -4939,7 +4983,7 @@
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Neu</translation>
     </message>
     <message>
       <source>Status</source>
@@ -4999,7 +5043,7 @@
     </message>
     <message>
       <source>Bot chats will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>Bot-Chats werden hier erscheinen.</translation>
     </message>
     <message>
       <source>Please enable bot chats list in your account!</source>
@@ -5019,7 +5063,7 @@
     </message>
     <message>
       <source>Chats assigned to you will appear here. List includes pending and active chats.</source>
-      <translation type="unfinished"/>
+      <translation>Die Ihnen zugewiesenen Chats erscheinen hier. Die Liste enthält ausstehende und aktive Chats.</translation>
     </message>
     <message>
       <source>You will see short list of your site visitors here.</source>
@@ -5538,7 +5582,7 @@
     </message>
     <message>
       <source>Group chats</source>
-      <translation type="unfinished"/>
+      <translation>Gruppenchats</translation>
     </message>
     <message>
       <source>Unread chats</source>
@@ -7063,7 +7107,7 @@
     </message>
     <message>
       <source>Group chats</source>
-      <translation type="unfinished"/>
+      <translation>Gruppenchats</translation>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -7620,7 +7664,7 @@
     </message>
     <message>
       <source>New visitors</source>
-      <translation type="unfinished"/>
+      <translation>Neuer Besucher</translation>
     </message>
     <message>
       <source>Returning visitors</source>
@@ -7780,6 +7824,10 @@
     </message>
     <message>
       <source>Assign the chat to me if the visitor replies</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Open full widget for the visitor</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8821,7 +8869,7 @@
     </message>
     <message>
       <source>Group chats</source>
-      <translation type="unfinished"/>
+      <translation>Gruppenchats</translation>
     </message>
   </context>
   <context>
@@ -8945,7 +8993,7 @@
     </message>
     <message>
       <source>New bot</source>
-      <translation type="unfinished"/>
+      <translation>Neuer Bot</translation>
     </message>
     <message>
       <source>New exception group</source>
@@ -9401,7 +9449,7 @@
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Neu</translation>
     </message>
     <message>
       <source>Import</source>
@@ -11877,7 +11925,7 @@
     </message>
     <message>
       <source>New password</source>
-      <translation type="unfinished"/>
+      <translation>Neues Passwort</translation>
     </message>
     <message>
       <source>Repeat password</source>
@@ -12089,6 +12137,10 @@
     <name>chat/chatcommand</name>
     <message>
       <source>Nick changed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files upload was disabled!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12484,29 +12536,6 @@
     </message>
   </context>
   <context>
-    <name>lhrestapi/validation</name>
-    <message>
-      <source>Authorization failed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You do not have permission to use REST API directly. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; is missing!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Authorization header is missing!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not find chat by chat_id!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You do not have permission to read this chat!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
@@ -12517,12 +12546,8 @@
       <translation>Benutzer existiert bereits</translation>
     </message>
     <message>
-      <source>Passwords mismatch</source>
-      <translation>Passwort stimmt nicht überein</translation>
-    </message>
-    <message>
-      <source>User action type not set</source>
-      <translation>Nutzeraktionstyp nicht gesetzt</translation>
+      <source>Password missing</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -12531,6 +12556,10 @@
     <message>
       <source>Please enter a name</source>
       <translation>Bitte Namen eingeben</translation>
+    </message>
+    <message>
+      <source>In order to assign user all departments you have to provide  `departments` and `departments_read` argument.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You have to choose one of required groups!</source>
@@ -12543,6 +12572,14 @@
     <message>
       <source>Please choose a default user group</source>
       <translation>Bitte wählen Sie die standardmäßig Benutzergruppe</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Passwort stimmt nicht überein</translation>
+    </message>
+    <message>
+      <source>User action type not set</source>
+      <translation>Nutzeraktionstyp nicht gesetzt</translation>
     </message>
     <message>
       <source>Password has to be at least</source>
@@ -12574,6 +12611,29 @@
     </message>
     <message>
       <source>Old and new password has to be different!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/validation</name>
+    <message>
+      <source>Authorization failed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You do not have permission to use REST API directly. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; is missing!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Authorization header is missing!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find chat by chat_id!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You do not have permission to read this chat!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -12768,12 +12828,12 @@
   <context>
     <name>chat/refreshcustomfields</name>
     <message>
-      <source>Custom chat data was saved</source>
-      <translation>Benutzerdefinierte Chat-Daten wurden gespeichert</translation>
-    </message>
-    <message>
       <source>Data refreshed</source>
       <translation>Daten erneuert</translation>
+    </message>
+    <message>
+      <source>Custom chat data was saved</source>
+      <translation>Benutzerdefinierte Chat-Daten wurden gespeichert</translation>
     </message>
   </context>
   <context>
@@ -12792,6 +12852,17 @@
     <message>
       <source>Chat started with</source>
       <translation>Chat gestartet mit</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/start</name>
+    <message>
+      <source>Department is required!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department is disabled!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -12873,7 +12944,7 @@
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Neu</translation>
     </message>
     <message>
       <source>Translations groups</source>
@@ -12908,7 +12979,7 @@
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Neu</translation>
     </message>
   </context>
   <context>
@@ -12923,7 +12994,7 @@
     </message>
     <message>
       <source>Group chats</source>
-      <translation type="unfinished"/>
+      <translation>Gruppenchats</translation>
     </message>
     <message>
       <source>New group chat</source>

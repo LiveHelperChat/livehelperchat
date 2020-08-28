@@ -7,7 +7,7 @@
     </message>
     <message>
       <source>Domains where script can be embedded. E.g example.com, google.com</source>
-      <translation type="unfinished"/>
+      <translation>Komut dosyasının yerleştirilebileceği alanlar. Örneğin, example.com, google.com</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
@@ -647,7 +647,7 @@
     </message>
     <message>
       <source>Choose manually bot ant trigger</source>
-      <translation type="unfinished"/>
+      <translation>Manuel olarak bot karınca tetikleyicisini seçin</translation>
     </message>
     <message>
       <source>Default</source>
@@ -694,8 +694,8 @@
       <translation>Zaman bilgisi rengi</translation>
     </message>
     <message>
-      <source>Title text colorr</source>
-      <translation>Başlık yazısı rengi</translation>
+      <source>Title text color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Message text color</source>
@@ -835,7 +835,7 @@
     </message>
     <message>
       <source>Choose a trigger</source>
-      <translation>Bir zamanlayıcı seçin</translation>
+      <translation>Bir tetikleyici seçin</translation>
     </message>
     <message>
       <source>Minimum time in second how long sync has to be stopped before allowing reset auto responder</source>
@@ -859,6 +859,10 @@
     </message>
     <message>
       <source>If variable is not passed should we keep previously recorded value?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation message width</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -963,7 +967,7 @@
     </message>
     <message>
       <source>Online status text [old widget]</source>
-      <translation type="unfinished"/>
+      <translation>Çevrimiçi durumu yazısı[eski widget]</translation>
     </message>
     <message>
       <source>Offline status text [old widget]</source>
@@ -1166,8 +1170,8 @@
       <translation>Sohbet durum aracı için özel CSS, kaydettikten sonra etki eder</translation>
     </message>
     <message>
-      <source>Background color for popup</source>
-      <translation>Yeni pencerede aç butonu için arkaplan rengi</translation>
+      <source>Custom CSS only for popup</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
@@ -1347,6 +1351,14 @@
     <message>
       <source>Main wrapper element should have id of</source>
       <translation>Ana sargı elemanının kimliği olmalıdır</translation>
+    </message>
+    <message>
+      <source>New widget options</source>
+      <translation>Yeni widget seçenekleri</translation>
+    </message>
+    <message>
+      <source>Old widget options</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>If chat was accepted by the same language speaking operator you can send visitor a custom message on chat accept event.</source>
@@ -1633,8 +1645,8 @@
       <translation>İsim Zorunlu</translation>
     </message>
     <message>
-      <source>Show on mobile</source>
-      <translation>Mobilde göster</translation>
+      <source>Show on these devices only</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show everytime it is matched</source>
@@ -1723,6 +1735,18 @@
     <message>
       <source>Do not show widget automatically</source>
       <translation>Araç&apos;ı otomatik olarak gösterme</translation>
+    </message>
+    <message>
+      <source>Show widget on invitation to chat. Applies only to desktop devices.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Append trigger content in full widget</source>
+      <translation>Tam widget&apos;ta tetikleyici içerik ekleyin</translation>
+    </message>
+    <message>
+      <source>Append trigger content in intro message</source>
+      <translation>Giriş mesajına tetikleyici içerik ekleyin</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -2041,7 +2065,7 @@
     </message>
     <message>
       <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
-      <translation type="unfinished"/>
+      <translation>Sohbeti başlat düğmesini gizle. Temada bot seçip bir düğme ile tetiklerseniz kullanışlıdır.</translation>
     </message>
     <message>
       <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
@@ -2373,6 +2397,10 @@
     <message>
       <source>Transfer to bot only if department is offline</source>
       <translation>Bot&apos;a yalnızca bölüm çevrimdışı olduğunda aktarma</translation>
+    </message>
+    <message>
+      <source>Bot follows online hours. Department will be offline if there is no online operators or it is outside work hours.</source>
+      <translation>Bot, çevrimiçi saatleri takip eder . Çevrimiçi operatör yoksa veya çalışma saatleri dışında ise departman çevrimdışı olacaktır .</translation>
     </message>
     <message>
       <source>Select translations</source>
@@ -3448,7 +3476,7 @@
     </message>
     <message>
       <source>Widget embed code (new)</source>
-      <translation type="unfinished"/>
+      <translation>Widget yerleştirme kodu ( yeni )</translation>
     </message>
     <message>
       <source>Widget embed code (legacy)</source>
@@ -3644,7 +3672,7 @@
     </message>
     <message>
       <source>Check for operator invitation messages. If you are planning to send messages to online visitors manually you can check this.</source>
-      <translation type="unfinished"/>
+      <translation>Operatör davet mesajlarını kontrol edin. Çevrimiçi ziyaretçilere manuel olarak mesaj göndermeyi planlıyorsanız, bunu kontrol edebilirsiniz.</translation>
     </message>
     <message>
       <source>Widget embed/click mode</source>
@@ -3657,6 +3685,10 @@
     <message>
       <source>Widget position</source>
       <translation>Widget konumu</translation>
+    </message>
+    <message>
+      <source>Hash arguments. Visitor will not be able to change passed arguments.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -4543,6 +4575,18 @@
       <translation>Dilinizi seçin</translation>
     </message>
     <message>
+      <source>You</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Us</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Summary</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Invalid CSRF token!</source>
       <translation>Geçersiz CSRF jetonu!</translation>
     </message>
@@ -4616,7 +4660,7 @@
     </message>
     <message>
       <source>At the moment department is overloaded, please choose a different department or try again later!</source>
-      <translation type="unfinished"/>
+      <translation>Şu anda departman yoğun, lütfen farklı bir departman seçin veya daha sonra tekrar deneyin!</translation>
     </message>
     <message>
       <source>is required</source>
@@ -4660,7 +4704,7 @@
     </message>
     <message>
       <source>Trigger could not be found!</source>
-      <translation type="unfinished"/>
+      <translation>Tetikleyici bulunamadı!</translation>
     </message>
     <message>
       <source>Update actions could not be found!</source>
@@ -4859,7 +4903,7 @@
     </message>
     <message>
       <source>All active chats will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>Tüm aktif sohbetler burada görünecektir.</translation>
     </message>
     <message>
       <source>Location</source>
@@ -4875,7 +4919,7 @@
     </message>
     <message>
       <source>Sort by visitor nick</source>
-      <translation type="unfinished"/>
+      <translation>Ziyaretçiyi rumuza göre sırala</translation>
     </message>
     <message>
       <source>Sort by time</source>
@@ -4891,7 +4935,7 @@
     </message>
     <message>
       <source>Offline request</source>
-      <translation type="unfinished"/>
+      <translation>Çevrimdışı istek</translation>
     </message>
     <message>
       <source>Number of messages by user</source>
@@ -4899,7 +4943,7 @@
     </message>
     <message>
       <source>More than</source>
-      <translation type="unfinished"/>
+      <translation>Daha fazla</translation>
     </message>
     <message>
       <source>user messages</source>
@@ -4907,11 +4951,11 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Adı</translation>
     </message>
     <message>
       <source>Accept invite</source>
-      <translation type="unfinished"/>
+      <translation>Davetiyeyi kabul et</translation>
     </message>
     <message>
       <source>Reject invite</source>
@@ -4919,11 +4963,11 @@
     </message>
     <message>
       <source>Join public chat</source>
-      <translation type="unfinished"/>
+      <translation>Genel sohbete katılın</translation>
     </message>
     <message>
       <source>Already a member</source>
-      <translation type="unfinished"/>
+      <translation>Zaten bir üye</translation>
     </message>
     <message>
       <source>Your new group name</source>
@@ -4939,15 +4983,15 @@
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Yeni</translation>
     </message>
     <message>
       <source>Status</source>
-      <translation type="unfinished"/>
+      <translation>Durum</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departman</translation>
     </message>
     <message>
       <source>Pending chat</source>
@@ -4955,11 +4999,11 @@
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatör</translation>
     </message>
     <message>
       <source>Sort by online status</source>
-      <translation type="unfinished"/>
+      <translation>Çevrimiçi duruma göre sırala</translation>
     </message>
     <message>
       <source>Last activity ago</source>
@@ -5039,7 +5083,7 @@
     </message>
     <message>
       <source>Transferred chats to you will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>Size aktarılan sohbetler burada görünecektir.</translation>
     </message>
     <message>
       <source>Transfer time</source>
@@ -5047,11 +5091,11 @@
     </message>
     <message>
       <source>Transferred chats to your department will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>Bölümünüze aktarılan sohbetler burada görünecektir.</translation>
     </message>
     <message>
       <source>Transferred chats to you or your department will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>Size veya departmanınıza aktarılan sohbetler burada görünecektir.</translation>
     </message>
   </context>
   <context>
@@ -5182,7 +5226,7 @@
     </message>
     <message>
       <source>Detected operator and visitor languages matches, please choose languages manually</source>
-      <translation type="unfinished"/>
+      <translation>Algılanan operatör ve ziyaretçi dilleri eşleşiyor, lütfen dilleri manuel olarak seçin</translation>
     </message>
     <message>
       <source>Translation configuration</source>
@@ -5198,7 +5242,7 @@
     </message>
     <message>
       <source>Please choose translation languages manually and click Auto translate</source>
-      <translation type="unfinished"/>
+      <translation>Lütfen çeviri dillerini manuel olarak seçin ve otomatik Çevir&apos;i tıklayın</translation>
     </message>
   </context>
   <context>
@@ -5225,7 +5269,7 @@
     </message>
     <message>
       <source>Not an accepted file type</source>
-      <translation type="unfinished"/>
+      <translation>Kabul edilen bir dosya türü değil</translation>
     </message>
     <message>
       <source>Filesize is too big</source>
@@ -5417,7 +5461,7 @@
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
-      <translation type="unfinished"/>
+      <translation>Mesajınızı buraya yazınız ve göndermek için enter tuşuna basın ...</translation>
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
@@ -5475,7 +5519,7 @@
     </message>
     <message>
       <source>Change my persistent status to online</source>
-      <translation type="unfinished"/>
+      <translation>Kalıcı durumumu çevrimiçi olarak değiştir</translation>
     </message>
   </context>
   <context>
@@ -5510,11 +5554,11 @@
     </message>
     <message>
       <source>online status</source>
-      <translation type="unfinished"/>
+      <translation>Çevrimiçi durum</translation>
     </message>
     <message>
       <source>Online operators</source>
-      <translation type="unfinished"/>
+      <translation>Çevrimiçi operatörler</translation>
     </message>
     <message>
       <source>Active chats</source>
@@ -5610,7 +5654,7 @@
     </message>
     <message>
       <source>Edit nick</source>
-      <translation type="unfinished"/>
+      <translation>Takma Adı Düzenle</translation>
     </message>
     <message>
       <source>Typing...</source>
@@ -5622,7 +5666,7 @@
     </message>
     <message>
       <source>as no operators online in</source>
-      <translation type="unfinished"/>
+      <translation>çevrimiçi operatör olmadığı için</translation>
     </message>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -6033,7 +6077,7 @@
     </message>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>Takma Ad</translation>
     </message>
     <message>
       <source>Additional information</source>
@@ -6102,11 +6146,11 @@
     </message>
     <message>
       <source>Total visits</source>
-      <translation type="unfinished"/>
+      <translation>Toplam ziyaret</translation>
     </message>
     <message>
       <source>time(s) invitation logic was applied</source>
-      <translation type="unfinished"/>
+      <translation>süre (ler)  boyunca davetiye mantığı uygulandı</translation>
     </message>
     <message>
       <source>Pageviews</source>
@@ -6291,7 +6335,7 @@
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Yeni</translation>
     </message>
     <message>
       <source>has sent a message to the user</source>
@@ -6438,7 +6482,7 @@
     </message>
     <message>
       <source>Supported: group_chats, online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats, bot_chats, my_chats</source>
-      <translation type="unfinished"/>
+      <translation>Desteklenen: group_chats, online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats, bot_chats, my_chats</translation>
     </message>
     <message>
       <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
@@ -6494,19 +6538,19 @@
     </message>
     <message>
       <source>Bot list</source>
-      <translation type="unfinished"/>
+      <translation>Botlar</translation>
     </message>
     <message>
       <source>Bot exceptions</source>
-      <translation type="unfinished"/>
+      <translation>Bot istisnaları</translation>
     </message>
     <message>
       <source>Translations groups</source>
-      <translation type="unfinished"/>
+      <translation>Çeviri grupları</translation>
     </message>
     <message>
       <source>Rest API Calls</source>
-      <translation type="unfinished"/>
+      <translation>REST API</translation>
     </message>
     <message>
       <source>Browse offers embed code</source>
@@ -6610,7 +6654,7 @@
     </message>
     <message>
       <source>Update information</source>
-      <translation>Bilgiyi güncelle</translation>
+      <translation>Sistemi güncelle</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -6774,7 +6818,7 @@
     </message>
     <message>
       <source>You will not receive notifications if you are not online</source>
-      <translation type="unfinished"/>
+      <translation>Çevrimiçi değilseniz bildirim almayacaksınız</translation>
     </message>
     <message>
       <source>Show alert for new chats</source>
@@ -6802,7 +6846,7 @@
     </message>
     <message>
       <source>Choose timeout value</source>
-      <translation type="unfinished"/>
+      <translation>Zaman aşımı değerini seçin</translation>
     </message>
     <message>
       <source>Select after how long of inactivity you will be marked as offline automatically</source>
@@ -6976,11 +7020,11 @@
     </message>
     <message>
       <source>Rest API Calls</source>
-      <translation type="unfinished"/>
+      <translation>REST API</translation>
     </message>
     <message>
       <source>Translations groups</source>
-      <translation type="unfinished"/>
+      <translation>Çeviri grupları</translation>
     </message>
   </context>
   <context>
@@ -7089,15 +7133,15 @@
     </message>
     <message>
       <source>Only explicit online</source>
-      <translation type="unfinished"/>
+      <translation>Yalnızca açık çevrimiçi</translation>
     </message>
     <message>
       <source>Hide hidden</source>
-      <translation type="unfinished"/>
+      <translation>Gizlenenleri gizle</translation>
     </message>
     <message>
       <source>Hide disabled</source>
-      <translation type="unfinished"/>
+      <translation>Devre dışı bırakılanları gizle</translation>
     </message>
     <message>
       <source>Department group</source>
@@ -7129,7 +7173,7 @@
     </message>
     <message>
       <source>Online operators</source>
-      <translation type="unfinished"/>
+      <translation>Çevrimiçi operatörler</translation>
     </message>
     <message>
       <source>Online visitors</source>
@@ -7149,7 +7193,7 @@
     </message>
     <message>
       <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>Çevrimiçi</translation>
     </message>
     <message>
       <source>Home</source>
@@ -7221,7 +7265,7 @@
     </message>
     <message>
       <source>New messages</source>
-      <translation type="unfinished"/>
+      <translation>Yeni mesajlar</translation>
     </message>
     <message>
       <source>New chats</source>
@@ -7229,19 +7273,19 @@
     </message>
     <message>
       <source>Invisible</source>
-      <translation type="unfinished"/>
+      <translation>Görünmez</translation>
     </message>
     <message>
       <source>Visible</source>
-      <translation type="unfinished"/>
+      <translation>Görünür</translation>
     </message>
     <message>
       <source>Always online</source>
-      <translation type="unfinished"/>
+      <translation>Her zaman çevrimiçi</translation>
     </message>
     <message>
       <source>Based on activity</source>
-      <translation type="unfinished"/>
+      <translation>Aktiviteye göre</translation>
     </message>
   </context>
   <context>
@@ -7302,7 +7346,7 @@
     </message>
     <message>
       <source>Message types</source>
-      <translation type="unfinished"/>
+      <translation>Mesaj türleri</translation>
     </message>
     <message>
       <source>Proactive chats number vs visitors initiated</source>
@@ -7426,7 +7470,7 @@
     </message>
     <message>
       <source>Please choose statistic parameters first!</source>
-      <translation type="unfinished"/>
+      <translation>Lütfen önce istatistik parametrelerini seçin!</translation>
     </message>
     <message>
       <source>Updated</source>
@@ -7434,7 +7478,7 @@
     </message>
     <message>
       <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>Çevrimiçi</translation>
     </message>
     <message>
       <source>Disabled</source>
@@ -7530,7 +7574,7 @@
     </message>
     <message>
       <source>nick&apos;s</source>
-      <translation type="unfinished"/>
+      <translation>rumuz&apos;un</translation>
     </message>
     <message>
       <source>user agent&apos;s</source>
@@ -7546,7 +7590,7 @@
     </message>
     <message>
       <source>nick</source>
-      <translation type="unfinished"/>
+      <translation>rumuz</translation>
     </message>
     <message>
       <source>user agent</source>
@@ -7783,6 +7827,10 @@
     <message>
       <source>Assign the chat to me if the visitor replies</source>
       <translation>Kullanıcı cevap verirse sohbeti otomatik olarak bana yönlendir</translation>
+    </message>
+    <message>
+      <source>Open full widget for the visitor</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Do not send automated messages if the customer replies</source>
@@ -8275,7 +8323,7 @@
     </message>
     <message>
       <source>Only logged and online operators</source>
-      <translation type="unfinished"/>
+      <translation>Yalnızca kayıtlı ve çevrimiçi operatörler</translation>
     </message>
     <message>
       <source>Only operators from same departments</source>
@@ -8287,7 +8335,7 @@
     </message>
     <message>
       <source>Only departments which are online and explicitly assigned operator are online</source>
-      <translation type="unfinished"/>
+      <translation>Yalnızca çevrimiçi olan ve açıkça operatör atanan departmanlar çevrimiçidir</translation>
     </message>
     <message>
       <source>Exclude hidden departments</source>
@@ -8747,7 +8795,7 @@
     </message>
     <message>
       <source>Visible only if online</source>
-      <translation type="unfinished"/>
+      <translation>Yalnızca çevrimiçiyse görünür</translation>
     </message>
     <message>
       <source>Overloaded</source>
@@ -8795,7 +8843,7 @@
     </message>
     <message>
       <source>Type</source>
-      <translation type="unfinished"/>
+      <translation>Tür</translation>
     </message>
     <message>
       <source>Creation time</source>
@@ -9399,7 +9447,7 @@
     </message>
     <message>
       <source>Bot list</source>
-      <translation type="unfinished"/>
+      <translation>Botlar</translation>
     </message>
     <message>
       <source>New</source>
@@ -9411,15 +9459,15 @@
     </message>
     <message>
       <source>Bot exceptions groups</source>
-      <translation type="unfinished"/>
+      <translation>Bot istisna grupları</translation>
     </message>
     <message>
       <source>Rest API Calls</source>
-      <translation type="unfinished"/>
+      <translation>REST API</translation>
     </message>
     <message>
       <source>Translations groups</source>
-      <translation type="unfinished"/>
+      <translation>Çeviri grupları</translation>
     </message>
     <message>
       <source>Translations items</source>
@@ -9447,7 +9495,7 @@
     </message>
     <message>
       <source>Choose</source>
-      <translation type="unfinished"/>
+      <translation>Seçiniz</translation>
     </message>
     <message>
       <source>Bots</source>
@@ -9458,7 +9506,7 @@
     <name>genericbot/import</name>
     <message>
       <source>Import group</source>
-      <translation type="unfinished"/>
+      <translation>Grubu içe aktar</translation>
     </message>
     <message>
       <source>File</source>
@@ -9470,7 +9518,7 @@
     </message>
     <message>
       <source>Group imported</source>
-      <translation type="unfinished"/>
+      <translation>Grup içe aktarıldı</translation>
     </message>
     <message>
       <source>Import bot</source>
@@ -9688,7 +9736,7 @@
     </message>
     <message>
       <source>You can define additional parameters user can enter in bot trigger directly.</source>
-      <translation type="unfinished"/>
+      <translation>Kullanıcının doğrudan bot tetikleyicisine girebileceği ek parametreler tanımlayabilirsiniz .</translation>
     </message>
     <message>
       <source>Location</source>
@@ -9708,7 +9756,7 @@
     </message>
     <message>
       <source>Name visible in trigger</source>
-      <translation type="unfinished"/>
+      <translation>Tetikleyicide görünen ad</translation>
     </message>
     <message>
       <source>Location/Key</source>
@@ -9720,7 +9768,7 @@
     </message>
     <message>
       <source>You can define response conditions to which you will be able to add corresponding triggers.</source>
-      <translation type="unfinished"/>
+      <translation>Karşılık gelen tetikleyicileri ekleyebileceğiniz yanıt koşullarını tanımlayabilirsiniz .</translation>
     </message>
     <message>
       <source>Add combination</source>
@@ -9856,11 +9904,11 @@
     <name>notifications/edit</name>
     <message>
       <source>Main</source>
-      <translation type="unfinished"/>
+      <translation>Ana</translation>
     </message>
     <message>
       <source>Test notification</source>
-      <translation type="unfinished"/>
+      <translation>Test bildirimi</translation>
     </message>
     <message>
       <source>Device</source>
@@ -9884,11 +9932,11 @@
     </message>
     <message>
       <source>Last error</source>
-      <translation type="unfinished"/>
+      <translation>Son hata</translation>
     </message>
     <message>
       <source>Created</source>
-      <translation type="unfinished"/>
+      <translation>Oluşturuldu</translation>
     </message>
     <message>
       <source>Updated</source>
@@ -10906,7 +10954,7 @@
     </message>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>Anket</translation>
     </message>
     <message>
       <source>Department name</source>
@@ -11804,7 +11852,7 @@
     </message>
     <message>
       <source>Hide Online</source>
-      <translation type="unfinished"/>
+      <translation>Çevrimiçi Gizle</translation>
     </message>
     <message>
       <source>Can access all departments</source>
@@ -11964,7 +12012,7 @@
     <name>user/wentinactive</name>
     <message>
       <source>Because of inactivity you went offline, click continue to go online.</source>
-      <translation type="unfinished"/>
+      <translation>Çevrimdışı olmadığınız için çevrimiçi olmak için devam et&apos;i tıklayın .</translation>
     </message>
     <message>
       <source>Continue</source>
@@ -12091,6 +12139,10 @@
     <name>chat/chatcommand</name>
     <message>
       <source>Nick changed!</source>
+      <translation>Rumuz değişti</translation>
+    </message>
+    <message>
+      <source>Files upload was disabled!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12337,7 +12389,7 @@
     </message>
     <message>
       <source>Time online (sum of time spend online)</source>
-      <translation type="unfinished"/>
+      <translation>Çevrimiçi Zaman (çevrimiçi zaman toplamı )</translation>
     </message>
     <message>
       <source>AVG number of chat per hour</source>
@@ -12353,7 +12405,7 @@
     </message>
     <message>
       <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>Çevrimiçi</translation>
     </message>
     <message>
       <source>Disabled</source>
@@ -12443,7 +12495,7 @@
     </message>
     <message>
       <source>Please enter bot nick!</source>
-      <translation type="unfinished"/>
+      <translation>Bir bot takma adını giriniz!</translation>
     </message>
     <message>
       <source>Please enter Rest API Name!</source>
@@ -12459,7 +12511,7 @@
     </message>
     <message>
       <source>Please choose a group!</source>
-      <translation type="unfinished"/>
+      <translation>Lütfen bir grup seçin!</translation>
     </message>
     <message>
       <source>Please enter exception group name!</source>
@@ -12486,29 +12538,6 @@
     </message>
   </context>
   <context>
-    <name>lhrestapi/validation</name>
-    <message>
-      <source>Authorization failed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You do not have permission to use REST API directly. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; is missing!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Authorization header is missing!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not find chat by chat_id!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You do not have permission to read this chat!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
@@ -12519,12 +12548,8 @@
       <translation>Kullancı mevcut</translation>
     </message>
     <message>
-      <source>Passwords mismatch</source>
-      <translation>Parolalar uyuşmuyor</translation>
-    </message>
-    <message>
-      <source>User action type not set</source>
-      <translation>Kullanıcı hareket tipi ayarlanmadı</translation>
+      <source>Password missing</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -12535,8 +12560,12 @@
       <translation>Lütfen isim girin</translation>
     </message>
     <message>
-      <source>You have to choose one of required groups!</source>
+      <source>In order to assign user all departments you have to provide  `departments` and `departments_read` argument.</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You have to choose one of required groups!</source>
+      <translation>Gerekli gruplardan birini seçmelisiniz!</translation>
     </message>
     <message>
       <source>You are trying to assign group which are not known!</source>
@@ -12545,6 +12574,14 @@
     <message>
       <source>Please choose a default user group</source>
       <translation>Lütfen varsayılan bir kullanıcı grubu seçiniz</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Parolalar uyuşmuyor</translation>
+    </message>
+    <message>
+      <source>User action type not set</source>
+      <translation>Kullanıcı hareket tipi ayarlanmadı</translation>
     </message>
     <message>
       <source>Password has to be at least</source>
@@ -12576,6 +12613,29 @@
     </message>
     <message>
       <source>Old and new password has to be different!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/validation</name>
+    <message>
+      <source>Authorization failed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You do not have permission to use REST API directly. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; is missing!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Authorization header is missing!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not find chat by chat_id!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You do not have permission to read this chat!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -12770,12 +12830,12 @@
   <context>
     <name>chat/refreshcustomfields</name>
     <message>
-      <source>Custom chat data was saved</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Data refreshed</source>
       <translation>Veriler yenilendi</translation>
+    </message>
+    <message>
+      <source>Custom chat data was saved</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -12794,6 +12854,17 @@
     <message>
       <source>Chat started with</source>
       <translation>ile konuşma başladı</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/start</name>
+    <message>
+      <source>Department is required!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department is disabled!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -12879,7 +12950,7 @@
     </message>
     <message>
       <source>Translations groups</source>
-      <translation type="unfinished"/>
+      <translation>Çeviri grupları</translation>
     </message>
   </context>
   <context>
@@ -12898,11 +12969,11 @@
     </message>
     <message>
       <source>Rest API Calls</source>
-      <translation type="unfinished"/>
+      <translation>REST API</translation>
     </message>
     <message>
       <source>Translations groups</source>
-      <translation type="unfinished"/>
+      <translation>Çeviri grupları</translation>
     </message>
     <message>
       <source>Translations items</source>
@@ -12969,7 +13040,7 @@
     </message>
     <message>
       <source>Incorrect file type!</source>
-      <translation type="unfinished"/>
+      <translation>Yanlış dosya türü !</translation>
     </message>
     <message>
       <source>File to big!</source>

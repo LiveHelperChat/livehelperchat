@@ -694,8 +694,8 @@
       <translation>Color de texto para el tiempo</translation>
     </message>
     <message>
-      <source>Title text colorr</source>
-      <translation>Color de texto para el título</translation>
+      <source>Title text color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Message text color</source>
@@ -859,6 +859,10 @@
     </message>
     <message>
       <source>If variable is not passed should we keep previously recorded value?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation message width</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1166,8 +1170,8 @@
       <translation>CSS adicional del widget de estado, toma efecto al guardar</translation>
     </message>
     <message>
-      <source>Background color for popup</source>
-      <translation>Color de fondo para ventana emergente</translation>
+      <source>Custom CSS only for popup</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
@@ -1347,6 +1351,14 @@
     <message>
       <source>Main wrapper element should have id of</source>
       <translation>El envoltorio principal debe tener una identificación id de</translation>
+    </message>
+    <message>
+      <source>New widget options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Old widget options</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>If chat was accepted by the same language speaking operator you can send visitor a custom message on chat accept event.</source>
@@ -1633,8 +1645,8 @@
       <translation>Requiere nombre</translation>
     </message>
     <message>
-      <source>Show on mobile</source>
-      <translation>Mostrar en móvil</translation>
+      <source>Show on these devices only</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show everytime it is matched</source>
@@ -1723,6 +1735,18 @@
     <message>
       <source>Do not show widget automatically</source>
       <translation>No mostrar el widget automáticamente</translation>
+    </message>
+    <message>
+      <source>Show widget on invitation to chat. Applies only to desktop devices.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Append trigger content in full widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Append trigger content in intro message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Identifier</source>
@@ -2373,6 +2397,10 @@
     <message>
       <source>Transfer to bot only if department is offline</source>
       <translation>Transferirlo al robot solo si el departamento está fuera de línea</translation>
+    </message>
+    <message>
+      <source>Bot follows online hours. Department will be offline if there is no online operators or it is outside work hours.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select translations</source>
@@ -3659,6 +3687,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hash arguments. Visitor will not be able to change passed arguments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Configuración del sistema</translation>
     </message>
@@ -4541,6 +4573,18 @@
     <message>
       <source>Choose your language</source>
       <translation>Seleccione su lenguaje.</translation>
+    </message>
+    <message>
+      <source>You</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Us</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Summary</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
@@ -7781,6 +7825,10 @@
     <message>
       <source>Assign the chat to me if the visitor replies</source>
       <translation>Asignarme el chat si el visitante responde</translation>
+    </message>
+    <message>
+      <source>Open full widget for the visitor</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Do not send automated messages if the customer replies</source>
@@ -12092,6 +12140,10 @@
       <translation>Cambió el Seudónimo!</translation>
     </message>
     <message>
+      <source>Files upload was disabled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>I have enabled files upload for you. [fupload]Upload a file[/fupload].</source>
       <translation type="unfinished"/>
     </message>
@@ -12484,29 +12536,6 @@
     </message>
   </context>
   <context>
-    <name>lhrestapi/validation</name>
-    <message>
-      <source>Authorization failed!</source>
-      <translation>¡Autorización fallida!</translation>
-    </message>
-    <message>
-      <source>You do not have permission to use REST API directly. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; is missing!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Authorization header is missing!</source>
-      <translation>Falta el encabezado de autorización!</translation>
-    </message>
-    <message>
-      <source>Could not find chat by chat_id!</source>
-      <translation>No se pudo encontrar el chat por chat_id!</translation>
-    </message>
-    <message>
-      <source>You do not have permission to read this chat!</source>
-      <translation>¡No tienes permiso para leer este chat!</translation>
-    </message>
-  </context>
-  <context>
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
@@ -12517,12 +12546,8 @@
       <translation>El usuario ya existe</translation>
     </message>
     <message>
-      <source>Passwords mismatch</source>
-      <translation>Las contraseñas no coinciden</translation>
-    </message>
-    <message>
-      <source>User action type not set</source>
-      <translation>Tipo de acción del usuario no configurado</translation>
+      <source>Password missing</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -12531,6 +12556,10 @@
     <message>
       <source>Please enter a name</source>
       <translation>Por favor, introduzca un nombre</translation>
+    </message>
+    <message>
+      <source>In order to assign user all departments you have to provide  `departments` and `departments_read` argument.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You have to choose one of required groups!</source>
@@ -12543,6 +12572,14 @@
     <message>
       <source>Please choose a default user group</source>
       <translation>Por favor, elija un grupo de usuarios predeterminado</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>Las contraseñas no coinciden</translation>
+    </message>
+    <message>
+      <source>User action type not set</source>
+      <translation>Tipo de acción del usuario no configurado</translation>
     </message>
     <message>
       <source>Password has to be at least</source>
@@ -12575,6 +12612,29 @@
     <message>
       <source>Old and new password has to be different!</source>
       <translation>La contraseña antigua y la nueva tienen que ser diferentes</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/validation</name>
+    <message>
+      <source>Authorization failed!</source>
+      <translation>¡Autorización fallida!</translation>
+    </message>
+    <message>
+      <source>You do not have permission to use REST API directly. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; is missing!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Authorization header is missing!</source>
+      <translation>Falta el encabezado de autorización!</translation>
+    </message>
+    <message>
+      <source>Could not find chat by chat_id!</source>
+      <translation>No se pudo encontrar el chat por chat_id!</translation>
+    </message>
+    <message>
+      <source>You do not have permission to read this chat!</source>
+      <translation>¡No tienes permiso para leer este chat!</translation>
     </message>
   </context>
   <context>
@@ -12768,12 +12828,12 @@
   <context>
     <name>chat/refreshcustomfields</name>
     <message>
-      <source>Custom chat data was saved</source>
-      <translation>Se guardaron datos de chat personalizados</translation>
-    </message>
-    <message>
       <source>Data refreshed</source>
       <translation>Datos actualizados</translation>
+    </message>
+    <message>
+      <source>Custom chat data was saved</source>
+      <translation>Se guardaron datos de chat personalizados</translation>
     </message>
   </context>
   <context>
@@ -12792,6 +12852,17 @@
     <message>
       <source>Chat started with</source>
       <translation>Chat iniciado con</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/start</name>
+    <message>
+      <source>Department is required!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department is disabled!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

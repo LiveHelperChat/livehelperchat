@@ -694,8 +694,8 @@
       <translation>时间文字颜色</translation>
     </message>
     <message>
-      <source>Title text colorr</source>
-      <translation>标题文字颜色</translation>
+      <source>Title text color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Message text color</source>
@@ -860,6 +860,10 @@
     <message>
       <source>If variable is not passed should we keep previously recorded value?</source>
       <translation>如果未传递变量，我们应该保留以前记录的值吗？</translation>
+    </message>
+    <message>
+      <source>Invitation message width</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Mobile HTML</source>
@@ -1166,8 +1170,8 @@
       <translation>状态小部件的附加 CSS，保存后生效</translation>
     </message>
     <message>
-      <source>Background color for popup</source>
-      <translation>弹出窗口的背景颜色</translation>
+      <source>Custom CSS only for popup</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
@@ -1347,6 +1351,14 @@
     <message>
       <source>Main wrapper element should have id of</source>
       <translation>主包装器元素的ID应为</translation>
+    </message>
+    <message>
+      <source>New widget options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Old widget options</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>If chat was accepted by the same language speaking operator you can send visitor a custom message on chat accept event.</source>
@@ -1633,8 +1645,8 @@
       <translation>需要名字</translation>
     </message>
     <message>
-      <source>Show on mobile</source>
-      <translation>在移动设备上显示</translation>
+      <source>Show on these devices only</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show everytime it is matched</source>
@@ -1723,6 +1735,18 @@
     <message>
       <source>Do not show widget automatically</source>
       <translation>不自动显示小部件</translation>
+    </message>
+    <message>
+      <source>Show widget on invitation to chat. Applies only to desktop devices.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Append trigger content in full widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Append trigger content in intro message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Identifier</source>
@@ -2373,6 +2397,10 @@
     <message>
       <source>Transfer to bot only if department is offline</source>
       <translation>仅在部门离线时转移到机器人</translation>
+    </message>
+    <message>
+      <source>Bot follows online hours. Department will be offline if there is no online operators or it is outside work hours.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select translations</source>
@@ -3659,6 +3687,10 @@
       <translation>小部件位置</translation>
     </message>
     <message>
+      <source>Hash arguments. Visitor will not be able to change passed arguments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>系统配置</translation>
     </message>
@@ -4541,6 +4573,18 @@
     <message>
       <source>Choose your language</source>
       <translation>请选择您的语言</translation>
+    </message>
+    <message>
+      <source>You</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Us</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Summary</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
@@ -7781,6 +7825,10 @@
     <message>
       <source>Assign the chat to me if the visitor replies</source>
       <translation>若访客回复，将我加入交谈</translation>
+    </message>
+    <message>
+      <source>Open full widget for the visitor</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Do not send automated messages if the customer replies</source>
@@ -12092,6 +12140,10 @@
       <translation>暱称已更改！</translation>
     </message>
     <message>
+      <source>Files upload was disabled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>I have enabled files upload for you. [fupload]Upload a file[/fupload].</source>
       <translation type="unfinished"/>
     </message>
@@ -12484,29 +12536,6 @@
     </message>
   </context>
   <context>
-    <name>lhrestapi/validation</name>
-    <message>
-      <source>Authorization failed!</source>
-      <translation>验证失败!</translation>
-    </message>
-    <message>
-      <source>You do not have permission to use REST API directly. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; is missing!</source>
-      <translation>您无权直接使用REST API。 缺少“ lhrestapi”，“ use_direct_logins”！</translation>
-    </message>
-    <message>
-      <source>Authorization header is missing!</source>
-      <translation>授权标头丢失！</translation>
-    </message>
-    <message>
-      <source>Could not find chat by chat_id!</source>
-      <translation>找不到通过chat_id进行的交谈！</translation>
-    </message>
-    <message>
-      <source>You do not have permission to read this chat!</source>
-      <translation>您无权阅读此交谈！</translation>
-    </message>
-  </context>
-  <context>
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
@@ -12517,12 +12546,8 @@
       <translation>使用者已存在</translation>
     </message>
     <message>
-      <source>Passwords mismatch</source>
-      <translation>密码不正确</translation>
-    </message>
-    <message>
-      <source>User action type not set</source>
-      <translation>使用者操作类型未设置</translation>
+      <source>Password missing</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -12531,6 +12556,10 @@
     <message>
       <source>Please enter a name</source>
       <translation>请输入一个名称</translation>
+    </message>
+    <message>
+      <source>In order to assign user all departments you have to provide  `departments` and `departments_read` argument.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You have to choose one of required groups!</source>
@@ -12543,6 +12572,14 @@
     <message>
       <source>Please choose a default user group</source>
       <translation>请选择一个预设的使用者群组</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>密码不正确</translation>
+    </message>
+    <message>
+      <source>User action type not set</source>
+      <translation>使用者操作类型未设置</translation>
     </message>
     <message>
       <source>Password has to be at least</source>
@@ -12575,6 +12612,29 @@
     <message>
       <source>Old and new password has to be different!</source>
       <translation>新旧密码必须不同！</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/validation</name>
+    <message>
+      <source>Authorization failed!</source>
+      <translation>验证失败!</translation>
+    </message>
+    <message>
+      <source>You do not have permission to use REST API directly. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; is missing!</source>
+      <translation>您无权直接使用REST API。 缺少“ lhrestapi”，“ use_direct_logins”！</translation>
+    </message>
+    <message>
+      <source>Authorization header is missing!</source>
+      <translation>授权标头丢失！</translation>
+    </message>
+    <message>
+      <source>Could not find chat by chat_id!</source>
+      <translation>找不到通过chat_id进行的交谈！</translation>
+    </message>
+    <message>
+      <source>You do not have permission to read this chat!</source>
+      <translation>您无权阅读此交谈！</translation>
     </message>
   </context>
   <context>
@@ -12768,12 +12828,12 @@
   <context>
     <name>chat/refreshcustomfields</name>
     <message>
-      <source>Custom chat data was saved</source>
-      <translation>自订聊天资料已储存</translation>
-    </message>
-    <message>
       <source>Data refreshed</source>
       <translation>数据已刷新</translation>
+    </message>
+    <message>
+      <source>Custom chat data was saved</source>
+      <translation>自订聊天资料已储存</translation>
     </message>
   </context>
   <context>
@@ -12792,6 +12852,17 @@
     <message>
       <source>Chat started with</source>
       <translation>开始交谈</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/start</name>
+    <message>
+      <source>Department is required!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department is disabled!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
