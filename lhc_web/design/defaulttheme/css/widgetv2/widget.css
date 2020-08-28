@@ -928,3 +928,12 @@ textarea[name=ChatMessage] {
 #id-invitation-height div.message-admin div.msg-body, #id-invitation-height div.message-admin div.meta-message{
     margin-left:0!important;
 }
+
+#CSChatMessage.msg-two-line{
+    height:60px;
+}
+
+#CSChatMessage.msg-one-line{
+    height:36px;
+    overflow-y: hidden;
+}
