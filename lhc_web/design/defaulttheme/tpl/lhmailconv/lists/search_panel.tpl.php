@@ -173,9 +173,9 @@
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Conversation status');?></label>
                 <select name="conversation_status" class="form-control form-control-sm">
                     <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any');?></option>
-                    <option value="0" <?php if ($input->conversation_status === erLhcoreClassModelMailconvConversation::STATUS_PENDING) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Pending chats');?></option>
-                    <option value="1" <?php if ($input->conversation_status === erLhcoreClassModelMailconvConversation::STATUS_ACTIVE) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Active chats');?></option>
-                    <option value="2" <?php if ($input->conversation_status === erLhcoreClassModelMailconvConversation::STATUS_CLOSED) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Closed chats');?></option>
+                    <option value="0" <?php if ($input->conversation_status === erLhcoreClassModelMailconvConversation::STATUS_PENDING) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Pending mails');?></option>
+                    <option value="1" <?php if ($input->conversation_status === erLhcoreClassModelMailconvConversation::STATUS_ACTIVE) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Active mails');?></option>
+                    <option value="2" <?php if ($input->conversation_status === erLhcoreClassModelMailconvConversation::STATUS_CLOSED) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Closed mails');?></option>
                 </select>
             </div>
         </div>
