@@ -369,11 +369,11 @@ if (isset($start_data_fields['custom_fields']) && $start_data_fields['custom_fie
                     foreach ($optionsRaw as $optionRaw) {
                         $itemData = explode('=>',$optionRaw);
                         if ($defaultValue === null) {
-                            $defaultValue = $itemData[0];
+                            $defaultValue = trim($itemData[0]);
                         }
                         $fieldData['options'][] = array(
-                            'name' => (isset($itemData[1]) ? $itemData[1] : $itemData[0]),
-                            'value' => $itemData[0]
+                            'name' => trim(isset($itemData[1]) ? $itemData[1] : $itemData[0]),
+                            'value' => trim($itemData[0])
                         );
                     }
                     $fieldData['value'] = $defaultValue;
