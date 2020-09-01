@@ -26,7 +26,7 @@ try {
             if ((isset($_POST['device']) && key_exists($_POST['device'], $typeValid)) && $_POST['device'] != '') {
                 $device = $typeValid[$_POST['device']];
                 if (!isset($_POST['device_token']) || $_POST['device_token'] == '') {
-                    throw new Exception('Please provide device token!');
+                    $deviceToken = 'user_id_' . $currentUser->getUserID();
                 } else {
                     $deviceToken = $_POST['device_token'];
                 }
