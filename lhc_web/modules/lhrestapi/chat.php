@@ -51,7 +51,6 @@ try
     );
 
 } catch (Exception $e) {
-    erLhcoreClassLog::write(print_r($e,true));
     http_response_code(400);
     echo erLhcoreClassRestAPIHandler::outputResponse(array(
         'error' => true,
