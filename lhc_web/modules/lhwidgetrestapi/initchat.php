@@ -67,7 +67,9 @@ try {
             )
         );
 
-        if (isset(erLhcoreClassModelChatConfig::fetch('mobile_options')->data['notifications']) && erLhcoreClassModelChatConfig::fetch('mobile_options')->data['notifications'] == true) {
+        $data = erLhcoreClassModelChatConfig::fetch('mobile_options')->data;
+
+        if (isset($data['notifications']) && $data['notifications'] == true) {
             $outputResponse['chat_ui']['mn'] = 1;
         }
 
