@@ -1005,6 +1005,45 @@
         ]
       }
     },
+    "/restapi/user_departments": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Fetches user departments",
+        "description": "If user_id is provided. Systems tries to find provided user. If not system returns authorised user departments.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "User ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch user departments",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
     "/restapi/getusers": {
       "get": {
         "tags": [

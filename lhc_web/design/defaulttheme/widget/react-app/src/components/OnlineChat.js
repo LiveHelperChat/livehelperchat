@@ -476,6 +476,7 @@ class OnlineChat extends Component {
             'id': this.props.chatwidget.getIn(['chatData','id']),
             'hash' : this.props.chatwidget.getIn(['chatData','hash']),
             'msg' : this.state.value,
+            'mn' : this.props.chatwidget.hasIn(['chat_ui','mn']),
             'theme' : this.props.chatwidget.get('theme'),
             'lmgsid' : this.props.chatwidget.getIn(['chatLiveData','lmsgid'])
         }));
