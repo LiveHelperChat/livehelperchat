@@ -40,7 +40,7 @@ if ($currentUser->isLogged() && isset($_POST['chats']))
                     foreach ($masgIDArray as $msgID)
                     {
                         if ($msgID < $msg['id']) {
-                            $msg['msg'] = str_replace('"//','"https://',erLhcoreClassBBCode::make_clickable($msg['msg'], array('sender' => $msg['user_id'])));
+                            $msg['msg'] = str_replace('"//','"'. (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' ,erLhcoreClassBBCode::make_clickable($msg['msg'], array('sender' => $msg['user_id'])));
                             $chatsMessages[$msgID][] = $msg;
                         }
                     }
