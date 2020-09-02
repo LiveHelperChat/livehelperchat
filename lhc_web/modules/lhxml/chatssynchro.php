@@ -35,11 +35,14 @@ if ($currentUser->isLogged() && isset($_POST['chats']))
         {
             if ( ($Chat->last_msg_id > (int)$minMessageID) && count($Messages = erLhcoreClassChat::getPendingMessages($chat_id,(int)$minMessageID)) > 0)
             {
-                foreach ($Messages as $msg)
+                foreach ($Messages as $msgIndex => $msg)
                 {
                     foreach ($masgIDArray as $msgID)
                     {
-                        if ($msgID < $msg['id']) $chatsMessages[$msgID][] = $msg;
+                        if ($msgID < $msg['id']) {
+                            $msg['msg'] = str_replace('"//','"'. (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' ,erLhcoreClassBBCode::make_clickable($msg['msg'], array('sender' => $msg['user_id'])));
+                            $chatsMessages[$msgID][] = $msg;
+                        }
                     }
                 }
                 

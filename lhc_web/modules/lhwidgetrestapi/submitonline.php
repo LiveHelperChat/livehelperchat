@@ -21,6 +21,8 @@ $inputData->priority = (isset($requestPayload['fields']['priority']) && is_numer
 $inputData->only_bot_online = isset($_POST['onlyBotOnline']) ? (int)$_POST['onlyBotOnline'] : 0;
 $inputData->vid = isset($requestPayload['vid']) && $requestPayload['vid'] != '' ? (string)$requestPayload['vid'] : '';
 
+$validStart = false;
+
 if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1) {
     erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
     $requestPayload['fields']['DepartamentID'] = $inputData->departament_id = array_shift($Params['user_parameters_unordered']['department']);
@@ -384,7 +386,7 @@ if (empty($Errors)) {
 
         $db->commit();
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started', array('chat' => & $chat, 'msg' => $messageInitial));
+        $validStart = true;
 
     } catch (Exception $e) {
         $db->rollback();
@@ -405,9 +407,26 @@ if (empty($Errors)) {
         'errors' => $Errors
     );
 }
+
 if (!isset($restAPI)) {
     erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
+
+    if ($validStart === true) {
+
+        // Try to finish request before any listers do their job
+        flush();
+        if (function_exists('fastcgi_finish_request')) {
+            fastcgi_finish_request();
+        }
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started', array('chat' => & $chat, 'msg' => $messageInitial));
+    }
+
     exit;
+} else {
+    if ($validStart === true) {
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started', array('chat' => & $chat, 'msg' => $messageInitial));
+    }
 }
 
 

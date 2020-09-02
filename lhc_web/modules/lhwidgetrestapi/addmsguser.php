@@ -10,6 +10,11 @@ $error = 'f';
 
 if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[[msgitm]]', '',$payload['msg'])) != '' && mb_strlen($payload['msg']) < (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
 {
+    // We do not want to call mobile notifications and any related database calls
+    if (!isset($payload['mn'])) {
+        erLhcoreClassChatEventDispatcher::getInstance()->disableMobile = true;
+    }
+
     try {
         $db = ezcDbInstance::get();
 
@@ -105,13 +110,20 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
             // Assign to last message all the texts
             $msg->msg = trim(implode("\n", $messagesToStore));
 
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.addmsguser',array('chat' => & $chat, 'msg' => & $msg));
         } else {
             throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You cannot send messages to this chat. Please refresh your browser.'));
         }
 
         $db->commit();
         echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r));
+
+        // Try to finish request before any listers do their job
+        flush();
+        if (function_exists('fastcgi_finish_request')) {
+            fastcgi_finish_request();
+        }
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.addmsguser',array('chat' => & $chat, 'msg' => & $msg));
         exit;
 
     } catch (Exception $e) {

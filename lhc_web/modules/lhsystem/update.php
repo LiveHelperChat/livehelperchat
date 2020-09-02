@@ -27,8 +27,10 @@ if ((string)$Params['user_parameters_unordered']['action'] == 'statusdb' || (str
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhsystem/update.tpl.php');
 $Result['content'] = $tpl->fetch();
-$Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','System configuration')),
-array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Live Helper Chat update information')));
+$Result['path'] = array(
+    array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','System configuration')),
+    array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Live Helper Chat update information'))
+);
 
 
 ?>

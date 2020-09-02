@@ -5,16 +5,36 @@ class erLhcoreClassChatEventDispatcher {
    private $listeners = array();
    
    private $finishListeners = array();
-   
+
+   private $globalListenersSet = false;
+
+   public $disableMobile = false;
+
    const STOP_WORKFLOW = 1;
    
    public function listen($event, $callback)
    {
    		$this->listeners[$event][] = $callback;
    }
-   
+
+   public function setGlobalListeners()
+   {
+       if ($this->globalListenersSet == false) {
+           $this->globalListenersSet = true;
+           
+           // Do not set listeners if mobile is disabled
+           if ($this->disableMobile == false) {
+               $this->listen('chat.chat_started', 'erLhcoreClassLHCMobile::chatStarted');
+               $this->listen('chat.addmsguser', 'erLhcoreClassLHCMobile::newMessage');
+               $this->listen('chat.messages_added_passive', 'erLhcoreClassLHCMobile::newMessage');
+           }
+       }
+   }
+
    public function dispatch($event, $param = array())
-   {   	   	
+   {
+       $this->setGlobalListeners();
+
 	   	if (isset($this->listeners[$event])){
 		   	foreach ($this->listeners[$event] as $listener)
 		   	{

@@ -5,7 +5,7 @@ if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'],
     exit;
 }
 
-$chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
+$chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 
 if ( erLhcoreClassChat::hasAccessToRead($chat) )
 {

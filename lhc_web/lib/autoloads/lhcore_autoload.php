@@ -303,7 +303,8 @@ return array_merge(array (
 
         // Notifications
         'erLhcoreClassNotifications'                => 'lib/core/lhnotifications/lhnotifications.php',
-        'erLhcoreClassModelNotificationSubscriber'  => 'lib/models/lhnotifications/erlhcoreclassmodelnotificationsubscriber.php'
+        'erLhcoreClassModelNotificationSubscriber'  => 'lib/models/lhnotifications/erlhcoreclassmodelnotificationsubscriber.php',
+        'erLhcoreClassLHCMobile'                    => 'lib/core/lhmobile/lhmobile.php',
 
 ),
 include('var/autoloads/lhextension_autoload.php')

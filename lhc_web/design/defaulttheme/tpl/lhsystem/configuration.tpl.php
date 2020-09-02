@@ -55,12 +55,12 @@
 
 				</div>
 
+                <div class="col-md-6">
+                    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/mobile.tpl.php'));?>
 
-				
-				<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/users_section.tpl.php'));?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/users_section.tpl.php'));?>
+                </div>
 
-
-      	         
 			</div>
 
 		</div>

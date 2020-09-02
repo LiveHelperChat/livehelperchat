@@ -67,6 +67,10 @@ try {
             )
         );
 
+        if (isset(erLhcoreClassModelChatConfig::fetch('mobile_options')->data['notifications']) && erLhcoreClassModelChatConfig::fetch('mobile_options')->data['notifications'] == true) {
+            $outputResponse['chat_ui']['mn'] = 1;
+        }
+
         if (isset($requestPayload['theme']) && $requestPayload['theme'] > 0) {
             $theme = erLhAbstractModelWidgetTheme::fetch($requestPayload['theme']);
             if (isset($theme->bot_configuration_array['placeholder_message']) && !empty($theme->bot_configuration_array['placeholder_message'])) {
