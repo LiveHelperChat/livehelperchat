@@ -98,7 +98,15 @@ class OfflineChat extends Component {
     
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (document.getElementById('id-container-fluid')) {
-            helperFunctions.sendMessageParent('widgetHeight', [{'height' : document.getElementById('id-container-fluid').offsetHeight + document.getElementById('widget-header-content').offsetHeight + 10
+
+            var headerContent = 0;
+
+            if (document.getElementById('widget-header-content')){
+                headerContent = document.getElementById('widget-header-content').offsetHeight;
+            }
+
+            helperFunctions.sendMessageParent('widgetHeight', [{
+                'height' : document.getElementById('id-container-fluid').offsetHeight + headerContent + 10
             }]);
         }
     }
