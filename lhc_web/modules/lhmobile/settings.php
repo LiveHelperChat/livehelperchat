@@ -38,6 +38,9 @@ if ( isset($_POST['StoreOptions']) ) {
     $mbOptions->value = serialize($data);
     $mbOptions->saveThis();
 
+    $CacheManager = erConfigClassLhCacheConfig::getInstance();
+    $CacheManager->expireCache(true);
+
     $tpl->set('updated','done');
 }
 
