@@ -22,7 +22,22 @@ $def->properties['user_id']->propertyType = ezcPersistentObjectProperty::PHP_TYP
 $def->properties['datets'] = new ezcPersistentObjectProperty();
 $def->properties['datets']->columnName   = 'datets';
 $def->properties['datets']->propertyName = 'datets';
-$def->properties['datets']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT; 
+$def->properties['datets']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['chat_id'] = new ezcPersistentObjectProperty();
+$def->properties['chat_id']->columnName   = 'chat_id';
+$def->properties['chat_id']->propertyName = 'chat_id';
+$def->properties['chat_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['dep_id'] = new ezcPersistentObjectProperty();
+$def->properties['dep_id']->columnName   = 'dep_id';
+$def->properties['dep_id']->propertyName = 'dep_id';
+$def->properties['dep_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['nick'] = new ezcPersistentObjectProperty();
+$def->properties['nick']->columnName   = 'nick';
+$def->properties['nick']->propertyName = 'nick';
+$def->properties['nick']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def; 
 
