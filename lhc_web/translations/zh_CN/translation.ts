@@ -610,6 +610,18 @@
       <translation>通知</translation>
     </message>
     <message>
+      <source>Online status options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline status options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Images</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live preview</source>
       <translation>即时预览</translation>
     </message>
@@ -990,6 +1002,10 @@
       <translation>客服状态小部件的边框颜色</translation>
     </message>
     <message>
+      <source>Text/Icon color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Operator image in chat widget</source>
       <translation>交谈小部件的中的客服人员图片</translation>
     </message>
@@ -1266,6 +1282,18 @@
       <translation>小部件宽度 (px)</translation>
     </message>
     <message>
+      <source>Widget position from right to append</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget position from bottom to append</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget position from right to append in invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>After how many user messages show switch to human button. empty - never, 0 - always</source>
       <translation>显示多少用户信息后，切换到人工按钮。 空-从不，0-始终</translation>
     </message>
@@ -1274,12 +1302,24 @@
       <translation>信息文本的占位符</translation>
     </message>
     <message>
+      <source>Main operator title, {nick}, {name}, {surname}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
       <translation>不允许访客通过按向上箭头来编辑上一条信息</translation>
     </message>
     <message>
       <source>Before closing chat ask user does he really want to to close chat</source>
       <translation>在关闭交谈之前询问用户他是否真的想关闭交谈</translation>
+    </message>
+    <message>
+      <source>Show start chat form instantly after operator closes a chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show previous chat messages in chat widget.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Close chat if page is refreshed. Usefull if you have embed code in popup.</source>
@@ -1327,6 +1367,26 @@
     </message>
     <message>
       <source>Header icons color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline widget background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline widget border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline text/icon color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show close widget button in status widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show operator profile in a new row</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1741,6 +1801,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Close button above invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show profile photo on the left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide operator name in invitation widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show default header on proactive widget open event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Append trigger content in full widget</source>
       <translation type="unfinished"/>
     </message>
@@ -2010,6 +2086,10 @@
     <message>
       <source>Optional</source>
       <translation>可选择的</translation>
+    </message>
+    <message>
+      <source>Column width, 1-12</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail</source>
@@ -4515,6 +4595,10 @@
       <translation>我们的条款和法律</translation>
     </message>
     <message>
+      <source>Please choose</source>
+      <translation>请选择</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>开始交谈</translation>
     </message>
@@ -4645,10 +4729,6 @@
     <message>
       <source>Could not find a product!</source>
       <translation>找不到的产品 ！</translation>
-    </message>
-    <message>
-      <source>Please choose</source>
-      <translation>请选择</translation>
     </message>
     <message>
       <source>Could not determine a default department!</source>
@@ -5464,6 +5544,10 @@
       <translation>在这里输入您的讯息并按下 Enter 送出......</translation>
     </message>
     <message>
+      <source>{nick}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor has been redirected to contact form</source>
       <translation>访客已被重新定位至连络人表单</translation>
     </message>
@@ -5655,6 +5739,14 @@
     <message>
       <source>Edit nick</source>
       <translation>编辑暱称</translation>
+    </message>
+    <message>
+      <source>Previous conversation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Typing...</source>
@@ -8725,6 +8817,18 @@
     <message>
       <source>E-mail</source>
       <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Maximum number of chats operator can have.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Excluded from auto assign workflow</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Login As</source>

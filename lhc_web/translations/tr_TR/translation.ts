@@ -531,11 +531,11 @@
     </message>
     <message>
       <source>Search for language. Enter * to see all.</source>
-      <translation type="unfinished"/>
+      <translation>Dil arayın. Tümünü görmek için * girin.</translation>
     </message>
     <message>
       <source>See all variations</source>
-      <translation type="unfinished"/>
+      <translation>Tüm varyasyonları görün</translation>
     </message>
     <message>
       <source>Invitation</source>
@@ -610,6 +610,18 @@
       <translation>Bildirim</translation>
     </message>
     <message>
+      <source>Online status options</source>
+      <translation>Çevrimiçi durum seçenekleri</translation>
+    </message>
+    <message>
+      <source>Offline status options</source>
+      <translation>Çevrimdışı durum seçenekleri</translation>
+    </message>
+    <message>
+      <source>Images</source>
+      <translation>Resimler</translation>
+    </message>
+    <message>
       <source>Live preview</source>
       <translation>Canlı Önizleme</translation>
     </message>
@@ -623,11 +635,11 @@
     </message>
     <message>
       <source>Build your own need help widget layout</source>
-      <translation type="unfinished"/>
+      <translation>Kendi ihtiyaç duyduğunuz yardım widget düzenini oluşturun</translation>
     </message>
     <message>
       <source>Set default HTML</source>
-      <translation type="unfinished"/>
+      <translation>Varsayılan HTML&apos;yi ayarlayın</translation>
     </message>
     <message>
       <source>If you want to get nerdy you can build your own eye catcher using default template as starting point. You can adjust need help widget dimensions above. Also see what placeholders we support.</source>
@@ -667,7 +679,7 @@
     </message>
     <message>
       <source>Bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>Baloncuk arka plan rengi</translation>
     </message>
     <message>
       <source>Title color</source>
@@ -679,11 +691,11 @@
     </message>
     <message>
       <source>My messages bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>Mesajlarım balonu arka plan rengi</translation>
     </message>
     <message>
       <source>Other operator bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>Diğer operatör balonu arka plan rengi</translation>
     </message>
     <message>
       <source>Chat background color</source>
@@ -695,7 +707,7 @@
     </message>
     <message>
       <source>Title text color</source>
-      <translation type="unfinished"/>
+      <translation>Başlık metni rengi</translation>
     </message>
     <message>
       <source>Message text color</source>
@@ -863,7 +875,7 @@
     </message>
     <message>
       <source>Invitation message width</source>
-      <translation type="unfinished"/>
+      <translation>Davet mesajı genişliği</translation>
     </message>
     <message>
       <source>Mobile HTML</source>
@@ -988,6 +1000,10 @@
     <message>
       <source>Status widget border color</source>
       <translation>Durum Aracı Çerçeve Rengi</translation>
+    </message>
+    <message>
+      <source>Text/Icon color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Operator image in chat widget</source>
@@ -1266,6 +1282,18 @@
       <translation>Görsel bileşen çerçeve genişliği(px)</translation>
     </message>
     <message>
+      <source>Widget position from right to append</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget position from bottom to append</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget position from right to append in invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>After how many user messages show switch to human button. empty - never, 0 - always</source>
       <translation>Kaç kullanıcı mesajı gösterildikten sonra insan düğmesine geçilir. boş - asla, 0 - her zaman</translation>
     </message>
@@ -1274,12 +1302,24 @@
       <translation>Mesaj metni için yer tutucu</translation>
     </message>
     <message>
+      <source>Main operator title, {nick}, {name}, {surname}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
       <translation>Kullanıcılara üst ok tuşuna basarak bir önceki mesajı düzenleme izni verilmesin</translation>
     </message>
     <message>
       <source>Before closing chat ask user does he really want to to close chat</source>
       <translation>Sohbeti kapatmadan önce kullanıcıya sohbeti gerçekten kapatmak istiyor mu sorunu sor</translation>
+    </message>
+    <message>
+      <source>Show start chat form instantly after operator closes a chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show previous chat messages in chat widget.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Close chat if page is refreshed. Usefull if you have embed code in popup.</source>
@@ -1327,6 +1367,26 @@
     </message>
     <message>
       <source>Header icons color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline widget background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline widget border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline text/icon color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show close widget button in status widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show operator profile in a new row</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1741,6 +1801,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Close button above invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show profile photo on the left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide operator name in invitation widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show default header on proactive widget open event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Append trigger content in full widget</source>
       <translation>Tam widget&apos;ta tetikleyici içerik ekleyin</translation>
     </message>
@@ -2010,6 +2086,10 @@
     <message>
       <source>Optional</source>
       <translation>Seçmeli</translation>
+    </message>
+    <message>
+      <source>Column width, 1-12</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail</source>
@@ -3316,7 +3396,7 @@
     </message>
     <message>
       <source>For what domain you are generating embed code?</source>
-      <translation>aszd</translation>
+      <translation>Hangi etki alanı için yerleştirme kodu oluşturuyorsunuz?</translation>
     </message>
     <message>
       <source>example.com</source>
@@ -3480,11 +3560,11 @@
     </message>
     <message>
       <source>Widget embed code (legacy)</source>
-      <translation type="unfinished"/>
+      <translation>Widget yerleştirme kodu (eski)</translation>
     </message>
     <message>
       <source>Page embed code (legacy)</source>
-      <translation type="unfinished"/>
+      <translation>Sayfa yerleştirme kodu (eski)</translation>
     </message>
     <message>
       <source>Widget embed code</source>
@@ -4515,6 +4595,10 @@
       <translation>Şartlarımız ve hükümlülükler</translation>
     </message>
     <message>
+      <source>Please choose</source>
+      <translation>Seçiniz</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>Konuşma başlat</translation>
     </message>
@@ -4645,10 +4729,6 @@
     <message>
       <source>Could not find a product!</source>
       <translation>Bir ürün bulunamadı!</translation>
-    </message>
-    <message>
-      <source>Please choose</source>
-      <translation>Seçiniz</translation>
     </message>
     <message>
       <source>Could not determine a default department!</source>
@@ -5464,6 +5544,10 @@
       <translation>Mesajınızı buraya yazınız ve göndermek için enter tuşuna basın ...</translation>
     </message>
     <message>
+      <source>{nick}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor has been redirected to contact form</source>
       <translation type="unfinished"/>
     </message>
@@ -5655,6 +5739,14 @@
     <message>
       <source>Edit nick</source>
       <translation>Takma Adı Düzenle</translation>
+    </message>
+    <message>
+      <source>Previous conversation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Typing...</source>
@@ -6554,7 +6646,7 @@
     </message>
     <message>
       <source>Browse offers embed code</source>
-      <translation type="unfinished"/>
+      <translation>Tekliflere göz atın yerleştirme kodu</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -8727,6 +8819,18 @@
     <message>
       <source>E-mail</source>
       <translation>E-posta</translation>
+    </message>
+    <message>
+      <source>Maximum number of chats operator can have.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Excluded from auto assign workflow</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Login As</source>

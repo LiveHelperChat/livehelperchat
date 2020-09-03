@@ -454,7 +454,7 @@
     </message>
     <message>
       <source>Submit</source>
-      <translation>Vložiť</translation>
+      <translation>Odoslať</translation>
     </message>
     <message>
       <source>Test</source>
@@ -607,6 +607,18 @@
     </message>
     <message>
       <source>Notification</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online status options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline status options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Images</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -990,6 +1002,10 @@
       <translation>Farba okraju widgetu stavu</translation>
     </message>
     <message>
+      <source>Text/Icon color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Operator image in chat widget</source>
       <translation>Obrázok operátora vo widgete chatu</translation>
     </message>
@@ -1266,6 +1282,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Widget position from right to append</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget position from bottom to append</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget position from right to append in invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>After how many user messages show switch to human button. empty - never, 0 - always</source>
       <translation type="unfinished"/>
     </message>
@@ -1274,11 +1302,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Main operator title, {nick}, {name}, {surname}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Before closing chat ask user does he really want to to close chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show start chat form instantly after operator closes a chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show previous chat messages in chat widget.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1327,6 +1367,26 @@
     </message>
     <message>
       <source>Header icons color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline widget background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline widget border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline text/icon color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show close widget button in status widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show operator profile in a new row</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1741,6 +1801,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Close button above invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show profile photo on the left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide operator name in invitation widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show default header on proactive widget open event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Append trigger content in full widget</source>
       <translation type="unfinished"/>
     </message>
@@ -2010,6 +2086,10 @@
     <message>
       <source>Optional</source>
       <translation>Voliteľné</translation>
+    </message>
+    <message>
+      <source>Column width, 1-12</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail</source>
@@ -4515,6 +4595,10 @@
       <translation>podmienkami použitia a miestnymi zákonmi.</translation>
     </message>
     <message>
+      <source>Please choose</source>
+      <translation>Prosím, vyberte</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>Spustiť chat</translation>
     </message>
@@ -4647,10 +4731,6 @@
       <translation>Nepodarilo sa nájsť produkt!</translation>
     </message>
     <message>
-      <source>Please choose</source>
-      <translation>Prosím, vyberte</translation>
-    </message>
-    <message>
       <source>Could not determine a default department!</source>
       <translation>Nemožno určiť predvolené oddelenie!</translation>
     </message>
@@ -4780,7 +4860,7 @@
     </message>
     <message>
       <source>Please enter a message</source>
-      <translation type="unfinished"/>
+      <translation>Prosím napíšte správu</translation>
     </message>
     <message>
       <source>characters max.</source>
@@ -5464,6 +5544,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>{nick}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor has been redirected to contact form</source>
       <translation>Návštevník bol presmerovaný na kontaktný formulár</translation>
     </message>
@@ -5655,6 +5739,14 @@
     <message>
       <source>Edit nick</source>
       <translation>Uprav prezývku</translation>
+    </message>
+    <message>
+      <source>Previous conversation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Typing...</source>
@@ -8727,6 +8819,18 @@
       <translation>E-mail</translation>
     </message>
     <message>
+      <source>Maximum number of chats operator can have.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Excluded from auto assign workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Login As</source>
       <translation type="unfinished"/>
     </message>
@@ -9380,7 +9484,7 @@
     </message>
     <message>
       <source>Submit</source>
-      <translation>Vložiť</translation>
+      <translation>Odoslať</translation>
     </message>
     <message>
       <source>Information collected</source>

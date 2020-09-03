@@ -610,6 +610,18 @@
       <translation>Notifica</translation>
     </message>
     <message>
+      <source>Online status options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline status options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Images</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live preview</source>
       <translation>Anteprima dal vivo</translation>
     </message>
@@ -990,6 +1002,10 @@
       <translation>Colore del bordo del widget stato</translation>
     </message>
     <message>
+      <source>Text/Icon color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Operator image in chat widget</source>
       <translation>Immagine di operatore nel widget chat</translation>
     </message>
@@ -1267,6 +1283,18 @@ CSS pagina personalizzata (solo nuovo widget)</translation>
       <translation>Lunghezza Widget (px)</translation>
     </message>
     <message>
+      <source>Widget position from right to append</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget position from bottom to append</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget position from right to append in invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>After how many user messages show switch to human button. empty - never, 0 - always</source>
       <translation>Dopo quanti messaggi utente mostrare passa al pulsante umano. vuoto - mai, 0 - sempre</translation>
     </message>
@@ -1275,12 +1303,24 @@ CSS pagina personalizzata (solo nuovo widget)</translation>
       <translation>Segnaposto per il testo del messaggio</translation>
     </message>
     <message>
+      <source>Main operator title, {nick}, {name}, {surname}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
       <translation>Non consentire al visitatore di modificare il messaggio precedente premendo la freccia su</translation>
     </message>
     <message>
       <source>Before closing chat ask user does he really want to to close chat</source>
       <translation>Prima di chiudere la chat chiedere al visitatore se vuole davvero uscire dalla chat</translation>
+    </message>
+    <message>
+      <source>Show start chat form instantly after operator closes a chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show previous chat messages in chat widget.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Close chat if page is refreshed. Usefull if you have embed code in popup.</source>
@@ -1330,6 +1370,26 @@ Messaggi in stile bolla</translation>
     </message>
     <message>
       <source>Header icons color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline widget background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline widget border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline text/icon color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show close widget button in status widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show operator profile in a new row</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1747,6 +1807,22 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Close button above invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show profile photo on the left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide operator name in invitation widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show default header on proactive widget open event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Append trigger content in full widget</source>
       <translation type="unfinished"/>
     </message>
@@ -2016,6 +2092,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Optional</source>
       <translation>Opzionale</translation>
+    </message>
+    <message>
+      <source>Column width, 1-12</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail</source>
@@ -4521,6 +4601,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>I nostri termini di servizio e la legge</translation>
     </message>
     <message>
+      <source>Please choose</source>
+      <translation>Selezionare</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>Avvia Chat</translation>
     </message>
@@ -4651,10 +4735,6 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Could not find a product!</source>
       <translation>Impossibile trovare un prodotto!</translation>
-    </message>
-    <message>
-      <source>Please choose</source>
-      <translation>Selezionare</translation>
     </message>
     <message>
       <source>Could not determine a default department!</source>
@@ -5470,6 +5550,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Inserire qui il messaggio e premere Invio per inviare...</translation>
     </message>
     <message>
+      <source>{nick}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor has been redirected to contact form</source>
       <translation>Il visitatore è stato reindirizzato al modulo contatti</translation>
     </message>
@@ -5661,6 +5745,14 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Edit nick</source>
       <translation>Modifica nick</translation>
+    </message>
+    <message>
+      <source>Previous conversation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Typing...</source>
@@ -8731,6 +8823,18 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>E-mail</source>
       <translation>Email</translation>
+    </message>
+    <message>
+      <source>Maximum number of chats operator can have.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Excluded from auto assign workflow</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Login As</source>
