@@ -40,6 +40,14 @@ class erLhcoreClassGenericBotActionCommand {
                 // $chat->last_op_msg_time = time();
                 $chat->updateThis();
 
+                // We have to reset auto responder
+                if ($chat->auto_responder instanceof erLhAbstractModelAutoResponderChat) {
+                    $chat->auto_responder->wait_timeout_send = 0;
+                    $chat->auto_responder->pending_send_status = 0;
+                    $chat->auto_responder->active_send_status = 0;
+                    $chat->auto_responder->updateThis();
+                }
+
                 $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_chat_command_transfer', array(
                     'action' => $action,
                     'chat' => & $chat,
