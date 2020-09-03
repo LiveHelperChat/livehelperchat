@@ -8,6 +8,10 @@ It's an open-source powered application, which brings simplicity and usability i
 * Forum - https://forum.livehelperchat.com/
 * Chat (Discord) https://discord.gg/YsZXQVh
 
+## Mobile app
+
+Mobile app is also open source and can be found https://github.com/LiveHelperChat/lhc_messenger
+
 ## Quick development guide
  * After app is installed disable cache and enable debug output. 
    * https://github.com/LiveHelperChat/livehelperchat/blob/master/lhc_web/settings/settings.ini.default.php#L13-L16
