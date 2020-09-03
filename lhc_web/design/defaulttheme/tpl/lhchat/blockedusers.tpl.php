@@ -59,7 +59,7 @@
     <tr>
         <td><?php echo $item->id?></td>
         <td>
-            <?php if ($item->chat_id > 0) : ?><a class="material-icons" type="<?php echo htmlspecialchars($item->chat_id)?>" onclick="lhc.previewChat(<?php echo $item->chat_id?>)">info_outline</a><?php endif; ?><?php echo htmlspecialchars($item->ip)?>
+            <?php if ($item->chat_id > 0) : ?><a class="material-icons" title="<?php echo htmlspecialchars($item->chat_id)?>" onclick="lhc.previewChat(<?php echo $item->chat_id?>)">info_outline</a><?php endif; ?><?php echo htmlspecialchars($item->ip)?>
         </td>
         <td>
             <?php echo htmlspecialchars($item->department)?>

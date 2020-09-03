@@ -47,8 +47,6 @@ if (isset($_POST['AddBlock']))
 	}
 }
 
-$userFilterDefault = erLhcoreClassGroupUser::getConditionalUserFilter(false, false, 'user_id');
-
 if (isset($_GET['doSearch'])) {
     $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'block_search','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
     $filterParams['is_search'] = true;
@@ -57,21 +55,7 @@ if (isset($_GET['doSearch'])) {
     $filterParams['is_search'] = false;
 }
 
-
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
-
-/*$pages = new lhPaginator();
-$pages->items_total = erLhcoreClassModelChat::getCount($filterParams['filter']);
-$pages->translationContext = 'chat/pendingchats';
-$pages->serverURL = erLhcoreClassDesign::baseurl('chat/list').$append;
-$pages->paginate();
-$tpl->set('pages',$pages);
-
-if ($pages->items_total > 0) {
-    $items = erLhcoreClassModelChat::getList(array_merge($filterParams['filter'],array('limit' => $pages->items_per_page,'offset' => $pages->low)));
-    erLhcoreClassChat::setOnlineStatusDirectly($items);
-    $tpl->set('items',$items);
-}*/
 
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('chat/blockedusers').$append;
