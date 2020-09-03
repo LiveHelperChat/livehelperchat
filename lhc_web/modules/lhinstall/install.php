@@ -358,14 +358,17 @@ try {
 				  KEY `dep_id_status` (`dep_id`,`status`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
-                    $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_blocked_user` (
+               $db->query("CREATE TABLE `lh_chat_blocked_user` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
-                  `ip` varchar(100) NOT NULL,
+                  `ip` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
                   `user_id` int(11) NOT NULL,
                   `datets` int(11) NOT NULL,
+                  `chat_id` int(11) NOT NULL,
+                  `dep_id` int(11) NOT NULL,
+                  `nick` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `ip` (`ip`)
-                ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
                     $db->query("CREATE TABLE `lh_users_online_session` ( 
         	       `id` bigint(20) NOT NULL AUTO_INCREMENT, 

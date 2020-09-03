@@ -4,7 +4,7 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.blockedusers', a
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/blockedusers.tpl.php');
 
-if (is_numeric($Params['user_parameters_unordered']['remove_block'])){
+if (is_numeric($Params['user_parameters_unordered']['remove_block'])) {
     try {
 
     	if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
@@ -47,24 +47,35 @@ if (isset($_POST['AddBlock']))
 	}
 }
 
-$userFilterDefault = erLhcoreClassGroupUser::getConditionalUserFilter(false, false, 'user_id');
+if (isset($_GET['doSearch'])) {
+    $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'block_search','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+    $filterParams['is_search'] = true;
+} else {
+    $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'block_search','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
+    $filterParams['is_search'] = false;
+}
+
+$append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
 $pages = new lhPaginator();
-$pages->serverURL = erLhcoreClassDesign::baseurl('chat/blockedusers');
-$pages->items_total = erLhcoreClassModelChatBlockedUser::getCount($userFilterDefault);
+$pages->serverURL = erLhcoreClassDesign::baseurl('chat/blockedusers').$append;
+$pages->items_total = erLhcoreClassModelChatBlockedUser::getCount($filterParams['filter']);
 $pages->setItemsPerPage(20);
 $pages->paginate();
 
 $items = array();
 
 if ($pages->items_total > 0) {
-    $items = erLhcoreClassModelChatBlockedUser::getList(array_merge_recursive($userFilterDefault,array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id ASC')));
+    $items = erLhcoreClassModelChatBlockedUser::getList(array_merge_recursive($filterParams['filter'],array('offset' => $pages->low, 'limit' => $pages->items_per_page, 'sort' => 'id ASC')));
 }
 
 $tpl->set('items',$items);
 $tpl->set('pages',$pages);
 
+$filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('chat/blockedusers');
 
+$tpl->set('input',$filterParams['input_form']);
+$tpl->set('inputAppend',$append);
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
