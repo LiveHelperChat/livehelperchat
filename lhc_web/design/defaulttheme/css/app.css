@@ -1629,3 +1629,7 @@ input[type="file"]{
     min-height:275px;
     overflow:auto;
 }
+
+.form-send-textarea[readonly] {
+    background-color: #FFF;
+}
