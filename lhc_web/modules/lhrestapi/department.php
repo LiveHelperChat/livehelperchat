@@ -21,6 +21,10 @@ try
 
     } else {
         $requestBody = json_decode(file_get_contents('php://input'),true);
+
+        if (isset($requestBody['raw_attr']) && $requestBody['raw_attr'] == true) {
+            $rawAttributes = true;
+        }
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
