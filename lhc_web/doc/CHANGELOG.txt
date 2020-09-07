@@ -1,3 +1,9 @@
+3.42v
+
+1. Option to do not store user typing text.
+
+execute doc/update_db/update_216.sql for update
+
 3.41v
 
 1. Block listing window improvements.
