@@ -193,6 +193,7 @@ if (trim($form->msg) != '')
 	    } else {
 	        throw new Exception('You cannot read this chat!');
         }
+
 	     	    
 	    $db->commit();
 	    

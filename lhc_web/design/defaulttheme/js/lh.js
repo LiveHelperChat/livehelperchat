@@ -2290,12 +2290,19 @@ function lh(){
 		};
 
 		textArea.val('');
+		var placeholerOriginal = textArea.attr('placeholder');
 
+        textArea.attr('placeholder',confLH.transLation.sending || 'Sending...');
+        textArea.attr('readonly','readonly');
+        
 		if (textArea.hasClass('edit-mode')) {
 
 			pdata.msgid = textArea.attr('data-msgid');
 
 			$.postJSON(this.wwwDir + 'chat/updatemsg/' + chat_id, pdata , function(data){
+
+			    textArea.removeAttr('readonly').attr('placeholder',placeholerOriginal);
+
 				if (data.error == 'f') {
 					textArea.removeClass('edit-mode');
 					textArea.removeAttr('data-msgid');
@@ -2326,6 +2333,7 @@ function lh(){
 				this.addingUserMessage = true;
 
 				$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data){
+                    textArea.removeAttr('readonly').attr('placeholder',placeholerOriginal);
 
 					if (LHCCallbacks.addmsgadmin) {
 		        		LHCCallbacks.addmsgadmin(chat_id);
@@ -2350,22 +2358,16 @@ function lh(){
 
 					return true;
 				}).fail(function(respose) {
-                    var escaped = '<div style="margin:10px 10px 30px 10px;" class="alert alert-warning" role="alert">' + $("<div>").text('You have weak internet connection or the server has problems. Try to refresh the page.' + (typeof respose.status !== 'undefined' ? ' Error code ['+respose.status+']' : '') + (typeof respose.responseText !== 'undefined' ? respose.responseText : '')).html() + '</div>';
+                    textArea.removeAttr('readonly').attr('placeholder',placeholerOriginal).val(pdata.msg);
+                    var escaped = '<div style="margin:10px 10px 30px 10px;" class="alert alert-warning" role="alert">' + $("<div>").text('You have weak internet connection or the server has problems. Try to refresh the page or send the message again.' + (typeof respose.status !== 'undefined' ? ' Error code ['+respose.status+']' : '') + (typeof respose.responseText !== 'undefined' ? respose.responseText : '')).html() + '</div>';
                     $('#messagesBlock-'+chat_id).append(escaped);
-					inst.addUserMessageQueue.push({'pdata':pdata,'url':inst.wwwDir + inst.addmsgurl + chat_id,'chat_id':chat_id,'retries':0});
-		        	clearTimeout(inst.addDelayedTimeout);
-		        	inst.addDelayedTimeout = setTimeout(function(){
-		        		inst.addDelayedMessageAdmin();
-		        	},50);
-		        	inst.addingUserMessage = false;
+                    $('#messagesBlock-'+chat_id).animate({ scrollTop: $("#messagesBlock-"+chat_id).prop("scrollHeight") }, 500);
+                    $('.pending-storage').remove();
+                    inst.addingUserMessage = false;
 		    	});
 
 			} else {
-				this.addUserMessageQueue.push({'pdata':pdata,'url':this.wwwDir + this.addmsgurl + chat_id,'chat_id':chat_id,'retries':0});
-	        	clearTimeout(this.addDelayedTimeout);
-	        	this.addDelayedTimeout = setTimeout(function(){
-	        		inst.addDelayedMessageAdmin();
-	        	},50);
+                textArea.removeAttr('readonly').attr('placeholder', placeholerOriginal).val(pdata.msg);
 			}
 		}
 	};
