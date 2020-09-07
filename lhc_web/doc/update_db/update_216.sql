@@ -1,0 +1,1 @@
+INSERT INTO `lh_chat_config` (`identifier`,`value`,`type`,`explain`,`hidden`) VALUES ('ignore_typing','0','0','Do not store what visitor is typing','0')

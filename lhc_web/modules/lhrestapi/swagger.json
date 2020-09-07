@@ -3363,6 +3363,12 @@
     "Department": {
       "type": "object",
       "properties": {
+        "raw_attr": {
+          "type": "boolean",
+          "nullable": true,
+          "example": true,
+          "description": "If you pass true we will use payload data directly as department attributes. Usefull if you want just to modify department data without any validation."
+        },
         "Name": {
           "type": "string",
           "default": "Name",

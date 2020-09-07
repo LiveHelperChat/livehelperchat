@@ -10,10 +10,6 @@ $error = 'f';
 
 if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[[msgitm]]', '',$payload['msg'])) != '' && mb_strlen($payload['msg']) < (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
 {
-    // We do not want to call mobile notifications and any related database calls
-    if (!isset($payload['mn'])) {
-        erLhcoreClassChatEventDispatcher::getInstance()->disableMobile = true;
-    }
 
     try {
         $db = ezcDbInstance::get();
@@ -21,6 +17,11 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
         $db->beginTransaction();
 
         $chat = erLhcoreClassModelChat::fetchAndLock($payload['id']);
+
+        // We do not want to call mobile notifications and any related database calls
+        if (!isset($payload['mn']) || $chat->status != erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
+            erLhcoreClassChatEventDispatcher::getInstance()->disableMobile = true;
+        }
 
         $validStatuses = array(
             erLhcoreClassModelChat::STATUS_PENDING_CHAT,
