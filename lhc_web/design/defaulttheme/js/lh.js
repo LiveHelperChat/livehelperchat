@@ -2332,27 +2332,35 @@ function lh(){
 			{
 				this.addingUserMessage = true;
 
-				$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data){
+				$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data) {
                     textArea.removeAttr('readonly').attr('placeholder',placeholerOriginal);
 
-					if (LHCCallbacks.addmsgadmin) {
-		        		LHCCallbacks.addmsgadmin(chat_id);
-		        	};
+                    if (data.error == 'false') {
+                        if (LHCCallbacks.addmsgadmin) {
+                            LHCCallbacks.addmsgadmin(chat_id);
+                        };
 
-		        	ee.emitEvent('chatAddMsgAdmin', [chat_id]);
+                        ee.emitEvent('chatAddMsgAdmin', [chat_id]);
 
-		        	if (data.r != '') {
-	            		$('#messagesBlock-'+chat_id).append(data.r);
-		                $('#messagesBlock-'+chat_id).stop(true,false).animate({ scrollTop: $("#messagesBlock-"+chat_id).prop("scrollHeight") }, 500);
-	            	};
+                        if (data.r != '') {
+                            $('#messagesBlock-'+chat_id).append(data.r);
+                            $('#messagesBlock-'+chat_id).stop(true,false).animate({ scrollTop: $("#messagesBlock-"+chat_id).prop("scrollHeight") }, 500);
+                        };
 
-		        	if (data.hold_removed === true) {
-                        $('#hold-action-'+chat_id).removeClass('btn-outline-info');
-					} else if (data.hold_added === true) {
-                        $('#hold-action-'+chat_id).addClass('btn-outline-info');
-					}
+                        if (data.hold_removed === true) {
+                            $('#hold-action-'+chat_id).removeClass('btn-outline-info');
+                        } else if (data.hold_added === true) {
+                            $('#hold-action-'+chat_id).addClass('btn-outline-info');
+                        }
 
-					lhinst.syncadmincall();
+                        lhinst.syncadmincall();
+                    } else {
+                        textArea.removeAttr('readonly').attr('placeholder',placeholerOriginal).val(pdata.msg);
+                        $('.pending-storage').remove();
+                        var escaped = '<div style="margin:10px 10px 30px 10px;" class="alert alert-warning pending-storage" role="alert">' + $("<div>").text(data.r).html() + '</div>';
+                        $('#messagesBlock-'+chat_id).append(escaped);
+                        $('#messagesBlock-'+chat_id).animate({ scrollTop: $("#messagesBlock-"+chat_id).prop("scrollHeight") }, 500);
+                    }
 
 					inst.addingUserMessage = false;
 
@@ -2372,6 +2380,7 @@ function lh(){
 		}
 	};
 
+	
 	this.addDelayedMessageAdmin = function()
     {
     	var inst = this;
