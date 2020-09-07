@@ -32,7 +32,15 @@ class erLhcoreClassLHCMobile {
     }
 
     public static function newMessage($params) {
+
+        // Messages notifications should be send only to active chats
+        // We are not interested in pending or bot chats etc.
+        if ($params['chat']->status != erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
+            return;
+        }
+        
         $options = erLhcoreClassModelChatConfig::fetch('mobile_options')->data;
+        
         if (isset($options['notifications']) && $options['notifications'] == true) {
             foreach (erLhcoreClassModelUserSession::getList(array('filternot' => array('token' => ''),'filter' => array('error' => 0))) as $operator) {
                 if (is_object($operator->user) && $operator->user->hide_online == 0 && ($operator->user->id == $params['chat']->user_id || $params['chat']->user_id == 0)) {
@@ -64,7 +72,20 @@ class erLhcoreClassLHCMobile {
         }
     }
 
+    public function botTransfer($params) {
+        if (isset($params['action']['content']['command']) && $params['action']['content']['command'] == 'stopchat' && isset($params['is_online']) && $params['is_online'] == true) {
+            self::chatStarted(array('chat' => $params['chat']));
+        }
+    }
+
     public static function chatStarted($params) {
+
+        // New chat notification should be send only if chat is pending
+        // We are not interested in pending or bot chats etc.
+        if ($params['chat']->status != erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
+            return;
+        }
+
         $options = erLhcoreClassModelChatConfig::fetch('mobile_options')->data;
         if (isset($options['notifications']) && $options['notifications'] == true) {
 

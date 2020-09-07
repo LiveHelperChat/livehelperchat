@@ -18,7 +18,10 @@ if ($currentUser->isLogged() && isset($_POST['chats']))
 
     foreach ($chats as $chatContent)
     {
-        list($chat_id,$msgIDs) = explode('|',$chatContent);
+        $paramsExecution = explode('|',$chatContent);
+
+        $chat_id = $paramsExecution[0];
+        $msgIDs = isset($paramsExecution[1]) ? $paramsExecution[1] : '';
 
         $chatsMessages = array();
         $chatStatusMessage = '';
@@ -62,14 +65,16 @@ if ($currentUser->isLogged() && isset($_POST['chats']))
                 }
             }
         }
-
         $arrayReturn[$chat_id]['messages'] = $chatsMessages;
         $arrayReturn[$chat_id]['chat_status'] = $chatStatusMessage;
     }
+
     echo json_encode(array("error" => false,'result' => $arrayReturn));
 } else {
     echo json_encode(array("error" => true));
 }
+
+
 
 
 
