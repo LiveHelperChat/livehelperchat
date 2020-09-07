@@ -1,4 +1,4 @@
-<form action="<?php echo $input->form_action?>" method="get" name="SearchFormRight">
+<form action="<?php echo $input->form_action?>" method="get" name="SearchFormRight" class="mb-2">
 
 	<input type="hidden" name="doSearch" value="1">
 
@@ -47,6 +47,18 @@
                 )); ?>
             </div>
         </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Account status');?></label>
+                <select name="disabled" class="form-control form-control-sm">
+                    <option value="">Active & Deactivated</option>
+                    <option value="0" <?php if ($input->disabled === 0) : ?>selected="selected"<?php endif; ?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Active');?></option>
+                    <option value="1" <?php if ($input->disabled === 1) : ?>selected="selected"<?php endif; ?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Deactivated');?></option>
+                </select>
+            </div>
+        </div>
+        
     </div>
 
 	<div class="btn-group" role="group" aria-label="...">
@@ -54,3 +66,8 @@
 	</div>
 
 </form>
+<script>
+    $(function() {
+        $('.btn-block-department').makeDropdown();
+    });
+</script>

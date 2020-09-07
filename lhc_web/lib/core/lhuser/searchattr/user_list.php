@@ -38,6 +38,18 @@ $fieldsSearch['username'] = array (
     )
 );
 
+$fieldsSearch['disabled'] = array (
+    'type' => 'text',
+    'trans' => 'Disabled',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'disabled',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0,'max_range' => 1)
+    )
+);
+
 $fieldsSearch['chat_nickname'] = array (
     'type' => 'text',
     'trans' => 'Nick',
