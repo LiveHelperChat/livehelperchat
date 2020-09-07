@@ -1,9 +1,15 @@
+3.41v
+
+1. Block listing window improvements.
+
+execute doc/update_db/update_215.sql for update
+
 3.40v
 
 1. Release in preparation for official mobile app release.
 2. Various other bot related changes.
 
-execute doc/update_db/update_211.sql for update
+execute doc/update_db/update_214.sql for update
 
 3.39v
 

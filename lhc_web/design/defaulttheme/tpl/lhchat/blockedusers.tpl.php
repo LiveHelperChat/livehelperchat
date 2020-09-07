@@ -9,17 +9,38 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>"  method="post">
 <div class="row">
-	<div class="col-4">
-		<input type="text" class="form-control" name="IPToBlock" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','IP');?>" />
-	</div>	
-	<div class="col-8">
-		<input type="submit" class="btn btn-secondary" name="AddBlock" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>" />
-	</div>
+    <div class="col-6">
+        <form class="mb-2" action="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>" >
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control form-control-sm" name="ip" value="<?php echo htmlspecialchars($input->ip)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','IP');?>" />
+                </div>
+                <div class="col-2">
+                    <input type="submit" class="btn btn-sm btn-secondary w-100" name="doSearch" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Search');?>" />
+                </div>
+            </div>
+            <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+        </form>
+    </div>
+    <div class="col-6">
+        <form class="mb-2" action="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>"  method="post">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control form-control-sm" name="IPToBlock" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','IP');?>" />
+                </div>
+                <div class="col-2">
+                    <input type="submit" class="btn btn-sm btn-warning w-100" name="AddBlock" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Block this IP');?>" />
+                </div>
+            </div>
+            <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+        </form>
+    </div>
 </div>
-<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
-</form>
+
+
+
+
 
 <?php if (!empty($items)) : ?>
 <table class="table" cellpadding="0" cellspacing="0">
@@ -27,18 +48,28 @@
 <tr>
     <th width="1%">ID</th>
     <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','IP');?></th>
+    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Department');?></th>
+    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Nick');?></th>
     <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Date');?></th>
-    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Users who are blocked');?></th>
+    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','User who blocked');?></th>
     <th width="1%">&nbsp;</th>
 </tr>
 </thead>
-<?php foreach ($items as $departament) : ?>
+<?php foreach ($items as $item) : ?>
     <tr>
-        <td><?php echo $departament->id?></td>
-        <td><?php echo htmlspecialchars($departament->ip)?></td>
-        <td><?php echo htmlspecialchars($departament->datets_front)?></td>
-        <td><?php echo htmlspecialchars($departament->user)?></td>
-        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>/(remove_block)/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Remove block');?></a></td>
+        <td><?php echo $item->id?></td>
+        <td>
+            <?php if ($item->chat_id > 0) : ?><a class="material-icons" title="<?php echo htmlspecialchars($item->chat_id)?>" onclick="lhc.previewChat(<?php echo $item->chat_id?>)">info_outline</a><?php endif; ?><?php echo htmlspecialchars($item->ip)?>
+        </td>
+        <td>
+            <?php echo htmlspecialchars($item->department)?>
+        </td>
+        <td>
+            <?php echo htmlspecialchars($item->nick)?>
+        </td>
+        <td><?php echo htmlspecialchars($item->datets_front)?></td>
+        <td><?php echo htmlspecialchars($item->user)?></td>
+        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>/(remove_block)/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Remove block');?></a></td>
     </tr>
 <?php endforeach; ?>
 </table>

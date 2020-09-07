@@ -4347,6 +4347,30 @@
         "key": "",
         "default": null,
         "extra": ""
+      },
+      {
+        "field": "chat_id",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "dep_id",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "nick",
+        "type": "varchar(50)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
       }
     ],
     "lh_group_work": [

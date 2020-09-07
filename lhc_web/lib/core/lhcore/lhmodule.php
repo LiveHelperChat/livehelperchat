@@ -367,7 +367,6 @@ class erLhcoreClassModule{
     	            foreach ($Matches[1] as $key => $UrlAddress)
     	            {
     	                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->current_value;
-    	                $valueReplace = '';
     	                $valueReplace = '\''.str_replace("'","\'",$valueConfig).'\'';
     	                $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
     	            }

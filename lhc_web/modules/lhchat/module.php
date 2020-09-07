@@ -381,7 +381,7 @@ $ViewList['blockuser'] = array(
 
 $ViewList['blockedusers'] = array(
     'params' => array(),
-    'uparams' => array('remove_block','csfr'),
+    'uparams' => array('remove_block','csfr','ip'),
     'functions' => array( 'allowblockusers' )
 );
 
