@@ -8163,6 +8163,13 @@
         "hidden": "0"
       },
       {
+        "identifier": "ignore_typing",
+        "value": "0",
+        "type": "0",
+        "explain": "Do not store what visitor is typing",
+        "hidden": "0"
+      },
+      {
         "identifier": "encrypt_msg_after",
         "value": "0",
         "type": "0",
