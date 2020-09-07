@@ -1,6 +1,9 @@
 3.42v
 
 1. Option to do not store user typing text.
+2. Mobile notifications workflow improvements.
+2.1 We won't send notifications for messages if chat is pending. Only one notification about new chat will be send.
+2.2 New chat notification won't be send if chat is started with a bot. Notification will be send only if chat becomes pending.
 
 execute doc/update_db/update_216.sql for update
 
