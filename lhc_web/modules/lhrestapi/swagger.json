@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Live Helper Chat API description. You have to authorize to use API. Create API key in Live Helper Chat back office. During authorization provide operator username and key instead of password.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "title": "Live Helper Chat API",
     "termsOfService": "",
     "contact": {
@@ -1343,7 +1343,7 @@
             "name": "user_id",
             "in": "path",
             "description": "User ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           }
@@ -1382,7 +1382,7 @@
             "name": "chat_id",
             "in": "path",
             "description": "Chat ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           },
@@ -1435,7 +1435,7 @@
             "name": "object_id",
             "in": "path",
             "description": "Object ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           },
@@ -1443,7 +1443,7 @@
             "name": "type",
             "in": "path",
             "description": "Type ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           }
@@ -1482,7 +1482,7 @@
             "name": "object_id",
             "in": "path",
             "description": "Object ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           },
@@ -1490,7 +1490,7 @@
             "name": "type",
             "in": "path",
             "description": "Type ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           }
@@ -1529,7 +1529,7 @@
             "name": "user_id",
             "in": "path",
             "description": "User ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           },
@@ -1537,7 +1537,7 @@
             "name": "type",
             "in": "path",
             "description": "Type ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           }
