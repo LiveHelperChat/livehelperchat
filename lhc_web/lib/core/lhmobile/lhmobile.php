@@ -24,11 +24,14 @@ class erLhcoreClassLHCMobile {
             $paramsSend['chat_type'] = 'pending';
         }
 
-        if ($session->device_type == erLhcoreClassModelUserSession::DEVICE_TYPE_ANDROID) {
+        // We use firebase in all cases to send a notification
+        if ($session->device_type == erLhcoreClassModelUserSession::DEVICE_TYPE_ANDROID || $session->device_type == erLhcoreClassModelUserSession::DEVICE_TYPE_IOS) {
             return self::sendAndoid($session, $chat, $paramsSend);
-        } elseif ($session->device_type == erLhcoreClassModelUserSession::DEVICE_TYPE_IOS) {
-            //return self::sendIOS($session, $chat, $paramsSend);
         }
+
+        /*elseif ($session->device_type == erLhcoreClassModelUserSession::DEVICE_TYPE_IOS) {
+            //return self::sendIOS($session, $chat, $paramsSend);
+        }*/
     }
 
     public static function newMessage($params) {
