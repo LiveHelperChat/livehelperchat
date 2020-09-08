@@ -7,10 +7,10 @@ if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'],
 }
 
 $activeChats = erLhcoreClassChat::getActiveChats(10);
-$closedChats = erLhcoreClassChat::getClosedChats(10);
+$closedChats = array(); //erLhcoreClassChat::getClosedChats(10);
 $pendingChats = erLhcoreClassChat::getPendingChats(10);
 $transferedChats = erLhcoreClassTransfer::getTransferChats();
-$unreadChats = erLhcoreClassChat::getUnreadMessagesChats(10,0);
+$unreadChats = array(); // erLhcoreClassChat::getUnreadMessagesChats(10,0);
 
 foreach ($activeChats as $index => $activeChat) {
     $activeChats[$index]->owner = $activeChat->n_off_full;
