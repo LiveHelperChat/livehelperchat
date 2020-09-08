@@ -12,10 +12,18 @@ $pendingChats = erLhcoreClassChat::getPendingChats(10);
 $transferedChats = erLhcoreClassTransfer::getTransferChats();
 $unreadChats = erLhcoreClassChat::getUnreadMessagesChats(10,0);
 
-erLhcoreClassChat::prefillGetAttributes($activeChats,array('department_name'),array('updateIgnoreColumns','department'));
-erLhcoreClassChat::prefillGetAttributes($closedChats,array('department_name'),array('updateIgnoreColumns','department'));
-erLhcoreClassChat::prefillGetAttributes($pendingChats,array('department_name'),array('updateIgnoreColumns','department'));
-erLhcoreClassChat::prefillGetAttributes($unreadChats,array('department_name'),array('updateIgnoreColumns','department'));
+foreach ($activeChats as $index => $activeChat) {
+    $activeChats[$index]->owner = $activeChat->n_off_full;
+}
+
+foreach ($pendingChats as $index => $pendingChat) {
+    $pendingChats[$index]->owner = $pendingChat->n_off_full;
+}
+
+erLhcoreClassChat::prefillGetAttributes($activeChats,array('department_name','user_status_front'),array('updateIgnoreColumns','department','user'));
+erLhcoreClassChat::prefillGetAttributes($closedChats,array('department_name','user_status_front'),array('updateIgnoreColumns','department','user'));
+erLhcoreClassChat::prefillGetAttributes($pendingChats,array('department_name','user_status_front'),array('updateIgnoreColumns','department','user'));
+erLhcoreClassChat::prefillGetAttributes($unreadChats,array('department_name'),array('updateIgnoreColumns','department','user'));
 
 $onlineUsers = array();
 if ($currentUser->hasAccessTo('lhchat','use_onlineusers')) {
@@ -48,6 +56,8 @@ echo json_encode(array(
 'pending_chats' => array('rows' => $pendingChats, 'size' => count($pendingChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
 'transfered_chats' => array('rows' => $transferedChats, 'size' => count($transferedChats), 'hidden_columns' => array_merge($columnsToHide,array('transfer_id')), 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
 ));
+
+erLhcoreClassLog::write(print_r($activeChats,true));
 
 $currentUser->updateLastVisit();
 exit;

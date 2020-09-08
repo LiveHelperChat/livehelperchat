@@ -10,6 +10,8 @@ if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'],
 //[chats] => 2|5,2,5,2;8|0,5,2,0,5,2
 //$_POST['chats']   = '6|5,1,4;8|0,5,2,0,5,2';
 
+erLhcoreClassLog::write(print_r($_POST,true));
+
 if ($currentUser->isLogged() && isset($_POST['chats']))
 {
     $arrayReturn = array();
@@ -54,19 +56,24 @@ if ($currentUser->isLogged() && isset($_POST['chats']))
                 	$Chat->unread_messages_informed = 0;
                 	$Chat->saveThis();
                 }                
-                
-            } else {
-            	if ($Chat->is_user_typing) {
-            		$chatStatusMessage = $Chat->user_typing_txt;
-            	} elseif ($Chat->user_status == 1) {
-                    $chatStatusMessage = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','Visitor has left the chat!');
-                } elseif ($Chat->user_status == 0) {
-                    $chatStatusMessage = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userjoined','Visitor has joined the chat!');
-                }
             }
         }
+
+        if ($Chat->is_user_typing) {
+            $chatStatusMessage = $Chat->user_typing_txt;
+        } elseif ($Chat->user_status_front == 1) {
+            $chatStatusMessage = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','Visitor has left the chat!');
+        } elseif ($Chat->user_status_front == 0) {
+            $chatStatusMessage = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userjoined','Visitor has joined the chat!');
+        }
+
         $arrayReturn[$chat_id]['messages'] = $chatsMessages;
         $arrayReturn[$chat_id]['chat_status'] = $chatStatusMessage;
+        $arrayReturn[$chat_id]['chat_scode'] = (int)$Chat->user_status_front;
+
+        if ($Chat->user_typing_txt != '') {
+            $arrayReturn[$chat_id]['tt'] = $Chat->user_typing_txt;
+        }
     }
 
     echo json_encode(array("error" => false,'result' => $arrayReturn));
