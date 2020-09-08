@@ -218,7 +218,7 @@ class erLhcoreClassModule{
         }
 
         if ($errno == E_NOTICE || $errno == E_STRICT) {
-            erLhcoreClassLog::write('Unexpected notice, the message was : ' . $errstr . ' in ' . $errfile . ' on line ' . $errline);
+            // erLhcoreClassLog::write('Unexpected notice, the message was : ' . $errstr . ' in ' . $errfile . ' on line ' . $errline);
         }
         
         return false;
