@@ -10,8 +10,6 @@ if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'],
 //[chats] => 2|5,2,5,2;8|0,5,2,0,5,2
 //$_POST['chats']   = '6|5,1,4;8|0,5,2,0,5,2';
 
-erLhcoreClassLog::write(print_r($_POST,true));
-
 if ($currentUser->isLogged() && isset($_POST['chats']))
 {
     $arrayReturn = array();

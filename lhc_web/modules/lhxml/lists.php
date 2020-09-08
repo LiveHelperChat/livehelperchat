@@ -57,8 +57,6 @@ echo json_encode(array(
 'transfered_chats' => array('rows' => $transferedChats, 'size' => count($transferedChats), 'hidden_columns' => array_merge($columnsToHide,array('transfer_id')), 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
 ));
 
-erLhcoreClassLog::write(print_r($activeChats,true));
-
 $currentUser->updateLastVisit();
 exit;
 ?>
