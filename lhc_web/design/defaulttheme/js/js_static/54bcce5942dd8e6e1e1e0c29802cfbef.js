@@ -175,10 +175,13 @@ animation:false,
 html:true,
 container:'#chat-id-'+e.data.chat_id,
 template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>',
-content:'<a href="#" onclick="lhinst.quateSelection('+e.data.chat_id+')"><i class="material-icons">&#xE244;</i>quote</a>'
+content:function(){return '<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>quote</a>'; }
 }
 ee.emitEvent('quoteAction', [quoteParams,e.data.chat_id]);
 $(this).popover(quoteParams).popover('show');
+$('#copy-popover-'+e.data.chat_id).click(function(){
+lhinst.quateSelection(e.data.chat_id);
+});
 $(this).addClass('popover-copy');
 e.data.that.popoverShown = true;
 e.data.that.popoverShownNow = true;
