@@ -61,9 +61,11 @@ class erConfigClassLhCacheConfig
     {
     	// Save only if array
     	if (is_array($this->conf) ) {
-	        file_put_contents('cache/cacheconfig/settings.ini.new.php',"<?php\n return ".var_export($this->conf,true).";\n?>");
+	        file_put_contents('cache/cacheconfig/settings.ini.new.php',"<?php\n return ".var_export($this->conf,true).";\n?>",LOCK_EX);
 	        // Atomic operation
-	        rename('cache/cacheconfig/settings.ini.new.php','cache/cacheconfig/settings.ini.php');
+            if (file_exists('cache/cacheconfig/settings.ini.new.php')) {
+                rename('cache/cacheconfig/settings.ini.new.php','cache/cacheconfig/settings.ini.php');
+            }
     	}
     }
 
@@ -93,14 +95,18 @@ class erConfigClassLhCacheConfig
 	        $compiledModules = ezcBaseFile::findRecursive( 'cache/cacheconfig',array( '@\.cache\.php@' ) );
 	        foreach ($compiledModules as $compiledClass)
 			{
-			    unlink($compiledClass);
+                if (file_exists($compiledClass)) {
+                    unlink($compiledClass);
+                }
 			}
 	
 			$compiledTemplates = ezcBaseFile::findRecursive( 'cache/compiledtemplates',array( '@(\.php)@' ) );
 	
 			foreach ($compiledTemplates as $compiledTemplate)
 			{
-				unlink($compiledTemplate);
+			    if (file_exists($compiledTemplate)) {
+                    unlink($compiledTemplate);
+                }
 			}
 			
 			
@@ -108,7 +114,7 @@ class erConfigClassLhCacheConfig
 	
 			foreach ($compiledTemplates as $compiledTemplate)
 			{
-			    if ($forceClean == true || filemtime($compiledTemplate) < time()-24*3600) {
+			    if (file_exists($compiledTemplate) && ($forceClean == true || filemtime($compiledTemplate) < time()-24*3600)) {
 			        unlink($compiledTemplate);
 			    }
 			}

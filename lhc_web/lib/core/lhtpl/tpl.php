@@ -21,10 +21,12 @@ class erLhcoreClassCacheStorage {
 			// Temporary storage
 			$fileName = $this->cacheDir . md5($identifier. time() . microtime() . rand(0, 1000)) . '.php';
 
-			file_put_contents($fileName,"<?php\n return ".var_export($data,true).";\n?>");
+			file_put_contents($fileName,"<?php\n return ".var_export($data,true).";\n?>",LOCK_EX);
 
-			// Atomic operation
-			rename($fileName,'cache/cacheconfig/'.$identifier.'.cache.php');
+			if (file_exists($fileName)) {
+                // Atomic operation
+                rename($fileName,'cache/cacheconfig/'.$identifier.'.cache.php');
+            }
 
 		} catch (Exception $e) {
 			throw $e;
@@ -519,10 +521,13 @@ class erLhcoreClassTemplate {
 
 			// Atomoc template compilation to avoid concurent request compiling and writing to the same file
 			$fileName = 'cache/compiledtemplates/'.md5(time().rand(0, 1000).microtime().$file.$instance->WWWDirLang.$instance->Language.$port).'.php';
-			file_put_contents($fileName,erLhcoreClassTemplate::strip_html($contentFile));
+			file_put_contents($fileName,erLhcoreClassTemplate::strip_html($contentFile), LOCK_EX);
 
 			$file = 'cache/compiledtemplates/'.md5($file.$instance->WWWDirLang.$instance->Language.$port).'.php';
-			rename($fileName,$file);
+
+			if (file_exists($fileName)) {
+                rename($fileName,$file);
+            }
 
 	 	    $this->cacheTemplates[md5($fileTemplate.$instance->WWWDirLang.$instance->Language.$port)] = $file;
 			$this->storeCache();
