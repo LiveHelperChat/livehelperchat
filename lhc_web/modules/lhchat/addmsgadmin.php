@@ -151,6 +151,13 @@ if (trim($form->msg) != '')
                         $Chat->operation_admin .= "lhinst.updateVoteStatus(".$Chat->id.");";
                         $Chat->saveThis();
 
+                        // If chat is transferred to pending state we don't want to process any old events
+                        $eventPending = erLhcoreClassModelGenericBotChatEvent::findOne(array('filter' => array('chat_id' => $Chat->id)));
+
+                        if ($eventPending instanceof erLhcoreClassModelGenericBotChatEvent) {
+                            $eventPending->removeThis();
+                        }
+
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('chat' => & $Chat, 'user' => $currentUser));
 
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.accept',array('chat' => & $Chat, 'user' => $currentUser));

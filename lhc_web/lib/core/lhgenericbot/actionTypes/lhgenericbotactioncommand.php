@@ -48,6 +48,13 @@ class erLhcoreClassGenericBotActionCommand {
                     $chat->auto_responder->updateThis();
                 }
 
+                // If chat is transferred to pending state we don't want to process any old events
+                $eventPending = erLhcoreClassModelGenericBotChatEvent::findOne(array('filter' => array('chat_id' => $chat->id)));
+
+                if ($eventPending instanceof erLhcoreClassModelGenericBotChatEvent) {
+                    $eventPending->removeThis();
+                }
+
                 $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_chat_command_transfer', array(
                     'action' => $action,
                     'chat' => & $chat,
