@@ -56,13 +56,14 @@ try {
                 $partsIntro[] = 'Bcc: ' . $message->bcc_data_front;
             }
 
-            $prepend = "---------- Forwarded message ---------<br/>";
+            $prepend = "---------- " . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Forwarded message') . " ---------<br/>";
             $prepend .= implode("<br/>",$partsIntro);
         }
 
         echo json_encode([
-            'intro' => $prepend,
+            'intro' => ($conv->mailbox->signature_under == 1 ? '<div class="gmail_signature">' . $signature . '</div>' : '') . $prepend,
             'signature' => '<div class="gmail_signature">' . $signature . '</div>',
+            'signature_under' => ($conv->mailbox->signature_under == 1),
             'recipients' => [
             'to' => $message->to_data_array,
             'reply' => $replyRecipientsMapped,

@@ -79,6 +79,11 @@ $def->properties['signature']->columnName   = 'signature';
 $def->properties['signature']->propertyName = 'signature';
 $def->properties['signature']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['signature_under'] = new ezcPersistentObjectProperty();
+$def->properties['signature_under']->columnName   = 'signature_under';
+$def->properties['signature_under']->propertyName = 'signature_under';
+$def->properties['signature_under']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

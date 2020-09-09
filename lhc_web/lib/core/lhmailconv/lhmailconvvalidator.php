@@ -87,6 +87,8 @@ class erLhcoreClassMailconvValidator {
             $item->active = 0;
         }
 
+
+
         return $Errors;
     }
 
@@ -119,10 +121,14 @@ class erLhcoreClassMailconvValidator {
             'active' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
+            'signature_under' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'sync_interval' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
             ),
         );
+
 
         $form = new ezcInputForm( INPUT_POST, $definition );
         $Errors = array();
@@ -138,6 +144,12 @@ class erLhcoreClassMailconvValidator {
             $item->username = $form->username;
         } else {
             $item->username = '';
+        }
+
+        if ( $form->hasValidData( 'signature_under' ) && $form->signature_under == true) {
+            $item->signature_under = 1;
+        } else {
+            $item->signature_under = 0;
         }
 
         if ( $form->hasValidData( 'name' )) {

@@ -81,6 +81,10 @@
         <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_signature') : ?>active<?php endif;?>" id="signature">
 
             <div class="form-group">
+                <label><input type="checkbox" name="signature_under" value="on" <?php $item->signature_under == 1 ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Put signature directly under reply');?></label>
+            </div>
+            
+            <div class="form-group">
                 <textarea name="signature" id="signature-editor" rows="10" class="form-control form-control-sm"><?php echo htmlspecialchars($item->signature)?></textarea>
                 <script>
                     $(document).ready(function(){

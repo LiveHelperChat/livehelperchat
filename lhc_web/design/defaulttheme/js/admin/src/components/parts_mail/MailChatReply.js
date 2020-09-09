@@ -18,6 +18,7 @@ const MailChatReply = props => {
     const [recipientsModified, setModifiedRecipients] = useState([]);
     const [replySendStatus, setReplySendStatus] = useState([]);
     const [sendInProgress, setSendInProgress] = useState(false);
+    const [underReplySignature, setUnderReplySignature] = useState(false);
 
     const [attachedFiles, dispatch] = useReducer((attachedFiles, { type, value }) => {
         switch (type) {
@@ -114,6 +115,7 @@ const MailChatReply = props => {
                 setReplyIntro(result.data.intro);
                 setReplySignature(result.data.signature);
                 setRecipients(result.data.recipients);
+                setUnderReplySignature(result.data.signature_under);
             });
         } else if (replyMode == false && forwardMode == false && loadedReplyData == true) {
             setLoadedReplyData(false);
@@ -163,7 +165,7 @@ const MailChatReply = props => {
 
                 <Editor
                     tinymceScriptSrc="/design/defaulttheme/js/tinymce/js/tinymce/tinymce.min.js"
-                    initialValue={"<p></p>" + replyIntro + "<blockquote>" + props.message.body_front + "</blockquote>" + replySignature}
+                    initialValue={"<p></p>" + replyIntro + "<blockquote>" + props.message.body_front + "</blockquote>" + (underReplySignature == false ? replySignature : "")}
                     onInit={() => {
                         tinyMCE.get("reply-to-mce-"+props.message.id).focus();
                     }}
