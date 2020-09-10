@@ -117,7 +117,7 @@ class ProactiveInvitation extends Component {
                         {(!this.props.chatwidget.hasIn(['proactive', 'data', 'photo_left_column']) || !this.props.chatwidget.getIn(['proactive', 'data', 'photo'])) &&
                             <div>
                                 <div className="fs14">
-                                    {this.props.chatwidget.getIn(['proactive', 'data', 'photo']) && <img width="30"
+                                    {this.props.chatwidget.getIn(['proactive', 'data', 'photo']) && <img width="30" height="30"
                                                                                                      alt={this.props.chatwidget.getIn(['proactive', 'data', 'name_support']) || this.props.chatwidget.getIn(['proactive', 'data', 'extra_profile'])}
                                                                                                      title={this.props.chatwidget.getIn(['proactive', 'data', 'name_support']) || this.props.chatwidget.getIn(['proactive', 'data', 'extra_profile'])}
                                                                                                      className="mr-2 rounded"
