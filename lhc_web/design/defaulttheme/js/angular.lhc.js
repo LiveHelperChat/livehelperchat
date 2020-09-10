@@ -1,10 +1,3 @@
-$( document ).ready(function() {
-	var hash = window.location.hash;	
-	if (hash != '') {
-		$('ul[role="tablist"] a[href="' + hash.replace("#!","") + '"]').tab('show');
-	}
-});
-
 var phonecatApp = angular.module('lhcApp', [
   'lhcAppServices',
   'lhcAppControllers'
@@ -1380,8 +1373,17 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				_that.setupActivityMonitoring();
 			}
 
+			var chat_id = 0;
+            var hash = window.location.hash;
+            if (hash != '') {
+                var matchData = hash.match(/\d+$/);
+                if (matchData !== null && matchData[0]) {
+                    chat_id = parseInt(matchData[0]);
+                }
+            }
+
             angular.forEach(data.copen, function(chatOpen) {
-                lhinst.startChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate(chatOpen.nick,10), false, 0, chatOpen.status);
+                lhinst.startChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate(chatOpen.nick,10), (chatOpen.id == chat_id), 0, chatOpen.status);
             });
 
             angular.forEach(data.cgopen, function(chatOpen) {
