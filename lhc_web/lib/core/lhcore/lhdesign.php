@@ -371,7 +371,7 @@ class erLhcoreClassDesign
             ));
 
         if (self::$buildMode == true) {
-            file_put_contents($filenameStaticPath, $filesToCompress);
+            file_put_contents($filenameStaticPath, str_replace(['\'/design/','\'/extension/'],['\'../../../../design/','\'../../../../extension/'],$filesToCompress));
         }
         
         return $instance->wwwDir() . '/cache/compiledtemplates/' . $fileName . '.css';
