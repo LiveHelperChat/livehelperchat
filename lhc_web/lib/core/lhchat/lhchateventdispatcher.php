@@ -6,7 +6,7 @@ class erLhcoreClassChatEventDispatcher {
    
    private $finishListeners = array();
 
-   private $globalListenersSet = false;
+   public $globalListenersSet = false;
 
    public $disableMobile = false;
 

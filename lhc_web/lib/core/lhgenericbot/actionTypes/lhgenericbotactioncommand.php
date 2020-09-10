@@ -55,6 +55,14 @@ class erLhcoreClassGenericBotActionCommand {
                     $eventPending->removeThis();
                 }
 
+                // Because we want that mobile app would receive notification
+                // By default these listeners are not set if visitors sends a message and chat is not active
+                if (erLhcoreClassChatEventDispatcher::getInstance()->disableMobile == true && erLhcoreClassChatEventDispatcher::getInstance()->globalListenersSet == true) {
+                    erLhcoreClassChatEventDispatcher::getInstance()->disableMobile = false;
+                    erLhcoreClassChatEventDispatcher::getInstance()->globalListenersSet = false;
+                    erLhcoreClassChatEventDispatcher::getInstance()->setGlobalListeners();
+                }
+
                 $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_chat_command_transfer', array(
                     'action' => $action,
                     'chat' => & $chat,
