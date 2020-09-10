@@ -852,10 +852,12 @@ class erLhcoreClassGenericBotWorkflow {
             }
 
         } catch (Exception $e) {
-             if ($e instanceof erLhcoreClassGenericBotException){
+             if ($e instanceof erLhcoreClassGenericBotException) {
 
                  $message = $e->getMessage();
-                 
+
+                 $translatedMessage = false;
+
                  $bot = erLhcoreClassModelGenericBotBot::fetch($chat->gbot_id);
                  if ($bot instanceof erLhcoreClassModelGenericBotBot) {
                      $configurationArray = $bot->configuration_array;
@@ -863,13 +865,18 @@ class erLhcoreClassGenericBotWorkflow {
                          $exceptionMessage = erLhcoreClassModelGenericBotExceptionMessage::findOne(array('limit' => 1, 'sort' => 'priority ASC', 'filter' => array('active' => 1, 'code' => $e->getCode()), 'filterin' => array('exception_group_id' => $configurationArray['exc_group_id'])));
                          if ($exceptionMessage instanceof erLhcoreClassModelGenericBotExceptionMessage && $exceptionMessage->message != '') {
                              $message = erLhcoreClassGenericBotWorkflow::translateMessage($exceptionMessage->message, array('chat' => $chat));
+                             $translatedMessage = true;
                          }
                      }
                  }
-                 
+
+                 if ($translatedMessage === false) {
+                     $message = erLhcoreClassGenericBotWorkflow::translateMessage($message, array('chat' => $chat));
+                 }
+
                  self::sendAsBot($chat, $message, $e->getContent());
              } else {
-                 self::sendAsBot($chat, $e->getMessage());
+                 self::sendAsBot($chat, erLhcoreClassGenericBotWorkflow::translateMessage($e->getMessage(), array('chat' => $chat)));
              }
         }
     }

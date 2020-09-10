@@ -40,7 +40,7 @@ class erLhcoreClassGenericBotActionAttribute {
             $msgText = (isset($action['content']['intro_message']) ? trim($action['content']['intro_message']) : '');
 
             if ($msgText != '') {
-                erLhcoreClassGenericBotWorkflow::translateMessage($msgText, array('chat' => $chat));
+                $msgText = erLhcoreClassGenericBotWorkflow::translateMessage($msgText, array('chat' => $chat));
             }
 
             $msg->msg = $msgText;
