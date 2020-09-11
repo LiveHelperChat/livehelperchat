@@ -15,8 +15,13 @@ setTimeout(function() {
 
 <ul class="nav nav-pills" role="tablist">
     <li role="presentation" class="nav-item"><a class="active nav-link" href="#mainchatmodify" aria-controls="mainchatmodify" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','User attribute');?></a></li>
+    
     <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','modifychatcore')) : ?>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#mainchatcore" aria-controls="mainchatcore" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Chat attributes');?></a></li>
+    <?php endif; ?>
+    
+    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','chatdebug')) : ?>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#chatdebug" aria-controls="chatdebug" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Debug');?></a></li>
     <?php endif; ?>
 </ul>
 
@@ -76,5 +81,12 @@ setTimeout(function() {
         </form>
     </div>
     <?php endif; ?>
+    
+    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','chatdebug')) : ?>
+        <div role="tabpanel" class="tab-pane" id="chatdebug">
+            <pre class="fs11"><?php echo htmlspecialchars(json_encode($chat->getState(),JSON_PRETTY_PRINT)); ?></pre>
+        </div>
+    <?php endif; ?>
+    
 </div>
 
