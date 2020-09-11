@@ -1633,3 +1633,8 @@ input[type="file"]{
 .form-send-textarea[readonly] {
     background-color: #FFF;
 }
+
+a:not([href]):not([class]),
+a:not([href]){
+    color: #1d548e;
+}
