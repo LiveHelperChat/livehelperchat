@@ -34,8 +34,11 @@ export class needhelpWidget{
             });
         }
         
-        this.cont.tmpl = settings['html'];
+        this.cont.tmpl = settings['html'].replace('{dev_type}',(this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop'));
+        this.cont.bodyId = 'need-help';
         this.cont.constructUIIframe('');
+
+        this.cont.elmDom.className += this.attributes.isMobile === true ? ' lhc-mobile' : ' lhc-desktop';
 
         this.cont.attachUserEventListener("click", function (a) {
             attributes.eventEmitter.emitEvent('nhClicked', [{'sender' : 'closeButton'}]);
@@ -55,6 +58,10 @@ export class needhelpWidget{
         }
 
         this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_css']}, true);
+
+        if (this.attributes.isMobile == true) {
+            this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_mobile_css']});
+        }
 
         if (this.attributes.theme > 0) {
             this.loadStatus['theme'] = false;

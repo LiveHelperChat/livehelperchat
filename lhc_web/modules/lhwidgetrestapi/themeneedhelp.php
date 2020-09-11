@@ -43,5 +43,7 @@ if ($theme->need_help_close_hover_bg != '') {
     echo "#close-need-help-btn:hover{color:#" . $theme->need_help_close_hover_bg .'!important}';
 }
 
+echo $theme->custom_widget_css;
+
 exit;
 ?>

@@ -424,7 +424,7 @@
                     <hr>
                     <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Build your own need help widget layout')?></h4>
 
-                    <button type="button" class="btn btn-sm btn-default" onclick="setDefaultNeedHelp()"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Set default HTML')?></button>
+                    <button type="button" class="btn btn-sm btn-secondary" onclick="setDefaultNeedHelp()"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Set default HTML')?></button>
 
 <div class="row">
     <div class="col-3">
@@ -824,7 +824,7 @@
 
         function setDefaultNeedHelp() {
             var editor = ace.edit($('#ace-AbstractInput_need_help_html')[0]);
-            editor.getSession().setValue(<?php echo json_encode('<div class="container-fluid overflow-auto fade-in p-3 pb-4" >
+            editor.getSession().setValue(<?php echo json_encode('<div class="container-fluid overflow-auto fade-in p-3 pb-4 {dev_type}" >
 <div class="shadow rounded bg-white nh-background">
     <div class="p-2" id="start-chat-btn" style="cursor: pointer">
         <button type="button" id="close-need-help-btn" class="close position-absolute" style="right:30px;top:25px;" aria-label="Close">

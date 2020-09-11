@@ -21,7 +21,7 @@ export class statusWidget{
             minwidth: "95px"
         }), null, "iframe");
 
-        this.cont.tmpl = '<div id="lhc_status_container" style="display: none"><i title="New messages" id="unread-msg-number">!</i><i id="status-icon" class="offline-status" href="#"></i></div>';
+
         
         this.loadStatus = {main : false, theme: false};
     }
@@ -53,7 +53,11 @@ export class statusWidget{
 
         this.attributes = attributes;
 
+        this.cont.tmpl = '<div id="lhc_status_container" class="' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + '" style="display: none"><i title="New messages" id="unread-msg-number">!</i><i id="status-icon" class="offline-status" href="#"></i></div>';
+
         this.cont.constructUIIframe('');
+
+        this.cont.elmDom.className = this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop';
 
         var _inst = this;
 

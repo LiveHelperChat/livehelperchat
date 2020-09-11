@@ -27,8 +27,6 @@ export class mainWidget{
             minwidth: "95px"
         }), null, "iframe");
 
-        this.cont.tmpl = '<div id="root" class="container-fluid d-flex flex-column flex-grow-1 overflow-auto fade-in"></div>';
-        
         this.isLoaded = false;
     }
 
@@ -60,8 +58,13 @@ export class mainWidget{
     init(attributes, lazyLoad) {
 
         this.attributes = attributes;
+        this.cont.bodyId = 'chat-widget';
+
+        this.cont.tmpl = '<div id="root" class="container-fluid d-flex flex-column flex-grow-1 overflow-auto fade-in ' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + '"></div>';
 
         this.cont.constructUIIframe('', this.attributes.staticJS['dir'], this.attributes.staticJS['cl'], this.attributes.hhtml);
+
+        this.cont.elmDom.className = this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop';
 
         if (this.attributes.cont_ss) {
             this.originalCSS = this.cont.elmDom.style.cssText;
