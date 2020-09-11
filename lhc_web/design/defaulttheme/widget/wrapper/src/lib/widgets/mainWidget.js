@@ -39,8 +39,8 @@ export class mainWidget{
             width: this.width + this.units + " !important",
             "min-width": this.width + this.units + " !important",
             "max-width": this.width + this.units +  " !important",
-            bottom: (this.units == 'px' ? this.bottom + "px !important" : '0px !important'),
-            right: (this.units == 'px' ? this.right + "px !important" : '0px !important'),
+            bottom: (this.units == 'px' ? this.bottom + "px" : '0px'),
+            right: (this.units == 'px' ? this.right + "px" : '0px'),
         };
 
         if (this.attributes.mode == 'embed') {

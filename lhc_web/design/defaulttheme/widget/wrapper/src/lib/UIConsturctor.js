@@ -30,8 +30,7 @@ export class UIConsturctor {
     };
 
     restyle(attr, style) {
-        style &&
-        (-1 === style.indexOf("!important") && (style += " !important"), this.elmDom ? this.elmDom.style.cssText += ";" + attr + ":" + style : this.style += ";" + attr + ":" + style)
+        style && (this.elmDom ? this.elmDom.style.cssText += ";" + attr + ":" + style : this.style += ";" + attr + ":" + style)
     };
 
     attachUserEventListener(a, c, d, k) {
