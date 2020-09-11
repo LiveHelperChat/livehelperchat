@@ -72,7 +72,9 @@
         		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/paidchat.tpl.php'));?>
         		    
         		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/restapi.tpl.php'));?>
-        		    						    
+
+        		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/ga.tpl.php'));?>
+
         		</ul>
 			</div>
 			<div class="col-md-6">
