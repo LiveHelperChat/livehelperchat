@@ -1237,6 +1237,91 @@
         ]
       }
     },
+    "/restapi/notifications/{token}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Returns notifications status",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "description": "User session token",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns notifications status",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Enables/Disables mobile notifications",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "description": "User session token",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Set's notifications status",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Notifications"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Notifications status was changed",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
     "/restapi/isonline": {
       "get": {
         "tags": [
@@ -2803,6 +2888,20 @@
       "example" : {
         "name" : "Name of the bot",
         "nick" : "Nick of the bot"
+      }
+    },
+    "Notifications": {
+      "type": "object",
+      "properties": {
+          "status": {
+            "type": "boolean",
+            "default": false,
+            "required": false,
+            "description": ""
+          }
+      },
+      "example" : {
+        "status" : true
       }
     },
     "Autologin": {

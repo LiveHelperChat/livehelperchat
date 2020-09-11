@@ -97,6 +97,10 @@ $ViewList['user'] = array(
     'params' => array('id')
 );
 
+$ViewList['notifications'] = array(
+    'params' => array('token')
+);
+
 $ViewList['user_departments'] = array(
     'params' => array()
 );
