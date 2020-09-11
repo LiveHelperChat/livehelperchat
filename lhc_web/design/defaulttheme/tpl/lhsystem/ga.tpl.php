@@ -48,7 +48,6 @@
             </div>
 
             <h3>Widget was closed/minimized</h3>
-
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
@@ -71,31 +70,35 @@
             </div>
 
 
-
-
         </div>
         <div role="tabpanel" class="tab-pane <?php if ($tab == 'chat') : ?>active<?php endif;?>" id="chat">
 
+            <h3>Widget was closed/minimized</h3>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>Category [eventCategory]*</label>
+                        <input type="text" class="form-control" name="closeWidget_category" value="<?php isset($mb_options['closeWidget_category']) ? print $mb_options['closeWidget_category'] : print 'Widget'?>" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>Event action [eventAction]*</label>
+                        <input type="text" class="form-control" name="closeWidget_action" value="<?php isset($mb_options['closeWidget_action']) ? print $mb_options['closeWidget_action'] : print 'Close'?>" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>Event label [eventLabel]</label>
+                        <input type="text" class="form-control" name="closeWidget_label" value="<?php isset($mb_options['closeWidget_label']) ? print $mb_options['closeWidget_label'] : ''?>" />
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 
-
-    <div class="form-group">
-        <label>Event actions [eventAction]</label>
-        <input type="text" class="form-control" name="fcm_key" value="<?php isset($mb_options['event_action']) ? print $mb_options['event_action'] : 'widget'?>" />
-    </div>
-
-    <div class="form-group">
-        <label>Event label [eventLabel]</label>
-        <input type="text" class="form-control" name="showWidget" value="<?php isset($mb_options['showWidget']) ? print $mb_options['showWidget'] : 'Show widget'?>" />
-        <p>Widget was shown.</p>
-    </div>
-
-    <div class="form-group">
-        <label>Event label [eventLabel]</label>
-        <input type="text" class="form-control" name="closeWidget" value="<?php isset($mb_options['closeWidget']) ? print $mb_options['closeWidget'] : 'Close widget'?>" />
-        <p>Widget was closed.</p>
-    </div>
 
     <div class="form-group">
         <label>Event label [eventLabel]</label>
