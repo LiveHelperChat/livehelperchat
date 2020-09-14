@@ -14,7 +14,7 @@
     ],    
     "require": {
         "php": ">=5.2.4",
-        "minishlink/web-push" : "dev-master#5c2d2a5003e338c1ef23604204a9bcaa9d944a24"
+        "minishlink/web-push" : "dev-master#a9b689675c167117d91b96c34555476bbfbdc391"
     },
     "minimum-stability": "dev",
     "config": {
