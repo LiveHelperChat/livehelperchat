@@ -1639,17 +1639,17 @@ a:not([href]){
     color: #1d548e;
 }
 
-#myModal {
+#admin-body #myModal {
    position: relative;
 }
 
-.modal-dialog {
+#admin-body .modal-dialog {
     position: fixed;
     width: 100%;
     margin: 0;
     padding: 10px;
 }
 
-.modal-content{
+#admin-body .modal-content{
     box-shadow: 0px 0px 14px -6px rgba(0,0,0,0.75);
 }

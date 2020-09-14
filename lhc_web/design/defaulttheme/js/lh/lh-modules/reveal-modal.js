@@ -31,10 +31,7 @@ var revealM = {
 
 			revealM.initializeModal('myModal');
 
-            var mparams = {'show':true};
-            if (typeof params['mparams']) {
-                Object.assign(mparams, params['mparams']);
-            }
+            var mparams = {'show':true, 'backdrop': false};
 
 			if (typeof params['iframe'] === 'undefined') {
 
@@ -50,11 +47,15 @@ var revealM = {
 								$('#myModal').on('hide.bs.modal',params['hidecallback']);
 							}
 
-							$('#myModal').html(data).modal('show');
+							$('#myModal').html(data).modal(mparams);
 
-                            $('#myModal .modal-content').draggabilly({
+                            var positions = revealM.getPositions();
+
+                            var modalContent =$('#myModal .modal-content');
+
+                            modalContent.draggabilly({
                                 handle: ".modal-header"
-                            });
+                            }).css({top: ((positions.height - modalContent.height()) / 2), left: ((positions.width - modalContent.width()) / 2) });
 
 						} else {
 							setTimeout(function(){
@@ -70,9 +71,13 @@ var revealM = {
 
 								$('#myModal').html(data).modal(mparams);
 
-                                $('#myModal .modal-content').draggabilly({
+                                var positions = revealM.getPositions();
+
+                                var modalContent =$('#myModal .modal-content');
+
+                                modalContent.draggabilly({
                                     handle: ".modal-header"
-                                });
+                                }).css({top: ((positions.height - modalContent.height()) / 2), left: ((positions.width - modalContent.width()) / 2) });
 
 							},500);
 						}
@@ -92,9 +97,13 @@ var revealM = {
 
 							$('#myModal').html(data).modal(mparams);
 
-                            $('#myModal .modal-content').draggabilly({
+                            var positions = revealM.getPositions();
+
+                            var modalContent =$('#myModal .modal-content');
+
+                            modalContent.draggabilly({
                                 handle: ".modal-header"
-                            });
+                            }).css({top: ((positions.height - modalContent.height()) / 2), left: ((positions.width - modalContent.width()) / 2) });
 
 						} else {
 							setTimeout(function(){
@@ -110,9 +119,13 @@ var revealM = {
 
 								$('#myModal').html(data).modal(mparams);
 
-                                $('#myModal .modal-content').draggabilly({
+								var modalContent =$('#myModal .modal-content');
+
+                                var positions = revealM.getPositions();
+
+                                modalContent.draggabilly({
                                     handle: ".modal-header"
-                                });
+                                }).css({top: ((positions.height - modalContent.height()) / 2), left: ((positions.width - modalContent.width()) / 2) });
 
 							},500);
 						}
@@ -130,9 +143,14 @@ var revealM = {
 
 				$('#myModal').html('<div class="modal-dialog modal-xl"><div class="modal-content">'+header+'<div class="modal-body'+additionalModalBody+'">'+prependeBody+'<iframe src="'+params['url']+'" frameborder="0" style="width:100%" height="'+params['height']+'" /></div></div></div>').modal(mparams);
 
-                $('#myModal .modal-content').draggabilly({
+				var modalContent =  $('#myModal .modal-content');
+
+				var positions = revealM.getPositions();
+
+                modalContent.draggabilly({
                     handle: ".modal-header"
-                });
+                }).css({top: ((positions.height - modalContent.height()) / 2), left: ((positions.width - modalContent.width()) / 2) });
+
 
 				if (typeof params['showcallback'] !== 'undefined') {
 					$('#myModal').on('shown.bs.modal',params['showcallback']);
@@ -142,10 +160,21 @@ var revealM = {
 					$('#myModal').on('hide.bs.modal',params['hidecallback']);
 				}
 			}
+		},
 
+        getPositions() {
+		    return {
+		        width: (window.innerWidth
+                    || document.documentElement.clientWidth
+                    || document.body.clientWidth
+                    || 0),
+                height: (window.innerHeight
+                    || document.documentElement.clientHeight
+                    || document.body.clientHeight
+                    || 0)
+            }
+        }
 
-
-		}
 };
 
 module.exports = revealM;
