@@ -1,3 +1,5 @@
+
+
 var revealM = {
 		cancelcolorbox : function() {
 			$('#myModal').foundation('reveal', 'close');
@@ -29,6 +31,11 @@ var revealM = {
 
 			revealM.initializeModal('myModal');
 
+            var mparams = {'show':true};
+            if (typeof params['mparams']) {
+                Object.assign(mparams, params['mparams']);
+            }
+
 			if (typeof params['iframe'] === 'undefined') {
 
 				if (typeof params['loadmethod'] !== 'undefined' && params['loadmethod'] == 'post')
@@ -43,7 +50,12 @@ var revealM = {
 								$('#myModal').on('hide.bs.modal',params['hidecallback']);
 							}
 
-							$('#myModal').html(data).modal('show')
+							$('#myModal').html(data).modal('show');
+
+                            $('#myModal .modal-content').draggabilly({
+                                handle: ".modal-header"
+                            });
+
 						} else {
 							setTimeout(function(){
 								$('#myModal').modal('dispose');
@@ -56,7 +68,12 @@ var revealM = {
 									$('#myModal').on('hide.bs.modal',params['hidecallback']);
 								}
 
-								$('#myModal').html(data).modal('show')
+								$('#myModal').html(data).modal(mparams);
+
+                                $('#myModal .modal-content').draggabilly({
+                                    handle: ".modal-header"
+                                });
+
 							},500);
 						}
 					});
@@ -73,7 +90,12 @@ var revealM = {
 								$('#myModal').on('hide.bs.modal',params['hidecallback']);
 							}
 
-							$('#myModal').html(data).modal('show')
+							$('#myModal').html(data).modal(mparams);
+
+                            $('#myModal .modal-content').draggabilly({
+                                handle: ".modal-header"
+                            });
+
 						} else {
 							setTimeout(function(){
 								$('#myModal').modal('dispose');
@@ -86,7 +108,12 @@ var revealM = {
 									$('#myModal').on('hide.bs.modal',params['hidecallback']);
 								}
 
-								$('#myModal').html(data).modal('show')
+								$('#myModal').html(data).modal(mparams);
+
+                                $('#myModal .modal-content').draggabilly({
+                                    handle: ".modal-header"
+                                });
+
 							},500);
 						}
 					});
@@ -101,7 +128,11 @@ var revealM = {
 				}
 				var additionalModalBody = typeof params['modalbodyclass'] === 'undefined' ? '' : ' '+params['modalbodyclass'];
 
-				$('#myModal').html('<div class="modal-dialog modal-xl"><div class="modal-content">'+header+'<div class="modal-body'+additionalModalBody+'">'+prependeBody+'<iframe src="'+params['url']+'" frameborder="0" style="width:100%" height="'+params['height']+'" /></div></div></div>').modal('show')	;
+				$('#myModal').html('<div class="modal-dialog modal-xl"><div class="modal-content">'+header+'<div class="modal-body'+additionalModalBody+'">'+prependeBody+'<iframe src="'+params['url']+'" frameborder="0" style="width:100%" height="'+params['height']+'" /></div></div></div>').modal(mparams);
+
+                $('#myModal .modal-content').draggabilly({
+                    handle: ".modal-header"
+                });
 
 				if (typeof params['showcallback'] !== 'undefined') {
 					$('#myModal').on('shown.bs.modal',params['showcallback']);
@@ -110,8 +141,10 @@ var revealM = {
 				if (typeof params['hidecallback'] !== 'undefined') {
 					$('#myModal').on('hide.bs.modal',params['hidecallback']);
 				}
-
 			}
+
+
+
 		}
 };
 
