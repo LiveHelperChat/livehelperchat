@@ -31,7 +31,7 @@ var revealM = {
 
 			revealM.initializeModal('myModal');
 
-            var mparams = {'show':true, 'backdrop': false};
+            var mparams = {'show':true, 'focus': !($('#admin-body').length > 0), 'backdrop': !($('#admin-body').length > 0)};
 
 			if (typeof params['iframe'] === 'undefined') {
 
@@ -49,13 +49,7 @@ var revealM = {
 
 							$('#myModal').html(data).modal(mparams);
 
-                            var positions = revealM.getPositions();
-
-                            var modalContent =$('#myModal .modal-content');
-
-                            modalContent.draggabilly({
-                                handle: ".modal-header"
-                            }).css({top: ((positions.height - modalContent.height()) / 2), left: ((positions.width - modalContent.width()) / 2) });
+                            revealM.setCenteredDraggable();
 
 						} else {
 							setTimeout(function(){
@@ -71,13 +65,7 @@ var revealM = {
 
 								$('#myModal').html(data).modal(mparams);
 
-                                var positions = revealM.getPositions();
-
-                                var modalContent =$('#myModal .modal-content');
-
-                                modalContent.draggabilly({
-                                    handle: ".modal-header"
-                                }).css({top: ((positions.height - modalContent.height()) / 2), left: ((positions.width - modalContent.width()) / 2) });
+                                revealM.setCenteredDraggable();
 
 							},500);
 						}
@@ -97,13 +85,7 @@ var revealM = {
 
 							$('#myModal').html(data).modal(mparams);
 
-                            var positions = revealM.getPositions();
-
-                            var modalContent =$('#myModal .modal-content');
-
-                            modalContent.draggabilly({
-                                handle: ".modal-header"
-                            }).css({top: ((positions.height - modalContent.height()) / 2), left: ((positions.width - modalContent.width()) / 2) });
+                            revealM.setCenteredDraggable();
 
 						} else {
 							setTimeout(function(){
@@ -117,15 +99,10 @@ var revealM = {
 									$('#myModal').on('hide.bs.modal',params['hidecallback']);
 								}
 
+
 								$('#myModal').html(data).modal(mparams);
 
-								var modalContent =$('#myModal .modal-content');
-
-                                var positions = revealM.getPositions();
-
-                                modalContent.draggabilly({
-                                    handle: ".modal-header"
-                                }).css({top: ((positions.height - modalContent.height()) / 2), left: ((positions.width - modalContent.width()) / 2) });
+                                revealM.setCenteredDraggable();
 
 							},500);
 						}
@@ -141,16 +118,9 @@ var revealM = {
 				}
 				var additionalModalBody = typeof params['modalbodyclass'] === 'undefined' ? '' : ' '+params['modalbodyclass'];
 
-				$('#myModal').html('<div class="modal-dialog modal-xl"><div class="modal-content">'+header+'<div class="modal-body'+additionalModalBody+'">'+prependeBody+'<iframe src="'+params['url']+'" frameborder="0" style="width:100%" height="'+params['height']+'" /></div></div></div>').modal(mparams);
+				$('#myModal').html('<div class="modal-dialog modal-dialog-scrollable modal-xl"><div class="modal-content">'+header+'<div class="modal-body'+additionalModalBody+'">'+prependeBody+'<iframe src="'+params['url']+'" frameborder="0" style="width:100%" height="'+params['height']+'" /></div></div></div>').modal(mparams);
 
-				var modalContent =  $('#myModal .modal-content');
-
-				var positions = revealM.getPositions();
-
-                modalContent.draggabilly({
-                    handle: ".modal-header"
-                }).css({top: ((positions.height - modalContent.height()) / 2), left: ((positions.width - modalContent.width()) / 2) });
-
+                revealM.setCenteredDraggable();
 
 				if (typeof params['showcallback'] !== 'undefined') {
 					$('#myModal').on('shown.bs.modal',params['showcallback']);
@@ -162,7 +132,20 @@ var revealM = {
 			}
 		},
 
-        getPositions() {
+        setCenteredDraggable : function(){
+            if ($('#admin-body').length > 0) {
+                var modalContent = $('#myModal .modal-dialog');
+                var positions = revealM.getPositions();
+                modalContent.draggabilly({
+                    handle: ".modal-header"
+                }).css({
+                    top: ((positions.height - modalContent.height()) / 2),
+                    left: ((positions.width - modalContent.width()) / 2)
+                });
+            }
+        },
+
+        getPositions : function() {
 		    return {
 		        width: (window.innerWidth
                     || document.documentElement.clientWidth
