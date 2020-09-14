@@ -2,6 +2,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Son gösteriminden kaç gün sonra oy kullanma kutucuğu açılmamalı?</translation>
     </message>
@@ -667,7 +675,7 @@
     </message>
     <message>
       <source>Other Operator messages style</source>
-      <translation type="unfinished"/>
+      <translation>Diğer operatör mesajları stili</translation>
     </message>
     <message>
       <source>System assistant messages style</source>
@@ -871,7 +879,7 @@
     </message>
     <message>
       <source>If variable is not passed should we keep previously recorded value?</source>
-      <translation type="unfinished"/>
+      <translation>Eğer değişken geçemezse bir önceki kaydedilmiş değeri saklayalım mı? </translation>
     </message>
     <message>
       <source>Invitation message width</source>
@@ -947,11 +955,11 @@
     </message>
     <message>
       <source>Position from right</source>
-      <translation type="unfinished"/>
+      <translation>Sağdan konum</translation>
     </message>
     <message>
       <source>Position from bottom</source>
-      <translation type="unfinished"/>
+      <translation>Aşağıdan konum</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
@@ -963,7 +971,7 @@
     </message>
     <message>
       <source>Use modern look. It is used only in older widget.</source>
-      <translation type="unfinished"/>
+      <translation>Modern görünümü kullan. Sadece daha eski araçta kullanılır.</translation>
     </message>
     <message>
       <source>Use a new widget look for old embed code. If you can not change easily old embed codes you can force system to load new widget still.</source>
@@ -983,7 +991,7 @@
     </message>
     <message>
       <source>Offline status text [old widget]</source>
-      <translation type="unfinished"/>
+      <translation>Çevrimdışı durum metni [old widget]</translation>
     </message>
     <message>
       <source>Operator intro text</source>
@@ -1003,7 +1011,7 @@
     </message>
     <message>
       <source>Text/Icon color</source>
-      <translation type="unfinished"/>
+      <translation>Metin/Simge rengi</translation>
     </message>
     <message>
       <source>Operator image in chat widget</source>
@@ -1059,7 +1067,7 @@
     </message>
     <message>
       <source>Header HTML. Here you can paste custom head HTML.</source>
-      <translation type="unfinished"/>
+      <translation>Üst bölüm HTML&apos;si. Burada kendi üst HTML&apos;nizi yapıştırabilirsiniz.</translation>
     </message>
     <message>
       <source>Custom html before start chat form fields, widget</source>
@@ -6725,15 +6733,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Mobile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Notifications</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Subscribers list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9760,6 +9776,10 @@
     </message>
     <message>
       <source>Sub URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum execution time</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13166,6 +13186,79 @@
     </message>
     <message>
       <source>Deny screen share</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>module/fbmessenger</name>
+    <message>
+      <source>Edit session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Token</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last error</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Device type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created on</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated on</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>mobile/settings</name>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mobile</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>mobile/sessions</name>
+    <message>
+      <source>Sessions</source>
       <translation type="unfinished"/>
     </message>
   </context>

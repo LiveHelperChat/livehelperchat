@@ -2,6 +2,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Po kolik dní by se neměl hlasovací widget zvětšovat od posledního zobrazení</translation>
     </message>
@@ -6723,16 +6731,24 @@
       <translation>Údržba</translation>
     </message>
     <message>
+      <source>Mobile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation>Nastavení</translation>
+    </message>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Notifications</source>
       <translation>Upozornění</translation>
     </message>
     <message>
       <source>Subscribers list</source>
       <translation>Seznam odběratelů</translation>
-    </message>
-    <message>
-      <source>Settings</source>
-      <translation>Nastavení</translation>
     </message>
     <message>
       <source>Offline settings</source>
@@ -9759,6 +9775,10 @@
     <message>
       <source>Sub URL</source>
       <translation>Sub URL</translation>
+    </message>
+    <message>
+      <source>Maximum execution time</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Params</source>
@@ -13165,6 +13185,79 @@
     <message>
       <source>Deny screen share</source>
       <translation>Zakázat sdílení obrazovky</translation>
+    </message>
+  </context>
+  <context>
+    <name>module/fbmessenger</name>
+    <message>
+      <source>Edit session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Token</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last error</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Device type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created on</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated on</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>mobile/settings</name>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mobile</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>mobile/sessions</name>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
