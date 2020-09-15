@@ -8,13 +8,40 @@ $data = (array)$gaOptions->data;
 if ( isset($_POST['StoreOptions']) ) {
 
     $definition = array(
-        'fcm_key' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-        ),
         'ga' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'ga_js' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )
     );
+
+    $optionsEvents = array(
+        'showWidget',
+        'closeWidget',
+        'openPopup',
+        'endChat',
+        'chatStarted',
+        'offlineMessage',
+        'showInvitation',
+        'hideInvitation',
+        'nhClicked',
+        'nhClosed',
+        'botbutton',
+        'bottrigger',
+    );
+
+    foreach ($optionsEvents as $event){
+        $definition[$event . '_category'] = new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        );
+        $definition[$event . '_action'] = new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        );
+        $definition[$event . '_label'] = new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        );
+    }
 
     $form = new ezcInputForm( INPUT_POST, $definition );
     $Errors = array();
@@ -24,11 +51,26 @@ if ( isset($_POST['StoreOptions']) ) {
     } else {
         $data['ga_enabled'] = 0;
     }
-
-    if ( $form->hasValidData( 'fcm_key' )) {
-        $data['fcm_key'] = $form->fcm_key ;
+    
+    if ( $form->hasValidData( 'ga_js' )) {
+        $data['ga_js'] = $form->ga_js;
     } else {
-        $data['fcm_key'] = '';
+        $data['ga_js'] = '';
+    }
+
+    foreach ($optionsEvents as $event) {
+
+        if ($form->hasValidData( $event . '_category' )) {
+            $data[$event . '_category'] = $form->{$event . '_category'};
+        }
+
+        if ($form->hasValidData( $event . '_action' )) {
+            $data[$event . '_action'] = $form->{$event . '_action'};
+        }
+
+        if ($form->hasValidData( $event . '_label' )) {
+            $data[$event . '_label'] = $form->{$event . '_label'};
+        }
     }
 
     $gaOptions->explain = '';
@@ -54,7 +96,7 @@ $Result['path'] = array(
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('mobile/settings', 'Settings')
     ),
     array(
-        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('mobile/settings', 'Mobile')
+        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('mobile/settings', 'Analytics')
     )
 );
 

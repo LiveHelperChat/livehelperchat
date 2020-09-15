@@ -266,6 +266,15 @@
                             }, attributesWidget);
                         });
                     }
+
+                    if (data.ga) {
+                        import('./util/analyticEvents').then((module) => {
+                            module.analyticEvents.setParams({
+                                'ga' : data.ga
+                            }, attributesWidget);
+                        });
+                    }
+
                 }
 
                 if (attributesWidget.mode == 'widget' && data.nh && attributesWidget.fresh === false && attributesWidget['position'] != 'api' && attributesWidget.userSession.id === null) {

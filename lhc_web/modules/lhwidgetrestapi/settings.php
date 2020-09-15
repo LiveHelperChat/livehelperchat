@@ -303,6 +303,36 @@ if (is_array($department) && !empty($department)) {
     $outputResponse['department'] = $department;
 }
 
+$gaOptions = erLhcoreClassModelChatConfig::fetch('ga_options')->data_value;
+
+if (isset($gaOptions['ga_enabled']) && $gaOptions['ga_enabled'] == true) {
+    $optionEvents = array(
+        'showWidget',
+        'closeWidget',
+        'openPopup',
+        'endChat',
+        'chatStarted',
+        'offlineMessage',
+        'showInvitation',
+        'hideInvitation',
+        'nhClicked',
+        'nhClosed',
+        'botbutton',
+        'bottrigger',
+    );
+
+    foreach ($optionEvents as $optionEvent) {
+        $outputResponse['ga']['events'][] = array(
+            'ev' => $optionEvent,
+            'ec' => $gaOptions[$optionEvent .'_category'],
+            'ea' => $gaOptions[$optionEvent .'_action'],
+            'el' => $gaOptions[$optionEvent .'_label'],
+        );
+    }
+    $outputResponse['ga']['js'] = $gaOptions['ga_js'];
+}
+
+
 $outputResponse['static'] = array(
     'screenshot' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('js/html2canvas.min.js'). '?v=' . $outputResponse['v'],
     'app' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . ((isset($_GET['ie']) && $_GET['ie'] == 'true') ? erLhcoreClassDesign::design('js/widgetv2/react.app.ie.js') . '?v=' . $outputResponse['v'] : erLhcoreClassDesign::design('js/widgetv2/react.app.js') . '?v=' . $outputResponse['v']),
