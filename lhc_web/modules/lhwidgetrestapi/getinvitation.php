@@ -33,7 +33,7 @@ $outputResponse = array('status' => true);
 
 if (($user = $onlineUser->operator_user) !== false) {
 
-    $outputResponse['name_support'] = $user->name_support;
+    $outputResponse['invitation_name'] = $outputResponse['name_support'] = $user->name_support;
     $outputResponse['extra_profile'] = $user->job_title != '' ? htmlspecialchars($user->job_title) : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Personal assistant');
 
     if (isset($onlineUser->online_attr_system_array['lhc_full_widget'])) {
@@ -150,6 +150,8 @@ if ($outputResponse['invitation_id'] > 0) {
         if (isset($invitation->design_data_array['std_header']) && $invitation->design_data_array['std_header'] == true) {
             $outputResponse['std_header'] = true;
         }
+
+        $outputResponse['invitation_name'] = $invitation->name;
     }
 }
 
@@ -161,7 +163,9 @@ if (strpos($outputResponse['message'],'{operator}') !== false) {
     $onlineUser->updateThis(['update' => ['operator_message']]);
 }
 
-
+if (!isset($outputResponse['invitation_name'])) {
+    $outputResponse['invitation_name'] = 'Manual';
+}
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.getinvitation',array('output' => & $outputResponse, 'ou' => $onlineUser));
 

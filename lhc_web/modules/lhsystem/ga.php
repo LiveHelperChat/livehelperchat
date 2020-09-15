@@ -27,6 +27,11 @@ if ( isset($_POST['StoreOptions']) ) {
         'hideInvitation',
         'nhClicked',
         'nhClosed',
+        'nhShow',
+        'nhHide',
+        'cancelInvitation',
+        'fullInvitation',
+        'readInvitation',
         'botbutton',
         'bottrigger',
     );

@@ -13,11 +13,34 @@ class _analyticEvents {
     }
 
     initMonitoring() {
-        console.log(this.params);
         this.params['ga']['events'].forEach((item) => {
             this.attributes.eventEmitter.addListener(item.ev, (params) => {
-                 console.log('from listener ' + item.ev);
-                 console.log('from listener ' + this.params['ga']['js']);
+
+                if (item.ev == 'hideInvitation' && typeof params !== 'undefined' && params.full) {
+                    return ;
+                }
+
+                var label = item.el;
+
+                // Set invitation name
+                if ((item.ev == 'showInvitation' || item.ev == 'readInvitation' || item.ev == 'fullInvitation' || item.ev == 'cancelInvitation') && typeof params !== 'undefined' && params.name) {
+                    label = label || params.name;
+                }
+
+                 var js = this.params['ga']['js'].replace(
+                     '{{eventCategory}}',JSON.stringify(item.ec)
+                 ).replace(
+                     '{{eventAction}}',JSON.stringify(item.ea)
+                 ).replace(
+                     '{{eventLabel}}',JSON.stringify(label)
+                 );
+
+                 try {
+                     eval(js);
+                 } catch (err) {
+                    console.log(err);
+                 }
+
             });
         });
     }

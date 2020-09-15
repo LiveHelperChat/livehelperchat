@@ -317,6 +317,11 @@ if (isset($gaOptions['ga_enabled']) && $gaOptions['ga_enabled'] == true) {
         'hideInvitation',
         'nhClicked',
         'nhClosed',
+        'nhShow',
+        'nhHide',
+        'fullInvitation',
+        'cancelInvitation',
+        'readInvitation',
         'botbutton',
         'bottrigger',
     );

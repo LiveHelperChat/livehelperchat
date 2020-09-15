@@ -20,7 +20,8 @@ export function hideInvitation() {
     return function(dispatch, getState) {
         const state = getState();
         helperFunctions.sendMessageParent('closeWidget', [{'sender' : 'closeButton'}]);
-        helperFunctions.sendMessageParent('cancelInvitation', [{'sender' : 'closeButton'}]);
+        helperFunctions.sendMessageParent('cancelInvitation', [{'name' :  state.chatwidget.getIn(['proactive','data','invitation_name'])}]);
+
         axios.get(window.lhcChat['base_url'] + "chat/chatwidgetclosed/(vid)/" + state.chatwidget.get('vid')).then((response) => {
             dispatch({type: "HIDE_INVITATION"});
         })

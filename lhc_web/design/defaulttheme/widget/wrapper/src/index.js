@@ -529,6 +529,9 @@
                 attributesWidget.mainWidget.hideInvitation();
                 if (data.full) {
                     attributesWidget.eventEmitter.emitEvent('showWidget', [{'sender' : 'closeButton'}]);
+                    attributesWidget.eventEmitter.emitEvent('fullInvitation', [data]);
+                } else {
+                    attributesWidget.eventEmitter.emitEvent('cancelInvitation', []);
                 }
             });
 
