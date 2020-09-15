@@ -1,4 +1,4 @@
-<h1 class="attr-header">Google Analytics</h1>
+<h1 class="attr-header">Analytics</h1>
 
 <form action="" method="post">
 
@@ -12,20 +12,18 @@
         <label><input type="checkbox" value="on" name="ga" <?php isset($ga_options['ga_enabled']) && ($ga_options['ga_enabled'] == true) ? print 'checked="checked"' : ''?> /> Enable Google Analytics</label><br/>
     </div>
 
-
     <p>
         In order for Google Analytics to work properly your site already should have GA embedded and `ga` function should be available. References
-    <ul>
-        <li><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/events">https://developers.google.com/analytics/devguides/collection/analyticsjs/events</a> </li>
-        <li><a href="https://support.google.com/analytics/answer/1033068#Anatomy">https://support.google.com/analytics/answer/1033068#Anatomy</a></li>
-    </ul>
+        <ul>
+            <li><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/events">https://developers.google.com/analytics/devguides/collection/analyticsjs/events</a> </li>
+            <li><a href="https://support.google.com/analytics/answer/1033068#Anatomy">https://support.google.com/analytics/answer/1033068#Anatomy</a></li>
+        </ul>
     </p>
 
     <div class="form-group">
-        <label>Javascript to execute on event. This is Google Analytics version.</label>
+        <label>Javascript to execute on event. This is Google Analytics version of the script. You can write custom one of you want.</label>
         <textarea rows="5" ng-non-bindable name="ga_js" class="form-control form-control-sm"><?php isset($ga_options['ga_js']) ? print htmlspecialchars($ga_options['ga_js']) : print "ga('send', 'event', { 'eventCategory': {{eventCategory}},'eventAction': {{eventAction}},'eventLabel': {{eventLabel}} })"?></textarea>
     </div>
-
 
     <ul class="nav nav-tabs mb-3" role="tablist">
         <li role="presentation" class="nav-item"><a href="#widget" class="nav-link<?php if ($tab == '') : ?> active<?php endif;?>" aria-controls="widget" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Widget');?></a></li>
@@ -38,7 +36,7 @@
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane <?php if ($tab == '') : ?>active<?php endif;?>" id="widget">
 
-            <h6>Widget was shown</h6>
+            <label title="Track this event [showWidget]" class="font-weight-bold"><input type="checkbox" value="on" name="showWidget_on"> Widget was shown</label>
 
             <div class="row">
                 <div class="col-4">
@@ -61,7 +59,7 @@
                 </div>
             </div>
 
-            <h6>Widget was closed/minimized</h6>
+            <label title="Track this event [closeWidget]" class="font-weight-bold"><input type="checkbox" value="on" name="closeWidget_on"> Widget was closed/minimized</label>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
@@ -83,7 +81,7 @@
                 </div>
             </div>
 
-            <h6>Popup opened</h6>
+            <label title="Track this event [openPopup]" class="font-weight-bold"><input type="checkbox" value="on" name="openPopup_on"> Popup opened</label>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
@@ -109,7 +107,7 @@
         </div>
         <div role="tabpanel" class="tab-pane <?php if ($tab == 'chat') : ?>active<?php endif;?>" id="chat">
 
-            <h6>Chat ended</h6>
+            <label title="Track this event [endChat]" class="font-weight-bold"><input type="checkbox" value="on" name="endChat_on"> Chat ended</label>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
@@ -131,7 +129,7 @@
                 </div>
             </div>
 
-            <h6>Chat started</h6>
+            <label title="Track this event [chatStarted]" class="font-weight-bold"><input type="checkbox" value="on" name="chatStarted_on"> Chat started</label>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
@@ -153,7 +151,7 @@
                 </div>
             </div>
 
-            <h6>Offline message</h6>
+            <label title="Track this event [offlineMessage]" class="font-weight-bold"><input type="checkbox" value="on" name="offlineMessage_on">Offline message</label>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
@@ -178,7 +176,7 @@
         </div>
         <div role="tabpanel" class="tab-pane <?php if ($tab == 'invitation') : ?>active<?php endif;?>" id="invitation">
 
-            <h6>Invitation shown</h6>
+            <label title="Track this event [showInvitation]" class="font-weight-bold"><input type="checkbox" value="on" name="showInvitation_on">Invitation shown</label>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
@@ -201,7 +199,7 @@
                 </div>
             </div>
 
-            <h6>Invitation hide</h6>
+            <label title="Track this event [hideInvitation]" class="font-weight-bold"><input type="checkbox" value="on" name="hideInvitation_on">Invitation hide</label>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
@@ -224,7 +222,7 @@
                 </div>
             </div>
 
-            <h6>Invitation cancel</h6>
+            <label title="Track this event [cancelInvitation]" class="font-weight-bold"><input type="checkbox" value="on" name="cancelInvitation_on">Invitation cancel</label>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
@@ -247,7 +245,7 @@
                 </div>
             </div>
 
-            <h6>Invitation clicked. Visitor clicked invitation tooltip. It's not triggered if it just clicks status icon.</h6>
+            <label title="Track this event [fullInvitation]" class="font-weight-bold"><input type="checkbox" value="on" name="fullInvitation_on">Invitation clicked. Visitor clicked invitation tooltip. It's not triggered if it just clicks status icon while invitation tooltip is shown.</label>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
@@ -270,7 +268,7 @@
                 </div>
             </div>
 
-            <h6>Invitation was read. Means visitor opened widget with an invitation either by clicking invitation tooltip or status icon. </h6>
+            <label title="Track this event [readInvitation]" class="font-weight-bold"><input type="checkbox" value="on" name="readInvitation_on">Invitation was read. Means visitor opened widget with an invitation either by clicking invitation tooltip or status icon.</label>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
@@ -294,14 +292,11 @@
             </div>
 
 
-
-
-
         </div>
 
         <div role="tabpanel" class="tab-pane <?php if ($tab == 'needhelp') : ?>active<?php endif;?>" id="needhelp">
 
-            <h6>Need help show</h6>
+            <label title="Track this event [nhShow]" class="font-weight-bold"><input type="checkbox" value="on" name="nhShow_on">Need help show</label>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
@@ -323,7 +318,9 @@
                 </div>
             </div>
 
-            <h6>Need help hide</h6>
+            nhClicked
+            // Continue here
+            <label title="Track this event [nhHide]" class="font-weight-bold"><input type="checkbox" value="on" name="nhHide_on">Need help hide</label>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
@@ -345,8 +342,7 @@
                 </div>
             </div>
 
-
-            <h6>Need help clicked</h6>
+            <label title="Track this event [nhClicked]" class="font-weight-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['nhClicked_on']) && $ga_options['nhClicked_on'] == 1) : ?>checked="checked"<?php endif;?> name="nhClicked_on">Need help clicked</label>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
@@ -368,7 +364,7 @@
                 </div>
             </div>
 
-            <h6>Need help closed</h6>
+            <label title="Track this event [nhClosed]" class="font-weight-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['nhClosed_on']) && $ga_options['nhClosed_on'] == 1) : ?>checked="checked"<?php endif;?> name="nhClosed_on">Need help closed</label>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
@@ -392,7 +388,7 @@
         </div>
 
         <div role="tabpanel" class="tab-pane <?php if ($tab == 'bot') : ?>active<?php endif;?>" id="bot">
-            <h6>Trigger execute</h6>
+            <label title="Track this event [botTrigger]" class="font-weight-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['botTrigger_on']) && $ga_options['botTrigger_on'] == 1) : ?>checked="checked"<?php endif;?> name="botTrigger_on">Trigger execute</label>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
@@ -415,8 +411,6 @@
             </div>
         </div>
     </div>
-
-
 
     <input type="submit" class="btn btn-secondary" name="StoreOptions" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 

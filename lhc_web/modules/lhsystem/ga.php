@@ -45,6 +45,9 @@ if ( isset($_POST['StoreOptions']) ) {
         $definition[$event . '_label'] = new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         );
+        $definition[$event . '_on'] = new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        );
     }
 
     $form = new ezcInputForm( INPUT_POST, $definition );
@@ -74,6 +77,12 @@ if ( isset($_POST['StoreOptions']) ) {
 
         if ($form->hasValidData( $event . '_label' )) {
             $data[$event . '_label'] = $form->{$event . '_label'};
+        }
+
+        if ($form->hasValidData( $event . '_on' ) && $form->hasValidData( $event . '_on' ) == true) {
+            $data[$event . '_on'] = 1;
+        } else {
+            $data[$event . '_on'] = 0;
         }
     }
 
