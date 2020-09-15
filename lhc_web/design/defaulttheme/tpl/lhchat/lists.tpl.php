@@ -55,7 +55,7 @@
 
                                 <?php if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST) : ?><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Offline request')?>" class="material-icons">mail</i><?php endif?>
 
-                                <a ng-click="lhc.startChat('<?php echo $chat->id?>','<?php echo htmlspecialchars($chat->nick,ENT_QUOTES)?>')"><?php echo htmlspecialchars($chat->nick);?>, <small><i><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time);?></i></small>, <?php echo htmlspecialchars($chat->department),($chat->product !== false ? ' | '.htmlspecialchars((string)$chat->product) : '');?></a>
+                                <a ng-click='lhc.startChat("<?php echo $chat->id?>",<?php echo json_encode((string)$chat->nick,JSON_HEX_APOS)?>)'><?php echo htmlspecialchars($chat->nick);?>, <small><i><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time);?></i></small>, <?php echo htmlspecialchars($chat->department),($chat->product !== false ? ' | '.htmlspecialchars((string)$chat->product) : '');?></a>
 
 
                     	      <?php if ($chat->has_unread_messages == 1) : ?>

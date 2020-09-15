@@ -12,6 +12,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -220,6 +228,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Do not store what visitor is typing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
       <translation type="unfinished"/>
     </message>
@@ -416,6 +428,14 @@
     </message>
     <message>
       <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Block this IP</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2664,6 +2684,18 @@
       <source>Surname</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Account status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Deactivated</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/subject</name>
@@ -3331,6 +3363,10 @@
     </message>
     <message>
       <source>Select campaign</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sending...</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4044,7 +4080,19 @@
   <context>
     <name>chat/blockedusers</name>
     <message>
+      <source>Users who are blocked</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4052,7 +4100,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Users who are blocked</source>
+      <source>User who blocked</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7809,6 +7857,10 @@
     </message>
     <message>
       <source>Chat attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Debug</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13259,6 +13311,13 @@
     <name>mobile/sessions</name>
     <message>
       <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/usertyping</name>
+    <message>
+      <source>is typing...</source>
       <translation type="unfinished"/>
     </message>
   </context>

@@ -1638,3 +1638,35 @@ a:not([href]):not([class]),
 a:not([href]){
     color: #1d548e;
 }
+
+#admin-body #myModal {
+   position: relative;
+}
+
+#admin-body .modal-dialog {
+    position: fixed;
+    width: 100%;
+    max-height: 100%;
+    margin: 0;
+}
+
+#admin-body .modal-content{
+    box-shadow: 0px 0px 14px -6px rgba(0,0,0,0.75);
+}
+
+#admin-body.modal-open{
+    overflow:auto;
+}
+
+#admin-body .modal-header{
+    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+#admin-body .modal-header:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}

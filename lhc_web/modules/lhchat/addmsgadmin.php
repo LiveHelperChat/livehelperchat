@@ -14,9 +14,8 @@ if (trim($form->msg) != '')
 	$db->beginTransaction();	
 	try {
 		$Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
-						
-	    // Has access to read, chat
-	    //FIXME create permission to add message...
+
+
 	    if ($Chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRead($Chat) )
 	    {
 	        $currentUser = erLhcoreClassUser::instance();

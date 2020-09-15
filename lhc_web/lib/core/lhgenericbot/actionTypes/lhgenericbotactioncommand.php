@@ -210,6 +210,8 @@ class erLhcoreClassGenericBotActionCommand {
                 $eventArgs = array('old' => $chat->{$action['content']['payload']}, 'attr' => $action['content']['payload'], 'new' => $action['content']['payload_arg']);
                 $chat->{$action['content']['payload']} = $action['content']['payload_arg'];
 
+                $updateDepartmentStats = false;
+
                 if ($eventArgs['attr'] == 'dep_id' && $eventArgs['old'] != $action['content']['payload_arg']) {
                     erLhAbstractModelAutoResponder::updateAutoResponder($chat);
 
@@ -229,6 +231,9 @@ class erLhcoreClassGenericBotActionCommand {
                         if ($department->priority > $chat->priority) {
                             $chat->priority = $department->priority;
                         }
+
+                        $updateDepartmentStats = true;
+
                     }
                 }
 
@@ -241,6 +246,42 @@ class erLhcoreClassGenericBotActionCommand {
                 }
 
                 $chat->saveThis();
+
+                if ($updateDepartmentStats == true) {
+                    erLhcoreClassChat::updateDepartmentStats($department);
+                }
+
+        } elseif ($action['content']['command'] == 'setdepartment') {
+
+            // Department was changed
+            if ($chat->dep_id != $action['content']['payload']) {
+
+                $department = erLhcoreClassModelDepartament::fetch($action['content']['payload']);
+
+                if ($department instanceof erLhcoreClassModelDepartament) {
+                    $chat->dep_id = $department->id;
+
+                    erLhAbstractModelAutoResponder::updateAutoResponder($chat);
+
+                    if ($department->department_transfer_id > 0) {
+                        $chat->transfer_if_na = 1;
+                        $chat->transfer_timeout_ts = time();
+                        $chat->transfer_timeout_ac = $department->transfer_timeout;
+                    }
+
+                    if ($department->inform_unread == 1) {
+                        $chat->reinform_timeout = $department->inform_unread_delay;
+                    }
+
+                    if ($department->priority > $chat->priority) {
+                        $chat->priority = $department->priority;
+                    }
+
+                    $chat->saveThis();
+
+                    erLhcoreClassChat::updateDepartmentStats($department);
+                }
+            }
 
         } elseif ($action['content']['command'] == 'dispatchevent') {
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_chat_command_dispatch_event', array(
