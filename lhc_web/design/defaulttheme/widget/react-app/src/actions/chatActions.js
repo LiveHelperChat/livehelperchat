@@ -456,6 +456,9 @@ export function addMessage(obj) {
             .then((response) => {
                 dispatch({type: "ADD_MESSAGES_SUBMITTED", data: response.data});
                 fetchMessages({'theme' : obj.theme, 'chat_id' : obj.id, 'lmgsid' : obj.lmgsid, 'hash' : obj.hash})(dispatch, getState);
+                if (response.data.t) {
+                    helperFunctions.sendMessageParent('botTrigger',[{'trigger' : response.data.t}]);
+                }
             })
             .catch((err) => {
                 dispatch({type: "ADD_MESSAGES_REJECTED", data: err})

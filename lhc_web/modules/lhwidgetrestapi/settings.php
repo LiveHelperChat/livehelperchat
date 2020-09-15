@@ -322,8 +322,7 @@ if (isset($gaOptions['ga_enabled']) && $gaOptions['ga_enabled'] == true) {
         'fullInvitation',
         'cancelInvitation',
         'readInvitation',
-        'botbutton',
-        'bottrigger',
+        'botTrigger',
     );
 
     foreach ($optionEvents as $optionEvent) {

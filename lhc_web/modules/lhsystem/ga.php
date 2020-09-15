@@ -32,8 +32,7 @@ if ( isset($_POST['StoreOptions']) ) {
         'cancelInvitation',
         'fullInvitation',
         'readInvitation',
-        'botbutton',
-        'bottrigger',
+        'botTrigger',
     );
 
     foreach ($optionsEvents as $event){

@@ -25,6 +25,26 @@ class _analyticEvents {
                 // Set invitation name
                 if ((item.ev == 'showInvitation' || item.ev == 'readInvitation' || item.ev == 'fullInvitation' || item.ev == 'cancelInvitation') && typeof params !== 'undefined' && params.name) {
                     label = label || params.name;
+                } else if (item.ev == 'botTrigger') {
+                    if (typeof params !== 'undefined' && params.trigger && params.trigger.length > 0) {
+                        params.trigger.forEach((triggerLabel) => {
+                            var js = this.params['ga']['js'].replace(
+                                '{{eventCategory}}',JSON.stringify(item.ec)
+                            ).replace(
+                                '{{eventAction}}',JSON.stringify(item.ea)
+                            ).replace(
+                                '{{eventLabel}}',JSON.stringify(triggerLabel)
+                            );
+                            try {
+                                eval(js);
+                            } catch (err) {
+                                console.log(err);
+                            }
+                        });
+                        return ;
+                    } else {
+                        return;
+                    }
                 }
 
                  var js = this.params['ga']['js'].replace(
@@ -44,6 +64,8 @@ class _analyticEvents {
             });
         });
     }
+
+
 }
 
 const analyticEvents = new _analyticEvents();

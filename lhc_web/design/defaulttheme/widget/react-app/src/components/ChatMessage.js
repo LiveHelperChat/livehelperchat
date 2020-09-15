@@ -92,10 +92,15 @@ class ChatMessage extends PureComponent {
     }
 
     updateTriggerClicked(paramsType, attrs, target) {
-        this.props.dispatch(updateTriggerClicked(paramsType, {payload: attrs['data-payload'], id : attrs['data-id'], processed : (typeof attrs['data-keep'] === 'undefined')})).then(() => {
+        this.props.dispatch(updateTriggerClicked(paramsType, {payload: attrs['data-payload'], id : attrs['data-id'], processed : (typeof attrs['data-keep'] === 'undefined')})).then((data) => {
             if (!attrs['data-keep']) {
                 this.removeMetaMessage(attrs['data-id']);
             }
+
+            if (data.data.t) {
+                helperFunctions.sendMessageParent('botTrigger', [{'trigger' : data.data.t}]);
+            }
+
             this.props.updateMessages();
             this.props.updateStatus();
         });

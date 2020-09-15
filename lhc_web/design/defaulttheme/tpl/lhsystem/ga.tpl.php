@@ -392,40 +392,18 @@
         </div>
 
         <div role="tabpanel" class="tab-pane <?php if ($tab == 'bot') : ?>active<?php endif;?>" id="bot">
-            <h6>Bot button click</h6>
-            <div class="row">
-                <div class="col-4">
-                    <div class="form-group">
-                        <label>Category [eventCategory]*</label>
-                        <input type="text" class="form-control form-control-sm" name="botbutton_category" value="<?php isset($ga_options['botbutton_category']) ? htmlspecialchars(print $ga_options['botbutton_category']) : print 'Button'?>" />
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-group">
-                        <label>Event action [eventAction]*</label>
-                        <input type="text" class="form-control form-control-sm" name="botbutton_action" value="<?php isset($ga_options['botbutton_action']) ? print htmlspecialchars($ga_options['botbutton_action']) : print 'Click'?>" />
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-group">
-                        <label>Event label [eventLabel]</label>
-                        <p>We will set eventLabel to button name</p>
-                    </div>
-                </div>
-            </div>
-
             <h6>Trigger execute</h6>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
                         <label>Category [eventCategory]*</label>
-                        <input type="text" class="form-control form-control-sm" name="bottrigger_category" value="<?php isset($ga_options['bottrigger_category']) ? print htmlspecialchars($ga_options['bottrigger_category']) : print 'Bot'?>" />
+                        <input type="text" class="form-control form-control-sm" name="botTrigger_category" value="<?php isset($ga_options['botTrigger_category']) ? print htmlspecialchars($ga_options['botTrigger_category']) : print 'Bot'?>" />
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="form-group">
                         <label>Event action [eventAction]*</label>
-                        <input type="text" class="form-control form-control-sm" name="bottrigger_action" value="<?php isset($ga_options['bottrigger_action']) ? print htmlspecialchars($ga_options['bottrigger_action']) : print 'Trigger'?>" />
+                        <input type="text" class="form-control form-control-sm" name="botTrigger_action" value="<?php isset($ga_options['botTrigger_action']) ? print htmlspecialchars($ga_options['botTrigger_action']) : print 'Trigger'?>" />
                     </div>
                 </div>
                 <div class="col-4">
