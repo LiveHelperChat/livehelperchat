@@ -57,6 +57,7 @@ class NodeTriggerActionCommand extends Component {
                                 <option value="chatattribute">Set chat additional attribute [visible by operator]</option>
                                 <option value="dispatchevent">Dispatch Event</option>
                                 <option value="setchatattribute">Update main chat attribute</option>
+                                <option value="setdepartment">Change department</option>
                             </select>
                         </div>
                     </div>
@@ -113,6 +114,14 @@ class NodeTriggerActionCommand extends Component {
                     <div className="form-group">
                         <label>Chat attribute value.</label>
                         <textarea className="form-control form-control-sm" type="text" placeholder="" onChange={(e) => this.onchangeAttr({'path':['payload_arg'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg'])} ></textarea>
+                    </div>
+                </div>}
+
+                {this.props.action.getIn(['content','command']) == 'setdepartment' &&
+                <div>
+                    <div className="form-group">
+                        <label>Enter department ID</label>
+                        <input className="form-control form-control-sm" type="text" placeholder="Department ID" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
                     </div>
                 </div>}
 
