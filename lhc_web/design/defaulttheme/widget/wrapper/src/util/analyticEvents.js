@@ -53,6 +53,8 @@ class _analyticEvents {
                      '{{eventAction}}',JSON.stringify(item.ea)
                  ).replace(
                      '{{eventLabel}}',JSON.stringify(label)
+                 ).replace(
+                     '{{eventInternal}}',JSON.stringify(item.ev)
                  );
 
                  try {

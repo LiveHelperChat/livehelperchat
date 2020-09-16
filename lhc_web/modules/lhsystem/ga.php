@@ -13,9 +13,10 @@ if ( isset($_POST['StoreOptions']) ) {
         ),
         'ga_js' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-        )
+        ),
+        'ga_dep' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1),FILTER_REQUIRE_ARRAY)
     );
-
+    
     $optionsEvents = array(
         'showWidget',
         'closeWidget',
@@ -32,6 +33,7 @@ if ( isset($_POST['StoreOptions']) ) {
         'cancelInvitation',
         'fullInvitation',
         'readInvitation',
+        'clickAction',
         'botTrigger',
     );
 
@@ -63,6 +65,12 @@ if ( isset($_POST['StoreOptions']) ) {
         $data['ga_js'] = $form->ga_js;
     } else {
         $data['ga_js'] = '';
+    }
+
+    if ( $form->hasValidData( 'ga_dep' )) {
+        $data['ga_dep'] = $form->ga_dep;
+    } else {
+        $data['ga_dep'] = [];
     }
 
     foreach ($optionsEvents as $event) {
@@ -100,16 +108,17 @@ if ( isset($_POST['StoreOptions']) ) {
 }
 
 $tpl->set('ga_options',$data);
+$tpl->set('tab','');
 
 $Result['content'] = $tpl->fetch();
 
 $Result['path'] = array(
     array(
         'url' => erLhcoreClassDesign::baseurl('system/configuration'),
-        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('mobile/settings', 'Settings')
+        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/settings', 'Settings')
     ),
     array(
-        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('mobile/settings', 'Analytics')
+        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Events Tracking')
     )
 );
 
