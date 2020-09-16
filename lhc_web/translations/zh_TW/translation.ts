@@ -10,6 +10,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>在投票Widget顯示後，有多少天不會再次啟用</translation>
     </message>
@@ -218,6 +226,10 @@
       <translation>使用部門在線時間，並忽略使用者在線狀態</translation>
     </message>
     <message>
+      <source>Do not store what visitor is typing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
       <translation>哪一個 ip 應該忽略在在線訪客列表中，用逗號分隔</translation>
     </message>
@@ -415,6 +427,14 @@
     <message>
       <source>New</source>
       <translation>New</translation>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Block this IP</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Updated</source>
@@ -2662,6 +2682,18 @@
       <source>Surname</source>
       <translation>姓氏</translation>
     </message>
+    <message>
+      <source>Account status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Deactivated</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/subject</name>
@@ -3330,6 +3362,10 @@
     <message>
       <source>Select campaign</source>
       <translation>選擇活動</translation>
+    </message>
+    <message>
+      <source>Sending...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Are you sure you want to delete this chat?</source>
@@ -4042,16 +4078,28 @@
   <context>
     <name>chat/blockedusers</name>
     <message>
+      <source>Users who are blocked</source>
+      <translation>被封鎖的訪客</translation>
+    </message>
+    <message>
       <source>IP</source>
       <translation>IP</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Date</source>
       <translation>日期</translation>
     </message>
     <message>
-      <source>Users who are blocked</source>
-      <translation>被封鎖的訪客</translation>
+      <source>User who blocked</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Remove block</source>
@@ -7808,6 +7856,10 @@
     <message>
       <source>Chat attributes</source>
       <translation>聊天屬性</translation>
+    </message>
+    <message>
+      <source>Debug</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail</source>
@@ -13257,6 +13309,13 @@
     <name>mobile/sessions</name>
     <message>
       <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/usertyping</name>
+    <message>
+      <source>is typing...</source>
       <translation type="unfinished"/>
     </message>
   </context>

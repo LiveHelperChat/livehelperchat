@@ -42,25 +42,30 @@ class HeaderChat extends Component {
     render() {
         const { t } = this.props;
 
-        var className = 'row header-chat' + (this.props.chatwidget.get('isMobile') == true ? ' mobile-header' : ' desktop-header');
-        var classNameMenu = 'col-6 pr-1' + (this.props.chatwidget.get('isChatting') === false && this.props.chatwidget.hasIn(['chat_ui','hide_popup']) ? ' d-none' : '');
+        const closeInst = (!this.props.chatwidget.hasIn(['chat_ui','clinst']) || this.props.chatwidget.get('isMobile'));
+        const hasHeader = this.props.chatwidget.hasIn(['chat_ui','custom_html_header_body']);
+        const className = 'row header-chat' + (this.props.chatwidget.get('isMobile') == true ? ' mobile-header' : ' desktop-header');
+        const classNameMenu = (closeInst ? 'col-6' : 'col-12') + ' pr-1' + (this.props.chatwidget.get('isChatting') === false && this.props.chatwidget.hasIn(['chat_ui','hide_popup']) ? ' d-none' : '');
+        const hasPopup = !this.props.chatwidget.hasIn(['chat_ui','hide_popup']);
+        const showClose = this.props.chatwidget.get('isChatting') === true && !this.props.chatwidget.hasIn(['chat_ui','hide_close']);
 
         return (
             <div id="widget-header-content" className={className}>
-                {this.props.chatwidget.hasIn(['chat_ui','custom_html_header_body']) && <div className="lhc-custom-header-inside" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header_body'])}}></div>}
+                {hasHeader && <div className="lhc-custom-header-inside" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header_body'])}}></div>}
 
-                {(!this.props.chatwidget.hasIn(['chat_ui','clinst']) || this.props.chatwidget.get('isMobile')) &&  <div className="col-6 pl-1 minimize-icon">
+                {closeInst && <div className="col-6 pl-1 minimize-icon">
                     <span className="header-link" title={t('button.minimize')} onClick={this.closeWidget}><i className="material-icons">&#xf103;</i></span>
                 </div>}
 
-                <div className={classNameMenu}>
+                {(hasPopup || showClose) && <div className={classNameMenu}>
                     <div className="d-flex">
                         <div className="ml-auto">
-                            {!this.props.chatwidget.hasIn(['chat_ui','hide_popup']) && <a className="header-link" title={t('button.popup')} onClick={this.popup}><i className="material-icons">&#xf106;</i></a>}
-                            {this.props.chatwidget.get('isChatting') === true && !this.props.chatwidget.hasIn(['chat_ui','hide_close']) && <a title={t('button.end_chat')} className="header-link" onClick={this.endChat}><i className="material-icons">&#xf10a;</i></a>}
+                            {hasPopup && <a className="header-link" title={t('button.popup')} onClick={this.popup}><i className="material-icons">&#xf106;</i></a>}
+                            {showClose && <a title={t('button.end_chat')} className="header-link" onClick={this.endChat}><i className="material-icons">&#xf10a;</i></a>}
                         </div>
                     </div>
-                </div>
+                </div>}
+
             </div>
         );
     }
