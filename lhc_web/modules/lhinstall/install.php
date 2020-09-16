@@ -2048,6 +2048,7 @@ try {
   `imap` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_sync_log` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_sync_time` bigint(20) NOT NULL,
+  `sync_started` bigint(20) NOT NULL,
   `mailbox_sync` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `sync_status` int(11) NOT NULL,
   `sync_interval` int(11) NOT NULL,

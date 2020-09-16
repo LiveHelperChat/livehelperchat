@@ -26,6 +26,7 @@ class erLhcoreClassModelMailconvMailbox
             'active' => $this->active,
             'imap' => $this->imap,
             'last_sync_time' => $this->last_sync_time,
+            'sync_started' => $this->sync_started,
             'last_sync_log' => $this->last_sync_log,
             'mailbox_sync' => $this->mailbox_sync,
             'sync_status' => $this->sync_status,
@@ -75,6 +76,10 @@ class erLhcoreClassModelMailconvMailbox
             case 'last_sync_time_ago':
                 $this->last_sync_time_ago = erLhcoreClassChat::formatSeconds(time() - $this->last_sync_time);
                 return $this->last_sync_time_ago;
+
+            case 'sync_started_ago':
+                $this->sync_started_ago = $this->sync_started > 0 ? erLhcoreClassChat::formatSeconds(time() - $this->sync_started) : '-';
+                return $this->sync_started_ago;
                 
             default:
                 break;
@@ -97,6 +102,7 @@ class erLhcoreClassModelMailconvMailbox
     public $mailbox_sync = '';
     public $signature = '';
     public $sync_status = 0;
+    public $sync_started = 0;
     public $sync_interval = 60;
     public $name = '';
     public $signature_under = 0;
