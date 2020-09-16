@@ -244,7 +244,7 @@
                 </div>
             </div>
 
-            <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [hideInvitation]" class="font-weight-bold"><input type="checkbox" <?php if (isset($ga_options['hideInvitation_on']) && $ga_options['hideInvitation_on'] == 1) : ?>checked="checked"<?php endif;?> value="on" name="hideInvitation_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Invitation hide')?>. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Visitor clicked close icon on invitation')?></label>
+            <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [hideInvitation]" class="font-weight-bold"><input type="checkbox" <?php if (isset($ga_options['hideInvitation_on']) && $ga_options['hideInvitation_on'] == 1) : ?>checked="checked"<?php endif;?> value="on" name="hideInvitation_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Invitation hide')?></label>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
@@ -267,7 +267,7 @@
                 </div>
             </div>
 
-            <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [cancelInvitation]" class="font-weight-bold"><input type="checkbox" <?php if (isset($ga_options['cancelInvitation_on']) && $ga_options['cancelInvitation_on'] == 1) : ?>checked="checked"<?php endif;?> value="on" name="cancelInvitation_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Cancel invitation')?></label>
+            <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [cancelInvitation]" class="font-weight-bold"><input type="checkbox" <?php if (isset($ga_options['cancelInvitation_on']) && $ga_options['cancelInvitation_on'] == 1) : ?>checked="checked"<?php endif;?> value="on" name="cancelInvitation_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Cancel invitation')?>.  <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', ' Called if invitation was in full widget and widget was minimised or visitor clicked close icon in invitation tooltip')?></label>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
