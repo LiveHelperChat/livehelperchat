@@ -244,7 +244,7 @@
                 </div>
             </div>
 
-            <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [hideInvitation]" class="font-weight-bold"><input type="checkbox" <?php if (isset($ga_options['hideInvitation_on']) && $ga_options['hideInvitation_on'] == 1) : ?>checked="checked"<?php endif;?> value="on" name="hideInvitation_on"> Invitation hide</label>
+            <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [hideInvitation]" class="font-weight-bold"><input type="checkbox" <?php if (isset($ga_options['hideInvitation_on']) && $ga_options['hideInvitation_on'] == 1) : ?>checked="checked"<?php endif;?> value="on" name="hideInvitation_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Invitation hide')?>. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Visitor clicked close icon on invitation')?></label>
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
@@ -285,7 +285,7 @@
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Event label')?> [eventLabel]</label>
                         <input type="text" class="form-control form-control-sm" name="cancelInvitation_label" value="<?php isset($ga_options['cancelInvitation_label']) ? print htmlspecialchars($ga_options['cancelInvitation_label']) : ''?>" />
-                        <p>If you leave empty we will set automatically invitation name.</p>
+                        <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'If you leave empty we will set automatically invitation name.')?></p>
                     </div>
                 </div>
             </div>
