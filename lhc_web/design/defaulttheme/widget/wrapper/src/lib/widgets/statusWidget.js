@@ -69,7 +69,8 @@ export class statusWidget{
                 if (_inst.controlMode == true) {
                     attributes.eventEmitter.emitEvent('closeWidget', [{'sender' : 'closeButton'}]);
                 } else {
-                    attributes.eventEmitter.emitEvent('showWidget', [{'sender' : 'closeButton'}]);
+                    attributes.eventEmitter.emitEvent('showWidget', []);
+                    attributes.eventEmitter.emitEvent('clickAction');
                 }
             }
 

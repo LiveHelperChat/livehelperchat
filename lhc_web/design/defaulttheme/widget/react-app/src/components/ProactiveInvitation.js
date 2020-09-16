@@ -24,7 +24,7 @@ class ProactiveInvitation extends Component {
     }
 
     componentDidMount() {
-        helperFunctions.sendMessageParent('showInvitation', []);
+        helperFunctions.sendMessageParent('showInvitation', [{name: this.props.chatwidget.getIn(['proactive','data','invitation_name'])}]);
 
         if (this.props.chatwidget.getIn(['proactive','data','play_sound'])) {
             helperFunctions.emitEvent('play_sound', [{'type' : 'new_invitation', 'sound_on' : (this.props.chatwidget.getIn(['proactive','data','play_sound']) === true), 'widget_open' : ((this.props.chatwidget.get('shown') && this.props.chatwidget.get('mode') == 'widget') || document.hasFocus())}]);
@@ -51,7 +51,7 @@ class ProactiveInvitation extends Component {
     }
 
     fullInvitation() {
-        helperFunctions.sendMessageParentDirect('hideInvitation', [{'full' : true}]);
+        helperFunctions.sendMessageParentDirect('hideInvitation', [{'full' : true, name: this.props.chatwidget.getIn(['proactive','data','invitation_name'])}]);
         this.props.dispatch({
             'type' : 'FULL_INVITATION'
         });

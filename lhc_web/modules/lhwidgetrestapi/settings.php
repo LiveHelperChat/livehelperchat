@@ -295,13 +295,51 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 }
 
 $ts = time();
-$outputResponse['v'] = 114;
+$outputResponse['v'] = 115;
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
 
 if (is_array($department) && !empty($department)) {
     $outputResponse['department'] = $department;
 }
+
+$gaOptions = erLhcoreClassModelChatConfig::fetch('ga_options')->data_value;
+
+if (isset($gaOptions['ga_enabled']) && $gaOptions['ga_enabled'] == true && (!isset($gaOptions['ga_dep']) || empty($gaOptions['ga_dep']) || (is_array($department) && count(array_intersect($department,$gaOptions['ga_dep'])) > 0))) {
+    $optionEvents = array(
+        'showWidget',
+        'closeWidget',
+        'openPopup',
+        'endChat',
+        'chatStarted',
+        'offlineMessage',
+        'showInvitation',
+        'hideInvitation',
+        'nhClicked',
+        'nhClosed',
+        'nhShow',
+        'nhHide',
+        'fullInvitation',
+        'cancelInvitation',
+        'readInvitation',
+        'clickAction',
+        'botTrigger',
+    );
+
+    foreach ($optionEvents as $optionEvent) {
+        if (isset($gaOptions[$optionEvent .'_on']) && $gaOptions[$optionEvent .'_on'] == 1) {
+            $outputResponse['ga']['events'][] = array(
+                'ev' => $optionEvent,
+                'ec' => $gaOptions[$optionEvent .'_category'],
+                'ea' => $gaOptions[$optionEvent .'_action'],
+                'el' => (isset($gaOptions[$optionEvent .'_label']) ? $gaOptions[$optionEvent .'_label'] : ''),
+            );
+        }
+    }
+
+    $outputResponse['ga']['js'] = $gaOptions['ga_js'];
+}
+
 
 $outputResponse['static'] = array(
     'screenshot' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('js/html2canvas.min.js'). '?v=' . $outputResponse['v'],

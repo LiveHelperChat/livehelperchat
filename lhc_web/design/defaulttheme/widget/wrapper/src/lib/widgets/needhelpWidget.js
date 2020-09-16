@@ -9,6 +9,7 @@ export class needhelpWidget{
         this.hidden = false;
         this.widgetOpen = false;
         this.invitationOpen = false;
+        this.nhOpen = false;
 
         this.cont = new UIConstructorIframe('lhc_needhelp_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "2147483640",
@@ -120,6 +121,12 @@ export class needhelpWidget{
         }
 
         this.cont.hide();
+
+        if (this.nhOpen == true) {
+            this.attributes.eventEmitter.emitEvent('nhHide', []);
+        }
+
+        this.nhOpen = false;
     }
 
     show () {
@@ -130,8 +137,16 @@ export class needhelpWidget{
 
         if (this.attributes.hideOffline === false) {
             this.cont.show();
+            if (this.nhOpen == false) {
+                this.attributes.eventEmitter.emitEvent('nhShow', []);
+            }
+            this.nhOpen = true;
         } else {
             this.cont.hide();
+            if (this.nhOpen == true) {
+                this.attributes.eventEmitter.emitEvent('nhHide', []);
+            }
+            this.nhOpen = false;
         }
     }
 }

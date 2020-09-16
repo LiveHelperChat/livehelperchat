@@ -164,6 +164,8 @@ class erLhcoreClassGenericBotWorkflow {
 
     public static $currentAlwaysEvent = null;
 
+    public static $triggerName = [];
+
     public static function userMessageAdded(& $chat, $msg) {
 
         // Execute rest workflow if chat is in full bot mode
@@ -1426,6 +1428,8 @@ class erLhcoreClassGenericBotWorkflow {
             $stmt->bindValue(':trigger_id', $trigger->id, PDO::PARAM_INT);
             $stmt->execute();
         }
+
+        self::$triggerName[] = $trigger->name;
 
         $message = null;
         foreach ($trigger->actions_front as $action) {
