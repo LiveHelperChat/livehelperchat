@@ -54,6 +54,11 @@ $def->properties['sync_status']->columnName   = 'sync_status';
 $def->properties['sync_status']->propertyName = 'sync_status';
 $def->properties['sync_status']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['sync_started'] = new ezcPersistentObjectProperty();
+$def->properties['sync_started']->columnName   = 'sync_started';
+$def->properties['sync_started']->propertyName = 'sync_started';
+$def->properties['sync_started']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['sync_interval'] = new ezcPersistentObjectProperty();
 $def->properties['sync_interval']->columnName   = 'sync_interval';
 $def->properties['sync_interval']->propertyName = 'sync_interval';
