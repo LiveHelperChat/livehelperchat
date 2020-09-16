@@ -11,11 +11,30 @@
             "email": "remdex@gmail.com",
             "homepage": "https://livehelperchat.com"
         }
-    ],    
+    ],
+    "repositories": [
+      {
+        "type":"package",
+        "package": {
+          "name": "php-imap/php-imap",
+          "version":"master",
+          "source": {
+            "url": "https://github.com/remdex/php-imap.git",
+            "type": "git",
+            "reference":"master"
+          },
+          "autoload": {
+            "psr-4": {
+              "PhpImap\\": "src/PhpImap"
+            }
+          }
+        }
+      }
+    ],
     "require": {
         "php": ">=5.2.4",
-        "minishlink/web-push" : "dev-master#5c2d2a5003e338c1ef23604204a9bcaa9d944a24",
-        "php-imap/php-imap": "dev-master#7ca3d19451bfe6de47186b52f4b266179a5858b9"
+        "php-imap/php-imap": "dev-master#29bfc58a16eec869353c70804b3976b623e34980",
+        "minishlink/web-push" : "dev-master#a9b689675c167117d91b96c34555476bbfbdc391"
     },
     "minimum-stability": "dev",
     "config": {

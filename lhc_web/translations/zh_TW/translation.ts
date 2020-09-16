@@ -2,6 +2,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>在投票Widget顯示後，有多少天不會再次啟用</translation>
     </message>
@@ -610,6 +618,18 @@
       <translation>通知</translation>
     </message>
     <message>
+      <source>Online status options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline status options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Images</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live preview</source>
       <translation>即時預覽</translation>
     </message>
@@ -694,8 +714,8 @@
       <translation>時間文字顏色</translation>
     </message>
     <message>
-      <source>Title text colorr</source>
-      <translation>標題文字顏色</translation>
+      <source>Title text color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Message text color</source>
@@ -862,6 +882,10 @@
       <translation>如果未傳遞變量，我們應該保留以前記錄的值嗎？</translation>
     </message>
     <message>
+      <source>Invitation message width</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Mobile HTML</source>
       <translation>移動電話 HTML</translation>
     </message>
@@ -984,6 +1008,10 @@
     <message>
       <source>Status widget border color</source>
       <translation>客服狀態 Widget 邊框顏色</translation>
+    </message>
+    <message>
+      <source>Text/Icon color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Operator image in chat widget</source>
@@ -1166,8 +1194,8 @@
       <translation>狀態Widget 附加的 CSS，保存後生效</translation>
     </message>
     <message>
-      <source>Background color for popup</source>
-      <translation>彈出窗口的背景顏色</translation>
+      <source>Custom CSS only for popup</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
@@ -1262,6 +1290,18 @@
       <translation>Widget 寬度 (px)</translation>
     </message>
     <message>
+      <source>Widget position from right to append</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget position from bottom to append</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget position from right to append in invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>After how many user messages show switch to human button. empty - never, 0 - always</source>
       <translation>顯示多少用戶信息後，切換到人工按鈕。 空-從不，0-始終</translation>
     </message>
@@ -1270,12 +1310,24 @@
       <translation>信息文本的佔位符</translation>
     </message>
     <message>
+      <source>Main operator title, {nick}, {name}, {surname}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
       <translation>不允許訪客通過按向上箭頭來編輯上一條信息</translation>
     </message>
     <message>
       <source>Before closing chat ask user does he really want to to close chat</source>
       <translation>在關閉交談之前詢問用戶他是否真的想關閉交談</translation>
+    </message>
+    <message>
+      <source>Show start chat form instantly after operator closes a chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show previous chat messages in chat widget.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Close chat if page is refreshed. Usefull if you have embed code in popup.</source>
@@ -1326,6 +1378,26 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Offline widget background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline widget border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline text/icon color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show close widget button in status widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show operator profile in a new row</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget themes</source>
       <translation>Widget 主題</translation>
     </message>
@@ -1347,6 +1419,14 @@
     <message>
       <source>Main wrapper element should have id of</source>
       <translation>主包裝器元素的ID應為</translation>
+    </message>
+    <message>
+      <source>New widget options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Old widget options</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>If chat was accepted by the same language speaking operator you can send visitor a custom message on chat accept event.</source>
@@ -1633,8 +1713,8 @@
       <translation>需要名字</translation>
     </message>
     <message>
-      <source>Show on mobile</source>
-      <translation>在移動設備上顯示</translation>
+      <source>Show on these devices only</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show everytime it is matched</source>
@@ -1723,6 +1803,34 @@
     <message>
       <source>Do not show widget automatically</source>
       <translation>不自動顯示 Widget</translation>
+    </message>
+    <message>
+      <source>Show widget on invitation to chat. Applies only to desktop devices.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close button above invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show profile photo on the left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide operator name in invitation widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show default header on proactive widget open event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Append trigger content in full widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Append trigger content in intro message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Identifier</source>
@@ -1986,6 +2094,10 @@
     <message>
       <source>Optional</source>
       <translation>可選擇的</translation>
+    </message>
+    <message>
+      <source>Column width, 1-12</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail</source>
@@ -2373,6 +2485,10 @@
     <message>
       <source>Transfer to bot only if department is offline</source>
       <translation>僅在部門離線時轉移到機器人</translation>
+    </message>
+    <message>
+      <source>Bot follows online hours. Department will be offline if there is no online operators or it is outside work hours.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select translations</source>
@@ -3659,6 +3775,10 @@
       <translation>Widget 位置</translation>
     </message>
     <message>
+      <source>Hash arguments. Visitor will not be able to change passed arguments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>系統配置</translation>
     </message>
@@ -4483,6 +4603,10 @@
       <translation>我們的條款和法律</translation>
     </message>
     <message>
+      <source>Please choose</source>
+      <translation>請選擇</translation>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation>開始交談</translation>
     </message>
@@ -4543,6 +4667,18 @@
       <translation>請選擇您的語言</translation>
     </message>
     <message>
+      <source>You</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Us</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Summary</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Invalid CSRF token!</source>
       <translation>無效的CSRF令牌！</translation>
     </message>
@@ -4601,10 +4737,6 @@
     <message>
       <source>Could not find a product!</source>
       <translation>找不到的產品 ！</translation>
-    </message>
-    <message>
-      <source>Please choose</source>
-      <translation>請選擇</translation>
     </message>
     <message>
       <source>Could not determine a default department!</source>
@@ -5420,6 +5552,10 @@
       <translation>在這裡輸入您的訊息並按下 Enter 送出......</translation>
     </message>
     <message>
+      <source>{nick}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor has been redirected to contact form</source>
       <translation>訪客已被重新定位至連絡人表單</translation>
     </message>
@@ -5611,6 +5747,14 @@
     <message>
       <source>Edit nick</source>
       <translation>編輯暱稱</translation>
+    </message>
+    <message>
+      <source>Previous conversation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Typing...</source>
@@ -6587,16 +6731,24 @@
       <translation>維護</translation>
     </message>
     <message>
+      <source>Mobile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation>設定</translation>
+    </message>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Notifications</source>
       <translation>通知</translation>
     </message>
     <message>
       <source>Subscribers list</source>
       <translation>訂閱者列表</translation>
-    </message>
-    <message>
-      <source>Settings</source>
-      <translation>設定</translation>
     </message>
     <message>
       <source>Offline settings</source>
@@ -7783,6 +7935,10 @@
       <translation>若訪客回覆，將我加入交談</translation>
     </message>
     <message>
+      <source>Open full widget for the visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not send automated messages if the customer replies</source>
       <translation>若訪客回覆，則不要發送自動信息</translation>
     </message>
@@ -8677,6 +8833,18 @@
     <message>
       <source>E-mail</source>
       <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Maximum number of chats operator can have.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Excluded from auto assign workflow</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Login As</source>
@@ -9607,6 +9775,10 @@
     <message>
       <source>Sub URL</source>
       <translation>子網址</translation>
+    </message>
+    <message>
+      <source>Maximum execution time</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Params</source>
@@ -12092,6 +12264,10 @@
       <translation>暱稱已更改！</translation>
     </message>
     <message>
+      <source>Files upload was disabled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>I have enabled files upload for you. [fupload]Upload a file[/fupload].</source>
       <translation type="unfinished"/>
     </message>
@@ -12484,29 +12660,6 @@
     </message>
   </context>
   <context>
-    <name>lhrestapi/validation</name>
-    <message>
-      <source>Authorization failed!</source>
-      <translation>驗證失敗!</translation>
-    </message>
-    <message>
-      <source>You do not have permission to use REST API directly. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; is missing!</source>
-      <translation>您無權直接使用REST API。 缺少“ lhrestapi”，“ use_direct_logins”！</translation>
-    </message>
-    <message>
-      <source>Authorization header is missing!</source>
-      <translation>授權標頭丟失！</translation>
-    </message>
-    <message>
-      <source>Could not find chat by chat_id!</source>
-      <translation>找不到通過chat_id進行的交談！</translation>
-    </message>
-    <message>
-      <source>You do not have permission to read this chat!</source>
-      <translation>您無權閱讀此交談！</translation>
-    </message>
-  </context>
-  <context>
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
@@ -12517,12 +12670,8 @@
       <translation>使用者已存在</translation>
     </message>
     <message>
-      <source>Passwords mismatch</source>
-      <translation>密碼不正確</translation>
-    </message>
-    <message>
-      <source>User action type not set</source>
-      <translation>使用者操作類型未設置</translation>
+      <source>Password missing</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -12531,6 +12680,10 @@
     <message>
       <source>Please enter a name</source>
       <translation>請輸入一個名稱</translation>
+    </message>
+    <message>
+      <source>In order to assign user all departments you have to provide  `departments` and `departments_read` argument.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You have to choose one of required groups!</source>
@@ -12543,6 +12696,14 @@
     <message>
       <source>Please choose a default user group</source>
       <translation>請選擇一個預設的使用者群組</translation>
+    </message>
+    <message>
+      <source>Passwords mismatch</source>
+      <translation>密碼不正確</translation>
+    </message>
+    <message>
+      <source>User action type not set</source>
+      <translation>使用者操作類型未設置</translation>
     </message>
     <message>
       <source>Password has to be at least</source>
@@ -12575,6 +12736,29 @@
     <message>
       <source>Old and new password has to be different!</source>
       <translation>新舊密碼必須不同！</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhrestapi/validation</name>
+    <message>
+      <source>Authorization failed!</source>
+      <translation>驗證失敗!</translation>
+    </message>
+    <message>
+      <source>You do not have permission to use REST API directly. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; is missing!</source>
+      <translation>您無權直接使用REST API。 缺少“ lhrestapi”，“ use_direct_logins”！</translation>
+    </message>
+    <message>
+      <source>Authorization header is missing!</source>
+      <translation>授權標頭丟失！</translation>
+    </message>
+    <message>
+      <source>Could not find chat by chat_id!</source>
+      <translation>找不到通過chat_id進行的交談！</translation>
+    </message>
+    <message>
+      <source>You do not have permission to read this chat!</source>
+      <translation>您無權閱讀此交談！</translation>
     </message>
   </context>
   <context>
@@ -12768,12 +12952,12 @@
   <context>
     <name>chat/refreshcustomfields</name>
     <message>
-      <source>Custom chat data was saved</source>
-      <translation>自訂聊天資料已儲存</translation>
-    </message>
-    <message>
       <source>Data refreshed</source>
       <translation>數據已刷新</translation>
+    </message>
+    <message>
+      <source>Custom chat data was saved</source>
+      <translation>自訂聊天資料已儲存</translation>
     </message>
   </context>
   <context>
@@ -12792,6 +12976,17 @@
     <message>
       <source>Chat started with</source>
       <translation>開始交談</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/start</name>
+    <message>
+      <source>Department is required!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department is disabled!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -12990,6 +13185,79 @@
     <message>
       <source>Deny screen share</source>
       <translation>拒絕屏幕分享</translation>
+    </message>
+  </context>
+  <context>
+    <name>module/fbmessenger</name>
+    <message>
+      <source>Edit session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Token</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last error</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Device type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created on</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated on</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>mobile/settings</name>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mobile</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>mobile/sessions</name>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

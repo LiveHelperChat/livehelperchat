@@ -22,6 +22,15 @@ class erLhcoreClassGenericBotActionText {
 
         $metaMessage = array();
 
+        if (isset($action['content']['html']) && !empty($action['content']['html']))
+        {
+            $metaMessage['content']['html']['content'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['html'], array('chat' => $chat));
+
+            if (isset($params['replace_array'])) {
+                $metaMessage['content']['html']['content'] = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$metaMessage['content']['html']['content']);
+            }
+        }
+
         if (isset($action['content']['quick_replies']) && !empty($action['content']['quick_replies']))
         {
 
@@ -84,11 +93,6 @@ class erLhcoreClassGenericBotActionText {
                     $event->saveThis();
                 }
             }
-        }
-
-        if (isset($action['content']['html']) && !empty($action['content']['html']))
-        {
-            $metaMessage['content']['html']['content'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['html'], array('chat' => $chat));
         }
 
         if (isset($action['content']['attr_options']) && !empty($action['content']['attr_options']))

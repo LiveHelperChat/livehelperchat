@@ -2,8 +2,8 @@
 
 class erLhcoreClassUpdate
 {
-	const DB_VERSION = 213;
-	const LHC_RELEASE = 339;
+	const DB_VERSION = 216;
+	const LHC_RELEASE = 342;
 
 	public static function doTablesUpdate($definition){
 		$updateInformation = self::getTablesStatus($definition);
@@ -246,7 +246,7 @@ class erLhcoreClassUpdate
 			foreach ($dataTable as $record) {	
 
 				try {
-					$sql = "SELECT COUNT(*) as total_records FROM `{$table}` WHERE `{$tableIdentifier}` = :identifier_value";				
+					$sql = "SELECT COUNT(*) as total_records FROM `{$table}` WHERE `{$tableIdentifier}` = :identifier_value";
 					$stmt = $db->prepare($sql);
 					$stmt->bindValue(':identifier_value',$record[$tableIdentifier]);
 					$stmt->execute();

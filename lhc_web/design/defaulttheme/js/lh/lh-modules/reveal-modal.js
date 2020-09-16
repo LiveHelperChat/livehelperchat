@@ -1,3 +1,5 @@
+
+
 var revealM = {
 		cancelcolorbox : function() {
 			$('#myModal').foundation('reveal', 'close');
@@ -29,6 +31,8 @@ var revealM = {
 
 			revealM.initializeModal('myModal');
 
+            var mparams = {'show':true, 'focus': !($('#admin-body').length > 0), 'backdrop': !($('#admin-body').length > 0)};
+
 			if (typeof params['iframe'] === 'undefined') {
 
 				if (typeof params['loadmethod'] !== 'undefined' && params['loadmethod'] == 'post')
@@ -43,7 +47,10 @@ var revealM = {
 								$('#myModal').on('hide.bs.modal',params['hidecallback']);
 							}
 
-							$('#myModal').html(data).modal('show')
+							$('#myModal').html(data).modal(mparams);
+
+                            revealM.setCenteredDraggable();
+
 						} else {
 							setTimeout(function(){
 								$('#myModal').modal('dispose');
@@ -56,7 +63,10 @@ var revealM = {
 									$('#myModal').on('hide.bs.modal',params['hidecallback']);
 								}
 
-								$('#myModal').html(data).modal('show')
+								$('#myModal').html(data).modal(mparams);
+
+                                revealM.setCenteredDraggable();
+
 							},500);
 						}
 					});
@@ -73,7 +83,10 @@ var revealM = {
 								$('#myModal').on('hide.bs.modal',params['hidecallback']);
 							}
 
-							$('#myModal').html(data).modal('show')
+							$('#myModal').html(data).modal(mparams);
+
+                            revealM.setCenteredDraggable();
+
 						} else {
 							setTimeout(function(){
 								$('#myModal').modal('dispose');
@@ -86,7 +99,11 @@ var revealM = {
 									$('#myModal').on('hide.bs.modal',params['hidecallback']);
 								}
 
-								$('#myModal').html(data).modal('show')
+
+								$('#myModal').html(data).modal(mparams);
+
+                                revealM.setCenteredDraggable();
+
 							},500);
 						}
 					});
@@ -101,7 +118,9 @@ var revealM = {
 				}
 				var additionalModalBody = typeof params['modalbodyclass'] === 'undefined' ? '' : ' '+params['modalbodyclass'];
 
-				$('#myModal').html('<div class="modal-dialog modal-xl"><div class="modal-content">'+header+'<div class="modal-body'+additionalModalBody+'">'+prependeBody+'<iframe src="'+params['url']+'" frameborder="0" style="width:100%" height="'+params['height']+'" /></div></div></div>').modal('show')	;
+				$('#myModal').html('<div class="modal-dialog modal-dialog-scrollable modal-xl"><div class="modal-content">'+header+'<div class="modal-body'+additionalModalBody+'">'+prependeBody+'<iframe src="'+params['url']+'" frameborder="0" style="width:100%" height="'+params['height']+'" /></div></div></div>').modal(mparams);
+
+                revealM.setCenteredDraggable();
 
 				if (typeof params['showcallback'] !== 'undefined') {
 					$('#myModal').on('shown.bs.modal',params['showcallback']);
@@ -110,9 +129,35 @@ var revealM = {
 				if (typeof params['hidecallback'] !== 'undefined') {
 					$('#myModal').on('hide.bs.modal',params['hidecallback']);
 				}
-
 			}
-		}
+		},
+
+        setCenteredDraggable : function(){
+            if ($('#admin-body').length > 0) {
+                var modalContent = $('#myModal .modal-dialog');
+                var positions = revealM.getPositions();
+                modalContent.draggabilly({
+                    handle: ".modal-header"
+                }).css({
+                    top: ((positions.height - modalContent.height()) / 2),
+                    left: ((positions.width - modalContent.width()) / 2)
+                });
+            }
+        },
+
+        getPositions : function() {
+		    return {
+		        width: (window.innerWidth
+                    || document.documentElement.clientWidth
+                    || document.body.clientWidth
+                    || 0),
+                height: (window.innerHeight
+                    || document.documentElement.clientHeight
+                    || document.body.clientHeight
+                    || 0)
+            }
+        }
+
 };
 
 module.exports = revealM;

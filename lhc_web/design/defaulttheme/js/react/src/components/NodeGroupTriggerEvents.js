@@ -34,7 +34,7 @@ class NodeGroupTriggerEvents extends Component {
                     <br/>
                     {mappedEvents}
 
-                    <button onClick={this.addEvent} className="btn btn-info btn-sm">Add event</button>
+                    <button onClick={this.addEvent} className="btn btn-info btn-sm">Add event</button><span className="pl-2"><i><small>Saved automatically.</small></i></span>
                 </div>
             </div>
         );

@@ -22,8 +22,32 @@ class erLhcoreClassModelUserSession
             'user_id' => $this->user_id,
             'created_on' => $this->created_on,
             'updated_on' => $this->updated_on,
-            'expires_on' => $this->expires_on
+            'expires_on' => $this->expires_on,
+            'error' => $this->error,
+            'last_error' => $this->last_error,
+            'notifications_status' => $this->notifications_status,
         );
+    }
+
+    public function __get($var)
+    {
+        switch ($var) {
+
+            case 'user':
+                $this->user = erLhcoreClassModelUser::fetch($this->user_id);
+                return $this->user;
+                break;
+
+            case 'updated_on_front':
+            case 'created_on_front':
+                $varReplaced = str_replace('_front','',$var);
+                $this->{$var} = date('Ymd') == date('Ymd',$this->{$varReplaced}) ? date(erLhcoreClassModule::$dateHourFormat,$this->{$varReplaced}) : date(erLhcoreClassModule::$dateDateHourFormat,$this->{$varReplaced});
+                return $this->{$var};
+
+            default:
+                ;
+                break;
+        }
     }
 
     const DEVICE_TYPE_UNKNOWN = 0;
@@ -36,7 +60,6 @@ class erLhcoreClassModelUserSession
     
     public $device_token = '';
 
-    // 0 - unknown, 1 - iphone, 2 - android
     public $device_type = 0;
 
     public $user_id = '';
@@ -46,6 +69,12 @@ class erLhcoreClassModelUserSession
     public $updated_on = '';
 
     public $expires_on = '';
+
+    public $error = 0;
+
+    public $last_error = '';
+
+    public $notifications_status = 1;
 }
 
 ?>

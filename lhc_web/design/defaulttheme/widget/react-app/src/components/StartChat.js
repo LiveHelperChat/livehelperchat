@@ -34,6 +34,7 @@ class StartChat extends Component {
         this.setBotPayload = this.setBotPayload.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.textMessageRef = React.createRef();
+        this.messagesAreaRef = React.createRef();
     }
 
     toggleModal() {
@@ -53,6 +54,13 @@ class StartChat extends Component {
 
         if (this.props.chatwidget.get('processStatus') != 0) {
             return;
+        }
+
+        // Focus element so once OnlineChat component is mounted it remains focused
+        var elm = document.getElementById('CSChatMessage');
+        if (elm !== null) {
+            elm.focus();
+            this.props.setHideMessageField(false);
         }
 
         var fields = this.state;
@@ -136,12 +144,17 @@ class StartChat extends Component {
     }
 
     componentDidMount() {
-
         helperFunctions.prefillFields(this);
         this.updateOnlineFields();
 
         if (this.props.botPayload !== null) {
             this.setBotPayload(this.props.botPayload);
+        }
+
+        // Just remove element if it exists
+        var elm = document.getElementById('CSChatMessage-tmp');
+        if (elm !== null) {
+            document.body.removeChild(elm);
         }
     }
 
@@ -156,8 +169,16 @@ class StartChat extends Component {
             this.props.setProfile(profileBody.innerHTML);
         }
 
-        if (document.getElementById('CSChatMessage') === null) {
+        var elm = document.getElementById('CSChatMessage');
+        if (elm === null) {
             this.props.setHideMessageField(true);
+        } else {
+            // Because online component has it's own text area we loose focus once we mount that component
+            // We keeps this element focused and just switch focus between elements. So we do not loose keyboard.
+            this.props.setHideMessageField(false);
+            elm.id = "CSChatMessage-tmp";
+            elm.style.cssText = "position:absolute;left:-999px;bottom:0px;";
+            document.body.appendChild(elm);
         }
     }
 
@@ -177,6 +198,7 @@ class StartChat extends Component {
                 'pvhash' : this.props.chatwidget.get('pvhash'),
                 'phash' : this.props.chatwidget.get('phash'),
                 'bot_id' : this.props.chatwidget.get('bot_id'),
+                'vid' : this.props.chatwidget.get('vid'),
                 'online' : 1
             }));
         }
@@ -198,6 +220,23 @@ class StartChat extends Component {
         // Auto focus if it's show operation
         if ((needFocus === true || (prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true)) && this.props.chatwidget.get('mode') == 'widget' && this.textMessageRef.current) {
             this.textMessageRef.current.focus();
+            this.scrollBottom();
+        }
+
+        // Rest API data was fetched we can scroll to bottomnow
+        if (this.props.chatwidget.getIn(['onlineData','fetched']) === true && prevProps.chatwidget.getIn(['onlineData','fetched']) === false) {
+            this.scrollBottom();
+        }
+    }
+
+    scrollBottom() {
+        if (this.messagesAreaRef.current) {
+            this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
+            setTimeout(() => {
+                if (this.messagesAreaRef.current) {
+                    this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
+                }
+            },450);
         }
     }
 
@@ -312,7 +351,7 @@ class StartChat extends Component {
     if (this.props.chatwidget.get('processStatus') == 0 || this.props.chatwidget.get('processStatus') == 1) {
             if (this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','fields_visible']) <= 1 && this.props.chatwidget.getIn(['customData','fields']).size == 0) {
 
-                var classMessageInput = "pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0";
+                var classMessageInput = "pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0 " + (this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.Question) || (this.state.Question.length > this.textMessageRef.current.offsetWidth/8.6)) ? 'msg-two-line' : 'msg-one-line');
 
                 var msg_expand = "flex-grow-1 overflow-scroll position-relative";
                 var bottom_messages = "bottom-message px-1";
@@ -328,13 +367,13 @@ class StartChat extends Component {
                         {this.state.showBBCode && <ChatModal showModal={this.state.showBBCode} insertText={this.insertText} toggle={this.toggleModal} dataUrl={"/chat/bbcodeinsert?react=1"} />}
 
                         {
-                            (this.props.chatwidget.getIn(['proactive','has']) === true && <ChatInvitationMessage mode='profile_only' invitation={this.props.chatwidget.getIn(['proactive','data'])} />)
+                            (this.props.chatwidget.getIn(['proactive','has']) === true && !this.props.chatwidget.hasIn(['proactive','data','std_header'])  && <ChatInvitationMessage mode='profile_only' invitation={this.props.chatwidget.getIn(['proactive','data'])} />)
                             ||
                             (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div id="lhc-profile-body"><div id="chat-status-container" className="p-2 border-bottom" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div></div>)
                         }
 
                         <div className={msg_expand} id="messagesBlock">
-                            <div className={bottom_messages} id="messages-scroll">
+                            <div className={bottom_messages} id="messages-scroll" ref={this.messagesAreaRef}>
                                 {this.props.chatwidget.getIn(['proactive','has']) === true && <ChatInvitationMessage mode="message" setBotPayload={this.setBotPayload} invitation={this.props.chatwidget.getIn(['proactive','data'])} />}
 
                                 {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','cmmsg_widget']) && <ChatBotIntroMessage setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['chat_ui','cmmsg_widget'])} />}
@@ -357,7 +396,7 @@ class StartChat extends Component {
                             {this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 && <React.Fragment>
                                 <ChatStartOptions toggleModal={this.toggleModal} />
                                 <div className="mx-auto pb-1 w-100">
-                                    <textarea autoFocus={this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('shown') === true} onFocus={this.moveCaretAtEnd} readOnly={this.props.chatwidget.get('processStatus') == 1} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} style={{height: this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.Question) || (this.state.Question.length > this.textMessageRef.current.offsetWidth/8.6)) ? '60px' : '36px'}} aria-label="Type your message here..." id="CSChatMessage" value={this.props.chatwidget.get('processStatus') == 1 ? '' : this.state.Question} placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} onKeyDown={this.enterKeyDown} onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})} ref={this.textMessageRef} rows="1" className={classMessageInput} />
+                                    <textarea autoFocus={this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('shown') === true} onFocus={this.moveCaretAtEnd} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} aria-label="Type your message here..." id="CSChatMessage" value={this.props.chatwidget.get('processStatus') == 1 ? '' : this.state.Question} placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} onKeyDown={this.enterKeyDown} onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})} ref={this.textMessageRef} rows="1" className={classMessageInput} />
                                 </div>
                                 <div className="disable-select">
                                     <div className="user-chatwidget-buttons pt-1" id="ChatSendButtonContainer">

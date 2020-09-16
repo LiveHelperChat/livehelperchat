@@ -234,12 +234,16 @@ function lh(){
                 html:true,
                 container:'#chat-id-'+e.data.chat_id,
                 template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>',
-                content:'<a href="#" onclick="lhinst.quateSelection('+e.data.chat_id+')"><i class="material-icons">&#xE244;</i>quote</a>'
+                content:function(){return '<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>quote</a>'; }
             }
 
             ee.emitEvent('quoteAction', [quoteParams,e.data.chat_id]);
 
             $(this).popover(quoteParams).popover('show');
+
+            $('#copy-popover-'+e.data.chat_id).click(function(){
+                lhinst.quateSelection(e.data.chat_id);
+            });
 
             $(this).addClass('popover-copy');
             e.data.that.popoverShown = true;
@@ -573,6 +577,37 @@ function lh(){
         this.hideNotification(chat_id,'mail');
         this.addMailTab(tabs, name, 'mc'+chat_id, background);
     }
+
+    this.hideShowAction = function(options) {
+        var msg = $('#message-more-'+options['id']);
+        if (msg.hasClass('hide')) {
+            msg.removeClass('hide');
+            options['hide_show'] == false ? $('#hide-show-action-'+options['id']).remove() : $('#hide-show-action-'+options['id']).text(options['hide_text']);
+        } else {
+            msg.addClass('hide');
+            if (options['hide_show'] == true) {
+                $('#hide-show-action-'+options['id']).text(options['show_text']);
+            }
+        }
+
+        var messagesBlock = $('#messagesBlock-' + options['chat_id']);
+        messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
+
+    }
+
+    this.buttonAction = function(inst,payload) {
+        var row = inst.closest('.message-row');
+        $.getJSON(this.wwwDir + 'chat/abstractclick/' + row.attr('id').replace('msg-','') + '/' + payload, function(data) {
+            if (data.error) {
+                alert(data.error);
+            } else if (data.replace_id && data.html) {
+                $(data.replace_id).html(data.html);
+                var messagesBlock = $('#messagesBlock-' + data.chat_id);
+                messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
+            }
+        });
+    }
+    
 
     this.startChat = function (chat_id,tabs,name,focusTab,position) {
     	    	
@@ -1967,8 +2002,9 @@ function lh(){
 	        	                	  var scrollHeight = messageBlock.prop("scrollHeight");
 	        	                	  var isAtTheBottom = Math.abs((scrollHeight - messageBlock.prop("scrollTop")) - messageBlock.prop("clientHeight"));
 
-	        	                	  messageBlock.find('.pending-storage').remove();
+	        	                	  messageBlock.find('.pending-storage').first().remove();
 	        	                	  messageBlock.append(item.content);
+                                      messageBlock.find('.pending-storage').appendTo(messageBlock);
 
 	        	                	  lhinst.addQuateHandler(item.chat_id);
 
@@ -2355,7 +2391,7 @@ function lh(){
 	this.addUserMessageQueue = [];
 	this.addDelayedTimeout = null;
 
-	this.addmsgadmin = function (chat_id)
+	this.addmsgadmin = function (chat_id, message)
 	{
 		var textArea = $("#CSChatMessage-"+chat_id);
 
@@ -2364,20 +2400,31 @@ function lh(){
 		}
 
 		var pdata = {
-				msg	: textArea.val()
+				msg	: message || textArea.val()
 		};
+
+		if (pdata.msg == '') {
+		    return;
+        }
 
 		if (this.speechHandler !== false) {
 			this.speechHandler.messageSend();
 		};
 
-		textArea.val('');
+        message || textArea.val('');
+
+		var placeholerOriginal = textArea.attr('placeholder');
+
+        textArea.attr('placeholder',confLH.transLation.sending || 'Sending...');
 
 		if (textArea.hasClass('edit-mode')) {
 
 			pdata.msgid = textArea.attr('data-msgid');
 
 			$.postJSON(this.wwwDir + 'chat/updatemsg/' + chat_id, pdata , function(data){
+
+			    textArea.attr('placeholder',placeholerOriginal);
+
 				if (data.error == 'f') {
 					textArea.removeClass('edit-mode');
 					textArea.removeAttr('data-msgid');
@@ -2399,119 +2446,71 @@ function lh(){
 
 			var messagesBlock = $('#messagesBlock-'+chat_id);
 
-            messagesBlock.append("<div class=\"message-row message-admin pending-storage\"><div class=\"msg-body\">" + $("<div>").text(pdata.msg).html() + "</div></div>");
+            message || messagesBlock.append("<div class=\"message-row message-admin pending-storage\"><div class=\"msg-body\"><span class=\"material-icons lhc-spin\">autorenew</span>" + $("<div>").text(pdata.msg).html() + "</div></div>");
 
 			messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
 
-			if (this.addingUserMessage == false && this.addUserMessageQueue.length == 0)
+			if (this.addingUserMessage == false)
 			{
 				this.addingUserMessage = true;
 
-				$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data){
+				$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data) {
+                    textArea.removeAttr('readonly').attr('placeholder',placeholerOriginal);
 
-					if (LHCCallbacks.addmsgadmin) {
-		        		LHCCallbacks.addmsgadmin(chat_id);
-		        	};
+                    if (data.error == 'false') {
+                        if (LHCCallbacks.addmsgadmin) {
+                            LHCCallbacks.addmsgadmin(chat_id);
+                        };
 
-		        	ee.emitEvent('chatAddMsgAdmin', [chat_id]);
+                        ee.emitEvent('chatAddMsgAdmin', [chat_id]);
 
-		        	if (data.r != '') {
-	            		$('#messagesBlock-'+chat_id).append(data.r);
-		                $('#messagesBlock-'+chat_id).stop(true,false).animate({ scrollTop: $("#messagesBlock-"+chat_id).prop("scrollHeight") }, 500);
-	            	};
+                        if (data.r != '') {
+                            $('#messagesBlock-'+chat_id).append(data.r);
+                            $('#messagesBlock-'+chat_id).stop(true,false).animate({ scrollTop: $("#messagesBlock-"+chat_id).prop("scrollHeight") }, 500);
+                        };
 
-		        	if (data.hold_removed === true) {
-                        $('#hold-action-'+chat_id).removeClass('btn-outline-info');
-					} else if (data.hold_added === true) {
-                        $('#hold-action-'+chat_id).addClass('btn-outline-info');
-					}
+                        if (data.hold_removed === true) {
+                            $('#hold-action-'+chat_id).removeClass('btn-outline-info');
+                        } else if (data.hold_added === true) {
+                            $('#hold-action-'+chat_id).addClass('btn-outline-info');
+                        }
 
-					lhinst.syncadmincall();
+                        lhinst.syncadmincall();
+                    } else {
+                        textArea.attr('placeholder',placeholerOriginal).val(textArea.val() + ' ' + pdata.msg);
+                        $('.pending-storage').first().remove();
+                        var escaped = '<div style="margin:10px 10px 30px 10px;" class="alert alert-warning" role="alert">' + $("<div>").text(data.r).html() + '</div>';
+                        $('#messagesBlock-'+chat_id).append(escaped);
+                        $('#messagesBlock-'+chat_id).animate({ scrollTop: $("#messagesBlock-"+chat_id).prop("scrollHeight") }, 500);
+                    }
 
 					inst.addingUserMessage = false;
 
+                    if (inst.addUserMessageQueue.length > 0) {
+                        var elementAdd = inst.addUserMessageQueue.shift()
+                        inst.addmsgadmin(elementAdd.chat_id,elementAdd.msg);
+                    }
+
 					return true;
 				}).fail(function(respose) {
-                    var escaped = '<div style="margin:10px 10px 30px 10px;" class="alert alert-warning" role="alert">' + $("<div>").text('You have weak internet connection or the server has problems. Try to refresh the page.' + (typeof respose.status !== 'undefined' ? ' Error code ['+respose.status+']' : '') + (typeof respose.responseText !== 'undefined' ? respose.responseText : '')).html() + '</div>';
+                    textArea.attr('placeholder',placeholerOriginal).val(textArea.val() + ' ' + pdata.msg);
+                    var escaped = '<div style="margin:10px 10px 30px 10px;" class="alert alert-warning" role="alert">' + $("<div>").text('You have weak internet connection or the server has problems. Try to refresh the page or send the message again.' + (typeof respose.status !== 'undefined' ? ' Error code ['+respose.status+']' : '') + (typeof respose.responseText !== 'undefined' ? respose.responseText : '')).html() + '</div>';
                     $('#messagesBlock-'+chat_id).append(escaped);
-					inst.addUserMessageQueue.push({'pdata':pdata,'url':inst.wwwDir + inst.addmsgurl + chat_id,'chat_id':chat_id,'retries':0});
-		        	clearTimeout(inst.addDelayedTimeout);
-		        	inst.addDelayedTimeout = setTimeout(function(){
-		        		inst.addDelayedMessageAdmin();
-		        	},50);
-		        	inst.addingUserMessage = false;
+                    $('#messagesBlock-'+chat_id).animate({ scrollTop: $("#messagesBlock-"+chat_id).prop("scrollHeight") }, 500);
+                    $('.pending-storage').first().remove();
+                    inst.addingUserMessage = false;
+                    if (inst.addUserMessageQueue.length > 0) {
+                        var elementAdd = inst.addUserMessageQueue.shift()
+                        inst.addmsgadmin(elementAdd.chat_id,elementAdd.msg);
+                    }
 		    	});
 
 			} else {
-				this.addUserMessageQueue.push({'pdata':pdata,'url':this.wwwDir + this.addmsgurl + chat_id,'chat_id':chat_id,'retries':0});
-	        	clearTimeout(this.addDelayedTimeout);
-	        	this.addDelayedTimeout = setTimeout(function(){
-	        		inst.addDelayedMessageAdmin();
-	        	},50);
+                textArea.attr('placeholder', placeholerOriginal);
+                this.addUserMessageQueue.push({'chat_id':chat_id,'msg':pdata.msg});
 			}
 		}
 	};
-
-	this.addDelayedMessageAdmin = function()
-    {
-    	var inst = this;
-
-    	if (this.addingUserMessage == false) {
-
-    		if (this.addUserMessageQueue.length > 0)
-    		{
-	    		var elementAdd = this.addUserMessageQueue.shift();
-	    		this.addingUserMessage = true;
-
-                elementAdd.retries = elementAdd.retries + 1;
-
-		        $.postJSON(elementAdd.url, elementAdd.pdata , function(data) {
-
-		        	if (LHCCallbacks.addmsgadmin) {
-		        		LHCCallbacks.addmsgadmin(elementAdd.chat_id);
-		        	};
-
-		        	ee.emitEvent('chatAddMsgAdmin', [elementAdd.chat_id]);
-
-		        	if (data.r != '') {
-	            		$('#messagesBlock-'+elementAdd.chat_id).append(data.r);
-		                $('#messagesBlock-'+elementAdd.chat_id).animate({ scrollTop: $("#messagesBlock-"+elementAdd.chat_id).prop("scrollHeight") }, 500);
-	            	};
-
-	            	lhinst.syncadmincall();
-
-		        	inst.addingUserMessage = false;
-
-		        	// There is still pending messages, add them
-		        	if (inst.addUserMessageQueue.length > 0) {
-		        		clearTimeout(inst.addDelayedTimeout);
-		            	inst.addDelayedMessageAdmin();
-		        	}
-
-				}).fail(function(respose) {
-
-                    var escaped = '<div style="margin:10px 10px 30px 10px;" class="alert alert-warning" role="alert">' + $("<div>").text('You have weak internet connection or the server has problems. Try to refresh the page.' + (typeof respose.status !== 'undefined' ? ' Error code ['+respose.status+']' : '') + (typeof respose.responseText !== 'undefined' ? respose.responseText : '')).html() + '</div>';
-                    $('#messagesBlock-'+elementAdd.chat_id).append(escaped);
-
-                    if (elementAdd.retries < 2) {
-                        inst.addUserMessageQueue.unshift(elementAdd);
-                        inst.addingUserMessage = false;
-                        clearTimeout(inst.addDelayedTimeout);
-                        inst.addDelayedTimeout = setTimeout(function(){
-                            inst.addDelayedMessageAdmin();
-                        }, 500);
-                    }
-
-				});
-    		}
-
-    	} else {
-    		clearTimeout(this.addDelayedTimeout);
-        	this.addDelayedTimeout = setTimeout(function(){
-        		inst.addDelayedMessageAdmin();
-        	},50);
-    	}
-    }
 
 	this.editPrevious = function(chat_id) {
 		var textArea = $('#CSChatMessage-'+chat_id);
@@ -2838,6 +2837,9 @@ function lh(){
     			setTimeout(function(){
     				$('#msg-'+msgid).removeClass('bg-success');
     			},2000);
+
+    			var messagesBlock = $('#messagesBlock-'+chat_id);
+                messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
     		}
 		});
     };

@@ -12,17 +12,27 @@
         <?php else : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/bot_chat.tpl.php'));?><?php endif; ?></h6>
     <?php elseif ($is_proactive_based == true) : ?>
+    <?php if ($is_closed == true) : ?>
     <h6 class="fs12 status-text">
-    	<?php if ($theme !== false  && $theme->support_joined != '') : ?>
-    	   <?php echo htmlspecialchars($theme->support_joined)?>
-    	<?php else : ?>
+        <?php if ($theme !== false  && $theme->support_closed != '') : ?>
+            <?php echo htmlspecialchars($theme->support_closed)?>
+        <?php else : ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/closed_chat.tpl.php'));?>
+        <?php endif; ?>
+    </h6>
+    <?php else : ?>
+    <h6 class="fs12 status-text">
+        <?php if ($theme !== false  && $theme->support_joined != '') : ?>
+           <?php echo htmlspecialchars($theme->support_joined)?>
+        <?php else : ?>
             <?php if ($chat->transfer_uid > 0 && erLhcoreClassModelTransfer::getCount(array('filter' => array('chat_id' => $chat->id))) > 0) : ?>
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/transfered_chat.tpl.php'));?>
             <?php else : ?>
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/joined_chat.tpl.php'));?>
             <?php endif ?>
-    	<?php endif;?>
+        <?php endif;?>
     </h6>
+    <?php endif;?>
     <?php endif;?>
     <?php elseif ($is_closed == true) : ?>
     <h6 class="fs12 status-text">

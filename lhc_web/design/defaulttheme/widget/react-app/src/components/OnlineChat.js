@@ -9,6 +9,7 @@ import ChatFileUploader from './ChatFileUploader';
 import ChatSync from './ChatSync';
 import ChatOptions from './ChatOptions';
 import ChatStatus from './ChatStatus';
+import ChatIntroStatus from './ChatIntroStatus';
 
 import { helperFunctions } from "../lib/helperFunctions";
 import { withTranslation } from 'react-i18next';
@@ -130,6 +131,17 @@ class OnlineChat extends Component {
     componentDidMount() {
         if (sessionStorage && sessionStorage.getItem('lhc_ttxt') !== null) {
             this.setState({value: sessionStorage.getItem('lhc_ttxt')})
+        }
+
+        // We want to focus only if widget is open
+        var elm = document.getElementById('CSChatMessage');
+        if (elm !== null && this.props.chatwidget.get('shown') === true && this.props.chatwidget.get('mode') == 'widget') {
+            elm.focus();
+
+            var elmtmp = document.getElementById('CSChatMessage-tmp');
+            if (elmtmp !== null) {
+                document.body.removeChild(elmtmp);
+            }
         }
     }
 
@@ -400,6 +412,19 @@ class OnlineChat extends Component {
             this.textMessageRef.current.focus();
         }
 
+        // We show start form instantly if it's enabled
+        if (this.props.chatwidget.getIn(['chat_ui','start_on_close']) === true && this.props.chatwidget.getIn(['chatLiveData','closed']) === true && (typeof prevProps.chatwidget.getIn(['chatLiveData','closed']) === 'undefined' || prevProps.chatwidget.hasIn(['chatLiveData','closed']) === false || prevProps.chatwidget.getIn(['chatLiveData','closed']) === false)) {
+            this.props.endChat({"show_start": this.props.chatwidget.get('shown')});
+        }
+
+        // At the moment not used because logic migrated to one time call componentDidMount
+        if (this.props.chatwidget.get('shown') === true && this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('initLoaded') === true && this.props.chatwidget.get('msgLoaded') === true && (prevProps.chatwidget.get('msgLoaded') == false || prevProps.chatwidget.get('initLoaded') == false)) {
+            this.textMessageRef.current.focus();
+            var elm = document.getElementById('CSChatMessage-tmp');
+            if (elm !== null) {
+                document.body.removeChild(elm);
+            }
+        }
     }
 
     scrollBottom() {
@@ -451,6 +476,7 @@ class OnlineChat extends Component {
             'id': this.props.chatwidget.getIn(['chatData','id']),
             'hash' : this.props.chatwidget.getIn(['chatData','hash']),
             'msg' : this.state.value,
+            'mn' : this.props.chatwidget.hasIn(['chat_ui','mn']),
             'theme' : this.props.chatwidget.get('theme'),
             'lmgsid' : this.props.chatwidget.getIn(['chatLiveData','lmsgid'])
         }));
@@ -528,23 +554,7 @@ class OnlineChat extends Component {
                     msg_expand = "overflow-scroll position-relative";
                 }
 
-                return (<React.Fragment>
-                    {this.props.profileBefore !== null && <div dangerouslySetInnerHTML={{__html:this.props.profileBefore}}></div>}
-                    <div className={msg_expand} id="messagesBlock" dangerouslySetInnerHTML={{__html:this.props.messagesBefore}}></div>
-
-                    {!this.props.hideMessageField && <div className="d-flex flex-row border-top position-relative message-send-area">
-                        <div className="btn-group dropup disable-select pl-2 pt-2"><i className="material-icons settings text-muted" aria-haspopup="true" aria-expanded="false">&#xf100;</i></div>
-                        <div className="mx-auto pb-1 w-100">
-                            <textarea aria-label="Type your message here..." placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} id="CSChatMessage" rows="1" className="pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0" />
-                        </div>
-                        <div className="disable-select">
-                            <div className="user-chatwidget-buttons pt-1" id="ChatSendButtonContainer">
-                               <i className="material-icons text-muted settings mr-0">&#xf113;</i>
-                            </div>
-                        </div>
-                    </div>}
-
-                </React.Fragment>);
+                return <ChatIntroStatus profileBefore={this.props.profileBefore} msg_expand={msg_expand} messagesBefore={this.props.messagesBefore} placeholderMessage={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} />;
         }
         
         if (this.props.chatwidget.hasIn(['chatLiveData','ru']) && this.props.chatwidget.getIn(['chatLiveData','ru'])) {
@@ -665,10 +675,11 @@ class OnlineChat extends Component {
 
                     {this.state.showBBCode && <ChatModal showModal={this.state.showBBCode} insertText={this.insertText} toggle={this.toggleModal} dataUrl={"/chat/bbcodeinsert?react=1"} />}
 
-                    {this.props.chatwidget.hasIn(['chatStatusData','result']) && !this.props.chatwidget.hasIn(['chat_ui','hide_status']) && this.props.chatwidget.getIn(['chatStatusData','result']) && <div id="chat-status-container" className="p-2 border-bottom"><ChatStatus updateStatus={this.updateStatus} vtm={this.props.chatwidget.hasIn(['chat_ui','switch_to_human']) && this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_BOT_CHAT ? this.props.chatwidget.getIn(['chatLiveData','vtm']) : 0} status={this.props.chatwidget.getIn(['chatStatusData','result'])} /></div>}
+                    {this.props.chatwidget.hasIn(['chatStatusData','result']) && !this.props.chatwidget.hasIn(['chat_ui','hide_status']) && this.props.chatwidget.getIn(['chatStatusData','result']) && <div id="chat-status-container" className={"p-2 border-bottom live-status-"+this.props.chatwidget.getIn(['chatLiveData','status'])}><ChatStatus updateStatus={this.updateStatus} vtm={this.props.chatwidget.hasIn(['chat_ui','switch_to_human']) && this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_BOT_CHAT ? this.props.chatwidget.getIn(['chatLiveData','vtm']) : 0} status={this.props.chatwidget.getIn(['chatStatusData','result'])} /></div>}
 
                     <div className={msg_expand} id="messagesBlock">
                         <div className={bottom_messages} id="messages-scroll" ref={this.messagesAreaRef}>
+                            {this.props.chatwidget.hasIn(['chat_ui','prev_chat']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','prev_chat'])}}></div>}
                             {messages}
                         </div>
                     </div>
@@ -693,7 +704,7 @@ class OnlineChat extends Component {
 
                         <div className={message_send_style}>
                             {this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.hasIn(['chat_ui','survey_id']) && <button onClick={this.goToSurvey} className="w-100 btn btn-success">{t('online_chat.go_to_survey')}</button>}
-                            {(!this.props.chatwidget.getIn(['chatLiveData','closed']) || !this.props.chatwidget.hasIn(['chat_ui','survey_id'])) && <textarea maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} style={{height: this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/8.6)) ? '60px' : '36px'}} onFocus={this.scrollBottom} onTouchStart={this.scrollBottom} autoFocus={this.props.chatwidget.get('mode') == 'widget'} aria-label="Type your message here..." onKeyUp={this.keyUp} readOnly={this.props.chatwidget.getIn(['chatLiveData','closed'])} id="CSChatMessage" placeholder={placeholder} onKeyDown={this.enterKeyDown} value={this.state.value} onChange={this.handleChange} ref={this.textMessageRef} rows="1" className="pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0" />}
+                            {(!this.props.chatwidget.getIn(['chatLiveData','closed']) || !this.props.chatwidget.hasIn(['chat_ui','survey_id'])) && <textarea maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} onFocus={this.scrollBottom} onTouchStart={this.scrollBottom} aria-label="Type your message here..." onKeyUp={this.keyUp} readOnly={this.props.chatwidget.getIn(['chatLiveData','closed'])} id="CSChatMessage" placeholder={placeholder} onKeyDown={this.enterKeyDown} value={this.state.value} onChange={this.handleChange} ref={this.textMessageRef} rows="1" className={"pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0 "+((this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/8.6))) ? 'msg-two-line' : 'msg-one-line')} />}
                         </div>
 
                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && <div className="disable-select">

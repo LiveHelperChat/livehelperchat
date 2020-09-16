@@ -21,6 +21,8 @@ $inputData->priority = (isset($requestPayload['fields']['priority']) && is_numer
 $inputData->only_bot_online = isset($_POST['onlyBotOnline']) ? (int)$_POST['onlyBotOnline'] : 0;
 $inputData->vid = isset($requestPayload['vid']) && $requestPayload['vid'] != '' ? (string)$requestPayload['vid'] : '';
 
+$validStart = false;
+
 if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1) {
     erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
     $requestPayload['fields']['DepartamentID'] = $inputData->departament_id = array_shift($Params['user_parameters_unordered']['department']);
@@ -165,7 +167,7 @@ if (empty($Errors)) {
 
                     // Store Message from operator
                     $msg = new erLhcoreClassModelmsg();
-                    $msg->msg = trim($userInstance->operator_message);
+                    $msg->msg = trim($userInstance->operator_message_front);
 
                     if ($msg->msg == '') {
                         $inv = erLhAbstractModelProactiveChatInvitation::fetch($requestPayload['invitation_id']);
@@ -197,6 +199,17 @@ if (empty($Errors)) {
 
                             $paramsExecution['bot_id'] = $invitation->bot_id;
                             $paramsExecution['trigger_id'] = $invitation->trigger_id;
+
+                            // If bot is appended to a widget we should always execute it first.
+                            if (isset($invitation->design_data_array['append_bot']) && $invitation->design_data_array['append_bot'] == 1 && !isset($requestPayload['bpayload']['payload'])) {
+                                $trigger = erLhcoreClassModelGenericBotTrigger::fetch($paramsExecution['trigger_id']);
+                                $paramsExecution['trigger_id_executed'] = $paramsExecution['trigger_id'];
+                                if (is_object($trigger)) {
+                                    erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger);
+                                    $triggerEvent = erLhcoreClassModelGenericBotChatEvent::findOne(array('filter' => array('chat_id' => $chat->id)));
+                                    unset($paramsExecution['trigger_id']); // Now we let default trigger to be executed
+                                }
+                            }
                         }
                     }
 
@@ -373,7 +386,7 @@ if (empty($Errors)) {
 
         $db->commit();
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started', array('chat' => & $chat, 'msg' => $messageInitial));
+        $validStart = true;
 
     } catch (Exception $e) {
         $db->rollback();
@@ -394,9 +407,26 @@ if (empty($Errors)) {
         'errors' => $Errors
     );
 }
+
 if (!isset($restAPI)) {
     erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
+
+    if ($validStart === true) {
+
+        // Try to finish request before any listers do their job
+        flush();
+        if (function_exists('fastcgi_finish_request')) {
+            fastcgi_finish_request();
+        }
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started', array('chat' => & $chat, 'msg' => $messageInitial));
+    }
+
     exit;
+} else {
+    if ($validStart === true) {
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started', array('chat' => & $chat, 'msg' => $messageInitial));
+    }
 }
 
 

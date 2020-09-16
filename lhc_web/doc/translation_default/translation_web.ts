@@ -4,6 +4,22 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -212,6 +228,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Do not store what visitor is typing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
       <translation type="unfinished"/>
     </message>
@@ -408,6 +428,14 @@
     </message>
     <message>
       <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Block this IP</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -609,6 +637,18 @@
     </message>
     <message>
       <source>Notification</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online status options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline status options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Images</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -992,6 +1032,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Text/Icon color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Operator image in chat widget</source>
       <translation type="unfinished"/>
     </message>
@@ -1268,6 +1312,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Widget position from right to append</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget position from bottom to append</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget position from right to append in invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>After how many user messages show switch to human button. empty - never, 0 - always</source>
       <translation type="unfinished"/>
     </message>
@@ -1276,11 +1332,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Main operator title, {nick}, {name}, {surname}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Before closing chat ask user does he really want to to close chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show start chat form instantly after operator closes a chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show previous chat messages in chat widget.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1329,6 +1397,26 @@
     </message>
     <message>
       <source>Header icons color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline widget background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline widget border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline text/icon color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show close widget button in status widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show operator profile in a new row</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1743,6 +1831,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Close button above invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show profile photo on the left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide operator name in invitation widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show default header on proactive widget open event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Append trigger content in full widget</source>
       <translation type="unfinished"/>
     </message>
@@ -2011,6 +2115,10 @@
     </message>
     <message>
       <source>Optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Column width, 1-12</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2574,6 +2682,18 @@
     </message>
     <message>
       <source>Surname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Account status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Deactivated</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -3243,6 +3363,10 @@
     </message>
     <message>
       <source>Select campaign</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sending...</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3956,7 +4080,19 @@
   <context>
     <name>chat/blockedusers</name>
     <message>
+      <source>Users who are blocked</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3964,7 +4100,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Users who are blocked</source>
+      <source>User who blocked</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4517,6 +4653,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Please choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Start chat</source>
       <translation type="unfinished"/>
     </message>
@@ -4646,10 +4786,6 @@
     </message>
     <message>
       <source>Could not find a product!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5466,6 +5602,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>{nick}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor has been redirected to contact form</source>
       <translation type="unfinished"/>
     </message>
@@ -5656,6 +5796,14 @@
     </message>
     <message>
       <source>Edit nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Previous conversation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6633,15 +6781,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Mobile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Notifications</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Subscribers list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7704,6 +7860,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Debug</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>E-mail</source>
       <translation type="unfinished"/>
     </message>
@@ -8729,6 +8889,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Maximum number of chats operator can have.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Excluded from auto assign workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Login As</source>
       <translation type="unfinished"/>
     </message>
@@ -9656,6 +9828,10 @@
     </message>
     <message>
       <source>Sub URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum execution time</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13062,6 +13238,86 @@
     </message>
     <message>
       <source>Deny screen share</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>module/fbmessenger</name>
+    <message>
+      <source>Edit session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Token</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last error</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Device type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created on</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated on</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>mobile/settings</name>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mobile</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>mobile/sessions</name>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/usertyping</name>
+    <message>
+      <source>is typing...</source>
       <translation type="unfinished"/>
     </message>
   </context>

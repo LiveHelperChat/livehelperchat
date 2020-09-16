@@ -5,7 +5,7 @@
 <form action="<?php echo erLhcoreClassDesign::baseurl('install/install')?>/1" method="POST">
 
 <div class="panel">
-  <p>You will need to grant write permissions on any of the red-marked folders. You can do this by changing its username to your web server's username or by changing permissions with a CHMOD 777 on the displayed files/folders.</p>
+  <p>You will need to grant write permissions on any of the red-marked folders. You can do this by changing its username to your web server's username or by changing permissions with a CHMOD 755 on the displayed files/folders.</p>
 </div>
 
 <h2>Checking folders permission</h2>

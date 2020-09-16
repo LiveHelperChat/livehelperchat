@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Live Helper Chat API description. You have to authorize to use API. Create API key in Live Helper Chat back office. During authorization provide operator username and key instead of password.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "title": "Live Helper Chat API",
     "termsOfService": "",
     "contact": {
@@ -1005,6 +1005,45 @@
         ]
       }
     },
+    "/restapi/user_departments": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Fetches user departments",
+        "description": "If user_id is provided. Systems tries to find provided user. If not system returns authorised user departments.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "User ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch user departments",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
     "/restapi/getusers": {
       "get": {
         "tags": [
@@ -1198,6 +1237,91 @@
         ]
       }
     },
+    "/restapi/notifications/{token}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Returns notifications status",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "description": "User session token",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns notifications status",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Enables/Disables mobile notifications",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "description": "User session token",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Set's notifications status",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Notifications"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Notifications status was changed",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
     "/restapi/isonline": {
       "get": {
         "tags": [
@@ -1304,7 +1428,7 @@
             "name": "user_id",
             "in": "path",
             "description": "User ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           }
@@ -1343,7 +1467,7 @@
             "name": "chat_id",
             "in": "path",
             "description": "Chat ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           },
@@ -1396,7 +1520,7 @@
             "name": "object_id",
             "in": "path",
             "description": "Object ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           },
@@ -1404,7 +1528,7 @@
             "name": "type",
             "in": "path",
             "description": "Type ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           }
@@ -1443,7 +1567,7 @@
             "name": "object_id",
             "in": "path",
             "description": "Object ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           },
@@ -1451,7 +1575,7 @@
             "name": "type",
             "in": "path",
             "description": "Type ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           }
@@ -1490,7 +1614,7 @@
             "name": "user_id",
             "in": "path",
             "description": "User ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           },
@@ -1498,7 +1622,7 @@
             "name": "type",
             "in": "path",
             "description": "Type ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           }
@@ -2766,6 +2890,20 @@
         "nick" : "Nick of the bot"
       }
     },
+    "Notifications": {
+      "type": "object",
+      "properties": {
+          "status": {
+            "type": "boolean",
+            "default": false,
+            "required": false,
+            "description": ""
+          }
+      },
+      "example" : {
+        "status" : true
+      }
+    },
     "Autologin": {
       "type": "object",
       "properties": {
@@ -3324,6 +3462,12 @@
     "Department": {
       "type": "object",
       "properties": {
+        "raw_attr": {
+          "type": "boolean",
+          "nullable": true,
+          "example": true,
+          "description": "If you pass true we will use payload data directly as department attributes. Usefull if you want just to modify department data without any validation."
+        },
         "Name": {
           "type": "string",
           "default": "Name",

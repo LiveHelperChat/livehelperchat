@@ -14,15 +14,14 @@ if (trim($form->msg) != '')
 	$db->beginTransaction();	
 	try {
 		$Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
-						
-	    // Has access to read, chat
-	    //FIXME create permission to add message...
+
+
 	    if ($Chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRead($Chat) )
 	    {
 	        $currentUser = erLhcoreClassUser::instance();
 	
 	        if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
-	        	echo erLhcoreClassChat::safe_json_encode(array('error' => 'true', 'result' => 'Invalid CSRF Token' ));
+	        	echo erLhcoreClassChat::safe_json_encode(array('error' => 'true', 'r' => 'Try again or refresh a page. Invalid CSRF Token.' ));
 	        	$db->rollback();
 	        	exit;
 	        }
@@ -151,6 +150,13 @@ if (trim($form->msg) != '')
                         $Chat->operation_admin .= "lhinst.updateVoteStatus(".$Chat->id.");";
                         $Chat->saveThis();
 
+                        // If chat is transferred to pending state we don't want to process any old events
+                        $eventPending = erLhcoreClassModelGenericBotChatEvent::findOne(array('filter' => array('chat_id' => $Chat->id)));
+
+                        if ($eventPending instanceof erLhcoreClassModelGenericBotChatEvent) {
+                            $eventPending->removeThis();
+                        }
+
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('chat' => & $Chat, 'user' => $currentUser));
 
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.accept',array('chat' => & $Chat, 'user' => $currentUser));
@@ -193,7 +199,7 @@ if (trim($form->msg) != '')
 	    } else {
 	        throw new Exception('You cannot read this chat!');
         }
-	     	    
+
 	    $db->commit();
 	    
 	} catch (Exception $e) {
@@ -202,7 +208,7 @@ if (trim($form->msg) != '')
     }
 
 } else {
-    echo erLhcoreClassChat::safe_json_encode(array('error' => 'true'));
+    echo erLhcoreClassChat::safe_json_encode(array('error' => 'true', 'r' => 'Please enter a message...'));
 }
 
 

@@ -18,7 +18,10 @@ if ($currentUser->isLogged() && isset($_POST['chats']))
 
     foreach ($chats as $chatContent)
     {
-        list($chat_id,$msgIDs) = explode('|',$chatContent);
+        $paramsExecution = explode('|',$chatContent);
+
+        $chat_id = $paramsExecution[0];
+        $msgIDs = isset($paramsExecution[1]) ? $paramsExecution[1] : '';
 
         $chatsMessages = array();
         $chatStatusMessage = '';
@@ -35,11 +38,14 @@ if ($currentUser->isLogged() && isset($_POST['chats']))
         {
             if ( ($Chat->last_msg_id > (int)$minMessageID) && count($Messages = erLhcoreClassChat::getPendingMessages($chat_id,(int)$minMessageID)) > 0)
             {
-                foreach ($Messages as $msg)
+                foreach ($Messages as $msgIndex => $msg)
                 {
                     foreach ($masgIDArray as $msgID)
                     {
-                        if ($msgID < $msg['id']) $chatsMessages[$msgID][] = $msg;
+                        if ($msgID < $msg['id']) {
+                            $msg['msg'] = str_replace('"//','"'. (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' ,erLhcoreClassBBCode::make_clickable($msg['msg'], array('sender' => $msg['user_id'])));
+                            $chatsMessages[$msgID][] = $msg;
+                        }
                     }
                 }
                 
@@ -48,25 +54,32 @@ if ($currentUser->isLogged() && isset($_POST['chats']))
                 	$Chat->unread_messages_informed = 0;
                 	$Chat->saveThis();
                 }                
-                
-            } else {
-            	if ($Chat->is_user_typing) {
-            		$chatStatusMessage = $Chat->user_typing_txt;
-            	} elseif ($Chat->user_status == 1) {
-                    $chatStatusMessage = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','Visitor has left the chat!');
-                } elseif ($Chat->user_status == 0) {
-                    $chatStatusMessage = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userjoined','Visitor has joined the chat!');
-                }
             }
+        }
+
+        if ($Chat->is_user_typing) {
+            $chatStatusMessage = $Chat->user_typing_txt;
+        } elseif ($Chat->user_status_front == 1) {
+            $chatStatusMessage = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','Visitor has left the chat!');
+        } elseif ($Chat->user_status_front == 0) {
+            $chatStatusMessage = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userjoined','Visitor has joined the chat!');
         }
 
         $arrayReturn[$chat_id]['messages'] = $chatsMessages;
         $arrayReturn[$chat_id]['chat_status'] = $chatStatusMessage;
+        $arrayReturn[$chat_id]['chat_scode'] = (int)$Chat->user_status_front;
+
+        if ($Chat->user_typing_txt != '') {
+            $arrayReturn[$chat_id]['tt'] = $Chat->user_typing_txt;
+        }
     }
+
     echo json_encode(array("error" => false,'result' => $arrayReturn));
 } else {
     echo json_encode(array("error" => true));
 }
+
+
 
 
 

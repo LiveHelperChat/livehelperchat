@@ -358,14 +358,17 @@ try {
 				  KEY `dep_id_status` (`dep_id`,`status`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
-                    $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_blocked_user` (
+               $db->query("CREATE TABLE `lh_chat_blocked_user` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
-                  `ip` varchar(100) NOT NULL,
+                  `ip` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
                   `user_id` int(11) NOT NULL,
                   `datets` int(11) NOT NULL,
+                  `chat_id` int(11) NOT NULL,
+                  `dep_id` int(11) NOT NULL,
+                  `nick` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `ip` (`ip`)
-                ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
                     $db->query("CREATE TABLE `lh_users_online_session` ( 
         	       `id` bigint(20) NOT NULL AUTO_INCREMENT, 
@@ -1358,6 +1361,7 @@ try {
                 ('transfer_configuration','0','0','Transfer configuration','1'),
                 ('list_unread','0','0','List unread chats','0'),
                 ('list_closed','0','0','List closed chats','0'),
+                ('mobile_options',	'a:2:{s:13:\"notifications\";i:0;s:7:\"fcm_key\";s:152:\"AAAAiF8DeNk:APA91bFVHu2ybhBUTtlEtQrUEPpM2fb-5ovgo0FVNm4XxK3cYJtSwRcd-pqcBot_422yDOzHyw2p9ZFplkHrmNXjm8f5f-OIzfalGmpsypeXvnPxhU6Db1B2Z1Acc-TamHUn2F4xBJkP\";}',	0,	'',	1),
                 ('footprint_background','0','0','Footprint updates should be processed in the background. Make sure you are running workflow background cronjob.','0'),
                 ('reverse_pending','0','0','Make default pending chats order from old to new','0'),
                 ('departament_availability','364','0','How long department availability statistic should be kept? (days)','0'),
@@ -1378,6 +1382,7 @@ try {
                 ('pro_active_show_if_offline',	'0',	0,	'Should invitation logic be executed if there is no online operators',	0),
                 ('export_hash',	'{$exportHash}',	0,	'Chats export secret hash',	0),
                 ('do_no_track_ip', 0, 0, 'Do not track visitors IP',0),
+                ('ignore_typing', 0, 0, 'Do not store what visitor is typing',0),
                 ('encrypt_msg_after', 0, 0, 'After how many days anonymize messages',0),
                 ('encrypt_msg_op', 0, 0, 'Anonymize also operators messages',0),
                 ('valid_domains','','0','Domains where script can be embedded. E.g example.com, google.com','0'),
@@ -1913,18 +1918,22 @@ try {
 
                     // Session
                     $db->query("CREATE TABLE `lh_users_session` (
-                  `id` int(11) NOT NULL AUTO_INCREMENT,
-                  `token` varchar(40) NOT NULL,
-                  `device_type` int(11) NOT NULL,
-                  `device_token` varchar(255) NOT NULL,
-                  `user_id` int(11) NOT NULL,
-                  `created_on` int(11) NOT NULL,
-                  `updated_on` int(11) NOT NULL,
-                  `expires_on` int(11) NOT NULL,
-                  PRIMARY KEY (`id`),
-                  KEY `device_token_device_type_v2` (`device_token`(191),`device_type`),
-                  KEY `token` (`token`)
-                ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+                      `id` int(11) NOT NULL AUTO_INCREMENT,
+                      `token` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+                      `device_type` int(11) NOT NULL,
+                      `device_token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+                      `user_id` int(11) NOT NULL,
+                      `created_on` int(11) NOT NULL,
+                      `updated_on` int(11) NOT NULL,
+                      `expires_on` int(11) NOT NULL,
+                      `notifications_status` int(11) NOT NULL DEFAULT 1,
+                      `error` int(11) NOT NULL DEFAULT 0,
+                      `last_error` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+                      PRIMARY KEY (`id`),
+                      KEY `token` (`token`),
+                      KEY `device_token_device_type_v2` (`device_token`(191),`device_type`),
+                      KEY `error` (`error`)
+                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     // Chat messages
                     $db->query("CREATE TABLE IF NOT EXISTS `lh_msg` (

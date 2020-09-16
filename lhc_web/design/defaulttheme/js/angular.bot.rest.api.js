@@ -37,4 +37,8 @@ lhcAppControllers.controller('BotRestAPIParameters',['$scope','$http','$location
         return JSON.stringify({'host' : that.host, 'parameters' : that.parameters});
     }
 
+    this.initParams = function () {
+        this.parameters = window.rest_api_parameters;
+    }
+
 }]);

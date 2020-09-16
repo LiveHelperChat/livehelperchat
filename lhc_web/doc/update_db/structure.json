@@ -1420,6 +1420,30 @@
         "key": "",
         "default": null,
         "extra": ""
+      },
+      {
+        "field": "notifications_status",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "1",
+        "extra": ""
+      },
+      {
+        "field": "error",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "last_error",
+        "type": "varchar(255)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
       }
     ],
     "lh_users_online_session": [
@@ -4319,6 +4343,30 @@
       {
         "field": "datets",
         "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "chat_id",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "dep_id",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "nick",
+        "type": "varchar(50)",
         "null": "NO",
         "key": "",
         "default": null,
@@ -7783,6 +7831,13 @@
         "hidden": "0"
       },
       {
+        "identifier": "mobile_options",
+        "value": "a:2:{s:13:\"notifications\";i:0;s:7:\"fcm_key\";s:152:\"AAAAiF8DeNk:APA91bFVHu2ybhBUTtlEtQrUEPpM2fb-5ovgo0FVNm4XxK3cYJtSwRcd-pqcBot_422yDOzHyw2p9ZFplkHrmNXjm8f5f-OIzfalGmpsypeXvnPxhU6Db1B2Z1Acc-TamHUn2F4xBJkP\";}",
+        "type": "0",
+        "explain": "",
+        "hidden": "1"
+      },
+      {
         "identifier": "export_hash",
         "value": "qlg55biu",
         "type": "0",
@@ -8137,6 +8192,13 @@
         "value": "0",
         "type": "0",
         "explain": "Do not track visitors IP",
+        "hidden": "0"
+      },
+      {
+        "identifier": "ignore_typing",
+        "value": "0",
+        "type": "0",
+        "explain": "Do not store what visitor is typing",
         "hidden": "0"
       },
       {
@@ -9001,7 +9063,10 @@
       "old" : []
     },
     "lh_users_session" : {
-      "new" : {"device_token_device_type_v2" : "ALTER TABLE `lh_users_session` ADD INDEX `device_token_device_type_v2` (`device_token`(191),`device_type`);"},
+      "new" : {
+        "device_token_device_type_v2" : "ALTER TABLE `lh_users_session` ADD INDEX `device_token_device_type_v2` (`device_token`(191),`device_type`);",
+        "error" : "ALTER TABLE `lh_users_session` ADD INDEX `error` (`error`);"
+      },
       "old" : ["device_token_device_type"]
     },
     "lh_faq" : {

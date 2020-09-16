@@ -290,6 +290,7 @@ return array_merge(array (
         'erLhcoreClassGenericBotActionRepeat_restrict'   => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionrepeat_restrict.php',
         'erLhcoreClassGenericBotActionRestapi'      => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionrestapi.php',
         'erLhcoreClassGenericBotActionTbody'        => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactiontbody.php',
+        'erLhcoreClassGenericBotActionText_conditional' => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactiontext_conditional.php',
 
         'erLhcoreClassModelGenericBotRestAPI'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotrestapi.php',
         'erLhcoreClassLHCBotWorker'                 => 'lib/core/lhgenericbot/lhgenericbotworker.php',
@@ -327,6 +328,7 @@ return array_merge(array (
         'html'                                      => 'lib/core/lhmailconv/html_parsers/html.php',
         'erLhcoreClassMailconvHTMLParser'           => 'lib/core/lhmailconv/lhmailconvhtmlparser.php',
         'erLhcoreClassMailconvStatistic'            => 'lib/core/lhmailconv/lhmailconvstatistic.php',
+        'erLhcoreClassLHCMobile'                    => 'lib/core/lhmobile/lhmobile.php',
 
 ),
 include('var/autoloads/lhextension_autoload.php')

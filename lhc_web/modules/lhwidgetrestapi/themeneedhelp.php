@@ -8,7 +8,7 @@ if ($theme->modified > 0) {
     Header("Expires:".gmdate('D, d M Y H:i:s \G\M\T', time() + 3600));
     header("Last-Modified: ".gmdate("D, d M Y H:i:s", $theme->modified)." GMT");
 
-    if (@strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']) == $theme->modified) {
+    if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && @strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']) == $theme->modified) {
         header("HTTP/1.1 304 Not Modified");
         exit;
     }
@@ -42,6 +42,8 @@ if ($theme->need_help_close_bg != '') {
 if ($theme->need_help_close_hover_bg != '') {
     echo "#close-need-help-btn:hover{color:#" . $theme->need_help_close_hover_bg .'!important}';
 }
+
+echo $theme->custom_widget_css;
 
 exit;
 ?>

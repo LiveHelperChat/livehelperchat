@@ -1,3 +1,25 @@
+3.42v
+
+1. Option to do not store user typing text.
+2. Mobile notifications workflow improvements.
+2.1 We won't send notifications for messages if chat is pending. Only one notification about new chat will be send.
+2.2 New chat notification won't be send if chat is started with a bot. Notification will be send only if chat becomes pending.
+
+execute doc/update_db/update_216.sql for update
+
+3.41v
+
+1. Block listing window improvements.
+
+execute doc/update_db/update_215.sql for update
+
+3.40v
+
+1. Release in preparation for official mobile app release.
+2. Various other bot related changes.
+
+execute doc/update_db/update_214.sql for update
+
 3.39v
 
 1. Security improvements regarding postMessage workflow.

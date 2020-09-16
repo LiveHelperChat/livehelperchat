@@ -217,6 +217,10 @@ class erLhcoreClassModule{
             erLhcoreClassLog::write('Unexpected warning, the message was : ' . $errstr . ' in ' . $errfile . ' on line ' . $errline);
         }
 
+        if ($errno == E_NOTICE || $errno == E_STRICT) {
+            // erLhcoreClassLog::write('Unexpected notice, the message was : ' . $errstr . ' in ' . $errfile . ' on line ' . $errline);
+        }
+        
         return false;
     }
 
@@ -367,7 +371,6 @@ class erLhcoreClassModule{
     	            foreach ($Matches[1] as $key => $UrlAddress)
     	            {
     	                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->current_value;
-    	                $valueReplace = '';
     	                $valueReplace = '\''.str_replace("'","\'",$valueConfig).'\'';
     	                $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
     	            }

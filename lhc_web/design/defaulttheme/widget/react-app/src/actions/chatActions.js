@@ -20,6 +20,7 @@ export function hideInvitation() {
     return function(dispatch, getState) {
         const state = getState();
         helperFunctions.sendMessageParent('closeWidget', [{'sender' : 'closeButton'}]);
+        helperFunctions.sendMessageParent('cancelInvitation', [{'sender' : 'closeButton'}]);
         axios.get(window.lhcChat['base_url'] + "chat/chatwidgetclosed/(vid)/" + state.chatwidget.get('vid')).then((response) => {
             dispatch({type: "HIDE_INVITATION"});
         })
@@ -49,7 +50,7 @@ export function endChat(obj) {
                     helperFunctions.removeSessionStorage('lhc_chat');
                     window.close();
                 } else {
-                    helperFunctions.sendMessageParent('endChat', [{'sender' : 'endButton'}]);
+                    helperFunctions.sendMessageParent('endChat', [{show_start: obj['show_start'], 'sender' : 'endButton'}]);
                 }
             } else {
                 dispatch({type: "INIT_CLOSE", data: obj})
@@ -317,8 +318,34 @@ function processResponseCheckStatus(response, getState, dispatch) {
             } else if (action == 'lhc_ui_refresh') {
                 const state = getState();
                 updateUISettings({'id' : state.chatwidget.getIn(['chatData','id']), 'hash' : state.chatwidget.getIn(['chatData','hash'])})(dispatch, getState);
+            } else if (action.indexOf('lhinst.updateMessageRow') !== -1) {
+                const state = getState();
+                updateMessage({'msg_id' : action.replace('lhinst.updateMessageRow(','').replace(')','') ,'id' : state.chatwidget.getIn(['chatData','id']), 'hash' : state.chatwidget.getIn(['chatData','hash'])})(dispatch, getState);
             }
         });
+    }
+}
+
+export function updateMessage(obj) {
+    return function(dispatch, getState) {
+        const state = getState();
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/fetchmessage", obj)
+        .then((response) => {
+            let elm = document.getElementById('msg-'+response.data.id);
+            const classNameRow = elm.className;
+            elm.outerHTML = response.data.msg;
+            elm.className = classNameRow;
+
+            // Just adjust a scroll
+            let elmScroll = document.getElementById('messages-scroll');
+            if (elmScroll !== null) {
+                elmScroll.scrollTop = elmScroll.scrollHeight + 1000;
+            }
+
+        })
+        .catch((err) => {
+
+        })
     }
 }
 

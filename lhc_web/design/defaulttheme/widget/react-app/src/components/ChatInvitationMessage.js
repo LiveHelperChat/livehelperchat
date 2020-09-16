@@ -41,9 +41,9 @@ class ChatInvitationMessage extends PureComponent {
                         </div>
                     </div>
                     {this.props.mode != 'profile_only' &&
-                    <div className="message-row message-admin pt-1 text-left">
+                    <div id="messagesBlock"><div className="bottom-message position-relative"><div className="message-row message-admin pt-1 text-left ml-3">
                         <div className="msg-body" dangerouslySetInnerHTML={{__html:this.props.invitation.message}}></div>
-                    </div>}
+                    </div></div></div>}
                 </React.Fragment>
             );
         }

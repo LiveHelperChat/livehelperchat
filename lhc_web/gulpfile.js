@@ -72,7 +72,7 @@ gulp.task('react', function () {
 	])
         .pipe(sourcemaps.init())
         .pipe(babel({
-            presets: ["react", "es2015"]
+            presets: ["react", "@babel/preset-env"]
         }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest("design/defaulttheme/js/react/build"));
@@ -84,7 +84,7 @@ gulp.task('react-components', function () {
 	])
 	.pipe(sourcemaps.init())
 	.pipe(babel({
-		presets: ["react", "es2015"]
+		presets: ["@babel/react", "@babel/preset-env"]
 	}))
 	.pipe(sourcemaps.write('.'))
 	.pipe(gulp.dest("design/defaulttheme/js/react/build/components"));
@@ -96,8 +96,8 @@ gulp.task('react-js',  function() {
 
     return browserify('design/defaulttheme/js/react/src/index.jsx')
         .transform("babelify", {
-        	presets: ["react", "es2015", "stage-0"],
-            plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy']
+        	presets: ["@babel/preset-react", "@babel/preset-env"],
+            plugins: ['react-html-attrs', 'transform-class-properties', ["@babel/plugin-proposal-decorators", { "legacy": true}]]
         })
         .bundle()
         .on('error', gutil.log)
@@ -166,6 +166,13 @@ gulp.task('js-lh', function() {
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
+gulp.task('js-static', function() {
+    var stylePath = ['design/defaulttheme/js/js_static/*'];
+    return gulp.src(stylePath)
+        .pipe(uglify())
+        .pipe(gulp.dest('design/defaulttheme/js/js_static'));
+});
+
 gulp.task('js-lh-canned', function() {
 	var stylePath = ['design/defaulttheme/js/lh.cannedmsg.js'];
 	
@@ -185,11 +192,9 @@ gulp.task('js-lh-dashboard', function() {
 
 gulp.task('js-colorpicker', function() {
 	var stylePath = ['design/defaulttheme/js/color-picker.js'];
-	return gulp.src(stylePath)
-
-	.pipe(concat('color-picker.min.js'))
+	return gulp.src(stylePath).pipe(concat('color-picker.min.js'))
     .pipe(babel({
-            presets: ['es2015']
+            presets: ['@babel/preset-env']
         }))
 	.pipe(uglify({mangle: false, ecma: 5}))
 	.pipe(gulp.dest('design/defaulttheme/js'));

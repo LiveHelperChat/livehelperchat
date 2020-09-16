@@ -122,7 +122,7 @@ class erLhAbstractModelWidgetTheme {
 		}
 	}
 
-	public function movePhoto($attr, $isLocal = false, $localFile = false)
+    public function movePhoto($attr, $isLocal = false, $localFile = false)
 	{
 		$this->deletePhoto($attr);
 	
@@ -367,6 +367,14 @@ class erLhAbstractModelWidgetTheme {
 
 	public function beforeRemove()
     {
+        // If theme is removed we have to reset default theme if it was the one
+        $themeData = erLhcoreClassModelChatConfig::fetch('default_theme_id');
+
+        if ($themeData->value == $this->id) {
+            $themeData->value = 0;
+            $themeData->saveThis();
+        }
+        
         $imagesToRemove = array(
             'online_image',
             'offline_image',
@@ -445,6 +453,7 @@ class erLhAbstractModelWidgetTheme {
             'explain_text',
             'need_help_text',
             'need_help_header',
+            'intro_operator_text',
         );
 
         $translatableAttributes = array_merge(array(
@@ -503,7 +512,7 @@ class erLhAbstractModelWidgetTheme {
    	public $id = null;
 	public $name = '';
 	public $onl_bcolor = '0c8fc4';
-	public $text_color = '000000';
+	public $text_color = '';
 	public $bor_bcolor = 'e3e3e3';
 	public $online_image = '';
 	public $offline_image = '';
@@ -536,7 +545,7 @@ class erLhAbstractModelWidgetTheme {
 	public $explain_text = '';
 	public $intro_operator_text = '';
 	public $widget_border_color = 'cccccc';	
-	public $hide_close = 0;
+	public $hide_close = 1;
 	public $hide_popup = 0;	
 	public $minimize_image = '';
 	public $minimize_image_path = '';	

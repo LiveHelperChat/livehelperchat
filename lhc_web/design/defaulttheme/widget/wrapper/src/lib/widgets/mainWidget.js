@@ -14,7 +14,7 @@ export class mainWidget{
         this.originalCSS = '';
 
         this.cont = new UIConstructorIframe('lhc_widget_v2', helperFunctions.getAbstractStyle({
-            zindex: "1000000",
+            zindex: "2147483640",
             width: "95px",
             height: "95px",
             position: "fixed",
@@ -27,8 +27,6 @@ export class mainWidget{
             minwidth: "95px"
         }), null, "iframe");
 
-        this.cont.tmpl = '<div id="root" class="container-fluid d-flex flex-column flex-grow-1 overflow-auto fade-in"></div>';
-        
         this.isLoaded = false;
     }
 
@@ -41,8 +39,8 @@ export class mainWidget{
             width: this.width + this.units + " !important",
             "min-width": this.width + this.units + " !important",
             "max-width": this.width + this.units +  " !important",
-            bottom: (this.units == 'px' ? this.bottom + "px !important" : '0px !important'),
-            right: (this.units == 'px' ? this.right + "px !important" : '0px !important'),
+            bottom: (this.units == 'px' ? this.bottom + "px" : '0px'),
+            right: (this.units == 'px' ? this.right + "px" : '0px'),
         };
 
         if (this.attributes.mode == 'embed') {
@@ -60,8 +58,13 @@ export class mainWidget{
     init(attributes, lazyLoad) {
 
         this.attributes = attributes;
+        this.cont.bodyId = 'chat-widget';
+
+        this.cont.tmpl = '<div id="root" class="container-fluid d-flex flex-column flex-grow-1 overflow-auto fade-in ' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + '"></div>';
 
         this.cont.constructUIIframe('', this.attributes.staticJS['dir'], this.attributes.staticJS['cl'], this.attributes.hhtml);
+
+        this.cont.elmDom.className = this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop';
 
         if (this.attributes.cont_ss) {
             this.originalCSS = this.cont.elmDom.style.cssText;
@@ -133,9 +136,8 @@ export class mainWidget{
     monitorDimensions(data) {
         this.width = data.width_override || data.width;
         this.height = data.height_override || data.height;
-        this.bottom = data.bottom_override || 30;
-        this.right = data.right_override || 30;
-
+        this.bottom = data.bottom_override ? (data.bottom_override + (data.wbottom ? data.wbottom : 0)) : (30 + (this.attributes.clinst === true ? 70 : 0) + (data.wbottom ? data.wbottom : 0));
+        this.right = data.right_override ? (data.right_override + (data.wright_inv ? data.wright_inv : 0)) : (30 + (data.wright ? data.wright : 0));
         this.units = (data.width_override || data.height_override || data.bottom_override || data.right_override) ? 'px' : data.units;
         this.resize();
     }

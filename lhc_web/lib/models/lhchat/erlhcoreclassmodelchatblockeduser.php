@@ -19,7 +19,10 @@ class erLhcoreClassModelChatBlockedUser
             'id' => $this->id,
             'ip' => $this->ip,
             'user_id' => $this->user_id,
-            'datets' => $this->datets
+            'datets' => $this->datets,
+            'chat_id' => $this->chat_id,
+            'dep_id' => $this->dep_id,
+            'nick' => $this->nick,
         );
     }
 
@@ -28,7 +31,6 @@ class erLhcoreClassModelChatBlockedUser
         switch ($var) {
             case 'datets_front':
                 return date(erLhcoreClassModule::$dateDateHourFormat, $this->datets);
-                break;
 
             case 'user':
                 try {
@@ -37,7 +39,13 @@ class erLhcoreClassModelChatBlockedUser
                     $this->user = '-';
                 }
                 return $this->user;
-                break;
+
+            case 'department':
+                $this->department = null;
+                if ($this->dep_id > 0) {
+                    $this->department = erLhcoreClassModelDepartament::fetch($this->dep_id);
+                }
+                return $this->department;
 
             default:
                 break;
@@ -52,7 +60,10 @@ class erLhcoreClassModelChatBlockedUser
     public $id = null;
     public $ip = '';
     public $user_id = 0;
-    public $datets = '';
+    public $datets = null;
+    public $chat_id = 0;
+    public $dep_id = 0;
+    public $nick = '';
 }
 
 ?>

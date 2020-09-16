@@ -138,7 +138,7 @@ class chatEventsHandler {
 
         if (this.attributes.popupWidget.cont.elementReferrerPopup && this.attributes.popupWidget.cont.elementReferrerPopup.closed === false)
         {
-            this.attributes.popupWidget.cont.elementReferrerPopup.postMessage(command, '/');
+            this.attributes.popupWidget.cont.elementReferrerPopup.postMessage(command, '*');
         }
     }
 

@@ -430,6 +430,11 @@ class UploadHandler
         while(is_dir($this->get_upload_path($name))) {
             $name = $this->upcount_name($name);
         }
+
+        if ($content_range === null) {
+            return rand(0,100) . microtime();
+        }
+
         // Keep an existing filename if this is part of a chunked upload:
         $uploaded_bytes = $this->fix_integer_overflow(intval($content_range[1]));
         while(is_file($this->get_upload_path($name))) {

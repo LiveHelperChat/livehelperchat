@@ -7,7 +7,7 @@ $item =  erLhcoreClassModelMailconvMailbox::fetch($Params['user_parameters']['id
 $tab = '';
 
 if (isset($Params['user_parameters_unordered']['action']) && $Params['user_parameters_unordered']['action'] == 'sync') {
-    erLhcoreClassMailconvParser::syncMailbox($item);
+    erLhcoreClassMailconvParser::syncMailbox($item, array('live' => true));
     $tab = 'tab_utilities';
 }
 

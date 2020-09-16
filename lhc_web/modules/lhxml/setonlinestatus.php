@@ -1,6 +1,7 @@
 <?php
 
 $currentUser = erLhcoreClassUser::instance();
+
 if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'],$_POST['password']))
 {
 	exit;
@@ -17,7 +18,12 @@ if ( $currentUser->hasAccessTo('lhuser','changeonlinestatus') ) {
 	}
 
 	erLhcoreClassUser::getSession()->update($UserData);
+
 	erLhcoreClassUserDep::setHideOnlineStatus($UserData);
+
+    erLhcoreClassChat::updateActiveChats($UserData->id);
+
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_status_changed',array('user' => & $UserData, 'reason' => 'user_action'));
 }
 exit;
 ?>

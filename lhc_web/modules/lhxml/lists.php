@@ -7,15 +7,23 @@ if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'],
 }
 
 $activeChats = erLhcoreClassChat::getActiveChats(10);
-$closedChats = erLhcoreClassChat::getClosedChats(10);
+$closedChats = array(); //erLhcoreClassChat::getClosedChats(10);
 $pendingChats = erLhcoreClassChat::getPendingChats(10);
 $transferedChats = erLhcoreClassTransfer::getTransferChats();
-$unreadChats = erLhcoreClassChat::getUnreadMessagesChats(10,0);
+$unreadChats = array(); // erLhcoreClassChat::getUnreadMessagesChats(10,0);
 
-erLhcoreClassChat::prefillGetAttributes($activeChats,array('department_name'),array('updateIgnoreColumns','department'));
-erLhcoreClassChat::prefillGetAttributes($closedChats,array('department_name'),array('updateIgnoreColumns','department'));
-erLhcoreClassChat::prefillGetAttributes($pendingChats,array('department_name'),array('updateIgnoreColumns','department'));
-erLhcoreClassChat::prefillGetAttributes($unreadChats,array('department_name'),array('updateIgnoreColumns','department'));
+foreach ($activeChats as $index => $activeChat) {
+    $activeChats[$index]->owner = $activeChat->n_off_full;
+}
+
+foreach ($pendingChats as $index => $pendingChat) {
+    $pendingChats[$index]->owner = $pendingChat->n_off_full;
+}
+
+erLhcoreClassChat::prefillGetAttributes($activeChats,array('department_name','user_status_front'),array('updateIgnoreColumns','department','user'));
+erLhcoreClassChat::prefillGetAttributes($closedChats,array('department_name','user_status_front'),array('updateIgnoreColumns','department','user'));
+erLhcoreClassChat::prefillGetAttributes($pendingChats,array('department_name','user_status_front'),array('updateIgnoreColumns','department','user'));
+erLhcoreClassChat::prefillGetAttributes($unreadChats,array('department_name'),array('updateIgnoreColumns','department','user'));
 
 $onlineUsers = array();
 if ($currentUser->hasAccessTo('lhchat','use_onlineusers')) {

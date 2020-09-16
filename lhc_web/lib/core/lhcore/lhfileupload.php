@@ -121,7 +121,7 @@ class erLhcoreClassFileUpload extends UploadHandler
                 $chat->updateThis(array('update' => array('last_user_msg_time','last_msg_id','has_unread_messages')));
 
                 if ($msg->user_id == 0) {
-                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.addmsguser',array('msg' => & $msg, 'chat' => & $chat));
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.addmsguser',array('file' => $fileUpload, 'msg' => & $msg, 'chat' => & $chat));
                 } else {
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg, 'chat' => & $chat));
                 }

@@ -7,9 +7,11 @@ export class needhelpWidget{
 
         this.attributes = {};
         this.hidden = false;
+        this.widgetOpen = false;
+        this.invitationOpen = false;
 
         this.cont = new UIConstructorIframe('lhc_needhelp_widget_v2', helperFunctions.getAbstractStyle({
-            zindex: "1000000",
+            zindex: "2147483640",
             width: "320px",
             height: "135px",
             position: "fixed",
@@ -24,8 +26,19 @@ export class needhelpWidget{
     init(attributes, settings) {
 
         this.attributes = attributes;
-        this.cont.tmpl = settings['html'];
+        
+        if (this.attributes.widgetDimesions.value.wbottom > 0 || this.attributes.widgetDimesions.value.wright > 0) {
+            this.cont.massRestyle({
+                "bottom" : (70+this.attributes.widgetDimesions.value.wbottom) + "px",
+                "right" : (45+this.attributes.widgetDimesions.value.wright) + "px",
+            });
+        }
+        
+        this.cont.tmpl = settings['html'].replace('{dev_type}',(this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop'));
+        this.cont.bodyId = 'need-help';
         this.cont.constructUIIframe('');
+
+        this.cont.elmDom.className += this.attributes.isMobile === true ? ' lhc-mobile' : ' lhc-desktop';
 
         this.cont.attachUserEventListener("click", function (a) {
             attributes.eventEmitter.emitEvent('nhClicked', [{'sender' : 'closeButton'}]);
@@ -37,7 +50,7 @@ export class needhelpWidget{
         this.cont.attachUserEventListener("click", function (a) {
             attributes.eventEmitter.emitEvent('nhClosed', [{'sender' : 'closeButton'}]);
             a.stopPropagation();
-            _that.hide();
+            _that.hide(true);
         }, "close-need-help-btn",'nhcls');
 
         if (settings.dimensions) {
@@ -45,6 +58,10 @@ export class needhelpWidget{
         }
 
         this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_css']}, true);
+
+        if (this.attributes.isMobile == true) {
+            this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_mobile_css']});
+        }
 
         if (this.attributes.theme > 0) {
             this.loadStatus['theme'] = false;
@@ -54,12 +71,27 @@ export class needhelpWidget{
         }
 
         attributes.eventEmitter.addListener('showInvitation',() => {
+            this.invitationOpen = true;
             this.hide();
+        });
+        
+        attributes.eventEmitter.addListener('chatStarted',() => {
+            this.hide(true);
+        });
+
+        attributes.eventEmitter.addListener('hideInvitation',() => {
+            this.invitationOpen = false;
+            this.show();
+        });
+
+        attributes.eventEmitter.addListener('cancelInvitation',() => {
+            this.invitationOpen = false;
+            this.show();
         });
 
         setTimeout(() => {
             attributes.widgetStatus.subscribe((data) => {
-                data == true ? this.hide() : this.show();
+                data == true ? (this.widgetOpen = true,this.hide()) : (this.widgetOpen = false,this.show());
             });
 
             attributes.onlineStatus.subscribe((data) => {
@@ -79,18 +111,20 @@ export class needhelpWidget{
 
     }
 
-    hide () {
+    hide (persistent) {
 
-        this.attributes.userSession.hnh = Math.round(Date.now() / 1000);
-        this.attributes.storageHandler.storeSessionInformation(this.attributes.userSession.getSessionAttributes())
+        if (typeof persistent !== 'undefined' && persistent === true){
+            this.attributes.userSession.hnh = Math.round(Date.now() / 1000);
+            this.attributes.storageHandler.storeSessionInformation(this.attributes.userSession.getSessionAttributes());
+            this.hidden = true;
+        }
 
-        this.hidden = true;
         this.cont.hide();
     }
 
     show () {
 
-        if (this.hidden == true) {
+        if (this.hidden == true || this.widgetOpen == true ||  this.invitationOpen == true || this.attributes.onlineStatus.value == false) {
             return;
         }
 

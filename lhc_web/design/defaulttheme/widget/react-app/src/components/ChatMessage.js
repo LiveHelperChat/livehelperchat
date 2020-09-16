@@ -51,6 +51,16 @@ class ChatMessage extends PureComponent {
             this.updateTriggerClicked({type:'',mainType: 'updatebuttonclicked'}, attrs, e.target);
         } else if (attrs.onclick.indexOf('lhinst.editGenericStep') !== -1) {
             this.updateTriggerClicked({type:'/(type)/editgenericstep'}, attrs, e.target);
+        } else if (attrs.onclick.indexOf('lhinst.hideShowAction') !== -1) {
+            const args = JSON.parse(attrs['data-load']);
+            var more = document.getElementById('message-more-'+args['id']);
+            if (more.classList.contains('hide')) {
+                e.target.innerText = args['hide_text'];
+                more.classList.remove('hide');
+            } else {
+                e.target.innerText = args['show_text'];
+                more.classList.add('hide');
+            }
         } else if (attrs.onclick.indexOf('lhinst.dropdownClicked') !== -1) {
             const list = document.getElementById('id_generic_list-' + attrs['data-id']);
             if (list && list.value != "0" && list.value != "") {
@@ -135,6 +145,31 @@ class ChatMessage extends PureComponent {
         }
     }
 
+    formatStringToCamelCase(str) {
+        const splitted = str.split("-");
+        if (splitted.length === 1) return splitted[0];
+        return (
+            splitted[0] +
+            splitted
+                .slice(1)
+                .map(word => word[0].toUpperCase() + word.slice(1))
+                .join("")
+        );
+    };
+
+    getStyleObjectFromString(str) {
+        const style = {};
+        str.split(";").forEach(el => {
+            const [property, value] = el.split(":");
+            if (!property) return;
+
+            const formattedProperty = this.formatStringToCamelCase(property.trim());
+            style[formattedProperty] = value.trim();
+        });
+
+        return style;
+    };
+
     render() {
 
         var operatorChanged = false;
@@ -168,13 +203,29 @@ class ChatMessage extends PureComponent {
                     }
 
                     if (domNode.name && domNode.name === 'img') {
+
+                        if (domNode.attribs.style) {
+                            domNode.attribs.style = this.getStyleObjectFromString(domNode.attribs.style);
+                        }
+
                         return <img {...domNode.attribs} onLoad={this.imageLoaded} onClick={(e) => this.abstractClick(cloneAttr, e)} />
+
                     } else if (domNode.name && domNode.name === 'button') {
                         if (cloneAttr.onclick) {
+
+                            if (domNode.attribs.style) {
+                                domNode.attribs.style = this.getStyleObjectFromString(domNode.attribs.style);
+                            }
+
                             return <button {...domNode.attribs} onClick={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</button>
                         }
                     } else if (domNode.name && domNode.name === 'a') {
                         if (cloneAttr.onclick) {
+
+                            if (domNode.attribs.style) {
+                                domNode.attribs.style = this.getStyleObjectFromString(domNode.attribs.style);
+                            }
+
                             return <a {...domNode.attribs} onClick={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</a>
                         }
                     } else if (domNode.name && domNode.name === 'script' && domNode.attribs['data-bot-action']) {

@@ -3,6 +3,14 @@
 
     if (!isset($chat)) {
         $chat = new erLhcoreClassModelChat();
+
+        if (isset($additionalDataArray)) {
+            $chat->additional_data_array = $additionalDataArray;
+        }
+
+        if (isset($variablesDataArray)) {
+            $chat->chat_variables_array = $variablesDataArray;
+        }
     }
 
     $messages = erLhcoreClassGenericBotWorkflow::processTriggerPreview($chat, $trigger, array('args' => array('do_not_save' => true)));

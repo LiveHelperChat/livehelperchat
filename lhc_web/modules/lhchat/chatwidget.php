@@ -29,26 +29,26 @@ if (is_array($Params['user_parameters_unordered']['ua']) && !empty($Params['user
 $theme = false;
 $modeAppendTheme = '';
 if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
-	try {
-		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+    $theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+    if ($theme instanceof erLhAbstractModelWidgetTheme) {
         $theme->translate();
-		$Result['theme'] = $theme;
-		$modeAppendTheme = '/(theme)/'.$theme->id;
-	} catch (Exception $e) {
-
-	}
+        $Result['theme'] = $theme;
+        $modeAppendTheme = '/(theme)/'.$theme->id;
+    } else {
+        $theme = false;
+    }
 } else {
-	$defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
-	if ($defaultTheme > 0) {
-		try {
-			$theme = erLhAbstractModelWidgetTheme::fetch($defaultTheme);
+    $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
+    if ($defaultTheme > 0) {
+        $theme = erLhAbstractModelWidgetTheme::fetch($defaultTheme);
+        if ($theme instanceof erLhAbstractModelWidgetTheme) {
             $theme->translate();
-			$Result['theme'] = $theme;
-			$modeAppendTheme = '/(theme)/'.$theme->id;
-		} catch (Exception $e) {
-		
-		}
-	}
+            $Result['theme'] = $theme;
+            $modeAppendTheme = '/(theme)/'.$theme->id;
+        } else {
+            $theme = false;
+        }
+    }
 }
 
 if ($theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['detect_language']) && $theme->bot_configuration_array['detect_language'] == true) {

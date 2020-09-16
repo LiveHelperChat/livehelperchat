@@ -107,33 +107,61 @@ if ($outputResponse['invitation_id'] > 0) {
         $chat = new erLhcoreClassModelChat();
         $chat->bot = $bot;
         $chat->gbot_id = $bot->id;
+        $chat->additional_data_array = $onlineUser->online_attr_array;
+        $chat->chat_variables_array = $onlineUser->chat_variables_array;
 
         $tpl->set('chat',$chat);
         $tpl->set('react',true);
         $tpl->set('no_wrap_intro',true);
         $tpl->set('no_br',true);
         $tpl->set('triggerMessageId',$invitation->trigger_id);
+        $tpl->set('additionalDataArray', $onlineUser->online_attr_array );
+        $tpl->set('variablesDataArray', $onlineUser->chat_variables_array );
 
         $outputResponse['message_full'] = $tpl->fetch();
 
         if (isset($invitation->design_data_array['append_intro_bot']) && $invitation->design_data_array['append_intro_bot'] == 1) {
             $outputResponse['bot_intro'] = true;
         }
-
-
     }
 
-    if ($invitation instanceof erLhAbstractModelProactiveChatInvitation){
+    if ($invitation instanceof erLhAbstractModelProactiveChatInvitation) {
+
+        if (isset($invitation->design_data_array['close_above_msg']) && $invitation->design_data_array['close_above_msg'] == 1) {
+            $outputResponse['close_above_msg'] = true;
+        }
+
         if (isset($invitation->design_data_array['full_on_invitation']) && $invitation->design_data_array['full_on_invitation'] == true) {
             $outputResponse['full_widget'] = true;
+        }
+
+        if (isset($invitation->design_data_array['photo_left_column']) && $invitation->design_data_array['photo_left_column'] == true) {
+            $outputResponse['photo_left_column'] = true;
+        }
+        
+        if (isset($invitation->design_data_array['hide_op_name']) && $invitation->design_data_array['hide_op_name'] == true) {
+            $outputResponse['hide_op_name'] = true;
         }
         
         if (isset($invitation->design_data_array['message_width']) && is_numeric($invitation->design_data_array['message_width']) && $invitation->design_data_array['message_width'] > 0) {
             $outputResponse['message_width'] = (int)$invitation->design_data_array['message_width'];
         }
-    }
 
+        if (isset($invitation->design_data_array['std_header']) && $invitation->design_data_array['std_header'] == true) {
+            $outputResponse['std_header'] = true;
+        }
+    }
 }
+
+if (strpos($outputResponse['message'],'{operator}') !== false) {
+    $outputResponse['message'] = str_replace('{operator}',$outputResponse['name_support'], $outputResponse['message']);
+
+    // Update operator message so once chat is started it will have correct message.
+    $onlineUser->operator_message = str_replace('{operator}', $outputResponse['name_support'], $onlineUser->operator_message);
+    $onlineUser->updateThis(['update' => ['operator_message']]);
+}
+
+
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.getinvitation',array('output' => & $outputResponse, 'ou' => $onlineUser));
 
