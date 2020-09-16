@@ -35,7 +35,7 @@ echo "Updating it_IT translations"
 curl -L --user $1:$2 -X GET https://www.transifex.com/api/2/project/live-helper-chat/resource/translation_webts/translation/it?file=1 > translations/it_IT/translation.ts
 
 echo "Updating es_MX translations"
-curl -L --user $1:$2 -X GET https://www.transifex.com/api/2/project/live-helper-chat/resource/translation_webts/translation/es?file=1 > translations/es_MX/translation.ts
+curl -L --user $1:$2 -X GET https://www.transifex.com/api/2/project/live-helper-chat/resource/translation_webts/translation/es_MX?file=1 > translations/es_MX/translation.ts
 
 echo "Updating de_DE translations"
 curl -L --user $1:$2 -X GET https://www.transifex.com/api/2/project/live-helper-chat/resource/translation_webts/translation/de?file=1 > translations/de_DE/translation.ts

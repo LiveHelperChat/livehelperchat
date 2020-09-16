@@ -10,6 +10,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Сколько дней виджет голосования не будет открыт с последнего показа</translation>
     </message>
@@ -218,6 +226,10 @@
       <translation>Игнорировать онлайн статусы пользователей и использовать часы онлайн департамента</translation>
     </message>
     <message>
+      <source>Do not store what visitor is typing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
       <translation>Какие IP следует игнорировать в списке пользователей онлайн, через запятую</translation>
     </message>
@@ -415,6 +427,14 @@
     <message>
       <source>New</source>
       <translation>Новое</translation>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Block this IP</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Updated</source>
@@ -2662,6 +2682,18 @@
       <source>Surname</source>
       <translation>Фамилия</translation>
     </message>
+    <message>
+      <source>Account status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Deactivated</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/subject</name>
@@ -3329,6 +3361,10 @@
     </message>
     <message>
       <source>Select campaign</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sending...</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4042,16 +4078,28 @@
   <context>
     <name>chat/blockedusers</name>
     <message>
+      <source>Users who are blocked</source>
+      <translation>Заблокированный пользователи</translation>
+    </message>
+    <message>
       <source>IP</source>
       <translation>IP</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Date</source>
       <translation>Дата</translation>
     </message>
     <message>
-      <source>Users who are blocked</source>
-      <translation>Заблокированный пользователи</translation>
+      <source>User who blocked</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Remove block</source>
@@ -4325,15 +4373,15 @@
     </message>
     <message>
       <source>To what department chat should be transferred if it is not accepted</source>
-      <translation type="unfinished"/>
+      <translation>В какой департамент будет переведен чат, если он не принят</translation>
     </message>
     <message>
       <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
-      <translation type="unfinished"/>
+      <translation>Таймаут в секундах, прежде чем чат будет переведен в другой департамент. Минимум 5 секунд.</translation>
     </message>
     <message>
       <source>Transfer immediately to this department if current department has no online operators?</source>
-      <translation type="unfinished"/>
+      <translation>Немедленно перевести в этот департамент, если в текущем департаменте нет операторов в онлайн?</translation>
     </message>
     <message>
       <source>Reset assigned user on chat transfer?</source>
@@ -4349,7 +4397,7 @@
     </message>
     <message>
       <source>Based on selected department these products will be shown</source>
-      <translation type="unfinished"/>
+      <translation>Эти продукты будут отображаться на основе выбранного департамента </translation>
     </message>
     <message>
       <source>Enable products </source>
@@ -4466,7 +4514,7 @@
     </message>
     <message>
       <source>Departments groups</source>
-      <translation type="unfinished"/>
+      <translation>Группы департаментов</translation>
     </message>
     <message>
       <source>Departments limit groups</source>
@@ -4525,7 +4573,7 @@
     </message>
     <message>
       <source>Please provide a department</source>
-      <translation type="unfinished"/>
+      <translation>Пожалуйста, предложите другой департамент</translation>
     </message>
     <message>
       <source>Name</source>
@@ -4749,7 +4797,7 @@
     </message>
     <message>
       <source>At the moment department is overloaded, please choose a different department or try again later!</source>
-      <translation type="unfinished"/>
+      <translation>На текущий момент департамент перегружен, пожалуйста выберите другой департамент или повторите попытку позже!</translation>
     </message>
     <message>
       <source>is required</source>
@@ -5180,11 +5228,11 @@
     </message>
     <message>
       <source>Transferred chats to your department will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>Чаты, переведенные в ваш департамент будут появляться здесь.</translation>
     </message>
     <message>
       <source>Transferred chats to you or your department will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>Чаты, переведенные вам или в ваш департамент, будут появляться здесь.</translation>
     </message>
   </context>
   <context>
@@ -6581,7 +6629,7 @@
     </message>
     <message>
       <source>Supported: group_chats, online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats, bot_chats, my_chats</source>
-      <translation type="unfinished"/>
+      <translation>Поддерживается: group_chats, online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats, bot_chats, my_chats</translation>
     </message>
     <message>
       <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
@@ -7811,6 +7859,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Debug</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>E-mail</source>
       <translation>E-mail</translation>
     </message>
@@ -8450,7 +8502,7 @@
     </message>
     <message>
       <source>Exclude disabled departments</source>
-      <translation type="unfinished"/>
+      <translation>Исключить отключенные департаменты</translation>
     </message>
     <message>
       <source>Transfer chat</source>
@@ -8942,7 +8994,7 @@
     </message>
     <message>
       <source>Departments groups</source>
-      <translation type="unfinished"/>
+      <translation>Группы департаментов</translation>
     </message>
     <message>
       <source>Group</source>
@@ -8986,7 +9038,7 @@
     </message>
     <message>
       <source>Departments list</source>
-      <translation type="unfinished"/>
+      <translation>Список департаментов</translation>
     </message>
     <message>
       <source>Group chats</source>
@@ -9106,7 +9158,7 @@
     </message>
     <message>
       <source>New department group</source>
-      <translation type="unfinished"/>
+      <translation>Новая группа департаментов</translation>
     </message>
     <message>
       <source>New department limit group</source>
@@ -10104,7 +10156,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Департамент</translation>
     </message>
     <message>
       <source>Theme</source>
@@ -11437,7 +11489,7 @@
     </message>
     <message>
       <source>Options for chat transfer to department</source>
-      <translation type="unfinished"/>
+      <translation>Параметры для трансфера чата в департамент</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -11488,7 +11540,7 @@
     </message>
     <message>
       <source>User department</source>
-      <translation type="unfinished"/>
+      <translation>Департамент пользователя</translation>
     </message>
     <message>
       <source>New user</source>
@@ -11979,7 +12031,7 @@
     </message>
     <message>
       <source>Can access all departments</source>
-      <translation type="unfinished"/>
+      <translation>Обладает доступом ко всем департаментам</translation>
     </message>
     <message>
       <source>Skype</source>
@@ -12318,7 +12370,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Департамент</translation>
     </message>
     <message>
       <source>Started chat from</source>
@@ -12583,7 +12635,7 @@
     </message>
     <message>
       <source>changed chat department from</source>
-      <translation type="unfinished"/>
+      <translation>изменен департамент чата с</translation>
     </message>
     <message>
       <source>to</source>
@@ -12657,7 +12709,7 @@
     <name>departament/editgroup</name>
     <message>
       <source>Please enter a department group name</source>
-      <translation type="unfinished"/>
+      <translation>Введите название группы департамента</translation>
     </message>
   </context>
   <context>
@@ -12684,7 +12736,7 @@
     </message>
     <message>
       <source>In order to assign user all departments you have to provide  `departments` and `departments_read` argument.</source>
-      <translation type="unfinished"/>
+      <translation>Если назначаете пользователю все департаменты, то вы должны также применить аргументы `departments` и `departments_read` .</translation>
     </message>
     <message>
       <source>You have to choose one of required groups!</source>
@@ -12983,11 +13035,11 @@
     <name>chat/start</name>
     <message>
       <source>Department is required!</source>
-      <translation type="unfinished"/>
+      <translation>Требуется департамент!</translation>
     </message>
     <message>
       <source>Department is disabled!</source>
-      <translation type="unfinished"/>
+      <translation>Департамент отключен!</translation>
     </message>
   </context>
   <context>
@@ -13006,11 +13058,11 @@
     </message>
     <message>
       <source>department</source>
-      <translation type="unfinished"/>
+      <translation>департамент</translation>
     </message>
     <message>
       <source>Chat was assigned to selected department</source>
-      <translation type="unfinished"/>
+      <translation>Чат был передан выбранному департаменту</translation>
     </message>
     <message>
       <source>Chat was assigned to selected user</source>
@@ -13258,6 +13310,13 @@
     <name>mobile/sessions</name>
     <message>
       <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/usertyping</name>
+    <message>
+      <source>is typing...</source>
       <translation type="unfinished"/>
     </message>
   </context>
