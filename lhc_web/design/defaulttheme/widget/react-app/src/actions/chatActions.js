@@ -277,6 +277,7 @@ export function initChatUI(obj) {
                         import('../extensions/nodejs/nodeJSChat').then((module) => {
                             module.nodeJSChat.bootstrap(callExtension.params, dispatch, getState);
                         });
+
                     } else if (callExtension.extension === 'dummy_extensions') {
                         // Import your extension here
                     }
