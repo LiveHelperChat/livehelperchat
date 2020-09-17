@@ -1923,7 +1923,8 @@ function lh(){
 	        	                	  var scrollHeight = messageBlock.prop("scrollHeight");
 	        	                	  var isAtTheBottom = Math.abs((scrollHeight - messageBlock.prop("scrollTop")) - messageBlock.prop("clientHeight"));
 
-	        	                	  messageBlock.find('.pending-storage').first().remove();
+	        	                	  messageBlock.find('.pending-storage').slice(0, item.mn).remove();
+
 	        	                	  messageBlock.append(item.content);
                                       messageBlock.find('.pending-storage').appendTo(messageBlock);
 
