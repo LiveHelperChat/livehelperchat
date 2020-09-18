@@ -312,7 +312,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.widgetsItems.push('operatord');
 	this.widgetsItems.push('closedd');
 	this.widgetsItems.push('mcd');
-	
+	this.widgetsItems.push('botd');
+
 	this.timeoutActivity = null;
 	this.timeoutActivityTime = 300;
 	this.blockSync = false;
@@ -494,6 +495,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		if (typeof _that.closedd_dpgroups == 'object' && _that.closedd_dpgroups.length > 0) {
 			filter += '/(cdgroups)/'+_that.closedd_dpgroups.join('/');			
 		}
+
+		if (typeof _that.botd_dpgroups == 'object' && _that.botd_dpgroups.length > 0) {
+			filter += '/(bdgroups)/'+_that.botd_dpgroups.join('/');
+		}
 		
 		if (typeof _that.mcd_dpgroups == 'object' && _that.mcd_dpgroups.length > 0) {
 			filter += '/(mdgroups)/'+_that.mcd_dpgroups.join('/');			
@@ -540,6 +545,17 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				var itemsFilter = _that.manualFilterByFilter('unreadd');
 				if (itemsFilter.length > 0) {
 					filter += '/(unreadd)/'+itemsFilter.join('/');
+				}
+			}
+		}
+
+		if (typeof _that.botd == 'object') {
+			if (_that.botd.length > 0) {
+				filter += '/(botd)/'+_that.botd.join('/');
+			} else {
+				var itemsFilter = _that.manualFilterByFilter('botd');
+				if (itemsFilter.length > 0) {
+					filter += '/(botd)/'+itemsFilter.join('/');
 				}
 			}
 		}
@@ -608,6 +624,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		if (typeof _that.pendingd_products == 'object' && _that.pendingd_products.length > 0) {
 			filter += '/(pendingdprod)/'+_that.pendingd_products.join('/');
 		}
+
+        if (typeof _that.botd_products == 'object' && _that.botd_products.length > 0) {
+            filter += '/(botdprod)/'+_that.botd_products.join('/');
+        }
 
 		if (typeof _that.closedd_products == 'object' && _that.closedd_products.length > 0) {
 			filter += '/(closeddprod)/'+_that.closedd_products.join('/');
@@ -1295,6 +1315,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             'pendingd_ugroups' : userGroups,
 			'pendingd_dpgroups' : userDepartmentsGroups,
 			'pendingd_products' : userProductNames,
+
+            'botd_dpgroups' : userDepartmentsGroups,
+            'botd_products' : userProductNames,
 
 			'departmentd_dpgroups' : userDepartmentsGroups,
 

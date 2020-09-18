@@ -336,6 +336,19 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array('bot_chats',
         $filter['filterin']['dep_id'] = $Params['user_parameters_unordered']['botd'];
     }
 
+    if (is_array($Params['user_parameters_unordered']['botdprod']) && !empty($Params['user_parameters_unordered']['botdprod'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['botdprod']);
+        $filter['filterin']['product_id'] = $Params['user_parameters_unordered']['botdprod'];
+    }
+
+    if (is_array($Params['user_parameters_unordered']['bdgroups']) && !empty($Params['user_parameters_unordered']['bdgroups'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['bdgroups']);
+        $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['bdgroups']);
+        if (!empty($depIds)) {
+            $filter['filterin']['dep_id'] = isset($filter['filterin']['dep_id']) ? array_merge($filter['filterin']['dep_id'],$depIds) : $depIds;
+        }
+    }
+
     /**
      * Bot chats
      * */
