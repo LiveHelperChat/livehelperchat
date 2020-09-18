@@ -73,6 +73,8 @@
                 chatNotifications : chatNotifications,
                 jsVars :  new BehaviorSubject(true),
                 onlineStatus :  new BehaviorSubject(true),
+                wloaded :  new BehaviorSubject(false),
+                sload :  new BehaviorSubject(false),
                 widgetStatus : new BehaviorSubject((storageHandler.getSessionStorage('LHC_WS') === 'true' || (LHC_API.args.mode && LHC_API.args.mode == 'embed'))),
                 eventEmitter : new EventEmitter(),
                 toggleSound : new BehaviorSubject(storageHandler.getSessionStorage('LHC_SOUND') === 'true',{'ignore_sub':true}),
@@ -300,7 +302,7 @@
 
                 // Init main widgets
                 if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
-                        attributesWidget.viewHandler.init(attributesWidget);
+                        attributesWidget.viewHandler.init(attributesWidget, data.ll);
                 }
 
                 if (!(attributesWidget.position == 'api' && attributesWidget.mode == 'embed')) {

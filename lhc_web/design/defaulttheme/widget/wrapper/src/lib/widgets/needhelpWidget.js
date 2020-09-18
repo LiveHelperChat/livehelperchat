@@ -21,9 +21,15 @@ export class needhelpWidget{
             right: "45px",
         }), null, "iframe");
 
-        this.loadStatus = {main : false, theme: false};
+        this.loadStatus = {main : false, theme: false, status: false};
     }
-
+    
+    checkLoadStatus() {
+        if (this.loadStatus['theme'] == true && this.loadStatus['main'] == true && this.loadStatus['status'] == true) {
+            this.cont.elmDomDoc.body.style.display = "";
+        }
+    }
+    
     init(attributes, settings) {
 
         this.attributes = attributes;
@@ -38,7 +44,10 @@ export class needhelpWidget{
         this.cont.tmpl = settings['html'].replace('{dev_type}',(this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop'));
         this.cont.bodyId = 'need-help';
         this.cont.constructUIIframe('');
-
+        
+        // Content invisible untill media loads
+        this.cont.elmDomDoc.body.style.display = "none";
+        
         this.cont.elmDom.className += this.attributes.isMobile === true ? ' lhc-mobile' : ' lhc-desktop';
 
         this.cont.attachUserEventListener("click", function (a) {
@@ -58,18 +67,21 @@ export class needhelpWidget{
             this.cont.massRestyle(settings.dimensions);
         }
 
-        this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_css']}, true);
+        this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['main'] = true; this.checkLoadStatus()},crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_css']}, true);
 
         if (this.attributes.isMobile == true) {
             this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_mobile_css']});
         }
 
         if (this.attributes.theme > 0) {
-            this.loadStatus['theme'] = false;
-            this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/themeneedhelp/' + this.attributes.theme + '?v=' + this.attributes.theme_v}, true);
+            this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['theme'] = true; this.checkLoadStatus()}, crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/themeneedhelp/' + this.attributes.theme + '?v=' + this.attributes.theme_v}, true);
         } else {
             this.loadStatus['theme'] = true;
+            this.checkLoadStatus();
         }
+
+        // Show need help only if status widget is loaded
+        attributes.wloaded.subscribe((data) => {if(data){this.loadStatus['status'] = true; this.checkLoadStatus()}});
 
         attributes.eventEmitter.addListener('showInvitation',() => {
             this.invitationOpen = true;
