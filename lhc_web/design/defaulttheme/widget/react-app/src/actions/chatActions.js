@@ -223,6 +223,11 @@ export function submitOnlineForm(obj) {
             }
 
             dispatch({type: "ONLINE_SUBMITTED", data: response.data});
+
+            if (response.data.t) {
+                helperFunctions.sendMessageParent('botTrigger',[{'trigger' : response.data.t}]);
+            }
+
         })
         .catch((err) => {
             dispatch({type: "ONLINE_SUBMITT_REJECTED", data: err})

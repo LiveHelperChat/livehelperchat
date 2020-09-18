@@ -34,7 +34,10 @@ class _analyticEvents {
                                 '{{eventAction}}',JSON.stringify(item.ea)
                             ).replace(
                                 '{{eventLabel}}',JSON.stringify(triggerLabel)
+                            ).replace(
+                                '{{eventInternal}}',JSON.stringify(item.ev)
                             );
+
                             try {
                                 eval(js);
                             } catch (err) {
