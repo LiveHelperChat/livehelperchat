@@ -29,13 +29,13 @@ class _analyticEvents {
                     if (typeof params !== 'undefined' && params.trigger && params.trigger.length > 0) {
                         params.trigger.forEach((triggerLabel) => {
                             var js = this.params['ga']['js'].replace(
-                                '{{eventCategory}}',JSON.stringify(item.ec)
+                                /\{\{eventCategory\}\}/g,JSON.stringify(item.ec)
                             ).replace(
-                                '{{eventAction}}',JSON.stringify(item.ea)
+                                /\{\{eventAction\}\}/g,JSON.stringify(item.ea)
                             ).replace(
-                                '{{eventLabel}}',JSON.stringify(triggerLabel)
+                                /\{\{eventLabel\}\}/g,JSON.stringify(triggerLabel)
                             ).replace(
-                                '{{eventInternal}}',JSON.stringify(item.ev)
+                                /\{\{eventInternal\}\}/g,JSON.stringify(item.ev)
                             );
 
                             try {
@@ -51,14 +51,15 @@ class _analyticEvents {
                 }
 
                  var js = this.params['ga']['js'].replace(
-                     '{{eventCategory}}',JSON.stringify(item.ec)
+                     /\{\{eventCategory\}\}/g,JSON.stringify(item.ec)
                  ).replace(
-                     '{{eventAction}}',JSON.stringify(item.ea)
+                     /\{\{eventAction\}\}/g,JSON.stringify(item.ea)
                  ).replace(
-                     '{{eventLabel}}',JSON.stringify(label)
+                     /\{\{eventLabel\}\}/g,JSON.stringify(label)
                  ).replace(
-                     '{{eventInternal}}',JSON.stringify(item.ev)
+                     /\{\{eventInternal\}\}/g,JSON.stringify(item.ev)
                  );
+
 
                  try {
                      eval(js);

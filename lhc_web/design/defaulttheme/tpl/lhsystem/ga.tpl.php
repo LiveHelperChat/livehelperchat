@@ -13,7 +13,7 @@
     </div>
 
     <div class="form-group">
-        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Enable events tracking only for these departments. If not selected to all departments will be shown.')?></label>
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Enable tracking only to selected departments.')?></label>
         <?php
         $params = array (
             'input_name'     => 'ga_dep[]',
@@ -32,21 +32,15 @@
         <select onchange="document.getElementById('id-ga_js').value = this.value;" class="form-control form-control-sm mb-2" ng-non-bindable >
             <option><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Choose one of the possible templates')?></option>
             <option value="console.log({{eventCategory}}+'-'+{{eventAction}}+'-'+{{eventLabel}}+'-'+{{eventInternal}});">Custom</option>
-            <option value="gtag('event', {{eventAction}}, {
-  'event_category': {{eventCategory}},
-  'event_label': {{eventLabel}}
-});"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Universal Analytics (gtag.js)')?></option>
-            <option value="ga('send', {
-  hitType: 'event',
-  eventCategory: {{eventCategory}},
-  eventAction: {{eventAction}},
-  eventLabel: {{eventLabel}}
-});"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'ga - version analytics.js. Old version.')?></option>
+            <option value="<?php echo $ga = htmlspecialchars("if (typeof gtag !== \"undefined\") {
+gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_label': {{eventLabel}} });
+} else if (typeof ga !== \"undefined\") {
+ga('send', {  hitType: 'event',  eventCategory: {{eventCategory}},  eventAction: {{eventAction}},  eventLabel: {{eventLabel}} });
+}");?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Google Analytics')?></option>
             <option value="typeof _paq !== 'undefined' && _paq.push(['trackEvent', {{eventCategory}}, {{eventAction}}, {{eventLabel}}]);">Matomo</option>
         </select>
 
-
-        <textarea id="id-ga_js" rows="6" ng-non-bindable name="ga_js" class="form-control form-control-sm"><?php isset($ga_options['ga_js']) ? print htmlspecialchars($ga_options['ga_js']) : print "console.log({{eventCategory}}+'-'+{{eventAction}}+'-'+{{eventLabel}}+'-'+{{eventInternal}});"?></textarea>
+        <textarea id="id-ga_js" rows="6" ng-non-bindable name="ga_js" class="form-control form-control-sm"><?php isset($ga_options['ga_js']) ? print htmlspecialchars($ga_options['ga_js']) : print $ga?></textarea>
     </div>
 
     <ul class="nav nav-tabs mb-3" role="tablist">
