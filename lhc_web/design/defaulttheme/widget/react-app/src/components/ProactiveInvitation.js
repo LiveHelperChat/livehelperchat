@@ -30,13 +30,17 @@ class ProactiveInvitation extends Component {
             helperFunctions.emitEvent('play_sound', [{'type' : 'new_invitation', 'sound_on' : (this.props.chatwidget.getIn(['proactive','data','play_sound']) === true), 'widget_open' : ((this.props.chatwidget.get('shown') && this.props.chatwidget.get('mode') == 'widget') || document.hasFocus())}]);
         }
 
-        if (document.getElementById('id-invitation-height')) {
-            setTimeout(()=> {
-                helperFunctions.sendMessageParent('widgetHeight', [{
-                    'force_width' : (this.props.chatwidget.hasIn(['proactive','data','message_width']) ? this.props.chatwidget.getIn(['proactive','data','message_width']) + 40 : 240),
-                    'force_height' : document.getElementById('id-invitation-height').offsetHeight + 20}]);
-                this.setState({shown : true});
-             }, 50);
+        if (this.props.chatwidget.hasIn(['proactive','data','full_widget']) && !this.props.chatwidget.get('isMobile')) {
+            if (document.getElementById('id-invitation-height')) {
+                setTimeout(()=> {
+                    if (document.getElementById('id-invitation-height')) {
+                        helperFunctions.sendMessageParent('widgetHeight', [{
+                            'force_width' : (this.props.chatwidget.hasIn(['proactive','data','message_width']) ? this.props.chatwidget.getIn(['proactive','data','message_width']) + 40 : 240),
+                            'force_height' : document.getElementById('id-invitation-height').offsetHeight + 20}]);
+                        this.setState({shown : true});
+                    }
+                 }, 50);
+            }
         }
     }
 
