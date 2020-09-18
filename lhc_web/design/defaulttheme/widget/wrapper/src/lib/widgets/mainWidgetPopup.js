@@ -105,6 +105,8 @@ export class mainWidgetPopup {
                 urlArgumetns = urlArgumetns + "/(priority)/" + this.attributes['priority'];
             }
 
+            urlArgumetns = urlArgumetns + "/(sound)/" + (this.attributes.toggleSound.value == true ? 1 : 0);
+
             if (this.attributes['proactive']['invitation']) {
                 urlArgumetns = urlArgumetns + "/(inv)/" + this.attributes['proactive']['invitation'];
                 if (this.attributes['mode'] == 'popup') {

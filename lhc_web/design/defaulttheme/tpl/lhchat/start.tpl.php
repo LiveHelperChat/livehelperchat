@@ -20,7 +20,11 @@
                 'vid' => $vid,
             ),
         );
-        
+
+        if ($sound == 1) {
+            $params['toggleSound'] = true;
+        }
+
         $params['staticJS']['chunk_js'] = erLhcoreClassDesign::design('js/widgetv2');
         
         if (isset($prefill)) {
@@ -60,7 +64,9 @@
         if (isset($prefill_admin)) {
             $params['attr_prefill_admin'] = $prefill_admin;
         }
+        
 
+        
         echo json_encode($params); ?>);
 </script>
 <?php endif;?>
