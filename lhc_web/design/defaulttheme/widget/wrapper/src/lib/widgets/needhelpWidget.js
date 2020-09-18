@@ -81,7 +81,7 @@ export class needhelpWidget{
         }
 
         // Show need help only if status widget is loaded
-        attributes.wloaded.subscribe((data) => {if(data){this.loadStatus['status'] = true; this.checkLoadStatus()}});
+        attributes.sload.subscribe((data) => {if(data){this.loadStatus['status'] = true; this.checkLoadStatus()}});
 
         attributes.eventEmitter.addListener('showInvitation',() => {
             this.invitationOpen = true;
