@@ -21,9 +21,7 @@ export class statusWidget{
             minwidth: "95px"
         }), null, "iframe");
 
-
-        
-        this.loadStatus = {main : false, theme: false};
+        this.loadStatus = {main : false, theme: false, font: false};
     }
 
     toggleOfflineIcon(onlineStatus) {
@@ -44,7 +42,7 @@ export class statusWidget{
     }
 
     checkLoadStatus() {
-        if (this.loadStatus['theme'] == true && this.loadStatus['main'] == true) {
+        if (this.loadStatus['theme'] == true && this.loadStatus['main'] == true && this.loadStatus['font'] == true) {
              this.cont.getElementById('lhc_status_container').style.display = "";
         }
     }
@@ -81,7 +79,8 @@ export class statusWidget{
         }
 
         if (this.attributes.staticJS['font_status']) {
-            this.cont.insertCssRemoteFile({"as":"font", rel:"preload", type: "font/woff", crossOrigin : "anonymous",  href : this.attributes.staticJS['font_status']});
+            this.loadStatus['font'] = false;
+            this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['font'] = true; this.checkLoadStatus()},"as":"font", rel:"preload", type: "font/woff", crossOrigin : "anonymous",  href : this.attributes.staticJS['font_status']});
         }
 
         if (this.attributes.theme > 0) {
