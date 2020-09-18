@@ -76,7 +76,7 @@ class ProactiveInvitation extends Component {
 
     render() {
 
-        if (this.props.chatwidget.hasIn(['proactive','data','full_widget'])) {
+        if (this.props.chatwidget.hasIn(['proactive','data','full_widget']) && !this.props.chatwidget.get('isMobile')) {
             this.fullInvitation();
         }
 
