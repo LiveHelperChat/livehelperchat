@@ -28,6 +28,8 @@ export class mainWidget{
         }), null, "iframe");
 
         this.isLoaded = false;
+
+        this.loadStatus = {main: false, css: false};
     }
 
     resize() {
@@ -53,6 +55,12 @@ export class mainWidget{
         }
 
         this.cont.massRestyle(restyleStyle);
+    }
+
+    checkLoadStatus() {
+        if (this.loadStatus['main'] == true && this.loadStatus['css'] == true ) {
+            this.attributes.wloaded.next(true);
+        }
     }
 
     init(attributes, lazyLoad) {
@@ -106,7 +114,10 @@ export class mainWidget{
             this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/theme/' + this.attributes.theme + '?v=' + this.attributes.theme_v}, true);
         }
 
-        this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_css']}, true);
+        this.cont.insertCssRemoteFile({onload: () => {
+                this.loadStatus['css'] = true;
+                this.checkLoadStatus();
+            },crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_css']}, true);
 
         if (this.attributes.isMobile == true && this.attributes.mode == 'widget') {
             this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_mobile_css']});
@@ -116,8 +127,11 @@ export class mainWidget{
             this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['embed_css'] });
         }
 
-        this.cont.insertJSFile(this.attributes.staticJS['app'], false);
-
+        this.cont.insertJSFile(this.attributes.staticJS['app'], false, () => {
+            this.loadStatus['main'] = true;
+            this.checkLoadStatus();
+        });
+  
         if (this.attributes.staticJS['ex_js'] && this.attributes.staticJS['ex_js'].length > 0) {
             this.attributes.staticJS['ex_js'].forEach((item) => {
                 this.cont.insertJSFile(item, false);

@@ -21,7 +21,8 @@ export class statusWidget{
             minwidth: "95px"
         }), null, "iframe");
 
-        this.loadStatus = {main : false, theme: false, font: false};
+        this.loadStatus = {main : false, theme: false, font: false, widget : false};
+        this.lload = false;
     }
 
     toggleOfflineIcon(onlineStatus) {
@@ -42,12 +43,13 @@ export class statusWidget{
     }
 
     checkLoadStatus() {
-        if (this.loadStatus['theme'] == true && this.loadStatus['main'] == true && this.loadStatus['font'] == true) {
+        if (this.loadStatus['theme'] == true && this.loadStatus['main'] == true && this.loadStatus['font'] == true && this.loadStatus['widget'] == true) {
              this.cont.getElementById('lhc_status_container').style.display = "";
+             this.attributes.sload.next(true);
         }
     }
 
-    init(attributes) {
+    init(attributes, lload) {
 
         this.attributes = attributes;
 
@@ -58,6 +60,16 @@ export class statusWidget{
         this.cont.elmDom.className = this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop';
 
         var _inst = this;
+
+        this.lload = !(!lload);
+
+        // If it's lazy load we have always to consider widget as loaded
+        if (this.lload === true) {
+            this.loadStatus['widget'] = true;
+        } else {
+            // We wait untill widget content loads
+            attributes.wloaded.subscribe((data) => { if (data){this.loadStatus['widget'] = true; this.checkLoadStatus()}});
+        }
 
         this.cont.attachUserEventListener("click", function (a) {
 
