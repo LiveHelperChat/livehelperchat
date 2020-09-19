@@ -21,7 +21,7 @@ export class statusWidget{
             minwidth: "95px"
         }), null, "iframe");
 
-        this.loadStatus = {main : false, theme: false, font: false, widget : false};
+        this.loadStatus = {main : false, theme: false, font: true, widget : false};
         this.lload = false;
     }
 
@@ -91,8 +91,7 @@ export class statusWidget{
         }
 
         if (this.attributes.staticJS['font_status']) {
-            this.loadStatus['font'] = false;
-            this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['font'] = true; this.checkLoadStatus()},"as":"font", rel:"preload", type: "font/woff", crossOrigin : "anonymous",  href : this.attributes.staticJS['font_status']});
+             this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['font'] = true; this.checkLoadStatus()},"as":"font", rel:"preload", type: "font/woff", crossOrigin : "anonymous",  href : this.attributes.staticJS['font_status']});
         }
 
         if (this.attributes.theme > 0) {
