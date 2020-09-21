@@ -5,6 +5,7 @@ class erLhcoreClassGenericBotActionRestapi
 
     public static function process($chat, $action, $trigger, $params)
     {
+
         if (isset($action['content']['rest_api']) && is_numeric($action['content']['rest_api']) && isset($action['content']['rest_api_method']) && !empty($action['content']['rest_api_method'])) {
 
             $restAPI = erLhcoreClassModelGenericBotRestAPI::fetch($action['content']['rest_api']);
@@ -115,7 +116,6 @@ class erLhcoreClassGenericBotActionRestapi
 
     public static function makeRequest($host, $methodSettings, $paramsCustomer)
     {
-
         $msg_text = '';
         $msg_text_cleaned = '';
 
@@ -163,6 +163,8 @@ class erLhcoreClassGenericBotActionRestapi
             }
         }
 
+        $dynamicReplaceVariables = self::extractDynamicVariables($methodSettings, $paramsCustomer['chat']);
+
         $replaceVariables = array(
             '{{msg}}' => $msg_text,
             '{{msg_clean}}' => trim($msg_text_cleaned),
@@ -176,6 +178,8 @@ class erLhcoreClassGenericBotActionRestapi
             '{{media}}' => json_encode($media)
         );
 
+        $replaceVariables = array_merge($replaceVariables, $dynamicReplaceVariables);
+
         $replaceVariablesJSON = array(
             '{{msg}}' => json_encode($msg_text),
             '{{msg_clean}}' => json_encode(trim($msg_text_cleaned)),
@@ -188,6 +192,10 @@ class erLhcoreClassGenericBotActionRestapi
             '{{ip}}' => json_encode(erLhcoreClassIPDetect::getIP()),
             '{{media}}' => json_encode($media),
         );
+
+        foreach ($dynamicReplaceVariables as $keyDynamic => $valueDynamic) {
+            $replaceVariablesJSON[$keyDynamic] = json_encode($valueDynamic);
+        }
 
         foreach ($paramsCustomer['chat']->additional_data_array as $keyItem => $addItem) {
             if (!is_string($addItem) || (is_string($addItem) && ($addItem != ''))) {
@@ -445,6 +453,39 @@ class erLhcoreClassGenericBotActionRestapi
             'content_4' => '',
             'meta' => array()
         );
+    }
+
+    public static function extractDynamicVariables($methodSettings, $chat) {
+
+         $dynamicVariables = [];
+
+         $userData = array(
+             'dynamic_variables' => & $dynamicVariables,
+             'chat' => $chat,
+         );
+         
+         array_walk_recursive($methodSettings, function ($item, $key, $userData) {
+            $matchesValues = [];
+            preg_match_all('~\{\{lhc\.((?:[^\{\}\}]++|(?R))*)\}\}~', $item,$matchesValues);
+
+            if (!empty($matchesValues[0])) {
+                foreach ($matchesValues[0] as $indexElement => $elementValue) {
+                    $userData['dynamic_variables'][$elementValue] = $userData['chat']->{$matchesValues[1][$indexElement]};
+                }
+            }
+
+            $matchesValues = [];
+            preg_match_all('~\{\{lhc\.((?:[^\{\}\}]++|(?R))*)\}\}~', $key, $matchesValues);
+                
+            if (!empty($matchesValues[0])) {
+                foreach ($matchesValues[0] as $indexElement => $elementValue) {
+                    $userData['dynamic_variables'][$elementValue] = $userData['chat']->{$matchesValues[1][$indexElement]};
+                }
+            }
+             
+        }, $userData);
+
+        return $userData['dynamic_variables'];
     }
 
     public static function extractAttribute($partData, $string)
