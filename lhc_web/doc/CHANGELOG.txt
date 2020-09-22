@@ -1,3 +1,9 @@
+3.43v
+
+1. Commands based on bot triggers
+
+execute doc/update_db/update_217.sql for update
+
 3.42v
 
 1. Option to do not store user typing text.
