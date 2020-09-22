@@ -1924,11 +1924,14 @@ class erLhcoreClassGenericBotWorkflow {
 
         if (isset($matches[0]) && !empty($matches[0]))
         {
+
             $identifiers = array();
             foreach ($matches[0] as $key => $match) {
                 if (strpos($matches[1][$key],'__') !== false) {
                     $parts = explode('__',$matches[1][$key]);
-                    $identifiers[$parts[0]] = array('search' => $matches[0][$key], 'replace' => $parts[1], 'args' => array_slice($parts,2));
+                    if (isset($parts[0]) && !empty($parts[0]) && preg_match('/^[\p{L}\p{N}_-]+$/u', $parts[0])) {
+                        $identifiers[$parts[0]] = array('search' => $matches[0][$key], 'replace' => $parts[1], 'args' => array_slice($parts,2));
+                    }
                 }
             }
 
