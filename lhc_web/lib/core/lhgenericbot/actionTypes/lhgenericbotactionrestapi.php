@@ -282,7 +282,6 @@ class erLhcoreClassGenericBotActionRestapi
             }
         }
 
-
         if (isset($methodSettings['body_request_type']) && $methodSettings['body_request_type'] == 'form-data') {
             if (isset($methodSettings['postparams']) && !empty($methodSettings['postparams'])) {
                 $postParams = array();
@@ -294,6 +293,7 @@ class erLhcoreClassGenericBotActionRestapi
         } elseif (isset($methodSettings['body_request_type']) && $methodSettings['body_request_type'] == 'raw') {
             $bodyPOST = str_replace(array_keys($replaceVariablesJSON), array_values($replaceVariablesJSON), $methodSettings['body_raw']);
             $bodyPOST = preg_replace('/{{lhc\.(var|add)\.(.*?)}}/','""',$bodyPOST);
+
             curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyPOST);
 
             if (isset($methodSettings['body_request_type_content'])) {
@@ -458,9 +458,11 @@ class erLhcoreClassGenericBotActionRestapi
     public static function extractDynamicVariables($methodSettings, $chat) {
 
          $dynamicVariables = [];
-
+         $requiredVars = [];
+         
          $userData = array(
              'dynamic_variables' => & $dynamicVariables,
+             'required_vars' => & $requiredVars,
              'chat' => $chat,
          );
          
@@ -482,7 +484,21 @@ class erLhcoreClassGenericBotActionRestapi
                     $userData['dynamic_variables'][$elementValue] = $userData['chat']->{$matchesValues[1][$indexElement]};
                 }
             }
-             
+
+            // Detect does customer want's somewhere all messages or footprint
+             if (strpos($item,'{{msg_all}}') !== false && !in_array('{{msg_all}}',$userData['required_vars'])) {
+                 $userData['required_vars'][] = '{{msg_all}}';
+
+                 $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
+                 // Fetch chat messages
+                 $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
+                 $tpl->set('chat', $userData['chat']);
+                 $tpl->set('messages', $messages);
+
+                 $userData['dynamic_variables']['{{msg_all}}'] = $tpl->fetch();
+             }
+
+
         }, $userData);
 
         return $userData['dynamic_variables'];
