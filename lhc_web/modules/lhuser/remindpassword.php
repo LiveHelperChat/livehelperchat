@@ -27,7 +27,7 @@ if ($hash != '') {
 			$mail->CharSet = "UTF-8";
 			$mail->From = $adminEmail;
 			$mail->FromName = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'title' );
-			$mail->Subject = erTranslationClassLhTranslation::getInstance()->getTranslation('user/remindpassword','Password remind - new password');
+			$mail->Subject = erTranslationClassLhTranslation::getInstance()->getTranslation('user/remindpassword','Password reminder - new password');
 
 			// HTML body
 			$body  = erTranslationClassLhTranslation::getInstance()->getTranslation('user/remindpassword','New password:').' '.$password;
