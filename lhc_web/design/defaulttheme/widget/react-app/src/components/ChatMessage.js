@@ -31,8 +31,26 @@ class ChatMessage extends PureComponent {
 
         const { t } = this.props;
 
+        if (typeof attrs.onchange !== 'undefined') {
+
+            const optionSelected = e.target.options[e.target.selectedIndex];
+
+            const attrLoad = {
+                'data-payload': optionSelected.getAttribute('data-payload'),
+                'data-id' : optionSelected.getAttribute('data-id')
+            };
+
+            if (optionSelected.getAttribute('payload-type') == 'trigger') {
+                this.updateTriggerClicked({type:'/(type)/triggerclicked'}, attrLoad , e.target);
+            } else if (optionSelected.getAttribute('payload-type') == 'button') {
+                this.updateTriggerClicked({type:''}, attrLoad, e.target);
+            }
+
+            return ;
+        }
+
         this.addLoader(attrs,e.target);
-        
+
         if (attrs.onclick.indexOf('lhinst.updateTriggerClicked') !== -1) {
             this.updateTriggerClicked({type:'/(type)/triggerclicked'}, attrs, e.target);
         } else if (attrs.onclick.indexOf('notificationsLHC.sendNotification') !== -1) {
@@ -233,6 +251,17 @@ class ChatMessage extends PureComponent {
 
                             return <a {...domNode.attribs} onClick={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</a>
                         }
+                    } else if (domNode.name && domNode.name === 'select') {
+
+                        if (cloneAttr.onchange) {
+
+                            if (domNode.attribs.style) {
+                                domNode.attribs.style = this.getStyleObjectFromString(domNode.attribs.style);
+                            }
+
+                            return <select {...domNode.attribs} onChange={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</select>
+                        }
+
                     } else if (domNode.name && domNode.name === 'script' && domNode.attribs['data-bot-action']) {
                         this.processBotAction(domNode);
                     }

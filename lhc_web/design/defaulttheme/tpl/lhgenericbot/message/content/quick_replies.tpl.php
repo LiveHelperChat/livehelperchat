@@ -1,4 +1,6 @@
 <div class="meta-message meta-message-<?php echo $messageId?>">
+
+    <?php if (!isset($metaMessageData['content']['attr_options']['as_dropdown']) || $metaMessageData['content']['attr_options']['as_dropdown'] == false) : ?>
     <ul class="quick-replies list-inline meta-auto-hide">
     <?php foreach ($metaMessage as $item) : $disabledButton = isset($item['content']['disabled']) && $item['content']['disabled'] == true;?>
             <?php if ($item['type'] == 'url') : ?>
@@ -20,5 +22,19 @@
             <?php endif?>
     <?php endforeach; ?>
     </ul>
+    <?php else : ?>
+    <select class="form-control form-control-sm mb-2 rounded" data-id="<?php echo $messageId?>" onchange="lhinst.dropdownClicked(<?php echo $messageId?>,$(this))">
+        <option><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Please choose')?></option>
+        <?php foreach ($metaMessage as $item) : $disabledButton = isset($item['content']['disabled']) && $item['content']['disabled'] == true; ?>
+            <?php if ($item['type'] == 'trigger') : ?>
+                <option payload-type="trigger" <?php if ($disabledButton == true) : ?>disabled="disabled"<?php endif;?> <?php if ($disabledButton == false) : ?>data-payload=<?php echo json_encode($item['content']['payload']. '__' . md5($item['content']['name']))?> data-id="<?php echo $messageId?>"<?php endif;?> ><?php echo htmlspecialchars($item['content']['name'])?></option>
+            <?php elseif ($item['type'] == 'button') : ?>
+                <option payload-type="payload" <?php if ($disabledButton == true) : ?>disabled="disabled"<?php endif;?> <?php if ($disabledButton == false) : ?>data-payload=<?php echo json_encode($item['content']['payload']. '__' . md5($item['content']['name']))?> data-id="<?php echo $messageId?>"<?php endif;?> ><?php echo htmlspecialchars($item['content']['name'])?></option>
+            <?php endif?>
+
+        <?php endforeach ?>
+    </select>
+    <?php endif; ?>
+
 </div>
 
