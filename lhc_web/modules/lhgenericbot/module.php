@@ -17,6 +17,24 @@ $ViewList['initbot'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['commands'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['newcommand'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['editcommand'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['help'] = array(
     'params' => array('context'),
     'uparams' => array(),
@@ -180,6 +198,12 @@ $ViewList['edit'] = array(
 );
 
 $ViewList['delete'] = array(
+    'params' => array('id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'use' )
+);
+
+$ViewList['deletecommand'] = array(
     'params' => array('id'),
     'uparams' => array('csfr'),
     'functions' => array( 'use' )
