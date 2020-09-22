@@ -2671,7 +2671,7 @@
         },
         "chat_variables": {
           "type": "string",
-          "description": "Chat variables. These can store custom chat data accessed only by extensions. Stored as JSON format.",
+          "description": "Chat variables. These can store custom chat data accessed only by extensions/bot rest api. Stored as JSON encoded format. E.g {\"intent\":\"value\"}",
           "example": null
         },
         "priority": {
