@@ -23,7 +23,7 @@
     <?php endforeach; ?>
     </ul>
     <?php else : ?>
-    <select class="form-control form-control-sm mb-2 rounded" data-id="<?php echo $messageId?>" onchange="lhinst.dropdownClicked(<?php echo $messageId?>,$(this))">
+    <select class="form-control form-control-sm mb-2 rounded meta-auto-hide" data-id="<?php echo $messageId?>" onchange="lhinst.dropdownClicked(<?php echo $messageId?>,$(this))">
         <option><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Please choose')?></option>
         <?php foreach ($metaMessage as $item) : $disabledButton = isset($item['content']['disabled']) && $item['content']['disabled'] == true; ?>
             <?php if ($item['type'] == 'trigger') : ?>
