@@ -485,19 +485,32 @@ class erLhcoreClassGenericBotActionRestapi
                 }
             }
 
-            // Detect does customer want's somewhere all messages or footprint
-             if (strpos($item,'{{msg_all}}') !== false && !in_array('{{msg_all}}',$userData['required_vars'])) {
-                 $userData['required_vars'][] = '{{msg_all}}';
+            // Detect does customer want's somewhere all messages
+            if (strpos($item,'{{msg_all}}') !== false && !in_array('{{msg_all}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{msg_all}}';
 
-                 $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
-                 // Fetch chat messages
-                 $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
-                 $tpl->set('chat', $userData['chat']);
-                 $tpl->set('messages', $messages);
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
+                // Fetch chat messages
+                $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
+                $tpl->set('chat', $userData['chat']);
+                $tpl->set('messages', $messages);
 
-                 $userData['dynamic_variables']['{{msg_all}}'] = $tpl->fetch();
-             }
+                $userData['dynamic_variables']['{{msg_all}}'] = $tpl->fetch();
+            }
 
+            // Detect does customer want's somewhere footprint
+            if (strpos($item,'{{footprint}}') !== false && !in_array('{{footprint}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{footprint}}';
+
+                $footprints = erLhcoreClassModelChatOnlineUserFootprint::getList(array('limit' => 25,'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id)));
+
+                $itemsFootprint = array();
+                foreach ($footprints as $footprint) {
+                    $itemsFootprint[] = $footprint->time_ago . ' | ' . $footprint->page;
+                }
+
+                $userData['dynamic_variables']['{{footprint}}'] = implode("\n",$itemsFootprint);
+            }
 
         }, $userData);
 
