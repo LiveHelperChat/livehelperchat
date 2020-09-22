@@ -748,7 +748,7 @@
           {
             "name": "data",
             "in": "formData",
-            "description": "Data as encoded JSON format.",
+            "description": "Data as encoded JSON format. E.g {\"intent\":{\"val\":\"value\"}}",
             "required": true,
             "type": "string"
           }
