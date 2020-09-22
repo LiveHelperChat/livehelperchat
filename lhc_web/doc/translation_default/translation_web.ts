@@ -28,6 +28,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -2377,6 +2385,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Bot chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Closed chats</source>
       <translation type="unfinished"/>
     </message>
@@ -2863,6 +2875,10 @@
     </message>
     <message>
       <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department, if you do not choose command will be available to all departments.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4459,6 +4475,22 @@
     </message>
     <message>
       <source>Nick, what should be operator nick. E.g Support Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Command, do not add ! prefix</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a bot</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6709,6 +6741,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Commands</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Browse offers embed code</source>
       <translation type="unfinished"/>
     </message>
@@ -7180,6 +7216,10 @@
     </message>
     <message>
       <source>Chats list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Commands</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8841,6 +8881,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Command</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -9179,6 +9231,10 @@
     </message>
     <message>
       <source>New bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New command</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9630,11 +9686,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Bot list</source>
+      <source>Commands list</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot list</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9872,6 +9932,10 @@
     </message>
     <message>
       <source>You can put visitor message as placeholder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>all chat messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12253,6 +12317,10 @@
   <context>
     <name>abstract/product</name>
     <message>
+      <source>ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -12325,6 +12393,14 @@
   </context>
   <context>
     <name>chat/chatcommand</name>
+    <message>
+      <source>was executed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned trigger could not be found</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Nick changed!</source>
       <translation type="unfinished"/>
@@ -12703,6 +12779,18 @@
     </message>
     <message>
       <source>Please enter exception group name!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a command!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a bot!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a trigger!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13137,6 +13225,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Commands</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Translations groups</source>
       <translation type="unfinished"/>
     </message>
@@ -13149,6 +13241,10 @@
     </message>
     <message>
       <source>Bots</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Commands</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13336,6 +13432,18 @@
   <context>
     <name>system/etracking</name>
     <message>
+      <source>Enable events tracking only for these departments. If not selected to all departments will be shown.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Universal Analytics (gtag.js)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ga - version analytics.js. Old version.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Events Tracking</source>
       <translation type="unfinished"/>
     </message>
@@ -13344,7 +13452,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Enable events tracking only for these departments. If not selected to all departments will be shown.</source>
+      <source>Enable tracking only to selected departments.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13356,11 +13464,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Universal Analytics (gtag.js)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>ga - version analytics.js. Old version.</source>
+      <source>Google Analytics</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13412,7 +13516,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Invitation hide</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Cancel invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source> Called if invitation was in full widget and widget was minimised or visitor clicked close icon in invitation tooltip</source>
       <translation type="unfinished"/>
     </message>
     <message>
