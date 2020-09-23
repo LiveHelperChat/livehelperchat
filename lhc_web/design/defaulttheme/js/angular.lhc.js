@@ -1249,7 +1249,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                     lhinst.disableSync = true;
 
                     LiveHelperChatFactory.setInactive('true').then(function (data) {
-                        lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/wentinactive/false',hidecallback: function() {
+                        lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/wentinactive/false','backdrop': true,hidecallback: function() {
                                 LiveHelperChatFactory.setInactive('false');
 
                                 _that.isListLoaded = false; // Because inactive visitor can be for some quite time, make sure new chat's does not trigger flood of sound notifications

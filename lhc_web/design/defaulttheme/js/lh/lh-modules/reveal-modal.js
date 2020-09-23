@@ -19,19 +19,31 @@ var revealM = {
 			};
 		},
 
+        hideCallback : false,
+
 		revealModal : function(params) {
 
 			var delayShow = false;
 			if ($('body').hasClass('modal-open')) {
 				delayShow = true;
-				$('#myModal').modal('hide');
+				if (revealM.hideCallback === false) {
+                    $('#myModal').modal('dispose');
+                } else {
+                    $('#myModal').modal('hide');
+                }
 			} else {
 				$('#myModal').modal('dispose');
 			}
 
+            if (typeof params['hidecallback'] !== 'undefined') {
+                revealM.hideCallback = true;
+            } else {
+                revealM.hideCallback = false;
+            }
+
 			revealM.initializeModal('myModal');
 
-            var mparams = {'show':true, 'focus': !($('#admin-body').length > 0), 'backdrop': !($('#admin-body').length > 0)};
+            var mparams = {'show':true, 'focus': !($('#admin-body').length > 0), 'backdrop': (!($('#admin-body').length > 0) || (typeof params.backdrop !== 'undefined' && params.backdrop == true)) };
 
 			if (typeof params['iframe'] === 'undefined') {
 
@@ -120,7 +132,7 @@ var revealM = {
 
 				$('#myModal').html('<div class="modal-dialog modal-dialog-scrollable modal-xl"><div class="modal-content">'+header+'<div class="modal-body'+additionalModalBody+'">'+prependeBody+'<iframe src="'+params['url']+'" frameborder="0" style="width:100%" height="'+params['height']+'" /></div></div></div>').modal(mparams);
 
-                revealM.setCenteredDraggable();
+
 
 				if (typeof params['showcallback'] !== 'undefined') {
 					$('#myModal').on('shown.bs.modal',params['showcallback']);
@@ -129,6 +141,9 @@ var revealM = {
 				if (typeof params['hidecallback'] !== 'undefined') {
 					$('#myModal').on('hide.bs.modal',params['hidecallback']);
 				}
+                
+				revealM.setCenteredDraggable();
+				
 			}
 		},
 

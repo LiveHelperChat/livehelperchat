@@ -11,6 +11,9 @@ if [ ! -f "index.php" -a \
      exit 1
 fi
 
+echo "Removing lazy load core js files"
+rm -rf ./design/defaulttheme/js/lh/dist/*.js
+
 echo "Compiling default js"
 gulp
 
