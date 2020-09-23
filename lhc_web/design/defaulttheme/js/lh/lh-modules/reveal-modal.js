@@ -135,14 +135,41 @@ var revealM = {
         setCenteredDraggable : function(){
             if ($('#admin-body').length > 0) {
                 var modalContent = $('#myModal .modal-dialog');
+
+                var prevPos = revealM.rememberPositions();
                 var positions = revealM.getPositions();
+
+                if (prevPos === null || parseInt(prevPos[1]) > positions.width || parseInt(prevPos[0]) > positions.height) {
+                    prevPos = [((positions.height - modalContent.height()) / 2),((positions.width - modalContent.width()) / 2)];
+                }
+
                 modalContent.draggabilly({
                     handle: ".modal-header"
                 }).css({
-                    top: ((positions.height - modalContent.height()) / 2),
-                    left: ((positions.width - modalContent.width()) / 2)
+                    top: parseInt(prevPos[0]),
+                    left: parseInt(prevPos[1])
+                }).on( 'dragEnd', function( event, pointer ) {
+                    revealM.rememberPositions(modalContent.position().top, modalContent.position().left);
                 });
             }
+        },
+
+        rememberPositions : function(top, left) {
+		    if (sessionStorage) {
+                if (top && left) {
+                    try {
+                        var value = sessionStorage.setItem('mpos', top+','+left);
+                    } catch(e) {}
+                } else {
+                    try {
+                        var value = sessionStorage.getItem('mpos');
+                        if (value !== null) {
+                            return value.split(',');
+                        }
+                    } catch(e) {}
+                }
+            }
+		    return null;
         },
 
         getPositions : function() {
