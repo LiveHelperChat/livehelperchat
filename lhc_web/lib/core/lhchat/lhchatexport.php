@@ -13,7 +13,26 @@ class erLhcoreClassChatExport {
 		$tpl->set('chat', $chat);
 		return $tpl->fetch();
 	}
-	
+
+	public static function exportCannedMessages($messages) {
+        $filename = "canned-messages-".date('Y-m-d').".csv";
+        $fp = fopen('php://output', 'w');
+
+        header('Content-type: application/csv');
+        header('Content-Disposition: attachment; filename='.$filename);
+
+        $counter = 0;
+        foreach ($messages as $message) {
+            $values = $message->getState();
+            if ($counter == 0) {
+                fputcsv($fp, array_keys($values));
+            }
+            fputcsv($fp, $values);
+            $counter++;
+        }
+        exit;
+    }
+
 	public static function exportDepartmentStats($departments) {
 	    include 'lib/core/lhform/PHPExcel.php';
 			$cacheMethod = PHPExcel_CachedObjectStorageFactory::cache_to_phpTemp;
