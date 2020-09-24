@@ -54,7 +54,7 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '' && $subscription 
 
             // Inform user that he has subscribed to notifications
             $msg = new erLhcoreClassModelmsg();
-            $msg->msg = "You have subscribed to new messages notifications!";
+            $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You have subscribed to new messages notifications!');
             $msg->chat_id = $chat->id;
             $msg->user_id = -2;
             $msg->time = time();
