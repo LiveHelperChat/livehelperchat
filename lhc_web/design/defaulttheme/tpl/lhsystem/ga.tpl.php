@@ -34,8 +34,9 @@
             <option value="console.log({{eventCategory}}+'-'+{{eventAction}}+'-'+{{eventLabel}}+'-'+{{eventInternal}});">Custom</option>
             <option value="<?php echo $ga = htmlspecialchars("if (typeof gtag !== \"undefined\") {
 gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_label': {{eventLabel}} });
-} else if (typeof ga !== \"undefined\") {
-ga('send', {  hitType: 'event',  eventCategory: {{eventCategory}},  eventAction: {{eventAction}},  eventLabel: {{eventLabel}} });
+} else if (\"ga\" in window) {
+    var tracker = ga.getAll()[0];
+    tracker && tracker.send(\"event\", {{eventCategory}}, {{eventAction}}, {{eventLabel}});
 }");?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Google Analytics')?></option>
             <option value="typeof _paq !== 'undefined' && _paq.push(['trackEvent', {{eventCategory}}, {{eventAction}}, {{eventLabel}}]);">Matomo</option>
         </select>
