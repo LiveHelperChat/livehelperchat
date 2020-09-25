@@ -168,8 +168,7 @@ class erLhcoreClassChatExport {
                 $user = (string)$item->{'user'};
                 $dept = (string)$item->{'department'};
                 $remarks = (string)$item->{'remarks'};
-                $device = (string)$item->{'device_type'} == 0 ? 'Desktop' : ((string)$item->{'device_type'} == 1 ? 'Mobile' : 'Tablet');
-       
+                $device = (string)$item->{'device_type'} == 0 ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Computer') : ((string)$item->{'device_type'} == 1 ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Mobile') : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Tablet'));
 
                 $date = date(erLhcoreClassModule::$dateFormat,$item->time);
                 $minutes = date('H:i:s',$item->time);
