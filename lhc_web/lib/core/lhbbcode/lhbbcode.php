@@ -688,7 +688,7 @@ class erLhcoreClassBBCode
 
        if (count($parts) == 2 && is_numeric($parts[0]) && is_numeric($parts[1])) {
            $id = rand(0,1000) . time();
-           return "<div id='msg-location-".$id."' style='height:300px'><script>lhinst.showMessageLocation(" . $id . "," . (real)$parts[0] . "," . (real)$parts[1] . ")</script></div>";
+           return "<div id='msg-location-".$id."' style='height:300px'><script>lhinst.showMessageLocation(" . $id . "," . (float)$parts[0] . "," . (float)$parts[1] . ")</script></div>";
        }
 
        return ;
