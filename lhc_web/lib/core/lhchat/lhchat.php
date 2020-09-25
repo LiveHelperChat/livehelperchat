@@ -810,12 +810,12 @@ class erLhcoreClassChat {
 			// Check is bot enabled for department
 			if ($rowsNumber == 0 && (is_numeric($dep_id) || count($dep_id) == 1) && (!isset($params['exclude_bot']) || $params['exclude_bot'] == false)) {
                 if (is_numeric($dep_id)) {
-                    $stmt = $db->prepare("SELECT bot_configuration FROM lh_departament WHERE (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND id = :dep_id");
+                    $stmt = $db->prepare("SELECT bot_configuration FROM lh_departament WHERE id = :dep_id");
                     $stmt->bindValue(':dep_id', $dep_id);
                     $stmt->execute();
                     $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 } else {
-                    $stmt = $db->prepare("SELECT bot_configuration FROM lh_departament WHERE (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND id IN (" . implode(',', $dep_id) . ")");
+                    $stmt = $db->prepare("SELECT bot_configuration FROM lh_departament WHERE id IN (" . implode(',', $dep_id) . ")");
                     $stmt->execute();
                     $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 }

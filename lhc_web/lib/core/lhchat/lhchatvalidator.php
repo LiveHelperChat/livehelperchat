@@ -544,7 +544,21 @@ class erLhcoreClassChatValidator {
         
         // Allow offline request, but do not allow online request if department is overloaded
         if (!(isset($additionalParams['offline']) && $additionalParams['offline'] == true) && $department !== false && $department->is_overloaded == true) {
-            $Errors['department'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','At the moment department is overloaded, please choose a different department or try again later!');
+
+            $error = false;
+
+            if ($department !== false) {
+                $botData = $department->bot_configuration_array;
+                if (!(isset($botData['bot_id']) && $botData['bot_id'] > 0 && (!isset($botData['bot_foh']) || $botData['bot_foh'] == false))) {
+                    $error = true;
+                }
+            } else {
+                $error = true;
+            }
+
+            if ($error == true) {
+                $Errors['department'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','At the moment department is overloaded, please choose a different department or try again later!');
+            }
         }
         
         $inputForm->departament_id = $chat->dep_id;
