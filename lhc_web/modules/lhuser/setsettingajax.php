@@ -15,9 +15,9 @@ try {
     	erLhcoreClassModelUserSetting::setSetting($Params['user_parameters']['identifier'],(string)rawurldecode($Params['user_parameters']['value']));
     }
     exit;
-    
-} catch (Exception $e){
-	print_r($e);
+
+} catch (Exception $e) {
+
 }
 
 exit;
