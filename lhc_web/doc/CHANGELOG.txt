@@ -1,3 +1,19 @@
+3.44v
+
+1. Fixed few XSS vulnerabilities found by @rekter0 (Discord)
+2. (real) to (float) changes. Thanks to https://github.com/swidbert
+3. Widget will be shown as online if overload limit is reached, but there is bot setup in departmnet.
+4. Device type export in chat list.
+5. Updated GA tracking default template to sen event's to all installed site GA trackers.
+6. Canned messages import/export
+7. Draggable modals. Will remember position also.
+8. Bot text messages now can be send as system messages. Usefull to represent some information just to operators.
+9. Now in Rest API calls you can access any internal chat attribute.
+10. Adjusted widget loading workflow for slow internet cases.
+11. And many more small changes.
+
+There is no database update this time.
+
 3.43v
 
 1. Commands based on bot triggers
