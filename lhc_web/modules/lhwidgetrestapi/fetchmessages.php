@@ -84,7 +84,7 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 			if (in_array($chat->status,$validStatuses) || ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && ($chat->last_op_msg_time == 0 || $chat->last_op_msg_time > time() - (int)erLhcoreClassModelChatConfig::fetch('open_closed_chat_timeout')->current_value))) {
 				// Check for new messages only if chat last message id is greater than user last message id
 				if (!isset($requestPayload['lmgsid']) || (int)$requestPayload['lmgsid'] < $chat->last_msg_id) {
-				    $Messages = erLhcoreClassChat::getPendingMessages((int)$requestPayload['chat_id'], (isset($requestPayload['lmgsid']) ? (int)$requestPayload['lmgsid'] : 0));
+				    $Messages = erLhcoreClassChat::getPendingMessages((int)$requestPayload['chat_id'], (isset($requestPayload['lmgsid']) ? (int)$requestPayload['lmgsid'] : 0), true);
 				    if (count($Messages) > 0)
 				    {
 				        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/syncuser.tpl.php');

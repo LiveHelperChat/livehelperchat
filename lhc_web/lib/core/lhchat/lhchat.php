@@ -1039,10 +1039,17 @@ class erLhcoreClassChat {
     * All messages, which should get administrator/user
     *
     * */
-   public static function getPendingMessages($chat_id,$message_id)
+   public static function getPendingMessages($chat_id,$message_id, $excludeSystem = false)
    {
+
+       $excludeFilter = '';
+
+       if ($excludeSystem == true) {
+           $excludeFilter = ' AND user_id != -1'; // It's a system message
+       }
+
        $db = ezcDbInstance::get();
-       $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id AND id > :message_id ORDER BY id ASC) AS items ON lh_msg.id = items.id');
+       $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN (SELECT id FROM lh_msg WHERE chat_id = :chat_id AND id > :message_id ' . $excludeFilter . ' ORDER BY id ASC) AS items ON lh_msg.id = items.id');
        $stmt->bindValue( ':chat_id',$chat_id,PDO::PARAM_INT);
        $stmt->bindValue( ':message_id',$message_id,PDO::PARAM_INT);
        $stmt->setFetchMode(PDO::FETCH_ASSOC);

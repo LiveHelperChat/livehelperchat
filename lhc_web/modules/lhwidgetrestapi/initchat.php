@@ -126,7 +126,7 @@ try {
 
                     if ($previousChat instanceof erLhcoreClassModelChat){
                         $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/previous_chat.tpl.php');
-                        $tpl->set('messages', erLhcoreClassChat::getPendingMessages((int)$previousChat->id,  0));
+                        $tpl->set('messages', erLhcoreClassChat::getPendingMessages((int)$previousChat->id,  0, true));
                         $tpl->set('chat',$previousChat);
                         $tpl->set('sync_mode','');
                         $tpl->set('async_call',true);
