@@ -616,11 +616,11 @@ class erLhcoreClassBBCodePlain
             '/\[u\](.*?)\[\/u\]/ms',
             '/\[mark\](.*?)\[\/mark\]/ms',
             '/\[s\](.*?)\[\/s\]/ms',
-            '/\[list\=(.*?)\](.*?)\[\/list\]/ms',
+            '/\[list\=([0-9]+)\](.*?)\[\/list\]/ms',
             '/\[list\](.*?)\[\/list\]/ms',
             '/\[\*\]\s?(.*?)\n/ms',
-            '/\[fs(.*?)\](.*?)\[\/fs(.*?)\]/ms',
-            '/\[color\=(.*?)\](.*?)\[\/color\]/ms'
+            '/\[fs([0-9]+)\](.*?)\[\/fs\]/ms',
+            '/\[color\=([A-Za-z0-9]{2,6})\](.*?)\[\/color\]/ms'
         );
 
         // And replace them by...
