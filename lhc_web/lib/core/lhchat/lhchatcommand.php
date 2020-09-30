@@ -152,6 +152,9 @@ class erLhcoreClassChatCommand
         $msg->user_id = $params['user']->id;
         $msg->time = time();
         $msg->name_support = $params['user']->name_support;
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg, 'chat' => & $params['chat']));
+
         $msg->saveThis();
 
         // Schedule UI Refresh
@@ -181,6 +184,9 @@ class erLhcoreClassChatCommand
         $msg->user_id = $params['user']->id;
         $msg->time = time();
         $msg->name_support = $params['user']->name_support;
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg, 'chat' => & $params['chat']));
+
         $msg->saveThis();
 
         // Schedule UI Refresh
@@ -215,6 +221,9 @@ class erLhcoreClassChatCommand
             $msg->user_id = $params['user']->id;
             $msg->time = time();
             $msg->name_support = $params['user']->name_support;
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg, 'chat' => & $params['chat']));
+
             $msg->saveThis();
         }
 
