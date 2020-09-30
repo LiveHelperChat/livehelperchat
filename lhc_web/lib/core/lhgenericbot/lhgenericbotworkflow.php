@@ -115,27 +115,31 @@ class erLhcoreClassGenericBotWorkflow {
                         }
                     }
                 } else if (isset($ruleMatching->pattern) && $ruleMatching->pattern != '') {
-                    $mustCombinations = explode('&&', $ruleMatching->pattern);
-                    foreach ($mustCombinations as $mustCombination) {
-                        $presenceData = self::checkPresence(explode(',', $mustCombination), $messageText, $wordsTypo, ['stats' => true]);
-                        if (!$presenceData['valid']) {
-                            $wordsFound = false;
-                            break;
-                        } else {
-                            $typosUsed += $presenceData['number'];
-                        }
+
+                    $presenceOutcome = self::checkPresenceMessage(array(
+                        'pattern' => $ruleMatching->pattern,
+                        'msg' => $messageText,
+                        'words_typo' => $wordsTypo,
+                    ));
+
+                    if (!$presenceOutcome['found']) {
+                        $wordsFound = false;
+                    } else {
+                        $typosUsed += $presenceOutcome['typos_used'];
                     }
                 }
 
                 // We should NOT include any of these words
                 if ($wordsFound == true && isset($ruleMatching->pattern_exc) && $ruleMatching->pattern_exc != '') {
-                    $mustCombinations = explode('&&', $ruleMatching->pattern_exc);
-                    foreach ($mustCombinations as $mustCombination) {
-                        $presenceData = self::checkPresence(explode(',', $mustCombination), $messageText, $wordsTypoExc, ['stats' => true]);
-                        if ($presenceData['valid'] == true) {
-                            $wordsFound = false;
-                            break;
-                        }
+
+                    $presenceOutcome = self::checkPresenceMessage(array(
+                        'pattern' => $ruleMatching->pattern_exc,
+                        'msg' => $messageText,
+                        'words_typo' => $wordsTypoExc,
+                    ));
+
+                    if ($presenceOutcome['found']) {
+                        $wordsFound = false;
                     }
                 }
 
@@ -386,6 +390,47 @@ class erLhcoreClassGenericBotWorkflow {
         return array('typos' => $numberTypos, 'word' => $word, 'noendtypo' => $noEndTypo, 'wildcardend' => $wildCardEnd, 'wildcardstart' => $wildCardStart);
     }
 
+    public static function checkPresenceMessage($params) {
+
+        $resultCheck = [
+            'found' => true,
+            'typos_used' => 0,
+        ];
+
+        // First part is pattern
+        // Second part is params
+        $paramsSentence = explode('[params ',$params['pattern']);
+
+        if (isset($paramsSentence[1])) {
+            $paramsCleaned = explode(' ',rtrim($paramsSentence[1],']'));
+            foreach ($paramsCleaned as $paramPair) {
+                $paramsPairItem = explode('=',$paramPair);
+                if (isset($paramsPairItem[0]) && $paramsPairItem[1]) {
+                    if ($paramsPairItem[0] == 'max_words' ) {
+                        $wordsCount = count(explode(' ',str_replace(array('"',',',"'",':','.','?','!'),'',mb_strtolower(str_replace(array("\r\n","\n")," ", $params['msg'])))));
+                        if ($wordsCount > $paramsPairItem[1]) {
+                            $resultCheck['found'] = false;
+                            return $resultCheck; // Main rule failed validation
+                        }
+                    }
+                }
+            }
+        }
+
+        $mustCombinations = explode('&&', trim($paramsSentence[0]));
+        foreach ($mustCombinations as $mustCombination) {
+            $presenceData = self::checkPresence(explode(',', $mustCombination), $params['msg'], (isset($params['words_typo']) ? $params['words_typo'] : 0), ['stats' => true]);
+            if (!$presenceData['valid']) {
+                $resultCheck['found'] = false;
+                break;
+            } else {
+                $resultCheck['typos_used'] += $presenceData['number'];
+            }
+        }
+
+        return $resultCheck;
+    }
+    
     public static function checkPresence($words, $text, $mistypeLetters = 1, $paramsExecution = []) {
 
         foreach ($words as $word) {
@@ -401,6 +446,7 @@ class erLhcoreClassGenericBotWorkflow {
                     continue;
                 }
             }
+
 
 
             $textLetters = self::splitWord($text);
