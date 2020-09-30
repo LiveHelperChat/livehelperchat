@@ -2045,6 +2045,12 @@ function lh(){
 	                            });
 	        	            };
 
+	        	            if (data.cg) {
+                                $.each(data.cg,function(i,item) {
+                                    return lhinst.removeDialogTab(item,$('#tabs'),true);
+                                });
+                            }
+
                             lhinst.hidenicknamesstatus = groupTabs;
 
                             clearTimeout(lhinst.userTimeout);
