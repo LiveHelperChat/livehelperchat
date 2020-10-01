@@ -154,7 +154,7 @@ var revealM = {
                 var prevPos = revealM.rememberPositions();
                 var positions = revealM.getPositions();
 
-                if (prevPos === null || parseInt(prevPos[1]) > positions.width || parseInt(prevPos[0]) > positions.height) {
+                if (prevPos === null || parseInt(prevPos[1]) > positions.width || parseInt(prevPos[0]) > positions.height || parseInt(prevPos[0]) < 0 || (modalContent.width() + parseInt(prevPos[1])) < 0 ) {
                     prevPos = [((positions.height - modalContent.height()) / 2),((positions.width - modalContent.width()) / 2)];
                 }
 
