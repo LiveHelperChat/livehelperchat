@@ -1,5 +1,3 @@
-
-
 var revealM = {
 		cancelcolorbox : function() {
 			$('#myModal').foundation('reveal', 'close');
@@ -15,7 +13,7 @@ var revealM = {
 				} else {
 					prependTo = $('#widget-layout');
 				};
-				prependTo.prepend('<div id="'+modelSelector+'" style="padding-right:0px !important;" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"></div>');
+				prependTo.prepend('<div id="'+modelSelector+'" style="padding-right:0px !important;" class="modal bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"></div>');
 			};
 		},
 
@@ -23,9 +21,7 @@ var revealM = {
 
 		revealModal : function(params) {
 
-			var delayShow = false;
 			if ($('body').hasClass('modal-open')) {
-				delayShow = true;
 				if (revealM.hideCallback === false) {
                     $('#myModal').modal('dispose');
                 } else {
@@ -50,7 +46,6 @@ var revealM = {
 				if (typeof params['loadmethod'] !== 'undefined' && params['loadmethod'] == 'post')
 				{
 					jQuery.post(params['url'], params['datapost'], function(data){
-						if (delayShow === false) {
 							if (typeof params['showcallback'] !== 'undefined') {
 								$('#myModal').on('shown.bs.modal',params['showcallback']);
 							}
@@ -60,33 +55,11 @@ var revealM = {
 							}
 
 							$('#myModal').html(data).modal(mparams);
-
                             revealM.setCenteredDraggable();
-
-						} else {
-							setTimeout(function(){
-								$('#myModal').modal('dispose');
-								
-								if (typeof params['showcallback'] !== 'undefined') {
-									$('#myModal').on('shown.bs.modal',params['showcallback']);
-								}
-
-								if (typeof params['hidecallback'] !== 'undefined') {
-									$('#myModal').on('hide.bs.modal',params['hidecallback']);
-								}
-
-								$('#myModal').html(data).modal(mparams);
-
-                                revealM.setCenteredDraggable();
-
-							},500);
-						}
 					});
 				} else {
 					jQuery.get(params['url'], function(data){
 
-						if (delayShow === false) {
-
 							if (typeof params['showcallback'] !== 'undefined') {
 								$('#myModal').on('shown.bs.modal',params['showcallback']);
 							}
@@ -98,26 +71,6 @@ var revealM = {
 							$('#myModal').html(data).modal(mparams);
 
                             revealM.setCenteredDraggable();
-
-						} else {
-							setTimeout(function(){
-								$('#myModal').modal('dispose');
-
-								if (typeof params['showcallback'] !== 'undefined') {
-									$('#myModal').on('shown.bs.modal',params['showcallback']);
-								}
-
-								if (typeof params['hidecallback'] !== 'undefined') {
-									$('#myModal').on('hide.bs.modal',params['hidecallback']);
-								}
-
-
-								$('#myModal').html(data).modal(mparams);
-
-                                revealM.setCenteredDraggable();
-
-							},500);
-						}
 					});
 				}
 			} else {
@@ -131,8 +84,6 @@ var revealM = {
 				var additionalModalBody = typeof params['modalbodyclass'] === 'undefined' ? '' : ' '+params['modalbodyclass'];
 
 				$('#myModal').html('<div class="modal-dialog modal-dialog-scrollable modal-xl"><div class="modal-content">'+header+'<div class="modal-body'+additionalModalBody+'">'+prependeBody+'<iframe src="'+params['url']+'" frameborder="0" style="width:100%" height="'+params['height']+'" /></div></div></div>').modal(mparams);
-
-
 
 				if (typeof params['showcallback'] !== 'undefined') {
 					$('#myModal').on('shown.bs.modal',params['showcallback']);
