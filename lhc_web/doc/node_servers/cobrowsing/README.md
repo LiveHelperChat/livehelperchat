@@ -37,7 +37,7 @@ In Live Helper Chat if you are using `/wsnodejs/` in your nginx config.
 Go to `Settings -> Live help confgiuration -> Chat configuration -> (Screen sharing)` and
 
 * Check NodeJs support enabled
-* In socket.io path, optional enter `/wsnodejs/socket.io`
+* In socket.io path enter `/wsnodejs/socket.io`
 
 Location of `Location of SocketIO JS library` should be
 
