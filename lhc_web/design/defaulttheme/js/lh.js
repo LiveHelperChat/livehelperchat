@@ -532,6 +532,11 @@ function lh(){
     }
 
     this.hideShowAction = function(options) {
+
+        var messagesBlock = $('#messagesBlock-' + options['chat_id']);
+
+        var needScroll = (messagesBlock.prop('scrollTop') + messagesBlock.height() + 30) > messagesBlock.prop('scrollHeight')
+
         var msg = $('#message-more-'+options['id']);
         if (msg.hasClass('hide')) {
             msg.removeClass('hide');
@@ -542,10 +547,8 @@ function lh(){
                 $('#hide-show-action-'+options['id']).text(options['show_text']);
             }
         }
-
-        var messagesBlock = $('#messagesBlock-' + options['chat_id']);
-        messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
-
+        
+        needScroll && messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
     }
 
     this.buttonAction = function(inst,payload) {
