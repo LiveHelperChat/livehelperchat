@@ -219,7 +219,7 @@ if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme-
     $outputResponse['nh']['html'] = '<div class="container-fluid overflow-auto fade-in p-3 pb-4 {dev_type}" >
 <div class="shadow rounded bg-white nh-background">
     <div class="p-2" id="start-chat-btn" style="cursor: pointer">
-        <button type="button" id="close-need-help-btn" class="close position-absolute" style="right:30px;top:25px;" aria-label="Close">
+        <button type="button" id="close-need-help-btn" class="close position-absolute" style="' . (erConfigClassLhConfig::getInstance()->getDirLanguage('dir_language') == 'ltr' ? 'right' : 'left') . ':30px;top:25px;" aria-label="Close">
           <span class="px-1" aria-hidden="true">&times;</span>
         </button>
         <div class="d-flex">

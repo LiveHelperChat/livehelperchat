@@ -59,7 +59,7 @@ class HeaderChat extends Component {
 
                 {(hasPopup || showClose) && <div className={classNameMenu}>
                     <div className="d-flex">
-                        <div className="ml-auto">
+                        <div className={(window.lhcChat['staticJS']['dir'] == 'rtl' ? "mr" : "ml")+"-auto"}>
                             {hasPopup && <a className="header-link" title={t('button.popup')} onClick={this.popup}><i className="material-icons">&#xf106;</i></a>}
                             {showClose && <a title={t('button.end_chat')} className="header-link" onClick={this.endChat}><i className="material-icons">&#xf10a;</i></a>}
                         </div>

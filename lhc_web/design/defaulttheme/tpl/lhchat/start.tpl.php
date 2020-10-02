@@ -26,7 +26,9 @@
         }
 
         $params['staticJS']['chunk_js'] = erLhcoreClassDesign::design('js/widgetv2');
-        
+        $params['staticJS']['dir'] = erConfigClassLhConfig::getInstance()->getDirLanguage('dir_language');
+        $params['staticJS']['cl'] = erConfigClassLhConfig::getInstance()->getDirLanguage('content_language');
+
         if (isset($prefill)) {
             $params['attr_prefill'] = $prefill;
         }

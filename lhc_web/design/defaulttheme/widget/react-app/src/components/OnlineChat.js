@@ -690,7 +690,7 @@ class OnlineChat extends Component {
                         <ChatOptions elementId="chat-dropdown-options">
                             <div className="btn-group dropup disable-select pl-2 pt-2">
                                 <i className="material-icons settings text-muted" id="chat-dropdown-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#xf100;</i>
-                                <div className="dropdown-menu shadow bg-white rounded lhc-dropdown-menu ml-1">
+                                <div className={"dropdown-menu shadow bg-white rounded lhc-dropdown-menu ml-1 "+(window.lhcChat['staticJS']['dir'] == 'rtl' ? "dropdown-menu-right" : "")}>
                                     <div className="d-flex flex-row pl-1">
                                         <a onClick={this.toggleSound} title={t('chat.option_sound')}><i className="material-icons chat-setting-item text-muted">{this.props.chatwidget.getIn(['usersettings','soundOn']) === true ? <React.Fragment>&#xf102;</React.Fragment> : <React.Fragment>&#xf101;</React.Fragment>}</i></a>
                                         {this.props.chatwidget.hasIn(['chat_ui','print']) && <a target="_blank" href={this.props.chatwidget.get('base_url') + "chat/printchat/" +this.props.chatwidget.getIn(['chatData','id']) + "/" + this.props.chatwidget.getIn(['chatData','hash'])} title={t('button.print')}><i className="material-icons chat-setting-item text-muted">&#xf10c;</i></a>}
