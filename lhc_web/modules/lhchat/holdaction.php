@@ -3,8 +3,13 @@
 $db = ezcDbInstance::get();
 
 $db->beginTransaction();
+
 try {
-    $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
+    $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
+
+    if (!($chat instanceof erLhcoreClassModelChat)) {
+        throw new Exception('Chat could not be found!');
+    }
 
     $msgStatus = '';
 
@@ -60,9 +65,10 @@ try {
         $chat->updateThis(array('update' => array('last_msg_id','last_op_msg_time','last_user_msg_time','status_sub')));
     }
 
+    $db->commit();
+
     echo json_encode(array('error' => false, 'hold' => $hold, 'msg' => $msgStatus));
 
-    $db->commit();
 } catch (Exception $e) {
     $db->rollback();
     echo json_encode(array('error' => true, 'msg' => $e->getMessage()));
