@@ -12,6 +12,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -3382,6 +3390,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Mobile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Auto responder got error</source>
       <translation type="unfinished"/>
     </message>
@@ -5685,6 +5697,10 @@
     </message>
     <message>
       <source>Change my persistent status to online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send chat</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -8215,6 +8231,10 @@
   <context>
     <name>user/account</name>
     <message>
+      <source>Read Only</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -8423,11 +8443,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Assign as operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Read only</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Read Only</source>
+      <source>Assign in read only mode</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9853,6 +9877,14 @@
     </message>
     <message>
       <source>User edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid chat!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -12763,6 +12795,10 @@
     </message>
     <message>
       <source>Remarks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Device</source>
       <translation type="unfinished"/>
     </message>
     <message>

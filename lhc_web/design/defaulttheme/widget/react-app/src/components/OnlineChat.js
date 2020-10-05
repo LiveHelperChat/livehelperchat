@@ -17,7 +17,7 @@ import { withTranslation } from 'react-i18next';
 import { Suspense, lazy } from 'react';
 
 const VoiceMessage = React.lazy(() => import('./VoiceMessage'));
-
+const MailModal = React.lazy(() => import('./MailModal'));
 
 @connect((store) => {
     return {
@@ -31,12 +31,14 @@ class OnlineChat extends Component {
         value: '',
         valueSend: false,
         showBBCode : null,
+        mailChat : false,
         dragging : false,
         enabledEditor : true,
         showMessages : false,
         preloadSurvey : false, // Should survey be preloaded
         gotToSurvey : false,
-        voiceMode : false
+        voiceMode : false,
+        showMail : false
     };
 
     constructor(props) {
@@ -56,6 +58,7 @@ class OnlineChat extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.sendMessage = this.sendMessage.bind(this);
         this.endChat = this.endChat.bind(this);
+        this.mailChat = this.mailChat.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.setStatusText = this.setStatusText.bind(this);
         this.dragging = this.dragging.bind(this);
@@ -531,7 +534,13 @@ class OnlineChat extends Component {
             this.focusMessage()
         }
     }
-    
+
+    mailChat() {
+        this.setState({
+            showMail: !this.state.showMail
+        });
+    }
+
     toggleSound() {
         this.props.dispatch({type : 'toggleSound', data: !this.props.chatwidget.getIn(['usersettings','soundOn'])});
         helperFunctions.sendMessageParent('toggleSound', [{'sender' : 'toolbarButton'}]);
@@ -675,6 +684,8 @@ class OnlineChat extends Component {
 
                     {this.state.showBBCode && <ChatModal showModal={this.state.showBBCode} insertText={this.insertText} toggle={this.toggleModal} dataUrl={"/chat/bbcodeinsert?react=1"} />}
 
+                    {this.state.showMail && <Suspense fallback="..."><MailModal showModal={this.state.showMail} toggle={this.mailChat} chatHash={this.props.chatwidget.getIn(['chatData','hash'])} chatId={this.props.chatwidget.getIn(['chatData','id'])} /></Suspense>}
+
                     {this.props.chatwidget.hasIn(['chatStatusData','result']) && !this.props.chatwidget.hasIn(['chat_ui','hide_status']) && this.props.chatwidget.getIn(['chatStatusData','result']) && <div id="chat-status-container" className={"p-2 border-bottom live-status-"+this.props.chatwidget.getIn(['chatLiveData','status'])}><ChatStatus updateStatus={this.updateStatus} vtm={this.props.chatwidget.hasIn(['chat_ui','switch_to_human']) && this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_BOT_CHAT ? this.props.chatwidget.getIn(['chatLiveData','vtm']) : 0} status={this.props.chatwidget.getIn(['chatStatusData','result'])} /></div>}
 
                     <div className={msg_expand} id="messagesBlock">
@@ -696,6 +707,7 @@ class OnlineChat extends Component {
                                         {this.props.chatwidget.hasIn(['chat_ui','print']) && <a target="_blank" href={this.props.chatwidget.get('base_url') + "chat/printchat/" +this.props.chatwidget.getIn(['chatData','id']) + "/" + this.props.chatwidget.getIn(['chatData','hash'])} title={t('button.print')}><i className="material-icons chat-setting-item text-muted">&#xf10c;</i></a>}
                                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.hasIn(['chat_ui','file']) && <ChatFileUploader fileOptions={this.props.chatwidget.getIn(['chat_ui','file_options'])} onDrag={this.dragging} dropArea={this.textMessageRef} onCompletion={this.updateMessages} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} link={true}/>}
                                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && <a onClick={this.toggleModal} title={t('button.bb_code')}><i className="material-icons chat-setting-item text-muted">&#xf104;</i></a>}
+                                        {this.props.chatwidget.hasIn(['chat_ui','mail']) && <a onClick={this.mailChat} title={t('button.mail')} ><i className="material-icons chat-setting-item text-muted">&#xf11a;</i></a>}
                                         {this.props.chatwidget.hasIn(['chat_ui','close_btn']) && <a onClick={this.endChat} title={t('button.end_chat')} ><i className="material-icons chat-setting-item text-muted">&#xf10a;</i></a>}
                                     </div>
                                 </div>
