@@ -4540,11 +4540,11 @@
     </message>
     <message>
       <source>Chat is currently unavailable</source>
-      <translation type="unfinished"/>
+      <translation>Chat ist aktuell nicht verfügbar</translation>
     </message>
     <message>
       <source>Please try again later.</source>
-      <translation type="unfinished"/>
+      <translation>Bitte versuchen Sie es später erneut.</translation>
     </message>
     <message>
       <source>Department is disabled</source>
