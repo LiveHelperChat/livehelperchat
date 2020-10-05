@@ -29,7 +29,7 @@ if (is_array($autologinConfiguration)) {
 
     if ($userToLogin instanceof erLhcoreClassModelUser) {
         erLhcoreClassUser::instance()->setLoggedUser($userToLogin->id);
-        header('Location: /' . $autologinConfiguration['site_access'] . '/' . $autologinConfiguration['url']);
+        header('Location: ' .erLhcoreClassDesign::baseurldirect($autologinConfiguration['site_access']). '/' . $autologinConfiguration['url'] );
         exit;
     } else {
         $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/validation_error_autologin_user.tpl.php');
