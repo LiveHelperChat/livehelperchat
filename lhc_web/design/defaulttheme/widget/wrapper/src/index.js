@@ -125,6 +125,7 @@
             var chatEvents = new chatEventsHandler(attributesWidget);
 
             lhc.eventListener = attributesWidget.eventEmitter;
+            lhc.attributes = attributesWidget;
 
             attributesWidget.userSession.setSessionInformation(attributesWidget.storageHandler.getSessionInformation());
             attributesWidget.userSession.setSessionReferrer(storageHandler.getSessionReferrer());
