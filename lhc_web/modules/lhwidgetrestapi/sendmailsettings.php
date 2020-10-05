@@ -10,7 +10,7 @@ if ($chat instanceof erLhcoreClassModelChat && $chat->hash == $Params['user_para
 {
     if ($Params['user_parameters_unordered']['action'] == 'send') {
 
-        if ((int)erLhcoreClassModelChatConfig::fetch('disable_send')->current_value == 0 && $chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || erLhcoreClassChat::canReopen($chat,true))
+        if ((int)erLhcoreClassModelChatConfig::fetch('disable_send')->current_value == 0 && ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || erLhcoreClassChat::canReopen($chat,true)))
         {
             $payload = json_decode(file_get_contents('php://input'),true);
             if (isset($payload['email']) && filter_var($payload['email'], FILTER_VALIDATE_EMAIL)) {
