@@ -22,6 +22,8 @@ class erLhAbstractModelChatVariable
             'var_identifier' => $this->var_identifier,
             'type' => $this->type,
             'persistent' => $this->persistent,
+            'inv' => $this->inv,
+            'change_message' => $this->change_message,
         );
 
         return $stateArray;
@@ -125,6 +127,10 @@ class erLhAbstractModelChatVariable
     public $type = 0;
 
     public $persistent = 0;
+
+    public $inv = 0;
+
+    public $change_message = '';
 
     public $hide_delete = false;
 }

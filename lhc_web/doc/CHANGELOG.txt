@@ -1,3 +1,17 @@
+3.45v
+
+1. Option to pass chat variable as invisible for an operators.
+2. Option to have a log message on passed variable if it changes during chat session.
+3. Mail transcript option
+4. Change UX for department assignment to an operators. There was to many false reports and mixing between assigning department to operator.
+5. Fixed auto login link generation.
+6. RTL fixes
+7. Co-browsing setup instruction changes https://github.com/LiveHelperChat/livehelperchat/blob/master/lhc_web/doc/node_servers/cobrowsing/README.md
+8. Changes for easier docker support.
+9. Draggable modal various small changes.
+
+execute doc/update_db/update_218.sql for update
+
 3.44v
 
 1. Fixed few XSS vulnerabilities found by @rekter0 (Discord)
