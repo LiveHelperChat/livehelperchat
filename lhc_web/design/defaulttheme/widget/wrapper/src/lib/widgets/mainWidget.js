@@ -12,6 +12,7 @@ export class mainWidget{
         this.right = '30';
         this.units = 'px';
         this.originalCSS = '';
+        this.bottom_override = false;
 
         this.cont = new UIConstructorIframe('lhc_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "2147483640",
@@ -19,8 +20,6 @@ export class mainWidget{
             height: "95px",
             position: "fixed",
             display: "none",
-            bottom: "10px",
-            right: "10px",
             maxheight: "95px",
             maxwidth: "95px",
             minheight: "95px",
@@ -41,9 +40,31 @@ export class mainWidget{
             width: this.width + this.units + " !important",
             "min-width": this.width + this.units + " !important",
             "max-width": this.width + this.units +  " !important",
-            bottom: (this.units == 'px' ? this.bottom + "px" : '0px'),
-            right: (this.units == 'px' ? this.right + "px" : '0px'),
+            bottom: (this.units == 'px' ? this.bottom + "px" : '0px')
         };
+
+        if ((this.attributes.position_placement == 'middle_right' || this.attributes.position_placement == 'middle_left') && this.bottom_override == true) {
+            restyleStyle['bottom'] =  "calc(50% + 20px)";
+        }
+
+        if (this.attributes.position_placement == 'middle_left' || this.attributes.position_placement == 'bottom_left' || this.attributes.position_placement == 'full_height_left') {
+            restyleStyle['left'] = (this.units == 'px' ? this.right + "px" : '0px');
+        } else {
+            restyleStyle['right'] = (this.units == 'px' ? this.right + "px" : '0px');
+        }
+
+        if ((this.attributes.position_placement == 'full_height_right' || this.attributes.position_placement == 'full_height_left') && !this.bottom_override) {
+            restyleStyle['min-height'] = '100%!important';
+            restyleStyle['max-height'] = '100%!important';
+            restyleStyle['height'] = '100%!important';
+            restyleStyle['bottom'] = '0px';
+
+            if (this.attributes.position_placement == 'full_height_left') {
+                restyleStyle['left'] = '0px';
+            } else {
+                restyleStyle['right'] = '0px';
+            }
+        }
 
         if (this.attributes.mode == 'embed') {
             restyleStyle["max-width"] = '100%';
@@ -150,6 +171,8 @@ export class mainWidget{
         this.right = data.right_override ? (data.right_override + (data.wright_inv ? data.wright_inv : 0)) : (30 + (data.wright ? data.wright : 0));
         this.units = (data.width_override || data.height_override || data.bottom_override || data.right_override) ? 'px' : data.units;
         this.resize();
+
+        this.bottom_override = !!data.bottom_override;
     }
 
     hide () {

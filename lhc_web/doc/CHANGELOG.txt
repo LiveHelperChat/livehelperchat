@@ -1,3 +1,9 @@
+3.46v
+
+1. New positions for a new widget.
+
+execute doc/update_db/update_219.sql for update
+
 3.45v
 
 1. Option to pass chat variable as invisible for an operators.

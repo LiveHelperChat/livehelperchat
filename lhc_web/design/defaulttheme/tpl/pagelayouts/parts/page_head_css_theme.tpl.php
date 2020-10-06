@@ -117,6 +117,7 @@ div.message-admin div.meta-message{
 <?php if ($theme->header_padding > 0) : ?>
     padding: <?php echo $theme->header_padding?>px!important;
 <?php endif; ?>
+
 }
 
 .desktop-header,.desktop-body{
@@ -125,6 +126,12 @@ div.message-admin div.meta-message{
     border-width: <?php echo $theme->widget_border_width?>px!important;
     <?php endif; ?>
 }
+
+<?php if ($theme->widget_position == 'full_height_right' || $theme->widget_position == 'full_height_left') : ?>
+.desktop-header,.desktop-body{
+    border-radius: 0!important;
+}
+<?php endif; ?>
 
 <?php if (isset($theme->bot_configuration_array['header_icon_color']) && $theme->bot_configuration_array['header_icon_color'] != '') : ?>
 .header-link .material-icons{
@@ -144,5 +151,6 @@ div.message-admin div.meta-message{
 <?php if (!isset($react)) : ?>
     </style>
 <?php endif;?>
+
 
 <?php endif;?>

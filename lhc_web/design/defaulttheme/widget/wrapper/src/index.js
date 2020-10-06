@@ -82,7 +82,7 @@
                 isMobile : isMobile,
                 isIE : (navigator.userAgent.toUpperCase().indexOf("TRIDENT/") != -1 || navigator.userAgent.toUpperCase().indexOf("MSIE") != -1),
                 fresh : LHC_API.args.fresh || false,
-                widgetDimesions : new BehaviorSubject({wright_inv: 0, wbottom:0, wright:0, width: (isMobile ? 100 : (LHC_API.args.wwidth || 350)), height: (isMobile ? 100 : (LHC_API.args.wheight || 520)), units : (isMobile ? '%' : 'px')}),
+                widgetDimesions : new BehaviorSubject({sright:(LHC_API.args.sright || 0), sbottom:(LHC_API.args.sbottom || 0), wright_inv: 0, wbottom:0, wright:0, width: (isMobile ? 100 : (LHC_API.args.wwidth || 350)), height: (isMobile ? 100 : (LHC_API.args.wheight || 520)), units : (isMobile ? '%' : 'px')}),
                 popupDimesnions : {pheight: (LHC_API.args.pheight || 520), pwidth:(LHC_API.args.pwidth || 500)},
                 leaveMessage : LHC_API.args.leaveamessage || null,
                 department : LHC_API.args.department || [],
@@ -92,6 +92,7 @@
                 domain: LHC_API.args.domain || null,
                 domain_lhc: null,
                 position: LHC_API.args.position || 'bottom_right',
+                position_placement:  LHC_API.args.position_placement || 'bottom_right',
                 base_url : LHC_API.args.lhc_base_url,
                 mode: LHC_API.args.mode || 'widget',
                 tag: LHC_API.args.tag || '',
@@ -200,12 +201,24 @@
                     attributesWidget.staticJS = data.static;
                 }
 
+                if (data.pdim) {
+                    attributesWidget.popupDimesnions = data.pdim;
+                }
+
+                if (data.survey_id) {
+                    attributesWidget.survey = data.survey_id;
+                }
+
                 if (data.domain_lhc) {
                     attributesWidget.domain_lhc = data.domain_lhc;
                 }
 
                 if (data.cont_css) {
                     attributesWidget.cont_ss = data.cont_css;
+                }
+                
+                if (data.wposition) {
+                    attributesWidget.position_placement = data.wposition;
                 }
 
                 attributesWidget.captcha = {hash : data.hash, ts : data.hash_ts};
@@ -242,6 +255,14 @@
 
                     if (data.chat_ui.wbottom && !isMobile) {
                          attributesWidget.widgetDimesions.nextProperty('wbottom',data.chat_ui.wbottom);
+                    }
+
+                    if (data.chat_ui.sbottom) {
+                         attributesWidget.widgetDimesions.nextProperty('sbottom',data.chat_ui.sbottom);
+                    }
+
+                    if (data.chat_ui.sright) {
+                         attributesWidget.widgetDimesions.nextProperty('sright',data.chat_ui.sright);
                     }
 
                     if (data.chat_ui.wright && !isMobile) {

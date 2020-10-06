@@ -529,8 +529,17 @@ try {
                  `buble_operator_background` varchar(250) NOT NULL,
                  `buble_operator_title_color` varchar(250) NOT NULL,
                  `buble_operator_text_color` varchar(250) NOT NULL,
+                 `widget_show_leave_form` tinyint(1) NOT NULL,
+                 `enable_widget_embed_override` tinyint(1) NOT NULL,
+                 `widget_popheight` int(11) NOT NULL,
+                 `widget_popwidth` int(11) NOT NULL,
+                 `widget_survey` int(11) NOT NULL,
+                 `widget_position` varchar(50) NOT NULL,
+                 `widget_pright` int(11) NOT NULL,
+                 `widget_pbottom` int(11) NOT NULL,
                   PRIMARY KEY (`id`)				
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
 
                     $db->query("CREATE TABLE IF NOT EXISTS `lh_faq` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,

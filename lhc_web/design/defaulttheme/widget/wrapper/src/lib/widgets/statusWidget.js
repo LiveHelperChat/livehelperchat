@@ -7,14 +7,13 @@ export class statusWidget{
 
        this.attributes = {};
        this.controlMode = false;
+
        this.cont = new UIConstructorIframe('lhc_status_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "2147483640",
             width: "95px",
             height: "95px",
             position: "fixed",
             display: "none",
-            bottom: "10px",
-            right: "10px",
             maxheight: "95px",
             maxwidth: "95px",
             minheight: "95px",
@@ -52,6 +51,18 @@ export class statusWidget{
     init(attributes, lload) {
 
         this.attributes = attributes;
+
+        var placement = {bottom: (10+this.attributes.widgetDimesions.value.sbottom) + "px", right: (10+this.attributes.widgetDimesions.value.sright) + "px"};
+
+        if (attributes.position_placement == 'bottom_left' || attributes.position_placement == 'full_height_left') {
+            placement = { bottom: (10+this.attributes.widgetDimesions.value.sbottom) + "px", left: (10+this.attributes.widgetDimesions.value.sright) + "px"};
+        } else if (attributes.position_placement == 'middle_right') {
+            placement = {bottom: "calc(50% - 45px)",right: (10+this.attributes.widgetDimesions.value.sright) + "px"};
+        } else if (attributes.position_placement == 'middle_left') {
+            placement = {bottom: "calc(50% - 45px)",left: (10+this.attributes.widgetDimesions.value.sright) + "px"};
+        }
+
+        this.cont.massRestyle(placement);
 
         this.cont.tmpl = '<div id="lhc_status_container" class="' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + '" style="display: none"><i title="New messages" id="unread-msg-number">!</i><i id="status-icon" class="offline-status" href="#"></i></div>';
 
