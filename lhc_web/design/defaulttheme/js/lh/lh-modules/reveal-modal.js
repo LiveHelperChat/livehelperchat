@@ -83,16 +83,16 @@ var revealM = {
 				}
 				var additionalModalBody = typeof params['modalbodyclass'] === 'undefined' ? '' : ' '+params['modalbodyclass'];
 
+                if (typeof params['showcallback'] !== 'undefined') {
+                    $('#myModal').on('shown.bs.modal',params['showcallback']);
+                }
+
+                if (typeof params['hidecallback'] !== 'undefined') {
+                    $('#myModal').on('hide.bs.modal',params['hidecallback']);
+                }
+                
 				$('#myModal').html('<div class="modal-dialog modal-dialog-scrollable modal-xl"><div class="modal-content">'+header+'<div class="modal-body'+additionalModalBody+'">'+prependeBody+'<iframe src="'+params['url']+'" frameborder="0" style="width:100%" height="'+params['height']+'" /></div></div></div>').modal(mparams);
 
-				if (typeof params['showcallback'] !== 'undefined') {
-					$('#myModal').on('shown.bs.modal',params['showcallback']);
-				}
-
-				if (typeof params['hidecallback'] !== 'undefined') {
-					$('#myModal').on('hide.bs.modal',params['hidecallback']);
-				}
-                
 				revealM.setCenteredDraggable();
 				
 			}
