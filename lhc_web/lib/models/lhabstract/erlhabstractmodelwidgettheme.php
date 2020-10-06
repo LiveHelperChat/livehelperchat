@@ -24,7 +24,7 @@ class erLhAbstractModelWidgetTheme {
 			'widget_popwidth'           => $this->widget_popwidth,
 			'widget_popheight'          => $this->widget_popheight,
 			'widget_pright'             => $this->widget_pright,
-			'widget_pbottom '           => $this->widget_pbottom,
+			'widget_pbottom'           => $this->widget_pbottom,
 			'name_company'  			=> $this->name_company,
 			'onl_bcolor'				=> $this->onl_bcolor,			
 			'bor_bcolor'				=> $this->bor_bcolor,			
