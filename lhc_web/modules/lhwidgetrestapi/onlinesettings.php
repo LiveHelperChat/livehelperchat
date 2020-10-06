@@ -132,8 +132,19 @@ if ($Params['user_parameters_unordered']['online'] == '0') {
     }
 
     if ($Params['user_parameters_unordered']['online'] == '0') {
-        if ($theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['thank_feedback']) && !empty($theme->bot_configuration_array['thank_feedback'])) {
-            $chat_ui['thank_feedback'] = $theme->bot_configuration_array['thank_feedback'];
+
+        if ($theme instanceof erLhAbstractModelWidgetTheme){
+            if (isset($theme->bot_configuration_array['thank_feedback']) && !empty($theme->bot_configuration_array['thank_feedback'])) {
+                $chat_ui['thank_feedback'] = $theme->bot_configuration_array['thank_feedback'];
+            }
+
+            if (isset($theme->bot_configuration_array['chat_unavailable']) && !empty($theme->bot_configuration_array['chat_unavailable'])) {
+                $chat_ui['chat_unavailable'] = $theme->bot_configuration_array['chat_unavailable'];
+            }
+        }
+
+        if (!isset($chat_ui['chat_unavailable'])) {
+            $chat_ui['chat_unavailable'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Chat is currently unavailable') . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please try again later.');
         }
     }
 

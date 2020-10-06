@@ -13,6 +13,7 @@ const initialState = fromJS({
     theme: null,
     pvhash: null,
     phash: null,
+    leave_message: true,
     mode: 'widget',
     overrides: [], // we store here extensions flags. Like do we override typing monitoring so we send every request
     department: [],
@@ -77,6 +78,7 @@ const chatWidgetReducer = (state = initialState, action) => {
         }
 
         case 'operator':
+        case 'leave_message':
         case 'phash':
         case 'pvhash':
         case 'attr_prefill':
