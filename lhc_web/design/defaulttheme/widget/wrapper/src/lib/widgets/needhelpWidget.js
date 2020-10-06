@@ -17,8 +17,6 @@ export class needhelpWidget{
             height: "135px",
             position: "fixed",
             display: "none",
-            bottom: "70px",
-            right: "45px",
         }), null, "iframe");
 
         this.loadStatus = {main : false, theme: false, status: false};
@@ -33,14 +31,21 @@ export class needhelpWidget{
     init(attributes, settings) {
 
         this.attributes = attributes;
-        
-        if (this.attributes.widgetDimesions.value.wbottom > 0 || this.attributes.widgetDimesions.value.wright > 0) {
-            this.cont.massRestyle({
-                "bottom" : (70+this.attributes.widgetDimesions.value.wbottom) + "px",
-                "right" : (45+this.attributes.widgetDimesions.value.wright) + "px",
-            });
+
+        var placement = {bottom: (70 + this.attributes.widgetDimesions.value.wbottom) +"px", right: (45+this.attributes.widgetDimesions.value.wright) + "px"};
+
+        if (attributes.position_placement == 'bottom_left' || attributes.position_placement == 'full_height_left') {
+            placement = {bottom: (70 + this.attributes.widgetDimesions.value.wbottom) +"px", left: (45+this.attributes.widgetDimesions.value.wright) + "px"};
+        } else if (attributes.position_placement == 'middle_left') {
+            placement = {bottom: "calc(50% + 35px)", left: (45+this.attributes.widgetDimesions.value.wright) + "px"};
+        } else if (attributes.position_placement == 'middle_right') {
+            placement = {bottom: "calc(50% + 35px)", right: (45+this.attributes.widgetDimesions.value.wright) + "px"};
         }
-        
+
+        this.cont.massRestyle(placement);
+
+        this.attributes = attributes;
+
         this.cont.tmpl = settings['html'].replace('{dev_type}',(this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop'));
         this.cont.bodyId = 'need-help';
         this.cont.constructUIIframe('', this.attributes.staticJS['dir']);

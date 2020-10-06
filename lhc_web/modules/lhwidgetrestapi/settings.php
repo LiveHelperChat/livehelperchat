@@ -136,6 +136,14 @@ if (isset($outputResponse['theme'])){
             $outputResponse['chat_ui']['wright'] = (int)$theme->bot_configuration_array['wright'];
         }
 
+        if ($theme->widget_pbottom > 0) {
+            $outputResponse['chat_ui']['sbottom'] = (int)$theme->widget_pbottom;
+        }
+
+        if ($theme->widget_pright >0) {
+            $outputResponse['chat_ui']['sright'] = (int)$theme->widget_pright;
+        }
+
         if (isset($theme->bot_configuration_array['wright_inv']) && is_numeric($theme->bot_configuration_array['wright_inv'])) {
             $outputResponse['chat_ui']['wright_inv'] = (int)$theme->bot_configuration_array['wright_inv'];
         }
@@ -169,6 +177,21 @@ if (isset($outputResponse['theme'])){
             $outputResponse['chat_ui']['clinst'] = true;
         }
 
+        if ($theme->enable_widget_embed_override == 1) {
+           $outputResponse['chat_ui']['leaveamessage'] = $theme->widget_show_leave_form == 1;
+
+           if ($theme->widget_popheight > 0 && $theme->widget_popwidth > 0) {
+               $outputResponse['pdim'] = ['pheight' => $theme->widget_popheight, 'pwidth' => $theme->widget_popwidth];
+           }
+
+           if ($theme->widget_survey > 0) {
+               $outputResponse['survey_id'] = $theme->widget_survey;
+           }
+
+           if ($theme->widget_position != '') {
+               $outputResponse['wposition'] = $theme->widget_position;
+           }
+        }
     }
 }
 
@@ -287,7 +310,10 @@ if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme-
     }
 }
 
-$outputResponse['chat_ui']['leaveamessage'] = (isset($startDataFields['force_leave_a_message']) && $startDataFields['force_leave_a_message'] == true) ? true : false;
+if (!isset($outputResponse['chat_ui']['leaveamessage'])) {
+    $outputResponse['chat_ui']['leaveamessage'] = (isset($startDataFields['force_leave_a_message']) && $startDataFields['force_leave_a_message'] == true) ? true : false;
+}
+
 $outputResponse['chat_ui']['mobile_popup'] = isset($startDataFields['mobile_popup']) && $startDataFields['mobile_popup'] == true;
 
 if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == true) {

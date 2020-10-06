@@ -17,6 +17,14 @@ class erLhAbstractModelWidgetTheme {
 		$stateArray = array (
 			'id'         				=> $this->id,
 			'name'  					=> $this->name,
+			'enable_widget_embed_override' => $this->enable_widget_embed_override,
+			'widget_show_leave_form'       => $this->widget_show_leave_form,
+			'widget_survey'             => $this->widget_survey,
+			'widget_position'           => $this->widget_position,
+			'widget_popwidth'           => $this->widget_popwidth,
+			'widget_popheight'          => $this->widget_popheight,
+			'widget_pright'             => $this->widget_pright,
+			'widget_pbottom '           => $this->widget_pbottom,
 			'name_company'  			=> $this->name_company,
 			'onl_bcolor'				=> $this->onl_bcolor,			
 			'bor_bcolor'				=> $this->bor_bcolor,			
@@ -596,6 +604,15 @@ class erLhAbstractModelWidgetTheme {
 
     // Theme modified time. We will use this attribute for E-Tag
     public $modified = 0;
+
+    public $enable_widget_embed_override = 0;
+    public $widget_show_leave_form = 0;
+    public $widget_survey = 0;
+    public $widget_position = '';
+    public $widget_popwidth = 500;
+    public $widget_popheight = 520;
+    public $widget_pright = 0;
+    public $widget_pbottom = 0;
 
 	public $hide_add = false;
 	public $hide_delete = false;

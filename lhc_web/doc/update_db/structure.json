@@ -3380,6 +3380,70 @@
         "key": "",
         "default": null,
         "extra": ""
+      },
+      {
+        "field": "widget_show_leave_form",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "enable_widget_embed_override",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "widget_pright",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "widget_pbottom",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "widget_popheight",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "widget_popwidth",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "widget_survey",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "widget_position",
+        "type": "varchar(50)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
       }
     ],
     "lh_canned_msg": [

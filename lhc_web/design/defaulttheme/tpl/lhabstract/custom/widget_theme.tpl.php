@@ -362,6 +362,70 @@
                             <?php echo erLhcoreClassAbstract::renderInput('switch_to_human', $fields['switch_to_human'], $object)?>
                         </div>
 
+                        <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'Override embed code settings'); ?></h3>
+
+                        <div class="form-group">
+                            <label><?php echo $fields['enable_widget_embed_override']['trans'];?></label>
+                            <?php echo erLhcoreClassAbstract::renderInput('enable_widget_embed_override', $fields['enable_widget_embed_override'], $object)?>
+                        </div>
+
+                        <div class="form-group">
+                            <label><?php echo erLhcoreClassAbstract::renderInput('widget_show_leave_form', $fields['widget_show_leave_form'], $object)?> <?php echo $fields['widget_show_leave_form']['trans'];?></label>
+                        </div>
+
+                        <div class="form-group">
+                            <label><?php echo $fields['widget_position']['trans'];?></label>
+                            <select name="AbstractInput_widget_position" class="form-control">
+                                <option value="bottom_right" <?php $object->widget_position == 'bottom_right' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Bottom right corner of the screen');?></option>
+                                <option value="bottom_left" <?php $object->widget_position == 'bottom_left' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Bottom left corner of the screen');?></option>
+                                <option value="middle_right" <?php $object->widget_position == 'middle_right' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Middle right side of the screen');?></option>
+                                <option value="middle_left" <?php $object->widget_position == 'middle_left' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Middle left side of the screen');?></option>
+                                <option value="full_height_right" <?php $object->widget_position == 'full_height_right' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Full height right');?></option>
+                                <option value="full_height_left" <?php $object->widget_position == 'full_height_left' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Full height left');?></option>
+                            </select>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['widget_popwidth']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('widget_popwidth', $fields['widget_popwidth'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['widget_popheight']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('widget_popheight', $fields['widget_popheight'], $object)?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['widget_pright']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('widget_pright', $fields['widget_pright'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['widget_pbottom']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('widget_pbottom', $fields['widget_pbottom'], $object)?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label><?php echo $fields['widget_survey']['trans'];?></label>
+                            <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                                'input_name'     => 'AbstractInput_widget_survey',
+                                'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','no survey'),
+                                'selected_id'    => $object->widget_survey,
+                                'css_class'     => 'form-control',
+                                'list_function'  => 'erLhAbstractModelSurvey::getList'
+                            )); ?>
+                        </div>
+
         		
         		</div>
         		<div role="tabpanel" class="tab-pane" id="needhelp">
