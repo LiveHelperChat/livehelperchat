@@ -177,7 +177,7 @@
                 }
 
                 attributesWidget.leaveMessage = attributesWidget.leaveMessage || data.chat_ui.leaveamessage;
-                
+
                 if (data.department) {
                     attributesWidget.department = data.department;
                 }

@@ -471,6 +471,8 @@ class erLhAbstractModelWidgetTheme {
             'thank_feedback',
             'placeholder_message',
             'need_help_html',
+            'chat_unavailable',
+            'custom_op_name',
         ),$attributesDirect);
 
         $attributes = $this->bot_configuration_array;
