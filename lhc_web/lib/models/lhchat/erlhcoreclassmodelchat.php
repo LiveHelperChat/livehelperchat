@@ -264,12 +264,14 @@ class erLhcoreClassModelChat {
        	case 'wait_time_front':
        		   $this->wait_time_front = erLhcoreClassChat::formatSeconds($this->wait_time);
        		   return $this->wait_time_front;
-       		break;
+
+       	case 'last_user_msg_time_front':
+               $this->last_user_msg_time_front = $this->last_user_msg_time > 0 ? erLhcoreClassChat::formatSeconds(time() - $this->last_user_msg_time) : null;
+       		   return $this->last_user_msg_time_front;
 
        	case 'wait_time_pending':
        		   $this->wait_time_pending = erLhcoreClassChat::formatSeconds(time() - $this->time);
        		   return $this->wait_time_pending;
-       		break;
 
        	case 'chat_duration_front':
        	       if ($this->chat_duration > 0) {
@@ -280,11 +282,9 @@ class erLhcoreClassModelChat {
                    $this->chat_duration_front = null;
                }
        		   return $this->chat_duration_front;
-       		break;
 
        	case 'user_name':
        			return $this->user_name = (string)$this->user;
-       		break;	
 
        	case 'plain_user_name':
        	        $this->plain_user_name = false;

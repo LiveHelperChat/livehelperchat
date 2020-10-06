@@ -1473,12 +1473,16 @@ class erLhcoreClassChat {
                         }
                     } elseif (strpos($column->variable,'lhc.') !== false) {
                         $variableName = str_replace('lhc.','', $column->variable);
-                        if (isset($object->{$variableName}) && $object->{$variableName} != '') {
-                            $object->{'cc_'.$column->id} = $object->{$variableName};
+                        $variableValue = $object->{$variableName};
+                        if (isset($variableValue) && $variableValue != '') {
+                            $object->{'cc_'.$column->id} = $variableValue;
                         }
                     }
+
+
                 }
             }
+
 
    			foreach ($attrRemove as $attr) {
    				$object->{$attr} = null;
