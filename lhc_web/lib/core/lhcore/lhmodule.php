@@ -306,11 +306,16 @@ class erLhcoreClassModule{
             $file = self::$currentModule[self::$currentView]['script_path'];
             $contentFile = php_strip_whitespace($file);
 
+            // We want to compile as it was live module run without escaping translations
+            if (strpos($contentFile,'erTranslationClassLhTranslation::$htmlEscape = false') !== false) {
+                erTranslationClassLhTranslation::$htmlEscape = false;
+            }
+
             $Matches = array();
 			preg_match_all('/erTranslationClassLhTranslation::getInstance\(\)->getTranslation\(\'(.*?)\',(.*?)\'(.*?)\'\)/i',$contentFile,$Matches);
 			foreach ($Matches[1] as $key => $TranslateContent)
 			{
-				$contentFile = str_replace($Matches[0][$key],'\''.erTranslationClassLhTranslation::getInstance()->getTranslation($TranslateContent,$Matches[3][$key]).'\'',$contentFile);
+				$contentFile = str_replace($Matches[0][$key],'\'' .str_replace("'","\'",erTranslationClassLhTranslation::getInstance()->getTranslation($TranslateContent,$Matches[3][$key])) .'\'',$contentFile);
 			}
 			
 			$Matches = array();
@@ -329,7 +334,7 @@ class erLhcoreClassModule{
 			}
 			
 			$Matches = array();
-			preg_match_all('/erLhcoreClassDesign::baseurldirect\((.*?)\)/i',$contentFile,$Matches);
+			preg_match_all('/erLhcoreClassDesign::baseurldirect\(\'(.*?)\'\)/i',$contentFile,$Matches);
 			foreach ($Matches[1] as $key => $UrlAddress)
 			{
 				$contentFile = str_replace($Matches[0][$key],'\''.erLhcoreClassDesign::baseurldirect(trim($UrlAddress,'\'')).'\'',$contentFile);

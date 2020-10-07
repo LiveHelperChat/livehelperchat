@@ -4,6 +4,13 @@ import { fetchMessages, checkChatStatus } from "../../actions/chatActions"
 class _nodeJSChat {
     constructor() {
         this.socket = null;
+
+        // On chat close event close connection
+        helperFunctions.eventEmitter.addListener('endedChat', () => {
+            if (this.socket !== null) {
+                this.socket.destroy();
+            }
+        });
     }
 
     bootstrap(params, dispatch, getState) {
@@ -33,10 +40,10 @@ class _nodeJSChat {
         } else{
             chanelName = ('chat_'+chatId);
         }
-        
+
         var socketCluster = require('socketcluster-client');
 
-        var socket= socketCluster.connect(socketOptions);
+        var socket = this.socket = socketCluster.connect(socketOptions);
         
         var sampleChannel = null;
         
@@ -61,7 +68,7 @@ class _nodeJSChat {
             }
         }
 
-        socket.on('close', function(){
+        socket.on('close', function() {
 
             if (sampleChannel !== null) {
                 sampleChannel.destroy();
@@ -129,6 +136,7 @@ class _nodeJSChat {
             });
 
             helperFunctions.eventEmitter.addListener('visitorTyping', visitorTypingListener);
+
 
             dispatch({
                 'type': 'CHAT_UI_UPDATE',

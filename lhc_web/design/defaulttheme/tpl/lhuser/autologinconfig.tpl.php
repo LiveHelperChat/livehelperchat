@@ -40,7 +40,7 @@
             <div role="tabpanel" class="tab-pane" id="autologincustom">
                 <script>
                     function updateURL(index) {
-                       $('#copy-url-'+index).val( $('#copy-url-'+index).attr('data-original-url') + $('#site-access-'+index).val() + '<?php echo erLhcoreClassDesign::baseurldirect('user/autologinuser')?>' + '/'+$('#secret-hash-'+index).val());
+                       $('#copy-url-'+index).val( $('#copy-url-'+index).attr('data-original-url') + $('#site-access-'+index).val() + '/user/autologinuser' + '/'+$('#secret-hash-'+index).val());
                     }
                     function copyURL(inst) {
                         $('#copy-url-'+inst.attr('data-index')).select();
@@ -70,13 +70,13 @@
                 <div class="row">
                     <div class="col-1">
                         <div class="form-group">
-                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','User ID')?></label>
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','User ID')?>*</label>
                             <input type="text" name="UserID[<?php echo $i?>]" class="form-control" value="<?php echo isset($autologin_data['autologin_options'][$i]) ? htmlspecialchars($autologin_data['autologin_options'][$i]['user_id']) : null?>" />
                         </div>
                     </div>
                     <div class="col-1">
                         <div class="form-group">
-                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','SiteAccess')?></label>
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','SiteAccess')?>*</label>
                             <select id="site-access-<?php echo $i?>" name="siteAccess[<?php echo $i?>]" class="form-control" onchange="updateURL(<?php echo $i?>)">
                                 <?php foreach (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'available_site_access' ) as $locale ) : ?>
                                     <option value="<?php echo $locale?>" <?php (isset($autologin_data['autologin_options'][$i]['site_access']) && $autologin_data['autologin_options'][$i]['site_access'] == $locale) ? print 'selected="selected"' : ''?> ><?php echo $locale?></option>
@@ -86,19 +86,19 @@
                     </div>
                     <div class="col-3">
                         <div class="form-group">
-                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Default URL')?></label>
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Default URL')?>*</label>
                             <input type="text" name="URL[<?php echo $i?>]" id="url-autologin-<?php echo $i?>" class="form-control" value="<?php echo isset($autologin_data['autologin_options'][$i]) ? htmlspecialchars($autologin_data['autologin_options'][$i]['url']) : null?>" />
                         </div>
                     </div>
                     <div class="col-3">
                         <div class="form-group">
-                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Secret hash')?></label>
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Secret hash')?>*</label>
                             <input type="text" onkeyup="updateURL(<?php echo $i?>)" name="SecretHash[<?php echo $i?>]" id="secret-hash-<?php echo $i?>" class="form-control" value="<?php echo isset($autologin_data['autologin_options'][$i]) ? htmlspecialchars($autologin_data['autologin_options'][$i]['secret_hash']) : null?>" />
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="form-group">
-                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','IP Allowed')?></label>
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','IP Allowed')?>*</label>
                             <input type="text" class="form-control" placeholder="1.2.3.*,128.8.8.8" name="IP[<?php echo $i?>]" value="<?php echo isset($autologin_data['autologin_options'][$i]) ? htmlspecialchars($autologin_data['autologin_options'][$i]['ip']) : null?>" />
                         </div>
                     </div>

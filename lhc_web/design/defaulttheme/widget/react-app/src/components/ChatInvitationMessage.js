@@ -1,10 +1,15 @@
 import React, { PureComponent } from 'react';
 import ChatBotIntroMessage from './ChatBotIntroMessage';
+import { helperFunctions } from "../lib/helperFunctions";
 
 class ChatInvitationMessage extends PureComponent {
 
     constructor(props) {
         super(props);
+    }
+
+    componentDidMount() {
+        helperFunctions.sendMessageParent('readInvitation', [{name: this.props.invitation.invitation_name || "Manual"}]);
     }
 
     render() {

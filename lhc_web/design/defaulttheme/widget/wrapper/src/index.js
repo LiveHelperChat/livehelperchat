@@ -73,6 +73,8 @@
                 chatNotifications : chatNotifications,
                 jsVars :  new BehaviorSubject(true),
                 onlineStatus :  new BehaviorSubject(true),
+                wloaded :  new BehaviorSubject(false),
+                sload :  new BehaviorSubject(false),
                 widgetStatus : new BehaviorSubject((storageHandler.getSessionStorage('LHC_WS') === 'true' || (LHC_API.args.mode && LHC_API.args.mode == 'embed'))),
                 eventEmitter : new EventEmitter(),
                 toggleSound : new BehaviorSubject(storageHandler.getSessionStorage('LHC_SOUND') === 'true',{'ignore_sub':true}),
@@ -80,7 +82,7 @@
                 isMobile : isMobile,
                 isIE : (navigator.userAgent.toUpperCase().indexOf("TRIDENT/") != -1 || navigator.userAgent.toUpperCase().indexOf("MSIE") != -1),
                 fresh : LHC_API.args.fresh || false,
-                widgetDimesions : new BehaviorSubject({wright_inv: 0, wbottom:0, wright:0, width: (isMobile ? 100 : (LHC_API.args.wwidth || 350)), height: (isMobile ? 100 : (LHC_API.args.wheight || 520)), units : (isMobile ? '%' : 'px')}),
+                widgetDimesions : new BehaviorSubject({sright:(LHC_API.args.sright || 0), sbottom:(LHC_API.args.sbottom || 0), wright_inv: 0, wbottom:0, wright:0, width: (isMobile ? 100 : (LHC_API.args.wwidth || 350)), height: (isMobile ? 100 : (LHC_API.args.wheight || 520)), units : (isMobile ? '%' : 'px')}),
                 popupDimesnions : {pheight: (LHC_API.args.pheight || 520), pwidth:(LHC_API.args.pwidth || 500)},
                 leaveMessage : LHC_API.args.leaveamessage || null,
                 department : LHC_API.args.department || [],
@@ -90,6 +92,7 @@
                 domain: LHC_API.args.domain || null,
                 domain_lhc: null,
                 position: LHC_API.args.position || 'bottom_right',
+                position_placement:  LHC_API.args.position_placement || 'bottom_right',
                 base_url : LHC_API.args.lhc_base_url,
                 mode: LHC_API.args.mode || 'widget',
                 tag: LHC_API.args.tag || '',
@@ -123,6 +126,7 @@
             var chatEvents = new chatEventsHandler(attributesWidget);
 
             lhc.eventListener = attributesWidget.eventEmitter;
+            lhc.attributes = attributesWidget;
 
             attributesWidget.userSession.setSessionInformation(attributesWidget.storageHandler.getSessionInformation());
             attributesWidget.userSession.setSessionReferrer(storageHandler.getSessionReferrer());
@@ -174,7 +178,7 @@
                 }
 
                 attributesWidget.leaveMessage = attributesWidget.leaveMessage || data.chat_ui.leaveamessage;
-                
+
                 if (data.department) {
                     attributesWidget.department = data.department;
                 }
@@ -197,12 +201,24 @@
                     attributesWidget.staticJS = data.static;
                 }
 
+                if (data.pdim) {
+                    attributesWidget.popupDimesnions = data.pdim;
+                }
+
+                if (data.survey_id) {
+                    attributesWidget.survey = data.survey_id;
+                }
+
                 if (data.domain_lhc) {
                     attributesWidget.domain_lhc = data.domain_lhc;
                 }
 
                 if (data.cont_css) {
                     attributesWidget.cont_ss = data.cont_css;
+                }
+                
+                if (data.wposition) {
+                    attributesWidget.position_placement = data.wposition;
                 }
 
                 attributesWidget.captcha = {hash : data.hash, ts : data.hash_ts};
@@ -241,6 +257,14 @@
                          attributesWidget.widgetDimesions.nextProperty('wbottom',data.chat_ui.wbottom);
                     }
 
+                    if (data.chat_ui.sbottom) {
+                         attributesWidget.widgetDimesions.nextProperty('sbottom',data.chat_ui.sbottom);
+                    }
+
+                    if (data.chat_ui.sright) {
+                         attributesWidget.widgetDimesions.nextProperty('sright',data.chat_ui.sright);
+                    }
+
                     if (data.chat_ui.wright && !isMobile) {
                          attributesWidget.widgetDimesions.nextProperty('wright',data.chat_ui.wright);
                     }
@@ -266,6 +290,15 @@
                             }, attributesWidget);
                         });
                     }
+
+                    if (data.ga) {
+                        import('./util/analyticEvents').then((module) => {
+                            module.analyticEvents.setParams({
+                                'ga' : data.ga
+                            }, attributesWidget);
+                        });
+                    }
+
                 }
 
                 if (attributesWidget.mode == 'widget' && data.nh && attributesWidget.fresh === false && attributesWidget['position'] != 'api' && attributesWidget.userSession.id === null) {
@@ -291,7 +324,7 @@
 
                 // Init main widgets
                 if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
-                        attributesWidget.viewHandler.init(attributesWidget);
+                        attributesWidget.viewHandler.init(attributesWidget, data.ll);
                 }
 
                 if (!(attributesWidget.position == 'api' && attributesWidget.mode == 'embed')) {
@@ -520,6 +553,9 @@
                 attributesWidget.mainWidget.hideInvitation();
                 if (data.full) {
                     attributesWidget.eventEmitter.emitEvent('showWidget', [{'sender' : 'closeButton'}]);
+                    attributesWidget.eventEmitter.emitEvent('fullInvitation', [data]);
+                } else {
+                    attributesWidget.eventEmitter.emitEvent('cancelInvitation', []);
                 }
             });
 

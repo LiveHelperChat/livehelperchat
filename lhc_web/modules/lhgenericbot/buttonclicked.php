@@ -64,7 +64,7 @@ try {
             $chat->updateThis(array('update' => array('chat_variables')));
         }
 
-        echo json_encode(array('error' => false));
+        echo json_encode(array('error' => false, 't' => erLhcoreClassGenericBotWorkflow::$triggerName));
 
     } else {
         throw new Exception('You do not have permission!');

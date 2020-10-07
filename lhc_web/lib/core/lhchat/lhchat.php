@@ -909,12 +909,12 @@ class erLhcoreClassChat {
 			// Check is bot enabled for department
 			if ($rowsNumber == 0 && (is_numeric($dep_id) || count($dep_id) == 1) && (!isset($params['exclude_bot']) || $params['exclude_bot'] == false)) {
                 if (is_numeric($dep_id)) {
-                    $stmt = $db->prepare("SELECT bot_configuration FROM lh_departament WHERE (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND id = :dep_id");
+                    $stmt = $db->prepare("SELECT bot_configuration FROM lh_departament WHERE id = :dep_id");
                     $stmt->bindValue(':dep_id', $dep_id);
                     $stmt->execute();
                     $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 } else {
-                    $stmt = $db->prepare("SELECT bot_configuration FROM lh_departament WHERE (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND id IN (" . implode(',', $dep_id) . ")");
+                    $stmt = $db->prepare("SELECT bot_configuration FROM lh_departament WHERE id IN (" . implode(',', $dep_id) . ")");
                     $stmt->execute();
                     $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 }
@@ -1138,10 +1138,17 @@ class erLhcoreClassChat {
     * All messages, which should get administrator/user
     *
     * */
-   public static function getPendingMessages($chat_id,$message_id)
+   public static function getPendingMessages($chat_id,$message_id, $excludeSystem = false)
    {
+
+       $excludeFilter = '';
+
+       if ($excludeSystem == true) {
+           $excludeFilter = ' AND user_id != -1'; // It's a system message
+       }
+
        $db = ezcDbInstance::get();
-       $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id AND id > :message_id ORDER BY id ASC) AS items ON lh_msg.id = items.id');
+       $stmt = $db->prepare('SELECT lh_msg.* FROM lh_msg INNER JOIN (SELECT id FROM lh_msg WHERE chat_id = :chat_id AND id > :message_id ' . $excludeFilter . ' ORDER BY id ASC) AS items ON lh_msg.id = items.id');
        $stmt->bindValue( ':chat_id',$chat_id,PDO::PARAM_INT);
        $stmt->bindValue( ':message_id',$message_id,PDO::PARAM_INT);
        $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -1570,12 +1577,16 @@ class erLhcoreClassChat {
                         }
                     } elseif (strpos($column->variable,'lhc.') !== false) {
                         $variableName = str_replace('lhc.','', $column->variable);
-                        if (isset($object->{$variableName}) && $object->{$variableName} != '') {
-                            $object->{'cc_'.$column->id} = $object->{$variableName};
+                        $variableValue = $object->{$variableName};
+                        if (isset($variableValue) && $variableValue != '') {
+                            $object->{'cc_'.$column->id} = $variableValue;
                         }
                     }
+
+
                 }
             }
+
 
    			foreach ($attrRemove as $attr) {
    				$object->{$attr} = null;

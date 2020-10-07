@@ -105,6 +105,8 @@ export class mainWidgetPopup {
                 urlArgumetns = urlArgumetns + "/(priority)/" + this.attributes['priority'];
             }
 
+            urlArgumetns = urlArgumetns + "/(sound)/" + (this.attributes.toggleSound.value == true ? 1 : 0);
+
             if (this.attributes['proactive']['invitation']) {
                 urlArgumetns = urlArgumetns + "/(inv)/" + this.attributes['proactive']['invitation'];
                 if (this.attributes['mode'] == 'popup') {
@@ -118,7 +120,17 @@ export class mainWidgetPopup {
                 urlArgumetns = urlArgumetns + '?' + this.parseOptions();
             }
 
-            this.cont.elementReferrerPopup = window.open(this.attributes['base_url'] + this.attributes['lang'] + "chat/start" + urlArgumetns, 'lhc_popup_v2', "scrollbars=yes,menubar=1,resizable=1,width=" + this.attributes['popupDimesnions']['pwidth'] + ",height=" + this.attributes['popupDimesnions']['pheight']);
+            const dualScreenLeft = window.screenLeft !==  undefined ? window.screenLeft : window.screenX;
+            const dualScreenTop = window.screenTop !==  undefined   ? window.screenTop  : window.screenY;
+
+            const width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+            const height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+            const systemZoom = width / window.screen.availWidth;
+            const left = (width - parseInt(this.attributes['popupDimesnions']['pwidth'])) / 2 / systemZoom + dualScreenLeft;
+            const top = (height - parseInt(this.attributes['popupDimesnions']['pheight'])) / 2 / systemZoom + dualScreenTop;
+
+            this.cont.elementReferrerPopup = window.open(this.attributes['base_url'] + this.attributes['lang'] + "chat/start" + urlArgumetns, 'lhc_popup_v2', "scrollbars=yes,menubar=1,resizable=1,width=" + this.attributes['popupDimesnions']['pwidth'] + ",height=" + this.attributes['popupDimesnions']['pheight'] + ",top=" + top + ",left=" + left);
         }
     }
 

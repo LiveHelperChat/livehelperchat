@@ -373,7 +373,7 @@ class erLhcoreClassChatWorkflow {
         $timeout = (int)erLhcoreClassModelChatConfig::fetch('autoclose_timeout_bot')->current_value;
         if ($timeout > 0) {
             $delay = time()-($timeout*60);
-            foreach (erLhcoreClassChat::getList(array('limit' => 500,'filterlt' => array('time' => $delay), 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_BOT_CHAT)))) as $chat) {
+            foreach (erLhcoreClassChat::getList(array('limit' => 500,'customfilter' => array('((last_user_msg_time = 0 AND time < ' . $delay . ') OR (last_user_msg_time > 0 AND last_user_msg_time < ' . $delay . '))'), 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_BOT_CHAT)))) as $chat) {
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 
                 $msg = new erLhcoreClassModelmsg();

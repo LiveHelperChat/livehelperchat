@@ -126,7 +126,7 @@ try {
 
                     if ($previousChat instanceof erLhcoreClassModelChat){
                         $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/previous_chat.tpl.php');
-                        $tpl->set('messages', erLhcoreClassChat::getPendingMessages((int)$previousChat->id,  0));
+                        $tpl->set('messages', erLhcoreClassChat::getPendingMessages((int)$previousChat->id,  0, true));
                         $tpl->set('chat',$previousChat);
                         $tpl->set('sync_mode','');
                         $tpl->set('async_call',true);
@@ -153,6 +153,10 @@ try {
 
         $soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data_value;
         $outputResponse['chat_ui']['sync_interval'] = (int)($soundData['chat_message_sinterval']*1000);
+
+        if ((int)erLhcoreClassModelChatConfig::fetch('disable_send')->current_value == 0) {
+            $outputResponse['chat_ui']['mail'] = true;
+        }
 
         $outputResponse['status_sub'] = $chat->status_sub;
         $outputResponse['status'] = $chat->status;

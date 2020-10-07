@@ -64,6 +64,12 @@ erLhcoreClassChatStatistic::formatUserFilter($filterParams);
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
+
+if (isset($_GET['export'])){
+    erLhcoreClassChatExport::exportCannedMessages(erLhcoreClassModelCannedMsg::getList(array_merge_recursive($filterParams['filter'],array('offset' => 0, 'limit' => false, 'sort' => 'id ASC'),$departmentParams)));
+}
+
+
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('chat/cannedmsg') . $append;
 $pages->items_total = erLhcoreClassModelCannedMsg::getCount(array_merge_recursive($filterParams['filter'],$departmentParams));

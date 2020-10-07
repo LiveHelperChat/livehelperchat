@@ -115,27 +115,31 @@ class erLhcoreClassGenericBotWorkflow {
                         }
                     }
                 } else if (isset($ruleMatching->pattern) && $ruleMatching->pattern != '') {
-                    $mustCombinations = explode('&&', $ruleMatching->pattern);
-                    foreach ($mustCombinations as $mustCombination) {
-                        $presenceData = self::checkPresence(explode(',', $mustCombination), $messageText, $wordsTypo, ['stats' => true]);
-                        if (!$presenceData['valid']) {
-                            $wordsFound = false;
-                            break;
-                        } else {
-                            $typosUsed += $presenceData['number'];
-                        }
+
+                    $presenceOutcome = self::checkPresenceMessage(array(
+                        'pattern' => $ruleMatching->pattern,
+                        'msg' => $messageText,
+                        'words_typo' => $wordsTypo,
+                    ));
+
+                    if (!$presenceOutcome['found']) {
+                        $wordsFound = false;
+                    } else {
+                        $typosUsed += $presenceOutcome['typos_used'];
                     }
                 }
 
                 // We should NOT include any of these words
                 if ($wordsFound == true && isset($ruleMatching->pattern_exc) && $ruleMatching->pattern_exc != '') {
-                    $mustCombinations = explode('&&', $ruleMatching->pattern_exc);
-                    foreach ($mustCombinations as $mustCombination) {
-                        $presenceData = self::checkPresence(explode(',', $mustCombination), $messageText, $wordsTypoExc, ['stats' => true]);
-                        if ($presenceData['valid'] == true) {
-                            $wordsFound = false;
-                            break;
-                        }
+
+                    $presenceOutcome = self::checkPresenceMessage(array(
+                        'pattern' => $ruleMatching->pattern_exc,
+                        'msg' => $messageText,
+                        'words_typo' => $wordsTypoExc,
+                    ));
+
+                    if ($presenceOutcome['found']) {
+                        $wordsFound = false;
                     }
                 }
 
@@ -163,6 +167,8 @@ class erLhcoreClassGenericBotWorkflow {
     public static $currentEvent = null;
 
     public static $currentAlwaysEvent = null;
+
+    public static $triggerName = [];
 
     public static function userMessageAdded(& $chat, $msg) {
 
@@ -384,6 +390,47 @@ class erLhcoreClassGenericBotWorkflow {
         return array('typos' => $numberTypos, 'word' => $word, 'noendtypo' => $noEndTypo, 'wildcardend' => $wildCardEnd, 'wildcardstart' => $wildCardStart);
     }
 
+    public static function checkPresenceMessage($params) {
+
+        $resultCheck = [
+            'found' => true,
+            'typos_used' => 0,
+        ];
+
+        // First part is pattern
+        // Second part is params
+        $paramsSentence = explode('[params ',$params['pattern']);
+
+        if (isset($paramsSentence[1])) {
+            $paramsCleaned = explode(' ',rtrim($paramsSentence[1],']'));
+            foreach ($paramsCleaned as $paramPair) {
+                $paramsPairItem = explode('=',$paramPair);
+                if (isset($paramsPairItem[0]) && $paramsPairItem[1]) {
+                    if ($paramsPairItem[0] == 'max_words' ) {
+                        $wordsCount = count(explode(' ',str_replace(array('"',',',"'",':','.','?','!'),'',mb_strtolower(str_replace(array("\r\n","\n")," ", $params['msg'])))));
+                        if ($wordsCount > $paramsPairItem[1]) {
+                            $resultCheck['found'] = false;
+                            return $resultCheck; // Main rule failed validation
+                        }
+                    }
+                }
+            }
+        }
+
+        $mustCombinations = explode('&&', trim($paramsSentence[0]));
+        foreach ($mustCombinations as $mustCombination) {
+            $presenceData = self::checkPresence(explode(',', $mustCombination), $params['msg'], (isset($params['words_typo']) ? $params['words_typo'] : 0), ['stats' => true]);
+            if (!$presenceData['valid']) {
+                $resultCheck['found'] = false;
+                break;
+            } else {
+                $resultCheck['typos_used'] += $presenceData['number'];
+            }
+        }
+
+        return $resultCheck;
+    }
+    
     public static function checkPresence($words, $text, $mistypeLetters = 1, $paramsExecution = []) {
 
         foreach ($words as $word) {
@@ -399,6 +446,7 @@ class erLhcoreClassGenericBotWorkflow {
                     continue;
                 }
             }
+
 
 
             $textLetters = self::splitWord($text);
@@ -1427,6 +1475,8 @@ class erLhcoreClassGenericBotWorkflow {
             $stmt->execute();
         }
 
+        self::$triggerName[] = $trigger->name;
+
         $message = null;
         foreach ($trigger->actions_front as $action) {
         	$messageNew = call_user_func_array("erLhcoreClassGenericBotAction" . ucfirst($action['type']).'::process',array($chat, $action, $trigger, (isset($params['args']) ? $params['args'] : array())));
@@ -1920,11 +1970,14 @@ class erLhcoreClassGenericBotWorkflow {
 
         if (isset($matches[0]) && !empty($matches[0]))
         {
+
             $identifiers = array();
             foreach ($matches[0] as $key => $match) {
                 if (strpos($matches[1][$key],'__') !== false) {
                     $parts = explode('__',$matches[1][$key]);
-                    $identifiers[$parts[0]] = array('search' => $matches[0][$key], 'replace' => $parts[1], 'args' => array_slice($parts,2));
+                    if (isset($parts[0]) && !empty($parts[0]) && preg_match('/^[\p{L}\p{N}_-]+$/u', $parts[0])) {
+                        $identifiers[$parts[0]] = array('search' => $matches[0][$key], 'replace' => $parts[1], 'args' => array_slice($parts,2));
+                    }
                 }
             }
 

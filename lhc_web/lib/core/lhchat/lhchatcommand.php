@@ -55,10 +55,34 @@ class erLhcoreClassChatCommand
                 $params
             ));
         } else { // Perhaps some extension has implemented this command?
-            $commandResponse = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.customcommand', array('command' => $commandData['command'], 'argument' => $commandData['argument'], 'params' => $params));
-            
-            if (isset($commandResponse['processed']) && $commandResponse['processed'] == true) {
-                return $commandResponse;
+
+            $command = erLhcoreClassModelGenericBotCommand::findOne(array('customfilter' => array('(dep_id = 0 OR dep_id = ' . (int)$params['chat']->dep_id . ')'),'filter' => array('command' => ltrim($commandData['command'],'!'))));
+
+            if ($command instanceof erLhcoreClassModelGenericBotCommand) {
+
+                $trigger = $command->trigger;
+
+                if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                    erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('args' => array('msg' => $commandData['argument'])));
+
+                    $response = '"' . $trigger->name . '"' . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'was executed');
+                } else {
+                    $response = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Assigned trigger could not be found');
+                }
+
+                return array(
+                    'processed' => true,
+                    'process_status' => '',
+                    'raw_message' => $commandData['command'] . ' || ' . $response
+                );
+
+
+            } else {
+                $commandResponse = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.customcommand', array('command' => $commandData['command'], 'argument' => $commandData['argument'], 'params' => $params));
+
+                if (isset($commandResponse['processed']) && $commandResponse['processed'] == true) {
+                    return $commandResponse;
+                }
             }
         }
         
@@ -128,6 +152,9 @@ class erLhcoreClassChatCommand
         $msg->user_id = $params['user']->id;
         $msg->time = time();
         $msg->name_support = $params['user']->name_support;
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg, 'chat' => & $params['chat']));
+
         $msg->saveThis();
 
         // Schedule UI Refresh
@@ -157,6 +184,9 @@ class erLhcoreClassChatCommand
         $msg->user_id = $params['user']->id;
         $msg->time = time();
         $msg->name_support = $params['user']->name_support;
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg, 'chat' => & $params['chat']));
+
         $msg->saveThis();
 
         // Schedule UI Refresh
@@ -191,6 +221,9 @@ class erLhcoreClassChatCommand
             $msg->user_id = $params['user']->id;
             $msg->time = time();
             $msg->name_support = $params['user']->name_support;
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg, 'chat' => & $params['chat']));
+
             $msg->saveThis();
         }
 

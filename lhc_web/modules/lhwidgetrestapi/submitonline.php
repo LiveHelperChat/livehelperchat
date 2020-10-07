@@ -395,6 +395,7 @@ if (empty($Errors)) {
 
     $outputResponse = array (
         'success' => true,
+        't' => erLhcoreClassGenericBotWorkflow::$triggerName,
         'chatData' => array (
             'id' => $chat->id,
             'hash' => $chat->hash,

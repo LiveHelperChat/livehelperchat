@@ -20,7 +20,8 @@ export function hideInvitation() {
     return function(dispatch, getState) {
         const state = getState();
         helperFunctions.sendMessageParent('closeWidget', [{'sender' : 'closeButton'}]);
-        helperFunctions.sendMessageParent('cancelInvitation', [{'sender' : 'closeButton'}]);
+        helperFunctions.sendMessageParent('cancelInvitation', [{'name' :  state.chatwidget.getIn(['proactive','data','invitation_name'])}]);
+
         axios.get(window.lhcChat['base_url'] + "chat/chatwidgetclosed/(vid)/" + state.chatwidget.get('vid')).then((response) => {
             dispatch({type: "HIDE_INVITATION"});
         })
@@ -222,6 +223,11 @@ export function submitOnlineForm(obj) {
             }
 
             dispatch({type: "ONLINE_SUBMITTED", data: response.data});
+
+            if (response.data.t) {
+                helperFunctions.sendMessageParent('botTrigger',[{'trigger' : response.data.t}]);
+            }
+
         })
         .catch((err) => {
             dispatch({type: "ONLINE_SUBMITT_REJECTED", data: err})
@@ -276,6 +282,7 @@ export function initChatUI(obj) {
                         import('../extensions/nodejs/nodeJSChat').then((module) => {
                             module.nodeJSChat.bootstrap(callExtension.params, dispatch, getState);
                         });
+
                     } else if (callExtension.extension === 'dummy_extensions') {
                         // Import your extension here
                     }
@@ -455,6 +462,9 @@ export function addMessage(obj) {
             .then((response) => {
                 dispatch({type: "ADD_MESSAGES_SUBMITTED", data: response.data});
                 fetchMessages({'theme' : obj.theme, 'chat_id' : obj.id, 'lmgsid' : obj.lmgsid, 'hash' : obj.hash})(dispatch, getState);
+                if (response.data.t) {
+                    helperFunctions.sendMessageParent('botTrigger',[{'trigger' : response.data.t}]);
+                }
             })
             .catch((err) => {
                 dispatch({type: "ADD_MESSAGES_REJECTED", data: err})

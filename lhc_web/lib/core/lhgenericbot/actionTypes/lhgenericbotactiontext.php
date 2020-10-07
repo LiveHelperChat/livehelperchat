@@ -140,6 +140,12 @@ class erLhcoreClassGenericBotActionText {
         $msg->user_id = -2;
         $msg->time = time() + 5;
 
+        // Perhaps this message should be saved as a system message
+        if (isset($action['content']['attr_options']['as_system']) && $action['content']['attr_options']['as_system'] == true)
+        {
+            $msg->user_id = -1;
+        }
+
         if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
             erLhcoreClassChat::getSession()->save($msg);
         }

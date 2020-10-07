@@ -7,23 +7,21 @@ export class statusWidget{
 
        this.attributes = {};
        this.controlMode = false;
+
        this.cont = new UIConstructorIframe('lhc_status_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "2147483640",
             width: "95px",
             height: "95px",
             position: "fixed",
             display: "none",
-            bottom: "10px",
-            right: "10px",
             maxheight: "95px",
             maxwidth: "95px",
             minheight: "95px",
             minwidth: "95px"
         }), null, "iframe");
 
-
-        
-        this.loadStatus = {main : false, theme: false};
+        this.loadStatus = {main : false, theme: false, font: true, widget : false};
+        this.lload = false;
     }
 
     toggleOfflineIcon(onlineStatus) {
@@ -44,14 +42,27 @@ export class statusWidget{
     }
 
     checkLoadStatus() {
-        if (this.loadStatus['theme'] == true && this.loadStatus['main'] == true) {
+        if (this.loadStatus['theme'] == true && this.loadStatus['main'] == true && this.loadStatus['font'] == true && this.loadStatus['widget'] == true) {
              this.cont.getElementById('lhc_status_container').style.display = "";
+             this.attributes.sload.next(true);
         }
     }
 
-    init(attributes) {
+    init(attributes, lload) {
 
         this.attributes = attributes;
+
+        var placement = {bottom: (10+this.attributes.widgetDimesions.value.sbottom) + "px", right: (10+this.attributes.widgetDimesions.value.sright) + "px"};
+
+        if (attributes.position_placement == 'bottom_left' || attributes.position_placement == 'full_height_left') {
+            placement = { bottom: (10+this.attributes.widgetDimesions.value.sbottom) + "px", left: (10+this.attributes.widgetDimesions.value.sright) + "px"};
+        } else if (attributes.position_placement == 'middle_right') {
+            placement = {bottom: "calc(50% - 45px)",right: (10+this.attributes.widgetDimesions.value.sright) + "px"};
+        } else if (attributes.position_placement == 'middle_left') {
+            placement = {bottom: "calc(50% - 45px)",left: (10+this.attributes.widgetDimesions.value.sright) + "px"};
+        }
+
+        this.cont.massRestyle(placement);
 
         this.cont.tmpl = '<div id="lhc_status_container" class="' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + '" style="display: none"><i title="New messages" id="unread-msg-number">!</i><i id="status-icon" class="offline-status" href="#"></i></div>';
 
@@ -61,6 +72,16 @@ export class statusWidget{
 
         var _inst = this;
 
+        this.lload = !(!lload);
+
+        // If it's lazy load we have always to consider widget as loaded
+        if (this.lload === true) {
+            this.loadStatus['widget'] = true;
+        } else {
+            // We wait untill widget content loads
+            attributes.wloaded.subscribe((data) => { if (data){this.loadStatus['widget'] = true; this.checkLoadStatus()}});
+        }
+
         this.cont.attachUserEventListener("click", function (a) {
 
             if (attributes.onlineStatus.value === false && attributes.offline_redirect !== null){
@@ -69,7 +90,8 @@ export class statusWidget{
                 if (_inst.controlMode == true) {
                     attributes.eventEmitter.emitEvent('closeWidget', [{'sender' : 'closeButton'}]);
                 } else {
-                    attributes.eventEmitter.emitEvent('showWidget', [{'sender' : 'closeButton'}]);
+                    attributes.eventEmitter.emitEvent('showWidget', []);
+                    attributes.eventEmitter.emitEvent('clickAction');
                 }
             }
 
@@ -80,7 +102,7 @@ export class statusWidget{
         }
 
         if (this.attributes.staticJS['font_status']) {
-            this.cont.insertCssRemoteFile({"as":"font", rel:"preload", type: "font/woff", crossOrigin : "anonymous",  href : this.attributes.staticJS['font_status']});
+             this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['font'] = true; this.checkLoadStatus()},"as":"font", rel:"preload", type: "font/woff", crossOrigin : "anonymous",  href : this.attributes.staticJS['font_status']});
         }
 
         if (this.attributes.theme > 0) {

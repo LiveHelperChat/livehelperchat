@@ -77,6 +77,8 @@ class erLhcoreClassMailconvParser {
                 throw new Exception('No mail matching rules were found!');
             }
 
+
+
             foreach ($mailboxFolders as $mailboxFolder)
             {
 
@@ -455,11 +457,13 @@ class erLhcoreClassMailconvParser {
                     $conversationId = self::setConversation($messageReply);
                     if ($conversationId > 0) {
                         $conversation = erLhcoreClassModelMailconvConversation::fetch($conversationId);
-                        $message->conversation_id = $conversation->conversation_id;
-                        $message->dep_id = $conversation->dep_id;
-                        $message->saveThis(array('update' => array('conversation_id','dep_id')));
-                        self::setLastConversationByMessage($message->conversation, $message);
-                        return $message->conversation_id;
+                        if ($conversation instanceof erLhcoreClassModelMailconvConversation) {
+                            $message->conversation_id = $conversation->conversation_id;
+                            $message->dep_id = $conversation->dep_id;
+                            $message->saveThis(array('update' => array('conversation_id','dep_id')));
+                            self::setLastConversationByMessage($message->conversation, $message);
+                            return $message->conversation_id;
+                        }
                     }
                 }
             }
@@ -506,6 +510,8 @@ class erLhcoreClassMailconvParser {
         $message->sender_address = $head->senderAddress;
         $message->mailbox_id = $mailbox->id;
 
+
+
         if (isset($head->to)) {
             $message->to_data = json_encode($head->to);
         }
@@ -533,7 +539,7 @@ class erLhcoreClassMailconvParser {
             $message->alt_body = $mail->textPlain;
         }
 
-        if ($conversation instanceof erLhcoreClassModelMailconvConversation) {
+        if ($conversation instanceof erLhcoreClassModelMailconvConversation && $conversation->id > 0) {
             $message->conversation_id = $conversation->id;
             $message->dep_id = $conversation->dep_id;
         }

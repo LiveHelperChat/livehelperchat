@@ -161,9 +161,7 @@ try {
                 $cfgSite->setSetting( 'db', 'password', $form->DatabasePassword);
                 $cfgSite->setSetting( 'db', 'database', $form->DatabaseDatabaseName);
                 $cfgSite->setSetting( 'db', 'port', $form->DatabasePort);
-
-                $cfgSite->setSetting( 'site', 'secrethash', substr(md5(time() . ":" . mt_rand()),0,10));
-
+                $cfgSite->setSetting( 'site', 'secrethash', (!empty(getenv('LHC_SECRET_HASH')) ? getenv('LHC_SECRET_HASH') : substr(md5(time() . ":" . mt_rand()),0,10)));
                 $cfgSite->save();
 
                 $tpl->setFile('lhinstall/install3.tpl.php');
@@ -531,8 +529,17 @@ try {
                  `buble_operator_background` varchar(250) NOT NULL,
                  `buble_operator_title_color` varchar(250) NOT NULL,
                  `buble_operator_text_color` varchar(250) NOT NULL,
+                 `widget_show_leave_form` tinyint(1) NOT NULL,
+                 `enable_widget_embed_override` tinyint(1) NOT NULL,
+                 `widget_popheight` int(11) NOT NULL,
+                 `widget_popwidth` int(11) NOT NULL,
+                 `widget_survey` int(11) NOT NULL,
+                 `widget_position` varchar(50) NOT NULL,
+                 `widget_pright` int(11) NOT NULL,
+                 `widget_pbottom` int(11) NOT NULL,
                   PRIMARY KEY (`id`)				
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
 
                     $db->query("CREATE TABLE IF NOT EXISTS `lh_faq` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1899,6 +1906,17 @@ try {
 				 PRIMARY KEY (`id`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+                    $db->query("CREATE TABLE `lh_generic_bot_command` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `command` varchar(50) NOT NULL,
+  `bot_id` int(11) NOT NULL,
+  `trigger_id` int(11) NOT NULL,
+  `dep_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `dep_id` (`dep_id`),
+  KEY `command` (`command`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
                     // API table
                     $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_rest_api_key` (
                     `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1911,7 +1929,7 @@ try {
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lh_abstract_rest_api_key_remote` ( `id` int(11) NOT NULL AUTO_INCREMENT, `api_key` varchar(50) NOT NULL, `username` varchar(50) NOT NULL, `name` varchar(50) NOT NULL, `host` varchar(250) NOT NULL, `active` tinyint(1) NOT NULL DEFAULT '0', `position` int(11) NOT NULL DEFAULT '0', PRIMARY KEY (`id`), KEY `active` (`active`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
-                    $db->query("CREATE TABLE `lh_abstract_chat_variable` ( `id` int(11) NOT NULL AUTO_INCREMENT, `var_name` varchar(255) NOT NULL, `var_identifier` varchar(255) NOT NULL, `type` tinyint(1) NOT NULL, `persistent` tinyint(1) NOT NULL, `js_variable` varchar(255) NOT NULL, `dep_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+                    $db->query("CREATE TABLE `lh_abstract_chat_variable` ( `id` int(11) NOT NULL AUTO_INCREMENT, `var_name` varchar(255) NOT NULL, `var_identifier` varchar(255) NOT NULL,`inv` tinyint(1) NOT NULL, `change_message` varchar(250) NOT NULL, `type` tinyint(1) NOT NULL, `persistent` tinyint(1) NOT NULL, `js_variable` varchar(255) NOT NULL, `dep_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lh_abstract_chat_column` (`id` int(11) NOT NULL AUTO_INCREMENT,`column_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,`variable` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL, `position` int(11) NOT NULL, `enabled` tinyint(1) NOT NULL, `online_enabled` tinyint(1) NOT NULL, `chat_enabled` tinyint(1) NOT NULL, `conditions` text COLLATE utf8mb4_unicode_ci NOT NULL,`column_icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL, `column_identifier` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL, PRIMARY KEY (`id`), KEY `enabled` (`enabled`), KEY `online_enabled` (`online_enabled`), KEY `chat_enabled` (`chat_enabled`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
                     $db->query("CREATE TABLE `lh_abstract_chat_priority` (`id` int(11) NOT NULL AUTO_INCREMENT,`value` text COLLATE utf8mb4_unicode_ci NOT NULL,`dep_id` int(11) NOT NULL,`priority` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");

@@ -76,7 +76,7 @@ export class UIConsturctor {
         d.appendChild(k);
     }
 
-    insertJSFile(src, async){
+    insertJSFile(src, async, loadcb) {
         var d = this.elmDomDoc.getElementsByTagName("head")[0],
             k = this.elmDomDoc.createDocumentFragment(),
             e = this.elmDomDoc.createElement('script');
@@ -89,6 +89,10 @@ export class UIConsturctor {
             e.crossOrigin = "*";
             e.src = src;
 
+            if (loadcb) {
+                e.onload = loadcb;
+            }
+            
             k.appendChild(e);
             d.appendChild(k);
     }

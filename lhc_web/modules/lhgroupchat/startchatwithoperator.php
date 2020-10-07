@@ -12,12 +12,15 @@ $db->beginTransaction();
 
 try {
     // We need to find a private chat where only we are the members with another operator
-    $sql = "SELECT DISTINCT `lh_group_chat`.`id` FROM `lh_group_chat`
+    $sql = "SELECT DISTINCT `lh_group_chat`.`id`,count(`lh_group_chat_member`.`id`) as `tm_live` FROM `lh_group_chat`
 INNER JOIN lh_group_chat_member ON `lh_group_chat_member`.`group_id` = `lh_group_chat`.`id`
 WHERE 
 `lh_group_chat_member`.`user_id` IN (". implode(',',$operators) . ") AND
 `lh_group_chat`.`type` = 1 AND
-`lh_group_chat`.`tm` = 2";
+`lh_group_chat`.`tm` = 2 
+GROUP BY `lh_group_chat`.`id`
+HAVING
+`tm_live` = 2";
 
     $stmt = $db->prepare($sql);
     $stmt->execute();

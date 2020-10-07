@@ -5,6 +5,7 @@ class erLhcoreClassGenericBotActionRestapi
 
     public static function process($chat, $action, $trigger, $params)
     {
+
         if (isset($action['content']['rest_api']) && is_numeric($action['content']['rest_api']) && isset($action['content']['rest_api_method']) && !empty($action['content']['rest_api_method'])) {
 
             $restAPI = erLhcoreClassModelGenericBotRestAPI::fetch($action['content']['rest_api']);
@@ -115,7 +116,6 @@ class erLhcoreClassGenericBotActionRestapi
 
     public static function makeRequest($host, $methodSettings, $paramsCustomer)
     {
-
         $msg_text = '';
         $msg_text_cleaned = '';
 
@@ -163,6 +163,8 @@ class erLhcoreClassGenericBotActionRestapi
             }
         }
 
+        $dynamicReplaceVariables = self::extractDynamicVariables($methodSettings, $paramsCustomer['chat']);
+
         $replaceVariables = array(
             '{{msg}}' => $msg_text,
             '{{msg_clean}}' => trim($msg_text_cleaned),
@@ -176,6 +178,8 @@ class erLhcoreClassGenericBotActionRestapi
             '{{media}}' => json_encode($media)
         );
 
+        $replaceVariables = array_merge($replaceVariables, $dynamicReplaceVariables);
+
         $replaceVariablesJSON = array(
             '{{msg}}' => json_encode($msg_text),
             '{{msg_clean}}' => json_encode(trim($msg_text_cleaned)),
@@ -188,6 +192,10 @@ class erLhcoreClassGenericBotActionRestapi
             '{{ip}}' => json_encode(erLhcoreClassIPDetect::getIP()),
             '{{media}}' => json_encode($media),
         );
+
+        foreach ($dynamicReplaceVariables as $keyDynamic => $valueDynamic) {
+            $replaceVariablesJSON[$keyDynamic] = json_encode($valueDynamic);
+        }
 
         foreach ($paramsCustomer['chat']->additional_data_array as $keyItem => $addItem) {
             if (!is_string($addItem) || (is_string($addItem) && ($addItem != ''))) {
@@ -274,7 +282,6 @@ class erLhcoreClassGenericBotActionRestapi
             }
         }
 
-
         if (isset($methodSettings['body_request_type']) && $methodSettings['body_request_type'] == 'form-data') {
             if (isset($methodSettings['postparams']) && !empty($methodSettings['postparams'])) {
                 $postParams = array();
@@ -286,6 +293,7 @@ class erLhcoreClassGenericBotActionRestapi
         } elseif (isset($methodSettings['body_request_type']) && $methodSettings['body_request_type'] == 'raw') {
             $bodyPOST = str_replace(array_keys($replaceVariablesJSON), array_values($replaceVariablesJSON), $methodSettings['body_raw']);
             $bodyPOST = preg_replace('/{{lhc\.(var|add)\.(.*?)}}/','""',$bodyPOST);
+
             curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyPOST);
 
             if (isset($methodSettings['body_request_type_content'])) {
@@ -445,6 +453,68 @@ class erLhcoreClassGenericBotActionRestapi
             'content_4' => '',
             'meta' => array()
         );
+    }
+
+    public static function extractDynamicVariables($methodSettings, $chat) {
+
+         $dynamicVariables = [];
+         $requiredVars = [];
+         
+         $userData = array(
+             'dynamic_variables' => & $dynamicVariables,
+             'required_vars' => & $requiredVars,
+             'chat' => $chat,
+         );
+         
+         array_walk_recursive($methodSettings, function ($item, $key, $userData) {
+            $matchesValues = [];
+            preg_match_all('~\{\{lhc\.((?:[^\{\}\}]++|(?R))*)\}\}~', $item,$matchesValues);
+
+            if (!empty($matchesValues[0])) {
+                foreach ($matchesValues[0] as $indexElement => $elementValue) {
+                    $userData['dynamic_variables'][$elementValue] = $userData['chat']->{$matchesValues[1][$indexElement]};
+                }
+            }
+
+            $matchesValues = [];
+            preg_match_all('~\{\{lhc\.((?:[^\{\}\}]++|(?R))*)\}\}~', $key, $matchesValues);
+                
+            if (!empty($matchesValues[0])) {
+                foreach ($matchesValues[0] as $indexElement => $elementValue) {
+                    $userData['dynamic_variables'][$elementValue] = $userData['chat']->{$matchesValues[1][$indexElement]};
+                }
+            }
+
+            // Detect does customer want's somewhere all messages
+            if (strpos($item,'{{msg_all}}') !== false && !in_array('{{msg_all}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{msg_all}}';
+
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
+                // Fetch chat messages
+                $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
+                $tpl->set('chat', $userData['chat']);
+                $tpl->set('messages', $messages);
+
+                $userData['dynamic_variables']['{{msg_all}}'] = $tpl->fetch();
+            }
+
+            // Detect does customer want's somewhere footprint
+            if (strpos($item,'{{footprint}}') !== false && !in_array('{{footprint}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{footprint}}';
+
+                $footprints = erLhcoreClassModelChatOnlineUserFootprint::getList(array('limit' => 25,'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id)));
+
+                $itemsFootprint = array();
+                foreach ($footprints as $footprint) {
+                    $itemsFootprint[] = $footprint->time_ago . ' | ' . $footprint->page;
+                }
+
+                $userData['dynamic_variables']['{{footprint}}'] = implode("\n",$itemsFootprint);
+            }
+
+        }, $userData);
+
+        return $userData['dynamic_variables'];
     }
 
     public static function extractAttribute($partData, $string)
