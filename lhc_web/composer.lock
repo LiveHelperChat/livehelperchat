@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1990140a08c16e1a46eabb94b775cad9",
+    "content-hash": "9a9595279e91e221d91181ee328238a2",
     "packages": [
         {
             "name": "brick/math",
@@ -119,7 +119,7 @@
                 "x509",
                 "x690"
             ],
-            "time": "2018-03-31T08:32:19+00:00"
+            "time": "2018-03-31 08:32:19"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -127,29 +127,28 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "33ddb580d0d88242fa9d597b4715f5f89c5e56a1"
+                "reference": "d5a2b0338e1cc963532ffdcc3bba4cbba469a215"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/33ddb580d0d88242fa9d597b4715f5f89c5e56a1",
-                "reference": "33ddb580d0d88242fa9d597b4715f5f89c5e56a1",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/d5a2b0338e1cc963532ffdcc3bba4cbba469a215",
+                "reference": "d5a2b0338e1cc963532ffdcc3bba4cbba469a215",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "guzzlehttp/promises": "^1.0",
-                "guzzlehttp/psr7": "^1.6.1",
-                "php": "^7.2.5",
+                "guzzlehttp/promises": "^1.4",
+                "guzzlehttp/psr7": "^1.7",
+                "php": "^7.2.5 || ^8.0",
                 "psr/http-client": "^1.0"
             },
             "provide": {
                 "psr/http-client-implementation": "1.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.0",
                 "ext-curl": "*",
-                "php-http/client-integration-tests": "dev-phpunit8",
-                "phpunit/phpunit": "^8.5.5",
+                "php-http/client-integration-tests": "^3.0",
+                "phpunit/phpunit": "^8.5.5 || ^9.3.5",
                 "psr/log": "^1.1"
             },
             "suggest": {
@@ -200,7 +199,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2020-08-13T19:25:56+00:00"
+            "time": "2020-10-06 18:45:11"
         },
         {
             "name": "guzzlehttp/promises",
@@ -208,24 +207,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "bbf3b200bc83c1e9298580a9f99b9be248543467"
+                "reference": "60d379c243457e073cff02bc323a2a86cb355631"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/bbf3b200bc83c1e9298580a9f99b9be248543467",
-                "reference": "bbf3b200bc83c1e9298580a9f99b9be248543467",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/60d379c243457e073cff02bc323a2a86cb355631",
+                "reference": "60d379c243457e073cff02bc323a2a86cb355631",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.36 || ^5.7.27 || ^7.5"
+                "symfony/phpunit-bridge": "^4.4 || ^5.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -251,7 +250,7 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2020-06-21T23:10:57+00:00"
+            "time": "2020-09-30 07:37:28"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -259,12 +258,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "188cc82398f157483976ccf61bd04ee80afcf29c"
+                "reference": "53330f47520498c0ae1f61f7e2c90f55690c06a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/188cc82398f157483976ccf61bd04ee80afcf29c",
-                "reference": "188cc82398f157483976ccf61bd04ee80afcf29c",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/53330f47520498c0ae1f61f7e2c90f55690c06a3",
+                "reference": "53330f47520498c0ae1f61f7e2c90f55690c06a3",
                 "shasum": ""
             },
             "require": {
@@ -277,7 +276,7 @@
             },
             "require-dev": {
                 "ext-zlib": "*",
-                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
+                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.14 || ^7.5.20 || ^8.5.8 || ^9.3.10"
             },
             "suggest": {
                 "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
@@ -285,7 +284,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6-dev"
+                    "dev-master": "1.7-dev"
                 }
             },
             "autoload": {
@@ -322,7 +321,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2020-05-17T20:05:25+00:00"
+            "time": "2020-09-30 07:37:11"
         },
         {
             "name": "minishlink/web-push",
@@ -381,7 +380,7 @@
                 "push",
                 "web"
             ],
-            "time": "2020-09-13T05:07:25+00:00"
+            "time": "2020-09-13 05:07:25"
         },
         {
             "name": "php-imap/php-imap",
@@ -389,7 +388,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/remdex/php-imap.git",
-                "reference": "29bfc58a16eec869353c70804b3976b623e34980"
+                "reference": "6adbec115d0771009ab5ea893803e808e4f2f187"
             },
             "type": "library",
             "autoload": {
@@ -397,7 +396,7 @@
                     "PhpImap\\": "src/PhpImap"
                 }
             },
-            "time": "2020-09-16T04:44:21+00:00"
+            "time": "2020-10-07 07:52:13"
         },
         {
             "name": "psr/http-client",
@@ -405,12 +404,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-client.git",
-                "reference": "2dfb5f6c5eff0e91e20e913f8c5452ed95b86621"
+                "reference": "22b2ef5687f43679481615605d7a15c557ce85b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-client/zipball/2dfb5f6c5eff0e91e20e913f8c5452ed95b86621",
-                "reference": "2dfb5f6c5eff0e91e20e913f8c5452ed95b86621",
+                "url": "https://api.github.com/repos/php-fig/http-client/zipball/22b2ef5687f43679481615605d7a15c557ce85b1",
+                "reference": "22b2ef5687f43679481615605d7a15c557ce85b1",
                 "shasum": ""
             },
             "require": {
@@ -435,7 +434,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
+                    "homepage": "https://www.php-fig.org/"
                 }
             ],
             "description": "Common interface for HTTP clients",
@@ -446,7 +445,7 @@
                 "psr",
                 "psr-18"
             ],
-            "time": "2020-06-29T06:28:15+00:00"
+            "time": "2020-09-19 09:12:31"
         },
         {
             "name": "psr/http-factory",
@@ -454,12 +453,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-factory.git",
-                "reference": "1a2099a23a7bca67f13c0634723137a364a3ebf8"
+                "reference": "36fa03d50ff82abcae81860bdaf4ed9a1510c7cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/1a2099a23a7bca67f13c0634723137a364a3ebf8",
-                "reference": "1a2099a23a7bca67f13c0634723137a364a3ebf8",
+                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/36fa03d50ff82abcae81860bdaf4ed9a1510c7cd",
+                "reference": "36fa03d50ff82abcae81860bdaf4ed9a1510c7cd",
                 "shasum": ""
             },
             "require": {
@@ -484,7 +483,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
+                    "homepage": "https://www.php-fig.org/"
                 }
             ],
             "description": "Common interfaces for PSR-7 HTTP message factories",
@@ -498,7 +497,7 @@
                 "request",
                 "response"
             ],
-            "time": "2019-12-29T01:52:41+00:00"
+            "time": "2020-09-17 16:52:55"
         },
         {
             "name": "psr/http-message",
@@ -548,7 +547,7 @@
                 "request",
                 "response"
             ],
-            "time": "2019-08-29T13:16:46+00:00"
+            "time": "2019-08-29 13:16:46"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -639,7 +638,7 @@
                 "safe",
                 "url"
             ],
-            "time": "2020-08-30T14:32:28+00:00"
+            "time": "2020-08-30 14:32:28"
         },
         {
             "name": "web-token/jwt-core",
@@ -647,15 +646,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-token/jwt-core.git",
-                "reference": "0909efa4fe2c3e2d537922b3ea1b65eb8203686c"
+                "reference": "8115d846f3a9ee817dca03024eb4c17a3c0ff81a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web-token/jwt-core/zipball/0909efa4fe2c3e2d537922b3ea1b65eb8203686c",
-                "reference": "0909efa4fe2c3e2d537922b3ea1b65eb8203686c",
+                "url": "https://api.github.com/repos/web-token/jwt-core/zipball/8115d846f3a9ee817dca03024eb4c17a3c0ff81a",
+                "reference": "8115d846f3a9ee817dca03024eb4c17a3c0ff81a",
                 "shasum": ""
             },
             "require": {
+                "brick/math": "^0.8.17|^0.9",
                 "ext-json": "*",
                 "ext-mbstring": "*",
                 "fgrosse/phpasn1": "^2.0",
@@ -718,7 +718,7 @@
                 "jwt",
                 "symfony"
             ],
-            "time": "2020-08-22T13:17:25+00:00"
+            "time": "2020-09-29 21:35:58"
         },
         {
             "name": "web-token/jwt-key-mgmt",
@@ -802,7 +802,7 @@
                 "jwt",
                 "symfony"
             ],
-            "time": "2020-08-01T11:57:29+00:00"
+            "time": "2020-08-01 11:57:29"
         },
         {
             "name": "web-token/jwt-signature",
@@ -882,7 +882,7 @@
                 "jwt",
                 "symfony"
             ],
-            "time": "2020-08-01T11:48:26+00:00"
+            "time": "2020-08-01 11:48:26"
         },
         {
             "name": "web-token/jwt-signature-algorithm-ecdsa",
@@ -955,7 +955,7 @@
                 "jwt",
                 "symfony"
             ],
-            "time": "2020-08-22T13:17:25+00:00"
+            "time": "2020-08-22 13:17:25"
         },
         {
             "name": "web-token/jwt-util-ecc",
@@ -963,12 +963,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-token/jwt-util-ecc.git",
-                "reference": "a4b745d110ebeb439ab5056713a5fc5743eee3ea"
+                "reference": "fb70cd92f91311fd211c0e1f69c7d7e69a638459"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web-token/jwt-util-ecc/zipball/a4b745d110ebeb439ab5056713a5fc5743eee3ea",
-                "reference": "a4b745d110ebeb439ab5056713a5fc5743eee3ea",
+                "url": "https://api.github.com/repos/web-token/jwt-util-ecc/zipball/fb70cd92f91311fd211c0e1f69c7d7e69a638459",
+                "reference": "fb70cd92f91311fd211c0e1f69c7d7e69a638459",
                 "shasum": ""
             },
             "require": {
@@ -1031,7 +1031,7 @@
                 "jwt",
                 "symfony"
             ],
-            "time": "2020-09-01T22:25:49+00:00"
+            "time": "2020-09-29 21:25:37"
         }
     ],
     "packages-dev": [],
