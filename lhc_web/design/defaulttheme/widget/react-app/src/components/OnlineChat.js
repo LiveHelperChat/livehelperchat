@@ -422,7 +422,7 @@ class OnlineChat extends Component {
 
         // At the moment not used because logic migrated to one time call componentDidMount
         if (this.props.chatwidget.get('shown') === true && this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('initLoaded') === true && this.props.chatwidget.get('msgLoaded') === true && (prevProps.chatwidget.get('msgLoaded') == false || prevProps.chatwidget.get('initLoaded') == false)) {
-            this.textMessageRef.current.focus();
+            this.textMessageRef.current && this.textMessageRef.current.focus();
             var elm = document.getElementById('CSChatMessage-tmp');
             if (elm !== null) {
                 document.body.removeChild(elm);
