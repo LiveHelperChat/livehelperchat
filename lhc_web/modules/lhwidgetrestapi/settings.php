@@ -136,11 +136,11 @@ if (isset($outputResponse['theme'])){
             $outputResponse['chat_ui']['wright'] = (int)$theme->bot_configuration_array['wright'];
         }
 
-        if ($theme->widget_pbottom > 0) {
+        if ($theme->widget_pbottom != 0) {
             $outputResponse['chat_ui']['sbottom'] = (int)$theme->widget_pbottom;
         }
 
-        if ($theme->widget_pright >0) {
+        if ($theme->widget_pright != 0) {
             $outputResponse['chat_ui']['sright'] = (int)$theme->widget_pright;
         }
 
