@@ -118,6 +118,27 @@ if ($identifier != '') {
 	$whereConditions[] = $q->expr->eq( 'identifier', $q->bindValue($identifier) );
 }
 
+$keywordSearch = null;
+
+if (isset($_GET['doSearch'])) {
+    if (isset($_GET['search']) && $_GET['search'] != '') {
+        $whereConditions[] = $q->expr->lOr(
+            $q->expr->like('answer', $q->bindValue('%' . strip_tags($_GET['search']) . '%')),
+            $q->expr->like('question', $q->bindValue('%' . strip_tags($_GET['search']) . '%')
+       ));
+        $keywordSearch = strip_tags($_GET['search']);
+    }
+} elseif ((string)$Params['user_parameters_unordered']['search'] != '') {
+    $keywordSearch = $searchString = strip_tags(rawurldecode($Params['user_parameters_unordered']['search']));
+    $whereConditions[] = $q->expr->lOr(
+        $q->expr->like('answer', $q->bindValue('%' . $searchString . '%')),
+        $q->expr->like('question', $q->bindValue('%' . $searchString . '%')
+     ));
+    $dynamic_url_append .= '/(search)/'.rawurlencode($searchString);
+}
+
+$tpl->set('keyword',$keywordSearch);
+
 $q->where($whereConditions);
 
 
@@ -146,7 +167,15 @@ if ($pages->items_total > 0) {
 	
 	if ($identifier != '') {
 		$whereConditions[] = $q->expr->eq( 'identifier', $q->bindValue($identifier) );
-	}	
+	}
+
+	if ($keywordSearch != '') {
+        $whereConditions[] = $q->expr->lOr(
+            $q->expr->like('answer', $q->bindValue('%' . $keywordSearch . '%')),
+            $q->expr->like('question', $q->bindValue('%' . $keywordSearch . '%')
+        ));
+    }
+
 	$q->where($whereConditions);
 	$q->limit($pages->items_per_page, $pages->low);
 	$q->orderBy('has_url DESC, id DESC' ); // Questions with matched URL has higher priority
