@@ -34,10 +34,14 @@ export class needhelpWidget{
 
         var placement = {bottom: (70 + this.attributes.widgetDimesions.value.wbottom) +"px", right: (45+this.attributes.widgetDimesions.value.wright) + "px"};
 
+        var leftPosition = false;
+
         if (attributes.position_placement == 'bottom_left' || attributes.position_placement == 'full_height_left') {
             placement = {bottom: (70 + this.attributes.widgetDimesions.value.wbottom) +"px", left: (45+this.attributes.widgetDimesions.value.wright) + "px"};
+            leftPosition = true;
         } else if (attributes.position_placement == 'middle_left') {
             placement = {bottom: "calc(50% + 35px)", left: (45+this.attributes.widgetDimesions.value.wright) + "px"};
+            leftPosition = true;
         } else if (attributes.position_placement == 'middle_right') {
             placement = {bottom: "calc(50% + 35px)", right: (45+this.attributes.widgetDimesions.value.wright) + "px"};
         }
@@ -69,6 +73,10 @@ export class needhelpWidget{
         }, "close-need-help-btn",'nhcls');
 
         if (settings.dimensions) {
+            if (leftPosition == true && settings.dimensions['right']) {
+                settings.dimensions['left'] = settings.dimensions['right'];
+                delete settings.dimensions['right'];
+            }
             this.cont.massRestyle(settings.dimensions);
         }
 
