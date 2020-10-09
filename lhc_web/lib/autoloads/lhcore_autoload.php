@@ -310,6 +310,7 @@ return array_merge(array (
         // Web hooks
         'erLhcoreClassChatWebhookHttp'              => 'lib/core/lhchat/lhchatwebhookhttp.php',
         'erLhcoreClassModelChatWebhook'             => 'lib/models/lhchat/erlhcoreclassmodelchatwebhook.php',
+        'erLhcoreClassChatWebhookResque'            => 'lib/core/lhchat/lhchatwebhookresque.php',
 
 ),
 include('var/autoloads/lhextension_autoload.php')
