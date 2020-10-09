@@ -1,13 +1,5 @@
 <?php
 
-/**
- * Status -
- * 0 - Pending
- * 1 - Active
- * 2 - Closed
- * 3 - Blocked
- * */
-
 class erLhcoreClassChatWebhookHttp {
 
     public function processEvent($event, $params) {
