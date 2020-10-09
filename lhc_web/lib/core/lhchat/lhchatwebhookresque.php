@@ -14,7 +14,7 @@ class erLhcoreClassChatWebhookResque {
                 $trigger = erLhcoreClassModelGenericBotTrigger::fetch($triggerId);
                 if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
                     if (class_exists('erLhcoreClassExtensionLhcphpresque')) {
-                        erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_rest_webhook', 'erLhcoreClassChatWebhookResque', array('trigger_id' => $trigger->id, 'params' => json_encode($params)));
+                        erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_rest_webhook', 'erLhcoreClassChatWebhookResque', array('trigger_id' => $trigger->id, 'params' => base64_encode(gzdeflate(serialize($params)))));
                     }
                 }
             }
@@ -28,7 +28,7 @@ class erLhcoreClassChatWebhookResque {
 
         $triggerId = $this->args['trigger_id'];
 
-        $params = json_decode($this->args['params'],true);
+        $params = unserialize(gzinflate(base64_decode($this->args['params'])));
 
         $trigger = erLhcoreClassModelGenericBotTrigger::fetch($triggerId);
 
