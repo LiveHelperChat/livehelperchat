@@ -307,6 +307,10 @@ return array_merge(array (
         'erLhcoreClassModelNotificationSubscriber'  => 'lib/models/lhnotifications/erlhcoreclassmodelnotificationsubscriber.php',
         'erLhcoreClassLHCMobile'                    => 'lib/core/lhmobile/lhmobile.php',
 
+        // Web hooks
+        'erLhcoreClassChatWebhookHttp'              => 'lib/core/lhchat/lhchatwebhookhttp.php',
+        'erLhcoreClassModelChatWebhook'             => 'lib/models/lhchat/erlhcoreclassmodelchatwebhook.php',
+
 ),
 include('var/autoloads/lhextension_autoload.php')
 );

@@ -1,3 +1,10 @@
+3.47v
+
+1. You can access now any argument in Rest API call. Usefull in webhooks
+2. Webhooks support. Please refer to an article how to use them.
+
+execute doc/update_db/update_220.sql for update
+
 3.46v
 
 1. New positions for a new widget.

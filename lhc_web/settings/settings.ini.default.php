@@ -70,6 +70,11 @@ return array (
                     'module' => 'chat',
                     'view' => 'start',
                 ),
+            'webhooks' =>
+                array(
+                    'enabled' => false,
+                    'worker' => 'http',
+                ),
             'chat' => array(
                 'online_timeout' => 300,
                 'back_office_sinterval' => 10,
