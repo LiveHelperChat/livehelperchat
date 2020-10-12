@@ -1960,8 +1960,16 @@ class erLhcoreClassChat {
 
                } catch (Exception $e) {
                    if ($i == 2) { // It was last try
-                       erLhcoreClassLog::write($e->getMessage() . "\n" . $e->getTraceAsString());
-                       error_log($e->getMessage() . "\n" . $e->getTraceAsString());
+                       erLhcoreClassLog::write($e->getMessage() . "\n" . $e->getTraceAsString(),
+                           ezcLog::SUCCESS_AUDIT,
+                           array(
+                               'source' => 'lhc',
+                               'category' => 'update_active_chats',
+                               'line' => __LINE__,
+                               'file' => __FILE__,
+                               'object_id' => $user_id
+                           )
+                       );
                    } else {
                        // Just sleep for fraction of second and try again
                        usleep(150);
