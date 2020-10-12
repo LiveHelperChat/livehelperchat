@@ -369,6 +369,9 @@ class erLhcoreClassAdminChatValidatorHelper {
             'LazyLoad' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
+            'DisableStartChat' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
 
             'OfflineNameWidth' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
@@ -442,6 +445,13 @@ class erLhcoreClassAdminChatValidatorHelper {
 	    } else {
 	        $data['force_leave_a_message'] = false;
 	    }
+
+        // Force leave a message
+        if ( $form->hasValidData( 'DisableStartChat' ) && $form->DisableStartChat == true ) {
+            $data['disable_start_chat'] = true;
+        } else {
+            $data['disable_start_chat'] = false;
+        }
 
         // Width options
 

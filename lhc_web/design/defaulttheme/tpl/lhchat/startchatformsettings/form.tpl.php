@@ -33,6 +33,9 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
     <div class="col-6">
         <label><input type="checkbox" name="DontAutoProcess" value="on" <?php (isset($start_chat_data['dont_auto_process']) && $start_chat_data['dont_auto_process'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Do not process internal pages and use redirects.');?></label>
     </div>
+    <div class="col-6">
+        <label><input type="checkbox" name="DisableStartChat" value="on" <?php (isset($start_chat_data['disable_start_chat']) && $start_chat_data['disable_start_chat'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Disable start chat URL');?></label>
+    </div>
 </div>
 
 <div role="tabpanel">

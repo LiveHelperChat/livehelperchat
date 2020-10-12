@@ -25,14 +25,22 @@ if ($startDataDepartment === false) {
 }
 
 if (isset($startDataFields['requires_dep']) && $startDataFields['requires_dep'] == true && empty($dep)) {
-
     $Result['pagelayout'] = 'userchat';
     $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/alert_info.tpl.php');
     $tpl->set('msg',erTranslationClassLhTranslation::getInstance()->getTranslation('chat/start','Department is required!'));
     $tpl->set('hide_close_icon',true);
     $Result['hide_close_window'] = true;
     $Result['content'] = $tpl->fetch();
+    return $Result;
+}
 
+if (isset($startDataFields['disable_start_chat']) && $startDataFields['disable_start_chat'] == true && empty($Params['user_parameters_unordered']['vid']) && (!is_numeric($Params['user_parameters_unordered']['id']) || $Params['user_parameters_unordered']['hash'] == '')) {
+    $Result['pagelayout'] = 'userchat';
+    $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/alert_info.tpl.php');
+    $tpl->set('msg',erTranslationClassLhTranslation::getInstance()->getTranslation('chat/start','Disabled!'));
+    $tpl->set('hide_close_icon',true);
+    $Result['hide_close_window'] = true;
+    $Result['content'] = $tpl->fetch();
     return $Result;
 }
 
