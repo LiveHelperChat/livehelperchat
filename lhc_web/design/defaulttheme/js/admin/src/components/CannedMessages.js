@@ -143,6 +143,9 @@ const CannedMessages = props => {
         }
 
         ee.addListener('sendCannedByMessageId',sendManualMessage)
+        
+        // Canned component was mounted event
+        ee.emitEvent('chatCannedMounted', [props.chatId]);
 
         // Cleanup
         return function cleanup() {
