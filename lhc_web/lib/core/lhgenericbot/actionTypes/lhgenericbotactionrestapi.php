@@ -99,13 +99,21 @@ class erLhcoreClassGenericBotActionRestapi
                     $msg = new erLhcoreClassModelmsg();
                     $msg->chat_id = $chat->id;
                     $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
-                    $msg->user_id = -2;
+
+                    if (isset($action['content']['attr_options']['as_system']) && $action['content']['attr_options']['as_system'] == true) {
+                        $msg->user_id = -1; // Save as system message
+                    } else {
+                        $msg->user_id = -2; // Save as bot message
+                    }
+
                     $msg->time = time() + 5;
                     $msg->meta_msg = (isset($response['meta']) && !empty($response['meta'])) ? json_encode($response['meta']) : '';
                     $msg->msg = $response['content'];
 
                     if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
-                        $msg->saveThis();
+                        if ($msg->chat_id > 0) {
+                            $msg->saveThis();
+                        }
                     }
 
                     return  $msg;
@@ -163,6 +171,8 @@ class erLhcoreClassGenericBotActionRestapi
             }
         }
 
+        $dynamicParamsVariables = self::extractDynamicParams($methodSettings, $paramsCustomer['params']);
+
         $dynamicReplaceVariables = self::extractDynamicVariables($methodSettings, $paramsCustomer['chat']);
 
         $replaceVariables = array(
@@ -180,6 +190,8 @@ class erLhcoreClassGenericBotActionRestapi
 
         $replaceVariables = array_merge($replaceVariables, $dynamicReplaceVariables);
 
+        $replaceVariables = array_merge($replaceVariables, $dynamicParamsVariables);
+
         $replaceVariablesJSON = array(
             '{{msg}}' => json_encode($msg_text),
             '{{msg_clean}}' => json_encode(trim($msg_text_cleaned)),
@@ -195,6 +207,56 @@ class erLhcoreClassGenericBotActionRestapi
 
         foreach ($dynamicReplaceVariables as $keyDynamic => $valueDynamic) {
             $replaceVariablesJSON[$keyDynamic] = json_encode($valueDynamic);
+        }
+
+        foreach ($dynamicParamsVariables as $keyDynamic => $valueDynamic) {
+            $replaceVariablesJSON[$keyDynamic] = json_encode($valueDynamic);
+        }
+
+        if (isset($methodSettings['conditions']) && is_array($methodSettings['conditions']) && !empty($methodSettings['conditions'])) {
+            foreach ($methodSettings['conditions'] as $condition){
+
+                if (isset($replaceVariables[$condition['key']]) && $replaceVariables[$condition['key']] !== null) {
+                    $condition['key'] = $replaceVariables[$condition['key']];
+                    $validCondition = true;
+                } else {
+                    $validCondition = false;
+                }
+
+                if ($validCondition === true && isset($condition['success_condition']) && $condition['success_condition'] != '' && isset($condition['value']) && $condition['value'] != '') {
+                    if ( $condition['success_condition'] == 'eq' && !($condition['key'] == $condition['value'])) {
+                        $validCondition = false;
+                    } else if ($condition['success_condition'] == 'lt' && !($condition['key'] < $condition['value'])) {
+                        $validCondition = false;
+                    } else if ($condition['success_condition'] == 'lte' && !($condition['key'] <= $condition['value'])) {
+                        $validCondition = false;
+                    } else if ($condition['success_condition'] == 'neq' && !($condition['key'] != $condition['value'])) {
+                        $validCondition = false;
+                    } else if ($condition['success_condition'] == 'gte' && !($condition['key'] >= $condition['value'])) {
+                        $validCondition = false;
+                    } else if ($condition['success_condition'] == 'gt' && !($condition['key'] > $condition['value'])) {
+                        $validCondition = false;
+                    } else if ($condition['success_condition'] == 'like' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$condition['value']),$condition['key'],0) == false) {
+                        $validCondition = false;
+                    } else if ($condition['success_condition'] == 'notlike' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$condition['value']),$condition['key'],0) == true) {
+                        $validCondition = false;
+                    }
+                }
+
+                if ($validCondition == false) {
+                     return array(
+                        'content' => 'Invalid conditions',
+                        'http_code' => 404,
+                        'content_2' => '',
+                        'content_3' =>  '',
+                        'content_4' => '',
+                        'content_5' =>  '',
+                        'content_6' => '',
+                        'meta' => '',
+                        'id' => 0
+                    );
+                }
+            }
         }
 
         foreach ($paramsCustomer['chat']->additional_data_array as $keyItem => $addItem) {
@@ -455,6 +517,43 @@ class erLhcoreClassGenericBotActionRestapi
         );
     }
 
+    public static function extractDynamicParams($methodSettings, $params) {
+
+        $dynamicVariables = [];
+        $requiredVars = [];
+
+        $userData = array(
+            'dynamic_variables' => & $dynamicVariables,
+            'required_vars' => & $requiredVars,
+            'params' => $params,
+        );
+
+        array_walk_recursive($methodSettings, function ($item, $key, $userData) {
+
+            $matchesValues = [];
+            preg_match_all('~\{\{args\.((?:[^\{\}\}]++|(?R))*)\}\}~', $item,$matchesValues);
+
+            if (!empty($matchesValues[0])) {
+                foreach ($matchesValues[0] as $indexElement => $elementValue) {
+                    $valueAttribute = self::extractAttribute($userData['params'], $matchesValues[1][$indexElement], '.');
+                    $userData['dynamic_variables'][$elementValue] = $valueAttribute['found'] == true ? $valueAttribute['value'] : null;
+                }
+            }
+
+            $matchesValues = [];
+            preg_match_all('~\{\{args\.((?:[^\{\}\}]++|(?R))*)\}\}~', $key, $matchesValues);
+            if (!empty($matchesValues[0])) {
+                foreach ($matchesValues[0] as $indexElement => $elementValue) {
+                    $valueAttribute = self::extractAttribute($userData['params'], $matchesValues[1][$indexElement], '.');
+                    $userData['dynamic_variables'][$elementValue] = $valueAttribute['found'] == true ? $valueAttribute['value'] : null;
+                }
+            }
+
+        }, $userData);
+
+        return $userData['dynamic_variables'];
+    }
+
     public static function extractDynamicVariables($methodSettings, $chat) {
 
          $dynamicVariables = [];
@@ -517,9 +616,9 @@ class erLhcoreClassGenericBotActionRestapi
         return $userData['dynamic_variables'];
     }
 
-    public static function extractAttribute($partData, $string)
+    public static function extractAttribute($partData, $string, $separator = ':')
     {
-        $parts = explode(':', $string);
+        $parts = explode($separator, $string);
 
         $partFound = true;
         foreach ($parts as $part) {
@@ -543,11 +642,21 @@ class erLhcoreClassGenericBotActionRestapi
                 }
 
             } else {
-                if (isset($partData[$part]) ) {
-                    $partData = $partData[$part];
+                if (is_object($partData)) {
+                    $partDataValue = $partData->{$part};
+                    if (isset($partDataValue)) {
+                        $partData = $partDataValue;
+                    } else {
+                        $partFound = false;
+                        break;
+                    }
                 } else {
-                    $partFound = false;
-                    break;
+                    if (isset($partData[$part]) ) {
+                        $partData = $partData[$part];
+                    } else {
+                        $partFound = false;
+                        break;
+                    }
                 }
             }
         }
