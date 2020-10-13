@@ -1917,7 +1917,7 @@ class erLhcoreClassChat {
         return $user_status_front;
    }
    
-   public static function updateActiveChats($user_id)
+   public static function updateActiveChats($user_id, $ignoreEvent = false)
    {
        $db = ezcDbInstance::get();
        $stmt = $db->prepare('SELECT id FROM lh_userdep WHERE user_id = :user_id');
@@ -1960,6 +1960,10 @@ class erLhcoreClassChat {
 
                } catch (Exception $e) {
                    if ($i == 2) { // It was last try
+                       if ($ignoreEvent === false) {
+                           erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.update_active_chats',array('user_id' => $user_id));
+                       }
+
                        erLhcoreClassLog::write($e->getMessage() . "\n" . $e->getTraceAsString(),
                            ezcLog::SUCCESS_AUDIT,
                            array(
@@ -1970,11 +1974,16 @@ class erLhcoreClassChat {
                                'object_id' => $user_id
                            )
                        );
+                       return;
                    } else {
                        // Just sleep for fraction of second and try again
                        usleep(150);
                    }
                }
+           }
+
+           if ($ignoreEvent === false) {
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.update_active_chats',array('user_id' => $user_id));
            }
        }
    }
