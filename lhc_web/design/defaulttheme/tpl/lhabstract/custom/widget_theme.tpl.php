@@ -250,37 +250,56 @@
 						<label><?php echo $fields['widget_border_width']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('widget_border_width', $fields['widget_border_width'], $object)?>		
 						</div>
-						
-						<div class="form-group">	
-						<label><?php echo $fields['header_height']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('header_height', $fields['header_height'], $object)?>		
-						</div>
-						
-						<div class="form-group">	
-						<label><?php echo $fields['header_padding']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('header_padding', $fields['header_padding'], $object)?>		
-						</div>
-                    
-						<div class="form-group">	
-						<label><?php echo $fields['wwidth']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('wwidth', $fields['wwidth'], $object)?>		
-						</div>
-                    
-						<div class="form-group">	
-						<label><?php echo $fields['wheight']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('wheight', $fields['wheight'], $object)?>		
-						</div>
 
-						<div class="form-group">
-						<label><?php echo $fields['wright']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('wright', $fields['wright'], $object)?>
-						</div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['header_height']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('header_height', $fields['header_height'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['header_padding']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('header_padding', $fields['header_padding'], $object)?>
+                                </div>
+                            </div>
+                        </div>
 
-						<div class="form-group">
-						<label><?php echo $fields['wbottom']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('wbottom', $fields['wbottom'], $object)?>
-						</div>
-                    
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['wwidth']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('wwidth', $fields['wwidth'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['wheight']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('wheight', $fields['wheight'], $object)?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['wright']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('wright', $fields['wright'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['wbottom']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('wbottom', $fields['wbottom'], $object)?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label><?php echo erLhcoreClassAbstract::renderInput('fscreen_embed', $fields['fscreen_embed'], $object)?> <?php echo $fields['fscreen_embed']['trans'];?></label>
+                        </div>
+
 						<div class="form-group">
 						<label><?php echo $fields['wright_inv']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('wright_inv', $fields['wright_inv'], $object)?>

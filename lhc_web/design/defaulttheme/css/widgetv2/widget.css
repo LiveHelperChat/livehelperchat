@@ -890,6 +890,13 @@ textarea[name=ChatMessage] {
     border:1px solid #dee2e6!important;
 }
 
+.lhc-fscreen .message-send-area{
+    border-radius: 0;
+    border-left: 0!important;
+    border-bottom: 0!important;
+    border-right: 0!important;
+}
+
 .tr-msg{
     font-style: italic;
     display: block;
