@@ -322,6 +322,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
     this.hideOnline = false;
     this.hideInvisible = false;
     this.alwaysOnline = false;
+    this.inActive = false;
     this.bot_st = {};
 
     this.changeVisibility = function(e) {
@@ -1059,6 +1060,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				_that.hideOnline = data.ho == 1;
 				_that.hideInvisible = data.im == 1;
                 _that.alwaysOnline = data.a_on == 1;
+                _that.inActive = data.ina == 1;
 
 				if (_that.lhcVersion != data.v) {
                     _that.lhcVersion = data.v;

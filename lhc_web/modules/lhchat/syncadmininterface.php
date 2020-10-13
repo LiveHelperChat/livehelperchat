@@ -567,7 +567,7 @@ if ($userData->operation_admin != '') {
     erLhcoreClassUser::getSession()->update($userData);
 }
 
-$responseSync = array('v' => $version, 'error' => 'false', 'mac' => $my_active_chats, 'a_on' => $userData->always_on, 'ou' => $ou, 'result' => $ReturnMessages, 'ho' => $userData->hide_online, 'im' => $userData->invisible_mode);
+$responseSync = array('v' => $version, 'error' => 'false', 'mac' => $my_active_chats, 'ina' => $userData->inactive_mode, 'a_on' => $userData->always_on, 'ou' => $ou, 'result' => $ReturnMessages, 'ho' => $userData->hide_online, 'im' => $userData->invisible_mode);
 
 if (isset($currentOp) && $currentOp !== null) {
     $responseSync['ho'] = $currentOp->hide_online;
