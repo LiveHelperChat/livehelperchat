@@ -23,7 +23,13 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhc
 
             if ($chat->dep_id != $chatOriginal->dep_id) {
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = (string)$currentUser->getUserData(true)->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'changed chat department from') . ' "' . $chatOriginal->department . '" ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'to') . ' "' . $chat->department . '"';
+
+                $nickOperator = $currentUser->getUserData(true)->name_support;
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.get_nick_alias', array('user_id' => $currentUser->getUserData(true)->id, 'nick' => & $nickOperator));
+
+                $msg->msg = (string)$nickOperator . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'changed chat department from') . ' "' . $chatOriginal->department . '" ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'to') . ' "' . $chat->department . '"';
+
                 $msg->chat_id = $chat->id;
                 $msg->user_id = - 1;
                 $msg->time = time();
@@ -70,7 +76,12 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhc
 
 	  		if ($chat->nick != $chatOriginal->nick) {
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = (string)$currentUser->getUserData(true)->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'changed visitor nick from').' "' . $chatOriginal->nick .'" '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'to') . ' "' . $chat->nick .'"';
+
+                $nickOperator = $currentUser->getUserData(true)->name_support;
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.get_nick_alias', array('user_id' => $currentUser->getUserData(true)->id, 'nick' => & $nickOperator));
+
+                $msg->msg = (string)$nickOperator . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'changed visitor nick from').' "' . $chatOriginal->nick .'" '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'to') . ' "' . $chat->nick .'"';
                 $msg->chat_id = $chat->id;
                 $msg->user_id = - 1;
                 $msg->time = time();

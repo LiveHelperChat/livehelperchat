@@ -39,12 +39,17 @@ if  ($chatTransfer->dep_id > 0) {
 	} else {
 		$chat->user_id = $currentUser->getUserID();
 		$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
-		$chat->user_typing_txt = (string)$chat->user.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
+
+		$operatorNick = $chat->plain_user_name;
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.get_nick_alias', array('user_id' => $chat->user_id, 'nick' => & $operatorNick));
+
+        $chat->user_typing_txt = (string)$operatorNick.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
 		$chat->user_typing  = time();
 		$chat->usaccept = $userData->hide_online;
 		
 		$msg = new erLhcoreClassModelmsg();
-		$msg->msg = (string)$chat->user.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a chat!');
+		$msg->msg = (string)$operatorNick.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a chat!');
 		$msg->chat_id = $chat->id;
 		$msg->user_id = -1;
 	}
@@ -59,9 +64,13 @@ if ($chatTransfer->transfer_to_user_id == $currentUser->getUserID()){
         $chat->user_typing_txt = (string)$chat->user.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
         $chat->user_typing  = time();
         $chat->usaccept = $userData->hide_online;
-        
+
+        $operatorNick = $chat->plain_user_name;
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.get_nick_alias', array('user_id' => $chat->user_id, 'nick' => & $operatorNick));
+
         $msg = new erLhcoreClassModelmsg();
-        $msg->msg = (string)$chat->user.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a chat!');
+        $msg->msg = (string)$operatorNick.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a chat!');
         $msg->chat_id = $chat->id;
         $msg->user_id = -1;
     }

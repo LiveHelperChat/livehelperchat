@@ -40,7 +40,9 @@ if (trim($form->msg) != '')
         $msg->chat_id = $Params['user_parameters']['chat_id'];
         $msg->user_id = $messageUserId;
         $msg->time = time();
-        $msg->name_support = $userData->name_support;
+        $nickFrom = (string)$userData->name_support;
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.get_nick_alias', array('user_id' => $userData->id, 'nick' => & $nickFrom));
+        $msg->name_support = $nickFrom;
         erLhcoreClassChat::getSession()->save($msg);
 
         // Set last message ID

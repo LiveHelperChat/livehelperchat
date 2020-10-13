@@ -26,7 +26,15 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                         $msg = new erLhcoreClassModelmsg();
                         $msg->chat_id = $Chat->id;
                         $msg->user_id = -1;
-                        $msg->msg = (string)$currentUser->getUserData() . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'has changed owner to') . ' ' . $user->name_support;
+
+                        $nickFrom = (string)$currentUser->getUserData()->name_support;
+                        $nickTo = (string)$user->name_support;
+
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.get_nick_alias', array('user_id' => $currentUser->getUserID(), 'nick' => & $nickFrom));
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.get_nick_alias', array('user_id' => $user->id, 'nick' => & $nickTo));
+
+                        $msg->msg = (string)$nickFrom . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'has changed owner to') . ' ' . $nickTo;
+
                         $msg->time = time();
                         $msg->saveThis();
 

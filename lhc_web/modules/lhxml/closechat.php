@@ -18,8 +18,11 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
         $chat->cls_time = time();
 	    $userData = $currentUser->getUserData(true);
 
+        $nickFrom = (string)$userData->name_support;
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.get_nick_alias', array('user_id' => $userData->id, 'nick' => & $nickFrom));
+
 	    $msg = new erLhcoreClassModelmsg();
-	    $msg->msg = (string)$userData.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin','has closed the chat!');
+	    $msg->msg = (string)$nickFrom.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin','has closed the chat!');
 	    $msg->chat_id = $chat->id;
 	    $msg->user_id = -1;
 

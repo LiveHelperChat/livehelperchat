@@ -59,7 +59,13 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
     	    if ($operatorAccepted == true) {
     	    	         	        
     	        $msg = new erLhcoreClassModelmsg();
-    	        $msg->msg = (string)$currentUser->getUserData(true)->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has accepted the chat!');
+
+    	        $operatorNick = (string)$currentUser->getUserData(true)->name_support;
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.get_nick_alias', array('user_id' => $currentUser->getUserData(true)->id, 'nick' => & $operatorNick));
+
+                $msg->msg = (string)$operatorNick.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has accepted the chat!');
+
     	        $msg->chat_id = $chat->id;
     	        $msg->user_id = -1;
     	        $msg->time = time();
