@@ -1256,6 +1256,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
                                 _that.isListLoaded = false; // Because inactive visitor can be for some quite time, make sure new chat's does not trigger flood of sound notifications
                                 _that.blockSync = false;	// Unblock sync
+                                _that.inActive = false;
                                 _that.resetTimeoutActivity(); // Start monitoring activity again
                                 lhinst.disableSync = false;
 
