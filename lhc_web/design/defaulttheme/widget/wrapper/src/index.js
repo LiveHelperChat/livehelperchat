@@ -79,10 +79,10 @@
                 eventEmitter : new EventEmitter(),
                 toggleSound : new BehaviorSubject(storageHandler.getSessionStorage('LHC_SOUND') === 'true',{'ignore_sub':true}),
                 hideOffline : false,
+                fscreen : LHC_API.args.fscreen || false,
                 isMobile : isMobile,
                 isIE : (navigator.userAgent.toUpperCase().indexOf("TRIDENT/") != -1 || navigator.userAgent.toUpperCase().indexOf("MSIE") != -1),
                 fresh : LHC_API.args.fresh || false,
-                widgetDimesions : new BehaviorSubject({sright:(LHC_API.args.sright || 0), sbottom:(LHC_API.args.sbottom || 0), wright_inv: 0, wbottom:0, wright:0, width: (isMobile ? 100 : (LHC_API.args.wwidth || 350)), height: (isMobile ? 100 : (LHC_API.args.wheight || 520)), units : (isMobile ? '%' : 'px')}),
                 popupDimesnions : {pheight: (LHC_API.args.pheight || 520), pwidth:(LHC_API.args.pwidth || 500)},
                 leaveMessage : LHC_API.args.leaveamessage || null,
                 department : LHC_API.args.department || [],
@@ -122,6 +122,8 @@
                 loadcb : LHC_API.args.loadcb || null,
                 LHCChatOptions : global.LHCChatOptions ? global.LHCChatOptions : {}
             };
+
+            attributesWidget.widgetDimesions = new BehaviorSubject({sright:(LHC_API.args.sright || 0), sbottom:(LHC_API.args.sbottom || 0), wright_inv: 0, wbottom:0, wright:0, width: ((isMobile || attributesWidget.fscreen) ? 100 : (LHC_API.args.wwidth || 350)), height: ((isMobile || attributesWidget.fscreen) ? 100 : (LHC_API.args.wheight || 520)), units : ((isMobile|| attributesWidget.fscreen) ? '%' : 'px')});
 
             var chatEvents = new chatEventsHandler(attributesWidget);
 
@@ -237,8 +239,20 @@
                 }
                 
                 if (data.chat_ui) {
+
+                    if ((data.chat_ui.fscreen && attributesWidget.mode == 'embed') || attributesWidget.fscreen) {
+                        attributesWidget.widgetDimesions.nextProperty('width',100);
+                        attributesWidget.widgetDimesions.nextProperty('height',100);
+                        attributesWidget.widgetDimesions.nextProperty('units','%');
+                        attributesWidget.fscreen = isMobile = attributesWidget.isMobile = true;
+                    }
+
                     if (data.chat_ui.wheight && !isMobile) {
                         attributesWidget.widgetDimesions.nextProperty('height',data.chat_ui.wheight);
+                    }
+
+                    if (data.chat_ui.wwidth && !isMobile) {
+                        attributesWidget.widgetDimesions.nextProperty('width',data.chat_ui.wwidth);
                     }
 
                     if (data.chat_ui.hhtml) {
@@ -247,10 +261,6 @@
 
                     if (data.chat_ui.clinst) {
                         attributesWidget.clinst = true;
-                    }
-
-                    if (data.chat_ui.wwidth && !isMobile) {
-                        attributesWidget.widgetDimesions.nextProperty('width',data.chat_ui.wwidth);
                     }
 
                     if (data.chat_ui.wbottom && !isMobile) {

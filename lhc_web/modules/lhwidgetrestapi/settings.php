@@ -132,6 +132,10 @@ if (isset($outputResponse['theme'])){
             $outputResponse['chat_ui']['wheight'] = $theme->bot_configuration_array['wheight'];
         }
 
+        if (isset($theme->bot_configuration_array['fscreen_embed']) && $theme->bot_configuration_array['fscreen_embed'] == 1) {
+            $outputResponse['chat_ui']['fscreen'] = $theme->bot_configuration_array['fscreen_embed'];
+        }
+
         if (isset($theme->bot_configuration_array['wright']) && is_numeric($theme->bot_configuration_array['wright'])) {
             $outputResponse['chat_ui']['wright'] = (int)$theme->bot_configuration_array['wright'];
         }
