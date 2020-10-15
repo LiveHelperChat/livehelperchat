@@ -577,6 +577,7 @@ try {
   `tm` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
+  KEY `chat_id` (`chat_id`),
   KEY `type` (`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
@@ -1648,6 +1649,7 @@ try {
 				  `bot_configuration` text NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `identifier` (`identifier`),
+				  KEY `archive` (`archive`),
 				  KEY `attr_int_1` (`attr_int_1`),
 				  KEY `attr_int_2` (`attr_int_2`),
 				  KEY `attr_int_3` (`attr_int_3`),
