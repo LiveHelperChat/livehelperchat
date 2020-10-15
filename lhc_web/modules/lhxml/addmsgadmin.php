@@ -41,6 +41,9 @@ if (trim($form->msg) != '')
         $msg->user_id = $messageUserId;
         $msg->time = time();
         $msg->name_support = $userData->name_support;
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg, 'chat' => & $Chat));
+
         erLhcoreClassChat::getSession()->save($msg);
 
         // Set last message ID

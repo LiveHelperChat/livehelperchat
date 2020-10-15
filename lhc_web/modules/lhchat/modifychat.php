@@ -2,7 +2,6 @@
 
 // Set new chat owner
 $currentUser = erLhcoreClassUser::instance();
-$currentUser->getUserID();
 
 $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 
@@ -23,10 +22,14 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhc
 
             if ($chat->dep_id != $chatOriginal->dep_id) {
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = (string)$currentUser->getUserData(true)->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'changed chat department from') . ' "' . $chatOriginal->department . '" ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'to') . ' "' . $chat->department . '"';
                 $msg->chat_id = $chat->id;
                 $msg->user_id = - 1;
                 $msg->time = time();
+                $msg->name_support = $currentUser->getUserData(true)->name_support;
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $currentUser->getUserID()));
+
+                $msg->msg = (string)$msg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'changed chat department from') . ' "' . $chatOriginal->department . '" ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'to') . ' "' . $chat->department . '"';
                 $msg->saveThis();
 
                 erLhAbstractModelAutoResponder::updateAutoResponder($chat);
@@ -70,10 +73,15 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhc
 
 	  		if ($chat->nick != $chatOriginal->nick) {
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = (string)$currentUser->getUserData(true)->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'changed visitor nick from').' "' . $chatOriginal->nick .'" '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'to') . ' "' . $chat->nick .'"';
                 $msg->chat_id = $chat->id;
                 $msg->user_id = - 1;
                 $msg->time = time();
+                $msg->name_support = $currentUser->getUserData(true)->name_support;
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $currentUser->getUserID()));
+
+                $msg->msg = (string)$msg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'changed visitor nick from').' "' . $chatOriginal->nick .'" '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'to') . ' "' . $chat->nick .'"';
+
                 $msg->saveThis();
                 
                 $chat->last_msg_id = $msg->id;
