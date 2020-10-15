@@ -1,3 +1,10 @@
+3.48v
+
+1. Global activity tracking. If you stop activity in one window it won't force go offline everywhere.
+2. Includes database changes I'll need for future version.
+
+execute doc/update_db/update_220.sql for update
+
 3.47v
 
 1. You can access now any argument in Rest API call. Usefull in webhooks.
