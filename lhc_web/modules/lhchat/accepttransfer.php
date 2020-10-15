@@ -37,22 +37,22 @@ if  ($chatTransfer->dep_id > 0) {
 	if (!erLhcoreClassChat::hasAccessToRead($chat)){
 		exit;
 	} else {
-		$chat->user_id = $currentUser->getUserID();
-		$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+        $chat->user_id = $currentUser->getUserID();
+        $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+        $chat->user_typing  = time();
+        $chat->usaccept = $userData->hide_online;
 
-		$operatorNick = $chat->plain_user_name;
+        $msg = new erLhcoreClassModelmsg();
+        $msg->chat_id = $chat->id;
+        $msg->user_id = -1;
+        $msg->name_support = $userData->name_support;
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.get_nick_alias', array('user_id' => $chat->user_id, 'nick' => & $operatorNick));
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
 
-        $chat->user_typing_txt = (string)$operatorNick.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
-		$chat->user_typing  = time();
-		$chat->usaccept = $userData->hide_online;
-		
-		$msg = new erLhcoreClassModelmsg();
-		$msg->msg = (string)$operatorNick.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a chat!');
-		$msg->chat_id = $chat->id;
-		$msg->user_id = -1;
-	}
+        $chat->user_typing_txt = (string)$msg->name_support.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
+        $msg->msg = (string)$msg->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a chat!');
+
+    }
 }
 
 if ($chatTransfer->transfer_to_user_id == $currentUser->getUserID()){
@@ -61,18 +61,18 @@ if ($chatTransfer->transfer_to_user_id == $currentUser->getUserID()){
     {
         $chat->user_id = $currentUser->getUserID();
         $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
-        $chat->user_typing_txt = (string)$chat->user.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
         $chat->user_typing  = time();
         $chat->usaccept = $userData->hide_online;
 
-        $operatorNick = $chat->plain_user_name;
-
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.get_nick_alias', array('user_id' => $chat->user_id, 'nick' => & $operatorNick));
-
         $msg = new erLhcoreClassModelmsg();
-        $msg->msg = (string)$operatorNick.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a chat!');
         $msg->chat_id = $chat->id;
         $msg->user_id = -1;
+        $msg->name_support = $userData->name_support;
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
+
+        $chat->user_typing_txt = (string)$msg->name_support.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
+        $msg->msg = (string)$msg->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a chat!');
     }
 
 	// Change department if user cannot read current department, so chat appears in right menu

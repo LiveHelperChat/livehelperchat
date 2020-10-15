@@ -156,16 +156,19 @@ class erLhcoreClassChatHelper
                 $params['chat']->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($params['chat']);
                 $params['chat']->has_unread_messages = 0;
 
-                $nick = '';
-                if (!(isset($params['bot']) && $params['bot'] == true) && is_object($params['user'])) {
-                    $nick = (string) $params['user']->name_support;
-                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.get_nick_alias',array('user_id' => $params['user']->id, 'nick' => & $nick));
-                }
-
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = ((isset($params['bot']) && $params['bot'] == true) ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'Bot') : (string) $nick) . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'has closed the chat!');
                 $msg->chat_id = $params['chat']->id;
                 $msg->user_id = - 1;
+
+                $user_id = 0;
+                if (!(isset($params['bot']) && $params['bot'] == true) && is_object($params['user'])) {
+                    $msg->name_support = (string)$params['user']->name_support;
+                    $user_id = $params['user']->id;
+                }
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $params['chat'], 'user_id' => $user_id));
+
+                $msg->msg = ((isset($params['bot']) && $params['bot'] == true) ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'Bot') : (string) $msg->name_support) . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'has closed the chat!');
 
                 $params['chat']->last_user_msg_time = $msg->time = time();
                 $params['chat']->cls_time = time();
@@ -228,17 +231,17 @@ class erLhcoreClassChatHelper
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
                 $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat);
                 $chat->cls_time = time();
+
                 $msg = new erLhcoreClassModelmsg();
-
-                $nick = (string)$userData->name_support;
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.get_nick_alias',array('user_id' => $userData->id, 'nick' => & $nick));
-
-                $msg->msg = (string)$nick.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin','has closed the chat!');
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
-        
                 $chat->last_user_msg_time = $msg->time = time();
-        
+                $msg->name_support = $userData->name_support;
+                
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
+
+                $msg->msg = (string)$msg->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin','has closed the chat!');
+
                 erLhcoreClassChat::getSession()->save($msg);
         
                 $chat->updateThis();

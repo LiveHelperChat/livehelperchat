@@ -44,14 +44,16 @@ try {
 
                 $currentUser = erLhcoreClassUser::instance();
                 $userData = $currentUser->getUserData();
-                $operatorNick = (string)$userData->name_support;
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.get_nick_alias', array('user_id' => $userData->id, 'nick' => & $operatorNick));
+
                 $msg = new erLhcoreClassModelmsg();
                 $msg->msg = $msgText;
                 $msg->chat_id = $chat->id;
                 $msg->user_id = $currentUser->getUserID();
                 $msg->time = time();
-                $msg->name_support = $operatorNick;
+                $msg->name_support = $userData->name_support;
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat));
+
                 $msg->saveThis();
 
                 $chat->last_msg_id = $msg->id;
