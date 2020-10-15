@@ -363,6 +363,8 @@ try {
                   `datets` int(11) NOT NULL,
                   `chat_id` int(11) NOT NULL,
                   `dep_id` int(11) NOT NULL,
+                  `expires` int(11) NOT NULL DEFAULT '0',
+                  `btype` tinyint(1) NOT NULL DEFAULT '0',
                   `nick` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `ip` (`ip`)
@@ -566,6 +568,7 @@ try {
   `status` int(11) NOT NULL,
   `time` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `chat_id` bigint(20) NOT NULL DEFAULT 0,
   `last_msg_op_id` bigint(20) NOT NULL,
   `last_msg` varchar(200) NOT NULL,
   `last_user_msg_time` int(11) NOT NULL,
@@ -574,6 +577,7 @@ try {
   `tm` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
+  KEY `chat_id` (`chat_id`),
   KEY `type` (`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
@@ -1600,6 +1604,7 @@ try {
 				  `delay_before_assign` int(11) NOT NULL,
 				  `max_ac_dep_chats` int(11) NOT NULL,
 				  `assign_same_language` int(11) NOT NULL,
+				  `archive` tinyint(1) NOT NULL DEFAULT '0',
 				  `disabled` int(11) NOT NULL,
 				  `hidden` int(11) NOT NULL,
 				  `delay_lm` int(11) NOT NULL,
@@ -1644,6 +1649,7 @@ try {
 				  `bot_configuration` text NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `identifier` (`identifier`),
+				  KEY `archive` (`archive`),
 				  KEY `attr_int_1` (`attr_int_1`),
 				  KEY `attr_int_2` (`attr_int_2`),
 				  KEY `attr_int_3` (`attr_int_3`),
@@ -1860,6 +1866,7 @@ try {
                   `user_id` int(11) NOT NULL,
                   `dep_id` int(11) NOT NULL,
                   `last_activity` int(11) NOT NULL,
+                  `lastd_activity` int(11) NOT NULL DEFAULT '0',
                   `exclude_autoasign` tinyint(1) NOT NULL DEFAULT '0',
                   `hide_online` int(11) NOT NULL,
                   `last_accepted` int(11) NOT NULL DEFAULT '0',

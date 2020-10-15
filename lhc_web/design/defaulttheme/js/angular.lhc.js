@@ -245,6 +245,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
     this.lhcConnectivityProblem = false;
     this.lhcConnectivityProblemExplain = '';
 
+    // Last activity. Like mouse movement etc.
+    this.lastd_activity = Math.round(new Date().getTime()/1000);
+
 	// Stores last ID of unread/pending chat id
 	this.lastidEvent = 0;
 	
@@ -649,6 +652,13 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		if (typeof _that.toggleWidgetData['onop_sort'] !== 'undefined' && _that.toggleWidgetData['onop_sort'] !== '') {
 			filter += '/(onop)/'+_that.toggleWidgetData['onop_sort'];
 		}
+
+		// Last dynamic activity
+        if (_that.lastd_activity > 0) {
+            filter += '/(lda)/'+_that.lastd_activity;
+        }
+
+        _that.lastd_activity = 0;
 
 		ee.emitEvent('eventGetSyncFilter', [_that, $scope]);
 
@@ -1242,26 +1252,37 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		} else {
             if (this.blockSync == false)
             {
+                this.lastd_activity = Math.round(new Date().getTime()/1000);
+
                 clearTimeout(this.timeoutActivity);
                 var _that = this;
 
                 this.timeoutActivity = setTimeout(function(){
 
-                    _that.blockSync = true;
-                    lhinst.disableSync = true;
-
                     LiveHelperChatFactory.setInactive('true').then(function (data) {
-                        lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/wentinactive/false','backdrop': true,hidecallback: function() {
-                                LiveHelperChatFactory.setInactive('false');
 
-                                _that.isListLoaded = false; // Because inactive visitor can be for some quite time, make sure new chat's does not trigger flood of sound notifications
-                                _that.blockSync = false;	// Unblock sync
-                                _that.inActive = false;
-                                _that.resetTimeoutActivity(); // Start monitoring activity again
-                                lhinst.disableSync = false;
+                        // Operator is active in another tab/window
+                        if (data.active == true) {
+                            _that.resetTimeoutActivity();
+                            _that.lastd_activity = 0;
+                            return ;
+                        }
 
-                                $scope.loadChatList();
-                            }});
+                        _that.blockSync = true;
+                        lhinst.disableSync = true;
+
+                        lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/wentinactive/false','backdrop': true, hidecallback: function() {
+                            LiveHelperChatFactory.setInactive('false');
+
+                            _that.isListLoaded = false; // Because inactive visitor can be for some quite time, make sure new chat's does not trigger flood of sound notifications
+                            _that.blockSync = false;	// Unblock sync
+                            _that.resetTimeoutActivity(); // Start monitoring activity again
+                            lhinst.disableSync = false;
+
+                            $scope.loadChatList();
+                             _that.inActive = false;
+                        }});
+
                     });
 
                 }, _that.timeoutActivityTime*1000);
