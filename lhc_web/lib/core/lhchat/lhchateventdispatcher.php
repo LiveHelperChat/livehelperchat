@@ -19,7 +19,7 @@ class erLhcoreClassChatEventDispatcher {
    		$this->listeners[$event][] = $callback;
    }
 
-   public function setGlobalListeners($event, $param)
+   public function setGlobalListeners($event = null, $param = array())
    {
        if ($this->globalListenersSet == false) {
            $this->globalListenersSet = true;
@@ -33,7 +33,7 @@ class erLhcoreClassChatEventDispatcher {
            }
        }
 
-       if ($this->webhooksSet == false) {
+       if ($this->webhooksSet == false && $event !== null) {
 
            $cfg = erConfigClassLhConfig::getInstance();
 
