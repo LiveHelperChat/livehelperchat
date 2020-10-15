@@ -575,6 +575,8 @@ class erLhcoreClassChatWorkflow {
                             }
                         }
 
+
+
                         if ($tryDefault == true) {
                             $db = ezcDbInstance::get();
                             $stmt = $db->prepare($sql);
@@ -601,26 +603,35 @@ class erLhcoreClassChatWorkflow {
 
                         $previousMessage = '';
 
+                        $msg = new erLhcoreClassModelmsg();
+                        $msg->chat_id = $chat->id;
+                        $msg->user_id = -1;
+                        $msg->time = time();
+
                         // Update previously assigned operator statistic
                         if ($chat->user_id > 0) {
                             $userOld = erLhcoreClassModelUser::fetch($chat->user_id);
-                            $previousMessage = $userOld->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','did not accepted chat in time.') . ' ';
+                            $msg->name_support = $userOld->name_support;
+
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_user_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $chat->user_id));
+
+                            $previousMessage = '[' . $chat->user_id . '] ' . $msg->name_support . ' '.  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','did not accepted chat in time.') . ' ';
                             erLhcoreClassChat::updateActiveChats($chat->user_id);
                         }
 
                         $userNew = erLhcoreClassModelUser::fetch($user_id);
+                        $msg->name_support = $userNew->name_support;
 
-                        $msg = new erLhcoreClassModelmsg();
-                        $msg->msg = $previousMessage . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat was assigned to') . ' ' . $userNew->name_support;
-                        $msg->chat_id = $chat->id;
-                        $msg->user_id = -1;
-                        $msg->time = time();
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_user_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $user_id));
+
+                        $msg->msg = $previousMessage . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat was assigned to') . ' [' . $userNew->id .'] ' . $msg->name_support;
+
                         erLhcoreClassChat::getSession()->save($msg);
 
-
-                        $chat->last_msg_id = $msg->id;
+                        // Set owner to a new user
                         $chat->tslasign = time();
                         $chat->user_id = $user_id;
+                        $chat->last_msg_id = $msg->id;
                         $chat->updateThis(array('update' => array('last_msg_id','tslasign','user_id')));
 
                         erLhcoreClassUserDep::updateLastAcceptedByUser($user_id, time());
