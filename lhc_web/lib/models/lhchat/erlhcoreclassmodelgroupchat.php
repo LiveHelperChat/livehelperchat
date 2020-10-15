@@ -25,6 +25,7 @@ class erLhcoreClassModelGroupChat
             'last_user_msg_time' => $this->last_user_msg_time,
             'last_msg_id' => $this->last_msg_id,
             'type' => $this->type,
+            'chat_id' => $this->chat_id,
             'tm' => $this->tm,
         );
     }
@@ -126,6 +127,7 @@ class erLhcoreClassModelGroupChat
     public $last_msg = '';
     public $last_user_msg_time = 0;
     public $last_msg_id = 0;
+    public $chat_id = 0;
     public $tm = 0;
     public $type = self::PUBLIC_CHAT;
 }

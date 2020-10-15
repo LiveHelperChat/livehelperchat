@@ -23,6 +23,8 @@ class erLhcoreClassModelChatBlockedUser
             'chat_id' => $this->chat_id,
             'dep_id' => $this->dep_id,
             'nick' => $this->nick,
+            'btype' => $this->btype,
+            'expires' => $this->expires,
         );
     }
 
@@ -64,6 +66,8 @@ class erLhcoreClassModelChatBlockedUser
     public $chat_id = 0;
     public $dep_id = 0;
     public $nick = '';
+    public $btype = 0;
+    public $expires = 0;
 }
 
 ?>

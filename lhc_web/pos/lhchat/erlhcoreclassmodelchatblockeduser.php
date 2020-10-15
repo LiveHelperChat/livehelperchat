@@ -39,6 +39,16 @@ $def->properties['nick']->columnName   = 'nick';
 $def->properties['nick']->propertyName = 'nick';
 $def->properties['nick']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['btype'] = new ezcPersistentObjectProperty();
+$def->properties['btype']->columnName   = 'btype';
+$def->properties['btype']->propertyName = 'btype';
+$def->properties['btype']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['expires'] = new ezcPersistentObjectProperty();
+$def->properties['expires']->columnName   = 'expires';
+$def->properties['expires']->propertyName = 'expires';
+$def->properties['expires']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def; 
 
 ?>

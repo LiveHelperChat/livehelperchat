@@ -16,7 +16,7 @@ if (erLhcoreClassModelChatConfig::fetchCache('list_online_operators')->current_v
 }
 
 // Update last visit
-$currentUser->updateLastVisit();
+$currentUser->updateLastVisit((int)$Params['user_parameters_unordered']['lda']);
 
 // We do not need a session anymore
 session_write_close();
