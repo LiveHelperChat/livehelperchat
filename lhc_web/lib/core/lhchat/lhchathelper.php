@@ -237,13 +237,14 @@ class erLhcoreClassChatHelper
                 $msg->user_id = -1;
                 $chat->last_user_msg_time = $msg->time = time();
                 $msg->name_support = $userData->name_support;
-                
+
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
 
                 $msg->msg = (string)$msg->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin','has closed the chat!');
 
                 erLhcoreClassChat::getSession()->save($msg);
-        
+
+                $chat->last_msg_id = $msg->id;
                 $chat->updateThis();
         
                 // Execute callback for close chat
