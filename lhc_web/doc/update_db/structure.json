@@ -4429,6 +4429,22 @@
         "extra": ""
       },
       {
+        "field": "btype",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "expires",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
         "field": "nick",
         "type": "varchar(50)",
         "null": "NO",
