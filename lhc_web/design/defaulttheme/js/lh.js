@@ -231,11 +231,11 @@ function lh(){
                 content:function(){return '<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>quote</a>'; }
             }
 
-            ee.emitEvent('quoteActionRight', [quoteParams,e.data.chat_id]);
+            var msgId = $(this).attr('id').replace('msg-','');
+
+            ee.emitEvent('quoteActionRight', [quoteParams, e.data.chat_id, msgId]);
 
             $(this).popover(quoteParams).popover('show');
-
-            var msgId = $(this).attr('id').replace('msg-','');
 
             $('#copy-popover-'+e.data.chat_id).click(function(){
                 $.getJSON(e.data.that.wwwDir + 'chat/quotemessage/'+msgId, function(data){
