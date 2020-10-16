@@ -80,8 +80,6 @@ if ($currentUser->isLogged() && isset($_POST['chats']))
         }
     }
 
-    erLhcoreClassLog::write(print_r($arrayReturn,true));
-
     echo json_encode(array("error" => false,'result' => $arrayReturn));
 } else {
     echo json_encode(array("error" => true));
