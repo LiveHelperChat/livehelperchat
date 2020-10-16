@@ -931,7 +931,7 @@ class erLhcoreClassChatValidator {
                         }
 
                         if ($jsVar->inv == 1) {
-                            if (isset($chatVariablesDataArray[$jsVar->var_identifier]) || $chatVariablesDataArray[$jsVar->var_identifier] != $val) {
+                            if (!isset($chatVariablesDataArray[$jsVar->var_identifier]) || $chatVariablesDataArray[$jsVar->var_identifier] != $val) {
 
                                 if ($jsVar->change_message != '') {
                                     $messagesSave[] = str_replace(['{old_val}','{new_val}'],[(isset($chatVariablesDataArray[$jsVar->var_identifier]) ? $chatVariablesDataArray[$jsVar->var_identifier] : '...'), $val],$jsVar->change_message);

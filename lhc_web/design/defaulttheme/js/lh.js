@@ -215,8 +215,63 @@ function lh(){
     this.popoverShownNow = false
     this.selection = null;
 
-    this.mouseClicked = function (e) {
+    this.mouseContextMenu = function(e) {
 
+        if (e.which == 3 && typeof $(this).attr('id') !== 'undefined') {
+
+            $('.popover-copy').popover('dispose');
+
+            var quoteParams = {
+                placement:'top',
+                trigger:'manual',
+                animation:false,
+                html:true,
+                container:'#chat-id-'+e.data.chat_id,
+                template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>',
+                content:function(){return '<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>quote</a>'; }
+            }
+
+            ee.emitEvent('quoteActionRight', [quoteParams,e.data.chat_id]);
+
+            $(this).popover(quoteParams).popover('show');
+
+            var msgId = $(this).attr('id').replace('msg-','');
+
+            $('#copy-popover-'+e.data.chat_id).click(function(){
+                $.getJSON(e.data.that.wwwDir + 'chat/quotemessage/'+msgId, function(data){
+                    data.msg && e.data.that.insertTextToMessageArea(e.data.chat_id, data.msg);
+                    $('.popover-copy').popover('dispose');
+                    e.data.that.popoverShown = false;
+                    e.data.that.popoverShownNow = false;
+                });
+            });
+
+            $(this).addClass('popover-copy');
+
+            e.data.that.popoverShown = true;
+            e.data.that.popoverShownNow = false;
+
+            return false;
+        }
+    }
+
+    this.insertTextToMessageArea = function (chat_id, msg) {
+        var textArea = $('#CSChatMessage-'+chat_id);
+        var textAreaVal = textArea.val().replace(/^\s*\n/g, "");
+        textArea.val((textAreaVal != '' ? textAreaVal + '[quote]' + msg + '[/quote]' : '[quote]'+msg+'[/quote]')+"\n").focus();
+
+        var ta = textArea[0];
+        var maxrows = 30;
+        var lh = ta.clientHeight / ta.rows;
+        while (ta.scrollHeight > ta.clientHeight && !window.opera && ta.rows < maxrows) {
+            ta.style.overflow = 'hidden';
+            ta.rows += 1;
+        }
+
+        if (ta.scrollHeight > ta.clientHeight) ta.style.overflow = 'auto';
+    }
+
+    this.mouseClicked = function (e) {
         selected = e.data.that.getSelectedText();
 
         $('.popover-copy').popover('dispose');
@@ -255,7 +310,10 @@ function lh(){
     {
         this.popoverShown = false;
         $('#messagesBlock-'+chat_id+' .message-row').off('mouseup',lhinst.mouseClicked);
+        $('#messagesBlock-'+chat_id+' .message-row').off('contextmenu',lhinst.mouseContextMenu);
+
         $('#messagesBlock-'+chat_id+' .message-row').on('mouseup',{chat_id:chat_id, that : this}, lhinst.mouseClicked);
+        $('#messagesBlock-'+chat_id+' .message-row').on('contextmenu', {chat_id:chat_id, that : this}, lhinst.mouseContextMenu);
     }
 
     this.getSelectedTextPlain = function() {
@@ -271,27 +329,10 @@ function lh(){
 
     this.quateSelection = function (chat_id) {
         $('.popover-copy').popover('dispose');
-
         var textToPaste = this.getSelectedTextPlain();
-
         window.textreplace = textToPaste;
-
-        var textArea = $('#CSChatMessage-'+chat_id);
-        var textAreaVal = textArea.val().replace(/^\s*\n/g, "");
-
-        textArea.val((textAreaVal != '' ? textAreaVal + '[quote]' + textToPaste + '[/quote]' : '[quote]'+textToPaste+'[/quote]')+"\n").focus();
-
-        var ta = textArea[0];
-        var maxrows = 30;
-        var lh = ta.clientHeight / ta.rows;
-        while (ta.scrollHeight > ta.clientHeight && !window.opera && ta.rows < maxrows) {
-            ta.style.overflow = 'hidden';
-            ta.rows += 1;
-        }
-        if (ta.scrollHeight > ta.clientHeight) ta.style.overflow = 'auto';
-
+        this.insertTextToMessageArea(chat_id, textToPaste);
         this.popoverShown = false;
-
     };
 
     this.hidePopover = function () {

@@ -94,6 +94,12 @@ $ViewList['editprevious'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['quotemessage'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['updatemsg'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),
