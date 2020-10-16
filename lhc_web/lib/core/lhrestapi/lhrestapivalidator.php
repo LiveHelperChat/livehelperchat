@@ -812,13 +812,13 @@ class erLhcoreClassRestAPIHandler
      *
      * @param array $data            
      */
-    public static function outputResponse($data, $format = null)
+    public static function outputResponse($data, $format = null, $options = 0)
     {
         if ((isset($_GET['format']) && $_GET['format'] == 'xml') || $format === 'xml') {
            echo self::formatXML(json_decode(json_encode($data),true));
         } else {
         
-            $json = json_encode($data);
+            $json = json_encode($data, $options);
             
             if (isset($_GET['callback'])) {
                 echo $_GET['callback'] . '(' . $json . ')';

@@ -191,7 +191,8 @@ $Result['content'] = $tpl->fetch();
 if ($leaveamessage === false && $online === false){
     $Result['pagelayout'] = 'userchat';
 } else {
-    if (isset( $Result['theme']) && is_object($Result['theme'])) {
+    if (isset($Result['theme']) && is_object($Result['theme'])) {
+        $Result['theme_obj'] = $Result['theme'];
         $Result['theme'] = $Result['theme']->id;
     }
     $Result['pagelayout'] = 'userchat2';

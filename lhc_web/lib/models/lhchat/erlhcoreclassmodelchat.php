@@ -596,22 +596,8 @@ class erLhcoreClassModelChat {
                $instance->ip = $parts[0] . '.' . $parts[1] . '.xxx.xxx';
            }
        }
-
    }
 
-   public function blockUser() {
-       if (erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('ip' => $this->ip))) == 0)
-       {
-           $block = new erLhcoreClassModelChatBlockedUser();
-           $block->ip = $this->ip;
-           $block->user_id = erLhcoreClassUser::instance()->getUserID();
-           $block->chat_id = $this->id;
-           $block->dep_id = $this->dep_id;
-           $block->nick = $this->nick;
-           $block->saveThis();
-       }
-   }
-   
    const STATUS_PENDING_CHAT = 0;
    const STATUS_ACTIVE_CHAT = 1;
    const STATUS_CLOSED_CHAT = 2;

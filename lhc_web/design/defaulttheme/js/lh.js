@@ -1504,14 +1504,6 @@ function lh(){
         return false;
 	};
 
-	this.blockUser = function(chat_id,msg) {
-		if (typeof msg === 'undefined' || confirm(msg)) {
-			$.postJSON(this.wwwDir + 'chat/blockuser/' + chat_id,{}, function(data){
-				alert(data.msg);
-			});
-		}
-	};
-
 	this.switchLang = function(form,lang){
 		var languageAppend = '<input type="hidden" value="'+lang+'" name="switchLang" />';
 		form.append(languageAppend);

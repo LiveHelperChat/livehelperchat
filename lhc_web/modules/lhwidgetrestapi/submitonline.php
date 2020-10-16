@@ -82,13 +82,13 @@ if (empty($Errors)) {
     if (!isset($restAPI['ignore_geo']) || $restAPI['ignore_geo'] === false) {
         $statusGeoAdjustment = erLhcoreClassChat::getAdjustment(erLhcoreClassModelChatConfig::fetch('geoadjustment_data')->data_value, $inputData->vid);
 
-        if ($statusGeoAdjustment['status'] == 'hidden') { // This should never happen
+        if ($statusGeoAdjustment['status'] == 'hidden') {
             $outputResponse = array (
                 'success' => false,
-                'errors' => 'Chat not available in your country'
+                'errors' => ['Chat not available in your country']
             );
 
-            erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
+            erLhcoreClassRestAPIHandler::outputResponse($outputResponse, 'json', JSON_FORCE_OBJECT);
             exit;
         }
     }
@@ -403,6 +403,7 @@ if (empty($Errors)) {
     );
 
 } else {
+    $optionsJson = JSON_FORCE_OBJECT;
     $outputResponse = array (
         'success' => false,
         'errors' => $Errors
@@ -410,7 +411,7 @@ if (empty($Errors)) {
 }
 
 if (!isset($restAPI)) {
-    erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
+    erLhcoreClassRestAPIHandler::outputResponse($outputResponse, 'json', isset($optionsJson) ? $optionsJson : 0);
 
     if ($validStart === true) {
 

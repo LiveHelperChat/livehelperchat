@@ -254,10 +254,6 @@ class erLhcoreClassChatValidator {
 
         $Errors = array();
 
-        if (erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('ip' => erLhcoreClassIPDetect::getIP()))) > 0) {
-            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
-        }
-        
         /**
          * IP Ranges block
          * */
@@ -804,6 +800,10 @@ class erLhcoreClassChatValidator {
 
         if ($priority !== false && $priority > $chat->priority) {
             $chat->priority = $priority;
+        }
+
+        if (erLhcoreClassModelChatBlockedUser::isBlocked(array('ip' => $chat->ip, 'dep_id' => $chat->dep_id, 'nick' => $chat->nick))) {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
         }
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_start_chat',array('errors' => & $Errors, 'input_form' => & $inputForm, 'start_data_fields' => & $start_data_fields, 'chat' => & $chat,'additional_params' => & $additionalParams));
