@@ -9,7 +9,7 @@
         <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Individual departments')?></h4>
 
             <div class="row" style="max-height: 600px;overflow: auto">
-        	<?php foreach (erLhcoreClassModelDepartament::getList(array('filter' => array('archive' => 0))) as $departament) : ?>
+        	<?php foreach (erLhcoreClassModelDepartament::getList(array('limit' => false, 'filter' => array('archive' => 0))) as $departament) : ?>
                 <div class="col-6">
                     <label class="font-weight-bold"><?php echo htmlspecialchars($departament->name)?></label><br>
                     <label><input onchange="$('#dep-ro-<?php echo $departament->id?>').prop('checked', false);" id="dep-full-<?php echo $departament->id?>" type="checkbox" name="UserDepartament[]" value="<?php echo $departament->id?>" <?php echo in_array($departament->id,$userDepartaments) ? 'checked="checked"' : '';?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assign as operator')?></label><br>
@@ -18,7 +18,7 @@
         	<?php endforeach; ?>
             </div>
 
-            <?php $departments = erLhcoreClassModelDepartament::getList(array('filter' => array('archive' => 1))); ?>
+            <?php $departments = erLhcoreClassModelDepartament::getList(array('limit' => false, 'filter' => array('archive' => 1))); ?>
             <?php if (!empty($departments)) : ?>
             <hr>
             <button type="button" onclick="$('#offline-departments').toggle();" class="btn btn-outline-secondary btn-sm mb-2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Show archived departments')?></button>
