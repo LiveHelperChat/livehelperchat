@@ -156,6 +156,9 @@ class erLhcoreClassDepartament{
                 'bot_foh' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
                 ),
+                'archive' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+                ),
                 'auto_delay_timeout' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
                 ),
@@ -400,6 +403,12 @@ class erLhcoreClassDepartament{
 	   		$department->inform_unread = 1;
 	   	} else {
 	   		$department->inform_unread = 0;
+	   	}
+	   	
+	   	if ( $form->hasValidData( 'archive' ) && $form->archive === true ) {
+	   		$department->archive = 1;
+	   	} else {
+	   		$department->archive = 0;
 	   	}
 	   	
 	   	if ( $form->hasValidData( 'VisibleIfOnline' ) && $form->VisibleIfOnline === true ) {
