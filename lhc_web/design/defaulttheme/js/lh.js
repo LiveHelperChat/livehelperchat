@@ -2781,6 +2781,7 @@ function lh(){
     	$.getJSON(this.wwwDir + 'chat/getmessageadmin/' + chat_id + '/' + msgid, function(data) {
     		if (data.error == 'f') {
     			$('#msg-'+msgid).replaceWith(data.msg);
+                lhinst.addQuateHandler(chat_id);
     			$('#msg-'+msgid).addClass('bg-success');
     			setTimeout(function(){
     				$('#msg-'+msgid).removeClass('bg-success');
