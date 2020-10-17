@@ -13,7 +13,11 @@ if (is_numeric($Params['user_parameters_unordered']['remove_block'])) {
     	}
 
         $block = erLhcoreClassModelChatBlockedUser::fetch($Params['user_parameters_unordered']['remove_block']);
-        $block->removeThis();
+
+    	if ($block instanceof erLhcoreClassModelChatBlockedUser){
+            $block->removeThis();
+        }
+
     } catch (Exception $e) {
         // Do nothing
     }

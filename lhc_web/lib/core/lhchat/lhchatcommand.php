@@ -461,15 +461,8 @@ class erLhcoreClassChatCommand
 
     public static function blockUser($params)
     {
-        if (isset($params['no_ui_update'])) {
-            $params['chat']->blockUser();
-        } else {
-            
-            // Schedule interface update
-            $params['chat']->operation_admin .= "lhinst.blockUser('{$params['chat']->id}');";
-            $params['chat']->updateThis(array('update' => array('operation_admin')));
-        }
-        
+        erLhcoreClassModelChatBlockedUser::blockChat(array('chat' => $params['chat']));
+
         return array(
             'processed' => true,
             'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'User was blocked!')

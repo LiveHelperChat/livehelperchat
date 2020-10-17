@@ -221,32 +221,52 @@ function lh(){
 
             $('.popover-copy').popover('dispose');
 
+            var selected = e.data.that.getSelectedText();
+            var hasSelection = false;
+            if (selected.text.length && (e.data.that.selection === null || e.data.that.selection.text !== selected.text)) {
+                hasSelection = true;
+                e.data.that.selection = selected;
+            }
+
+            var msgId = $(this).attr('id').replace('msg-','');
+
             var quoteParams = {
-                placement:'top',
+                placement:'right',
                 trigger:'manual',
                 animation:false,
                 html:true,
                 container:'#chat-id-'+e.data.chat_id,
                 template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>',
-                content:function(){return '<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>quote</a>'; }
+                content:function(){
+                    return '<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>Quote</a>'+(hasSelection ? '<br/><a href="#" id="copy-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>Copy (Ctrl+C)</a>' : '');
+                }
             }
-
-            var msgId = $(this).attr('id').replace('msg-','');
 
             ee.emitEvent('quoteActionRight', [quoteParams, e.data.chat_id, msgId]);
 
-            $(this).popover(quoteParams).popover('show');
+            $('#msg-'+msgId+' > .msg-body').popover(quoteParams).popover('show').addClass('popover-copy');
 
-            $('#copy-popover-'+e.data.chat_id).click(function(){
+            $('#copy-popover-'+e.data.chat_id).click(function(event){
+                event.stopPropagation();
+                event.preventDefault();
                 $.getJSON(e.data.that.wwwDir + 'chat/quotemessage/'+msgId, function(data){
                     data.msg && e.data.that.insertTextToMessageArea(e.data.chat_id, data.msg);
-                    $('.popover-copy').popover('dispose');
-                    e.data.that.popoverShown = false;
-                    e.data.that.popoverShownNow = false;
+                    e.data.that.hidePopover();
                 });
             });
 
-            $(this).addClass('popover-copy');
+            hasSelection && $('#copy-text-popover-'+e.data.chat_id).click(function(event){
+                event.stopPropagation();
+                event.preventDefault();
+                var textToCopy = e.data.that.getSelectedTextPlain();
+                var txtdom = $('#CSChatMessage-'+e.data.chat_id);
+                var originalAreaText = txtdom.val();
+                txtdom.val(textToCopy);
+                txtdom.select();
+                document.execCommand("copy");
+                txtdom.val(originalAreaText);
+                e.data.that.hidePopover();
+            });
 
             e.data.that.popoverShown = true;
             e.data.that.popoverShownNow = false;
@@ -281,24 +301,26 @@ function lh(){
             e.data.that.selection = selected;
 
             var quoteParams = {
-                placement:'top',
+                placement:'right',
                 trigger:'manual',
                 animation:false,
                 html:true,
                 container:'#chat-id-'+e.data.chat_id,
                 template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>',
-                content:function(){return '<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>quote</a>'; }
+                content:function(){return '<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>Quote</a>'; }
             }
 
             ee.emitEvent('quoteAction', [quoteParams,e.data.chat_id]);
 
-            $(this).popover(quoteParams).popover('show');
+            var placement = typeof $(this).attr('id') !== 'undefined' ? '#msg-'+$(this).attr('id').replace('msg-','')+' > .msg-body' : this;
+
+            $(placement).popover(quoteParams).popover('show').addClass('popover-copy');
 
             $('#copy-popover-'+e.data.chat_id).click(function(){
                 lhinst.quateSelection(e.data.chat_id);
             });
 
-            $(this).addClass('popover-copy');
+
             e.data.that.popoverShown = true;
             e.data.that.popoverShownNow = true;
         } else {
@@ -598,9 +620,10 @@ function lh(){
             if (data.error) {
                 alert(data.error);
             } else if (data.replace_id && data.html) {
-                $(data.replace_id).html(data.html);
                 var messagesBlock = $('#messagesBlock-' + data.chat_id);
-                messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
+                var needScroll = (messagesBlock.prop('scrollTop') + messagesBlock.height() + 30) > messagesBlock.prop('scrollHeight');
+                $(data.replace_id).html(data.html);
+                needScroll && messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
             }
         });
     }
@@ -1502,14 +1525,6 @@ function lh(){
 
 	    this.syncadmininterfacestatic();
         return false;
-	};
-
-	this.blockUser = function(chat_id,msg) {
-		if (typeof msg === 'undefined' || confirm(msg)) {
-			$.postJSON(this.wwwDir + 'chat/blockuser/' + chat_id,{}, function(data){
-				alert(data.msg);
-			});
-		}
 	};
 
 	this.switchLang = function(form,lang){
@@ -2780,6 +2795,10 @@ function lh(){
     this.updateMessageRowAdmin = function(chat_id, msgid){
     	$.getJSON(this.wwwDir + 'chat/getmessageadmin/' + chat_id + '/' + msgid, function(data) {
     		if (data.error == 'f') {
+
+                var messagesBlock = $('#messagesBlock-' + chat_id);
+                var needScroll = (messagesBlock.prop('scrollTop') + messagesBlock.height() + 30) > messagesBlock.prop('scrollHeight');
+
     			$('#msg-'+msgid).replaceWith(data.msg);
                 lhinst.addQuateHandler(chat_id);
     			$('#msg-'+msgid).addClass('bg-success');
@@ -2787,8 +2806,7 @@ function lh(){
     				$('#msg-'+msgid).removeClass('bg-success');
     			},2000);
 
-    			var messagesBlock = $('#messagesBlock-'+chat_id);
-                messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
+                needScroll && messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
     		}
 		});
     };

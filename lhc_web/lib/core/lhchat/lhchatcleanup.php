@@ -61,6 +61,12 @@ class erLhcoreClassChatCleanup {
             $lastCleanup->value = time();
             $lastCleanup->saveThis();
 
+            // Expire blocks
+            $db = ezcDbInstance::get();
+            $stmt = $db->prepare('DELETE FROM `lh_chat_blocked_user` WHERE `expires` > 0 AND `expires` < :ts');
+            $stmt->bindValue(':ts', time(), PDO::PARAM_INT);
+            $stmt->execute();
+
             $auditOptions = erLhcoreClassModelChatConfig::fetch('audit_configuration');
             $data = (array)$auditOptions->data;
 
