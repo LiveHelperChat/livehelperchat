@@ -84,9 +84,7 @@ export class mainWidget{
         }
     }
 
-    init(attributes, lazyLoad) {
-
-        this.attributes = attributes;
+    makeContent() {
         this.cont.bodyId = 'chat-widget';
 
         this.cont.tmpl = '<div id="root" class="container-fluid d-flex flex-column flex-grow-1 overflow-auto fade-in ' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + (this.attributes.fscreen ? ' lhc-fscreen' : '') + '"></div>';
@@ -99,6 +97,13 @@ export class mainWidget{
             this.originalCSS = this.cont.elmDom.style.cssText;
             this.cont.elmDom.style.cssText += this.attributes.cont_ss;
         }
+    }
+
+    init(attributes, lazyLoad) {
+
+        this.attributes = attributes;
+
+        this.makeContent();
 
         const chatParams = this.attributes['userSession'].getSessionAttributes();
 
@@ -117,6 +122,12 @@ export class mainWidget{
         };
 
         attributes.widgetDimesions.subscribe(this.monitorDimensionsWrap);
+
+        attributes.eventEmitter.addListener('reloadWidget',() => {
+            this.isLoaded = false;
+            this.makeContent();
+        });
+
     }
 
     bootstrap() {
