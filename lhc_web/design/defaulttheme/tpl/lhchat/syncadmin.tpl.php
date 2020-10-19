@@ -25,7 +25,7 @@
 
 
         // We skip render only if message is empty and it's not one of the supported admin meta messages
-        if ($msg['msg'] == '' && (!isset($metaMessageData['content']['text_conditional']))) {
+        if ($msg['msg'] == '' && (!isset($metaMessageData['content']['text_conditional'])) && (!isset($metaMessageData['content']['html']['content']))) {
             continue;
         }
 
