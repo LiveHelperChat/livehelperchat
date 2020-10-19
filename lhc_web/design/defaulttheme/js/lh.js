@@ -521,6 +521,50 @@ function lh(){
         });
 	},
 
+    this.copyContent = function(inst){
+
+        var textArea = document.createElement("textarea");
+        textArea.value = inst.attr('data-copy');
+
+        // Avoid scrolling to bottom
+        textArea.style.top = "0";
+        textArea.style.left = "0";
+        textArea.style.position = "fixed";
+
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        try {
+            var successful = document.execCommand('copy');
+        } catch (err) {
+            alert('Oops, unable to copy');
+        }
+
+        document.body.removeChild(textArea);
+
+        inst.tooltip({
+            trigger: 'click',
+            placement: 'top'
+        });
+
+        function setTooltip(message) {
+            inst.tooltip('hide')
+                .attr('data-original-title', message)
+                .tooltip('show');
+        }
+
+        function hideTooltip() {
+            setTimeout(function() {
+                inst.tooltip('hide');
+            }, 1000);
+        }
+
+        setTooltip(inst.attr('data-success'));
+        hideTooltip();
+
+    },
+
 	this.copyMessages = function(inst) {
 
         $('#chat-copy-messages').select();

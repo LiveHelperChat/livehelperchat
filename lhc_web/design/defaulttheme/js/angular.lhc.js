@@ -1158,6 +1158,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
         }
     }
 
+    this.startChatByID = function(chat_id){
+	    if (!isNaN(chat_id)){
+            this.startChat(parseInt(chat_id),parseInt(chat_id));
+        }
+    }
+
 	this.startChat = function (chat_id,name) {	
 		if ($('#tabs').length > 0){
 			return lhinst.startChat(chat_id,$('#tabs'),LiveHelperChatFactory.truncate(name,10));	
@@ -1387,6 +1393,18 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		var openedChats = this.getOpenedChatIds('achat_id');
 		var openedgChats = this.getOpenedChatIds('gachat_id');
 
+        var chat_id = 0;
+        var hash = window.location.hash;
+        if (hash != '') {
+            var matchData = hash.match(/\d+$/);
+            if (matchData !== null && matchData[0]) {
+                chat_id = parseInt(matchData[0]);
+                if (openedChats.indexOf(chat_id) === -1){
+                    openedChats.push(chat_id);
+                }
+            }
+        }
+
 		if ($('#tabs').length > 0 && lhinst.disableremember == false && openedChats.length > 0) {
             appendURL = '/(chatopen)/' + openedChats.join('/');
 		}
@@ -1419,15 +1437,6 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				_that.timeoutActivityTime = data.timeout_activity;
 				_that.setupActivityMonitoring();
 			}
-
-			var chat_id = 0;
-            var hash = window.location.hash;
-            if (hash != '') {
-                var matchData = hash.match(/\d+$/);
-                if (matchData !== null && matchData[0]) {
-                    chat_id = parseInt(matchData[0]);
-                }
-            }
 
             angular.forEach(data.copen, function(chatOpen) {
                 lhinst.startChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate(chatOpen.nick,10), (chatOpen.id == chat_id), 0, chatOpen.status);
