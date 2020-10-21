@@ -4,6 +4,7 @@
  * */
 $chatTabsOrder = array(
     'information_tab_tab',
+    'private_chat_tab',
     'chat_translation_tab',
     'operator_remarks_tab',
     'information_tab_user_files_tab',

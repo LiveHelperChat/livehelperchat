@@ -115,8 +115,27 @@ class erLhcoreClassModelGroupChat
         }
     }
 
+    public static function deleteByChatId($chatId) {
+        $groupChat = self::findOne(array('filter' => array('chat_id' => $chatId)));
+
+        if ($groupChat instanceof erLhcoreClassModelGroupChat) {
+            $groupChat->removeThis();
+        }
+    }
+
+    public static function closeByChatId($chatId) {
+        $groupChat = self::findOne(array('filter' => array('chat_id' => $chatId)));
+        if ($groupChat instanceof erLhcoreClassModelGroupChat) {
+            // There is no real messages. We can delete this chat.
+            if (erLhcoreClassModelGroupMsg::getCount(array('filter' => array('chat_id' => $groupChat->id), 'filtergt' => array('user_id' => 0))) == 0) {
+                $groupChat->removeThis();
+            }
+        }
+    }
+
     const PUBLIC_CHAT = 0;
     const PRIVATE_CHAT = 1;
+    const SUPPORT_CHAT = 2;
 
     public $id = null;
     public $name = '';

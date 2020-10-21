@@ -33,7 +33,7 @@ class erLhcoreClassGroupChat {
         return $Errors;
     }
 
-    public static function inviteOperator($groupId, $userId) {
+    public static function inviteOperator($groupId, $userId, $type = 0) {
 
         $member = erLhcoreClassModelGroupChatMember::findOne(array('filter' => array('group_id' => $groupId, 'user_id' => $userId)));
 
@@ -43,6 +43,7 @@ class erLhcoreClassGroupChat {
             $newMember->group_id = $groupId;
             $newMember->last_activity = 0;
             $newMember->jtime = 0;
+            $newMember->type = $type;
             $newMember->saveThis();
         }
     }

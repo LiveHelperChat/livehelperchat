@@ -134,6 +134,9 @@ class erLhcoreClassChatHelper
         $q->deleteFrom( 'lh_generic_bot_pending_event' )->where( $q->expr->eq( 'chat_id', $chatId ) );
         $stmt = $q->prepare();
         $stmt->execute();
+
+        // Close by support chat
+        erLhcoreClassModelGroupChat::closeByChatId($chatId);
     }
 
     public static function closeChat($params)

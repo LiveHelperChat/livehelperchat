@@ -302,6 +302,11 @@ return array_merge(array (
         'erLhcoreClassModelGroupMsg'                => 'lib/models/lhchat/erlhcoreclassmodelgroupmsg.php',
         'erLhcoreClassModelGroupChatMember'         => 'lib/models/lhchat/erlhcoreclassmodelgroupchatmember.php',
 
+        // Group chat archive tables
+        'erLhcoreClassModelGroupChatArchive' 		=> 'lib/models/lhchat/erlhcoreclassmodelgroupchatarchive.php',
+        'erLhcoreClassModelGroupChatMemberArchive' 	=> 'lib/models/lhchat/erlhcoreclassmodelgroupchatmemberarchive.php',
+        'erLhcoreClassModelGroupMsgArchive' 		=> 'lib/models/lhchat/erlhcoreclassmodelgroupmsgarchive.php',
+
         // Notifications
         'erLhcoreClassNotifications'                => 'lib/core/lhnotifications/lhnotifications.php',
         'erLhcoreClassModelNotificationSubscriber'  => 'lib/models/lhnotifications/erlhcoreclassmodelnotificationsubscriber.php',

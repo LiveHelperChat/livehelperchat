@@ -8,14 +8,21 @@ class _groupChatSync {
         this.chatsSynchroMsg = [];
         this.timeoutSync = null;
         this.syncInProgress = false;
+        this.fetchStatus = false;
+    }
+
+    setFetchStatus(status) {
+        this.fetchStatus = status;
     }
 
     sync() {
-        if (this.syncInProgress == true) return;
+        if (this.syncInProgress == true) {return;}
 
         this.syncInProgress = true;
 
-        axios.post(WWW_DIR_JAVASCRIPT  + "groupchat/sync/", this.chatsSynchroMsg).then(result => {
+        axios.post(WWW_DIR_JAVASCRIPT  + "groupchat/sync" + (this.fetchStatus == true ? '/(opt)/status' : ''), this.chatsSynchroMsg).then(result => {
+
+            this.fetchStatus = false;
 
             let groupedData = [];
 
@@ -71,10 +78,12 @@ class _groupChatSync {
 
     removeSubscriber(chatId, cb) {
         var index = this.chatsSynchro.indexOf(parseInt(chatId));
-        this.chatsSynchro.splice(index, 1);
-        this.chatsSynchroMsg.splice(index, 1);
-        this.eventEmitter.removeListener('gchat_'+chatId, cb);
-        this.startSync();
+        if (index !== -1) {
+            this.chatsSynchro.splice(index, 1);
+            this.chatsSynchroMsg.splice(index, 1);
+            this.eventEmitter.removeListener('gchat_'+chatId, cb);
+            this.startSync();
+        }
     }
 };
 

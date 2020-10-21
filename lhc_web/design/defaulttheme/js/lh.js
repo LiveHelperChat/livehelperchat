@@ -182,6 +182,8 @@ function lh(){
                         el.show();
                     } else if(dataElement.action == 'remove') {
                         el.remove();
+                    } else if(dataElement.action == 'event') {
+                        ee.emitEvent(dataElement.event_name, dataElement.event_value);
                     } else if(dataElement.action == 'click') {
                         el.attr('auto-scroll',1);
                         el.click();
@@ -698,11 +700,16 @@ function lh(){
 
     this.backgroundChats = [];
     
-    this.startChatBackground = function (chat_id,tabs,name) {
+    this.startChatBackground = function (chat_id,tabs,name,backgroundType) {
     	if ( this.chatUnderSynchronization(chat_id) == false ) {  
     		this.backgroundChats.push(parseInt(chat_id));
 	    	var rememberAppend = this.disableremember == false ? '/(remember)/true' : '';
-	    	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend+'/(arg)/background', name, chat_id, false); 
+
+	    	if (!backgroundType) {
+                backgroundType = 'background';
+            }
+
+	    	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend+'/(arg)/'+backgroundType, name, chat_id, false);
 	    	ee.emitEvent('chatStartBackground', [chat_id]);	
 	    	return true;
     	}

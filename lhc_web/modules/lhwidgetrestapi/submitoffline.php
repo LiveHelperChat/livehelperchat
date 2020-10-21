@@ -91,7 +91,7 @@ if (empty($Errors)) {
         'chat' => $chat,
         'prefill' => array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false)));
 
-    erLhcoreClassChatValidator::saveOfflineRequest(array('chat' => & $chat, 'question' => $inputData->question));
+    erLhcoreClassChatValidator::saveOfflineRequest(array('chat' => & $chat, 'question' => (isset($inputData->question) ? $inputData->question : '')));
 
     $outputResponse = array (
         'success' => true

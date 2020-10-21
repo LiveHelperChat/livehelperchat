@@ -187,7 +187,9 @@ class erLhcoreClassModelChat {
        $q->deleteFrom( 'lh_generic_bot_pending_event' )->where( $q->expr->eq( 'chat_id', $this->id ) );
        $stmt = $q->prepare();
        $stmt->execute();
-       
+
+       erLhcoreClassModelGroupChat::deleteByChatId($this->id);
+
        erLhcoreClassModelChatFile::deleteByChatId($this->id);
    }
 
