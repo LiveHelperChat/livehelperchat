@@ -1645,13 +1645,19 @@ class erLhcoreClassChatValidator {
         if (!isset($data['do_not_save_offline']) || $data['do_not_save_offline'] == 0)
         {
             // Save as offline request
-            $params['chat']->time = $params['chat']->pnd_time = time();
-            $params['chat']->lsync = time();
-            $params['chat']->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
+            if (isset($params['chatprefill']) && $params['chatprefill'] instanceof erLhcoreClassModelChat) {
+                // We do not want to store offline request as a new chat.
+                $params['chat'] = $params['chatprefill'];
+            }  else {
+                $params['chat']->time = $params['chat']->pnd_time = time();
+                $params['chat']->lsync = time();
+                $params['chat']->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
+                $params['chat']->hash = erLhcoreClassChat::generateHash();
+                $params['chat']->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
+                $params['chat']->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
+            }
+
             $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST;
-            $params['chat']->hash = erLhcoreClassChat::generateHash();
-            $params['chat']->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
-            $params['chat']->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
 
             if ( empty($params['chat']->nick) ) {
                 $params['chat']->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
