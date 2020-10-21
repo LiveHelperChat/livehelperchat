@@ -1,4 +1,4 @@
-<h1 class="attr-header">Group chat options</h1>
+<h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Group chat options');?></h1>
 
 <form action="" method="post">
 
@@ -9,7 +9,7 @@
     <?php endif; ?>
 
     <div class="form-group">
-        <label>User group</label>
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','User group')?></label>
         <?php
             $params = array (
                 'input_name'     => 'supervisor',
@@ -22,7 +22,7 @@
             $params['optional_field'] = erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Not presented');
             echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
         </div>
-        <p>Operator in chat will see automatically members from this group to be invited into private support chat within chat.</p>
+        <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Operator in chat will see automatically members from this group to be invited into private support chat within chat.');?></p>
 
     <input type="submit" class="btn btn-secondary" name="StoreOptions" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 
