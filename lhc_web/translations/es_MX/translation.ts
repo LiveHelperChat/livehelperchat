@@ -18,6 +18,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por cuantos días el widget de votación no será expandido después de mostrarlo la última vez</translation>
     </message>
@@ -662,6 +670,10 @@
       <translation>Estilo de mensajes de asesor</translation>
     </message>
     <message>
+      <source>Override embed code settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Build your own need help widget layout</source>
       <translation>Construya su propia plantilla de widget -necesito ayuda-</translation>
     </message>
@@ -900,6 +912,10 @@
     <message>
       <source>If variable is not passed should we keep previously recorded value?</source>
       <translation>If variable is not passed should we keep previously recorded value?</translation>
+    </message>
+    <message>
+      <source>This variable is invisible for operator and will be stored in chat_variables attribute</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invitation message width</source>
@@ -1334,6 +1350,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat is unavailable and offline form is disabled.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
       <translation>No permita que el visitante edite el mensaje anterior presionando la flecha hacia arriba</translation>
     </message>
@@ -1415,6 +1435,10 @@
     </message>
     <message>
       <source>Show operator profile in a new row</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable embed code override</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1659,6 +1683,14 @@
     <message>
       <source>Variable identifier</source>
       <translation>Identificador de variable</translation>
+    </message>
+    <message>
+      <source>Variable changed from [b]{old_val}[/b] to [b]{new_val}[/b]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Log message for for variable. Variables you can use {old_val}, {new_val}</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Variable type</source>
@@ -2058,6 +2090,10 @@
     <message>
       <source>Do not process internal pages and use redirects.</source>
       <translation>No procesar páginas internas y usar redirecciones.</translation>
+    </message>
+    <message>
+      <source>Disable start chat URL</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online form settings</source>
@@ -3435,6 +3471,34 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Bottom right corner of the screen</source>
+      <translation>Esquina inferior derecha de la pantalla</translation>
+    </message>
+    <message>
+      <source>Bottom left corner of the screen</source>
+      <translation>Esquina inferior izquierda de la pantalla</translation>
+    </message>
+    <message>
+      <source>Middle right side of the screen</source>
+      <translation>Lado derecho medio de la pantalla</translation>
+    </message>
+    <message>
+      <source>Middle left side of the screen</source>
+      <translation>Lado izquierdo medio de la pantalla</translation>
+    </message>
+    <message>
+      <source>Full height right</source>
+      <translation>Altura derecha completa</translation>
+    </message>
+    <message>
+      <source>Full height left</source>
+      <translation>Altura izquierda completa</translation>
+    </message>
+    <message>
+      <source>no survey</source>
+      <translation>No hay encuestas</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>Código HTML</translation>
     </message>
@@ -3533,22 +3597,6 @@
     <message>
       <source>Position</source>
       <translation>Posición</translation>
-    </message>
-    <message>
-      <source>Bottom right corner of the screen</source>
-      <translation>Esquina inferior derecha de la pantalla</translation>
-    </message>
-    <message>
-      <source>Bottom left corner of the screen</source>
-      <translation>Esquina inferior izquierda de la pantalla</translation>
-    </message>
-    <message>
-      <source>Middle right side of the screen</source>
-      <translation>Lado derecho medio de la pantalla</translation>
-    </message>
-    <message>
-      <source>Middle left side of the screen</source>
-      <translation>Lado izquierdo medio de la pantalla</translation>
     </message>
     <message>
       <source>Disable responsive layout for status widget.</source>
@@ -3747,14 +3795,6 @@
       <translation>Invisible, solo la API JS será incluida</translation>
     </message>
     <message>
-      <source>Full height right</source>
-      <translation>Altura derecha completa</translation>
-    </message>
-    <message>
-      <source>Full height left</source>
-      <translation>Altura izquierda completa</translation>
-    </message>
-    <message>
       <source>Popup window width</source>
       <translation>Ancho de la ventana emergente</translation>
     </message>
@@ -3789,10 +3829,6 @@
     <message>
       <source>Identifier – enter a unique identifier here. This is useful for separating messages and proactive chat invitations from different domains/web pages. Enter a string without special characters or spaces such as “homepage” or “website1”.</source>
       <translation>Identificador: ingrese un identificador único aquí. Esto es útil para separar mensajes e invitaciones proactivas de chat de diferentes dominios / páginas web. Ingrese una cadena sin caracteres especiales o espacios como &quot;página de inicio&quot; o &quot;sitio web1&quot;.</translation>
-    </message>
-    <message>
-      <source>no survey</source>
-      <translation>No hay encuestas</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
@@ -3831,7 +3867,47 @@
       <translation>Posición del widget</translation>
     </message>
     <message>
+      <source>Widget position placement.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom right</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Middle right</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Middle left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom right, full height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom left, full height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hash arguments. Visitor will not be able to change passed arguments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show a leave a message form when there are no online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget status position from right or left depending on main position. E.g 10 or -10</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget status position from bottom. E.g 10 or -10</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3922,6 +3998,14 @@
     <message>
       <source>User is typing now...</source>
       <translation>El usuario se encuentra escribiendo...</translation>
+    </message>
+    <message>
+      <source>Write</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Preview</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You are not chat owner, type with caution</source>
@@ -4508,6 +4592,10 @@
       <translation>Private</translation>
     </message>
     <message>
+      <source>Event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Monday</source>
       <translation>Lunes</translation>
     </message>
@@ -4558,10 +4646,6 @@
   </context>
   <context>
     <name>chat/startchat</name>
-    <message>
-      <source>Offline</source>
-      <translation>Fuera de línea</translation>
-    </message>
     <message>
       <source>Chat is currently unavailable</source>
       <translation>El chat no está disponible actualmente</translation>
@@ -4693,6 +4777,10 @@
     <message>
       <source>Department</source>
       <translation>Departamento</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation>Fuera de línea</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
@@ -5637,6 +5725,10 @@
     </message>
     <message>
       <source>{nick}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat is currently unavailable. Please try again later.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6981,6 +7073,10 @@
     <message>
       <source>Users actions</source>
       <translation>Acciones de usuarios</translation>
+    </message>
+    <message>
+      <source>Webhooks</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -9283,6 +9379,18 @@
       <translation>Responder pregunta</translation>
     </message>
     <message>
+      <source>Keyword</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No items were found</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Type your question</source>
       <translation>Escriba su pregunta</translation>
     </message>
@@ -9949,6 +10057,10 @@
       <translation>Output parsing</translation>
     </message>
     <message>
+      <source>Conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You can put visitor message as placeholder</source>
       <translation>You can put visitor message as placeholder</translation>
     </message>
@@ -9983,6 +10095,26 @@
     <message>
       <source>Query Params</source>
       <translation>Query Params</translation>
+    </message>
+    <message>
+      <source>Only if these conditions are met we will send Rest API request. Usefull in webhook cases.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add condition</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for presence of variable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text like</source>
+      <translation>Text like</translation>
+    </message>
+    <message>
+      <source>Text not like</source>
+      <translation>Text not like</translation>
     </message>
     <message>
       <source>Request Body</source>
@@ -10099,18 +10231,6 @@
     <message>
       <source>Response comparison</source>
       <translation>Response comparison</translation>
-    </message>
-    <message>
-      <source>Check for presence of variable</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Text like</source>
-      <translation>Text like</translation>
-    </message>
-    <message>
-      <source>Text not like</source>
-      <translation>Text not like</translation>
     </message>
     <message>
       <source>Comparison value</source>
@@ -13327,6 +13447,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Disabled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department is disabled!</source>
       <translation type="unfinished"/>
     </message>
@@ -13609,6 +13733,64 @@
     </message>
     <message>
       <source>Invalid file format</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>webhooks/module</name>
+    <message>
+      <source>Webhooks list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a hook name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Webhooks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>webhooks/new</name>
+    <message>
+      <source>New webhook</source>
       <translation type="unfinished"/>
     </message>
   </context>

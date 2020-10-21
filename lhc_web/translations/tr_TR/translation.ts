@@ -18,6 +18,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Son gösteriminden kaç gün sonra oy kullanma kutucuğu açılmamalı?</translation>
     </message>
@@ -662,6 +670,10 @@
       <translation>Operatör Mesaj Stili</translation>
     </message>
     <message>
+      <source>Override embed code settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Build your own need help widget layout</source>
       <translation>Kendi ihtiyaç duyduğunuz yardım widget düzenini oluşturun</translation>
     </message>
@@ -900,6 +912,10 @@
     <message>
       <source>If variable is not passed should we keep previously recorded value?</source>
       <translation>Eğer değişken geçemezse bir önceki kaydedilmiş değeri saklayalım mı? </translation>
+    </message>
+    <message>
+      <source>This variable is invisible for operator and will be stored in chat_variables attribute</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invitation message width</source>
@@ -1334,6 +1350,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat is unavailable and offline form is disabled.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
       <translation>Kullanıcılara üst ok tuşuna basarak bir önceki mesajı düzenleme izni verilmesin</translation>
     </message>
@@ -1415,6 +1435,10 @@
     </message>
     <message>
       <source>Show operator profile in a new row</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable embed code override</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1659,6 +1683,14 @@
     <message>
       <source>Variable identifier</source>
       <translation>Değişken tanımlama</translation>
+    </message>
+    <message>
+      <source>Variable changed from [b]{old_val}[/b] to [b]{new_val}[/b]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Log message for for variable. Variables you can use {old_val}, {new_val}</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Variable type</source>
@@ -2058,6 +2090,10 @@
     <message>
       <source>Do not process internal pages and use redirects.</source>
       <translation>Dahili sayfaları işlemeyin ve yönlendirmeleri kullanmayın.</translation>
+    </message>
+    <message>
+      <source>Disable start chat URL</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online form settings</source>
@@ -3435,6 +3471,34 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Bottom right corner of the screen</source>
+      <translation>Ekranın sağ alt köşesi</translation>
+    </message>
+    <message>
+      <source>Bottom left corner of the screen</source>
+      <translation>Ekranın sol alt köşesi</translation>
+    </message>
+    <message>
+      <source>Middle right side of the screen</source>
+      <translation>Ekranın sağ orta tarafı</translation>
+    </message>
+    <message>
+      <source>Middle left side of the screen</source>
+      <translation>Ekranın sol orta tarafı</translation>
+    </message>
+    <message>
+      <source>Full height right</source>
+      <translation>Tam yükseklik sağ</translation>
+    </message>
+    <message>
+      <source>Full height left</source>
+      <translation>Tam yükseklik sol</translation>
+    </message>
+    <message>
+      <source>no survey</source>
+      <translation>anket yok</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>HTML kod</translation>
     </message>
@@ -3533,22 +3597,6 @@
     <message>
       <source>Position</source>
       <translation>Pozisyon</translation>
-    </message>
-    <message>
-      <source>Bottom right corner of the screen</source>
-      <translation>Ekranın sağ alt köşesi</translation>
-    </message>
-    <message>
-      <source>Bottom left corner of the screen</source>
-      <translation>Ekranın sol alt köşesi</translation>
-    </message>
-    <message>
-      <source>Middle right side of the screen</source>
-      <translation>Ekranın sağ orta tarafı</translation>
-    </message>
-    <message>
-      <source>Middle left side of the screen</source>
-      <translation>Ekranın sol orta tarafı</translation>
     </message>
     <message>
       <source>Disable responsive layout for status widget.</source>
@@ -3747,14 +3795,6 @@
       <translation>Görünmez, sadece JS API dahil edilecek</translation>
     </message>
     <message>
-      <source>Full height right</source>
-      <translation>Tam yükseklik sağ</translation>
-    </message>
-    <message>
-      <source>Full height left</source>
-      <translation>Tam yükseklik sol</translation>
-    </message>
-    <message>
       <source>Popup window width</source>
       <translation>Açılır pencere genişliği</translation>
     </message>
@@ -3789,10 +3829,6 @@
     <message>
       <source>Identifier – enter a unique identifier here. This is useful for separating messages and proactive chat invitations from different domains/web pages. Enter a string without special characters or spaces such as “homepage” or “website1”.</source>
       <translation>Tanımlayıcı - Buraya benzersiz bir tanımlayıcı girin. Bu, mesajların ayrılması için yararlıdır ve proaktifsohbetfarklı alan adlarından / web sayfalarından davetiyeler. “Ana sayfa” veya “web sitesi1” gibi özel karakterleri veya boşlukları olmayan bir dize girin.</translation>
-    </message>
-    <message>
-      <source>no survey</source>
-      <translation>anket yok</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
@@ -3831,7 +3867,47 @@
       <translation>Widget konumu</translation>
     </message>
     <message>
+      <source>Widget position placement.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom right</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Middle right</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Middle left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom right, full height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom left, full height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hash arguments. Visitor will not be able to change passed arguments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show a leave a message form when there are no online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget status position from right or left depending on main position. E.g 10 or -10</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget status position from bottom. E.g 10 or -10</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3922,6 +3998,14 @@
     <message>
       <source>User is typing now...</source>
       <translation>Kullanıcı şu anda mesajlaşıyor...</translation>
+    </message>
+    <message>
+      <source>Write</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Preview</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You are not chat owner, type with caution</source>
@@ -4508,6 +4592,10 @@
       <translation>Özel</translation>
     </message>
     <message>
+      <source>Event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Monday</source>
       <translation>Pazartesi</translation>
     </message>
@@ -4558,10 +4646,6 @@
   </context>
   <context>
     <name>chat/startchat</name>
-    <message>
-      <source>Offline</source>
-      <translation>Çevrimdışı</translation>
-    </message>
     <message>
       <source>Chat is currently unavailable</source>
       <translation>Sohbet şu anda kullanılamıyor</translation>
@@ -4693,6 +4777,10 @@
     <message>
       <source>Department</source>
       <translation>Departman</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation>Çevrimdışı</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
@@ -5637,6 +5725,10 @@
     </message>
     <message>
       <source>{nick}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat is currently unavailable. Please try again later.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6983,6 +7075,10 @@
     <message>
       <source>Users actions</source>
       <translation>Operatör Hareketleri (log)</translation>
+    </message>
+    <message>
+      <source>Webhooks</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -9285,6 +9381,18 @@
       <translation>Soru sor</translation>
     </message>
     <message>
+      <source>Keyword</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No items were found</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Type your question</source>
       <translation>Sorunuzu yazın</translation>
     </message>
@@ -9951,6 +10059,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You can put visitor message as placeholder</source>
       <translation type="unfinished"/>
     </message>
@@ -9984,6 +10096,26 @@
     </message>
     <message>
       <source>Query Params</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only if these conditions are met we will send Rest API request. Usefull in webhook cases.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add condition</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for presence of variable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text like</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text not like</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10100,18 +10232,6 @@
     </message>
     <message>
       <source>Response comparison</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Check for presence of variable</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Text like</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Text not like</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13329,6 +13449,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Disabled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department is disabled!</source>
       <translation type="unfinished"/>
     </message>
@@ -13611,6 +13735,64 @@
     </message>
     <message>
       <source>Invalid file format</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>webhooks/module</name>
+    <message>
+      <source>Webhooks list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a hook name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Webhooks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>webhooks/new</name>
+    <message>
+      <source>New webhook</source>
       <translation type="unfinished"/>
     </message>
   </context>

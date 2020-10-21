@@ -18,6 +18,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>在投票Widget顯示後，有多少天不會再次啟用</translation>
     </message>
@@ -662,6 +670,10 @@
       <translation>客服人員訊息樣式</translation>
     </message>
     <message>
+      <source>Override embed code settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Build your own need help widget layout</source>
       <translation>建立自己的需要幫助小部件佈局</translation>
     </message>
@@ -900,6 +912,10 @@
     <message>
       <source>If variable is not passed should we keep previously recorded value?</source>
       <translation>如果未傳遞變量，我們應該保留以前記錄的值嗎？</translation>
+    </message>
+    <message>
+      <source>This variable is invisible for operator and will be stored in chat_variables attribute</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invitation message width</source>
@@ -1334,6 +1350,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat is unavailable and offline form is disabled.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
       <translation>不允許訪客通過按向上箭頭來編輯上一條信息</translation>
     </message>
@@ -1415,6 +1435,10 @@
     </message>
     <message>
       <source>Show operator profile in a new row</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable embed code override</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1659,6 +1683,14 @@
     <message>
       <source>Variable identifier</source>
       <translation>變量識別碼</translation>
+    </message>
+    <message>
+      <source>Variable changed from [b]{old_val}[/b] to [b]{new_val}[/b]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Log message for for variable. Variables you can use {old_val}, {new_val}</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Variable type</source>
@@ -2058,6 +2090,10 @@
     <message>
       <source>Do not process internal pages and use redirects.</source>
       <translation>不要處理內部頁面並使用重定向。</translation>
+    </message>
+    <message>
+      <source>Disable start chat URL</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online form settings</source>
@@ -3435,6 +3471,34 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Bottom right corner of the screen</source>
+      <translation>在螢幕的右下角</translation>
+    </message>
+    <message>
+      <source>Bottom left corner of the screen</source>
+      <translation>在螢幕的左下角</translation>
+    </message>
+    <message>
+      <source>Middle right side of the screen</source>
+      <translation>螢幕中間右側</translation>
+    </message>
+    <message>
+      <source>Middle left side of the screen</source>
+      <translation>螢幕中間左側</translation>
+    </message>
+    <message>
+      <source>Full height right</source>
+      <translation>右全高</translation>
+    </message>
+    <message>
+      <source>Full height left</source>
+      <translation>左全高</translation>
+    </message>
+    <message>
+      <source>no survey</source>
+      <translation>沒有調查</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>HTML 代碼</translation>
     </message>
@@ -3533,22 +3597,6 @@
     <message>
       <source>Position</source>
       <translation>位置</translation>
-    </message>
-    <message>
-      <source>Bottom right corner of the screen</source>
-      <translation>在螢幕的右下角</translation>
-    </message>
-    <message>
-      <source>Bottom left corner of the screen</source>
-      <translation>在螢幕的左下角</translation>
-    </message>
-    <message>
-      <source>Middle right side of the screen</source>
-      <translation>螢幕中間右側</translation>
-    </message>
-    <message>
-      <source>Middle left side of the screen</source>
-      <translation>螢幕中間左側</translation>
     </message>
     <message>
       <source>Disable responsive layout for status widget.</source>
@@ -3747,14 +3795,6 @@
       <translation>不可見，僅包含JS API</translation>
     </message>
     <message>
-      <source>Full height right</source>
-      <translation>右全高</translation>
-    </message>
-    <message>
-      <source>Full height left</source>
-      <translation>左全高</translation>
-    </message>
-    <message>
       <source>Popup window width</source>
       <translation>快顯視窗寬度</translation>
     </message>
@@ -3789,10 +3829,6 @@
     <message>
       <source>Identifier – enter a unique identifier here. This is useful for separating messages and proactive chat invitations from different domains/web pages. Enter a string without special characters or spaces such as “homepage” or “website1”.</source>
       <translation>標識符–在此輸入唯一標識符。 這對於區分來自不同域/網頁的信息和主動聊天邀請很有用。 輸入不包含特殊字符或空格的字符串，例如“ homepage”或“ website1”。</translation>
-    </message>
-    <message>
-      <source>no survey</source>
-      <translation>沒有調查</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
@@ -3831,7 +3867,47 @@
       <translation>Widget 位置</translation>
     </message>
     <message>
+      <source>Widget position placement.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom right</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Middle right</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Middle left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom right, full height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom left, full height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hash arguments. Visitor will not be able to change passed arguments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show a leave a message form when there are no online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget status position from right or left depending on main position. E.g 10 or -10</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget status position from bottom. E.g 10 or -10</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3922,6 +3998,14 @@
     <message>
       <source>User is typing now...</source>
       <translation>訪客輸入訊息中...</translation>
+    </message>
+    <message>
+      <source>Write</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Preview</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You are not chat owner, type with caution</source>
@@ -4508,6 +4592,10 @@
       <translation>私人</translation>
     </message>
     <message>
+      <source>Event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Monday</source>
       <translation>星期一</translation>
     </message>
@@ -4558,10 +4646,6 @@
   </context>
   <context>
     <name>chat/startchat</name>
-    <message>
-      <source>Offline</source>
-      <translation>離線</translation>
-    </message>
     <message>
       <source>Chat is currently unavailable</source>
       <translation>交談目前不可用</translation>
@@ -4693,6 +4777,10 @@
     <message>
       <source>Department</source>
       <translation>部門</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation>離線</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
@@ -5637,6 +5725,10 @@
     </message>
     <message>
       <source>{nick}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat is currently unavailable. Please try again later.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6981,6 +7073,10 @@
     <message>
       <source>Users actions</source>
       <translation>用戶動作</translation>
+    </message>
+    <message>
+      <source>Webhooks</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -9283,6 +9379,18 @@
       <translation>問一個問題</translation>
     </message>
     <message>
+      <source>Keyword</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No items were found</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Type your question</source>
       <translation>輸入您的問題</translation>
     </message>
@@ -9949,6 +10057,10 @@
       <translation>輸出解析</translation>
     </message>
     <message>
+      <source>Conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You can put visitor message as placeholder</source>
       <translation>您可以將訪客信息作為佔位符</translation>
     </message>
@@ -9983,6 +10095,26 @@
     <message>
       <source>Query Params</source>
       <translation>查詢參數</translation>
+    </message>
+    <message>
+      <source>Only if these conditions are met we will send Rest API request. Usefull in webhook cases.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add condition</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for presence of variable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text like</source>
+      <translation>文字像</translation>
+    </message>
+    <message>
+      <source>Text not like</source>
+      <translation>文字像</translation>
     </message>
     <message>
       <source>Request Body</source>
@@ -10099,18 +10231,6 @@
     <message>
       <source>Response comparison</source>
       <translation>回應比較</translation>
-    </message>
-    <message>
-      <source>Check for presence of variable</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Text like</source>
-      <translation>文字像</translation>
-    </message>
-    <message>
-      <source>Text not like</source>
-      <translation>文字像</translation>
     </message>
     <message>
       <source>Comparison value</source>
@@ -13327,6 +13447,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Disabled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department is disabled!</source>
       <translation type="unfinished"/>
     </message>
@@ -13609,6 +13733,64 @@
     </message>
     <message>
       <source>Invalid file format</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>webhooks/module</name>
+    <message>
+      <source>Webhooks list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a hook name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Webhooks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>webhooks/new</name>
+    <message>
+      <source>New webhook</source>
       <translation type="unfinished"/>
     </message>
   </context>

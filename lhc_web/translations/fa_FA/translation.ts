@@ -18,6 +18,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>چند روز بعد از آخرین نمایش، ابزارک رأی گیری باز نشود؟</translation>
     </message>
@@ -662,6 +670,10 @@
       <translation>استایل پیام های اپراتور</translation>
     </message>
     <message>
+      <source>Override embed code settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Build your own need help widget layout</source>
       <translation>ویجت نیاز به راهنمایی خود را طراحی کنید</translation>
     </message>
@@ -900,6 +912,10 @@
     <message>
       <source>If variable is not passed should we keep previously recorded value?</source>
       <translation>If variable is not passed should we keep previously recorded value?</translation>
+    </message>
+    <message>
+      <source>This variable is invisible for operator and will be stored in chat_variables attribute</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invitation message width</source>
@@ -1334,6 +1350,10 @@
       <translation>Main operator title, {nick}, {name}, {surname}</translation>
     </message>
     <message>
+      <source>Chat is unavailable and offline form is disabled.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
       <translation>Do not allow visitor to edit previous message by pressing up arrow</translation>
     </message>
@@ -1416,6 +1436,10 @@
     <message>
       <source>Show operator profile in a new row</source>
       <translation>Show operator profile in a new row</translation>
+    </message>
+    <message>
+      <source>Enable embed code override</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Widget themes</source>
@@ -1659,6 +1683,14 @@
     <message>
       <source>Variable identifier</source>
       <translation>Variable identifier</translation>
+    </message>
+    <message>
+      <source>Variable changed from [b]{old_val}[/b] to [b]{new_val}[/b]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Log message for for variable. Variables you can use {old_val}, {new_val}</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Variable type</source>
@@ -2058,6 +2090,10 @@
     <message>
       <source>Do not process internal pages and use redirects.</source>
       <translation>Do not process internal pages and use redirects.</translation>
+    </message>
+    <message>
+      <source>Disable start chat URL</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online form settings</source>
@@ -3435,6 +3471,34 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>Bottom right corner of the screen</source>
+      <translation>گوشه پایین از سمت راست صفحه</translation>
+    </message>
+    <message>
+      <source>Bottom left corner of the screen</source>
+      <translation>گوشه پایین از سمت چپ صفحه</translation>
+    </message>
+    <message>
+      <source>Middle right side of the screen</source>
+      <translation>نیمه راست صفحه</translation>
+    </message>
+    <message>
+      <source>Middle left side of the screen</source>
+      <translation>نیمه چپ صفحه</translation>
+    </message>
+    <message>
+      <source>Full height right</source>
+      <translation>ارتفاع کامل راست</translation>
+    </message>
+    <message>
+      <source>Full height left</source>
+      <translation>ارتفاع کامل چپ</translation>
+    </message>
+    <message>
+      <source>no survey</source>
+      <translation>هیچ نظرسنجی</translation>
+    </message>
+    <message>
       <source>HTML code</source>
       <translation>کد HTML</translation>
     </message>
@@ -3533,22 +3597,6 @@
     <message>
       <source>Position</source>
       <translation>موقعیت</translation>
-    </message>
-    <message>
-      <source>Bottom right corner of the screen</source>
-      <translation>گوشه پایین از سمت راست صفحه</translation>
-    </message>
-    <message>
-      <source>Bottom left corner of the screen</source>
-      <translation>گوشه پایین از سمت چپ صفحه</translation>
-    </message>
-    <message>
-      <source>Middle right side of the screen</source>
-      <translation>نیمه راست صفحه</translation>
-    </message>
-    <message>
-      <source>Middle left side of the screen</source>
-      <translation>نیمه چپ صفحه</translation>
     </message>
     <message>
       <source>Disable responsive layout for status widget.</source>
@@ -3747,14 +3795,6 @@
       <translation>غیرقابل مشاهده، فقط JS API شامل خواهد شد</translation>
     </message>
     <message>
-      <source>Full height right</source>
-      <translation>ارتفاع کامل راست</translation>
-    </message>
-    <message>
-      <source>Full height left</source>
-      <translation>ارتفاع کامل چپ</translation>
-    </message>
-    <message>
       <source>Popup window width</source>
       <translation>عرض پنجره Popup</translation>
     </message>
@@ -3789,10 +3829,6 @@
     <message>
       <source>Identifier – enter a unique identifier here. This is useful for separating messages and proactive chat invitations from different domains/web pages. Enter a string without special characters or spaces such as “homepage” or “website1”.</source>
       <translation>شناسه - یک شناسه منحصر به فرد در اینجا وارد کنید. این برای جداسازی پیام ها و دعوت نامه های فعال چت از دامنه ها / صفحات وب مختلف مفید است. یک رشته بدون نویسه ها یا فضاهای خاص مانند &quot;صفحه اصلی&quot; یا &quot;وب سایت 1&quot; وارد کنید.</translation>
-    </message>
-    <message>
-      <source>no survey</source>
-      <translation>هیچ نظرسنجی</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
@@ -3831,8 +3867,48 @@
       <translation>موقعیت ابزارک </translation>
     </message>
     <message>
+      <source>Widget position placement.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom right</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Middle right</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Middle left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom right, full height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom left, full height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hash arguments. Visitor will not be able to change passed arguments.</source>
       <translation>Hash arguments. Visitor will not be able to change passed arguments.</translation>
+    </message>
+    <message>
+      <source>Show a leave a message form when there are no online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget status position from right or left depending on main position. E.g 10 or -10</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget status position from bottom. E.g 10 or -10</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -3922,6 +3998,14 @@
     <message>
       <source>User is typing now...</source>
       <translation>کاربر در حال تایپ کردن است...</translation>
+    </message>
+    <message>
+      <source>Write</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Preview</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You are not chat owner, type with caution</source>
@@ -4508,6 +4592,10 @@
       <translation>خصوصی</translation>
     </message>
     <message>
+      <source>Event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Monday</source>
       <translation>دوشنبه</translation>
     </message>
@@ -4558,10 +4646,6 @@
   </context>
   <context>
     <name>chat/startchat</name>
-    <message>
-      <source>Offline</source>
-      <translation>آفلاین</translation>
-    </message>
     <message>
       <source>Chat is currently unavailable</source>
       <translation>گپ در حال حاضر در دسترس نیست</translation>
@@ -4693,6 +4777,10 @@
     <message>
       <source>Department</source>
       <translation>دپارتمان</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation>آفلاین</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
@@ -5638,6 +5726,10 @@
     <message>
       <source>{nick}</source>
       <translation>{nick}</translation>
+    </message>
+    <message>
+      <source>Chat is currently unavailable. Please try again later.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
@@ -6981,6 +7073,10 @@
     <message>
       <source>Users actions</source>
       <translation>فعالیت های کاربران</translation>
+    </message>
+    <message>
+      <source>Webhooks</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -9283,6 +9379,18 @@
       <translation>طرح سوال</translation>
     </message>
     <message>
+      <source>Keyword</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No items were found</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Type your question</source>
       <translation>سوال خود را تایپ کنید</translation>
     </message>
@@ -9949,6 +10057,10 @@
       <translation>Output parsing</translation>
     </message>
     <message>
+      <source>Conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You can put visitor message as placeholder</source>
       <translation>You can put visitor message as placeholder</translation>
     </message>
@@ -9983,6 +10095,26 @@
     <message>
       <source>Query Params</source>
       <translation>Query Params</translation>
+    </message>
+    <message>
+      <source>Only if these conditions are met we will send Rest API request. Usefull in webhook cases.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add condition</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for presence of variable</source>
+      <translation>Check for presence of variable</translation>
+    </message>
+    <message>
+      <source>Text like</source>
+      <translation>متن مانند</translation>
+    </message>
+    <message>
+      <source>Text not like</source>
+      <translation>Text not like</translation>
     </message>
     <message>
       <source>Request Body</source>
@@ -10099,18 +10231,6 @@
     <message>
       <source>Response comparison</source>
       <translation>مقایسه پاسخ</translation>
-    </message>
-    <message>
-      <source>Check for presence of variable</source>
-      <translation>Check for presence of variable</translation>
-    </message>
-    <message>
-      <source>Text like</source>
-      <translation>متن مانند</translation>
-    </message>
-    <message>
-      <source>Text not like</source>
-      <translation>Text not like</translation>
     </message>
     <message>
       <source>Comparison value</source>
@@ -13327,6 +13447,10 @@
       <translation>دپارتمان الزامی است!</translation>
     </message>
     <message>
+      <source>Disabled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department is disabled!</source>
       <translation>دپارتمان از کار افتاده است!</translation>
     </message>
@@ -13610,6 +13734,64 @@
     <message>
       <source>Invalid file format</source>
       <translation>قالب پرونده نامعتبر است</translation>
+    </message>
+  </context>
+  <context>
+    <name>webhooks/module</name>
+    <message>
+      <source>Webhooks list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a hook name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Webhooks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>webhooks/new</name>
+    <message>
+      <source>New webhook</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
