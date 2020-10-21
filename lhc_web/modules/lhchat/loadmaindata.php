@@ -81,6 +81,21 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
             );
         }
     }
+
+    // Check do we have private chat related to this chat.
+    $groupChat = erLhcoreClassModelGroupChat::findOne(array('filter' => array('chat_id' => $chat->id)));
+
+    if ($groupChat instanceof erLhcoreClassModelGroupChat) {
+        $items[] = array (
+            'selector' => '#private-chat-tab-link-' . $chat->id,
+            'event_name' => 'privateChatStart',
+            'event_value' => [$chat->id],
+            'attr' => array(
+                'private-loaded' => 'true'
+            ),
+            'action' => 'event'
+        );
+    }
 }
 
 

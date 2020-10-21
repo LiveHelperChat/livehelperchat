@@ -54,7 +54,7 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
     	    }
     	    
     	    $tpl->set('arg', $Params['user_parameters_unordered']['arg']);
-    	    
+
     	    // Store who has acceped a chat so other operators will be able easily indicate this
     	    if ($operatorAccepted == true) {
     	    	         	        

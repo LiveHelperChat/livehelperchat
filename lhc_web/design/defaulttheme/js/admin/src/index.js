@@ -31,6 +31,16 @@ ee.addListener('groupChatTabLoaded',(chatId) => {
     }
 })
 
+ee.addListener('privateChatStart',(chatId, params) => {
+    var el = document.getElementById('private-chat-tab-root-'+chatId);
+    if (el !== null) {
+        ReactDOM.render(
+            <Suspense fallback="..."><GroupChat paramsStart={params || {}} chatPublicId={chatId} userId={confLH.user_id} /></Suspense>,
+            el
+        );
+    }
+})
+
 ee.addListener('unloadGroupChat', (chatId) => {
     var el = document.getElementById('chat-id-'+chatId);
     if (el !== null) {
@@ -39,11 +49,19 @@ ee.addListener('unloadGroupChat', (chatId) => {
 });
 
 ee.addListener('removeSynchroChat', (chatId) => {
-    var el = document.getElementById('canned-messages-chat-container-'+chatId);
 
+    // Canned messages component
+    var el = document.getElementById('canned-messages-chat-container-'+chatId);
     if (el !== null) {
         ReactDOM.unmountComponentAtNode(el)
     }
+
+    // Private chat component
+    el = document.getElementById('private-chat-tab-root-'+chatId);
+    if (el !== null) {
+        ReactDOM.unmountComponentAtNode(el)
+    }
+
 });
 
 $(document).ready(function(){

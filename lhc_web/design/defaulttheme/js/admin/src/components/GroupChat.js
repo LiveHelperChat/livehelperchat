@@ -54,29 +54,20 @@ const GroupChat = props => {
     const [state, dispatch] = useReducer(reducer, {
         messages: [],
         operators: [],
+        supervistors: [],
         operators_invite: [],
         chat: {},
         has_more_messages: false,
         old_message_id: 0,
         last_message: '',
+        error: '',
         last_message_id: 0,
         lmsop: 0,
         lgsync: 0
     });
 
     const loadMainData = () => {
-        axios.post(WWW_DIR_JAVASCRIPT  + "groupchat/loadgroupchat/" + props.chatId).then(result => {
-            dispatch({
-                type: 'update',
-                value: {
-                    'chat': result.data.chat
-                }
-            });
-            rememberChat(props.chatId);
-            groupChatSync.sync();
-        }).catch((error) => {
-            lhinst.removeDialogTabGroup('gc'+props.chatId,$('#tabs'),true);
-        });
+        return axios.post(WWW_DIR_JAVASCRIPT  + "groupchat/" + (props.chatPublicId ? 'loadpublichat' : 'loadgroupchat') + "/" + (props.chatPublicId || props.chatId));
     }
 
     const loadPrevious = () => {
@@ -101,13 +92,32 @@ const GroupChat = props => {
         lhcController.startChatOperatorPublic(operator.user_id);
     }
 
+    const setUnreadSupportChat = (chat_id, length) => {
+        var tab = document.getElementById('chat-tab-link-'+chat_id);
+        var whoisHot,hotSet = false;
+        if (tab !== null && length > 1 && !tab.classList.contains('active') && (whoisHot = tab.querySelector('.whatshot')) !== null) {
+            whoisHot.classList.remove("d-none");
+            hotSet = true;
+        }
+
+        if (hotSet == false) {
+            tab = document.getElementById('private-chat-tab-link-'+chat_id);
+            if (tab !== null && length > 1 && !tab.classList.contains('active') && (whoisHot = tab.querySelector('.whatshot')) !== null) {
+                whoisHot.classList.remove("d-none");
+            }
+        }
+    }
+
     useEffect(() => {
         messagesElement.current.scrollTop = messagesElement.current.scrollHeight;
 
-        var tab = document.getElementById('chat-tab-link-gc'+props.chatId);
-
-        if (state.messages.length > 1 && !tab.classList.contains('active')) {
-            tab.querySelector('.whatshot').classList.remove("d-none");
+        if (!props.chatPublicId) {
+            var tab = document.getElementById('chat-tab-link-gc'+props.chatId);
+            if (tab && state.messages.length > 1 && !tab.classList.contains('active')) {
+                tab.querySelector('.whatshot').classList.remove("d-none");
+            }
+        } else {
+            setUnreadSupportChat(props.chatPublicId, state.messages.length);
         }
 
     },[state.messages.length]);
@@ -154,6 +164,15 @@ const GroupChat = props => {
         },200);
     }
 
+    const cancelSearch = () => {
+        dispatch({
+            type: 'update',
+            value: {
+                "operators_invite" : []
+            }
+        });
+    }
+
     const forgetChat = (chatId) => {
         if (localStorage) {
             try {
@@ -176,38 +195,6 @@ const GroupChat = props => {
     }
 
     useEffect(() => {
-        loadMainData();
-        // Activate tabs
-        var container = tabsContainer.current;
-        var bsn = require("bootstrap.native/dist/bootstrap-native-v4");
-        var tabs = container.querySelectorAll('[data-toggle="tab"]');
-
-        if (tabs.length > 0) {
-            Array.prototype.forEach.call(tabs, function(element){ new bsn.Tab( element) });
-        }
-
-        const tabClicked = (e) => {
-            if (e == props.chatId) {
-                setTimeout(() => {
-                    messageElement.current.focus();
-                    if (messagesElement.current.scrollHeight - (messagesElement.current.scrollTop + messagesElement.current.offsetHeight) < (messagesElement.current.offsetHeight - 50)) {
-                        messagesElement.current.scrollTop = messagesElement.current.scrollHeight;
-                    }
-                },2);
-
-                var tab = document.getElementById('chat-tab-link-gc'+props.chatId);
-                if (tab !== null) {
-                    var tabHot = tab.querySelector('.whatshot');
-                    if (!tabHot.classList.contains("d-none")) {
-                        tabHot.classList.add("d-none");
-                    }
-                }
-            }
-        }
-
-        ee.addListener('groupChatTabClicked',tabClicked)
-
-        messageElement.current.focus();
 
         const chatSynced = (e) => {
             if (e.msg) {
@@ -242,11 +229,116 @@ const GroupChat = props => {
             }
         }
 
-        groupChatSync.addSubscriber(props.chatId, chatSynced);
+        const subTabClicked = (e) => {
+            tabClicked(props.chatPublicId, null, true);
+        }
+
+        loadMainData().then(result => {
+
+            if (!props.chatPublicId) {
+                rememberChat(props.chatId);
+            } else {
+                var div = document.createElement('div');
+                div.innerHTML = "<i class=\"whatshot blink-ani d-none text-warning material-icons\">whatshot</i>";
+                document.getElementById('chat-tab-link-'+props.chatPublicId).prepend(div.firstChild);
+                document.getElementById('private-chat-tab-link-'+props.chatPublicId).addEventListener('click',subTabClicked);
+             }
+
+            var subTab = document.getElementById('private-chat-tab-link-'+props.chatPublicId);
+
+            if ((props.paramsStart && props.paramsStart.unread) || (subTab !== null && subTab.getAttribute('data-unread') == 'true')) {
+                setUnreadSupportChat(props.chatPublicId,2);
+            }
+
+            props.chatId = String(result.data.chat.id);
+            groupChatSync.addSubscriber(props.chatId, chatSynced);
+            groupChatSync.sync();
+
+            if (!props.chatPublicId){
+                var container = tabsContainer.current;
+                var bsn = require("bootstrap.native/dist/bootstrap-native-v4");
+                var tabs = container.querySelectorAll('[data-toggle="tab"]');
+
+                if (tabs.length > 0) {
+                    Array.prototype.forEach.call(tabs, function(element){ new bsn.Tab( element) });
+                }
+            }
+
+            dispatch({
+                type: 'update',
+                value: {
+                    'chat': result.data.chat,
+                    'supervisors': result.data.supervisors || []
+                }
+            });
+
+
+
+        }).catch((error) => {
+           !props.chatPublicId && lhinst.removeDialogTabGroup('gc'+props.chatId,$('#tabs'),true);
+            if (error.response && error.response.data && error.response.data.error) {
+                dispatch({
+                    type: 'update',
+                    value: {
+                        "error" : error.response.data.error
+                    }
+                });
+            }
+        })
+
+        const tabClicked = (e, elm, forceFocus) => {
+            if ((props.chatPublicId && e == props.chatPublicId) || (!props.chatPublicId && e == props.chatId)) {
+
+                if (messagesElement.current !== null){
+                    setTimeout(() => {
+                        if (messagesElement.current !== null){
+                            (!props.chatPublicId || forceFocus) && messageElement.current.focus();
+                            if (messagesElement.current.scrollHeight - (messagesElement.current.scrollTop + messagesElement.current.offsetHeight) < (messagesElement.current.offsetHeight - 50)) {
+                                messagesElement.current.scrollTop = messagesElement.current.scrollHeight;
+                            }
+                        }
+                    },2);
+                }
+
+                var tab = document.getElementById(!props.chatPublicId ? 'chat-tab-link-gc'+props.chatId : 'chat-tab-link-'+props.chatPublicId);
+
+                if (tab !== null) {
+                    var tabHot = tab.querySelector('.whatshot');
+                    if (tabHot !== null && !tabHot.classList.contains("d-none")) {
+                        tabHot.classList.add("d-none");
+                        // Activate private chat subtab if it was pending
+                        if (props.chatPublicId) {
+                            document.getElementById('private-chat-tab-link-'+props.chatPublicId).click();
+                        }
+                    }
+                }
+
+                if (props.chatPublicId){
+                    var tab = document.getElementById('private-chat-tab-link-'+props.chatPublicId);
+                    if (tab !== null) {
+                        var tabHot = tab.querySelector('.whatshot');
+                        if (tabHot !== null && !tabHot.classList.contains("d-none")) {
+                            tabHot.classList.add("d-none");
+                        }
+                    }
+                }
+            }
+        }
+
+        ee.addListener((!props.chatPublicId ? 'groupChatTabClicked' : 'chatTabClicked'),tabClicked)
+
+        !props.chatPublicId && messageElement.current.focus();
 
         return function cleanup() {
+
             forgetChat(props.chatId)
-            ee.removeListener('groupChatTabClicked',tabClicked);
+
+            if (!props.chatPublicId) {
+                ee.removeListener('groupChatTabClicked',tabClicked);
+            } else {
+                ee.removeListener('chatTabClicked',tabClicked)
+            }
+
             groupChatSync.removeSubscriber(props.chatId, chatSynced);
         };
     },[]);
@@ -255,6 +347,9 @@ const GroupChat = props => {
         if (e.keyCode == 13) {
 
             axios.post(WWW_DIR_JAVASCRIPT  + "groupchat/addmessage/" + props.chatId,{msg: messageElement.current.value}).then(result => {
+                if (result.data.result.indexOf('status') !== -1) {
+                    groupChatSync.setFetchStatus(true);
+                }
                 groupChatSync.sync();
             });
 
@@ -268,6 +363,8 @@ const GroupChat = props => {
 
     const inviteOperator = (e) => {
         axios.get(WWW_DIR_JAVASCRIPT  + "groupchat/inviteoperator/" + props.chatId + "/" + e.id).then(result => {
+            groupChatSync.setFetchStatus(true);
+            groupChatSync.sync();
             e.invited = true;
             dispatch({
                 type: 'update',
@@ -280,6 +377,8 @@ const GroupChat = props => {
 
     const cancelInvite = (e) => {
         axios.get(WWW_DIR_JAVASCRIPT  + "groupchat/cancelinvite/" + props.chatId + "/" + e.id).then(result => {
+            groupChatSync.setFetchStatus(true);
+            groupChatSync.sync();
             e.invited = false;
             dispatch({
                 type: 'update',
@@ -292,10 +391,35 @@ const GroupChat = props => {
 
     const { t, i18n } = useTranslation('group_chat');
 
+    if (state.error != '') {
+        return (<React.Fragment>
+            <div className="row">
+                <div className="col-12">
+                    <div className="alert alert-info" role="alert">
+                        {state.error}
+                    </div>
+                </div>
+            </div>
+        </React.Fragment>)
+    }
+
     return (
+
+
+
         <React.Fragment>
             <div className="row">
-                <div className="col-7 chat-main-left-column">
+
+                {props.chatPublicId && state.chat.type == 2 && <div className="col-12 pb-1 border-bottom">
+
+                    {state.operators.map((operator, index) => (
+                        <button className="btn btn-sm fs12 btn-outline-secondary mb-1 mr-1">{props.userId != operator.user_id && <i title="Start chat with an operator directly" onClick={(e) => startChatWithOperator(operator)} className="material-icons action-image">chat</i>} {state.chat.user_id == operator.user_id && <i title="Group owner" className="material-icons">account_balance</i>} {operator.n_off_full}
+                                            {!operator.jtime && <span className="ml-1 badge badge-info fs11">{t('operator.pending_join')}</span>} <i className="material-icons">{operator.hide_online ? 'flash_off' : 'flash_on'}</i>{operator.last_activity_ago}</button>
+                    ))}
+
+                </div>}
+
+                <div className={(props.chatPublicId ? "col-12" : "col-7")+" chat-main-left-column"}>
                     <div className="message-block">
 
                         {state.has_more_messages && <a className="load-prev-btn"  title="Load more..." onClick={(e) => loadPrevious()}><i className="material-icons">&#xE889;</i></a>}
@@ -310,7 +434,7 @@ const GroupChat = props => {
                         <textarea ref={messageElement} placeholder={t('message.enter_message')} onKeyDown={(e) => addMessage(e)} className="form-control form-control-sm form-group" rows="2"></textarea>
                     </div>
                 </div>
-                <div className="chat-main-right-column col-5">
+                {!props.chatPublicId && <div className="chat-main-right-column col-5">
                     <div role="tabpanel">
                         <ul className="nav nav-pills" role="tablist" ref={tabsContainer}>
                             <li role="presentation" className="nav-item"><a className="nav-link active" href={"#group-chat-"+props.chatId} aria-controls={"#group-chat-"+props.chatId} role="tab" data-toggle="tab" title="Operators"><i className="material-icons mr-0">face</i></a></li>
@@ -328,6 +452,7 @@ const GroupChat = props => {
                                     ))}
                                 </ul>
                             </div>
+
                             <div role="tabpanel" className="tab-pane" id={"group-chat-info-"+props.chatId}>
 
                                 {state.chat.type == 1 && <div>
@@ -336,7 +461,10 @@ const GroupChat = props => {
                                             <input ref={searchOperatorElement} onKeyUp={searchOpeartors} type="text" placeholder={t('operator.search_tip')} className="form-control form-control-sm" />
                                         </div>
                                         <div className="col-3">
-                                            <button onClick={searchOpeartors} className="btn w-100 d-block btn-default btn-sm"><span className="material-icons">search</span></button>
+                                            <div className="btn-group w-100" role="group" aria-label="Basic example">
+                                                <button onClick={searchOpeartors} className="btn d-block btn-secondary btn-sm"><span className="material-icons">search</span></button>
+                                                <button disabled={state.operators_invite.length == 0} onClick={cancelSearch} className="btn d-block btn-secondary btn-sm"><span className="material-icons">delete</span></button>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -355,9 +483,46 @@ const GroupChat = props => {
 
                                 <button className="btn btn-xs btn-danger" title={t('operator.leave_group_tip')} onClick={(e) => leaveGroup()}>{t('operator.leave_group')}</button>
                             </div>
+
                         </div>
                     </div>
-                </div>
+                </div>}
+
+                {props.chatPublicId && <div className="col-12">
+
+                    <div className="pb-1">
+                    {props.chatPublicId && state.chat.type == 2 && state.supervisors.length > 0 && state.supervisors.map((operator, index) => (
+                            <React.Fragment>
+                                {!operator.member && !operator.invited && <button className="btn btn-xs btn-secondary" onClick={(e) => inviteOperator(operator)}>{operator.nick} | {t('operator.invite')}</button>}
+                            </React.Fragment>
+                        ))}
+                    </div>
+
+                    <div className="row">
+                        <div className="col-9">
+                            <input ref={searchOperatorElement} onKeyUp={searchOpeartors} type="text" placeholder={t('operator.search_tip')} className="form-control form-control-sm" />
+                        </div>
+                        <div className="col-3">
+                            <div className="btn-group w-100" role="group" aria-label="Basic example">
+                                <button onClick={searchOpeartors} className="btn d-block btn-secondary btn-sm"><span className="material-icons">search</span></button>
+                                <button disabled={state.operators_invite.length == 0} onClick={cancelSearch} className="btn d-block btn-secondary btn-sm"><span className="material-icons">delete</span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul className="m-0 p-0 mt-2 mx275">
+                        {state.operators_invite.map((operator, index) => (
+                            <li className="list-group-item p-2 fs13" title={operator.id}>
+                                {operator.name_official}
+                                {!operator.member && !operator.invited && <button className="float-right btn btn-xs btn-secondary" onClick={(e) => inviteOperator(operator)}>{t('operator.invite')}</button>}
+                                {!operator.member && operator.invited && <button className="float-right btn btn-xs btn-warning" onClick={(e) => cancelInvite(operator)}>{t('operator.cancel_invite')}</button>}
+                                {operator.member && <button disabled="disabled" className="float-right btn btn-xs btn-success">{t('operator.already_member')}</button>}
+                            </li>
+                        ))}
+                    </ul>
+
+                </div>}
+
             </div>
         </React.Fragment>
     );

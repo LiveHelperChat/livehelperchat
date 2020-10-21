@@ -1,9 +1,23 @@
+3.49v
+
+1. Now operators can have chat between themself directly in the chat.
+2. Once clicking on a chat tab you can copy URL and chat will be opened.
+3. Possibility to copy link to chat directly from chat window. Copy link action near the chat ID.
+4. Dashboard icon from I icon was changed to home icon to match Dashboard icon.
+5. HTML Element from bot will be rendered for an admin.
+6. Blocking capability by IP or Nick or Nick and Department
+7. Department archive attribute. These departments won't be shown in dashboard and in user account will be placed under `Show archived` button action.
+8. Quote menu action for the right mouse click in messages area.
+9. Widget was not showing error in case it was an error not related to a field.
+
+execute doc/update_db/update_222.sql for update
+
 3.48v
 
 1. Global activity tracking. If you stop activity in one window it won't force go offline everywhere.
 2. Includes database changes I'll need for future version.
 
-execute doc/update_db/update_220.sql for update
+execute doc/update_db/update_221.sql for update
 
 3.47v
 

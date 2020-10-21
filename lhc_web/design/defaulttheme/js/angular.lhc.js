@@ -70,6 +70,16 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 		});
 		return deferred.promise;
 	};
+
+	this.getChatData = function(id) {
+		var deferred = $q.defer();
+		$http.get(WWW_DIR_JAVASCRIPT + 'chat/getchatdata/' + id).then(function(data) {
+            deferred.resolve(data.data);
+		},function(internalError){
+            deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
+		});
+		return deferred.promise;
+	};
 	
 	this.setInactive = function(status) {
 		var deferred = $q.defer();
@@ -971,6 +981,22 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                                         }
                                     });
                                 }
+                            } else if (key == 'support_chats') {
+                                if (tabs.length > 0 && confLH.auto_join_private  == 1) {
+                                    item.list.forEach(function (chat) {
+                                        // Operator does not have this chat in his account yet
+                                        if (document.getElementById('chat-tab-li-'+chat.chat_id) === null) {
+                                            _that.startChatByID(chat.chat_id, true);
+                                        } else if (!$('#private-chat-tab-link-'+chat.chat_id).attr('private-loaded')) {
+                                            $('#private-chat-tab-link-'+chat.chat_id).attr('private-loaded',true);
+                                            ee.emitEvent('privateChatStart', [chat.chat_id,{'unread': true}])
+                                        } else if (!$('#chat-tab-link-'+chat.chat_id).hasClass('active')) {
+                                            $('#chat-tab-link-'+chat.chat_id+' > .whatshot').removeClass('d-none');
+                                        } else if (!$('#private-chat-tab-link-'+chat.chat_id).hasClass('active')) {
+                                            $('#private-chat-tab-link-'+chat.chat_id+' > .whatshot').removeClass('d-none');
+                                        }
+                                    });
+                                }
                             }
                         }
 
@@ -1158,9 +1184,18 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
         }
     }
 
-    this.startChatByID = function(chat_id){
-	    if (!isNaN(chat_id)){
-            this.startChat(parseInt(chat_id),parseInt(chat_id));
+    this.startChatByID = function(chat_id, background) {
+	    if (!isNaN(chat_id)) {
+            if ($('#tabs').length > 0) {
+                var _that = this;
+                LiveHelperChatFactory.getChatData(chat_id).then(function(data) {
+                    if (!background) {
+                        _that.startChat(parseInt(chat_id),LiveHelperChatFactory.truncate(data.nick,10));
+                    } else {
+                        lhinst.startChatBackground(parseInt(chat_id), $('#tabs'), LiveHelperChatFactory.truncate(data.nick,10),'backgroundid');
+                    }
+                });
+            }
         }
     }
 

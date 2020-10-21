@@ -600,10 +600,12 @@ try {
   `group_id` bigint(20) NOT NULL,
   `last_activity` int(11) NOT NULL,
   `last_msg_id` bigint(20) NOT NULL DEFAULT 0,
+  `type` tinyint(1) NOT NULL DEFAULT 0,
   `jtime` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `group_id` (`group_id`),
-  KEY `user_id` (`user_id`)
+  KEY `user_id` (`user_id`),
+  KEY `type` (`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
 
@@ -1843,6 +1845,7 @@ try {
                   PRIMARY KEY (`id`),
                   KEY `hide_online` (`hide_online`),
                   KEY `rec_per_req` (`rec_per_req`),
+                  KEY `disabled` (`disabled`),
                   KEY `email` (`email`),
                   KEY `xmpp_username` (`xmpp_username`(191))
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");

@@ -89,7 +89,7 @@ if (is_array($payload) && count($payload) > 0)
                     $stmt->execute();
                 }
 
-                if ($lastGroupSync < time() - 15) {
+                if ($lastGroupSync < time() - 15 || $Params['user_parameters_unordered']['opt'] == 'status') {
                     $resultStatusItem = array(
                         'chat_id' => $chat_id,
                         'lgsync' => time(),
