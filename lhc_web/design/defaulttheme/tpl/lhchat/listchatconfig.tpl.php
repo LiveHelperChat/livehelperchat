@@ -153,19 +153,25 @@
     		    
     		    <?php $attribute = 'bbc_button_visible';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    		    		    
+
+                <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','New and old widget supported attribute');?></h5>
     		    <?php $attribute = 'reopen_chat_enabled';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    		    		    
+
+                <?php $attribute = 'allow_reopen_closed';$boolValue = true;?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
+                <?php $attribute = 'open_closed_chat_timeout'?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
+                <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Old widget supported attribute');?></h5>
     		    <?php $attribute = 'reopen_as_new';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    		    
     		    <?php $attribute = 'automatically_reopen_chat';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    		    		    
-    		    <?php $attribute = 'allow_reopen_closed';$boolValue = true;?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 
+                <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Other attributes');?></h5>
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/reverse_order_pending.tpl.php'));?>
 
     		    <?php $attribute = 'min_phone_length';?>
@@ -180,8 +186,7 @@
     		    <?php $attribute = 'accept_chat_link_timeout'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 
-    		    <?php $attribute = 'open_closed_chat_timeout'?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
     		    
     		    <?php $attribute = 'activity_timeout'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>	

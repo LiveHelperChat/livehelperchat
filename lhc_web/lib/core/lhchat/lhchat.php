@@ -1433,6 +1433,28 @@ class erLhcoreClassChat {
 	   	return false;
    }
 
+   public static function reopenChatWidgetV2($onlineUser, $chat, $params) {
+        if ($onlineUser->chat_id > 0) {
+            $chatOld = erLhcoreClassModelChat::fetch($onlineUser->chat_id);
+
+            // Old chat was not found
+            if (!($chatOld instanceof erLhcoreClassModelChat)) {
+                return;
+            }
+
+            if ($chatOld->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT ||
+                $chatOld->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT ||
+                $chatOld->status == erLhcoreClassModelChat::STATUS_BOT_CHAT
+                || ($params['reopen_closed'] == true && $chatOld->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && ($chat->last_user_msg_time == 0 || $chat->last_op_msg_time > time() - (int)$params['open_closed_chat_timeout']))
+            ) {
+                // Just switch chat ID, that's it.
+                // The rest will be done automatically.
+                $chat->id = $chatOld->id;
+                $chat->remarks = $chatOld->remarks;
+            }
+        }
+   }
+
    /**
     * Is there any better way to initialize __get variables?
     * */
