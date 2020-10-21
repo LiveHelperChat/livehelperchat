@@ -129,6 +129,10 @@ class erLhcoreClassModelGroupChat
             // There is no real messages. We can delete this chat.
             if (erLhcoreClassModelGroupMsg::getCount(array('filter' => array('chat_id' => $groupChat->id), 'filtergt' => array('user_id' => 0))) == 0) {
                 $groupChat->removeThis();
+            } else {
+                foreach (erLhcoreClassModelGroupChatMember::getList(array('filter' => array('jtime' => 0, 'group_id' => $groupChat->id))) as $groupMember) {
+                    $groupMember->removeThis();
+                }
             }
         }
     }
