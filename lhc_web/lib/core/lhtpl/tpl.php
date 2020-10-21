@@ -209,7 +209,7 @@ class erLhcoreClassTemplate {
         }
 
         $cfg = erConfigClassLhConfig::getInstance();
-        $file = erLhcoreClassDesign::designtpl($fileTemplate);
+        $fileRAW = $file = erLhcoreClassDesign::designtpl($fileTemplate);
 
         if ($this->templatecompile == true)
         {
@@ -533,7 +533,7 @@ class erLhcoreClassTemplate {
 			$this->storeCache();
         }
 
-		return $this->fetchExecute($file);
+		return $this->fetchExecute($file, $fileRAW);
 
     }
 
@@ -554,7 +554,7 @@ class erLhcoreClassTemplate {
 	}
 
 
-	function fetchExecute($file)
+	function fetchExecute($file, $fileRAW = '')
 	{
 		@extract($this->vars,EXTR_REFS);        // Extract the vars to local namespace
         ob_start();                             // Start output buffering
@@ -566,7 +566,18 @@ class erLhcoreClassTemplate {
         }
 
         if ($result === false) {                 // Make sure file was included succesfuly
-            throw new Exception("File inclusion failed"); // Throw exception if failed, so tpl compiler will recompile template
+            if ($fileRAW == '') {
+                throw new Exception("File inclusion failed"); // Throw exception if failed, so tpl compiler will recompile template
+            } else { // Try to include original file
+                if (file_exists($fileRAW)) {
+                    $result = include($fileRAW);               // Include the file
+                } else {
+                    $result = false;
+                }
+                if ($result === false) {
+                    throw new Exception("File inclusion failed");
+                }
+            }
         }
         $contents = ob_get_contents(); // Get the contents of the buffer
         ob_end_clean();                // End buffering and discard

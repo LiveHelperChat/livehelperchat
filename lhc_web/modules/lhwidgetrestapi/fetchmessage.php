@@ -5,13 +5,18 @@ erLhcoreClassRestAPIHandler::setHeaders();
 $requestPayload = json_decode(file_get_contents('php://input'),true);
 
 try {
+
+    if (!isset($requestPayload['id']) || !isset($requestPayload['msg_id'])) {
+        throw new Exception('Chat ID or message ID not provided!');
+    }
+
     $chat = erLhcoreClassModelChat::fetch($requestPayload['id']);
 
-    if ($chat->hash == $requestPayload['hash'])
+    if ($chat instanceof erLhcoreClassModelChat && $chat->hash == $requestPayload['hash'])
     {
         $msg = erLhcoreClassModelmsg::fetch($requestPayload['msg_id']);
 
-        if ($msg->chat_id == $chat->id) {
+        if ($msg instanceof erLhcoreClassModelmsg && $msg->chat_id == $chat->id) {
 
             $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/syncuser.tpl.php');
             $tpl->set('messages',array((array)$msg));

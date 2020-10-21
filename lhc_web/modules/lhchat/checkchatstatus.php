@@ -38,7 +38,7 @@ try {
     
     $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
     
-    if ($chat->hash === $Params['user_parameters']['hash']) {   
+    if ($chat instanceof erLhcoreClassModelChat && $chat->hash === $Params['user_parameters']['hash']) {
 
     	// Main unasnwered chats callback
     	if ( $chat->na_cb_executed == 0 && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_value > 0) {    		
