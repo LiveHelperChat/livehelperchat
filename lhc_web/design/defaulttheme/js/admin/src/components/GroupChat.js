@@ -153,7 +153,7 @@ const GroupChat = props => {
     const searchOpeartors = () => {
         clearTimeout(searchTimeout);
         searchTimeout = setTimeout(() => {
-            axios.get(WWW_DIR_JAVASCRIPT  + "groupchat/searchoperator/"+props.chatId+"?q=" + escape(searchOperatorElement.current.value)).then(result => {
+            axios.get(WWW_DIR_JAVASCRIPT  + "groupchat/searchoperator/"+props.chatId+"?"+(props.chatPublicId ? "id="+props.chatPublicId+"&" : '')+"q=" + escape(searchOperatorElement.current.value)).then(result => {
                 dispatch({
                     type: 'update',
                     value: {
