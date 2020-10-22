@@ -71,8 +71,9 @@ export class userSession {
 
         // Try to monitor variable if it's lhc_var
         try {
-            if (typeof lhc_var !== 'undefined')
+            if (this.attributes.lhc_var !== null)
             {
+
                 var validator = {
                     set: (obj, prop, value) => {
                         // The default behavior to store the value
@@ -85,10 +86,18 @@ export class userSession {
                         return true;
                     }
                 };
-                lhc_var = new Proxy(lhc_var,validator);
+
+                this.attributes.lhc_var = new Proxy(this.attributes.lhc_var,validator);
+
+                // Convert argument or global lhc_var to a reference
+                if (this.attributes.LHC_API.args.lhc_var) {
+                    this.attributes.LHC_API.args.lhc_var = this.attributes.lhc_var;
+                } else if (lhc_var) {
+                    lhc_var = this.attributes.lhc_var;
+                }
 
                 // Update vars initially
-                this.updateJSVars(lhc_var);
+                this.updateJSVars(this.attributes.lhc_var);
             }
        } catch(err) {
             console.log(err);
@@ -103,7 +112,13 @@ export class userSession {
 
             for (var index in this.jsVars) {
                 try {
-                    currentVar = eval(this.jsVars[index].var);
+
+                    if (this.jsVars[index].var.indexOf('lhc_var.') !== -1) {
+                        currentVar = this.attributes.lhc_var[this.jsVars[index].var.replace('lhc_var.','')] || null;
+                    } else {
+                        currentVar = eval(this.jsVars[index].var);
+                    }
+
                     if (typeof currentVar !== 'undefined' && currentVar !== null && currentVar !== '') {
                         js_args[this.jsVars[index].id] = currentVar;
                     }
