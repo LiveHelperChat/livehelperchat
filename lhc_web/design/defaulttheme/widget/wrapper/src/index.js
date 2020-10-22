@@ -1,14 +1,21 @@
 (function (global) {
 
-    if (!global.LHC_API || /google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|Chrome-Lighthouse/i.test(navigator.userAgent)) {
+    var currentScript = document.currentScript || (function() {
+        var scripts = document.getElementsByTagName('script');
+        return scripts[scripts.length - 1];
+    })();
+
+    var scopeScript = currentScript.getAttribute('scope') || 'LHC';
+
+    if (!global[scopeScript+'_API'] || /google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|Chrome-Lighthouse/i.test(navigator.userAgent)) {
         return;
     }
 
-    global.$_LHC_Instance = null;
-    global.$_LHC_Debug = false;
-    global.$_LHC = global.$_LHC || {};
+    global['$_'+scopeScript+'_Instance'] = null;
+    global['$_'+scopeScript+'_Debug'] = false;
+    global['$_'+scopeScript] = global['$_'+scopeScript] || {};
 
-    (function (lhc) {
+    (function (lhc, LHC_API) {
 
         lhc.loaded = false;
         lhc.connected = false;
@@ -67,6 +74,7 @@
 
             // Main attributes
             var attributesWidget = {
+                LHC_API : LHC_API,
                 viewHandler : null,
                 mainWidget : new mainWidget(),
                 popupWidget : new mainWidgetPopup(),
@@ -119,6 +127,7 @@
                 init_calls : [],
                 childCommands : [],
                 childExtCommands : [],
+                prefixLowercase : scopeScript.toLowerCase(),
                 loadcb : LHC_API.args.loadcb || null,
                 LHCChatOptions : global.LHCChatOptions ? global.LHCChatOptions : {}
             };
@@ -130,6 +139,7 @@
             lhc.eventListener = attributesWidget.eventEmitter;
             lhc.attributes = attributesWidget;
 
+            attributesWidget.userSession.setAttributes(attributesWidget);
             attributesWidget.userSession.setSessionInformation(attributesWidget.storageHandler.getSessionInformation());
             attributesWidget.userSession.setSessionReferrer(storageHandler.getSessionReferrer());
 
@@ -145,7 +155,7 @@
                 }
 
             } else {
-                var embedWrapper = document.getElementById('lhc_status_container_page');
+                var embedWrapper = document.getElementById(attributesWidget.prefixLowercase + '_status_container_page');
                 if (embedWrapper !== null) {
                     embedWrapper.appendChild(attributesWidget.mainWidget.cont.constructUI());
                     embedWrapper.style.height = (LHC_API.args.wheight || 520)+'px';
@@ -703,6 +713,6 @@
             init();
         }, "windowload"));
 
-    }).call(this, window.$_LHC);
+    }).call(this, global['$_'+scopeScript], global[scopeScript+'_API']);
 
 })(window);

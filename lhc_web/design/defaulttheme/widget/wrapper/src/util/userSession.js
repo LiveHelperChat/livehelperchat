@@ -5,6 +5,7 @@ export class userSession {
         this.vid = null;
         this.hnh = null;
 
+        this.attributes = {};
         this.ref = null;
         this.id = null;
         this.hash = null;
@@ -14,6 +15,10 @@ export class userSession {
             parse: window.JSON && (window.JSON.parse || window.JSON.decode) || String.prototype.evalJSON && function(str){return String(str).evalJSON();} || $.parseJSON || $.evalJSON,
             stringify:  Object.toJSON || window.JSON && (window.JSON.stringify || window.JSON.encode) || $.toJSON
         };
+    }
+
+    setAttributes(attributes) {
+        this.attributes = attributes;
     }
 
     setSessionReferrer(ref) {
@@ -131,7 +136,7 @@ export class userSession {
         let varsJSON = this.getVars(vars);
 
         var xhr = new XMLHttpRequest();
-        xhr.open( "POST", LHC_API.args.lhc_base_url + '/chat/updatejsvars' + this.getAppendVariables(), true);
+        xhr.open( "POST", this.attributes.LHC_API.args.lhc_base_url + '/chat/updatejsvars' + this.getAppendVariables(), true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.send( "data=" + encodeURIComponent( this.JSON.stringify(varsJSON) ) );
 

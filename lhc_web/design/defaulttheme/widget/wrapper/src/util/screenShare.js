@@ -47,7 +47,7 @@ class _screenShare {
             var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
             s.setAttribute('id','lhc_finish_shr');
             s.setAttribute('type','text/javascript');
-            s.setAttribute('src',LHC_API.args.lhc_base_url+'/cobrowse/finishsession/(sharemode)/chat/(hash)/'+this.sharehash);
+            s.setAttribute('src',this.attributes.LHC_API.args.lhc_base_url+'/cobrowse/finishsession/(sharemode)/chat/(hash)/'+this.sharehash);
             th.appendChild(s);
 
             this.cobrowser = null;
@@ -68,7 +68,7 @@ class _screenShare {
         this.sharehash = chatParams['id'] + '_' + chatParams['hash'];
 
         if (this.isSharing == false) {
-            helperFunctions.makeRequest(LHC_API.args.lhc_base_url + '/widgetrestapi/screensharesettings', {}, (data) => {
+            helperFunctions.makeRequest(this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/screensharesettings', {}, (data) => {
                 if (this.params['auto_start'] || data['auto_share'] == 1) {
                     this.initCoBrowsing(data);
                 } else {
