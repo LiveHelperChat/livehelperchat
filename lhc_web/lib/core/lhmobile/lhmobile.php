@@ -75,7 +75,7 @@ class erLhcoreClassLHCMobile {
         }
     }
 
-    public function botTransfer($params) {
+    public static function botTransfer($params) {
         if (isset($params['action']['content']['command']) && $params['action']['content']['command'] == 'stopchat' && isset($params['is_online']) && $params['is_online'] == true) {
             self::chatStarted(array('chat' => $params['chat']));
         }
