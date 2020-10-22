@@ -70,7 +70,7 @@ export class mainWidget{
             restyleStyle["max-width"] = '100%';
             restyleStyle["min-width"] = '100%';
             restyleStyle["width"] = '100%';
-            restyleStyle["position"] = 'relative';
+            restyleStyle["position"] = (this.attributes.fscreen ? 'fixed' : 'relative') + '!important';
             restyleStyle["bottom"] = 'auto';
             restyleStyle["right"] = 'auto';
         }
