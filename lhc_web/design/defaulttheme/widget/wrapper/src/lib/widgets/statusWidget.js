@@ -3,12 +3,12 @@ import {UIConstructorIframe} from '../UIConstructorIframe';
 import {helperFunctions} from '../helperFunctions';
 
 export class statusWidget{
-    constructor() {
+    constructor(prefix) {
 
        this.attributes = {};
        this.controlMode = false;
 
-       this.cont = new UIConstructorIframe('lhc_status_widget_v2', helperFunctions.getAbstractStyle({
+       this.cont = new UIConstructorIframe((prefix || 'lhc')+'_status_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "2147483640",
             width: "95px",
             height: "95px",
@@ -107,7 +107,7 @@ export class statusWidget{
 
         if (this.attributes.theme > 0) {
             this.loadStatus['theme'] = false;
-            this.cont.insertCssRemoteFile({onload: ()=>{this.loadStatus['theme'] = true; this.checkLoadStatus()}, crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/themestatus/' + this.attributes.theme + '?v=' + this.attributes.theme_v}, true);
+            this.cont.insertCssRemoteFile({onload: ()=>{this.loadStatus['theme'] = true; this.checkLoadStatus()}, crossOrigin : "anonymous",  href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/themestatus/' + this.attributes.theme + '?v=' + this.attributes.theme_v}, true);
         } else {
             this.loadStatus['theme'] = true;
         }
@@ -115,7 +115,7 @@ export class statusWidget{
         this.cont.insertCssRemoteFile({onload: ()=>{this.loadStatus['main'] = true; this.checkLoadStatus()}, crossOrigin : "anonymous",  href : this.attributes.staticJS['status_css'] });
 
         if (this.attributes.staticJS['page_css']) {
-            helperFunctions.insertCssRemoteFile({crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/themepage/' + this.attributes.theme + '?v=' + this.attributes.theme_v});
+            helperFunctions.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/themepage/' + this.attributes.theme + '?v=' + this.attributes.theme_v});
         }
 
         attributes.onlineStatus.subscribe((data) => this.toggleOfflineIcon(data));
@@ -135,7 +135,7 @@ export class statusWidget{
             this.showUnreadIndicator();
         });
 
-        if (attributes.storageHandler.getSessionStorage('LHC_UNR') == "1") {
+        if (attributes.storageHandler.getSessionStorage(this.attributes['prefixStorage']+'_unr') == "1") {
             this.showUnreadIndicator();
         }
     }
@@ -165,13 +165,13 @@ export class statusWidget{
     showUnreadIndicator(){
         var icon = this.cont.getElementById("lhc_status_container");
         helperFunctions.addClass(icon, "has-uread-message");
-        this.attributes.storageHandler.setSessionStorage('LHC_UNR',"1");
+        this.attributes.storageHandler.setSessionStorage(this.attributes['prefixStorage']+'_unr',"1");
     }
 
     removeUnreadIndicator() {
         var icon = this.cont.getElementById("lhc_status_container");
         helperFunctions.removeClass(icon, "has-uread-message");
-        this.attributes.storageHandler.removeSessionStorage('LHC_UNR');
+        this.attributes.storageHandler.removeSessionStorage(this.attributes['prefixStorage']+'_unr');
     }
 
     show () {

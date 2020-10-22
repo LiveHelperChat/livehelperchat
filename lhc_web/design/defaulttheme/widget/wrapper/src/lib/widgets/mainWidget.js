@@ -2,7 +2,7 @@ import {UIConstructorIframe} from '../UIConstructorIframe';
 import {helperFunctions} from '../helperFunctions';
 
 export class mainWidget{
-    constructor() {
+    constructor(prefix) {
 
         this.attributes = {};
 
@@ -14,7 +14,7 @@ export class mainWidget{
         this.originalCSS = '';
         this.bottom_override = false;
 
-        this.cont = new UIConstructorIframe('lhc_widget_v2', helperFunctions.getAbstractStyle({
+        this.cont = new UIConstructorIframe((prefix || 'lhc')+'_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "2147483640",
             width: "95px",
             height: "95px",
@@ -87,7 +87,7 @@ export class mainWidget{
     makeContent() {
         this.cont.bodyId = 'chat-widget';
 
-        this.cont.tmpl = '<div id="root" class="container-fluid d-flex flex-column flex-grow-1 overflow-auto fade-in ' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + (this.attributes.fscreen ? ' lhc-fscreen' : '') + '"></div>';
+        this.cont.tmpl = '<div id="root" class="container-fluid d-flex flex-column flex-grow-1 overflow-auto fade-in ' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + (this.attributes.fscreen ? ' lhc-fscreen' : '') + (this.attributes.position_placement == 'full_height_left' || this.attributes.position_placement == 'full_height_right' ? ' lhc-full-height' : '')+'"></div>';
 
         this.cont.constructUIIframe('', this.attributes.staticJS['dir'], this.attributes.staticJS['cl'], this.attributes.hhtml);
 
@@ -143,7 +143,7 @@ export class mainWidget{
         }
 
         if (this.attributes.theme > 0) {
-            this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/theme/' + this.attributes.theme + '?v=' + this.attributes.theme_v}, true);
+            this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/theme/' + this.attributes.theme + '?v=' + this.attributes.theme_v}, true);
         }
 
         this.cont.insertCssRemoteFile({onload: () => {
@@ -162,7 +162,7 @@ export class mainWidget{
         this.cont.insertJSFile(this.attributes.staticJS['app'], false, () => {
             this.loadStatus['main'] = true;
             this.checkLoadStatus();
-        });
+        }, {'scope': this.attributes.prefixLowercase});
   
         if (this.attributes.staticJS['ex_js'] && this.attributes.staticJS['ex_js'].length > 0) {
             this.attributes.staticJS['ex_js'].forEach((item) => {

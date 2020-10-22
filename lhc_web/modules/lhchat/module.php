@@ -429,13 +429,13 @@ $ViewList['startchat'] = array (
 
 $ViewList['start'] = array (
     'params' => array(),
-    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','h','mode','bot'),
+    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','h','mode','bot','scope'),
 	'multiple_arguments' => array('department')
 );
 
 $ViewList['begin'] = array (
     'params' => array(),
-    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','h','mode','bot'),
+    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','h','mode','bot','scope'),
 	'multiple_arguments' => array('department')
 );
 

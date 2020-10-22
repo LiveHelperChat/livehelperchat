@@ -237,7 +237,7 @@ export default function (dispatch, getState) {
             if (paramsInit['mode'] == 'popup') {
                 helperFunctions.sendMessageParent('endChatCookies');
 
-                const sessionChat = helperFunctions.getSessionStorage('lhc_chat');
+                const sessionChat = helperFunctions.getSessionStorage('_chat');
 
                 if (sessionChat !== null && !paramsInit['static_chat']['id']) {
                     dispatch({
@@ -245,7 +245,7 @@ export default function (dispatch, getState) {
                         data: JSON.parse(sessionChat)
                     })
                 } else if (paramsInit['static_chat']['id']) {
-                    helperFunctions.setSessionStorage('lhc_chat',JSON.stringify(paramsInit['static_chat']));
+                    helperFunctions.setSessionStorage('_chat',JSON.stringify(paramsInit['static_chat']));
                 }
             }
 

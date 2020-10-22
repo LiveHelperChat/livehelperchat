@@ -48,7 +48,7 @@ export function endChat(obj) {
         .then((response) => {
             if (!obj.noClose) {
                 if (window.lhcChat['mode'] == 'popup') {
-                    helperFunctions.removeSessionStorage('lhc_chat');
+                    helperFunctions.removeSessionStorage('_chat');
                     window.close();
                 } else {
                     helperFunctions.sendMessageParent('endChat', [{show_start: obj['show_start'], 'sender' : 'endButton'}]);

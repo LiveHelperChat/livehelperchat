@@ -103,6 +103,10 @@ $tpl->set('online',$online);
 $tpl->set('mode',$Params['user_parameters_unordered']['mode'] != '' && in_array($Params['user_parameters_unordered']['mode'],['embed','popup','widget']) ? $Params['user_parameters_unordered']['mode']  : 'popup');
 $tpl->set('sound',is_numeric($Params['user_parameters_unordered']['sound']) ? (int)$Params['user_parameters_unordered']['sound'] : (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['new_message_sound_user_enabled']);
 
+if ($Params['user_parameters_unordered']['scope'] != ''){
+    $Result['app_scope'] = strip_tags($Params['user_parameters_unordered']['scope']);
+}
+
 $ts = time();
 $tpl->set('captcha',array(
     'hash' => sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' )),

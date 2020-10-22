@@ -178,7 +178,7 @@ const chatWidgetReducer = (state = initialState, action) => {
                 
                 // If we are in popup mode and visitor refreshes page, remember chat
                 if (state.get('mode') == 'popup') {
-                    helperFunctions.setSessionStorage('lhc_chat',JSON.stringify(action.data.chatData))
+                    helperFunctions.setSessionStorage('_chat',JSON.stringify(action.data.chatData))
                 }
 
                 return state.set('processStatus', 2).set('isChatting',true).set('chatData',fromJS(action.data.chatData)).set('validationErrors',fromJS({}));;

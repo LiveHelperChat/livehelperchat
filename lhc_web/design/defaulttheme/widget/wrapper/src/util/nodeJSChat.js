@@ -55,7 +55,7 @@ class _nodeJSChat {
                 connectSiteVisitor();
 
                 // Disable check messages in case we connect to nodejs
-                LHC_API.args.check_messages = false;
+                attributes.LHC_API.args.check_messages = false;
 
             } else {
                 socket.emit('login', {hash: params.hash, chanelName: chanelName}, function (err) {
@@ -66,7 +66,7 @@ class _nodeJSChat {
                         connectSiteVisitor();
 
                         // Disable check messages in case we connect to nodejs
-                        LHC_API.args.check_messages = false;
+                        attributes.LHC_API.args.check_messages = false;
                     }
                 });
             }
