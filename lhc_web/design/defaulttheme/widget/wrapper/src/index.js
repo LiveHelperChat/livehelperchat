@@ -134,7 +134,7 @@
                 init_calls : [],
                 childCommands : [],
                 childExtCommands : [],
-                lhc_var : LHC_API.args.lhc_var || lhc_var || null,
+                lhc_var : (LHC_API.args.lhc_var || (typeof lhc_var !== 'undefined' ? lhc_var :  null)),
                 loadcb : LHC_API.args.loadcb || null,
                 LHCChatOptions : global[scopeScript + 'ChatOptions'] || {}
             };
