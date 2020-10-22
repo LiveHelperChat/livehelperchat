@@ -93,16 +93,20 @@ export class mainWidgetPopup {
                 urlArgumetns = urlArgumetns + "/(identifier)/" + this.attributes['identifier'];
             }
 
-            if (this.attributes['operator'] !== null) {
+            if (this.attributes['operator']) {
                 urlArgumetns = urlArgumetns + "/(operator)/" + this.attributes['operator'];
             }
 
-            if (this.attributes['survey'] !== null) {
+            if (this.attributes['survey']) {
                 urlArgumetns = urlArgumetns + "/(survey)/" + this.attributes['survey'];
             }
 
-            if (this.attributes['priority'] !== null) {
+            if (this.attributes['priority']) {
                 urlArgumetns = urlArgumetns + "/(priority)/" + this.attributes['priority'];
+            }
+
+            if (this.attributes['prefixLowercase'] != 'lhc') {
+                urlArgumetns = urlArgumetns + "/(scope)/" + this.attributes['prefixLowercase'];
             }
 
             urlArgumetns = urlArgumetns + "/(sound)/" + (this.attributes.toggleSound.value == true ? 1 : 0);

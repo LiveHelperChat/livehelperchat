@@ -120,7 +120,7 @@
                 proactive_interval : null,
                 lang : LHC_API.args.lang || '',
                 bot_id : LHC_API.args.bot_id || '',
-                priority : LHC_API.args.priority || '',
+                priority : LHC_API.args.priority || null,
                 events : LHC_API.args.events || [],
                 hhtml : LHC_API.args.hhtml || '',
                 survey : LHC_API.args.survey || null,

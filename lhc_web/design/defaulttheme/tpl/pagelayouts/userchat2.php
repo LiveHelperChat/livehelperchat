@@ -57,9 +57,9 @@
 <?php
 $detect = new Mobile_Detect();
 if ($detect->version('IE') !== false) : ?>
-    <script src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.ie.js')?>?t=127"></script>
+    <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.ie.js')?>?t=127"></script>
 <?php else : ?>
-    <script src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.js')?>?t=127"></script>
+    <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.js')?>?t=127"></script>
 <?php endif; ?>
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer_widget2_js_extension_multiinclude.tpl.php'));?>
