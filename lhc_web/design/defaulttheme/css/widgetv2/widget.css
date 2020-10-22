@@ -152,7 +152,12 @@ div.message-row {
     background-color: #fff;
 }
 
-.desktop-header{
+.lhc-full-height > .desktop-body{
+    border-radius: 0;
+    border-bottom: 0;
+}
+
+.lhc-desktop:not(.lhc-full-height) > .desktop-header{
     border: 1px solid #cecece;
     border-bottom: 0;
     border-top-left-radius: 10px;

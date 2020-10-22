@@ -7,6 +7,7 @@ var LHCCoBrowser = (function() {
 		this.mirrorClient = null;
 		this.socket = null;
 		this.chat_hash = params['chat_hash'];
+		this.event_emitter = params['event_emitter'] || null;
 		this.cssAdded = false;
 		this.operatorMouseVisible = false;
 		this.windowForceScroll = false;
@@ -864,8 +865,8 @@ var LHCCoBrowser = (function() {
             // Inform main chat handler about finished session
 			if (typeof lh_inst !== 'undefined') {
                 lh_inst.finishScreenSharing()
-            } else if ($_LHC) {
-                $_LHC.eventListener.emitEvent('finishScreenSharing')
+            } else if (this.event_emitter) {
+                this.event_emitter.emitEvent('finishScreenSharing')
             }
 
 			if (this.isNodeConnected == true) {

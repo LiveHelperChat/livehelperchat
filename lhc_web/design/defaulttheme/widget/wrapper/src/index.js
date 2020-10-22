@@ -57,8 +57,9 @@
             LHC_API.args = LHC_API.args || {};
 
             const prefixLowercase = scopeScript.toLowerCase();
+            const prefixStorage = (prefixLowercase && LHC_API.args.scope_storage ? prefixLowercase : 'lhc');
 
-            var storageHandler = new storageHandler(global, LHC_API.args.domain || null, (prefixLowercase && LHC_API.args.scope_separate ? prefixLowercase : 'lhc'));
+            var storageHandler = new storageHandler(global, LHC_API.args.domain || null, prefixStorage);
 
             if (LHC_API.args.cookie_per_page) {
                 storageHandler.setCookiePerPage(LHC_API.args.cookie_per_page);
@@ -78,6 +79,8 @@
             // Main attributes
             var attributesWidget = {
                 prefixLowercase : prefixLowercase,
+                prefixStorage : prefixStorage,
+                prefixScope : scopeScript,
                 LHC_API : LHC_API,
                 viewHandler : null,
                 mainWidget : new mainWidget(prefixLowercase),
@@ -87,9 +90,9 @@
                 onlineStatus :  new BehaviorSubject(true),
                 wloaded :  new BehaviorSubject(false),
                 sload :  new BehaviorSubject(false),
-                widgetStatus : new BehaviorSubject((storageHandler.getSessionStorage('LHC_WS') === 'true' || (LHC_API.args.mode && LHC_API.args.mode == 'embed'))),
+                widgetStatus : new BehaviorSubject((storageHandler.getSessionStorage(prefixStorage+'_ws') === 'true' || (LHC_API.args.mode && LHC_API.args.mode == 'embed'))),
                 eventEmitter : new EventEmitter(),
-                toggleSound : new BehaviorSubject(storageHandler.getSessionStorage('LHC_SOUND') === 'true',{'ignore_sub':true}),
+                toggleSound : new BehaviorSubject(storageHandler.getSessionStorage(prefixStorage+'_sound') === 'true',{'ignore_sub':true}),
                 hideOffline : false,
                 fscreen : LHC_API.args.fscreen || false,
                 isMobile : isMobile,
@@ -132,7 +135,7 @@
                 childCommands : [],
                 childExtCommands : [],
                 loadcb : LHC_API.args.loadcb || null,
-                LHCChatOptions : global.LHCChatOptions ? global.LHCChatOptions : {}
+                LHCChatOptions : global[scopeScript + 'ChatOptions'] || {}
             };
 
             attributesWidget.widgetDimesions = new BehaviorSubject({sright:(LHC_API.args.sright || 0), sbottom:(LHC_API.args.sbottom || 0), wright_inv: 0, wbottom:0, wright:0, width: ((isMobile || attributesWidget.fscreen) ? 100 : (LHC_API.args.wwidth || 350)), height: ((isMobile || attributesWidget.fscreen) ? 100 : (LHC_API.args.wheight || 520)), units : ((isMobile|| attributesWidget.fscreen) ? '%' : 'px')});
@@ -300,7 +303,7 @@
                         attributesWidget.mode = 'popup';
                     }
 
-                    if (data.chat_ui.sound_enabled && storageHandler.getSessionStorage('LHC_SOUND') === null) {
+                    if (data.chat_ui.sound_enabled && storageHandler.getSessionStorage(prefixStorage+'_sound') === null) {
                         attributesWidget.toggleSound.next(true);
                     }
 
@@ -369,7 +372,7 @@
 
                 attributesWidget.proactive_interval = data.chat_ui.proactive_interval;
 
-                if ( (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') && (typeof LHC_API.args.proactive === 'undefined' || LHC_API.args.proactive === true) && attributesWidget.storageHandler.getSessionStorage('LHC_invt') === null) {
+                if ( (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') && (typeof LHC_API.args.proactive === 'undefined' || LHC_API.args.proactive === true) && attributesWidget.storageHandler.getSessionStorage(prefixStorage+'_invt') === null) {
                     import('./util/proactiveChat').then((module) => {
                         module.proactiveChat.setParams({
                             'interval' : attributesWidget.proactive_interval
@@ -538,14 +541,14 @@
             // Track widget status changes
             attributesWidget.widgetStatus.subscribe((data) => {
                 if (attributesWidget.mode !== 'popup') {
-                    attributesWidget.storageHandler.setSessionStorage('LHC_WS',data);
+                    attributesWidget.storageHandler.setSessionStorage(prefixStorage+'_ws',data);
                     chatEvents.sendChildEvent('widgetStatus', [data]);
                 }
             });
 
             // Store sound settings
             attributesWidget.toggleSound.subscribe((data) => {
-                attributesWidget.storageHandler.setSessionStorage('LHC_SOUND',data);
+                attributesWidget.storageHandler.setSessionStorage(prefixStorage+'_sound',data);
             });
 
             attributesWidget.onlineStatus.subscribe((data) => {
@@ -659,7 +662,7 @@
                 if (parts[1] == 'ready') {
                     chatEvents.sendReadyEvent(parts[2] == 'true');
 
-                    if (attributesWidget.storageHandler.getSessionStorage('LHC_screenshare')){
+                    if (attributesWidget.storageHandler.getSessionStorage(prefixStorage+'_screenshare')){
                         attributesWidget.eventEmitter.emitEvent('screenshare',[{'auto_start' : true}]);
                     }
 

@@ -107,10 +107,10 @@ class BodyChat extends Component {
 
         var eventEmiter = null;
 
-        if (window.parent && window.parent.$_LHC && window.parent.closed === false) {
-            eventEmiter = window.parent.$_LHC.eventListener;
-        } else if (window.opener && window.opener.$_LHC && window.opener.closed === false) {
-            eventEmiter = window.opener.$_LHC.eventListener;
+        if (window.parent && window.parent['$_'+helperFunctions.prefixUppercase] && window.parent.closed === false) {
+            eventEmiter = window.parent['$_'+helperFunctions.prefixUppercase].eventListener;
+        } else if (window.opener && window.opener['$_'+helperFunctions.prefixUppercase] && window.opener.closed === false) {
+            eventEmiter = window.opener['$_'+helperFunctions.prefixUppercase].eventListener;
         }
 
         if (eventEmiter !== null) {

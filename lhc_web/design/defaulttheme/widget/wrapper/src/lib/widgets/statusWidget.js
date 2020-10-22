@@ -135,7 +135,7 @@ export class statusWidget{
             this.showUnreadIndicator();
         });
 
-        if (attributes.storageHandler.getSessionStorage('LHC_UNR') == "1") {
+        if (attributes.storageHandler.getSessionStorage(this.attributes['prefixStorage']+'_unr') == "1") {
             this.showUnreadIndicator();
         }
     }
@@ -165,13 +165,13 @@ export class statusWidget{
     showUnreadIndicator(){
         var icon = this.cont.getElementById("lhc_status_container");
         helperFunctions.addClass(icon, "has-uread-message");
-        this.attributes.storageHandler.setSessionStorage('LHC_UNR',"1");
+        this.attributes.storageHandler.setSessionStorage(this.attributes['prefixStorage']+'_unr',"1");
     }
 
     removeUnreadIndicator() {
         var icon = this.cont.getElementById("lhc_status_container");
         helperFunctions.removeClass(icon, "has-uread-message");
-        this.attributes.storageHandler.removeSessionStorage('LHC_UNR');
+        this.attributes.storageHandler.removeSessionStorage(this.attributes['prefixStorage']+'_unr');
     }
 
     show () {

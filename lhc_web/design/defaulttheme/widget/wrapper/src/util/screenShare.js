@@ -20,6 +20,7 @@ class _screenShare {
 
         this.cobrowser = new LHCCoBrowser({'formsenabled':formsEnabled,
                 'chat_hash': this.sharehash,
+                'event_emitter': this.attributes.eventEmitter,
                 'nodejssettings': params['nodejssettings'],
                 'nodejsenabled': params['nodejsenabled'],
                 'trans': params['trans'],
@@ -38,7 +39,7 @@ class _screenShare {
 
             helperFunctions.removeById('lhc_status_mirror');
 
-            this.attributes.storageHandler.removeSessionStorage('LHC_screenshare');
+            this.attributes.storageHandler.removeSessionStorage(this.attributes['prefixStorage']+'_screenshare');
 
             this.isSharing = false;
   
@@ -55,7 +56,7 @@ class _screenShare {
             this.attributes.eventEmitter.removeListener('screenshareCommand',listener);
         });
 
-        this.attributes.storageHandler.setSessionStorage('LHC_screenshare',1);
+        this.attributes.storageHandler.setSessionStorage(this.attributes['prefixStorage']+'_screenshare',1);
     }
 
     setParams(params, attributes, chatEvents) {
