@@ -76,7 +76,7 @@ export class UIConsturctor {
         d.appendChild(k);
     }
 
-    insertJSFile(src, async, loadcb) {
+    insertJSFile(src, async, loadcb, attr) {
         var d = this.elmDomDoc.getElementsByTagName("head")[0],
             k = this.elmDomDoc.createDocumentFragment(),
             e = this.elmDomDoc.createElement('script');
@@ -92,7 +92,13 @@ export class UIConsturctor {
             if (loadcb) {
                 e.onload = loadcb;
             }
-            
+
+            if (attr) {
+                Object.keys(attr).forEach(key => {
+                    e.setAttribute(key,attr[key]);
+                })
+            }
+
             k.appendChild(e);
             d.appendChild(k);
     }

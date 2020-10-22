@@ -3,12 +3,12 @@ import {UIConstructorIframe} from '../UIConstructorIframe';
 import {helperFunctions} from '../helperFunctions';
 
 export class statusWidget{
-    constructor() {
+    constructor(prefix) {
 
        this.attributes = {};
        this.controlMode = false;
 
-       this.cont = new UIConstructorIframe('lhc_status_widget_v2', helperFunctions.getAbstractStyle({
+       this.cont = new UIConstructorIframe((prefix || 'lhc')+'_status_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "2147483640",
             width: "95px",
             height: "95px",

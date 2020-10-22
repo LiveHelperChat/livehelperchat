@@ -55,7 +55,10 @@
             var isMobile = isMobileItem.default(global.navigator.userAgent).any;
 
             LHC_API.args = LHC_API.args || {};
-            var storageHandler = new storageHandler(global, LHC_API.args.domain || null);
+
+            const prefixLowercase = scopeScript.toLowerCase();
+
+            var storageHandler = new storageHandler(global, LHC_API.args.domain || null, (prefixLowercase && LHC_API.args.scope_separate ? prefixLowercase : 'lhc'));
 
             if (LHC_API.args.cookie_per_page) {
                 storageHandler.setCookiePerPage(LHC_API.args.cookie_per_page);
@@ -74,9 +77,10 @@
 
             // Main attributes
             var attributesWidget = {
+                prefixLowercase : prefixLowercase,
                 LHC_API : LHC_API,
                 viewHandler : null,
-                mainWidget : new mainWidget(),
+                mainWidget : new mainWidget(prefixLowercase),
                 popupWidget : new mainWidgetPopup(),
                 chatNotifications : chatNotifications,
                 jsVars :  new BehaviorSubject(true),
@@ -127,7 +131,6 @@
                 init_calls : [],
                 childCommands : [],
                 childExtCommands : [],
-                prefixLowercase : scopeScript.toLowerCase(),
                 loadcb : LHC_API.args.loadcb || null,
                 LHCChatOptions : global.LHCChatOptions ? global.LHCChatOptions : {}
             };
@@ -145,9 +148,9 @@
 
             if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
 
-                var containerChatObj = new containerChat();
+                var containerChatObj = new containerChat(attributesWidget.prefixLowercase);
 
-                attributesWidget.viewHandler = new statusWidget();
+                attributesWidget.viewHandler = new statusWidget(attributesWidget.prefixLowercase);
                 containerChatObj.cont.elmDom.appendChild(attributesWidget.viewHandler.cont.constructUI(),!0);
 
                 if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
@@ -323,7 +326,7 @@
 
                 if (attributesWidget.mode == 'widget' && data.nh && attributesWidget.fresh === false && attributesWidget['position'] != 'api' && attributesWidget.userSession.id === null) {
                     import('./lib/widgets/needhelpWidget').then((module) => {
-                        var needhelpWidget = new module.needhelpWidget();
+                        var needhelpWidget = new module.needhelpWidget(attributesWidget.prefixLowercase);
                         containerChatObj.cont.elmDom.appendChild(needhelpWidget.cont.constructUI(),!0);
                         needhelpWidget.init(attributesWidget,data.nh);
                     });
@@ -640,7 +643,7 @@
 
             // Listed for post messages
             const handleMessages = (e) => {
-                if (typeof e.data !== 'string' || e.data.indexOf('lhc::')) { return; }
+                if (typeof e.data !== 'string' || e.data.indexOf(attributesWidget.prefixLowercase +'::')) { return; }
 
                 const parts = e.data.split('::');
 

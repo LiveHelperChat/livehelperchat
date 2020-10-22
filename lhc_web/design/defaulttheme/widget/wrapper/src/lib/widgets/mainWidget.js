@@ -2,7 +2,7 @@ import {UIConstructorIframe} from '../UIConstructorIframe';
 import {helperFunctions} from '../helperFunctions';
 
 export class mainWidget{
-    constructor() {
+    constructor(prefix) {
 
         this.attributes = {};
 
@@ -14,7 +14,7 @@ export class mainWidget{
         this.originalCSS = '';
         this.bottom_override = false;
 
-        this.cont = new UIConstructorIframe('lhc_widget_v2', helperFunctions.getAbstractStyle({
+        this.cont = new UIConstructorIframe((prefix || 'lhc')+'_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "2147483640",
             width: "95px",
             height: "95px",
@@ -70,7 +70,7 @@ export class mainWidget{
             restyleStyle["max-width"] = '100%';
             restyleStyle["min-width"] = '100%';
             restyleStyle["width"] = '100%';
-            restyleStyle["position"] = 'relative';
+            restyleStyle["position"] = (this.attributes.fscreen ? 'fixed' : 'relative') + '!important';
             restyleStyle["bottom"] = 'auto';
             restyleStyle["right"] = 'auto';
         }
@@ -162,7 +162,7 @@ export class mainWidget{
         this.cont.insertJSFile(this.attributes.staticJS['app'], false, () => {
             this.loadStatus['main'] = true;
             this.checkLoadStatus();
-        });
+        }, {'scope': this.attributes.prefixLowercase});
   
         if (this.attributes.staticJS['ex_js'] && this.attributes.staticJS['ex_js'].length > 0) {
             this.attributes.staticJS['ex_js'].forEach((item) => {

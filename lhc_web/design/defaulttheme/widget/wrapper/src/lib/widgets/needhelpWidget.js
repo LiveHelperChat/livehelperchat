@@ -3,7 +3,7 @@ import {UIConstructorIframe} from '../UIConstructorIframe';
 import {helperFunctions} from '../helperFunctions';
 
 export class needhelpWidget{
-    constructor() {
+    constructor(prefix) {
 
         this.attributes = {};
         this.hidden = false;
@@ -11,7 +11,7 @@ export class needhelpWidget{
         this.invitationOpen = false;
         this.nhOpen = false;
 
-        this.cont = new UIConstructorIframe('lhc_needhelp_widget_v2', helperFunctions.getAbstractStyle({
+        this.cont = new UIConstructorIframe((prefix || 'lhc')+'_needhelp_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "2147483640",
             width: "320px",
             height: "135px",

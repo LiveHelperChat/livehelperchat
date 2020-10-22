@@ -1,11 +1,12 @@
 
 export class storageHandler {
-    constructor(global, domain) {
+    constructor(global, domain, prefix) {
         this.window = global;
         this.hasSessionStorage = !!this.window.sessionStorage;
         this.domain = domain;
         this.secureCookie = false;
         this.cookiePerPage = false;
+        this.prefix = prefix || 'lhc';
     }
 
     setCookieDomain(domain) {
@@ -75,19 +76,19 @@ export class storageHandler {
     }
 
     setSessionReferer(ref) {
-        if (!this.getSessionStorage('lhc_ref')) {
-            this.setSessionStorage('lhc_ref',ref);
+        if (!this.getSessionStorage(this.prefix+'_ref')) {
+            this.setSessionStorage(this.prefix+'_ref',ref);
         }
     }
 
     getSessionReferrer() {
-        return this.getSessionStorage('lhc_ref');
+        return this.getSessionStorage(this.prefix+'_ref');
     }
 
     getSessionInformation() {
         var a;
         this.sessionInformation && (a = this.sessionInformation);
-        a || (a = this.getHTTPCookie("lhc_per")[0]);
+        a || (a = this.getHTTPCookie(this.prefix + "_per")[0]);
         return this.parseSessionInformation(a)
     };
 
@@ -102,7 +103,7 @@ export class storageHandler {
     }
 
     storeSessionInformation(sessionInformation) {
-        this.setHTTPCookie("lhc_per", this.getStoreValue(sessionInformation), false, this.getCookieDomain());
+        this.setHTTPCookie(this.prefix+"_per", this.getStoreValue(sessionInformation), false, this.getCookieDomain());
         this.sessionInformation = sessionInformation;
     };
 

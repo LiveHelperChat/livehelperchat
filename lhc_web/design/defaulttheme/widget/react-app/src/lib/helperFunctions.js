@@ -2,7 +2,15 @@
 class _helperFunctions {
 
     constructor() {
+
+        var currentScript = document.currentScript || (function() {
+            var scripts = document.getElementsByTagName('script');
+            return scripts[scripts.length - 1];
+        })();
+
         var EventEmitter = require('wolfy87-eventemitter');
+
+        this.prefix = currentScript.getAttribute('scope') || 'lhc';
         this.eventEmitter = new EventEmitter();
         this.hasSessionStorage = !!window.sessionStorage;
     }
@@ -13,9 +21,9 @@ class _helperFunctions {
 
     sendMessageParent(key, data) {
         if (window.opener && window.opener.closed === false) {
-            window.opener.postMessage('lhc::'+key+'::'+JSON.stringify(data || null),'*');
+            window.opener.postMessage(this.prefix + '::'+key+'::'+JSON.stringify(data || null),'*');
         } else if (window.parent && window.parent.closed === false) {
-            window.parent.postMessage('lhc::'+key+'::'+JSON.stringify(data || null),'/');
+            window.parent.postMessage(this.prefix + '::'+key+'::'+JSON.stringify(data || null),'/');
         }
     }
 
