@@ -220,7 +220,9 @@ class erLhcoreClassChatHelper
             $chat->updateThis();
              
         } elseif ($changeStatus == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
-        
+
+            // If chat is changed to pending reset assigned operator
+            $chat->user_id = 0;
             $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
             $chat->support_informed = 0;
             $chat->has_unread_messages = 1;
