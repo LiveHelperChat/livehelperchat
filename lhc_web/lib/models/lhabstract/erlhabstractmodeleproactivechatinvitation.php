@@ -359,6 +359,16 @@ class erLhAbstractModelProactiveChatInvitation {
 	    
 	    if ($message->show_random_operator == 1) {
 	        $item->operator_user_id = erLhcoreClassChat::getRandomOnlineUserID(array('operators' => explode(',',trim($message->operator_ids))));
+
+	        // Assign same operator as invitation was shown from
+	        $onlineAttrSystem = $item->online_attr_system_array;
+            $attributesDesignData = $message->design_data_array;
+
+            if ($item->operator_user_id > 0 && !isset($onlineAttrSystem['lhc_assign_to_me']) && isset($attributesDesignData['assign_to_randomop']) && $attributesDesignData['assign_to_randomop'] == 1) {
+                $onlineAttrSystem['lhc_assign_to_me'] = 1;
+                $item->online_attr_system_array = $onlineAttrSystem;
+                $item->online_attr_system = json_encode($onlineAttrSystem);
+            }
 	    }
 
         $message->executed_times += 1;

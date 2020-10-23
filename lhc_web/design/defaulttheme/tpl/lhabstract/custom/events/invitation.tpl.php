@@ -51,18 +51,15 @@
 </div>
 
 <div class="form-group">		
-<label><?php echo $fields['requires_email']['trans'];?></label>
-<?php echo erLhcoreClassAbstract::renderInput('requires_email', $fields['requires_email'], $object)?>
+<label><?php echo erLhcoreClassAbstract::renderInput('requires_email', $fields['requires_email'], $object)?><?php echo $fields['requires_email']['trans'];?></label>
 </div>
 
 <div class="form-group">		
-<label><?php echo $fields['requires_username']['trans'];?></label>
-<?php echo erLhcoreClassAbstract::renderInput('requires_username', $fields['requires_username'], $object)?>
+<label><?php echo erLhcoreClassAbstract::renderInput('requires_username', $fields['requires_username'], $object)?><?php echo $fields['requires_username']['trans'];?></label>
 </div>
 
 <div class="form-group">		
-<label><?php echo $fields['requires_phone']['trans'];?></label>
-<?php echo erLhcoreClassAbstract::renderInput('requires_phone', $fields['requires_phone'], $object)?>
+<label><?php echo erLhcoreClassAbstract::renderInput('requires_phone', $fields['requires_phone'], $object)?><?php echo $fields['requires_phone']['trans'];?></label>
 </div>
 
 <div class="form-group">
@@ -71,13 +68,20 @@
 </div>
 
 <div class="form-group">		
-<label><?php echo $fields['show_everytime']['trans'];?></label>
-<?php echo erLhcoreClassAbstract::renderInput('show_everytime', $fields['show_everytime'], $object)?>
+<label><?php echo erLhcoreClassAbstract::renderInput('show_everytime', $fields['show_everytime'], $object)?><?php echo $fields['show_everytime']['trans'];?></label>
 </div>
 
-<div class="form-group">
-<label><?php echo $fields['show_random_operator']['trans'];?></label>
-<?php echo erLhcoreClassAbstract::renderInput('show_random_operator', $fields['show_random_operator'], $object)?>
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo erLhcoreClassAbstract::renderInput('show_random_operator', $fields['show_random_operator'], $object)?><?php echo $fields['show_random_operator']['trans'];?></label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo erLhcoreClassAbstract::renderInput('assign_to_randomop', $fields['assign_to_randomop'], $object)?><?php echo $fields['assign_to_randomop']['trans'];?></label>
+        </div>
+    </div>
 </div>
 
 <div class="form-group">		
