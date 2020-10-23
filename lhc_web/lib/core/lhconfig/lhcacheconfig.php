@@ -64,7 +64,7 @@ class erConfigClassLhCacheConfig
 	        file_put_contents('cache/cacheconfig/settings.ini.new.php',"<?php\n return ".var_export($this->conf,true).";\n?>",LOCK_EX);
 	        // Atomic operation
             if (file_exists('cache/cacheconfig/settings.ini.new.php')) {
-                rename('cache/cacheconfig/settings.ini.new.php','cache/cacheconfig/settings.ini.php');
+                @rename('cache/cacheconfig/settings.ini.new.php','cache/cacheconfig/settings.ini.php');
             }
     	}
     }
