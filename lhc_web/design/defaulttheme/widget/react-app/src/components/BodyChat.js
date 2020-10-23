@@ -150,6 +150,10 @@ class BodyChat extends Component {
             className = className + (this.props.chatwidget.get('isMobile') == true ? ' mobile-embed-body' : ' desktop-embed-body');
         }
 
+        if (this.props.chatwidget.hasIn(['chat_ui','msg_expand']) && this.props.chatwidget.get('mode') == 'embed') {
+            className += " mh-100";
+        }
+
         if (this.props.chatwidget.get('isChatting') === true) {
             return (<React.Fragment>{this.props.chatwidget.hasIn(['chat_ui','custom_html_header']) && <div className="lhc-custom-header-above" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header'])}}></div>}{this.props.chatwidget.get('mode') == 'widget' && <HeaderChat popupChat={this.popupChat} endChat={this.endChat} />}<div className={className}><OnlineChat hideMessageField={this.hideMessageField} profileBefore={this.profileHTML} messagesBefore={this.messagesHTML} cancelClose={this.cancelClose} endChat={this.endChat} /></div></React.Fragment>)
         } else if (this.props.chatwidget.get('isOnline') === true) {
