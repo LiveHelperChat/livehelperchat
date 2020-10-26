@@ -360,6 +360,7 @@
             </div>
         </div>
 
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/search_panel_multiinclude.tpl.php'));?>
 
     </div>
 
