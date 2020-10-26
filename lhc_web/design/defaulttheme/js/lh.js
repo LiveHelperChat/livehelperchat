@@ -506,7 +506,7 @@ function lh(){
         if (textArea.is("[readonly]")) {
             return;
         }
-        
+
     	var _this  = this;
         $.postJSON(this.wwwDir + 'chat/holdaction/' + chat_id, function(data) {
             if (data.error == false) {
