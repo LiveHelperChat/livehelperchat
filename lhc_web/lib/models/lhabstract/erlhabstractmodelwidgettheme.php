@@ -17,6 +17,14 @@ class erLhAbstractModelWidgetTheme {
 		$stateArray = array (
 			'id'         				=> $this->id,
 			'name'  					=> $this->name,
+			'enable_widget_embed_override' => $this->enable_widget_embed_override,
+			'widget_show_leave_form'       => $this->widget_show_leave_form,
+			'widget_survey'             => $this->widget_survey,
+			'widget_position'           => $this->widget_position,
+			'widget_popwidth'           => $this->widget_popwidth,
+			'widget_popheight'          => $this->widget_popheight,
+			'widget_pright'             => $this->widget_pright,
+			'widget_pbottom'           => $this->widget_pbottom,
 			'name_company'  			=> $this->name_company,
 			'onl_bcolor'				=> $this->onl_bcolor,			
 			'bor_bcolor'				=> $this->bor_bcolor,			
@@ -122,7 +130,7 @@ class erLhAbstractModelWidgetTheme {
 		}
 	}
 
-	public function movePhoto($attr, $isLocal = false, $localFile = false)
+    public function movePhoto($attr, $isLocal = false, $localFile = false)
 	{
 		$this->deletePhoto($attr);
 	
@@ -367,6 +375,14 @@ class erLhAbstractModelWidgetTheme {
 
 	public function beforeRemove()
     {
+        // If theme is removed we have to reset default theme if it was the one
+        $themeData = erLhcoreClassModelChatConfig::fetch('default_theme_id');
+
+        if ($themeData->value == $this->id) {
+            $themeData->value = 0;
+            $themeData->saveThis();
+        }
+        
         $imagesToRemove = array(
             'online_image',
             'offline_image',
@@ -445,6 +461,7 @@ class erLhAbstractModelWidgetTheme {
             'explain_text',
             'need_help_text',
             'need_help_header',
+            'intro_operator_text',
         );
 
         $translatableAttributes = array_merge(array(
@@ -462,6 +479,8 @@ class erLhAbstractModelWidgetTheme {
             'thank_feedback',
             'placeholder_message',
             'need_help_html',
+            'chat_unavailable',
+            'custom_op_name',
         ),$attributesDirect);
 
         $attributes = $this->bot_configuration_array;
@@ -503,7 +522,7 @@ class erLhAbstractModelWidgetTheme {
    	public $id = null;
 	public $name = '';
 	public $onl_bcolor = '0c8fc4';
-	public $text_color = '000000';
+	public $text_color = '';
 	public $bor_bcolor = 'e3e3e3';
 	public $online_image = '';
 	public $offline_image = '';
@@ -536,7 +555,7 @@ class erLhAbstractModelWidgetTheme {
 	public $explain_text = '';
 	public $intro_operator_text = '';
 	public $widget_border_color = 'cccccc';	
-	public $hide_close = 0;
+	public $hide_close = 1;
 	public $hide_popup = 0;	
 	public $minimize_image = '';
 	public $minimize_image_path = '';	
@@ -585,6 +604,15 @@ class erLhAbstractModelWidgetTheme {
 
     // Theme modified time. We will use this attribute for E-Tag
     public $modified = 0;
+
+    public $enable_widget_embed_override = 0;
+    public $widget_show_leave_form = 0;
+    public $widget_survey = 0;
+    public $widget_position = '';
+    public $widget_popwidth = 500;
+    public $widget_popheight = 520;
+    public $widget_pright = 0;
+    public $widget_pbottom = 0;
 
 	public $hide_add = false;
 	public $hide_delete = false;

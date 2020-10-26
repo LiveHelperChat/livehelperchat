@@ -1,10 +1,15 @@
 import React, { PureComponent } from 'react';
 import ChatBotIntroMessage from './ChatBotIntroMessage';
+import { helperFunctions } from "../lib/helperFunctions";
 
 class ChatInvitationMessage extends PureComponent {
 
     constructor(props) {
         super(props);
+    }
+
+    componentDidMount() {
+        helperFunctions.sendMessageParent('readInvitation', [{name: this.props.invitation.invitation_name || "Manual"}]);
     }
 
     render() {
@@ -41,9 +46,9 @@ class ChatInvitationMessage extends PureComponent {
                         </div>
                     </div>
                     {this.props.mode != 'profile_only' &&
-                    <div className="message-row message-admin pt-1 text-left">
+                    <div id="messagesBlock"><div className="bottom-message position-relative"><div className="message-row message-admin pt-1 text-left ml-3">
                         <div className="msg-body" dangerouslySetInnerHTML={{__html:this.props.invitation.message}}></div>
-                    </div>}
+                    </div></div></div>}
                 </React.Fragment>
             );
         }

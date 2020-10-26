@@ -54,9 +54,12 @@ class erLhcoreClassModelDepartamentGroupUser
         foreach ($groupsIds as $groupId) {
             if (!in_array($groupId, $oldMembers)) {
                 $member = new self();
-                $member->user_id = $userData->id;
-                $member->dep_group_id = $groupId;
-                $member->saveThis();
+                $member->dep_group = erLhcoreClassModelDepartamentGroup::fetch($groupId);
+                if ($member->dep_group instanceof erLhcoreClassModelDepartamentGroup) {
+                    $member->user_id = $userData->id;
+                    $member->dep_group_id = $groupId;
+                    $member->saveThis();
+                }
             }
         }
 

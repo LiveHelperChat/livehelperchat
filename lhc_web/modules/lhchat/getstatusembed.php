@@ -26,6 +26,49 @@ if (erLhcoreClassModelChatConfig::fetch('hide_disabled_department')->current_val
 	}
 }
 
+$theme = false;
+if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+    try {
+        $theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+    } catch (Exception $e) {
+        $theme = false;
+    }
+} else {
+    $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
+    if ($defaultTheme > 0) {
+        try {
+            $theme = erLhAbstractModelWidgetTheme::fetch($defaultTheme);
+        } catch (Exception $e) {
+            $theme = false;
+        }
+    }
+}
+
+if ($theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['detect_language']) && $theme->bot_configuration_array['detect_language'] == true) {
+    erLhcoreClassChatValidator::setLanguageByBrowser();
+}
+
+if ($theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['load_w2']) && $theme->bot_configuration_array['load_w2'] == true) {
+    $tpl = erLhcoreClassTemplate::getInstance('lhchat/getstatus/getstatus_migrate.tpl.php');
+    $tpl->set('uparams',$Params['user_parameters_unordered']);
+    $tpl->set('depId',$Params['user_parameters_unordered']['department']);
+    $tpl->set('mode','embed');
+    $tpl->set('position','');
+    $tpl->set('click','internal');
+    $tpl->set('leaveamessage',$Params['user_parameters_unordered']['leaveamessage'] == 'true');
+    $tpl->set('disable_pro_active',true);
+
+    if (isset($theme->bot_configuration_array['wwidth']) && $theme->bot_configuration_array['wwidth'] > 0) {
+        $tpl->set('wwidth',$theme->bot_configuration_array['wwidth']);
+    }
+
+    if (isset($theme->bot_configuration_array['wheight']) && $theme->bot_configuration_array['wheight'] > 0) {
+        $tpl->set('wheight',$theme->bot_configuration_array['wheight']);
+    }
+
+    echo $tpl->fetch();
+    exit;
+}
 
 $tpl = erLhcoreClassTemplate::getInstance('lhchat/getstatusembed.tpl.php');
 $tpl->set('leaveamessage',(string)$Params['user_parameters_unordered']['leaveamessage'] == 'true');

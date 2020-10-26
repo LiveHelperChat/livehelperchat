@@ -45,6 +45,10 @@ try {
     
     $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
 
+    if (!($chat instanceof erLhcoreClassModelChat)) {
+        throw new Exception('Chat not found!');
+    }
+
     erLhcoreClassChat::setTimeZoneByChat($chat);
  
     if (is_numeric($Params['user_parameters_unordered']['pchat'])) {
@@ -82,18 +86,16 @@ try {
             $chat->support_informed = 1;
             $chat->user_typing = time();// Show for shorter period these status messages
             $chat->is_user_typing = 1;
-            if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] != ''){
-                
-                $refererSite = $_SERVER['HTTP_REFERER'];
-                
-                if ($refererSite != '' && strlen($refererSite) > 50) {
+            if (($refererSite = erLhcoreClassModelChatOnlineUser::getReferer()) != '') {
+
+                if (strlen($refererSite) > 50) {
                     if ( function_exists('mb_substr') ) {
                         $refererSite = mb_substr($refererSite, 0, 50);
                     } else {
                         $refererSite = substr($refererSite, 0, 50);
                     }
                 }
-                
+
                 $chat->user_typing_txt = $refererSite;
             } else {
                 $chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userjoined','Visitor has joined the chat!'),ENT_QUOTES);

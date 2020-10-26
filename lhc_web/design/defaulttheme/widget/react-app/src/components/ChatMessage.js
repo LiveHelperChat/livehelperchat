@@ -31,8 +31,26 @@ class ChatMessage extends PureComponent {
 
         const { t } = this.props;
 
+        if (typeof attrs.onchange !== 'undefined') {
+
+            const optionSelected = e.target.options[e.target.selectedIndex];
+
+            const attrLoad = {
+                'data-payload': optionSelected.getAttribute('data-payload'),
+                'data-id' : optionSelected.getAttribute('data-id')
+            };
+
+            if (optionSelected.getAttribute('payload-type') == 'trigger') {
+                this.updateTriggerClicked({type:'/(type)/triggerclicked'}, attrLoad , e.target);
+            } else if (optionSelected.getAttribute('payload-type') == 'button') {
+                this.updateTriggerClicked({type:''}, attrLoad, e.target);
+            }
+
+            return ;
+        }
+
         this.addLoader(attrs,e.target);
-        
+
         if (attrs.onclick.indexOf('lhinst.updateTriggerClicked') !== -1) {
             this.updateTriggerClicked({type:'/(type)/triggerclicked'}, attrs, e.target);
         } else if (attrs.onclick.indexOf('notificationsLHC.sendNotification') !== -1) {
@@ -51,6 +69,16 @@ class ChatMessage extends PureComponent {
             this.updateTriggerClicked({type:'',mainType: 'updatebuttonclicked'}, attrs, e.target);
         } else if (attrs.onclick.indexOf('lhinst.editGenericStep') !== -1) {
             this.updateTriggerClicked({type:'/(type)/editgenericstep'}, attrs, e.target);
+        } else if (attrs.onclick.indexOf('lhinst.hideShowAction') !== -1) {
+            const args = JSON.parse(attrs['data-load']);
+            var more = document.getElementById('message-more-'+args['id']);
+            if (more.classList.contains('hide')) {
+                e.target.innerText = args['hide_text'];
+                more.classList.remove('hide');
+            } else {
+                e.target.innerText = args['show_text'];
+                more.classList.add('hide');
+            }
         } else if (attrs.onclick.indexOf('lhinst.dropdownClicked') !== -1) {
             const list = document.getElementById('id_generic_list-' + attrs['data-id']);
             if (list && list.value != "0" && list.value != "") {
@@ -82,10 +110,15 @@ class ChatMessage extends PureComponent {
     }
 
     updateTriggerClicked(paramsType, attrs, target) {
-        this.props.dispatch(updateTriggerClicked(paramsType, {payload: attrs['data-payload'], id : attrs['data-id'], processed : (typeof attrs['data-keep'] === 'undefined')})).then(() => {
+        this.props.dispatch(updateTriggerClicked(paramsType, {payload: attrs['data-payload'], id : attrs['data-id'], processed : (typeof attrs['data-keep'] === 'undefined')})).then((data) => {
             if (!attrs['data-keep']) {
                 this.removeMetaMessage(attrs['data-id']);
             }
+
+            if (data.data.t) {
+                helperFunctions.sendMessageParent('botTrigger', [{'trigger' : data.data.t}]);
+            }
+
             this.props.updateMessages();
             this.props.updateStatus();
         });
@@ -135,6 +168,31 @@ class ChatMessage extends PureComponent {
         }
     }
 
+    formatStringToCamelCase(str) {
+        const splitted = str.split("-");
+        if (splitted.length === 1) return splitted[0];
+        return (
+            splitted[0] +
+            splitted
+                .slice(1)
+                .map(word => word[0].toUpperCase() + word.slice(1))
+                .join("")
+        );
+    };
+
+    getStyleObjectFromString(str) {
+        const style = {};
+        str.split(";").forEach(el => {
+            const [property, value] = el.split(":");
+            if (!property) return;
+
+            const formattedProperty = this.formatStringToCamelCase(property.trim());
+            style[formattedProperty] = value.trim();
+        });
+
+        return style;
+    };
+
     render() {
 
         var operatorChanged = false;
@@ -168,15 +226,42 @@ class ChatMessage extends PureComponent {
                     }
 
                     if (domNode.name && domNode.name === 'img') {
+
+                        if (domNode.attribs.style) {
+                            domNode.attribs.style = this.getStyleObjectFromString(domNode.attribs.style);
+                        }
+
                         return <img {...domNode.attribs} onLoad={this.imageLoaded} onClick={(e) => this.abstractClick(cloneAttr, e)} />
+
                     } else if (domNode.name && domNode.name === 'button') {
                         if (cloneAttr.onclick) {
+
+                            if (domNode.attribs.style) {
+                                domNode.attribs.style = this.getStyleObjectFromString(domNode.attribs.style);
+                            }
+
                             return <button {...domNode.attribs} onClick={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</button>
                         }
                     } else if (domNode.name && domNode.name === 'a') {
                         if (cloneAttr.onclick) {
+
+                            if (domNode.attribs.style) {
+                                domNode.attribs.style = this.getStyleObjectFromString(domNode.attribs.style);
+                            }
+
                             return <a {...domNode.attribs} onClick={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</a>
                         }
+                    } else if (domNode.name && domNode.name === 'select') {
+
+                        if (cloneAttr.onchange) {
+
+                            if (domNode.attribs.style) {
+                                domNode.attribs.style = this.getStyleObjectFromString(domNode.attribs.style);
+                            }
+
+                            return <select {...domNode.attribs} onChange={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</select>
+                        }
+
                     } else if (domNode.name && domNode.name === 'script' && domNode.attribs['data-bot-action']) {
                         this.processBotAction(domNode);
                     }

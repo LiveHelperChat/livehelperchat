@@ -6,7 +6,6 @@ $Module = array( "name" => "Frontpage",
 $ViewList = array();
    
 $ViewList['default'] = array( 
-    'script' => 'default.php',
     'params' => array(),
     'functions' => array( 'use' )
     );

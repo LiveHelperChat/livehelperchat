@@ -14,5 +14,9 @@ if ($Params['user_parameters']['ns'] == 'group_chat') {
     include 'modules/lhrestapi/trans/group_chat.php';
 }
 
+if ($Params['user_parameters']['ns'] == 'mail_chat') {
+    include 'modules/lhmailconv/trans/mail_chat.php';
+}
+
 exit;
 ?>

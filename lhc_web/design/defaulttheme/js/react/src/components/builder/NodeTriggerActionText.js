@@ -202,6 +202,9 @@ class NodeTriggerActionText extends Component {
                             <div role="group">
                                 <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','on_start_chat'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','on_start_chat'])} /> Send message only at chat start.</label> <i className="material-icons" title="Message will be send only on chat start event.">info</i>
                             </div>
+                            <div role="group">
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','as_system'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','as_system'])} /> Save as system message.</label> <i className="material-icons" title="Message will be saved as system message and will be invisible by visitor.">info</i>
+                            </div>
                         </div>
                         <div className="col-6 text-right">
                             <div className="btn-group" role="group">
@@ -216,6 +219,9 @@ class NodeTriggerActionText extends Component {
                     {callback_list}
                     {callback_list.size > 0 && quick_replies.size > 0 &&
                     <hr/>}
+
+                    {quick_replies.size > 0 && <React.Fragment><hr/><label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','as_dropdown'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','as_dropdown'])} /> Render buttons as dropdown.</label></React.Fragment>}
+
                     {quick_replies}
                 </div>
                 <div className="col-12">

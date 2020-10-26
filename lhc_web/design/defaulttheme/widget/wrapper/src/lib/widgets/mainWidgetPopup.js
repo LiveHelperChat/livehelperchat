@@ -16,33 +16,32 @@ export class mainWidgetPopup {
     parseOptions() {
         var argumentsQuery = new Array();
         var paramsReturn = '';
-        if (typeof LHCChatOptions != 'undefined') {
-            if (typeof LHCChatOptions.attr != 'undefined') {
-                if (LHCChatOptions.attr.length > 0) {
-                    for (var index in LHCChatOptions.attr) {
-                        if (typeof LHCChatOptions.attr[index] != 'undefined' && typeof LHCChatOptions.attr[index].type != 'undefined') {
-                            argumentsQuery.push('name[]=' + encodeURIComponent(LHCChatOptions.attr[index].name) + '&encattr[]=' + (typeof LHCChatOptions.attr[index].encrypted != 'undefined' && LHCChatOptions.attr[index].encrypted == true ? 't' : 'f') + '&value[]=' + encodeURIComponent(LHCChatOptions.attr[index].value) + '&type[]=' + encodeURIComponent(LHCChatOptions.attr[index].type) + '&size[]=' + encodeURIComponent(LHCChatOptions.attr[index].size) + '&req[]=' + (typeof LHCChatOptions.attr[index].req != 'undefined' && LHCChatOptions.attr[index].req == true ? 't' : 'f') + '&sh[]=' + ((typeof LHCChatOptions.attr[index].show != 'undefined' && (LHCChatOptions.attr[index].show == 'on' || LHCChatOptions.attr[index].show == 'off')) ? LHCChatOptions.attr[index].show : 'b'));
+        if (typeof this.attributes != 'undefined') {
+            if (typeof this.attributes.LHCChatOptions.attr != 'undefined') {
+                if (this.attributes.LHCChatOptions.attr.length > 0) {
+                    for (var index in this.attributes.LHCChatOptions.attr) {
+                        if (typeof this.attributes.LHCChatOptions.attr[index] != 'undefined' && typeof this.attributes.LHCChatOptions.attr[index].type != 'undefined') {
+                            argumentsQuery.push('name[]=' + encodeURIComponent(this.attributes.LHCChatOptions.attr[index].name) + '&encattr[]=' + (typeof this.attributes.LHCChatOptions.attr[index].encrypted != 'undefined' && this.attributes.LHCChatOptions.attr[index].encrypted == true ? 't' : 'f') + '&value[]=' + encodeURIComponent(this.attributes.LHCChatOptions.attr[index].value) + '&type[]=' + encodeURIComponent(this.attributes.LHCChatOptions.attr[index].type) + '&size[]=' + encodeURIComponent(this.attributes.LHCChatOptions.attr[index].size) + '&req[]=' + (typeof this.attributes.LHCChatOptions.attr[index].req != 'undefined' && this.attributes.LHCChatOptions.attr[index].req == true ? 't' : 'f') + '&sh[]=' + ((typeof this.attributes.LHCChatOptions.attr[index].show != 'undefined' && (this.attributes.LHCChatOptions.attr[index].show == 'on' || this.attributes.LHCChatOptions.attr[index].show == 'off')) ? this.attributes.LHCChatOptions.attr[index].show : 'b'));
                         }
                     }
                 }
             }
 
-            if (typeof LHCChatOptions.attr_prefill != 'undefined') {
-                if (LHCChatOptions.attr_prefill.length > 0) {
-                    for (var index in LHCChatOptions.attr_prefill) {
-                        if (typeof LHCChatOptions.attr_prefill[index] != 'undefined' && typeof LHCChatOptions.attr_prefill[index].name != 'undefined') {
-                            argumentsQuery.push('prefill[' + LHCChatOptions.attr_prefill[index].name + ']=' + encodeURIComponent(LHCChatOptions.attr_prefill[index].value));
+            if (typeof this.attributes.LHCChatOptions.attr_prefill != 'undefined') {
+                if (this.attributes.LHCChatOptions.attr_prefill.length > 0) {
+                    for (var index in this.attributes.LHCChatOptions.attr_prefill) {
+                        if (typeof this.attributes.LHCChatOptions.attr_prefill[index] != 'undefined' && typeof this.attributes.LHCChatOptions.attr_prefill[index].name != 'undefined') {
+                            argumentsQuery.push('prefill[' + this.attributes.LHCChatOptions.attr_prefill[index].name + ']=' + encodeURIComponent(this.attributes.LHCChatOptions.attr_prefill[index].value));
                         }
                     }
                 }
             }
 
-
-            if (typeof LHCChatOptions.attr_prefill_admin != 'undefined') {
-                if (LHCChatOptions.attr_prefill_admin.length > 0) {
-                    for (var index in LHCChatOptions.attr_prefill_admin) {
-                        if (typeof LHCChatOptions.attr_prefill_admin[index] != 'undefined') {
-                            argumentsQuery.push('value_items_admin[' + LHCChatOptions.attr_prefill_admin[index].index + ']=' + encodeURIComponent(LHCChatOptions.attr_prefill_admin[index].value));
+            if (typeof this.attributes.LHCChatOptions.attr_prefill_admin != 'undefined') {
+                if (this.attributes.LHCChatOptions.attr_prefill_admin.length > 0) {
+                    for (var index in this.attributes.LHCChatOptions.attr_prefill_admin) {
+                        if (typeof this.attributes.LHCChatOptions.attr_prefill_admin[index] != 'undefined') {
+                            argumentsQuery.push('value_items_admin[' + this.attributes.LHCChatOptions.attr_prefill_admin[index].index + ']=' + encodeURIComponent(this.attributes.LHCChatOptions.attr_prefill_admin[index].value));
                         }
                     }
                 }
@@ -51,26 +50,6 @@ export class mainWidgetPopup {
             if (argumentsQuery.length > 0) {
                 paramsReturn = '&' + argumentsQuery.join('&');
             }
-        }
-
-
-        var js_vars = this.attributes['jsVars'].value;
-
-        var js_args = [];
-        var currentVar = null;
-        for (var index in js_vars) {
-            try {
-                currentVar = eval(js_vars[index].var);
-                if (typeof currentVar !== 'undefined' && currentVar !== null && currentVar !== '') {
-                    js_args.push('jsvar[' + js_vars[index].id + ']=' + encodeURIComponent(currentVar));
-                }
-            } catch (err) {
-
-            }
-        }
-
-        if (js_args.length > 0) {
-            paramsReturn = paramsReturn + '&' + js_args.join('&');
         }
 
         return paramsReturn;
@@ -114,22 +93,28 @@ export class mainWidgetPopup {
                 urlArgumetns = urlArgumetns + "/(identifier)/" + this.attributes['identifier'];
             }
 
-            if (this.attributes['operator'] !== null) {
+            if (this.attributes['operator']) {
                 urlArgumetns = urlArgumetns + "/(operator)/" + this.attributes['operator'];
             }
 
-            if (this.attributes['survey'] !== null) {
+            if (this.attributes['survey']) {
                 urlArgumetns = urlArgumetns + "/(survey)/" + this.attributes['survey'];
             }
 
-            if (this.attributes['priority'] !== null) {
+            if (this.attributes['priority']) {
                 urlArgumetns = urlArgumetns + "/(priority)/" + this.attributes['priority'];
             }
+
+            if (this.attributes['prefixLowercase'] != 'lhc') {
+                urlArgumetns = urlArgumetns + "/(scope)/" + this.attributes['prefixLowercase'];
+            }
+
+            urlArgumetns = urlArgumetns + "/(sound)/" + (this.attributes.toggleSound.value == true ? 1 : 0);
 
             if (this.attributes['proactive']['invitation']) {
                 urlArgumetns = urlArgumetns + "/(inv)/" + this.attributes['proactive']['invitation'];
                 if (this.attributes['mode'] == 'popup') {
-                    this.attributes.storageHandler.setSessionStorage('LHC_invt', 1);
+                    this.attributes.storageHandler.setSessionStorage(this.attributes['prefixStorage']+'_invt', 1);
                 }
             }
 
@@ -139,10 +124,36 @@ export class mainWidgetPopup {
                 urlArgumetns = urlArgumetns + '?' + this.parseOptions();
             }
 
-            this.cont.elementReferrerPopup = window.open(this.attributes['base_url'] + this.attributes['lang'] + "chat/start" + urlArgumetns, 'lhc_popup_v2', "scrollbars=yes,menubar=1,resizable=1,width=" + this.attributes['popupDimesnions']['pwidth'] + ",height=" + this.attributes['popupDimesnions']['pheight']);
+            const dualScreenLeft = window.screenLeft !==  undefined ? window.screenLeft : window.screenX;
+            const dualScreenTop = window.screenTop !==  undefined   ? window.screenTop  : window.screenY;
 
+            const width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+            const height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+            const systemZoom = width / window.screen.availWidth;
+            const left = (width - parseInt(this.attributes['popupDimesnions']['pwidth'])) / 2 / systemZoom + dualScreenLeft;
+            const top = (height - parseInt(this.attributes['popupDimesnions']['pheight'])) / 2 / systemZoom + dualScreenTop;
+
+            this.cont.elementReferrerPopup = window.open(this.attributes['base_url'] + this.attributes['lang'] + "chat/start" + urlArgumetns, 'lhc_popup_v2', "scrollbars=yes,menubar=1,resizable=1,width=" + this.attributes['popupDimesnions']['pwidth'] + ",height=" + this.attributes['popupDimesnions']['pheight'] + ",top=" + top + ",left=" + left);
         }
+    }
 
+    sendParameters(chatEvents) {
+        if (this.cont.elementReferrerPopup && this.cont.elementReferrerPopup.closed === false) {
+            var js_vars = this.attributes['jsVars'].value;
+            var js_args = {};
+            var currentVar = null;
+            for (var index in js_vars) {
+                try {
+                    currentVar = eval(js_vars[index].var);
+                    if (typeof currentVar !== 'undefined' && currentVar !== null && currentVar !== '') {
+                        js_args[js_vars[index].id] = currentVar;
+                    }
+                } catch (err) {
 
+                }
+            }
+            chatEvents.sendChildEvent('jsVars', [js_args]);
+        }
     }
 }

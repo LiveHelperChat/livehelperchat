@@ -21,10 +21,12 @@ class erLhcoreClassCacheStorage {
 			// Temporary storage
 			$fileName = $this->cacheDir . md5($identifier. time() . microtime() . rand(0, 1000)) . '.php';
 
-			file_put_contents($fileName,"<?php\n return ".var_export($data,true).";\n?>");
+			file_put_contents($fileName,"<?php\n return ".var_export($data,true).";\n?>",LOCK_EX);
 
-			// Atomic operation
-			rename($fileName,'cache/cacheconfig/'.$identifier.'.cache.php');
+			if (file_exists($fileName)) {
+                // Atomic operation
+                rename($fileName,'cache/cacheconfig/'.$identifier.'.cache.php');
+            }
 
 		} catch (Exception $e) {
 			throw $e;
@@ -207,7 +209,7 @@ class erLhcoreClassTemplate {
         }
 
         $cfg = erConfigClassLhConfig::getInstance();
-        $file = erLhcoreClassDesign::designtpl($fileTemplate);
+        $fileRAW = $file = erLhcoreClassDesign::designtpl($fileTemplate);
 
         if ($this->templatecompile == true)
         {
@@ -519,16 +521,19 @@ class erLhcoreClassTemplate {
 
 			// Atomoc template compilation to avoid concurent request compiling and writing to the same file
 			$fileName = 'cache/compiledtemplates/'.md5(time().rand(0, 1000).microtime().$file.$instance->WWWDirLang.$instance->Language.$port).'.php';
-			file_put_contents($fileName,erLhcoreClassTemplate::strip_html($contentFile));
+			file_put_contents($fileName,erLhcoreClassTemplate::strip_html($contentFile), LOCK_EX);
 
 			$file = 'cache/compiledtemplates/'.md5($file.$instance->WWWDirLang.$instance->Language.$port).'.php';
-			rename($fileName,$file);
+
+			if (file_exists($fileName)) {
+                rename($fileName,$file);
+            }
 
 	 	    $this->cacheTemplates[md5($fileTemplate.$instance->WWWDirLang.$instance->Language.$port)] = $file;
 			$this->storeCache();
         }
 
-		return $this->fetchExecute($file);
+		return $this->fetchExecute($file, $fileRAW);
 
     }
 
@@ -549,7 +554,7 @@ class erLhcoreClassTemplate {
 	}
 
 
-	function fetchExecute($file)
+	function fetchExecute($file, $fileRAW = '')
 	{
 		@extract($this->vars,EXTR_REFS);        // Extract the vars to local namespace
         ob_start();                             // Start output buffering
@@ -561,7 +566,18 @@ class erLhcoreClassTemplate {
         }
 
         if ($result === false) {                 // Make sure file was included succesfuly
-            throw new Exception("File inclusion failed"); // Throw exception if failed, so tpl compiler will recompile template
+            if ($fileRAW == '') {
+                throw new Exception("File inclusion failed"); // Throw exception if failed, so tpl compiler will recompile template
+            } else { // Try to include original file
+                if (file_exists($fileRAW)) {
+                    $result = include($fileRAW);               // Include the file
+                } else {
+                    $result = false;
+                }
+                if ($result === false) {
+                    throw new Exception("File inclusion failed");
+                }
+            }
         }
         $contents = ob_get_contents(); // Get the contents of the buffer
         ob_end_clean();                // End buffering and discard

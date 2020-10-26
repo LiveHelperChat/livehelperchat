@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Status -
- * 0 - Pending
- * 1 - Active
- * 2 - Closed
- * 3 - Blocked
- * */
 class erLhcoreClassRestAPIHandler
 {
     public static function executeRequest(erLhAbstractModelRestAPIKeyRemote $apiKey, $function, $params = array(), $uparams = array(), $method = 'GET', $manualAppend = '')
@@ -108,9 +101,11 @@ class erLhcoreClassRestAPIHandler
 
         $headers = self::getHeaders();
 
-        if (isset($headers['Authorization'])) {
+        $authorization = isset($headers['Authorization']) ? $headers['Authorization'] : (isset($headers['authorization']) ? $headers['authorization'] : null);
+
+        if ($authorization !== null) {
             
-            $dataAuthorisation = explode(' ', $headers['Authorization']);
+            $dataAuthorisation = explode(' ', $authorization);
             $apiData = explode(':', base64_decode($dataAuthorisation[1]));
             
             if (count($apiData) != 2) {
@@ -817,13 +812,13 @@ class erLhcoreClassRestAPIHandler
      *
      * @param array $data            
      */
-    public static function outputResponse($data, $format = null)
+    public static function outputResponse($data, $format = null, $options = 0)
     {
         if ((isset($_GET['format']) && $_GET['format'] == 'xml') || $format === 'xml') {
            echo self::formatXML(json_decode(json_encode($data),true));
         } else {
         
-            $json = json_encode($data);
+            $json = json_encode($data, $options);
             
             if (isset($_GET['callback'])) {
                 echo $_GET['callback'] . '(' . $json . ')';

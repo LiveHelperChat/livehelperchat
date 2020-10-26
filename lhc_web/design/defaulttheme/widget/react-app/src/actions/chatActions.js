@@ -20,6 +20,8 @@ export function hideInvitation() {
     return function(dispatch, getState) {
         const state = getState();
         helperFunctions.sendMessageParent('closeWidget', [{'sender' : 'closeButton'}]);
+        helperFunctions.sendMessageParent('cancelInvitation', [{'name' :  state.chatwidget.getIn(['proactive','data','invitation_name'])}]);
+
         axios.get(window.lhcChat['base_url'] + "chat/chatwidgetclosed/(vid)/" + state.chatwidget.get('vid')).then((response) => {
             dispatch({type: "HIDE_INVITATION"});
         })
@@ -46,10 +48,10 @@ export function endChat(obj) {
         .then((response) => {
             if (!obj.noClose) {
                 if (window.lhcChat['mode'] == 'popup') {
-                    helperFunctions.removeSessionStorage('lhc_chat');
+                    helperFunctions.removeSessionStorage('_chat');
                     window.close();
                 } else {
-                    helperFunctions.sendMessageParent('endChat', [{'sender' : 'endButton'}]);
+                    helperFunctions.sendMessageParent('endChat', [{show_start: obj['show_start'], 'sender' : 'endButton'}]);
                 }
             } else {
                 dispatch({type: "INIT_CLOSE", data: obj})
@@ -221,6 +223,11 @@ export function submitOnlineForm(obj) {
             }
 
             dispatch({type: "ONLINE_SUBMITTED", data: response.data});
+
+            if (response.data.t) {
+                helperFunctions.sendMessageParent('botTrigger',[{'trigger' : response.data.t}]);
+            }
+
         })
         .catch((err) => {
             dispatch({type: "ONLINE_SUBMITT_REJECTED", data: err})
@@ -275,6 +282,7 @@ export function initChatUI(obj) {
                         import('../extensions/nodejs/nodeJSChat').then((module) => {
                             module.nodeJSChat.bootstrap(callExtension.params, dispatch, getState);
                         });
+
                     } else if (callExtension.extension === 'dummy_extensions') {
                         // Import your extension here
                     }
@@ -317,8 +325,34 @@ function processResponseCheckStatus(response, getState, dispatch) {
             } else if (action == 'lhc_ui_refresh') {
                 const state = getState();
                 updateUISettings({'id' : state.chatwidget.getIn(['chatData','id']), 'hash' : state.chatwidget.getIn(['chatData','hash'])})(dispatch, getState);
+            } else if (action.indexOf('lhinst.updateMessageRow') !== -1) {
+                const state = getState();
+                updateMessage({'msg_id' : action.replace('lhinst.updateMessageRow(','').replace(')','') ,'id' : state.chatwidget.getIn(['chatData','id']), 'hash' : state.chatwidget.getIn(['chatData','hash'])})(dispatch, getState);
             }
         });
+    }
+}
+
+export function updateMessage(obj) {
+    return function(dispatch, getState) {
+        const state = getState();
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/fetchmessage", obj)
+        .then((response) => {
+            let elm = document.getElementById('msg-'+response.data.id);
+            const classNameRow = elm.className;
+            elm.outerHTML = response.data.msg;
+            elm.className = classNameRow;
+
+            // Just adjust a scroll
+            let elmScroll = document.getElementById('messages-scroll');
+            if (elmScroll !== null) {
+                elmScroll.scrollTop = elmScroll.scrollHeight + 1000;
+            }
+
+        })
+        .catch((err) => {
+
+        })
     }
 }
 
@@ -428,6 +462,9 @@ export function addMessage(obj) {
             .then((response) => {
                 dispatch({type: "ADD_MESSAGES_SUBMITTED", data: response.data});
                 fetchMessages({'theme' : obj.theme, 'chat_id' : obj.id, 'lmgsid' : obj.lmgsid, 'hash' : obj.hash})(dispatch, getState);
+                if (response.data.t) {
+                    helperFunctions.sendMessageParent('botTrigger',[{'trigger' : response.data.t}]);
+                }
             })
             .catch((err) => {
                 dispatch({type: "ADD_MESSAGES_REJECTED", data: err})

@@ -83,7 +83,7 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatcheckoperatormessage', array('proactive_active' => & $proactiveInviteActive));
 
     $injectInvitation = array();
-    $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('inject_html' => & $injectInvitation, 'tag' => isset($_GET['tag']) ? $_GET['tag'] : false, 'uactiv' => 1, 'wopen' => 0 /*@todo add support if request is made and widget is open, chat is going*/, 'tpl' => & $tpl, 'tz' => $_GET['tz'], 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'department' => $department, 'identifier' => (isset($_GET['idnt']) ? (string)$_GET['idnt'] : ''), 'pages_count' => true, 'vid' => $outputResponse['vid'], 'check_message_operator' => true, 'pro_active_limitation' =>  erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value, 'pro_active_invite' => $proactiveInviteActive));
+    $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('inject_html' => & $injectInvitation, 'tag' => isset($_GET['tag']) ? $_GET['tag'] : false, 'uactiv' => 1, 'wopen' => 0 /*@todo add support if request is made and widget is open, chat is going*/, 'tpl' => & $tpl, 'tz' => (isset($_GET['tz']) ? $_GET['tz'] : null), 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'department' => $department, 'identifier' => (isset($_GET['idnt']) ? (string)$_GET['idnt'] : ''), 'pages_count' => true, 'vid' => $outputResponse['vid'], 'check_message_operator' => true, 'pro_active_limitation' =>  erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value, 'pro_active_invite' => $proactiveInviteActive));
 
     // Exit if not required
     $statusGeoAdjustment = erLhcoreClassChat::getAdjustment(erLhcoreClassModelChatConfig::fetch('geoadjustment_data')->data_value,'',false, $userInstance);
@@ -97,7 +97,7 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
         $outputResponse['isOnline'] = false;
     }
 
-    if (erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1 && isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
+    if (erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1 && erLhcoreClassModelChatOnlineUser::getReferer() != '') {
         erLhcoreClassModelChatOnlineUserFootprint::addPageView($userInstance);
     }
 
@@ -132,6 +132,30 @@ if (isset($outputResponse['theme'])){
             $outputResponse['chat_ui']['wheight'] = $theme->bot_configuration_array['wheight'];
         }
 
+        if (isset($theme->bot_configuration_array['fscreen_embed']) && $theme->bot_configuration_array['fscreen_embed'] == 1) {
+            $outputResponse['chat_ui']['fscreen'] = $theme->bot_configuration_array['fscreen_embed'];
+        }
+
+        if (isset($theme->bot_configuration_array['wright']) && is_numeric($theme->bot_configuration_array['wright'])) {
+            $outputResponse['chat_ui']['wright'] = (int)$theme->bot_configuration_array['wright'];
+        }
+
+        if ($theme->widget_pbottom != 0) {
+            $outputResponse['chat_ui']['sbottom'] = (int)$theme->widget_pbottom;
+        }
+
+        if ($theme->widget_pright != 0) {
+            $outputResponse['chat_ui']['sright'] = (int)$theme->widget_pright;
+        }
+
+        if (isset($theme->bot_configuration_array['wright_inv']) && is_numeric($theme->bot_configuration_array['wright_inv'])) {
+            $outputResponse['chat_ui']['wright_inv'] = (int)$theme->bot_configuration_array['wright_inv'];
+        }
+
+        if (isset($theme->bot_configuration_array['wbottom']) && is_numeric($theme->bot_configuration_array['wbottom'])) {
+            $outputResponse['chat_ui']['wbottom'] = (int)$theme->bot_configuration_array['wbottom'];
+        }
+
         $outputResponse['theme_v'] = $theme->modified;
 
         if ($theme->custom_container_css !== ''){
@@ -153,6 +177,25 @@ if (isset($outputResponse['theme'])){
             $outputResponse['chat_ui']['hhtml'] = $theme->bot_configuration_array['header_html'];
         }
 
+        if (isset($theme->bot_configuration_array['close_in_status']) && $theme->bot_configuration_array['close_in_status'] == true) {
+            $outputResponse['chat_ui']['clinst'] = true;
+        }
+
+        if ($theme->enable_widget_embed_override == 1) {
+           $outputResponse['chat_ui']['leaveamessage'] = $theme->widget_show_leave_form == 1;
+
+           if ($theme->widget_popheight > 0 && $theme->widget_popwidth > 0) {
+               $outputResponse['pdim'] = ['pheight' => $theme->widget_popheight, 'pwidth' => $theme->widget_popwidth];
+           }
+
+           if ($theme->widget_survey > 0) {
+               $outputResponse['survey_id'] = $theme->widget_survey;
+           }
+
+           if ($theme->widget_position != '') {
+               $outputResponse['wposition'] = $theme->widget_position;
+           }
+        }
     }
 }
 
@@ -200,10 +243,10 @@ $needHelpTimeout = isset($theme) && $theme instanceof erLhAbstractModelWidgetThe
 
 if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme->show_need_help == 1) || (!isset($theme) && erLhcoreClassModelChatConfig::fetch('need_help_tip')->current_value == 1)) && $needHelpTimeout > 0 && (!isset($_GET['hnh']) || $_GET['hnh'] < (time() - ($needHelpTimeout * 24 * 3600))))
 {
-    $outputResponse['nh']['html'] = '<div class="container-fluid overflow-auto fade-in p-3 pb-4" >
+    $outputResponse['nh']['html'] = '<div class="container-fluid overflow-auto fade-in p-3 pb-4 {dev_type}" >
 <div class="shadow rounded bg-white nh-background">
     <div class="p-2" id="start-chat-btn" style="cursor: pointer">
-        <button type="button" id="close-need-help-btn" class="close position-absolute" style="right:30px;top:25px;" aria-label="Close">
+        <button type="button" id="close-need-help-btn" class="close position-absolute" style="' . (erConfigClassLhConfig::getInstance()->getDirLanguage('dir_language') == 'ltr' ? 'right' : 'left') . ':30px;top:25px;" aria-label="Close">
           <span class="px-1" aria-hidden="true">&times;</span>
         </button>
         <div class="d-flex">
@@ -271,7 +314,10 @@ if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme-
     }
 }
 
-$outputResponse['chat_ui']['leaveamessage'] = (isset($startDataFields['force_leave_a_message']) && $startDataFields['force_leave_a_message'] == true) ? true : false;
+if (!isset($outputResponse['chat_ui']['leaveamessage'])) {
+    $outputResponse['chat_ui']['leaveamessage'] = (isset($startDataFields['force_leave_a_message']) && $startDataFields['force_leave_a_message'] == true) ? true : false;
+}
+
 $outputResponse['chat_ui']['mobile_popup'] = isset($startDataFields['mobile_popup']) && $startDataFields['mobile_popup'] == true;
 
 if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == true) {
@@ -279,12 +325,49 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 }
 
 $ts = time();
-$outputResponse['v'] = 85;
+$outputResponse['v'] = 129;
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
 
 if (is_array($department) && !empty($department)) {
     $outputResponse['department'] = $department;
+}
+
+$gaOptions = erLhcoreClassModelChatConfig::fetch('ga_options')->data_value;
+
+if (isset($gaOptions['ga_enabled']) && $gaOptions['ga_enabled'] == true && (!isset($gaOptions['ga_dep']) || empty($gaOptions['ga_dep']) || (is_array($department) && count(array_intersect($department,$gaOptions['ga_dep'])) > 0))) {
+    $optionEvents = array(
+        'showWidget',
+        'closeWidget',
+        'openPopup',
+        'endChat',
+        'chatStarted',
+        'offlineMessage',
+        'showInvitation',
+        'hideInvitation',
+        'nhClicked',
+        'nhClosed',
+        'nhShow',
+        'nhHide',
+        'fullInvitation',
+        'cancelInvitation',
+        'readInvitation',
+        'clickAction',
+        'botTrigger',
+    );
+
+    foreach ($optionEvents as $optionEvent) {
+        if (isset($gaOptions[$optionEvent .'_on']) && $gaOptions[$optionEvent .'_on'] == 1) {
+            $outputResponse['ga']['events'][] = array(
+                'ev' => $optionEvent,
+                'ec' => $gaOptions[$optionEvent .'_category'],
+                'ea' => $gaOptions[$optionEvent .'_action'],
+                'el' => (isset($gaOptions[$optionEvent .'_label']) ? $gaOptions[$optionEvent .'_label'] : ''),
+            );
+        }
+    }
+
+    $outputResponse['ga']['js'] = $gaOptions['ga_js'];
 }
 
 $outputResponse['static'] = array(
@@ -296,8 +379,7 @@ $outputResponse['static'] = array(
     'widget_mobile_css' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::designCSS('css/widgetv2/widget_mobile.css;css/widgetv2/widget_mobile_override.css'),
     'embed_css' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::designCSS('css/widgetv2/embed.css;css/widgetv2/embed_override.css'),
     'status_css' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::designCSS('css/widgetv2/status.css;css/widgetv2/status_override.css'),
-    'font_status' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('fonts/lhc.woff'),
-    'font_widget' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('fonts/MaterialIcons-lhc.woff2'),
+    'font_status' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('fonts/MaterialIcons-lhc-v2.woff2'),
     'chunk_js' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('js/widgetv2'),
     'page_css' => $pageCSS,
     'ex_js' => [],

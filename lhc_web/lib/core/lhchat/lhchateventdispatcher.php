@@ -5,16 +5,60 @@ class erLhcoreClassChatEventDispatcher {
    private $listeners = array();
    
    private $finishListeners = array();
-   
+
+   public $globalListenersSet = false;
+
+   public $webhooksSet = false;
+
+   public $disableMobile = false;
+
    const STOP_WORKFLOW = 1;
    
    public function listen($event, $callback)
    {
    		$this->listeners[$event][] = $callback;
    }
-   
+
+   public function setGlobalListeners($event = null, $param = array())
+   {
+       if ($this->globalListenersSet == false) {
+           $this->globalListenersSet = true;
+           
+           // Do not set listeners if mobile is disabled
+           if ($this->disableMobile == false) {
+               $this->listen('chat.chat_started', 'erLhcoreClassLHCMobile::chatStarted');
+               $this->listen('chat.addmsguser', 'erLhcoreClassLHCMobile::newMessage');
+               $this->listen('chat.messages_added_passive', 'erLhcoreClassLHCMobile::newMessage');
+               $this->listen('chat.genericbot_chat_command_transfer', 'erLhcoreClassLHCMobile::botTransfer');
+           }
+       }
+
+       if ($this->webhooksSet == false && $event !== null) {
+
+           $cfg = erConfigClassLhConfig::getInstance();
+
+           $webhooksEnabled = $cfg->getSetting( 'webhooks', 'enabled', false );
+
+           // Web gooks disabled
+           if ($webhooksEnabled === false) {
+               $this->webhooksSet = true;
+               return;
+           }
+
+           $worker = $cfg->getSetting( 'webhooks', 'worker' );
+
+           $className = 'erLhcoreClassChatWebhook' .ucfirst($worker);
+           if (class_exists($className)) {
+               $worker = new $className;
+               $worker->processEvent($event, $param);
+           }
+       }
+   }
+
    public function dispatch($event, $param = array())
-   {   	   	
+   {
+       $this->setGlobalListeners($event, $param);
+
 	   	if (isset($this->listeners[$event])){
 		   	foreach ($this->listeners[$event] as $listener)
 		   	{

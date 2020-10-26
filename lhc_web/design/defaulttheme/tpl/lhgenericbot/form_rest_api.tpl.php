@@ -45,6 +45,12 @@
                 <input type="text" class="form-control form-control-sm" ng-model="param.suburl" placeholder="" value="" />
             </div>
         </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Maximum execution time');?></label>
+                <input type="number" max="30" min="1" class="form-control form-control-sm" ng-model="param.max_execution_time" placeholder="10" value="" />
+            </div>
+        </div>
     </div>
     <ul class="nav nav-tabs mb-2" role="tablist" >
         <li role="presentation" class="nav-item"><a class="nav-link active" href="#params-rest-{{$index}}" aria-controls="params" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Params');?></a></li>
@@ -53,13 +59,14 @@
         <li role="presentation" class="nav-item"><a class="nav-link" href="#body-rest-{{$index}}" aria-controls="headers" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Body');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link" href="#userparams-rest-{{$index}}" aria-controls="headers" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','User parameters');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link" href="#outputrest-rest-{{$index}}" aria-controls="headers" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Output parsing');?></a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link" href="#conditions-rest-{{$index}}" aria-controls="headers" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Conditions');?></a></li>
     </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="params-rest-{{$index}}">
 
-            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','You can put visitor message as placeholder')?> <code ng-non-bindable>{{msg}}, {{msg_clean}}, {{msg_url}}, {{chat_id}}, {{lhc.nick}}, {{lhc.email}}, {{lhc.department}}, {{lhc.dep_id}}, {{ip}}, {{lhc.add. &lt;additional variable key/identifier&gt;}}, User parameters {{Location/Key}}</code></p>
+            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','You can put visitor message as placeholder')?> <code ng-non-bindable>{{msg}}, {{msg_clean}}, {{msg_all}} - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','all chat messages');?>, {{msg_url}}, {{chat_id}}, {{lhc.nick}}, {{lhc.email}}, {{lhc.department}}, {{lhc.dep_id}}, {{ip}}, {{footprint}}, {{lhc.add. &lt;additional variable key/identifier&gt;}}, User parameters {{Location/Key}}</code></p>
 
             <button type="button" class="btn btn-secondary btn-xs" ng-click="lhcrestapi.addParam(param.query)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Add param')?></button>
 
@@ -155,6 +162,43 @@
 
 
         </div>
+        <div role="tabpanel" class="tab-pane" id="conditions-rest-{{$index}}">
+
+            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Only if these conditions are met we will send Rest API request. Usefull in webhook cases.')?></p>
+
+            <button type="button" class="btn btn-secondary btn-xs" ng-click="lhcrestapi.addParam(param.conditions)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Add condition')?></button>
+
+            <div ng-repeat="paramCondition in param.conditions" class="mt-2">
+                <div class="row">
+                    <div class="col-4">
+                        <input type="text" class="form-control form-control-sm" ng-model="paramCondition.key" placeholder="Key">
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <select class="form-control form-control-sm" ng-model="paramCondition.success_condition" >
+                                <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Check for presence of variable')?></option>
+                                <option value="gt">&gt;</option>
+                                <option value="gte">&gt;=</option>
+                                <option value="lt">&lt;</option>
+                                <option value="lte">&lt;=</option>
+                                <option value="eq">=</option>
+                                <option value="neq">!=</option>
+                                <option value="like"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Text like')?></option>
+                                <option value="notlike"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Text not like')?></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control form-control-sm" ng-model="paramCondition.value" placeholder="Value">
+                    </div>
+                    <div class="col-1">
+                        <button type="button" class="btn btn-danger d-block w-100 btn-xs" ng-click="lhcrestapi.deleteParam(param.conditions,paramCondition)">-</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
         <div role="tabpanel" class="tab-pane" id="body-rest-{{$index}}">
 
             <div class="form-group">
@@ -165,7 +209,6 @@
                     <option value="form-data"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','form data (Use this to send post parameters)')?></option>
                 </select>
             </div>
-
 
             <div ng-if="param.body_request_type == 'raw'">
                 <div class="form-group">
@@ -325,7 +368,7 @@
                         <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_location_meta" placeholder="response:msg">
                     </div>
 
-                    <h5>Conditions</h5>
+                    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Conditions')?></h5>
 
                     <div class="row">
                         <div class="col-6">

@@ -11,6 +11,12 @@ $ViewList['adminchat'] = array(
     'multiple_arguments' => array('arg')
 );
 
+$ViewList['getchatdata'] = array(
+    'params' => array('chat_id'),
+    'uparams' => array(),
+    'functions' => array( 'use' ),
+);
+
 $ViewList['loadmaindata'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),
@@ -94,6 +100,12 @@ $ViewList['editprevious'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['quotemessage'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['updatemsg'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),
@@ -124,6 +136,11 @@ $ViewList['previewmessage'] = array(
 
 $ViewList['closechatadmin'] = array(
     'params' => array('chat_id'),
+    'functions' => array( 'use' )
+);
+
+$ViewList['abstractclick'] = array(
+    'params' => array('msg_id','payload'),
     'functions' => array( 'use' )
 );
 
@@ -172,7 +189,7 @@ $ViewList['transferchat'] = array(
 
 $ViewList['accepttransfer'] = array(
     'params' => array('transfer_id'),
-    'uparams' => array('postaction','mode'),
+    'uparams' => array('postaction','mode','scope'),
     'functions' => array( 'use' )
 );
 
@@ -189,18 +206,18 @@ $ViewList['delete'] = array(
 
 $ViewList['syncadmininterface'] = array(
     'params' => array(),
-    'uparams' => array('w','clcs','limitgc','limitb','botd','odpgroups','ddgroups','udgroups','mdgroups', 'cdgroups', 'pdgroups','adgroups','pugroups','augroups','onop', 'acs', 'mcd', 'limitmc', 'mcdprod','activeu','pendingu','topen','departmentd','operatord','actived','pendingd','closedd','unreadd','limita','limitp','limitc','limitu','limito','limitd','activedprod','unreaddprod','pendingdprod','closeddprod','psort'),
+    'uparams' => array('alarmmu','alarmmd','amug','limitpm','almug','almd','activemd','limitalm','activemu','amd','pmug','pendingmd','pendingmu','pmd','limitam','lda','bdgroups','botdprod','w','clcs','limitgc','limitb','botd','odpgroups','ddgroups','udgroups','mdgroups', 'cdgroups', 'pdgroups','adgroups','pugroups','augroups','onop', 'acs', 'mcd', 'limitmc', 'mcdprod','activeu','pendingu','topen','departmentd','operatord','actived','pendingd','closedd','unreadd','limita','limitp','limitc','limitu','limito','limitd','activedprod','unreaddprod','pendingdprod','closeddprod','psort'),
     'ajax' => true,
     'functions' => array( 'use' ),
-    'multiple_arguments' => array ('w','odpgroups','ddgroups','udgroups','mdgroups', 'cdgroups', 'pdgroups', 'adgroups', 'pugroups','augroups','mcd','operatord','mcdprod', 'activeu', 'pendingu', 'actived', 'closedd' , 'pendingd', 'unreadd','departmentd','activedprod','unreaddprod','pendingdprod','closeddprod')
+    'multiple_arguments' => array ('alarmmu','alarmmd','almug','almd','activemd','amug','activemu','amd','pmug','pendingmd','pendingmu','pmd','bdgroups','botdprod','botd','w','odpgroups','ddgroups','udgroups','mdgroups', 'cdgroups', 'pdgroups', 'adgroups', 'pugroups','augroups','mcd','operatord','mcdprod', 'activeu', 'pendingu', 'actived', 'closedd' , 'pendingd', 'unreadd','departmentd','activedprod','unreaddprod','pendingdprod','closeddprod')
 );
 
 $ViewList['loadinitialdata'] = array(
     'params' => array(),
-    'uparams' => array('chatopen','chatgopen'),
+    'uparams' => array('chatopen','chatgopen','chatmopen'),
     'ajax' => true,
     'functions' => array( 'use' ),
-    'multiple_arguments' => array('chatopen','chatgopen')
+    'multiple_arguments' => array('chatopen','chatgopen','chatmopen')
 );
 
 $ViewList['list'] = array(
@@ -376,7 +393,7 @@ $ViewList['blockuser'] = array(
 
 $ViewList['blockedusers'] = array(
     'params' => array(),
-    'uparams' => array('remove_block','csfr'),
+    'uparams' => array('remove_block','csfr','ip'),
     'functions' => array( 'allowblockusers' )
 );
 
@@ -412,7 +429,13 @@ $ViewList['startchat'] = array (
 
 $ViewList['start'] = array (
     'params' => array(),
-    'uparams' => array('id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','h','mode','bot'),
+    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','h','mode','bot','scope'),
+	'multiple_arguments' => array('department')
+);
+
+$ViewList['begin'] = array (
+    'params' => array(),
+    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','h','mode','bot','scope'),
 	'multiple_arguments' => array('department')
 );
 
@@ -573,7 +596,7 @@ $ViewList['sendchat'] = array(
 
 $ViewList['transferchatrefilter'] = array(
     'params' => array('chat_id'),
-    'uparams' => array('mode'),
+    'uparams' => array('mode','obj'),
     'functions' => array( 'use' )
 );
 
@@ -621,6 +644,6 @@ $FunctionList['administratechatvariable'] = array('explain' => 'Allow operator t
 $FunctionList['administratechatpriority'] = array('explain' => 'Allow operator to configure chat priority by custom variables');
 $FunctionList['administratesyncsound'] = array('explain' => 'Allow operator to configure chat sound and sync settings');
 $FunctionList['voicemessages'] = array('explain' => 'Allow operator to send voice messages');
-
+$FunctionList['chatdebug'] = array('explain' => 'Allow operator to see raw chat details in chat edit window');
 
 ?>

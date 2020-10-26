@@ -98,7 +98,16 @@ class OfflineChat extends Component {
     
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (document.getElementById('id-container-fluid')) {
-            helperFunctions.sendMessageParent('widgetHeight', [{'height' : document.getElementById('id-container-fluid').offsetHeight+40}]);
+
+            var headerContent = 0;
+
+            if (document.getElementById('widget-header-content')){
+                headerContent = document.getElementById('widget-header-content').offsetHeight;
+            }
+
+            helperFunctions.sendMessageParent('widgetHeight', [{
+                'height' : document.getElementById('id-container-fluid').offsetHeight + headerContent + 10
+            }]);
         }
     }
     
@@ -114,6 +123,8 @@ class OfflineChat extends Component {
             )
         }
 
+        
+        
         if (this.props.chatwidget.get('offlineData').has('fields')) {
             var mappedFields = this.props.chatwidget.getIn(['offlineData','fields']).map(field =><ChatField chatUI={this.props.chatwidget.get('chat_ui')} isInvalid={this.props.chatwidget.hasIn(['validationErrors',field.get('identifier')])} attrPrefill={{'attr_prefill_admin' : this.props.chatwidget.get('attr_prefill_admin'), 'attr_prefill' : this.props.chatwidget.get('attr_prefill')}} defaultValueField={this.state[field.get('name')] || field.get('value')} onChangeContent={this.handleContentChange} field={field} />);
         } else {
@@ -128,34 +139,48 @@ class OfflineChat extends Component {
 
         if (this.props.chatwidget.get('processStatus') == 0 || this.props.chatwidget.get('processStatus') == 1) {
             return (
-                <div className="container-fluid" id="id-container-fluid">
+                  <div id="id-container-fluid">
+                    {this.props.chatwidget.get('leave_message') && this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div className="py-2 px-3 offline-intro-operator" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div>}
 
-                    {this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div className="pt-2" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div>}
+                    {this.props.chatwidget.get('leave_message') && this.props.chatwidget.hasIn(['chat_ui','offline_intro']) && <p className="pb-1 mb-0 pt-2 px-3 font-weight-bold offline-intro" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','offline_intro'])}}></p>}
 
-                    <p className="pb-1 mb-0 pt-2 font-weight-bold offline-intro" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','offline_intro'])}}></p>
+                    {!this.props.chatwidget.get('leave_message') && <p className="pb-1 mb-0 pt-2 px-3 font-weight-bold offline-intro">{this.props.chatwidget.getIn(['chat_ui','chat_unavailable'])}</p>}
 
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="row pt-2">
-                            {mappedFields}
-                            {mappedFieldsCustom}
-                            {this.props.chatwidget.hasIn(['offlineData','department']) && <ChatDepartment defaultValueField={this.state['DepartamentID']} setDefaultValue={this.props.chatwidget.get('departmentDefault')} onChangeContent={this.handleContentChange} isInvalid={this.props.chatwidget.hasIn(['validationErrors','department'])} departments={this.props.chatwidget.getIn(['offlineData','department'])} />}
-                        </div>
-                        <div className="row">
-                            <div className="col-12 pb-3">
-                                <button type="submit" className="btn btn-secondary btn-sm">{this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || t('start_chat.leave_a_message')}</button>
+                    {this.props.chatwidget.get('leave_message') &&
+                    <div className="container-fluid" >
+                        <form onSubmit={this.handleSubmit} className="offline-form">
+                            <div className="row pt-2">
+                                {mappedFields}
+                                {mappedFieldsCustom}
+                                {this.props.chatwidget.hasIn(['offlineData','department']) && <ChatDepartment defaultValueField={this.state['DepartamentID']} setDefaultValue={this.props.chatwidget.get('departmentDefault')} onChangeContent={this.handleContentChange} isInvalid={this.props.chatwidget.hasIn(['validationErrors','department'])} departments={this.props.chatwidget.getIn(['offlineData','department'])} />}
                             </div>
-                        </div>
-                    </form>
-                </div>
+                            <div className="row">
+                                <div className="col-12 pb-2">
+                                    <button type="submit" disabled={this.props.chatwidget.get('processStatus') == 1} className="btn btn-secondary btn-sm">{this.props.chatwidget.get('processStatus') == 1 && <i className="material-icons">&#xf113;</i>}{this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || t('start_chat.leave_a_message')}</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>}
+                      
+                      
+                  </div>
             )
         } else if (this.props.chatwidget.get('processStatus') == 2) {
             return (
-                <div className="container-fluid" id="id-container-fluid">
-                    <div className="row">
-                        <div className="col-12">
-                            <p>{this.props.chatwidget.getIn(['chat_ui','thank_feedback']) || t('start_chat.thank_you_for_feedback')}</p>
+                <div id="id-container-fluid">
+
+                {this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div className="py-2 px-3 offline-intro-operator" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div>}
+
+                {this.props.chatwidget.hasIn(['chat_ui','offline_intro']) && <p className="pb-1 mb-0 pt-2 px-3 font-weight-bold offline-intro" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','offline_intro'])}}></p>}
+
+                    <div className="container-fluid">
+                        <div className="row">
+                            <div className="col-12">
+                                <p className="pt-2">{this.props.chatwidget.getIn(['chat_ui','thank_feedback']) || t('start_chat.thank_you_for_feedback')}</p>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             )
         }

@@ -10,12 +10,18 @@ $error = 'f';
 
 if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[[msgitm]]', '',$payload['msg'])) != '' && mb_strlen($payload['msg']) < (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
 {
+
     try {
         $db = ezcDbInstance::get();
 
         $db->beginTransaction();
 
         $chat = erLhcoreClassModelChat::fetchAndLock($payload['id']);
+
+        // We do not want to call mobile notifications and any related database calls
+        if (!isset($payload['mn']) || $chat->status != erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
+            erLhcoreClassChatEventDispatcher::getInstance()->disableMobile = true;
+        }
 
         $validStatuses = array(
             erLhcoreClassModelChat::STATUS_PENDING_CHAT,
@@ -59,8 +65,10 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
                 exit;
             }
 
+            $triggers = [];
             if ($chat->gbot_id > 0 && (!isset($chat->chat_variables_array['gbot_disabled']) || $chat->chat_variables_array['gbot_disabled'] == 0)) {
                 erLhcoreClassGenericBotWorkflow::userMessageAdded($chat, $msg);
+                $triggers = erLhcoreClassGenericBotWorkflow::$triggerName;
             }
 
             // Reset active counter if visitor send new message and now user is the last message
@@ -105,13 +113,21 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
             // Assign to last message all the texts
             $msg->msg = trim(implode("\n", $messagesToStore));
 
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.addmsguser',array('chat' => & $chat, 'msg' => & $msg));
         } else {
             throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You cannot send messages to this chat. Please refresh your browser.'));
         }
 
         $db->commit();
-        echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r));
+
+        echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r, 't' => $triggers));
+
+        // Try to finish request before any listers do their job
+        flush();
+        if (function_exists('fastcgi_finish_request')) {
+            fastcgi_finish_request();
+        }
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.addmsguser',array('chat' => & $chat, 'msg' => & $msg));
         exit;
 
     } catch (Exception $e) {

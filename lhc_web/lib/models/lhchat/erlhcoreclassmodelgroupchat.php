@@ -25,6 +25,7 @@ class erLhcoreClassModelGroupChat
             'last_user_msg_time' => $this->last_user_msg_time,
             'last_msg_id' => $this->last_msg_id,
             'type' => $this->type,
+            'chat_id' => $this->chat_id,
             'tm' => $this->tm,
         );
     }
@@ -114,8 +115,31 @@ class erLhcoreClassModelGroupChat
         }
     }
 
+    public static function deleteByChatId($chatId) {
+        $groupChat = self::findOne(array('filter' => array('chat_id' => $chatId)));
+
+        if ($groupChat instanceof erLhcoreClassModelGroupChat) {
+            $groupChat->removeThis();
+        }
+    }
+
+    public static function closeByChatId($chatId) {
+        $groupChat = self::findOne(array('filter' => array('chat_id' => $chatId)));
+        if ($groupChat instanceof erLhcoreClassModelGroupChat) {
+            // There is no real messages. We can delete this chat.
+            if (erLhcoreClassModelGroupMsg::getCount(array('filter' => array('chat_id' => $groupChat->id), 'filtergt' => array('user_id' => 0))) == 0) {
+                $groupChat->removeThis();
+            } else {
+                foreach (erLhcoreClassModelGroupChatMember::getList(array('filter' => array('jtime' => 0, 'group_id' => $groupChat->id))) as $groupMember) {
+                    $groupMember->removeThis();
+                }
+            }
+        }
+    }
+
     const PUBLIC_CHAT = 0;
     const PRIVATE_CHAT = 1;
+    const SUPPORT_CHAT = 2;
 
     public $id = null;
     public $name = '';
@@ -126,6 +150,7 @@ class erLhcoreClassModelGroupChat
     public $last_msg = '';
     public $last_user_msg_time = 0;
     public $last_msg_id = 0;
+    public $chat_id = 0;
     public $tm = 0;
     public $type = self::PUBLIC_CHAT;
 }

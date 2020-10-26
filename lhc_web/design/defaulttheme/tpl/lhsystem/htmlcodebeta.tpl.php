@@ -55,6 +55,17 @@
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','For what domain you are generating embed code?');?></label> <input type="text" class="form-control" id="id_embed_domain" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','example.com');?>" value="" />
                     </div>
+
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Department')?></label>
+                        <select id="DepartmentID" multiple="multiple" size="5" class="form-control">
+                            <option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Any');?></option>
+                            <?php foreach (erLhcoreClassModelDepartament::getList($departmentParams) as $departament) : ?>
+                                <option value="<?php echo $departament->id?>"><?php echo htmlspecialchars($departament->name)?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+
                 </div>
 
                 <div class="col-md-6">
@@ -74,9 +85,17 @@
                         <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Default');?></option>
                         <option value="api">api</option>
                     </select>
+
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Widget position placement.');?></label>
+                    <select id="id_position_placement" class="form-control">
+                        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Bottom right');?></option>
+                        <option value="bottom_left"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Bottom left');?></option>
+                        <option value="middle_right"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Middle right');?></option>
+                        <option value="middle_left"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Middle left');?></option>
+                        <option value="full_height_right"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Bottom right, full height');?></option>
+                        <option value="full_height_left"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Bottom left, full height');?></option>
+                    </select>
                 </div>
-
-
 
                 <div class="col-md-6">
                     <div class="form-group">
@@ -87,17 +106,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Department')?></label>
-                        <select id="DepartmentID" multiple="multiple" size="5" class="form-control">
-                            <option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Any');?></option>
-                            <?php foreach (erLhcoreClassModelDepartament::getList($departmentParams) as $departament) : ?>
-                                <option value="<?php echo $departament->id?>"><?php echo htmlspecialchars($departament->name)?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                </div>
+
 
                 <div class="col-md-12">
 
@@ -277,6 +286,7 @@
         var id_fresh_status = $('#id_fresh').is(':checked') ? '/(fresh)/true' : '';
 
        var id_disable_pro_active_invitations = $('#id_disable_pro_active_invitations').is(':checked') ? ',proactive:false' : '';
+       var id_position_placement = $('#id_position_placement').val() != '' ? ',position_placement:\''+$('#id_position_placement').val()+'\'' : '';
 
         var id_department = $('#DepartmentID').val() && $('#DepartmentID').val().length > 0 && $('#DepartmentID').val().join('/') != '0' ? ',department:['+$('#DepartmentID').val().join(',')+']' : '';
         var id_department_static = $('#DepartmentID').val() && $('#DepartmentID').val().length > 0 && $('#DepartmentID').val().join('/') != '0' ? '/(department)/'+$('#DepartmentID').val().join('/') : '';
@@ -359,7 +369,7 @@
         }
 
         var script = '<script>'+
-            'var LHC_API = LHC_API||{};'+"\n"+'LHC_API.args = {mode:\''+id_widget_mode+'\',lhc_base_url:\'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>\',wheight:'+$('#id_widget_height').val()+',wwidth:'+$('#id_widget_width').val()+',pheight:'+$('#id_popup_height').val()+',pwidth:'+$('#id_popup_width').val()+id_operator+id_embed_domain+id_fresh+id_show_leave_form+id_department+id_theme+id_survey+id_widget_position+id_check_messages_operator+id_disable_pro_active_invitations+id_identifier+siteAccess+'};\n'+
+            'var LHC_API = LHC_API||{};'+"\n"+'LHC_API.args = {mode:\''+id_widget_mode+'\',lhc_base_url:\'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>\',wheight:'+$('#id_widget_height').val()+',wwidth:'+$('#id_widget_width').val()+',pheight:'+$('#id_popup_height').val()+',pwidth:'+$('#id_popup_width').val()+id_operator+id_embed_domain+id_fresh+id_show_leave_form+id_department+id_theme+id_survey+id_widget_position+id_check_messages_operator+id_disable_pro_active_invitations+id_identifier+siteAccess+id_position_placement+'};\n'+
             '(function() {'+"\n"+langDetectScript+
             'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.setAttribute(\'crossorigin\',\'anonymous\'); po.async = true;'+"\n"+
             'var date = new Date();'+
@@ -371,7 +381,7 @@
         $('#HMLTContent').text(id_tag+script);
     };
 
-    $('#id_widget_mode,#hash_args,#id_check_messages_operator,#id_disable_subdomain,#id_fresh,#id_widget_position,#LocaleID,#id_embed_domain,#DetectLanguage,#id_product_id,#id_disable_online_tracking,#MinimizeID,#id_operator,#DepartmentID,#HttpMode,#ThemeID,#id_Survey,#id_disable_pro_active_invitations,#id_site_identifier,#id_internal_popup,#id_position_bottom,#PositionID,#id_show_leave_form,#id_hide_then_offline,#UnitsTop,#id_top_text,#id_popup_width,#id_popup_height,#id_widget_width,#id_widget_height').change(function(){
+    $('#id_widget_mode,#id_position_placement, #hash_args,#id_check_messages_operator,#id_disable_subdomain,#id_fresh,#id_widget_position,#LocaleID,#id_embed_domain,#DetectLanguage,#id_product_id,#id_disable_online_tracking,#MinimizeID,#id_operator,#DepartmentID,#HttpMode,#ThemeID,#id_Survey,#id_disable_pro_active_invitations,#id_site_identifier,#id_internal_popup,#id_position_bottom,#PositionID,#id_show_leave_form,#id_hide_then_offline,#UnitsTop,#id_top_text,#id_popup_width,#id_popup_height,#id_widget_width,#id_widget_height').change(function(){
         generateEmbedCode();
     });
 

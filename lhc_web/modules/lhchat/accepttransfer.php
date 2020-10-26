@@ -3,10 +3,15 @@ header('content-type: application/json; charset=utf-8');
 
 try {
     if ($Params['user_parameters_unordered']['mode'] == 'chat') {
-        $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['transfer_id']);
-        
-        $transferLegacy = erLhcoreClassTransfer::getTransferByChat($chat->id);
-        
+
+        if ($Params['user_parameters_unordered']['scope'] == erLhcoreClassModelTransfer::SCOPE_MAIL) {
+            $chat = erLhcoreClassModelMailconvConversation::fetch($Params['user_parameters']['transfer_id']);
+            $transferLegacy = erLhcoreClassTransfer::getTransferByChat($chat->id, erLhcoreClassModelTransfer::SCOPE_MAIL);
+        } else {
+            $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['transfer_id']);
+            $transferLegacy = erLhcoreClassTransfer::getTransferByChat($chat->id, erLhcoreClassModelTransfer::SCOPE_CHAT);
+        }
+
         if (is_array($transferLegacy)) {
             $chatTransfer = erLhcoreClassTransfer::getSession()->load('erLhcoreClassModelTransfer', $transferLegacy['id']);
         } else {
@@ -15,7 +20,13 @@ try {
         
     } else {    
     	$chatTransfer = erLhcoreClassTransfer::getSession()->load( 'erLhcoreClassModelTransfer', $Params['user_parameters']['transfer_id']);
-    	$chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $chatTransfer->chat_id);
+
+    	if ($chatTransfer->transfer_scope == erLhcoreClassModelTransfer::SCOPE_CHAT) {
+            $chat = erLhcoreClassModelChat::fetch($chatTransfer->chat_id);
+        } else {
+            $chat = erLhcoreClassModelMailconvConversation::fetch($chatTransfer->chat_id);
+        }
+
     }
 } catch (Exception $e) {
 	exit;
@@ -31,23 +42,31 @@ $oldUserId = $chat->user_id;
 if  ($chatTransfer->dep_id > 0) {
 	$chat->dep_id = $chatTransfer->dep_id;
 
-	erLhAbstractModelAutoResponder::updateAutoResponder($chat);
+    if ($chatTransfer->transfer_scope == erLhcoreClassModelTransfer::SCOPE_CHAT) {
+        erLhAbstractModelAutoResponder::updateAutoResponder($chat);
+    }
 
 	// User does not have access to chat in this department, that mean we do not have to do anything
 	if (!erLhcoreClassChat::hasAccessToRead($chat)){
 		exit;
 	} else {
-		$chat->user_id = $currentUser->getUserID();
-		$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
-		$chat->user_typing_txt = (string)$chat->user.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
-		$chat->user_typing  = time();
-		$chat->usaccept = $userData->hide_online;
-		
-		$msg = new erLhcoreClassModelmsg();
-		$msg->msg = (string)$chat->user.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a chat!');
-		$msg->chat_id = $chat->id;
-		$msg->user_id = -1;
-	}
+        $chat->user_id = $currentUser->getUserID();
+        $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+        $chat->user_typing  = time();
+        $chat->usaccept = $userData->hide_online;
+
+        $msg = $chatTransfer->transfer_scope == erLhcoreClassModelTransfer::SCOPE_CHAT ? (new erLhcoreClassModelmsg()) : (new erLhcoreClassModelMailconvMessageInternal());
+        $msg->chat_id = $chat->id;
+        $msg->user_id = -1;
+        $msg->name_support = $userData->name_support;
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
+
+        $chat->user_typing_txt = (string)$msg->name_support.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
+        $msg->msg = (string)$msg->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a chat!');
+
+    }
+
 }
 
 if ($chatTransfer->transfer_to_user_id == $currentUser->getUserID()){
@@ -56,14 +75,18 @@ if ($chatTransfer->transfer_to_user_id == $currentUser->getUserID()){
     {
         $chat->user_id = $currentUser->getUserID();
         $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
-        $chat->user_typing_txt = (string)$chat->user.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
         $chat->user_typing  = time();
         $chat->usaccept = $userData->hide_online;
-        
-        $msg = new erLhcoreClassModelmsg();
-        $msg->msg = (string)$chat->user.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a chat!');
+
+        $msg = $chatTransfer->transfer_scope == erLhcoreClassModelTransfer::SCOPE_CHAT ? (new erLhcoreClassModelmsg()) : (new erLhcoreClassModelMailconvMessageInternal());
         $msg->chat_id = $chat->id;
         $msg->user_id = -1;
+        $msg->name_support = $userData->name_support;
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
+
+        $chat->user_typing_txt = (string)$msg->name_support.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
+        $msg->msg = (string)$msg->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a chat!');
     }
 
 	// Change department if user cannot read current department, so chat appears in right menu
@@ -74,7 +97,9 @@ if ($chatTransfer->transfer_to_user_id == $currentUser->getUserID()){
 			$chat->dep_id = $dep_id;
 			$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
 
-            erLhAbstractModelAutoResponder::updateAutoResponder($chat);
+            if ($chatTransfer->transfer_scope == erLhcoreClassModelTransfer::SCOPE_CHAT) {
+                erLhAbstractModelAutoResponder::updateAutoResponder($chat);
+            }
 		}
 	}
 }
@@ -87,7 +112,9 @@ if ( !erLhcoreClassChat::hasAccessToRead($chat) )
 			$chat->dep_id = $dep_id;
 			$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
 
-            erLhAbstractModelAutoResponder::updateAutoResponder($chat);
+            if ($chatTransfer->transfer_scope == erLhcoreClassModelTransfer::SCOPE_CHAT) {
+                erLhAbstractModelAutoResponder::updateAutoResponder($chat);
+            }
 		}
 	} else {
 		exit; // User does not have permission to assign chat to himself
@@ -95,14 +122,14 @@ if ( !erLhcoreClassChat::hasAccessToRead($chat) )
 }
 
 // Store system message
-if (isset($msg) && $msg instanceof erLhcoreClassModelmsg) {	
+if (isset($msg) && ($msg instanceof erLhcoreClassModelmsg || $msg instanceof erLhcoreClassModelMailconvMessageInternal)) {
 	$chat->last_user_msg_time = $msg->time = time();
-	erLhcoreClassChat::getSession()->save($msg);
+    $msg->saveThis();
     $chat->last_msg_id = $msg->id;
 }
 
 // All ok, we can make changes
-erLhcoreClassChat::getSession()->update($chat);
+$chat->updateThis();
 erLhcoreClassTransfer::getSession()->delete($chatTransfer);
 
 if ($chat->user_id > 0 && $oldUserId != $chat->user_id) {
@@ -120,6 +147,6 @@ if ($Params['user_parameters_unordered']['postaction'] == 'singlewindow') {
 	exit;
 }
 
-echo erLhcoreClassChat::safe_json_encode(array('error' => 'false', 'chat_id' => $chat->id));
+echo erLhcoreClassChat::safe_json_encode(array('error' => 'false', 'chat_id' => $chat->id, 'scope' => $chatTransfer->transfer_scope));
 exit;
 ?>

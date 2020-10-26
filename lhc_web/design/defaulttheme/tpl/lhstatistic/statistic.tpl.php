@@ -11,6 +11,7 @@
 		<li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'performance') : ?> active<?php endif;?>" href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/performance" ><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/tab_performance.tpl.php'));?></a></li>
 		<li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'departments') : ?> active<?php endif;?>" href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/departments" ><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/tab_departments.tpl.php'));?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'visitors') : ?> active<?php endif;?>" href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/visitors" ><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/tab_visitors.tpl.php'));?></a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'mail') : ?> active<?php endif;?>" href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/mail" ><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/tab_mail.tpl.php'));?></a></li>
 
         <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic','configuration')) : ?>
 		<li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'configuration') : ?> active<?php endif;?>" href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/configuration" ><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/tab_configuration.tpl.php'));?></a></li>
@@ -73,6 +74,12 @@
 		<?php if ($tab == 'visitors') : ?>
         <div role="tabpanel" class="tab-pane active">
           <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/visitors.tpl.php'));?>
+        </div>
+        <?php endif;?>
+
+		<?php if ($tab == 'mail') : ?>
+        <div role="tabpanel" class="tab-pane active">
+          <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/mail.tpl.php'));?>
         </div>
         <?php endif;?>
 

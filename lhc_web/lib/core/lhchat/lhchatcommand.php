@@ -29,6 +29,7 @@ class erLhcoreClassChatCommand
     	'!gotobot' => 'self::goToBot',
     	'!transferforce' => 'self::transferforce',
     	'!files' => 'self::enableFiles',
+    	'!stopfiles' => 'self::disableFiles',
     );
 
     private static function extractCommand($message)
@@ -54,10 +55,34 @@ class erLhcoreClassChatCommand
                 $params
             ));
         } else { // Perhaps some extension has implemented this command?
-            $commandResponse = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.customcommand', array('command' => $commandData['command'], 'argument' => $commandData['argument'], 'params' => $params));
-            
-            if (isset($commandResponse['processed']) && $commandResponse['processed'] == true) {
-                return $commandResponse;
+
+            $command = erLhcoreClassModelGenericBotCommand::findOne(array('customfilter' => array('(dep_id = 0 OR dep_id = ' . (int)$params['chat']->dep_id . ')'),'filter' => array('command' => ltrim($commandData['command'],'!'))));
+
+            if ($command instanceof erLhcoreClassModelGenericBotCommand) {
+
+                $trigger = $command->trigger;
+
+                if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                    erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('args' => array('msg' => $commandData['argument'])));
+
+                    $response = '"' . $trigger->name . '"' . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'was executed');
+                } else {
+                    $response = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Assigned trigger could not be found');
+                }
+
+                return array(
+                    'processed' => true,
+                    'process_status' => '',
+                    'raw_message' => $commandData['command'] . ' || ' . $response
+                );
+
+
+            } else {
+                $commandResponse = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.customcommand', array('command' => $commandData['command'], 'argument' => $commandData['argument'], 'params' => $params));
+
+                if (isset($commandResponse['processed']) && $commandResponse['processed'] == true) {
+                    return $commandResponse;
+                }
             }
         }
         
@@ -111,6 +136,40 @@ class erLhcoreClassChatCommand
     	);
     }
 
+    public static function disableFiles($params)
+    {
+        $chatVariables = $params['chat']->chat_variables_array;
+
+        if (isset($chatVariables['lhc_fu'])) {
+            unset($chatVariables['lhc_fu']);
+            $params['chat']->chat_variables = json_encode($chatVariables);
+            $params['chat']->chat_variables_array = $chatVariables;
+        }
+
+        $msg = new erLhcoreClassModelmsg();
+        $msg->msg = (isset($params['argument']) && $params['argument'] != '') ? $params['argument'] : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Files upload was disabled!');
+        $msg->chat_id = $params['chat']->id;
+        $msg->user_id = $params['user']->id;
+        $msg->time = time();
+        $msg->name_support = $params['user']->name_support;
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg, 'chat' => & $params['chat']));
+
+        $msg->saveThis();
+
+        // Schedule UI Refresh
+        $params['chat']->operation .= "lhc_ui_refresh:0\n";
+
+        // Store permanently
+        $params['chat']->updateThis(array('update' => array('chat_variables', 'operation')));
+
+        return array(
+            'processed' => true,
+            'process_status' => '',
+            'raw_message' => '!stopfiles'
+        );
+    }
+
     public static function enableFiles($params)
     {
         $chatVariables = $params['chat']->chat_variables_array;
@@ -125,10 +184,13 @@ class erLhcoreClassChatCommand
         $msg->user_id = $params['user']->id;
         $msg->time = time();
         $msg->name_support = $params['user']->name_support;
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg, 'chat' => & $params['chat']));
+
         $msg->saveThis();
 
         // Schedule UI Refresh
-        $params['chat']->operation .= "lhc_ui_refresh\n";
+        $params['chat']->operation .= "lhc_ui_refresh:1\n";
 
         // Store permanently
         $params['chat']->updateThis(array('update' => array('chat_variables','operation')));
@@ -159,6 +221,9 @@ class erLhcoreClassChatCommand
             $msg->user_id = $params['user']->id;
             $msg->time = time();
             $msg->name_support = $params['user']->name_support;
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg, 'chat' => & $params['chat']));
+
             $msg->saveThis();
         }
 
@@ -396,15 +461,8 @@ class erLhcoreClassChatCommand
 
     public static function blockUser($params)
     {
-        if (isset($params['no_ui_update'])) {
-            $params['chat']->blockUser();
-        } else {
-            
-            // Schedule interface update
-            $params['chat']->operation_admin .= "lhinst.blockUser('{$params['chat']->id}');";
-            $params['chat']->updateThis(array('update' => array('operation_admin')));
-        }
-        
+        erLhcoreClassModelChatBlockedUser::blockChat(array('chat' => $params['chat']));
+
         return array(
             'processed' => true,
             'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'User was blocked!')

@@ -9,13 +9,18 @@
 </div>
 
 <div class="row form-group">
-    <div class="col-md-4">
+    <div class="col-md-3">
 		<label><input title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Visible only if online');?>" type="checkbox" name="VisibleIfOnline" value="1" <?php if ($departament->visible_if_online == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Visible only if online');?></label>
 	</div>
-	<div class="col-md-4">
+	<div class="col-md-3">
 		<label><input type="checkbox" name="Disabled" value="1" <?php if ($departament->disabled == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Disabled');?></label>
 	</div>
-	<div class="col-md-4"><label><input title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Will not be visible to visitor');?>" type="checkbox" name="Hidden" value="1" <?php if ($departament->hidden == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hidden');?></label></div>
+	<div class="col-md-3">
+        <label><input title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Will not be visible to visitor');?>" type="checkbox" name="Hidden" value="1" <?php if ($departament->hidden == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hidden');?></label>
+    </div>
+    <div class="col-md-3">
+        <label><input title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Archived');?>" type="checkbox" name="archive" value="1" <?php if ($departament->archive == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Archived');?></label>
+    </div>
 </div>
 
 <div class="form-group">
@@ -234,7 +239,7 @@
 				</div>
 				
 				<div class="form-group">
-				    <label><input type="checkbox" name="inform_unread"  value="on" <?php echo $departament->inform_unread == 1 ? 'checked="checked"' : '';?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Inform about unread messages if from last unread user message have passed (seconds)');?></label> 
+				    <label><input type="checkbox" name="inform_unread"  value="on" <?php echo $departament->inform_unread == 1 ? 'checked="checked"' : '';?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Inform about unread messages if from last unread user message has passed (seconds)');?></label>
 				    <input type="text" class="form-control" name="inform_unread_delay" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Please enter value in seconds');?>" value="<?php echo htmlspecialchars($departament->inform_unread_delay);?>" />
 				</div>
 				

@@ -44,6 +44,21 @@ $def->properties['expires_on']->columnName   = 'expires_on';
 $def->properties['expires_on']->propertyName = 'expires_on';
 $def->properties['expires_on']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['error'] = new ezcPersistentObjectProperty();
+$def->properties['error']->columnName   = 'error';
+$def->properties['error']->propertyName = 'error';
+$def->properties['error']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['notifications_status'] = new ezcPersistentObjectProperty();
+$def->properties['notifications_status']->columnName   = 'notifications_status';
+$def->properties['notifications_status']->propertyName = 'notifications_status';
+$def->properties['notifications_status']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['last_error'] = new ezcPersistentObjectProperty();
+$def->properties['last_error']->columnName   = 'last_error';
+$def->properties['last_error']->propertyName = 'last_error';
+$def->properties['last_error']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

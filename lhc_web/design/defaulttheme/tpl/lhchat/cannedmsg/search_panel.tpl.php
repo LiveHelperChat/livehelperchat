@@ -34,11 +34,18 @@
                 )); ?>
             </div>
         </div>
-
     </div>
 
     <div class="btn-group" role="group" aria-label="...">
         <input type="submit" name="doSearch" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
+        <?php if ($pages->items_total > 0) : ?>
+            <a target="_blank" class="btn btn-secondary" href="<?php echo $pages->serverURL?>?export=1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','CSV');?></a>
+        <?php endif; ?>
+        
+        <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhcannedmsg','use_import'))  : ?>
+            <a target="_blank" class="btn btn-secondary text-white" onclick="return lhc.revealModal({'title' : '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Import');?>', 'iframe':true, 'height':500, 'url':WWW_DIR_JAVASCRIPT +'cannedmsg/import'})"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Import');?></a>
+        <?php endif; ?>
+        
     </div>
 
 </form>

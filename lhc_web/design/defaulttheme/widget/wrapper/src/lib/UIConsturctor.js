@@ -30,8 +30,7 @@ export class UIConsturctor {
     };
 
     restyle(attr, style) {
-        style &&
-        (-1 === style.indexOf("!important") && (style += " !important"), this.elmDom ? this.elmDom.style.cssText += ";" + attr + ":" + style : this.style += ";" + attr + ":" + style)
+        style && (this.elmDom ? this.elmDom.style.cssText += ";" + attr + ":" + style : this.style += ";" + attr + ":" + style)
     };
 
     attachUserEventListener(a, c, d, k) {
@@ -77,7 +76,7 @@ export class UIConsturctor {
         d.appendChild(k);
     }
 
-    insertJSFile(src, async){
+    insertJSFile(src, async, loadcb, attr) {
         var d = this.elmDomDoc.getElementsByTagName("head")[0],
             k = this.elmDomDoc.createDocumentFragment(),
             e = this.elmDomDoc.createElement('script');
@@ -89,6 +88,16 @@ export class UIConsturctor {
 
             e.crossOrigin = "*";
             e.src = src;
+
+            if (loadcb) {
+                e.onload = loadcb;
+            }
+
+            if (attr) {
+                Object.keys(attr).forEach(key => {
+                    e.setAttribute(key,attr[key]);
+                })
+            }
 
             k.appendChild(e);
             d.appendChild(k);

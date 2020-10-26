@@ -64,6 +64,7 @@ class ChatModal extends PureComponent {
             }
         }
         this.props.insertText(txtToAdd);
+        this.props.toggle();
     }
 
     generalDataActionClick = (e) => {

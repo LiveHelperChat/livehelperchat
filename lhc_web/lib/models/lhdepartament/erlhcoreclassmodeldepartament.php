@@ -70,6 +70,7 @@ class erLhcoreClassModelDepartament {
             'delay_before_assign' => $this->delay_before_assign,
             'bot_configuration' => $this->bot_configuration,
             'assign_same_language' => $this->assign_same_language,
+            'archive' => $this->archive,
         );
     }
 
@@ -282,6 +283,7 @@ class erLhcoreClassModelDepartament {
     public $pending_group_max = 0;
     public $exclude_inactive_chats = 0;
     public $max_ac_dep_chats = 0;
+    public $archive = 0;
 
     public $active_chats_counter = 0;
     public $delay_before_assign = 0;

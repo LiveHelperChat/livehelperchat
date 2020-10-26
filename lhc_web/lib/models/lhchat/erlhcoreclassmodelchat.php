@@ -187,7 +187,9 @@ class erLhcoreClassModelChat {
        $q->deleteFrom( 'lh_generic_bot_pending_event' )->where( $q->expr->eq( 'chat_id', $this->id ) );
        $stmt = $q->prepare();
        $stmt->execute();
-       
+
+       erLhcoreClassModelGroupChat::deleteByChatId($this->id);
+
        erLhcoreClassModelChatFile::deleteByChatId($this->id);
    }
 
@@ -264,12 +266,14 @@ class erLhcoreClassModelChat {
        	case 'wait_time_front':
        		   $this->wait_time_front = erLhcoreClassChat::formatSeconds($this->wait_time);
        		   return $this->wait_time_front;
-       		break;
+
+       	case 'last_user_msg_time_front':
+               $this->last_user_msg_time_front = $this->last_user_msg_time > 0 ? erLhcoreClassChat::formatSeconds(time() - $this->last_user_msg_time) : null;
+       		   return $this->last_user_msg_time_front;
 
        	case 'wait_time_pending':
        		   $this->wait_time_pending = erLhcoreClassChat::formatSeconds(time() - $this->time);
        		   return $this->wait_time_pending;
-       		break;
 
        	case 'chat_duration_front':
        	       if ($this->chat_duration > 0) {
@@ -280,11 +284,9 @@ class erLhcoreClassModelChat {
                    $this->chat_duration_front = null;
                }
        		   return $this->chat_duration_front;
-       		break;
 
        	case 'user_name':
        			return $this->user_name = (string)$this->user;
-       		break;	
 
        	case 'plain_user_name':
        	        $this->plain_user_name = false;
@@ -596,20 +598,8 @@ class erLhcoreClassModelChat {
                $instance->ip = $parts[0] . '.' . $parts[1] . '.xxx.xxx';
            }
        }
-
    }
 
-   public function blockUser() {
-
-       if (erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('ip' => $this->ip))) == 0)
-       {
-           $block = new erLhcoreClassModelChatBlockedUser();
-           $block->ip = $this->ip;
-           $block->user_id = erLhcoreClassUser::instance()->getUserID();
-           $block->saveThis();
-       }
-   }
-   
    const STATUS_PENDING_CHAT = 0;
    const STATUS_ACTIVE_CHAT = 1;
    const STATUS_CLOSED_CHAT = 2;

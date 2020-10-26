@@ -60,7 +60,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
             
             $chat = erLhcoreClassModelChat::fetchAndLock($chatID);
     	        
-	        if ($chat->hash == $hash &&  $chat->user_status != 1) {	                
+	        if ($chat instanceof erLhcoreClassModelChat && $chat->hash == $hash &&  $chat->user_status != 1) {
 		        	
 				        // User closed chat
 				        $chat->user_status = erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT;
@@ -145,7 +145,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 
 
 	        
-	        } elseif ($chat->hash == $hash && $Params['user_parameters_unordered']['eclose'] == 't' && $chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
+	        } elseif ($chat instanceof erLhcoreClassModelChat && $chat->hash == $hash && $Params['user_parameters_unordered']['eclose'] == 't' && $chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
 
     	            erLhcoreClassChat::lockDepartment($chat->dep_id, $db);
 

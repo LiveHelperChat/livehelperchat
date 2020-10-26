@@ -61,13 +61,19 @@ return array (
                             28 => 'heb',
                             29 => 'cat',
                             30 => 'hun',
-                            31 => 'site_admin'
+                            31 => 'svk',
+                            32 => 'site_admin'
                         ),
                 ),
             'default_url' =>
                 array (
                     'module' => 'chat',
                     'view' => 'start',
+                ),
+            'webhooks' =>
+                array(
+                    'enabled' => false,
+                    'worker' => 'http',
                 ),
             'chat' => array(
                 'online_timeout' => 300,
@@ -139,6 +145,24 @@ return array (
                         array (
                             'locale' => 'lt_LT',
                             'content_language' => 'lt',
+                            'dir_language' => 'ltr',
+                            'title' => '',
+                            'description' => '',
+                            'theme' =>
+                                array (
+                                    0 => 'customtheme',
+                                    1 => 'defaulttheme',
+                                ),
+                            'default_url' =>
+                                array (
+                                    'module' => 'chat',
+                                    'view' => 'start',
+                                ),
+                        ),
+                    'svk' =>
+                        array (
+                            'locale' => 'sk_SK',
+                            'content_language' => 'sk',
                             'dir_language' => 'ltr',
                             'title' => '',
                             'description' => '',

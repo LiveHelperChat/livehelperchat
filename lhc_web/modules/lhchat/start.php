@@ -25,14 +25,22 @@ if ($startDataDepartment === false) {
 }
 
 if (isset($startDataFields['requires_dep']) && $startDataFields['requires_dep'] == true && empty($dep)) {
-
     $Result['pagelayout'] = 'userchat';
     $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/alert_info.tpl.php');
     $tpl->set('msg',erTranslationClassLhTranslation::getInstance()->getTranslation('chat/start','Department is required!'));
     $tpl->set('hide_close_icon',true);
     $Result['hide_close_window'] = true;
     $Result['content'] = $tpl->fetch();
+    return $Result;
+}
 
+if (isset($startDataFields['disable_start_chat']) && $startDataFields['disable_start_chat'] == true && empty($Params['user_parameters_unordered']['vid']) && (!is_numeric($Params['user_parameters_unordered']['id']) || $Params['user_parameters_unordered']['hash'] == '')) {
+    $Result['pagelayout'] = 'userchat';
+    $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/alert_info.tpl.php');
+    $tpl->set('msg',erTranslationClassLhTranslation::getInstance()->getTranslation('chat/start','Disabled!'));
+    $tpl->set('hide_close_icon',true);
+    $Result['hide_close_window'] = true;
+    $Result['content'] = $tpl->fetch();
     return $Result;
 }
 
@@ -93,12 +101,28 @@ $tpl->set('operator',$Params['user_parameters_unordered']['operator'] != '' ? (i
 $tpl->set('bot',$Params['user_parameters_unordered']['bot'] != '' ? (int)$Params['user_parameters_unordered']['bot'] : null);
 $tpl->set('online',$online);
 $tpl->set('mode',$Params['user_parameters_unordered']['mode'] != '' && in_array($Params['user_parameters_unordered']['mode'],['embed','popup','widget']) ? $Params['user_parameters_unordered']['mode']  : 'popup');
+$tpl->set('sound',is_numeric($Params['user_parameters_unordered']['sound']) ? (int)$Params['user_parameters_unordered']['sound'] : (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['new_message_sound_user_enabled']);
+
+if ($Params['user_parameters_unordered']['scope'] != ''){
+    $Result['app_scope'] = strip_tags($Params['user_parameters_unordered']['scope']);
+}
 
 $ts = time();
 $tpl->set('captcha',array(
     'hash' => sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' )),
     'ts' => $ts
 ));
+
+$referrer = erLhcoreClassModelChatOnlineUser::getReferer();
+
+$tpl->set('domain_lhc',null);
+
+if (!empty($referrer)) {
+    $partsReferer = parse_url($referrer);
+    if (isset($partsReferer['host'])) {
+        $tpl->set('domain_lhc',$partsReferer['host']);
+    }
+}
 
 // Prefill by get
 if (isset($_GET['prefill']) && is_array($_GET['prefill']) && !empty($_GET['prefill'])) {
@@ -171,7 +195,8 @@ $Result['content'] = $tpl->fetch();
 if ($leaveamessage === false && $online === false){
     $Result['pagelayout'] = 'userchat';
 } else {
-    if (isset( $Result['theme']) && is_object($Result['theme'])) {
+    if (isset($Result['theme']) && is_object($Result['theme'])) {
+        $Result['theme_obj'] = $Result['theme'];
         $Result['theme'] = $Result['theme']->id;
     }
     $Result['pagelayout'] = 'userchat2';

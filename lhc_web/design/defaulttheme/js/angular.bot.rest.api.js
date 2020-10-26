@@ -10,6 +10,7 @@ lhcAppControllers.controller('BotRestAPIParameters',['$scope','$http','$location
             'api_key_location' : 'header',
             'query' : [],
             'header' : [],
+            'conditions' : [],
             'postparams' : [],
             'userparams' : [],
             'output' : [],
@@ -35,6 +36,15 @@ lhcAppControllers.controller('BotRestAPIParameters',['$scope','$http','$location
 
     this.getJSON = function () {
         return JSON.stringify({'host' : that.host, 'parameters' : that.parameters});
+    }
+
+    this.initParams = function () {
+        this.parameters = window.rest_api_parameters;
+        this.parameters.forEach(function(item){
+           if (typeof item.conditions === 'undefined') {
+               item.conditions = [];
+           }
+        });
     }
 
 }]);

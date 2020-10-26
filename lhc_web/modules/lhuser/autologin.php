@@ -48,12 +48,12 @@ if ($data['enabled'] == 1) {
     
     if ($validateHash == $Params['user_parameters']['hash']) {
         
-        if ($dataRequest['t'] > 0 && $dataRequest['t'] < time()) {
+        if (isset($dataRequest['t']) && $dataRequest['t'] > 0 && $dataRequest['t'] < time()) {
             die(erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Autologin hash has expired'));
         }
 
         try {
-            if (is_numeric($dataRequest['u'])){
+            if (isset($dataRequest['u']) && is_numeric($dataRequest['u'])){
                 $userToLogin = erLhcoreClassModelUser::fetch((int)$dataRequest['u']);
             } else {
                 $users = erLhcoreClassModelUser::getUserList(array('limit' => 1,'filter' => array('username' => $dataRequest['l'])));

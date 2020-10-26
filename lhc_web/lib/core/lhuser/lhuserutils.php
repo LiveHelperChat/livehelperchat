@@ -24,7 +24,12 @@ class erLhcoreClassUserUtils
                             'user_id' => $stat['user_id'],
                             'status' => 1
                         )
-                    ))
+                    )) + erLhcoreClassModelMailconvConversation::getCount(array(
+                            'filter' => array(
+                                'user_id' => $stat['user_id'],
+                                'status' => 1
+                            )
+                        ))
                 );
             }
         }

@@ -1,4 +1,4 @@
-<div class="modal-dialog modal-lg">
+<div class="modal-dialog modal-dialog-scrollable modal-lg">
     <div class="modal-content">
       <div class="modal-header pt-1 pb-1 pl-2 pr-2">
 
@@ -15,7 +15,7 @@
         <div class="p-1 border-bottom">
             <i class="material-icons">label</i><small>ID - <?php echo $chat->id?></small>&nbsp;<i class="material-icons">label</i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Created')?> - <?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time)?></small>&nbsp;<i class="material-icons">label</i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat duration')?> - <?php echo $chat->chat_duration_front?></small>&nbsp;<i class="material-icons">label</i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Waited')?> - <?php echo $chat->wait_time_front?></small>&nbsp;<i class="material-icons">label</i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Priority')?> - (<?php echo $chat->priority?>)</small>
         </div>
-      <div class="modal-body">
+      <div class="modal-body mx550">
 
 <small id="preview-messages-<?php echo $chat->id?>">
     <?php $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 100,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id)))); ?>
@@ -23,6 +23,10 @@
 </small>
 
   <script>
+      if (window.lhcPreviewTimeout) {
+          clearTimeout(window.lhcPreviewTimeout);
+      }
+
       (function(chatId, msgId){
           var currentChatId = chatId;
           var currentLastMessageID = msgId;
@@ -31,17 +35,24 @@
                   if (data.result != 'false') {
                       $.each(data.result, function (i, item) {
                           currentLastMessageID = item.message_id;
-                          $('#preview-messages-' + item.chat_id).append(item.content);
+                          var previewElement = $('#preview-messages-'+item.chat_id);
+
+                          if (previewElement.is(':visible') == true) {
+                              previewElement.append(item.content);
+                              previewElement.parent().scrollTop(previewElement.parent()[0].scrollHeight);
+                          }
                       });
                   }
-                  if ($('#preview-messages-'+currentChatId).is(':visible') == true){
-                      setTimeout(function () {
+
+                  if ($('#preview-messages-'+currentChatId).is(':visible') == true) {
+                      window.lhcPreviewTimeout = setTimeout(function () {
                           updatePreviewLive();
                       },2000);
                   }
               });
           }
-          setTimeout(function () {
+
+          window.lhcPreviewTimeout = setTimeout(function () {
               updatePreviewLive();
           },5000);
       })(<?php echo $chat->id,',',$msg->id?>);

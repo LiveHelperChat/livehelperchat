@@ -31,7 +31,7 @@
 
             </div>
 
-    		<input type="button" onclick="lhinst.transferChat('<?php echo $chat->id;?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
+    		<input type="button" onclick="lhinst.transferChat('<?php echo $chat->id;?>','<?php isset($transferMode) ? print $transferMode : print 'chat'?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
     		
 		</div>
 		<div role="tabpanel" class="tab-pane" id="transferdepmodal">
@@ -43,7 +43,7 @@
 
                     </div>
 
-            		<input type="button" onclick="lhinst.transferChatDep('<?php echo $chat->id;?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
+            		<input type="button" onclick="lhinst.transferChatDep('<?php echo $chat->id;?>','<?php isset($transferMode) ? print $transferMode : print 'chat'?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
         		</div>
         		<div class="col-6">
         		    <div class="checkbox">
@@ -63,7 +63,7 @@
             <script type="text/javascript">
             function updateTransferDepartments() {
             	$('#transfer-chat-list-refilter').html('...');
-                $.post(WWW_DIR_JAVASCRIPT + 'chat/transferchatrefilter/<?php echo $chat->id?>/(mode)/dep',{
+                $.post(WWW_DIR_JAVASCRIPT + 'chat/transferchatrefilter/<?php echo $chat->id?>/(mode)/dep<?php isset($transferMode) ? print '/(obj)/'.$transferMode : ''?>',{
                     'dep_transfer_only_explicit':$('#dep_transfer_only_explicit').is(':checked'),
                     'dep_transfer_exclude_hidden':$('#dep_transfer_exclude_hidden').is(':checked'),
                     'dep_transfer_exclude_disabled':$('#dep_transfer_exclude_disabled').is(':checked')
@@ -74,7 +74,7 @@
 
             function updateTransferUser() {
                 $('#transfer-chat-listuserrefilter').html('...');
-                $.post(WWW_DIR_JAVASCRIPT + 'chat/transferchatrefilter/<?php echo $chat->id?>/(mode)/user',{
+                $.post(WWW_DIR_JAVASCRIPT + 'chat/transferchatrefilter/<?php echo $chat->id?>/(mode)/user<?php isset($transferMode) ? print '/(obj)/'.$transferMode : ''?>',{
                     'logged_and_online':$('#logged_and_online').is(':checked'),
                     'logged_and_same_dep':$('#logged_and_same').is(':checked')
                 }, function(data) {
@@ -99,7 +99,7 @@
                     'list_function'  => 'erLhcoreClassModelUser::getUserList'
                 )); ?>
             </div>
-            <input type="button" onclick="lhinst.changeOwner('<?php echo $chat->id?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change owner');?>">
+            <input type="button" onclick="lhinst.changeOwner('<?php echo $chat->id?>','<?php isset($transferMode) ? print $transferMode : print 'chat'?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change owner');?>">
         </div>
         <?php endif; ?>
 

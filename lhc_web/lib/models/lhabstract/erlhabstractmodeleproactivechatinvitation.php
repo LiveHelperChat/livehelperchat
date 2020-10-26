@@ -221,6 +221,28 @@ class erLhAbstractModelProactiveChatInvitation {
 		return '';
 	}
 
+	public static function getDeviceOptions() {
+
+	    $items = [];
+
+        foreach ([
+            1 => 'All devices',
+            0 => 'Desktop only',
+            2 => 'Mobile only',
+            3 => 'Tablet only',
+            4 => 'Mobile & Desktop',
+            5 => 'Tablet & Desktop',
+            6 => 'Mobile & Tablet',
+        ] as $id => $item) {
+            $itemStd = new stdClass();
+            $itemStd->id = $id;
+            $itemStd->name = $item;
+            $items[] = $itemStd;
+        }
+
+        return $items;
+    }
+
 	public static function processInjectHTMLInvitation(erLhcoreClassModelChatOnlineUser & $item, $params = array())
     {
         $referrer = self::getHost($item->referrer);
@@ -265,11 +287,31 @@ class erLhAbstractModelProactiveChatInvitation {
 	    } else {
 	        $appendTag = 'AND (tag = \'\')';
 	    }
-	    
+
+        // Device was not detected yet
+        if ($item->device_type == 0) {
+            $detect = new Mobile_Detect;
+            $detect->setUserAgent($item->user_agent);
+            $item->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 3 : 2) : 1);
+            $item->updateThis(['update' => ['device_type']]);
+        }
+
+        $devicesFilter = [
+            1 => '(1,0,4,5)',
+            2 => '(1,2,4,6)',
+            3 => '(1,3,5,6)',
+        ];
+
+        $appendDevice = '';
+        if (isset($devicesFilter[$item->device_type])) {
+            $appendDevice = 'AND show_on_mobile IN ' . $devicesFilter[$item->device_type];
+        }
+
 	    $q->where( $q->expr->lte( 'time_on_site', $q->bindValue( $item->time_on_site ) ).' AND '.$q->expr->lte( 'pageviews', $q->bindValue( $item->pages_count ) ).'
 				AND ('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\')
 				AND ('.$q->expr->eq( 'identifier', $q->bindValue( $item->identifier ) ).' OR identifier = \'\')
 				' . $appendTag . '
+				' . $appendDevice . '
 				AND ('.$q->expr->eq( 'dep_id', $q->bindValue( $item->dep_id ) ).' OR dep_id = 0)
 	            AND `inject_only_html` = 0
 	            AND `dynamic_invitation` = 1
@@ -317,6 +359,16 @@ class erLhAbstractModelProactiveChatInvitation {
 	    
 	    if ($message->show_random_operator == 1) {
 	        $item->operator_user_id = erLhcoreClassChat::getRandomOnlineUserID(array('operators' => explode(',',trim($message->operator_ids))));
+
+	        // Assign same operator as invitation was shown from
+	        $onlineAttrSystem = $item->online_attr_system_array;
+            $attributesDesignData = $message->design_data_array;
+
+            if ($item->operator_user_id > 0 && !isset($onlineAttrSystem['lhc_assign_to_me']) && isset($attributesDesignData['assign_to_randomop']) && $attributesDesignData['assign_to_randomop'] == 1) {
+                $onlineAttrSystem['lhc_assign_to_me'] = 1;
+                $item->online_attr_system_array = $onlineAttrSystem;
+                $item->online_attr_system = json_encode($onlineAttrSystem);
+            }
 	    }
 
         $message->executed_times += 1;
@@ -404,10 +456,30 @@ class erLhAbstractModelProactiveChatInvitation {
 		    $appendInvitationsId = 'AND id IN ('.implode(',', $params['invitation_id']).')';
 		}
 
-		$q->where( /*$q->expr->lte( 'time_on_site', $q->bindValue( $item->time_on_site ) ).' AND '.*/ $q->expr->lte( 'pageviews', $q->bindValue( $item->pages_count ) ).'
+		// Device was not detected yet
+		if ($item->device_type == 0) {
+            $detect = new Mobile_Detect;
+            $detect->setUserAgent($item->user_agent);
+            $item->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 3 : 2) : 1);
+            $item->updateThis(['update' => ['device_type']]);
+        }
+
+		$devicesFilter = [
+		    1 => '(1,0,4,5)',
+		    2 => '(1,2,4,6)',
+		    3 => '(1,3,5,6)',
+        ];
+
+		$appendDevice = '';
+        if (isset($devicesFilter[$item->device_type])) {
+            $appendDevice = 'AND show_on_mobile IN ' . $devicesFilter[$item->device_type];
+        }
+
+		$q->where( $q->expr->lte( 'pageviews', $q->bindValue( $item->pages_count ) ).'
 				AND ('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\')
 				AND ('.$q->expr->eq( 'identifier', $q->bindValue( $item->identifier ) ).' OR identifier = \'\')
 				' . $appendTag . '
+				' . $appendDevice . '
 		        AND `dynamic_invitation` = 0
 		        AND `disabled` = 0
 		        AND `inject_only_html` = 0
@@ -676,7 +748,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $iddle_for = 0;
 	public $event_type = 0;
 	public $autoresponder_id = 0;
-	public $show_on_mobile = 0;
+	public $show_on_mobile = 1;
 	public $delay = 0;
 	public $delay_init = 0;
 	public $show_instant = 0;

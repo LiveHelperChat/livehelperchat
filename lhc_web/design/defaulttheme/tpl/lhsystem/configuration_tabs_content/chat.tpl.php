@@ -72,7 +72,9 @@
         		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/paidchat.tpl.php'));?>
         		    
         		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/restapi.tpl.php'));?>
-        		    						    
+
+        		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/ga.tpl.php'));?>
+
         		</ul>
 			</div>
 			<div class="col-md-6">
@@ -81,6 +83,7 @@
     		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/bot.tpl.php'));?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/notifications.tpl.php'));?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/group_chat.tpl.php'));?>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/webhooks.tpl.php'));?>
     		</div>
 		</div>
 	</div>

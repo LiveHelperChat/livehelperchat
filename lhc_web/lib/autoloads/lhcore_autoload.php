@@ -16,7 +16,8 @@ return array_merge(array (
 
         'erConfigClassLhCacheConfig' => 'lib/core/lhconfig/lhcacheconfig.php',
         'erLhcoreClassRestAPIHandler' => 'lib/core/lhrestapi/lhrestapivalidator.php',
-    
+        'erLhcoreClassRestAPIUserValidator' => 'lib/core/lhrestapi/lhrestapiuservalidator.php',
+
         'erLhcoreClassTransfer' => 'lib/core/lhcore/lhtransfer.php',
         'PHPMailer'             => 'lib/core/lhcore/class.phpmailer.php',
         'SMTP'                  => 'lib/core/lhcore/class.smtp.php',
@@ -289,6 +290,8 @@ return array_merge(array (
         'erLhcoreClassGenericBotActionRepeat_restrict'   => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionrepeat_restrict.php',
         'erLhcoreClassGenericBotActionRestapi'      => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionrestapi.php',
         'erLhcoreClassGenericBotActionTbody'        => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactiontbody.php',
+        'erLhcoreClassGenericBotActionText_conditional' => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactiontext_conditional.php',
+        'erLhcoreClassModelGenericBotCommand'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotcommand.php',
 
         'erLhcoreClassModelGenericBotRestAPI'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotrestapi.php',
         'erLhcoreClassLHCBotWorker'                 => 'lib/core/lhgenericbot/lhgenericbotworker.php',
@@ -299,9 +302,44 @@ return array_merge(array (
         'erLhcoreClassModelGroupMsg'                => 'lib/models/lhchat/erlhcoreclassmodelgroupmsg.php',
         'erLhcoreClassModelGroupChatMember'         => 'lib/models/lhchat/erlhcoreclassmodelgroupchatmember.php',
 
+        // Group chat archive tables
+        'erLhcoreClassModelGroupChatArchive' 		=> 'lib/models/lhchat/erlhcoreclassmodelgroupchatarchive.php',
+        'erLhcoreClassModelGroupChatMemberArchive' 	=> 'lib/models/lhchat/erlhcoreclassmodelgroupchatmemberarchive.php',
+        'erLhcoreClassModelGroupMsgArchive' 		=> 'lib/models/lhchat/erlhcoreclassmodelgroupmsgarchive.php',
+
         // Notifications
         'erLhcoreClassNotifications'                => 'lib/core/lhnotifications/lhnotifications.php',
-        'erLhcoreClassModelNotificationSubscriber'  => 'lib/models/lhnotifications/erlhcoreclassmodelnotificationsubscriber.php'
+        'erLhcoreClassModelNotificationSubscriber'  => 'lib/models/lhnotifications/erlhcoreclassmodelnotificationsubscriber.php',
+
+        // Mail conversations
+        'erLhcoreClassModelMailconvMailbox'         => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmailbox.php',
+        'erLhcoreClassMailconv'                     => 'lib/core/lhmailconv/lhmailconv.php',
+        'erLhcoreClassMailconvValidator'            => 'lib/core/lhmailconv/lhmailconvvalidator.php',
+        'erLhcoreClassModelMailconvMatchRule'       => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmatchrule.php',
+        'erLhcoreClassModelMailconvConversation'    => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvconversation.php',
+        'erLhcoreClassMailconvParser'               => 'lib/core/lhmailconv/lhmailconvparser.php',
+        'erLhcoreClassModelMailconvMessage'         => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmessage.php',
+        'erLhcoreClassModelMailconvFile'            => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvfile.php',
+        'erLhcoreClassModelMailconvResponseTemplate'=> 'lib/models/lhmailconv/erlhcoreclassmodelmailconvresponsetemplate.php',
+        'erLhcoreClassMailconvExport'               => 'lib/core/lhmailconv/lhmailconvexport.php',
+        'erLhcoreClassMailconvWorkflow'             => 'lib/core/lhmailconv/lhmailconvworkflow.php',
+        'erLhcoreClassModelMailconvMessageInternal' => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmessageinternal.php',
+        'erLhcoreClassModelMailconvMessageSubject'  => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmessagesubject.php',
+
+        // Round Cube imported classes
+        'rcube_charset'                             => 'lib/core/lhmailconv/html_parsers/rcube_charset.php',
+        'rcube_washtml'                             => 'lib/core/lhmailconv/html_parsers/rcube_washtml.php',
+        'rcube_utils'                               => 'lib/core/lhmailconv/html_parsers/rcube_utils.php',
+        'rcube_mime'                                => 'lib/core/lhmailconv/html_parsers/rcube_mime.php',
+        'html'                                      => 'lib/core/lhmailconv/html_parsers/html.php',
+        'erLhcoreClassMailconvHTMLParser'           => 'lib/core/lhmailconv/lhmailconvhtmlparser.php',
+        'erLhcoreClassMailconvStatistic'            => 'lib/core/lhmailconv/lhmailconvstatistic.php',
+        'erLhcoreClassLHCMobile'                    => 'lib/core/lhmobile/lhmobile.php',
+
+        // Web hooks
+        'erLhcoreClassChatWebhookHttp'              => 'lib/core/lhchat/lhchatwebhookhttp.php',
+        'erLhcoreClassModelChatWebhook'             => 'lib/models/lhchat/erlhcoreclassmodelchatwebhook.php',
+        'erLhcoreClassChatWebhookResque'            => 'lib/core/lhchat/lhchatwebhookresque.php',
 
 ),
 include('var/autoloads/lhextension_autoload.php')

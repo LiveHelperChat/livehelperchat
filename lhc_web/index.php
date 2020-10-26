@@ -21,6 +21,11 @@
 @ini_set('session.cookie_lifetime', 2000000);
 @ini_set('session.cookie_httponly',1);
 
+// Uncomment these if you are using chrome extension
+// Min PHP 7.3v is required
+// @ini_set('session.cookie_samesite', 'None');
+// @ini_set('session.cookie_secure', true);
+
 require_once "lib/core/lhcore/password.php";
 require_once "ezcomponents/Base/src/base.php"; // dependent on installation method, see below
 

@@ -44,6 +44,12 @@ $def->properties['ctime']->columnName   = 'ctime';
 $def->properties['ctime']->propertyName = 'ctime';
 $def->properties['ctime']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+// From what department chat was transfered
+$def->properties['transfer_scope'] = new ezcPersistentObjectProperty();
+$def->properties['transfer_scope']->columnName   = 'transfer_scope';
+$def->properties['transfer_scope']->propertyName = 'transfer_scope';
+$def->properties['transfer_scope']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

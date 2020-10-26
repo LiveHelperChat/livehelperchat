@@ -9,7 +9,7 @@ try {
 
     erLhcoreClassRestAPIHandler::outputResponse(array(
         'error' => false,
-        'result' => $extensions
+        'result' => array_values($extensions)
     ));
 
 } catch (Exception $e) {

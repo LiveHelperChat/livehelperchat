@@ -80,7 +80,13 @@ $columnSize = 12 / $columnsTotal;
                     <?php if ($mchatsTabEnabled == true) : ?>             
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/my_chats.tpl.php'));?>
                     <?php endif;?>
-                    
+
+                <?php elseif ($wiget == 'pmails') : ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/pmails.tpl.php'));?>
+                <?php elseif ($wiget == 'amails') : ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/amails.tpl.php'));?>
+                <?php elseif ($wiget == 'malarms') : ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/malarms.tpl.php'));?>
                 <?php else : ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/extension_panel_multiinclude.tpl.php'));?>
                 <?php endif;?>

@@ -101,15 +101,14 @@ class erLhcoreClassModelUser {
        		break;
 
        	case 'lastactivity':
-       	        $db = ezcDbInstance::get();
-       	        $stmt = $db->prepare('SELECT last_activity FROM lh_userdep WHERE user_id = :user_id LIMIT 1');
-       	        $stmt->bindValue(':user_id',$this->id,PDO::PARAM_INT);
+       	case 'lastd_activity':
+                $activityVar = array('lastactivity' => 'last_activity', 'lastd_activity' => 'lastd_activity');
+                $db = ezcDbInstance::get();
+                $stmt = $db->prepare('SELECT '. $activityVar[$param] .' FROM lh_userdep WHERE user_id = :user_id LIMIT 1');
+                $stmt->bindValue(':user_id',$this->id,PDO::PARAM_INT);
                 $stmt->execute();
-
-                $this->lastactivity = (int)$stmt->fetchColumn();
-                return $this->lastactivity;
-
-       	    break;
+                $this->{$param} = (int)$stmt->fetchColumn();
+                return $this->{$param};
 
        	case 'has_photo':
        	    	return $this->filename != '';

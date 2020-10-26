@@ -49,6 +49,11 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
                     $msg = substr($msg, -200);
                 }
             }
+
+            if (erLhcoreClassModelChatConfig::fetch('ignore_typing')->current_value == 1) {
+                $msg = ucfirst($chat->nick) . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/usertyping','is typing...');
+            }
+
             $stmt->bindValue(':user_typing',time(),PDO::PARAM_INT);
             $stmt->bindValue(':user_typing_txt',$msg);
         } else {

@@ -20,7 +20,8 @@ class erLhcoreClassModelGroupChatMember
             'group_id' => $this->group_id,
             'last_activity' => $this->last_activity,
             'last_msg_id' => $this->last_msg_id, // Last message operator has fetched
-            'jtime' => $this->jtime
+            'jtime' => $this->jtime,
+            'type' => $this->type
         );
     }
     
@@ -87,12 +88,19 @@ class erLhcoreClassModelGroupChatMember
         }
     }
 
+    const NORMAL_CHAT = 0;  // Public and private chat
+    const SUPPORT_CHAT = 1; // Support chat
+
     public $id = null;
     public $user_id = 0;
     public $group_id = 0;
     public $last_activity = 0;
     public $last_msg_id = 0;
     public $jtime = 0;
+    public $type = self::NORMAL_CHAT;
+
+
+
 
 }
 

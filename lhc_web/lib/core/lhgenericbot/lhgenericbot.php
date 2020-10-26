@@ -432,6 +432,54 @@ class erLhcoreClassGenericBot {
 
         return $Errors;
     }
+
+    public static function validateBotCommand(& $botCommand)
+    {
+        $definition = array(
+            'command' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'string'
+            ),
+            'bot_id' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL,'int', array('min_range' => 1)
+            ),
+            'AbstractInput_trigger_id' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+            ),
+            'dep_id' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+            )
+        );
+        
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = array();
+
+        if ( !$form->hasValidData( 'command' ) || $form->command == '' ) {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter a command!');
+        } else {
+            $botCommand->command = $form->command;
+        }
+
+        if ( $form->hasValidData( 'bot_id' ) ) {
+            $botCommand->bot_id = $form->bot_id;
+        } else {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please choose a bot!');
+        }
+
+        if ( $form->hasValidData( 'AbstractInput_trigger_id' ) ) {
+            $botCommand->trigger_id = $form->AbstractInput_trigger_id;
+        } else {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please choose a trigger!');
+        }
+
+        if ( $form->hasValidData( 'dep_id' ) ) {
+            $botCommand->dep_id = $form->dep_id;
+        } else {
+            $botCommand->dep_id = 0;
+        }
+
+        return $Errors;
+    }
+
     private static $persistentSession;
 }
 

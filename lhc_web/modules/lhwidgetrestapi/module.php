@@ -65,12 +65,21 @@ $ViewList['uisettings'] = array(
 $ViewList['fetchmessages'] = array(
     'params' => array(),
     'uparams' => array(),
-	'multiple_arguments' => array ()
+);
+
+$ViewList['fetchmessage'] = array(
+    'params' => array(),
+    'uparams' => array(),
 );
 
 $ViewList['addmsguser'] = array(
     'params' => array('chat_id','hash'),
     'uparams' => array('mode'),
+);
+
+$ViewList['sendmailsettings'] = array(
+    'params' => array('chat_id','hash'),
+    'uparams' => array('action'),
 );
 
 $ViewList['chatcheckstatus'] = array(

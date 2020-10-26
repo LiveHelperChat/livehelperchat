@@ -16,7 +16,10 @@ class erLhcoreClassModelCannedMsg
     {
         return array(
             'id' => $this->id,
+            'title' => $this->title,
+            'explain' => $this->explain,
             'msg' => $this->msg,
+            'fallback_msg' => $this->fallback_msg,
             'position' => $this->position,
             'delay' => $this->delay,
             'department_id' => $this->department_id,
@@ -25,9 +28,6 @@ class erLhcoreClassModelCannedMsg
             'attr_int_1' => $this->attr_int_1,
             'attr_int_2' => $this->attr_int_2,
             'attr_int_3' => $this->attr_int_3,
-            'title' => $this->title,
-            'explain' => $this->explain,
-            'fallback_msg' => $this->fallback_msg,
             'languages' => $this->languages,
             'additional_data' => $this->additional_data,
             'html_snippet' => $this->html_snippet,
@@ -161,8 +161,6 @@ class erLhcoreClassModelCannedMsg
                 $tagLink->saveThis();
             }
             
-            // Update number of assigned canned messages to specific tag
-            $tag->cnt = erLhcoreClassModelCannedMsgTagLink::getCount(array('filter' => array('tag_id' => $tag->id)));
             $tag->saveThis();
             
             $tagsArrayLinkId[] = $tagLink->id;

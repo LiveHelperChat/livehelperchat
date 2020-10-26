@@ -225,14 +225,19 @@ class Install
 				  KEY `dep_id_status` (`dep_id`,`status`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
-            $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_blocked_user` (
+            $db->query("CREATE TABLE `lh_chat_blocked_user` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
-                  `ip` varchar(100) NOT NULL,
+                  `ip` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
                   `user_id` int(11) NOT NULL,
                   `datets` int(11) NOT NULL,
+                  `chat_id` int(11) NOT NULL,
+                  `dep_id` int(11) NOT NULL,
+                  `expires` int(11) NOT NULL DEFAULT '0',
+                  `btype` tinyint(1) NOT NULL DEFAULT '0',
+                  `nick` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
                   PRIMARY KEY (`id`),
                   KEY `ip` (`ip`)
-                ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
             $db->query("CREATE TABLE `lh_users_online_session` ( 
         	       `id` bigint(20) NOT NULL AUTO_INCREMENT, 
@@ -395,6 +400,14 @@ class Install
                  `buble_operator_background` varchar(250) NOT NULL,
                  `buble_operator_title_color` varchar(250) NOT NULL,
                  `buble_operator_text_color` varchar(250) NOT NULL,
+                 `widget_show_leave_form` tinyint(1) NOT NULL,
+                 `enable_widget_embed_override` tinyint(1) NOT NULL,
+                 `widget_popheight` int(11) NOT NULL,
+                 `widget_popwidth` int(11) NOT NULL,
+                 `widget_survey` int(11) NOT NULL,
+                 `widget_position` varchar(50) NOT NULL,
+                 `widget_pright` int(11) NOT NULL,
+                 `widget_pbottom` int(11) NOT NULL,
                   PRIMARY KEY (`id`)				
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
@@ -425,12 +438,14 @@ class Install
   `user_id` int(11) NOT NULL,
   `last_msg_op_id` bigint(20) NOT NULL,
   `last_msg` varchar(200) NOT NULL,
+  `chat_id` bigint(20) NOT NULL DEFAULT 0,
   `last_user_msg_time` int(11) NOT NULL,
   `last_msg_id` bigint(20) NOT NULL,
   `type` tinyint(1) NOT NULL DEFAULT 0,
   `tm` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
+  KEY `chat_id` (`chat_id`),
   KEY `type` (`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
@@ -453,10 +468,12 @@ class Install
   `group_id` bigint(20) NOT NULL,
   `last_activity` int(11) NOT NULL,
   `last_msg_id` bigint(20) NOT NULL DEFAULT 0,
+  `type` tinyint(1) NOT NULL DEFAULT 0,
   `jtime` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `group_id` (`group_id`),
-  KEY `user_id` (`user_id`)
+  KEY `user_id` (`user_id`),
+  KEY `type` (`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
 
@@ -1194,7 +1211,6 @@ class Install
         	   ('dwo', '', ''),
         	   ('enable_unread_list', '', '')");
 
-
             $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_config` (
                   `identifier` varchar(50) NOT NULL,
                   `value` text NOT NULL,
@@ -1224,6 +1240,7 @@ class Install
                 ('customer_site_url',	'http://livehelperchat.com',	0,	'Your site URL address',	0),
                 ('transfer_configuration','0','0','Transfer configuration','1'),
                 ('list_unread','0','0','List unread chats','0'),
+                ('mobile_options',	'a:2:{s:13:\"notifications\";i:0;s:7:\"fcm_key\";s:152:\"AAAAiF8DeNk:APA91bFVHu2ybhBUTtlEtQrUEPpM2fb-5ovgo0FVNm4XxK3cYJtSwRcd-pqcBot_422yDOzHyw2p9ZFplkHrmNXjm8f5f-OIzfalGmpsypeXvnPxhU6Db1B2Z1Acc-TamHUn2F4xBJkP\";}',	0,	'',	1),
                 ('list_closed','0','0','List closed chats','0'),
                 ('footprint_background','0','0','Footprint updates should be processed in the background. Make sure you are running workflow background cronjob.','0'),
                 ('reverse_pending','0','0','Make default pending chats order from old to new','0'),
@@ -1245,11 +1262,12 @@ class Install
                 ('pro_active_show_if_offline',	'0',	0,	'Should invitation logic be executed if there is no online operators',	0),
                 ('export_hash',	'{$exportHash}',	0,	'Chats export secret hash',	0),
                 ('do_no_track_ip', 0, 0, 'Do not track visitors IP',0),
+                ('ignore_typing', 0, 0, 'Do not store what visitor is typing',0),
                 ('encrypt_msg_after', 0, 0, 'After how many days anonymize messages',0),
                 ('encrypt_msg_op', 0, 0, 'Anonymize also operators messages',0),
                 ('valid_domains','','0','Domains where script can be embedded. E.g example.com, google.com','0'),
                 ('message_seen_timeout', 24, 0, 'Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.',	0),
-                ('reopen_chat_enabled',1,	0,	'Reopen chat functionality enabled',	0),
+                ('reopen_chat_enabled',0,	0,	'Reopen chat functionality enabled',	0),
                 ('ignorable_ip',	'',	0,	'Which ip should be ignored in online users list, separate by comma',0),
                 ('run_departments_workflow', 0, 0, 'Should cronjob run departments transfer workflow, even if user leaves a chat',	0),
                 ('geo_location_data', 'a:3:{s:4:\"zoom\";i:4;s:3:\"lat\";s:7:\"49.8211\";s:3:\"lng\";s:7:\"11.7835\";}', '0', '', '1'),
@@ -1288,8 +1306,8 @@ class Install
                 ('bbc_button_visible','1',0,'Show BB Code button', '0'),
                 ('password_data','','0','Password requirements','1'),
                 ('activity_track_all','0','0','Track all logged operators activity and ignore their individual settings.','0'),
-                ('allow_reopen_closed','1', 0, 'Allow user to reopen closed chats?', '0'),
-                ('reopen_as_new','1', 0, 'Reopen closed chat as new? Otherwise it will be reopened as active.', '0'),
+                ('allow_reopen_closed','0', 0, 'Allow user to reopen closed chats?', '0'),
+                ('reopen_as_new','0', 0, 'Reopen closed chat as new? Otherwise it will be reopened as active.', '0'),
                 ('default_theme_id','0', 0, 'Default theme ID.', '1'),  
                 ('default_admin_theme_id','0', 0, 'Default admin theme ID', '1'),  
                 ('translation_data',	'a:6:{i:0;b:0;s:19:\"translation_handler\";s:4:\"bing\";s:19:\"enable_translations\";b:0;s:14:\"bing_client_id\";s:0:\"\";s:18:\"bing_client_secret\";s:0:\"\";s:14:\"google_api_key\";s:0:\"\";}',	0,	'Translation data',	1),              
@@ -1376,6 +1394,7 @@ class Install
         	   	  `online_attr_system` text NOT NULL,
         	   	  `operation_chat` text NOT NULL,
         	   	  `online_attr` text NOT NULL,
+        	   	  `device_type` tinyint(1) NOT NULL DEFAULT '0',
                   PRIMARY KEY (`id`),
                   KEY `vid` (`vid`),
 				  KEY `dep_id` (`dep_id`),
@@ -1425,7 +1444,8 @@ class Install
         	      KEY `identifier` (`identifier`),
         	      KEY `dynamic_invitation` (`dynamic_invitation`),
         	      KEY `tag` (`tag`),
-        	      KEY `dep_id` (`dep_id`)
+        	      KEY `dep_id` (`dep_id`),
+        	      KEY `show_on_mobile` (`show_on_mobile`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
             $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_accept` (
@@ -1452,6 +1472,7 @@ class Install
 				  `exclude_inactive_chats` int(11) NOT NULL,
 				  `delay_before_assign` int(11) NOT NULL,
 				  `max_ac_dep_chats` int(11) NOT NULL,
+				  `archive` tinyint(1) NOT NULL DEFAULT '0',
 				  `assign_same_language` int(11) NOT NULL,
 				  `disabled` int(11) NOT NULL,
 				  `hidden` int(11) NOT NULL,
@@ -1497,6 +1518,7 @@ class Install
 				  `bot_configuration` text NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `identifier` (`identifier`),
+				  KEY `archive` (`archive`),
 				  KEY `attr_int_1` (`attr_int_1`),
 				  KEY `attr_int_2` (`attr_int_2`),
 				  KEY `attr_int_3` (`attr_int_3`),
@@ -1603,6 +1625,18 @@ class Install
                KEY `disabled` (`disabled`)
                ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+            //Administrators group
+            $db->query("CREATE TABLE `lh_generic_bot_command` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `command` varchar(50) NOT NULL,
+  `bot_id` int(11) NOT NULL,
+  `trigger_id` int(11) NOT NULL,
+  `dep_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `dep_id` (`dep_id`),
+  KEY `command` (`command`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
             // Admin group
             $GroupData = new erLhcoreClassModelGroup();
             $GroupData->name    = "Administrators";
@@ -1691,6 +1725,7 @@ class Install
                   KEY `hide_online` (`hide_online`),
                   KEY `rec_per_req` (`rec_per_req`),
                   KEY `email` (`email`),
+                  KEY `disabled` (`disabled`),
                   KEY `xmpp_username` (`xmpp_username`(191))
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
@@ -1713,6 +1748,7 @@ class Install
                   `user_id` int(11) NOT NULL,
                   `dep_id` int(11) NOT NULL,
                   `last_activity` int(11) NOT NULL,
+                  `lastd_activity` int(11) NOT NULL DEFAULT '0',
                   `exclude_autoasign` tinyint(1) NOT NULL DEFAULT '0',
                   `hide_online` int(11) NOT NULL,
                   `last_accepted` int(11) NOT NULL DEFAULT '0',
@@ -1771,25 +1807,30 @@ class Install
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
             $db->query("CREATE TABLE `lh_abstract_rest_api_key_remote` ( `id` int(11) NOT NULL AUTO_INCREMENT, `api_key` varchar(50) NOT NULL, `username` varchar(50) NOT NULL, `name` varchar(50) NOT NULL, `host` varchar(250) NOT NULL, `active` tinyint(1) NOT NULL DEFAULT '0', `position` int(11) NOT NULL DEFAULT '0', PRIMARY KEY (`id`), KEY `active` (`active`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
-            $db->query("CREATE TABLE `lh_abstract_chat_variable` ( `id` int(11) NOT NULL AUTO_INCREMENT, `var_name` varchar(255) NOT NULL, `var_identifier` varchar(255) NOT NULL, `type` tinyint(1) NOT NULL, `persistent` tinyint(1) NOT NULL, `js_variable` varchar(255) NOT NULL, `dep_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
-
+            $db->query("CREATE TABLE `lh_abstract_chat_variable` ( `id` int(11) NOT NULL AUTO_INCREMENT, `var_name` varchar(255) NOT NULL, `var_identifier` varchar(255) NOT NULL, `inv` tinyint(1) NOT NULL, `change_message` varchar(250) NOT NULL, `type` tinyint(1) NOT NULL, `persistent` tinyint(1) NOT NULL, `js_variable` varchar(255) NOT NULL, `dep_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+            $db->query("CREATE TABLE `lh_webhook` ( `id` int(11) NOT NULL AUTO_INCREMENT, `event` varchar(50) NOT NULL, `bot_id` int(11) NOT NULL, `trigger_id` int(11) NOT NULL, `disabled` tinyint(1) NOT NULL, PRIMARY KEY (`id`), KEY `event_disabled` (`event`,`disabled`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+            
             $db->query("CREATE TABLE `lh_abstract_chat_column` (`id` int(11) NOT NULL AUTO_INCREMENT,`column_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,`variable` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL, `position` int(11) NOT NULL, `enabled` tinyint(1) NOT NULL, `online_enabled` tinyint(1) NOT NULL, `chat_enabled` tinyint(1) NOT NULL, `conditions` text COLLATE utf8mb4_unicode_ci NOT NULL,`column_icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL, `column_identifier` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL, PRIMARY KEY (`id`), KEY `enabled` (`enabled`), KEY `online_enabled` (`online_enabled`), KEY `chat_enabled` (`chat_enabled`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
             $db->query("CREATE TABLE `lh_abstract_chat_priority` (`id` int(11) NOT NULL AUTO_INCREMENT,`value` text COLLATE utf8mb4_unicode_ci NOT NULL,`dep_id` int(11) NOT NULL,`priority` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
             // Session
             $db->query("CREATE TABLE `lh_users_session` (
-                  `id` int(11) NOT NULL AUTO_INCREMENT,
-                  `token` varchar(40) NOT NULL,
-                  `device_type` int(11) NOT NULL,
-                  `device_token` varchar(255) NOT NULL,
-                  `user_id` int(11) NOT NULL,
-                  `created_on` int(11) NOT NULL,
-                  `updated_on` int(11) NOT NULL,
-                  `expires_on` int(11) NOT NULL,
-                  PRIMARY KEY (`id`),
-                  KEY `device_token_device_type_v2` (`device_token`(191),`device_type`),
-                  KEY `token` (`token`)
-                ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+                      `id` int(11) NOT NULL AUTO_INCREMENT,
+                      `token` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+                      `device_type` int(11) NOT NULL,
+                      `device_token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+                      `user_id` int(11) NOT NULL,
+                      `created_on` int(11) NOT NULL,
+                      `updated_on` int(11) NOT NULL,
+                      `expires_on` int(11) NOT NULL,
+                      `notifications_status` int(11) NOT NULL DEFAULT 1,
+                      `error` int(11) NOT NULL DEFAULT 0,
+                      `last_error` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+                      PRIMARY KEY (`id`),
+                      KEY `token` (`token`),
+                      KEY `device_token_device_type_v2` (`device_token`(191),`device_type`),
+                      KEY `error` (`error`)
+                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
             // Chat messages
             $db->query("CREATE TABLE IF NOT EXISTS `lh_msg` (

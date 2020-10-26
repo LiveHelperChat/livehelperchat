@@ -11,7 +11,8 @@ try {
     if ($currentUser->authenticate($_POST['username'], $_POST['password']))
     {
         $sessionToken = null;
-        
+        $userId = null;
+
         if (isset($_POST['generate_token']) && $_POST['generate_token'] == 'true') {
             
             $typeValid = array(
@@ -26,7 +27,7 @@ try {
             if ((isset($_POST['device']) && key_exists($_POST['device'], $typeValid)) && $_POST['device'] != '') {
                 $device = $typeValid[$_POST['device']];
                 if (!isset($_POST['device_token']) || $_POST['device_token'] == '') {
-                    throw new Exception('Please provide device token!');
+                    $deviceToken = 'user_id_' . $currentUser->getUserID();
                 } else {
                     $deviceToken = $_POST['device_token'];
                 }
@@ -51,12 +52,13 @@ try {
             $uSession->updated_on = time();
             $uSession->device_type = $device;
             $uSession->saveThis();
-            
+
+            $userId = $uSession->user_id;
             $sessionToken = $uSession->token;
         }
     
         echo json_encode(
-            array('error' => false, 'session_token' => $sessionToken)
+            array('error' => false, 'session_token' => $sessionToken, 'user_id' => $userId)
         );
             
     } else {

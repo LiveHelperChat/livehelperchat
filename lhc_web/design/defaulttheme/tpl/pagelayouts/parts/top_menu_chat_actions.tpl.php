@@ -7,4 +7,8 @@ if ($currentUser->hasAccessTo('lhchat','allowchattabs')) {
 
 $menuItems[] = array('href' => erLhcoreClassDesign::baseurl('chat/list'),'iclass' => 'list', 'text' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chats list'));
 
+if ($currentUser->hasAccessTo('lhmailconv','use_admin')) {
+    $menuItems[] = array('href' => erLhcoreClassDesign::baseurl('mailconv/conversations'), 'iclass' => 'mail_outline', 'text' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Mails'));
+}
+
 endif;?>

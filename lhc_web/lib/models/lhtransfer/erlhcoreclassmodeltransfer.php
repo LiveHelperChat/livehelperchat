@@ -22,8 +22,13 @@ class erLhcoreClassModelTransfer
             'from_dep_id' => $this->from_dep_id,
             'transfer_to_user_id' => $this->transfer_to_user_id,
             'ctime' => $this->ctime,
+            'transfer_scope' => $this->transfer_scope,
         );
     }
+
+    const SCOPE_CHAT = 0;
+    
+    const SCOPE_MAIL = 1;
 
     public $id = null;
 
@@ -38,6 +43,8 @@ class erLhcoreClassModelTransfer
     public $transfer_to_user_id = 0;
 
     public $ctime = 0;
+
+    public $transfer_scope = self::SCOPE_CHAT;
 }
 
 ?>

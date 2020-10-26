@@ -616,11 +616,11 @@ class erLhcoreClassBBCodePlain
             '/\[u\](.*?)\[\/u\]/ms',
             '/\[mark\](.*?)\[\/mark\]/ms',
             '/\[s\](.*?)\[\/s\]/ms',
-            '/\[list\=(.*?)\](.*?)\[\/list\]/ms',
+            '/\[list\=([0-9]+)\](.*?)\[\/list\]/ms',
             '/\[list\](.*?)\[\/list\]/ms',
             '/\[\*\]\s?(.*?)\n/ms',
-            '/\[fs(.*?)\](.*?)\[\/fs(.*?)\]/ms',
-            '/\[color\=(.*?)\](.*?)\[\/color\]/ms'
+            '/\[fs([0-9]+)\](.*?)\[\/fs\]/ms',
+            '/\[color\=([A-Za-z0-9]{2,6})\](.*?)\[\/color\]/ms'
         );
 
         // And replace them by...
@@ -671,7 +671,7 @@ class erLhcoreClassBBCodePlain
 
         if (count($parts) == 2 && is_numeric($parts[0]) && is_numeric($parts[1])) {
             $id = rand(0,1000) . time();
-            return "<div id='msg-location-".$id."' style='height:300px'><script>lhinst.showMessageLocation(" . $id . "," . (real)$parts[0] . "," . (real)$parts[1] . ")</script></div>";
+            return "<div id='msg-location-".$id."' style='height:300px'><script>lhinst.showMessageLocation(" . $id . "," . (float)$parts[0] . "," . (float)$parts[1] . ")</script></div>";
         }
 
         return ;

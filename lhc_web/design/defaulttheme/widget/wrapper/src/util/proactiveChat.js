@@ -14,17 +14,28 @@ class _proactiveChat {
         this.iddleTimeoutActivity = null;
         this.checkMessageTimeout = null;
         this.nextRescheduleTimeout = null;
+        this.initCall = true;
+        this.inProgress = false;
     }
 
     setParams(params, attributes, chatEvents) {
         this.params = params;
         this.attributes = attributes;
         this.chatEvents = chatEvents;
-        this.initInvitation();
+
+        if (this.attributes.events.length > 0) {
+            this.storeEvents(this.attributes.events);
+        } else {
+            this.initInvitation();
+        }
 
         // check invitaiton then tag is added
         this.attributes.eventEmitter.addListener('tagAdded', () => {
             this.initInvitation({init: 0});
+        });
+
+        this.attributes.eventEmitter.addListener('eventAdded', () => {
+            this.storeEvents(this.attributes.events);
         });
 
         this.attributes.eventEmitter.addListener('checkMessageOperator', () => {
@@ -34,6 +45,16 @@ class _proactiveChat {
         this.attributes.onlineStatus.subscribe((data) => {
             if (data == true) {
                 this.initInvitation({init: 0});
+            } else {
+                const chatParams = this.attributes['userSession'].getSessionAttributes();
+                if (!chatParams['id'] && this.attributes.proactive.invitation) {
+                    this.attributes.proactive = {};
+                    if (this.attributes.mainWidget.isLoaded !== false) {
+                        this.chatEvents.sendChildEvent('proactive', [{}]);
+                    }
+                    this.attributes.mainWidget.hideInvitation();
+                    this.attributes.eventEmitter.emitEvent('closeWidget', [{'sender' : 'closeButton'}]);
+                }
             }
         });
     }
@@ -50,7 +71,7 @@ class _proactiveChat {
             var th = document.getElementsByTagName('head')[0];
             var s = document.createElement('script');
             s.setAttribute('type','text/javascript');
-            s.setAttribute('src', LHC_API.args.lhc_base_url + this.attributes['lang'] + 'chat/htmlsnippet/'+params.invitation+'/inv/0/?ts='+Date.now());
+            s.setAttribute('src', this.attributes.LHC_API.args.lhc_base_url + this.attributes['lang'] + 'chat/htmlsnippet/'+params.invitation+'/inv/0/?ts='+Date.now());
             th.appendChild(s);
         }
 
@@ -68,7 +89,20 @@ class _proactiveChat {
         }
     }
 
+    storeEvents(events) {
+        const chatParams = this.attributes['userSession'].getSessionAttributes();
+        if (!chatParams['id'] && this.attributes['onlineStatus'].value == true) {
+            helperFunctions.makeRequest(this.attributes.LHC_API.args.lhc_base_url + this.attributes['lang'] + 'chat/logevent/(vid)/' + this.attributes.userSession.getVID(), {params: {'data' : JSON.stringify(events)}}, (data) => {
+                this.initInvitation({init: 0});
+            })
+        }
+    }
+
     initInvitation(paramsExecution) {
+
+        if (this.inProgress == true) {
+            return ;
+        }
 
         clearTimeout(this.checkMessageTimeout);
 
@@ -77,17 +111,20 @@ class _proactiveChat {
         const init = (paramsExecution && paramsExecution['init'] === 0) ? 0 : 1;
 
         if (!chatParams['id'] && this.attributes['onlineStatus'].value == true) {
+
+            this.inProgress = true;
+
             let params = {
                 'vid': this.attributes.userSession.getVID(),
                 'dep': this.attributes.department.join(',')
             };
 
-            if (LHC_API.args.priority) {
-                params['priority'] = LHC_API.args.priority;
+            if (this.attributes.LHC_API.args.priority) {
+                params['priority'] = this.attributes.LHC_API.args.priority;
             }
 
-            if (LHC_API.args.operator) {
-                params['operator'] = LHC_API.args.operator;
+            if (this.attributes.LHC_API.args.operator) {
+                params['operator'] = this.attributes.LHC_API.args.operator;
             }
 
             if (this.attributes['identifier']) {
@@ -100,16 +137,21 @@ class _proactiveChat {
 
             params['l'] = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
             params['dt'] = encodeURIComponent(document.title);
-            params['init'] = init;
+            params['init'] = this.initCall == true ? 1 : init;
 
-            helperFunctions.makeRequest(LHC_API.args.lhc_base_url + this.attributes['lang'] + 'widgetrestapi/checkinvitation', {params: params}, (data) => {
+            this.initCall = false;
+
+            helperFunctions.makeRequest(this.attributes.LHC_API.args.lhc_base_url + this.attributes['lang'] + 'widgetrestapi/checkinvitation', {params: params}, (data) => {
+
+                this.inProgress = false;
+                
                 if (data.invitation) {
                     const params = {'vid_id' : data.vid_id, 'invitation' : data.invitation, 'inject_html' :  data.inject_html, 'qinv' : data.qinv};
                     setTimeout(() => {
                         this.showInvitation(params, init);
                     }, this.attributes.widgetStatus.value === true ? 0 : (data.delay || 0));
                 } else {
-                    if (LHC_API.args.check_messages) {
+                    if (this.attributes.LHC_API.args.check_messages) {
                         this.checkMessageTimeout = setTimeout(() => {
                             this.initInvitation({init: 0});
                         },this.params['interval'] * 1000);

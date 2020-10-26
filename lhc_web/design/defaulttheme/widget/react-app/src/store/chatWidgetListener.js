@@ -97,13 +97,15 @@ export default function (dispatch, getState) {
     });
 
     function handleParentMessage(e) {
+
         if (typeof e.data !== 'string') { return; }
 
         if (typeof e.origin !== 'undefined') {
-            var originDomain = e.origin.replace("http://", "").replace("https://", "");
+            
+            var originDomain = e.origin.replace("http://", "").replace("https://", "").replace(/:(\d+)$/,'');
 
             // We allow to send events only from chat installation or page where script is embeded.
-            if (originDomain !== document.domain) {
+            if (originDomain !== document.domain && (typeof window.lhcChat['domain_lhc'] === 'undefined' || window.lhcChat['domain_lhc'] !== originDomain)) {
                 return;
             }
         }
@@ -159,6 +161,7 @@ export default function (dispatch, getState) {
             window.lhcChat['staticJS'] = paramsInit['staticJS'];
             window.lhcChat['mode'] = paramsInit['mode'];
             window.lhcChat['is_focused'] = true;
+            window.lhcChat['domain_lhc'] = paramsInit['domain_lhc'] || null;
 
             __webpack_public_path__ = window.lhcChat['staticJS']['chunk_js'] + "/";
 
@@ -234,7 +237,7 @@ export default function (dispatch, getState) {
             if (paramsInit['mode'] == 'popup') {
                 helperFunctions.sendMessageParent('endChatCookies');
 
-                const sessionChat = helperFunctions.getSessionStorage('lhc_chat');
+                const sessionChat = helperFunctions.getSessionStorage('_chat');
 
                 if (sessionChat !== null && !paramsInit['static_chat']['id']) {
                     dispatch({
@@ -242,7 +245,7 @@ export default function (dispatch, getState) {
                         data: JSON.parse(sessionChat)
                     })
                 } else if (paramsInit['static_chat']['id']) {
-                    helperFunctions.setSessionStorage('lhc_chat',JSON.stringify(paramsInit['static_chat']));
+                    helperFunctions.setSessionStorage('_chat',JSON.stringify(paramsInit['static_chat']));
                 }
             }
 
@@ -283,6 +286,10 @@ export default function (dispatch, getState) {
         helperFunctions.sendMessageParent('ready', window.opener ? true : false);
     } else if (window.initializeLHC) {
         handleParentMessage({data : window.initializeLHC});
+        // Send message that popup is ready
+        // Parent window will send additional form data in a secure way
+        // Without exposing parameters in URL
+        helperFunctions.sendMessageParent('ready_popup', window.opener ? true : false);
     }
 
 }

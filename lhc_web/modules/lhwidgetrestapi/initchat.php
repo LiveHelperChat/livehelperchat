@@ -9,6 +9,19 @@ try {
 
     $chat = erLhcoreClassModelChat::fetchAndLock($requestPayload['id']);
 
+    // Chat does not exists
+    if (!($chat instanceof erLhcoreClassModelChat)) {
+        echo erLhcoreClassRestAPIHandler::outputResponse(array(
+            'operator' => 'operator',
+            'messages' => [],
+            'closed' => true,
+            'status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT,
+            'status_sub' => 0,
+            'chat_ui' => ['sync_interval' => 2500]
+        ));
+        exit;
+    }
+
     erLhcoreClassChat::setTimeZoneByChat($chat);
 
     if ($chat->hash == $requestPayload['hash'])
@@ -18,11 +31,8 @@ try {
             $chat->support_informed = 1;
             $chat->user_typing = time();// Show for shorter period these status messages
             $chat->is_user_typing = 1;
-            if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] != ''){
-
-                $refererSite = $_SERVER['HTTP_REFERER'];
-
-                if ($refererSite != '' && strlen($refererSite) > 50) {
+            if (($refererSite = erLhcoreClassModelChatOnlineUser::getReferer()) != '') {
+                if (strlen($refererSite) > 50) {
                     if ( function_exists('mb_substr') ) {
                         $refererSite = mb_substr($refererSite, 0, 50);
                     } else {
@@ -70,6 +80,12 @@ try {
             )
         );
 
+        $data = erLhcoreClassModelChatConfig::fetch('mobile_options')->data_value;
+
+        if (isset($data['notifications']) && $data['notifications'] == true) {
+            $outputResponse['chat_ui']['mn'] = 1;
+        }
+
         if (isset($requestPayload['theme']) && $requestPayload['theme'] > 0) {
             $theme = erLhAbstractModelWidgetTheme::fetch($requestPayload['theme']);
             if (isset($theme->bot_configuration_array['placeholder_message']) && !empty($theme->bot_configuration_array['placeholder_message'])) {
@@ -96,6 +112,10 @@ try {
                 $outputResponse['chat_ui']['survey_button'] = true;
             }
 
+            if (isset($theme->bot_configuration_array['start_on_close']) && $theme->bot_configuration_array['start_on_close'] == true) {
+                $outputResponse['chat_ui']['start_on_close'] = true;
+            }
+
             if (isset($theme->bot_configuration_array['confirm_close']) && $theme->bot_configuration_array['confirm_close'] == true) {
                 $outputResponse['chat_ui']['confirm_close'] = true;
             }
@@ -106,6 +126,28 @@ try {
 
             if (isset($theme->bot_configuration_array['switch_to_human']) && is_numeric($theme->bot_configuration_array['switch_to_human'])) {
                 $outputResponse['chat_ui']['switch_to_human'] = (int)$theme->bot_configuration_array['switch_to_human'];
+            }
+
+            if (isset($theme->bot_configuration_array['close_in_status']) && $theme->bot_configuration_array['close_in_status'] == true) {
+                $outputResponse['chat_ui']['clinst'] = true;
+            }
+
+            if (isset($theme->bot_configuration_array['prev_msg']) && $theme->bot_configuration_array['prev_msg'] == true) {
+                if ($chat->online_user instanceof erLhcoreClassModelChatOnlineUser) {
+                    
+                    $previousChat = erLhcoreClassModelChat::findOne(array('sort' => 'id DESC', 'limit' => 1, 'filternot' => array('id' => $chat->id), 'filter' => array('online_user_id' => $chat->online_user->id)));
+
+                    if ($previousChat instanceof erLhcoreClassModelChat){
+                        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/previous_chat.tpl.php');
+                        $tpl->set('messages', erLhcoreClassChat::getPendingMessages((int)$previousChat->id,  0, true));
+                        $tpl->set('chat',$previousChat);
+                        $tpl->set('sync_mode','');
+                        $tpl->set('async_call',true);
+                        $tpl->set('theme',$theme);
+                        $tpl->set('react',true);
+                        $outputResponse['chat_ui']['prev_chat'] = $tpl->fetch();
+                    }
+                }
             }
         }
 
@@ -124,6 +166,10 @@ try {
 
         $soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data_value;
         $outputResponse['chat_ui']['sync_interval'] = (int)($soundData['chat_message_sinterval']*1000);
+
+        if ((int)erLhcoreClassModelChatConfig::fetch('disable_send')->current_value == 0) {
+            $outputResponse['chat_ui']['mail'] = true;
+        }
 
         $outputResponse['status_sub'] = $chat->status_sub;
         $outputResponse['status'] = $chat->status;

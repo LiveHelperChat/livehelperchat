@@ -4,7 +4,12 @@ class erLhcoreClassDesign
 {
 
     private static $disabledTheme = array();
+    private static $buildMode = false;
 
+    public static function setBuildMode($buildMode) {
+        self::$buildMode = $buildMode;
+    } 
+    
     public static function appendDisabledTheme($themeDisable)
     {
         self::$disabledTheme[] = $themeDisable;
@@ -242,6 +247,13 @@ class erLhcoreClassDesign
         $extensions = erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'extensions');
         $instance = erLhcoreClassSystem::instance();
 
+        $fileNameStaticName = md5($files . implode('_',$extensions) . '_' . implode('_',$instance->ThemeSite));
+        $filenameStaticPath = $instance->SiteDir . '/design/defaulttheme/css/css_static/' . $fileNameStaticName . '.css';
+
+        if (self::$buildMode == false && $debugOutput == false && file_exists($filenameStaticPath)) {
+            return $instance->wwwDir() . '/design/defaulttheme/css/css_static/' . $fileNameStaticName . '.css?' . filemtime($filenameStaticPath);
+        }
+        
         $filesToCompress = '';
         foreach ($items as $path) {
             $fileFound = false;
@@ -348,7 +360,7 @@ class erLhcoreClassDesign
         $fileName = md5($filesToCompress . $instance->WWWDirLang . $instance->Language);
         $file = $sys . 'cache/compiledtemplates/' . $fileName . '.css';
 
-        if (! file_exists($file)) {
+        if (! file_exists($file) && self::$buildMode == false) {
             file_put_contents($file, $filesToCompress);
         }
 
@@ -358,6 +370,10 @@ class erLhcoreClassDesign
                 "erLhcoreClassDesign" => "designCSS - $path"
             ));
 
+        if (self::$buildMode == true) {
+            file_put_contents($filenameStaticPath, str_replace(['\'/design/','\'/extension/','url(/extension/','url(/design/'],['\'../../../../design/','\'../../../../extension/','../../../../extension/','url(../../../../design/'],$filesToCompress));
+        }
+        
         return $instance->wwwDir() . '/cache/compiledtemplates/' . $fileName . '.css';
     }
 
@@ -430,6 +446,13 @@ class erLhcoreClassDesign
         $filesToCompress = '';
         $instance = erLhcoreClassSystem::instance();
         $extensions = erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'extensions');
+
+        $fileNameStaticName = md5($files . implode('_',$extensions) . '_' . implode('_',$instance->ThemeSite));
+        $filenameStaticPath = $instance->SiteDir . '/design/defaulttheme/js/js_static/' . $fileNameStaticName . '.js';
+
+        if (self::$buildMode == false && $debugOutput == false && file_exists($filenameStaticPath)) {
+            return $instance->wwwDir() . '/design/defaulttheme/js/js_static/' . $fileNameStaticName . '.js?' . filemtime($filenameStaticPath);
+        }
 
         foreach ($items as $path) {
             $fileFound = false;
@@ -525,7 +548,7 @@ class erLhcoreClassDesign
         $fileName = md5($filesToCompress . $instance->WWWDirLang . $instance->Language);
         $file = $sys . 'cache/compiledtemplates/' . $fileName . '.js';
 
-        if (! file_exists($file)) {
+        if (! file_exists($file) && self::$buildMode == false) {
             file_put_contents($file, $filesToCompress);
         }
 
@@ -534,6 +557,10 @@ class erLhcoreClassDesign
                 "source" => "shop",
                 "erLhcoreClassDesign" => "designJS - $path"
             ));
+
+        if (self::$buildMode == true) {
+            file_put_contents($filenameStaticPath, $filesToCompress);
+        }
 
         return $instance->wwwDir() . '/cache/compiledtemplates/' . $fileName . '.js';
     }

@@ -15,7 +15,7 @@ if (is_numeric($Params['user_parameters_unordered']['inv'])){
 $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'check_message_operator' => $checkMessage, 'vid' => (string)$Params['user_parameters_unordered']['vid']));
 
 if (is_numeric($Params['user_parameters_unordered']['inv'])) {
-    erLhAbstractModelProactiveChatInvitation::setInvitation($userInstance, (int)$Params['user_parameters_unordered']['inv']);    
+    erLhAbstractModelProactiveChatInvitation::setInvitation($userInstance, (int)$Params['user_parameters_unordered']['inv']);
 }
 
 $tpl->set('visitor',$userInstance);
@@ -194,13 +194,11 @@ if (isset($_POST['askQuestion']))
     }
     
     $validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
-        
+    
     $form = new ezcInputForm( INPUT_POST, $validationFields );
     $Errors = array();
 
-    if (erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('ip' => erLhcoreClassIPDetect::getIP()))) > 0) {
-        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
-    }
+
 
     if ( $form->hasValidData( 'hattr' ) && !empty($form->hattr))
     {
@@ -344,7 +342,7 @@ if (isset($_POST['askQuestion']))
 	            if (isset($valuesArray[$key]) && $valuesArray[$key] != '') {
 	                
 	                $valueStore = (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '');
-	                 
+	                
 	                if (isset($inputData->via_encrypted[$key]) && $inputData->via_encrypted[$key] == 't' && $valueStore != '') {
 	                    try {
 	                        $valueStore = erLhcoreClassChatValidator::decryptAdditionalField($valueStore, $chat);
@@ -352,7 +350,7 @@ if (isset($_POST['askQuestion']))
 	                        $valueStore = $e->getMessage();
 	                    }
 	                }
-	                	                
+	                
 	                $stringParts[] = array('h' => (isset($inputData->via_hidden[$key]) || $adminField['fieldtype'] == 'hidden'), 'identifier' => (isset($adminField['fieldidentifier'])) ? $adminField['fieldidentifier'] : null, 'key' => $adminField['fieldname'], 'value' => $valueStore);
 	            }
 	        }
@@ -374,7 +372,7 @@ if (isset($_POST['askQuestion']))
                     } elseif ($jsVar->type == 1) {
                         $val = (int)$val;
                     } elseif ($jsVar->type == 2) {
-                        $val = (real)$val;
+                        $val = (float)$val;
                     }
 
                     $stringParts[] = array('h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
@@ -408,7 +406,7 @@ if (isset($_POST['askQuestion']))
     		$Errors['captcha'] = erTranslationClassLhTranslation::getInstance()->getTranslation("chat/startchat","Your request was not processed as expected - but don't worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.");
     	}
     }
-      
+    
     if ($form->hasValidData( 'operator' ) && erLhcoreClassModelUser::getUserCount(array('filter' => array('id' => $form->operator, 'disabled' => 0))) > 0) {
     	$inputData->operator = $chat->user_id = $form->operator;
     }
@@ -456,7 +454,11 @@ if (isset($_POST['askQuestion']))
     }
 
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_read_operator_message',array('errors' => & $Errors, 'input_form' => & $inputData, 'chat' => & $chat));
-    
+
+    if (erLhcoreClassModelChatBlockedUser::isBlocked(array('ip' => erLhcoreClassIPDetect::getIP(), 'dep_id' => $chat->dep_id, 'nick' => $chat->nick))) {
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
+    }
+
     if (count($Errors) == 0)
     {
 
@@ -540,7 +542,7 @@ if (isset($_POST['askQuestion']))
 
        // Chat was based on key up, there is no message object
        $messageInitial = false;
-                     
+       
        // Do not store anything, like user just started normal chat
        if ($inputData->key_up_started == false) {
            // Store User Message

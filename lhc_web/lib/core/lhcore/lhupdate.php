@@ -2,8 +2,8 @@
 
 class erLhcoreClassUpdate
 {
-	const DB_VERSION = 212;
-	const LHC_RELEASE = 338;
+	const DB_VERSION = 222;
+	const LHC_RELEASE = 349;
 
 	public static function doTablesUpdate($definition){
 		$updateInformation = self::getTablesStatus($definition);
@@ -123,8 +123,8 @@ class erLhcoreClassUpdate
 					foreach ($columnsData as $column) {
 						if ($columnDesired['field'] == $column['field']) {
 							$columnFound = true;
-							
-							if ($columnDesired['type'] != $column['type']) {
+
+                            if (($columnDesired['type'] != $column['type'] && strpos($column['type'],'(') !== false) || (strpos($column['type'],'(') === false && explode('(',$columnDesired['type'])[0] != explode(' ',$column['type'])[0])) {
 								$typeMatch = false;
 							}
 
@@ -246,7 +246,7 @@ class erLhcoreClassUpdate
 			foreach ($dataTable as $record) {	
 
 				try {
-					$sql = "SELECT COUNT(*) as total_records FROM `{$table}` WHERE `{$tableIdentifier}` = :identifier_value";				
+					$sql = "SELECT COUNT(*) as total_records FROM `{$table}` WHERE `{$tableIdentifier}` = :identifier_value";
 					$stmt = $db->prepare($sql);
 					$stmt->bindValue(':identifier_value',$record[$tableIdentifier]);
 					$stmt->execute();

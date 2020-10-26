@@ -39,17 +39,32 @@ class erLhcoreClassTransfer
 	       		$limitationSQL = ' AND '.$limitation;
 	       	}
 
-	       	$stmt = $db->prepare('SELECT lh_chat.*,lh_transfer.id as transfer_id, lh_transfer.transfer_to_user_id, lh_transfer.transfer_user_id FROM lh_chat INNER JOIN lh_transfer ON lh_transfer.chat_id = lh_chat.id WHERE transfer_user_id != :transfer_user_id '.$limitationSQL.' ORDER BY lh_transfer.id DESC LIMIT 10');
+	       	// Chat transfers
+	       	$stmt = $db->prepare('SELECT lh_chat.*,lh_transfer.id as transfer_id, lh_transfer.transfer_to_user_id, lh_transfer.transfer_user_id, lh_transfer.transfer_scope FROM lh_chat INNER JOIN lh_transfer ON lh_transfer.chat_id = lh_chat.id WHERE transfer_scope = 0 AND transfer_user_id != :transfer_user_id '.$limitationSQL.' ORDER BY lh_transfer.id DESC LIMIT 10');
 	       	$stmt->bindValue( ':transfer_user_id',$currentUser->getUserID());
 	       	$stmt->setFetchMode(PDO::FETCH_ASSOC);
 	       	$stmt->execute();
 	       	$rows = $stmt->fetchAll();
+
+            $stmt = $db->prepare('SELECT lhc_mailconv_conversation.id, lhc_mailconv_conversation.subject as nick, lhc_mailconv_conversation.udate as `time`, lh_transfer.id as transfer_id, lh_transfer.transfer_to_user_id, lh_transfer.transfer_user_id, lh_transfer.transfer_scope FROM lhc_mailconv_conversation INNER JOIN lh_transfer ON lh_transfer.chat_id = lhc_mailconv_conversation.id WHERE transfer_scope = 1 AND transfer_user_id != :transfer_user_id '.$limitationSQL.' ORDER BY lh_transfer.id DESC LIMIT 10');
+            $stmt->bindValue( ':transfer_user_id',$currentUser->getUserID());
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $rows = array_merge($rows ,$stmt->fetchAll());
+
        } else {
-	       	$stmt = $db->prepare('SELECT lh_chat.*,lh_transfer.id as transfer_id, lh_transfer.transfer_to_user_id, lh_transfer.transfer_user_id FROM lh_chat INNER JOIN lh_transfer ON lh_transfer.chat_id = lh_chat.id WHERE lh_transfer.transfer_to_user_id = :user_id ORDER BY lh_transfer.id DESC LIMIT 10');
+           // Chat transfers
+	       	$stmt = $db->prepare('SELECT lh_chat.*,lh_transfer.id as transfer_id, lh_transfer.transfer_to_user_id, lh_transfer.transfer_user_id FROM lh_chat INNER JOIN lh_transfer ON lh_transfer.chat_id = lh_chat.id WHERE transfer_scope = 0 AND lh_transfer.transfer_to_user_id = :user_id ORDER BY lh_transfer.id DESC LIMIT 10');
 	       	$stmt->bindValue( ':user_id',$currentUser->getUserID());
 	       	$stmt->setFetchMode(PDO::FETCH_ASSOC);
 	       	$stmt->execute();
 	       	$rows = $stmt->fetchAll();
+
+	       	$stmt = $db->prepare('SELECT lhc_mailconv_conversation.id, lhc_mailconv_conversation.status, lhc_mailconv_conversation.subject as nick, lhc_mailconv_conversation.udate as `time`, lh_transfer.id as transfer_id, lh_transfer.transfer_to_user_id, lh_transfer.transfer_user_id, lh_transfer.transfer_scope FROM lhc_mailconv_conversation INNER JOIN lh_transfer ON lh_transfer.chat_id = lhc_mailconv_conversation.id WHERE transfer_scope = 1 AND lh_transfer.transfer_to_user_id = :user_id ORDER BY lh_transfer.id DESC LIMIT 10');
+	       	$stmt->bindValue(':user_id',$currentUser->getUserID());
+	       	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+	       	$stmt->execute();
+            $rows = array_merge($rows ,$stmt->fetchAll());
        }
        
        foreach ($rows as & $row) {
@@ -59,12 +74,13 @@ class erLhcoreClassTransfer
        return $rows;
    }
 
-   public static function getTransferByChat($chat_id)
+   public static function getTransferByChat($chat_id, $scope = erLhcoreClassModelTransfer::SCOPE_CHAT)
    {
        $db = ezcDbInstance::get();
 
-       $stmt = $db->prepare('SELECT * FROM lh_transfer WHERE lh_transfer.chat_id = :chat_id');
+       $stmt = $db->prepare('SELECT * FROM lh_transfer WHERE lh_transfer.chat_id = :chat_id AND transfer_scope = :transfer_scope');
        $stmt->bindValue( ':chat_id',$chat_id);
+       $stmt->bindValue( ':transfer_scope',$scope);
        $stmt->setFetchMode(PDO::FETCH_ASSOC);
        $stmt->execute();
        $rows = $stmt->fetchAll();
@@ -77,10 +93,10 @@ class erLhcoreClassTransfer
      *
      * @param $userId
      */
-    public static function handleTransferredChatOpen(& $chat, $userId)
+    public static function handleTransferredChatOpen(& $chat, $userId, $transferScope = erLhcoreClassModelTransfer::SCOPE_CHAT)
     {
-        $transfer = erLhcoreClassModelTransfer::findOne(array('filter' => array('chat_id' => $chat->id)));
-        if ($transfer instanceof erLhcoreClassModelTransfer){
+        $transfer = erLhcoreClassModelTransfer::findOne(array('filter' => array('chat_id' => $chat->id, 'transfer_scope' => $transferScope)));
+        if ($transfer instanceof erLhcoreClassModelTransfer) {
             $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
 
             // If it was transfer to operator change operator

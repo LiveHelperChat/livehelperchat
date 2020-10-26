@@ -12,7 +12,9 @@
         <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs/chat.tpl.php'));?>
          
         <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs/speech.tpl.php'));?>
-        
+
+        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs/mailconv.tpl.php'));?>
+
         <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs/tab_multiinclude.tpl.php'));?>
 	</ul>
 
@@ -55,12 +57,12 @@
 
 				</div>
 
+                <div class="col-md-6">
+                    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/mobile.tpl.php'));?>
 
-				
-				<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/users_section.tpl.php'));?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/users_section.tpl.php'));?>
+                </div>
 
-
-      	         
 			</div>
 
 		</div>
@@ -70,7 +72,9 @@
     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs_content/chat_embed_js.tpl.php'));?>
     
     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs_content/speech.tpl.php'));?>
-    
+
+    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs_content/mailconv.tpl.php'));?>
+
     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs_content/tab_content_multiinclude.tpl.php'));?>
      
     </div>

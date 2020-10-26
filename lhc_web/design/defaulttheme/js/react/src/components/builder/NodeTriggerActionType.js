@@ -58,6 +58,10 @@ export default ({onChange, type}) => {
         {
             'value': 'repeat_restrict',
             'text' : 'Restrict execution more than defined times',
+        },
+        {
+            'value': 'text_conditional',
+            'text' : 'Different text message to visitor and operator',
         }
     ]);
 

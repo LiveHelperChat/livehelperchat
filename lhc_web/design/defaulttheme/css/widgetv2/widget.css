@@ -3,15 +3,15 @@ body {
 }
 
 @font-face {
-    font-family: 'Material Icons';
+    font-family: 'MaterialIconsLHC';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/MaterialIcons-lhc.eot'); /* For IE6-8 */
-    src: local('Material Icons'),
-    local('MaterialIcons-Regular'),
-    url('../fonts/MaterialIcons-lhc.woff2') format('woff2'),
-    url('../fonts/MaterialIcons-lhc.woff') format('woff'),
-    url('../fonts/MaterialIcons-lhc.ttf') format('truetype');
+    src: url('../fonts/MaterialIcons-lhc-v2.eot'); /* For IE6-8 */
+    src: local('MaterialIconsLHC'),
+    local('MaterialIconsLHC'),
+    url('../fonts/MaterialIcons-lhc-v2.woff2') format('woff2'),
+    url('../fonts/MaterialIcons-lhc-v2.woff') format('woff'),
+    url('../fonts/MaterialIcons-lhc-v2.ttf') format('truetype');
     font-display: swap;
 }
 
@@ -28,7 +28,7 @@ div.message-row {
 }
 
 .material-icons {
-    font-family: 'Material Icons';
+    font-family: 'MaterialIconsLHC';
     font-weight: normal;
     font-style: normal;
     font-size: 18px;  /* Preferred icon size */
@@ -152,7 +152,12 @@ div.message-row {
     background-color: #fff;
 }
 
-.desktop-header{
+.lhc-full-height > .desktop-body{
+    border-radius: 0;
+    border-bottom: 0;
+}
+
+.lhc-desktop:not(.lhc-full-height) > .desktop-header{
     border: 1px solid #cecece;
     border-bottom: 0;
     border-top-left-radius: 10px;
@@ -673,6 +678,8 @@ textarea[name=ChatMessage] {
 
 .message-send-area{
     background-color: #fff;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .message-row-typing {
@@ -692,15 +699,17 @@ textarea[name=ChatMessage] {
 .proactive-need-help {
     background-color: #fff;
     border-radius: 10px;
-    width: 200px;
     right: 0;
     box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.25);
     margin:9px;
-    border-bottom-right-radius: 0;
 }
 
 .fs12{
     font-size:12px;
+}
+
+.fs13{
+    font-size:13px;
 }
 
 .fs11{
@@ -886,6 +895,13 @@ textarea[name=ChatMessage] {
     border:1px solid #dee2e6!important;
 }
 
+.lhc-fscreen .message-send-area{
+    border-radius: 0;
+    border-left: 0!important;
+    border-bottom: 0!important;
+    border-right: 0!important;
+}
+
 .tr-msg{
     font-style: italic;
     display: block;
@@ -893,4 +909,42 @@ textarea[name=ChatMessage] {
     border-radius: 10px;
     padding: 3px 6px;
     color: #4A4A4A;
+}
+
+#id-invitation-height .usr-tit{
+    display: none;
+}
+
+#id-invitation-height div.message-admin{
+    text-align: left;
+}
+
+#id-invitation-height div.message-admin div.msg-body{
+    background-color: transparent!important;
+    color:#000;
+    max-width: 100%;
+    padding:0;
+    font-size: 13px;
+}
+
+#id-invitation-height ul.quick-replies{
+    margin-bottom: 0;
+}
+
+#id-invitation-height .quick-replies .btn-sm{
+    font-size:13px;
+    padding: .12rem 0.3rem;
+}
+
+#id-invitation-height div.message-admin div.msg-body, #id-invitation-height div.message-admin div.meta-message{
+    margin-left:0!important;
+}
+
+#CSChatMessage.msg-two-line{
+    height:60px;
+}
+
+#CSChatMessage.msg-one-line{
+    height:36px;
+    overflow-y: hidden;
 }

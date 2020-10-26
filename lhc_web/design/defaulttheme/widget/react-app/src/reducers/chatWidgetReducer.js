@@ -13,6 +13,7 @@ const initialState = fromJS({
     theme: null,
     pvhash: null,
     phash: null,
+    leave_message: true,
     mode: 'widget',
     overrides: [], // we store here extensions flags. Like do we override typing monitoring so we send every request
     department: [],
@@ -77,6 +78,7 @@ const chatWidgetReducer = (state = initialState, action) => {
         }
 
         case 'operator':
+        case 'leave_message':
         case 'phash':
         case 'pvhash':
         case 'attr_prefill':
@@ -123,6 +125,7 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .set('processStatus', 0)
                 .set('isChatting',false)
                 .set('newChat',true)
+                .set('proactive',fromJS({'pending' : false, 'has' : false, data : {}}))
                 .set('chatData',fromJS({}))
                 .setIn(['onlineData','fetched'],false)
                 .set('chatLiveData',fromJS({'lmsop':0, 'vtm':0, 'msop':0, 'uid':0, 'status' : 0, 'status_sub' : 0, 'uw' : false, 'ott' : '', 'closed' : false, 'lmsgid' : 0, 'operator' : '', 'messages' : []}))
@@ -175,7 +178,7 @@ const chatWidgetReducer = (state = initialState, action) => {
                 
                 // If we are in popup mode and visitor refreshes page, remember chat
                 if (state.get('mode') == 'popup') {
-                    helperFunctions.setSessionStorage('lhc_chat',JSON.stringify(action.data.chatData))
+                    helperFunctions.setSessionStorage('_chat',JSON.stringify(action.data.chatData))
                 }
 
                 return state.set('processStatus', 2).set('isChatting',true).set('chatData',fromJS(action.data.chatData)).set('validationErrors',fromJS({}));;
@@ -231,6 +234,13 @@ const chatWidgetReducer = (state = initialState, action) => {
         }
 
         case 'REFRESH_UI_COMPLETED' : {
+            
+            if (action.data.chat_ui_remove) {
+                action.data.chat_ui_remove.forEach((item) => {
+                    state = state.removeIn(item);
+                })
+            }
+
             return state.set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)));
         }
 
@@ -307,6 +317,8 @@ const chatWidgetReducer = (state = initialState, action) => {
         }
 
         case 'CHAT_UI_UPDATE' : {
+
+
             return state.set('chat_ui',state.get('chat_ui').merge(fromJS(action.data)));
         }
 

@@ -1,6 +1,6 @@
 <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/users_section_pre.tpl.php'));?>
 <?php if ($system_configuration_links_users_section_enabled == true) : ?>
-<div class="col-md-6">
+
   	<?php if ($currentUser->hasAccessTo('lhuser','userlist') || $currentUser->hasAccessTo('lhuser','grouplist') || $currentUser->hasAccessTo('lhpermission','list')) : ?>
 	  	<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Users');?></h4>
 		<ul class="circle small-list">
@@ -39,5 +39,5 @@
      </ul>
     <?php endif; ?>
 
- </div>
+
  <?php endif;?>

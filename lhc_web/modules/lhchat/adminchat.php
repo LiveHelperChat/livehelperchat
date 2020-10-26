@@ -54,12 +54,16 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
     	    }
     	    
     	    $tpl->set('arg', $Params['user_parameters_unordered']['arg']);
-    	    
+
     	    // Store who has acceped a chat so other operators will be able easily indicate this
     	    if ($operatorAccepted == true) {
     	    	         	        
     	        $msg = new erLhcoreClassModelmsg();
-    	        $msg->msg = (string)$currentUser->getUserData(true)->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has accepted the chat!');
+                $msg->name_support = $userData->name_support;
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
+
+                $msg->msg = (string)$msg->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has accepted the chat!');
     	        $msg->chat_id = $chat->id;
     	        $msg->user_id = -1;
     	        $msg->time = time();

@@ -12,6 +12,8 @@ if (isset($_GET['doSearch'])) {
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
+erLhcoreClassChatStatistic::formatUserFilter($filterParams, 'lh_users', 'id');
+
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('user/userlist') . $append;
 $pages->items_total = erLhcoreClassModelUser::getUserCount($filterParams['filter']);

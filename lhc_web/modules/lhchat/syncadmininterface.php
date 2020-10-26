@@ -16,7 +16,7 @@ if (erLhcoreClassModelChatConfig::fetchCache('list_online_operators')->current_v
 }
 
 // Update last visit
-$currentUser->updateLastVisit();
+$currentUser->updateLastVisit((int)$Params['user_parameters_unordered']['lda']);
 
 // We do not need a session anymore
 session_write_close();
@@ -208,7 +208,7 @@ if ($currentUser->hasAccessTo('lhgroupchat','use')) {
 
     $chats = erLhcoreClassModelGroupChat::getList(array('limit' => $limitList, 'filter' => array('type' => 0)));
 
-    $memberOf = erLhcoreClassModelGroupChatMember::getList(array('sort' => 'jtime ASC', 'filter' => array('user_id' => $currentUser->getUserID())));
+    $memberOf = erLhcoreClassModelGroupChatMember::getList(array('sort' => 'jtime ASC', 'filter' => array('type' => erLhcoreClassModelGroupChatMember::NORMAL_CHAT, 'user_id' => $currentUser->getUserID())));
 
     $groupsPrivates = array();
     $groupsPrivateMembers = array();
@@ -221,7 +221,7 @@ if ($currentUser->hasAccessTo('lhgroupchat','use')) {
     }
 
     if (!empty($groupsPrivates)) {
-        $chatsPrivate = erLhcoreClassModelGroupChat::getList(array('limit' => $limitList, 'filterin' => array('id' => $groupsPrivates)));
+        $chatsPrivate = erLhcoreClassModelGroupChat::getList(array('limit' => $limitList, 'filter' => array('type' => erLhcoreClassModelGroupChat::PRIVATE_CHAT), 'filterin' => array('id' => $groupsPrivates)));
         $chats = $chatsPrivate + $chats;
     }
 
@@ -233,6 +233,19 @@ if ($currentUser->hasAccessTo('lhgroupchat','use')) {
 
     $ReturnMessages['group_chats'] = array('list' => array_values($chats));
 
+    $memberOfSupportChat = erLhcoreClassModelGroupChatMember::getList(array('sort' => 'jtime ASC', 'filter' => array('type' => erLhcoreClassModelGroupChatMember::SUPPORT_CHAT, 'jtime' => 0, 'user_id' => $currentUser->getUserID())));
+    if (!empty($memberOfSupportChat)) {
+        $supportChats = [];
+        foreach ($memberOfSupportChat as $supportChatMember){
+            $supportChats[] = $supportChatMember->group_id;
+        }
+        if (!empty($supportChats)) {
+            $supportGroupChats = erLhcoreClassModelGroupChat::getList(array('filterin' => array('id' => $supportChats)));
+            foreach ($supportGroupChats as $supportChat) {
+                $ReturnMessages['support_chats']['list'][] = ['chat_id' => $supportChat->chat_id];
+            }
+        }
+    }
 }
 
 if ($myChatsEnabled == true) {
@@ -334,6 +347,19 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array('bot_chats',
     if (is_array($Params['user_parameters_unordered']['botd']) && !empty($Params['user_parameters_unordered']['botd'])) {
         erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['botd']);
         $filter['filterin']['dep_id'] = $Params['user_parameters_unordered']['botd'];
+    }
+
+    if (is_array($Params['user_parameters_unordered']['botdprod']) && !empty($Params['user_parameters_unordered']['botdprod'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['botdprod']);
+        $filter['filterin']['product_id'] = $Params['user_parameters_unordered']['botdprod'];
+    }
+
+    if (is_array($Params['user_parameters_unordered']['bdgroups']) && !empty($Params['user_parameters_unordered']['bdgroups'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['bdgroups']);
+        $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['bdgroups']);
+        if (!empty($depIds)) {
+            $filter['filterin']['dep_id'] = isset($filter['filterin']['dep_id']) ? array_merge($filter['filterin']['dep_id'],$depIds) : $depIds;
+        }
     }
 
     /**
@@ -543,6 +569,134 @@ if ($activeTabEnabled == true && isset($Params['user_parameters_unordered']['top
     $my_active_chats = array_values($activeMyChats);
 }
 
+// START Mail lists
+if (is_array($Params['user_parameters_unordered']['w']) && in_array('pmails',$Params['user_parameters_unordered']['w'])) {
+    $additionalFilter = array();
+
+    if (is_array($Params['user_parameters_unordered']['pendingmu']) && !empty($Params['user_parameters_unordered']['pendingmu'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['pendingmu']);
+        $additionalFilter['filterin']['user_id'] = $Params['user_parameters_unordered']['pendingmu'];
+    }
+
+    if (is_array($Params['user_parameters_unordered']['pendingmd']) && !empty($Params['user_parameters_unordered']['pendingmd'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['pendingmd']);
+        $additionalFilter['filterin']['dep_id'] = $Params['user_parameters_unordered']['pendingmd'];
+    }
+
+    // User groups filter
+    if (is_array($Params['user_parameters_unordered']['pmug']) && !empty($Params['user_parameters_unordered']['pmug'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['pmug']);
+        $userIds = erLhcoreClassChat::getUserIDByGroup($Params['user_parameters_unordered']['pmug']);
+        if (!empty($userIds)) {
+            $additionalFilter['filterin']['user_id'] = isset($additionalFilter['filterin']['user_id']) ? array_merge($additionalFilter['filterin']['user_id'],$userIds) : $userIds;
+        }
+    }
+
+    if (is_array($Params['user_parameters_unordered']['pmd']) && !empty($Params['user_parameters_unordered']['pmd'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['pmd']);
+        $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['pmd']);
+        if (!empty($depIds)) {
+            $additionalFilter['filterin']['dep_id'] = isset($additionalFilter['filterin']['dep_id']) ? array_merge($additionalFilter['filterin']['dep_id'],$depIds) : $depIds;
+        }
+    }
+
+    $limitList = is_numeric($Params['user_parameters_unordered']['limitpm']) ? (int)$Params['user_parameters_unordered']['limitpm'] : 10;
+
+    $filterAdditionalMainAttr = array();
+
+    $filterAdditionalMainAttr['sort'] = 'priority DESC, id ASC';
+
+    $pendingMails = erLhcoreClassChat::getPendingMails($limitList, 0, $additionalFilter, $filterAdditionalMainAttr);
+
+    erLhcoreClassChat::prefillGetAttributes($pendingMails, array('ctime_front','department_name','wait_time_pending','plain_user_name','from_name','from_address'), array('department','time','status','user'));
+    $ReturnMessages['pending_mails'] = array('last_id_identifier' => 'pmails','list' => array_values($pendingMails));
+}
+
+
+if (is_array($Params['user_parameters_unordered']['w']) && in_array('amails',$Params['user_parameters_unordered']['w'])) {
+    $additionalFilter = array();
+
+    if (is_array($Params['user_parameters_unordered']['activemu']) && !empty($Params['user_parameters_unordered']['activemu'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['activemu']);
+        $additionalFilter['filterin']['user_id'] = $Params['user_parameters_unordered']['activemu'];
+    }
+
+    if (is_array($Params['user_parameters_unordered']['activemd']) && !empty($Params['user_parameters_unordered']['activemd'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['activemd']);
+        $additionalFilter['filterin']['dep_id'] = $Params['user_parameters_unordered']['activemd'];
+    }
+
+    // User groups filter
+    if (is_array($Params['user_parameters_unordered']['amug']) && !empty($Params['user_parameters_unordered']['amug'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['amug']);
+        $userIds = erLhcoreClassChat::getUserIDByGroup($Params['user_parameters_unordered']['amug']);
+        if (!empty($userIds)) {
+            $additionalFilter['filterin']['user_id'] = isset($additionalFilter['filterin']['user_id']) ? array_merge($additionalFilter['filterin']['user_id'],$userIds) : $userIds;
+        }
+    }
+
+    if (is_array($Params['user_parameters_unordered']['amd']) && !empty($Params['user_parameters_unordered']['amd'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['amd']);
+        $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['amd']);
+        if (!empty($depIds)) {
+            $additionalFilter['filterin']['dep_id'] = isset($additionalFilter['filterin']['dep_id']) ? array_merge($additionalFilter['filterin']['dep_id'],$depIds) : $depIds;
+        }
+    }
+
+    $limitList = is_numeric($Params['user_parameters_unordered']['limitam']) ? (int)$Params['user_parameters_unordered']['limitam'] : 10;
+
+    $filterAdditionalMainAttr = array();
+
+    $filterAdditionalMainAttr['sort'] = 'priority DESC, id ASC';
+
+    $activeMails = erLhcoreClassChat::getActiveMails($limitList, 0, $additionalFilter, $filterAdditionalMainAttr);
+
+    erLhcoreClassChat::prefillGetAttributes($activeMails, array('ctime_front','pnd_time_front','department_name','wait_time_pending','plain_user_name','from_name','from_address'), array('department','time','status','user'));
+    $ReturnMessages['active_mails'] = array('list' => array_values($activeMails));
+}
+
+
+if (is_array($Params['user_parameters_unordered']['w']) && in_array('malarms',$Params['user_parameters_unordered']['w']) && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'use_alarms')) {
+    $additionalFilter = array();
+
+    if (is_array($Params['user_parameters_unordered']['alarmmu']) && !empty($Params['user_parameters_unordered']['alarmmu'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['alarmmu']);
+        $additionalFilter['filterin']['user_id'] = $Params['user_parameters_unordered']['alarmmu'];
+    }
+
+    if (is_array($Params['user_parameters_unordered']['alarmmd']) && !empty($Params['user_parameters_unordered']['activemd'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['activemd']);
+        $additionalFilter['filterin']['dep_id'] = $Params['user_parameters_unordered']['activemd'];
+    }
+
+    // User groups filter
+    if (is_array($Params['user_parameters_unordered']['almug']) && !empty($Params['user_parameters_unordered']['almug'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['almug']);
+        $userIds = erLhcoreClassChat::getUserIDByGroup($Params['user_parameters_unordered']['almug']);
+        if (!empty($userIds)) {
+            $additionalFilter['filterin']['user_id'] = isset($additionalFilter['filterin']['user_id']) ? array_merge($additionalFilter['filterin']['user_id'],$userIds) : $userIds;
+        }
+    }
+
+    if (is_array($Params['user_parameters_unordered']['almd']) && !empty($Params['user_parameters_unordered']['almd'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['almd']);
+        $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['almd']);
+        if (!empty($depIds)) {
+            $additionalFilter['filterin']['dep_id'] = isset($additionalFilter['filterin']['dep_id']) ? array_merge($additionalFilter['filterin']['dep_id'],$depIds) : $depIds;
+        }
+    }
+
+    $limitList = is_numeric($Params['user_parameters_unordered']['limitalm']) ? (int)$Params['user_parameters_unordered']['limitalm'] : 10;
+
+    $filterAdditionalMainAttr = array();
+
+    $activeMails = erLhcoreClassChat::getAlarmMails($limitList, 0, $additionalFilter, $filterAdditionalMainAttr);
+
+    erLhcoreClassChat::prefillGetAttributes($activeMails, array('ctime_front','pnd_time_front','department_name','wait_time_pending','wait_time_response','plain_user_name','from_name','from_address'), array('department','time','user'));
+    $ReturnMessages['alarm_mails'] = array('last_id_identifier' => 'amails', 'list' => array_values($activeMails));
+}
+// END Mail list
+
 $version = erLhcoreClassUpdate::LHC_RELEASE;
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncadmininterface',array('lists' => & $ReturnMessages, 'v' => & $version));
@@ -554,7 +708,7 @@ if ($userData->operation_admin != '') {
     erLhcoreClassUser::getSession()->update($userData);
 }
 
-$responseSync = array('v' => $version, 'error' => 'false', 'mac' => $my_active_chats, 'a_on' => $userData->always_on, 'ou' => $ou, 'result' => $ReturnMessages, 'ho' => $userData->hide_online, 'im' => $userData->invisible_mode);
+$responseSync = array('v' => $version, 'error' => 'false', 'mac' => $my_active_chats, 'ina' => $userData->inactive_mode, 'a_on' => $userData->always_on, 'ou' => $ou, 'result' => $ReturnMessages, 'ho' => $userData->hide_online, 'im' => $userData->invisible_mode);
 
 if (isset($currentOp) && $currentOp !== null) {
     $responseSync['ho'] = $currentOp->hide_online;

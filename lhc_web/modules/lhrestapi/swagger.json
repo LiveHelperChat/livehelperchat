@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Live Helper Chat API description. You have to authorize to use API. Create API key in Live Helper Chat back office. During authorization provide operator username and key instead of password.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "title": "Live Helper Chat API",
     "termsOfService": "",
     "contact": {
@@ -748,7 +748,7 @@
           {
             "name": "data",
             "in": "formData",
-            "description": "Data as encoded JSON format.",
+            "description": "Data as encoded JSON format. E.g {\"intent\":{\"val\":\"value\"}}",
             "required": true,
             "type": "string"
           }
@@ -1005,6 +1005,45 @@
         ]
       }
     },
+    "/restapi/user_departments": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Fetches user departments",
+        "description": "If user_id is provided. Systems tries to find provided user. If not system returns authorised user departments.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "User ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch user departments",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
     "/restapi/getusers": {
       "get": {
         "tags": [
@@ -1020,6 +1059,253 @@
         "responses": {
           "200": {
             "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/user/{user_id}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Fetches user by user ID",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "User ID to fetch",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns user data",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Update a user",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User object needs to be updated",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "User to update",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates user with specified attributes",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Deletes specified user",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "User to delete",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deletes specified user",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/user": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Creates a new user",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Creates a user and returns it's data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Creates a new user and returns it's attributes",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/notifications/{token}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Returns notifications status",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "description": "User session token",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns notifications status",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Enables/Disables mobile notifications",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "description": "User session token",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Set's notifications status",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Notifications"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Notifications status was changed",
             "schema": {
             }
           },
@@ -1142,7 +1428,7 @@
             "name": "user_id",
             "in": "path",
             "description": "User ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           }
@@ -1181,7 +1467,7 @@
             "name": "chat_id",
             "in": "path",
             "description": "Chat ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           },
@@ -1234,7 +1520,7 @@
             "name": "object_id",
             "in": "path",
             "description": "Object ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           },
@@ -1242,7 +1528,7 @@
             "name": "type",
             "in": "path",
             "description": "Type ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           }
@@ -1281,7 +1567,7 @@
             "name": "object_id",
             "in": "path",
             "description": "Object ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           },
@@ -1289,7 +1575,7 @@
             "name": "type",
             "in": "path",
             "description": "Type ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           }
@@ -1328,7 +1614,7 @@
             "name": "user_id",
             "in": "path",
             "description": "User ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           },
@@ -1336,7 +1622,7 @@
             "name": "type",
             "in": "path",
             "description": "Type ID",
-            "required": false,
+            "required": true,
             "type": "string",
             "format": "int32"
           }
@@ -1430,6 +1716,46 @@
         "responses": {
           "200": {
             "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/generateautologin": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Will generate autologin link.",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Generates autologin link.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Autologin"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Login",
             "schema": {
             }
           },
@@ -2345,7 +2671,7 @@
         },
         "chat_variables": {
           "type": "string",
-          "description": "Chat variables. These can store custom chat data accessed only by extensions. Stored as JSON format.",
+          "description": "Chat variables. These can store custom chat data accessed only by extensions/bot rest api. Stored as JSON encoded format. E.g {\"intent\":\"value\"}",
           "example": null
         },
         "priority": {
@@ -2564,6 +2890,297 @@
         "nick" : "Nick of the bot"
       }
     },
+    "Notifications": {
+      "type": "object",
+      "properties": {
+          "status": {
+            "type": "boolean",
+            "default": false,
+            "required": false,
+            "description": ""
+          }
+      },
+      "example" : {
+        "status" : true
+      }
+    },
+    "Autologin": {
+      "type": "object",
+      "properties": {
+        "u": {
+          "type": "string",
+          "default": "",
+          "required": true,
+          "description": "u - stands for User ID under which user should be logged in. User ID you can find in users lists."
+        },
+        "l": {
+          "type": "string",
+          "default": "nick",
+          "required": true,
+          "description": "l - is user login/username. It's optional. You have to pass either u or l but NOT both at the same time"
+        },
+        "r": {
+          "type": "string",
+          "description": "r - stands for URL, it has to be module url without site_admin prefix. It can be also as chat/single/5993",
+          "example": null
+        },
+        "t": {
+          "type": "string",
+          "description": "t - stands how long auto login link should be valid. It's value in second. In the example link is valid for 60 seconds after it's genration. Also you can ommit this argument, that means link never expires. I suggest always pass some timestamp for this.",
+          "example": null
+        }
+      },
+      "example" : {
+        "u" : 1,
+        "l" : "admin",
+        "r" : "front/default",
+        "t" : 60,
+      }
+    },
+   "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+            "type": "integer",
+            "default": null,
+            "required": false,
+            "description": "User ID. This field is not updatable."
+        },
+        "username": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Username"
+        },
+        "password": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Password"
+        },
+       "email": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "E-mail"
+        },
+        "name": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Name of the operator"
+        },
+        "surname": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Surname of the operator"
+        },
+        "disabled": {
+          "type": "boolean",
+          "default": false,
+          "required": false,
+          "description": "Is user disabled"
+       },
+       "hide_online": {
+          "type": "boolean",
+          "default": false,
+          "required": false,
+          "description": "User is offline if value is true"
+       },
+       "all_departments": {
+          "type": "boolean",
+          "default": false,
+          "required": false,
+          "description": "User has access to all departments. This attribute is updated only if you provide also `departments` attribute."
+       },
+      "image": {
+        "type": "string",
+        "format": "byte",
+        "description": "Image content encoded with base64_encode. It's used to change operator profile photo."
+      },
+      "filepath": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Filepath of operator image. This field is not updatable."
+       },
+      "filename": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Filename of operator image. This field is not updatable."
+       },
+      "skype": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Skype nick"
+       },
+      "job_title": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Job title of operator. Visible in operator profile during the chat."
+       },
+      "time_zone": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Timezone of operator. If empty system timezone is used."
+      },
+      "invisible_mode": {
+          "type": "boolean",
+          "default": false,
+          "required": false,
+          "description": "Operator is invisible if true"
+      },
+      "inactive_mode": {
+          "type": "boolean",
+          "default": false,
+          "required": false,
+          "description": "Operator goes offline because of inactivity. This field is not updatable."
+      },
+      "xmpp_username": {
+          "type": "string",
+          "default": false,
+          "required": false,
+          "description": "XMPP username."
+      },
+      "rec_per_req": {
+          "type": "boolean",
+          "default": false,
+          "required": false,
+          "description": "User will receive permission request if other operator request it."
+      },
+      "session_id": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "If one logic per account enabled we store in this field present session. This field is not updatable."
+      },
+      "active_chats_counter": {
+          "type": "integer",
+          "default": 0,
+          "required": false,
+          "description": "Stores how many active chats current operator has. This field is not updatable."
+      },
+      "closed_chats_counter": {
+          "type": "integer",
+          "default": 0,
+          "required": false,
+          "description": "Stores how many closed chats current operator has. This field is not updatable."
+      },
+      "pending_chats_counter": {
+          "type": "integer",
+          "default": 0,
+          "required": false,
+          "description": "Stores how many pending chats current operator has. This field is not updatable."
+      },
+      "departments_ids": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Stores departmetns id's assigned to user. This list also includes departments assigned by department group. 0 in list means all departments. Separated by comma. E.g 1,5,9,0"
+      },
+      "chat_nickname": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Operator nick visible by visitor in a widget. If not provided we construct nick by name and surname."
+      },
+      "max_active_chats": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "How many active chats operator can have at single time. This limits auto assignment workflow."
+      },
+      "auto_accept": {
+          "type": "boolean",
+          "default": false,
+          "required": false,
+          "description": "If chat is assigned to an operator tab will automatically open for him."
+      },
+      "attr_int_1": {
+          "type": "integer",
+          "default": 0,
+          "required": false,
+          "description": "Custom integer attribute can be used by extension."
+      },
+      "attr_int_2": {
+          "type": "integer",
+          "default": 0,
+          "required": false,
+          "description": "Custom integer attribute can be used by extension."
+      },
+      "attr_int_3": {
+          "type": "integer",
+          "default": 0,
+          "required": false,
+          "description": "Custom integer attribute can be used by extension."
+      },
+      "operation_admin": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "We store javascritp in this field is pending for specific admin to be executed. This field is not updatable."
+      },
+      "exclude_autoasign": {
+          "type": "boolean",
+          "default": false,
+          "required": false,
+          "description": "Exclude operator from autoassignment workflow."
+      },
+      "pswd_updated": {
+            "type": "boolean",
+            "default": false,
+            "required": false,
+            "description": "Password update timestamp. This field is used for password requirements. This field is not updatable."
+      },
+     "always_on": {
+            "type": "boolean",
+            "default": false,
+            "required": false,
+            "description": "Operator will be seen as always online. Even if he is logged out. Usefull in combination with telegram extension."
+     },
+     "departments": {
+       "type": "array",
+       "default": [],
+       "required": false,
+       "description": "What departments ID's should be assigned to the operator"
+     },
+    "departments_read": {
+       "type": "array",
+       "default": [],
+       "required": false,
+       "description": "What departments ID's should be in read mode only."
+     },
+     "department_groups": {
+       "type": "array",
+       "default": [],
+       "required": false,
+       "description": "What departments groups ID's should be assigned to the operator"
+     },
+     "user_groups": {
+       "type": "array",
+       "default": [],
+       "required": false,
+       "description": "To what user groups operator belongs"
+     }
+},
+      "example" : {
+          "username" : "username",
+          "password" : "password",
+          "email" : "exmaple@example.org",
+          "name" : "Name",
+          "surname" : "Surname",
+          "chat_nickname" : "Chat nickname",
+          "departments" : [1,2],
+          "departments_read" : [2],
+          "department_groups" : [1],
+          "user_groups" : [1]
+      }
+   },
    "NewChat": {
       "type": "object",
       "properties": {
@@ -2845,6 +3462,12 @@
     "Department": {
       "type": "object",
       "properties": {
+        "raw_attr": {
+          "type": "boolean",
+          "nullable": true,
+          "example": true,
+          "description": "If you pass true we will use payload data directly as department attributes. Usefull if you want just to modify department data without any validation."
+        },
         "Name": {
           "type": "string",
           "default": "Name",
@@ -2929,6 +3552,11 @@
           "example": false
         },
         "nc_cb_execute": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "archive": {
           "type": "boolean",
           "nullable": true,
           "example": false

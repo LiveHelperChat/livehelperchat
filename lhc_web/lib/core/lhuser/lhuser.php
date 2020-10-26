@@ -336,14 +336,14 @@ class erLhcoreClassUser{
        return $this->userid;
    }
 
-   function updateLastVisit()
+   function updateLastVisit($lda = 0)
    {
        // Because of how user departments table is locked sometimes we have lock deadlines. We need refactor or remove locking for user departments tables.
        try {
              $db = ezcDbInstance::get();
              $db->beginTransaction();
 
-             erLhcoreClassUserDep::updateLastActivityByUser($this->userid, time());
+             erLhcoreClassUserDep::updateLastActivityByUser($this->userid, time(), $lda);
 
              if ((!isset($_SESSION['lhc_online_session'])) || (isset($_SESSION['lhc_online_session']) && (time() - $_SESSION['lhc_online_session'] > 20))) {
 

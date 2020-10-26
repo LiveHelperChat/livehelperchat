@@ -414,6 +414,46 @@ $def->properties['modified']->columnName   = 'modified';
 $def->properties['modified']->propertyName = 'modified';
 $def->properties['modified']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['enable_widget_embed_override'] = new ezcPersistentObjectProperty();
+$def->properties['enable_widget_embed_override']->columnName   = 'enable_widget_embed_override';
+$def->properties['enable_widget_embed_override']->propertyName = 'enable_widget_embed_override';
+$def->properties['enable_widget_embed_override']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['widget_show_leave_form'] = new ezcPersistentObjectProperty();
+$def->properties['widget_show_leave_form']->columnName   = 'widget_show_leave_form';
+$def->properties['widget_show_leave_form']->propertyName = 'widget_show_leave_form';
+$def->properties['widget_show_leave_form']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['widget_survey'] = new ezcPersistentObjectProperty();
+$def->properties['widget_survey']->columnName   = 'widget_survey';
+$def->properties['widget_survey']->propertyName = 'widget_survey';
+$def->properties['widget_survey']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['widget_position'] = new ezcPersistentObjectProperty();
+$def->properties['widget_position']->columnName   = 'widget_position';
+$def->properties['widget_position']->propertyName = 'widget_position';
+$def->properties['widget_position']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['widget_popwidth'] = new ezcPersistentObjectProperty();
+$def->properties['widget_popwidth']->columnName   = 'widget_popwidth';
+$def->properties['widget_popwidth']->propertyName = 'widget_popwidth';
+$def->properties['widget_popwidth']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['widget_popheight'] = new ezcPersistentObjectProperty();
+$def->properties['widget_popheight']->columnName   = 'widget_popheight';
+$def->properties['widget_popheight']->propertyName = 'widget_popheight';
+$def->properties['widget_popheight']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['widget_pright'] = new ezcPersistentObjectProperty();
+$def->properties['widget_pright']->columnName   = 'widget_pright';
+$def->properties['widget_pright']->propertyName = 'widget_pright';
+$def->properties['widget_pright']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['widget_pbottom'] = new ezcPersistentObjectProperty();
+$def->properties['widget_pbottom']->columnName   = 'widget_pbottom';
+$def->properties['widget_pbottom']->propertyName = 'widget_pbottom';
+$def->properties['widget_pbottom']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('lhabstract.erlhabstractmodelwidgettheme.posdefinition',array('def' => & $def));
 
 return $def;

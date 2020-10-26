@@ -14,8 +14,11 @@ if ( isset($_POST['SendMessage']) ) {
     $validationFields['RequiresUsername'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['RequiresPhone'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['AssignToMe'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
+    $validationFields['FullWidget'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['IgnoreAutoresponder'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['CampaignId'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1) );
+
+
 
     $form = new ezcInputForm( INPUT_POST, $validationFields );    
     $Errors = array();
@@ -62,6 +65,12 @@ if ( isset($_POST['SendMessage']) ) {
         unset($onlineAttrSystem['lhc_ignore_autoresponder']);
     }
 
+    if ($form->hasValidData( 'FullWidget' ) && $form->FullWidget == true) {
+        $onlineAttrSystem['lhc_full_widget'] = 1;
+    } elseif (isset($onlineAttrSystem['lhc_full_widget'])) {
+        unset($onlineAttrSystem['lhc_full_widget']);
+    }
+    
     if (isset($onlineAttrSystem['qinv'])) {
         unset($onlineAttrSystem['qinv']);
     }

@@ -149,15 +149,18 @@ class ChatFileUploader extends PureComponent {
                 this.props.dropArea.current.ondragleave = this.onDragLeave;
                 this.props.dropArea.current.ondrop = this.onDrop;
                 document.addEventListener("paste", this.onPaste);
-
-                helperFunctions.eventEmitter.addListener('fileupload', (e) => {
-                    this.openFileDialog()
-                });
+                helperFunctions.eventEmitter.addListener('fileupload', this.openFileDialog);
             }
         }, 1000);
     }
 
     componentWillUnmount() {
+        if (this.props.dropArea.current) {
+            this.props.dropArea.current.ondragover = null;
+            this.props.dropArea.current.ondragleave = null;
+            this.props.dropArea.current.ondrop = null;
+        }
+        helperFunctions.eventEmitter.removeListener('fileupload', this.openFileDialog);
         document.removeEventListener("paste", this.onPaste);
     }
 

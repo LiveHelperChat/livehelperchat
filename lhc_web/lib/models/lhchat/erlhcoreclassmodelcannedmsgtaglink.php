@@ -104,29 +104,6 @@ class erLhcoreClassModelCannedMsgTagLink
         // Sort by tag title
         ksort($returnArray);
 
-        /*
-         * Legacy version of tags
-         *
-         * foreach ($tags as $tag) {
-
-             $cannedMessages = array();
-             foreach ($tagLinks as $tagLink) {
-                 if ($tagLink->tag_id == $tag->id) {
-                     if (isset($cannedMessagesAll[$tagLink->canned_id])) {
-                        $cannedMessages[] = $cannedMessagesAll[$tagLink->canned_id];
-                     }
-                 }
-            }
-
-            if (!empty($cannedMessages)) {
-                $tag->cnt = count($cannedMessages);
-                $returnArray[] = array(
-                    'tag' => $tag,
-                    'messages' => $cannedMessages
-                );
-            }
-        }*/
-
         return $returnArray;
     }
     
