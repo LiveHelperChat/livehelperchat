@@ -55,6 +55,8 @@ if ($tab == 'active') {
         }
     }
 
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.active_filter',array('filter' => & $filterParams));
+
     $tpl->set('input',$filterParams['input_form']);
 
     if (isset($_GET['xmlavguser'])) {
@@ -136,6 +138,8 @@ if ($tab == 'active') {
             $filterParams['filter']['filterin']['lh_chat.user_id'] = $userFilterDefault['filterin']['id'];
         }
     }
+
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.chatsstatistic_filter',array('filter' => & $filterParams));
 
     $tpl->set('input',$filterParams['input_form']);
     $tpl->set('groupby',$filterParams['input_form']->groupby == 1 ? 'Y.m.d' : ($filterParams['input_form']->groupby == 2 ? 'Y-m-d' : 'Y.m'));

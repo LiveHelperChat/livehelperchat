@@ -188,10 +188,22 @@ class erLhcoreClassChatStatistic {
                     }
 
                     if (isset($paramsExecution['charttypes']) && is_array($paramsExecution['charttypes']) && in_array('msgtype',$paramsExecution['charttypes'])) {
-                        $numberOfChats[$dateUnix]['msg_user'] = (int)erLhcoreClassChat::getCount(array_merge_recursive(array('filter' 	=> array('lh_msg.user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m\') = '. date('Ym',$dateUnix))),$msgFilter,$departmentMsgFilter),'lh_msg','count(lh_msg.id)');
-                        $numberOfChats[$dateUnix]['msg_operator'] = (int)erLhcoreClassChat::getCount(array('filtergt' => array('lh_msg.user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m\') = '. date('Ym',$dateUnix)))+$msgFilter+$departmentMsgFilter,'lh_msg','count(lh_msg.id)');
-                        $numberOfChats[$dateUnix]['msg_system'] = (int)erLhcoreClassChat::getCount(array_merge_recursive(array('filterin' => array('lh_msg.user_id' => array(-1)),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m\') = '. date('Ym',$dateUnix))),$msgFilter,$departmentMsgFilter),'lh_msg','count(lh_msg.id)');
-                        $numberOfChats[$dateUnix]['msg_bot'] = (int)erLhcoreClassChat::getCount(array_merge_recursive(array('filterin' => array('lh_msg.user_id' => array(-2)),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m\') = '. date('Ym',$dateUnix))),$msgFilter,$departmentMsgFilter),'lh_msg','count(lh_msg.id)');
+
+                        $filterOur = array_merge_recursive(array('filter' 	=> array('lh_msg.user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m\') = '. date('Ym',$dateUnix))),$msgFilter,$departmentMsgFilter);
+                        $filterOur['innerjoin'] = array_reverse($filterOur['innerjoin'],true);
+                        $numberOfChats[$dateUnix]['msg_user'] = (int)erLhcoreClassChat::getCount($filterOur,'lh_msg','count(lh_msg.id)');
+
+                        $filterOur =array_merge_recursive(array('filtergt' => array('lh_msg.user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m\') = '. date('Ym',$dateUnix))),$msgFilter,$departmentMsgFilter);
+                        $filterOur['innerjoin'] = array_reverse($filterOur['innerjoin'],true);
+                        $numberOfChats[$dateUnix]['msg_operator'] = (int)erLhcoreClassChat::getCount($filterOur,'lh_msg','count(lh_msg.id)');
+
+                        $filterOur = array_merge_recursive(array('filterin' => array('lh_msg.user_id' => array(-1)),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m\') = '. date('Ym',$dateUnix))),$msgFilter,$departmentMsgFilter);
+                        $filterOur['innerjoin'] = array_reverse($filterOur['innerjoin'],true);
+                        $numberOfChats[$dateUnix]['msg_system'] = (int)erLhcoreClassChat::getCount($filterOur,'lh_msg','count(lh_msg.id)');
+
+                        $filterOur = array_merge_recursive(array('filterin' => array('lh_msg.user_id' => array(-2)),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m\') = '. date('Ym',$dateUnix))),$msgFilter,$departmentMsgFilter);
+                        $filterOur['innerjoin'] = array_reverse($filterOur['innerjoin'],true);
+                        $numberOfChats[$dateUnix]['msg_bot'] = (int)erLhcoreClassChat::getCount($filterOur,'lh_msg','count(lh_msg.id)');
                     }
                 }
         	}
@@ -639,7 +651,7 @@ class erLhcoreClassChatStatistic {
         		$dateHour = str_pad($i , 2, '0' , STR_PAD_LEFT);
         		$numberOfChats['total'][$i] = erLhcoreClassModelChat::getCount(array_merge(array('customfilter' =>  array('FROM_UNIXTIME(time,\'%k\') = '. $dateHour)),$filter));
                 $numberOfChats['byday'][$i] = $numberOfChats['total'][$i]/$diffDays;
-                $numberOfChats['bydaymax'][$i] = erLhcoreClassModelChat::getCount(array_merge(array('sort' => 'total_records DESC', 'limit' => 1, 'group' => 'FROM_UNIXTIME(time,\'%Y%m%d\')', 'customfilter' =>  array('FROM_UNIXTIME(time,\'%k\') = '. $dateHour)),$filter),'',false,'max(time) as time, count(id) as total_records', false);
+                $numberOfChats['bydaymax'][$i] = erLhcoreClassModelChat::getCount(array_merge(array('sort' => 'total_records DESC', 'limit' => 1, 'group' => 'FROM_UNIXTIME(time,\'%Y%m%d\')', 'customfilter' =>  array('FROM_UNIXTIME(time,\'%k\') = '. $dateHour)),$filter),'',false,'max(time) as time, count(`lh_chat`.`id`) as total_records', false);
 
                 if (!isset($numberOfChats['bydaymax'][$i]['time'])){
                     $numberOfChats['bydaymax'][$i]['time'] = 0;
@@ -687,6 +699,7 @@ class erLhcoreClassChatStatistic {
             $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
 
             $generalFilter = self::formatFilter($filter);
+            $generalJoin = self::formatJoin($filter);
 
             $useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
             $appendFilterTime = '';
@@ -697,7 +710,7 @@ class erLhcoreClassChatStatistic {
                 }
             }
 
-            $sql = "SELECT count(`lh_chat`.`id`) AS number_of_chats,`lh_abstract_subject_chat`.`subject_id` FROM lh_chat INNER JOIN `lh_abstract_subject_chat` ON `lh_abstract_subject_chat`.`chat_id` = `lh_chat`.`id` WHERE {$appendFilterTime} {$generalFilter} GROUP BY `lh_abstract_subject_chat`.`subject_id` ORDER BY number_of_chats DESC LIMIT 40";
+            $sql = "SELECT count(`lh_chat`.`id`) AS number_of_chats,`lh_abstract_subject_chat`.`subject_id` FROM lh_chat INNER JOIN `lh_abstract_subject_chat` ON `lh_abstract_subject_chat`.`chat_id` = `lh_chat`.`id` {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY `lh_abstract_subject_chat`.`subject_id` ORDER BY number_of_chats DESC LIMIT 40";
 
             $db = ezcDbInstance::get();
             $stmt = $db->prepare($sql);
@@ -725,7 +738,8 @@ class erLhcoreClassChatStatistic {
     	
     	if ($statusWorkflow === false) {
         	$generalFilter = self::formatFilter($filter);
-        	 
+        	$generalJoin = self::formatJoin($filter);
+
         	$useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
         	$appendFilterTime = '';
         	 
@@ -737,7 +751,7 @@ class erLhcoreClassChatStatistic {
         		$generalFilter = ' AND '.$generalFilter;
         	}
         	
-        	$sql = "SELECT count(id) AS number_of_chats,country_name FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY country_code,country_name ORDER BY number_of_chats DESC LIMIT 40";
+        	$sql = "SELECT count(`lh_chat`.`id`) AS number_of_chats,country_name FROM lh_chat {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY country_code,country_name ORDER BY number_of_chats DESC LIMIT 40";
         	$db = ezcDbInstance::get();
         	$stmt = $db->prepare($sql);
         	
@@ -813,7 +827,8 @@ class erLhcoreClassChatStatistic {
             $filter['filtergt']['user_id'] = 0;
             
             $generalFilter = self::formatFilter($filter);
-             
+            $generalJoin = self::formatJoin($filter);
+
             $useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
             $appendFilterTime = '';
              
@@ -825,7 +840,7 @@ class erLhcoreClassChatStatistic {
                 $generalFilter = ' AND '.$generalFilter;
             }
              
-            $sql = "SELECT AVG(chat_duration) AS avg_chat_duration,user_id FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY avg_chat_duration DESC LIMIT ".$limit;
+            $sql = "SELECT AVG(chat_duration) AS avg_chat_duration,user_id FROM lh_chat {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY avg_chat_duration DESC LIMIT ".$limit;
             $db = ezcDbInstance::get();
             $stmt = $db->prepare($sql);
             
@@ -849,6 +864,7 @@ class erLhcoreClassChatStatistic {
             $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
 
             $generalFilter = self::formatFilter($filter);
+            $generalJoin = self::formatJoin($filter);
 
             $useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
             $appendFilterTime = '';
@@ -861,7 +877,7 @@ class erLhcoreClassChatStatistic {
                 $generalFilter = ' AND '.$generalFilter;
             }
 
-            $sql = "SELECT count(id) AS number_of_chats,dep_id FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY dep_id ORDER BY number_of_chats DESC LIMIT 40";
+            $sql = "SELECT count(`lh_chat`.`id`) AS number_of_chats, dep_id FROM lh_chat {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY dep_id ORDER BY number_of_chats DESC LIMIT 40";
 
             $db = ezcDbInstance::get();
             $stmt = $db->prepare($sql);
@@ -887,7 +903,8 @@ class erLhcoreClassChatStatistic {
         	$dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
         	
         	$generalFilter = self::formatFilter($filter);
-        	
+        	$generalJoin = self::formatJoin($filter);
+
         	$useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
         	$appendFilterTime = '';
         	
@@ -899,7 +916,7 @@ class erLhcoreClassChatStatistic {
         		$generalFilter = ' AND '.$generalFilter;
         	}
         	    	
-        	$sql = "SELECT count(id) AS number_of_chats,user_id FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 40";
+        	$sql = "SELECT count(`lh_chat`.`id`) AS number_of_chats,user_id FROM lh_chat {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 40";
         	
         	$db = ezcDbInstance::get();
         	$stmt = $db->prepare($sql);
@@ -927,7 +944,8 @@ class erLhcoreClassChatStatistic {
         	$filter['filterlt']['wait_time'] = 600;
         	
         	$generalFilter = self::formatFilter($filter);
-        	
+        	$generalJoin = self::formatJoin($filter);
+
         	$useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
         	$appendFilterTime = '';
         	
@@ -939,7 +957,7 @@ class erLhcoreClassChatStatistic {
         		$generalFilter = ' AND '.$generalFilter;
         	}
         	    	
-        	$sql = "SELECT avg(wait_time) AS avg_wait_time,user_id FROM lh_chat WHERE {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY avg_wait_time DESC LIMIT 40";
+        	$sql = "SELECT avg(wait_time) AS avg_wait_time,user_id FROM lh_chat {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY avg_wait_time DESC LIMIT 40";
         	        	
         	$db = ezcDbInstance::get();
         	$stmt = $db->prepare($sql);
@@ -990,7 +1008,8 @@ class erLhcoreClassChatStatistic {
             }
         	
         	$generalFilter = self::formatFilter($filter);
-        	    	 
+        	$generalJoin = self::formatJoin($filter);
+
         	$useTimeFilter = !isset($filter['filtergte']['lh_msg.time']) && !isset($filter['filterlte']['lh_msg.time']);
         	$appendFilterTime = '';
         	if ($useTimeFilter == true) {
@@ -1004,9 +1023,11 @@ class erLhcoreClassChatStatistic {
         	$sql = "SELECT count(lh_msg.id) AS number_of_chats,lh_msg.user_id 
         	FROM lh_msg 
         	INNER JOIN lh_chat ON lh_chat.id = lh_msg.chat_id
+        	{$generalJoin}
         	WHERE {$appendFilterTime} {$generalFilter} 
         	GROUP BY lh_msg.user_id 
         	ORDER BY number_of_chats DESC LIMIT 40";
+
         	$db = ezcDbInstance::get();
         	$stmt = $db->prepare($sql);
         
@@ -1021,6 +1042,19 @@ class erLhcoreClassChatStatistic {
         } else {
             return $statusWorkflow['list'];
         }
+    }
+    
+    public static function formatJoin($params) {
+        $returnFilter = array();
+        foreach ($params as $type => $params) {
+            foreach ($params as $field => $value) {
+                if ($type == 'innerjoin') {
+                    $returnFilter[] = ' INNER JOIN `'. $field . '` ON ' . $value[0] . ' = ' . $value[1];
+                }
+            }
+        }
+
+        return implode(' ', $returnFilter);
     }
     
     public static function formatFilter($params) {
@@ -1118,6 +1152,8 @@ class erLhcoreClassChatStatistic {
     	$rating = array();    
 
     	$generalFilter = self::formatFilter($filter);
+    	$generalJoin = self::formatJoin($filter);
+
     	if ($generalFilter != ''){
     		$generalFilter = ' AND '.$generalFilter;
     	}
@@ -1128,7 +1164,7 @@ class erLhcoreClassChatStatistic {
     		$appendFilterTime = ' AND time > :time ';
     	}    	
     	
-    	$sql = "SELECT count(id) AS number_of_chats,user_id FROM lh_chat WHERE fbst = 1 {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 40";
+    	$sql = "SELECT count(`lh_chat`.`id`) AS number_of_chats,user_id FROM lh_chat {$generalJoin} WHERE fbst = 1 {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 40";
     	$db = ezcDbInstance::get();
     	$stmt = $db->prepare($sql);
     	if ($useTimeFilter == true) {
@@ -1138,7 +1174,7 @@ class erLhcoreClassChatStatistic {
     	$stmt->execute();
     	$rating['thumbsup'] = $stmt->fetchAll();
     		
-    	$sql = "SELECT count(id) AS number_of_chats,user_id FROM lh_chat WHERE fbst = 2 {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 40";
+    	$sql = "SELECT count(`lh_chat`.`id`) AS number_of_chats,user_id FROM lh_chat {$generalJoin} WHERE fbst = 2 {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 40";
     	$db = ezcDbInstance::get();
     	$stmt = $db->prepare($sql);
     	if ($useTimeFilter == true) {
@@ -1148,7 +1184,7 @@ class erLhcoreClassChatStatistic {
     	$stmt->execute();
     	$rating['thumbdown'] = $stmt->fetchAll();
     		
-    	$sql = "SELECT count(id) AS number_of_chats,user_id FROM lh_chat WHERE fbst = 0 {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 40";
+    	$sql = "SELECT count(`lh_chat`.`id`) AS number_of_chats,user_id FROM lh_chat {$generalJoin} WHERE fbst = 0 {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 40";
     	$db = ezcDbInstance::get();
     	$stmt = $db->prepare($sql);
     	if ($useTimeFilter == true) {
@@ -2501,7 +2537,7 @@ class erLhcoreClassChatStatistic {
                     $attr = $filterParams['group_field'];
                 }
 
-                $justDemo = array_values(erLhcoreClassModelChat::getList(array_merge_recursive($departmentFilter,$filter,array('sort' => 'nick_count DESC', 'select_columns' => 'count(id) as nick_count', 'group' => $groupField, 'limit' => 10, 'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix))))));
+                $justDemo = array_values(erLhcoreClassModelChat::getList(array_merge_recursive($departmentFilter,$filter,array('sort' => 'nick_count DESC', 'select_columns' => 'count(`lh_chat`.`id`) as nick_count', 'group' => $groupField, 'limit' => 10, 'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix))))));
 
                 $returnArray = array();
 

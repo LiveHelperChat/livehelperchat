@@ -366,6 +366,10 @@ class erLhcoreClassChat {
 
     public static function getCount($params = array(), $table = 'lh_chat', $operation = 'COUNT(id)')
     {
+        if ($table == 'lh_chat' && $operation == 'COUNT(id)') {
+            $operation = 'count(`lh_chat`.`id`)';
+        }
+
     	$session = erLhcoreClassChat::getSession();
     	$q = $session->database->createSelectQuery();
     	$q->select( $operation )->from( $table );
