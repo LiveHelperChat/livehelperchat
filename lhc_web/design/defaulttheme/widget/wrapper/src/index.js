@@ -152,7 +152,7 @@
 
             if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
 
-                var containerChatObj = new containerChat(attributesWidget.prefixLowercase);
+                var containerChatObj = new containerChat(attributesWidget.prefixLowercase,LHC_API.args.pnode || null);
 
                 attributesWidget.viewHandler = new statusWidget(attributesWidget.prefixLowercase);
                 containerChatObj.cont.elmDom.appendChild(attributesWidget.viewHandler.cont.constructUI(),!0);
