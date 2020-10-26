@@ -501,6 +501,12 @@ function lh(){
 
     this.holdAction = function(chat_id, inst) {
 
+        var textArea = $("#CSChatMessage-"+chat_id);
+
+        if (textArea.is("[readonly]")) {
+            return;
+        }
+        
     	var _this  = this;
         $.postJSON(this.wwwDir + 'chat/holdaction/' + chat_id, function(data) {
             if (data.error == false) {

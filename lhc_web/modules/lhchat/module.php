@@ -614,6 +614,7 @@ $FunctionList['administrateconfig'] = array('explain' =>'Allow to change chat co
 $FunctionList['allowclearonlinelist'] = array('explain' =>'Allow operator to clean online users list');
 $FunctionList['administratecannedmsg'] = array('explain' =>'Allow operator change canned messages');
 $FunctionList['allowopenremotechat'] = array('explain' =>'Allow operator to open other operators chats from same department');
+$FunctionList['writeremotechat'] = array('explain' =>'Allow operator to write to another operator chat');
 $FunctionList['allowreopenremote'] = array('explain' =>'Allow operator to reopen other operators chats');
 $FunctionList['allowtransfertoanyuser'] = array('explain' =>'Allow operator to transfer chat to any online operator, not only his own department users');
 $FunctionList['allowtransferdirectly'] = array('explain' =>'Allow operator to transfer chat directly to other operator');

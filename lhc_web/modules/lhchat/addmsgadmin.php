@@ -15,8 +15,7 @@ if (trim($form->msg) != '')
 	try {
 		$Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 
-
-	    if ($Chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRead($Chat) )
+	    if ($Chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRead($Chat) && erLhcoreClassChat::hasAccessToWrite($Chat) && ($Chat->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT || $Chat->user_id == 0 || $Chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lhchat','writeremotechat')))
 	    {
 	        $currentUser = erLhcoreClassUser::instance();
 	
@@ -197,7 +196,7 @@ if (trim($form->msg) != '')
 	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg,'chat' => & $Chat, 'ou' => (isset($onlineuser) ? $onlineuser : null)));
 
 	    } else {
-	        throw new Exception('You cannot read this chat!');
+	        throw new Exception('You cannot read/write to this chat!');
         }
 
 	    $db->commit();

@@ -1903,6 +1903,7 @@ class Install
                 array('module' => 'lhchat',  'function' => 'chattabschrome'),
                 array('module' => 'lhchat',  'function' => 'singlechatwindow'),
                 array('module' => 'lhchat',  'function' => 'allowopenremotechat'),
+                array('module' => 'lhchat',  'function' => 'writeremotechat'),
                 array('module' => 'lhchat',  'function' => 'allowchattabs'),
                 array('module' => 'lhchat',  'function' => 'use_onlineusers'),
                 array('module' => 'lhchat',  'function' => 'take_screenshot'),
