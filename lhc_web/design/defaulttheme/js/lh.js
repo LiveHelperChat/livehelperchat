@@ -231,6 +231,7 @@ function lh(){
             }
 
             var msgId = $(this).attr('id').replace('msg-','');
+            var isOwner = $(this).attr('data-op-id') == confLH.user_id;
 
             var quoteParams = {
                 placement:'right',
@@ -240,7 +241,7 @@ function lh(){
                 container:'#chat-id-'+e.data.chat_id,
                 template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>',
                 content:function(){
-                    return '<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>Quote</a>'+(hasSelection ? '<br/><a href="#" id="copy-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>Copy (Ctrl+C)</a>' : '');
+                    return '<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>'+confLH.transLation.quote+'</a>'+ (isOwner ? '<br/><a href="#" id="edit-popover-'+e.data.chat_id+'" ><i class="material-icons">edit</i>'+confLH.transLation.edit+'</a>' : '') + (hasSelection ? '<br/><a href="#" id="copy-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy+' (Ctrl+C)</a>' : '');
                 }
             }
 
@@ -251,10 +252,26 @@ function lh(){
             $('#copy-popover-'+e.data.chat_id).click(function(event){
                 event.stopPropagation();
                 event.preventDefault();
-                $.getJSON(e.data.that.wwwDir + 'chat/quotemessage/'+msgId, function(data){
+                $.getJSON(e.data.that.wwwDir + 'chat/quotemessage/' + msgId, function(data){
                     data.msg && e.data.that.insertTextToMessageArea(e.data.chat_id, data.msg);
                     e.data.that.hidePopover();
                 });
+            });
+
+            isOwner && $('#edit-popover-'+e.data.chat_id).click(function(event){
+                event.stopPropagation();
+                event.preventDefault();
+                $.getJSON(e.data.that.wwwDir + 'chat/editprevious/' + e.data.chat_id + '/' + msgId, function(data){
+                    if (data.error == 'f') {
+                        var textArea = $('#CSChatMessage-'+e.data.chat_id);
+                        textArea.val(data.msg).attr('data-msgid',data.id).addClass('edit-mode');
+                        $('#msg-'+data.id).addClass('edit-mode');
+                        textArea.focus();
+                    } else {
+                        alert(data.error);
+                    }
+                });
+                e.data.that.hidePopover();
             });
 
             hasSelection && $('#copy-text-popover-'+e.data.chat_id).click(function(event){
@@ -309,7 +326,7 @@ function lh(){
                 html:true,
                 container:'#chat-id-'+e.data.chat_id,
                 template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>',
-                content:function(){return '<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>Quote</a>'; }
+                content:function(){return '<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>'+confLH.transLation.quote+'</a>'; }
             }
 
             ee.emitEvent('quoteAction', [quoteParams,e.data.chat_id]);
@@ -333,11 +350,9 @@ function lh(){
     this.addQuateHandler = function(chat_id)
     {
         this.popoverShown = false;
-        $('#messagesBlock-'+chat_id+' .message-row').off('mouseup',lhinst.mouseClicked);
-        $('#messagesBlock-'+chat_id+' .message-row').off('contextmenu',lhinst.mouseContextMenu);
-
-        $('#messagesBlock-'+chat_id+' .message-row').on('mouseup',{chat_id:chat_id, that : this}, lhinst.mouseClicked);
-        $('#messagesBlock-'+chat_id+' .message-row').on('contextmenu', {chat_id:chat_id, that : this}, lhinst.mouseContextMenu);
+        $('#messagesBlock-'+chat_id+' > .message-row:not([qt])')
+            .on('mouseup',{chat_id:chat_id, that : this}, lhinst.mouseClicked)
+            .on('contextmenu', {chat_id:chat_id, that : this}, lhinst.mouseContextMenu).attr('qt',1);
     }
 
     this.getSelectedTextPlain = function() {
@@ -2445,6 +2460,8 @@ function lh(){
 		        	};
 
 		        	ee.emitEvent('chatAddMsgAdmin', [chat_id]);
+
+                    lhinst.addQuateHandler(chat_id);
 
 					return true;
 				}

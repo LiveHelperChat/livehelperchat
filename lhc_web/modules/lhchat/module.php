@@ -95,7 +95,7 @@ $ViewList['changestatus'] = array(
 );
 
 $ViewList['editprevious'] = array(
-    'params' => array('chat_id'),
+    'params' => array('chat_id','msg_id'),
     'uparams' => array(),
     'functions' => array( 'use' )
 );

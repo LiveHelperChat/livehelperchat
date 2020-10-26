@@ -8,7 +8,15 @@ var confLH = {};
 <?php $soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data_value; ?>
 confLH.back_office_sinterval = <?php echo (int)($soundData['back_office_sinterval']*1000) ?>;
 confLH.chat_message_sinterval = <?php echo (int)($soundData['chat_message_sinterval']*1000) ?>;
-confLH.transLation = {'sending' : '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Sending...')?>','delete_confirm':'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Are you sure you want to delete this chat?')?>','new_chat':'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New chat request')?>','transfered':'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New chat has been transferred to you directly!')?>'};
+confLH.transLation = <?php echo json_encode(array(
+            'sending' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Sending...'),
+            'delete_confirm' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Are you sure you want to delete this chat?'),
+            'new_chat' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New chat request'),
+            'transfered' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New chat has been transferred to you directly!'),
+            'edit' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Edit'),
+            'quote' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Quote'),
+            'copy' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Copy')
+)); ?>;
 confLH.new_message_sound_user_enabled = <?php echo (int)erLhcoreClassModelUserSetting::getSetting('chat_message',(int)($soundData['new_message_sound_user_enabled'])) ?>;
 <?php if (!isset($Result['anonymous'])) : ?>
 confLH.csrf_token = '<?php echo erLhcoreClassUser::instance()->getCSFRToken()?>';

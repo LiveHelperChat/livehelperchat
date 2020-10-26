@@ -50,8 +50,10 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
 			    $Chat->operation .= "lhinst.updateMessageRow({$msg->id});\n";
 			    $Chat->updateThis(array('update' => array('operation')));
 			    
-		        echo erLhcoreClassChat::safe_json_encode(array('error' => 'f','msg' => trim($tpl->fetch())));
-	        }	        
+		        echo erLhcoreClassChat::safe_json_encode(array('error' => 'f', 'msg' => trim($tpl->fetch())));
+	        } else {
+                echo erLhcoreClassChat::safe_json_encode(array('error' => 't', 'result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You can edit only your own messages!')));
+            }
 	    }   
 	     	    
 	    $db->commit();
