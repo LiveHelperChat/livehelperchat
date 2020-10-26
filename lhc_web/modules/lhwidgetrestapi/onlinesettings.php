@@ -10,6 +10,10 @@ foreach ($requestPayload as $attr => $attrValue) {
     $Params['user_parameters_unordered'][$attr] = $attrValue;
 }
 
+if (!isset($Params['user_parameters_unordered']['online'])) {
+    $Params['user_parameters_unordered']['online'] = 1;
+}
+
 $chat_ui = array();
 $paidSettings = array();
 

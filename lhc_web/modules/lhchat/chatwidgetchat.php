@@ -45,6 +45,10 @@ try {
     
     $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
 
+    if (!($chat instanceof erLhcoreClassModelChat)) {
+        throw new Exception('Chat not found!');
+    }
+
     erLhcoreClassChat::setTimeZoneByChat($chat);
  
     if (is_numeric($Params['user_parameters_unordered']['pchat'])) {

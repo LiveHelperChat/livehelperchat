@@ -82,13 +82,13 @@ if (empty($Errors)) {
     if (!isset($restAPI['ignore_geo']) || $restAPI['ignore_geo'] === false) {
         $statusGeoAdjustment = erLhcoreClassChat::getAdjustment(erLhcoreClassModelChatConfig::fetch('geoadjustment_data')->data_value, $inputData->vid);
 
-        if ($statusGeoAdjustment['status'] == 'hidden') { // This should never happen
+        if ($statusGeoAdjustment['status'] == 'hidden') {
             $outputResponse = array (
                 'success' => false,
-                'errors' => 'Chat not available in your country'
+                'errors' => ['Chat not available in your country']
             );
 
-            erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
+            erLhcoreClassRestAPIHandler::outputResponse($outputResponse, 'json', JSON_FORCE_OBJECT);
             exit;
         }
     }
@@ -126,7 +126,14 @@ if (empty($Errors)) {
         $db = ezcDbInstance::get();
         $db->beginTransaction();
 
-        // Store chat
+        // Reopen old chat if enabled
+        if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 && $inputData->vid != '' && erLhcoreClassModelChatConfig::fetch('reopen_chat_enabled')->current_value == 1 && ($onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($inputData->vid)) instanceof erLhcoreClassModelChatOnlineUser ) {
+            erLhcoreClassChat::reopenChatWidgetV2($onlineUser, $chat, array(
+                'open_closed_chat_timeout' => erLhcoreClassModelChatConfig::fetch('open_closed_chat_timeout')->current_value,
+                'reopen_closed' => erLhcoreClassModelChatConfig::fetch('allow_reopen_closed')->current_value
+            ));
+        }
+
         $chat->saveThis();
 
         if (isset($restAPI) && isset($requestPayload['messages']) && is_array($requestPayload['messages'])) {
@@ -403,6 +410,7 @@ if (empty($Errors)) {
     );
 
 } else {
+    $optionsJson = JSON_FORCE_OBJECT;
     $outputResponse = array (
         'success' => false,
         'errors' => $Errors
@@ -410,7 +418,7 @@ if (empty($Errors)) {
 }
 
 if (!isset($restAPI)) {
-    erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
+    erLhcoreClassRestAPIHandler::outputResponse($outputResponse, 'json', isset($optionsJson) ? $optionsJson : 0);
 
     if ($validStart === true) {
 

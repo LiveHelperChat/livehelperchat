@@ -71,7 +71,7 @@ class _proactiveChat {
             var th = document.getElementsByTagName('head')[0];
             var s = document.createElement('script');
             s.setAttribute('type','text/javascript');
-            s.setAttribute('src', LHC_API.args.lhc_base_url + this.attributes['lang'] + 'chat/htmlsnippet/'+params.invitation+'/inv/0/?ts='+Date.now());
+            s.setAttribute('src', this.attributes.LHC_API.args.lhc_base_url + this.attributes['lang'] + 'chat/htmlsnippet/'+params.invitation+'/inv/0/?ts='+Date.now());
             th.appendChild(s);
         }
 
@@ -92,7 +92,7 @@ class _proactiveChat {
     storeEvents(events) {
         const chatParams = this.attributes['userSession'].getSessionAttributes();
         if (!chatParams['id'] && this.attributes['onlineStatus'].value == true) {
-            helperFunctions.makeRequest(LHC_API.args.lhc_base_url + this.attributes['lang'] + 'chat/logevent/(vid)/' + this.attributes.userSession.getVID(), {params: {'data' : JSON.stringify(events)}}, (data) => {
+            helperFunctions.makeRequest(this.attributes.LHC_API.args.lhc_base_url + this.attributes['lang'] + 'chat/logevent/(vid)/' + this.attributes.userSession.getVID(), {params: {'data' : JSON.stringify(events)}}, (data) => {
                 this.initInvitation({init: 0});
             })
         }
@@ -119,12 +119,12 @@ class _proactiveChat {
                 'dep': this.attributes.department.join(',')
             };
 
-            if (LHC_API.args.priority) {
-                params['priority'] = LHC_API.args.priority;
+            if (this.attributes.LHC_API.args.priority) {
+                params['priority'] = this.attributes.LHC_API.args.priority;
             }
 
-            if (LHC_API.args.operator) {
-                params['operator'] = LHC_API.args.operator;
+            if (this.attributes.LHC_API.args.operator) {
+                params['operator'] = this.attributes.LHC_API.args.operator;
             }
 
             if (this.attributes['identifier']) {
@@ -141,7 +141,7 @@ class _proactiveChat {
 
             this.initCall = false;
 
-            helperFunctions.makeRequest(LHC_API.args.lhc_base_url + this.attributes['lang'] + 'widgetrestapi/checkinvitation', {params: params}, (data) => {
+            helperFunctions.makeRequest(this.attributes.LHC_API.args.lhc_base_url + this.attributes['lang'] + 'widgetrestapi/checkinvitation', {params: params}, (data) => {
 
                 this.inProgress = false;
                 
@@ -151,7 +151,7 @@ class _proactiveChat {
                         this.showInvitation(params, init);
                     }, this.attributes.widgetStatus.value === true ? 0 : (data.delay || 0));
                 } else {
-                    if (LHC_API.args.check_messages) {
+                    if (this.attributes.LHC_API.args.check_messages) {
                         this.checkMessageTimeout = setTimeout(() => {
                             this.initInvitation({init: 0});
                         },this.params['interval'] * 1000);

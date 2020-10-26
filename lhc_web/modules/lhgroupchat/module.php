@@ -12,6 +12,13 @@ $ViewList['loadgroupchat'] = array(
     'multiple_arguments' => array()
 );
 
+$ViewList['loadpublichat'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' ),
+    'multiple_arguments' => array()
+);
+
 $ViewList['loadpreviousmessages'] = array(
     'params' => array('id','msg_id'),
     'uparams' => array('initial'),
@@ -49,12 +56,18 @@ $ViewList['addmessage'] = array(
 
 $ViewList['sync'] = array(
     'params' => array(),
-    'uparams' => array(),
+    'uparams' => array('opt'),
     'functions' => array( 'use' ),
     'multiple_arguments' => array()
 );
 
 $ViewList['list'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'manage' )
+);
+
+$ViewList['options'] = array(
     'params' => array(),
     'uparams' => array(),
     'functions' => array( 'manage' )

@@ -16,7 +16,7 @@ if (erLhcoreClassModelChatConfig::fetchCache('list_online_operators')->current_v
 }
 
 // Update last visit
-$currentUser->updateLastVisit();
+$currentUser->updateLastVisit((int)$Params['user_parameters_unordered']['lda']);
 
 // We do not need a session anymore
 session_write_close();
@@ -208,7 +208,7 @@ if ($currentUser->hasAccessTo('lhgroupchat','use')) {
 
     $chats = erLhcoreClassModelGroupChat::getList(array('limit' => $limitList, 'filter' => array('type' => 0)));
 
-    $memberOf = erLhcoreClassModelGroupChatMember::getList(array('sort' => 'jtime ASC', 'filter' => array('user_id' => $currentUser->getUserID())));
+    $memberOf = erLhcoreClassModelGroupChatMember::getList(array('sort' => 'jtime ASC', 'filter' => array('type' => erLhcoreClassModelGroupChatMember::NORMAL_CHAT, 'user_id' => $currentUser->getUserID())));
 
     $groupsPrivates = array();
     $groupsPrivateMembers = array();
@@ -221,7 +221,7 @@ if ($currentUser->hasAccessTo('lhgroupchat','use')) {
     }
 
     if (!empty($groupsPrivates)) {
-        $chatsPrivate = erLhcoreClassModelGroupChat::getList(array('limit' => $limitList, 'filterin' => array('id' => $groupsPrivates)));
+        $chatsPrivate = erLhcoreClassModelGroupChat::getList(array('limit' => $limitList, 'filter' => array('type' => erLhcoreClassModelGroupChat::PRIVATE_CHAT), 'filterin' => array('id' => $groupsPrivates)));
         $chats = $chatsPrivate + $chats;
     }
 
@@ -233,6 +233,19 @@ if ($currentUser->hasAccessTo('lhgroupchat','use')) {
 
     $ReturnMessages['group_chats'] = array('list' => array_values($chats));
 
+    $memberOfSupportChat = erLhcoreClassModelGroupChatMember::getList(array('sort' => 'jtime ASC', 'filter' => array('type' => erLhcoreClassModelGroupChatMember::SUPPORT_CHAT, 'jtime' => 0, 'user_id' => $currentUser->getUserID())));
+    if (!empty($memberOfSupportChat)) {
+        $supportChats = [];
+        foreach ($memberOfSupportChat as $supportChatMember){
+            $supportChats[] = $supportChatMember->group_id;
+        }
+        if (!empty($supportChats)) {
+            $supportGroupChats = erLhcoreClassModelGroupChat::getList(array('filterin' => array('id' => $supportChats)));
+            foreach ($supportGroupChats as $supportChat) {
+                $ReturnMessages['support_chats']['list'][] = ['chat_id' => $supportChat->chat_id];
+            }
+        }
+    }
 }
 
 if ($myChatsEnabled == true) {
@@ -695,7 +708,7 @@ if ($userData->operation_admin != '') {
     erLhcoreClassUser::getSession()->update($userData);
 }
 
-$responseSync = array('v' => $version, 'error' => 'false', 'mac' => $my_active_chats, 'a_on' => $userData->always_on, 'ou' => $ou, 'result' => $ReturnMessages, 'ho' => $userData->hide_online, 'im' => $userData->invisible_mode);
+$responseSync = array('v' => $version, 'error' => 'false', 'mac' => $my_active_chats, 'ina' => $userData->inactive_mode, 'a_on' => $userData->always_on, 'ou' => $ou, 'result' => $ReturnMessages, 'ho' => $userData->hide_online, 'im' => $userData->invisible_mode);
 
 if (isset($currentOp) && $currentOp !== null) {
     $responseSync['ho'] = $currentOp->hide_online;

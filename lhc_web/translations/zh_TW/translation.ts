@@ -670,6 +670,10 @@
       <translation>客服人員訊息樣式</translation>
     </message>
     <message>
+      <source>Override embed code settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Build your own need help widget layout</source>
       <translation>建立自己的需要幫助小部件佈局</translation>
     </message>
@@ -908,6 +912,10 @@
     <message>
       <source>If variable is not passed should we keep previously recorded value?</source>
       <translation>如果未傳遞變量，我們應該保留以前記錄的值嗎？</translation>
+    </message>
+    <message>
+      <source>This variable is invisible for operator and will be stored in chat_variables attribute</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invitation message width</source>
@@ -1342,6 +1350,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat is unavailable and offline form is disabled.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
       <translation>不允許訪客通過按向上箭頭來編輯上一條信息</translation>
     </message>
@@ -1423,6 +1435,10 @@
     </message>
     <message>
       <source>Show operator profile in a new row</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable embed code override</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1667,6 +1683,14 @@
     <message>
       <source>Variable identifier</source>
       <translation>變量識別碼</translation>
+    </message>
+    <message>
+      <source>Variable changed from [b]{old_val}[/b] to [b]{new_val}[/b]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Log message for for variable. Variables you can use {old_val}, {new_val}</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Variable type</source>
@@ -2068,6 +2092,10 @@
       <translation>不要處理內部頁面並使用重定向。</translation>
     </message>
     <message>
+      <source>Disable start chat URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Online form settings</source>
       <translation>在線表單設定</translation>
     </message>
@@ -2291,6 +2319,14 @@
       <translation>搜尋</translation>
     </message>
     <message>
+      <source>CSV</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select department</source>
       <translation>選擇部門</translation>
     </message>
@@ -2373,6 +2409,10 @@
     <message>
       <source>Active chats</source>
       <translation>進行中交談</translation>
+    </message>
+    <message>
+      <source>Bot chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Closed chats</source>
@@ -2862,6 +2902,10 @@
     <message>
       <source>Name</source>
       <translation>名字</translation>
+    </message>
+    <message>
+      <source>Department, if you do not choose command will be available to all departments.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Group</source>
@@ -3380,6 +3424,10 @@
       <translation>您確定要刪除此聊天嗎？</translation>
     </message>
     <message>
+      <source>Mobile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Auto responder got error</source>
       <translation>自動應答器錯誤</translation>
     </message>
@@ -3422,6 +3470,34 @@
   </context>
   <context>
     <name>system/htmlcode</name>
+    <message>
+      <source>Bottom right corner of the screen</source>
+      <translation>在螢幕的右下角</translation>
+    </message>
+    <message>
+      <source>Bottom left corner of the screen</source>
+      <translation>在螢幕的左下角</translation>
+    </message>
+    <message>
+      <source>Middle right side of the screen</source>
+      <translation>螢幕中間右側</translation>
+    </message>
+    <message>
+      <source>Middle left side of the screen</source>
+      <translation>螢幕中間左側</translation>
+    </message>
+    <message>
+      <source>Full height right</source>
+      <translation>右全高</translation>
+    </message>
+    <message>
+      <source>Full height left</source>
+      <translation>左全高</translation>
+    </message>
+    <message>
+      <source>no survey</source>
+      <translation>沒有調查</translation>
+    </message>
     <message>
       <source>HTML code</source>
       <translation>HTML 代碼</translation>
@@ -3521,22 +3597,6 @@
     <message>
       <source>Position</source>
       <translation>位置</translation>
-    </message>
-    <message>
-      <source>Bottom right corner of the screen</source>
-      <translation>在螢幕的右下角</translation>
-    </message>
-    <message>
-      <source>Bottom left corner of the screen</source>
-      <translation>在螢幕的左下角</translation>
-    </message>
-    <message>
-      <source>Middle right side of the screen</source>
-      <translation>螢幕中間右側</translation>
-    </message>
-    <message>
-      <source>Middle left side of the screen</source>
-      <translation>螢幕中間左側</translation>
     </message>
     <message>
       <source>Disable responsive layout for status widget.</source>
@@ -3735,14 +3795,6 @@
       <translation>不可見，僅包含JS API</translation>
     </message>
     <message>
-      <source>Full height right</source>
-      <translation>右全高</translation>
-    </message>
-    <message>
-      <source>Full height left</source>
-      <translation>左全高</translation>
-    </message>
-    <message>
       <source>Popup window width</source>
       <translation>快顯視窗寬度</translation>
     </message>
@@ -3777,10 +3829,6 @@
     <message>
       <source>Identifier – enter a unique identifier here. This is useful for separating messages and proactive chat invitations from different domains/web pages. Enter a string without special characters or spaces such as “homepage” or “website1”.</source>
       <translation>標識符–在此輸入唯一標識符。 這對於區分來自不同域/網頁的信息和主動聊天邀請很有用。 輸入不包含特殊字符或空格的字符串，例如“ homepage”或“ website1”。</translation>
-    </message>
-    <message>
-      <source>no survey</source>
-      <translation>沒有調查</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
@@ -3819,7 +3867,47 @@
       <translation>Widget 位置</translation>
     </message>
     <message>
+      <source>Widget position placement.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom right</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Middle right</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Middle left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom right, full height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom left, full height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hash arguments. Visitor will not be able to change passed arguments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show a leave a message form when there are no online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget status position from right or left depending on main position. E.g 10 or -10</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget status position from bottom. E.g 10 or -10</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3910,6 +3998,14 @@
     <message>
       <source>User is typing now...</source>
       <translation>訪客輸入訊息中...</translation>
+    </message>
+    <message>
+      <source>Write</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Preview</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You are not chat owner, type with caution</source>
@@ -4085,10 +4181,6 @@
   </context>
   <context>
     <name>chat/blockedusers</name>
-    <message>
-      <source>Users who are blocked</source>
-      <translation>被封鎖的訪客</translation>
-    </message>
     <message>
       <source>IP</source>
       <translation>IP</translation>
@@ -4352,8 +4444,8 @@
       <translation>通知有關人員之前, 聊天可以等待多少秒</translation>
     </message>
     <message>
-      <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
-      <translation>通知用戶未讀信息, 如果信息待處理待了（秒）</translation>
+      <source>Inform about unread messages if from last unread user message has passed (seconds)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter value in seconds</source>
@@ -4460,6 +4552,22 @@
       <translation>尼克，客服人員尼克應該是什麼。 例如支持機器人</translation>
     </message>
     <message>
+      <source>Command, do not add ! prefix</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Priority</source>
       <translation>優先順序</translation>
     </message>
@@ -4482,6 +4590,10 @@
     <message>
       <source>Private</source>
       <translation>私人</translation>
+    </message>
+    <message>
+      <source>Event</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Monday</source>
@@ -4534,10 +4646,6 @@
   </context>
   <context>
     <name>chat/startchat</name>
-    <message>
-      <source>Offline</source>
-      <translation>離線</translation>
-    </message>
     <message>
       <source>Chat is currently unavailable</source>
       <translation>交談目前不可用</translation>
@@ -4669,6 +4777,10 @@
     <message>
       <source>Department</source>
       <translation>部門</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation>離線</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
@@ -4889,6 +5001,10 @@
     <message>
       <source>Fill in the form to start a chat</source>
       <translation>填寫表單開始交談</translation>
+    </message>
+    <message>
+      <source>You have subscribed to new messages notifications!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enter a message</source>
@@ -5612,6 +5728,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat is currently unavailable. Please try again later.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor has been redirected to contact form</source>
       <translation>訪客已被重新定位至連絡人表單</translation>
     </message>
@@ -5668,6 +5788,10 @@
     <message>
       <source>Change my persistent status to online</source>
       <translation>將我的永久狀態更改為在線</translation>
+    </message>
+    <message>
+      <source>Send chat</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -6707,6 +6831,10 @@
       <translation>REST API 呼叫</translation>
     </message>
     <message>
+      <source>Commands</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Browse offers embed code</source>
       <translation>Browse offers embed code</translation>
     </message>
@@ -6947,6 +7075,10 @@
       <translation>用戶動作</translation>
     </message>
     <message>
+      <source>Webhooks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>XMPP settings</source>
       <translation>XMPP 設定</translation>
     </message>
@@ -7179,6 +7311,10 @@
     <message>
       <source>Chats list</source>
       <translation>交談列表</translation>
+    </message>
+    <message>
+      <source>Commands</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Bots</source>
@@ -7639,6 +7775,10 @@
       <translation>請先選擇統計參數！</translation>
     </message>
     <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Updated</source>
       <translation>已更新</translation>
     </message>
@@ -7807,8 +7947,8 @@
       <translation>已完成交談總數</translation>
     </message>
     <message>
-      <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>訊息總數 ( 包含訪客，系統與客服訊息 )</translation>
+      <source>Total messages (including visitors, system and operator messages)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages (only operators)</source>
@@ -8185,6 +8325,10 @@
   <context>
     <name>user/account</name>
     <message>
+      <source>Read Only</source>
+      <translation>唯讀</translation>
+    </message>
+    <message>
       <source>Name</source>
       <translation>名稱</translation>
     </message>
@@ -8393,12 +8537,16 @@
       <translation>個別部門</translation>
     </message>
     <message>
+      <source>Assign as operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Read only</source>
       <translation>唯讀</translation>
     </message>
     <message>
-      <source>Read Only</source>
-      <translation>唯讀</translation>
+      <source>Assign in read only mode</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments groups</source>
@@ -8839,6 +8987,18 @@
       <translation>刪除</translation>
     </message>
     <message>
+      <source>Command</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>名字</translation>
     </message>
@@ -9180,6 +9340,10 @@
       <translation>新機器人</translation>
     </message>
     <message>
+      <source>New command</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New exception group</source>
       <translation>新的例外群組</translation>
     </message>
@@ -9213,6 +9377,18 @@
     <message>
       <source>Ask a question</source>
       <translation>問一個問題</translation>
+    </message>
+    <message>
+      <source>Keyword</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No items were found</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Type your question</source>
@@ -9628,12 +9804,16 @@
       <translation>下載</translation>
     </message>
     <message>
-      <source>Bot list</source>
-      <translation>機器人列表</translation>
+      <source>Commands list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New</source>
       <translation>新增</translation>
+    </message>
+    <message>
+      <source>Bot list</source>
+      <translation>機器人列表</translation>
     </message>
     <message>
       <source>Import</source>
@@ -9805,6 +9985,14 @@
       <source>User edit</source>
       <translation>使用者編輯</translation>
     </message>
+    <message>
+      <source>Invalid email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid chat!</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>genericbot/restapi</name>
@@ -9869,8 +10057,16 @@
       <translation>輸出解析</translation>
     </message>
     <message>
+      <source>Conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You can put visitor message as placeholder</source>
       <translation>您可以將訪客信息作為佔位符</translation>
+    </message>
+    <message>
+      <source>all chat messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Add param</source>
@@ -9899,6 +10095,26 @@
     <message>
       <source>Query Params</source>
       <translation>查詢參數</translation>
+    </message>
+    <message>
+      <source>Only if these conditions are met we will send Rest API request. Usefull in webhook cases.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add condition</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for presence of variable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text like</source>
+      <translation>文字像</translation>
+    </message>
+    <message>
+      <source>Text not like</source>
+      <translation>文字像</translation>
     </message>
     <message>
       <source>Request Body</source>
@@ -10017,18 +10233,6 @@
       <translation>回應比較</translation>
     </message>
     <message>
-      <source>Check for presence of variable</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Text like</source>
-      <translation>文字像</translation>
-    </message>
-    <message>
-      <source>Text not like</source>
-      <translation>文字像</translation>
-    </message>
-    <message>
       <source>Comparison value</source>
       <translation>比較值</translation>
     </message>
@@ -10084,6 +10288,53 @@
     <message>
       <source>Go to page</source>
       <translation>轉到頁面</translation>
+    </message>
+  </context>
+  <context>
+    <name>module/fbmessenger</name>
+    <message>
+      <source>Edit session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Token</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last error</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Device type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created on</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated on</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -11290,6 +11541,125 @@
     </message>
   </context>
   <context>
+    <name>system/etracking</name>
+    <message>
+      <source>Events Tracking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable Events Tracking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable tracking only to selected departments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Javascript to execute on event. {{eventCategory}}, {{eventAction}}, {{eventLabel}}, {{eventInternal}} you can use as placeholders.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose one of the possible templates</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Google Analytics</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Track this event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status was clicked</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Category</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Event action</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Event label</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you leave empty we will set automatically invitation name.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation hide</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source> Called if invitation was in full widget and widget was minimised or visitor clicked close icon in invitation tooltip</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation clicked. Visitor clicked invitation tooltip. It is not triggered if it just clicks status icon while invitation tooltip is shown.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation was read. Means visitor opened widget with an invitation either by clicking invitation tooltip or status icon.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help was shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help was hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help was clicked</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help close icon was clicked</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot trigger was executed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We will set eventLabel to trigger name</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
@@ -12182,8 +12552,8 @@
       <translation>找不到 Hash 或 Hash 已使用</translation>
     </message>
     <message>
-      <source>Password remind - new password</source>
-      <translation>密碼提醒 - 新的密碼</translation>
+      <source>Password reminder - new password</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New password:</source>
@@ -12250,6 +12620,10 @@
   </context>
   <context>
     <name>abstract/product</name>
+    <message>
+      <source>ID</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Name</source>
       <translation>名稱</translation>
@@ -12323,6 +12697,14 @@
   </context>
   <context>
     <name>chat/chatcommand</name>
+    <message>
+      <source>was executed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned trigger could not be found</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Nick changed!</source>
       <translation>暱稱已更改！</translation>
@@ -12534,6 +12916,10 @@
       <translation>備註</translation>
     </message>
     <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Additional data</source>
       <translation>附加資訊</translation>
     </message>
@@ -12702,6 +13088,18 @@
     <message>
       <source>Please enter exception group name!</source>
       <translation>請輸入例外群組名稱！</translation>
+    </message>
+    <message>
+      <source>Please enter a command!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a bot!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a trigger!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter chat id!</source>
@@ -13049,6 +13447,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Disabled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department is disabled!</source>
       <translation type="unfinished"/>
     </message>
@@ -13085,6 +13487,13 @@
     <message>
       <source>User has edited his last message</source>
       <translation>使用者已編輯他的上個訊息</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/usertyping</name>
+    <message>
+      <source>is typing...</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -13135,6 +13544,10 @@
       <translation>新增</translation>
     </message>
     <message>
+      <source>Commands</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Translations groups</source>
       <translation>翻譯群組</translation>
     </message>
@@ -13148,6 +13561,10 @@
     <message>
       <source>Bots</source>
       <translation>機器人</translation>
+    </message>
+    <message>
+      <source>Commands</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Exceptions</source>
@@ -13190,6 +13607,32 @@
     </message>
   </context>
   <context>
+    <name>mobile/settings</name>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mobile</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>mobile/sessions</name>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>notifications/index</name>
     <message>
       <source>Notifications</source>
@@ -13216,6 +13659,13 @@
     <message>
       <source>Visitor has been redirected back to chat!</source>
       <translation>訪客已被重定向回交談！</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/settings</name>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -13252,129 +13702,48 @@
     </message>
   </context>
   <context>
-    <name>module/fbmessenger</name>
+    <name>canned/import</name>
     <message>
-      <source>Edit session</source>
+      <source>Updated</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Token</source>
+      <source>Imported</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Device</source>
+      <source>Removed</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>User ID</source>
+      <source>Remove old canned messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Status</source>
+      <source>If you do not check we will try to update existing records without removing all records.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Last error</source>
+      <source>Import</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Sessions</source>
+      <source>Expected columns does not match!</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Device type</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Created on</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Updated on</source>
+      <source>Invalid file format</source>
       <translation type="unfinished"/>
     </message>
   </context>
   <context>
-    <name>mobile/settings</name>
+    <name>webhooks/module</name>
     <message>
-      <source>Settings</source>
+      <source>Webhooks list</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Sessions</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit session</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Mobile</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>mobile/sessions</name>
-    <message>
-      <source>Sessions</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/usertyping</name>
-    <message>
-      <source>is typing...</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>system/etracking</name>
-    <message>
-      <source>Events Tracking</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enable Events Tracking</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enable events tracking only for these departments. If not selected to all departments will be shown.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Javascript to execute on event. {{eventCategory}}, {{eventAction}}, {{eventLabel}}, {{eventInternal}} you can use as placeholders.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose one of the possible templates</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Universal Analytics (gtag.js)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>ga - version analytics.js. Old version.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invitation</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help</source>
+      <source>Event</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13382,74 +13751,46 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Track this event</source>
+      <source>Trigger</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Status was clicked</source>
+      <source>Enabled</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Category</source>
+      <source>Edit</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Event action</source>
+      <source>Please enter a hook name</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Event label</source>
+      <source>Please choose a bot</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Offline message</source>
+      <source>Please choose a trigger</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>If you leave empty we will set automatically invitation name.</source>
+      <source>System configuration</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Cancel invitation</source>
+      <source>Webhooks</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Invitation clicked. Visitor clicked invitation tooltip. It is not triggered if it just clicks status icon while invitation tooltip is shown.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invitation was read. Means visitor opened widget with an invitation either by clicking invitation tooltip or status icon.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help was shown</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help was hidden</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help was clicked</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help close icon was clicked</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bot trigger was executed</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>We will set eventLabel to trigger name</source>
+      <source>New</source>
       <translation type="unfinished"/>
     </message>
   </context>
   <context>
-    <name>system/settings</name>
+    <name>webhooks/new</name>
     <message>
-      <source>Settings</source>
+      <source>New webhook</source>
       <translation type="unfinished"/>
     </message>
   </context>

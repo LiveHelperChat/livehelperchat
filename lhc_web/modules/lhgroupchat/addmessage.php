@@ -25,13 +25,29 @@ try {
     $msg->name_support = $userData->name_official;
     $msg->saveThis();
 
+    $options = [];
+
+    // We join only if it's support chat and operator has not joined yet
+    if ($groupChat->type == erLhcoreClassModelGroupChat::SUPPORT_CHAT && erLhcoreClassModelGroupChatMember::getCount(array('filter' => array('group_id' => $groupChat->id, 'user_id' => $currentUser->getUserID()))) == 0) {
+
+        $newMember = new erLhcoreClassModelGroupChatMember();
+        $newMember->user_id = $currentUser->getUserID();
+        $newMember->group_id = $groupChat->id;
+        $newMember->last_activity = time();
+        $newMember->jtime = time();
+        $newMember->saveThis();
+
+        $groupChat->updateMembersCount();
+    }
+
+    $options[] = 'status';
     $groupChat->last_msg_op_id = $userData->id;
     $groupChat->last_msg = $msg->msg;
     $groupChat->last_user_msg_time = time();
     $groupChat->last_msg_id = $msg->id;
     $groupChat->updateThis(array('update' => array('last_msg_op_id','last_msg','last_user_msg_time','last_msg_id')));
 
-    echo json_encode(array('result' => 'ok'));
+    echo json_encode(array('result' => $options));
     $db->commit();
 
 } catch (Exception $e) {

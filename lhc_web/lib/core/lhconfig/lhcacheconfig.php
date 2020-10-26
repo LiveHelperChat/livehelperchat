@@ -64,7 +64,7 @@ class erConfigClassLhCacheConfig
 	        file_put_contents('cache/cacheconfig/settings.ini.new.php',"<?php\n return ".var_export($this->conf,true).";\n?>",LOCK_EX);
 	        // Atomic operation
             if (file_exists('cache/cacheconfig/settings.ini.new.php')) {
-                rename('cache/cacheconfig/settings.ini.new.php','cache/cacheconfig/settings.ini.php');
+                @rename('cache/cacheconfig/settings.ini.new.php','cache/cacheconfig/settings.ini.php');
             }
     	}
     }
@@ -96,7 +96,7 @@ class erConfigClassLhCacheConfig
 	        foreach ($compiledModules as $compiledClass)
 			{
                 if (file_exists($compiledClass)) {
-                    unlink($compiledClass);
+                    @unlink($compiledClass);
                 }
 			}
 	
@@ -105,7 +105,7 @@ class erConfigClassLhCacheConfig
 			foreach ($compiledTemplates as $compiledTemplate)
 			{
 			    if (file_exists($compiledTemplate)) {
-                    unlink($compiledTemplate);
+                    @unlink($compiledTemplate);
                 }
 			}
 			
@@ -115,7 +115,7 @@ class erConfigClassLhCacheConfig
 			foreach ($compiledTemplates as $compiledTemplate)
 			{
 			    if (file_exists($compiledTemplate) && ($forceClean == true || filemtime($compiledTemplate) < time()-24*3600)) {
-			        unlink($compiledTemplate);
+			        @unlink($compiledTemplate);
 			    }
 			}
 						

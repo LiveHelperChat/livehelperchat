@@ -59,6 +59,7 @@
         <li role="presentation" class="nav-item"><a class="nav-link" href="#body-rest-{{$index}}" aria-controls="headers" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Body');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link" href="#userparams-rest-{{$index}}" aria-controls="headers" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','User parameters');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link" href="#outputrest-rest-{{$index}}" aria-controls="headers" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Output parsing');?></a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link" href="#conditions-rest-{{$index}}" aria-controls="headers" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Conditions');?></a></li>
     </ul>
 
     <!-- Tab panes -->
@@ -161,6 +162,43 @@
 
 
         </div>
+        <div role="tabpanel" class="tab-pane" id="conditions-rest-{{$index}}">
+
+            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Only if these conditions are met we will send Rest API request. Usefull in webhook cases.')?></p>
+
+            <button type="button" class="btn btn-secondary btn-xs" ng-click="lhcrestapi.addParam(param.conditions)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Add condition')?></button>
+
+            <div ng-repeat="paramCondition in param.conditions" class="mt-2">
+                <div class="row">
+                    <div class="col-4">
+                        <input type="text" class="form-control form-control-sm" ng-model="paramCondition.key" placeholder="Key">
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <select class="form-control form-control-sm" ng-model="paramCondition.success_condition" >
+                                <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Check for presence of variable')?></option>
+                                <option value="gt">&gt;</option>
+                                <option value="gte">&gt;=</option>
+                                <option value="lt">&lt;</option>
+                                <option value="lte">&lt;=</option>
+                                <option value="eq">=</option>
+                                <option value="neq">!=</option>
+                                <option value="like"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Text like')?></option>
+                                <option value="notlike"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Text not like')?></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control form-control-sm" ng-model="paramCondition.value" placeholder="Value">
+                    </div>
+                    <div class="col-1">
+                        <button type="button" class="btn btn-danger d-block w-100 btn-xs" ng-click="lhcrestapi.deleteParam(param.conditions,paramCondition)">-</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
         <div role="tabpanel" class="tab-pane" id="body-rest-{{$index}}">
 
             <div class="form-group">
@@ -171,7 +209,6 @@
                     <option value="form-data"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','form data (Use this to send post parameters)')?></option>
                 </select>
             </div>
-
 
             <div ng-if="param.body_request_type == 'raw'">
                 <div class="form-group">
@@ -331,7 +368,7 @@
                         <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_location_meta" placeholder="response:msg">
                     </div>
 
-                    <h5>Conditions</h5>
+                    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Conditions')?></h5>
 
                     <div class="row">
                         <div class="col-6">

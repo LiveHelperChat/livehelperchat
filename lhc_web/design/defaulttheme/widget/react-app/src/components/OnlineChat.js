@@ -421,8 +421,12 @@ class OnlineChat extends Component {
         }
 
         // At the moment not used because logic migrated to one time call componentDidMount
-        if (this.props.chatwidget.get('shown') === true && this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('initLoaded') === true && this.props.chatwidget.get('msgLoaded') === true && (prevProps.chatwidget.get('msgLoaded') == false || prevProps.chatwidget.get('initLoaded') == false)) {
-            this.textMessageRef.current.focus();
+        if (this.props.chatwidget.get('shown') === true && (this.props.chatwidget.get('mode') == 'widget' || this.props.chatwidget.get('mode') == 'embed') && this.props.chatwidget.get('initLoaded') === true && this.props.chatwidget.get('msgLoaded') === true && (prevProps.chatwidget.get('msgLoaded') == false || prevProps.chatwidget.get('initLoaded') == false)) {
+
+            if (this.props.chatwidget.get('mode') == 'widget') {
+                this.textMessageRef.current && this.textMessageRef.current.focus();
+            }
+
             var elm = document.getElementById('CSChatMessage-tmp');
             if (elm !== null) {
                 document.body.removeChild(elm);
@@ -596,7 +600,7 @@ class OnlineChat extends Component {
             var msg_expand = "flex-grow-1 overflow-scroll position-relative";
             var bottom_messages = "bottom-message px-1";
 
-            if (this.props.chatwidget.hasIn(['chat_ui','msg_expand'])) {
+            if (this.props.chatwidget.hasIn(['chat_ui','msg_expand']) && this.props.chatwidget.get('mode') == 'embed') {
                 msg_expand = "overflow-scroll position-relative";
                 bottom_messages += " position-relative";
             }

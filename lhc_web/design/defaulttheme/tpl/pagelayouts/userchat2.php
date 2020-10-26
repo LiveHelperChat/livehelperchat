@@ -15,6 +15,10 @@
     <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/widgetv2/widget_mobile.css;css/widgetv2/widget_mobile_popup_override.css')?>" />
     <?php endif; ?>
 
+    <?php if (isset($Result['modal_start']) && $Result['modal_start'] == true) : ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/widgetv2/modal_layout.css')?>" />
+    <?php endif; ?>
+
     <?php if (isset($Result['theme']) && $Result['theme'] > 0) : ?>
         <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::baseurl('widgetrestapi/theme')?>/<?php echo $Result['theme']?>/(p)/1?v=<?php echo $Result['theme_v']?>" />
     <?php endif; ?>
@@ -23,14 +27,39 @@
 
 </head>
 <body>
+
+<?php if (isset($Result['modal_start']) && $Result['modal_start'] == true) : ?>
+<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/userchat/before_userchat.tpl.php'));?>
+<div class="modal-dialog modal-lg w-100 d-flex flex-column flex-grow-1" id="user-popup-window">
+    <div class="modal-content d-flex flex-column flex-grow-1">
+        <div class="modal-header">
+            <?php if (isset($Result['theme_obj'])) { $Result['theme'] = $Result['theme_obj']; } ?>
+            <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_logo.tpl.php'));?>
+        </div>
+        <div class="modal-body d-flex flex-column flex-grow-1">
+            <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/userchat/before_content.tpl.php'));?>
+<?php endif; ?>
+
 <div id="root" class="container-fluid d-flex flex-column flex-grow-1 overflow-auto"></div>
 <?php echo $Result['content']?>
+
+<?php if (isset($Result['modal_start']) && $Result['modal_start'] == true) : ?>
+            <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/userchat/after_content.tpl.php'));?>
+        </div>
+    </div>
+</div>
+<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer_user.tpl.php'));?>
+
+<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/userchat/after_userchat.tpl.php'));?>
+<?php endif; ?>
+
+
 <?php
 $detect = new Mobile_Detect();
 if ($detect->version('IE') !== false) : ?>
-    <script src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.ie.js')?>?t=124"></script>
+    <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.ie.js')?>?t=129"></script>
 <?php else : ?>
-    <script src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.js')?>?t=124"></script>
+    <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.js')?>?t=129"></script>
 <?php endif; ?>
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer_widget2_js_extension_multiinclude.tpl.php'));?>

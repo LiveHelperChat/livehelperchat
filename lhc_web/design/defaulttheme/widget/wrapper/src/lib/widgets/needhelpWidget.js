@@ -3,7 +3,7 @@ import {UIConstructorIframe} from '../UIConstructorIframe';
 import {helperFunctions} from '../helperFunctions';
 
 export class needhelpWidget{
-    constructor() {
+    constructor(prefix) {
 
         this.attributes = {};
         this.hidden = false;
@@ -11,7 +11,7 @@ export class needhelpWidget{
         this.invitationOpen = false;
         this.nhOpen = false;
 
-        this.cont = new UIConstructorIframe('lhc_needhelp_widget_v2', helperFunctions.getAbstractStyle({
+        this.cont = new UIConstructorIframe((prefix || 'lhc')+'_needhelp_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "2147483640",
             width: "320px",
             height: "135px",
@@ -34,10 +34,14 @@ export class needhelpWidget{
 
         var placement = {bottom: (70 + this.attributes.widgetDimesions.value.wbottom) +"px", right: (45+this.attributes.widgetDimesions.value.wright) + "px"};
 
+        var leftPosition = false;
+
         if (attributes.position_placement == 'bottom_left' || attributes.position_placement == 'full_height_left') {
             placement = {bottom: (70 + this.attributes.widgetDimesions.value.wbottom) +"px", left: (45+this.attributes.widgetDimesions.value.wright) + "px"};
+            leftPosition = true;
         } else if (attributes.position_placement == 'middle_left') {
             placement = {bottom: "calc(50% + 35px)", left: (45+this.attributes.widgetDimesions.value.wright) + "px"};
+            leftPosition = true;
         } else if (attributes.position_placement == 'middle_right') {
             placement = {bottom: "calc(50% + 35px)", right: (45+this.attributes.widgetDimesions.value.wright) + "px"};
         }
@@ -69,6 +73,10 @@ export class needhelpWidget{
         }, "close-need-help-btn",'nhcls');
 
         if (settings.dimensions) {
+            if (leftPosition == true && settings.dimensions['right']) {
+                settings.dimensions['left'] = settings.dimensions['right'];
+                delete settings.dimensions['right'];
+            }
             this.cont.massRestyle(settings.dimensions);
         }
 
@@ -79,7 +87,7 @@ export class needhelpWidget{
         }
 
         if (this.attributes.theme > 0) {
-            this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['theme'] = true; this.checkLoadStatus()}, crossOrigin : "anonymous",  href : LHC_API.args.lhc_base_url + '/widgetrestapi/themeneedhelp/' + this.attributes.theme + '?v=' + this.attributes.theme_v}, true);
+            this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['theme'] = true; this.checkLoadStatus()}, crossOrigin : "anonymous",  href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/themeneedhelp/' + this.attributes.theme + '?v=' + this.attributes.theme_v}, true);
         } else {
             this.loadStatus['theme'] = true;
             this.checkLoadStatus();

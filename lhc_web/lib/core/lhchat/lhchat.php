@@ -1537,6 +1537,28 @@ class erLhcoreClassChat {
 	   	return false;
    }
 
+   public static function reopenChatWidgetV2($onlineUser, $chat, $params) {
+        if ($onlineUser->chat_id > 0) {
+            $chatOld = erLhcoreClassModelChat::fetch($onlineUser->chat_id);
+
+            // Old chat was not found
+            if (!($chatOld instanceof erLhcoreClassModelChat)) {
+                return;
+            }
+
+            if ($chatOld->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT ||
+                $chatOld->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT ||
+                $chatOld->status == erLhcoreClassModelChat::STATUS_BOT_CHAT
+                || ($params['reopen_closed'] == true && $chatOld->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && ($chat->last_user_msg_time == 0 || $chat->last_op_msg_time > time() - (int)$params['open_closed_chat_timeout']))
+            ) {
+                // Just switch chat ID, that's it.
+                // The rest will be done automatically.
+                $chat->id = $chatOld->id;
+                $chat->remarks = $chatOld->remarks;
+            }
+        }
+   }
+
    /**
     * Is there any better way to initialize __get variables?
     * */
@@ -2021,8 +2043,12 @@ class erLhcoreClassChat {
         return $user_status_front;
    }
    
-   public static function updateActiveChats($user_id)
+   public static function updateActiveChats($user_id, $ignoreEvent = false)
    {
+       if ($user_id == 0) {
+           return;
+       }
+
        $db = ezcDbInstance::get();
        $stmt = $db->prepare('SELECT id FROM lh_userdep WHERE user_id = :user_id');
        $stmt->bindValue(':user_id', $user_id,PDO::PARAM_STR);
@@ -2064,13 +2090,30 @@ class erLhcoreClassChat {
 
                } catch (Exception $e) {
                    if ($i == 2) { // It was last try
-                       erLhcoreClassLog::write($e->getMessage() . "\n" . $e->getTraceAsString());
-                       error_log($e->getMessage() . "\n" . $e->getTraceAsString());
+                       if ($ignoreEvent === false) {
+                           erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.update_active_chats',array('user_id' => $user_id));
+                       }
+
+                       erLhcoreClassLog::write($e->getMessage() . "\n" . $e->getTraceAsString(),
+                           ezcLog::SUCCESS_AUDIT,
+                           array(
+                               'source' => 'lhc',
+                               'category' => 'update_active_chats',
+                               'line' => __LINE__,
+                               'file' => __FILE__,
+                               'object_id' => $user_id
+                           )
+                       );
+                       return;
                    } else {
                        // Just sleep for fraction of second and try again
                        usleep(150);
                    }
                }
+           }
+
+           if ($ignoreEvent === false) {
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.update_active_chats',array('user_id' => $user_id));
            }
        }
    }

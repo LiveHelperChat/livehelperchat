@@ -20,6 +20,7 @@ class _screenShare {
 
         this.cobrowser = new LHCCoBrowser({'formsenabled':formsEnabled,
                 'chat_hash': this.sharehash,
+                'event_emitter': this.attributes.eventEmitter,
                 'nodejssettings': params['nodejssettings'],
                 'nodejsenabled': params['nodejsenabled'],
                 'trans': params['trans'],
@@ -38,7 +39,7 @@ class _screenShare {
 
             helperFunctions.removeById('lhc_status_mirror');
 
-            this.attributes.storageHandler.removeSessionStorage('LHC_screenshare');
+            this.attributes.storageHandler.removeSessionStorage(this.attributes['prefixStorage']+'_screenshare');
 
             this.isSharing = false;
   
@@ -47,7 +48,7 @@ class _screenShare {
             var locationCurrent = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
             s.setAttribute('id','lhc_finish_shr');
             s.setAttribute('type','text/javascript');
-            s.setAttribute('src',LHC_API.args.lhc_base_url+'/cobrowse/finishsession/(sharemode)/chat/(hash)/'+this.sharehash);
+            s.setAttribute('src',this.attributes.LHC_API.args.lhc_base_url+'/cobrowse/finishsession/(sharemode)/chat/(hash)/'+this.sharehash);
             th.appendChild(s);
 
             this.cobrowser = null;
@@ -55,7 +56,7 @@ class _screenShare {
             this.attributes.eventEmitter.removeListener('screenshareCommand',listener);
         });
 
-        this.attributes.storageHandler.setSessionStorage('LHC_screenshare',1);
+        this.attributes.storageHandler.setSessionStorage(this.attributes['prefixStorage']+'_screenshare',1);
     }
 
     setParams(params, attributes, chatEvents) {
@@ -68,7 +69,7 @@ class _screenShare {
         this.sharehash = chatParams['id'] + '_' + chatParams['hash'];
 
         if (this.isSharing == false) {
-            helperFunctions.makeRequest(LHC_API.args.lhc_base_url + '/widgetrestapi/screensharesettings', {}, (data) => {
+            helperFunctions.makeRequest(this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/screensharesettings', {}, (data) => {
                 if (this.params['auto_start'] || data['auto_share'] == 1) {
                     this.initCoBrowsing(data);
                 } else {

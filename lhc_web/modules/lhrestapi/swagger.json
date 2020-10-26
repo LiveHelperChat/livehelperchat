@@ -3556,6 +3556,11 @@
           "nullable": true,
           "example": false
         },
+        "archive": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
         "AutoAssignActive": {
           "type": "boolean",
           "nullable": true,

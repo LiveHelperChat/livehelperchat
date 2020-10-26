@@ -70,6 +70,16 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 		});
 		return deferred.promise;
 	};
+
+	this.getChatData = function(id) {
+		var deferred = $q.defer();
+		$http.get(WWW_DIR_JAVASCRIPT + 'chat/getchatdata/' + id).then(function(data) {
+            deferred.resolve(data.data);
+		},function(internalError){
+            deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
+		});
+		return deferred.promise;
+	};
 	
 	this.setInactive = function(status) {
 		var deferred = $q.defer();
@@ -258,6 +268,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
     this.lhcConnectivityProblem = false;
     this.lhcConnectivityProblemExplain = '';
 
+    // Last activity. Like mouse movement etc.
+    this.lastd_activity = Math.round(new Date().getTime()/1000);
+
 	// Stores last ID of unread/pending chat id
 	this.lastidEvent = 0;
 	
@@ -356,6 +369,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
     this.hideOnline = false;
     this.hideInvisible = false;
     this.alwaysOnline = false;
+    this.inActive = false;
     this.bot_st = {};
 
     this.changeVisibility = function(e) {
@@ -755,6 +769,13 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			filter += '/(onop)/'+_that.toggleWidgetData['onop_sort'];
 		}
 
+		// Last dynamic activity
+        if (_that.lastd_activity > 0) {
+            filter += '/(lda)/'+_that.lastd_activity;
+        }
+
+        _that.lastd_activity = 0;
+
 		ee.emitEvent('eventGetSyncFilter', [_that, $scope]);
 
         filter += _that.custom_extension_filter;
@@ -1066,6 +1087,22 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                                         }
                                     });
                                 }
+                            } else if (key == 'support_chats') {
+                                if (tabs.length > 0 && confLH.auto_join_private  == 1) {
+                                    item.list.forEach(function (chat) {
+                                        // Operator does not have this chat in his account yet
+                                        if (document.getElementById('chat-tab-li-'+chat.chat_id) === null) {
+                                            _that.startChatByID(chat.chat_id, true);
+                                        } else if (!$('#private-chat-tab-link-'+chat.chat_id).attr('private-loaded')) {
+                                            $('#private-chat-tab-link-'+chat.chat_id).attr('private-loaded',true);
+                                            ee.emitEvent('privateChatStart', [chat.chat_id,{'unread': true}])
+                                        } else if (!$('#chat-tab-link-'+chat.chat_id).hasClass('active')) {
+                                            $('#chat-tab-link-'+chat.chat_id+' > .whatshot').removeClass('d-none');
+                                        } else if (!$('#private-chat-tab-link-'+chat.chat_id).hasClass('active')) {
+                                            $('#private-chat-tab-link-'+chat.chat_id+' > .whatshot').removeClass('d-none');
+                                        }
+                                    });
+                                }
                             } else if (key == 'pending_mails') {
                                 if (tabs.length > 0 && confLH.auto_join_private  == 1) {
                                     item.list.forEach(function (chat) {
@@ -1173,6 +1210,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				_that.hideOnline = data.ho == 1;
 				_that.hideInvisible = data.im == 1;
                 _that.alwaysOnline = data.a_on == 1;
+                _that.inActive = data.ina == 1;
 
 				if (_that.lhcVersion != data.v) {
                     _that.lhcVersion = data.v;
@@ -1271,6 +1309,21 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
         }
     }
 
+    this.startChatByID = function(chat_id, background) {
+	    if (!isNaN(chat_id)) {
+            if ($('#tabs').length > 0) {
+                var _that = this;
+                LiveHelperChatFactory.getChatData(chat_id).then(function(data) {
+                    if (!background) {
+                        _that.startChat(parseInt(chat_id),LiveHelperChatFactory.truncate(data.nick,10));
+                    } else {
+                        lhinst.startChatBackground(parseInt(chat_id), $('#tabs'), LiveHelperChatFactory.truncate(data.nick,10),'backgroundid');
+                    }
+                });
+            }
+        }
+    }
+
 	this.startChat = function (chat_id,name) {	
 		if ($('#tabs').length > 0){
 			return lhinst.startChat(chat_id,$('#tabs'),LiveHelperChatFactory.truncate(name,10));	
@@ -1365,25 +1418,37 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		} else {
             if (this.blockSync == false)
             {
+                this.lastd_activity = Math.round(new Date().getTime()/1000);
+
                 clearTimeout(this.timeoutActivity);
                 var _that = this;
 
                 this.timeoutActivity = setTimeout(function(){
 
-                    _that.blockSync = true;
-                    lhinst.disableSync = true;
-
                     LiveHelperChatFactory.setInactive('true').then(function (data) {
-                        lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/wentinactive/false','backdrop': true,hidecallback: function() {
-                                LiveHelperChatFactory.setInactive('false');
 
-                                _that.isListLoaded = false; // Because inactive visitor can be for some quite time, make sure new chat's does not trigger flood of sound notifications
-                                _that.blockSync = false;	// Unblock sync
-                                _that.resetTimeoutActivity(); // Start monitoring activity again
-                                lhinst.disableSync = false;
+                        // Operator is active in another tab/window
+                        if (data.active == true) {
+                            _that.resetTimeoutActivity();
+                            _that.lastd_activity = 0;
+                            return ;
+                        }
 
-                                $scope.loadChatList();
-                            }});
+                        _that.blockSync = true;
+                        lhinst.disableSync = true;
+
+                        lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/wentinactive/false','backdrop': true, hidecallback: function() {
+                            LiveHelperChatFactory.setInactive('false');
+
+                            _that.isListLoaded = false; // Because inactive visitor can be for some quite time, make sure new chat's does not trigger flood of sound notifications
+                            _that.blockSync = false;	// Unblock sync
+                            _that.resetTimeoutActivity(); // Start monitoring activity again
+                            lhinst.disableSync = false;
+
+                            $scope.loadChatList();
+                             _that.inActive = false;
+                        }});
+
                     });
 
                 }, _that.timeoutActivityTime*1000);
@@ -1489,6 +1554,18 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		var openedgChats = this.getOpenedChatIds('gachat_id');
 		var openedmChats = this.getOpenedChatIds('machat_id');
 
+        var chat_id = 0;
+        var hash = window.location.hash;
+        if (hash != '') {
+            var matchData = hash.match(/\d+$/);
+            if (matchData !== null && matchData[0]) {
+                chat_id = parseInt(matchData[0]);
+                if (openedChats.indexOf(chat_id) === -1){
+                    openedChats.push(chat_id);
+                }
+            }
+        }
+
 		if ($('#tabs').length > 0 && lhinst.disableremember == false && openedChats.length > 0) {
             appendURL = '/(chatopen)/' + openedChats.join('/');
 		}
@@ -1525,15 +1602,6 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				_that.timeoutActivityTime = data.timeout_activity;
 				_that.setupActivityMonitoring();
 			}
-
-			var chat_id = 0;
-            var hash = window.location.hash;
-            if (hash != '') {
-                var matchData = hash.match(/\d+$/);
-                if (matchData !== null && matchData[0]) {
-                    chat_id = parseInt(matchData[0]);
-                }
-            }
 
             angular.forEach(data.copen, function(chatOpen) {
                 lhinst.startChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate(chatOpen.nick,10), (chatOpen.id == chat_id), 0, chatOpen.status);

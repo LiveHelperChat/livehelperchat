@@ -47,10 +47,11 @@
 <thead>
 <tr>
     <th width="1%">ID</th>
-    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','IP');?></th>
+    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Block type');?>, <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','IP');?></th>
     <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Department');?></th>
     <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Nick');?></th>
-    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Date');?></th>
+    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Expires in');?></th>
+    <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Block date');?></th>
     <th width="20%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','User who blocked');?></th>
     <th width="1%">&nbsp;</th>
 </tr>
@@ -58,15 +59,24 @@
 <?php foreach ($items as $item) : ?>
     <tr>
         <td><?php echo $item->id?></td>
-        <td>
+        <td title="<?php echo $item->btype?>">
+            <?php if (in_array($item->btype, [erLhcoreClassModelChatBlockedUser::BLOCK_IP,erLhcoreClassModelChatBlockedUser::BLOCK_ALL_IP_NICK,erLhcoreClassModelChatBlockedUser::BLOCK_ALL_IP_NICK_DEP])) : ?>
+                <span class="badge badge-secondary">IP</span>
+            <?php endif; ?>
+
+            <?php if (in_array($item->btype, [erLhcoreClassModelChatBlockedUser::BLOCK_NICK,erLhcoreClassModelChatBlockedUser::BLOCK_ALL_IP_NICK])) : ?>
+                <span class="badge badge-secondary">Nick</span>
+            <?php endif; ?>
+
+            <?php if (in_array($item->btype, [erLhcoreClassModelChatBlockedUser::BLOCK_NICK_DEP,erLhcoreClassModelChatBlockedUser::BLOCK_ALL_IP_NICK_DEP])) : ?>
+                <span class="badge badge-secondary">Nick &amp; Department</span>
+            <?php endif; ?>
+
             <?php if ($item->chat_id > 0) : ?><a class="material-icons" title="<?php echo htmlspecialchars($item->chat_id)?>" onclick="lhc.previewChat(<?php echo $item->chat_id?>)">info_outline</a><?php endif; ?><?php echo htmlspecialchars($item->ip)?>
         </td>
-        <td>
-            <?php echo htmlspecialchars($item->department)?>
-        </td>
-        <td>
-            <?php echo htmlspecialchars($item->nick)?>
-        </td>
+        <td><?php echo htmlspecialchars($item->department)?></td>
+        <td><?php echo htmlspecialchars($item->nick)?></td>
+        <td><?php echo htmlspecialchars($item->expires_front)?></td>
         <td><?php echo htmlspecialchars($item->datets_front)?></td>
         <td><?php echo htmlspecialchars($item->user)?></td>
         <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>/(remove_block)/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Remove block');?></a></td>

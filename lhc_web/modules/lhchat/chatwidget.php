@@ -336,7 +336,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
    			'chat' => $chat,
    			'prefill' => array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false)));
 
-            erLhcoreClassChatValidator::saveOfflineRequest(array('chat' => & $chat, 'question' => $inputData->question));
+            erLhcoreClassChatValidator::saveOfflineRequest(array('chat' => & $chat, 'question' => $inputData->question, 'chatprefill' => (isset($chatPrefill) ? $chatPrefill : false)));
 
    			$Result['parent_messages'][] = 'lh_callback:offline_request_cb';
    			$tpl->set('request_send',true);

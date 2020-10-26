@@ -438,11 +438,11 @@
     </message>
     <message>
       <source>Search</source>
-      <translation type="unfinished"/>
+      <translation>Ara</translation>
     </message>
     <message>
       <source>Block this IP</source>
-      <translation type="unfinished"/>
+      <translation>Bu IP&apos;yi Engelle</translation>
     </message>
     <message>
       <source>Updated</source>
@@ -668,6 +668,10 @@
     <message>
       <source>Operator messages style</source>
       <translation>Operatör Mesaj Stili</translation>
+    </message>
+    <message>
+      <source>Override embed code settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Build your own need help widget layout</source>
@@ -908,6 +912,10 @@
     <message>
       <source>If variable is not passed should we keep previously recorded value?</source>
       <translation>Eğer değişken geçemezse bir önceki kaydedilmiş değeri saklayalım mı? </translation>
+    </message>
+    <message>
+      <source>This variable is invisible for operator and will be stored in chat_variables attribute</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Invitation message width</source>
@@ -1223,7 +1231,7 @@
     </message>
     <message>
       <source>Custom CSS only for popup</source>
-      <translation type="unfinished"/>
+      <translation>Yalnızca pop-up için özel CSS</translation>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
@@ -1342,6 +1350,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat is unavailable and offline form is disabled.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
       <translation>Kullanıcılara üst ok tuşuna basarak bir önceki mesajı düzenleme izni verilmesin</translation>
     </message>
@@ -1423,6 +1435,10 @@
     </message>
     <message>
       <source>Show operator profile in a new row</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable embed code override</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1667,6 +1683,14 @@
     <message>
       <source>Variable identifier</source>
       <translation>Değişken tanımlama</translation>
+    </message>
+    <message>
+      <source>Variable changed from [b]{old_val}[/b] to [b]{new_val}[/b]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Log message for for variable. Variables you can use {old_val}, {new_val}</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Variable type</source>
@@ -1977,7 +2001,7 @@
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>Parola</translation>
     </message>
     <message>
       <source>Hidden</source>
@@ -2066,6 +2090,10 @@
     <message>
       <source>Do not process internal pages and use redirects.</source>
       <translation>Dahili sayfaları işlemeyin ve yönlendirmeleri kullanmayın.</translation>
+    </message>
+    <message>
+      <source>Disable start chat URL</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online form settings</source>
@@ -2291,6 +2319,14 @@
       <translation>Ara</translation>
     </message>
     <message>
+      <source>CSV</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select department</source>
       <translation>Seçili departman</translation>
     </message>
@@ -2373,6 +2409,10 @@
     <message>
       <source>Active chats</source>
       <translation>Aktif Sohbetler</translation>
+    </message>
+    <message>
+      <source>Bot chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Closed chats</source>
@@ -2692,11 +2732,11 @@
     </message>
     <message>
       <source>Account status</source>
-      <translation type="unfinished"/>
+      <translation>Hesap durumu</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktif</translation>
     </message>
     <message>
       <source>Deactivated</source>
@@ -2862,6 +2902,10 @@
     <message>
       <source>Name</source>
       <translation>İsim</translation>
+    </message>
+    <message>
+      <source>Department, if you do not choose command will be available to all departments.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Group</source>
@@ -3380,6 +3424,10 @@
       <translation>Bu sohbeti silmek istediğinizden emin misiniz?</translation>
     </message>
     <message>
+      <source>Mobile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Auto responder got error</source>
       <translation>Otomatik yanıtlayıcıda hata var</translation>
     </message>
@@ -3422,6 +3470,34 @@
   </context>
   <context>
     <name>system/htmlcode</name>
+    <message>
+      <source>Bottom right corner of the screen</source>
+      <translation>Ekranın sağ alt köşesi</translation>
+    </message>
+    <message>
+      <source>Bottom left corner of the screen</source>
+      <translation>Ekranın sol alt köşesi</translation>
+    </message>
+    <message>
+      <source>Middle right side of the screen</source>
+      <translation>Ekranın sağ orta tarafı</translation>
+    </message>
+    <message>
+      <source>Middle left side of the screen</source>
+      <translation>Ekranın sol orta tarafı</translation>
+    </message>
+    <message>
+      <source>Full height right</source>
+      <translation>Tam yükseklik sağ</translation>
+    </message>
+    <message>
+      <source>Full height left</source>
+      <translation>Tam yükseklik sol</translation>
+    </message>
+    <message>
+      <source>no survey</source>
+      <translation>anket yok</translation>
+    </message>
     <message>
       <source>HTML code</source>
       <translation>HTML kod</translation>
@@ -3521,22 +3597,6 @@
     <message>
       <source>Position</source>
       <translation>Pozisyon</translation>
-    </message>
-    <message>
-      <source>Bottom right corner of the screen</source>
-      <translation>Ekranın sağ alt köşesi</translation>
-    </message>
-    <message>
-      <source>Bottom left corner of the screen</source>
-      <translation>Ekranın sol alt köşesi</translation>
-    </message>
-    <message>
-      <source>Middle right side of the screen</source>
-      <translation>Ekranın sağ orta tarafı</translation>
-    </message>
-    <message>
-      <source>Middle left side of the screen</source>
-      <translation>Ekranın sol orta tarafı</translation>
     </message>
     <message>
       <source>Disable responsive layout for status widget.</source>
@@ -3735,14 +3795,6 @@
       <translation>Görünmez, sadece JS API dahil edilecek</translation>
     </message>
     <message>
-      <source>Full height right</source>
-      <translation>Tam yükseklik sağ</translation>
-    </message>
-    <message>
-      <source>Full height left</source>
-      <translation>Tam yükseklik sol</translation>
-    </message>
-    <message>
       <source>Popup window width</source>
       <translation>Açılır pencere genişliği</translation>
     </message>
@@ -3777,10 +3829,6 @@
     <message>
       <source>Identifier – enter a unique identifier here. This is useful for separating messages and proactive chat invitations from different domains/web pages. Enter a string without special characters or spaces such as “homepage” or “website1”.</source>
       <translation>Tanımlayıcı - Buraya benzersiz bir tanımlayıcı girin. Bu, mesajların ayrılması için yararlıdır ve proaktifsohbetfarklı alan adlarından / web sayfalarından davetiyeler. “Ana sayfa” veya “web sitesi1” gibi özel karakterleri veya boşlukları olmayan bir dize girin.</translation>
-    </message>
-    <message>
-      <source>no survey</source>
-      <translation>anket yok</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
@@ -3819,7 +3867,47 @@
       <translation>Widget konumu</translation>
     </message>
     <message>
+      <source>Widget position placement.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom right</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Middle right</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Middle left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom right, full height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bottom left, full height</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hash arguments. Visitor will not be able to change passed arguments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show a leave a message form when there are no online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget status position from right or left depending on main position. E.g 10 or -10</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget status position from bottom. E.g 10 or -10</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3910,6 +3998,14 @@
     <message>
       <source>User is typing now...</source>
       <translation>Kullanıcı şu anda mesajlaşıyor...</translation>
+    </message>
+    <message>
+      <source>Write</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Preview</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You are not chat owner, type with caution</source>
@@ -4086,20 +4182,16 @@
   <context>
     <name>chat/blockedusers</name>
     <message>
-      <source>Users who are blocked</source>
-      <translation>Engelli olan kullanıcılar</translation>
-    </message>
-    <message>
       <source>IP</source>
       <translation>IP</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departman</translation>
     </message>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>Takma Ad</translation>
     </message>
     <message>
       <source>Date</source>
@@ -4107,7 +4199,7 @@
     </message>
     <message>
       <source>User who blocked</source>
-      <translation type="unfinished"/>
+      <translation>Engellenen kullanıcı</translation>
     </message>
     <message>
       <source>Remove block</source>
@@ -4352,8 +4444,8 @@
       <translation>Sohbet operatörlere bildirilmeden önce kaç saniye bekletilsin</translation>
     </message>
     <message>
-      <source>Inform about unread messages if from last unread user message have passed (seconds)</source>
-      <translation>Kullanıcı son mesajı okumadıysa bilgilendir.(saniye)</translation>
+      <source>Inform about unread messages if from last unread user message has passed (seconds)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter value in seconds</source>
@@ -4460,6 +4552,22 @@
       <translation>Operatör takma adı belirleyiniz. Örneğin Canlı Destek</translation>
     </message>
     <message>
+      <source>Command, do not add ! prefix</source>
+      <translation>Komut, eklemeyin! önek</translation>
+    </message>
+    <message>
+      <source>Please choose a bot</source>
+      <translation>Lütfen bir bot seçin</translation>
+    </message>
+    <message>
+      <source>Please choose a trigger</source>
+      <translation>Lütfen bir tetikleyici seçin</translation>
+    </message>
+    <message>
+      <source>Choose a bot</source>
+      <translation>Bir bot seçin</translation>
+    </message>
+    <message>
       <source>Priority</source>
       <translation>öncelik</translation>
     </message>
@@ -4481,6 +4589,10 @@
     </message>
     <message>
       <source>Private</source>
+      <translation>Özel</translation>
+    </message>
+    <message>
+      <source>Event</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4534,10 +4646,6 @@
   </context>
   <context>
     <name>chat/startchat</name>
-    <message>
-      <source>Offline</source>
-      <translation>Çevrimdışı</translation>
-    </message>
     <message>
       <source>Chat is currently unavailable</source>
       <translation>Sohbet şu anda kullanılamıyor</translation>
@@ -4671,6 +4779,10 @@
       <translation>Departman</translation>
     </message>
     <message>
+      <source>Offline</source>
+      <translation>Çevrimdışı</translation>
+    </message>
+    <message>
       <source>Have a question? Ask us!</source>
       <translation>Bir sorunuz mu var? Bize sor!</translation>
     </message>
@@ -4724,15 +4836,15 @@
     </message>
     <message>
       <source>You</source>
-      <translation type="unfinished"/>
+      <translation>Sen</translation>
     </message>
     <message>
       <source>Us</source>
-      <translation type="unfinished"/>
+      <translation>Bize</translation>
     </message>
     <message>
       <source>Summary</source>
-      <translation type="unfinished"/>
+      <translation>Özet</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
@@ -4768,7 +4880,7 @@
     </message>
     <message>
       <source>characters for a message</source>
-      <translation type="unfinished"/>
+      <translation>mesaj karakteri</translation>
     </message>
     <message>
       <source>You have to accept our Terms Of Service</source>
@@ -4889,6 +5001,10 @@
     <message>
       <source>Fill in the form to start a chat</source>
       <translation>Konuşmaya başlamak için formu doldurun</translation>
+    </message>
+    <message>
+      <source>You have subscribed to new messages notifications!</source>
+      <translation>Yeni mesaj bildirimlerine abone oldunuz!</translation>
     </message>
     <message>
       <source>Enter a message</source>
@@ -5612,6 +5728,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat is currently unavailable. Please try again later.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor has been redirected to contact form</source>
       <translation type="unfinished"/>
     </message>
@@ -5668,6 +5788,10 @@
     <message>
       <source>Change my persistent status to online</source>
       <translation>Kalıcı durumumu çevrimiçi olarak değiştir</translation>
+    </message>
+    <message>
+      <source>Send chat</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -6709,6 +6833,10 @@
       <translation>REST API</translation>
     </message>
     <message>
+      <source>Commands</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Browse offers embed code</source>
       <translation>Tekliflere göz atın yerleştirme kodu</translation>
     </message>
@@ -6906,7 +7034,7 @@
     </message>
     <message>
       <source>Personal theming</source>
-      <translation type="unfinished"/>
+      <translation>Kişisel tema</translation>
     </message>
     <message>
       <source>Personal theme</source>
@@ -6947,6 +7075,10 @@
     <message>
       <source>Users actions</source>
       <translation>Operatör Hareketleri (log)</translation>
+    </message>
+    <message>
+      <source>Webhooks</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -7181,6 +7313,10 @@
     <message>
       <source>Chats list</source>
       <translation>Konuşmalar listesi</translation>
+    </message>
+    <message>
+      <source>Commands</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Bots</source>
@@ -7437,7 +7573,7 @@
     </message>
     <message>
       <source>New chats</source>
-      <translation type="unfinished"/>
+      <translation>Yeni sohbetler</translation>
     </message>
     <message>
       <source>Invisible</source>
@@ -7641,6 +7777,10 @@
       <translation>Lütfen önce istatistik parametrelerini seçin!</translation>
     </message>
     <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Updated</source>
       <translation type="unfinished"/>
     </message>
@@ -7809,8 +7949,8 @@
       <translation>Toplam kapatılan konuşma</translation>
     </message>
     <message>
-      <source>Total messages (including visitors, system and operators messages)</source>
-      <translation>Tüm mesajlar (Sistem, ziyaretçi ve operatör)</translation>
+      <source>Total messages (including visitors, system and operator messages)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages (only operators)</source>
@@ -8187,6 +8327,10 @@
   <context>
     <name>user/account</name>
     <message>
+      <source>Read Only</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>İsim</translation>
     </message>
@@ -8395,11 +8539,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Assign as operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Read only</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Read Only</source>
+      <source>Assign in read only mode</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8841,6 +8989,18 @@
       <translation>Sil</translation>
     </message>
     <message>
+      <source>Command</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>İsim</translation>
     </message>
@@ -9182,6 +9342,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>New command</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New exception group</source>
       <translation type="unfinished"/>
     </message>
@@ -9215,6 +9379,18 @@
     <message>
       <source>Ask a question</source>
       <translation>Soru sor</translation>
+    </message>
+    <message>
+      <source>Keyword</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No items were found</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Type your question</source>
@@ -9630,12 +9806,16 @@
       <translation>İndir</translation>
     </message>
     <message>
-      <source>Bot list</source>
-      <translation>Botlar</translation>
+      <source>Commands list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot list</source>
+      <translation>Botlar</translation>
     </message>
     <message>
       <source>Import</source>
@@ -9807,6 +9987,14 @@
       <source>User edit</source>
       <translation>Kullanıcı düzelti</translation>
     </message>
+    <message>
+      <source>Invalid email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid chat!</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>genericbot/restapi</name>
@@ -9871,7 +10059,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You can put visitor message as placeholder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>all chat messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9900,6 +10096,26 @@
     </message>
     <message>
       <source>Query Params</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only if these conditions are met we will send Rest API request. Usefull in webhook cases.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add condition</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for presence of variable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text like</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text not like</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10019,18 +10235,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Check for presence of variable</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Text like</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Text not like</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Comparison value</source>
       <translation type="unfinished"/>
     </message>
@@ -10086,6 +10290,53 @@
     <message>
       <source>Go to page</source>
       <translation>Sayfaya git</translation>
+    </message>
+  </context>
+  <context>
+    <name>module/fbmessenger</name>
+    <message>
+      <source>Edit session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Token</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last error</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Device type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created on</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated on</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -11292,6 +11543,125 @@
     </message>
   </context>
   <context>
+    <name>system/etracking</name>
+    <message>
+      <source>Events Tracking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable Events Tracking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable tracking only to selected departments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Javascript to execute on event. {{eventCategory}}, {{eventAction}}, {{eventLabel}}, {{eventInternal}} you can use as placeholders.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose one of the possible templates</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Google Analytics</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Track this event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status was clicked</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Category</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Event action</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Event label</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you leave empty we will set automatically invitation name.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation hide</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source> Called if invitation was in full widget and widget was minimised or visitor clicked close icon in invitation tooltip</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation clicked. Visitor clicked invitation tooltip. It is not triggered if it just clicks status icon while invitation tooltip is shown.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation was read. Means visitor opened widget with an invitation either by clicking invitation tooltip or status icon.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help was shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help was hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help was clicked</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help close icon was clicked</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot trigger was executed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We will set eventLabel to trigger name</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
@@ -11464,7 +11834,7 @@
     </message>
     <message>
       <source>Transfer configuration</source>
-      <translation type="unfinished"/>
+      <translation>Transfer ayarları</translation>
     </message>
   </context>
   <context>
@@ -11498,11 +11868,11 @@
     <name>system/transferconfiguration</name>
     <message>
       <source>Transfer configuration</source>
-      <translation type="unfinished"/>
+      <translation>Transfer ayarları</translation>
     </message>
     <message>
       <source>Options for chat transfer to department</source>
-      <translation type="unfinished"/>
+      <translation>Departmana sohbet aktarımı seçenekleri</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -11513,15 +11883,15 @@
     <name>user/new</name>
     <message>
       <source>Change chat department to transferred department on chat transfer</source>
-      <translation type="unfinished"/>
+      <translation>Sohbet transferinde sohbet departmanını transfer edilen departman olarak değiştirin.</translation>
     </message>
     <message>
       <source>Make chat status pending on transfer to department</source>
-      <translation type="unfinished"/>
+      <translation>Departmana transfer sırasında sohbet durumunu beklemede yap</translation>
     </message>
     <message>
       <source>Make chat unassigned. Assigned operator will be unassigned</source>
-      <translation type="unfinished"/>
+      <translation>Sohbeti atanmamış hale getirin. Atanan operatörün ataması kaldırılacak</translation>
     </message>
     <message>
       <source>I receive other operators permissions request</source>
@@ -12184,8 +12554,8 @@
       <translation>] bulunamadı ya da zaten kullanılmış</translation>
     </message>
     <message>
-      <source>Password remind - new password</source>
-      <translation>Şifre hatırlatma - yeni şifre</translation>
+      <source>Password reminder - new password</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New password:</source>
@@ -12252,6 +12622,10 @@
   </context>
   <context>
     <name>abstract/product</name>
+    <message>
+      <source>ID</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Name</source>
       <translation>İsim</translation>
@@ -12325,6 +12699,14 @@
   </context>
   <context>
     <name>chat/chatcommand</name>
+    <message>
+      <source>was executed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned trigger could not be found</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Nick changed!</source>
       <translation>Rumuz değişti</translation>
@@ -12536,6 +12918,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Device</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Additional data</source>
       <translation type="unfinished"/>
     </message>
@@ -12704,6 +13090,18 @@
     <message>
       <source>Please enter exception group name!</source>
       <translation>İstisna için bir grup adı giriniz!</translation>
+    </message>
+    <message>
+      <source>Please enter a command!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a bot!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a trigger!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter chat id!</source>
@@ -13051,6 +13449,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Disabled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department is disabled!</source>
       <translation type="unfinished"/>
     </message>
@@ -13059,11 +13461,11 @@
     <name>chat/transferuser</name>
     <message>
       <source>has changed owner to</source>
-      <translation type="unfinished"/>
+      <translation>sahibi olarak değiştirildi</translation>
     </message>
     <message>
       <source>Chat owner was changed to</source>
-      <translation type="unfinished"/>
+      <translation>Sohbet sahibi şu şekilde değiştirildi:</translation>
     </message>
     <message>
       <source>has transferred chat to</source>
@@ -13087,6 +13489,13 @@
     <message>
       <source>User has edited his last message</source>
       <translation>Kullanıcının son mesajı düzenlenmiş</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/usertyping</name>
+    <message>
+      <source>is typing...</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -13137,6 +13546,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Commands</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Translations groups</source>
       <translation>Çeviri grupları</translation>
     </message>
@@ -13149,6 +13562,10 @@
     </message>
     <message>
       <source>Bots</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Commands</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13192,6 +13609,32 @@
     </message>
   </context>
   <context>
+    <name>mobile/settings</name>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mobile</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>mobile/sessions</name>
+    <message>
+      <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>notifications/index</name>
     <message>
       <source>Notifications</source>
@@ -13217,6 +13660,13 @@
     <name>chat/backtochat</name>
     <message>
       <source>Visitor has been redirected back to chat!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/settings</name>
+    <message>
+      <source>Settings</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -13254,129 +13704,48 @@
     </message>
   </context>
   <context>
-    <name>module/fbmessenger</name>
+    <name>canned/import</name>
     <message>
-      <source>Edit session</source>
+      <source>Updated</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Token</source>
+      <source>Imported</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Device</source>
+      <source>Removed</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>User ID</source>
+      <source>Remove old canned messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Status</source>
+      <source>If you do not check we will try to update existing records without removing all records.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Last error</source>
+      <source>Import</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Sessions</source>
+      <source>Expected columns does not match!</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Device type</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Created on</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Updated on</source>
+      <source>Invalid file format</source>
       <translation type="unfinished"/>
     </message>
   </context>
   <context>
-    <name>mobile/settings</name>
+    <name>webhooks/module</name>
     <message>
-      <source>Settings</source>
+      <source>Webhooks list</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Sessions</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit session</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Mobile</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>mobile/sessions</name>
-    <message>
-      <source>Sessions</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/usertyping</name>
-    <message>
-      <source>is typing...</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>system/etracking</name>
-    <message>
-      <source>Events Tracking</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enable Events Tracking</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enable events tracking only for these departments. If not selected to all departments will be shown.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Javascript to execute on event. {{eventCategory}}, {{eventAction}}, {{eventLabel}}, {{eventInternal}} you can use as placeholders.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose one of the possible templates</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Universal Analytics (gtag.js)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>ga - version analytics.js. Old version.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invitation</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help</source>
+      <source>Event</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13384,74 +13753,46 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Track this event</source>
+      <source>Trigger</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Status was clicked</source>
+      <source>Enabled</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Category</source>
+      <source>Edit</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Event action</source>
+      <source>Please enter a hook name</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Event label</source>
+      <source>Please choose a bot</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Offline message</source>
+      <source>Please choose a trigger</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>If you leave empty we will set automatically invitation name.</source>
+      <source>System configuration</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Cancel invitation</source>
+      <source>Webhooks</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Invitation clicked. Visitor clicked invitation tooltip. It is not triggered if it just clicks status icon while invitation tooltip is shown.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invitation was read. Means visitor opened widget with an invitation either by clicking invitation tooltip or status icon.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help was shown</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help was hidden</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help was clicked</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help close icon was clicked</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bot trigger was executed</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>We will set eventLabel to trigger name</source>
+      <source>New</source>
       <translation type="unfinished"/>
     </message>
   </context>
   <context>
-    <name>system/settings</name>
+    <name>webhooks/new</name>
     <message>
-      <source>Settings</source>
+      <source>New webhook</source>
       <translation type="unfinished"/>
     </message>
   </context>

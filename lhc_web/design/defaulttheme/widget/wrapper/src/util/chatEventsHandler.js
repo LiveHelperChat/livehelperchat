@@ -43,7 +43,8 @@ class chatEventsHandler {
             'staticJS' : this.attributes['staticJS'],
             'static_chat' : this.attributes['userSession'].getSessionAttributes(),
             'domain_lhc': this.attributes['domain_lhc'],
-            'leave_message': this.attributes['leaveMessage']
+            'leave_message': this.attributes['leaveMessage'],
+            'scope_prefix': this.attributes['prefixLowercase']
         };
 
         if (this.attributes['fresh'] == true) {
@@ -88,8 +89,8 @@ class chatEventsHandler {
             attr['proactive'] = this.attributes['proactive'];
         }
 
-        if (window.LHCChatOptions && window.LHCChatOptions.attr) {
-            var prefillOptions = window.LHCChatOptions.attr;
+        if (this.attributes.LHCChatOptions && this.attributes.LHCChatOptions.attr) {
+            var prefillOptions = this.attributes.LHCChatOptions.attr;
             let fieldsCustom = [];
             prefillOptions.forEach((item, index) => {
                 fieldsCustom.push({show : (((typeof item.show != 'undefined' && (item.show == 'on' || item.show == 'off')) ? item.show : 'b')), value : item.value, index : index, name : item.name, "class": "form-control form-control-sm", 'type' : item.type, 'identifier': ('additional_' + index), 'placeholder' : '', 'width' : (item.size || 6), 'encrypted': (item.encrypted || false), 'required' : (item.req || false), 'label' : item.name});
@@ -98,8 +99,8 @@ class chatEventsHandler {
             attr['CUSTOM_FIELDS'] = fieldsCustom;
         }
 
-        if (window.LHCChatOptions && window.LHCChatOptions.attr_prefill) {
-            var prefillOptions = window.LHCChatOptions.attr_prefill;
+        if (this.attributes.LHCChatOptions && this.attributes.LHCChatOptions.attr_prefill) {
+            var prefillOptions = this.attributes.LHCChatOptions.attr_prefill;
             let prefilOptionsList = [];
             prefillOptions.forEach((item) => {
                 if (item.name == 'email') {
@@ -115,8 +116,8 @@ class chatEventsHandler {
             attr['attr_prefill'] = prefilOptionsList;
         }
 
-        if (window.LHCChatOptions && window.LHCChatOptions.attr_prefill_admin) {
-            var prefillOptions = window.LHCChatOptions.attr_prefill_admin;
+        if (this.attributes.LHCChatOptions && this.attributes.LHCChatOptions.attr_prefill_admin) {
+            var prefillOptions = this.attributes.LHCChatOptions.attr_prefill_admin;
             let prefilOptionsList = [];
             prefillOptions.forEach((item) => {
                   prefilOptionsList.push({'value' : item.value, 'index' : item.index});

@@ -254,10 +254,6 @@ class erLhcoreClassChatValidator {
 
         $Errors = array();
 
-        if (erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('ip' => erLhcoreClassIPDetect::getIP()))) > 0) {
-            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
-        }
-        
         /**
          * IP Ranges block
          * */
@@ -806,6 +802,10 @@ class erLhcoreClassChatValidator {
             $chat->priority = $priority;
         }
 
+        if (erLhcoreClassModelChatBlockedUser::isBlocked(array('ip' => $chat->ip, 'dep_id' => $chat->dep_id, 'nick' => $chat->nick))) {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
+        }
+
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_start_chat',array('errors' => & $Errors, 'input_form' => & $inputForm, 'start_data_fields' => & $start_data_fields, 'chat' => & $chat,'additional_params' => & $additionalParams));
         
         return $Errors;
@@ -931,7 +931,7 @@ class erLhcoreClassChatValidator {
                         }
 
                         if ($jsVar->inv == 1) {
-                            if (isset($chatVariablesDataArray[$jsVar->var_identifier]) || $chatVariablesDataArray[$jsVar->var_identifier] != $val) {
+                            if (!isset($chatVariablesDataArray[$jsVar->var_identifier]) || $chatVariablesDataArray[$jsVar->var_identifier] != $val) {
 
                                 if ($jsVar->change_message != '') {
                                     $messagesSave[] = str_replace(['{old_val}','{new_val}'],[(isset($chatVariablesDataArray[$jsVar->var_identifier]) ? $chatVariablesDataArray[$jsVar->var_identifier] : '...'), $val],$jsVar->change_message);
@@ -1645,13 +1645,19 @@ class erLhcoreClassChatValidator {
         if (!isset($data['do_not_save_offline']) || $data['do_not_save_offline'] == 0)
         {
             // Save as offline request
-            $params['chat']->time = $params['chat']->pnd_time = time();
-            $params['chat']->lsync = time();
-            $params['chat']->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
+            if (isset($params['chatprefill']) && $params['chatprefill'] instanceof erLhcoreClassModelChat) {
+                // We do not want to store offline request as a new chat.
+                $params['chat'] = $params['chatprefill'];
+            }  else {
+                $params['chat']->time = $params['chat']->pnd_time = time();
+                $params['chat']->lsync = time();
+                $params['chat']->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
+                $params['chat']->hash = erLhcoreClassChat::generateHash();
+                $params['chat']->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
+                $params['chat']->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
+            }
+
             $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST;
-            $params['chat']->hash = erLhcoreClassChat::generateHash();
-            $params['chat']->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
-            $params['chat']->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
 
             if ( empty($params['chat']->nick) ) {
                 $params['chat']->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');

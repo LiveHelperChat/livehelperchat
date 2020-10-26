@@ -302,6 +302,11 @@ return array_merge(array (
         'erLhcoreClassModelGroupMsg'                => 'lib/models/lhchat/erlhcoreclassmodelgroupmsg.php',
         'erLhcoreClassModelGroupChatMember'         => 'lib/models/lhchat/erlhcoreclassmodelgroupchatmember.php',
 
+        // Group chat archive tables
+        'erLhcoreClassModelGroupChatArchive' 		=> 'lib/models/lhchat/erlhcoreclassmodelgroupchatarchive.php',
+        'erLhcoreClassModelGroupChatMemberArchive' 	=> 'lib/models/lhchat/erlhcoreclassmodelgroupchatmemberarchive.php',
+        'erLhcoreClassModelGroupMsgArchive' 		=> 'lib/models/lhchat/erlhcoreclassmodelgroupmsgarchive.php',
+
         // Notifications
         'erLhcoreClassNotifications'                => 'lib/core/lhnotifications/lhnotifications.php',
         'erLhcoreClassModelNotificationSubscriber'  => 'lib/models/lhnotifications/erlhcoreclassmodelnotificationsubscriber.php',
@@ -330,6 +335,11 @@ return array_merge(array (
         'erLhcoreClassMailconvHTMLParser'           => 'lib/core/lhmailconv/lhmailconvhtmlparser.php',
         'erLhcoreClassMailconvStatistic'            => 'lib/core/lhmailconv/lhmailconvstatistic.php',
         'erLhcoreClassLHCMobile'                    => 'lib/core/lhmobile/lhmobile.php',
+
+        // Web hooks
+        'erLhcoreClassChatWebhookHttp'              => 'lib/core/lhchat/lhchatwebhookhttp.php',
+        'erLhcoreClassModelChatWebhook'             => 'lib/models/lhchat/erlhcoreclassmodelchatwebhook.php',
+        'erLhcoreClassChatWebhookResque'            => 'lib/core/lhchat/lhchatwebhookresque.php',
 
 ),
 include('var/autoloads/lhextension_autoload.php')

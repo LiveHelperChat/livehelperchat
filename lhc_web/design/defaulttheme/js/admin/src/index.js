@@ -35,12 +35,21 @@ ee.addListener('groupChatTabLoaded',(chatId) => {
 ee.addListener('mailChatTabLoaded',(chatId, modeChat, disableRemember) => {
     modeChat = (typeof modeChat != 'undefined' ? modeChat : '');
     disableRemember = (typeof disableRemember != 'undefined' ? disableRemember : false);
-
     var el = document.getElementById('chat-id-' + modeChat + chatId);
     if (el !== null) {
         chatId = chatId.replace('mc','');
         ReactDOM.render(
             <Suspense fallback="..."><MailChat chatId={chatId} userId={confLH.user_id} mode={modeChat} disableRemember={disableRemember} /></Suspense>,
+            el
+        );
+    }
+})
+
+ee.addListener('privateChatStart',(chatId, params) => {
+    var el = document.getElementById('private-chat-tab-root-'+chatId);
+    if (el !== null) {
+        ReactDOM.render(
+            <Suspense fallback="..."><GroupChat paramsStart={params || {}} chatPublicId={chatId} userId={confLH.user_id} /></Suspense>,
             el
         );
     }
@@ -53,6 +62,7 @@ ee.addListener('unloadGroupChat', (chatId) => {
     }
 });
 
+
 ee.addListener('unloadMailChat', (chatId, modeChat) => {
     modeChat = (typeof modeChat != 'undefined' ? modeChat : '');
     var el = document.getElementById('chat-id-'+modeChat+chatId);
@@ -60,6 +70,20 @@ ee.addListener('unloadMailChat', (chatId, modeChat) => {
         ReactDOM.unmountComponentAtNode(el)
     }
 });
+
+ee.addListener('removeSynchroChat', (chatId) => {
+    // Canned messages component
+    var el = document.getElementById('canned-messages-chat-container-'+chatId);
+    if (el !== null) {
+        ReactDOM.unmountComponentAtNode(el)
+    }
+    // Private chat component
+    el = document.getElementById('private-chat-tab-root-'+chatId);
+    if (el !== null) {
+        ReactDOM.unmountComponentAtNode(el)
+    }
+});
+
 
 ee.addListener('removeSynchroChat', (chatId) => {
     var el = document.getElementById('canned-messages-chat-container-'+chatId);

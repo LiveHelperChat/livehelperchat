@@ -43,7 +43,13 @@ if ($currentUser->isLogged() && isset($_POST['chats']))
                     foreach ($masgIDArray as $msgID)
                     {
                         if ($msgID < $msg['id']) {
-                            $msg['msg'] = str_replace('"//','"'. (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' ,erLhcoreClassBBCode::make_clickable($msg['msg'], array('sender' => $msg['user_id'])));
+
+                            if (strpos($_SERVER['HTTP_USER_AGENT'],'Dart/') !== false) {
+                                $msg['msg'] = str_replace('"//','"'. (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' ,erLhcoreClassBBCode::make_clickable($msg['msg'], array('sender' => $msg['user_id'])));
+                            } else {
+                                $msg['msg'] = erLhcoreClassBBCodePlain::make_clickable($msg['msg'], array('sender' => $msg['user_id']));
+                            }
+
                             $chatsMessages[$msgID][] = $msg;
                         }
                     }

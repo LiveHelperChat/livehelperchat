@@ -34,8 +34,16 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                         $msg = ($transferScope == erLhcoreClassModelTransfer::SCOPE_CHAT) ? (new erLhcoreClassModelmsg()) : (new erLhcoreClassModelMailconvMessageInternal());
                         $msg->chat_id = $Chat->id;
                         $msg->user_id = -1;
-                        $msg->msg = (string)$currentUser->getUserData() . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'has changed owner to') . ' ' . $user->name_support;
                         $msg->time = time();
+
+                        $msg->name_support = (string)$user->name_support;
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $Chat, 'user_id' => $user->id));
+                        $nickTo = $msg->name_support;
+
+                        $msg->name_support = (string)$currentUser->getUserData()->name_support;
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $Chat, 'user_id' => $currentUser->getUserID()));
+                        $msg->msg = (string)$msg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'has changed owner to') . ' ' . $nickTo;
+
                         $msg->saveThis();
                         $Chat->last_msg_id = $msg->id;
 
@@ -111,13 +119,22 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                         $Chat->user_id = 0;
                     }
 
-                    $msg->msg = (string)$currentUser->getUserData() . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'has transferred chat to') . ' ' . (string)$dep . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'department');
+                    $msg->name_support = (string)$currentUser->getUserData()->name_support;
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $Chat, 'user_id' => $currentUser->getUserID()));
+
+                    $msg->msg = (string)$msg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'has transferred chat to') . ' ' . (string)$dep . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'department');
 
                 } else {
                     $Transfer->transfer_to_user_id = $Params['user_parameters']['item_id']; // Transfer was made to user
 
                     $userTo = erLhcoreClassModelUser::fetch($Transfer->transfer_to_user_id);
-                    $msg->msg = (string)$currentUser->getUserData() . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'has transferred chat to') . ' ' . (string)$userTo;
+                    $msg->name_support = $userTo->name_support;
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $Chat, 'user_id' => $userTo->id));
+                    $userToNick = $msg->name_support;
+
+                    $msg->name_support = (string)$currentUser->getUserData()->name_support;
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $Chat, 'user_id' => $currentUser->getUserID()));
+                    $msg->msg = (string)$msg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'has transferred chat to') . ' ' . (string)$userToNick;
                 }
 
                 $Chat->last_user_msg_time = $msg->time = time();

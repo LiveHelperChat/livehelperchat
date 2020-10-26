@@ -60,6 +60,11 @@ $def->properties['type']->columnName   = 'type';
 $def->properties['type']->propertyName = 'type';
 $def->properties['type']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['chat_id'] = new ezcPersistentObjectProperty();
+$def->properties['chat_id']->columnName   = 'chat_id';
+$def->properties['chat_id']->propertyName = 'chat_id';
+$def->properties['chat_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 // Total members
 $def->properties['tm'] = new ezcPersistentObjectProperty();
 $def->properties['tm']->columnName   = 'tm';

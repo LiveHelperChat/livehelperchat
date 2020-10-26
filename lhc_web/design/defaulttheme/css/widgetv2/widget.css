@@ -3,12 +3,12 @@ body {
 }
 
 @font-face {
-    font-family: 'Material Icons';
+    font-family: 'MaterialIconsLHC';
     font-style: normal;
     font-weight: 400;
     src: url('../fonts/MaterialIcons-lhc-v2.eot'); /* For IE6-8 */
-    src: local('Material Icons'),
-    local('MaterialIcons-Regular'),
+    src: local('MaterialIconsLHC'),
+    local('MaterialIconsLHC'),
     url('../fonts/MaterialIcons-lhc-v2.woff2') format('woff2'),
     url('../fonts/MaterialIcons-lhc-v2.woff') format('woff'),
     url('../fonts/MaterialIcons-lhc-v2.ttf') format('truetype');
@@ -28,7 +28,7 @@ div.message-row {
 }
 
 .material-icons {
-    font-family: 'Material Icons';
+    font-family: 'MaterialIconsLHC';
     font-weight: normal;
     font-style: normal;
     font-size: 18px;  /* Preferred icon size */
@@ -152,7 +152,12 @@ div.message-row {
     background-color: #fff;
 }
 
-.desktop-header{
+.lhc-full-height > .desktop-body{
+    border-radius: 0;
+    border-bottom: 0;
+}
+
+.lhc-desktop:not(.lhc-full-height) > .desktop-header{
     border: 1px solid #cecece;
     border-bottom: 0;
     border-top-left-radius: 10px;
@@ -888,6 +893,13 @@ textarea[name=ChatMessage] {
 .mobile-embed-body .message-send-area{
     border-radius: 20px;
     border:1px solid #dee2e6!important;
+}
+
+.lhc-fscreen .message-send-area{
+    border-radius: 0;
+    border-left: 0!important;
+    border-bottom: 0!important;
+    border-right: 0!important;
 }
 
 .tr-msg{

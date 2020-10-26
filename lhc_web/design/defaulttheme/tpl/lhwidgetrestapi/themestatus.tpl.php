@@ -28,23 +28,23 @@
 <?php endif; ?>
 
 <?php if ($theme->online_image_url != '') : ?>
-    #lhc_status_container #status-icon{
+    #lhc_status_container #status-icon:not(.close-status){
         background-image: url(<?php echo $theme->online_image_url?>)!important;
         background-repeat: no-repeat!important;
         background-position: center center!important;
     }
-    #lhc_status_container #status-icon:before{
+    #lhc_status_container #status-icon:not(.close-status):before{
         content:''!important;
     }
 <?php endif; ?>
 
 <?php if ($theme->offline_image_url != '') : ?>
-#lhc_status_container #status-icon.offline-status {
+#lhc_status_container #status-icon.offline-status:not(.close-status) {
     background-image: url(<?php echo $theme->offline_image_url?>)!important;
     background-repeat: no-repeat!important;
     background-position: center center!important;
 }
-#lhc_status_container #status-icon.offline-status:before{
+#lhc_status_container #status-icon.offline-status:not(.close-status):before{
     content:''!important;
 }
 <?php endif; ?>

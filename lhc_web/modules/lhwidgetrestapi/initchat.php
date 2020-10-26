@@ -9,6 +9,19 @@ try {
 
     $chat = erLhcoreClassModelChat::fetchAndLock($requestPayload['id']);
 
+    // Chat does not exists
+    if (!($chat instanceof erLhcoreClassModelChat)) {
+        echo erLhcoreClassRestAPIHandler::outputResponse(array(
+            'operator' => 'operator',
+            'messages' => [],
+            'closed' => true,
+            'status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT,
+            'status_sub' => 0,
+            'chat_ui' => ['sync_interval' => 2500]
+        ));
+        exit;
+    }
+
     erLhcoreClassChat::setTimeZoneByChat($chat);
 
     if ($chat->hash == $requestPayload['hash'])

@@ -27,7 +27,7 @@ $ViewList['new'] = array(
 
 $ViewList['faqwidget'] = array(
 		'params' => array(),
-		'uparams' => array('theme','url','mode','identifier'),
+		'uparams' => array('theme','url','mode','identifier','search'),
 );
 
 $ViewList['getstatus'] = array(

@@ -369,6 +369,9 @@ class erLhcoreClassAdminChatValidatorHelper {
             'LazyLoad' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
+            'DisableStartChat' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
 
             'OfflineNameWidth' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
@@ -442,6 +445,13 @@ class erLhcoreClassAdminChatValidatorHelper {
 	    } else {
 	        $data['force_leave_a_message'] = false;
 	    }
+
+        // Force leave a message
+        if ( $form->hasValidData( 'DisableStartChat' ) && $form->DisableStartChat == true ) {
+            $data['disable_start_chat'] = true;
+        } else {
+            $data['disable_start_chat'] = false;
+        }
 
         // Width options
 
@@ -941,9 +951,55 @@ class erLhcoreClassAdminChatValidatorHelper {
             $data['offline_phone_hidden_prefilled'] = false;
         }
 
-
 	    return $Errors;
     }
+
+    public static function validateWebhook(& $webhook ){
+        $definition = array(
+            'event' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'bot_id' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
+            ),
+            'AbstractInput_trigger_id' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
+            ),
+            'disabled' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            )
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = array();
+
+        if ( $form->hasValidData( 'event' ) && $form->event != '') {
+            $webhook->event = $form->event;
+        } else {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Please enter a hook name');
+        }
+
+        if ( $form->hasValidData( 'bot_id' )) {
+            $webhook->bot_id = $form->bot_id;
+        } else {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Please choose a bot');
+        }
+
+        if ( $form->hasValidData( 'AbstractInput_trigger_id' )) {
+            $webhook->trigger_id = $form->AbstractInput_trigger_id;
+        } else {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Please choose a trigger');
+        }
+
+        if ( $form->hasValidData( 'disabled' ) && $form->disabled == true ) {
+            $webhook->disabled = 1;
+        } else {
+            $webhook->disabled = 0;
+        }
+
+        return $Errors;
+    }
+
 }
 
 ?>

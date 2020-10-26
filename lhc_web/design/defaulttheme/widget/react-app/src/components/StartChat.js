@@ -356,7 +356,7 @@ class StartChat extends Component {
                 var msg_expand = "flex-grow-1 overflow-scroll position-relative";
                 var bottom_messages = "bottom-message px-1";
 
-                if (this.props.chatwidget.hasIn(['chat_ui','msg_expand'])) {
+                if (this.props.chatwidget.hasIn(['chat_ui','msg_expand']) && this.props.chatwidget.get('mode') == 'embed') {
                     msg_expand = "overflow-scroll position-relative";
                     bottom_messages += " position-relative";
                 }

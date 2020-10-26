@@ -132,15 +132,19 @@ if (isset($outputResponse['theme'])){
             $outputResponse['chat_ui']['wheight'] = $theme->bot_configuration_array['wheight'];
         }
 
+        if (isset($theme->bot_configuration_array['fscreen_embed']) && $theme->bot_configuration_array['fscreen_embed'] == 1) {
+            $outputResponse['chat_ui']['fscreen'] = $theme->bot_configuration_array['fscreen_embed'];
+        }
+
         if (isset($theme->bot_configuration_array['wright']) && is_numeric($theme->bot_configuration_array['wright'])) {
             $outputResponse['chat_ui']['wright'] = (int)$theme->bot_configuration_array['wright'];
         }
 
-        if ($theme->widget_pbottom > 0) {
+        if ($theme->widget_pbottom != 0) {
             $outputResponse['chat_ui']['sbottom'] = (int)$theme->widget_pbottom;
         }
 
-        if ($theme->widget_pright >0) {
+        if ($theme->widget_pright != 0) {
             $outputResponse['chat_ui']['sright'] = (int)$theme->widget_pright;
         }
 
@@ -321,7 +325,7 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 }
 
 $ts = time();
-$outputResponse['v'] = 124;
+$outputResponse['v'] = 129;
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
 

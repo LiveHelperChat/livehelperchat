@@ -184,6 +184,8 @@ function lh(){
                         el.show();
                     } else if(dataElement.action == 'remove') {
                         el.remove();
+                    } else if(dataElement.action == 'event') {
+                        ee.emitEvent(dataElement.event_name, dataElement.event_value);
                     } else if(dataElement.action == 'click') {
                         el.attr('auto-scroll',1);
                         el.click();
@@ -217,8 +219,83 @@ function lh(){
     this.popoverShownNow = false
     this.selection = null;
 
-    this.mouseClicked = function (e) {
+    this.mouseContextMenu = function(e) {
 
+        if (e.which == 3 && typeof $(this).attr('id') !== 'undefined') {
+
+            $('.popover-copy').popover('dispose');
+
+            var selected = e.data.that.getSelectedText();
+            var hasSelection = false;
+            if (selected.text.length && (e.data.that.selection === null || e.data.that.selection.text !== selected.text)) {
+                hasSelection = true;
+                e.data.that.selection = selected;
+            }
+
+            var msgId = $(this).attr('id').replace('msg-','');
+
+            var quoteParams = {
+                placement:'right',
+                trigger:'manual',
+                animation:false,
+                html:true,
+                container:'#chat-id-'+e.data.chat_id,
+                template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>',
+                content:function(){
+                    return '<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>Quote</a>'+(hasSelection ? '<br/><a href="#" id="copy-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>Copy (Ctrl+C)</a>' : '');
+                }
+            }
+
+            ee.emitEvent('quoteActionRight', [quoteParams, e.data.chat_id, msgId]);
+
+            $('#msg-'+msgId+' > .msg-body').popover(quoteParams).popover('show').addClass('popover-copy');
+
+            $('#copy-popover-'+e.data.chat_id).click(function(event){
+                event.stopPropagation();
+                event.preventDefault();
+                $.getJSON(e.data.that.wwwDir + 'chat/quotemessage/'+msgId, function(data){
+                    data.msg && e.data.that.insertTextToMessageArea(e.data.chat_id, data.msg);
+                    e.data.that.hidePopover();
+                });
+            });
+
+            hasSelection && $('#copy-text-popover-'+e.data.chat_id).click(function(event){
+                event.stopPropagation();
+                event.preventDefault();
+                var textToCopy = e.data.that.getSelectedTextPlain();
+                var txtdom = $('#CSChatMessage-'+e.data.chat_id);
+                var originalAreaText = txtdom.val();
+                txtdom.val(textToCopy);
+                txtdom.select();
+                document.execCommand("copy");
+                txtdom.val(originalAreaText);
+                e.data.that.hidePopover();
+            });
+
+            e.data.that.popoverShown = true;
+            e.data.that.popoverShownNow = false;
+
+            return false;
+        }
+    }
+
+    this.insertTextToMessageArea = function (chat_id, msg) {
+        var textArea = $('#CSChatMessage-'+chat_id);
+        var textAreaVal = textArea.val().replace(/^\s*\n/g, "");
+        textArea.val((textAreaVal != '' ? textAreaVal + '[quote]' + msg + '[/quote]' : '[quote]'+msg+'[/quote]')+"\n").focus();
+
+        var ta = textArea[0];
+        var maxrows = 30;
+        var lh = ta.clientHeight / ta.rows;
+        while (ta.scrollHeight > ta.clientHeight && !window.opera && ta.rows < maxrows) {
+            ta.style.overflow = 'hidden';
+            ta.rows += 1;
+        }
+
+        if (ta.scrollHeight > ta.clientHeight) ta.style.overflow = 'auto';
+    }
+
+    this.mouseClicked = function (e) {
         selected = e.data.that.getSelectedText();
 
         $('.popover-copy').popover('dispose');
@@ -228,24 +305,26 @@ function lh(){
             e.data.that.selection = selected;
 
             var quoteParams = {
-                placement:'top',
+                placement:'right',
                 trigger:'manual',
                 animation:false,
                 html:true,
                 container:'#chat-id-'+e.data.chat_id,
                 template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>',
-                content:function(){return '<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>quote</a>'; }
+                content:function(){return '<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>Quote</a>'; }
             }
 
             ee.emitEvent('quoteAction', [quoteParams,e.data.chat_id]);
 
-            $(this).popover(quoteParams).popover('show');
+            var placement = typeof $(this).attr('id') !== 'undefined' ? '#msg-'+$(this).attr('id').replace('msg-','')+' > .msg-body' : this;
+
+            $(placement).popover(quoteParams).popover('show').addClass('popover-copy');
 
             $('#copy-popover-'+e.data.chat_id).click(function(){
                 lhinst.quateSelection(e.data.chat_id);
             });
 
-            $(this).addClass('popover-copy');
+
             e.data.that.popoverShown = true;
             e.data.that.popoverShownNow = true;
         } else {
@@ -257,7 +336,10 @@ function lh(){
     {
         this.popoverShown = false;
         $('#messagesBlock-'+chat_id+' .message-row').off('mouseup',lhinst.mouseClicked);
+        $('#messagesBlock-'+chat_id+' .message-row').off('contextmenu',lhinst.mouseContextMenu);
+
         $('#messagesBlock-'+chat_id+' .message-row').on('mouseup',{chat_id:chat_id, that : this}, lhinst.mouseClicked);
+        $('#messagesBlock-'+chat_id+' .message-row').on('contextmenu', {chat_id:chat_id, that : this}, lhinst.mouseContextMenu);
     }
 
     this.getSelectedTextPlain = function() {
@@ -273,27 +355,10 @@ function lh(){
 
     this.quateSelection = function (chat_id) {
         $('.popover-copy').popover('dispose');
-
         var textToPaste = this.getSelectedTextPlain();
-
         window.textreplace = textToPaste;
-
-        var textArea = $('#CSChatMessage-'+chat_id);
-        var textAreaVal = textArea.val().replace(/^\s*\n/g, "");
-
-        textArea.val((textAreaVal != '' ? textAreaVal + '[quote]' + textToPaste + '[/quote]' : '[quote]'+textToPaste+'[/quote]')+"\n").focus();
-
-        var ta = textArea[0];
-        var maxrows = 30;
-        var lh = ta.clientHeight / ta.rows;
-        while (ta.scrollHeight > ta.clientHeight && !window.opera && ta.rows < maxrows) {
-            ta.style.overflow = 'hidden';
-            ta.rows += 1;
-        }
-        if (ta.scrollHeight > ta.clientHeight) ta.style.overflow = 'auto';
-
+        this.insertTextToMessageArea(chat_id, textToPaste);
         this.popoverShown = false;
-
     };
 
     this.hidePopover = function () {
@@ -460,6 +525,50 @@ function lh(){
         });
 	},
 
+    this.copyContent = function(inst){
+
+        var textArea = document.createElement("textarea");
+        textArea.value = inst.attr('data-copy');
+
+        // Avoid scrolling to bottom
+        textArea.style.top = "0";
+        textArea.style.left = "0";
+        textArea.style.position = "fixed";
+
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        try {
+            var successful = document.execCommand('copy');
+        } catch (err) {
+            alert('Oops, unable to copy');
+        }
+
+        document.body.removeChild(textArea);
+
+        inst.tooltip({
+            trigger: 'click',
+            placement: 'top'
+        });
+
+        function setTooltip(message) {
+            inst.tooltip('hide')
+                .attr('data-original-title', message)
+                .tooltip('show');
+        }
+
+        function hideTooltip() {
+            setTimeout(function() {
+                inst.tooltip('hide');
+            }, 1000);
+        }
+
+        setTooltip(inst.attr('data-success'));
+        hideTooltip();
+
+    },
+
 	this.copyMessages = function(inst) {
 
         $('#chat-copy-messages').select();
@@ -604,9 +713,10 @@ function lh(){
             if (data.error) {
                 alert(data.error);
             } else if (data.replace_id && data.html) {
-                $(data.replace_id).html(data.html);
                 var messagesBlock = $('#messagesBlock-' + data.chat_id);
-                messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
+                var needScroll = (messagesBlock.prop('scrollTop') + messagesBlock.height() + 30) > messagesBlock.prop('scrollHeight');
+                $(data.replace_id).html(data.html);
+                needScroll && messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
             }
         });
     }
@@ -638,11 +748,16 @@ function lh(){
 
     this.backgroundChats = [];
     
-    this.startChatBackground = function (chat_id,tabs,name) {
+    this.startChatBackground = function (chat_id,tabs,name,backgroundType) {
     	if ( this.chatUnderSynchronization(chat_id) == false ) {  
     		this.backgroundChats.push(parseInt(chat_id));
 	    	var rememberAppend = this.disableremember == false ? '/(remember)/true' : '';
-	    	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend+'/(arg)/background', name, chat_id, false); 
+
+	    	if (!backgroundType) {
+                backgroundType = 'background';
+            }
+
+	    	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend+'/(arg)/'+backgroundType, name, chat_id, false);
 	    	ee.emitEvent('chatStartBackground', [chat_id]);	
 	    	return true;
     	}
@@ -1536,14 +1651,6 @@ function lh(){
 
 	    this.syncadmininterfacestatic();
         return false;
-	};
-
-	this.blockUser = function(chat_id,msg) {
-		if (typeof msg === 'undefined' || confirm(msg)) {
-			$.postJSON(this.wwwDir + 'chat/blockuser/' + chat_id,{}, function(data){
-				alert(data.msg);
-			});
-		}
 	};
 
 	this.switchLang = function(form,lang){
@@ -2721,6 +2828,23 @@ function lh(){
             ee.emitEvent('adminChatTabSubtabClicked', [chat_id,$(this)]);
         });
 
+        $('#chat-write-button-'+chat_id).click(function() {
+            $('#CSChatMessage-'+chat_id).show().focus();
+            $(this).removeClass('btn-outline-secondary').addClass('btn-outline-primary');
+            $('#chat-preview-button-'+chat_id).removeClass('btn-outline-primary').addClass('btn-outline-secondary');
+            $('#chat-preview-container-'+chat_id).hide();
+        });
+
+        $('#chat-preview-button-'+chat_id).click(function(){
+            $('#chat-preview-container-'+chat_id).html('...').show();
+            $('#CSChatMessage-'+chat_id).hide();
+            $(this).removeClass('btn-outline-secondary').addClass('btn-outline-primary');
+            $('#chat-write-button-'+chat_id).removeClass('btn-outline-primary').addClass('btn-outline-secondary');
+            jQuery.post(WWW_DIR_JAVASCRIPT +'chat/previewmessage', {msg_body: true, 'msg' : $('#CSChatMessage-'+chat_id).val()}, function(data){
+                $('#chat-preview-container-'+chat_id).html(data);
+            });
+        });
+
 		ee.emitEvent('adminChatLoaded', [chat_id,last_message_id,arg]);
 	};
 
@@ -2842,14 +2966,18 @@ function lh(){
     this.updateMessageRowAdmin = function(chat_id, msgid){
     	$.getJSON(this.wwwDir + 'chat/getmessageadmin/' + chat_id + '/' + msgid, function(data) {
     		if (data.error == 'f') {
+
+                var messagesBlock = $('#messagesBlock-' + chat_id);
+                var needScroll = (messagesBlock.prop('scrollTop') + messagesBlock.height() + 30) > messagesBlock.prop('scrollHeight');
+
     			$('#msg-'+msgid).replaceWith(data.msg);
+                lhinst.addQuateHandler(chat_id);
     			$('#msg-'+msgid).addClass('bg-success');
     			setTimeout(function(){
     				$('#msg-'+msgid).removeClass('bg-success');
     			},2000);
 
-    			var messagesBlock = $('#messagesBlock-'+chat_id);
-                messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
+                needScroll && messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
     		}
 		});
     };
@@ -3440,6 +3568,9 @@ function lh(){
 					alert(response.result.error_msg);
 				} else {
 					lhinst.updateChatFiles(data_config.chat_id);
+                    var txtArea = $('#CSChatMessage-'+data_config.chat_id);
+                    var txtValue = jQuery.trim(txtArea.val());
+                    txtArea.val(txtValue + (txtValue != '' ? "\n" : "") + response.result.msg + "\n");
 				}
 
 				if (LHCCallbacks.addFileUpload) {

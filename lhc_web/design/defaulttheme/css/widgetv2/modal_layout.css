@@ -1,0 +1,17 @@
+@media (max-width: 576px) {
+    #user-popup-window.modal-dialog {
+        margin: 0!important;
+    }
+    #user-popup-window > .modal-content > .modal-body{
+        padding: 0;
+    }
+    #user-popup-window > .modal-content > .modal-header{
+        display: none;
+    }
+    #user-popup-window > .modal-content{
+        border:0;
+    }
+    #page-footer-user{
+        display: none;
+    }
+}

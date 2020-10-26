@@ -16,15 +16,16 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
 
 	    $chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
 
-	    $userData = $currentUser->getUserData(true);
-
 	    $msg = new erLhcoreClassModelmsg();
-	    $msg->msg = (string)$userData.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/reopenchat','has reopened the chat!');
 	    $msg->chat_id = $chat->id;
 	    $msg->user_id = -1;
 	    $chat->last_user_msg_time = $msg->time = time();
+        $msg->name_support = $currentUser->getUserData(true)->name_support;
 
-	    erLhcoreClassChat::getSession()->save($msg);
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $currentUser->getUserID()));
+
+        $msg->msg = (string)$msg->name_support .' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/reopenchat','has reopened the chat!');
+        erLhcoreClassChat::getSession()->save($msg);
 
 	    if ($chat->last_msg_id < $msg->id) {
 	    	$chat->last_msg_id = $msg->id;

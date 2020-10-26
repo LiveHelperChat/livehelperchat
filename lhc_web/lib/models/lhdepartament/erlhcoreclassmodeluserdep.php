@@ -26,6 +26,7 @@ class erLhcoreClassModelUserDep
             'inactive_chats' => $this->inactive_chats,
             'hide_online_ts' => $this->hide_online_ts,
             'always_on' => $this->always_on,
+            'lastd_activity' => $this->lastd_activity,
         );
     }
 
@@ -120,7 +121,7 @@ class erLhcoreClassModelUserDep
 
         $filter = array_merge_recursive($filter, $params);
 
-        $filter['ignore_fields'] = array('id','dep_id','hide_online_ts','hide_online','last_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats');
+        $filter['ignore_fields'] = array('id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats');
 
         $filter['select_columns'] = '
         max(`id`) as `id`, 
@@ -128,6 +129,7 @@ class erLhcoreClassModelUserDep
         max(`hide_online_ts`) as `hide_online_ts`,
         max(`hide_online`) as `hide_online`,
         max(`last_activity`) as `last_activity`, 
+        max(`lastd_activity`) as `lastd_activity`, 
         max(`always_on`) as `always_on`, 
         max(`last_accepted`) as `last_accepted`,
         max(`active_chats`) as `active_chats`,
@@ -143,6 +145,7 @@ class erLhcoreClassModelUserDep
     public $hide_online_ts = 0;
     public $hide_online = 0;
     public $last_activity = 0;
+    public $lastd_activity = 0;
     public $last_accepted = 0;
     public $active_chats = 0;
     public $pending_chats = 0;

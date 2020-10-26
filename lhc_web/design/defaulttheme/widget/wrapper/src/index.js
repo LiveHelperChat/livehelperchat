@@ -1,14 +1,21 @@
 (function (global) {
 
-    if (!global.LHC_API || /google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|Chrome-Lighthouse/i.test(navigator.userAgent)) {
+    var currentScript = document.currentScript || (function() {
+        var scripts = document.getElementsByTagName('script');
+        return scripts[scripts.length - 1];
+    })();
+
+    var scopeScript = currentScript.getAttribute('scope') || 'LHC';
+
+    if (!global[scopeScript+'_API'] || /google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|Chrome-Lighthouse/i.test(navigator.userAgent)) {
         return;
     }
 
-    global.$_LHC_Instance = null;
-    global.$_LHC_Debug = false;
-    global.$_LHC = global.$_LHC || {};
+    global['$_'+scopeScript+'_Instance'] = null;
+    global['$_'+scopeScript+'_Debug'] = false;
+    global['$_'+scopeScript] = global['$_'+scopeScript] || {};
 
-    (function (lhc) {
+    (function (lhc, LHC_API) {
 
         lhc.loaded = false;
         lhc.connected = false;
@@ -48,7 +55,11 @@
             var isMobile = isMobileItem.default(global.navigator.userAgent).any;
 
             LHC_API.args = LHC_API.args || {};
-            var storageHandler = new storageHandler(global, LHC_API.args.domain || null);
+
+            const prefixLowercase = scopeScript.toLowerCase();
+            const prefixStorage = (prefixLowercase && LHC_API.args.scope_storage ? prefixLowercase : 'lhc');
+
+            var storageHandler = new storageHandler(global, LHC_API.args.domain || null, prefixStorage);
 
             if (LHC_API.args.cookie_per_page) {
                 storageHandler.setCookiePerPage(LHC_API.args.cookie_per_page);
@@ -67,22 +78,26 @@
 
             // Main attributes
             var attributesWidget = {
+                prefixLowercase : prefixLowercase,
+                prefixStorage : prefixStorage,
+                prefixScope : scopeScript,
+                LHC_API : LHC_API,
                 viewHandler : null,
-                mainWidget : new mainWidget(),
+                mainWidget : new mainWidget(prefixLowercase),
                 popupWidget : new mainWidgetPopup(),
                 chatNotifications : chatNotifications,
                 jsVars :  new BehaviorSubject(true),
                 onlineStatus :  new BehaviorSubject(true),
                 wloaded :  new BehaviorSubject(false),
                 sload :  new BehaviorSubject(false),
-                widgetStatus : new BehaviorSubject((storageHandler.getSessionStorage('LHC_WS') === 'true' || (LHC_API.args.mode && LHC_API.args.mode == 'embed'))),
+                widgetStatus : new BehaviorSubject((storageHandler.getSessionStorage(prefixStorage+'_ws') === 'true' || (LHC_API.args.mode && LHC_API.args.mode == 'embed'))),
                 eventEmitter : new EventEmitter(),
-                toggleSound : new BehaviorSubject(storageHandler.getSessionStorage('LHC_SOUND') === 'true',{'ignore_sub':true}),
+                toggleSound : new BehaviorSubject(storageHandler.getSessionStorage(prefixStorage+'_sound') === 'true',{'ignore_sub':true}),
                 hideOffline : false,
+                fscreen : LHC_API.args.fscreen || false,
                 isMobile : isMobile,
                 isIE : (navigator.userAgent.toUpperCase().indexOf("TRIDENT/") != -1 || navigator.userAgent.toUpperCase().indexOf("MSIE") != -1),
                 fresh : LHC_API.args.fresh || false,
-                widgetDimesions : new BehaviorSubject({sright:(LHC_API.args.sright || 0), sbottom:(LHC_API.args.sbottom || 0), wright_inv: 0, wbottom:0, wright:0, width: (isMobile ? 100 : (LHC_API.args.wwidth || 350)), height: (isMobile ? 100 : (LHC_API.args.wheight || 520)), units : (isMobile ? '%' : 'px')}),
                 popupDimesnions : {pheight: (LHC_API.args.pheight || 520), pwidth:(LHC_API.args.pwidth || 500)},
                 leaveMessage : LHC_API.args.leaveamessage || null,
                 department : LHC_API.args.department || [],
@@ -105,7 +120,7 @@
                 proactive_interval : null,
                 lang : LHC_API.args.lang || '',
                 bot_id : LHC_API.args.bot_id || '',
-                priority : LHC_API.args.priority || '',
+                priority : LHC_API.args.priority || null,
                 events : LHC_API.args.events || [],
                 hhtml : LHC_API.args.hhtml || '',
                 survey : LHC_API.args.survey || null,
@@ -119,23 +134,27 @@
                 init_calls : [],
                 childCommands : [],
                 childExtCommands : [],
+                lhc_var : (LHC_API.args.lhc_var || (typeof lhc_var !== 'undefined' ? lhc_var :  null)),
                 loadcb : LHC_API.args.loadcb || null,
-                LHCChatOptions : global.LHCChatOptions ? global.LHCChatOptions : {}
+                LHCChatOptions : global[scopeScript + 'ChatOptions'] || {}
             };
+
+            attributesWidget.widgetDimesions = new BehaviorSubject({sright:(LHC_API.args.sright || 0), sbottom:(LHC_API.args.sbottom || 0), wright_inv: 0, wbottom:0, wright:0, width: ((isMobile || attributesWidget.fscreen) ? 100 : (LHC_API.args.wwidth || 350)), height: ((isMobile || attributesWidget.fscreen) ? 100 : (LHC_API.args.wheight || 520)), units : ((isMobile|| attributesWidget.fscreen) ? '%' : 'px')});
 
             var chatEvents = new chatEventsHandler(attributesWidget);
 
             lhc.eventListener = attributesWidget.eventEmitter;
             lhc.attributes = attributesWidget;
 
+            attributesWidget.userSession.setAttributes(attributesWidget);
             attributesWidget.userSession.setSessionInformation(attributesWidget.storageHandler.getSessionInformation());
             attributesWidget.userSession.setSessionReferrer(storageHandler.getSessionReferrer());
 
             if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
 
-                var containerChatObj = new containerChat();
+                var containerChatObj = new containerChat(attributesWidget.prefixLowercase);
 
-                attributesWidget.viewHandler = new statusWidget();
+                attributesWidget.viewHandler = new statusWidget(attributesWidget.prefixLowercase);
                 containerChatObj.cont.elmDom.appendChild(attributesWidget.viewHandler.cont.constructUI(),!0);
 
                 if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
@@ -143,7 +162,7 @@
                 }
 
             } else {
-                var embedWrapper = document.getElementById('lhc_status_container_page');
+                var embedWrapper = document.getElementById(attributesWidget.prefixLowercase + '_status_container_page');
                 if (embedWrapper !== null) {
                     embedWrapper.appendChild(attributesWidget.mainWidget.cont.constructUI());
                     embedWrapper.style.height = (LHC_API.args.wheight || 520)+'px';
@@ -237,8 +256,20 @@
                 }
                 
                 if (data.chat_ui) {
+
+                    if ((data.chat_ui.fscreen && attributesWidget.mode == 'embed') || attributesWidget.fscreen) {
+                        attributesWidget.widgetDimesions.nextProperty('width',100);
+                        attributesWidget.widgetDimesions.nextProperty('height',100);
+                        attributesWidget.widgetDimesions.nextProperty('units','%');
+                        attributesWidget.fscreen = isMobile = attributesWidget.isMobile = true;
+                    }
+
                     if (data.chat_ui.wheight && !isMobile) {
                         attributesWidget.widgetDimesions.nextProperty('height',data.chat_ui.wheight);
+                    }
+
+                    if (data.chat_ui.wwidth && !isMobile) {
+                        attributesWidget.widgetDimesions.nextProperty('width',data.chat_ui.wwidth);
                     }
 
                     if (data.chat_ui.hhtml) {
@@ -247,10 +278,6 @@
 
                     if (data.chat_ui.clinst) {
                         attributesWidget.clinst = true;
-                    }
-
-                    if (data.chat_ui.wwidth && !isMobile) {
-                        attributesWidget.widgetDimesions.nextProperty('width',data.chat_ui.wwidth);
                     }
 
                     if (data.chat_ui.wbottom && !isMobile) {
@@ -277,7 +304,7 @@
                         attributesWidget.mode = 'popup';
                     }
 
-                    if (data.chat_ui.sound_enabled && storageHandler.getSessionStorage('LHC_SOUND') === null) {
+                    if (data.chat_ui.sound_enabled && storageHandler.getSessionStorage(prefixStorage+'_sound') === null) {
                         attributesWidget.toggleSound.next(true);
                     }
 
@@ -303,7 +330,7 @@
 
                 if (attributesWidget.mode == 'widget' && data.nh && attributesWidget.fresh === false && attributesWidget['position'] != 'api' && attributesWidget.userSession.id === null) {
                     import('./lib/widgets/needhelpWidget').then((module) => {
-                        var needhelpWidget = new module.needhelpWidget();
+                        var needhelpWidget = new module.needhelpWidget(attributesWidget.prefixLowercase);
                         containerChatObj.cont.elmDom.appendChild(needhelpWidget.cont.constructUI(),!0);
                         needhelpWidget.init(attributesWidget,data.nh);
                     });
@@ -346,7 +373,7 @@
 
                 attributesWidget.proactive_interval = data.chat_ui.proactive_interval;
 
-                if ( (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') && (typeof LHC_API.args.proactive === 'undefined' || LHC_API.args.proactive === true) && attributesWidget.storageHandler.getSessionStorage('LHC_invt') === null) {
+                if ( (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') && (typeof LHC_API.args.proactive === 'undefined' || LHC_API.args.proactive === true) && attributesWidget.storageHandler.getSessionStorage(prefixStorage+'_invt') === null) {
                     import('./util/proactiveChat').then((module) => {
                         module.proactiveChat.setParams({
                             'interval' : attributesWidget.proactive_interval
@@ -515,14 +542,14 @@
             // Track widget status changes
             attributesWidget.widgetStatus.subscribe((data) => {
                 if (attributesWidget.mode !== 'popup') {
-                    attributesWidget.storageHandler.setSessionStorage('LHC_WS',data);
+                    attributesWidget.storageHandler.setSessionStorage(prefixStorage+'_ws',data);
                     chatEvents.sendChildEvent('widgetStatus', [data]);
                 }
             });
 
             // Store sound settings
             attributesWidget.toggleSound.subscribe((data) => {
-                attributesWidget.storageHandler.setSessionStorage('LHC_SOUND',data);
+                attributesWidget.storageHandler.setSessionStorage(prefixStorage+'_sound',data);
             });
 
             attributesWidget.onlineStatus.subscribe((data) => {
@@ -620,7 +647,7 @@
 
             // Listed for post messages
             const handleMessages = (e) => {
-                if (typeof e.data !== 'string' || e.data.indexOf('lhc::')) { return; }
+                if (typeof e.data !== 'string' || e.data.indexOf(attributesWidget.prefixLowercase +'::')) { return; }
 
                 const parts = e.data.split('::');
 
@@ -636,7 +663,7 @@
                 if (parts[1] == 'ready') {
                     chatEvents.sendReadyEvent(parts[2] == 'true');
 
-                    if (attributesWidget.storageHandler.getSessionStorage('LHC_screenshare')){
+                    if (attributesWidget.storageHandler.getSessionStorage(prefixStorage+'_screenshare')){
                         attributesWidget.eventEmitter.emitEvent('screenshare',[{'auto_start' : true}]);
                     }
 
@@ -693,6 +720,6 @@
             init();
         }, "windowload"));
 
-    }).call(this, window.$_LHC);
+    }).call(this, global['$_'+scopeScript], global[scopeScript+'_API']);
 
 })(window);

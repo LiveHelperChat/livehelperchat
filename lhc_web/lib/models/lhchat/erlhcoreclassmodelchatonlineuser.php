@@ -859,6 +859,7 @@ class erLhcoreClassModelChatOnlineUser
 
                 if (empty($errors)) {
                     //Process pro active chat invitation if this visitor matches any rules
+                    if ($item->id == null) { $item->saveThis(); }
                     erLhAbstractModelProactiveChatInvitation::processProActiveInvitation($item, array('tag' => isset($paramsHandle['tag']) ? $paramsHandle['tag'] : ''));
                 }
             }

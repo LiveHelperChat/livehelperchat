@@ -25,8 +25,8 @@ class ChatSound extends PureComponent {
                 helperFunctions.sendMessageParent('unread_message',[{'type' : 'unread_message'}]);
             }
         } else if (e.type == 'new_invitation' && e.sound_on === true) {
-             if (helperFunctions.getSessionStorage('lhc_invs') === null) {
-                 helperFunctions.setSessionStorage('lhc_invs',1);
+             if (helperFunctions.getSessionStorage('_invs') === null) {
+                 helperFunctions.setSessionStorage('_invs',1);
                  this.playSoundFile('new_invitation');
              }
         }

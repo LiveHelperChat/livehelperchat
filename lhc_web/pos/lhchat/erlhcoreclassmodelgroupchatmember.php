@@ -36,6 +36,11 @@ $def->properties['last_msg_id']->columnName   = 'last_msg_id';
 $def->properties['last_msg_id']->propertyName = 'last_msg_id';
 $def->properties['last_msg_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['type'] = new ezcPersistentObjectProperty();
+$def->properties['type']->columnName   = 'type';
+$def->properties['type']->propertyName = 'type';
+$def->properties['type']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

@@ -12,6 +12,7 @@ if ($userDepartments !== true) {
 }
 
 $departmentParams['sort'] = 'sort_priority ASC, name ASC';
+$departmentParams['filter']['archive'] = 0;
 
 $departmentNames = array();
 $departmentList = array();

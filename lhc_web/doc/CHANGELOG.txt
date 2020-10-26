@@ -1,3 +1,35 @@
+3.49v
+
+1. Now operators can have chat between themself directly in the chat.
+2. Once clicking on a chat tab you can copy URL and chat will be opened.
+3. Possibility to copy link to chat directly from chat window. Copy link action near the chat ID.
+4. Dashboard icon from I icon was changed to home icon to match Dashboard icon.
+5. HTML Element from bot will be rendered for an admin.
+6. Blocking capability by IP or Nick or Nick and Department
+7. Department archive attribute. These departments won't be shown in dashboard and in user account will be placed under `Show archived` button action.
+8. Quote menu action for the right mouse click in messages area.
+9. Widget was not showing error in case it was an error not related to a field.
+
+execute doc/update_db/update_222.sql for update
+
+3.48v
+
+1. Global activity tracking. If you stop activity in one window it won't force go offline everywhere.
+2. Includes database changes I'll need for future version.
+
+execute doc/update_db/update_221.sql for update
+
+3.47v
+
+1. You can access now any argument in Rest API call. Usefull in webhooks.
+2. Webhooks
+3. Widget icons were not loading if PC already had Material Icons font. Thanks @AKapaceb
+4. New chrome cookie policy support for chrome extension https://doc.livehelperchat.com/docs/chrome-extension/
+5. Files will not be send as soon operator uploads them, we will add BBCode to them.
+6. New arguments for custom status icon position.
+
+execute doc/update_db/update_220.sql for update
+
 3.46v
 
 1. New positions for a new widget.
