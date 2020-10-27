@@ -6,6 +6,17 @@
  * */
 $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.statistic', array());
 
+try {
+    $dt = new DateTime();
+    $offset = $dt->format("P");
+    $db = ezcDbInstance::get();
+    $db->query("SET LOCAL time_zone='" . $offset ."'");
+} catch (Exception $e) {
+    // Ignore
+}
+
+
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhstatistic/statistic.tpl.php');
 
 $validTabs = array('visitors','active','total','last24','chatsstatistic','agentstatistic','performance','departments','configuration');
