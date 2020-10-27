@@ -15,8 +15,6 @@ try {
     // Ignore
 }
 
-
-
 $tpl = erLhcoreClassTemplate::getInstance( 'lhstatistic/statistic.tpl.php');
 
 $validTabs = array('visitors','active','total','last24','chatsstatistic','agentstatistic','performance','departments','configuration');
