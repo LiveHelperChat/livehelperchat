@@ -10,7 +10,7 @@ class erLhcoreClassLHCMobile {
             $chat = new erLhcoreClassModelChat();
             $chat->nick = 'Live Helper Chat';
 
-            self::sendPushNotification($session, $chat, ['title' => $chat->nick, 'msg' => 'Test notifications']);
+            self::sendPushNotification($session, $chat, ['chat_type' => 'test_notification', 'title' => $chat->nick, 'msg' => 'Test notifications']);
         } else {
             throw new Exception('Notifications not enabled!');
         }
