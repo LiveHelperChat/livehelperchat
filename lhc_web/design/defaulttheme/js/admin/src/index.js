@@ -5,6 +5,7 @@ import i18n from "./components/i18n/i18n";
 
 const CannedMessages = React.lazy(() => import('./components/CannedMessages'));
 const GroupChat = React.lazy(() => import('./components/GroupChat'));
+const DashboardChatTabs = React.lazy(() => import('./components/DashboardChatTabs'));
 
 // set webpack loading path
 __webpack_public_path__ = WWW_DIR_LHC_WEBPACK_ADMIN;
@@ -65,6 +66,14 @@ ee.addListener('removeSynchroChat', (chatId) => {
 });
 
 $(document).ready(function(){
+
+    var el = document.getElementById('tabs-dashboard');
+    if (el !== null) {
+        ReactDOM.render(
+            <Suspense fallback="..."><DashboardChatTabs /></Suspense>,
+            el
+        );
+    }
 
     if (localStorage) {
         try {

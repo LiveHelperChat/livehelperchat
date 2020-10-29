@@ -62,7 +62,20 @@ $myChatsEnabled = erLhcoreClassModelUserSetting::getSetting('enable_mchats_list'
 $chatsList = array();
 $chatsListAll = array();
 
-if ($showDepartmentsStats == true && is_array($Params['user_parameters_unordered']['w']) && in_array('departments_stats',$Params['user_parameters_unordered']['w'])) {
+$mapsWidgets = [
+    'my_chats' => 0,
+    'online_operators' => 1,
+    'group_chats' => 2,
+    'pending_chats' => 3,
+    'online_visitors' => 4,
+    'unread_chats' => 5,
+    'active_chats' => 6,
+    'bot_chats' => 7,
+    'transfered_chats' => 8,
+    'departments_stats' => 9,
+];
+
+if ($showDepartmentsStats == true && is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['departments_stats'],$Params['user_parameters_unordered']['w'])) {
     /**
      * Departments stats
      * */
@@ -339,7 +352,7 @@ if ($closedTabEnabled == true) {
 	$chatsList[] = & $ReturnMessages['closed_chats']['list'];
 }
 
-if (is_array($Params['user_parameters_unordered']['w']) && in_array('bot_chats',$Params['user_parameters_unordered']['w']) && $botTabEnabled == true) {
+if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['bot_chats'], $Params['user_parameters_unordered']['w']) && $botTabEnabled == true) {
     $limitList = is_numeric($Params['user_parameters_unordered']['limitb']) ? (int)$Params['user_parameters_unordered']['limitb'] : 10;
 
     $filter = array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField);
@@ -518,7 +531,7 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
 	$ReturnMessages['online_op'] = array('list' => array_values($onlineOperators), 'op_cc' => $operatorsCount, 'op_sn' => $operatorsSend);
 }
 
-if ($unreadTabEnabled == true && is_array($Params['user_parameters_unordered']['w']) && in_array('unread_chats',$Params['user_parameters_unordered']['w'])) {
+if ($unreadTabEnabled == true && is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['unread_chats'],$Params['user_parameters_unordered']['w'])) {
 
     $filter = array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField);
 

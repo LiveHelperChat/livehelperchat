@@ -7,6 +7,19 @@
                 <li class="dropdown-item"><a href="#" ng-click="lhc.toggleWidget('track_open_chats')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Last 10 your active chats will be always visible')?>"><i class="material-icons" ng-class="{'chat-active': lhc.toggleWidgetData['track_open_chats'] === true, 'chat-closed': lhc.toggleWidgetData['track_open_chats'] !== true}">done</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Keep my active chats'); ?></a></li>
                 <li class="dropdown-item"><a href="#" ng-click="lhc.toggleWidget('group_offline_chats')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Hide nicknames for offline chats')?>"><i class="material-icons" id="group-chats-status" ng-class="{'chat-active': lhc.toggleWidgetData['group_offline_chats'] === true, 'chat-closed': lhc.toggleWidgetData['group_offline_chats'] !== true}">done</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Hide nicknames for offline chats'); ?></a></li>
 
+                <li class="dropdown-item"><a href="<?php echo erLhcoreClassDesign::baseurl('front/switchdashboard')?>" >
+                        <i class="material-icons">home</i>
+                        <?php if ((int)erLhcoreClassModelUserSetting::getSetting('new_dashboard',1) == 1) : ?>
+                            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Old dashboard'); ?>
+                        <?php else : ?>
+                            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'New dashboard'); ?>
+                        <?php endif; ?>
+                    </a>
+                </li>
+                <?php if ((int)erLhcoreClassModelUserSetting::getSetting('new_dashboard',1) == 1) : ?>
+                    <li class="dropdown-item"><a href="<?php echo erLhcoreClassDesign::baseurl('front/switchdashboard/(action)/tabs')?>"><i class="material-icons">chat</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Hide/Show chat tabs'); ?></a></li>
+                <?php endif; ?>
+
                 <li class="dropdown-item">
                     <div class="input-group input-group-sm">
                         <input type="text" class="form-control" ng-model="lhc.chat_to_open" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Chat ID to open')?>" aria-describedby="inputGroupPrepend" required>
