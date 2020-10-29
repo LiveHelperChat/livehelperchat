@@ -1238,28 +1238,34 @@ class erLhcoreClassChat {
 	    $s = gmdate('s', $seconds);
 
 	    $parts = array();
+        $hasYears = false;
+        $hasDays = false;
+        $hasHours = false;
 
 	    if($y > 0)
 	    {
 	    	$parts[] = $y . ' .y';
+            $hasYears = true;
 	    }
 
 	    if($d > 0)
 	    {
 	    	$parts[] = $d . ' d.';
+            $hasDays = true;
 	    }
 
-	    if($h > 0)
+	    if($h > 0 && $hasYears == false)
 	    {
 	    	$parts[] = $h . ' h.';
+            $hasHours = true;
 	    }
 
-	    if($m > 0)
+	    if($m > 0 && $hasDays == false && $hasYears == false)
 	    {
 	    	$parts[] = $m . ' m.';
 	    }
 
-	    if($s > 0)
+	    if($s > 0 && $hasHours == false && $hasDays == false && $hasYears == false)
 	    {
 	    	$parts[] = $s . ' s.';
 	    }

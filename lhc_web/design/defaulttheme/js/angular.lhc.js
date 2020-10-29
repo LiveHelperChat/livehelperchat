@@ -487,7 +487,20 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		filter += '/(limitgc)/'+parseInt(_that.limitgc);
 
         if (typeof _that.widgetsActive == 'object' && _that.widgetsActive.length > 0) {
-            filter += '/(w)/'+_that.widgetsActive.join('/');
+            var map = {
+                'my_chats' : 0 ,
+                'online_operators' : 1,
+                'group_chats' : 2,
+                'pending_chats' : 3,
+                'online_visitors' : 4,
+                'unread_chats' : 5,
+                'active_chats' : 6,
+                'bot_chats' : 7,
+                'transfered_chats' : 8,
+                'departments_stats' : 9}
+            var activeWidgets = [];
+            angular.forEach(_that.widgetsActive, function(widget) {activeWidgets.push(map[widget]);})
+            filter += '/(w)/'+activeWidgets.join('/');
         }
 
 		if (typeof _that.activeu == 'object' && _that.activeu.length > 0) {

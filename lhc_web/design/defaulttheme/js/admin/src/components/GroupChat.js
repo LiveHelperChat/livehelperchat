@@ -97,6 +97,7 @@ const GroupChat = props => {
         var whoisHot,hotSet = false;
         if (tab !== null && length > 1 && !tab.classList.contains('active') && (whoisHot = tab.querySelector('.whatshot')) !== null) {
             whoisHot.classList.remove("d-none");
+            ee.emitEvent('supportUnreadChat', [{id:chat_id,unread:true}]);
             hotSet = true;
         }
 
@@ -408,7 +409,7 @@ const GroupChat = props => {
 
 
         <React.Fragment>
-            <div className="row">
+            <div className={"row group-chat-"+(props.chatPublicId ? "public" : "private")}>
 
                 {props.chatPublicId && state.chat.type == 2 && <div className="col-12 pb-1 border-bottom">
 
@@ -419,7 +420,7 @@ const GroupChat = props => {
 
                 </div>}
 
-                <div className={(props.chatPublicId ? "col-12" : "col-7")+" chat-main-left-column"}>
+                <div className={(props.chatPublicId ? "col-12" : "col-7")}>
                     <div className="message-block">
 
                         {state.has_more_messages && <a className="load-prev-btn"  title="Load more..." onClick={(e) => loadPrevious()}><i className="material-icons">&#xE889;</i></a>}

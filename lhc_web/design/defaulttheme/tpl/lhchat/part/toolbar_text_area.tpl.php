@@ -12,8 +12,8 @@
     <div class="btn-group btn-group-sm mr-2" role="group">
 
         <div class="dropdown mr-2">
-            <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Font Size')?>
+            <button class="btn btn-outline-secondary dropdown-toggle btn-sm" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Font Size')?>" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="material-icons mr-0">format_size</i>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <?php for($i = 0; $i < 7; $i++) : ?>
@@ -23,8 +23,8 @@
         </div>
 
         <div class="dropdown">
-            <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Color')?>
+            <button class="btn btn-outline-secondary dropdown-toggle btn-sm" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Color')?>" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="material-icons mr-0">palette</span>
             </button>
             <div class="dropdown-menu keepopen downdown-menu-color-<?php echo $chat->id?>" style="width: 128px;">
                 <div id="color-picker-chat-<?php echo $chat->id?>"></div>

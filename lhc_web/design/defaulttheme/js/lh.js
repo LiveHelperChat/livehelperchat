@@ -391,8 +391,10 @@ function lh(){
     	if (tabs.find('#chat-tab-link-'+chat_id).length > 0) {
     		return ;
     	}
-    	
-    	var contentLi = '<li role="presentation" id="chat-tab-li-'+chat_id+'" class="nav-item"><a class="nav-link" href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">send</i><i id="user-chat-status-'+chat_id+'" class="'+this.tabIconClass+'">'+this.tabIconContent+'</i><span class="ntab" id="ntab-chat-'+chat_id+'">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span><span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>';
+
+    	var hideTabs = confLH.new_dashboard && confLH.hide_tabs ? ' d-none' : '';
+
+    	var contentLi = '<li role="presentation" id="chat-tab-li-'+chat_id+'" class="nav-item'+hideTabs+'"><a class="nav-link" href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">send</i><i id="user-chat-status-'+chat_id+'" class="'+this.tabIconClass+'">'+this.tabIconContent+'</i><span class="ntab" id="ntab-chat-'+chat_id+'">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span><span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>';
 
     	if (typeof position === 'undefined' || parseInt(position) == 0) {
     		tabs.find('> ul').append(contentLi);
@@ -417,14 +419,12 @@ function lh(){
                     inst.removeClass('has-pm');
                 }
 
-                if (/*!inst.attr('lhc-scrolled') || */scrollNeeded == true) {
+                if (scrollNeeded == true) {
                     $('#messagesBlock-'+chat_id).prop('scrollTop',$('#messagesBlock-'+chat_id).prop('scrollHeight'));
-                    //inst.attr('lhc-scrolled',true);
                 }
-
-    			ee.emitEvent('chatTabClicked', [chat_id, inst]);
-
     		},500);
+
+            ee.emitEvent('chatTabClicked', [chat_id, inst]);
     	});
     	
     	var hash = window.location.hash.replace('#/','#');	
@@ -716,7 +716,7 @@ function lh(){
     		window.location.hash = '#/chat-id-'+chat_id;
         }
         
-        ee.emitEvent('chatStartTab', [chat_id]);	
+        ee.emitEvent('chatStartTab', [chat_id, {name: name, focus: (typeof focusTab !== 'undefined' ? focusTab : true), position: position}]);
     };
 
     this.backgroundChats = [];
@@ -731,7 +731,7 @@ function lh(){
             }
 
 	    	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend+'/(arg)/'+backgroundType, name, chat_id, false);
-	    	ee.emitEvent('chatStartBackground', [chat_id]);	
+	    	ee.emitEvent('chatStartBackground', [chat_id,{name:name}]);
 	    	return true;
     	}
     	
@@ -1369,11 +1369,21 @@ function lh(){
 
 	};
 
-	this.smartTabFocus = function(tabs, chat_id) {
+	this.smartTabFocus = function(tabs, chat_id, params) {
 		var index = tabs.find('> ul > #chat-tab-li-'+chat_id).index();
-    	tabs.find('> ul > #chat-tab-li-'+chat_id).remove();
-    	tabs.find('#chat-id-'+chat_id).remove();
-    	var linkTab = tabs.find('> ul > li:eq('+ (index - 1)+')');
+
+		if (!params) {params = {};}
+
+		var navigationDirection = (params.up == true || typeof params.up == 'undefined') ? 1 : -1;
+
+		if (!params['keep']) {
+            tabs.find('> ul > #chat-tab-li-'+chat_id).remove();
+            tabs.find('#chat-id-'+chat_id).remove();
+        } else {
+            tabs.find('> ul > li > a.active').removeClass('active');
+        }
+
+    	var linkTab = tabs.find('> ul > li:eq('+ (index - navigationDirection)+')');
 
     	if (linkTab.attr('id') !== undefined){
     		var link = linkTab.find('> a');
@@ -1393,7 +1403,10 @@ function lh(){
         		var new_chat_id = link.attr('href').replace('#chat-id-','');
         		this.removeBackgroundChat(new_chat_id);
         		this.hideNotification(new_chat_id);
-        		ee.emitEvent('chatTabFocused', [new_chat_id]);
+        		if (!params['keep']) {
+                    ee.emitEvent('chatTabFocused', [new_chat_id]);
+                }
+
         	}
     	}
 
@@ -2186,6 +2199,9 @@ function lh(){
 
                             clearTimeout(lhinst.userTimeout);
 	        	            lhinst.userTimeout = setTimeout(chatsyncadmin,confLH.chat_message_sinterval);
+
+                            ee.emitEvent('chatAdminSync', [data]);
+
 	        	        };
         	    	} catch (err) {
                         clearTimeout(lhinst.userTimeout);
@@ -2663,6 +2679,25 @@ function lh(){
 		});
 
 		$textarea.bind('keyup', function (evt){
+
+            if ($textarea.val() == '' && evt.altKey && (evt.which == 38 || evt.which == 40)) {
+                if (confLH.new_dashboard == true) {
+                    ee.emitEvent('activateNextTab',[chat_id,(evt.which == 38 ? true : false)]);
+                } else {
+                    if (evt.which == 38) {
+                        var tab = lhinst.smartTabFocus($('#tabs'),chat_id,{keep:true,up:true});
+                    } else {
+                        var tab = lhinst.smartTabFocus($('#tabs'),chat_id,{keep:true,up:false});
+                    }
+                    var parts = tab.split('chat-id-');
+                    if (parts[1] && !isNaN(parts[1])) {
+                        $('#chat-tab-link-'+parts[1]).click();
+                    }
+                }
+
+                return ;
+            }
+
 			var ta = $textarea[0];
 			var maxrows = 30;
 			var lh = ta.clientHeight / ta.rows;
@@ -2672,6 +2707,8 @@ function lh(){
 			}
 			if (ta.scrollHeight > ta.clientHeight) ta.style.overflow = 'auto';
 		});
+
+
 
 		// Resize by user
 		$messageBlock = $('#messagesBlock-'+chat_id);
