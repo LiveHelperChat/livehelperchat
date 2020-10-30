@@ -211,7 +211,7 @@ if ($activeTabEnabled == true) {
 	    $db->query('UPDATE `lh_chat` SET `status_sub_sub` = 0 WHERE `id` IN (' . implode(',', $transferedArray) . ')');
 	}
 
-	erLhcoreClassChat::prefillGetAttributes($chats,array('time_created_front','department_name','plain_user_name','product_name','n_official','n_off_full'),array('product_id','product','department','time','status','user_id','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
+	erLhcoreClassChat::prefillGetAttributes($chats,array('hum','time_created_front','department_name','plain_user_name','product_name','n_official','n_off_full'),array('has_unread_messages','product_id','product','department','time','status','user_id','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
 	$ReturnMessages['active_chats'] = array('list' => array_values($chats));	
 	$chatsList[] = & $ReturnMessages['active_chats']['list'];
 }
@@ -296,7 +296,7 @@ if ($myChatsEnabled == true) {
     /**
      * Get last pending chat
      * */
-    erLhcoreClassChat::prefillGetAttributes($myChats,array('time_created_front','product_name','department_name','wait_time_pending','wait_time_seconds','plain_user_name'), array('product_id','product','department','time','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
+    erLhcoreClassChat::prefillGetAttributes($myChats,array('hum','time_created_front','product_name','department_name','wait_time_pending','wait_time_seconds','plain_user_name'), array('has_unread_messages','product_id','product','department','time','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
     
     $ReturnMessages['my_chats'] = array('list' => array_values($myChats));
     

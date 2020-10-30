@@ -23,7 +23,7 @@ class erLhcoreClassChat {
 			'phone',
 			'user_typing',
 			'operator_typing',
-			'has_unread_messages',			
+			//'has_unread_messages',
 			'operation',			
 			'operation_admin',			
 			'screenshot_id',			
