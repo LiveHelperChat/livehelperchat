@@ -35,13 +35,13 @@
 
                 <div class="w-100">
                     <div class="clearfix">
-                        <div class="text-muted p-2 float-left"><i class="material-icons mr-0">list</i><span class="fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Open chats'); ?></span></div>
+                        <div class="text-muted p-2 float-left"><i class="material-icons mr-0">list</i><span class="fs13 font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Open chats'); ?></span></div>
                         <a class="d-inline-block pt-2 pr-2 float-right"  onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT +'chat/dashboardwidgets'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Configure dashboard')?>"><i class="material-icons mr-0">&#xE871;</i></a>
                         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/open_active_chat_tab.tpl.php')); ?>
                     </div>
                     <div id="tabs-dashboard" class="border-top">
                     </div>
-                    <div class="text-muted p-2"><i class="material-icons mr-0">list</i><span class="fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Other chats'); ?></span></div>
+                    <div class="text-muted p-2"><i class="material-icons mr-0">list</i><span class="fs13 font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Other chats'); ?></span></div>
 
                     <div class="dashboard-panels">
                     <?php $hideCard = true; ?>

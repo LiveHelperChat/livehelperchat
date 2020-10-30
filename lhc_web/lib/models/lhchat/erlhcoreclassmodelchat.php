@@ -298,6 +298,11 @@ class erLhcoreClassModelChat {
        			return $this->plain_user_name;
        		break;
 
+           case 'hum':
+               $this->hum = $this->has_unread_messages == 1 && $this->last_user_msg_time < time() - 5;
+               return $this->hum;
+               break;
+
        	case 'n_official':
        	        $this->n_office = false;
 
