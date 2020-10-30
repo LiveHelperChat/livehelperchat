@@ -7,6 +7,7 @@ $device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
 
 if ((int)erLhcoreClassModelUserSetting::getSetting('new_dashboard',1) == 1 && $device_type == 0) {
     $tpl = erLhcoreClassTemplate::getInstance( 'lhfront/default_new.tpl.php');
+    $tpl->set('new_dashboard',true);
     $Result['body_class'] = 'h-100 dashboard-height';
     $Result['hide_right_column'] = true;
 } else {

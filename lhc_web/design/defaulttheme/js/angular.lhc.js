@@ -1172,18 +1172,31 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		});
 	};
 
-	this.previewChat = function(chat_id){		
+	this.previewChat = function(chat_id,event){
+        if (event) {
+            event.stopPropagation();
+        }
 		lhc.previewChat(chat_id);
 	};
-	this.previewChatArchive = function(archive_id, chat_id){
+	this.previewChatArchive = function(archive_id, chat_id, event){
+        if (event) {
+            event.stopPropagation();
+        }
 		lhc.previewChatArchive(archive_id, chat_id);
 	};
 	
-	this.redirectContact = function(chat_id,message) {	
+	this.redirectContact = function(chat_id,message,event) {
+        if (event) {
+            event.stopPropagation();
+        }
 		return lhinst.redirectContact(chat_id,message);				
 	};
 	
-	this.startChatNewWindow = function(chat_id,name) {
+	this.startChatNewWindow = function(chat_id,name,event) {
+	    if (event) {
+	        event.stopPropagation();
+        }
+
 		return lhinst.startChatNewWindow(chat_id,name);	
 	};
 		

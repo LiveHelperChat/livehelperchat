@@ -1802,3 +1802,16 @@ html {
     border-top:1px solid rgba(0,0,0,.125);
     border-bottom: 0;
 }
+
+.list-chat-table > tbody > tr:hover{
+    cursor: pointer;
+}
+
+.chat-tab-active{
+ background-color: #e2f7ff;
+}
+
+.chat-tabs-row:hover,
+.list-chat-table > tbody > tr:hover > td{
+    background-color: #eeeeee!important;
+}
