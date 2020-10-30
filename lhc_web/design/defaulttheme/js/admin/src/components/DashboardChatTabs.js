@@ -133,7 +133,6 @@ const DashboardChatTabs = props => {
     useEffect(() => {
 
         function addTab(chatId, params) {
-
             if (params.focus) {
                 dispatch({
                     type: 'attr_remove',
@@ -150,6 +149,18 @@ const DashboardChatTabs = props => {
                 value: {
                     "id" : chatId,
                     active: params.focus
+                }
+            });
+            loadChatTabIntro([chatId]);
+        }
+
+        function addTabBackground(chatId, params) {
+            dispatch({
+                type: 'add',
+                value: {
+                    "id" : chatId,
+                    active: false,
+                    mn : 1
                 }
             });
             loadChatTabIntro([chatId]);
@@ -232,7 +243,7 @@ const DashboardChatTabs = props => {
         }
 
         ee.addListener('chatStartTab',addTab)
-        ee.addListener('chatStartBackground',addTab)
+        ee.addListener('chatStartBackground',addTabBackground)
         ee.addListener('removeSynchroChat',removeTab)
         ee.addListener('chatTabClicked',tabClicked)
         ee.addListener('chatTabFocused',tabClicked)
@@ -277,7 +288,7 @@ const DashboardChatTabs = props => {
         // Cleanup
         return function cleanup() {
             ee.removeListener('chatStartTab', addTab);
-            ee.removeListener('chatStartBackground', addTab);
+            ee.removeListener('chatStartBackground', addTabBackground);
             ee.removeListener('removeSynchroChat', removeTab);
             ee.removeListener('chatTabClicked', tabClicked);
             ee.removeListener('chatTabFocused', tabClicked);
@@ -312,7 +323,7 @@ const DashboardChatTabs = props => {
                         </div>
 
                         {(chat.msg || (chat.tp == 'true' && chat.tx)) && <div className="fs13 text-muted pt-1">
-                            <span id="" className={"d-inline-block text-truncate mw-100 "+(chat.mn > 0 ? 'font-weight-bold' : '')+(chat.tp == 'true' && chat.tx ? ' font-italic': '')}>
+                            <span title={chat.tp == 'true' && chat.tx ? chat.tx : chat.msg} className={"d-inline-block text-truncate mw-100 "+(chat.mn > 0 ? 'font-weight-bold' : '')+(chat.tp == 'true' && chat.tx ? ' font-italic': '')}>
                                 {chat.tp == 'true' && chat.tx ? chat.tx : chat.msg}
                             </span>
                         </div>}

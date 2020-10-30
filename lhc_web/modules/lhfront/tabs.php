@@ -19,7 +19,8 @@ if (!empty($id)) {
             'us' => $chat->user_status_front,
             'um' => $chat->has_unread_op_messages,
             'lmsg' => erLhcoreClassChat::formatSeconds(time() - ($chat->last_user_msg_time > 0 ? $chat->last_user_msg_time : $chat->time)),
-            'cc' => ($chat->country_code != '' ? erLhcoreClassDesign::design('images/flags') . '/' . (string)$chat->country_code . '.png' : '')
+            'cc' => ($chat->country_code != '' ? erLhcoreClassDesign::design('images/flags') . '/' . (string)$chat->country_code . '.png' : ''),
+            'msg' => erLhcoreClassChat::getGetLastChatMessagePending($chat->id, true, 3, ' » '),
         );
     }
 }
