@@ -307,7 +307,7 @@ const DashboardChatTabs = props => {
                 <div title={chat.id} onClick={() => chatTabClick(chat)} className={"p-1 action-image chat-tabs-row border-bottom"+(chat.active ? ' chat-tab-active' : '')}>
                         <div className="fs12">
                             {chat.support_chat && <span className="whatshot blink-ani text-warning material-icons">whatshot</span>}<i className={"material-icons "+(chat.us == 2 ? "icon-user-away" : (chat.us == 0 ? "icon-user-online" : "icon-user-offline"))}  >face</i><i className={"material-icons icon-user-online " + (chat.um == 1 ? "icon-user-offline" : "icon-user-online")}>send</i>{chat.cc && <img title={chat.cn} src={chat.cc} alt="" />} {(state.group_offline == false || !(chat.us != 0)) && <span className={(chat.mn > 0 ? "font-weight-bold " : '') + (chat.cs == 0 ? 'text-warning' : '')}>{chat.nick || chat.id}</span>}{chat.mn > 0 && <span className="msg-nm pl-1">({chat.mn})</span>}{chat.lmsg && <span className="text-muted"> {chat.lmsg}</span>}
-                            <button type="button" onClick={(e) => closeDialog(e,chat)} className="float-right btn-light m-0 p-0 btn btn-xs"><i className="material-icons mr-0">close</i></button>
+                            <button type="button" onClick={(e) => closeDialog(e,chat)} className="float-right btn-light m-0 ml-1 p-0 btn btn-xs"><i className="material-icons mr-0">close</i></button>
                             {chat.dep && <span className="float-right text-muted text-truncate mw-80px"><span className="material-icons">home</span>{chat.dep}</span>}
                         </div>
 
