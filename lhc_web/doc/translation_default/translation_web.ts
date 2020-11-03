@@ -2942,7 +2942,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>🔍 Navigate with ⮃ and ↵ Enter</source>
+      <source>🔍 Navigate with ⮃ and ↵ Enter. Esc to quit.</source>
       <translation type="unfinished"/>
     </message>
     <message>
