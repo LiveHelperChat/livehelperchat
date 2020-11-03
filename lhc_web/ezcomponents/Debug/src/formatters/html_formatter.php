@@ -60,7 +60,7 @@ class ezcDebugHtmlFormatter implements ezcDebugOutputFormatter
      */
     public function generateOutput( array $writerData, array $timerData )
     {
-        $str = '<div class="ezc-debug-output">';
+        $str = '<div class="ezc-debug-output m-2">';
         $str .= $this->getLog( $writerData );
         $str .= $this->getTimingsAccumulator( $timerData );
         $str .= "</div>\n";
@@ -75,13 +75,13 @@ class ezcDebugHtmlFormatter implements ezcDebugOutputFormatter
      */
     public function getLog( array $writerData )
     {
-        $str = "<table class='log'>\n";
+        $str = "<table class='table table-sm table-bordered table-hover'>\n";
         foreach ( $writerData as $w )
         {
             $color = isset( $this->verbosityColors[$w->verbosity]) ? $this->verbosityColors[$w->verbosity] : "";
             $date = date( 'Y-m-d H:i:s O', $w->datetime );
             $str .= <<<ENDT
-<tr class='debugheader'>
+<tr class='bg-light'>
     <td class='source'>
         <span class='verbosity{$w->verbosity}'>{$w->verbosity}: {$w->source}::{$w->category}</span>
     </td>
