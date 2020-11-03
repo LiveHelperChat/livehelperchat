@@ -26,6 +26,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -1375,6 +1383,10 @@
     </message>
     <message>
       <source>Show go to survey button on chat close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Try to expand widget to full screen in page embed mode</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3052,6 +3064,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Block user</source>
+      <translation>บล็อกผู้ใช้</translation>
+    </message>
+    <message>
       <source>Strike</source>
       <translation type="unfinished"/>
     </message>
@@ -3104,12 +3120,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Are you sure?</source>
-      <translation>เธอแน่ใจหรือ</translation>
-    </message>
-    <message>
-      <source>Block user</source>
-      <translation>บล็อกผู้ใช้</translation>
+      <source>Block visitor</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Close chat</source>
@@ -3142,6 +3154,10 @@
     <message>
       <source>Redirect user to contact form.</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>เธอแน่ใจหรือ</translation>
     </message>
     <message>
       <source>Please enter a URL</source>
@@ -3333,6 +3349,10 @@
     </message>
     <message>
       <source>Remarks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Private chat between operators</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4182,8 +4202,20 @@
   <context>
     <name>chat/blockedusers</name>
     <message>
+      <source>Date</source>
+      <translation>วัน</translation>
+    </message>
+    <message>
+      <source>User was blocked!</source>
+      <translation>ผู้ใช้ถูกบล็อก</translation>
+    </message>
+    <message>
       <source>IP</source>
       <translation>IP</translation>
+    </message>
+    <message>
+      <source>Block type</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
@@ -4194,8 +4226,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Date</source>
-      <translation>วัน</translation>
+      <source>Expires in</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Block date</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User who blocked</source>
@@ -4210,6 +4246,34 @@
       <translation>ว่างเปล่า...</translation>
     </message>
     <message>
+      <source>Expires</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>days (cool off)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permanent/unlimited</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Block</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Block visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick and Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>ผู้ใช้ที่ถูกบล็อค</translation>
     </message>
@@ -4218,12 +4282,20 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>User was blocked!</source>
-      <translation>ผู้ใช้ถูกบล็อก</translation>
-    </message>
-    <message>
       <source>User blocking failed, perhaps you do not have permission to block users?</source>
       <translation>บล็อกผู้ใช้ล้มเหลว บางทีคุณไม่มีสิทธิ์ในการบล็อกผู้ใช้</translation>
+    </message>
+    <message>
+      <source>Please choose a block type!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose expire option!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor was blocked!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -4273,6 +4345,10 @@
     </message>
     <message>
       <source>Hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Archived</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4589,6 +4665,10 @@
     </message>
     <message>
       <source>Private</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not presented</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5650,6 +5730,14 @@
     </message>
     <message>
       <source>Hide nicknames for offline chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID to open</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Open a chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6911,6 +6999,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Languages configuration</source>
       <translation>กำหนดค่าภาษา</translation>
     </message>
@@ -7180,6 +7272,18 @@
     <message>
       <source>Site settings</source>
       <translation>การตั้งค่าไซต์</translation>
+    </message>
+    <message>
+      <source>New and old widget supported attribute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Old widget supported attribute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other attributes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
@@ -8549,6 +8653,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Show archived departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Departments groups</source>
       <translation type="unfinished"/>
     </message>
@@ -9144,6 +9252,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Archived</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Yes</source>
       <translation type="unfinished"/>
     </message>
@@ -9196,7 +9308,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat support</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Private</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group chat options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator in chat will see automatically members from this group to be invited into private support chat within chat.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13791,6 +13919,13 @@
     <name>webhooks/new</name>
     <message>
       <source>New webhook</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>groupchat/settings</name>
+    <message>
+      <source>Options</source>
       <translation type="unfinished"/>
     </message>
   </context>

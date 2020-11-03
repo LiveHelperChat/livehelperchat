@@ -26,6 +26,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>多少天投票窗口小部件不应扩大后最后的展示</translation>
     </message>
@@ -1375,6 +1383,10 @@
     </message>
     <message>
       <source>Show go to survey button on chat close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Try to expand widget to full screen in page embed mode</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3052,6 +3064,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Block user</source>
+      <translation>黑名单</translation>
+    </message>
+    <message>
       <source>Strike</source>
       <translation type="unfinished"/>
     </message>
@@ -3104,12 +3120,8 @@
       <translation>上传的附件</translation>
     </message>
     <message>
-      <source>Are you sure?</source>
-      <translation>你确定吗？</translation>
-    </message>
-    <message>
-      <source>Block user</source>
-      <translation>黑名单</translation>
+      <source>Block visitor</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Close chat</source>
@@ -3142,6 +3154,10 @@
     <message>
       <source>Redirect user to contact form.</source>
       <translation>重定向用户联系人窗体。</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>你确定吗？</translation>
     </message>
     <message>
       <source>Please enter a URL</source>
@@ -3334,6 +3350,10 @@
     <message>
       <source>Remarks</source>
       <translation>备注</translation>
+    </message>
+    <message>
+      <source>Private chat between operators</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Include system messages</source>
@@ -4182,8 +4202,20 @@
   <context>
     <name>chat/blockedusers</name>
     <message>
+      <source>Date</source>
+      <translation>日</translation>
+    </message>
+    <message>
+      <source>User was blocked!</source>
+      <translation>用户被堵住了！</translation>
+    </message>
+    <message>
       <source>IP</source>
       <translation>IP</translation>
+    </message>
+    <message>
+      <source>Block type</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
@@ -4194,8 +4226,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Date</source>
-      <translation>日</translation>
+      <source>Expires in</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Block date</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User who blocked</source>
@@ -4210,6 +4246,34 @@
       <translation>空...</translation>
     </message>
     <message>
+      <source>Expires</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>days (cool off)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permanent/unlimited</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Block</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Block visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick and Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>被阻止的用户</translation>
     </message>
@@ -4218,12 +4282,20 @@
       <translation>请输入一个 IP 阻止</translation>
     </message>
     <message>
-      <source>User was blocked!</source>
-      <translation>用户被堵住了！</translation>
-    </message>
-    <message>
       <source>User blocking failed, perhaps you do not have permission to block users?</source>
       <translation>用户阻止失败，也许你没有权限阻止用户？</translation>
+    </message>
+    <message>
+      <source>Please choose a block type!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose expire option!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor was blocked!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -4274,6 +4346,10 @@
     <message>
       <source>Hidden</source>
       <translation>隐藏</translation>
+    </message>
+    <message>
+      <source>Archived</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Maximum pending chats, if this limit is reached department becomes offline automatically</source>
@@ -4589,6 +4665,10 @@
     </message>
     <message>
       <source>Private</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not presented</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5650,6 +5730,14 @@
     </message>
     <message>
       <source>Hide nicknames for offline chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID to open</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Open a chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6911,6 +6999,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Languages configuration</source>
       <translation>语言配置</translation>
     </message>
@@ -7180,6 +7272,18 @@
     <message>
       <source>Site settings</source>
       <translation>网站设置</translation>
+    </message>
+    <message>
+      <source>New and old widget supported attribute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Old widget supported attribute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other attributes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
@@ -8549,6 +8653,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Show archived departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Departments groups</source>
       <translation type="unfinished"/>
     </message>
@@ -9144,6 +9252,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Archived</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Yes</source>
       <translation type="unfinished"/>
     </message>
@@ -9196,7 +9308,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat support</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Private</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group chat options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator in chat will see automatically members from this group to be invited into private support chat within chat.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13791,6 +13919,13 @@
     <name>webhooks/new</name>
     <message>
       <source>New webhook</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>groupchat/settings</name>
+    <message>
+      <source>Options</source>
       <translation type="unfinished"/>
     </message>
   </context>

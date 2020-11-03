@@ -26,6 +26,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Quants dies després de l&apos;última visualització ha de romandre ocult el widget de votació</translation>
     </message>
@@ -1375,6 +1383,10 @@
     </message>
     <message>
       <source>Show go to survey button on chat close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Try to expand widget to full screen in page embed mode</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3052,6 +3064,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Block user</source>
+      <translation>Bloca usuari</translation>
+    </message>
+    <message>
       <source>Strike</source>
       <translation type="unfinished"/>
     </message>
@@ -3104,12 +3120,8 @@
       <translation>Adjunta el fitxer pujat</translation>
     </message>
     <message>
-      <source>Are you sure?</source>
-      <translation>N&apos;esteu segur?</translation>
-    </message>
-    <message>
-      <source>Block user</source>
-      <translation>Bloca usuari</translation>
+      <source>Block visitor</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Close chat</source>
@@ -3142,6 +3154,10 @@
     <message>
       <source>Redirect user to contact form.</source>
       <translation>Redirigeix l&apos;usuari cap al formulari de contacte</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>N&apos;esteu segur?</translation>
     </message>
     <message>
       <source>Please enter a URL</source>
@@ -3334,6 +3350,10 @@
     <message>
       <source>Remarks</source>
       <translation>Comentaris</translation>
+    </message>
+    <message>
+      <source>Private chat between operators</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Include system messages</source>
@@ -4182,8 +4202,20 @@
   <context>
     <name>chat/blockedusers</name>
     <message>
+      <source>Date</source>
+      <translation>Data</translation>
+    </message>
+    <message>
+      <source>User was blocked!</source>
+      <translation>S&apos;ha blocat l&apos;usuari!</translation>
+    </message>
+    <message>
       <source>IP</source>
       <translation>IP</translation>
+    </message>
+    <message>
+      <source>Block type</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
@@ -4194,8 +4226,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Date</source>
-      <translation>Data</translation>
+      <source>Expires in</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Block date</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User who blocked</source>
@@ -4210,6 +4246,34 @@
       <translation>Buit...</translation>
     </message>
     <message>
+      <source>Expires</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>days (cool off)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permanent/unlimited</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Block</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Block visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick and Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Blocked users</source>
       <translation>Usuaris blocats</translation>
     </message>
@@ -4218,12 +4282,20 @@
       <translation>Introduïu una IP per blocar</translation>
     </message>
     <message>
-      <source>User was blocked!</source>
-      <translation>S&apos;ha blocat l&apos;usuari!</translation>
-    </message>
-    <message>
       <source>User blocking failed, perhaps you do not have permission to block users?</source>
       <translation>No s&apos;ha blocat l&apos;usuari, potser no teniu permís per blocar usuaris.</translation>
+    </message>
+    <message>
+      <source>Please choose a block type!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose expire option!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor was blocked!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -4274,6 +4346,10 @@
     <message>
       <source>Hidden</source>
       <translation>Ocult</translation>
+    </message>
+    <message>
+      <source>Archived</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Maximum pending chats, if this limit is reached department becomes offline automatically</source>
@@ -4589,6 +4665,10 @@
     </message>
     <message>
       <source>Private</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not presented</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5650,6 +5730,14 @@
     </message>
     <message>
       <source>Hide nicknames for offline chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID to open</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Open a chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6912,6 +7000,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Languages configuration</source>
       <translation>Configuració d&apos;idiomes</translation>
     </message>
@@ -7181,6 +7273,18 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <message>
       <source>Site settings</source>
       <translation>Configuració del lloc web</translation>
+    </message>
+    <message>
+      <source>New and old widget supported attribute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Old widget supported attribute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other attributes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
@@ -8550,6 +8654,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Show archived departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Departments groups</source>
       <translation>Grups de departaments</translation>
     </message>
@@ -9145,6 +9253,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>Sobrecarregat</translation>
     </message>
     <message>
+      <source>Archived</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Yes</source>
       <translation>Sí</translation>
     </message>
@@ -9197,7 +9309,23 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat support</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Private</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group chat options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator in chat will see automatically members from this group to be invited into private support chat within chat.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13792,6 +13920,13 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <name>webhooks/new</name>
     <message>
       <source>New webhook</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>groupchat/settings</name>
+    <message>
+      <source>Options</source>
       <translation type="unfinished"/>
     </message>
   </context>
