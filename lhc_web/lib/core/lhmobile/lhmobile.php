@@ -2,6 +2,46 @@
 
 class erLhcoreClassLHCMobile {
 
+    public function perform()
+    {
+        $db = ezcDbInstance::get();
+        $db->reconnect(); // Because it timeouts automatically, this calls to reconnect to database, this is implemented in 2.52v
+
+        $chatId = $this->args['chat_id'];
+
+        $chat = erLhcoreClassModelChat::fetch($chatId);
+        if (!($chat instanceof erLhcoreClassModelChat)) {
+            return;
+        }
+
+        if ($this->args['type'] == 'message') {
+            if ($this->args['msg_id'] > 0) {
+                $msg = erLhcoreClassModelmsg::fetch($this->args['msg_id']);
+                if ($msg instanceof erLhcoreClassModelmsg) {
+                    self::newMessage(array(
+                        'resque' => true,
+                        'chat' => $chat,
+                        'msg' => $msg
+                    ));
+                }
+            }
+        } elseif ($this->args['type'] == 'started') {
+            $params = array('chat' => $chat, 'resque' => true);
+
+            if ($this->args['msg_id'] > 0) {
+                $msg = erLhcoreClassModelmsg::fetch($this->args['msg_id']);
+                if ($msg instanceof erLhcoreClassModelmsg) {
+                    $params['msg'] = $msg;
+                } else {
+                    // Message is gone for some reason
+                    return;
+                }
+            }
+
+            self::chatStarted($params);
+        }
+    }
+
     public static function sendTestNotifications($session)
     {
         $options = erLhcoreClassModelChatConfig::fetch('mobile_options')->data;
@@ -28,10 +68,6 @@ class erLhcoreClassLHCMobile {
         if ($session->device_type == erLhcoreClassModelUserSession::DEVICE_TYPE_ANDROID || $session->device_type == erLhcoreClassModelUserSession::DEVICE_TYPE_IOS) {
             return self::sendAndoid($session, $chat, $paramsSend);
         }
-
-        /*elseif ($session->device_type == erLhcoreClassModelUserSession::DEVICE_TYPE_IOS) {
-            //return self::sendIOS($session, $chat, $paramsSend);
-        }*/
     }
 
     public static function newMessage($params) {
@@ -41,7 +77,12 @@ class erLhcoreClassLHCMobile {
         if ($params['chat']->status != erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
             return;
         }
-        
+
+        if (!isset($params['resque']) && class_exists('erLhcoreClassExtensionLhcphpresque')) {
+            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mobile_notify', 'erLhcoreClassLHCMobile', array('type' => 'message', 'msg_id' => (isset($params['msg']) ? $params['msg']->id : 0), 'chat_id' => $params['chat']->id));
+            return;
+        }
+
         $options = erLhcoreClassModelChatConfig::fetch('mobile_options')->data;
         
         if (isset($options['notifications']) && $options['notifications'] == true) {
@@ -86,6 +127,11 @@ class erLhcoreClassLHCMobile {
         // New chat notification should be send only if chat is pending
         // We are not interested in pending or bot chats etc.
         if ($params['chat']->status != erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
+            return;
+        }
+
+        if (!isset($params['resque']) && class_exists('erLhcoreClassExtensionLhcphpresque')) {
+            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mobile_notify', 'erLhcoreClassLHCMobile', array('type' => 'started', 'msg_id' => (isset($params['msg']) ? $params['msg']->id : 0), 'chat_id' => $params['chat']->id));
             return;
         }
 
