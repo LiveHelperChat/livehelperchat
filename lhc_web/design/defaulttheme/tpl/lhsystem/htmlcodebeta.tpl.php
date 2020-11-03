@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','HTML code (beta)');?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','HTML code');?></h1>
 
 <div role="tabpanel">
 
@@ -6,6 +6,7 @@
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="nav-item"><a class="active nav-link" href="#general" aria-controls="general" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','General');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link" href="#design" aria-controls="design" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Design');?></a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link" href="#staticimage" aria-controls="design" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Static image');?></a></li>
         <?php include(erLhcoreClassDesign::designtpl('lhsystem/htmlcode_tab_multiinclude.tpl.php'));?>
     </ul>
 
@@ -244,6 +245,59 @@
 
         </div>
 
+        <div role="tabpanel" class="tab-pane" id="staticimage">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Online status text')?></label>
+                        <input type="text" class="form-control" id="OnlineTextStatic" value="I'm online" />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Offline status text. If you lave empty we will return empty image.')?></label>
+                        <input type="text" class="form-control" id="OfflineTextStatic" value="I'm offline" />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Width')?></label>
+                        <input type="text" class="form-control" id="OnlineImageWidth" value="200" />
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Sample image')?></label><br/>
+                <img id="static-image-url" src="<?php echo erLhcoreClassDesign::baseurl('restapi/onlineimage')?>">
+            </div>
+
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Source code with a link')?></label>
+            <textarea class="form-control form-control" style="font-size: 12px;" id="static-image-code"></textarea>
+
+            <script>
+                function staticImageGeneration(){
+                    var onlineText = $('#OnlineTextStatic').val() != '' ? '&online=' + encodeURIComponent($('#OnlineTextStatic').val()) : '';
+                    var offlineText = $('#OfflineTextStatic').val() != '' ? '&offline=' + encodeURIComponent($('#OfflineTextStatic').val()) : '&offline=0';
+                    var width = parseInt($('#OnlineImageWidth').val()) > 0 ? '&w=' + parseInt($('#OnlineImageWidth').val()) : '';
+                    var department = $('#DepartmentID').val() && $('#DepartmentID').val().length > 0 && $('#DepartmentID').val().join('/') != '0' ? '/(department)/'+$('#DepartmentID').val().join('/') : '';
+                    var operator = $('#id_operator').val() > 0 ? '/(operator)/'+$('#id_operator').val() : '';
+                    var theme = $('#ThemeID').val() > 0 ? '/(theme)/'+$('#ThemeID').val() : '';
+
+                    var baseURL = '<?php echo erLhcoreClassXMP::getBaseHost()?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('restapi/onlineimage')?>' + department + operator + theme + '?' + onlineText + offlineText + width;
+
+                    $('#static-image-url').attr('src', baseURL);
+                    $('#static-image-code').val('<a href="'+$('#static-url-generated').val()+'">'+'<img src="' + baseURL + '" alt="" /></a>');
+                }
+                $('#DepartmentID, #id_operator, #OnlineTextStatic, #OnlineImageWidth, #OfflineTextStatic, #static-url-generated').on('keyup change',function(){
+                    staticImageGeneration();
+                });
+            </script>
+
+            <hr>
+
+        </div>
+
         <?php include(erLhcoreClassDesign::designtpl('lhsystem/htmlcode_tab_content_multiinclude.tpl.php'));?>
 
     </div>
@@ -362,9 +416,11 @@
 
         if (!$('#hash_args').is(':checked')) {
             $('#static-url-generated').val($('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccessStatic +'chat/start'+id_survey_static+id_operator_static+id_fresh_status+id_department_static+id_theme_static+id_identifier_static);
+            staticImageGeneration();
         } else {
             $.postJSON('<?php echo erLhcoreClassDesign::baseurl('system/hashargs')?>',{'args' : id_survey_static+id_operator_static+id_fresh_status+id_department_static+id_theme_static+id_identifier_static}, function(data) {
                 $('#static-url-generated').val($('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccessStatic +'chat/start'+data);
+                staticImageGeneration();
             });
         }
 
@@ -386,5 +442,6 @@
     });
 
     generateEmbedCode();
+    staticImageGeneration();
 
 </script>
