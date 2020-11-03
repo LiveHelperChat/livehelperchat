@@ -1808,13 +1808,13 @@ html {
     cursor: pointer;
 }
 
-.chat-tab-active{
- background-color: #e2f7ff;
+.chat-tab-active {
+    background-color: #ececec;
 }
 
-.chat-tabs-row:hover,
+.chat-tabs-row:not(.chat-tab-active):hover,
 .list-chat-table > tbody > tr:hover > td{
-    background-color: #eeeeee!important;
+    background-color: #f5f5f5 !important;
 }
 
 .dashboard-panels > .panel-lhc{
@@ -1834,3 +1834,4 @@ html {
 .canned-message-holder{
     min-height:32px
 }
+

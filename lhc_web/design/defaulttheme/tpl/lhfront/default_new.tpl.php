@@ -42,7 +42,7 @@
                     <div id="tabs-dashboard" class="border-top">
                     </div>
 
-                    <div class="dashboard-panels d-flex flex-column flex-grow-1" style="position:relative">
+                    <div class="dashboard-panels border-top d-flex flex-column flex-grow-1" style="position:relative">
                     <?php $hideCard = true; ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/right_panel_container.tpl.php'));?>
                     </div>
