@@ -299,7 +299,7 @@ class erLhcoreClassModelChat {
        		break;
 
            case 'hum':
-               $this->hum = $this->has_unread_messages == 1 && $this->last_user_msg_time < time() - 5;
+               $this->hum = $this->has_unread_messages == 1 && $this->last_user_msg_time < time() - 7;
                return $this->hum;
                break;
 
