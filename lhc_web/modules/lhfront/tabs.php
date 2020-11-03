@@ -14,6 +14,7 @@ if (!empty($id)) {
             'id' => $chat->id,
             'nick' => $chat->nick,
             'cs' => $chat->status,
+            'co' => $chat->user_id,
             'dep' => (string)$chat->department,
             'cn' => (string)$chat->country_name,
             'us' => $chat->user_status_front,

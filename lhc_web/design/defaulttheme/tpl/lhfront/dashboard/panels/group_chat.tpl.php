@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            <div ng-if="!group_chats || group_chats.list.length == 0" class="m-1 alert alert-info"><i class="material-icons">search</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Group chats will appear here.')?></div>
+            <div ng-if="!group_chats || group_chats.list.length == 0" class="m-1 alert alert-light"><i class="material-icons">search</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Group chats will appear here.')?></div>
 
             <div class="panel-list">
                 <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bodies/group_chats.tpl.php'));?>

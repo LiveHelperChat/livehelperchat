@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useReducer } from "react";
 import axios from "axios";
+import {useTranslation} from 'react-i18next';
 
 var timeoutCannedMessage = null;
 
@@ -162,6 +163,11 @@ const CannedMessages = props => {
             return;
         }
 
+        if (e.keyCode == 27) {
+            document.getElementById('CSChatMessage-' + props.chatId).focus();
+            setCollapsed(true);
+        }
+
         if (e.keyCode == 13) {
             data.map((item, index) => (
                 item.messages.map(message => {
@@ -267,28 +273,30 @@ const CannedMessages = props => {
         }
     }
 
+    const { t, i18n } = useTranslation('chat_canned');
+
     return (
         <React.Fragment>
             <div className="col-12 col-xl-6">
 
                 {!isLoaded &&
-                <p className="border mt-0 pb-1 pt-1"><a className="fs13 d-block" onClick={getRootCategory}><span className="material-icons">expand_more</span>Canned messages</a></p>
+                <p className="border mb-0 mt-0 pb-1 pt-1"><a className="fs13 d-block" onClick={getRootCategory}><span className="material-icons">expand_more</span>{t('chat_canned.canned')}</a></p>
                 }
 
-                {isLoaded && isCollapsed && <ul className="list-unstyled fs13 border mt-0 mx300">
-                    <li className="pt-1 pb-1"><a className="d-block" onClick={(e) => setCollapsed(false)}><span className="material-icons">expand_more</span>Canned messages</a></li>
+                {isLoaded && isCollapsed && <ul className="list-unstyled fs13 border mt-0 mx300 mb-0">
+                    <li className="pt-1 pb-1"><a className="d-block" onClick={(e) => setCollapsed(false)}><span className="material-icons">expand_more</span>{t('chat_canned.canned')}</a></li>
                 </ul>}
 
                 {isLoaded && !isCollapsed &&
                 <ul className="list-unstyled fs13 border mt-0 mx300" id={'canned-list-'+props.chatId}>
-                    <li className="border-bottom pt-1 pb-1"><a onClick={(e) => setCollapsed(true)}><span className="material-icons">expand_less</span>Canned messages</a></li>
+                    <li className="border-bottom pt-1 pb-1"><a onClick={(e) => setCollapsed(true)}><span className="material-icons">expand_less</span>{t('chat_canned.canned')}</a></li>
                     {data.map((item, index) => (
                         <li><a className="font-weight-bold" key={index} onClick={() => expandCategory(item, index)}><span className="material-icons">{item.expanded ? 'expand_less' : 'expand_more'}</span>{item.title} [{item.messages.length}]</a>
                             {item.expanded &&
                             <ul className="list-unstyled ml-4">
                                 {item.messages.map(message => (
                                     <li key={message.id} className={message.current ? 'font-italic font-weight-bold' : ''} id={'canned-msg-'+props.chatId+'-'+message.id}>
-                                        <a className="hover-canned d-block" onMouseLeave={(e) => mouseLeave(message)} onMouseEnter={(e) => mouseOver(message)} title={message.msg} onClick={(e) => fillMessage(message)}><span title="Send instantly" onClick={(e) => fillAndSend(message,e)} className="material-icons fs12">send</span> {message.message_title}</a>
+                                        <a className="hover-canned d-block" onMouseLeave={(e) => mouseLeave(message)} onMouseEnter={(e) => mouseOver(message)} title={message.msg} onClick={(e) => fillMessage(message)}><span title={t('chat_canned.send_instantly')} onClick={(e) => fillAndSend(message,e)} className="material-icons fs12">send</span> {message.message_title}</a>
                                     </li>
                                 ))}
                             </ul>}
@@ -298,7 +306,7 @@ const CannedMessages = props => {
                 }
             </div>
             <div className="col-12 col-xl-6">
-                <input type="text" onFocus={getRootCategory} className="form-control form-control-sm" onKeyUp={(e) => applyFilter(e, true)} onKeyDown={(e) => applyFilter(e, false)} defaultValue="" placeholder="&#128269; Navigate with &#11139; and &#8629; Enter"/>
+                <input type="text" onFocus={getRootCategory} className="form-control form-control-sm" onKeyUp={(e) => applyFilter(e, true)} onKeyDown={(e) => applyFilter(e, false)} defaultValue="" placeholder={t('chat_canned.navigate')}/>
                 {!isCollapsed && <div className="mx275 mh275 mt-1 break-words" id={'chat-render-preview-'+props.chatId}></div>}
             </div>
         </React.Fragment>

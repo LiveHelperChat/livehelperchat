@@ -2746,10 +2746,6 @@ function lh(){
 
         $messageBlock.prop('scrollTop',$messageBlock.prop('scrollHeight'));
 
-        /*if ($messageBlock.prop('scrollTop') != 0 || $messageBlock.prop('scrollHeight') != 0) {
-            $('#chat-tab-link-'+chat_id).attr('lhc-scrolled',true);
-        }*/
-
 		// Start synchronisation
 		this.startSyncAdmin();
 
