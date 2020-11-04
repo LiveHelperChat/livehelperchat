@@ -16,8 +16,8 @@ try {
             $groupMessages = [];
             foreach ($previousMessages as $prevMessage) {
                 if ($prevMessage->user_id == $msg->user_id || $prevMessage->user_id == -1) {
-                    if ($prevMessage->user_id == $msg->user_id) {
-                        $groupMessages[] = $prevMessage->msg;
+                    if ($prevMessage->user_id == $msg->user_id && trim($prevMessage->msg) != '') {
+                        $groupMessages[] = trim($prevMessage->msg);
                     }
                 } else {
                     break;
@@ -29,8 +29,8 @@ try {
             $previousMessages = erLhcoreClassModelmsg::getList(array('limit' => 10, 'sort' => 'id ASC','filtergt' => array('id' => $msg->id)));
             foreach ($previousMessages as $prevMessage) {
                 if ($prevMessage->user_id == $msg->user_id || $prevMessage->user_id == -1) {
-                    if ($prevMessage->user_id == $msg->user_id) {
-                        $groupMessages[] = $prevMessage->msg;
+                    if ($prevMessage->user_id == $msg->user_id && trim($prevMessage->msg) != '') {
+                        $groupMessages[] = trim($prevMessage->msg);
                     }
                 } else {
                     break;
