@@ -251,6 +251,11 @@ const GroupChat = props => {
                 setUnreadSupportChat(props.chatPublicId,2);
             }
 
+            if (props.paramsStart && props.paramsStart.default_message && messageElement.current !== null) {
+                messageElement.current.focus();
+                messageElement.current.value = '[quote]'+props.paramsStart.default_message+'[/quote]'+"\n";
+            }
+
             props.chatId = String(result.data.chat.id);
             groupChatSync.addSubscriber(props.chatId, chatSynced);
             groupChatSync.sync();
@@ -272,8 +277,6 @@ const GroupChat = props => {
                     'supervisors': result.data.supervisors || []
                 }
             });
-
-
 
         }).catch((error) => {
            !props.chatPublicId && lhinst.removeDialogTabGroup('gc'+props.chatId,$('#tabs'),true);
@@ -326,6 +329,19 @@ const GroupChat = props => {
             }
         }
 
+        const prefillMessage = (chatId, message) => {
+            if (props.chatPublicId && chatId == props.chatPublicId) {
+                if (messageElement && messageElement.current) {
+                    messageElement.current.value = '[quote]'+message+'[/quote]'+"\n";
+                    messageElement.current.focus();
+                }
+            }
+        }
+
+        if (props.chatPublicId){
+            ee.addListener('groupChatPrefillMessage',prefillMessage);
+        }
+
         ee.addListener((!props.chatPublicId ? 'groupChatTabClicked' : 'chatTabClicked'),tabClicked)
 
         !props.chatPublicId && messageElement.current.focus();
@@ -337,7 +353,8 @@ const GroupChat = props => {
             if (!props.chatPublicId) {
                 ee.removeListener('groupChatTabClicked',tabClicked);
             } else {
-                ee.removeListener('chatTabClicked',tabClicked)
+                ee.removeListener('chatTabClicked',tabClicked);
+                ee.removeListener('prefillMessage',prefillMessage);
             }
 
             groupChatSync.removeSubscriber(props.chatId, chatSynced);

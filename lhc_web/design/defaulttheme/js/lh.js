@@ -241,7 +241,7 @@ function lh(){
                 container:'#chat-id-'+e.data.chat_id,
                 template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>',
                 content:function(){
-                    return '<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>'+confLH.transLation.quote+'</a>'+ (isOwner ? '<br/><a href="#" id="edit-popover-'+e.data.chat_id+'" ><i class="material-icons">edit</i>'+confLH.transLation.edit+'</a>' : '') + (hasSelection ? '<br/><a href="#" id="copy-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy+' (Ctrl+C)</a>' : '') + (!hasSelection ? '<br/><a href="#" id="copy-all-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy+' (Ctrl+C)</a><br/><a href="#" id="copy-group-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy_group+'</a>' : '');
+                    return '<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>'+confLH.transLation.quote+'</a>'+ (isOwner ? '<br/><a href="#" id="edit-popover-'+e.data.chat_id+'" ><i class="material-icons">edit</i>'+confLH.transLation.edit+'</a>' : '') + '<br/><a href="#" id="ask-help-popover-'+e.data.chat_id+'" ><i class="material-icons">supervisor_account</i>'+confLH.transLation.ask_help+'</a>' + (hasSelection ? '<br/><a href="#" id="copy-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy+' (Ctrl+C)</a>' : '') + (!hasSelection ? '<br/><a href="#" id="copy-all-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy+' (Ctrl+C)</a><br/><a href="#" id="copy-group-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy_group+'</a>' : '');
                 }
             }
 
@@ -254,6 +254,21 @@ function lh(){
                 event.preventDefault();
                 $.getJSON(e.data.that.wwwDir + 'chat/quotemessage/' + msgId, function(data){
                     data.msg && e.data.that.insertTextToMessageArea(e.data.chat_id, data.msg);
+                    e.data.that.hidePopover();
+                });
+            });
+
+            $('#ask-help-popover-'+e.data.chat_id).click(function(event){
+                event.stopPropagation();
+                event.preventDefault();
+                $.getJSON(e.data.that.wwwDir + 'chat/quotemessage/' + msgId, function(data){
+                    if (!$('#private-chat-tab-link-'+e.data.chat_id).attr('private-loaded')) {
+                        $('#private-chat-tab-link-'+e.data.chat_id).attr('private-loaded',true).click();
+                        ee.emitEvent('privateChatStart', [e.data.chat_id,{'default_message':data.msg}]);
+                    } else {
+                        $('#private-chat-tab-link-'+e.data.chat_id).attr('private-loaded',true).click();
+                        ee.emitEvent('groupChatPrefillMessage', [e.data.chat_id,data.msg]);
+                    }
                     e.data.that.hidePopover();
                 });
             });
