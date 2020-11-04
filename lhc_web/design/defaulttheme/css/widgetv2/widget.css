@@ -952,3 +952,12 @@ textarea[name=ChatMessage] {
     height:36px;
     overflow-y: hidden;
 }
+
+.bb-list > a.p-1{
+    padding:1px !important;
+}
+
+.bb-list > a.p-1:hover{
+    text-decoration: none;
+    background-color: #eaeaea;
+}
