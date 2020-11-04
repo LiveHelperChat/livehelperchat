@@ -102,7 +102,7 @@ $ViewList['editprevious'] = array(
 
 $ViewList['quotemessage'] = array(
     'params' => array('id'),
-    'uparams' => array(),
+    'uparams' => array('type'),
     'functions' => array( 'use' )
 );
 

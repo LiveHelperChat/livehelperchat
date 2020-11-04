@@ -15,7 +15,8 @@ confLH.transLation = <?php echo json_encode(array(
             'transfered' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New chat has been transferred to you directly!'),
             'edit' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Edit'),
             'quote' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Quote'),
-            'copy' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Copy')
+            'copy' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Copy'),
+            'copy_group' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Copy all')
 )); ?>;
 confLH.new_message_sound_user_enabled = <?php echo (int)erLhcoreClassModelUserSetting::getSetting('chat_message',(int)($soundData['new_message_sound_user_enabled'])) ?>;
 <?php if (!isset($Result['anonymous'])) : ?>
