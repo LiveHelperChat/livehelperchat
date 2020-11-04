@@ -1055,6 +1055,10 @@ input[type="file"]{
 	table-layout:fixed;
 }
 
+.table-sm{
+    font-size:14px;
+}
+
 .table-small{
 	font-size:12px;
 }
