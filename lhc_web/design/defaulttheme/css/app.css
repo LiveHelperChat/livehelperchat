@@ -1848,4 +1848,5 @@ html {
     overflow-y: auto;
     overflow-x: hidden;
     max-height: 100%;
+    padding:0px 3px;
 }
