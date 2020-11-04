@@ -972,7 +972,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                         if (tabs.length > 0) {
 							if (key == 'pending_chat' || key == 'my_chats') {
 								item.list.forEach(function (chat) {
-									if (typeof chat.user_id !== 'undefined' && chat.user_id == confLH.user_id && confLH.accept_chats == 1 && chat.status !== 1) {
+									if (typeof chat.user_id !== 'undefined' && chat.user_id == confLH.user_id && confLH.accept_chats == 1 && (chat.status !== 1 || (chat.status === 1 && chat.hum === true))) {
 										if ($('#chat-tab-link-' + chat.id).length == 0) {
 
 											if (tabs.length > 0 && lhinst.disableremember == false) {
