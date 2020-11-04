@@ -1829,13 +1829,23 @@ html {
     width: 100%;
 }
 
-.dashboard-panels > .panel-lhc::-webkit-scrollbar{width:0.4em;height:0.8em;background-color: #ededed;cursor: pointer}
-.dashboard-panels > .panel-lhc::-webkit-scrollbar:hover{background-color:transparent;}
-.dashboard-panels > .panel-lhc::-webkit-scrollbar-thumb{min-height:0.8em;min-width:1em;background-color:#ddd;}
-.dashboard-panels > .panel-lhc::-webkit-scrollbar-thumb:hover{background-color:#bbb}
-.dashboard-panels > .panel-lhc::-webkit-scrollbar-thumb:active{background-color:#888}
+::-webkit-scrollbar{width:0.4em;height:0.8em;background-color: #ededed;cursor: pointer}
+::-webkit-scrollbar:hover{background-color:transparent;}
+::-webkit-scrollbar-thumb{min-height:0.8em;min-width:1em;background-color:#ddd;}
+::-webkit-scrollbar-thumb:hover{background-color:#bbb}
+::-webkit-scrollbar-thumb:active{background-color:#888}
 
 .canned-message-holder{
     min-height:32px
 }
 
+.dashboard-height .chat-main-right-column > div{
+    position: absolute;
+    top: 0;
+    width:100%;
+    right: 0;
+    left: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 100%;
+}
