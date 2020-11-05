@@ -1741,6 +1741,7 @@ html {
     display: flex!important;
     flex-direction: column!important;
     position: relative;
+    min-height:200px!important;
 }
 
 .dashboard-height .group-chat-private .msgBlock-group-admin,
@@ -1849,4 +1850,16 @@ html {
     overflow-x: hidden;
     max-height: 100%;
     padding:0px 3px;
+}
+
+.new-msg{
+    padding: 0px 5px;
+    font-weight: bold;
+}
+
+.new-msg-holder{
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: -20px;
 }

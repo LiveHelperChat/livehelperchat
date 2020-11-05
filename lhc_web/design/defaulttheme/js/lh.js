@@ -39,6 +39,7 @@ function lh(){
     this.forceBottomScroll = false;
     this.appendSyncArgument = '';
     this.nodeJsMode = false;
+    this.previous_chat_id = 0;
 
     this.gmaps_loaded = false;
 
@@ -447,6 +448,9 @@ function lh(){
 
     	$('#chat-tab-link-'+chat_id).click(function() {
 
+    	    lhinst.previous_chat_id > 0 && $('#unread-separator-'+lhinst.previous_chat_id).remove();
+            lhinst.previous_chat_id = chat_id;
+
             setTimeout(function() {
                 $('#CSChatMessage-' + chat_id).focus();
             },2);
@@ -576,8 +580,7 @@ function lh(){
 				}
 
 				if (data.msg != '') {
-					$('#messagesBlock-'+chat_id).append(data.msg);
-					$('#messagesBlock-'+chat_id).stop(true,false).animate({ scrollTop: $("#messagesBlock-"+chat_id).prop("scrollHeight") }, 500);
+					$('#messagesBlock-'+chat_id).append(data.msg).scrollTop($("#messagesBlock-"+chat_id).prop("scrollHeight"));
 				}
 
                 _this.syncadmincall();
@@ -721,7 +724,7 @@ function lh(){
             }
         }
         
-        needScroll && messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
+        needScroll && messagesBlock.scrollTop(messagesBlock.prop('scrollHeight'));
     }
 
     this.buttonAction = function(inst,payload) {
@@ -733,7 +736,7 @@ function lh(){
                 var messagesBlock = $('#messagesBlock-' + data.chat_id);
                 var needScroll = (messagesBlock.prop('scrollTop') + messagesBlock.height() + 30) > messagesBlock.prop('scrollHeight');
                 $(data.replace_id).html(data.html);
-                needScroll && messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
+                needScroll && messagesBlock.scrollTop(messagesBlock.prop('scrollHeight'));
             }
         });
     }
@@ -1192,7 +1195,7 @@ function lh(){
 
 	  	                	if (isAtTheBottom < 20 || inst.forceBottomScroll == true) {
                                 inst.forceBottomScroll = false;
-	  	                		messageBlock.stop(true,false).animate({ scrollTop: scrollHeight+2000 }, 500);
+	  	                		messageBlock.scrollTop(scrollHeight+2000);
 	  	                	}
 
                 			// If one the message owner is not current user play sound
@@ -2067,7 +2070,7 @@ function lh(){
 
                 if (inst.attr('auto-scroll') == 1) {
                     inst.attr('auto-scroll',0);
-                    msg.stop(true,false).animate({ scrollTop: msg.prop('scrollHeight') }, 500);
+                    msg.scrollTop(msg.prop('scrollHeight'));
                 }
 
                 if (data.has_messages == true) {
@@ -2112,28 +2115,32 @@ function lh(){
 
 	        	                	  messageBlock.find('.pending-storage').slice(0, item.mn).remove();
 
-	        	                	  messageBlock.append(item.content);
-                                      messageBlock.find('.pending-storage').appendTo(messageBlock);
+
+                                    var mainElement = $('#chat-tab-link-'+item.chat_id);
+
+                                    if (!mainElement.hasClass('active')) {
+                                        if (mainElement.find('span.msg-nm').length > 0) {
+                                            var totalMsg = (parseInt(mainElement.find('span.msg-nm').attr('rel')) + item.mn);
+                                            mainElement.find('span.msg-nm').html(' (' + totalMsg + ')' ).attr('rel',totalMsg);
+                                        } else {
+                                            mainElement.append('<span rel="'+item.mn+'" class="msg-nm"> ('+item.mn+')</span>');
+                                            mainElement.addClass('has-pm');
+                                            item.content = item.content.replace('<span class="usr-tit','<div id="unread-separator-'+item.chat_id+'" class="new-msg-holder border-bottom border-danger text-center"><span class="new-msg bg-danger text-white d-inline-block fs12 rounded-top">'+confLH.transLation.new+'</span></div><span class="usr-tit');
+                                        }
+                                    }
+
+                                    messageBlock.append(item.content);
+                                    messageBlock.find('.pending-storage').appendTo(messageBlock);
 
 	        	                	  lhinst.addQuateHandler(item.chat_id);
 
 	        	                	  if (isAtTheBottom < 20) {
-	        	                		  messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
+	        	                		  messageBlock.scrollTop(scrollHeight);
 	        	                	  }
 
 	        		                  lhinst.updateChatLastMessageID(item.chat_id,item.message_id);
 
-	        		                  var mainElement = $('#chat-tab-link-'+item.chat_id);
 
-	        		                  if (!mainElement.hasClass('active')) {
-	        		                	  if (mainElement.find('span.msg-nm').length > 0) {
-	        		                		  var totalMsg = (parseInt(mainElement.find('span.msg-nm').attr('rel')) + item.mn);
-	        		                		  mainElement.find('span.msg-nm').html(' (' + totalMsg + ')' ).attr('rel',totalMsg);
-	        		                	  } else {
-	        		                		  mainElement.append('<span rel="'+item.mn+'" class="msg-nm"> ('+item.mn+')</span>');
-	        		                		  mainElement.addClass('has-pm');
-	        		                	  }
-	        		                  }
 
 	        		                  if (playSound == false && data.uw == 'false' && (typeof item.ignore === 'undefined' || typeof item.ignore === false))
                                       {
@@ -2477,6 +2484,8 @@ function lh(){
 
 	this.addmsgadmin = function (chat_id, message)
 	{
+        $('#unread-separator-'+chat_id).remove();
+
 		var textArea = $("#CSChatMessage-"+chat_id);
 
 		if (textArea.is("[readonly]")) {
@@ -2534,7 +2543,7 @@ function lh(){
 
             message || messagesBlock.append("<div class=\"message-row message-admin pending-storage\"><div class=\"msg-body\"><span class=\"material-icons lhc-spin\">autorenew</span>" + $("<div>").text(pdata.msg).html() + "</div></div>");
 
-			messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
+			messagesBlock.scrollTop(messagesBlock.prop('scrollHeight'));
 
 			if (this.addingUserMessage == false)
 			{
@@ -2551,8 +2560,7 @@ function lh(){
                         ee.emitEvent('chatAddMsgAdmin', [chat_id]);
 
                         if (data.r != '') {
-                            $('#messagesBlock-'+chat_id).append(data.r);
-                            $('#messagesBlock-'+chat_id).stop(true,false).animate({ scrollTop: $("#messagesBlock-"+chat_id).prop("scrollHeight") }, 500);
+                            $('#messagesBlock-'+chat_id).append(data.r).scrollTop($("#messagesBlock-"+chat_id).prop("scrollHeight"));
                         };
 
                         if (data.hold_removed === true) {
@@ -2566,8 +2574,7 @@ function lh(){
                         textArea.attr('placeholder',placeholerOriginal).val(textArea.val() + ' ' + pdata.msg);
                         $('.pending-storage').first().remove();
                         var escaped = '<div style="margin:10px 10px 30px 10px;" class="alert alert-warning" role="alert">' + $("<div>").text(data.r).html() + '</div>';
-                        $('#messagesBlock-'+chat_id).append(escaped);
-                        $('#messagesBlock-'+chat_id).animate({ scrollTop: $("#messagesBlock-"+chat_id).prop("scrollHeight") }, 500);
+                        $('#messagesBlock-'+chat_id).append(escaped).scrollTop($("#messagesBlock-"+chat_id).prop("scrollHeight"));
                     }
 
 					inst.addingUserMessage = false;
@@ -2581,8 +2588,7 @@ function lh(){
 				}).fail(function(respose) {
                     textArea.attr('placeholder',placeholerOriginal).val(textArea.val() + ' ' + pdata.msg);
                     var escaped = '<div style="margin:10px 10px 30px 10px;" class="alert alert-warning" role="alert">' + $("<div>").text('You have weak internet connection or the server has problems. Try to refresh the page or send the message again.' + (typeof respose.status !== 'undefined' ? ' Error code ['+respose.status+']' : '') + (typeof respose.responseText !== 'undefined' ? respose.responseText : '')).html() + '</div>';
-                    $('#messagesBlock-'+chat_id).append(escaped);
-                    $('#messagesBlock-'+chat_id).animate({ scrollTop: $("#messagesBlock-"+chat_id).prop("scrollHeight") }, 500);
+                    $('#messagesBlock-'+chat_id).append(escaped).scrollTop($("#messagesBlock-"+chat_id).prop("scrollHeight"));
                     $('.pending-storage').first().remove();
                     inst.addingUserMessage = false;
                     if (inst.addUserMessageQueue.length > 0) {
@@ -2955,8 +2961,7 @@ function lh(){
     			setTimeout(function(){
     				$('#msg-'+msgid).removeClass('bg-success');
     			},2000);
-
-                needScroll && messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
+                needScroll && messagesBlock.scrollTop(messagesBlock.prop('scrollHeight'));
     		}
 		});
     };
@@ -3007,8 +3012,7 @@ function lh(){
 			var messagesBlock = $('#messagesBlock');
 
             messagesBlock.append("<div class=\"message-row response pending-storage\"><div class=\"msg-body\">" + $("<div>").text(pdata.msg).html() + "</div></div>");
-
-			messagesBlock.stop(true,false).animate({ scrollTop: messagesBlock.prop('scrollHeight') }, 500);
+			messagesBlock.scrollTop(messagesBlock.prop('scrollHeight'));
 
 			if (this.addingUserMessage == false && this.addUserMessageQueue.length == 0)
 			{
@@ -3240,7 +3244,7 @@ function lh(){
     	    			    'class': 'message-row response',
     	    			    text: $('#id_Question').val()
     	    			}).appendTo('#messagesBlock').prepend('<span class="usr-tit vis-tit">'+visitorTitle+'</span>');
-    	            	$('#messagesBlock').stop(true,false).animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 500);
+    	            	$('#messagesBlock').scrollTop($('#messagesBlock').prop('scrollHeight'));
     	            	this.pendingMessagesToStore.push($('#id_Question').val());
         	  			$('#id_Question').val('');
     		  		}
@@ -3252,7 +3256,7 @@ function lh(){
     	    			    'class': 'message-row response',
     	    			    text: $('#id_Question').val()
     	    			}).appendTo('#messagesBlock').prepend('<span class="usr-tit vis-tit">'+visitorTitle+'</span>');
-    	            	$('#messagesBlock').stop(true,false).animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 500);
+    	            	$('#messagesBlock').scrollTop($('#messagesBlock').prop('scrollHeight'));
     				};
     	  			this.pendingMessagesToStore.push($('#id_Question').val());
     	  			$('#id_Question').val('');
@@ -3322,7 +3326,7 @@ function lh(){
 	    			    'class': 'message-row response',
 	    			    text: $('#id_Question').val()
 	    			}).appendTo('#messagesBlock').prepend('<span class="usr-tit vis-tit">'+visitorTitle+'</span>');
-	            	$('#messagesBlock').stop(true,false).animate({ scrollTop: $('#messagesBlock').prop('scrollHeight') }, 500);
+	            	$('#messagesBlock').scrollTop($('#messagesBlock').prop('scrollHeight'));
 				};
 	  			this.pendingMessagesToStore.push($('#id_Question').val());
 	  			$('#id_Question').val('');
@@ -3682,7 +3686,7 @@ function lh(){
         var messageBlock = $('#messagesBlock');
 
         var scrollHeight = messageBlock.prop("scrollHeight");
-        messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
+        messageBlock.scrollTop(scrollHeight);
 
         this.syncroRequestSend = true;
         clearTimeout(this.userTimeout);
@@ -3693,7 +3697,7 @@ function lh(){
             }
 
             var scrollHeight = messageBlock.prop("scrollHeight");
-            messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
+            messageBlock.scrollTop(scrollHeight);
             lhinst.forceBottomScroll = true;
             lhinst.syncroRequestSend = false;
             lhinst.enableVisitorEditor();
@@ -3712,14 +3716,14 @@ function lh(){
         var messageBlock = $('#messagesBlock');
 
         var scrollHeight = messageBlock.prop("scrollHeight");
-        messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
+        messageBlock.scrollTop(scrollHeight);
 
         this.syncroRequestSend = true;
         clearTimeout(this.userTimeout);
 
         $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash+'/(type)/editgenericstep',{payload : step,id : id},function(data){
             var scrollHeight = messageBlock.prop("scrollHeight");
-            messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
+            messageBlock.scrollTop(scrollHeight);
             lhinst.forceBottomScroll = true;
             lhinst.syncroRequestSend = false;
             lhinst.enableVisitorEditor();
@@ -3742,7 +3746,7 @@ function lh(){
 
         var messageBlock = $('#messagesBlock');
         var scrollHeight = messageBlock.prop("scrollHeight");
-        messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
+        messageBlock.scrollTop(scrollHeight);
 
         this.syncroRequestSend = true;
         clearTimeout(this.userTimeout);
@@ -3753,7 +3757,7 @@ function lh(){
             }
 
             var scrollHeight = messageBlock.prop("scrollHeight");
-            messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
+            messageBlock.scrollTop(scrollHeight);
 
             lhinst.forceBottomScroll = true;
             lhinst.syncroRequestSend = false;
@@ -3779,7 +3783,7 @@ function lh(){
         var messageBlock = $('#messagesBlock');
 
         var scrollHeight = messageBlock.prop("scrollHeight");
-        messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
+        messageBlock.scrollTop(scrollHeight);
 
         lhinst.syncroRequestSend = true;
         clearTimeout(this.userTimeout);
@@ -3790,7 +3794,7 @@ function lh(){
             }
 
             var scrollHeight = messageBlock.prop("scrollHeight");
-            messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
+            messageBlock.scrollTop(scrollHeight);
 
             lhinst.forceBottomScroll = true;
             lhinst.syncroRequestSend = false;
@@ -3814,7 +3818,7 @@ function lh(){
         var messageBlock = $('#messagesBlock');
 
         var scrollHeight = messageBlock.prop("scrollHeight");
-        messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
+        messageBlock.scrollTop(scrollHeight);
 
         if ($('#generic_list-'+id).val() != '') {
             this.syncroRequestSend = true;
@@ -3822,7 +3826,7 @@ function lh(){
             $.get(this.wwwDir + 'genericbot/buttonclicked/'+this.chat_id+'/'+this.hash+'/(type)/valueclicked',{payload: $('#id_generic_list-'+id).val(), id : id},function(data){
                 $('.meta-message-'+id).remove();
                 var scrollHeight = messageBlock.prop("scrollHeight");
-                messageBlock.stop(true,false).animate({ scrollTop: scrollHeight }, 500);
+                messageBlock.scrollTop(scrollHeight);
 
                 lhinst.forceBottomScroll = true;
                 lhinst.syncroRequestSend = false;
@@ -3891,7 +3895,7 @@ function lh(){
                                 scrollHeight = messageBlock.prop("scrollHeight");
 
                                 messageBlock.find('.pending-storage').remove();
-                                messageBlock.stop(true, false).animate({scrollTop: scrollHeight + 2000}, 500);
+                                messageBlock.scrollTop(scrollHeight + 2000);
                             }
                         }
                     },500);
@@ -3915,7 +3919,7 @@ function lh(){
                         scrollHeight = messageBlock.prop("scrollHeight");
 
                         messageBlock.find('.pending-storage').remove();
-                        messageBlock.stop(true, false).animate({scrollTop: scrollHeight + 2000}, 500);
+                        messageBlock.scrollTop(scrollHeight + 2000);
                     }
                 }
 
@@ -3945,7 +3949,7 @@ function lh(){
         scrollHeight = messageBlock.prop("scrollHeight");
 
         messageBlock.find('.pending-storage').remove();
-        messageBlock.stop(true,false).animate({ scrollTop: scrollHeight+2000 }, 500);
+        messageBlock.scrollTop(scrollHeight+2000);
 
         if (this.delayQueue.length > 0) {
             var data = lhinst.delayQueue.pop();
