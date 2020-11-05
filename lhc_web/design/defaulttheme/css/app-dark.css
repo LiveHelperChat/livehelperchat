@@ -972,8 +972,7 @@ ul.user-settings-list li{
     transition: background-color 1000ms linear;
 }
 
-.edit-mode,
-.recent_visit {
+.edit-mode {
     background-color:#E0F3FF !important;
     transition: background-color 1000ms linear;
 }
@@ -1851,4 +1850,15 @@ html {
     right: 0;
     left: 0;
     top: -20px;
+}
+
+.card-dashboard .alert-light{
+    background-color: #2a2d31;
+    color: #e8e8e8;
+    border-color:#545454;
+}
+
+.recent_visit {
+    background-color:#274456 !important;
+    transition: background-color 1000ms linear;
 }
