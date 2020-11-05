@@ -2118,15 +2118,21 @@ function lh(){
 
                                     var mainElement = $('#chat-tab-link-'+item.chat_id);
 
+                                    var needUnreadSeparator = !focused;
+
                                     if (!mainElement.hasClass('active')) {
                                         if (mainElement.find('span.msg-nm').length > 0) {
                                             var totalMsg = (parseInt(mainElement.find('span.msg-nm').attr('rel')) + item.mn);
                                             mainElement.find('span.msg-nm').html(' (' + totalMsg + ')' ).attr('rel',totalMsg);
                                         } else {
+                                            needUnreadSeparator = true;
                                             mainElement.append('<span rel="'+item.mn+'" class="msg-nm"> ('+item.mn+')</span>');
                                             mainElement.addClass('has-pm');
-                                            item.content = item.content.replace('<span class="usr-tit','<div id="unread-separator-'+item.chat_id+'" class="new-msg-holder border-bottom border-danger text-center"><span class="new-msg bg-danger text-white d-inline-block fs12 rounded-top">'+confLH.transLation.new+'</span></div><span class="usr-tit');
                                         }
+                                    }
+
+                                    if (needUnreadSeparator == true && document.getElementById('unread-separator-'+item.chat_id) === null) {
+                                        item.content = item.content.replace('<span class="usr-tit','<div id="unread-separator-'+item.chat_id+'" class="new-msg-holder border-bottom border-danger text-center"><span class="new-msg bg-danger text-white d-inline-block fs12 rounded-top">'+confLH.transLation.new+'</span></div><span class="usr-tit');
                                     }
 
                                     messageBlock.append(item.content);
