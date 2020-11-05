@@ -1,5 +1,5 @@
 <?php $currentUser = erLhcoreClassUser::instance(); ?>
-<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom p-0 pl-1 top-menu-bar-lhc">
+<nav class="navbar navbar-expand-lg border-bottom p-0 pl-1 top-menu-bar-lhc">
     <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_logo_back_office.tpl.php'));?>
 
     <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_side_control.tpl.php'));?>

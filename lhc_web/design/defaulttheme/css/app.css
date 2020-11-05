@@ -1091,6 +1091,8 @@ input[type="file"]{
 	border-right:1px solid #e7e7e7;
 }
 
+
+
 #wrapper.toggled #sidebar-wrapper {
 	margin-left: -220px;
 }
@@ -1862,4 +1864,14 @@ html {
     right: 0;
     left: 0;
     top: -20px;
+}
+
+#sidebar-wrapper a:hover,
+.top-menu-bar-lhc a:hover{
+    color: #5a5a5a;
+}
+
+#sidebar-wrapper a,
+.top-menu-bar-lhc a{
+    color: #7c7c7d;
 }
