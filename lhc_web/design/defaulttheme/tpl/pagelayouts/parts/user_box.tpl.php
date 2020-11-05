@@ -11,6 +11,8 @@ $UserData = $currentUser->getUserData(true); ?>
             <a class="dropdown-item pl-2" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Configuration');?>" href="<?php echo erLhcoreClassDesign::baseurl('system/configuration')?>"><i class="material-icons">settings_applications</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Settings');?></a>
         <?php endif; ?>
 
+        <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Toggle between dark and white themes');?>" href="<?php echo erLhcoreClassDesign::baseurl('front/switchdashboard')?>/(action)/mode" class="dropdown-item pl-2"><span class="material-icons">settings_brightness</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Dark/bright');?></a>
+
         <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu_chat_actions_pre.tpl.php'));?>
 
         <?php if ($parts_top_menu_chat_actions_enabled == true && $currentUser->hasAccessTo('lhchat','allowchattabs')) : ?>

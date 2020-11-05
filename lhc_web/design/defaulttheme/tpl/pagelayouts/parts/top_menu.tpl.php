@@ -15,7 +15,6 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
             <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu_multiinclude.tpl.php'));?>
-            <li class="list-inline-item nav-item"><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Toggle between dar and white themes');?>" href="<?php echo erLhcoreClassDesign::baseurl('front/switchdashboard')?>/(action)/mode" class="nav-link"><span class="material-icons">settings_brightness</a></span></li>
 
             <?php if ($currentUser->hasAccessTo('lhchat','use') && $currentUser->hasAccessTo('lhuser','changeonlinestatus'))  : ?>
                     <li class="list-inline-item nav-item"><a href="#" class="nav-link"><i id="online-offline-user" class="material-icons ng-cloak" ng-click="lhc.changeOnline()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my status to online/offline');?>" >{{lhc.hideOnline == true ? 'flash_off' : 'flash_on'}}</i></a></li>
