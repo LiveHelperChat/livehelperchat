@@ -1,6 +1,6 @@
 <?php $currentUser = erLhcoreClassUser::instance(); ?>
 <div id="sidebar-wrapper" ng-cloak>
-	<div class="navbar-light bg-light sidebar" role="navigation">
+	<div class="navbar-light sidebar" role="navigation">
 		<div class="sidebar-nav navbar-collapse">
 			<ul class="nav" id="side-menu">
 				<li class="nav-item"><a class="nav-link" href="<?php echo erLhcoreClassDesign::baseurl('/')?>" onclick="$('#tabs a[href=\'#dashboard\']').tab('show')"><i class="material-icons md-18">home</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Dashboard')?></a></li>
