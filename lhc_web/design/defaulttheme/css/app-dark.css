@@ -1852,6 +1852,7 @@ html {
     top: -20px;
 }
 
+#right-column-page .alert-light,
 .dashboard-panels .alert-light,
 .card-dashboard .alert-light{
     background-color: #2a2d31;
