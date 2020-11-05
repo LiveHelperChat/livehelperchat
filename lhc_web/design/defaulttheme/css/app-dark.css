@@ -1852,9 +1852,10 @@ html {
     top: -20px;
 }
 
+.dashboard-panels .alert-light,
 .card-dashboard .alert-light{
     background-color: #2a2d31;
-    color: #e8e8e8;
+    color: #a7a7a7;
     border-color:#545454;
 }
 
