@@ -1864,3 +1864,20 @@ html {
     background-color:#274456 !important;
     transition: background-color 1000ms linear;
 }
+.btn-block-department .btn-light:not(:disabled):not(.disabled).active,
+.btn-block-department .btn-light:not(:disabled):not(.disabled):active,
+.btn-block-department.show>.btn-light.dropdown-toggle,
+.form-control.btn-light,
+.btn-block-department .btn-light{
+    background-color: #495057;
+    border: 1px solid #343a40;
+}
+
+.card-dashboard .btn-block-department .btn-light:not(:disabled):not(.disabled).active,
+.card-dashboard .btn-block-department .btn-light:not(:disabled):not(.disabled):active,
+.card-dashboard .btn-block-department.show>.btn-light.dropdown-toggle,
+.card-dashboard .form-control.btn-light,
+.card-dashboard .btn-block-department .btn-light{
+    background-color: #393f44;
+    border: 1px solid #343a40;
+}

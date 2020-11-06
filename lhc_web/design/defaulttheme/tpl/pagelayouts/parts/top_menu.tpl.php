@@ -9,8 +9,8 @@
         <div ng-if="lhc.lhcConnectivityProblem == true">You have weak internet connection or the server has problems. Try to refresh the  page. Error code {{lhc.lhcConnectivityProblemExplain}}</div>
         <div ng-if="lhc.inActive == true">You went offline because of inactivity. Please close other chat windows if you have any</div>
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler btn border-0 btn-outline-secondary pb-2" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="material-icons mr-0">menu</span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
@@ -25,7 +25,7 @@
             <?php if (!isset($Result['hide_right_column']) || $Result['hide_right_column'] == false) : ?>
             <li class="li-icon nav-item">
                 <a class="nav-link" ng-click="lhc.toggleList('lmtoggler')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Expand or collapse right menu')?>">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="material-icons">menu</span>
                 </a>
             </li>
             <?php endif; ?>
