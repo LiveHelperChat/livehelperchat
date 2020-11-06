@@ -977,7 +977,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 											if (tabs.length > 0 && lhinst.disableremember == false) {
                                                 lhinst.removeSynchroChat(chat.id);
-                                                lhinst.startChatBackground(chat.id, tabs, LiveHelperChatFactory.truncate(chat.nick, 10));
+                                                lhinst.startChatBackground(chat.id, tabs, LiveHelperChatFactory.truncate((chat.nick || 'Visitor'), 10));
 											}
 
 											if (lhinst.disableremember == false) {
@@ -1101,7 +1101,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 					if (tabs.length > 0 && lhinst.disableremember == false) {
 						angular.forEach(data.mac, function(item, key) {
-							lhinst.startChatBackground(item.id,tabs,LiveHelperChatFactory.truncate(item.nick,10),false);
+							lhinst.startChatBackground(item.id,tabs,LiveHelperChatFactory.truncate((item.nick || 'Visitor'),10),false);
 						});
 					}
 				}
@@ -1163,7 +1163,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			
 			var tabs = $('#tabs');
 			angular.forEach(data.result, function(item, key) {
-				lhinst.startChatBackground(item.id, tabs, LiveHelperChatFactory.truncate(item.nick,10));
+				lhinst.startChatBackground(item.id, tabs, LiveHelperChatFactory.truncate((item.nick || 'Visitor'),10));
 			});
 			
 			setTimeout(function(){
@@ -1216,9 +1216,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                 var _that = this;
                 LiveHelperChatFactory.getChatData(chat_id).then(function(data) {
                     if (!background) {
-                        _that.startChat(parseInt(chat_id),LiveHelperChatFactory.truncate(data.nick,10));
+                        _that.startChat(parseInt(chat_id),LiveHelperChatFactory.truncate((data.nick || 'Visitor'),10));
                     } else {
-                        lhinst.startChatBackground(parseInt(chat_id), $('#tabs'), LiveHelperChatFactory.truncate(data.nick,10),'backgroundid');
+                        lhinst.startChatBackground(parseInt(chat_id), $('#tabs'), LiveHelperChatFactory.truncate((data.nick || 'Visitor'),10),'backgroundid');
                     }
                 });
             }
@@ -1227,7 +1227,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 	this.startChat = function (chat_id,name) {	
 		if ($('#tabs').length > 0){
-			return lhinst.startChat(chat_id,$('#tabs'),LiveHelperChatFactory.truncate(name,10));	
+			return lhinst.startChat(chat_id,$('#tabs'),LiveHelperChatFactory.truncate((name || 'Visitor'),10));
 		} else {
 			lhinst.startChatNewWindow(chat_id,name);	
 		}
@@ -1500,11 +1500,11 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			}
 
             angular.forEach(data.copen, function(chatOpen) {
-                lhinst.startChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate(chatOpen.nick,10), (chatOpen.id == chat_id), 0, chatOpen.status);
+                lhinst.startChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate((chatOpen.nick || 'Visitor'),10), (chatOpen.id == chat_id), 0, chatOpen.status);
             });
 
             angular.forEach(data.cgopen, function(chatOpen) {
-                lhinst.startGroupChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate(chatOpen.nick,10));
+                lhinst.startGroupChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate((chatOpen.nick || 'Visitor'),10));
             });
 
             angular.forEach(data.cdel, function(chatOpen) {

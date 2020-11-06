@@ -238,6 +238,9 @@ if (empty($Errors)) {
                 } elseif ($chat->nick == 'Visitor') {
                     if ($userInstance->nick && $userInstance->has_nick) {
                         $chat->nick = $userInstance->nick;
+                        if (empty($chat->nick)) {
+                            $chat->nick = 'Visitor';
+                        }
                     }
                 }
 

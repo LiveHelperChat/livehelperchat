@@ -381,6 +381,9 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
                         } elseif ($chat->nick == 'Visitor'){
                             if ($userInstance->nick && $userInstance->has_nick) {
                                 $chat->nick = $userInstance->nick;
+                                if (empty($chat->nick)) {
+                                    $chat->nick = 'Visitor';
+                                }
                             }
                         }
 

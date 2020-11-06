@@ -807,7 +807,11 @@ class erLhcoreClassChatValidator {
         }
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_start_chat',array('errors' => & $Errors, 'input_form' => & $inputForm, 'start_data_fields' => & $start_data_fields, 'chat' => & $chat,'additional_params' => & $additionalParams));
-        
+
+        if (trim($chat->nick) == '') {
+            $chat->nick = 'Visitor';
+        }
+
         return $Errors;
     }
 

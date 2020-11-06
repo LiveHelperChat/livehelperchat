@@ -469,7 +469,7 @@ if (isset($_POST['askQuestion']))
        $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
        $chat->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
 
-       if ($chat->nick == '') {
+       if (trim($chat->nick) == '') {
        		$chat->nick = 'Visitor';
        }
        
