@@ -18,9 +18,7 @@
 			</div>
 			<div class="col-md-6">
                 <ul class="list-unstyled">
-                    <?php if ($currentUser->hasAccessTo('lhabstract','use')) : ?>
-                        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/automation.tpl.php'));?>
-                    <?php endif; ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/automation.tpl.php'));?>
                     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/files.tpl.php'));?>
                     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/bot.tpl.php'));?>
                     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/notifications.tpl.php'));?>
