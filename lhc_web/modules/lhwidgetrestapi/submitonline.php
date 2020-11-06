@@ -132,6 +132,9 @@ if (empty($Errors)) {
                 'open_closed_chat_timeout' => erLhcoreClassModelChatConfig::fetch('open_closed_chat_timeout')->current_value,
                 'reopen_closed' => erLhcoreClassModelChatConfig::fetch('allow_reopen_closed')->current_value
             ));
+            if (is_numeric($chat->old_last_msg_id)){
+
+            }
         }
 
         $chat->saveThis();
@@ -409,6 +412,7 @@ if (empty($Errors)) {
         'chatData' => array (
             'id' => $chat->id,
             'hash' => $chat->hash,
+            'lmsg_id' => (is_numeric($chat->old_last_msg_id) ? $chat->old_last_msg_id : 0)
         )
     );
 

@@ -95,6 +95,9 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 				        if ($requestPayload['lmgsid'] == 0) {
                             if (isset($requestPayload['new_chat']) && $requestPayload['new_chat'] == true) {
                                 $tpl->set('chat_started_now',true);
+                                if (isset($requestPayload['old_msg_id']) && is_numeric($requestPayload['old_msg_id']) && $requestPayload['old_msg_id'] > 0) {
+                                    $tpl->set('old_msg_id',(int)$requestPayload['old_msg_id']);
+                                }
                             }
                         } else {
                             $tpl->set('async_call',true);

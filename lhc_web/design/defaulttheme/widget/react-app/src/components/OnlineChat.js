@@ -328,13 +328,16 @@ class OnlineChat extends Component {
             }, data.delay * 1000);
 
             var messageBlock = document.getElementById('msg-'+data.id);
-            this.removeClass(messageBlock,'hide');
-            this.removeClass(messageBlock,'fade-in-fast');
 
-            var elementsBody = messageBlock.getElementsByClassName("msg-body");
+            if (messageBlock !== null) {
+                this.removeClass(messageBlock,'hide');
+                this.removeClass(messageBlock,'fade-in-fast');
 
-            for (var item of elementsBody) {
-                this.removeClass(item, 'hide');
+                var elementsBody = messageBlock.getElementsByClassName("msg-body");
+
+                for (var item of elementsBody) {
+                    this.removeClass(item, 'hide');
+                }
             }
 
         } else {
@@ -455,13 +458,20 @@ class OnlineChat extends Component {
     }
 
     updateMessages() {
-        this.props.dispatch(fetchMessages({
+        var params = {
             'chat_id': this.props.chatwidget.getIn(['chatData','id']),
             'hash' : this.props.chatwidget.getIn(['chatData','hash']),
             'lmgsid' : this.props.chatwidget.getIn(['chatLiveData','lmsgid']),
             'theme' : this.props.chatwidget.get('theme'),
             'new_chat' : this.props.chatwidget.get('newChat')
-        }));
+        };
+
+        // If it's new chat check do we have last message from previous chat if so send it also
+        if (params.new_chat && params.lmgsid === 0) {
+            params['old_msg_id'] = this.props.chatwidget.getIn(['chatData','lmsg_id'])
+        }
+
+        this.props.dispatch(fetchMessages(params));
     }
 
     updateStatus() {

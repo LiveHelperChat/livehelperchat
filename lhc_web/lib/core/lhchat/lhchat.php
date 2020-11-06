@@ -1466,6 +1466,7 @@ class erLhcoreClassChat {
                 // The rest will be done automatically.
                 $chat->id = $chatOld->id;
                 $chat->remarks = $chatOld->remarks;
+                $chat->old_last_msg_id = $chatOld->last_msg_id;
             }
         }
    }
