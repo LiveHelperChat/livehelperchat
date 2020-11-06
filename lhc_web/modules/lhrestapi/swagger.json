@@ -199,6 +199,14 @@
             "in": "query"
           },
           {
+            "name": "meta_parse",
+            "description": "Parse meta messages and use them in msg field",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
             "name": "group_by_email",
             "description": "Group by e-mail.",
             "required": false,
@@ -683,6 +691,14 @@
             "required": false,
             "default": false,
             "type": "boolean"
+          },
+          {
+            "name": "meta_parse",
+            "description": "Parse meta messages and use them in msg field",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
           },
           {
             "name": "as_html",

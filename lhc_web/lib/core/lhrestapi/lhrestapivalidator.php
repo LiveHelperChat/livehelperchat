@@ -565,6 +565,17 @@ class erLhcoreClassRestAPIHandler
                 if (!is_array($chats[$message->chat_id]->messages)) {
                     $chats[$message->chat_id]->messages = array();
                 }
+
+                if (isset($_GET['meta_parse']) && ($_GET['meta_parse'] == 'true' && $_GET['meta_parse'] == '1') && $message->msg == '') {
+                    $metaMessage = $message->meta_msg_array;
+                    if (is_array($metaMessage) && isset($metaMessage['content']) && is_array($metaMessage['content'])) {
+                        if (isset($metaMessage['content']['text_conditional']['full_op'])) {
+                            $message->msg = trim(preg_replace('/\[button_action=not_insult\](.*)\[\/button_action\]/is','',$metaMessage['content']['text_conditional']['full_op']));
+                            unset($message->meta_msg_array);
+                        }
+                    }
+                }
+
                 $chats[$message->chat_id]->messages[] = $message;
             }
         }

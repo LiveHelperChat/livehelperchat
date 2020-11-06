@@ -208,6 +208,19 @@ try {
             }
         }
 
+        if (isset($_GET['meta_parse']) && ($_GET['meta_parse'] == 'true' || $_GET['meta_parse'] == '1')) {
+            foreach ($messages as $key => $msg) {
+                if ($messages[$key]['msg'] == '') {
+                    $metaMessage = json_decode($messages[$key]['meta_msg'],true);
+                    if (is_array($metaMessage) && isset($metaMessage['content']) && is_array($metaMessage['content'])) {
+                        if (isset($metaMessage['content']['text_conditional']['full_op'])) {
+                            $messages[$key]['msg'] = trim(preg_replace('/\[button_action=not_insult\](.*)\[\/button_action\]/is','',$metaMessage['content']['text_conditional']['full_op']));
+                        }
+                    }
+                }
+            }
+        }
+
         erLhcoreClassRestAPIHandler::outputResponse(array(
             'error' => false,
             'result' => array(
