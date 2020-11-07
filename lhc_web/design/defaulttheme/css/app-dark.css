@@ -1142,7 +1142,7 @@ input[type="file"]{
 }
 
 .sidebar ul li a{
-    padding:10px;
+    padding:8px 10px;
 }
 
 .sidebar ul li a.active {
@@ -1789,12 +1789,6 @@ html {
     font-size: 14px;
 }
 
-.dashboard-panels .card-header{
-    background-color: none;
-    border-bottom:1px solid rgba(0,0,0,.125);
-    border-top: 0;
-}
-
 .list-chat-table > tbody > tr:hover{
     cursor: pointer;
 }
@@ -1864,8 +1858,8 @@ html {
     background-color:#274456 !important;
     transition: background-color 1000ms linear;
 }
+
 .btn-block-department .btn-light:not(:disabled):not(.disabled).active,
-.btn-block-department .btn-light:not(:disabled):not(.disabled):active,
 .btn-block-department.show>.btn-light.dropdown-toggle,
 .form-control.btn-light,
 .btn-block-department .btn-light{
@@ -1873,8 +1867,11 @@ html {
     border: 1px solid #343a40;
 }
 
+.dashboard-panels .form-control.btn-light,
+.dashboard-panels .btn-block-department .btn-light:not(:disabled):not(.disabled).active,
+.dashboard-panels .btn-block-department.show>.btn-light.dropdown-toggle,
+.dashboard-panels .btn-block-department .btn-light,
 .card-dashboard .btn-block-department .btn-light:not(:disabled):not(.disabled).active,
-.card-dashboard .btn-block-department .btn-light:not(:disabled):not(.disabled):active,
 .card-dashboard .btn-block-department.show>.btn-light.dropdown-toggle,
 .card-dashboard .form-control.btn-light,
 .card-dashboard .btn-block-department .btn-light{

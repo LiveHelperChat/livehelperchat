@@ -90,11 +90,15 @@
                         <?php foreach ($frontTabsOrder as $frontTab) : ?>
                             <?php if (trim($frontTab) == 'online_users' && $online_visitors_enabled_pre == true) : ?>
                                 <div role="tabpanel" class="tab-pane form-group" id="onlineusers">
-                                    <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_online_users.tpl.php')); ?>
+                                    <div>
+                                        <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_online_users.tpl.php')); ?>
+                                    </div>
                                 </div>
                             <?php elseif (trim($frontTab) == 'online_map' && $online_visitors_enabled_pre == true) : ?>
                                 <div role="tabpanel" class="tab-pane form-group" id="map">
-                                    <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_map_online.tpl.php')); ?>
+                                    <div>
+                                        <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_map_online.tpl.php')); ?>
+                                    </div>
                                 </div>
                             <?php elseif (trim($frontTab) == 'pending_chats' && $online_chat_enabled_pre == true) : ?>
                                 <?php if ($pendingTabEnabled == true) : ?>

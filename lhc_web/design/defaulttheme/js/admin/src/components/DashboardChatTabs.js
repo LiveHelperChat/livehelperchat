@@ -315,7 +315,7 @@ const DashboardChatTabs = props => {
 
     return (
         <React.Fragment>
-            {(!state.chats || state.chats.length == 0) && <div className="text-center text-muted p-3"><span className="material-icons">chat</span>{t('chat_tabs.open_chats')}</div>}
+            {(!state.chats || state.chats.length == 0) && <div className="text-center text-muted p-2"><span className="material-icons">chat</span>{t('chat_tabs.open_chats')}</div>}
             {state.chats.map((chat, index) => (
                 <div title={chat.id} onClick={() => chatTabClick(chat)} className={"p-1 action-image chat-tabs-row"+(chat.active ? ' chat-tab-active' : '')}>
                         <div className="fs12">
