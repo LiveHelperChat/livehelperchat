@@ -11,6 +11,12 @@ $ViewList['configuration'] = array(
     'functions' => array( 'use' ),
 );
 
+$ViewList['loginhistory'] = array(
+    'params' => array(),
+    'uparams' => array('user_id'),
+    'functions' => array( 'use' ),
+);
+
 $FunctionList['use'] = array('explain' => 'Allow operator to configure audit module');
 
 ?>

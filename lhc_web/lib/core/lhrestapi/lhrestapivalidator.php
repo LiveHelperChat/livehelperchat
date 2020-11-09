@@ -135,6 +135,17 @@ class erLhcoreClassRestAPIHandler
             if (!($apiKey instanceof erLhAbstractModelRestAPIKey)) {
                 $user = erLhcoreClassModelUser::findOne(array('filter' => array('username' => $apiData[0])));
                 if (!($user instanceof erLhcoreClassModelUser) || !password_verify($apiData[1], $user->password)) {
+
+                    if ($user instanceof erLhcoreClassModelUser) {
+                        erLhcoreClassModelUserLogin::logUserAction(array(
+                            'type' => erLhcoreClassModelUserLogin::TYPE_LOGIN_ATTEMPT,
+                            'user_id' => $user->id,
+                            'msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Failed login. API')
+                        ));
+
+                        erLhcoreClassModelUserLogin::disableIfRequired($user);
+                    }
+
                     throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Authorization failed!'));
                 } else {
                     if (!$user->hasAccessTo('lhrestapi','use_direct_logins')){

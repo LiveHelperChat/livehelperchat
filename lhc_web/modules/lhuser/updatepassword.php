@@ -36,6 +36,23 @@ if ($ts > time()) {
 
                 if (count($Errors) == 0) {
 
+                    $pendResetPassword = erLhcoreClassModelUserLogin::findOne(array('filter' => array(
+                            'type' => erLhcoreClassModelUserLogin::TYPE_PASSWORD_RESET_REQUEST,
+                            'status' => erLhcoreClassModelUserLogin::STATUS_PENDING,
+                            'user_id' => $user->id)));
+
+                    // Update password change request
+                    if ($pendResetPassword instanceof erLhcoreClassModelUserLogin) {
+                        $pendResetPassword->status = erLhcoreClassModelUserLogin::STATUS_COMPLETED;
+                        $pendResetPassword->updateThis();
+
+                        erLhcoreClassModelUserLogin::logUserAction(array(
+                            'type' => erLhcoreClassModelUserLogin::TYPE_PASSWORD_UPDATED,
+                            'user_id' => $user->id,
+                            'msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Password changed')
+                        ));
+                    }
+
                     erLhcoreClassUser::getSession()->update($user);
                                         
                     // Login user instantly as during password change he verified his logins

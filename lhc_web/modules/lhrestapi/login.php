@@ -62,6 +62,17 @@ try {
         );
             
     } else {
+        
+        if (($userAttempt = erLhcoreClassModelUser::findOne(array('filter' => array('username' => $_POST['Username'])))) instanceof erLhcoreClassModelUser) {
+            erLhcoreClassModelUserLogin::logUserAction(array(
+                'type' => erLhcoreClassModelUserLogin::TYPE_LOGIN_ATTEMPT,
+                'user_id' => $userAttempt->id,
+                'msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Failed login. WEB')
+            ));
+
+            erLhcoreClassModelUserLogin::disableIfRequired($userAttempt);
+        }
+
         http_response_code(400);
         echo json_encode(
                 array('error' => true, 'msg' => 'Authentification failed')

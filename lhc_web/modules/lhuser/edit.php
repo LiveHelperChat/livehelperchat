@@ -43,6 +43,27 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account'])) {
     
     if (count($Errors) == 0) {
 
+        if ( isset($_POST['ForceResetPassword']) ) {
+            if (erLhcoreClassModelUserLogin::getCount(array('filter' => array (
+                'type' => erLhcoreClassModelUserLogin::TYPE_PASSWORD_RESET_REQUEST,
+                'status' => erLhcoreClassModelUserLogin::STATUS_PENDING,
+                'user_id' => $UserData->id))) == 0) {
+                    erLhcoreClassModelUserLogin::logUserAction(array(
+                        'type' => erLhcoreClassModelUserLogin::TYPE_PASSWORD_RESET_REQUEST,
+                        'user_id' => $UserData->id,
+                        'msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Password reset requested by') . ' ' . $currentUser->getUserData(),
+                    ));
+            }
+        } else {
+            $userLogin = erLhcoreClassModelUserLogin::findOne(array('filter' => array (
+                'type' => erLhcoreClassModelUserLogin::TYPE_PASSWORD_RESET_REQUEST,
+                'status' => erLhcoreClassModelUserLogin::STATUS_PENDING,
+                'user_id' => $UserData->id)));
+            if ($userLogin instanceof erLhcoreClassModelUserLogin){
+                $userLogin->removeThis();
+            }
+        }
+
         erLhcoreClassUser::getSession()->update($UserData);
 
         erLhcoreClassUserDep::setHideOnlineStatus($UserData);
@@ -150,6 +171,11 @@ $userGroupFilter = $groups_can_edit === true ? array() : array('filterin' => arr
 $tpl->set('user_groups_filter',$userGroupFilter);
 $tpl->set('can_edit_groups',$can_edit_groups);
 $tpl->set('groups_read_only',$groups_can_edit === true ? true : $groups_can_edit['read']);
+
+$tpl->set('force_reset_password', erLhcoreClassModelUserLogin::getCount(array('filter' => array(
+    'type' => erLhcoreClassModelUserLogin::TYPE_PASSWORD_RESET_REQUEST,
+    'status' => erLhcoreClassModelUserLogin::STATUS_PENDING,
+    'user_id' => $UserData->id))));
 
 $tpl->set('user',$UserData);
 

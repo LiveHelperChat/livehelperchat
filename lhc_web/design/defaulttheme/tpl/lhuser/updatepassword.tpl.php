@@ -1,4 +1,4 @@
-<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Your password has expired. Please update it');?></h4>
+<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Your password has expired or it has to be changed.');?></h5>
 
 <?php if (isset($errors)) : ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
@@ -14,7 +14,7 @@
 
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Old password');?></label>
-            <input class="form-control" autocomplete="new-password" type="text" name="OldPassword" value="" />
+            <input class="form-control" autocomplete="new-password" type="password" name="OldPassword" value="" />
         </div>
 
         <div class="row">
