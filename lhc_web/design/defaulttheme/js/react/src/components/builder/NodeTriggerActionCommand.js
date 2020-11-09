@@ -58,6 +58,7 @@ class NodeTriggerActionCommand extends Component {
                                 <option value="dispatchevent">Dispatch Event</option>
                                 <option value="setchatattribute">Update main chat attribute</option>
                                 <option value="setdepartment">Change department</option>
+                                <option value="setsubject">Set subject</option>
                             </select>
                         </div>
                     </div>
@@ -102,6 +103,17 @@ class NodeTriggerActionCommand extends Component {
                     <div className="form-group">
                         <label>Set chat attribute in JSON format.</label>
                         <input className="form-control form-control-sm" type="text" placeholder="[{&quot;value&quot;:&quot;Attribute value or {content_1}&quot;,&quot;identifier&quot;:&quot;attribute_name&quot;,&quot;key&quot;:&quot;Attribute Name&quot;}]" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
+                    </div>
+                </div>}
+
+                {this.props.action.getIn(['content','command']) == 'setsubject' &&
+                <div>
+                    <div className="form-group">
+                        <label>Set subject for a chat. Enter subject ID from the subject list.</label>
+                        <input className="form-control form-control-sm" type="text" placeholder="1" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
+                    </div>
+                    <div className="form-group">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['remove_subject'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','remove_subject'])} /> Remove subject. Instead of adding we will remove subject.</label>
                     </div>
                 </div>}
 

@@ -7,6 +7,7 @@ return array(
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/product','ID'),
         'required' => false,
+        'width' => 1,
         'hide_edit' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
