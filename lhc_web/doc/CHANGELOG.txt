@@ -8,6 +8,8 @@
 4. "Alert icon" response type. It will allow to add custom icon to a bot chat list. So you can quickly take over bot chat.
 5. And many other changes.
 
+execute doc/update_db/update_223.sql for update
+
 3.49v
 
 1. Now operators can have chat between themself directly in the chat.
