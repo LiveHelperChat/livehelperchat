@@ -3,6 +3,14 @@
 $departmentFilterdefault = erLhcoreClassUserDep::conditionalDepartmentFilter();
 
 return array(
+    'id' => array(
+        'type' => 'text',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/product','ID'),
+        'required' => false,
+        'hide_edit' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
     'name' => array(
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Name'),

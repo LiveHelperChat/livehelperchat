@@ -62,6 +62,10 @@ export default ({onChange, type}) => {
         {
             'value': 'text_conditional',
             'text' : 'Different text message to visitor and operator',
+        },
+        {
+            'value': 'alert_icon',
+            'text' : 'Alert icon',
         }
     ]);
 
