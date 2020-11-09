@@ -90,9 +90,7 @@ class NodeTriggerActionQuickReply extends Component {
                             </div>
                         </div>
                     </div>
-
                 </div>
-
 
                 <div className="col-5">
                     <NodeTriggerActionQuickReplyPayload onPayloadAttrChange={this.onPayloadAttrChange} onPayloadTypeChange={this.onPayloadTypeChange} onPayloadChange={this.onPayloadChange} payloadType={this.props.reply.get('type')} currentPayload={this.props.reply.getIn(['content'])} />

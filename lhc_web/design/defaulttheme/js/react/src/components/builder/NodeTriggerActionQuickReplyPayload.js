@@ -87,6 +87,14 @@ class NodeTriggerActionQuickReplyPayload extends Component {
                         </div>
                     </div>
                 </div>
+        } else if (this.props.payloadType == 'file') {
+            controlPayload =
+                <div className="col-12">
+                    <div className="form-group">
+                        <label>File ID</label>
+                        <input className="form-control form-control-sm" placeholder="File ID" type="text" onChange={this.onChange.bind(this)} defaultValue={this.props.currentPayload.get('payload')} />
+                    </div>
+                </div>
         } else if (this.props.payloadType == 'updatechat') {
             controlPayload =
                 <div className="col-12">
@@ -128,6 +136,7 @@ class NodeTriggerActionQuickReplyPayload extends Component {
                             <option value="button">Click</option>
                             <option value="updatechat">Update chat</option>
                             <option value="trigger">Execute trigger</option>
+                            <option value="file">File</option>
                         </select>
                     </div>
                 </div>
