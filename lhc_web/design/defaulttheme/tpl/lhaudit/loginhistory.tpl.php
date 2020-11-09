@@ -19,11 +19,11 @@
     <table class="table table-sm" cellpadding="0" cellspacing="0" width="100%">
         <thead>
         <tr>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','ID');?></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','User ID');?></th>
+            <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','ID');?></th>
+            <th width="1%" nowrap=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','User ID');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Message');?></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','IP');?></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Date');?></th>
+            <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','IP');?></th>
+            <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Date');?></th>
         </tr>
         </thead>
         <?php foreach ($items as $item) : ?>
