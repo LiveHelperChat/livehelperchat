@@ -475,6 +475,29 @@ class erLhcoreClassModelChat {
             return $this->msg_v;
        break;
 
+       case 'aicons':
+           $this->aicons = [];
+           $chatVariables = $this->chat_variables_array;
+           if (isset($chatVariables['aicons']) ) {
+               foreach ($chatVariables['aicons'] as $icon => $params) {
+                   $this->aicons[] = $icon;
+               }
+           }
+           return $this->aicons;
+
+       case 'aalert':
+            $this->aalert = null;
+            $chatVariables = $this->chat_variables_array;
+            if (isset($chatVariables['aicons'])) {
+                foreach ($chatVariables['aicons'] as $aicon){
+                    if ($aicon['alert'] == true){
+                        $this->aalert = true;
+                        break;
+                    }
+                }
+            }
+            return $this->aalert;
+
        	case 'chat_variables_array':
        	        if (!empty($this->chat_variables)){
            			$jsonData = json_decode($this->chat_variables,true);

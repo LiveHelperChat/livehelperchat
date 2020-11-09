@@ -91,6 +91,23 @@ class erLhcoreClassChatCleanup {
                         break;
                     }
                 }
+
+                for ($i = 0; $i < 100; $i++)
+                {
+                    $stmt = $db->prepare("SELECT `id`, `ctime` FROM lh_users_login ORDER BY id ASC LIMIT 1 OFFSET 500");
+                    $stmt->execute();
+                    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                    if (isset($data['ctime']) && strtotime($data['ctime']) < (int)(time() - ($timeout * 24 * 3600))) {
+                        $stmt = $db->prepare('DELETE FROM lh_users_login WHERE id < :id');
+                        $stmt->bindValue(':id', $data['id'], PDO::PARAM_INT);
+                        $stmt->execute();
+                    } else {
+                        // No more records found to remove
+                        break;
+                    }
+                }
+
             }
         }
     }

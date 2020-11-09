@@ -283,6 +283,24 @@ class erLhcoreClassGenericBotActionCommand {
                 }
             }
 
+        } elseif ($action['content']['command'] == 'setsubject') {
+
+            $remove = isset($action['content']['remove_subject']) && $action['content']['remove_subject'] == true;
+            if ($remove == true && is_numeric($action['content']['payload'])) {
+                $subjectChat = erLhAbstractModelSubjectChat::findOne(array('filter' => array('subject_id' => (int)$action['content']['payload'], 'chat_id' => $chat->id)));
+                if ($subjectChat instanceof erLhAbstractModelSubjectChat) {
+                    $subjectChat->removeThis();
+                }
+            } else if (is_numeric($action['content']['payload']) && ($subject = erLhAbstractModelSubject::fetch((int)$action['content']['payload'])) instanceof erLhAbstractModelSubject) {
+                $subjectChat = erLhAbstractModelSubjectChat::findOne(array('filter' => array('subject_id' => (int)$action['content']['payload'], 'chat_id' => $chat->id)));
+                if (!($subjectChat instanceof erLhAbstractModelSubjectChat)) {
+                    $subjectChat = new erLhAbstractModelSubjectChat();
+                    $subjectChat->subject_id = $subject->id;
+                    $subjectChat->chat_id = $chat->id;
+                    $subjectChat->saveThis();
+                }
+            }
+
         } elseif ($action['content']['command'] == 'dispatchevent') {
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_chat_command_dispatch_event', array(
                     'action' => $action,

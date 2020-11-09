@@ -21,6 +21,9 @@ if ( isset($_POST['StorePasswordSettings']) ) {
         ),
         'expires_in' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        ),
+        'max_attempts' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
         )
     );
 
@@ -50,6 +53,12 @@ if ( isset($_POST['StorePasswordSettings']) ) {
         $data['uppercase_required'] = 1;
     } else {
         $data['uppercase_required'] = 0;
+    }
+
+    if ($form->hasValidData( 'max_attempts' ) ) {
+        $data['max_attempts'] = $form->max_attempts;
+    } else {
+        $data['max_attempts'] = 0;
     }
 
     if ( $form->hasValidData( 'number_required' ) && $form->number_required == true ) {
