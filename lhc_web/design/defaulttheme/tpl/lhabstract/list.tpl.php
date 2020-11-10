@@ -62,16 +62,13 @@
 	        	  <?php echo $field['link_title']?>
 	        	<?php else : ?>
 
-                        <?php if (isset($field['wrap_start'])) : ?><?php echo $field['wrap_start']?><?php endif; ?>
-
-    	        	<?php 
+                        <?php if (isset($field['wrap_start'])) : ?><?php echo $field['wrap_start']?><?php endif; ?><?php
     	        	if (isset($field['frontend'])) {
     		            echo htmlspecialchars($item->{$field['frontend']});
     	        	} else {
     		            echo htmlspecialchars($item->$key);
     	        	}
-    		        ?>
-                        <?php if (isset($field['wrap_end'])) : ?><?php echo $field['wrap_end']?><?php endif; ?>
+    		        ?><?php if (isset($field['wrap_end'])) : ?><?php echo $field['wrap_end']?><?php endif; ?>
 		        
 		        <?php endif;?>
 		        

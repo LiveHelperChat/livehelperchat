@@ -13,6 +13,7 @@ const config = {
         publicPath: "./",
         chunkFilename: "[name].[contenthash].js"
     },
+    devtool: 'source-map',
     module: {
         rules: [
             {
