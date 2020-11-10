@@ -1815,6 +1815,10 @@ html {
     cursor: pointer;
 }
 
+.table-small > thead > tr > th {
+    border-top:0;
+}
+
 .chat-tab-active {
     background-color: #ececec;
 }
