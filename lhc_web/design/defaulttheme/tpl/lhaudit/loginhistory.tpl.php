@@ -43,7 +43,7 @@
                 <td>
                     <?php echo $item->ip?>
                 </td>
-                <td>
+                <td nowrap>
                     <?php echo $item->ctime_front?>
                 </td>
             </tr>
