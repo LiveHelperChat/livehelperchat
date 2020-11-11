@@ -433,7 +433,7 @@ class erLhcoreClassDesign
         return htmlspecialchars($cutted, $encQuates);
     }
 
-    public static function designJS($files)
+    public static function designJS($files, $filesHash = '')
     {
         $debugOutput = erConfigClassLhConfig::getInstance()->getSetting('site', 'debug_output');
         $items = explode(';', $files);
@@ -447,7 +447,11 @@ class erLhcoreClassDesign
         $instance = erLhcoreClassSystem::instance();
         $extensions = erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'extensions');
 
-        $fileNameStaticName = md5($files . implode('_',$extensions) . '_' . implode('_',$instance->ThemeSite));
+        if (empty($filesHash)) {
+            $filesHash = $files;
+        }
+
+        $fileNameStaticName = md5($filesHash . implode('_',$extensions) . '_' . implode('_',$instance->ThemeSite));
         $filenameStaticPath = $instance->SiteDir . '/design/defaulttheme/js/js_static/' . $fileNameStaticName . '.js';
 
         if (self::$buildMode == false && $debugOutput == false && file_exists($filenameStaticPath)) {
