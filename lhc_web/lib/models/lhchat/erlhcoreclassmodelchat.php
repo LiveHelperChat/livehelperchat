@@ -168,6 +168,16 @@ class erLhcoreClassModelChat {
        $stmt = $q->prepare();
        $stmt->execute();
 
+       $this->removePendingEvents();
+
+       erLhcoreClassModelGroupChat::deleteByChatId($this->id);
+
+       erLhcoreClassModelChatFile::deleteByChatId($this->id);
+   }
+
+   public function removePendingEvents() {
+       $q = ezcDbInstance::get()->createDeleteQuery();
+
        // Auto responder chats
        $q->deleteFrom( 'lh_abstract_auto_responder_chat' )->where( $q->expr->eq( 'chat_id', $this->id ) );
        $stmt = $q->prepare();
@@ -187,10 +197,6 @@ class erLhcoreClassModelChat {
        $q->deleteFrom( 'lh_generic_bot_pending_event' )->where( $q->expr->eq( 'chat_id', $this->id ) );
        $stmt = $q->prepare();
        $stmt->execute();
-
-       erLhcoreClassModelGroupChat::deleteByChatId($this->id);
-
-       erLhcoreClassModelChatFile::deleteByChatId($this->id);
    }
 
    public function afterRemove()

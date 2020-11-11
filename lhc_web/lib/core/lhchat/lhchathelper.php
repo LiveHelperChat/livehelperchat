@@ -178,6 +178,8 @@ class erLhcoreClassChatHelper
 
                 erLhcoreClassChat::getSession()->save($msg);
 
+                $params['chat']->removePendingEvents();
+
                 $params['chat']->updateThis();
 
                 self::cleanupOnClose($params['chat']->id);

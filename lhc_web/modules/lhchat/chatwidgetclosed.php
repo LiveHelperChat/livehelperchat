@@ -95,10 +95,12 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
                                 if ($chat->last_msg_id < $msg->id) {
                                     $chat->last_msg_id = $msg->id;
                                 }
+                                
+                                $chat->removePendingEvents();
                             }
 				            
 				            if ($chat->wait_time == 0) {
-				                if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT){
+				                if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
                                     $chat->pnd_time = time();
                                     $chat->wait_time = 2;
                                 } else {
