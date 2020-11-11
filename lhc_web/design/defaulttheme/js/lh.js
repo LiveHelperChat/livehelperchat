@@ -3,6 +3,7 @@ var lhcError = {
             var e;
             e = {};
             e.message = message || "";
+            e.message += "\n" + window.navigator.userAgent;
             e.file = filename || "";
             e.line = lineNumber || "";
             e.column = column || "";

@@ -16,6 +16,7 @@
             var e;
             e = {};
             e.message = message || "";
+            e.message += "\n" + global.navigator.userAgent;
             e.file = filename || "";
             e.line = lineNumber || "";
             e.column = column || "";

@@ -12,6 +12,7 @@ class ErrorBoundary extends React.Component {
 
         var e;
         e = {};
+        e.message = window.navigator.userAgent;
         e.stack = error.stack ? JSON.stringify(error.stack) : "";
         e.stack = e.stack.replace(/(\r\n|\n|\r)/gm, "");
         var xhr = new XMLHttpRequest();
