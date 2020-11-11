@@ -59,6 +59,7 @@ class NodeTriggerActionCommand extends Component {
                                 <option value="setchatattribute">Update main chat attribute</option>
                                 <option value="setdepartment">Change department</option>
                                 <option value="setsubject">Set subject</option>
+                                <option value="removeprocess">Remove any previous process</option>
                             </select>
                         </div>
                     </div>

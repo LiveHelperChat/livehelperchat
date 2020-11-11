@@ -283,6 +283,25 @@ class erLhcoreClassGenericBotActionCommand {
                 }
             }
 
+        } elseif ($action['content']['command'] == 'removeprocess') {
+
+            $q = ezcDbInstance::get()->createDeleteQuery();
+
+            // Repeat counter remove
+            $q->deleteFrom( 'lh_generic_bot_repeat_restrict' )->where( $q->expr->eq( 'chat_id', $chat->id ) );
+            $stmt = $q->prepare();
+            $stmt->execute();
+
+            // Bot chat event remove
+            $q->deleteFrom( 'lh_generic_bot_chat_event' )->where( $q->expr->eq( 'chat_id', $chat->id ) );
+            $stmt = $q->prepare();
+            $stmt->execute();
+
+            // Bot chat event remove
+            $q->deleteFrom( 'lh_generic_bot_pending_event' )->where( $q->expr->eq( 'chat_id', $chat->id ) );
+            $stmt = $q->prepare();
+            $stmt->execute();
+            
         } elseif ($action['content']['command'] == 'setsubject') {
 
             $remove = isset($action['content']['remove_subject']) && $action['content']['remove_subject'] == true;
