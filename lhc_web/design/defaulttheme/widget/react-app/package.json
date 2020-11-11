@@ -8,9 +8,9 @@
   "license": "ISC",
   "scripts": {
     "clean": "rm dist/bundle.js",
-    "build-dev": "webpack -d --mode development && cp -v dist/*.js ../../js/widgetv2/",
-    "build": "webpack -p --mode production && cp -v dist/*.js ../../js/widgetv2/",
-    "build-ie": "webpack -p --mode production --config webpack.config.ie.js && cp -v dist/*.js ../../js/widgetv2/",
+    "build-dev": "webpack -d --mode development && cp -v dist/*.js ../../js/widgetv2/ && cp -v dist/*.js.map ../../js/widgetv2/",
+    "build": "webpack -p --mode production && cp -v dist/*.js ../../js/widgetv2/ && cp -v dist/*.js.map ../../js/widgetv2/",
+    "build-ie": "webpack -p --mode production --config webpack.config.ie.js && cp -v dist/*.js ../../js/widgetv2/ && cp -v dist/*.js.map ../../js/widgetv2/",
     "start": "webpack-dev-server --hot --mode development"
   },
   "dependencies": {

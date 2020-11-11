@@ -17,11 +17,9 @@ var lhcError = {
 
 window.addEventListener('error', function(e) {
     if (lhcError && (e.filename.indexOf('js_static') !== -1 || e.filename.indexOf('compiledtemplates') !== -1 || e.filename.indexOf('defaulttheme') !== -1)) {
-        console.log(e);
        lhcError.log(e.message, e.filename, e.lineNumber || e.lineno, e.error.stack, e.colno);
     }
 })
-
 
 try {
 

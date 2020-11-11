@@ -11,8 +11,10 @@ const config = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'react.app.ie.js',
         publicPath: "./",
-        chunkFilename: "[name].[contenthash].ie.js"
+        chunkFilename: "[name].[contenthash].ie.js",
+        crossOriginLoading: "anonymous"
     },
+    devtool: 'source-map',
     module: {
         rules: [
             {

@@ -20,7 +20,8 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index.js',
         publicPath: config.get('publicPath'),
-        chunkFilename: "[contenthash].js"
+        chunkFilename: "[contenthash].js",
+        crossOriginLoading: "anonymous"
     },
 
     optimization: {
@@ -75,6 +76,6 @@ module.exports = {
     },
 
     // generate source map
-    devtool: ( 'production' === process.env.NODE_ENV ? ''/*'source-map'*/ : 'cheap-module-eval-source-map' ),
+    devtool: ( 'production' === process.env.NODE_ENV ? 'source-map' : 'cheap-module-eval-source-map' ),
 
 };
