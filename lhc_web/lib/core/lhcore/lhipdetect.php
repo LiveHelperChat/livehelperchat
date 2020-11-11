@@ -6,17 +6,37 @@ class erLhcoreClassIPDetect {
 
 	public static function getIP(){
 
+		/*### since Cloudflare can update their ip range, it's not working for long on this function
 		if (self::$couldflareRun == false){
 			self::cloudflareInit();
 			self::$couldflareRun = true;
 		}
-		
+		###########################################
+		*/
+	    /*
+	    #### HTTP_* can fake by anyone
 	   if ( isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARDED_FOR'] != '' ) {
 			$_SERVER['REMOTE_ADDR'] = str_replace(' ', '', $_SERVER['HTTP_X_FORWARDED_FOR']);	
             $parts = explode(',', $_SERVER['REMOTE_ADDR']);
             $_SERVER['REMOTE_ADDR'] = $parts[0];
 		}
-		
+	   ##############################################		
+		# FOR USE BEHIND PROXY NEED OPTION LIKE : #define("PROXY_MODE",true); on index.php
+		# Because HTTP_* can fake by anyone, It's security risk.
+		then in this class
+		if(PROXY_MODE === true){
+			if(filter_var($_SERVER["HTTP_CF_CONNECTING_IP"], FILTER_VALIDATE_IP)) //#since cloudflare can trust this once
+			{
+				$_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
+			}
+			elseif ( isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+		   		$_SERVER['REMOTE_ADDR'] = str_replace(' ', '', $_SERVER['HTTP_X_FORWARDED_FOR']);	
+			    	$parts = explode(',', $_SERVER['REMOTE_ADDR']);
+				if(filter_var($parts[0], FILTER_VALIDATE_IP)) //Don't trust anyone unlease you makesure It's IPAddress
+					$_SERVER['REMOTE_ADDR'] = $parts[0];
+		    	}
+		}
+	  */	
 		$_SERVER['REMOTE_ADDR'] = isset($_SERVER['REMOTE_ADDR']) ? strip_tags($_SERVER['REMOTE_ADDR']) : '127.0.0.1';
 		
 		return $_SERVER["REMOTE_ADDR"];
