@@ -100,7 +100,12 @@ if (isset($_POST['Login']))
             if ($valid == false) {
                 $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Google re-captcha validation failed');
             } else {
-                $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Incorrect username or password');
+
+                if (erLhcoreClassModelUser::getCount(array('filter' => array('disabled' => 1,'username' => $_POST['Username']))) > 0) {
+                    $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Your account is disabled!');
+                } else {
+                    $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Incorrect username or password');
+                }
 
                 if (($userAttempt = erLhcoreClassModelUser::findOne(array('filter' => array('username' => $_POST['Username'])))) instanceof erLhcoreClassModelUser) {
                     erLhcoreClassModelUserLogin::logUserAction(array(
