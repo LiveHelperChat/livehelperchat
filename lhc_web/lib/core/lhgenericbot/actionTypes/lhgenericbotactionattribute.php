@@ -19,7 +19,15 @@ class erLhcoreClassGenericBotActionAttribute {
 
             $event = erLhcoreClassModelGenericBotChatEvent::findOne($filter);
 
-            if ($event instanceof erLhcoreClassModelGenericBotChatEvent) {
+            $softEvent = false;
+            $hasEvent = $event instanceof erLhcoreClassModelGenericBotChatEvent;
+
+            if ($hasEvent === true && isset($event->content_array['soft_event']) && $event->content_array['soft_event'] === true) {
+                $softEvent = true;
+                $event->removeThis();
+            }
+
+            if ($hasEvent && $softEvent === false) {
                 $action['content']['intro_message'] = 'Please complete previous process!';
             } else {
 
@@ -30,7 +38,7 @@ class erLhcoreClassGenericBotActionAttribute {
                 $event = new erLhcoreClassModelGenericBotChatEvent();
                 $event->chat_id = $chat->id;
                 $event->ctime = time();
-                $event->content = json_encode(array('callback_list' => array(array('content' => $actionEvent))));
+                $event->content = json_encode(array('soft_event' => ($action['content']['soft_event'] && $action['content']['soft_event'] == true), 'callback_list' => array(array('content' => $actionEvent))));
 
                 if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
                     $event->saveThis();

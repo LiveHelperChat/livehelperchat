@@ -81,7 +81,15 @@ class erLhcoreClassGenericBotActionText {
 
             $event = erLhcoreClassModelGenericBotChatEvent::findOne($filter);
 
-            if ($event instanceof erLhcoreClassModelGenericBotChatEvent) {
+            $softEvent = false;
+            $hasEvent = $event instanceof erLhcoreClassModelGenericBotChatEvent;
+
+            if ($hasEvent === true && isset($event->content_array['soft_event']) && $event->content_array['soft_event'] === true) {
+                $softEvent = true;
+                $event->removeThis();
+            }
+
+            if ($hasEvent && $softEvent === false) {
                 $action['content']['text'] = 'Please complete previous process!';
             } else {
                 $event = new erLhcoreClassModelGenericBotChatEvent();
