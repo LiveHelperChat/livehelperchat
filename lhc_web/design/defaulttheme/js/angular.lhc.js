@@ -1,3 +1,5 @@
+try {
+
 var phonecatApp = angular.module('lhcApp', [
   'lhcAppServices',
   'lhcAppControllers'
@@ -1531,3 +1533,6 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	
 }]);
 
+} catch (e) {
+    if (lhcError) lhcError.log(e.message, "angular.lhc.js", e.lineNumber || e.line, e.stack); else throw Error("lhc : " + e.message);
+}

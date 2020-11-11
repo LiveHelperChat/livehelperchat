@@ -11,8 +11,10 @@ const config = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'react.app.js',
     publicPath: "./",
-    chunkFilename: "[name].[contenthash].js"
+    chunkFilename: "[name].[contenthash].js",
+    crossOriginLoading: "anonymous"
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {

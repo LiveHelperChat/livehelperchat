@@ -14,18 +14,23 @@ fi
 echo "Removing lazy load core js files"
 rm -rf ./design/defaulttheme/js/lh/dist/*.js
 rm -rf ./design/defaulttheme/js/admin/dist/*.js
+rm -rf ./design/defaulttheme/js/lh/dist/*.js.map
+rm -rf ./design/defaulttheme/js/admin/dist/*.js.map
 
 echo "Compiling default js"
 gulp
 
 echo "Cleaning up react-app"
 rm -rf ./design/defaulttheme/widget/react-app/dist/*.js
+rm -rf ./design/defaulttheme/widget/react-app/dist/*.js.map
 
 echo "Cleaning up wrapper app"
 rm -rf ./design/defaulttheme/widget/wrapper/dist/*.js
+rm -rf ./design/defaulttheme/widget/wrapper/dist/*.js.map
 
 echo "Cleaning up widget js files"
 rm -rf ./design/defaulttheme/js/widgetv2/*.js
+rm -rf ./design/defaulttheme/js/widgetv2/*.js.map
 
 echo "Compiling admin react apps"
 cd ./design/defaulttheme/js/admin && npm run build

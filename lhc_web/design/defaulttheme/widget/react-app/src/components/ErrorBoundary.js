@@ -9,17 +9,20 @@ class ErrorBoundary extends React.Component {
     componentDidCatch(error, info) {
         // Display fallback UI
         this.setState({ hasError: true, error : error, info : info });
-        console.log(error);
-        console.log(info);
-        // You can also log the error to an error reporting service
-        //logErrorToMyService(error, info);
+
+        var e;
+        e = {};
+        e.stack = error.stack ? JSON.stringify(error.stack) : "";
+        e.stack = e.stack.replace(/(\r\n|\n|\r)/gm, "");
+        var xhr = new XMLHttpRequest();
+        xhr.open( "POST",  window.lhcChat['base_url'] + 'audit/logjserror', true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send( "data=" + encodeURIComponent( JSON.stringify(e) ) );
     }
 
     render() {
         if (this.state.hasError) {
             // You can render any custom fallback UI
-            console.log(JSON.stringify(this.state.error));
-            console.log(JSON.stringify(this.state.info));
             return <p></p>;
             //return this.props.children;
         } else {

@@ -166,10 +166,14 @@ gulp.task('js-lh', function() {
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
+var sourcemaps = require('gulp-sourcemaps');
+
 gulp.task('js-static', function() {
     var stylePath = ['design/defaulttheme/js/js_static/*'];
     return gulp.src(stylePath)
+        .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(uglify())
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('design/defaulttheme/js/js_static'));
 });
 

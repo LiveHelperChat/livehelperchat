@@ -1,3 +1,28 @@
+var lhcError = {
+    log : function(message, filename, lineNumber, stack, column) {
+            var e;
+            e = {};
+            e.message = message || "";
+            e.file = filename || "";
+            e.line = lineNumber || "";
+            e.column = column || "";
+            e.stack = stack ? JSON.stringify(stack) : "";
+            e.stack = e.stack.replace(/(\r\n|\n|\r)/gm, "");
+            var xhr = new XMLHttpRequest();
+            xhr.open( "POST", WWW_DIR_JAVASCRIPT + '/audit/logjserror', true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send( "data=" + encodeURIComponent( JSON.stringify(e) ) );
+    }
+}
+
+window.addEventListener('error', function(e) {
+    if (lhcError && (e.filename.indexOf('js_static') !== -1 || e.filename.indexOf('compiledtemplates') !== -1 || e.filename.indexOf('defaulttheme') !== -1)) {
+       lhcError.log(e.message, e.filename, e.lineNumber || e.lineno, e.error.stack, e.colno);
+    }
+})
+
+try {
+
 function csrfSafeMethod(method) {
     // these HTTP methods do not require CSRF protection
     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
@@ -4273,4 +4298,8 @@ function chatsyncuserpending()
 function chatsyncadmin()
 {
     lhinst.syncadmincall();
+}
+
+} catch (e) {
+    if (lhcError) lhcError.log(e.message, "lh.js", e.lineNumber || e.line, e.stack); else throw Error("lhc : " + e.message);
 }

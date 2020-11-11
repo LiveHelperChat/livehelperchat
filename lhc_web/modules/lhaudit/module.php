@@ -17,6 +17,12 @@ $ViewList['loginhistory'] = array(
     'functions' => array( 'use' ),
 );
 
+$ViewList['logjserror'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array(  ),
+);
+
 $FunctionList['use'] = array('explain' => 'Allow operator to configure audit module');
 
 ?>
