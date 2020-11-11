@@ -167,7 +167,7 @@ if (!isset($outputResponse['invitation_name'])) {
     $outputResponse['invitation_name'] = 'Manual';
 }
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.getinvitation',array('output' => & $outputResponse, 'ou' => $onlineUser));
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.getinvitation',array('output' => & $outputResponse, 'ou' => $onlineUser, 'theme' => (isset($theme) ? $theme : null)));
 
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
 exit;
