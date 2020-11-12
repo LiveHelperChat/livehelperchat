@@ -271,10 +271,14 @@ function lh(){
                     return '<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>'+confLH.transLation.quote+'</a>'+ (isOwner ? '<br/><a href="#" id="edit-popover-'+e.data.chat_id+'" ><i class="material-icons">edit</i>'+confLH.transLation.edit+'</a>' : '') + '<br/><a href="#" id="ask-help-popover-'+e.data.chat_id+'" ><i class="material-icons">supervisor_account</i>'+confLH.transLation.ask_help+'</a>' + (hasSelection ? '<br/><a href="#" id="copy-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy+' (Ctrl+C)</a>' : '') + (!hasSelection ? '<br/><a href="#" id="copy-all-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy+' (Ctrl+C)</a><br/><a href="#" id="copy-group-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy_group+'</a>' : '');
                 }
             }
+            
+            var containerPopover = $('#messagesBlock-'+e.data.chat_id+' > #msg-'+msgId+' > .msg-body');
+
+            if (containerPopover.length == 0) return ;
 
             ee.emitEvent('quoteActionRight', [quoteParams, e.data.chat_id, msgId]);
 
-            $('#msg-'+msgId+' > .msg-body').popover(quoteParams).popover('show').addClass('popover-copy');
+            containerPopover.popover(quoteParams).popover('show').addClass('popover-copy');
 
             $('#copy-popover-'+e.data.chat_id).click(function(event){
                 event.stopPropagation();
@@ -399,11 +403,15 @@ function lh(){
                 content:function(){return '<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>'+confLH.transLation.quote+'</a>'; }
             }
 
+            var placement = typeof $(this).attr('id') !== 'undefined' ? '#messagesBlock-'+e.data.chat_id+' > #msg-'+$(this).attr('id').replace('msg-','')+' > .msg-body' : this;
+
+            var containerPopover = $(placement);
+
+            if (containerPopover.length == 0) return ;
+
             ee.emitEvent('quoteAction', [quoteParams,e.data.chat_id]);
 
-            var placement = typeof $(this).attr('id') !== 'undefined' ? '#msg-'+$(this).attr('id').replace('msg-','')+' > .msg-body' : this;
-
-            $(placement).popover(quoteParams).popover('show').addClass('popover-copy');
+            containerPopover.popover(quoteParams).popover('show').addClass('popover-copy');
 
             $('#copy-popover-'+e.data.chat_id).click(function(){
                 lhinst.quateSelection(e.data.chat_id);
