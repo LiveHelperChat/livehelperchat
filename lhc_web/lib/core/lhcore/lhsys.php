@@ -319,8 +319,12 @@ class erLhcoreClassSystem{
         $wwwDir         = '';
         $IndexFile      = '';
         $queryString    = '';
-        $lhcForceVirtualHost = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'force_virtual_host', false);
+
+        $cfg = erConfigClassLhConfig::getInstance();
+        $lhcForceVirtualHost = $cfg->getSetting( 'site', 'force_virtual_host', false);
         
+        self::$proxyMode = $cfg->getSetting( 'site', 'proxy_mode', false);
+
         // see if we can use phpSelf to determin wwwdir
         $tempwwwDir = self::getValidwwwDir( $phpSelf, $scriptFileName, $index );
         if ( $tempwwwDir !== null && $tempwwwDir !== false )
@@ -464,7 +468,9 @@ class erLhcoreClassSystem{
     public static $prependDomain = false;
 
     public static $httpsMode = false;
-    
+
+    public static $proxyMode = false;
+
     /// The path to where all the code resides
     public $SiteDir;
     /// The access path of the current site view
@@ -494,6 +500,7 @@ class erLhcoreClassSystem{
     public $SiteAccess;
 
     public $MobileDevice = false;
+
 
     private static $instance = null;
 
