@@ -334,6 +334,8 @@ var LHCCannedMessageAutoSuggest = (function() {
                     _that.currentRequest = null;
 				}
 
+				if (typeof _that.currentKeword !== "string") return ;
+
                 var cacheKeyword = false;
 				var cacheData = null;
 
