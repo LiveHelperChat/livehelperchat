@@ -13,7 +13,11 @@ if (isset($_POST['data'])) {
         if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
             $referrer .= $_SERVER['HTTP_REFERER'] . "\n";
         }
-        
+
+        if (session_status() == 1 && erLhcoreClassUser::instance()->isLogged()) {
+            $referrer .= "User ID: " . erLhcoreClassUser::instance()->getUserID() . "\n";
+        }
+
         $messageLog = erLhcoreClassIPDetect::getIP() . "\n" . trim((isset($dataLog['message']) ? $dataLog['message'] : '') . "\n" . json_decode($dataLog['stack'],true));
 
         erLhcoreClassLog::write($messageLog,
