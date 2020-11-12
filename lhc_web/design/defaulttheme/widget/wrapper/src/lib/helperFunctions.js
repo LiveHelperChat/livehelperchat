@@ -151,7 +151,7 @@ class _helperFunctions {
         var urlRequest =  url + '?' + this.makeQuery(params.params);
         request.open("GET",urlRequest, true);
         request.onreadystatechange = function () {
-           if (4 == request.readyState) {
+           if (4 == request.readyState && request.status != 0) {
                try {
                    callback(JSON.parse(request.responseText));
                } catch (e) {

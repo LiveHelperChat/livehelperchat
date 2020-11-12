@@ -165,12 +165,14 @@ export class statusWidget{
     showUnreadIndicator(){
         var icon = this.cont.getElementById("lhc_status_container");
         helperFunctions.addClass(icon, "has-uread-message");
+        if (this.attributes.storageHandler)
         this.attributes.storageHandler.setSessionStorage(this.attributes['prefixStorage']+'_unr',"1");
     }
 
     removeUnreadIndicator() {
         var icon = this.cont.getElementById("lhc_status_container");
         helperFunctions.removeClass(icon, "has-uread-message");
+        if (this.attributes.storageHandler)
         this.attributes.storageHandler.removeSessionStorage(this.attributes['prefixStorage']+'_unr');
     }
 
