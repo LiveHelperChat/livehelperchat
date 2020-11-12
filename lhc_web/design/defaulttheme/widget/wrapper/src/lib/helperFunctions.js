@@ -93,14 +93,17 @@ class _helperFunctions {
     };
 
     hasClass(element, className) {
+        if (element === null) return;
         return element.classList ? element.classList.contains(className) : !!element.className.match(RegExp("(\\s|^)" + className + "(\\s|$)"))
     }
 
     addClass(element, className) {
+        if (element === null) return;
         element.classList ? element.classList.add(className) : this.hasClass(element, className) || (element.className += " " + className)
     }
 
     removeClass(element, className) {
+        if (element === null) return;
         element.classList ? element.classList.remove(className) : this.hasClass(element, className) && (element.className = element.className.replace(RegExp("(\\s|^)" + className + "(\\s|$)"), " "))
     }
 
@@ -145,10 +148,16 @@ class _helperFunctions {
     
     makeRequest(url, params, callback) {
         var request = new XMLHttpRequest;
-        request.open("GET", url + '?' + this.makeQuery(params.params), true);
+        var urlRequest =  url + '?' + this.makeQuery(params.params);
+        request.open("GET",urlRequest, true);
         request.onreadystatechange = function () {
            if (4 == request.readyState) {
-               callback(JSON.parse(request.responseText));
+               try {
+                   callback(JSON.parse(request.responseText));
+               } catch (e) {
+                   e.message += "\n" + urlRequest + "\n" + "["+request.status+"]\n" + request.responseText;
+                   throw e;
+               }
            }
         };
         request.send();
