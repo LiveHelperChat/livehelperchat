@@ -186,7 +186,7 @@ const CannedMessages = props => {
             var messageSet = false;
 
             // Very first is current message
-            if (data[0]['messages'][0].current == true) {
+            if (typeof data[0] !== 'undefined' && data[0]['messages'][0].current == true) {
                 data[0]['messages'][0].current = false;
                 let index = data.length - 1;
                 data[index]['messages'][data[index]['messages'].length - 1].current = true;
@@ -225,7 +225,7 @@ const CannedMessages = props => {
         } else if (e.keyCode == 40) { // Down
             var messageSet = false;
 
-            if (data[data.length -1]['messages'][ data[data.length -1]['messages'].length -1 ].current == true) {
+            if (typeof data[data.length -1] !== 'undefined' && data[data.length -1]['messages'][ data[data.length -1]['messages'].length -1 ].current == true) {
                 data[data.length -1]['messages'][ data[data.length -1]['messages'].length -1 ].current = false;
                 data[0]['messages'][0].current = true;
                 renderPreview(data[0]['messages'][0]);
