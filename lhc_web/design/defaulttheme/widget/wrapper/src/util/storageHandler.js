@@ -2,7 +2,13 @@
 export class storageHandler {
     constructor(global, domain, prefix) {
         this.window = global;
-        this.hasSessionStorage = !!this.window.sessionStorage;
+
+        try {
+            this.hasSessionStorage = !!this.window.sessionStorage;
+        } catch (e){
+            this.hasSessionStorage = false;
+        }
+
         this.domain = domain;
         this.secureCookie = false;
         this.cookiePerPage = false;

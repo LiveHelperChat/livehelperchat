@@ -13,7 +13,13 @@ class _helperFunctions {
         this.prefix = currentScript.getAttribute('scope') || 'lhc';
         this.prefixUppercase = this.prefix.toUpperCase();
         this.eventEmitter = new EventEmitter();
-        this.hasSessionStorage = !!window.sessionStorage;
+
+        try {
+            this.hasSessionStorage = !!window.sessionStorage;
+        } catch (e) {
+            this.hasSessionStorage = false;
+        }
+
     }
 
     emitEvent(event, data, internal) {
@@ -61,7 +67,9 @@ class _helperFunctions {
 
     getTimeZone() {
         try {
-            return Intl.DateTimeFormat().resolvedOptions().timeZone;
+            var tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            if (tz == 'undefined') { tz = 'UTC'; }
+            return tz;
         } catch (e) {
             var today = new Date();
 
