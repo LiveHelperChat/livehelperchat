@@ -52,7 +52,10 @@ export class needhelpWidget{
 
         this.cont.tmpl = settings['html'].replace('{dev_type}',(this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop'));
         this.cont.bodyId = 'need-help';
-        this.cont.constructUIIframe('', this.attributes.staticJS['dir']);
+        
+        if (this.cont.constructUIIframe('', this.attributes.staticJS['dir']) === null){
+            return null;
+        }
         
         // Content invisible untill media loads
         this.cont.elmDomDoc.body.style.display = "none";
