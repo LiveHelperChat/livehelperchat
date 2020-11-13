@@ -161,8 +161,10 @@ function lh(){
     this.tabIconContent = 'face';
     this.tabIconClass = 'icon-user-status material-icons icon-user-online';
     
-    this.audio = new Audio();
-    this.audio.autoplay = 'autoplay';
+    this.audio = typeof window.Audio !== "undefined" ? new Audio() : null;
+    if (this.audio !== null) {
+        this.audio.autoplay = 'autoplay';
+    }
 
     this.reloadTab = function(chat_id, tabs, nick)
     {
@@ -2067,7 +2069,7 @@ function lh(){
 
 	this.playNewMessageSound = function() {
 
-	    if (Modernizr.audio) {
+	    if (Modernizr.audio && this.audio !== null) {
     	    this.audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/new_message.ogg' :
                         Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/new_message.mp3' : WWW_DIR_JAVASCRIPT_FILES + '/new_message.wav';
     	    this.audio.load();
@@ -2079,7 +2081,7 @@ function lh(){
 	};
 
 	this.playInvitationSound = function() {
-		if (Modernizr.audio) {
+		if (Modernizr.audio && this.audio !== null) {
     	    this.audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/invitation.ogg' :
                         Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/invitation.mp3' : WWW_DIR_JAVASCRIPT_FILES + '/invitation.wav';
     	    this.audio.load();
@@ -2087,7 +2089,7 @@ function lh(){
 	};
 
 	this.playPreloadSound = function() {
-		if (Modernizr.audio) {
+		if (Modernizr.audio && this.audio !== null) {
 			this.audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/silence.ogg' :
 				Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/silence.mp3' : WWW_DIR_JAVASCRIPT_FILES + '/silence.wav';
             this.audio.load();
@@ -2355,7 +2357,7 @@ function lh(){
 	this.playNewChatAudio = function() {
 		clearTimeout(this.soundIsPlaying);
 		this.soundPlayedTimes++;
-		if (Modernizr.audio) {
+		if (Modernizr.audio && this.audio !== null) {
 
 			this.audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/new_chat.ogg' :
                         Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/new_chat.mp3' : WWW_DIR_JAVASCRIPT_FILES + '/new_chat.wav';
