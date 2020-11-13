@@ -1018,12 +1018,13 @@ function lh(){
         }
 
         jQuery('#CSChatMessage').bind('keyup', function (evt){
-        	
-        	 if (sessionStorage) {
-        		 try {
+
+            try {
+                if (sessionStorage) {
         			 sessionStorage.setItem('lhc_ttxt',$(this).val());
-        		 } catch(e) {}
-         	 };
+                };
+            } catch(e) {}
+
             var element = $(this)[0];
             element.style.height = "5px";
 
@@ -3028,11 +3029,11 @@ function lh(){
 		    $('#voice-control-message').hide();
         }
 
-		if (sessionStorage) {
-			try {
-				sessionStorage.setItem('lhc_ttxt','');
-			} catch(e) {}
-    	};
+        try {
+            if (sessionStorage) {
+                sessionStorage.setItem('lhc_ttxt','');
+            };
+		} catch(e) {}
 
 		if (textArea.hasClass('edit-mode')) {
 
@@ -3322,11 +3323,11 @@ function lh(){
 
 		  		$.post(inst.attr('action'),inst.serialize(), function (response) {
 		  			var valueQuestion = $('#id_Question').val();
-		  			if (sessionStorage) {
-		  				try {
+                    try {
+                        if (sessionStorage) {
 		  					sessionStorage.setItem('lhc_ttxt',valueQuestion);
-		  				} catch(e) {}
-		         	};
+                        };
+                    } catch(e) {}
 
 		         	var scripts = $('head > script');
 		         	var headCurrent =  $('head');

@@ -123,17 +123,14 @@ class OnlineChat extends Component {
 
     handleChange(event) {
         this.setState({value: event.target.value});
-
-        if (sessionStorage) {
-            try {
-                sessionStorage.setItem('lhc_ttxt', event.target.value);
-            } catch(e) {}
-        };
+        helperFunctions.setSessionStorage('_ttxt',event.target.value);
     }
 
     componentDidMount() {
-        if (sessionStorage && sessionStorage.getItem('lhc_ttxt') !== null) {
-            this.setState({value: sessionStorage.getItem('lhc_ttxt')})
+
+        var txtTyping = helperFunctions.getSessionStorage('_ttxt');
+        if (txtTyping !== null) {
+            this.setState({value: txtTyping})
         }
 
         // We want to focus only if widget is open
@@ -485,9 +482,7 @@ class OnlineChat extends Component {
 
     sendMessage() {
 
-        if (sessionStorage && sessionStorage.getItem('lhc_ttxt') !== null) {
-            sessionStorage.setItem('lhc_ttxt','');
-        }
+        helperFunctions.setSessionStorage('_ttxt','');
 
         this.props.dispatch(addMessage({
             'id': this.props.chatwidget.getIn(['chatData','id']),
@@ -739,11 +734,11 @@ class OnlineChat extends Component {
 
                                     {this.state.voiceMode === true && <Suspense fallback="..."><VoiceMessage onCompletion={this.updateMessages} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} maxSeconds="30" cancel={this.cancelVoiceRecording} /></Suspense>}
 
-                                    {!this.state.valueSend && this.props.chatwidget.hasIn(['chat_ui','voice_message']) && this.state.value.length == 0 && this.state.voiceMode === false && <a onClick={this.startVoiceRecording} title={t('button.record_voice')}>
+                                    {!this.state.valueSend && this.props.chatwidget.hasIn(['chat_ui','voice_message']) && typeof window.Audio !== "undefined" && this.state.value.length == 0 && this.state.voiceMode === false && <a onClick={this.startVoiceRecording} title={t('button.record_voice')}>
                                        <i className="material-icons text-muted settings mr-0">&#xf10b;</i>
                                     </a>}
 
-                                    {!this.state.valueSend && (!this.props.chatwidget.hasIn(['chat_ui','voice_message']) || (this.state.value.length > 0 && this.state.voiceMode === false)) && <a onClick={this.sendMessage} title={t('button.send')}>
+                                    {!this.state.valueSend && (!this.props.chatwidget.hasIn(['chat_ui','voice_message']) || !(typeof window.Audio !== "undefined") || (this.state.value.length > 0 && this.state.voiceMode === false)) && <a onClick={this.sendMessage} title={t('button.send')}>
                                        <i className="material-icons text-muted settings mr-0">&#xf107;</i>
                                     </a>}
 
