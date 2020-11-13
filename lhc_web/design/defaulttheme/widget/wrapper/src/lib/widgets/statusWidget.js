@@ -66,7 +66,9 @@ export class statusWidget{
 
         this.cont.tmpl = '<div id="lhc_status_container" class="' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + '" style="display: none"><i title="New messages" id="unread-msg-number">!</i><i id="status-icon" class="offline-status" href="#"></i></div>';
 
-        this.cont.constructUIIframe('');
+        if (this.cont.constructUIIframe('') === null) {
+            return null;
+        }
 
         this.cont.elmDom.className = this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop';
 
