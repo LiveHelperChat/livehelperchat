@@ -209,11 +209,12 @@ class OnlineChat extends Component {
         }
     }
 
-    nextUntil(htmlElement, match) {
+    nextUntil(htmlElement, match, condition = true, any = false) {
         var nextUntil = [],
             until = true;
+
         while (htmlElement = htmlElement.nextElementSibling) {
-            (until && htmlElement && !htmlElement.matches(match)) ? nextUntil.push(htmlElement) : until = false;
+            (until && htmlElement && !htmlElement.matches(match) == condition) ? nextUntil.push(htmlElement) : until = any;
         }
         return nextUntil;
     }
@@ -233,7 +234,7 @@ class OnlineChat extends Component {
             this.addClass(msg,'hide');
         }
 
-        if (untillMessage == true && this.nextUntil(msg,'.message-admin').length > 0) {
+        if (untillMessage == true && this.nextUntil(msg,'.message-admin', false, true).length > 0) {
             return;
         }
 
@@ -242,7 +243,7 @@ class OnlineChat extends Component {
                 if (untillMessage == true) {
                     clearInterval(this.intervalPending);
                     this.intervalPending = setInterval(() => {
-                        if (this.nextUntil(msg,'.message-admin').length > 0) {
+                        if (this.nextUntil(msg,'.message-admin', false, true).length > 0) {
                             this.unhideDelayed(id);
                             clearInterval(this.intervalPending);
                         } else {
