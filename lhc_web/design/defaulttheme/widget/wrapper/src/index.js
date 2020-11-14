@@ -17,6 +17,7 @@
             e = {};
             e.message = message || "";
             e.message += "\n" + global.navigator.userAgent;
+            e.location = location && location.href ? location.href : "";
             e.file = filename || "";
             e.line = lineNumber || "";
             e.column = column || "";

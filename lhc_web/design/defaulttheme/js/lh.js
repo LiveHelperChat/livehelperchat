@@ -3,6 +3,7 @@ var lhcError = {
             var e;
             e = {};
             e.message = message || "";
+            e.location = location && location.href ? location.href : "";
             e.message += "\n" + window.navigator.userAgent;
             e.file = filename || "";
             e.line = lineNumber || "";

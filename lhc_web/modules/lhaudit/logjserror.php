@@ -11,7 +11,11 @@ if (isset($_POST['data'])) {
 
         $referrer = '';
         if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
-            $referrer .= $_SERVER['HTTP_REFERER'] . "\n";
+            $referrer .= 'R: ' . $_SERVER['HTTP_REFERER'] . "\n";
+        }
+
+        if (isset($dataLog['location']) && !empty($dataLog['location'])) {
+            $referrer .= 'L: ' . $dataLog['location'] . "\n";
         }
 
         if (session_status() == 2 && erLhcoreClassUser::instance()->isLogged()) {
