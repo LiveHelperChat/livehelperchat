@@ -1,3 +1,11 @@
+3.51v
+
+1. Department `Max load` column. It will show how many active chat department can handle. It's a sum of all logged operators max_chats value.
+2. If you have `php-resque` extension running. Statistic will be calculate in the background.
+3. Changed background color of chat tab/left chat.
+
+execute doc/update_db/update_224.sql for update
+
 3.50v
 
 1. Login history.

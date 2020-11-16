@@ -1473,6 +1473,7 @@ class Install
 				  `delay_before_assign` int(11) NOT NULL,
 				  `max_ac_dep_chats` int(11) NOT NULL,
 				  `archive` tinyint(1) NOT NULL DEFAULT '0',
+				  `max_load` int(11) NOT NULL DEFAULT '0',
 				  `assign_same_language` int(11) NOT NULL,
 				  `disabled` int(11) NOT NULL,
 				  `hidden` int(11) NOT NULL,

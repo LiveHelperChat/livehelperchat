@@ -1359,7 +1359,7 @@ class erLhcoreClassChat {
        try {
 
            if (!isset($params['resque']) && class_exists('erLhcoreClassExtensionLhcphpresque')) {
-               erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_stats_resque', 'erLhcoreClassLHCStatsResque', array('type' => 'department', 'id' => $dep->id));
+               erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_stats_resque', 'erLhcoreClassLHCStatsResque', array('type' => 'dep', 'id' => $dep->id));
                return;
            }
 

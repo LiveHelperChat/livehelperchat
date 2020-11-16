@@ -318,6 +318,7 @@ return array_merge(array (
         'erLhcoreClassChatWebhookHttp'              => 'lib/core/lhchat/lhchatwebhookhttp.php',
         'erLhcoreClassModelChatWebhook'             => 'lib/models/lhchat/erlhcoreclassmodelchatwebhook.php',
         'erLhcoreClassChatWebhookResque'            => 'lib/core/lhchat/lhchatwebhookresque.php',
+        'erLhcoreClassChatStatsResque'              => 'lib/core/lhchat/lhchatstatsresque.php'
 
 ),
 include('var/autoloads/lhextension_autoload.php')
