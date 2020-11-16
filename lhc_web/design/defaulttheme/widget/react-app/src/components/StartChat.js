@@ -225,6 +225,7 @@ class StartChat extends Component {
 
         // Rest API data was fetched we can scroll to bottomnow
         if (this.props.chatwidget.getIn(['onlineData','fetched']) === true && prevProps.chatwidget.getIn(['onlineData','fetched']) === false) {
+            this.props.chatwidget.hasIn(['chat_ui','uprev']) && helperFunctions.emitEvent('play_sound', [{'type' : 'new_message','sound_on' : (this.props.chatwidget.getIn(['usersettings','soundOn']) === true), 'widget_open' : ((this.props.chatwidget.get('shown') && this.props.chatwidget.get('mode') == 'widget') || document.hasFocus())}]);
             this.scrollBottom();
         }
     }

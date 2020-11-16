@@ -329,7 +329,7 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 }
 
 $ts = time();
-$outputResponse['v'] = 135;
+$outputResponse['v'] = 136;
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
 

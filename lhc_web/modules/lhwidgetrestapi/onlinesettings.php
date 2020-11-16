@@ -594,6 +594,14 @@ if ($theme !== false) {
                         $chat_ui['cmmsg_widget'] = '';
                     }
 
+                    if ($previousChat->has_unread_op_messages == 1) {
+                        $previousChat->unread_op_messages_informed = 0;
+                        $previousChat->has_unread_op_messages = 0;
+                        $previousChat->unanswered_chat = 0;
+                        $previousChat->updateThis(array('update' => array('unread_op_messages_informed','has_unread_op_messages','unanswered_chat')));
+                        $chat_ui['uprev'] = true;
+                    }
+
                     $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/previous_chat.tpl.php');
                     $tpl->set('messages', erLhcoreClassChat::getPendingMessages((int)$previousChat->id,  0));
                     $tpl->set('chat',$previousChat);
