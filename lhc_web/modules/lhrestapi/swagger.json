@@ -2381,6 +2381,67 @@
             "login": []
           }
         ]
+      },
+      "get": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Fetch chat information",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "chat_id",
+            "in": "path",
+            "description": "Chat ID",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "hash",
+            "in": "query",
+            "description": "Hash, optional variable. If provided it will be validated against chat hash also.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "department_groups",
+            "description": "Should we include department_groups attribute in response",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
+            "name": "attr",
+            "description": "What magic attributes we should include. E.g user,number_in_queue,unread_time Etc. See https://github.com/LiveHelperChat/livehelperchat/blob/master/lhc_web/lib/models/lhchat/erlhcoreclassmodelchat.php#L226",
+            "required": false,
+            "type": "string",
+            "default": "",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch chat information",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
       }
     },
     "/restapi/chat": {

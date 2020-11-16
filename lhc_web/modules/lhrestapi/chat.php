@@ -41,6 +41,31 @@ try
 
         erLhcoreClassRestAPIHandler::outputResponse(array('error' => false, 'result' => true));
         exit;
+    } elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        $chat = erLhcoreClassModelChat::fetch((int)$Params['user_parameters']['id']);
+        if (!($chat instanceof erLhcoreClassModelChat)) {
+            throw new Exception('Chat could not be found!');
+        }
+
+        if (isset($_GET['hash']) && $chat->hash != $_GET['hash']) {
+            throw new Exception('Invalid hash');
+        }
+
+        if (isset($_GET['department_groups']) && $_GET['department_groups'] == 'true') {
+            $chat->department_groups = array();
+            foreach (erLhcoreClassModelDepartamentGroupMember::getList(array('filter' => array('dep_id' => $chat->dep_id))) as $depGroup) {
+                $chat->department_groups[] = $depGroup->dep_group_id;
+            }
+        }
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('api.fetchchat', array('chat' => & $chat));
+
+        $attributes = isset($_GET['attr']) ? explode(',',$_GET['attr']) : array();
+        
+        erLhcoreClassChat::prefillGetAttributesObject($chat, $attributes, array(), array('do_not_clean' => true));
+
+        erLhcoreClassRestAPIHandler::outputResponse(array('error' => false, 'result' => $chat));
+        exit;
     }
 
     erLhcoreClassRestAPIHandler::outputResponse(array
