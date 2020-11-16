@@ -170,6 +170,7 @@ if (isset($outputResponse['theme'])){
             $siteaccess = erLhcoreClassChatValidator::setLanguageByBrowser(true);
             if ($siteaccess != '') {
                 $outputResponse['siteaccess'] = $siteaccess . '/';
+                erLhcoreClassSystem::setSiteAccess($siteaccess);
             }
         }
 
@@ -243,10 +244,11 @@ $needHelpTimeout = isset($theme) && $theme instanceof erLhAbstractModelWidgetThe
 
 if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme->show_need_help == 1) || (!isset($theme) && erLhcoreClassModelChatConfig::fetch('need_help_tip')->current_value == 1)) && $needHelpTimeout > 0 && (!isset($_GET['hnh']) || $_GET['hnh'] < (time() - ($needHelpTimeout * 24 * 3600))))
 {
+    $configInstance = erConfigClassLhConfig::getInstance();
     $outputResponse['nh']['html'] = '<div class="container-fluid overflow-auto fade-in p-3 pb-4 {dev_type}" >
 <div class="shadow rounded bg-white nh-background">
     <div class="p-2" id="start-chat-btn" style="cursor: pointer">
-        <button type="button" id="close-need-help-btn" class="close position-absolute" style="' . (erConfigClassLhConfig::getInstance()->getDirLanguage('dir_language') == 'ltr' ? 'right' : 'left') . ':30px;top:25px;" aria-label="Close">
+        <button type="button" id="close-need-help-btn" class="close position-absolute" style="' . ($configInstance->getDirLanguage('dir_language') == 'ltr' ? 'right' : 'left') . ':30px;top:25px;" aria-label="Close">
           <span class="px-1" aria-hidden="true">&times;</span>
         </button>
         <div class="d-flex">
@@ -259,6 +261,8 @@ if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme-
 </div>';
 
     $outputResponse['nh']['delay'] = 1500;
+
+    $translationInstance = erTranslationClassLhTranslation::getInstance();
 
     if (isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme) {
 
@@ -281,8 +285,8 @@ if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme-
         $replaceVars['search'][] = '{{need_help_header}}';
         $replaceVars['search'][] = '{{need_help_body}}';
 
-        $replaceVars['replace'][] = $theme->need_help_header != '' ? $theme->need_help_header : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus', 'Need help?');
-        $replaceVars['replace'][] = $theme->need_help_text != '' ? $theme->need_help_text : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus', 'Our staff are ready to help!');
+        $replaceVars['replace'][] = $theme->need_help_header != '' ? $theme->need_help_header : $translationInstance->getTranslation('chat/getstatus', 'Need help?');
+        $replaceVars['replace'][] = $theme->need_help_text != '' ? $theme->need_help_text : $translationInstance->getTranslation('chat/getstatus', 'Our staff are ready to help!');
     } else {
         $replaceVars = array(
             'search' => array(
@@ -292,8 +296,8 @@ if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme-
             ),
             'replace' => array(
                 '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('images/general/operator.png'),
-                erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus', 'Need help?'),
-                erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus', 'Our staff are ready to help!')
+                $translationInstance->getTranslation('chat/getstatus', 'Need help?'),
+                $translationInstance->getTranslation('chat/getstatus', 'Our staff are ready to help!')
             )
         );
     }
