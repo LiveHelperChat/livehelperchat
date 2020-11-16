@@ -44,10 +44,16 @@ class NodeTriggerActionAlertIcon extends Component {
                 </div>
 
                 <div className="row">
-                    <div className="col-12">
+                    <div className="col-6">
                         <div className="form-group">
                             <label>Icon identifier. <a target="_blank" href="https://material.io/resources/icons/?style=baseline"><span className="material-icons">open_in_new</span> Material Icons</a></label>
                             <input type="text" placeholder="Icon identifier - new_releases" onChange={(e) => this.onchangeAttr({'path' : ['alert_icon'], 'value' : e.target.value})} defaultValue={this.props.action.hasIn(['content','alert_icon']) ? this.props.action.getIn(['content','alert_icon']) : "new_releases"} className="form-control form-control-sm" />
+                        </div>
+                    </div>
+                    <div className="col-6">
+                        <div className="form-group">
+                            <label>Color E.g green, #509646</label>
+                            <input type="text" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','aicon_color'], 'value' : e.target.value})} defaultValue={this.props.action.hasIn(['content','attr_options','aicon_color']) ? this.props.action.getIn(['content','attr_options','aicon_color']) : ""} className="form-control form-control-sm" />
                         </div>
                     </div>
                     <div className="col-12">

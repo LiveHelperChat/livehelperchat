@@ -486,7 +486,11 @@ class erLhcoreClassModelChat {
            $chatVariables = $this->chat_variables_array;
            if (isset($chatVariables['aicons']) ) {
                foreach ($chatVariables['aicons'] as $icon => $params) {
-                   $this->aicons[] = $icon;
+                   $iconParams = ['i' => $icon];
+                   if (isset($params['icolor'])) {
+                       $iconParams['c'] = $params['icolor'];
+                   }
+                   $this->aicons[$icon] = $iconParams;
                }
            }
            return $this->aicons;

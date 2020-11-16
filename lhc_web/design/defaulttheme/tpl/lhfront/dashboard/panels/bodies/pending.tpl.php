@@ -15,7 +15,7 @@
                     <a ng-show="chat.can_edit_chat" class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Redirect user to contact form.');?>" ng-click="lhc.redirectContact(chat.id,'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Are you sure?');?>',$event)">reply</a>
                 <?php endif;?>
 
-                <a ng-click="lhc.previewChat(chat.id,$event)" class="material-icons">info_outline</a><i class="material-icons" title="Offline request" ng-show="chat.status_sub == 7">mail</i><?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bodies/custom_title_multiinclude.tpl.php'));?>{{chat.nick}}<small>{{chat.plain_user_name !== undefined ? ' | ' + chat.plain_user_name : ''}}</small></div>
+                <a ng-click="lhc.previewChat(chat.id,$event)" class="material-icons">info_outline</a><i class="material-icons" title="Offline request" ng-show="chat.status_sub == 7">mail</i><?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bodies/custom_title_multiinclude.tpl.php'));?><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/icon.tpl.php'));?>{{chat.nick}}<small>{{chat.plain_user_name !== undefined ? ' | ' + chat.plain_user_name : ''}}</small></div>
         </td>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/additional_column_body.tpl.php'));?>
         <td>

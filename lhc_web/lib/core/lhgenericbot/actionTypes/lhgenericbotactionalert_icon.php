@@ -4,10 +4,10 @@ class erLhcoreClassGenericBotActionAlert_icon {
 
     public static function process($chat, $action, $trigger, $params)
     {
-        $alertIcon = $action['content']['alert_icon'];
+        $alertIcon = 'new_releases';
 
-        if (empty($alertIcon)) {
-            $alertIcon = 'new_releases';
+        if (isset($action['content']['alert_icon']) && !empty($action['content']['alert_icon'])) {
+            $alertIcon = $action['content']['alert_icon'];
         }
 
         $chatVariables = $chat->chat_variables_array;
@@ -28,8 +28,17 @@ class erLhcoreClassGenericBotActionAlert_icon {
             }
         } else {
             $alertValue = isset($action['content']['attr_options']['show_alert']) && $action['content']['attr_options']['show_alert'] == true;
+            $alertColor = isset($action['content']['attr_options']['aicon_color']) ? $action['content']['attr_options']['aicon_color'] : '';
+
             if (!isset($chatVariables['aicons'][$alertIcon]) || $alertValue != $chatVariables['aicons'][$alertIcon]['alert']) {
-                $chatVariables['aicons'][$alertIcon] = ['alert' => $alertValue];
+
+                $paramsIcon = ['alert' => $alertValue];
+
+                if ($alertColor != '') {
+                    $paramsIcon['icolor'] = $alertColor;
+                }
+
+                $chatVariables['aicons'][$alertIcon] = $paramsIcon;
                 $needUpdate = true;
             }
         }
