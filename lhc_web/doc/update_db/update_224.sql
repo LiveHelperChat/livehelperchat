@@ -1,0 +1,1 @@
+ALTER TABLE `lh_departament` ADD `max_load` int(11) NOT NULL DEFAULT '0', COMMENT='';

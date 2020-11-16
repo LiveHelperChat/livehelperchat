@@ -5433,6 +5433,14 @@
         "extra": ""
       },
       {
+        "field": "max_load",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "assign_same_language",
         "type": "int(11)",
         "null": "NO",

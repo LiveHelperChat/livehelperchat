@@ -64,6 +64,7 @@ class erLhcoreClassModelDepartament {
             'active_chats_counter' => $this->active_chats_counter,
             'pending_chats_counter' => $this->pending_chats_counter,
             'closed_chats_counter' => $this->closed_chats_counter,
+            'max_load' => $this->max_load,
             'product_configuration' => $this->product_configuration,
             'pending_max' => $this->pending_max,
             'pending_group_max' => $this->pending_group_max,
@@ -289,6 +290,8 @@ class erLhcoreClassModelDepartament {
     public $delay_before_assign = 0;
     public $pending_chats_counter = 0;
     public $closed_chats_counter = 0;
+    public $max_load = 0;
+
     public $assign_same_language = 0;
     public $product_configuration = '';
     public $bot_configuration = '';

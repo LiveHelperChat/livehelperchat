@@ -1355,15 +1355,31 @@ class erLhcoreClassChat {
    /**
     * Update department main statistic for frontend
     * */
-   public static function updateDepartmentStats($dep) {
+   public static function updateDepartmentStats($dep, $params) {
        try {
+
+           if (!isset($params['resque']) && class_exists('erLhcoreClassExtensionLhcphpresque')) {
+               erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_stats_resque', 'erLhcoreClassLHCStatsResque', array('type' => 'department', 'id' => $dep->id));
+               return;
+           }
+
            $db = ezcDbInstance::get();
-           $stmt = $db->prepare('UPDATE lh_departament SET active_chats_counter = :active_chats_counter, pending_chats_counter = :pending_chats_counter, closed_chats_counter = :closed_chats_counter WHERE id = :id');
+
+           // Get max load for a specific department
+           $stmt = $db->prepare('SELECT SUM(max_chats) as max_chats FROM (SELECT MAX(max_chats) as max_chats FROM `lh_userdep` WHERE dep_id = :dep_id AND hide_online = 0 AND last_activity > :last_activity GROUP BY user_id) as tmp;');
+           $stmt->bindValue(':dep_id',$dep->id,PDO::PARAM_INT);
+           $stmt->bindValue(':last_activity',time()-300, PDO::PARAM_INT);
+           $stmt->execute();
+           $maxChats = (int)$stmt->fetchColumn();
+
+           $stmt = $db->prepare('UPDATE lh_departament SET active_chats_counter = :active_chats_counter, pending_chats_counter = :pending_chats_counter, closed_chats_counter = :closed_chats_counter, max_load = :max_load WHERE id = :id');
            $stmt->bindValue(':active_chats_counter',erLhcoreClassChat::getCount(array('use_index' => 'dep_id_status','filter' => array('dep_id' => $dep->id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))),PDO::PARAM_INT);
            $stmt->bindValue(':pending_chats_counter',erLhcoreClassChat::getCount(array('use_index' => 'dep_id_status','filter' => array('dep_id' => $dep->id, 'status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))),PDO::PARAM_INT);
            $stmt->bindValue(':closed_chats_counter',erLhcoreClassChat::getCount(array('use_index' => 'dep_id_status','filter' => array('dep_id' => $dep->id, 'status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT))),PDO::PARAM_INT);
+           $stmt->bindValue(':max_load', $maxChats,PDO::PARAM_INT);
            $stmt->bindValue(':id',$dep->id,PDO::PARAM_INT);
            $stmt->execute();
+           
        } catch (Exception $e) {
            //Fail silently as it's just statistic update operation
        }

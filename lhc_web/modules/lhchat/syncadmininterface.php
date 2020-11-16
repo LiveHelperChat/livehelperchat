@@ -123,8 +123,8 @@ if ($showDepartmentsStats == true && is_array($Params['user_parameters_unordered
     $filter['sort'] = 'pending_chats_counter DESC';
     
     $departments = erLhcoreClassModelDepartament::getList($filter);
-      
-    erLhcoreClassChat::prefillGetAttributes($departments,array('id','name','pending_chats_counter','active_chats_counter'),array(),array('remove_all' => true));
+
+    erLhcoreClassChat::prefillGetAttributes($departments,array('id', 'name', 'pending_chats_counter', 'active_chats_counter', 'max_load'), array(), array('remove_all' => true));
     
     $ReturnMessages['departments_stats'] = array('list' => array_values($departments));
 }

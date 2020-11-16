@@ -127,6 +127,11 @@ $def->properties['closed_chats_counter']->columnName   = 'closed_chats_counter';
 $def->properties['closed_chats_counter']->propertyName = 'closed_chats_counter';
 $def->properties['closed_chats_counter']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['max_load'] = new ezcPersistentObjectProperty();
+$def->properties['max_load']->columnName   = 'max_load';
+$def->properties['max_load']->propertyName = 'max_load';
+$def->properties['max_load']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 /**
  * Reset new chat callback execution
  * */
