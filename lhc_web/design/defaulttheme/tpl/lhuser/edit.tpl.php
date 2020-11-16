@@ -225,6 +225,8 @@
     </div>
     <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhpermission','see_permissions_users')) : ?>
     <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_permission') : ?>active<?php endif;?>" id="permission">
+        <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','In order to change operator permissions you have to edit');?> <a href="<?php echo erLhcoreClassDesign::baseurl('permission/roles')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','roles');?></a>.</p>
+
         <input type="button" class="btn btn-secondary" name="UpdateSpeech_account" onclick="lhinst.showMyPermissions('<?php echo $user->id?>')" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Show permissions');?>" />
 		<div id="permissions-summary"></div>		
     </div>

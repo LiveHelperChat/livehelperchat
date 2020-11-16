@@ -20,6 +20,12 @@
 	    <hr>
 
 		<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Assigned functions');?></h2>
+
+        <div class="btn-group mb-2" role="group" aria-label="...">
+            <input type="submit" class="btn btn-secondary" name="Delete_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Remove selected policy');?>"/>
+            <input type="submit" class="btn btn-secondary" name="New_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','New policy');?>" />
+        </div>
+
 		<table class="table">
 		<thead>
 		<tr>
