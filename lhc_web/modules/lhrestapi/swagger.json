@@ -2418,7 +2418,7 @@
           },
           {
             "name": "attr",
-            "description": "What magic attributes we should include. E.g user,number_in_queue,unread_time Etc. See https://github.com/LiveHelperChat/livehelperchat/blob/master/lhc_web/lib/models/lhchat/erlhcoreclassmodelchat.php#L226",
+            "description": "What magic attributes we should include. Separated by comma. E.g user,number_in_queue,unread_time Etc. See https://github.com/LiveHelperChat/livehelperchat/blob/master/lhc_web/lib/models/lhchat/erlhcoreclassmodelchat.php#L226",
             "required": false,
             "type": "string",
             "default": "",

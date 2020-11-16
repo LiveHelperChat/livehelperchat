@@ -60,8 +60,8 @@ try
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('api.fetchchat', array('chat' => & $chat));
 
-        $attributes = isset($_GET['attr']) ? explode(',',$_GET['attr']) : array();
-        
+        $attributes = isset($_GET['attr']) ? explode(',',str_replace(' ','',$_GET['attr'])) : array();
+
         erLhcoreClassChat::prefillGetAttributesObject($chat, $attributes, array(), array('do_not_clean' => true));
 
         erLhcoreClassRestAPIHandler::outputResponse(array('error' => false, 'result' => $chat));
