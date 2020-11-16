@@ -86,6 +86,7 @@ class OnlineChat extends Component {
         this.delayed = false;
         this.delayQueue = [];
         this.intervalPending = null;
+        this.intervalFunction = null;
         this.pendingMetaUpdate = false;
 
         this.isTyping = false;
@@ -241,16 +242,24 @@ class OnlineChat extends Component {
         setTimeout( () => {
             if (this.delayed == false) {
                 if (untillMessage == true) {
-                    clearInterval(this.intervalPending);
-                    this.intervalPending = setInterval(() => {
+
+                    // Call previous function if it exists
+                    if (this.intervalFunction !== null) {
+                        this.intervalFunction();
+                    }
+
+                    this.intervalFunction = () => {
                         if (this.nextUntil(msg,'.message-admin', false, true).length > 0) {
-                            this.unhideDelayed(id);
+                            msg.parentNode.removeChild(msg);
+                            this.scrollBottom();
+                            this.intervalFunction = null;
                             clearInterval(this.intervalPending);
                         } else {
                             if (!this.hasClass(msg,'meta-hider'))
                             {
                                 this.addClass(msg,'meta-hider');
                                 this.addClass(msg,'message-row-typing');
+
                                 this.removeClass(msg,'hide');
                                 this.removeClass(msg,'fade-in-fast');
 
@@ -263,7 +272,10 @@ class OnlineChat extends Component {
                                 this.scrollBottom();
                             }
                         }
-                    },500);
+                    }
+
+                    clearInterval(this.intervalPending);
+                    this.intervalPending = setInterval(this.intervalFunction,150);
                 } else {
                     this.delayed = true;
 
