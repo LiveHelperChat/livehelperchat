@@ -43,25 +43,6 @@
 <script>
 
 $( document ).ready(function() {
-	<?php if (!isset($popoverInitialized) || $popoverInitialized == false) : ?>
-	$('#dashboard-body, #onlineusers, #map').popover({
-		  trigger:'hover',
-		  html : true, 
-		  container: 'body',
-		  selector: '[data-toggle="popover"]',
-		  content: function () {
-			 if ($(this).is('[data-popover-content]')) {
-				return $('#'+$(this).attr('data-popover-content')+'-'+$(this).attr('data-chat-id')).html();
-			 } else {
-				return $('#popover-content-'+$(this).attr('data-chat-id')).html();
-			 }
-		  },
-		  title: function () {
-			 return  $('#popover-title-'+$(this).attr('data-chat-id')).html();
-		  }
-	});
-	<?php endif; ?>
-		
 	lhinst.attachTabNavigator();
 	$('#right-column-page').removeAttr('id');	
 });
