@@ -1,8 +1,23 @@
 3.51v
 
-1. Department `Max load` column. It will show how many active chat department can handle. It's a sum of all logged operators max_chats value.
+1. Departments statistic widget will have a new columns
+1.1 Bot chats - number of active bot chats going
+1.2 Load column - `hard limit` - `active chats` (`soft limit` - `active chats`)
+
+`Hard limit` - is the sum of max chats value of logged operators who were active during last 5 minutes
+`Active chats` - number of active chats in department or department group
+`Soft limit` - is the sum of max chats of operators who were active during last 10 minutes.
+
 2. If you have `php-resque` extension running. Statistic will be calculate in the background.
 3. Changed background color of chat tab/left chat.
+4. Rest API to fetch chat information https://api.livehelperchat.com/#/chat/get_restapi_chat__chat_id_
+5. Check is audio is available on device
+6. Separate backend and frontend scripts. Performance improvement.
+7. Frontend errors tracking audit log. category - js, source - lhc. It has to be enabled in audit configuration.
+8. Option to tell LHC are we running under proxy. Avoids faking IP address.
+9. If archived chat group chat table does not exists. Ignore.
+10. Bot changes to handle previous process https://github.com/LiveHelperChat/livehelperchat/issues/1579
+11. Typing untill fixes for a new widget.
 
 execute doc/update_db/update_224.sql for update
 
