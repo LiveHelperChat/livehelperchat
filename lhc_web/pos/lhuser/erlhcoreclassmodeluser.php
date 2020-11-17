@@ -79,21 +79,6 @@ $def->properties['inactive_mode']->columnName   = 'inactive_mode';
 $def->properties['inactive_mode']->propertyName = 'inactive_mode';
 $def->properties['inactive_mode']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
-$def->properties['active_chats_counter'] = new ezcPersistentObjectProperty();
-$def->properties['active_chats_counter']->columnName   = 'active_chats_counter';
-$def->properties['active_chats_counter']->propertyName = 'active_chats_counter';
-$def->properties['active_chats_counter']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['closed_chats_counter'] = new ezcPersistentObjectProperty();
-$def->properties['closed_chats_counter']->columnName   = 'closed_chats_counter';
-$def->properties['closed_chats_counter']->propertyName = 'closed_chats_counter';
-$def->properties['closed_chats_counter']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['pending_chats_counter'] = new ezcPersistentObjectProperty();
-$def->properties['pending_chats_counter']->columnName   = 'pending_chats_counter';
-$def->properties['pending_chats_counter']->propertyName = 'pending_chats_counter';
-$def->properties['pending_chats_counter']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
 /**
  * We store to user assigned department, for easier fetching. Just for repreesntation purposes.
  * */

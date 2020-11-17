@@ -1473,6 +1473,8 @@ class Install
 				  `delay_before_assign` int(11) NOT NULL,
 				  `max_ac_dep_chats` int(11) NOT NULL,
 				  `archive` tinyint(1) NOT NULL DEFAULT '0',
+				  `max_load` int(11) NOT NULL DEFAULT '0',
+				  `max_load_h` int(11) NOT NULL DEFAULT '0',
 				  `assign_same_language` int(11) NOT NULL,
 				  `disabled` int(11) NOT NULL,
 				  `hidden` int(11) NOT NULL,
@@ -1511,7 +1513,7 @@ class Install
 				  `pending_group_max` int(11) NOT NULL,
 				  `active_chats_counter` int(11) NOT NULL,
 				  `pending_chats_counter` int(11) NOT NULL,
-				  `closed_chats_counter` int(11) NOT NULL,
+				  `bot_chats_counter` int(11) NOT NULL DEFAULT '0',
 				  `inform_close_all` int(11) NOT NULL,
 				  `inform_close_all_email` varchar(250) NOT NULL,
 				  `product_configuration` varchar(250) NOT NULL,
@@ -1524,7 +1526,7 @@ class Install
 				  KEY `attr_int_3` (`attr_int_3`),
 				  KEY `active_chats_counter` (`active_chats_counter`),
 				  KEY `pending_chats_counter` (`pending_chats_counter`),
-				  KEY `closed_chats_counter` (`closed_chats_counter`),
+				  KEY `bot_chats_counter` (`bot_chats_counter`),
 				  KEY `disabled_hidden` (`disabled`, `hidden`),
 				  KEY `sort_priority_name` (`sort_priority`, `name`),
 				  KEY `active_mod` (`online_hours_active`,`mod_start_hour`,`mod_end_hour`),
@@ -1566,10 +1568,15 @@ class Install
             $db->query("CREATE TABLE `lh_generic_bot_rest_api` (`id` bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(20) NOT NULL, `description` varchar(250), `configuration` text NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
             $db->query("CREATE TABLE `lh_departament_group` (
-                  `id` int(11) NOT NULL AUTO_INCREMENT,
-                  `name` varchar(50) NOT NULL,
-                  PRIMARY KEY (`id`)
-                ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+                      `id` int(11) NOT NULL AUTO_INCREMENT,
+                      `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+                      `achats_cnt` int(11) NOT NULL DEFAULT 0,
+                      `pchats_cnt` int(11) NOT NULL DEFAULT 0,
+                      `max_load` int(11) NOT NULL DEFAULT 0,
+                      `max_load_h` int(11) NOT NULL DEFAULT 0,
+                      `bchats_cnt` int(11) NOT NULL DEFAULT 0,
+                      PRIMARY KEY (`id`)
+                    ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
             $db->query("CREATE TABLE `lh_canned_msg_tag_link` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag_id` int(11) NOT NULL,  `canned_id` int(11) NOT NULL,  PRIMARY KEY (`id`), KEY `canned_id` (`canned_id`), KEY `tag_id` (`tag_id`)) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
             $db->query("CREATE TABLE `lh_canned_msg_tag` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag` varchar(40) NOT NULL, PRIMARY KEY (`id`), KEY `tag` (`tag`)) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
@@ -1712,9 +1719,6 @@ class Install
                   `invisible_mode` tinyint(1) NOT NULL,
                   `inactive_mode` tinyint(1) NOT NULL,
                   `rec_per_req` tinyint(1) NOT NULL,
-                  `active_chats_counter` int(11) NOT NULL,
-                  `closed_chats_counter` int(11) NOT NULL,
-                  `pending_chats_counter` int(11) NOT NULL,
                   `auto_accept` tinyint(1) NOT NULL,
                   `max_active_chats` int(11) NOT NULL,
                   `pswd_updated` int(11) NOT NULL,

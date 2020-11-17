@@ -122,10 +122,15 @@ $def->properties['pending_chats_counter']->columnName   = 'pending_chats_counter
 $def->properties['pending_chats_counter']->propertyName = 'pending_chats_counter';
 $def->properties['pending_chats_counter']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
-$def->properties['closed_chats_counter'] = new ezcPersistentObjectProperty();
-$def->properties['closed_chats_counter']->columnName   = 'closed_chats_counter';
-$def->properties['closed_chats_counter']->propertyName = 'closed_chats_counter';
-$def->properties['closed_chats_counter']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+$def->properties['max_load'] = new ezcPersistentObjectProperty();
+$def->properties['max_load']->columnName   = 'max_load';
+$def->properties['max_load']->propertyName = 'max_load';
+$def->properties['max_load']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['max_load_h'] = new ezcPersistentObjectProperty();
+$def->properties['max_load_h']->columnName   = 'max_load_h';
+$def->properties['max_load_h']->propertyName = 'max_load_h';
+$def->properties['max_load_h']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 /**
  * Reset new chat callback execution
@@ -216,6 +221,11 @@ $def->properties['pending_group_max'] = new ezcPersistentObjectProperty();
 $def->properties['pending_group_max']->columnName   = 'pending_group_max';
 $def->properties['pending_group_max']->propertyName = 'pending_group_max';
 $def->properties['pending_group_max']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['bot_chats_counter'] = new ezcPersistentObjectProperty();
+$def->properties['bot_chats_counter']->columnName   = 'bot_chats_counter';
+$def->properties['bot_chats_counter']->propertyName = 'bot_chats_counter';
+$def->properties['bot_chats_counter']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 $def->properties['assign_same_language'] = new ezcPersistentObjectProperty();
 $def->properties['assign_same_language']->columnName   = 'assign_same_language';

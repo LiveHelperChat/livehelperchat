@@ -3142,12 +3142,6 @@
           "required": false,
           "description": "Stores how many active chats current operator has. This field is not updatable."
       },
-      "closed_chats_counter": {
-          "type": "integer",
-          "default": 0,
-          "required": false,
-          "description": "Stores how many closed chats current operator has. This field is not updatable."
-      },
       "pending_chats_counter": {
           "type": "integer",
           "default": 0,

@@ -329,6 +329,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.widgetsItems.push('mcd');
 	this.widgetsItems.push('botd');
 
+    _that['departmentd_hide_dep'] = _that.restoreLocalSetting('departmentd_hide_dep','false',false) != 'false';
+    _that['departmentd_hide_dgroup'] = _that.restoreLocalSetting('departmentd_hide_dgroup','false',false) != 'false';
+
 	this.timeoutActivity = null;
 	this.timeoutActivityTime = 300;
 	this.blockSync = false;
@@ -678,7 +681,17 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			filter += '/(onop)/'+_that.toggleWidgetData['onop_sort'];
 		}
 
-		// Last dynamic activity
+		// What subelements of widgets should be hidden
+        // At the moment only departments widget users it
+		var hsub = [];
+		_that.departmentd_hide_dep === true && hsub.push('dhdep');
+		_that.departmentd_hide_dgroup === true && hsub.push('dhdepg');
+
+		if (hsub.length > 0) {
+            filter += '/(hsub)/'+hsub.join('/');
+        }
+
+        // Last dynamic activity
         if (_that.lastd_activity > 0) {
             filter += '/(lda)/'+_that.lastd_activity;
         }
@@ -811,6 +824,22 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		} else {
 			_that.removeLocalSetting(listId + '_only_online');
 		}
+
+		if (typeof _that[listId+'_hide_dep'] !== 'undefined') {
+            if (_that[listId+'_hide_dep'] == true) {
+                _that.storeLocalSetting(listId + '_hide_dep', true);
+            } else {
+                _that.removeLocalSetting(listId + '_hide_dep');
+            }
+        }
+
+		if (typeof _that[listId+'_hide_dgroup'] !== 'undefined') {
+            if (_that[listId+'_hide_dgroup'] == true) {
+                _that.storeLocalSetting(listId + '_hide_dgroup', true);
+            } else {
+                _that.removeLocalSetting(listId + '_hide_dgroup');
+            }
+        }
 
 		if (_that[listId + '_all_departments'] == true)
 		{

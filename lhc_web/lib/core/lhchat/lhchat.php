@@ -1354,16 +1354,18 @@ class erLhcoreClassChat {
 
    /**
     * Update department main statistic for frontend
+    * This can be calculated in background as it does not influence anything except statistic
     * */
    public static function updateDepartmentStats($dep) {
        try {
-           $db = ezcDbInstance::get();
-           $stmt = $db->prepare('UPDATE lh_departament SET active_chats_counter = :active_chats_counter, pending_chats_counter = :pending_chats_counter, closed_chats_counter = :closed_chats_counter WHERE id = :id');
-           $stmt->bindValue(':active_chats_counter',erLhcoreClassChat::getCount(array('use_index' => 'dep_id_status','filter' => array('dep_id' => $dep->id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))),PDO::PARAM_INT);
-           $stmt->bindValue(':pending_chats_counter',erLhcoreClassChat::getCount(array('use_index' => 'dep_id_status','filter' => array('dep_id' => $dep->id, 'status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))),PDO::PARAM_INT);
-           $stmt->bindValue(':closed_chats_counter',erLhcoreClassChat::getCount(array('use_index' => 'dep_id_status','filter' => array('dep_id' => $dep->id, 'status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT))),PDO::PARAM_INT);
-           $stmt->bindValue(':id',$dep->id,PDO::PARAM_INT);
-           $stmt->execute();
+
+           if (erLhcoreClassSystem::instance()->backgroundMode == false && class_exists('erLhcoreClassExtensionLhcphpresque')) {
+               erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_stats_resque', 'erLhcoreClassChatStatsResque', array('type' => 'dep', 'id' => $dep->id));
+               return;
+           }
+
+           erLhcoreClassChatStatsResque::updateStats($dep);
+
        } catch (Exception $e) {
            //Fail silently as it's just statistic update operation
        }

@@ -26,6 +26,18 @@ $fieldsSearch['bot_ids'] = array (
     )
 );
 
+$fieldsSearch['chat_status_ids'] = array (
+    'type' => 'text',
+    'trans' => 'Chat status',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterin',
+    'filter_table_field' => 'status',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0), FILTER_REQUIRE_ARRAY
+    )
+);
+
 $fieldsSearch['no_operator'] = array (
     'type' => 'boolean',
     'trans' => 'groupby',
