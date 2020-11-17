@@ -1700,10 +1700,14 @@ try {
                     $db->query("CREATE TABLE `lh_generic_bot_rest_api` (`id` bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(20) NOT NULL, `description` varchar(250), `configuration` text NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lh_departament_group` (
-                  `id` int(11) NOT NULL AUTO_INCREMENT,
-                  `name` varchar(50) NOT NULL,
-                  PRIMARY KEY (`id`)
-                ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+                      `id` int(11) NOT NULL AUTO_INCREMENT,
+                      `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+                      `achats_cnt` int(11) NOT NULL DEFAULT 0,
+                      `pchats_cnt` int(11) NOT NULL DEFAULT 0,
+                      `max_load` int(11) NOT NULL DEFAULT 0,
+                      `bchats_cnt` int(11) NOT NULL DEFAULT 0,
+                      PRIMARY KEY (`id`)
+                    ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lh_canned_msg_tag_link` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag_id` int(11) NOT NULL,  `canned_id` int(11) NOT NULL,  PRIMARY KEY (`id`), KEY `canned_id` (`canned_id`), KEY `tag_id` (`tag_id`)) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
                     $db->query("CREATE TABLE `lh_canned_msg_tag` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag` varchar(40) NOT NULL, PRIMARY KEY (`id`), KEY `tag` (`tag`)) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
