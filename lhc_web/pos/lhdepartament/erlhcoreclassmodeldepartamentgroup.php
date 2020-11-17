@@ -34,6 +34,11 @@ $def->properties['max_load']->columnName   = 'max_load';
 $def->properties['max_load']->propertyName = 'max_load';
 $def->properties['max_load']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['max_load_h'] = new ezcPersistentObjectProperty();
+$def->properties['max_load_h']->columnName   = 'max_load_h';
+$def->properties['max_load_h']->propertyName = 'max_load_h';
+$def->properties['max_load_h']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

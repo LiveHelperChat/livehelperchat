@@ -1474,6 +1474,7 @@ class Install
 				  `max_ac_dep_chats` int(11) NOT NULL,
 				  `archive` tinyint(1) NOT NULL DEFAULT '0',
 				  `max_load` int(11) NOT NULL DEFAULT '0',
+				  `max_load_h` int(11) NOT NULL DEFAULT '0',
 				  `assign_same_language` int(11) NOT NULL,
 				  `disabled` int(11) NOT NULL,
 				  `hidden` int(11) NOT NULL,
@@ -1512,7 +1513,7 @@ class Install
 				  `pending_group_max` int(11) NOT NULL,
 				  `active_chats_counter` int(11) NOT NULL,
 				  `pending_chats_counter` int(11) NOT NULL,
-				  `bot_chats_counter` int(11) NOT NULL,
+				  `bot_chats_counter` int(11) NOT NULL DEFAULT '0',
 				  `inform_close_all` int(11) NOT NULL,
 				  `inform_close_all_email` varchar(250) NOT NULL,
 				  `product_configuration` varchar(250) NOT NULL,
@@ -1572,6 +1573,7 @@ class Install
                       `achats_cnt` int(11) NOT NULL DEFAULT 0,
                       `pchats_cnt` int(11) NOT NULL DEFAULT 0,
                       `max_load` int(11) NOT NULL DEFAULT 0,
+                      `max_load_h` int(11) NOT NULL DEFAULT 0,
                       `bchats_cnt` int(11) NOT NULL DEFAULT 0,
                       PRIMARY KEY (`id`)
                     ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
