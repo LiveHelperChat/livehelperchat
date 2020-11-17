@@ -6,6 +6,4 @@
  *
  * */
 
-erLhcoreClassChat::updateDepartmentStats(erLhcoreClassModelDepartament::fetch('20'));
-
 ?>
