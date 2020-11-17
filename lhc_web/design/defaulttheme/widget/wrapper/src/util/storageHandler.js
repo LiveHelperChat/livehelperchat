@@ -9,6 +9,18 @@ export class storageHandler {
             this.hasSessionStorage = false;
         }
 
+        this.cookieEnabled = false;
+
+        try {
+            // Create cookie
+            document.cookie = 'cookietest=1';
+            this.cookieEnabled = document.cookie.indexOf('cookietest=') !== -1;
+            // Delete cookie
+            document.cookie = 'cookietest=1; expires=Thu, 01-Jan-1970 00:00:01 GMT';
+        } catch (e) {
+
+        }
+
         this.domain = domain;
         this.secureCookie = false;
         this.cookiePerPage = false;

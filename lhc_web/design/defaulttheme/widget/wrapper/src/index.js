@@ -88,6 +88,11 @@
 
                 var storageHandler = new storageHandler(global, LHC_API.args.domain || null, prefixStorage);
 
+                // Cookies are disabled and it's required for us to work. So just exit :(
+                if (storageHandler.cookieEnabled === false) {
+                    return ;
+                }
+
                 if (LHC_API.args.cookie_per_page) {
                     storageHandler.setCookiePerPage(LHC_API.args.cookie_per_page);
                 }
