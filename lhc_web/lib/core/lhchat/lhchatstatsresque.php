@@ -60,7 +60,7 @@ class erLhcoreClassChatStatsResque {
 
         $dep->max_load = $maxChats;
         $dep->max_load_h = $maxChatsHard;
-        $dep->updateThis(array('update' => array('active_chats_counter','pending_chats_counter','bot_chats_counter','max_load')));
+        $dep->updateThis(array('update' => array('active_chats_counter','pending_chats_counter','bot_chats_counter','max_load','max_load_h')));
 
         // Update departments groups statistic
         $depGroups = erLhcoreClassModelDepartamentGroupMember::getList(array('filter' => array('dep_id' => $dep->id)));
