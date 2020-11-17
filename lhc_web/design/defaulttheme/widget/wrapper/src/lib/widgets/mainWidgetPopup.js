@@ -77,7 +77,7 @@ export class mainWidgetPopup {
                 urlArgumetns = urlArgumetns + "/(theme)/" + this.attributes['theme'];
             }
 
-            if (attr['static_chat']['vid'] !== null) {
+            if (attr['static_chat']['vid'] !== null && this.attributes.storageHandler.cookieEnabled === true) {
                 urlArgumetns = urlArgumetns + "/(vid)/" + attr['static_chat']['vid'];
             }
 

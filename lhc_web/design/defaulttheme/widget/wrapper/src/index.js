@@ -90,7 +90,9 @@
 
                 // Cookies are disabled and it's required for us to work. So just exit :(
                 if (storageHandler.cookieEnabled === false) {
-                    return ;
+                    LHC_API.args.mode = 'popup';
+                    LHC_API.args.proactive = false;
+                    LHC_API.args.check_messages = false;
                 }
 
                 if (LHC_API.args.cookie_per_page) {
@@ -214,6 +216,7 @@
 
                 helperFunctions.makeRequest(LHC_API.args.lhc_base_url + attributesWidget.lang + 'widgetrestapi/settings', {
                     params: {
+                        'cd': (storageHandler.cookieEnabled === false ? 1 : null),
                         'vid': (LHC_API.args.UUID || attributesWidget.userSession.getVID()),
                         'hnh': attributesWidget.userSession.hnh,
                         'tz': helperFunctions.getTzOffset(),
@@ -284,7 +287,6 @@
                     }
 
                     attributesWidget.captcha = {hash: data.hash, ts: data.hash_ts};
-
                     attributesWidget.userSession.setVID(data.vid);
 
                     // Store session
