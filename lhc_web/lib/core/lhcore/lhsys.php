@@ -471,6 +471,8 @@ class erLhcoreClassSystem{
 
     public static $proxyMode = false;
 
+    public $backgroundMode = false;
+
     /// The path to where all the code resides
     public $SiteDir;
     /// The access path of the current site view

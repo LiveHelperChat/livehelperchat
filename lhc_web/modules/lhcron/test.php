@@ -5,4 +5,7 @@
  * For various testing purposes
  *
  * */
+
+erLhcoreClassChat::updateDepartmentStats(erLhcoreClassModelDepartament::fetch('20'));
+
 ?>

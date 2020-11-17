@@ -34,9 +34,6 @@ class erLhcoreClassModelUser {
             'xmpp_username' => $this->xmpp_username,
             'rec_per_req' => $this->rec_per_req,
             'session_id' => $this->session_id,
-            'active_chats_counter' => $this->active_chats_counter,
-            'closed_chats_counter' => $this->closed_chats_counter,
-            'pending_chats_counter' => $this->pending_chats_counter,
             'departments_ids' => $this->departments_ids,
             'chat_nickname' => $this->chat_nickname,
             'max_active_chats' => $this->max_active_chats,
@@ -237,9 +234,6 @@ class erLhcoreClassModelUser {
     public $rec_per_req = '';
     public $session_id = '';
     public $chat_nickname = '';
-    public $active_chats_counter = 0;
-    public $closed_chats_counter = 0;
-    public $pending_chats_counter = 0;
     public $operation_admin = '';
     public $inactive_mode = 0;
     public $max_active_chats = 0;

@@ -226,17 +226,53 @@
 		</div>		
 		<div class="col-md-2">
 		   <div class="form-group">
-			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat status');?></label>
-			<select name="chat_status" class="form-control form-control-sm">
-				<option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any');?></option>
-				<option value="0" <?php if ($input->chat_status === erLhcoreClassModelChat::STATUS_PENDING_CHAT) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Pending chats');?></option>
-				<option value="1" <?php if ($input->chat_status === erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Active chats');?></option>
-				<option value="5" <?php if ($input->chat_status === erLhcoreClassModelChat::STATUS_BOT_CHAT) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Bot chats');?></option>
-				<option value="2" <?php if ($input->chat_status === erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Closed chats');?></option>
-				<option value="3" <?php if ($input->chat_status === erLhcoreClassModelChat::STATUS_CHATBOX_CHAT) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chatbox chats');?></option>
-				<option value="4" <?php if ($input->chat_status === erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Operators chats');?></option>
-                <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/status_custom_multiinclude.tpl.php'));?>
-			</select>
+			    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat status');?></label>
+
+               <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                   'input_name'     => 'chat_status_ids[]',
+                   'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose status'),
+                   'selected_id'    => $input->chat_status_ids,
+                   'css_class'      => 'form-control',
+                   'display_name'   => 'name',
+                   'list_function_params' => array(),
+                   'list_function'  => function () {
+                       $items = array();
+
+                       $item = new StdClass();
+                       $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Pending chats');
+                       $item->id = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
+                       $items[] = $item;
+
+                       $item = new StdClass();
+                       $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Active chats');
+                       $item->id = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
+                       $items[] = $item;
+
+                       $item = new StdClass();
+                       $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Bot chats');
+                       $item->id = erLhcoreClassModelChat::STATUS_BOT_CHAT;
+                       $items[] = $item;
+
+                       $item = new StdClass();
+                       $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Closed chats');
+                       $item->id = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
+                       $items[] = $item;
+
+                       $item = new StdClass();
+                       $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chatbox chats');
+                       $item->id = erLhcoreClassModelChat::STATUS_CHATBOX_CHAT;
+                       $items[] = $item;
+
+                       $item = new StdClass();
+                       $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Operators chats');
+                       $item->id = erLhcoreClassModelChat::STATUS_OPERATORS_CHAT;
+                       $items[] = $item;
+
+                       return $items;
+                   }
+               )); ?>
+
+
 		  </div>
 		</div>	
 		<div class="col-md-3">

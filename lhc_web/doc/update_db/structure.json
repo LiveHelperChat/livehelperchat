@@ -5334,6 +5334,38 @@
         "default": null,
         "extra": "",
         "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "achats_cnt",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "pchats_cnt",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "bchats_cnt",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "max_load",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
       }
     ],
     "lh_departament_limit_group": [
@@ -5434,6 +5466,14 @@
       },
       {
         "field": "max_load",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "bot_chats_counter",
         "type": "int(11)",
         "null": "NO",
         "key": "",
@@ -5779,14 +5819,6 @@
       },
       {
         "field": "pending_chats_counter",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": 0,
-        "extra": ""
-      },
-      {
-        "field": "closed_chats_counter",
         "type": "int(11)",
         "null": "NO",
         "key": "",
@@ -7350,30 +7382,6 @@
       {
         "field": "inactive_mode",
         "type": "tinyint(1)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "active_chats_counter",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "closed_chats_counter",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "pending_chats_counter",
-        "type": "int(11)",
         "null": "NO",
         "key": "",
         "default": null,
@@ -9145,10 +9153,11 @@
     }
   },
   "tables_drop_column" : {
-    "lh_departament" : ["start_hour","end_hour","mod","tud","wed","thd","frd","sad","sud"],
+    "lh_departament" : ["start_hour","end_hour","mod","tud","wed","thd","frd","sad","sud","closed_chats_counter"],
     "lh_chat" : ["wait_timeout","wait_timeout_send","timeout_message","wait_timeout_repeat"],
     "lh_abstract_proactive_chat_invitation" : ["wait_message","wait_timeout","timeout_message","repeat_number"],
-    "lh_chat_online_user" : ["show_on_mobile"]
+    "lh_chat_online_user" : ["show_on_mobile"],
+    "lh_users" : ["active_chats_counter","closed_chats_counter","pending_chats_counter"]
   },
   "tables_collation" : {
     "lh_abstract_auto_responder" : "utf8mb4_unicode_ci",
@@ -9312,7 +9321,7 @@
         "active_sud" : "ALTER TABLE `lh_departament` ADD INDEX `active_sud` (`online_hours_active`,`sud_start_hour`,`sud_end_hour`);",
         "active_chats_counter" : "ALTER TABLE `lh_departament` ADD INDEX `active_chats_counter` (`active_chats_counter`);",
         "pending_chats_counter" : "ALTER TABLE `lh_departament` ADD INDEX `pending_chats_counter` (`pending_chats_counter`);",
-        "closed_chats_counter" : "ALTER TABLE `lh_departament` ADD INDEX `closed_chats_counter` (`closed_chats_counter`);",
+        "bot_chats_counter" : "ALTER TABLE `lh_departament` ADD INDEX `bot_chats_counter` (`bot_chats_counter`);",
         "archive" : "ALTER TABLE `lh_departament` ADD INDEX `archive` (`archive`);"
       },
       "old" : ["oha_sh_eh"]
@@ -9416,7 +9425,7 @@
     "lh_chat_online_user_footprint": "CREATE TABLE `lh_chat_online_user_footprint` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `chat_id` int(11) NOT NULL,\n  `online_user_id` int(11) NOT NULL,\n  `page` varchar(2083) NOT NULL,\n  `vtime` varchar(250) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `chat_id_vtime` (`chat_id`,`vtime`),\n  KEY `online_user_id` (`online_user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_chat_online_user_footprint_update": "CREATE TABLE `lh_chat_online_user_footprint_update` (`online_user_id` bigint(20) NOT NULL,  `command` varchar(20) NOT NULL,  `args` varchar(250) NOT NULL,  `ctime` int(11) NOT NULL, KEY `online_user_id` (`online_user_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_chatbox": "CREATE TABLE `lh_chatbox` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `identifier` varchar(50) NOT NULL,\n  `name` varchar(100) NOT NULL,\n  `chat_id` int(11) NOT NULL,\n  `active` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `identifier` (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
-    "lh_departament": "CREATE TABLE IF NOT EXISTS `lh_departament` (`id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(100) NOT NULL,`email` varchar(100) NOT NULL,`xmpp_recipients` text NOT NULL,`xmpp_group_recipients` text NOT NULL,`priority` int(11) NOT NULL,`sort_priority` int(11) NOT NULL,`department_transfer_id` int(11) NOT NULL,`transfer_timeout` int(11) NOT NULL,`disabled` int(11) NOT NULL,`hidden` int(11) NOT NULL,`delay_lm` int(11) NOT NULL,`max_active_chats` int(11) NOT NULL,`max_timeout_seconds` int(11) NOT NULL,`identifier` varchar(50) NOT NULL,`mod_start_hour` int(4) NOT NULL,`mod_end_hour` int(4) NOT NULL,`tud_start_hour` int(4) NOT NULL,`tud_end_hour` int(4) NOT NULL,`wed_start_hour` int(4) NOT NULL,`wed_end_hour` int(4) NOT NULL,`thd_start_hour` int(4) NOT NULL,`thd_end_hour` int(4) NOT NULL,`frd_start_hour` int(4) NOT NULL,`frd_end_hour` int(4) NOT NULL,`sad_start_hour` int(4) NOT NULL,`sad_end_hour` int(4) NOT NULL,`sud_start_hour` int(4) NOT NULL,`sud_end_hour` int(4) NOT NULL,`nc_cb_execute` tinyint(1) NOT NULL,`na_cb_execute` tinyint(1) NOT NULL,`inform_unread` tinyint(1) NOT NULL,`active_balancing` tinyint(1) NOT NULL,`visible_if_online` tinyint(1) NOT NULL,`inform_close` int(11) NOT NULL,`inform_unread_delay` int(11) NOT NULL,`inform_options` varchar(250) NOT NULL,`online_hours_active` tinyint(1) NOT NULL,`inform_delay` int(11) NOT NULL,`attr_int_1` int(11) NOT NULL,`attr_int_2` int(11) NOT NULL,`attr_int_3` int(11) NOT NULL,`active_chats_counter` int(11) NOT NULL,`pending_chats_counter` int(11) NOT NULL,`closed_chats_counter` int(11) NOT NULL,PRIMARY KEY (`id`),KEY `identifier` (`identifier`),KEY `attr_int_1` (`attr_int_1`),KEY `attr_int_2` (`attr_int_2`),KEY `attr_int_3` (`attr_int_3`),KEY `disabled_hidden` (`disabled`, `hidden`),KEY `sort_priority_name` (`sort_priority`, `name`),KEY `active_mod` (`online_hours_active`,`mod_start_hour`,`mod_end_hour`),KEY `active_tud` (`online_hours_active`,`tud_start_hour`,`tud_end_hour`),KEY `active_wed` (`online_hours_active`,`wed_start_hour`,`wed_end_hour`),KEY `active_thd` (`online_hours_active`,`thd_start_hour`,`thd_end_hour`),KEY `active_frd` (`online_hours_active`,`frd_start_hour`,`frd_end_hour`),KEY `active_sad` (`online_hours_active`,`sad_start_hour`,`sad_end_hour`),KEY `active_sud` (`online_hours_active`,`sud_start_hour`,`sud_end_hour`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+    "lh_departament": "CREATE TABLE IF NOT EXISTS `lh_departament` (`id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(100) NOT NULL,`email` varchar(100) NOT NULL,`xmpp_recipients` text NOT NULL,`xmpp_group_recipients` text NOT NULL,`priority` int(11) NOT NULL,`sort_priority` int(11) NOT NULL,`department_transfer_id` int(11) NOT NULL,`transfer_timeout` int(11) NOT NULL,`disabled` int(11) NOT NULL,`hidden` int(11) NOT NULL,`delay_lm` int(11) NOT NULL,`max_active_chats` int(11) NOT NULL,`max_timeout_seconds` int(11) NOT NULL,`identifier` varchar(50) NOT NULL,`mod_start_hour` int(4) NOT NULL,`mod_end_hour` int(4) NOT NULL,`tud_start_hour` int(4) NOT NULL,`tud_end_hour` int(4) NOT NULL,`wed_start_hour` int(4) NOT NULL,`wed_end_hour` int(4) NOT NULL,`thd_start_hour` int(4) NOT NULL,`thd_end_hour` int(4) NOT NULL,`frd_start_hour` int(4) NOT NULL,`frd_end_hour` int(4) NOT NULL,`sad_start_hour` int(4) NOT NULL,`sad_end_hour` int(4) NOT NULL,`sud_start_hour` int(4) NOT NULL,`sud_end_hour` int(4) NOT NULL,`nc_cb_execute` tinyint(1) NOT NULL,`na_cb_execute` tinyint(1) NOT NULL,`inform_unread` tinyint(1) NOT NULL,`active_balancing` tinyint(1) NOT NULL,`visible_if_online` tinyint(1) NOT NULL,`inform_close` int(11) NOT NULL,`inform_unread_delay` int(11) NOT NULL,`inform_options` varchar(250) NOT NULL,`online_hours_active` tinyint(1) NOT NULL,`inform_delay` int(11) NOT NULL,`attr_int_1` int(11) NOT NULL,`attr_int_2` int(11) NOT NULL,`attr_int_3` int(11) NOT NULL,`active_chats_counter` int(11) NOT NULL,`pending_chats_counter` int(11) NOT NULL,PRIMARY KEY (`id`),KEY `identifier` (`identifier`),KEY `attr_int_1` (`attr_int_1`),KEY `attr_int_2` (`attr_int_2`),KEY `attr_int_3` (`attr_int_3`),KEY `disabled_hidden` (`disabled`, `hidden`),KEY `sort_priority_name` (`sort_priority`, `name`),KEY `active_mod` (`online_hours_active`,`mod_start_hour`,`mod_end_hour`),KEY `active_tud` (`online_hours_active`,`tud_start_hour`,`tud_end_hour`),KEY `active_wed` (`online_hours_active`,`wed_start_hour`,`wed_end_hour`),KEY `active_thd` (`online_hours_active`,`thd_start_hour`,`thd_end_hour`),KEY `active_frd` (`online_hours_active`,`frd_start_hour`,`frd_end_hour`),KEY `active_sad` (`online_hours_active`,`sad_start_hour`,`sad_end_hour`),KEY `active_sud` (`online_hours_active`,`sud_start_hour`,`sud_end_hour`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_departament_custom_work_hours": "CREATE TABLE IF NOT EXISTS `lh_departament_custom_work_hours` (`id` int(11) NOT NULL AUTO_INCREMENT,`dep_id` int(11) NOT NULL,`date_from` int(11) NOT NULL,`date_to` int(11) NOT NULL,`start_hour` int(11) NOT NULL,`end_hour` int(11) NOT NULL,PRIMARY KEY (`id`),KEY `dep_id` (`dep_id`),KEY `date_from` (`date_from`),KEY `search_active` (`date_from`, `date_to`, `dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_faq": "CREATE TABLE `lh_faq` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `question` varchar(250) NOT NULL,\n  `answer` text NOT NULL,\n  `url` varchar(250) NOT NULL,\n  `email` varchar(50) NOT NULL,\n  `identifier` varchar(10) NOT NULL,\n  `active` int(11) NOT NULL,\n  `has_url` tinyint(1) NOT NULL,\n  `is_wildcard` tinyint(1) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `active` (`active`),\n  KEY `active_url` (`active`,`url`),\n  KEY `has_url` (`has_url`),\n  KEY `identifier` (`identifier`),\n  KEY `is_wildcard` (`is_wildcard`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_forgotpasswordhash": "CREATE TABLE `lh_forgotpasswordhash` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `user_id` int(11) NOT NULL,\n  `hash` varchar(40) NOT NULL,\n  `created` int(11) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
