@@ -53,10 +53,13 @@
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/userchat/after_userchat.tpl.php'));?>
 <?php endif; ?>
 
-
 <?php
 $detect = new Mobile_Detect();
-if ($detect->version('IE') !== false) : ?>
+if (
+        $detect->version('IE') !== false ||
+        ($detect->version('Chrome') !== false && $detect->version('Chrome',Mobile_Detect::VERSION_TYPE_FLOAT) < 46) ||
+        ($detect->version('Firefox') !== false && $detect->version('Firefox',Mobile_Detect::VERSION_TYPE_FLOAT) < 35)
+) : ?>
     <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.ie.js')?>?t=137"></script>
 <?php else : ?>
     <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.js')?>?t=137"></script>

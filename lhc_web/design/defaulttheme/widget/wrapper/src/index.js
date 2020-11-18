@@ -130,7 +130,7 @@
                     hideOffline: false,
                     fscreen: LHC_API.args.fscreen || false,
                     isMobile: isMobile,
-                    isIE: (navigator.userAgent.toUpperCase().indexOf("TRIDENT/") != -1 || navigator.userAgent.toUpperCase().indexOf("MSIE") != -1),
+                    isIE: (navigator.userAgent.toUpperCase().indexOf("TRIDENT/") != -1 || navigator.userAgent.toUpperCase().indexOf("MSIE") != -1 || typeof Object.assign !== 'function'),
                     fresh: LHC_API.args.fresh || false,
                     popupDimesnions: {pheight: (LHC_API.args.pheight || 520), pwidth: (LHC_API.args.pwidth || 500)},
                     leaveMessage: LHC_API.args.leaveamessage || null,
