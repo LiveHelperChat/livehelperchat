@@ -29,8 +29,8 @@ if (isset($_POST['data'])) {
             array(
                 'source' => 'lhc',
                 'category' => 'js',
-                'line' => (int)$dataLog['line'],
-                'file' => $dataLog['file'],
+                'line' => (isset($dataLog['line']) ? (int)$dataLog['line'] : 0),
+                'file' => (isset($dataLog['file']) ? $dataLog['file'] : ''),
                 'object_id' => isset($dataLog['column']) ? (int)$dataLog['column'] : 0
             )
         );
