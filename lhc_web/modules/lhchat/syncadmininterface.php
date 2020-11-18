@@ -127,7 +127,7 @@ if ($showDepartmentsStats == true && is_array($Params['user_parameters_unordered
 
         $departments = erLhcoreClassModelDepartament::getList($filter);
 
-        erLhcoreClassChat::prefillGetAttributes($departments,array('id', 'name', 'pending_chats_counter', 'active_chats_counter','bot_chats_counter', 'max_load','max_load_h'), array(), array('remove_all' => true));
+        erLhcoreClassChat::prefillGetAttributes($departments,array('id', 'name', 'pending_chats_counter', 'active_chats_counter', 'bot_chats_counter', 'inactive_chats_cnt', 'max_load','max_load_h'), array(), array('remove_all' => true));
 
         $ReturnMessages['departments_stats'] = array('list' => array_values($departments));
     }
@@ -147,7 +147,7 @@ if ($showDepartmentsStats == true && is_array($Params['user_parameters_unordered
         $filter['sort'] = 'pchats_cnt DESC';
 
         $departmentsGroups = erLhcoreClassModelDepartamentGroup::getList($filter);
-        erLhcoreClassChat::prefillGetAttributes($departmentsGroups,array('id', 'name', 'achats_cnt', 'pchats_cnt', 'bchats_cnt', 'max_load','max_load_h' ), array(), array('remove_all' => true));
+        erLhcoreClassChat::prefillGetAttributes($departmentsGroups,array('id', 'name', 'achats_cnt', 'pchats_cnt', 'bchats_cnt', 'inachats_cnt', 'max_load','max_load_h' ), array(), array('remove_all' => true));
 
         $ReturnMessages['depgroups_stats'] = array('list' => array_values($departmentsGroups));
     }

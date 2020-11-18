@@ -1,3 +1,11 @@
+3.52v
+
+1. Support for a browser with cookie, sessionStorage support.
+2. Inactive chats statistic. This change was needed because auto assigned can exclude inactive chats. In that scenario statistic is misleading.
+3. Offline form now can be without an e-mail field. So you can configure it to be with e-mail either phone.
+
+execute doc/update_db/update_225.sql for update
+
 3.51v
 
 1. Departments statistic widget will have a new columns.

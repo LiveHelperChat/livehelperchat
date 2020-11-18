@@ -18,6 +18,7 @@ class erLhcoreClassModelDepartamentGroup
             'id' => $this->id,
             'name' => $this->name,
             'achats_cnt' => $this->achats_cnt,
+            'inachats_cnt' => $this->inachats_cnt,
             'pchats_cnt' => $this->pchats_cnt,
             'bchats_cnt' => $this->bchats_cnt,
             'max_load' => $this->max_load,
@@ -67,6 +68,7 @@ class erLhcoreClassModelDepartamentGroup
     public $id = null;
     public $name = '';
     public $achats_cnt = 0;
+    public $inachats_cnt = 0;
     public $pchats_cnt = 0;
     public $bchats_cnt = 0;
     public $max_load = 0;

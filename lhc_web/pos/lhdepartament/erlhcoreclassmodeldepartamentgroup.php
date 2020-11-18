@@ -19,6 +19,11 @@ $def->properties['achats_cnt']->columnName   = 'achats_cnt';
 $def->properties['achats_cnt']->propertyName = 'achats_cnt';
 $def->properties['achats_cnt']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['inachats_cnt'] = new ezcPersistentObjectProperty();
+$def->properties['inachats_cnt']->columnName   = 'inachats_cnt';
+$def->properties['inachats_cnt']->propertyName = 'inachats_cnt';
+$def->properties['inachats_cnt']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['pchats_cnt'] = new ezcPersistentObjectProperty();
 $def->properties['pchats_cnt']->columnName   = 'pchats_cnt';
 $def->properties['pchats_cnt']->propertyName = 'pchats_cnt';
