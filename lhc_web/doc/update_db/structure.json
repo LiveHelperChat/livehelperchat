@@ -5344,6 +5344,14 @@
         "extra": ""
       },
       {
+        "field": "inachats_cnt",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "pchats_cnt",
         "type": "int(11)",
         "null": "NO",
@@ -5490,6 +5498,14 @@
       },
       {
         "field": "bot_chats_counter",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "inactive_chats_cnt",
         "type": "int(11)",
         "null": "NO",
         "key": "",

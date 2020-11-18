@@ -31,7 +31,7 @@ class erLhcoreClassChatStatsResque {
         $maxChatsHard = (int)$stmt->fetchColumn();
 
         $statsChats = erLhcoreClassModelChat::getCount(array(
-            'group' => 'status',
+            'group' => '`status`, `status_sub`',
             'filter' => array(
                 'dep_id' => $dep->id
             ),
@@ -43,24 +43,29 @@ class erLhcoreClassChatStatsResque {
                 )
             )
         ),
-            'count', false, 'count(`id`) as `total`, `status`', false, true
+            'count', false, 'count(`id`) as `total`, `status`, `status_sub`', false, true
         );
 
-        $dep->bot_chats_counter = $dep->pending_chats_counter = $dep->active_chats_counter = 0;
+        $dep->inactive_chats_cnt = $dep->bot_chats_counter = $dep->pending_chats_counter = $dep->active_chats_counter = 0;
 
         foreach ($statsChats as $statsChat) {
             if ($statsChat['status'] == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
-                $dep->active_chats_counter = $statsChat['total'];
+                $dep->active_chats_counter += (int)$statsChat['total'];
             } elseif ($statsChat['status'] == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
-                $dep->pending_chats_counter = $statsChat['total'];
+                $dep->pending_chats_counter += (int)$statsChat['total'];
             } elseif ($statsChat['status'] == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
-                $dep->bot_chats_counter = $statsChat['total'];
+                $dep->bot_chats_counter += (int)$statsChat['total'];
             }
-        }
+
+            // Add to inactive chats if it's conditions matches
+            if (in_array((int)$statsChat['status'],array(erLhcoreClassModelChat::STATUS_PENDING_CHAT, erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) && in_array((int)$statsChat['status_sub'],array(erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW))) {
+                $dep->inactive_chats_cnt += $statsChat['total'];
+            }
+         }
 
         $dep->max_load = $maxChats;
         $dep->max_load_h = $maxChatsHard;
-        $dep->updateThis(array('update' => array('active_chats_counter','pending_chats_counter','bot_chats_counter','max_load','max_load_h')));
+        $dep->updateThis(array('update' => array('active_chats_counter','pending_chats_counter','bot_chats_counter','inactive_chats_cnt','max_load','max_load_h')));
 
         // Update departments groups statistic
         $depGroups = erLhcoreClassModelDepartamentGroupMember::getList(array('filter' => array('dep_id' => $dep->id)));
@@ -82,7 +87,7 @@ class erLhcoreClassChatStatsResque {
 
             if ($depGroupObj instanceof erLhcoreClassModelDepartamentGroup) {
                 $statsChats = erLhcoreClassModelChat::getCount(array(
-                    'group' => 'status',
+                    'group' => '`status`, `status_sub`',
                     'filterin' => array(
                         'status' => array(
                             erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,
@@ -92,18 +97,23 @@ class erLhcoreClassChatStatsResque {
                         'dep_id' => erLhcoreClassChat::getDepartmentsByDepGroup(array($depGroupObj->id))
                     )
                 ),
-                    'count', false, 'count(`id`) as `total`, `status`', false, true
+                    'count', false, 'count(`id`) as `total`, `status`, `status_sub`', false, true
                 );
 
-                $depGroupObj->achats_cnt = $depGroupObj->pchats_cnt = $depGroupObj->bchats_cnt = 0;
+                $depGroupObj->inachats_cnt = $depGroupObj->achats_cnt = $depGroupObj->pchats_cnt = $depGroupObj->bchats_cnt = 0;
 
                 foreach ($statsChats as $statsChat) {
                     if ($statsChat['status'] == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
-                        $depGroupObj->achats_cnt = $statsChat['total'];
+                        $depGroupObj->achats_cnt += (int)$statsChat['total'];
                     } elseif ($statsChat['status'] == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
-                        $depGroupObj->pchats_cnt = $statsChat['total'];
+                        $depGroupObj->pchats_cnt += (int)$statsChat['total'];
                     } elseif ($statsChat['status'] == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
-                        $depGroupObj->bchats_cnt = $statsChat['total'];
+                        $depGroupObj->bchats_cnt += (int)$statsChat['total'];
+                    }
+
+                    // Add to inactive chats if it's conditions matches
+                    if (in_array((int)$statsChat['status'],array(erLhcoreClassModelChat::STATUS_PENDING_CHAT, erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) && in_array((int)$statsChat['status_sub'],array(erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW))) {
+                        $depGroupObj->inachats_cnt += (int)$statsChat['total'];
                     }
                 }
 

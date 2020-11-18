@@ -6,6 +6,7 @@
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Group');?></th>
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Pending chats');?></th>
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Active chats');?></th>
+        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Inactive chats');?></th>
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Bots chats');?></th>
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Max chats');?></th>
         <th width="1%">&nbsp;</th>
@@ -17,6 +18,7 @@
         <td><?php echo htmlspecialchars($item->name)?></td>
         <td><?php echo htmlspecialchars($item->pchats_cnt)?></td>
         <td><?php echo htmlspecialchars($item->achats_cnt)?></td>
+        <td><?php echo htmlspecialchars($item->inachats_cnt)?></td>
         <td><?php echo htmlspecialchars($item->bchats_cnt)?></td>
         <td><?php echo htmlspecialchars($item->max_load)?></td>
         <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('department/editgroup')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Edit');?></a></td>

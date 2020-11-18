@@ -227,6 +227,11 @@ $def->properties['bot_chats_counter']->columnName   = 'bot_chats_counter';
 $def->properties['bot_chats_counter']->propertyName = 'bot_chats_counter';
 $def->properties['bot_chats_counter']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['inactive_chats_cnt'] = new ezcPersistentObjectProperty();
+$def->properties['inactive_chats_cnt']->columnName   = 'inactive_chats_cnt';
+$def->properties['inactive_chats_cnt']->propertyName = 'inactive_chats_cnt';
+$def->properties['inactive_chats_cnt']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['assign_same_language'] = new ezcPersistentObjectProperty();
 $def->properties['assign_same_language']->columnName   = 'assign_same_language';
 $def->properties['assign_same_language']->propertyName = 'assign_same_language';
