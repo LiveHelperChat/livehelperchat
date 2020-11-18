@@ -1648,6 +1648,8 @@ try {
 				  `inactive_chats_cnt` int(11) NOT NULL DEFAULT '0',
 				  `pending_chats_counter` int(11) NOT NULL,
 				  `bot_chats_counter` int(11) NOT NULL DEFAULT '0',
+				  `inop_chats_cnt` int(11) NOT NULL DEFAULT '0',
+				  `acop_chats_cnt` int(11) NOT NULL DEFAULT '0',
 				  `inform_close_all` int(11) NOT NULL,
 				  `inform_close_all_email` varchar(250) NOT NULL,
 				  `product_configuration` varchar(250) NOT NULL,
@@ -1710,6 +1712,8 @@ try {
                       `max_load` int(11) NOT NULL DEFAULT 0,
                       `max_load_h` int(11) NOT NULL DEFAULT 0,
                       `bchats_cnt` int(11) NOT NULL DEFAULT 0,
+                      `inopchats_cnt` int(11) NOT NULL DEFAULT 0,
+                      `acopchats_cnt` int(11) NOT NULL DEFAULT 0,
                       PRIMARY KEY (`id`)
                     ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 

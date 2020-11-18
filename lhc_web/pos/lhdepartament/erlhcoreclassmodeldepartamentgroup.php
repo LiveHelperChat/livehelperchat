@@ -34,6 +34,16 @@ $def->properties['bchats_cnt']->columnName   = 'bchats_cnt';
 $def->properties['bchats_cnt']->propertyName = 'bchats_cnt';
 $def->properties['bchats_cnt']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['inopchats_cnt'] = new ezcPersistentObjectProperty();
+$def->properties['inopchats_cnt']->columnName   = 'inopchats_cnt';
+$def->properties['inopchats_cnt']->propertyName = 'inopchats_cnt';
+$def->properties['inopchats_cnt']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['acopchats_cnt'] = new ezcPersistentObjectProperty();
+$def->properties['acopchats_cnt']->columnName   = 'acopchats_cnt';
+$def->properties['acopchats_cnt']->propertyName = 'acopchats_cnt';
+$def->properties['acopchats_cnt']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['max_load'] = new ezcPersistentObjectProperty();
 $def->properties['max_load']->columnName   = 'max_load';
 $def->properties['max_load']->propertyName = 'max_load';

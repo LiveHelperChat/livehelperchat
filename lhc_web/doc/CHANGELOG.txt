@@ -1,3 +1,9 @@
+3.53v
+
+1. Inactive chats for logged operator and active chats for logged operator stats in departments widget.
+
+execute doc/update_db/update_225.sql for update
+
 3.52v
 
 1. Support for a browser with cookie, sessionStorage support.

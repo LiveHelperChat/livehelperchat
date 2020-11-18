@@ -24,11 +24,11 @@ class erLhcoreClassChatStatsResque {
         $stmt->execute();
         $maxChats = (int)$stmt->fetchColumn();
 
-        $stmt = $db->prepare('SELECT SUM(max_chats) as max_chats FROM (SELECT MAX(max_chats) as max_chats FROM `lh_userdep` WHERE dep_id = :dep_id AND hide_online = 0 AND last_activity > :last_activity GROUP BY user_id) as tmp;');
+        $stmt = $db->prepare('SELECT SUM(`max_chats`) as `max_chats`, SUM(`active_chats`) AS `active_chats`, SUM(`inactive_chats`) AS `inactive_chats` FROM (SELECT MAX(`max_chats`) as `max_chats`,MAX(`inactive_chats`) AS `inactive_chats`,MAX(`active_chats`) AS `active_chats` FROM `lh_userdep` WHERE dep_id = :dep_id AND hide_online = 0 AND last_activity > :last_activity GROUP BY user_id) as tmp;');
         $stmt->bindValue(':dep_id',$dep->id,PDO::PARAM_INT);
         $stmt->bindValue(':last_activity',time()-300, PDO::PARAM_INT);
         $stmt->execute();
-        $maxChatsHard = (int)$stmt->fetchColumn();
+        $maxChatsHard = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $statsChats = erLhcoreClassModelChat::getCount(array(
             'group' => '`status`, `status_sub`',
@@ -64,8 +64,11 @@ class erLhcoreClassChatStatsResque {
          }
 
         $dep->max_load = $maxChats;
-        $dep->max_load_h = $maxChatsHard;
-        $dep->updateThis(array('update' => array('active_chats_counter','pending_chats_counter','bot_chats_counter','inactive_chats_cnt','max_load','max_load_h')));
+        $dep->max_load_h = isset($maxChatsHard['max_chats']) ? $maxChatsHard['max_chats'] : 0;
+        $dep->inop_chats_cnt = isset($maxChatsHard['inactive_chats']) ? $maxChatsHard['inactive_chats'] : 0;
+        $dep->acop_chats_cnt = isset($maxChatsHard['active_chats']) ? $maxChatsHard['active_chats'] : 0;
+
+        $dep->updateThis(array('update' => array('inop_chats_cnt','acop_chats_cnt','active_chats_counter','pending_chats_counter','bot_chats_counter','inactive_chats_cnt','max_load','max_load_h')));
 
         // Update departments groups statistic
         $depGroups = erLhcoreClassModelDepartamentGroupMember::getList(array('filter' => array('dep_id' => $dep->id)));
@@ -77,11 +80,11 @@ class erLhcoreClassChatStatsResque {
             $stmt->execute();
             $maxChats = (int)$stmt->fetchColumn();
 
-            $stmt = $db->prepare('SELECT SUM(`max_chats`) AS `max_chats` FROM (SELECT MAX(`max_chats`) AS `max_chats` FROM `lh_userdep` WHERE `dep_id` IN (SELECT `dep_id` FROM `lh_departament_group_member` WHERE `dep_group_id` = :dep_group_id) AND hide_online = 0 AND `last_activity` > :last_activity GROUP BY `user_id`) as `tmp`;');
+            $stmt = $db->prepare('SELECT SUM(`max_chats`) AS `max_chats`, SUM(`active_chats`) AS `active_chats`, SUM(`inactive_chats`) AS `inactive_chats` FROM (SELECT MAX(`max_chats`) AS `max_chats`,MAX(`inactive_chats`) AS `inactive_chats`,MAX(`active_chats`) AS `active_chats` FROM `lh_userdep` WHERE `dep_id` IN (SELECT `dep_id` FROM `lh_departament_group_member` WHERE `dep_group_id` = :dep_group_id) AND hide_online = 0 AND `last_activity` > :last_activity GROUP BY `user_id`) as `tmp`;');
             $stmt->bindValue(':dep_group_id',$depGroup->dep_group_id,PDO::PARAM_INT);
             $stmt->bindValue(':last_activity',time()-300, PDO::PARAM_INT);
             $stmt->execute();
-            $maxChatsHard = (int)$stmt->fetchColumn();
+            $maxChatsHard = $stmt->fetch(PDO::FETCH_ASSOC);
 
             $depGroupObj = erLhcoreClassModelDepartamentGroup::fetch($depGroup->dep_group_id);
 
@@ -118,7 +121,9 @@ class erLhcoreClassChatStatsResque {
                 }
 
                 $depGroupObj->max_load = $maxChats;
-                $depGroupObj->max_load_h = $maxChatsHard;
+                $depGroupObj->max_load_h = isset($maxChatsHard['max_chats']) ? $maxChatsHard['max_chats'] : 0;
+                $depGroupObj->inopchats_cnt = isset($maxChatsHard['inactive_chats']) ? $maxChatsHard['inactive_chats'] : 0;
+                $depGroupObj->acopchats_cnt = isset($maxChatsHard['active_chats']) ? $maxChatsHard['active_chats'] : 0;
                 $depGroupObj->updateThis();
             }
         }
