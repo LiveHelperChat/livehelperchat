@@ -1645,7 +1645,7 @@ try {
 				  `pending_max` int(11) NOT NULL,
 				  `pending_group_max` int(11) NOT NULL,
 				  `active_chats_counter` int(11) NOT NULL,
-				  `inactive_chats_cnt` int(11) NOT NULL,
+				  `inactive_chats_cnt` int(11) NOT NULL DEFAULT '0',
 				  `pending_chats_counter` int(11) NOT NULL,
 				  `bot_chats_counter` int(11) NOT NULL DEFAULT '0',
 				  `inform_close_all` int(11) NOT NULL,
