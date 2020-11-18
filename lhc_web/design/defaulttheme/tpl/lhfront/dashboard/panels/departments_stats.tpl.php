@@ -17,7 +17,7 @@
                     <th width="12%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Pending chats');?>" class="material-icons chat-pending">chat</i></th>
                     <th width="12%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Active chats');?>" class="material-icons chat-active">chat</i></th>
                     <th width="12%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Bot chats');?>" class="material-icons chat-active">android</i></th>
-                    <th width="21%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Free slots and max chats');?>" class="material-icons text-info">donut_large</i></th>
+                    <th width="21%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Load statistic');?>" class="material-icons text-info">donut_large</i></th>
                 </tr>
                 </thead>
                 <tr ng-if="!lhc.departmentd_hide_dgroup" ng-repeat="depgroup in depgroups_stats.list track by depgroup.id">
@@ -27,7 +27,7 @@
                     <td><a class="d-block" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(department_group_ids)/{{depgroup.id}}/(chat_status_ids)/<?php echo erLhcoreClassModelChat::STATUS_PENDING_CHAT ?>">{{depgroup.pchats_cnt ? depgroup.pchats_cnt : 0}}</a></td>
                     <td><a class="d-block" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(department_group_ids)/{{depgroup.id}}/(chat_status_ids)/<?php echo erLhcoreClassModelChat::STATUS_ACTIVE_CHAT ?>">{{depgroup.achats_cnt ? depgroup.achats_cnt : 0}}</a></td>
                     <td><a class="d-block" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(department_group_ids)/{{depgroup.id}}/(chat_status_ids)/<?php echo erLhcoreClassModelChat::STATUS_BOT_CHAT ?>">{{depgroup.bchats_cnt ? depgroup.bchats_cnt : 0}}</a></td>
-                    <td nowrap title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hard');?> - {{depgroup.max_load_h}}, <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Soft');?> - {{depgroup.max_load}}. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hard limit - active chats (soft limit - active chats)');?>">{{depgroup.max_load_h ? (depgroup.max_load_h - depgroup.active_chats_counter) : '0'}}&nbsp;({{depgroup.max_load ? (depgroup.max_load - depgroup.active_chats_counter) : '0'}})</td>
+                    <td nowrap title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hard');?> - {{depgroup.max_load_h ? depgroup.max_load_h : 'n/a'}}, <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Soft');?> - {{depgroup.max_load ? depgroup.max_load : 'n/a'}}. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hard limit - active chats (soft limit - active chats)');?>">{{depgroup.max_load_h ? (depgroup.max_load_h - depgroup.active_chats_counter) : 'n/a'}}&nbsp;({{depgroup.max_load ? (depgroup.max_load - depgroup.active_chats_counter) : 'n/a'}})</td>
                 </tr>
 				<thead ng-if="!lhc.departmentd_hide_dep && departments_stats.list.length > 0">
 					<tr>
@@ -35,7 +35,7 @@
 						<th width="12%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Pending chats');?>" class="material-icons chat-pending">chat</i></th>
 						<th width="12%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Active chats');?>" class="material-icons chat-active">chat</i></th>
 						<th width="12%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Bot chats');?>" class="material-icons chat-active">android</i></th>
-						<th width="21%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Free slots and max chats');?>" class="material-icons text-info">donut_large</i></th>
+						<th width="21%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Load statistic');?>" class="material-icons text-info">donut_large</i></th>
 					</tr>
 				</thead>
 				<tr ng-if="!lhc.departmentd_hide_dep" ng-repeat="department in departments_stats.list track by department.id">
@@ -45,7 +45,7 @@
 					<td><a class="d-block" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(department_ids)/{{department.id}}/(chat_status_ids)/<?php echo erLhcoreClassModelChat::STATUS_PENDING_CHAT ?>">{{department.pending_chats_counter ? department.pending_chats_counter : 0}}</a></td>
                     <td><a class="d-block" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(department_ids)/{{department.id}}/(chat_status_ids)/<?php echo erLhcoreClassModelChat::STATUS_ACTIVE_CHAT ?>">{{department.active_chats_counter ? department.active_chats_counter : 0}}</a></td>
                     <td><a class="d-block" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(department_ids)/{{department.id}}/(chat_status_ids)/<?php echo erLhcoreClassModelChat::STATUS_BOT_CHAT ?>">{{department.bot_chats_counter ? department.bot_chats_counter : 0}}</a></td>
-					<td nowrap title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hard');?> - {{department.max_load_h}}, <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Soft');?> - {{department.max_load}}. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hard limit - active chats (soft limit - active chats)');?>">{{department.max_load_h ? (department.max_load_h - department.active_chats_counter) : '0'}}&nbsp;({{department.max_load ? (department.max_load - department.active_chats_counter) : '0'}})</td>
+					<td nowrap title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hard');?> - {{department.max_load_h ? department.max_load_h : 'n/a'}}, <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Soft');?> - {{department.max_load ? department.max_load : 'n/a'}}. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hard limit - active chats (soft limit - active chats)');?>">{{department.max_load_h ? (department.max_load_h - department.active_chats_counter) : 'n/a'}}&nbsp;({{department.max_load ? (department.max_load - department.active_chats_counter) : 'n/a'}})</td>
 				</tr>
 			</table>
 		</div>
