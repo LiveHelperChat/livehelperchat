@@ -178,7 +178,11 @@ const chatWidgetReducer = (state = initialState, action) => {
                 
                 // If we are in popup mode and visitor refreshes page, remember chat
                 if (state.get('mode') == 'popup') {
-                    helperFunctions.setSessionStorage('_chat',JSON.stringify(action.data.chatData))
+                    if (helperFunctions.hasSessionStorage === true) {
+                        helperFunctions.setSessionStorage('_chat',JSON.stringify(action.data.chatData))
+                    } else {
+                        document.location = '#/' + action.data.chatData.id + "/" + action.data.chatData.hash;
+                    }
                 }
 
                 return state.set('processStatus', 2).set('isChatting',true).set('chatData',fromJS(action.data.chatData)).set('validationErrors',fromJS({}));;

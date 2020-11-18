@@ -134,7 +134,23 @@ export class mainWidgetPopup {
             const left = (width - parseInt(this.attributes['popupDimesnions']['pwidth'])) / 2 / systemZoom + dualScreenLeft;
             const top = (height - parseInt(this.attributes['popupDimesnions']['pheight'])) / 2 / systemZoom + dualScreenTop;
 
-            this.cont.elementReferrerPopup = window.open(this.attributes['base_url'] + this.attributes['lang'] + "chat/start" + urlArgumetns, 'lhc_popup_v2', "scrollbars=yes,menubar=1,resizable=1,width=" + this.attributes['popupDimesnions']['pwidth'] + ",height=" + this.attributes['popupDimesnions']['pheight'] + ",top=" + top + ",left=" + left);
+            var paramsWindow = "scrollbars=yes,menubar=1,resizable=1,width=" + this.attributes['popupDimesnions']['pwidth'] + ",height=" + this.attributes['popupDimesnions']['pheight'] + ",top=" + top + ",left=" + left;
+            var newWin = window.open("", 'lhc_popup_v2', paramsWindow);
+            var needWindow = false;
+            try {
+                if (newWin.location.href === "about:blank") {
+                    this.cont.elementReferrerPopup = window.open(this.attributes['base_url'] + this.attributes['lang'] + "chat/start" + urlArgumetns, 'lhc_popup_v2', paramsWindow);
+                } else {
+                    needWindow = true;
+                }
+            } catch (e) { // We get cross-origin error only if window exist and it's location is other one than about:blank
+                needWindow = true;
+            }
+
+            if (needWindow === true) {
+                this.cont.elementReferrerPopup = newWin;
+                newWin.focus();
+            }
         }
     }
 
