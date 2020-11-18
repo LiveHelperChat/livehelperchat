@@ -4,6 +4,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -2285,6 +2293,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Title</source>
       <translation type="unfinished"/>
     </message>
@@ -2298,10 +2314,6 @@
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Search</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2386,30 +2398,6 @@
     </message>
     <message>
       <source>Chat status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bot chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operators chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2518,6 +2506,34 @@
     </message>
     <message>
       <source>Select group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2965,6 +2981,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>HTML code (beta)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Bottom right corner of the screen</source>
       <translation type="unfinished"/>
     </message>
@@ -3337,7 +3357,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>HTML code (beta)</source>
+      <source>Static image</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3389,6 +3409,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Online status text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline status text. If you lave empty we will return empty image.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sample image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Source code with a link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hash arguments. Visitor will not be able to change passed arguments.</source>
       <translation type="unfinished"/>
     </message>
@@ -3423,6 +3459,10 @@
   </context>
   <context>
     <name>chat/getstatus</name>
+    <message>
+      <source>Our staff are ready to help!</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Close</source>
       <translation type="unfinished"/>
@@ -3467,10 +3507,6 @@
       <source>Screen shared, click to finish</source>
       <translation type="unfinished"/>
     </message>
-    <message>
-      <source>Our staff are ready to help!</source>
-      <translation type="unfinished"/>
-    </message>
   </context>
   <context>
     <name>abstract/list</name>
@@ -3487,6 +3523,10 @@
     </message>
     <message>
       <source>How many days keep log?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Log javascript errors</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5415,7 +5455,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Load statistic</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5911,6 +5963,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Toggle between dark and white themes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Change my persistent status to online</source>
       <translation type="unfinished"/>
     </message>
@@ -6329,6 +6385,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>first visit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>last visit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -6745,14 +6809,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>first visit</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>last visit</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>From</source>
       <translation type="unfinished"/>
     </message>
@@ -6929,6 +6985,10 @@
     </message>
     <message>
       <source>Configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Login history</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7466,6 +7526,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Login history</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Commands</source>
       <translation type="unfinished"/>
     </message>
@@ -7563,6 +7627,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Soft</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hard limit - active chats (soft limit - active chats)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Group chats</source>
       <translation type="unfinished"/>
     </message>
@@ -7592,6 +7668,14 @@
     </message>
     <message>
       <source>Hide hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide departments groups</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7695,6 +7779,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Copy all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ask for help</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat</source>
       <translation type="unfinished"/>
     </message>
@@ -7728,6 +7824,10 @@
     </message>
     <message>
       <source>Configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dark/bright</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8742,6 +8842,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>In order to change operator permissions you have to edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>roles</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Created</source>
       <translation type="unfinished"/>
     </message>
@@ -9144,6 +9252,26 @@
   <context>
     <name>user/userlist</name>
     <message>
+      <source>ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Edit</source>
       <translation type="unfinished"/>
     </message>
@@ -9338,6 +9466,22 @@
     </message>
     <message>
       <source>Group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bots chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9985,6 +10129,10 @@
   <context>
     <name>genericbot/list</name>
     <message>
+      <source>Login history</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Download</source>
       <translation type="unfinished"/>
     </message>
@@ -10156,6 +10304,10 @@
     </message>
     <message>
       <source>Invalid CSRF token!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password reset requested by</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10790,19 +10942,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Module</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Function</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Remove selected policy</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>New policy</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Function</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -11681,6 +11833,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Maximum number of failed logins before account is disabled.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Uppercase letter required</source>
       <translation type="unfinished"/>
     </message>
@@ -11718,6 +11874,10 @@
     </message>
     <message>
       <source>Password requirements</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password changed</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12086,6 +12246,10 @@
     </message>
     <message>
       <source>Invisible mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Force user to change password on login</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12623,6 +12787,10 @@
   <context>
     <name>user/login</name>
     <message>
+      <source>Your password has expired. Please update it</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please login</source>
       <translation type="unfinished"/>
     </message>
@@ -12655,7 +12823,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Your password has expired. Please update it</source>
+      <source>Your password has expired or it has to be changed.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12679,6 +12847,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Failed login. API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Account disabled because of to many failed logins!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Failed login. WEB</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>CSFR token is invalid, try to resubmit form</source>
       <translation type="unfinished"/>
     </message>
@@ -12687,7 +12867,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Your account is disabled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Incorrect username or password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Logged in successfully. WEB</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12696,6 +12884,10 @@
     </message>
     <message>
       <source>User could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Failed login. XML_CHECK_LOGIN</source>
       <translation type="unfinished"/>
     </message>
   </context>

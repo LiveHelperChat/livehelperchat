@@ -2,38 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -1781,6 +1749,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Assign to shown operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show everytime it is matched</source>
       <translation type="unfinished"/>
     </message>
@@ -2968,6 +2940,14 @@
       <translation>Rendszerkonfiguráció</translation>
     </message>
     <message>
+      <source>🔍 Navigate with ⮃ and ↵ Enter. Esc to quit.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send instantly</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Dialects</source>
       <translation>Dialektusok</translation>
     </message>
@@ -2978,514 +2958,6 @@
     <message>
       <source>Languages</source>
       <translation>Nyelvek</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/getstatus</name>
-    <message>
-      <source>Close</source>
-      <translation>Bezár</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Megnyitás új ablakban</translation>
-    </message>
-    <message>
-      <source>Minimize/Restore</source>
-      <translation>Kis méret / Előző méret</translation>
-    </message>
-    <message>
-      <source>Our staff are always ready to help</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live help is online...</source>
-      <translation>Élő segítség elérhető - online</translation>
-    </message>
-    <message>
-      <source>Need help?</source>
-      <translation>Segítségre van szüksége?</translation>
-    </message>
-    <message>
-      <source>Allow operator to see your page content?</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New messages</source>
-      <translation>Új üzenetek</translation>
-    </message>
-    <message>
-      <source>Live Help</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live help is offline...</source>
-      <translation>Élő segítség NEM elérhető - offline</translation>
-    </message>
-    <message>
-      <source>Screen shared, click to finish</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Our staff are ready to help!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>abstract/list</name>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Biztos benne?</translation>
-    </message>
-  </context>
-  <context>
-    <name>audit/options</name>
-    <message>
-      <source>Audit Configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>How many days keep log?</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>What objects changes log?</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Options</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/adminchat</name>
-    <message>
-      <source>Block user</source>
-      <translation>Felhasználó blokkolása</translation>
-    </message>
-    <message>
-      <source>Strike</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Quote</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Youtube</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>HTML Code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bold</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Italic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Underline</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Font Size</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Apply</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Insert image or file</source>
-      <translation>Kép vagy fájl beszúrása</translation>
-    </message>
-    <message>
-      <source>Preview</source>
-      <translation>Előnézet</translation>
-    </message>
-    <message>
-      <source>Attach uploaded file</source>
-      <translation>Feltöltött fájl csatolása</translation>
-    </message>
-    <message>
-      <source>Block visitor</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>Chat bezárása</translation>
-    </message>
-    <message>
-      <source>Screen sharing</source>
-      <translation>Képernyő megosztás</translation>
-    </message>
-    <message>
-      <source>Copy messages to clipboard</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Chat törlése</translation>
-    </message>
-    <message>
-      <source>Modify chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit chat information</source>
-      <translation>Chat információk szerkesztése</translation>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Nyomtatás</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Felhasználó átirányítása a kapcsolati űrlaphoz.</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Biztos benne?</translation>
-    </message>
-    <message>
-      <source>Please enter a URL</source>
-      <translation>Kérem adja meg az URL-t</translation>
-    </message>
-    <message>
-      <source>Redirect user to another url</source>
-      <translation>Felhasználó átirányítása egy másik URL-re</translation>
-    </message>
-    <message>
-      <source>Mail was send</source>
-      <translation>E-mail elküldve</translation>
-    </message>
-    <message>
-      <source>Send mail</source>
-      <translation>Levél küldése</translation>
-    </message>
-    <message>
-      <source>Redirect user to survey</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Transfer chat</source>
-      <translation>Chat átadása</translation>
-    </message>
-    <message>
-      <source>Footprint</source>
-      <translation>Lábnyom</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>Frissítés</translation>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation>További adatok</translation>
-    </message>
-    <message>
-      <source>Hidden field</source>
-      <translation>Rejtett mező</translation>
-    </message>
-    <message>
-      <source>Identifier</source>
-      <translation>Azonosító</translation>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation>Chat időtartama</translation>
-    </message>
-    <message>
-      <source>Chat owner</source>
-      <translation>Chat tulajdonos</translation>
-    </message>
-    <message>
-      <source>Chat between operators, chat initializer</source>
-      <translation>Operátorok közötti chat, chat inicializáló</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Város</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Ország</translation>
-    </message>
-    <message>
-      <source>Created at</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Started at</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Closed at</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Részleg</translation>
-    </message>
-    <message>
-      <source>This is offline message</source>
-      <translation>Ez egy offline üzenet</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail cím</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefon</translation>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation>Termék</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>Oldal</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>Honnan jött</translation>
-    </message>
-    <message>
-      <source>Device</source>
-      <translation>Eszköz</translation>
-    </message>
-    <message>
-      <source>Computer</source>
-      <translation>Számítógép</translation>
-    </message>
-    <message>
-      <source>Smartphone</source>
-      <translation>Okostelefon</translation>
-    </message>
-    <message>
-      <source>Tablet</source>
-      <translation>Tablet</translation>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation>Felhasználó elhagyta</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>Időzóna</translation>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>Várakoztatva</translation>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>Látogató</translation>
-    </message>
-    <message>
-      <source>Files</source>
-      <translation>Fájlok</translation>
-    </message>
-    <message>
-      <source>Click to change chat status</source>
-      <translation>Kattints a chat állapot változtatáshoz</translation>
-    </message>
-    <message>
-      <source>Pending chat</source>
-      <translation>Függőben lévő chat</translation>
-    </message>
-    <message>
-      <source>Active chat</source>
-      <translation>Aktív chat</translation>
-    </message>
-    <message>
-      <source>Closed chat</source>
-      <translation>Bezárt chat</translation>
-    </message>
-    <message>
-      <source>Chatbox chat</source>
-      <translation>Chat-ablak beszélgetés</translation>
-    </message>
-    <message>
-      <source>Operators chat</source>
-      <translation>Operátor chat</translation>
-    </message>
-    <message>
-      <source>Bot chat</source>
-      <translation>Bot chat</translation>
-    </message>
-    <message>
-      <source>Could not detect. Make sure that GEO detection is enabled.</source>
-      <translation>Nem detektálható. Győződjön meg róla, hogy a GEO detektálás engedélyezve van.</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Térkép</translation>
-    </message>
-    <message>
-      <source>User browsing information</source>
-      <translation>Felhasználó böngészési információ</translation>
-    </message>
-    <message>
-      <source>Chats</source>
-      <translation>Chatek</translation>
-    </message>
-    <message>
-      <source>Remarks</source>
-      <translation>Megjegyzések</translation>
-    </message>
-    <message>
-      <source>Private chat between operators</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Include system messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Messages</source>
-      <translation>Üzenetek</translation>
-    </message>
-    <message>
-      <source>Copied!</source>
-      <translation>Másolva!</translation>
-    </message>
-    <message>
-      <source>Copy to clipboard</source>
-      <translation>Másolás a vágólapra</translation>
-    </message>
-    <message>
-      <source>Copy messages</source>
-      <translation>Üzenetek másolása</translation>
-    </message>
-    <message>
-      <source>Close dialog</source>
-      <translation>Párbeszéd bezárása</translation>
-    </message>
-    <message>
-      <source>Notes</source>
-      <translation>Feljegyzések</translation>
-    </message>
-    <message>
-      <source>Reopen chat</source>
-      <translation>Újranyitott chat</translation>
-    </message>
-    <message>
-      <source>BB Code</source>
-      <translation>BB kód</translation>
-    </message>
-    <message>
-      <source>Type to search</source>
-      <translation>Gépeljen a kereséshez</translation>
-    </message>
-    <message>
-      <source>Fill textarea with canned message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Select a canned message</source>
-      <translation>Válassz egy sablon üzenetet</translation>
-    </message>
-    <message>
-      <source>Personal</source>
-      <translation>Személyes</translation>
-    </message>
-    <message>
-      <source>Global</source>
-      <translation>Globális</translation>
-    </message>
-    <message>
-      <source>Hold/Un-Hold chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Send delayed canned message instantly</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Küldés</translation>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>Létrehozva</translation>
-    </message>
-    <message>
-      <source>Priority</source>
-      <translation>Prioritás</translation>
-    </message>
-    <message>
-      <source>Select campaign</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sending...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Are you sure you want to delete this chat?</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Mobile</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Auto responder got error</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>did not accepted chat in time.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was assigned to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hold removed!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>has accepted the chat!</source>
-      <translation>elfogadta a chat felkérést!</translation>
-    </message>
-    <message>
-      <source>Invalid chat status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Form data not valid</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Has no access to this chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>has invited</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>for the private chat.</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3948,6 +3420,502 @@
     </message>
   </context>
   <context>
+    <name>chat/getstatus</name>
+    <message>
+      <source>Close</source>
+      <translation>Bezár</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Megnyitás új ablakban</translation>
+    </message>
+    <message>
+      <source>Minimize/Restore</source>
+      <translation>Kis méret / Előző méret</translation>
+    </message>
+    <message>
+      <source>Our staff are always ready to help</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help is online...</source>
+      <translation>Élő segítség elérhető - online</translation>
+    </message>
+    <message>
+      <source>Need help?</source>
+      <translation>Segítségre van szüksége?</translation>
+    </message>
+    <message>
+      <source>Allow operator to see your page content?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New messages</source>
+      <translation>Új üzenetek</translation>
+    </message>
+    <message>
+      <source>Live Help</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>Élő segítség NEM elérhető - offline</translation>
+    </message>
+    <message>
+      <source>Screen shared, click to finish</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Our staff are ready to help!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/list</name>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Biztos benne?</translation>
+    </message>
+  </context>
+  <context>
+    <name>audit/options</name>
+    <message>
+      <source>Audit Configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many days keep log?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>What objects changes log?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Options</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/adminchat</name>
+    <message>
+      <source>Strike</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Quote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Youtube</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTML Code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bold</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Italic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Underline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Font Size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Apply</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Insert image or file</source>
+      <translation>Kép vagy fájl beszúrása</translation>
+    </message>
+    <message>
+      <source>Preview</source>
+      <translation>Előnézet</translation>
+    </message>
+    <message>
+      <source>Attach uploaded file</source>
+      <translation>Feltöltött fájl csatolása</translation>
+    </message>
+    <message>
+      <source>Block visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>Chat bezárása</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Képernyő megosztás</translation>
+    </message>
+    <message>
+      <source>Copy messages to clipboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Chat törlése</translation>
+    </message>
+    <message>
+      <source>Modify chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit chat information</source>
+      <translation>Chat információk szerkesztése</translation>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>Nyomtatás</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Felhasználó átirányítása a kapcsolati űrlaphoz.</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Biztos benne?</translation>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation>Kérem adja meg az URL-t</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation>Felhasználó átirányítása egy másik URL-re</translation>
+    </message>
+    <message>
+      <source>Mail was send</source>
+      <translation>E-mail elküldve</translation>
+    </message>
+    <message>
+      <source>Send mail</source>
+      <translation>Levél küldése</translation>
+    </message>
+    <message>
+      <source>Redirect user to survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose other than default recognition language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>Chat átadása</translation>
+    </message>
+    <message>
+      <source>Footprint</source>
+      <translation>Lábnyom</translation>
+    </message>
+    <message>
+      <source>Refresh</source>
+      <translation>Frissítés</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>További adatok</translation>
+    </message>
+    <message>
+      <source>Hidden field</source>
+      <translation>Rejtett mező</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Azonosító</translation>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>Chat időtartama</translation>
+    </message>
+    <message>
+      <source>Chat owner</source>
+      <translation>Chat tulajdonos</translation>
+    </message>
+    <message>
+      <source>Chat between operators, chat initializer</source>
+      <translation>Operátorok közötti chat, chat inicializáló</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Város</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Ország</translation>
+    </message>
+    <message>
+      <source>Created at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Started at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Részleg</translation>
+    </message>
+    <message>
+      <source>This is offline message</source>
+      <translation>Ez egy offline üzenet</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail cím</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Termék</translation>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Oldal</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Honnan jött</translation>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation>Eszköz</translation>
+    </message>
+    <message>
+      <source>Computer</source>
+      <translation>Számítógép</translation>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation>Okostelefon</translation>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation>Tablet</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation>Felhasználó elhagyta</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Időzóna</translation>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>Várakoztatva</translation>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>Látogató</translation>
+    </message>
+    <message>
+      <source>Files</source>
+      <translation>Fájlok</translation>
+    </message>
+    <message>
+      <source>Click to change chat status</source>
+      <translation>Kattints a chat állapot változtatáshoz</translation>
+    </message>
+    <message>
+      <source>Pending chat</source>
+      <translation>Függőben lévő chat</translation>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation>Aktív chat</translation>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation>Bezárt chat</translation>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation>Chat-ablak beszélgetés</translation>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation>Operátor chat</translation>
+    </message>
+    <message>
+      <source>Bot chat</source>
+      <translation>Bot chat</translation>
+    </message>
+    <message>
+      <source>Could not detect. Make sure that GEO detection is enabled.</source>
+      <translation>Nem detektálható. Győződjön meg róla, hogy a GEO detektálás engedélyezve van.</translation>
+    </message>
+    <message>
+      <source>Map</source>
+      <translation>Térkép</translation>
+    </message>
+    <message>
+      <source>User browsing information</source>
+      <translation>Felhasználó böngészési információ</translation>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation>Chatek</translation>
+    </message>
+    <message>
+      <source>Remarks</source>
+      <translation>Megjegyzések</translation>
+    </message>
+    <message>
+      <source>Private chat between operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Include system messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation>Üzenetek</translation>
+    </message>
+    <message>
+      <source>Copied!</source>
+      <translation>Másolva!</translation>
+    </message>
+    <message>
+      <source>Copy to clipboard</source>
+      <translation>Másolás a vágólapra</translation>
+    </message>
+    <message>
+      <source>Copy messages</source>
+      <translation>Üzenetek másolása</translation>
+    </message>
+    <message>
+      <source>Close dialog</source>
+      <translation>Párbeszéd bezárása</translation>
+    </message>
+    <message>
+      <source>Notes</source>
+      <translation>Feljegyzések</translation>
+    </message>
+    <message>
+      <source>BB Code</source>
+      <translation>BB kód</translation>
+    </message>
+    <message>
+      <source>Select a canned message</source>
+      <translation>Válassz egy sablon üzenetet</translation>
+    </message>
+    <message>
+      <source>Personal</source>
+      <translation>Személyes</translation>
+    </message>
+    <message>
+      <source>Global</source>
+      <translation>Globális</translation>
+    </message>
+    <message>
+      <source>Hold/Un-Hold chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Küldés</translation>
+    </message>
+    <message>
+      <source>Reopen chat</source>
+      <translation>Újranyitott chat</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Létrehozva</translation>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation>Prioritás</translation>
+    </message>
+    <message>
+      <source>Select campaign</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sending...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Are you sure you want to delete this chat?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mobile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto responder got error</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>did not accepted chat in time.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was assigned to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hold removed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has accepted the chat!</source>
+      <translation>elfogadta a chat felkérést!</translation>
+    </message>
+    <message>
+      <source>Invalid chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Form data not valid</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has no access to this chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has invited</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>for the private chat.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>questionary/htmlcode</name>
     <message>
       <source>Show overlay</source>
@@ -4006,6 +3974,41 @@
     </message>
   </context>
   <context>
+    <name>canned/import</name>
+    <message>
+      <source>Updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Imported</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Removed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove old canned messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you do not check we will try to update existing records without removing all records.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Expected columns does not match!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file format</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/chat</name>
     <message>
       <source>Last visitor message time</source>
@@ -4028,7 +4031,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>You can only read a messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You are not chat owner, type with caution</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Switch between chats using Alt+</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>arrows</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search for canned messages by using their tags #hash.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4201,14 +4220,6 @@
   </context>
   <context>
     <name>chat/blockedusers</name>
-    <message>
-      <source>Date</source>
-      <translation>Dátum</translation>
-    </message>
-    <message>
-      <source>User was blocked!</source>
-      <translation>Felhasználó blokkolva!</translation>
-    </message>
     <message>
       <source>IP</source>
       <translation>IP cím</translation>
@@ -5083,6 +5094,10 @@
       <translation>Töltse ki a mezőket a beszélgetés megkezdéséhez</translation>
     </message>
     <message>
+      <source>You can edit only your own messages!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You have subscribed to new messages notifications!</source>
       <translation type="unfinished"/>
     </message>
@@ -5272,6 +5287,10 @@
     <message>
       <source>Sort by department</source>
       <translation>Rendezés részleg szerint</translation>
+    </message>
+    <message>
+      <source>Has unread messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Offline request</source>
@@ -5733,11 +5752,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Old dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide/Show chat tabs</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat ID to open</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Open a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Open chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6883,6 +6918,10 @@
       <translation>GEO detektálás beállítása</translation>
     </message>
     <message>
+      <source>Chat archive</source>
+      <translation>Archív csevegések</translation>
+    </message>
+    <message>
       <source>Audit Logs</source>
       <translation type="unfinished"/>
     </message>
@@ -6891,8 +6930,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Automation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Auto responder</source>
       <translation>Automatikus válaszadó</translation>
+    </message>
+    <message>
+      <source>Blocking</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Blocked users</source>
@@ -6931,8 +6978,8 @@
       <translation>Sablon üzenetek</translation>
     </message>
     <message>
-      <source>Chat archive</source>
-      <translation>Archív csevegések</translation>
+      <source>Chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Additional chat columns</source>
@@ -7003,8 +7050,44 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Integration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Languages configuration</source>
       <translation>Nyelvi beállítások</translation>
+    </message>
+    <message>
+      <source>Visual settings for the visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import new themes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default theme</source>
+      <translation>Alapértelmezett sablon</translation>
+    </message>
+    <message>
+      <source>Visual settings for the admin</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Admin themes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default admin theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal theme</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Maintenance</source>
@@ -7093,42 +7176,6 @@
     <message>
       <source>Synchronization and sound settings</source>
       <translation>Szinkronizálás és hang-beállítások</translation>
-    </message>
-    <message>
-      <source>Theming</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget themes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Import new themes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default theme</source>
-      <translation>Alapértelmezett sablon</translation>
-    </message>
-    <message>
-      <source>Back office theming</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Admin themes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default admin theme</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Personal theming</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Personal theme</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat transfer configuration</source>
@@ -7631,6 +7678,18 @@
     </message>
     <message>
       <source>New chat has been transferred to you directly!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Quote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8428,10 +8487,6 @@
   </context>
   <context>
     <name>user/account</name>
-    <message>
-      <source>Read Only</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Name</source>
       <translation>Név</translation>
@@ -12712,6 +12767,64 @@
     </message>
   </context>
   <context>
+    <name>webhooks/module</name>
+    <message>
+      <source>Webhooks list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a hook name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Webhooks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>webhooks/new</name>
+    <message>
+      <source>New webhook</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>lhxml/userinfo</name>
     <message>
       <source>ID</source>
@@ -13754,6 +13867,13 @@
     </message>
   </context>
   <context>
+    <name>groupchat/settings</name>
+    <message>
+      <source>Options</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>mobile/sessions</name>
     <message>
       <source>Sessions</source>
@@ -13773,6 +13893,17 @@
     <message>
       <source>Settings</source>
       <translation>Beállítások</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/chat_tabs</name>
+    <message>
+      <source>Your open chats will appear here</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are a chat owner</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -13826,106 +13957,6 @@
     </message>
     <message>
       <source>Deny screen share</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>canned/import</name>
-    <message>
-      <source>Updated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Imported</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Removed</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Remove old canned messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>If you do not check we will try to update existing records without removing all records.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Import</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Expected columns does not match!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid file format</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>webhooks/module</name>
-    <message>
-      <source>Webhooks list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Event</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bot</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Trigger</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a hook name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose a bot</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose a trigger</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Webhooks</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>webhooks/new</name>
-    <message>
-      <source>New webhook</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>groupchat/settings</name>
-    <message>
-      <source>Options</source>
       <translation type="unfinished"/>
     </message>
   </context>

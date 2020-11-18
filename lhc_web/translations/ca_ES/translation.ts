@@ -2,38 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Quants dies després de l&apos;última visualització ha de romandre ocult el widget de votació</translation>
     </message>
@@ -1781,6 +1749,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Assign to shown operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show everytime it is matched</source>
       <translation type="unfinished"/>
     </message>
@@ -2968,6 +2940,14 @@
       <translation>Configuració del sistema</translation>
     </message>
     <message>
+      <source>🔍 Navigate with ⮃ and ↵ Enter. Esc to quit.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send instantly</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Dialects</source>
       <translation>Dialectes</translation>
     </message>
@@ -2978,514 +2958,6 @@
     <message>
       <source>Languages</source>
       <translation>Llengües</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/getstatus</name>
-    <message>
-      <source>Close</source>
-      <translation>Tanca</translation>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation>Obre en una finestra nova</translation>
-    </message>
-    <message>
-      <source>Minimize/Restore</source>
-      <translation>Minimitza / restaura</translation>
-    </message>
-    <message>
-      <source>Our staff are always ready to help</source>
-      <translation>El nostres agents es troben a disposició per ajudar-vos</translation>
-    </message>
-    <message>
-      <source>Live help is online...</source>
-      <translation>Xat en viu disponible...</translation>
-    </message>
-    <message>
-      <source>Need help?</source>
-      <translation>Necessiteu ajuda?</translation>
-    </message>
-    <message>
-      <source>Allow operator to see your page content?</source>
-      <translation>Voleu permetre que l&apos;agent vegi el contingut de la pàgina actual?</translation>
-    </message>
-    <message>
-      <source>New messages</source>
-      <translation>Nous missatges</translation>
-    </message>
-    <message>
-      <source>Live Help</source>
-      <translation>Ajuda en viu</translation>
-    </message>
-    <message>
-      <source>Live help is offline...</source>
-      <translation>L&apos;ajuda en viu no està disponible...</translation>
-    </message>
-    <message>
-      <source>Screen shared, click to finish</source>
-      <translation>Pantalla compartida, feu clic per finalitzar</translation>
-    </message>
-    <message>
-      <source>Our staff are ready to help!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>abstract/list</name>
-    <message>
-      <source>Are you sure?</source>
-      <translation>N&apos;esteu segur?</translation>
-    </message>
-  </context>
-  <context>
-    <name>audit/options</name>
-    <message>
-      <source>Audit Configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>How many days keep log?</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>What objects changes log?</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Options</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/adminchat</name>
-    <message>
-      <source>Block user</source>
-      <translation>Bloca usuari</translation>
-    </message>
-    <message>
-      <source>Strike</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Quote</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Youtube</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>HTML Code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bold</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Italic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Underline</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Font Size</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Apply</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Insert image or file</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Preview</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Attach uploaded file</source>
-      <translation>Adjunta el fitxer pujat</translation>
-    </message>
-    <message>
-      <source>Block visitor</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Close chat</source>
-      <translation>Tanca el xat</translation>
-    </message>
-    <message>
-      <source>Screen sharing</source>
-      <translation>Compartició de pantalla</translation>
-    </message>
-    <message>
-      <source>Copy messages to clipboard</source>
-      <translation>Copia els missatges al portapapers</translation>
-    </message>
-    <message>
-      <source>Delete chat</source>
-      <translation>Elimina el xat</translation>
-    </message>
-    <message>
-      <source>Modify chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit chat information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Print</source>
-      <translation>Imprimeix</translation>
-    </message>
-    <message>
-      <source>Redirect user to contact form.</source>
-      <translation>Redirigeix l&apos;usuari cap al formulari de contacte</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>N&apos;esteu segur?</translation>
-    </message>
-    <message>
-      <source>Please enter a URL</source>
-      <translation>Introduïu una URL</translation>
-    </message>
-    <message>
-      <source>Redirect user to another url</source>
-      <translation>Redirigeix l&apos;usuari cap a una altra URL</translation>
-    </message>
-    <message>
-      <source>Mail was send</source>
-      <translation>S&apos;ha enviat l&apos;e-mail</translation>
-    </message>
-    <message>
-      <source>Send mail</source>
-      <translation>Envia l&apos;e-mail</translation>
-    </message>
-    <message>
-      <source>Redirect user to survey</source>
-      <translation>Redirigeis l&apos;usuari cap a l&apos;enquesta.</translation>
-    </message>
-    <message>
-      <source>Choose other than default recognition language</source>
-      <translation>Seleccioneu un altre idioma de reconeixement de veu.</translation>
-    </message>
-    <message>
-      <source>Transfer chat</source>
-      <translation>Transfereix el xat</translation>
-    </message>
-    <message>
-      <source>Footprint</source>
-      <translation>Empremta</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>Refresca</translation>
-    </message>
-    <message>
-      <source>Additional data</source>
-      <translation>Dades addicionals</translation>
-    </message>
-    <message>
-      <source>Hidden field</source>
-      <translation>Camp ocult</translation>
-    </message>
-    <message>
-      <source>Identifier</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation>Durada del xat</translation>
-    </message>
-    <message>
-      <source>Chat owner</source>
-      <translation>Propietari del xat</translation>
-    </message>
-    <message>
-      <source>Chat between operators, chat initializer</source>
-      <translation>Xat entre agents, inicialitzador del xat</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Ciutat</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>País</translation>
-    </message>
-    <message>
-      <source>Created at</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Started at</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Closed at</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departament</translation>
-    </message>
-    <message>
-      <source>This is offline message</source>
-      <translation>Aquest és un missatge fora de línia</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telèfon</translation>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation>Producte</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>Pàgina</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>Vingut des de</translation>
-    </message>
-    <message>
-      <source>Device</source>
-      <translation>Dispositiu</translation>
-    </message>
-    <message>
-      <source>Computer</source>
-      <translation>Ordinador</translation>
-    </message>
-    <message>
-      <source>Smartphone</source>
-      <translation>Smartphone</translation>
-    </message>
-    <message>
-      <source>Tablet</source>
-      <translation>Tauleta</translation>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation>L&apos;usuari ha marxat</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>Zona horària</translation>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>Ha esperat</translation>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>Visitant</translation>
-    </message>
-    <message>
-      <source>Files</source>
-      <translation>Fitxers</translation>
-    </message>
-    <message>
-      <source>Click to change chat status</source>
-      <translation>Cliqueu per canviar l&apos;estat del xat</translation>
-    </message>
-    <message>
-      <source>Pending chat</source>
-      <translation>Xat pendent</translation>
-    </message>
-    <message>
-      <source>Active chat</source>
-      <translation>Xat actiu</translation>
-    </message>
-    <message>
-      <source>Closed chat</source>
-      <translation>Xat tancat</translation>
-    </message>
-    <message>
-      <source>Chatbox chat</source>
-      <translation>Xat flotant</translation>
-    </message>
-    <message>
-      <source>Operators chat</source>
-      <translation>Xat d&apos;agents</translation>
-    </message>
-    <message>
-      <source>Bot chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not detect. Make sure that GEO detection is enabled.</source>
-      <translation>No es pot detectar. Verifiqueu que teniu la geolocalització habilitada.</translation>
-    </message>
-    <message>
-      <source>Map</source>
-      <translation>Mapa</translation>
-    </message>
-    <message>
-      <source>User browsing information</source>
-      <translation>Informació de navegació de l&apos;usuari</translation>
-    </message>
-    <message>
-      <source>Chats</source>
-      <translation>Xats</translation>
-    </message>
-    <message>
-      <source>Remarks</source>
-      <translation>Comentaris</translation>
-    </message>
-    <message>
-      <source>Private chat between operators</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Include system messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Messages</source>
-      <translation>Missatges</translation>
-    </message>
-    <message>
-      <source>Copied!</source>
-      <translation>Copiat!</translation>
-    </message>
-    <message>
-      <source>Copy to clipboard</source>
-      <translation>Copia al portapapers</translation>
-    </message>
-    <message>
-      <source>Copy messages</source>
-      <translation>Copia missatges</translation>
-    </message>
-    <message>
-      <source>Close dialog</source>
-      <translation>Tanca el diàleg</translation>
-    </message>
-    <message>
-      <source>Notes</source>
-      <translation>Notes</translation>
-    </message>
-    <message>
-      <source>Reopen chat</source>
-      <translation>Reobre el xat</translation>
-    </message>
-    <message>
-      <source>BB Code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type to search</source>
-      <translation>Escriviu per cercar</translation>
-    </message>
-    <message>
-      <source>Fill textarea with canned message</source>
-      <translation>Ompliu l&apos;àrea de text amb el missatge predefinit</translation>
-    </message>
-    <message>
-      <source>Select a canned message</source>
-      <translation>Seleccioneu un missatge predefinit</translation>
-    </message>
-    <message>
-      <source>Personal</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Global</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hold/Un-Hold chat</source>
-      <translation>Posa / treu d&apos;espera un xat</translation>
-    </message>
-    <message>
-      <source>Send delayed canned message instantly</source>
-      <translation>Envia immediatament el missatge predefinit de retard</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Envia</translation>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>Creat</translation>
-    </message>
-    <message>
-      <source>Priority</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Select campaign</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sending...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Are you sure you want to delete this chat?</source>
-      <translation>N&apos;esteu segur de voler eliminar aquest xat?</translation>
-    </message>
-    <message>
-      <source>Mobile</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Auto responder got error</source>
-      <translation>L&apos;auto-responedor ha tingut un error</translation>
-    </message>
-    <message>
-      <source>did not accepted chat in time.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat was assigned to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hold removed!</source>
-      <translation>Tret d&apos;espera!</translation>
-    </message>
-    <message>
-      <source>has accepted the chat!</source>
-      <translation>ha acceptat el xat!</translation>
-    </message>
-    <message>
-      <source>Invalid chat status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Form data not valid</source>
-      <translation>Les dades del formulari no són vàlids.</translation>
-    </message>
-    <message>
-      <source>Has no access to this chat</source>
-      <translation>No teniu accés a aquest xat</translation>
-    </message>
-    <message>
-      <source>has invited</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>for the private chat.</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3948,6 +3420,502 @@
     </message>
   </context>
   <context>
+    <name>chat/getstatus</name>
+    <message>
+      <source>Close</source>
+      <translation>Tanca</translation>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation>Obre en una finestra nova</translation>
+    </message>
+    <message>
+      <source>Minimize/Restore</source>
+      <translation>Minimitza / restaura</translation>
+    </message>
+    <message>
+      <source>Our staff are always ready to help</source>
+      <translation>El nostres agents es troben a disposició per ajudar-vos</translation>
+    </message>
+    <message>
+      <source>Live help is online...</source>
+      <translation>Xat en viu disponible...</translation>
+    </message>
+    <message>
+      <source>Need help?</source>
+      <translation>Necessiteu ajuda?</translation>
+    </message>
+    <message>
+      <source>Allow operator to see your page content?</source>
+      <translation>Voleu permetre que l&apos;agent vegi el contingut de la pàgina actual?</translation>
+    </message>
+    <message>
+      <source>New messages</source>
+      <translation>Nous missatges</translation>
+    </message>
+    <message>
+      <source>Live Help</source>
+      <translation>Ajuda en viu</translation>
+    </message>
+    <message>
+      <source>Live help is offline...</source>
+      <translation>L&apos;ajuda en viu no està disponible...</translation>
+    </message>
+    <message>
+      <source>Screen shared, click to finish</source>
+      <translation>Pantalla compartida, feu clic per finalitzar</translation>
+    </message>
+    <message>
+      <source>Our staff are ready to help!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/list</name>
+    <message>
+      <source>Are you sure?</source>
+      <translation>N&apos;esteu segur?</translation>
+    </message>
+  </context>
+  <context>
+    <name>audit/options</name>
+    <message>
+      <source>Audit Configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many days keep log?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>What objects changes log?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Options</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/adminchat</name>
+    <message>
+      <source>Strike</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Quote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Youtube</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTML Code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bold</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Italic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Underline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Font Size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Apply</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Insert image or file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Preview</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attach uploaded file</source>
+      <translation>Adjunta el fitxer pujat</translation>
+    </message>
+    <message>
+      <source>Block visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close chat</source>
+      <translation>Tanca el xat</translation>
+    </message>
+    <message>
+      <source>Screen sharing</source>
+      <translation>Compartició de pantalla</translation>
+    </message>
+    <message>
+      <source>Copy messages to clipboard</source>
+      <translation>Copia els missatges al portapapers</translation>
+    </message>
+    <message>
+      <source>Delete chat</source>
+      <translation>Elimina el xat</translation>
+    </message>
+    <message>
+      <source>Modify chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit chat information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>Imprimeix</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form.</source>
+      <translation>Redirigeix l&apos;usuari cap al formulari de contacte</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>N&apos;esteu segur?</translation>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation>Introduïu una URL</translation>
+    </message>
+    <message>
+      <source>Redirect user to another url</source>
+      <translation>Redirigeix l&apos;usuari cap a una altra URL</translation>
+    </message>
+    <message>
+      <source>Mail was send</source>
+      <translation>S&apos;ha enviat l&apos;e-mail</translation>
+    </message>
+    <message>
+      <source>Send mail</source>
+      <translation>Envia l&apos;e-mail</translation>
+    </message>
+    <message>
+      <source>Redirect user to survey</source>
+      <translation>Redirigeis l&apos;usuari cap a l&apos;enquesta.</translation>
+    </message>
+    <message>
+      <source>Choose other than default recognition language</source>
+      <translation>Seleccioneu un altre idioma de reconeixement de veu.</translation>
+    </message>
+    <message>
+      <source>Transfer chat</source>
+      <translation>Transfereix el xat</translation>
+    </message>
+    <message>
+      <source>Footprint</source>
+      <translation>Empremta</translation>
+    </message>
+    <message>
+      <source>Refresh</source>
+      <translation>Refresca</translation>
+    </message>
+    <message>
+      <source>Additional data</source>
+      <translation>Dades addicionals</translation>
+    </message>
+    <message>
+      <source>Hidden field</source>
+      <translation>Camp ocult</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation>Durada del xat</translation>
+    </message>
+    <message>
+      <source>Chat owner</source>
+      <translation>Propietari del xat</translation>
+    </message>
+    <message>
+      <source>Chat between operators, chat initializer</source>
+      <translation>Xat entre agents, inicialitzador del xat</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Ciutat</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>País</translation>
+    </message>
+    <message>
+      <source>Created at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Started at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departament</translation>
+    </message>
+    <message>
+      <source>This is offline message</source>
+      <translation>Aquest és un missatge fora de línia</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telèfon</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Producte</translation>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Pàgina</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Vingut des de</translation>
+    </message>
+    <message>
+      <source>Device</source>
+      <translation>Dispositiu</translation>
+    </message>
+    <message>
+      <source>Computer</source>
+      <translation>Ordinador</translation>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation>Smartphone</translation>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation>Tauleta</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation>L&apos;usuari ha marxat</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Zona horària</translation>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>Ha esperat</translation>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>Visitant</translation>
+    </message>
+    <message>
+      <source>Files</source>
+      <translation>Fitxers</translation>
+    </message>
+    <message>
+      <source>Click to change chat status</source>
+      <translation>Cliqueu per canviar l&apos;estat del xat</translation>
+    </message>
+    <message>
+      <source>Pending chat</source>
+      <translation>Xat pendent</translation>
+    </message>
+    <message>
+      <source>Active chat</source>
+      <translation>Xat actiu</translation>
+    </message>
+    <message>
+      <source>Closed chat</source>
+      <translation>Xat tancat</translation>
+    </message>
+    <message>
+      <source>Chatbox chat</source>
+      <translation>Xat flotant</translation>
+    </message>
+    <message>
+      <source>Operators chat</source>
+      <translation>Xat d&apos;agents</translation>
+    </message>
+    <message>
+      <source>Bot chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not detect. Make sure that GEO detection is enabled.</source>
+      <translation>No es pot detectar. Verifiqueu que teniu la geolocalització habilitada.</translation>
+    </message>
+    <message>
+      <source>Map</source>
+      <translation>Mapa</translation>
+    </message>
+    <message>
+      <source>User browsing information</source>
+      <translation>Informació de navegació de l&apos;usuari</translation>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation>Xats</translation>
+    </message>
+    <message>
+      <source>Remarks</source>
+      <translation>Comentaris</translation>
+    </message>
+    <message>
+      <source>Private chat between operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Include system messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation>Missatges</translation>
+    </message>
+    <message>
+      <source>Copied!</source>
+      <translation>Copiat!</translation>
+    </message>
+    <message>
+      <source>Copy to clipboard</source>
+      <translation>Copia al portapapers</translation>
+    </message>
+    <message>
+      <source>Copy messages</source>
+      <translation>Copia missatges</translation>
+    </message>
+    <message>
+      <source>Close dialog</source>
+      <translation>Tanca el diàleg</translation>
+    </message>
+    <message>
+      <source>Notes</source>
+      <translation>Notes</translation>
+    </message>
+    <message>
+      <source>BB Code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select a canned message</source>
+      <translation>Seleccioneu un missatge predefinit</translation>
+    </message>
+    <message>
+      <source>Personal</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Global</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hold/Un-Hold chat</source>
+      <translation>Posa / treu d&apos;espera un xat</translation>
+    </message>
+    <message>
+      <source>Send delayed canned message instantly</source>
+      <translation>Envia immediatament el missatge predefinit de retard</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Envia</translation>
+    </message>
+    <message>
+      <source>Reopen chat</source>
+      <translation>Reobre el xat</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Creat</translation>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select campaign</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sending...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Are you sure you want to delete this chat?</source>
+      <translation>N&apos;esteu segur de voler eliminar aquest xat?</translation>
+    </message>
+    <message>
+      <source>Mobile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto responder got error</source>
+      <translation>L&apos;auto-responedor ha tingut un error</translation>
+    </message>
+    <message>
+      <source>did not accepted chat in time.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was assigned to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hold removed!</source>
+      <translation>Tret d&apos;espera!</translation>
+    </message>
+    <message>
+      <source>has accepted the chat!</source>
+      <translation>ha acceptat el xat!</translation>
+    </message>
+    <message>
+      <source>Invalid chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Form data not valid</source>
+      <translation>Les dades del formulari no són vàlids.</translation>
+    </message>
+    <message>
+      <source>Has no access to this chat</source>
+      <translation>No teniu accés a aquest xat</translation>
+    </message>
+    <message>
+      <source>has invited</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>for the private chat.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>questionary/htmlcode</name>
     <message>
       <source>Show overlay</source>
@@ -4006,6 +3974,41 @@
     </message>
   </context>
   <context>
+    <name>canned/import</name>
+    <message>
+      <source>Updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Imported</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Removed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove old canned messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you do not check we will try to update existing records without removing all records.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Expected columns does not match!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid file format</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/chat</name>
     <message>
       <source>Last visitor message time</source>
@@ -4028,8 +4031,24 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>You can only read a messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You are not chat owner, type with caution</source>
       <translation>No sou el propietari d&apos;aquest xat, escriviu amb precaució</translation>
+    </message>
+    <message>
+      <source>Switch between chats using Alt+</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>arrows</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search for canned messages by using their tags #hash.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending</source>
@@ -4201,14 +4220,6 @@
   </context>
   <context>
     <name>chat/blockedusers</name>
-    <message>
-      <source>Date</source>
-      <translation>Data</translation>
-    </message>
-    <message>
-      <source>User was blocked!</source>
-      <translation>S&apos;ha blocat l&apos;usuari!</translation>
-    </message>
     <message>
       <source>IP</source>
       <translation>IP</translation>
@@ -5083,6 +5094,10 @@
       <translation>Ompliu aquest formulari per iniciar un xat</translation>
     </message>
     <message>
+      <source>You can edit only your own messages!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You have subscribed to new messages notifications!</source>
       <translation type="unfinished"/>
     </message>
@@ -5272,6 +5287,10 @@
     <message>
       <source>Sort by department</source>
       <translation>Ordena per departament</translation>
+    </message>
+    <message>
+      <source>Has unread messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Offline request</source>
@@ -5733,11 +5752,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Old dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide/Show chat tabs</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat ID to open</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Open a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Open chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6884,6 +6919,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>Configuració de la GEOlocalització</translation>
     </message>
     <message>
+      <source>Chat archive</source>
+      <translation>Arxiu de xats</translation>
+    </message>
+    <message>
       <source>Audit Logs</source>
       <translation type="unfinished"/>
     </message>
@@ -6892,8 +6931,16 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Automation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Auto responder</source>
       <translation>Autoresponedor</translation>
+    </message>
+    <message>
+      <source>Blocking</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Blocked users</source>
@@ -6932,8 +6979,8 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>Missatges pre-definits</translation>
     </message>
     <message>
-      <source>Chat archive</source>
-      <translation>Arxiu de xats</translation>
+      <source>Chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Additional chat columns</source>
@@ -7004,8 +7051,44 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Integration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Languages configuration</source>
       <translation>Configuració d&apos;idiomes</translation>
+    </message>
+    <message>
+      <source>Visual settings for the visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget themes</source>
+      <translation>Widget de temes</translation>
+    </message>
+    <message>
+      <source>Import new themes</source>
+      <translation>Importar nous temes</translation>
+    </message>
+    <message>
+      <source>Default theme</source>
+      <translation>Tema per defecte</translation>
+    </message>
+    <message>
+      <source>Visual settings for the admin</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Admin themes</source>
+      <translation>Administrar temes</translation>
+    </message>
+    <message>
+      <source>Default admin theme</source>
+      <translation>Tema d&apos;administració per defecte</translation>
+    </message>
+    <message>
+      <source>Personal theme</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Maintenance</source>
@@ -7094,42 +7177,6 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <message>
       <source>Synchronization and sound settings</source>
       <translation>Configuració de sincronització i sò</translation>
-    </message>
-    <message>
-      <source>Theming</source>
-      <translation>Temes</translation>
-    </message>
-    <message>
-      <source>Widget themes</source>
-      <translation>Widget de temes</translation>
-    </message>
-    <message>
-      <source>Import new themes</source>
-      <translation>Importar nous temes</translation>
-    </message>
-    <message>
-      <source>Default theme</source>
-      <translation>Tema per defecte</translation>
-    </message>
-    <message>
-      <source>Back office theming</source>
-      <translation>Temes Administrador</translation>
-    </message>
-    <message>
-      <source>Admin themes</source>
-      <translation>Administrar temes</translation>
-    </message>
-    <message>
-      <source>Default admin theme</source>
-      <translation>Tema d&apos;administració per defecte</translation>
-    </message>
-    <message>
-      <source>Personal theming</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Personal theme</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat transfer configuration</source>
@@ -7633,6 +7680,18 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     <message>
       <source>New chat has been transferred to you directly!</source>
       <translation>El nou xat se us ha transferit directament!</translation>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Quote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat</source>
@@ -8429,10 +8488,6 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
   </context>
   <context>
     <name>user/account</name>
-    <message>
-      <source>Read Only</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Name</source>
       <translation>Nom</translation>
@@ -12713,6 +12768,64 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     </message>
   </context>
   <context>
+    <name>webhooks/module</name>
+    <message>
+      <source>Webhooks list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a hook name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Webhooks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>webhooks/new</name>
+    <message>
+      <source>New webhook</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>lhxml/userinfo</name>
     <message>
       <source>ID</source>
@@ -13755,6 +13868,13 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     </message>
   </context>
   <context>
+    <name>groupchat/settings</name>
+    <message>
+      <source>Options</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>mobile/sessions</name>
     <message>
       <source>Sessions</source>
@@ -13773,6 +13893,17 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     </message>
     <message>
       <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/chat_tabs</name>
+    <message>
+      <source>Your open chats will appear here</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are a chat owner</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -13827,106 +13958,6 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     </message>
     <message>
       <source>Deny screen share</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>canned/import</name>
-    <message>
-      <source>Updated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Imported</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Removed</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Remove old canned messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>If you do not check we will try to update existing records without removing all records.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Import</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Expected columns does not match!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid file format</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>webhooks/module</name>
-    <message>
-      <source>Webhooks list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Event</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bot</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Trigger</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a hook name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose a bot</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose a trigger</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Webhooks</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>webhooks/new</name>
-    <message>
-      <source>New webhook</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>groupchat/settings</name>
-    <message>
-      <source>Options</source>
       <translation type="unfinished"/>
     </message>
   </context>
