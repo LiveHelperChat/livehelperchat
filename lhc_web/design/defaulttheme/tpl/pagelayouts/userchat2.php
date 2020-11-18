@@ -32,10 +32,14 @@
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/userchat/before_userchat.tpl.php'));?>
 <div class="modal-dialog modal-lg w-100 d-flex flex-column flex-grow-1" id="user-popup-window">
     <div class="modal-content d-flex flex-column flex-grow-1">
+
+        <?php if (!isset($Result['hide_modal']) || $Result['hide_modal'] === false) : ?>
         <div class="modal-header">
             <?php if (isset($Result['theme_obj'])) { $Result['theme'] = $Result['theme_obj']; } ?>
             <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_logo.tpl.php'));?>
         </div>
+        <?php endif; ?>
+
         <div class="modal-body d-flex flex-column flex-grow-1">
             <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/userchat/before_content.tpl.php'));?>
 <?php endif; ?>
@@ -48,6 +52,7 @@
         </div>
     </div>
 </div>
+<?php if (isset($Result['theme_obj'])) { $Result['theme'] = $Result['theme_obj']; } ?>
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer_user.tpl.php'));?>
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/userchat/after_userchat.tpl.php'));?>
