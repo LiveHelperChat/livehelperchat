@@ -100,7 +100,9 @@ class erLhcoreClassChatValidator {
                 $validationFields['Username'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
             }
 
-            if ((isset($additionalParams['collect_all']) && $additionalParams['collect_all'] == true) || ((isset($start_data_fields['email_visible_in_popup']) && $start_data_fields['email_visible_in_popup'] == true) || isset($additionalParams['offline']))) {
+            if ((isset($additionalParams['collect_all']) && $additionalParams['collect_all'] == true) || ((isset($start_data_fields['email_visible_in_popup']) && $start_data_fields['email_visible_in_popup'] == true && !isset($additionalParams['offline'])) ||
+                    (isset($additionalParams['offline']) && isset($start_data_fields['offline_email_visible_in_popup']) && $start_data_fields['offline_email_visible_in_popup'] == true)
+                )) {
                 $validationFields['Email'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'validate_email' );
             }
 
@@ -121,7 +123,13 @@ class erLhcoreClassChatValidator {
                 $validationFields['Username'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
             }
 
-            if ((isset($additionalParams['collect_all']) && $additionalParams['collect_all'] == true) || ((isset($start_data_fields['email_visible_in_page_widget']) && $start_data_fields['email_visible_in_page_widget'] == true) || isset($additionalParams['offline']))) {
+            if (
+                (isset($additionalParams['collect_all']) && $additionalParams['collect_all'] == true) ||
+                (
+                    (isset($start_data_fields['email_visible_in_page_widget']) && $start_data_fields['email_visible_in_page_widget'] == true && !isset($additionalParams['offline'])) ||
+                    (isset($additionalParams['offline']) && isset($start_data_fields['offline_email_visible_in_page_widget']) && $start_data_fields['offline_email_visible_in_page_widget'] == true)
+                )
+            ) {
                 $validationFields['Email'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'validate_email' );
             }
 
@@ -299,7 +307,7 @@ class erLhcoreClassChatValidator {
         }
 
         if ( isset($validationFields['Email']) ) {
-            if ( (!$form->hasValidData( 'Email' ) && $start_data_fields['email_require_option'] == 'required') || (!$form->hasValidData( 'Email' ) && isset($additionalParams['offline'])) ) {
+            if ( (!$form->hasValidData( 'Email' ) && $start_data_fields['email_require_option'] == 'required' && !isset($additionalParams['offline'])) || (!$form->hasValidData( 'Email' ) && isset($additionalParams['offline']) && (!isset($start_data_fields['offline_email_require_option']) || $start_data_fields['offline_email_require_option'] == 'required'))) {
 
                 if (!($inputForm->only_bot_online == 1 && isset($start_data_fields['email_hidden_bot']) && $start_data_fields['email_hidden_bot'] == true) && !isset($additionalParams['ignore_required'])) {
                     $Errors['email'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a valid email address');

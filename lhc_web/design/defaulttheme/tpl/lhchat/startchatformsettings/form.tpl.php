@@ -217,12 +217,27 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
 				<div class="col-md-6">
 					<fieldset>
 						<legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','E-mail');?></legend>
-						<label><input type="checkbox" value="on" name="OfflineEmailHidden" <?php (isset($start_chat_data['offline_email_hidden']) && $start_chat_data['offline_email_hidden'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is invisible but prefilled data is collected');?></label>
-						<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','E-mail is always required');?></p>
+                        <label><input type="checkbox" value="on" name="OfflineEmailVisibleInPopup" <?php (isset($start_chat_data['offline_email_visible_in_popup']) && $start_chat_data['offline_email_visible_in_popup'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is visible in the popup');?></label><br />
+                        <label><input type="checkbox" value="on" name="OfflineEmailVisibleInPageWidget" <?php (isset($start_chat_data['offline_email_visible_in_page_widget']) && $start_chat_data['offline_email_visible_in_page_widget'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is visible in the page widget');?></label><br />
+                        <label><input type="checkbox" value="on" name="OfflineEmailHidden" <?php (isset($start_chat_data['offline_email_hidden']) && $start_chat_data['offline_email_hidden'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is invisible but prefilled data is collected');?></label><br />
+                        <label><input type="checkbox" value="on" name="OfflineEmailHiddenPrefilled" <?php (isset($start_chat_data['offline_email_hidden_prefilled']) && $start_chat_data['offline_email_hidden_prefilled'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hide if prefilled');?></label><br />
 
-                        <div class="form-group">
-                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Column width, 1-12')?></label>
-                            <input type="text" name="OfflineEmailWidth" class="form-control" placeholder="6" value="<?php (isset($start_chat_data['offline_email_width'])) ? print htmlspecialchars($start_chat_data['offline_email_width']) : ''?>">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is');?></label>
+                                    <select class="form-control" name="OfflineEmailRequireOption">
+                                        <option value="required" <?php (isset($start_chat_data['offline_email_require_option']) && $start_chat_data['offline_email_require_option'] == 'required') ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Required');?></option>
+                                        <option value="optional" <?php (isset($start_chat_data['offline_email_require_option']) && $start_chat_data['offline_email_require_option'] == 'optional') ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Optional');?></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Column width, 1-12')?></label>
+                                    <input type="text" name="OfflineEmailWidth" class="form-control" placeholder="6" value="<?php (isset($start_chat_data['offline_email_width'])) ? print htmlspecialchars($start_chat_data['offline_email_width']) : ''?>">
+                                </div>
+                            </div>
                         </div>
 
 					</fieldset>

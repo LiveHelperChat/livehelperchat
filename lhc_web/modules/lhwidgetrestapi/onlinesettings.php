@@ -179,17 +179,22 @@ if ($Params['user_parameters_unordered']['online'] == '0')
         );
     }
 
-    $fields[] = array(
-        'type' => (isset($start_data_fields['offline_email_hidden']) && $start_data_fields['offline_email_hidden'] == true ? 'hidden' : 'text'),
-        'width' => (isset($start_data_fields['offline_name_width']) && $start_data_fields['offline_email_width'] > 0 ? (int)$start_data_fields['offline_email_width'] : 6),
-        'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail'),
-        'class' => 'form-control form-control-sm',
-        'required' => true,
-        'name' => 'Email',
-        'identifier' => 'email',
-        'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your email address'),
-    );
-
+    if (
+        (($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['offline_email_visible_in_page_widget']) && $start_data_fields['offline_email_visible_in_page_widget'] == true) ||
+        ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['offline_email_visible_in_popup']) && $start_data_fields['offline_email_visible_in_popup'] == true)
+    ) {
+        $fields[] = array(
+            'type' => (isset($start_data_fields['offline_email_hidden']) && $start_data_fields['offline_email_hidden'] == true ? 'hidden' : 'text'),
+            'width' => (isset($start_data_fields['offline_email_width']) && $start_data_fields['offline_email_width'] > 0 ? (int)$start_data_fields['offline_email_width'] : 6),
+            'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'E-mail'),
+            'hide_prefilled' => (isset($start_data_fields['offline_email_hidden_prefilled']) && $start_data_fields['offline_email_hidden_prefilled'] == true),
+            'class' => 'form-control form-control-sm',
+            'required' => (!isset($start_data_fields['offline_email_require_option']) || $start_data_fields['offline_email_require_option'] == 'required'),
+            'name' => 'Email',
+            'identifier' => 'email',
+            'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Enter your email address'),
+        );
+    }
 
     if (
         (($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['offline_phone_visible_in_page_widget']) && $start_data_fields['offline_phone_visible_in_page_widget'] == true) ||

@@ -193,6 +193,9 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'OfflineNameRequireOption' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'string'
 	        ),
+            'OfflineEmailRequireOption' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+	        ),
 
             'pre_chat_html' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
@@ -220,10 +223,19 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'OfflineEmailHidden' => new ezcInputFormDefinitionElement(
 	        				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
+            'OfflineEmailVisibleInPopup' => new ezcInputFormDefinitionElement(
+	        				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
+            'OfflineEmailVisibleInPageWidget' => new ezcInputFormDefinitionElement(
+	        				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
+            'OfflineEmailHiddenPrefilled' => new ezcInputFormDefinitionElement(
+	        				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
 	        'EmailRequireOption' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'string'
 	        ),
-	    
+
 	        // Message options
 	        'MessageVisibleInPopup' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
@@ -654,6 +666,12 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        $data['offline_name_require_option'] = 'required';
 	    }
 
+	    if ( $form->hasValidData( 'OfflineEmailRequireOption' ) && $form->OfflineEmailRequireOption != '' ) {
+	        $data['offline_email_require_option'] = $form->OfflineEmailRequireOption;
+	    } else {
+	        $data['offline_email_require_option'] = 'required';
+	    }
+
 	    if ( $form->hasValidData( 'pre_chat_html' ) && $form->pre_chat_html != '' ) {
 	        $data['pre_chat_html'] = $form->pre_chat_html;
 	    } else {
@@ -697,6 +715,24 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        $data['offline_email_hidden'] = true;
 	    } else {
 	        $data['offline_email_hidden'] = false;
+	    }
+
+	    if ( $form->hasValidData( 'OfflineEmailHiddenPrefilled' ) && $form->OfflineEmailHiddenPrefilled == true ) {
+	        $data['offline_email_hidden_prefilled'] = true;
+	    } else {
+	        $data['offline_email_hidden_prefilled'] = false;
+	    }
+
+	    if ( $form->hasValidData( 'OfflineEmailVisibleInPageWidget' ) && $form->OfflineEmailVisibleInPageWidget == true ) {
+	        $data['offline_email_visible_in_page_widget'] = true;
+	    } else {
+	        $data['offline_email_visible_in_page_widget'] = false;
+	    }
+
+	    if ( $form->hasValidData( 'OfflineEmailVisibleInPopup' ) && $form->OfflineEmailVisibleInPopup == true ) {
+	        $data['offline_email_visible_in_popup'] = true;
+	    } else {
+	        $data['offline_email_visible_in_popup'] = false;
 	    }
 	    
 	    if ( $form->hasValidData( 'EmailVisibleInPageWidget' ) && $form->EmailVisibleInPageWidget == true ) {
