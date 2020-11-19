@@ -22,7 +22,7 @@
     
         <div class="row">
         
-            <div id="middle-column-page" class="col-sm-<?php $canUseChat == true && (!isset($Result['hide_right_column']) || $Result['hide_right_column'] == false) ? print '8' : print '12'; ?> col-md-<?php $canUseChat == true && (!isset($Result['hide_right_column']) || $Result['hide_right_column'] == false) ? print '9' : print '12'; ?> pb-1">
+            <div id="middle-column-page" class="col-xl-<?php $canUseChat == true && (!isset($Result['hide_right_column']) || $Result['hide_right_column'] == false) ? print '9' : print '12'; ?> pb-1">
             	<?php echo $Result['content']; ?>
             </div>
             
@@ -32,7 +32,7 @@
             $closedTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);
             $mchatsTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_mchats_list',1);
             $unreadTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1); ?>
-            <div class="columns col-sm-4 col-md-3 right-column-page-general" id="right-column-page" ng-cloak>
+            <div class="columns col-xl-3 right-column-page-general" id="right-column-page" ng-cloak>
             	
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/transfer_panel_container_pre.tpl.php'));?>
                 
