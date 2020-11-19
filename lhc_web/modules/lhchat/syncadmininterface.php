@@ -123,7 +123,7 @@ if ($showDepartmentsStats == true && is_array($Params['user_parameters_unordered
             }
         }
 
-        $filter['sort'] = 'pending_chats_counter DESC';
+        $filter['sort'] = 'active_chats_counter DESC';
 
         $departments = erLhcoreClassModelDepartament::getList($filter);
 
@@ -144,7 +144,7 @@ if ($showDepartmentsStats == true && is_array($Params['user_parameters_unordered
             $filter['filterin']['id'] = $Params['user_parameters_unordered']['ddgroups'];
         }
 
-        $filter['sort'] = 'pchats_cnt DESC';
+        $filter['sort'] = 'achats_cnt DESC';
 
         $departmentsGroups = erLhcoreClassModelDepartamentGroup::getList($filter);
         erLhcoreClassChat::prefillGetAttributes($departmentsGroups,array('id', 'name', 'achats_cnt', 'pchats_cnt', 'bchats_cnt', 'inopchats_cnt', 'acopchats_cnt','inachats_cnt', 'max_load','max_load_h' ), array(), array('remove_all' => true));
