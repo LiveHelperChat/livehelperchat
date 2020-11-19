@@ -55,7 +55,7 @@ export class mainWidgetPopup {
         return paramsReturn;
     }
 
-    init(attributes) {
+    init(attributes, chatEvents) {
 
         if (this.cont.elementReferrerPopup && this.cont.elementReferrerPopup.closed === false) {
             this.cont.elementReferrerPopup.focus();
@@ -138,7 +138,8 @@ export class mainWidgetPopup {
             var newWin = window.open("", 'lhc_popup_v2', paramsWindow);
             var needWindow = false;
             try {
-                if (newWin.location.href === "about:blank") {
+                if (newWin === null || newWin.location.href === "about:blank") {
+                    typeof chatEvents !== 'undefined' && chatEvents.sendChildEvent('endedChat', [{'sender': 'endButton'}]);
                     this.cont.elementReferrerPopup = window.open(this.attributes['base_url'] + this.attributes['lang'] + "chat/start" + urlArgumetns, 'lhc_popup_v2', paramsWindow);
                 } else {
                     needWindow = true;

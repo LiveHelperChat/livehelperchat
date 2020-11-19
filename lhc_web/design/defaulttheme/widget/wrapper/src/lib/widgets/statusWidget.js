@@ -86,6 +86,8 @@ export class statusWidget{
 
         this.cont.attachUserEventListener("click", function (a) {
 
+            attributes.onlineStatus.value === false && attributes.eventEmitter.emitEvent('offlineClickAction');
+
             if (attributes.onlineStatus.value === false && attributes.offline_redirect !== null){
                 document.location = attributes.offline_redirect;
             } else {
