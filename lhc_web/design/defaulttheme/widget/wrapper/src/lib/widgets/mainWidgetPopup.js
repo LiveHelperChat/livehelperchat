@@ -55,9 +55,10 @@ export class mainWidgetPopup {
         return paramsReturn;
     }
 
-    init(attributes, chatEvents) {
+    init(attributes, chatEvents, paramsPopup) {
 
         if (this.cont.elementReferrerPopup && this.cont.elementReferrerPopup.closed === false) {
+            typeof paramsPopup !== 'undefined' && paramsPopup.event !== 'undefined' && paramsPopup.event.preventDefault();
             this.cont.elementReferrerPopup.focus();
         } else {
 
@@ -135,12 +136,16 @@ export class mainWidgetPopup {
             const top = (height - parseInt(this.attributes['popupDimesnions']['pheight'])) / 2 / systemZoom + dualScreenTop;
 
             var paramsWindow = "scrollbars=yes,menubar=1,resizable=1,width=" + this.attributes['popupDimesnions']['pwidth'] + ",height=" + this.attributes['popupDimesnions']['pheight'] + ",top=" + top + ",left=" + left;
-            var newWin = window.open("", 'lhc_popup_v2', paramsWindow);
+            var newWin = window.open("", this.attributes['prefixStorage'] + '_popup_v2', paramsWindow);
             var needWindow = false;
+            var windowCreated = false;
+
+            // First try to find any existing window
             try {
-                if (newWin === null || newWin.location.href === "about:blank") {
-                    typeof chatEvents !== 'undefined' && chatEvents.sendChildEvent('endedChat', [{'sender': 'endButton'}]);
-                    this.cont.elementReferrerPopup = window.open(this.attributes['base_url'] + this.attributes['lang'] + "chat/start" + urlArgumetns, 'lhc_popup_v2', paramsWindow);
+                // It has to be new window or popup was blocked
+                if (!newWin || newWin.closed || typeof newWin.closed=='undefined' || newWin.location.href === "about:blank") {
+                    newWin = this.cont.elementReferrerPopup = window.open(this.attributes['base_url'] + this.attributes['lang'] + "chat/start" + urlArgumetns, this.attributes['prefixStorage']+'_popup_v2', paramsWindow);
+                    windowCreated = true;
                 } else {
                     needWindow = true;
                 }
@@ -148,9 +153,20 @@ export class mainWidgetPopup {
                 needWindow = true;
             }
 
-            if (needWindow === true && newWin !== null) {
+            // Now if visitor has blocked popup change chat status link and just allow browser handle the rest.
+            if (!newWin || newWin.closed || typeof newWin.closed=='undefined') {
+                try {
+                    this.attributes.viewHandler.cont.getElementById("status-icon").href = this.attributes['base_url'] + this.attributes['lang'] + "chat/start" + urlArgumetns;
+                } catch (e) {
+                    alert('You have disabled popups!');
+                }
+            } else if (windowCreated == true) {
+                typeof chatEvents !== 'undefined' && chatEvents.sendChildEvent('endedChat', [{'sender': 'endButton'}]);
+                typeof paramsPopup !== 'undefined' && paramsPopup.event !== 'undefined' && paramsPopup.event.preventDefault();
+            } else if (needWindow === true) {
                 this.cont.elementReferrerPopup = newWin;
                 newWin.focus();
+                typeof paramsPopup !== 'undefined' && paramsPopup.event !== 'undefined' && paramsPopup.event.preventDefault();
             }
         }
     }

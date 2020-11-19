@@ -17,6 +17,7 @@ class ChatInvitationMessage extends PureComponent {
         if (this.props.mode == 'message') {
 
                return <React.Fragment>
+                   {this.props.invitation.prev_msg && <ChatBotIntroMessage setBotPayload={this.props.setBotPayload} content={this.props.invitation.prev_msg} />}
                    <div className="message-row message-admin">
                         <span className="usr-tit op-tit">
                              {<i title={this.props.invitation.name_support || this.props.invitation.extra_profile} className="chat-operators mi-fs15 mr-0">
@@ -25,6 +26,7 @@ class ChatInvitationMessage extends PureComponent {
                              </i>}
                             {!this.props.invitation.bubble && (this.props.invitation.name_support || this.props.invitation.extra_profile)}
                          </span>
+
                         <div className="msg-body" dangerouslySetInnerHTML={{__html:this.props.invitation.message}}></div>
                    </div>
                    {this.props.invitation.message_full && <ChatBotIntroMessage setBotPayload={this.props.setBotPayload} content={this.props.invitation.message_full} />}

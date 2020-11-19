@@ -74,6 +74,8 @@ class erLhcoreClassModelDepartament {
             'bot_configuration' => $this->bot_configuration,
             'assign_same_language' => $this->assign_same_language,
             'archive' => $this->archive,
+            'inop_chats_cnt' => $this->inop_chats_cnt,
+            'acop_chats_cnt' => $this->acop_chats_cnt
         );
     }
 
@@ -293,6 +295,8 @@ class erLhcoreClassModelDepartament {
     public $delay_before_assign = 0;
     public $pending_chats_counter = 0;
     public $inactive_chats_cnt = 0;
+    public $inop_chats_cnt = 0;
+    public $acop_chats_cnt = 0;
 
     public $max_load = 0;
     public $max_load_h = 0;

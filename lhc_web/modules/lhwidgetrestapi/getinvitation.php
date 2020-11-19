@@ -155,6 +155,31 @@ if ($outputResponse['invitation_id'] > 0) {
     }
 }
 
+// Show previous messages for invitation also
+if (isset($theme) && isset($theme->bot_configuration_array['prev_msg']) && $theme->bot_configuration_array['prev_msg'] == true) {
+    $previousChat = erLhcoreClassModelChat::findOne(array('sort' => 'id DESC', 'limit' => 1, 'filter' => array('online_user_id' => $onlineUser->id)));
+
+    if ($previousChat instanceof erLhcoreClassModelChat) {
+
+        if ($previousChat->has_unread_op_messages == 1) {
+            $previousChat->unread_op_messages_informed = 0;
+            $previousChat->has_unread_op_messages = 0;
+            $previousChat->unanswered_chat = 0;
+            $previousChat->updateThis(array('update' => array('unread_op_messages_informed','has_unread_op_messages','unanswered_chat')));
+        }
+
+        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/previous_chat.tpl.php');
+        $tpl->set('messages', erLhcoreClassChat::getPendingMessages((int)$previousChat->id,  0));
+        $tpl->set('chat',$previousChat);
+        $tpl->set('sync_mode','');
+        $tpl->set('async_call',true);
+        $tpl->set('theme',$theme);
+        $tpl->set('react',true);
+        $outputResponse['prev_msg'] = $tpl->fetch();
+    }
+}
+
+
 if (strpos($outputResponse['message'],'{operator}') !== false) {
     $outputResponse['message'] = str_replace('{operator}',$outputResponse['name_support'], $outputResponse['message']);
 
