@@ -510,7 +510,7 @@
                 });
 
                 // Widget show event
-                attributesWidget.eventEmitter.addListener('showWidget', function () {
+                attributesWidget.eventEmitter.addListener('showWidget', function (params) {
 
                     // Just to restyle if needed
                     attributesWidget.mainWidget.hideInvitation();
@@ -518,11 +518,13 @@
                     attributesWidget.widgetStatus.next(true);
 
                     if (attributesWidget.mode == 'popup') {
-                        attributesWidget.popupWidget.init(attributesWidget);
+                        attributesWidget.popupWidget.init(attributesWidget, chatEvents, params);
 
                         attributesWidget.viewHandler.removeUnreadIndicator();
 
                         attributesWidget.mainWidget.hide();
+                    } else if (typeof params !== 'undefined' && typeof params.event !== 'undefined') {
+                        params.event.preventDefault();
                     }
 
                     chatEvents.sendChildEvent('shownWidget', [{'sender': 'closeButton'}]);

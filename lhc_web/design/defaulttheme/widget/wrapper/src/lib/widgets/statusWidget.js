@@ -64,7 +64,7 @@ export class statusWidget{
 
         this.cont.massRestyle(placement);
 
-        this.cont.tmpl = '<div id="lhc_status_container" class="' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + '" style="display: none"><i title="New messages" id="unread-msg-number">!</i><i id="status-icon" target="_blank" class="offline-status" href="#"></i></div>';
+        this.cont.tmpl = '<div id="lhc_status_container" class="' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + '" style="display: none"><i title="New messages" id="unread-msg-number">!</i><a href="#" target="_blank" id="status-icon" class="offline-status"></a></div>';
 
         if (this.cont.constructUIIframe('') === null) {
             return null;
@@ -84,17 +84,19 @@ export class statusWidget{
             attributes.wloaded.subscribe((data) => { if (data){this.loadStatus['widget'] = true; this.checkLoadStatus()}});
         }
 
-        this.cont.attachUserEventListener("click", function (a) {
+        this.cont.attachUserEventListener("click", function (e) {
 
             attributes.onlineStatus.value === false && attributes.eventEmitter.emitEvent('offlineClickAction');
 
             if (attributes.onlineStatus.value === false && attributes.offline_redirect !== null){
                 document.location = attributes.offline_redirect;
+                e.preventDefault();
             } else {
                 if (_inst.controlMode == true) {
                     attributes.eventEmitter.emitEvent('closeWidget', [{'sender' : 'closeButton'}]);
+                    e.preventDefault();
                 } else {
-                    attributes.eventEmitter.emitEvent('showWidget', []);
+                    attributes.eventEmitter.emitEvent('showWidget', [{'event':e}]);
                     attributes.eventEmitter.emitEvent('clickAction');
                 }
             }
