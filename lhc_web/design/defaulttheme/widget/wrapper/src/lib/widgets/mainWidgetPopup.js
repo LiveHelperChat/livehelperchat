@@ -148,7 +148,7 @@ export class mainWidgetPopup {
                 needWindow = true;
             }
 
-            if (needWindow === true) {
+            if (needWindow === true && newWin !== null) {
                 this.cont.elementReferrerPopup = newWin;
                 newWin.focus();
             }
