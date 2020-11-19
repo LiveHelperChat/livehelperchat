@@ -83,6 +83,11 @@ class erLhcoreClassGenericBotActionMatch_actions {
                         'trigger_id' => $event->trigger_id
                     );
                 }
+            } else if (isset($action['content']['alternative_callback']) && is_numeric($action['content']['alternative_callback']) && $action['content']['alternative_callback'] > 0) {
+                return array(
+                    'status' => 'continue_all',
+                    'trigger_id' => $action['content']['alternative_callback']
+                );
             }
         }
 

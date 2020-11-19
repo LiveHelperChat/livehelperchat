@@ -543,9 +543,7 @@
                 // Popup open event
                 attributesWidget.eventEmitter.addListener('openPopup', function () {
 
-                    chatEvents.sendChildEvent('endedChat', [{'sender': 'endButton'}]);
-
-                    attributesWidget.popupWidget.init(attributesWidget);
+                    attributesWidget.popupWidget.init(attributesWidget, chatEvents);
 
                     attributesWidget.viewHandler.removeUnreadIndicator();
 
