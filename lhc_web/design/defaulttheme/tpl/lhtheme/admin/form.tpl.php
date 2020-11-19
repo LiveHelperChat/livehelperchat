@@ -46,6 +46,7 @@
                             <div class="msg-body" style="color: #{{bactract_bg_color_buble_sys_text_color}}">Operator has accepted the chat!</div></i>
                         </div>
                         <div class="message-row message-admin operator-changes">
+                            <div id="unread-separator-10487909" class="new-msg-holder border-bottom border-danger text-center" style="border-color:#{{bactract_bg_color_newm_color}}!important;"><span class="new-msg bg-danger text-white d-inline-block fs12 rounded-top" style="background-color:#{{bactract_bg_color_newm_color}}!important;">New</span></div>
                             <div class="msg-date" style="color:#{{bactract_bg_color_time_color}}">10:18:22</div>
                             <span style="color:#{{bactract_bg_color_buble_operator_title_color}}" class="usr-tit op-tit" ><i class="material-icons chat-operators mi-fs15 mr-0">account_box</i>Operator 1</span>
                             <div class="msg-body" style="color:#{{bactract_bg_color_buble_operator_text_color}};background-color: #{{bactract_bg_color_buble_operator_background}};">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
@@ -162,7 +163,15 @@
                             <?php echo erLhcoreClassAbstract::renderInput('time_color', $fields['time_color'], $form)?>
                         </div>
                     </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label><?php echo $fields['newm_color']['trans'];?></label>
+                            <?php echo erLhcoreClassAbstract::renderInput('newm_color', $fields['newm_color'], $form)?>
+                        </div>
+                    </div>
                 </div>
+
+
 
 			</div>
 
