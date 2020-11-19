@@ -268,7 +268,7 @@ div.system-response div.msg-body a.link{
 }
 <?php endif; ?>
 
-<?php if (isset($cssAttributes['newm_color'])) : ?>
+<?php if (isset($cssAttributes['newm_color']) && !empty($cssAttributes['newm_color'])) : ?>
     .new-msg-holder{
         border-color: #<?php echo $cssAttributes['newm_color'];?>!important;
     }
