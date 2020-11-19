@@ -4,6 +4,8 @@
 2. Live helper chat will work perfectly fine on devices where cookies, session storage and popups are disabled.
 3. Popup refocus did not worked from react app.
 4. Previous messages will be shown also for proactive invitation.
+5. Pending chats wait time was calculated from start chat time, but in case bot transfer after some time it should be based on time since chat become pending.
+6. Departments stats will be ordered by active chats number instead of pending one.
 
 execute doc/update_db/update_226.sql for update
 
