@@ -90,8 +90,8 @@ class NodeGroup extends Component {
                 <div className="col-12">
                     <hr/>
 
-                    <div className="row">
-                        <div className="col-9">
+                    <div className="d-flex">
+                        <div className="flex-grow-1">
                             <div className="input-group">
                                 <div className="input-group-prepend">
                                     <span><i className={classNameCurrent} title={'Bot Id - '+this.props.group.get('bot_id')}>home</i></span>
@@ -99,7 +99,7 @@ class NodeGroup extends Component {
                                 <input className="form-control form-control-sm gbot-group-name" value={this.props.group.get('name')} onChange={this.handleChange.bind(this)} />
                             </div>
                         </div>
-                        <div className="col-3">
+                        <div>
                             <div className="btn-group" role="group" aria-label="Basic example">
                                 <a className="btn btn-sm btn-secondary float-right" href={WWW_DIR_JAVASCRIPT + "genericbot/downloadbotgroup/" + this.props.group.get('id')}><i className="material-icons mr-0">cloud_download</i></a>
                                 <button className="btn btn-sm btn-danger float-right" onClick={this.deleteGroup.bind(this)}><i className="material-icons mr-0">delete</i></button>
