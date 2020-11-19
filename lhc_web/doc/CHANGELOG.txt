@@ -1,8 +1,11 @@
 3.53v
 
 1. Inactive chats for logged operator and active chats for logged operator stats in departments widget.
+2. Live helper chat will work perfectly fine on devices where cookies, session storage and popups are disabled.
+3. Popup refocus did not worked from react app.
+4. Previous messages will be shown also for proactive invitation.
 
-execute doc/update_db/update_225.sql for update
+execute doc/update_db/update_226.sql for update
 
 3.52v
 
