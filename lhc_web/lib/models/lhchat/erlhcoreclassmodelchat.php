@@ -266,7 +266,7 @@ class erLhcoreClassModelChat {
        		break;
 
        	case 'wait_time_seconds':
-       		   $this->wait_time_seconds = time() - $this->time;
+       		   $this->wait_time_seconds = time() - max($this->time,$this->pnd_time);
        		   return $this->wait_time_seconds;
 
        	case 'wait_time_front':

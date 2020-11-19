@@ -60,7 +60,6 @@ class erLhcoreClassChat {
 			'chat_locale',
 			'anonymized',
 			'uagent',
-			'pnd_time',
 			'user_tz_identifier',
 			'invitation_id',
 	);
