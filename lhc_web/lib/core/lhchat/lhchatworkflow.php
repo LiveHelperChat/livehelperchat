@@ -88,7 +88,7 @@ class erLhcoreClassChatWorkflow {
 
             erLhAbstractModelAutoResponder::updateAutoResponder($chat);
 
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_assigned_department',array('chat' => & $chat));
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_assigned_department',array('chat' => & $chat, 'from_dep' => $chat->department, 'to_dep' => $departmentTransfer));
 
             $chat->updateThis(array('update' => array('dep_id','last_user_msg_time','last_msg_id','reinform_timeout','unread_messages_informed','user_id','na_cb_executed','transfer_if_na','transfer_timeout_ts')));
         } else {

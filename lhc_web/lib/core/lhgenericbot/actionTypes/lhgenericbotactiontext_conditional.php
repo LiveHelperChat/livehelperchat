@@ -24,7 +24,7 @@ class erLhcoreClassGenericBotActionText_conditional {
                 if (isset($configurationArray['exc_group_id']) && !empty($configurationArray['exc_group_id'])){
                     $exceptionMessage = erLhcoreClassModelGenericBotExceptionMessage::findOne(array('limit' => 1, 'sort' => 'priority ASC', 'filter' => array('active' => 1,'code' => $params['error_code']), 'filterin' => array('exception_group_id' => $configurationArray['exc_group_id'])));
                     if ($exceptionMessage instanceof erLhcoreClassModelGenericBotExceptionMessage && $exceptionMessage->message != '') {
-                        $params['replace_array']['{error}'] = erLhcoreClassGenericBotWorkflow::translateMessage($exceptionMessage->message, array('chat' => $chat));
+                        $params['replace_array']['{error}'] = erLhcoreClassGenericBotWorkflow::translateMessage($exceptionMessage->message, array('chat' => $chat, 'args' => $params));
                     }
                 }
             }
@@ -37,7 +37,7 @@ class erLhcoreClassGenericBotActionText_conditional {
 
             // We need to translate again because some error messages can have translatable strings themself
             foreach (['intro_us','full_us','readmore_us','intro_op','full_op','readmore_op'] as $attr) {
-                $action['content'][$attr] = erLhcoreClassGenericBotWorkflow::translateMessage($attr, array('chat' => $chat));
+                $action['content'][$attr] = erLhcoreClassGenericBotWorkflow::translateMessage($attr, array('chat' => $chat, 'args' => $params));
             }
         }
 

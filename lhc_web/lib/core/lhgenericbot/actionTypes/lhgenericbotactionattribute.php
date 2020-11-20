@@ -48,7 +48,7 @@ class erLhcoreClassGenericBotActionAttribute {
             $msgText = (isset($action['content']['intro_message']) ? trim($action['content']['intro_message']) : '');
 
             if ($msgText != '') {
-                $msgText = erLhcoreClassGenericBotWorkflow::translateMessage($msgText, array('chat' => $chat));
+                $msgText = erLhcoreClassGenericBotWorkflow::translateMessage($msgText, array('chat' => $chat, 'args' => $params));
             }
 
             $msg->msg = $msgText;
@@ -56,7 +56,7 @@ class erLhcoreClassGenericBotActionAttribute {
             $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';
 
             if ($msg->meta_msg != '') {
-                $msg->meta_msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->meta_msg, array('chat' => $chat));
+                $msg->meta_msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->meta_msg, array('chat' => $chat, 'args' => $params));
             }
 
             $msg->chat_id = $chat->id;

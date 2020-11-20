@@ -2056,6 +2056,21 @@ class erLhcoreClassGenericBotWorkflow {
             $message = str_replace(array_keys($replaceArray), array_values($replaceArray), $message);
         }
 
+        // Dynamic args replacement
+        if (isset($params['args'])) {
+            if (isset($params['chat'])) {
+                $params['args']['chat'] = $params['chat'];
+            }
+            $matchesValues = [];
+            preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $message,$matchesValues);
+            if (!empty($matchesValues[0])) {
+                foreach ($matchesValues[0] as $indexElement => $elementValue) {
+                    $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params['args'], $matchesValues[1][$indexElement], '.');
+                    $message = str_replace($elementValue,  $valueAttribute['found'] == true ? $valueAttribute['value'] : null, $message);
+                }
+            }
+        }
+
         return $message;
 
     }
