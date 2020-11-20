@@ -1,7 +1,7 @@
 Live helper chat
 ==============
 
-It's an open-source powered application, which brings simplicity and usability in one place. With live helper chat you can bring live support on your site for free. http://livehelperchat.com
+It's an open-source powered application, which brings simplicity and usability in one place. With live helper chat you can bring live support on your site for free. http://livehelperchat.com.
 
 [![Apple store](https://livehelperchat.com/design/defaulttheme/images/apps/apple.svg)](https://apps.apple.com/us/app/id1530399116) [![Google Play](https://livehelperchat.com/design/defaulttheme/images/apps/google-play.png?v=2)](https://play.google.com/store/apps/details?id=com.livehelperchat.chat)
 
@@ -11,6 +11,10 @@ It's an open-source powered application, which brings simplicity and usability i
 * Documentation - https://doc.livehelperchat.com
 * Forum - https://forum.livehelperchat.com/
 * Chat (Discord) https://discord.gg/YsZXQVh
+
+## Demo
+
+http://livehelperchat.com/demo-12c.html
 
 ## Mobile app
 
@@ -52,12 +56,6 @@ Mobile app is also open source and can be found https://github.com/LiveHelperCha
    * `cd lhc_web/design/defaulttheme/widget/react-app && npm install && npm run build && npm run build-ie`
  * Recompile static JS/CSS files. This is required if you change core JS files. It also avoids missing CSS/JS files if more than one server is used.
    * `php cron.php -s site_admin -c cron/util/generate_css -p 1 && gulp js-static`
-
-## Demo
-http://livehelperchat.com/demo-12c.html
-
-## Documentation
-https://doc.livehelperchat.com
 
 ## Extensions
 https://github.com/LiveHelperChat
