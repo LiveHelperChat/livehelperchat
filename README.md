@@ -16,6 +16,23 @@ It's an open-source powered application, which brings simplicity and usability i
 
 Mobile app is also open source and can be found https://github.com/LiveHelperChat/lhc_messenger
 
+## Integrations
+
+ * [Bot](https://doc.livehelperchat.com/docs/how-to-use-bot) with possibility to integrate any third party AI
+ * [Telegram](https://github.com/LiveHelperChat/telegram)
+ * [Rasa](https://doc.livehelperchat.com/docs/bot/rasa-integration)
+ * [Facebook messenger](https://github.com/LiveHelperChat/fbmessenger)
+ * [Insult detection](https://github.com/LiveHelperChat/lhcinsult) powered by [DeepPavlov.ai](https://demo.deeppavlov.ai/#/en/insult) and [NudeNet](https://github.com/notAI-tech/NudeNet)
+ * [SMS, WhatsApp](https://github.com/LiveHelperChat/twilio)
+ * [Elasticsearch](https://github.com/LiveHelperChat/elasticsearch) get statistic for millions of chats in seconds
+ * [Node.js](https://github.com/LiveHelperChat/NodeJS-Helper)
+ * [Docker](https://github.com/LiveHelperChat/docker-standalone)
+ * [Background worker for heavy tasks](https://github.com/LiveHelperChat/lhc-php-resque) offload Rest API calls
+ * Integrate any [third party Rest API](https://doc.livehelperchat.com/docs/bot/rest-api)
+ * [Google Authentication](https://github.com/LiveHelperChat/lhcgoogleauth) login using Google account
+ * [2FA](https://github.com/LiveHelperChat/2fa) `Authenticator` mobile app support
+ * [Amazon S3](https://github.com/LiveHelperChat/amazon-s3) scale infinitely by storing app files in the cloud
+
 ## Quick development guide
  * After app is installed disable cache and enable debug output. 
    * https://github.com/LiveHelperChat/livehelperchat/blob/master/lhc_web/settings/settings.ini.default.php#L13-L16
@@ -65,6 +82,7 @@ https://api.livehelperchat.com/
 
 Few main features
 
+ * [Bot](https://doc.livehelperchat.com/docs/how-to-use-bot) with possibility to integrate any third party AI
  * XMPP support for notifications about new chats. (IPhone, IPad, Android, Blackberry, GTalk etc...)
  * Chrome extension
  * Repeatable sound notifications
