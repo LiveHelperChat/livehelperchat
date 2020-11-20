@@ -55,6 +55,7 @@ export class storageHandler {
     };
 
     getHTTPCookie(cookieName) {
+        if (this.cookieEnabled === false) return [];
         var b, d, k = [], baseCookie = cookieName + "=", e = document.cookie.split(";");
         cookieName = 0;
         for (b = e.length; cookieName < b; cookieName++) {
