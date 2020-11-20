@@ -16,12 +16,9 @@ It's an open-source powered application, which brings simplicity and usability i
 
 http://livehelperchat.com/demo-12c.html
 
-## Mobile app
-
-Mobile app is also open source and can be found https://github.com/LiveHelperChat/lhc_messenger
-
 ## Integrations
 
+ * [Mobile app](https://github.com/LiveHelperChat/lhc_messenger) flutter
  * [Rest API](https://api.livehelperchat.com)
  * [Bot](https://doc.livehelperchat.com/docs/how-to-use-bot) with possibility to integrate any third party AI
  * [Telegram](https://github.com/LiveHelperChat/telegram)
