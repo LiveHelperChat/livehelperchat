@@ -190,11 +190,10 @@ class erLhcoreClassGenericBotActionCommand {
                     foreach ($variablesAppend as $key => $value) {
                         if (isset($params['replace_array']) && isset($value)) {
                             $valueItem = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$value);
-                            erLhcoreClassGenericBotWorkflow::translateMessage($valueItem, array('chat' => $chat, 'args' => $params));
-                            $variablesArray[$key] = $valueItem;
+                            $variablesArray[$key] = erLhcoreClassGenericBotWorkflow::translateMessage($valueItem, array('chat' => $chat, 'args' => $params));
                         } else {
                             if (isset($value)) {
-                                $variablesArray[$key] = $value;
+                                $variablesArray[$key] = erLhcoreClassGenericBotWorkflow::translateMessage($value, array('chat' => $chat, 'args' => $params));
                             } elseif (isset($variablesArray[$key])) {
                                 unset($variablesArray[$key]);
                             }
