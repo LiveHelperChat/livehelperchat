@@ -182,9 +182,20 @@ if (empty($Errors)) {
                     if ($msg->msg == '') {
                         $inv = erLhAbstractModelProactiveChatInvitation::fetch($requestPayload['invitation_id']);
                         if ($inv instanceof erLhAbstractModelProactiveChatInvitation){
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.process_invitation',array(
+                                'invitation' => & $inv,
+                                'chat' => $chat,
+                                'ou' => $userInstance
+                            ));
                             $inv->translateByLocale();
                             $msg->msg = $inv->message;
                         }
+                    } else {
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.process_invitation_ou',array(
+                            'ou' => $userInstance,
+                            'msg' => & $msg,
+                            'chat' => $chat
+                        ));
                     }
 
                     $msg->chat_id = $chat->id;
