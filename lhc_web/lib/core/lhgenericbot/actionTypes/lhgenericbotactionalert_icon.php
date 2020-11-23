@@ -38,6 +38,10 @@ class erLhcoreClassGenericBotActionAlert_icon {
                     $paramsIcon['icolor'] = $alertColor;
                 }
 
+                if (isset($action['content']['attr_options']['aicon_title']) && $action['content']['attr_options']['aicon_title'] != '') {
+                    $paramsIcon['t'] = $action['content']['attr_options']['aicon_title'];
+                }
+
                 $chatVariables['aicons'][$alertIcon] = $paramsIcon;
                 $needUpdate = true;
             }

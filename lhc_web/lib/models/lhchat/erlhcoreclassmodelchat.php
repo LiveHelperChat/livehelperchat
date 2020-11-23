@@ -490,6 +490,9 @@ class erLhcoreClassModelChat {
                    if (isset($params['icolor'])) {
                        $iconParams['c'] = $params['icolor'];
                    }
+                   if (isset($params['t']) && $params['t'] != '') {
+                       $iconParams['t'] = $params['t'];
+                   }
                    $this->aicons[$icon] = $iconParams;
                }
            }

@@ -58,6 +58,12 @@ class NodeTriggerActionAlertIcon extends Component {
                     </div>
                     <div className="col-12">
                         <div className="form-group">
+                            <label>Title. If you do not enter title we will show icon text.</label>
+                            <input type="text" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','aicon_title'], 'value' : e.target.value})} defaultValue={this.props.action.hasIn(['content','attr_options','aicon_title']) ? this.props.action.getIn(['content','attr_options','aicon_title']) : ""} className="form-control form-control-sm" />
+                        </div>
+                    </div>
+                    <div className="col-12">
+                        <div className="form-group">
                             <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','show_alert'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','show_alert'])} /> Show alert. We will show alert if this icon is added to the chat.</label>
                         </div>
                     </div>
