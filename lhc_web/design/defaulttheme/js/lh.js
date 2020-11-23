@@ -1407,18 +1407,16 @@ function lh(){
 	{
 	    var that = this;
 
-        var lhcController = angular.element('body').scope();
-        lhcController.syncDisabled(true);
-
+        ee.emitEvent('angularSyncDisabled', [true]);
 	    $.postJSON(this.wwwDir + this.closechatadmin + chat_id, function (data) {
-            lhcController.syncDisabled(false);
+            ee.emitEvent('angularSyncDisabled', [false]);
 	        if (data.error == false) {
-                lhcController.loadChatList();
+                ee.emitEvent('angularLoadChatList');
             } else {
 	            alert(data.result);
             }
         }).fail(function(jqXHR, textStatus, errorThrown) {
-            lhcController.syncDisabled(false);
+            ee.emitEvent('angularSyncDisabled', [false]);
             console.dir(jqXHR);
         });
 
@@ -2495,7 +2493,6 @@ function lh(){
 			}
         }
 
-
 	    if (confLH.show_alert == 1) {
     		if (confirm(confLH.transLation.new_chat+"\n\n"+message)) {
     			if (identifier == 'pending_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered' || identifier == 'bot_chats') {
@@ -2515,8 +2512,7 @@ function lh(){
 	this.syncadmininterfacestatic = function()
 	{
 		try {
-			var lhcController = angular.element('body').scope();
-			lhcController.loadChatList();
+            ee.emitEvent('angularLoadChatList');
 		} catch(err) {
         	//
         };

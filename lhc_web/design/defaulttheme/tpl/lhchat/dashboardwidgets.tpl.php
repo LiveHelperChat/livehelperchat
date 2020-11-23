@@ -21,23 +21,47 @@
 
 		<form action="<?php echo erLhcoreClassDesign::baseurl('chat/dashboardwidgets')?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
 
-        <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Column number')?></label>
-            <select name="ColumnNumber" class="form-control">
-                <option value="2" <?php echo $columns_number == 2 ? 'selected="selected"' : ''?>>2</option>
-                <option value="3" <?php echo $columns_number == 3 ? 'selected="selected"' : ''?>>3</option>
-                <option value="4" <?php echo $columns_number == 4 ? 'selected="selected"' : ''?>>4</option>
-            </select>
-        </div>
+            <ul class="nav nav-tabs mb-3" role="tablist">
+                <li role="presentation" class="nav-item"><a href="#widgets-settings" class="nav-link active" aria-controls="widgets-settings" role="tab" data-toggle="tab">Widgets</a></li>
+                <li role="presentation" class="nav-item"><a class="nav-link" href="#alerti-settings" aria-controls="alerti-settings" role="tab" data-toggle="tab">Alert icons</a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane form-group active" id="widgets-settings">
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Column number')?></label>
+                        <select name="ColumnNumber" class="form-control">
+                            <option value="2" <?php echo $columns_number == 2 ? 'selected="selected"' : ''?>>2</option>
+                            <option value="3" <?php echo $columns_number == 3 ? 'selected="selected"' : ''?>>3</option>
+                            <option value="4" <?php echo $columns_number == 4 ? 'selected="selected"' : ''?>>4</option>
+                        </select>
+                    </div>
+                    <?php foreach ($widgets as $widget => $title) : ?>
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="WidgetsUser[]" value="<?php echo $widget?>" <?php if (in_array($widget, $user_widgets)) : ?>checked="checked"<?php endif;?>><?php echo $title?></label>
+                        </div>
+                    <?php endforeach;?>
+                </div>
+                <div role="tabpanel" class="tab-pane form-group" id="alerti-settings">
+                    <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Choose what icons you want to exclude from the list.')?></p>
+                    <div class="form-group">
+                        <div class="row">
+                            <?php echo erLhcoreClassRenderHelper::renderCheckbox(array(
+                                'list_function' => 'erLhAbstractModelChatAlertIcon::getList',
+                                'selected_id' => $exclude_icons,
+                                'id_attr' => 'identifier',
+                                'input_name' => 'exclude_icon[]',
+                                'wrap_prepend' => '<div class="col-6">',
+                                'wrap_append' => '</div>',
+                                'list_function_params' => array('limit' => false)
+                            ));
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <?php foreach ($widgets as $widget => $title) : ?>
-            <div class="checkbox">
-				<label><input type="checkbox" name="WidgetsUser[]" value="<?php echo $widget?>" <?php if (in_array($widget, $user_widgets)) : ?>checked="checked"<?php endif;?>><?php echo $title?></label>
-			</div>
-        <?php endforeach;?>
+            <input type="submit" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update')?>">
 
-        <input type="submit" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update')?>">
-        
         </form>
         
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>

@@ -88,8 +88,7 @@ const GroupChat = props => {
     }
 
     const startChatWithOperator = (operator) => {
-        var lhcController = angular.element('body').scope();
-        lhcController.startChatOperatorPublic(operator.user_id);
+        ee.emitEvent('angularStartChatOperatorPublic',[operator.user_id]);
     }
 
     const setUnreadSupportChat = (chat_id, length) => {

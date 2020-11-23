@@ -8,12 +8,14 @@ var phonecatApp = angular.module('lhcApp', [
 var services = angular.module('lhcAppServices', []);
 var lhcAppControllers = angular.module('lhcAppControllers', ["checklist-model"]);
 
+lhcAppControllers.config(['$compileProvider', function ($compileProvider) {
+    $compileProvider.debugInfoEnabled(false);
+}]);
+
 angular.element(document).ready(function(){
     var element = angular.element(document.querySelector("form"));
     element.triggerHandler("$destroy");
-    //‌​
 });
-
 
 services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 	
@@ -271,6 +273,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.userList = [];
 	this.widgets = [];
 	this.additionalColumns = [];
+	this.excludeIcons = [];
 
 	this.departmentd = this.restoreLocalSetting('departmentd',[],true);
 	this.departmentd_dpgroups = this.restoreLocalSetting('departmentd_dpgroups',[],true);
@@ -342,6 +345,18 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
     this.alwaysOnline = false;
     this.inActive = false;
     this.bot_st = {};
+
+    ee.addListener('angularSyncDisabled',function (status) {
+        $scope.syncDisabled(status);
+    });
+
+    ee.addListener('angularLoadChatList',function () {
+        $scope.loadChatList();
+    });
+
+    ee.addListener('angularStartChatOperatorPublic',function (user_id) {
+        $scope.startChatOperatorPublic(user_id);
+    });
 
     this.changeVisibility = function(e) {
 
@@ -1519,6 +1534,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             _that.additionalColumns = data.col;
             _that.widgetsActive = data.widgets;
             _that.bot_st = data.bot_st;
+            _that.excludeIcons = data.exc_ic;
 
 			angular.forEach(_that.widgetsItems, function(listId) {
 				_that.setDepartmentNames(listId);

@@ -1,3 +1,14 @@
+3.54v
+
+1. Update angular version and disable debug output.
+2. Anyone who is using NodeJS extension will have to update it also.
+3. Now you can manually choose what alert icons to exclude from dashboard lists.
+4. "Check for conditions to proceed" now have option to continue execution even if conditions are matched.
+5. "Check for conditions to proceed" can access any attribute through {args.chat.<any_attr>} E.g chat message {args.msg.msg}.
+6. Alert icon now can have custom text as tooltip.
+
+execute doc/update_db/update_227.sql for update
+
 3.53v
 
 1. Inactive chats for logged operator and active chats for logged operator stats in departments widget.

@@ -447,8 +447,6 @@ class erLhcoreClassGenericBotWorkflow {
                 }
             }
 
-
-
             $textLetters = self::splitWord($text);
 
             $word = trim($word);
