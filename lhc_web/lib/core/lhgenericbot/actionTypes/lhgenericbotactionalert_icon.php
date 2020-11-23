@@ -18,7 +18,7 @@ class erLhcoreClassGenericBotActionAlert_icon {
 
         $needUpdate = false;
 
-        if ($action['content']['attr_options']['remove_icon'] && $action['content']['attr_options']['remove_icon'] == true) {
+        if (isset($action['content']['attr_options']['remove_icon']) && $action['content']['attr_options']['remove_icon'] == true) {
             if (isset($chatVariables['aicons'][$alertIcon])) {
                 unset($chatVariables['aicons'][$alertIcon]);
                 $needUpdate = true;

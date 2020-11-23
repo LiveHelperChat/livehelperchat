@@ -179,8 +179,11 @@ if (!is_array($widgets)) {
 
 $widgets = erLhcoreClassChat::array_flatten($widgets);
 
+$dwic = json_decode(erLhcoreClassModelUserSetting::getSetting('dwic', ''),true);
+
 $response = array(
     'widgets' => $widgets,
+    'exc_ic' => ($dwic === null ? [] : $dwic),
     'col' => array_values($columnsAdd),
     'v' => erLhcoreClassUpdate::LHC_RELEASE,
     'ho' => $userData->hide_online == 1,

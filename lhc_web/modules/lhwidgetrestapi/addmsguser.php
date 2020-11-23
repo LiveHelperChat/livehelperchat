@@ -122,10 +122,10 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
         echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r, 't' => $triggers));
 
         // Try to finish request before any listers do their job
-        flush();
+        /*flush();
         if (function_exists('fastcgi_finish_request')) {
             fastcgi_finish_request();
-        }
+        }*/
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.addmsguser',array('chat' => & $chat, 'msg' => & $msg));
         exit;

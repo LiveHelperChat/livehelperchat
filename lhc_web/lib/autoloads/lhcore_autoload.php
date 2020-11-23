@@ -124,6 +124,7 @@ return array_merge(array (
 		'erLhAbstractModelChatVariable'  		    => 'lib/models/lhabstract/erlhabstractmodelchatvariable.php',
 		'erLhAbstractModelChatColumn'  		        => 'lib/models/lhabstract/erlhabstractmodelchatcolumn.php',
 		'erLhAbstractModelChatPriority'  		    => 'lib/models/lhabstract/erlhabstractmodelchatpriority.php',
+		'erLhAbstractModelChatAlertIcon'  		    => 'lib/models/lhabstract/erlhabstractmodelchatalerticon.php',
 
 		'erLhAbstractModelSurvey'  			        => 'lib/models/lhabstract/erlhabstractmodelsurvey.php',
 		'erLhAbstractModelSurveyItem'  			    => 'lib/models/lhabstract/erlhabstractmodelsurveyitem.php',

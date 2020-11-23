@@ -106,8 +106,13 @@ class NodeTriggerActionConditions extends Component {
                             <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','callback_unreschedule'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','callback_unreschedule'])} />
                         </div>
                     </div>
+                    <div className="col-12">
+                        <div className="form-group">
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','continue_all'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','continue_all'])} /> If conditions are matched continue executing responses.</label>
+                            <p><small>By default if conditions are met we execute trigger and stop any futher responses execution.</small></p>
+                        </div>
+                    </div>
                 </div>
-
                 <hr className="hr-big" />
             </div>
         );
