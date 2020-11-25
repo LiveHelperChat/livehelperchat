@@ -1,8 +1,10 @@
 3.55v
 
-1.
+1. Continuous webhooks. Documentation
+2. Chat closing and other emails will include all chat messages.
+3.
 
-execute doc/update_db/update_227.sql for update
+execute doc/update_db/update_228.sql for update
 
 3.54v
 

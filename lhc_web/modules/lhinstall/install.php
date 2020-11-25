@@ -1112,6 +1112,16 @@ try {
         	   KEY `question_id` (`question_id`)
         	   ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+               $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_stats` (
+                  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+                  `type` int(11) NOT NULL,
+                  `lupdate` bigint(20) NOT NULL,
+                  `object_id` bigint(20) NOT NULL,
+                  `stats` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `type_object_id` (`type`,`object_id`)
+                ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
                     $db->query("CREATE TABLE IF NOT EXISTS `lh_question_option_answer` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
         	   `question_id` int(11) NOT NULL,

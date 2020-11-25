@@ -105,7 +105,7 @@ class erLhcoreClassChatWebhookContinuous {
                                     if (!empty($matchesValues[0])) {
                                         foreach ($matchesValues[0] as $indexElement => $elementValue) {
                                             $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array('chat' => $chat), $matchesValues[1][$indexElement], '.');
-                                            $conditionAttr = str_replace($elementValue,  $valueAttribute['found'] == true ? $valueAttribute['value'] : null, $conditionAttr);
+                                            $conditionAttr = str_replace($elementValue,  $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $conditionAttr);
                                         }
                                     }
                                 }
@@ -118,7 +118,7 @@ class erLhcoreClassChatWebhookContinuous {
                                     if (!empty($matchesValues[0])) {
                                         foreach ($matchesValues[0] as $indexElement => $elementValue) {
                                             $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array('chat' => $chat), $matchesValues[1][$indexElement], '.');
-                                            $valueAttr = str_replace($elementValue,  $valueAttribute['found'] == true ? $valueAttribute['value'] : null, $valueAttr);
+                                            $valueAttr = str_replace($elementValue,  $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $valueAttr);
                                         }
                                     }
                                 }

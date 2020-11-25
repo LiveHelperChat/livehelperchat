@@ -109,6 +109,12 @@ class erLhcoreClassModelDepartament {
         $q->deleteFrom('lh_departament_group_member')->where($q->expr->eq('dep_id', $this->id));
         $stmt = $q->prepare();
         $stmt->execute();
+
+        // Delete any stats
+        $q = ezcDbInstance::get()->createDeleteQuery();
+        $q->deleteFrom('lh_abstract_stats')->where($q->expr->eq('object_id', $this->id),$q->expr->eq('type', 0));
+        $stmt = $q->prepare();
+        $stmt->execute();
     }
 
     public function __get($var) {
@@ -185,6 +191,11 @@ class erLhcoreClassModelDepartament {
 	   		            $this->product_configuration_array = json_decode($this->product_configuration,true);
 	   		        }
 	   		        return $this->product_configuration_array;
+	   		    break;
+
+	   		case 'stats':
+	   		        $this->stats = erLhAbstractModelStats::getInstance(erLhAbstractModelStats::STATS_DEP,$this->id);
+	   		        return $this->stats;
 	   		    break;
 	   		    
 	   		case 'end_minutes_front':
