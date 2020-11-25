@@ -364,7 +364,7 @@ class erLhcoreClassChatMail {
     	
     	$mail->Subject = str_replace(array('{chat_id}','{department}'), array($chat->id,(string)$chat->department), $sendMail->subject);
     	   	    	
-    	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
+    	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
     	$messagesContent = '';
     	
     	foreach ($messages as $msg ) {
@@ -549,7 +549,7 @@ class erLhcoreClassChatMail {
 
     	$mail->Subject = $sendMail->subject;
 
-    	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10, 'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
+    	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false, 'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
     	$messagesContent = '';
 
     	foreach ($messages as $msg ) {
@@ -589,7 +589,7 @@ class erLhcoreClassChatMail {
             $mail->FromName = $chat->nick;
         }
     	   	    	
-    	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
+    	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
     	$messagesContent = '';
     	
     	foreach ($messages as $msg ) {
@@ -734,7 +734,7 @@ class erLhcoreClassChatMail {
 
             $messagesContent = '';
 
-            $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10,'sort' => 'id DESC', 'filter' => array('chat_id' => $chat->id))));
+            $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC', 'filter' => array('chat_id' => $chat->id))));
             foreach ($messages as $msg ) {
                 if ($msg->user_id == -1) {
                     $messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant').': '.htmlspecialchars($msg->msg)."\n";

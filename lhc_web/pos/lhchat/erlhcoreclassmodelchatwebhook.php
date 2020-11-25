@@ -29,6 +29,18 @@ $def->properties['disabled']->columnName   = 'disabled';
 $def->properties['disabled']->propertyName = 'disabled';
 $def->properties['disabled']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+// 0 - One time event based on hook
+// 1 - Based on multiple conditions
+$def->properties['type'] = new ezcPersistentObjectProperty();
+$def->properties['type']->columnName   = 'type';
+$def->properties['type']->propertyName = 'type';
+$def->properties['type']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['configuration'] = new ezcPersistentObjectProperty();
+$def->properties['configuration']->columnName   = 'configuration';
+$def->properties['configuration']->propertyName = 'configuration';
+$def->properties['configuration']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

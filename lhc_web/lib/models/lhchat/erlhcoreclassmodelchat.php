@@ -278,14 +278,14 @@ class erLhcoreClassModelChat {
        		   return $this->last_user_msg_time_front;
 
        	case 'wait_time_pending':
-       		   $this->wait_time_pending = erLhcoreClassChat::formatSeconds(time() - max($this->time,$this->pnd_time));
+       		   $this->wait_time_pending = erLhcoreClassChat::formatSeconds($this->wait_time_seconds);
        		   return $this->wait_time_pending;
 
        	case 'chat_duration_front':
        	       if ($this->chat_duration > 0) {
                    $this->chat_duration_front = erLhcoreClassChat::formatSeconds($this->chat_duration);
                } elseif ($this->status != self::STATUS_CLOSED_CHAT) {
-                   $this->chat_duration_front = erLhcoreClassChat::formatSeconds(time() - $this->time);
+                   $this->chat_duration_front = erLhcoreClassChat::formatSeconds($this->wait_time_seconds);
                } else {
                    $this->chat_duration_front = null;
                }

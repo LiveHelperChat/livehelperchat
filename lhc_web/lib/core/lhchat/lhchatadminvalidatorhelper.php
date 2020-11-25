@@ -995,11 +995,17 @@ class erLhcoreClassAdminChatValidatorHelper {
             'event' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'configuration' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
             'bot_id' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
             ),
             'AbstractInput_trigger_id' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
+            ),
+            'type' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'max_range' => 1)
             ),
             'disabled' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
@@ -1009,10 +1015,20 @@ class erLhcoreClassAdminChatValidatorHelper {
         $form = new ezcInputForm( INPUT_POST, $definition );
         $Errors = array();
 
-        if ( $form->hasValidData( 'event' ) && $form->event != '') {
+        if ($form->hasValidData( 'event' )) {
             $webhook->event = $form->event;
+        }
+
+        if ( $form->hasValidData( 'configuration' )) {
+            $webhook->configuration = $form->configuration;
         } else {
-            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Please enter a hook name');
+            $webhook->configuration = '';
+        }
+
+        if ( $form->hasValidData( 'type' )) {
+            $webhook->type = $form->type;
+        } else {
+            $webhook->type = 0;
         }
 
         if ( $form->hasValidData( 'bot_id' )) {
