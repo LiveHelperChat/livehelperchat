@@ -3,7 +3,7 @@
 try
 {
     erLhcoreClassRestAPIHandler::validateRequest();
-    
+
     $userlist = erLhcoreClassModelUser::getUserList();
     
     foreach($userlist as $index => $user)
@@ -17,7 +17,7 @@ try
     erLhcoreClassRestAPIHandler::outputResponse(array
             (
                 'error' => false, 
-                'result' => $userlist
+                'result' => array_values($userlist)
             )
     );
     

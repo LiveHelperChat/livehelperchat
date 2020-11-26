@@ -1376,6 +1376,52 @@
         ]
       }
     },
+    "/restapi/onlineusers": {
+      "get": {
+        "tags": [
+          "online"
+        ],
+        "summary": "Fetches online operators",
+        "description": "Returns list of online operators",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "dep_id",
+            "in": "query",
+            "description": "Only users assigned to specified department.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "include_user",
+            "in": "query",
+            "description": "Should we include a user also with online record?",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
     "/restapi/isonlinedepartment/{department_id}": {
       "get": {
         "tags": [

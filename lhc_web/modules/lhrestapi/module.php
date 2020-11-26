@@ -83,6 +83,10 @@ $ViewList['getusers'] = array(
     'params' => array()
 );
 
+$ViewList['onlineusers'] = array(
+    'params' => array()
+);
+
 $ViewList['groupsbyobject'] = array(
     'params' => array('object_id','type')
 );
