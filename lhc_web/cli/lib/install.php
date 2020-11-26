@@ -1976,7 +1976,9 @@ class Install
             $cfgSite->setSetting( 'site', 'templatecompile', true);
             $cfgSite->setSetting( 'site', 'modulecompile', true);
             $cfgSite->setSetting( 'site', 'force_virtual_host', $form->ForceVirtualHost == 1);
-
+            $cfgSite->setSetting( 'webhooks', 'enabled', isset($form->WebhooksEnabled) &&$form->WebhooksEnabled == 1);
+            $cfgSite->setSetting( 'webhooks', 'worker', isset($form->WebhooksWorker) ? $form->WebhooksWorker : 'http');
+            
             if ($form->Extensions != '') {
                 $extensions = explode(',',str_replace(' ','',$form->Extensions));
                 if (!empty($extensions) ) {
