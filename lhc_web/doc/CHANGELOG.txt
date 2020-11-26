@@ -1,7 +1,8 @@
 3.55v
 
-1. Continuous webhooks. Documentation
+1. Continuous webhooks.
 2. Chat closing and other emails will include all chat messages.
+3. You can have now custom JS in static url. "Events Tracking" window. Events in static URL still won't be tracked. It will be implemented in next releases.
 
 execute doc/update_db/update_228.sql for update
 

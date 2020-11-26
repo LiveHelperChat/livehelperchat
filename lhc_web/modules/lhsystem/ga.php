@@ -14,6 +14,9 @@ if ( isset($_POST['StoreOptions']) ) {
         'ga_js' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
+        'js_static' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
         'ga_dep' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1),FILTER_REQUIRE_ARRAY)
     );
     
@@ -65,6 +68,12 @@ if ( isset($_POST['StoreOptions']) ) {
         $data['ga_js'] = $form->ga_js;
     } else {
         $data['ga_js'] = '';
+    }
+
+    if ( $form->hasValidData( 'js_static' )) {
+        $data['js_static'] = $form->js_static;
+    } else {
+        $data['js_static'] = '';
     }
 
     if ( $form->hasValidData( 'ga_dep' )) {
