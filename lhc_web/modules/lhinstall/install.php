@@ -2088,6 +2088,7 @@ try {
                         array('module' => 'lhspeech', 'function' => 'changedefaultlanguage'),
                         array('module' => 'lhspeech', 'function' => 'use'),
                         array('module' => 'lhcannedmsg', 'function' => 'use'),
+                        array('module' => 'lhchat', 'function' => 'prev_chats'),
                         array('module' => 'lhtheme', 'function' => 'personaltheme'),
                         array('module' => 'lhuser', 'function' => 'userlistonline'),
                         array('module' => 'lhspeech', 'function' => 'change_chat_recognition'),

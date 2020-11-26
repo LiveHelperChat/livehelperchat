@@ -38,12 +38,14 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
 
     $messages = erLhcoreClassChat::getChatMessages($chat->id, erLhcoreClassChat::$limitMessages);
 
-    $dataPrevious = erLhcoreClassChatWorkflow::hasPreviousChats(array(
-        'messages' => $messages,
-        'chat' => $chat,
-    ));
+    if ($currentUser->hasAccessTo('lhchat','prev_chats')) {
+        $dataPrevious = erLhcoreClassChatWorkflow::hasPreviousChats(array(
+            'messages' => $messages,
+            'chat' => $chat,
+        ));
+    }
 
-    if ($dataPrevious['has_messages'] == true && isset($dataPrevious['chat_history']) && is_object($dataPrevious['chat_history'])) {
+    if (isset($dataPrevious) && $dataPrevious['has_messages'] == true && isset($dataPrevious['chat_history']) && is_object($dataPrevious['chat_history'])) {
         $items[] = array (
             'selector' => '#load-prev-btn-' . $chat->id,
             'action' => 'show',

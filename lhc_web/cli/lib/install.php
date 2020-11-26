@@ -1931,6 +1931,7 @@ class Install
                 array('module' => 'lhchat',  'function' => 'use_onlineusers'),
                 array('module' => 'lhchat',  'function' => 'take_screenshot'),
                 array('module' => 'lhfront', 'function' => 'use'),
+                array('module' => 'lhchat', 'function' => 'prev_chats'),
                 array('module' => 'lhsystem','function' => 'use'),
                 array('module' => 'lhtranslation','function' => 'use'),
                 array('module' => 'lhchat',  'function' => 'allowblockusers'),

@@ -776,7 +776,7 @@ class erLhcoreClassChatWorkflow {
             ));
 
             if ($statusWorkflow === false) {
-                if (($online_user = $chat->online_user) !== false) {
+                if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','prev_chats') && ($online_user = $chat->online_user) !== false) {
                     $chatHistory = erLhcoreClassModelChat::findOne(array('sort' => 'id DESC','filterlt' => array('id' => $chat->id), 'filter' => array('online_user_id' => $online_user->id)));
                     if ($chatHistory instanceof erLhcoreClassModelChat) {
                         $chat = $chatHistory;
