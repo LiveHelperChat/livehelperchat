@@ -1612,24 +1612,37 @@ function lh(){
 
 	this.startChatNewWindow = function(chat_id,name)
 	{
-	    window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650").focus();
-	    var inst = this;
-	    setTimeout(function(){
-	    	inst.syncadmininterfacestatic();
-	    },1000);
+	    var popupWindow = window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650");
 
-        ee.emitEvent('chatStartOpenWindow', [chat_id]);
+	    if (popupWindow !== null) {
+            popupWindow.focus();
+            var inst = this;
+            setTimeout(function(){
+                inst.syncadmininterfacestatic();
+            },1000);
+
+            ee.emitEvent('chatStartOpenWindow', [chat_id]);
+        }
+
 	};
 
     this.startChatNewWindowArchive = function(archive_id, chat_id,name)
     {
-        window.open(this.wwwDir + 'chatarchive/viewarchivedchat/' + archive_id + '/' + chat_id + '/(mode)/popup','chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650").focus();
-        ee.emitEvent('chatStartOpenWindowArchive', [archive_id, chat_id]);
+        var popupWindow = window.open(this.wwwDir + 'chatarchive/viewarchivedchat/' + archive_id + '/' + chat_id + '/(mode)/popup','chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650");
+        if (popupWindow !== null) {
+            popupWindow.focus();
+            ee.emitEvent('chatStartOpenWindowArchive', [archive_id, chat_id]);
+        }
     };
 
 	this.startCoBrowse = function(chat_id)
 	{
-		window.open(this.wwwDir + 'cobrowse/browse/'+chat_id,'chatwindow-cobrowse-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650").focus();
+        popupWindow = window.open(this.wwwDir + 'cobrowse/browse/'+chat_id,'chatwindow-cobrowse-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650");
+
+		if (popupWindow !== null) {
+            popupWindow.focus();
+        }
+
 		return false;
 	};
 
