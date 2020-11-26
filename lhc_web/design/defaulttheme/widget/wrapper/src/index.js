@@ -675,7 +675,14 @@
                     }
                 });
 
-                if ('serviceWorker' in navigator) {
+                var serviceWorkerAvailable = false;
+                try {
+                    serviceWorkerAvailable = ('serviceWorker' in navigator);
+                } catch (e) {
+                    // Worker not available
+                }
+
+                if (serviceWorkerAvailable === true) {
                     navigator.serviceWorker.addEventListener('message', function (event) {
                         if (typeof event.data.lhc_ch !== 'undefined' && typeof event.data.lhc_cid !== 'undefined') {
                             attributesWidget.widgetStatus.next(true);
