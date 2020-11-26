@@ -22,8 +22,8 @@
 		<form action="<?php echo erLhcoreClassDesign::baseurl('chat/dashboardwidgets')?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
 
             <ul class="nav nav-tabs mb-3" role="tablist">
-                <li role="presentation" class="nav-item"><a href="#widgets-settings" class="nav-link active" aria-controls="widgets-settings" role="tab" data-toggle="tab">Widgets</a></li>
-                <li role="presentation" class="nav-item"><a class="nav-link" href="#alerti-settings" aria-controls="alerti-settings" role="tab" data-toggle="tab">Alert icons</a></li>
+                <li role="presentation" class="nav-item"><a href="#widgets-settings" class="nav-link active" aria-controls="widgets-settings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Widgets')?></a></li>
+                <li role="presentation" class="nav-item"><a class="nav-link" href="#alerti-settings" aria-controls="alerti-settings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Alert icons')?></a></li>
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane form-group active" id="widgets-settings">

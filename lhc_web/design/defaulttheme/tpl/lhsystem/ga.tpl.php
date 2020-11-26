@@ -43,6 +43,11 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
         <textarea id="id-ga_js" rows="6" ng-non-bindable name="ga_js" class="form-control form-control-sm"><?php isset($ga_options['ga_js']) ? print htmlspecialchars($ga_options['ga_js']) : print $ga?></textarea>
     </div>
 
+    <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Javascript for static URL')?></label>
+        <textarea rows="6" ng-non-bindable name="js_static" class="form-control form-control-sm"><?php isset($ga_options['js_static']) ? print htmlspecialchars($ga_options['js_static']) : print ''?></textarea>
+    </div>
+
     <ul class="nav nav-tabs mb-3" role="tablist">
         <li role="presentation" class="nav-item"><a href="#widget" class="nav-link<?php if ($tab == '') : ?> active<?php endif;?>" aria-controls="widget" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Widget');?></a></li>
         <li role="presentation" class="nav-item"><a href="#chat" class="nav-link<?php if ($tab == 'chat') : ?> active<?php endif;?>" aria-controls="chat" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Chat');?></a></li>

@@ -24,7 +24,11 @@ $webhooksEnabled = $cfg->getSetting( 'webhooks', 'enabled', false );
         <?php foreach ($items as $item) : ?>
             <tr>
                 <td nowrap="nowrap">
-                    <?php echo htmlspecialchars($item->event)?>
+                    <?php if ($item->type == 0) : ?>
+                        <?php echo htmlspecialchars($item->event)?>
+                    <?php elseif ($item->type == 1) : ?>
+                        <b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Continuous event');?></b>
+                    <?php endif; ?>
                 </td>
                 <td><?php echo htmlspecialchars($item->bot)?></td>
                 <td><?php echo htmlspecialchars($item->trigger)?></td>
