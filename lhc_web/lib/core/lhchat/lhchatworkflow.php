@@ -808,7 +808,7 @@ class erLhcoreClassChatWorkflow {
         $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.has_previous_messages', $params);
 
         if ($statusWorkflow === false) {
-            if ($hasMessages == false && ($online_user = $params['chat']->online_user) !== false) {
+            if ($hasMessages == false && erLhcoreClassUser::instance()->hasAccessTo('lhchat','prev_chats') && ($online_user = $params['chat']->online_user) !== false) {
                 $chatHistory = erLhcoreClassModelChat::findOne(array('sort' => 'id DESC','filterlt' => array('id' => $params['chat']->id), 'filter' => array('online_user_id' => $online_user->id)));
                 if ($chatHistory instanceof erLhcoreClassModelChat) {
                     $hasMessages = true;
