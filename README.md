@@ -35,6 +35,7 @@ http://livehelperchat.com/demo-12c.html
  * [Google Authentication](https://github.com/LiveHelperChat/lhcgoogleauth) login using Google account
  * [2FA](https://github.com/LiveHelperChat/2fa) `Authenticator` mobile app support
  * [Amazon S3](https://github.com/LiveHelperChat/amazon-s3) scale infinitely by storing app files in the cloud
+ * [Desktop app](https://github.com/LiveHelperChat/electron) written with electron
 
 ## Quick development guide
  * After app is installed disable cache and enable debug output. 
