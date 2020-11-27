@@ -132,6 +132,14 @@ try {
                 $outputResponse['chat_ui']['clinst'] = true;
             }
 
+            if (isset($theme->bot_configuration_array['custom_html_header']) && $theme->bot_configuration_array['custom_html_header'] != '') {
+                $outputResponse['chat_ui']['custom_html_header'] = $theme->bot_configuration_array['custom_html_header'];
+            }
+
+            if (isset($theme->bot_configuration_array['custom_html_header_body']) && $theme->bot_configuration_array['custom_html_header_body'] != '') {
+                $outputResponse['chat_ui']['custom_html_header_body'] = $theme->bot_configuration_array['custom_html_header_body'];
+            }
+
             if (isset($theme->bot_configuration_array['prev_msg']) && $theme->bot_configuration_array['prev_msg'] == true) {
                 if ($chat->online_user instanceof erLhcoreClassModelChatOnlineUser) {
                     
