@@ -79,6 +79,8 @@
         }
     }
 
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/events_tracking.tpl.php'));?>
+
     window.initializeLHC = "lhc_init:"+JSON.stringify(initParams);
 })();
 </script>

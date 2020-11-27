@@ -32,6 +32,11 @@ class _helperFunctions {
         } else if (window.parent && window.parent.closed === false) {
             window.parent.postMessage(this.prefix + '::'+key+'::'+JSON.stringify(data || null),'/');
         }
+
+        // Send to popup event listener to track an events
+        if (typeof LHCEventTracker !== 'undefined') {
+            LHCEventTracker(key,data);
+        }
     }
 
     sendMessageParentDirect(key, data) {

@@ -44,7 +44,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
     </div>
 
     <div class="form-group">
-        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Javascript for static URL')?></label>
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Javascript for static URL. Paste your GA or any other script here.')?></label>
         <textarea rows="6" ng-non-bindable name="js_static" class="form-control form-control-sm"><?php isset($ga_options['js_static']) ? print htmlspecialchars($ga_options['js_static']) : print ''?></textarea>
     </div>
 
