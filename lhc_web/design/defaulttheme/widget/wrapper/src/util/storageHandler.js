@@ -1,15 +1,36 @@
 
 export class storageHandler {
-    constructor(global, domain, prefix) {
+    constructor(global, domain, prefix, cookieEnabled) {
         this.window = global;
+        this.cookieEnabled = false;
+
+        // Have we checked cookies support
+        this.cookiesSupportChecked = false;
+
+        // We should try to enable cookie
+        if (cookieEnabled == true) {
+            this.checkCookiesSupport();
+        }
+
+        this.domain = domain;
+        this.secureCookie = false;
+        this.cookiePerPage = false;
+        this.prefix = prefix || 'lhc';
+    }
+
+    checkCookiesSupport() {
+
+        if (this.cookiesSupportChecked === true) {
+            return this.cookieEnabled;
+        }
+
+        this.cookiesSupportChecked = true;
 
         try {
             this.hasSessionStorage = !!this.window.sessionStorage;
         } catch (e){
             this.hasSessionStorage = false;
         }
-
-        this.cookieEnabled = false;
 
         try {
             // Create cookie
@@ -21,10 +42,7 @@ export class storageHandler {
 
         }
 
-        this.domain = domain;
-        this.secureCookie = false;
-        this.cookiePerPage = false;
-        this.prefix = prefix || 'lhc';
+        return this.cookieEnabled;
     }
 
     setCookieDomain(domain) {

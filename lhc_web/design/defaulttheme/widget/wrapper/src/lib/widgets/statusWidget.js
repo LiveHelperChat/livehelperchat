@@ -126,16 +126,14 @@ export class statusWidget{
 
         attributes.onlineStatus.subscribe((data) => this.toggleOfflineIcon(data));
 
-        if (this.attributes.mode !== 'popup') {
-            attributes.widgetStatus.subscribe((data) => {
-
+        attributes.widgetStatus.subscribe((data) => {
+            if (this.attributes.mode !== 'popup') {
                 const chatParams = this.attributes['userSession'].getSessionAttributes();
-
                 (data == true || (!this.attributes.leaveMessage && this.attributes.onlineStatus.value == false && !chatParams['id'])) ? this.hide() : this.show();
-            });
-        } else {
-            this.show()
-        }
+            }
+        });
+
+        this.attributes.mode === 'popup' && this.show();
 
         attributes.eventEmitter.addListener('unread_message', () => {
             this.showUnreadIndicator();

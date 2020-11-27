@@ -12,7 +12,7 @@ export class needhelpWidget{
         this.nhOpen = false;
 
         this.cont = new UIConstructorIframe((prefix || 'lhc')+'_needhelp_widget_v2', helperFunctions.getAbstractStyle({
-            zindex: "2147483640",
+            zindex: "2147483639",
             width: "320px",
             height: "135px",
             position: "fixed",
@@ -32,18 +32,18 @@ export class needhelpWidget{
 
         this.attributes = attributes;
 
-        var placement = {bottom: (70 + this.attributes.widgetDimesions.value.wbottom) +"px", right: (45+this.attributes.widgetDimesions.value.wright) + "px"};
+        var placement = {bottom: (70 + this.attributes.widgetDimesions.value.wbottom) +"px", right: (65+this.attributes.widgetDimesions.value.wright) + "px"};
 
         var leftPosition = false;
 
         if (attributes.position_placement == 'bottom_left' || attributes.position_placement == 'full_height_left') {
-            placement = {bottom: (70 + this.attributes.widgetDimesions.value.wbottom) +"px", left: (45+this.attributes.widgetDimesions.value.wright) + "px"};
+            placement = {bottom: (70 + this.attributes.widgetDimesions.value.wbottom) +"px", left: (65+this.attributes.widgetDimesions.value.wright) + "px"};
             leftPosition = true;
         } else if (attributes.position_placement == 'middle_left') {
-            placement = {bottom: "calc(50% + 35px)", left: (45+this.attributes.widgetDimesions.value.wright) + "px"};
+            placement = {bottom: "calc(50% + 35px)", left: (65+this.attributes.widgetDimesions.value.wright) + "px"};
             leftPosition = true;
         } else if (attributes.position_placement == 'middle_right') {
-            placement = {bottom: "calc(50% + 35px)", right: (45+this.attributes.widgetDimesions.value.wright) + "px"};
+            placement = {bottom: "calc(50% + 35px)", right: (65+this.attributes.widgetDimesions.value.wright) + "px"};
         }
 
         this.cont.massRestyle(placement);

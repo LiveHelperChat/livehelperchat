@@ -85,11 +85,18 @@
 
                 const prefixLowercase = scopeScript.toLowerCase();
                 const prefixStorage = (prefixLowercase && LHC_API.args.scope_storage ? prefixLowercase : 'lhc');
+                const cookieEnabledUser = typeof LHC_API.args.cookie_enabled !== 'undefined' ? LHC_API.args.cookie_enabled : true;
+                const userMode = LHC_API.args.mode || 'widget';
 
-                var storageHandler = new storageHandler(global, LHC_API.args.domain || null, prefixStorage);
+                var storageHandler = new storageHandler(global, LHC_API.args.domain || null, prefixStorage, cookieEnabledUser);
 
-                // Cookies are disabled and it's required for us to work. So just exit :(
-                if (storageHandler.cookieEnabled === false) {
+                // Cookies are disabled and it's required for us to work. So switch to mode where cookies are not required
+                if (storageHandler.cookieEnabled === false && userMode == 'widget') {
+                    LHC_API.args.orig = {}
+                    LHC_API.args.orig.mode = LHC_API.args.mode;
+                    LHC_API.args.orig.proactive = LHC_API.args.proactive;
+                    LHC_API.args.orig.check_messages = LHC_API.args.check_messages;
+
                     LHC_API.args.mode = 'popup';
                     LHC_API.args.proactive = false;
                     LHC_API.args.check_messages = false;
@@ -115,6 +122,7 @@
                     prefixLowercase: prefixLowercase,
                     prefixStorage: prefixStorage,
                     prefixScope: scopeScript,
+                    cookie_enabled: cookieEnabledUser,
                     LHC_API: LHC_API,
                     viewHandler: null,
                     mainWidget: new mainWidget(prefixLowercase),
@@ -165,6 +173,7 @@
                     userSession: new userSession(),
                     storageHandler: storageHandler,
                     staticJS: {},
+                    nh : null, // Need help data
                     init_calls: [],
                     childCommands: [],
                     childExtCommands: [],
@@ -214,8 +223,8 @@
                     }
                 }
 
-                helperFunctions.makeRequest(LHC_API.args.lhc_base_url + attributesWidget.lang + 'widgetrestapi/settings', {
-                    params: {
+                function getArguments(){
+                    return {
                         'cd': (storageHandler.cookieEnabled === false ? 1 : null),
                         'vid': (LHC_API.args.UUID || attributesWidget.userSession.getVID()),
                         'hnh': attributesWidget.userSession.hnh,
@@ -228,7 +237,27 @@
                         'idnt': attributesWidget.identifier,
                         'tag': attributesWidget.tag,
                         'theme': attributesWidget.theme
-                    }
+                    };
+                }
+
+                function showNeedHelp(nh) {
+                    import('./lib/widgets/needhelpWidget').then((module) => {
+                        var needhelpWidget = new module.needhelpWidget(attributesWidget.prefixLowercase);
+                        containerChatObj.cont.elmDom.appendChild(needhelpWidget.cont.constructUI(), !0);
+                        needhelpWidget.init(attributesWidget, nh);
+                    });
+                }
+
+                function showProactive(){
+                    import('./util/proactiveChat').then((module) => {
+                        module.proactiveChat.setParams({
+                            'interval': attributesWidget.proactive_interval
+                        }, attributesWidget, chatEvents);
+                    });
+                }
+
+                helperFunctions.makeRequest(LHC_API.args.lhc_base_url + attributesWidget.lang + 'widgetrestapi/settings', {
+                    params: getArguments()
                 }, (data) => {
 
                     if (data.terminate || ((!attributesWidget.leaveMessage && data.chat_ui.leaveamessage === false) && data.isOnline === false)) {
@@ -370,15 +399,15 @@
                                 }, attributesWidget);
                             });
                         }
-
                     }
 
-                    if (attributesWidget.mode == 'widget' && data.nh && attributesWidget.fresh === false && attributesWidget['position'] != 'api' && attributesWidget.userSession.id === null) {
-                        import('./lib/widgets/needhelpWidget').then((module) => {
-                            var needhelpWidget = new module.needhelpWidget(attributesWidget.prefixLowercase);
-                            containerChatObj.cont.elmDom.appendChild(needhelpWidget.cont.constructUI(), !0);
-                            needhelpWidget.init(attributesWidget, data.nh);
-                        });
+                    if (data.nh && attributesWidget.fresh === false && attributesWidget['position'] != 'api' && attributesWidget.userSession.id === null) {
+                        if (attributesWidget.mode == 'widget') {
+                            showNeedHelp(data.nh);
+                        } else {
+                            // Store for later use
+                            attributesWidget.nh = data.nh;
+                        }
                     }
 
                     if (data.js_vars) {
@@ -419,11 +448,7 @@
                     attributesWidget.proactive_interval = data.chat_ui.proactive_interval;
 
                     if ((attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') && (typeof LHC_API.args.proactive === 'undefined' || LHC_API.args.proactive === true) && attributesWidget.storageHandler.getSessionStorage(prefixStorage + '_invt') === null) {
-                        import('./util/proactiveChat').then((module) => {
-                            module.proactiveChat.setParams({
-                                'interval': attributesWidget.proactive_interval
-                            }, attributesWidget, chatEvents);
-                        });
+                        showProactive();
                     }
 
                     if (attributesWidget.init_calls.length > 0) {
@@ -474,6 +499,42 @@
                 attributesWidget.eventEmitter.addListener('toggleSound', function () {
                     var newValue = !attributesWidget.toggleSound.value;
                     attributesWidget.toggleSound.next(newValue);
+                });
+                
+                // Toggle cookies policy
+                attributesWidget.eventEmitter.addListener('enableCookies', function () {
+
+                    // Check does cookies are supported in genreal
+                    if (storageHandler.checkCookiesSupport() === true) {
+                        // Store session
+                        var sessionAtrribute = attributesWidget.userSession.getSessionAttributes();
+                        if (typeof sessionAtrribute.hnh !== 'undefined') { delete sessionAtrribute['hnh']; }
+                        attributesWidget.storageHandler.storeSessionInformation(sessionAtrribute);
+                        
+                        if (typeof LHC_API.args.orig !== 'undefined') {
+
+                            attributesWidget.mode = LHC_API.args.mode = LHC_API.args.orig.mode;
+                            LHC_API.args.proactive = LHC_API.args.orig.proactive;
+                            LHC_API.args.check_messages = LHC_API.args.orig.check_messages;
+
+                            helperFunctions.makeRequest(LHC_API.args.lhc_base_url + attributesWidget.lang + 'widgetrestapi/settings', {
+                                params: getArguments()
+                            }, (data) => {
+                                // Change mode for react app
+                                attributesWidget.eventEmitter.emitEvent('sendChildEvent',[{'cmd' : 'attr_set', 'arg' : {'type':'attr_set','attr': ['mode'], data : attributesWidget.mode}}]);
+
+                                // Show need help widget if it's required
+                                if (attributesWidget.mode == 'widget' && attributesWidget.nh !== null) {
+                                    showNeedHelp(attributesWidget.nh);
+                                }
+
+                                // Enable proactive if it's required
+                                if ((attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') && (typeof LHC_API.args.proactive === 'undefined' || LHC_API.args.proactive === true) && attributesWidget.storageHandler.getSessionStorage(prefixStorage + '_invt') === null) {
+                                    showProactive();
+                                }
+                            });
+                        }
+                    }
                 });
 
 
