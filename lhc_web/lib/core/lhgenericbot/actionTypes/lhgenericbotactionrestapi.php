@@ -65,7 +65,8 @@ class erLhcoreClassGenericBotActionRestapi
                                 '{content_4}' => $response['content_4'],
                                 '{content_5}' => $response['content_5'],
                                 '{content_6}' => $response['content_6'],
-                                '{http_code}' => $response['http_code']
+                                '{http_code}' => $response['http_code'],
+                                '{http_error}' => $response['http_error']
                             ),
                             'meta_msg' => $response['meta'],
                             'trigger_id' => $action['content']['rest_api_method_output'][$response['id']]
@@ -83,7 +84,8 @@ class erLhcoreClassGenericBotActionRestapi
                             '{content_4}' => $response['content_4'],
                             '{content_5}' => $response['content_5'],
                             '{content_6}' => $response['content_6'],
-                            '{http_code}' => $response['http_code']
+                            '{http_code}' => $response['http_code'],
+                            '{http_error}' => $response['http_error']
                         ),
                         'meta_msg' => $response['meta'],
                         'trigger_id' => $action['content']['rest_api_method_output']['default_trigger']
@@ -252,6 +254,7 @@ class erLhcoreClassGenericBotActionRestapi
                         'content_4' => '',
                         'content_5' =>  '',
                         'content_6' => '',
+                        'http_error' => '',
                         'meta' => '',
                         'id' => 0
                     );
@@ -382,8 +385,10 @@ class erLhcoreClassGenericBotActionRestapi
 
         $content = curl_exec($ch);
 
+        $http_error = '';
+        
         if (curl_errno($ch)) {
-            $additionalError = ' [ERR: ' . curl_error($ch) . '] ';
+            $http_error = curl_error($ch);
         }
 
         $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -484,6 +489,7 @@ class erLhcoreClassGenericBotActionRestapi
                     return array(
                         'content' => $responseValue,
                         'http_code' => $httpcode,
+                        'http_error' => $http_error,
                         'content_2' => (isset($responseValueSub[2]) ? $responseValueSub[2] : ''),
                         'content_3' => (isset($responseValueSub[3]) ? $responseValueSub[3] : ''),
                         'content_4' => (isset($responseValueSub[4]) ? $responseValueSub[4] : ''),
@@ -498,6 +504,7 @@ class erLhcoreClassGenericBotActionRestapi
             return array(
                 'content' => $content,
                 'http_code' => $httpcode,
+                'http_error' => $http_error,
                 'content_2' => '',
                 'content_3' => '',
                 'content_4' => '',
@@ -510,9 +517,12 @@ class erLhcoreClassGenericBotActionRestapi
         return array(
             'content' => $content,
             'http_code' => $httpcode,
+            'http_error' => $http_error,
             'content_2' => '',
             'content_3' => '',
             'content_4' => '',
+            'content_5' => '',
+            'content_6' => '',
             'meta' => array()
         );
     }
