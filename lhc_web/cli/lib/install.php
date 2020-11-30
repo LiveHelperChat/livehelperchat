@@ -1933,6 +1933,7 @@ class Install
                 array('module' => 'lhfront', 'function' => 'use'),
                 array('module' => 'lhchat', 'function' => 'prev_chats'),
                 array('module' => 'lhsystem','function' => 'use'),
+                array('module' => 'lhcannedmsg', 'function' => 'see_global'),
                 array('module' => 'lhtranslation','function' => 'use'),
                 array('module' => 'lhchat',  'function' => 'allowblockusers'),
                 array('module' => 'lhsystem','function' => 'generatejs'),

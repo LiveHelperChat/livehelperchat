@@ -2088,6 +2088,7 @@ try {
                         array('module' => 'lhspeech', 'function' => 'changedefaultlanguage'),
                         array('module' => 'lhspeech', 'function' => 'use'),
                         array('module' => 'lhcannedmsg', 'function' => 'use'),
+                        array('module' => 'lhcannedmsg', 'function' => 'see_global'),
                         array('module' => 'lhchat', 'function' => 'prev_chats'),
                         array('module' => 'lhtheme', 'function' => 'personaltheme'),
                         array('module' => 'lhuser', 'function' => 'userlistonline'),
@@ -2095,6 +2096,7 @@ try {
                         array('module' => 'lhgroupchat', 'function' => 'use'),
                         array('module' => 'lhuser', 'function' => 'see_all_group_users'),
                     );
+
 
                     foreach ($permissionsArray as $paramsPermission) {
                         $RoleFunctionOperator = new erLhcoreClassModelRoleFunction();

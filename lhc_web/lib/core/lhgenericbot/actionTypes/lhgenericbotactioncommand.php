@@ -211,7 +211,8 @@ class erLhcoreClassGenericBotActionCommand {
                 $action['content']['payload_arg'] = isset($params['replace_array']) ? str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$action['content']['payload_arg']) : $action['content']['payload_arg'];
 
                 $eventArgs = array('old' => $chat->{$action['content']['payload']}, 'attr' => $action['content']['payload'], 'new' => $action['content']['payload_arg']);
-                $chat->{$action['content']['payload']} = $action['content']['payload_arg'];
+                
+                $chat->{$action['content']['payload']} = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload_arg'], array('chat' => $chat, 'args' => $params));
 
                 $updateDepartmentStats = false;
 
