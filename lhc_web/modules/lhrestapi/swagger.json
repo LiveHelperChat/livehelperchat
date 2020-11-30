@@ -2971,6 +2971,64 @@
           "type": "integer",
           "description": "Was chat data anonymized. 0 - no, 1 - yes",
           "example": null
+        },
+        "last_msg_time": {
+          "type": "string",
+          "description": "Magic attribute. This is the max of (last_user_msg_time, last_op_msg_time)",
+          "example": null
+        },
+        "time_created_front": {
+          "type": "string",
+          "description": "Magic attribute. Time in human readable format when chat was created. uses - time",
+          "example": null
+        },
+        "pnd_time_front": {
+          "type": "string",
+          "description": "Magic attribute. Time in human readable format when chat become pending. uses - pnd_time",
+          "example": null
+        },
+        "cls_time_front": {
+          "type": "string",
+          "description": "Magic attribute. Time in human readable format when chat was closed. uses - cls_time",
+          "example": null
+        },
+        "wait_time_seconds": {
+          "type": "string",
+          "description": "Magic attribute. How long chat is pending for being accepted. Value in seconds. uses - time() - max(time,pnd_time)",
+          "example": null
+        },
+        "wait_time_front": {
+          "type": "string",
+          "description": "Magic attribute. How long chat was pending before being accepted. Value in seconds. Uses - wait_time",
+          "example": null
+        },
+        "number_in_queue": {
+          "type": "string",
+          "description": "Magic attribute. Number in the queue.",
+          "example": null
+        },
+        "hum": {
+          "type": "string",
+          "description": "Magic attribute. Has chat unread messages and from last visitor message already passed 7 seconds.",
+          "example": null
+        },
+        "additional_data_array": {
+          "type": "string",
+          "description": "Magic attribute. json_decoded array of additional_data attribute.",
+          "example": null
+        },
+        "chat_variables_array": {
+          "type": "string",
+          "description": "Magic attribute. json_decoded array of chat_variables",
+          "example": null
+        },
+        "bot": {
+          "description": "Magic attribute. Bot object. User bot_id to fetch bot",
+          "$ref": "#/definitions/Bot"
+        },
+        "department": {
+          "description": "Magic attribute. Bot object. Uses dep_id to fetch bot",
+          "$ref": "#/definitions/Department"
         }
       },
       "example" : {
