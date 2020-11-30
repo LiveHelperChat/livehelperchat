@@ -66,7 +66,9 @@ class erLhcoreClassGenericBotActionRestapi
                                 '{content_5}' => $response['content_5'],
                                 '{content_6}' => $response['content_6'],
                                 '{http_code}' => $response['http_code'],
-                                '{http_error}' => $response['http_error']
+                                '{http_error}' => $response['http_error'],
+                                '{content_raw}' => $response['content_raw'],
+                                '{http_data}' => $response['http_data']
                             ),
                             'meta_msg' => $response['meta'],
                             'trigger_id' => $action['content']['rest_api_method_output'][$response['id']]
@@ -85,7 +87,9 @@ class erLhcoreClassGenericBotActionRestapi
                             '{content_5}' => $response['content_5'],
                             '{content_6}' => $response['content_6'],
                             '{http_code}' => $response['http_code'],
-                            '{http_error}' => $response['http_error']
+                            '{http_error}' => $response['http_error'],
+                            '{content_raw}' => $response['content_raw'],
+                            '{http_data}' => $response['http_data']
                         ),
                         'meta_msg' => $response['meta'],
                         'trigger_id' => $action['content']['rest_api_method_output']['default_trigger']
@@ -249,12 +253,14 @@ class erLhcoreClassGenericBotActionRestapi
                      return array(
                         'content' => 'Invalid conditions',
                         'http_code' => 404,
+                        'http_data' => '',
                         'content_2' => '',
                         'content_3' =>  '',
                         'content_4' => '',
                         'content_5' =>  '',
                         'content_6' => '',
                         'http_error' => '',
+                        'content_raw' => '',
                         'meta' => '',
                         'id' => 0
                     );
@@ -386,7 +392,22 @@ class erLhcoreClassGenericBotActionRestapi
         $content = curl_exec($ch);
 
         $http_error = '';
-        
+
+        $paramsRequest = [
+            'headers' => $headers,
+            'url' => $url,
+        ];
+
+        if (isset($postParams)) {
+            $paramsRequest['post'] = $postParams;
+        }
+
+        if (isset($bodyPOST)) {
+            $paramsRequest['body'] = $bodyPOST;
+        }
+
+        $http_data = json_encode($paramsRequest);
+
         if (curl_errno($ch)) {
             $http_error = curl_error($ch);
         }
@@ -488,8 +509,10 @@ class erLhcoreClassGenericBotActionRestapi
 
                     return array(
                         'content' => $responseValue,
+                        'content_raw' => $content,
                         'http_code' => $httpcode,
                         'http_error' => $http_error,
+                        'http_data' => $http_data,
                         'content_2' => (isset($responseValueSub[2]) ? $responseValueSub[2] : ''),
                         'content_3' => (isset($responseValueSub[3]) ? $responseValueSub[3] : ''),
                         'content_4' => (isset($responseValueSub[4]) ? $responseValueSub[4] : ''),
@@ -503,8 +526,10 @@ class erLhcoreClassGenericBotActionRestapi
             // We did not found matching response. Return everything.
             return array(
                 'content' => $content,
+                'content_raw' => $content,
                 'http_code' => $httpcode,
                 'http_error' => $http_error,
+                'http_data' => $http_data,
                 'content_2' => '',
                 'content_3' => '',
                 'content_4' => '',
@@ -516,8 +541,10 @@ class erLhcoreClassGenericBotActionRestapi
 
         return array(
             'content' => $content,
+            'content_raw' => $content,
             'http_code' => $httpcode,
             'http_error' => $http_error,
+            'http_data' => $http_data,
             'content_2' => '',
             'content_3' => '',
             'content_4' => '',
