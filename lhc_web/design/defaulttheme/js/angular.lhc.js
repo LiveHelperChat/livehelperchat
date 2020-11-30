@@ -1259,6 +1259,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
     this.startChatByID = function(chat_id, background) {
 	    if (!isNaN(chat_id)) {
             if ($('#tabs').length > 0) {
+                $('#menu-chat-options').dropdown('toggle');
                 var _that = this;
                 LiveHelperChatFactory.getChatData(chat_id).then(function(data) {
                     if (!background) {
