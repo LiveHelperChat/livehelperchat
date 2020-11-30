@@ -98,7 +98,10 @@ class erLhcoreClassLHCBotWorker
                                 '{content_4}' => $response['content_4'],
                                 '{content_5}' => $response['content_5'],
                                 '{content_6}' => $response['content_6'],
-                                '{http_code}' => $response['http_code']
+                                '{http_code}' => $response['http_code'],
+                                '{http_error}' => $response['http_error'],
+                                '{content_raw}' => $response['content_raw'],
+                                '{http_data}' => $response['http_data']
                             ))));
 
                             if (class_exists('erLhcoreClassNodeJSRedis')) {
@@ -121,7 +124,10 @@ class erLhcoreClassLHCBotWorker
                             '{content_4}' => $response['content_4'],
                             '{content_5}' => $response['content_5'],
                             '{content_6}' => $response['content_6'],
-                            '{http_code}' => $response['http_code']
+                            '{http_code}' => $response['http_code'],
+                            '{http_error}' => $response['http_error'],
+                            '{content_raw}' => $response['content_raw'],
+                            '{http_data}' => $response['http_data']
                         ))));
 
                         if (class_exists('erLhcoreClassNodeJSRedis')){
