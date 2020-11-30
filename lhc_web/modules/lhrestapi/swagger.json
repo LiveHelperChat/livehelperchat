@@ -2722,6 +2722,16 @@
           "description": "Visitor typing text",
           "example": null
         },
+       "last_user_msg_time": {
+          "type": "string",
+          "description": "Time of of last visitor message",
+          "example": null
+        },
+        "last_op_msg_time": {
+          "type": "string",
+          "description": "Time of of last operator message",
+          "example": null
+        },
         "operator_typing": {
           "type": "integer",
           "description": "Operator started typing. Stores timestamp then it started.",
