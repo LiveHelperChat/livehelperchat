@@ -8,9 +8,6 @@ class erLhcoreClassChatWebhookContinuous {
 
         $chats = erLhcoreClassModelChat::getList(array(
             'limit' => false,
-            'filter' => array(
-                'id' => 10487923
-            ),
             'filterin' => array('status' => array(
             erLhcoreClassModelChat::STATUS_PENDING_CHAT,
             erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,
