@@ -17,6 +17,12 @@ $ViewList['getchatdata'] = array(
     'functions' => array( 'use' ),
 );
 
+$ViewList['loadoperatorjs'] = array(
+    'params' => array(),
+    'uparams' => array('type','id'),
+    'functions' => array( 'use' ),
+);
+
 $ViewList['loadmaindata'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),

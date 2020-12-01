@@ -121,9 +121,7 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 		            }
 
 		            if ($Chat->operation_admin != '') {
-		            	$ReturnStatuses[$chat_id]['oad'] = $Chat->operation_admin;
-		            	$Chat->operation_admin = '';
-		            	$Chat->updateThis(array('update' => array('operation_admin')));
+		            	$ReturnStatuses[$chat_id]['oad'] = 1;
 		            }	            
 		        } else {
                     $chatsGone[] = $chat_id;

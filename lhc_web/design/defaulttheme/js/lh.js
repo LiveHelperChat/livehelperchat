@@ -2290,15 +2290,15 @@ function lh(){
 	        	                      } else {
 	        	                    	  statusel.attr('title','');
 	        	                      }
-
-	        	                      if (typeof item.oad != 'undefined' && item.oad != '') {
-	        	                          try {
-                                              eval(item.oad);
-                                          } catch (e) {
-	        	                              console.log(e);
-                                          }
+	        	                      if (typeof item.oad != 'undefined' && item.oad == 1) {
+                                          $('#lhc_sync_operation').remove();
+                                          var th = document.getElementsByTagName('head')[0];
+                                          var s = document.createElement('script');
+                                          s.setAttribute('id','lhc_sync_operation');
+                                          s.setAttribute('type','text/javascript');
+                                          s.setAttribute('src',WWW_DIR_JAVASCRIPT + 'chat/loadoperatorjs/(type)/chat/(id)/'+item.chat_id);
+                                          th.appendChild(s);
 	        	                      };
-
 	                            });
 	        	            };
 

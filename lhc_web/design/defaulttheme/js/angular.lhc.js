@@ -1132,12 +1132,14 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	                }
 				}
 						
-				if (typeof data.ou !== 'undefined' && data.ou != '') {
-				    try {
-                        eval(data.ou);
-                    } catch (e) {
-				        console.log(e);
-                    }
+				if (typeof data.ou !== 'undefined' && data.ou == 1) {
+                    $('#lhc_op_operation').remove();
+                    var th = document.getElementsByTagName('head')[0];
+                    var s = document.createElement('script');
+                    s.setAttribute('id','lhc_op_operation');
+                    s.setAttribute('type','text/javascript');
+                    s.setAttribute('src',WWW_DIR_JAVASCRIPT + 'chat/loadoperatorjs');
+                    th.appendChild(s);
 				}
 		
 				if (typeof data.fs !== 'undefined' && data.fs.length > 0) {
