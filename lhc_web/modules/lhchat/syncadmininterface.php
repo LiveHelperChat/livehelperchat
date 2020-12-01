@@ -613,9 +613,7 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncadmininterfa
 
 $ou = '';
 if ($userData->operation_admin != '') {
-    $ou = 1;/*$userData->operation_admin;
-    $userData->operation_admin = '';
-    erLhcoreClassUser::getSession()->update($userData);*/
+    $ou = 1;
 }
 
 $responseSync = array('v' => $version, 'error' => 'false', 'mac' => $my_active_chats, 'ina' => $userData->inactive_mode, 'a_on' => $userData->always_on, 'ou' => $ou, 'result' => $ReturnMessages, 'ho' => $userData->hide_online, 'im' => $userData->invisible_mode);
