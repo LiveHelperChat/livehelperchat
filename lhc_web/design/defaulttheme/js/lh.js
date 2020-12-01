@@ -1344,7 +1344,11 @@ function lh(){
     	 var inst = this;
     	 $.each(operations,function(i,item) {
 			 	 if (item.indexOf('lhinst.') != -1) { // Internal operation
-			 		eval(item);
+			 	     try {
+                         eval(item);
+                     } catch (e) {
+			 	         console.log(e);
+                     }
 			 	 } else if (item.indexOf('lhc_ui_refresh') != -1) { // This can happen only if operator enables files upload. To support legacy widget.
 
                      var option = item.split(':')[1];
@@ -2287,8 +2291,12 @@ function lh(){
 	        	                    	  statusel.attr('title','');
 	        	                      }
 
-	        	                      if (typeof item.oad != 'undefined') {
-	        	                    	  eval(item.oad);
+	        	                      if (typeof item.oad != 'undefined' && item.oad != '') {
+	        	                          try {
+                                              eval(item.oad);
+                                          } catch (e) {
+	        	                              console.log(e);
+                                          }
 	        	                      };
 
 	                            });
