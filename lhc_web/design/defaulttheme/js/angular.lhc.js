@@ -1132,8 +1132,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	                }
 				}
 						
-				if (typeof data.ou !== 'undefined') {
-					eval(data.ou);
+				if (typeof data.ou !== 'undefined' && data.ou != '') {
+				    try {
+                        eval(data.ou);
+                    } catch (e) {
+				        console.log(e);
+                    }
 				}
 		
 				if (typeof data.fs !== 'undefined' && data.fs.length > 0) {
