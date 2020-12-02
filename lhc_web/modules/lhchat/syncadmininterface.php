@@ -237,7 +237,7 @@ if ($activeTabEnabled == true) {
 	}
 
 	erLhcoreClassChat::prefillGetAttributes($chats,array('hum','time_created_front','department_name','plain_user_name','product_name','n_official','n_off_full','aicons'),array('has_unread_messages','product_id','product','department','time','pnd_time','status','user_id','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
-	$ReturnMessages['active_chats'] = array('list' => array_values($chats));	
+	$ReturnMessages['active_chats'] = array('last_id_identifier' => 'active_chats', 'list' => array_values($chats));
 	$chatsList[] = & $ReturnMessages['active_chats']['list'];
 }
 

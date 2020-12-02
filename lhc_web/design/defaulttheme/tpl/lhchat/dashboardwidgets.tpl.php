@@ -42,7 +42,36 @@
                     <?php endforeach;?>
                 </div>
                 <div role="tabpanel" class="tab-pane form-group" id="alerti-settings">
-                    <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Choose what icons you want to exclude from the list.')?></p>
+
+                    <p class="font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Choose for what icons we should play sound.')?></p>
+                    <div class="row">
+                        <?php echo erLhcoreClassRenderHelper::renderCheckbox(array(
+                            'list_function' => 'erLhAbstractModelChatAlertIcon::getList',
+                            'selected_id' => $sound_icons,
+                            'id_attr' => 'identifier',
+                            'input_name' => 'sound_icons[]',
+                            'wrap_prepend' => '<div class="col-4">',
+                            'wrap_append' => '</div>',
+                            'list_function_params' => array('limit' => false)
+                        ));
+                        ?>
+                    </div>
+
+                    <p class="font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Choose for what icons we should show notification.')?></p>
+                    <div class="row">
+                        <?php echo erLhcoreClassRenderHelper::renderCheckbox(array(
+                            'list_function' => 'erLhAbstractModelChatAlertIcon::getList',
+                            'selected_id' => $notif_icons,
+                            'id_attr' => 'identifier',
+                            'input_name' => 'notif_icons[]',
+                            'wrap_prepend' => '<div class="col-4">',
+                            'wrap_append' => '</div>',
+                            'list_function_params' => array('limit' => false)
+                        ));
+                        ?>
+                    </div>
+
+                    <p class="font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Choose what icons you want to exclude from the list.')?></p>
                     <div class="form-group">
                         <div class="row">
                             <?php echo erLhcoreClassRenderHelper::renderCheckbox(array(
@@ -50,7 +79,7 @@
                                 'selected_id' => $exclude_icons,
                                 'id_attr' => 'identifier',
                                 'input_name' => 'exclude_icon[]',
-                                'wrap_prepend' => '<div class="col-6">',
+                                'wrap_prepend' => '<div class="col-4">',
                                 'wrap_append' => '</div>',
                                 'list_function_params' => array('limit' => false)
                             ));
