@@ -117,25 +117,30 @@ class erLhcoreClassChatExport {
             $survey[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Survey data').' - '.$i;
         }
 
-		if (isset($params['type']) && ($params['type'] == 2 || $params['type'] == 4)) {
-		    $content = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Chat content');
-		} else {
-			$content = null;
-		}
-
         $surveyData = array();
 
-        if (isset($params['type']) && $params['type'] == 2) {
-            $chatArray[] = array_merge(array($id, $name, $email, $phone, $wait, $country, $city, $ip, $operator, $dept, $date, $minutes, $vote, $mail, $page, $from, $link, $remarks, $device, $content), $additionalDataPlain, array($additionalData));
-        } elseif (isset($params['type']) && $params['type'] == 3) {
-            $chatArray[] = array_merge(array($id, $name, $email, $phone, $wait, $country, $city, $ip, $operator, $dept, $date, $minutes, $vote, $mail, $page, $from, $link, $remarks, $device), $survey, $additionalDataPlain, array($additionalData));
-            $surveyData = erLhAbstractModelSurveyItem::getList(array_merge(array('filterin' => array('chat_id' => array_keys($chats)), 'offset' => 0, 'limit' => 100000)));
-        } elseif (isset($params['type']) && $params['type'] == 4) {
-            $chatArray[] = array_merge(array($id, $name, $email, $phone, $wait, $country, $city, $ip, $operator, $dept, $date, $minutes, $vote, $mail, $page, $from, $link, $remarks, $device, $content), $survey, $additionalDataPlain, array($additionalData));
-            $surveyData = erLhAbstractModelSurveyItem::getList(array_merge(array('filterin' => array('chat_id' => array_keys($chats)), 'offset' => 0, 'limit' => 100000)));
-        } else {
-            $chatArray[] = array_merge(array($id, $name, $email, $phone, $wait, $country, $city, $ip, $operator, $dept, $date, $minutes, $vote, $mail, $page, $from, $link, $remarks, $device), $additionalDataPlain, array($additionalData));
+		$mainColumns = array($id, $name, $email, $phone, $wait, $country, $city, $ip, $operator, $dept, $date, $minutes, $vote, $mail, $page, $from, $link, $remarks, $device);
+
+		if (isset($params['type']) && in_array(2,$params['type'])) {
+            $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Chat content');
         }
+
+        if (isset($params['type']) && in_array(4,$params['type'])) {
+            $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Messages');
+            $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Visitor messages');
+            $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Bot messages');
+            $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Operator messages');
+            $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','System messages');
+            $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Visitor messages to bot');
+            $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Visitor messages to operator');
+        }
+
+		if (isset($params['type']) && in_array(3,$params['type'])) {
+            $mainColumns = array_merge($mainColumns,$survey);
+            $surveyData = erLhAbstractModelSurveyItem::getList(array_merge(array('filterin' => array('chat_id' => array_keys($chats)), 'offset' => 0, 'limit' => 100000)));
+        }
+
+        $chatArray[] = array_merge($mainColumns, $additionalDataPlain, array($additionalData));
 
         $exportChatData = array();
         foreach ($surveyData as $surveyItem)
@@ -208,8 +213,10 @@ class erLhcoreClassChatExport {
 
                 $url = erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('user/login').'/(r)/'.rawurlencode(base64_encode('chat/single/'.$item->id));
 
+                $itemData = array($id, $nick, $email, $phone, $wait, $country, $city, $ip, $user, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, $remarks, $device);
+
                 // Print chat content to last column
-                if (isset($params['type']) && ($params['type'] == 2 || $params['type'] == 4)) {
+                if (isset($params['type']) && in_array(2,$params['type'])) {
 
                     $messages = erLhcoreClassModelmsg::getList(array('limit' => 10000,'sort' => 'id ASC','filter' => array('chat_id' => $item->id)));                       
                     $messagesContent = '';
@@ -221,18 +228,42 @@ class erLhcoreClassChatExport {
                                 $messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. ($msg->user_id == 0 ? htmlspecialchars($item->nick) : htmlspecialchars($msg->name_support)).': '.htmlspecialchars($msg->msg)."\n";
                         }
                     }
+                    $itemData[] = trim($messagesContent);
+                }
 
-                    if ($params['type'] == 2) {
-                        $chatArray[] = array_merge(array($id, $nick, $email, $phone, $wait, $country, $city, $ip, $user, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, $remarks, $device, trim($messagesContent)),$additionalPairs, array($additionalDataContent));
-                    } else {
-                        $chatArray[] = array_merge(array($id, $nick, $email, $phone, $wait, $country, $city, $ip, $user, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, $remarks, $device, trim($messagesContent)), (isset($exportChatData[$item->id]) ? $exportChatData[$item->id] : array_fill(0,20,'')),$additionalPairs, array($additionalDataContent));
+                if (isset($params['type']) && in_array(4,$params['type'])) {
+                    $itemData[] = erLhcoreClassModelmsg::getCount(array('limit' => false,'filter' => array('chat_id' => $item->id))); // Total messages
+                    $visitorMessagesCount = erLhcoreClassModelmsg::getCount(array('limit' => false,'filter' => array('user_id' => 0, 'chat_id' => $item->id)));
+                    $itemData[] =  $visitorMessagesCount; // Visitor messages
+                    $itemData[] = erLhcoreClassModelmsg::getCount(array('limit' => false,'filter' => array('user_id' => -2, 'chat_id' => $item->id))); // Bot messages
+                    $itemData[] = erLhcoreClassModelmsg::getCount(array('limit' => false,'filtergt' => array('user_id' => 0),'filter' => array('chat_id' => $item->id))); // Operator messages
+                    $itemData[] = erLhcoreClassModelmsg::getCount(array('limit' => false,'filter' => array('user_id' => -1,'chat_id' => $item->id))); // System messages
+                    // We have a bot assigned
+                    // Chat does not have an operator OR it has operator and message time is less than chat become pending
+                    $visitorMessagesBotCount = 0;
+                    if ($item->gbot_id > 0) {
+                        // All visitor messages were interactions with bot
+                        if ($item->user_id == 0) {
+                            $visitorMessagesBotCount = $visitorMessagesCount;
+                            $itemData[] = $visitorMessagesBotCount;
+                        } else {
+                            $visitorMessagesBotCount = erLhcoreClassModelmsg::getCount(array('limit' => false, 'filterlte' => array('time' => $item->pnd_time),'filter' => array('user_id' => 0, 'chat_id' => $item->id)));
+                            $itemData[] = $visitorMessagesBotCount;
+                        }
+                    } else { // There was no bot assigned
+                        $itemData[] = 0;
                     }
 
-                } elseif ($params['type'] == 3) {
-                    $chatArray[] = array_merge(array($id, $nick, $email, $phone, $wait, $country, $city, $ip, $user, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, $remarks, $device), (isset($exportChatData[$item->id]) ? $exportChatData[$item->id] : array_fill(0,20,'')), $additionalPairs, array($additionalDataContent));
-                } else {
-                	$chatArray[] = array_merge(array($id, $nick, $email, $phone, $wait, $country, $city, $ip, $user, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, $remarks, $device),$additionalPairs, array($additionalDataContent));
+                    $itemData[] = $visitorMessagesCount - $visitorMessagesBotCount;
                 }
+
+                if (isset($params['type']) && in_array(3,$params['type'])) {
+                    $itemData = array_merge($itemData, isset($exportChatData[$item->id]) ? $exportChatData[$item->id] : array_fill(0,20,''));
+                }
+
+                $itemData = array_merge($itemData, $additionalPairs, array($additionalDataContent));
+
+                $chatArray[] = $itemData;
         }
 
 		// Create new PHPExcel object
