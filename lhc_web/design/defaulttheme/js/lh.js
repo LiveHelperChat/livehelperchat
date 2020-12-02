@@ -2086,8 +2086,8 @@ function lh(){
 	this.playNewMessageSound = function() {
 
 	    if (Modernizr.audio && this.audio !== null) {
-    	    this.audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/new_message.ogg' :
-                        Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/new_message.mp3' : WWW_DIR_JAVASCRIPT_FILES + '/new_message.wav';
+    	    this.audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/new_message.ogg?v=2' :
+                        Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/new_message.mp3?v=2' : WWW_DIR_JAVASCRIPT_FILES + '/new_message.wav?v=2';
     	    this.audio.load();
 	    };
 
@@ -2374,18 +2374,18 @@ function lh(){
 		}
 	};
 
-	this.playNewChatAudio = function() {
+	this.playNewChatAudio = function(sound) {
 		clearTimeout(this.soundIsPlaying);
 		this.soundPlayedTimes++;
 		if (Modernizr.audio && this.audio !== null) {
 
-			this.audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/new_chat.ogg' :
-                        Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/new_chat.mp3' : WWW_DIR_JAVASCRIPT_FILES + '/new_chat.wav';
+			this.audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/'+sound+'.ogg?v=2' :
+                        Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/'+sound+'.mp3?v=2' : WWW_DIR_JAVASCRIPT_FILES + '/'+sound+'.wav?v=2';
 			this.audio.load();
 
             if (confLH.repeat_sound > this.soundPlayedTimes) {
             	var inst = this;
-            	this.soundIsPlaying = setTimeout(function(){inst.playNewChatAudio();},confLH.repeat_sound_delay*1000);
+            	this.soundIsPlaying = setTimeout(function(){inst.playNewChatAudio(sound);},confLH.repeat_sound_delay*1000);
             }
 	    };
 	};
@@ -2472,7 +2472,7 @@ function lh(){
 
 		if (confLH.new_chat_sound_enabled == 1 && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && (identifier == 'active_chats' || identifier == 'bot_chats' || identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered')) {
 	    	this.soundPlayedTimes = 0;
-	        this.playNewChatAudio();
+	        this.playNewChatAudio(identifier == 'active_chats' ? 'alert' : 'new_chat');
 	    };
 
 	    if(!$("textarea[name=ChatMessage]").is(":focus") && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && (identifier == 'active_chats' || identifier == 'bot_chats' || identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered')) {
