@@ -744,24 +744,28 @@
                 }
 
                 if (serviceWorkerAvailable === true) {
-                    navigator.serviceWorker.addEventListener('message', function (event) {
-                        if (typeof event.data.lhc_ch !== 'undefined' && typeof event.data.lhc_cid !== 'undefined') {
-                            attributesWidget.widgetStatus.next(true);
-                            if (attributesWidget.mode == 'popup') {
-                                attributesWidget.userSession.setChatInformation({
-                                    'id': event.data.lhc_cid,
-                                    'hash': event.data.lhc_ch
-                                });
-                                attributesWidget.eventEmitter.emitEvent('unread_message');
-                            } else {
-                                chatEvents.sendChildEvent('shownWidget', [{'sender': 'closeButton'}]);
-                                chatEvents.sendChildEvent('reopenNotification', [{
-                                    'id': event.data.lhc_cid,
-                                    'hash': event.data.lhc_ch
-                                }]);
+                    try {
+                        navigator.serviceWorker.addEventListener('message', function (event) {
+                            if (typeof event.data.lhc_ch !== 'undefined' && typeof event.data.lhc_cid !== 'undefined') {
+                                attributesWidget.widgetStatus.next(true);
+                                if (attributesWidget.mode == 'popup') {
+                                    attributesWidget.userSession.setChatInformation({
+                                        'id': event.data.lhc_cid,
+                                        'hash': event.data.lhc_ch
+                                    });
+                                    attributesWidget.eventEmitter.emitEvent('unread_message');
+                                } else {
+                                    chatEvents.sendChildEvent('shownWidget', [{'sender': 'closeButton'}]);
+                                    chatEvents.sendChildEvent('reopenNotification', [{
+                                        'id': event.data.lhc_cid,
+                                        'hash': event.data.lhc_ch
+                                    }]);
+                                }
                             }
-                        }
-                    });
+                        });
+                    } catch (e) {
+                        // Ignore sandbox error
+                    }
                 }
 
                 // Listed for post messages
