@@ -135,6 +135,10 @@ class erLhcoreClassChatExport {
             $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Visitor messages to operator');
         }
 
+        if (isset($params['type']) && in_array(5,$params['type'])) {
+            $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Subject');
+        }
+
 		if (isset($params['type']) && in_array(3,$params['type'])) {
             $mainColumns = array_merge($mainColumns,$survey);
             $surveyData = erLhAbstractModelSurveyItem::getList(array_merge(array('filterin' => array('chat_id' => array_keys($chats)), 'offset' => 0, 'limit' => 100000)));
@@ -255,6 +259,15 @@ class erLhcoreClassChatExport {
                     }
 
                     $itemData[] = $visitorMessagesCount - $visitorMessagesBotCount;
+                }
+
+                if (isset($params['type']) && in_array(5,$params['type'])) {
+                    $subjects = erLhAbstractModelSubjectChat::getList(array('filter' => array('chat_id' => $item->id)));
+                    $subjectValue = [];
+                    foreach ($subjects as $subject) {
+                        $subjectValue[] = (string)$subject->subject;
+                    }
+                    $itemData[] = implode("\n",$subjectValue);
                 }
 
                 if (isset($params['type']) && in_array(3,$params['type'])) {
