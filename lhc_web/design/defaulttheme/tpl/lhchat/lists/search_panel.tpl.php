@@ -400,28 +400,15 @@
 
     </div>
 
-
-    <div class="row">
-        <div class="col-2">
+    <div class="row mb-2">
+        <div class="col-12">
             <div class="btn-group" role="group" aria-label="...">
                 <input type="submit" name="doSearch" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
                 <?php if ($pages->items_total > 0) : ?>
                     <a target="_blank" class="btn btn-secondary btn-sm" href="<?php echo $pages->serverURL?>/(print)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Print');?></a>
                 <?php endif; ?>
+                <button type="button" onclick="return lhc.revealModal({'title' : 'Export', 'height':350, backdrop:true, 'url':WWW_DIR_JAVASCRIPT +'<?php echo $pages->serverURL?>/(export)/1'})" class="btn btn-secondary btn-sm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export')?></button>
             </div>
-        </div>
-        <div class="col-2">
-            <div class="form-group">
-                <select class="form-control form-control-sm" id="export-type">
-                    <option value="<?php echo $pages->serverURL?>/(xls)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS')?></option>
-                    <option value="<?php echo $pages->serverURL?>/(xls)/2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS (with content)')?></option>
-                    <option value="<?php echo $pages->serverURL?>/(xls)/3"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS (with survey)')?></option>
-                    <option value="<?php echo $pages->serverURL?>/(xls)/4"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','XLS (with content and survey)')?></option>
-                </select>
-            </div>
-        </div>
-        <div class="col-2">
-            <button onclick="window.open($('#export-type').val())" class="btn btn-secondary btn-sm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export')?></button>
         </div>
     </div>
 	
