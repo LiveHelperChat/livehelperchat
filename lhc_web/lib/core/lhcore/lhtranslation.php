@@ -23,15 +23,9 @@ class erTranslationClassLhTranslation
 
         $this->translationFileModifyTime = filemtime($sys . '/translations/' . $this->languageCode . '/translation.ts');
 
-        try {
-            if ($cfg->getSetting('cachetimestamps', 'translationfile') != $this->translationFileModifyTime) {
-                $this->updateCache();
-                $cfg->setSetting('cachetimestamps', 'translationfile', $this->translationFileModifyTime);
-                $cfg->save();
-            }
-        } catch (Exception $e) {
+        if ($cfg->getSetting('cachetimestamps', 'translationfile_' . $this->languageCode, false) != $this->translationFileModifyTime) {
             $this->updateCache();
-            $cfg->setSetting('cachetimestamps', 'translationfile', $this->translationFileModifyTime);
+            $cfg->setSetting('cachetimestamps', 'translationfile_' . $this->languageCode, $this->translationFileModifyTime);
             $cfg->save();
         }
 
@@ -50,9 +44,9 @@ class erTranslationClassLhTranslation
 
         $this->translationFileModifyTime = filemtime($sys . '/translations/' . $this->languageCode . '/translation.ts');
 
-        if ($cfg->getSetting('cachetimestamps', 'translationfile') != $this->translationFileModifyTime) {
+        if ($cfg->getSetting('cachetimestamps', 'translationfile_' . $this->languageCode, false) != $this->translationFileModifyTime) {
             $this->updateCache();
-            $cfg->setSetting('cachetimestamps', 'translationfile', $this->translationFileModifyTime);
+            $cfg->setSetting('cachetimestamps', 'translationfile_' . $this->languageCode, $this->translationFileModifyTime);
             $cfg->save();
         }
 
@@ -96,21 +90,13 @@ class erTranslationClassLhTranslation
             }
 
         } catch (Exception $e) {
-
-            $this->updateCache();
-            try {
-                $translated = $this->translateFromXML($context, $string, $params);
-            } catch (Exception $e) {
-                $translated = $this->insertarguments($string, $params);
-            }
-
+            $translated = $this->insertarguments($string, $params);
             return self::$htmlEscape ? htmlspecialchars($translated, ENT_QUOTES) : $translated;
         }
     }
 
     private function updateCache()
     {
-
         try {
             $sys = erLhcoreClassSystem::instance()->SiteDir;
             $reader = new ezcTranslationTsBackend($sys . '/translations/' . $this->languageCode);
