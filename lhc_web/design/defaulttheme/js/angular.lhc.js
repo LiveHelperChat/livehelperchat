@@ -466,6 +466,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
     	};
 		
 		if (typeof forceReload !== 'undefined' && forceReload == true) {
+            _that.isListLoaded = false;
 			$scope.loadChatList();
 		}
 	};
@@ -481,6 +482,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
     	};
 		
 		if (typeof forceReload !== 'undefined' && forceReload == true) {
+            _that.isListLoaded = false;
 			$scope.loadChatList();
 		}
 	};
@@ -724,6 +726,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	$scope.$watch('lhc.limita', function(newVal,oldVal) {       
 		if (newVal != oldVal) {							
 			_that.storeLocalSetting('limita',newVal);
+            _that.isListLoaded = false;
 			$scope.loadChatList();
 		};
 	});
@@ -980,6 +983,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		if (_that.blockSync == true) {
 			clearTimeout($scope.timeoutControl);
 			$scope.timeoutControl = setTimeout(function(){
+                _that.isListLoaded = false;
 				$scope.loadChatList();
 			},confLH.back_office_sinterval);
 			return;
@@ -991,6 +995,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                 if (_that.blockSync == true) {
                     clearTimeout($scope.timeoutControl);
                     $scope.timeoutControl = setTimeout(function(){
+                        _that.isListLoaded = false;
                         $scope.loadChatList();
                     },confLH.back_office_sinterval);
                     return;
