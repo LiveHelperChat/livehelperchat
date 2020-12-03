@@ -111,7 +111,7 @@ class NodeTriggerActionCommand extends Component {
                 <div>
                     <div className="form-group">
                         <label>Set subject for a chat. Enter subject ID from the subject list.</label>
-                        <input className="form-control form-control-sm" type="text" placeholder="1" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
+                        <input className="form-control form-control-sm" type="text" placeholder="Please enter Subject ID." onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
                     </div>
                     <div className="form-group">
                         <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['remove_subject'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','remove_subject'])} /> Remove subject. Instead of adding we will remove subject.</label>

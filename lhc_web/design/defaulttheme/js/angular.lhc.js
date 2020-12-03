@@ -274,6 +274,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.widgets = [];
 	this.additionalColumns = [];
 	this.excludeIcons = [];
+	this.notifIcons = [];
 
 	this.departmentd = this.restoreLocalSetting('departmentd',[],true);
 	this.departmentd_dpgroups = this.restoreLocalSetting('departmentd_dpgroups',[],true);
@@ -1059,7 +1060,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                             }
                         }
 
-						if ( item.last_id_identifier ) {
+						if ( item.last_id_identifier) {
 		                    chatsToNotify = [];		                     
 		                    												
 							currentStatusNotifications = [];
@@ -1084,13 +1085,34 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                                     }
                                 }
 
+		                        var alertIcons = [];
+
+		                        // Active chats notifications are done by appending alert icons
+		                        if (item.last_id_identifier == 'active_chats') {
+		                            if (itemList.aicons) {
+                                        alertIcons = Object.keys(itemList.aicons);
+                                        identifierElement += '_' + alertIcons.join('_');
+                                    }
+                                }
+
 		                        currentStatusNotifications.push(identifierElement);
-		                  	
+
 		                        if (typeof _that.statusNotifications[item.last_id_identifier] == 'undefined') {
 		                        	_that.statusNotifications[item.last_id_identifier] = new Array();
 		                        };
 
-		                        if (_that.isListLoaded == true && (chatsSkipped == 0 || itemList.status_sub_sub === 2) && ((_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == 0 && confLH.ownntfonly == 0) || (_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == confLH.user_id)) ) {
+		                        if (_that.isListLoaded == true && item.last_id_identifier == 'active_chats') {
+                                    if (_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && alertIcons.length > 0 && _that.notifIcons.length > 0) {
+                                        var iconsMonitoring = _that.notifIcons.filter(function(n) {
+                                            return _that.excludeIcons.indexOf(n) === -1 && alertIcons.indexOf(n) !== -1;
+                                        })
+
+                                        // Operator is monitoring this notification icon
+                                        if (iconsMonitoring.length > 0) {
+                                            chatsToNotify.push(itemList.id + '__' + iconsMonitoring.join('__'));
+                                        }
+                                    }
+                                } else if (_that.isListLoaded == true && (chatsSkipped == 0 || itemList.status_sub_sub === 2) && ((_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == 0 && confLH.ownntfonly == 0) || (_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == confLH.user_id)) ) {
 		                        	if (lhinst.chatsSynchronising.indexOf(parseInt(itemList.id)) === -1) { // Don't show notification if chat is under sync already
                                          chatsToNotify.push(itemList.id);
 		                        	}
@@ -1542,6 +1564,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             _that.widgetsActive = data.widgets;
             _that.bot_st = data.bot_st;
             _that.excludeIcons = data.exc_ic;
+            _that.notifIcons = data.not_ic;
 
 			angular.forEach(_that.widgetsItems, function(listId) {
 				_that.setDepartmentNames(listId);

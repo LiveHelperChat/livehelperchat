@@ -14,10 +14,18 @@ foreach ($dashboardOrder as $widgetsColumn) {
     }
 }
 
+// Exclude notifications icons
 $dwic = json_decode(erLhcoreClassModelUserSetting::getSetting('dwic', ''),true);
 
 if ($dwic === null) {
     $dwic = [];
+}
+
+// Exclude notifications icons
+$notif_icons = json_decode(erLhcoreClassModelUserSetting::getSetting('dw_nic', ''),true);
+
+if ($notif_icons === null) {
+    $notif_icons = [];
 }
 
 $supportedWidgets = array();
@@ -49,7 +57,8 @@ if (ezcInputForm::hasPostData()) {
     $definition = array(
         'WidgetsUser' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY),
         'ColumnNumber' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int'),
-        'exclude_icon' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY)
+        'exclude_icon' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY),
+        'notif_icons' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY)
     );
     
     $form = new ezcInputForm(INPUT_POST, $definition);
@@ -107,13 +116,22 @@ if (ezcInputForm::hasPostData()) {
         $dwic = [];
         erLhcoreClassModelUserSetting::setSetting('dwic', json_encode($dwic));
     }
+
+    if ($form->hasValidData('notif_icons')) {
+        $notif_icons = array_values($form->notif_icons);
+        erLhcoreClassModelUserSetting::setSetting('dw_nic', json_encode($notif_icons));
+    } else {
+        $notif_icons = [];
+        erLhcoreClassModelUserSetting::setSetting('dw_nic', json_encode($notif_icons));
+    }
 }
 
 $tpl->setArray(array(
     'widgets' => $supportedWidgets,
     'user_widgets' => $widgetsUser,
     'columns_number' => count($dashboardOrder),
-    'exclude_icons' => $dwic
+    'exclude_icons' => $dwic,
+    'notif_icons' => $notif_icons,
 ));
 
 echo $tpl->fetch();

@@ -180,10 +180,12 @@ if (!is_array($widgets)) {
 $widgets = erLhcoreClassChat::array_flatten($widgets);
 
 $dwic = json_decode(erLhcoreClassModelUserSetting::getSetting('dwic', ''),true);
+$not_ic = json_decode(erLhcoreClassModelUserSetting::getSetting('dw_nic', ''),true);
 
 $response = array(
     'widgets' => $widgets,
     'exc_ic' => ($dwic === null ? [] : $dwic),
+    'not_ic' => ($not_ic === null ? [] : $not_ic),
     'col' => array_values($columnsAdd),
     'v' => erLhcoreClassUpdate::LHC_RELEASE,
     'ho' => $userData->hide_online == 1,
