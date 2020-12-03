@@ -737,21 +737,25 @@
                 if (serviceWorkerAvailable === true) {
                     try {
                         navigator.serviceWorker.addEventListener('message', function (event) {
-                            if (typeof event.data.lhc_ch !== 'undefined' && typeof event.data.lhc_cid !== 'undefined') {
-                                attributesWidget.widgetStatus.next(true);
-                                if (attributesWidget.mode == 'popup') {
-                                    attributesWidget.userSession.setChatInformation({
-                                        'id': event.data.lhc_cid,
-                                        'hash': event.data.lhc_ch
-                                    });
-                                    attributesWidget.eventEmitter.emitEvent('unread_message');
-                                } else {
-                                    chatEvents.sendChildEvent('shownWidget', [{'sender': 'closeButton'}]);
-                                    chatEvents.sendChildEvent('reopenNotification', [{
-                                        'id': event.data.lhc_cid,
-                                        'hash': event.data.lhc_ch
-                                    }]);
+                            try {
+                                if (typeof event.data.lhc_ch !== 'undefined' && typeof event.data.lhc_cid !== 'undefined') {
+                                    attributesWidget.widgetStatus.next(true);
+                                    if (attributesWidget.mode == 'popup') {
+                                        attributesWidget.userSession.setChatInformation({
+                                            'id': event.data.lhc_cid,
+                                            'hash': event.data.lhc_ch
+                                        });
+                                        attributesWidget.eventEmitter.emitEvent('unread_message');
+                                    } else {
+                                        chatEvents.sendChildEvent('shownWidget', [{'sender': 'closeButton'}]);
+                                        chatEvents.sendChildEvent('reopenNotification', [{
+                                            'id': event.data.lhc_cid,
+                                            'hash': event.data.lhc_ch
+                                        }]);
+                                    }
                                 }
+                            } catch (e) {
+                                if (lhcError) lhcError.log(e.message, "index.js", e.lineNumber || e.line, e.stack); else throw Error("lhc : " + e.message);
                             }
                         });
                     } catch (e) {
