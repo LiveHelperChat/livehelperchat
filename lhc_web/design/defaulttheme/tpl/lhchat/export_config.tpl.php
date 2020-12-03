@@ -24,6 +24,11 @@ $modalBodyClass = 'p-1'
                     <label><input type="checkbox" name="exportOptions[]" value="4"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Include messages statistic')?></label>
                 </div>
             </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><input type="checkbox" name="exportOptions[]" value="5"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Include subject')?></label>
+                </div>
+            </div>
         </div>
     </div>
     <input type="hidden" name="export_action" value="doExport">

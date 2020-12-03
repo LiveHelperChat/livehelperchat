@@ -2,6 +2,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>在投票Widget顯示後，有多少天不會再次啟用</translation>
     </message>
@@ -2283,6 +2291,14 @@
       <translation>排除個人回應</translation>
     </message>
     <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation>搜尋</translation>
+    </message>
+    <message>
       <source>Title</source>
       <translation>標題</translation>
     </message>
@@ -2297,10 +2313,6 @@
     <message>
       <source>Department</source>
       <translation>部門</translation>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation>搜尋</translation>
     </message>
     <message>
       <source>CSV</source>
@@ -2385,30 +2397,6 @@
     <message>
       <source>Chat status</source>
       <translation>交談狀態</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>等待中交談</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>進行中交談</translation>
-    </message>
-    <message>
-      <source>Bot chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>已完成交談</translation>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation>Chatbox 交談</translation>
-    </message>
-    <message>
-      <source>Operators chats</source>
-      <translation>客服人員交談</translation>
     </message>
     <message>
       <source>Product</source>
@@ -2517,6 +2505,34 @@
     <message>
       <source>Select group</source>
       <translation>選擇群組</translation>
+    </message>
+    <message>
+      <source>Choose status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>等待中交談</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>進行中交談</translation>
+    </message>
+    <message>
+      <source>Bot chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>已完成交談</translation>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation>Chatbox 交談</translation>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation>客服人員交談</translation>
     </message>
     <message>
       <source>Select product</source>
@@ -2963,6 +2979,10 @@
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>HTML code (beta)</source>
+      <translation>HTML代碼（測試版）</translation>
+    </message>
+    <message>
       <source>Bottom right corner of the screen</source>
       <translation>在螢幕的右下角</translation>
     </message>
@@ -3335,8 +3355,8 @@
       <translation>將此標籤放置在Live Helper狀態標籤之後。</translation>
     </message>
     <message>
-      <source>HTML code (beta)</source>
-      <translation>HTML代碼（測試版）</translation>
+      <source>Static image</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>On each refresh start a new chat. Users will loose chat session browsing through pages! Usefull in embed mode.</source>
@@ -3387,6 +3407,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Online status text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline status text. If you lave empty we will return empty image.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sample image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Source code with a link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hash arguments. Visitor will not be able to change passed arguments.</source>
       <translation type="unfinished"/>
     </message>
@@ -3421,6 +3457,10 @@
   </context>
   <context>
     <name>chat/getstatus</name>
+    <message>
+      <source>Our staff are ready to help!</source>
+      <translation>我們的員工可以提供幫助！</translation>
+    </message>
     <message>
       <source>Close</source>
       <translation>關閉</translation>
@@ -3465,10 +3505,6 @@
       <source>Screen shared, click to finish</source>
       <translation>螢幕分享，點選後完成</translation>
     </message>
-    <message>
-      <source>Our staff are ready to help!</source>
-      <translation>我們的員工可以提供幫助！</translation>
-    </message>
   </context>
   <context>
     <name>abstract/list</name>
@@ -3486,6 +3522,10 @@
     <message>
       <source>How many days keep log?</source>
       <translation>保留日誌多少天？</translation>
+    </message>
+    <message>
+      <source>Log javascript errors</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>What objects changes log?</source>
@@ -5413,8 +5453,20 @@
       <translation>按關閉時間排序</translation>
     </message>
     <message>
+      <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Pending chats</source>
       <translation>等待中交談</translation>
+    </message>
+    <message>
+      <source>Bot chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Load statistic</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Group chats will appear here.</source>
@@ -5909,6 +5961,10 @@
       <translation>有新的等待中交談時 開啟 / 關閉 音效通知</translation>
     </message>
     <message>
+      <source>Toggle between dark and white themes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Change my persistent status to online</source>
       <translation>將我的永久狀態更改為在線</translation>
     </message>
@@ -6327,6 +6383,14 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>first visit</source>
+      <translation>第一次訪問</translation>
+    </message>
+    <message>
+      <source>last visit</source>
+      <translation>最近一次訪問</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>GEO 偵測配置</translation>
     </message>
@@ -6743,14 +6807,6 @@
       <translation>已經發送訊息給客戶</translation>
     </message>
     <message>
-      <source>first visit</source>
-      <translation>第一次訪問</translation>
-    </message>
-    <message>
-      <source>last visit</source>
-      <translation>最近一次訪問</translation>
-    </message>
-    <message>
       <source>From</source>
       <translation>從</translation>
     </message>
@@ -6928,6 +6984,10 @@
     <message>
       <source>Configuration</source>
       <translation>設定</translation>
+    </message>
+    <message>
+      <source>Login history</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Automation</source>
@@ -7464,6 +7524,10 @@
       <translation>交談列表</translation>
     </message>
     <message>
+      <source>Login history</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Commands</source>
       <translation type="unfinished"/>
     </message>
@@ -7561,6 +7625,18 @@
       <translation>下載 XLS</translation>
     </message>
     <message>
+      <source>Hard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Soft</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hard limit - active chats (soft limit - active chats)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Group chats</source>
       <translation>群組交談</translation>
     </message>
@@ -7591,6 +7667,14 @@
     <message>
       <source>Hide hidden</source>
       <translation>隱藏 隱藏</translation>
+    </message>
+    <message>
+      <source>Hide departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide departments groups</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Hide disabled</source>
@@ -7693,6 +7777,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Copy all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ask for help</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat</source>
       <translation>交談</translation>
     </message>
@@ -7727,6 +7823,10 @@
     <message>
       <source>Configuration</source>
       <translation>系統配置</translation>
+    </message>
+    <message>
+      <source>Dark/bright</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New messages</source>
@@ -8740,6 +8840,14 @@
       <translation>將從自動分配工作流程中排除</translation>
     </message>
     <message>
+      <source>In order to change operator permissions you have to edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>roles</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Created</source>
       <translation>已建立</translation>
     </message>
@@ -9142,6 +9250,26 @@
   <context>
     <name>user/userlist</name>
     <message>
+      <source>ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Edit</source>
       <translation>編輯</translation>
     </message>
@@ -9337,6 +9465,22 @@
     <message>
       <source>Group</source>
       <translation>群組</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bots chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments limit groups</source>
@@ -9983,6 +10127,10 @@
   <context>
     <name>genericbot/list</name>
     <message>
+      <source>Login history</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Download</source>
       <translation>下載</translation>
     </message>
@@ -10155,6 +10303,10 @@
     <message>
       <source>Invalid CSRF token!</source>
       <translation>無效的CSRF令牌！</translation>
+    </message>
+    <message>
+      <source>Password reset requested by</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -10788,20 +10940,20 @@
       <translation>分配的功能</translation>
     </message>
     <message>
-      <source>Module</source>
-      <translation>模組</translation>
-    </message>
-    <message>
-      <source>Function</source>
-      <translation>功能</translation>
-    </message>
-    <message>
       <source>Remove selected policy</source>
       <translation>移除已選擇的 policy</translation>
     </message>
     <message>
       <source>New policy</source>
       <translation>新增 policy</translation>
+    </message>
+    <message>
+      <source>Module</source>
+      <translation>模組</translation>
+    </message>
+    <message>
+      <source>Function</source>
+      <translation>功能</translation>
     </message>
     <message>
       <source>Role assigned groups</source>
@@ -11679,6 +11831,10 @@
       <translation>密碼最小長度</translation>
     </message>
     <message>
+      <source>Maximum number of failed logins before account is disabled.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Uppercase letter required</source>
       <translation>需要大寫字母</translation>
     </message>
@@ -11717,6 +11873,10 @@
     <message>
       <source>Password requirements</source>
       <translation>密碼要求</translation>
+    </message>
+    <message>
+      <source>Password changed</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update password</source>
@@ -12085,6 +12245,10 @@
     <message>
       <source>Invisible mode</source>
       <translation>隱藏模式</translation>
+    </message>
+    <message>
+      <source>Force user to change password on login</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -12621,6 +12785,10 @@
   <context>
     <name>user/login</name>
     <message>
+      <source>Your password has expired. Please update it</source>
+      <translation>您的密碼已過期。 請更新</translation>
+    </message>
+    <message>
       <source>Please login</source>
       <translation>登入系統</translation>
     </message>
@@ -12653,8 +12821,8 @@
       <translation>您因為另一名使用者登錄同個帳戶而被登出</translation>
     </message>
     <message>
-      <source>Your password has expired. Please update it</source>
-      <translation>您的密碼已過期。 請更新</translation>
+      <source>Your password has expired or it has to be changed.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Go to back office</source>
@@ -12677,6 +12845,18 @@
       <translation>更新密碼</translation>
     </message>
     <message>
+      <source>Failed login. API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Account disabled because of to many failed logins!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Failed login. WEB</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>CSFR token is invalid, try to resubmit form</source>
       <translation>CSRF令牌無效，請嘗試提交表單</translation>
     </message>
@@ -12685,8 +12865,16 @@
       <translation>Google驗證碼驗證失敗</translation>
     </message>
     <message>
+      <source>Your account is disabled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Incorrect username or password</source>
       <translation>使用者名稱或是密碼不正確</translation>
+    </message>
+    <message>
+      <source>Logged in successfully. WEB</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Logged in successfully</source>
@@ -12695,6 +12883,10 @@
     <message>
       <source>User could not be found!</source>
       <translation>找不到用戶！</translation>
+    </message>
+    <message>
+      <source>Failed login. XML_CHECK_LOGIN</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

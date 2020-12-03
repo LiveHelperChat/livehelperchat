@@ -210,7 +210,7 @@ abstract class ezcCacheStorageFile extends ezcCacheStorage implements ezcCacheSt
 
         if ( ezcBaseFeatures::os() !== "Windows" )
         {
-            chmod( $filename, $this->options->permissions );
+            @chmod( $filename, $this->options->permissions );
         }
         return $id;
     }

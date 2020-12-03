@@ -5,7 +5,7 @@ class erConfigClassLhCacheConfig
     private static $instance = null;
     public $conf;
 
-    private $expireOptions = array('translationfile','accessfile');
+    private $expireOptions = array('accessfile');
     private $sessionExpireOptions = array('access_array','lhCacheUserDepartaments');
 
     private $expiredInRuntime = false;
@@ -29,12 +29,16 @@ class erConfigClassLhCacheConfig
         }
     }
 
-    public function getSetting($section, $key)
+    public function getSetting($section, $key, $throwException = true)
     {
         if (isset($this->conf['settings'][$section][$key])) {
             return $this->conf['settings'][$section][$key];
         } else {
-            throw new Exception('Setting with section {'.$section.'} value {'.$key.'} was not found');
+            if ($throwException == true) {
+                throw new Exception('Setting with section {'.$section.'} value {'.$key.'} was not found');
+            } else {
+                return null;
+            }
         }
     }
 
@@ -82,11 +86,19 @@ class erConfigClassLhCacheConfig
         
     	if ($this->expiredInRuntime == false) {
     		$this->expiredInRuntime = true;
+
 	        foreach ($this->expireOptions as $option)
 	        {
 	            $this->setSetting( 'cachetimestamps', $option, 0);
 	        }
-	
+
+	        if (file_exists('settings/settings.ini.php')) {
+	            $settings = include 'settings/settings.ini.php';
+	            foreach ($settings['settings']['site_access_options'] as $siteAccess) {
+                    $this->setSetting( 'cachetimestamps', 'translationfile_' . $siteAccess['locale'], 0);
+                }
+            }
+
 	        foreach ($this->sessionExpireOptions as $option)
 	        {
 	            if (isset($_SESSION[$option])) unset($_SESSION[$option]);

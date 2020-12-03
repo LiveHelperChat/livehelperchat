@@ -2,6 +2,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -2289,6 +2297,14 @@ Icona colonna, testo icone materiale</translation>
       <translation>Escludere le risposte personali</translation>
     </message>
     <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation>Cerca</translation>
+    </message>
+    <message>
       <source>Title</source>
       <translation>Titolo</translation>
     </message>
@@ -2303,10 +2319,6 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Department</source>
       <translation>Reparto</translation>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation>Cerca</translation>
     </message>
     <message>
       <source>CSV</source>
@@ -2391,30 +2403,6 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Chat status</source>
       <translation>Stato della chat</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Chat in attesa</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Chat attive</translation>
-    </message>
-    <message>
-      <source>Bot chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>Chat chiuse</translation>
-    </message>
-    <message>
-      <source>Chatbox chats</source>
-      <translation>Chat della ChatBox</translation>
-    </message>
-    <message>
-      <source>Operators chats</source>
-      <translation>Chat operatori</translation>
     </message>
     <message>
       <source>Product</source>
@@ -2523,6 +2511,34 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Select group</source>
       <translation>Seleziona gruppo</translation>
+    </message>
+    <message>
+      <source>Choose status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Chat in attesa</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Chat attive</translation>
+    </message>
+    <message>
+      <source>Bot chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Chat chiuse</translation>
+    </message>
+    <message>
+      <source>Chatbox chats</source>
+      <translation>Chat della ChatBox</translation>
+    </message>
+    <message>
+      <source>Operators chats</source>
+      <translation>Chat operatori</translation>
     </message>
     <message>
       <source>Select product</source>
@@ -2969,6 +2985,10 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>system/htmlcode</name>
     <message>
+      <source>HTML code (beta)</source>
+      <translation>HTML code (beta)</translation>
+    </message>
+    <message>
       <source>Bottom right corner of the screen</source>
       <translation>In basso a destra dello schermo</translation>
     </message>
@@ -3341,8 +3361,8 @@ Icona colonna, testo icone materiale</translation>
       <translation>Posizionare questo tag dopo il tag di stato di Live Helper.</translation>
     </message>
     <message>
-      <source>HTML code (beta)</source>
-      <translation>HTML code (beta)</translation>
+      <source>Static image</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>On each refresh start a new chat. Users will loose chat session browsing through pages! Usefull in embed mode.</source>
@@ -3393,6 +3413,22 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Online status text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline status text. If you lave empty we will return empty image.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sample image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Source code with a link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hash arguments. Visitor will not be able to change passed arguments.</source>
       <translation type="unfinished"/>
     </message>
@@ -3427,6 +3463,10 @@ Icona colonna, testo icone materiale</translation>
   </context>
   <context>
     <name>chat/getstatus</name>
+    <message>
+      <source>Our staff are ready to help!</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Close</source>
       <translation>Chiudi</translation>
@@ -3471,10 +3511,6 @@ Icona colonna, testo icone materiale</translation>
       <source>Screen shared, click to finish</source>
       <translation>Schermo condiviso, fare clic per terminare</translation>
     </message>
-    <message>
-      <source>Our staff are ready to help!</source>
-      <translation type="unfinished"/>
-    </message>
   </context>
   <context>
     <name>abstract/list</name>
@@ -3492,6 +3528,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>How many days keep log?</source>
       <translation>Conservare il registro per quanti giorni?</translation>
+    </message>
+    <message>
+      <source>Log javascript errors</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>What objects changes log?</source>
@@ -5419,8 +5459,20 @@ Icona colonna, testo icone materiale</translation>
       <translation>Ordina per tempo di chiusura</translation>
     </message>
     <message>
+      <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Pending chats</source>
       <translation>Chat in sospeso</translation>
+    </message>
+    <message>
+      <source>Bot chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Load statistic</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Group chats will appear here.</source>
@@ -5915,6 +5967,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Attiva/Disattiva audio sulle nuove chat in sospeso</translation>
     </message>
     <message>
+      <source>Toggle between dark and white themes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Change my persistent status to online</source>
       <translation type="unfinished"/>
     </message>
@@ -6333,6 +6389,14 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>first visit</source>
+      <translation>prima visita</translation>
+    </message>
+    <message>
+      <source>last visit</source>
+      <translation>ultima visita</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>Configurazione rilevamento GEO</translation>
     </message>
@@ -6749,14 +6813,6 @@ Icona colonna, testo icone materiale</translation>
       <translation>ha inviato un messaggio all&apos;utente</translation>
     </message>
     <message>
-      <source>first visit</source>
-      <translation>prima visita</translation>
-    </message>
-    <message>
-      <source>last visit</source>
-      <translation>ultima visita</translation>
-    </message>
-    <message>
       <source>From</source>
       <translation>Da</translation>
     </message>
@@ -6934,6 +6990,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Configuration</source>
       <translation>Configurazione</translation>
+    </message>
+    <message>
+      <source>Login history</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Automation</source>
@@ -7470,6 +7530,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Liste Chat</translation>
     </message>
     <message>
+      <source>Login history</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Commands</source>
       <translation type="unfinished"/>
     </message>
@@ -7567,6 +7631,18 @@ Icona colonna, testo icone materiale</translation>
       <translation>Scarica XLS</translation>
     </message>
     <message>
+      <source>Hard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Soft</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hard limit - active chats (soft limit - active chats)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Group chats</source>
       <translation type="unfinished"/>
     </message>
@@ -7597,6 +7673,14 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Hide hidden</source>
       <translation>Nascondere nascosti</translation>
+    </message>
+    <message>
+      <source>Hide departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide departments groups</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Hide disabled</source>
@@ -7699,6 +7783,18 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Copy all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ask for help</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat</source>
       <translation>Chat</translation>
     </message>
@@ -7733,6 +7829,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Configuration</source>
       <translation>Configurazione</translation>
+    </message>
+    <message>
+      <source>Dark/bright</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New messages</source>
@@ -8746,6 +8846,14 @@ Icona colonna, testo icone materiale</translation>
       <translation>Escludi dal flusso di lavoro di assegnazione automatica</translation>
     </message>
     <message>
+      <source>In order to change operator permissions you have to edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>roles</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Created</source>
       <translation>Creata</translation>
     </message>
@@ -9148,6 +9256,26 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>user/userlist</name>
     <message>
+      <source>ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Edit</source>
       <translation>Modifica</translation>
     </message>
@@ -9343,6 +9471,22 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Group</source>
       <translation>Gruppo</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bots chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments limit groups</source>
@@ -9989,6 +10133,10 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>genericbot/list</name>
     <message>
+      <source>Login history</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Download</source>
       <translation>Download</translation>
     </message>
@@ -10161,6 +10309,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Invalid CSRF token!</source>
       <translation>Token CSRF non valido!</translation>
+    </message>
+    <message>
+      <source>Password reset requested by</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -10794,20 +10946,20 @@ Icona colonna, testo icone materiale</translation>
       <translation>Funzioni assegnate</translation>
     </message>
     <message>
-      <source>Module</source>
-      <translation>Modulo</translation>
-    </message>
-    <message>
-      <source>Function</source>
-      <translation>Funzione</translation>
-    </message>
-    <message>
       <source>Remove selected policy</source>
       <translation>Rimuovi il criterio selezionato</translation>
     </message>
     <message>
       <source>New policy</source>
       <translation>Nuovo criterio</translation>
+    </message>
+    <message>
+      <source>Module</source>
+      <translation>Modulo</translation>
+    </message>
+    <message>
+      <source>Function</source>
+      <translation>Funzione</translation>
     </message>
     <message>
       <source>Role assigned groups</source>
@@ -11685,6 +11837,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Lunghezza minima della password</translation>
     </message>
     <message>
+      <source>Maximum number of failed logins before account is disabled.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Uppercase letter required</source>
       <translation>Lettera maiuscola richiesta</translation>
     </message>
@@ -11723,6 +11879,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Password requirements</source>
       <translation>Requisiti della password</translation>
+    </message>
+    <message>
+      <source>Password changed</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Update password</source>
@@ -12091,6 +12251,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Invisible mode</source>
       <translation>Modalità invisibile</translation>
+    </message>
+    <message>
+      <source>Force user to change password on login</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -12627,6 +12791,10 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>user/login</name>
     <message>
+      <source>Your password has expired. Please update it</source>
+      <translation>La password è scaduta: aggiornarla</translation>
+    </message>
+    <message>
       <source>Please login</source>
       <translation>Accedere</translation>
     </message>
@@ -12659,8 +12827,8 @@ Icona colonna, testo icone materiale</translation>
       <translation>Sei stato scollegato in quanto un altro utente ha effettuato l&apos;accesso con lo stesso account</translation>
     </message>
     <message>
-      <source>Your password has expired. Please update it</source>
-      <translation>La password è scaduta: aggiornarla</translation>
+      <source>Your password has expired or it has to be changed.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Go to back office</source>
@@ -12683,6 +12851,18 @@ Icona colonna, testo icone materiale</translation>
       <translation>Aggiorna password</translation>
     </message>
     <message>
+      <source>Failed login. API</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Account disabled because of to many failed logins!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Failed login. WEB</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>CSFR token is invalid, try to resubmit form</source>
       <translation>Token CSFR non valido, riprovare a inviare nuovamente il modulo</translation>
     </message>
@@ -12691,8 +12871,16 @@ Icona colonna, testo icone materiale</translation>
       <translation>Convalida del re-captcha di Google non riuscita</translation>
     </message>
     <message>
+      <source>Your account is disabled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Incorrect username or password</source>
       <translation>Nome utente o password non corretti</translation>
+    </message>
+    <message>
+      <source>Logged in successfully. WEB</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Logged in successfully</source>
@@ -12701,6 +12889,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>User could not be found!</source>
       <translation>Impossibile trovare l&apos;utente!</translation>
+    </message>
+    <message>
+      <source>Failed login. XML_CHECK_LOGIN</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>

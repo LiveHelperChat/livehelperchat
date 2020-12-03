@@ -6,11 +6,9 @@ erTranslationClassLhTranslation::$htmlEscape = false;
 $payload = json_decode(file_get_contents('php://input'),true);
 
 $r = '';
-$error = 'f';
 
 if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[[msgitm]]', '',$payload['msg'])) != '' && mb_strlen($payload['msg']) < (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
 {
-
     try {
         $db = ezcDbInstance::get();
 
@@ -58,10 +56,9 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
                 }
             }
 
-            if (!isset($msg)){
-                $error = 't';
+            if (!isset($msg)) {
                 $r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message, max characters').' - '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value;
-                echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r));
+                echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $r));
                 exit;
             }
 
@@ -119,7 +116,7 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
 
         $db->commit();
 
-        echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r, 't' => $triggers));
+        echo erLhcoreClassChat::safe_json_encode(array('r' => $r, 't' => $triggers));
 
         // Try to finish request before any listers do their job
         flush();
@@ -132,14 +129,13 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
 
     } catch (Exception $e) {
         $db->rollback();
-        echo erLhcoreClassChat::safe_json_encode(array('error' => 't', 'r' => $e->getMessage()));
+        echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $e->getMessage()));
         exit;
     }
 
 } else {
-    $error = 't';
     $r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message') . ', ' . (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','characters max.');
-    echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r));
+    echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $r));
     exit;
 }
 
