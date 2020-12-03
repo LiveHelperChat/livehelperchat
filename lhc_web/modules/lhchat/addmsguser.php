@@ -137,13 +137,13 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
 	        /* else {
         	    // Auto responder
         	    $responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
-        	    
+
         	    if ($responder instanceof erLhAbstractModelAutoResponder) {
         	        $chat->wait_timeout = $responder->wait_timeout;
         	        $chat->timeout_message = $responder->timeout_message;
         	        $chat->wait_timeout_send = 1-$responder->repeat_number;
         	        $chat->wait_timeout_repeat = $responder->repeat_number;
-        	    
+
         	        if ($responder->wait_message != '') {
         	            $msg = new erLhcoreClassModelmsg();
         	            $msg->msg = trim($responder->wait_message);
@@ -152,16 +152,16 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
         	            $msg->user_id = -2;
         	            $msg->time = time()+5;
         	            erLhcoreClassChat::getSession()->save($msg);
-        	    
+
         	            if ($chat->last_msg_id < $msg->id) {
         	                $chat->last_msg_id = $msg->id;
         	            }
         	        }
-        	    
+
         	        $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
         	        $chat->time = time(); // Update initial chat start time for auto responder
         	        $chat->saveThis();
-        	    
+
         	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered',array('chat' => & $chat));
         	    }
 	        }*/

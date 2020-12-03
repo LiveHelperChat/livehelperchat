@@ -38,7 +38,8 @@ class OnlineChat extends Component {
         preloadSurvey : false, // Should survey be preloaded
         gotToSurvey : false,
         voiceMode : false,
-        showMail : false
+        showMail : false,
+        errorMode: false
     };
 
     constructor(props) {
@@ -386,6 +387,10 @@ class OnlineChat extends Component {
         // Are we restoring widget visibility
         } else if (prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true) {
             return 0;
+        } else if (this.props.chatwidget.getIn(['chatLiveData','error']) && this.props.chatwidget.getIn(['chatLiveData','lmsg']) && (this.state.errorMode == false || this.props.chatwidget.getIn(['chatLiveData','lmsg']) != prevProps.chatwidget.getIn(['chatLiveData','lmsg']))) {
+            this.setState({errorMode: true, valueSend: false, value: this.props.chatwidget.getIn(['chatLiveData','lmsg'])});
+        } else if (!this.props.chatwidget.getIn(['chatLiveData','error']) && prevProps.chatwidget.getIn(['chatLiveData','error'])) {
+            this.setState({errorMode: false, valueSend: false, value: ''});
         }
 
         return null;
@@ -506,7 +511,8 @@ class OnlineChat extends Component {
             'lmgsid' : this.props.chatwidget.getIn(['chatLiveData','lmsgid'])
         }));
 
-        this.setState({value: '',valueSend: true});
+        this.setState({value: '',valueSend: true, errorMode : false});
+
         this.currentMessageTyping = '';
         this.focusMessage();
     }
@@ -718,7 +724,7 @@ class OnlineChat extends Component {
                     </div>
 
                     <div className={(this.props.chatwidget.get('msgLoaded') === false || this.state.enabledEditor === false ? 'd-none ' : 'd-flex ') + "flex-row border-top position-relative message-send-area"} >
-                        {(this.props.chatwidget.getIn(['chatLiveData','ott']) || this.props.chatwidget.getIn(['chatLiveData','error'])) && <div id="id-operator-typing" className="bg-white pl-1">{this.props.chatwidget.getIn(['chatLiveData','error']) || this.props.chatwidget.getIn(['chatLiveData','ott'])}</div>}
+                        {(this.props.chatwidget.getIn(['chatLiveData','ott']) || this.props.chatwidget.getIn(['chatLiveData','error'])) && <div id="id-operator-typing" className="bg-white pl-1">{this.props.chatwidget.getIn(['chatLiveData','error']) ? (this.props.chatwidget.getIn(['chatLiveData','error']) != 'SEND_FAILED' ? this.props.chatwidget.getIn(['chatLiveData','error']) : t('online_chat.send_failed')) : this.props.chatwidget.getIn(['chatLiveData','ott'])}</div>}
 
                         <ChatOptions elementId="chat-dropdown-options">
                             <div className="btn-group dropup disable-select pl-2 pt-2">
