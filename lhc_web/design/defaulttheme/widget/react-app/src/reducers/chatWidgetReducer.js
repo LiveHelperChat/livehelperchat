@@ -19,8 +19,6 @@ const initialState = fromJS({
     department: [],
     product: [],
     jsVars: [],
-    // Are we syncing chat messages now
-    //syncStatus : {msg: false, status : false},
     offlineData: {'fetched' : false},
     onlineData: {'fetched' : false},
     customData: {'fields' : []},
@@ -131,7 +129,6 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .set('chatLiveData',fromJS({'lmsop':0, 'vtm':0, 'msop':0, 'uid':0, 'status' : 0, 'status_sub' : 0, 'uw' : false, 'ott' : '', 'closed' : false, 'lmsgid' : 0, 'operator' : '', 'messages' : []}))
                 .set('chatStatusData',fromJS({}))
                 .set('chat_ui_state',fromJS({'confirm_close': 0, 'show_survey' : 0}))
-                //.set('syncStatus', fromJS({msg: false, status : false}))
                 .set('initClose',false)
                 .set('initLoaded',false);
         }
@@ -280,7 +277,6 @@ const chatWidgetReducer = (state = initialState, action) => {
 
             return state.setIn(['chatLiveData','status_sub'], action.data.status_sub)
                 .setIn(['chatLiveData','status'], action.data.status)
-                //.setIn(['syncStatus','msg'], false)
                 .set('msgLoaded', true)
                 .setIn(['chatLiveData','closed'], action.data.closed && action.data.closed === true)
         }
@@ -295,7 +291,6 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .setIn(['chatLiveData','closed'], action.data.closed && action.data.closed === true || state.getIn(['chatLiveData','closed']))
                 .setIn(['chatLiveData','status'], action.data.status)
                 .setIn(['chatLiveData','uid'], action.data.uid)
-                //.setIn(['syncStatus','status'], false)
                 .setIn(['chatLiveData','ru'], action.data.ru ? action.data.ru : null)
                 .setIn(['chatLiveData','status_sub'], action.data.status_sub);
         }
