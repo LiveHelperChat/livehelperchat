@@ -50,15 +50,6 @@
             lhc.version = 4;
 
             var init = () => {
-                // Avoid multiple times execution
-                if (lhc.ready === true) {
-                    return;
-                }
-
-                // we have found document body so we can continue
-                if (document.body) {
-                    lhc.ready = true;
-                }
 
                 if (!global.Promise) {
                     global.Promise = require('promise');
@@ -836,16 +827,37 @@
                 ;
             };
 
+            var preInit = () => {
+
+                // Avoid multiple times execution
+                if (lhc.ready === true) {
+                    return;
+                }
+
+                // we have found document body so we can continue
+                if (document.body) {
+                    lhc.ready = true;
+                }
+
+                lhc.init = init;
+
+                if (LHC_API.args.before_init) {
+                    LHC_API.args.before_init(lhc);
+                }
+
+                LHC_API.args.manual_init || init();
+            };
+
             const eventsHandler = require('./util/domEventsHandler').domEventsHandler;
 
-            (init(), !lhc.ready) || (eventsHandler.listen(document, "DOMContentLoaded", function () {
-                init();
+            (preInit(), !lhc.ready) || (eventsHandler.listen(document, "DOMContentLoaded", function () {
+                preInit();
             }, "domloaded"),
                 eventsHandler.listen(document, "readystatechange", function () {
-                    ("complete" === document.readyState || "interactive" === document.readyState && document.body) && init();
+                    ("complete" === document.readyState || "interactive" === document.readyState && document.body) && preInit();
                 }, "domstatechange"),
                 eventsHandler.listen(global, "load", function () {
-                    init();
+                    preInit();
                 }, "windowload"));
 
         }).call(this, global['$_' + scopeScript], global[scopeScript + '_API']);
