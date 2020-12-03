@@ -4,14 +4,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -129,6 +121,10 @@
     </message>
     <message>
       <source>Reopen closed chat as new? Otherwise it will be reopened as active.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Should we remember username for the next time visitor starts a chat?</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -443,6 +439,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Send</source>
       <translation type="unfinished"/>
     </message>
@@ -725,6 +725,10 @@
     </message>
     <message>
       <source>Chat background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New message separator color</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1631,6 +1635,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Icon name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Icon identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>it should have same value you enter in alert icon trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Column name</source>
       <translation type="unfinished"/>
     </message>
@@ -1896,6 +1912,10 @@
     </message>
     <message>
       <source>Auto responder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat alert icons</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2178,10 +2198,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>E-mail is always required</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Allow to attatch a file</source>
       <translation type="unfinished"/>
     </message>
@@ -2329,6 +2345,30 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Include content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Include survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Include messages statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Include subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Export</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Export XLS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Close selected</source>
       <translation type="unfinished"/>
     </message>
@@ -2473,26 +2513,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>XLS</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XLS (with content)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XLS (with survey)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>XLS (with content and survey)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Export</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Choose department</source>
       <translation type="unfinished"/>
     </message>
@@ -2629,6 +2649,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Choose subjects for stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Group by</source>
       <translation type="unfinished"/>
     </message>
@@ -2710,6 +2734,10 @@
     </message>
     <message>
       <source>Optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>XLS</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2980,10 +3008,6 @@
   </context>
   <context>
     <name>system/htmlcode</name>
-    <message>
-      <source>HTML code (beta)</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Bottom right corner of the screen</source>
       <translation type="unfinished"/>
@@ -3460,10 +3484,6 @@
   <context>
     <name>chat/getstatus</name>
     <message>
-      <source>Our staff are ready to help!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Close</source>
       <translation type="unfinished"/>
     </message>
@@ -3539,6 +3559,212 @@
     </message>
     <message>
       <source>Options</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>genericbot/list</name>
+    <message>
+      <source>Login history</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Commands list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot exceptions groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rest API Calls</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translations groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translations items</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Could not execute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>with args</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Confirm</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Function is not callable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bots</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>user/userlist</name>
+    <message>
+      <source>ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Command</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start activity</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last activity</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Was offline for</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inactive chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Real Time Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username (Nickname)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum number of chats operator can have.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Excluded from auto assign workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Login As</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users Actions</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -4722,10 +4948,6 @@
     </message>
     <message>
       <source>Not presented</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Event</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5982,7 +6204,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Widgets</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Alert icons</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Column number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose what icons you want to exclude from the list.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6384,14 +6618,6 @@
   </context>
   <context>
     <name>chat/onlineusers</name>
-    <message>
-      <source>first visit</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>last visit</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>GEO detection configuration</source>
       <translation type="unfinished"/>
@@ -6973,6 +7199,10 @@
     </message>
     <message>
       <source>GEO detection configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Alert icons</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7627,15 +7857,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hard limit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Soft limit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hard limit - (active online operators chats - inactive online operators chats) (soft limit - active chats)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hard</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Soft</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hard limit - active chats (soft limit - active chats)</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9250,141 +9488,6 @@
     </message>
   </context>
   <context>
-    <name>user/userlist</name>
-    <message>
-      <source>ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>IP</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Date</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delete</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Command</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bot</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Trigger</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Identifier</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Username</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Start activity</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last activity</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Duration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Was offline for</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Inactive chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Real Time Active chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Update stats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Users</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Username (Nickname)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Maximum number of chats operator can have.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Number of chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Excluded from auto assign workflow</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Login As</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Users Actions</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>kernel/messages</name>
     <message>
       <source>Are you sure?</source>
@@ -9477,7 +9580,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Inactive chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Bots chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators inactive chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10123,77 +10238,6 @@
     </message>
     <message>
       <source>Collected information</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>genericbot/list</name>
-    <message>
-      <source>Login history</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Download</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Commands list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bot list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Import</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bot exceptions groups</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Rest API Calls</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Translations groups</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Translations items</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Could not execute</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>with args</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Confirm</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Cancel</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Function is not callable</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bots</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -11912,6 +11956,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Javascript for static URL. Paste your GA or any other script here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget</source>
       <translation type="unfinished"/>
     </message>
@@ -12787,10 +12835,6 @@
   <context>
     <name>user/login</name>
     <message>
-      <source>Your password has expired. Please update it</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Please login</source>
       <translation type="unfinished"/>
     </message>
@@ -12983,11 +13027,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Edit</source>
+      <source>Continuous event</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please enter a hook name</source>
+      <source>Edit</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13008,6 +13052,73 @@
     </message>
     <message>
       <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/webhooks</name>
+    <message>
+      <source>Hooks events</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Continuous events</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This is hook event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This is continuous event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor message contains</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Compare attribute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start of OR</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attribute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Condition</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text like</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text not like</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>OR</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AND</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Success</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -13364,6 +13475,38 @@
     </message>
     <message>
       <source>Chat content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor messages to bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor messages to operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13821,6 +13964,29 @@
     </message>
   </context>
   <context>
+    <name>genericbot/new</name>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bots</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Commands</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Translations groups</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
@@ -13961,29 +14127,6 @@
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>genericbot/new</name>
-    <message>
-      <source>System configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bots</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Commands</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Translations groups</source>
       <translation type="unfinished"/>
     </message>
   </context>
