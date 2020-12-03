@@ -3078,6 +3078,7 @@ function lh(){
 			if (this.addingUserMessage == false && this.addUserMessageQueue.length == 0)
 			{
 				this.addingUserMessage = true;
+
 		        $.postJSON(this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow, pdata , function(data) {
 
 		        	if (data.error == 'f') {
@@ -3100,7 +3101,22 @@ function lh(){
 		        	}
 
 		        	inst.addingUserMessage = false;
-				});
+				}).fail(function(respose) {
+                    $('#CSChatMessage').val(textArea.val() + ' ' + pdata.msg);
+                    var instStatus = $('#id-operator-typing');
+                    instStatus.html('You have weak internet connection or the server has problems. Try to send the message again.');
+                    instStatus.css('visibility','visible');
+                    setTimeout(function(){
+                        if (inst.operatorTyping == false) {
+                            $('#id-operator-typing').html('').css('visibility','hidden');
+                        }
+                    },5000);
+                    $('.pending-storage').remove();
+                    inst.addingUserMessage = false;
+                    if (inst.addUserMessageQueue.length > 0) {
+                        inst.addDelayedMessage();
+                    }
+                });
 	        } else {
 	        	this.addUserMessageQueue.push({'retries':0, 'pdata':pdata,'url':this.wwwDir + this.addmsgurluser + this.chat_id + '/' + this.hash + modeWindow});
 	        	clearTimeout(this.addDelayedTimeout);
@@ -3165,7 +3181,9 @@ function lh(){
 		        		inst.addDelayedMessage();
 		        	}
 
-				});
+				}).fail(function () {
+                    inst.addingUserMessage = false;
+                });
     		}
 
     	} else {

@@ -20,7 +20,7 @@ const initialState = fromJS({
     product: [],
     jsVars: [],
     // Are we syncing chat messages now
-    syncStatus : {msg: false, status : false},
+    //syncStatus : {msg: false, status : false},
     offlineData: {'fetched' : false},
     onlineData: {'fetched' : false},
     customData: {'fields' : []},
@@ -131,7 +131,7 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .set('chatLiveData',fromJS({'lmsop':0, 'vtm':0, 'msop':0, 'uid':0, 'status' : 0, 'status_sub' : 0, 'uw' : false, 'ott' : '', 'closed' : false, 'lmsgid' : 0, 'operator' : '', 'messages' : []}))
                 .set('chatStatusData',fromJS({}))
                 .set('chat_ui_state',fromJS({'confirm_close': 0, 'show_survey' : 0}))
-                .set('syncStatus', fromJS({msg: false, status : false}))
+                //.set('syncStatus', fromJS({msg: false, status : false}))
                 .set('initClose',false)
                 .set('initLoaded',false);
         }
@@ -248,22 +248,6 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)));
         }
 
-        case 'FETCH_MESSAGES_STARTED': {
-            return state.setIn(['syncStatus','msg'],true);
-        }
-
-        case 'CHECK_CHAT_STATUS_STARTED': {
-            return state.setIn(['syncStatus','status'],true);
-        }
-
-        case 'FETCH_MESSAGES_REJECTED': {
-            return state.setIn(['syncStatus','msg'],false);
-        }
-
-        case 'CHECK_CHAT_STATUS_REJECTED': {
-            return state.setIn(['syncStatus','status'],false);
-        }
-
         case 'FETCH_MESSAGES_SUBMITTED' : {
 
             if (action.data.closed_arg && action.data.closed_arg.survey_id) {
@@ -296,7 +280,7 @@ const chatWidgetReducer = (state = initialState, action) => {
 
             return state.setIn(['chatLiveData','status_sub'], action.data.status_sub)
                 .setIn(['chatLiveData','status'], action.data.status)
-                .setIn(['syncStatus','msg'], false)
+                //.setIn(['syncStatus','msg'], false)
                 .set('msgLoaded', true)
                 .setIn(['chatLiveData','closed'], action.data.closed && action.data.closed === true)
         }
@@ -311,7 +295,7 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .setIn(['chatLiveData','closed'], action.data.closed && action.data.closed === true || state.getIn(['chatLiveData','closed']))
                 .setIn(['chatLiveData','status'], action.data.status)
                 .setIn(['chatLiveData','uid'], action.data.uid)
-                .setIn(['syncStatus','status'], false)
+                //.setIn(['syncStatus','status'], false)
                 .setIn(['chatLiveData','ru'], action.data.ru ? action.data.ru : null)
                 .setIn(['chatLiveData','status_sub'], action.data.status_sub);
         }
@@ -321,8 +305,6 @@ const chatWidgetReducer = (state = initialState, action) => {
         }
 
         case 'CHAT_UI_UPDATE' : {
-
-
             return state.set('chat_ui',state.get('chat_ui').merge(fromJS(action.data)));
         }
 
@@ -343,7 +325,7 @@ const chatWidgetReducer = (state = initialState, action) => {
         }
 
         case 'ADD_MESSAGES_SUBMITTED': {
-            return state.setIn(['chatLiveData','error'], action.data.r);
+            return state.setIn(['chatLiveData','error'], action.data.r).setIn(['chatLiveData','lmsg'], action.data.r ? action.data.msg : "");
         }
 
         default:
