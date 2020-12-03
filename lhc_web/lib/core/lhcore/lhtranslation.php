@@ -20,25 +20,25 @@ class erTranslationClassLhTranslation
         $this->languageCode = erLhcoreClassSystem::instance()->Language;
 
         $cfg = erConfigClassLhCacheConfig::getInstance();
-        if ($this->languageCode != 'en_EN') {
-            $this->translationFileModifyTime = filemtime($sys . '/translations/' . $this->languageCode . '/translation.ts');
 
-            try {
-                if ($cfg->getSetting('cachetimestamps', 'translationfile') != $this->translationFileModifyTime) {
-                    $this->updateCache();
-                    $cfg->setSetting('cachetimestamps', 'translationfile', $this->translationFileModifyTime);
-                    $cfg->save();
-                }
-            } catch (Exception $e) {
+        $this->translationFileModifyTime = filemtime($sys . '/translations/' . $this->languageCode . '/translation.ts');
+
+        try {
+            if ($cfg->getSetting('cachetimestamps', 'translationfile') != $this->translationFileModifyTime) {
                 $this->updateCache();
                 $cfg->setSetting('cachetimestamps', 'translationfile', $this->translationFileModifyTime);
                 $cfg->save();
             }
-
-            $this->cacheObj = new ezcCacheStorageFileArray($sys . '/cache/translations');
-            $this->backend = new ezcTranslationCacheBackend($this->cacheObj);
-            $this->manager = new ezcTranslationManager($this->backend);
+        } catch (Exception $e) {
+            $this->updateCache();
+            $cfg->setSetting('cachetimestamps', 'translationfile', $this->translationFileModifyTime);
+            $cfg->save();
         }
+
+        $this->cacheObj = new ezcCacheStorageFileArray($sys . '/cache/translations');
+        $this->backend = new ezcTranslationCacheBackend($this->cacheObj);
+        $this->manager = new ezcTranslationManager($this->backend);
+
     }
 
     public function initLanguage()
@@ -47,19 +47,19 @@ class erTranslationClassLhTranslation
         $this->languageCode = erLhcoreClassSystem::instance()->Language;
 
         $cfg = erConfigClassLhCacheConfig::getInstance();
-        if ($this->languageCode != 'en_EN') {
-            $this->translationFileModifyTime = filemtime($sys . '/translations/' . $this->languageCode . '/translation.ts');
 
-            if ($cfg->getSetting('cachetimestamps', 'translationfile') != $this->translationFileModifyTime) {
-                $this->updateCache();
-                $cfg->setSetting('cachetimestamps', 'translationfile', $this->translationFileModifyTime);
-                $cfg->save();
-            }
+        $this->translationFileModifyTime = filemtime($sys . '/translations/' . $this->languageCode . '/translation.ts');
 
-            $this->cacheObj = new ezcCacheStorageFileArray($sys . '/cache/translations');
-            $this->backend = new ezcTranslationCacheBackend($this->cacheObj);
-            $this->manager = new ezcTranslationManager($this->backend);
+        if ($cfg->getSetting('cachetimestamps', 'translationfile') != $this->translationFileModifyTime) {
+            $this->updateCache();
+            $cfg->setSetting('cachetimestamps', 'translationfile', $this->translationFileModifyTime);
+            $cfg->save();
         }
+
+        $this->cacheObj = new ezcCacheStorageFileArray($sys . '/cache/translations');
+        $this->backend = new ezcTranslationCacheBackend($this->cacheObj);
+        $this->manager = new ezcTranslationManager($this->backend);
+
     }
 
     /**
@@ -80,13 +80,8 @@ class erTranslationClassLhTranslation
         return $text;
     }
 
-
     public function getTranslation($context, $string, $params = array())
     {
-        if ($this->languageCode == 'en_EN') {
-            return self::$htmlEscape ? htmlspecialchars($this->insertarguments($string, $params), ENT_QUOTES) : $this->insertarguments($string, $params);
-        }
-
         try {
             $context = $this->manager->getContext($this->languageCode, $context);
             try {
