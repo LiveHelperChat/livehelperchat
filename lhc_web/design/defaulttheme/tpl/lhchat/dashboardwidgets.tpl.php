@@ -43,20 +43,6 @@
                 </div>
                 <div role="tabpanel" class="tab-pane form-group" id="alerti-settings">
 
-                    <p class="font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Choose for what icons we should play sound.')?></p>
-                    <div class="row">
-                        <?php echo erLhcoreClassRenderHelper::renderCheckbox(array(
-                            'list_function' => 'erLhAbstractModelChatAlertIcon::getList',
-                            'selected_id' => $sound_icons,
-                            'id_attr' => 'identifier',
-                            'input_name' => 'sound_icons[]',
-                            'wrap_prepend' => '<div class="col-4">',
-                            'wrap_append' => '</div>',
-                            'list_function_params' => array('limit' => false)
-                        ));
-                        ?>
-                    </div>
-
                     <p class="font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Choose for what icons we should show notification.')?></p>
                     <div class="row">
                         <?php echo erLhcoreClassRenderHelper::renderCheckbox(array(

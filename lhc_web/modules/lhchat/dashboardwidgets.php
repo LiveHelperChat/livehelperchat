@@ -22,13 +22,6 @@ if ($dwic === null) {
 }
 
 // Exclude notifications icons
-$sound_icons = json_decode(erLhcoreClassModelUserSetting::getSetting('dw_sic', ''),true);
-
-if ($sound_icons === null) {
-    $sound_icons = [];
-}
-
-// Exclude notifications icons
 $notif_icons = json_decode(erLhcoreClassModelUserSetting::getSetting('dw_nic', ''),true);
 
 if ($notif_icons === null) {
@@ -65,7 +58,6 @@ if (ezcInputForm::hasPostData()) {
         'WidgetsUser' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY),
         'ColumnNumber' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int'),
         'exclude_icon' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY),
-        'sound_icons' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY),
         'notif_icons' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY)
     );
     
@@ -125,14 +117,6 @@ if (ezcInputForm::hasPostData()) {
         erLhcoreClassModelUserSetting::setSetting('dwic', json_encode($dwic));
     }
 
-    if ($form->hasValidData('sound_icons')) {
-        $sound_icons = array_values($form->sound_icons);
-        erLhcoreClassModelUserSetting::setSetting('dw_sic', json_encode($sound_icons));
-    } else {
-        $sound_icons = [];
-        erLhcoreClassModelUserSetting::setSetting('dw_sic', json_encode($sound_icons));
-    }
-
     if ($form->hasValidData('notif_icons')) {
         $notif_icons = array_values($form->notif_icons);
         erLhcoreClassModelUserSetting::setSetting('dw_nic', json_encode($notif_icons));
@@ -147,7 +131,6 @@ $tpl->setArray(array(
     'user_widgets' => $widgetsUser,
     'columns_number' => count($dashboardOrder),
     'exclude_icons' => $dwic,
-    'sound_icons' => $sound_icons,
     'notif_icons' => $notif_icons,
 ));
 

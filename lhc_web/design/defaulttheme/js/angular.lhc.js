@@ -274,7 +274,6 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.widgets = [];
 	this.additionalColumns = [];
 	this.excludeIcons = [];
-	this.soundIcons = [];
 	this.notifIcons = [];
 
 	this.departmentd = this.restoreLocalSetting('departmentd',[],true);
@@ -1564,7 +1563,6 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             _that.widgetsActive = data.widgets;
             _that.bot_st = data.bot_st;
             _that.excludeIcons = data.exc_ic;
-            _that.soundIcons = data.snd_ic;
             _that.notifIcons = data.not_ic;
 
 			angular.forEach(_that.widgetsItems, function(listId) {
