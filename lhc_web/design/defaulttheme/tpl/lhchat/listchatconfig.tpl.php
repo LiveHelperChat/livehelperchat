@@ -6,6 +6,8 @@
 
 <form action="" method="post">
 
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
 <div role="tabpanel">
 
 		<!-- Nav tabs -->

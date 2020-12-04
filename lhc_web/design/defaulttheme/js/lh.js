@@ -3275,7 +3275,9 @@ function lh(){
     this.submitModalForm = function(form){
     	var inst = this;
     	$.post(form.attr('action'),form.serialize(), function(data) {
+    	    var styleOriginal = $('#myModal > .modal-dialog')[0].style.cssText;
 	   		$('#myModal').html(data);
+            $('#myModal > .modal-dialog')[0].style.cssText = styleOriginal;
 	   	 });
     	return false;
     };

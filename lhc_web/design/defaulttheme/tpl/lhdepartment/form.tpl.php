@@ -77,7 +77,12 @@
 			    <label><input ng-init="OnlineHoursActive=<?php if ($departament->online_hours_active == 1) : ?>true<?php else : ?>false<?php endif?>" type="checkbox" ng-model="OnlineHoursActive" name="OnlineHoursActive" value="1" <?php if ($departament->online_hours_active == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Work hours/work days logic is active');?></label>
 
 		    	<div ng-show="OnlineHoursActive">
-					<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Workdays/work hours, during these days/hours chat will be active automatically');?>. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Work hours, 24 hours format, 1 - 24, minutes format 0 - 60');?></p>
+
+                    <ul>
+                        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Workdays/work hours, during these days/hours chat will be active automatically');?></li>
+                        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Work hours, 24 hours format, 1 - 24, minutes format 0 - 60');?></li>
+                        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','If you want that chat ignored operators online status and was online only by these defined hours can do that');?> <a href="#" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('system/singlesetting')?>/ignore_user_status'})"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','here');?></a></li>
+                    </ul>
 
 					<?php foreach (erLhcoreClassDepartament::getWeekDays() as $dayShort => $dayLong) : ?>
 						<?php
