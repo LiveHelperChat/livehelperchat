@@ -51,49 +51,54 @@ class ChatMessage extends PureComponent {
 
         this.addLoader(attrs,e.target);
 
-        if (attrs.onclick.indexOf('lhinst.updateTriggerClicked') !== -1) {
-            this.updateTriggerClicked({type:'/(type)/triggerclicked'}, attrs, e.target);
-        } else if (attrs.onclick.indexOf('notificationsLHC.sendNotification') !== -1) {
+        if (attrs.onclick) {
+            if (attrs.onclick.indexOf('lhinst.updateTriggerClicked') !== -1) {
+                this.updateTriggerClicked({type:'/(type)/triggerclicked'}, attrs, e.target);
+            } else if (attrs.onclick.indexOf('notificationsLHC.sendNotification') !== -1) {
 
-            this.props.dispatch(subscribeNotifications());
-            e.target.innerHTML = t('notifications.subscribing');
-            setTimeout(() => {
-                this.removeMetaMessage(attrs['data-id']);
-            }, 500);
+                this.props.dispatch(subscribeNotifications());
+                e.target.innerHTML = t('notifications.subscribing');
+                setTimeout(() => {
+                    this.removeMetaMessage(attrs['data-id']);
+                }, 500);
 
-        } else if (attrs.onclick.indexOf('lhinst.buttonClicked') !== -1) {
-            this.updateTriggerClicked({type:''}, attrs, e.target);
-        } else if (attrs.onclick.indexOf('lhinst.chooseFile') !== -1) {
-            this.props.abstractAction('fileupload');
-        } else if (attrs.onclick.indexOf('lhinst.updateChatClicked') !== -1) {
-            this.updateTriggerClicked({type:'',mainType: 'updatebuttonclicked'}, attrs, e.target);
-        } else if (attrs.onclick.indexOf('lhinst.editGenericStep') !== -1) {
-            this.updateTriggerClicked({type:'/(type)/editgenericstep'}, attrs, e.target);
-        } else if (attrs.onclick.indexOf('lhinst.hideShowAction') !== -1) {
-            const args = JSON.parse(attrs['data-load']);
-            var more = document.getElementById('message-more-'+args['id']);
-            if (more.classList.contains('hide')) {
-                e.target.innerText = args['hide_text'];
-                more.classList.remove('hide');
+            } else if (attrs.onclick.indexOf('lhinst.buttonClicked') !== -1) {
+                this.updateTriggerClicked({type:''}, attrs, e.target);
+            } else if (attrs.onclick.indexOf('lhinst.chooseFile') !== -1) {
+                this.props.abstractAction('fileupload');
+            } else if (attrs.onclick.indexOf('lhinst.updateChatClicked') !== -1) {
+                this.updateTriggerClicked({type:'',mainType: 'updatebuttonclicked'}, attrs, e.target);
+            } else if (attrs.onclick.indexOf('lhinst.editGenericStep') !== -1) {
+                this.updateTriggerClicked({type:'/(type)/editgenericstep'}, attrs, e.target);
+            } else if (attrs.onclick.indexOf('lhinst.hideShowAction') !== -1) {
+                const args = JSON.parse(attrs['data-load']);
+                var more = document.getElementById('message-more-'+args['id']);
+                if (more.classList.contains('hide')) {
+                    e.target.innerText = args['hide_text'];
+                    more.classList.remove('hide');
+                } else {
+                    e.target.innerText = args['show_text'];
+                    more.classList.add('hide');
+                }
+            } else if (attrs.onclick.indexOf('lhinst.dropdownClicked') !== -1) {
+                const list = document.getElementById('id_generic_list-' + attrs['data-id']);
+                if (list && list.value != "0" && list.value != "") {
+                    attrs['data-payload'] = list.value;
+                    this.updateTriggerClicked({type:'/(type)/valueclicked'}, attrs, e.target);
+                } else {
+                    alert(t('bot.please_choose'));
+                }
             } else {
-                e.target.innerText = args['show_text'];
-                more.classList.add('hide');
+                helperFunctions.emitEvent('MessageClick',[attrs, this.props.dispatch]);
+                console.log('Unknown click event: ' + attrs.onclick);
             }
-        } else if (attrs.onclick.indexOf('lhinst.dropdownClicked') !== -1) {
-            const list = document.getElementById('id_generic_list-' + attrs['data-id']);
-            if (list && list.value != "0" && list.value != "") {
-                attrs['data-payload'] = list.value;
-                this.updateTriggerClicked({type:'/(type)/valueclicked'}, attrs, e.target);
-            } else {
-                alert(t('bot.please_choose'));
-            }
-        } else {
-            helperFunctions.emitEvent('MessageClick',[attrs, this.props.dispatch]);
-            console.log('Unknown click event: ' + attrs.onclick);
         }
 
         e.preventDefault();
-        this.props.focusMessage();
+
+        if (!(attrs.src && attrs.class && attrs.class == 'img-fluid')) {
+            this.props.focusMessage();
+        }
     }
 
     removeMetaMessage(messageId) {

@@ -818,7 +818,7 @@ class erLhcoreClassBBCode
                                 $subpartParts = explode('=',$mainData[1]);
                                 if ($subpartParts[0] == 'link') {
                                     if (!isset($subpartParts[1])) {
-                                        $prepend = '<a class="link" rel="noreferrer" target="_blank" href="//'. $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}\">";
+                                        $prepend = '<a class="link" rel="noreferrer" target="_blank" href="//'. $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}/(inline)/true\">";
                                         $append = '</a>';
                                     } else {
                                         $url = self::esc_url($subpartParts[1]);
@@ -829,8 +829,8 @@ class erLhcoreClassBBCode
                                     }
                                 }
                             } else {
-                                $prepend = '';
-                                $append = '<a class="hidden-download" rel="noreferrer" href="//'. $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}".'"></a>';
+                                $prepend = '<div class="position-relative">';
+                                $append = '<a class="hidden-download" target="_blank" rel="noreferrer" href="//'. $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}".'/(inline)/true"></a></div>';
                             }
                             return $prepend . '<img id="img-file-' . $file->id . '" class="img-fluid" src="//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />' . $append;
                         }
