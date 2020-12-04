@@ -88,6 +88,12 @@ $ViewList['autodbupdate'] = array(
     'uparams' => array()
 );
 
+$ViewList['singlesetting'] = array(
+    'params' => array('identifier'),
+    'uparams' => array(),
+    'functions' => array( 'singlesetting' )
+);
+
 $FunctionList['use'] = array('explain' => 'Allow user to see configuration links');
 $FunctionList['expirecache'] = array('explain' => 'Allow user to clear cache');
 $FunctionList['generatejs'] = array('explain' => 'Allow user to access HTML generation');
@@ -104,5 +110,6 @@ $FunctionList['configurerecaptcha'] = array('explain' => 'Allow user to configur
 $FunctionList['auditlog'] = array('explain' => 'Allow user to see audit log');
 $FunctionList['usersactions'] = array('explain' => 'Allow user to see operators real time chats statistic');
 $FunctionList['ga_configuration'] = array('explain' => 'Allow user to configure Events Tracking');
+$FunctionList['singlesetting'] = array('explain' => 'Allow user to change app settings');
 
 ?>

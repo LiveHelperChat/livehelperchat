@@ -261,6 +261,11 @@ class erLhcoreClassGenericBotWorkflow {
             }
         }
 
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_get_nick', array(
+            'nick' => & $nameSupport,
+            'chat' => $chat
+        ));
+
         return $nameSupport;
     }
 

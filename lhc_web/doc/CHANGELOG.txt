@@ -1,3 +1,20 @@
+3.56v
+
+1. Chat export will have modal window dedicated to chat's export with subject and messages types inclusion.
+2. FB and Twilio extension has new documentation for easier understanding how to install.  https://github.com/LiveHelperChat/twilio https://github.com/LiveHelperChat/fbmessenger
+3. Sandbox error for serviceWorker will be ignored. Edge case devices handling.
+4. You can have notifications for active chats which get's alert icon assigned
+5. You can now manual init widget JS and all it's dependencies https://doc.livehelperchat.com/docs/javascript-arguments/
+6. Notifications won't be shown if you have many pending chats and change sort
+7. If storing message fails we should show visitor what happened. So he can try again
+8. We should also keep his last message attempt
+9. Reduced number of renders checks in widget
+10. Translations performance/cache improvements
+11. You can override now also english translations - https://doc.livehelperchat.com/docs/language/#how-to-override-default-translations
+12. If sending message from a new widget fails we will show now message for a visitor.
+
+execute doc/update_db/update_229.sql for update
+
 3.55v
 
 1. Continuous webhooks.

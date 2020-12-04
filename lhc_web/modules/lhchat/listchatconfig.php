@@ -5,6 +5,11 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/listchatconfig.tpl.php');
 if ($currentUser->hasAccessTo('lhchat','administrateconfig')) {
 	if (isset($_POST['UpdateConfig']))
 	{
+        if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+            erLhcoreClassModule::redirect();
+            exit;
+        }
+        
 		foreach (erLhcoreClassModelChatConfig::getItems() as $item) {
 				$ConfigData = erLhcoreClassModelChatConfig::fetch($item->identifier);
 				
