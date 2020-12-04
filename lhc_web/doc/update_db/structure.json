@@ -5678,7 +5678,7 @@
       },
       {
         "field": "identifier",
-        "type": "varchar(50)",
+        "type": "varchar(2083)",
         "null": "NO",
         "key": "MUL",
         "default": null,
@@ -9429,9 +9429,10 @@
         "active_chats_counter" : "ALTER TABLE `lh_departament` ADD INDEX `active_chats_counter` (`active_chats_counter`);",
         "pending_chats_counter" : "ALTER TABLE `lh_departament` ADD INDEX `pending_chats_counter` (`pending_chats_counter`);",
         "bot_chats_counter" : "ALTER TABLE `lh_departament` ADD INDEX `bot_chats_counter` (`bot_chats_counter`);",
-        "archive" : "ALTER TABLE `lh_departament` ADD INDEX `archive` (`archive`);"
+        "archive" : "ALTER TABLE `lh_departament` ADD INDEX `archive` (`archive`);",
+        "identifier_2" : "ALTER TABLE `lh_departament` ADD INDEX `identifier_2` (`identifier`(191));"
       },
-      "old" : ["oha_sh_eh"]
+      "old" : ["oha_sh_eh","identifier"]
     },
     "lh_generic_bot_trigger_event" : {
       "new" : {
