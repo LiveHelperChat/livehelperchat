@@ -47,6 +47,12 @@ class NodeTriggerActionMatchActions extends Component {
                     <div className="col-12">
                         <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['event_background'],'value' : e.target.checked})} defaultChecked={this.props.action.getIn(['content','event_background'])} /> Event is processed on next visitor message.</label>
                     </div>
+
+                    <div className="col-12">
+                        <label>Search for text. This field will override user message text. Usefull in case you want to search by Rest API response. You can put here like {'{content_1}'}</label>
+                        <input type="text" placeholder="Bot content {content_1}" onChange={(e) => this.onchangeAttr({'path' : ['text'], 'value' : e.target.value})} defaultValue={this.props.action.hasIn(['content','text']) ? this.props.action.getIn(['content','text']) : ""} className="form-control form-control-sm" />
+                    </div>
+
                     <div className="col-6">
                         <div className="form-group">
                             <label>For what start chat actions to search</label>
