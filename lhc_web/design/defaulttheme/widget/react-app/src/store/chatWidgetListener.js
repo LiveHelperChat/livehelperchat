@@ -1,4 +1,4 @@
-import { endChat, initChatUI, pageUnload, storeSubscriber, initProactive, checkChatStatus, fetchMessages } from "../actions/chatActions"
+import { endChat, initChatUI, pageUnload, storeSubscriber, initProactive, checkChatStatus, fetchMessages, addMessage } from "../actions/chatActions"
 import { helperFunctions } from "../lib/helperFunctions";
 import i18n from "../i18n";
 
@@ -43,6 +43,24 @@ export default function (dispatch, getState) {
         {id : 'reopenNotification', cb : (data) => {dispatch({type: 'CHAT_ALREADY_STARTED', data: {'id' : data.id, 'hash' : data.hash}})}},
         {id : 'subcribedEvent', cb : (e) => {dispatch(storeSubscriber(e.payload))}},
         {id : 'attr_set', cb : (data) => {dispatch({type: 'attr_set', attr : data.attr, data : data.data})}},
+        {id : 'dispatch_event', cb : (data) => {
+
+                const state = getState();
+
+                let attributesCall = {};
+
+                data.attr && Object.keys(data.attr).forEach(key => {
+                    attributesCall[key] = state.chatwidget.getIn(data.attr[key]);
+                })
+
+                data.attr_params && Object.keys(data.attr_params).forEach(key => {
+                    attributesCall[key] = data.attr_params[key];
+                })
+
+                const operations = {fetchMessages, addMessage};
+
+                dispatch(operations[data.func](attributesCall));
+        }},
         {id : 'onlineStatus',cb : (data) => {dispatch({type: 'onlineStatus', data: data})}},
         {id : 'toggleSound',cb : (data) => {dispatch({type: 'toggleSound', data: data})}},
         {id : 'widgetStatus',cb : (data) => {dispatch({type: 'widgetStatus', data: data})}},
