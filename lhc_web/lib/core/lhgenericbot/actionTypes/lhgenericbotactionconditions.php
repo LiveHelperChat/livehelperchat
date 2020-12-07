@@ -48,11 +48,15 @@ class erLhcoreClassGenericBotActionConditions {
                         } else {
                             $attr = '';
                         }
-                     }
+                    }
 
                     if ($attr === null) {
-                        $conditionsMet = false;
-                        break;
+                       $conditionsMet = false;
+                       break;
+                    }
+
+                    if (empty($attr) && isset($params['replace_array']) && !empty($params['replace_array'])) {
+                        $attr = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$condition['content']['attr']);
                     }
 
                     if ($condition['content']['comp'] == 'eq' && !($attr == $valAttr)) {

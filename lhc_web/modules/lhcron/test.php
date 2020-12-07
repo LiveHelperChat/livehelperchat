@@ -6,6 +6,4 @@
  *
  * */
 
-erLhcoreClassChatStatsResque::updateStats(erLhcoreClassModelDepartament::fetch(20));
-
 ?>
