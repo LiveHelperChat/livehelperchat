@@ -634,6 +634,81 @@ class erLhcoreClassGenericBotActionRestapi
                 $userData['dynamic_variables']['{{msg_all}}'] = $tpl->fetch();
             }
 
+            // All messages without [<date>] [<nick>] and system messages
+            if (strpos($item,'{{msg_all_content}}') !== false && !in_array('{{msg_all_content}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{msg_all_content}}';
+
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false, 'filternot' => array('user_id' => -1), 'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
+
+                // Fetch chat messages
+                $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
+                $tpl->set('chat', $userData['chat']);
+                $tpl->set('messages', $messages);
+                $tpl->set('remove_meta', true);
+
+                $userData['dynamic_variables']['{{msg_all_content}}'] = $tpl->fetch();
+            }
+
+             // All messages since operator took over without [<date>] [<nick>] and system messages
+            if (strpos($item,'{{msg_all_since_transfer_content}}') !== false && !in_array('{{msg_all_since_transfer_content}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{msg_all_since_transfer_content}}';
+
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false, 'filternot' => array('user_id' => -1), 'sort' => 'id DESC','filter', 'filtergte' => array('time' => $userData['chat']->pnd_time), 'filter' => array('chat_id' => $userData['chat']->id))));
+
+                // Fetch chat messages
+                $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
+                $tpl->set('chat', $userData['chat']);
+                $tpl->set('messages', $messages);
+                $tpl->set('remove_meta', true);
+
+                $userData['dynamic_variables']['{{msg_all_since_transfer_content}}'] = $tpl->fetch();
+            }
+
+            // All operator messages from chat
+            if (strpos($item,'{{msg_all_op_msg_content}}') !== false && !in_array('{{msg_all_op_msg_content}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{msg_all_op_msg_content}}';
+
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false, 'filtergt' => array('user_id' => 0), 'sort' => 'id DESC','filter' => array('chat_id' => $userData['chat']->id))));
+
+                // Fetch chat messages
+                $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
+                $tpl->set('chat', $userData['chat']);
+                $tpl->set('messages', $messages);
+                $tpl->set('remove_meta', true);
+
+                $userData['dynamic_variables']['{{msg_all_op_msg_content}}'] = $tpl->fetch();
+            }
+
+            // All visitor messages without meta
+            if (strpos($item,'{{msg_all_vis_msg_content}}') !== false && !in_array('{{msg_all_vis_msg_content}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{msg_all_vis_msg_content}}';
+
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false, 'sort' => 'id DESC','filter' => array('user_id' => 0, 'chat_id' => $userData['chat']->id))));
+
+                // Fetch chat messages
+                $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
+                $tpl->set('chat', $userData['chat']);
+                $tpl->set('messages', $messages);
+                $tpl->set('remove_meta', true);
+
+                $userData['dynamic_variables']['{{msg_all_vis_msg_content}}'] = $tpl->fetch();
+            }
+
+            // All visitor messages since transfer without meta
+            if (strpos($item,'{{msg_all_vis_since_transfer_content}}') !== false && !in_array('{{msg_all_vis_since_transfer_content}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{msg_all_vis_since_transfer_content}}';
+
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false, 'sort' => 'id DESC', 'filtergte' => array('time' => $userData['chat']->pnd_time), 'filter' => array('user_id' => 0, 'chat_id' => $userData['chat']->id))));
+
+                // Fetch chat messages
+                $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
+                $tpl->set('chat', $userData['chat']);
+                $tpl->set('messages', $messages);
+                $tpl->set('remove_meta', true);
+
+                $userData['dynamic_variables']['{{msg_all_vis_since_transfer_content}}'] = $tpl->fetch();
+            }
+
             // Detect does customer want's somewhere footprint
             if (strpos($item,'{{footprint}}') !== false && !in_array('{{footprint}}',$userData['required_vars'])) {
                 $userData['required_vars'][] = '{{footprint}}';

@@ -66,7 +66,7 @@
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="params-rest-{{$index}}">
 
-            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','You can put visitor message as placeholder')?> <code ng-non-bindable>{{msg}}, {{msg_clean}}, {{msg_all}} - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','all chat messages');?>, {{msg_url}}, {{chat_id}}, {{lhc.nick}}, {{lhc.email}}, {{lhc.department}}, {{lhc.dep_id}}, {{ip}}, {{footprint}}, {{lhc.add. &lt;additional variable key/identifier&gt;}}, User parameters {{Location/Key}}</code></p>
+            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','You can put visitor message as placeholder')?>&nbsp;<a href="https://doc.livehelperchat.com/docs/bot/rest-api#replaceable-variables" target="_blank"><i class="material-icons">help</i></a></p>
 
             <button type="button" class="btn btn-secondary btn-xs" ng-click="lhcrestapi.addParam(param.query)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Add param')?></button>
 
@@ -224,7 +224,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Paste your request here (E.g JSON body). You can put visitor message as placeholder')?> <code ng-non-bindable>{{msg}}, {{msg_clean}}, {{msg_url}}, {{chat_id}}, {{lhc.nick}}, {{lhc.email}}, {{lhc.department}}, {{lhc.dep_id}}, {{ip}}, {{lhc.add. &lt;additional variable key/identifier&gt;}}, User parameters {{Location/Key}}</code></label>
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Paste your request here (E.g JSON body). You can put visitor message as placeholder')?>&nbsp;<a href="https://doc.livehelperchat.com/docs/bot/rest-api#replaceable-variables" target="_blank"><i class="material-icons">help</i></a></label>
                     <textarea rows="10" class="form-control form-control-sm" ng-model="param.body_raw"></textarea>
                 </div>
             </div>
