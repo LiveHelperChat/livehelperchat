@@ -73,7 +73,10 @@
 	<hr>
 
 	<div class="row">
-		<div ng-repeat="field in startChat.startchatfields" class="col-{{field.size}}">
+		<div ng-repeat="field in startChat.startchatfields" class="col-6">
+
+
+
 			<div class="form-group">
 				<div class="btn-group float-right" role="group" aria-label="...">
 					<button ng-if="$index > 0" type="button" class="btn btn-secondary btn-xs" ng-click="startChat.moveLeftField(field)">&laquo; <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','left')?></button>
@@ -130,8 +133,8 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <label><input ng-model="field.isrequired" type="checkbox" name="customFieldIsrequired[]" value="true" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Is required')?></label><br>
-                    <label><input ng-model="field.hide_prefilled" type="checkbox" name="customFieldHidePrefilled[]" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hide if prefilled')?></label>
+                    <label><input ng-model="field.isrequired" type="checkbox" name="customFieldIsrequired[{{$index}}]" value="true" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Is required')?></label><br>
+                    <label><input ng-model="field.hide_prefilled" type="checkbox" name="customFieldHidePrefilled[{{$index}}]" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hide if prefilled')?></label>
                 </div>
             </div>
 
