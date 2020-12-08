@@ -27,7 +27,6 @@ body {
 
 #tabs > .nav-pills{
 	padding-bottom: 10px;
-	border-bottom: 1px solid #ddd;
 }
 
 a.link {
@@ -639,7 +638,6 @@ div.pending-storage {
 .message-block{
 	font-size: 13px;
 	border-bottom:1px solid #ced4da;
-	border-right:1px solid #ced4da;
 }
 
 div.message-admin+div.message-admin .msg-date,div.message-row.response+div.message-row.response .msg-date,
@@ -649,7 +647,7 @@ div.message-admin+div.message-admin .msg-date,div.message-row.response+div.messa
 
 .last-user-msg{
 	position:absolute;
-	margin-top:-14px;
+	margin-top:-18px;
 	font-size:11px;
 }
 
@@ -847,9 +845,9 @@ ul.user-settings-list li{
 .collapse-right:hover{
 	position:absolute;
 	right:0px;
-	margin-top: -16px;
-  	margin-right: 0px;
-	color:#000;
+	margin-top: -19px;
+  	margin-right: 5px;
+	color:#6c757d;
 	text-decoration:none;
 	font-size:24px;
 }
@@ -1308,29 +1306,15 @@ input[type="file"]{
 
 .load-prev-btn:hover,
 .load-prev-btn{
-	position:absolute;
-	text-align: center;
-	border-top:0;
-	border-right:0;
-	border-left:0;
-	margin-left:-1px;
-	background-color: rgba(196, 203, 209, 0.57);
-	color:#FFF;
-	font-weight:bold;
-	user-select: none;
-	right:0;
-	-webkit-border-bottom-left-radius: 10px;
-	-moz-border-radius-bottomleft: 10px;
-	border-bottom-left-radius: 10px;
-	padding:1px 5px 2px 5px;
-	border:1px solid #ccc;
-	border-top:0;
-	border-right:0;
-	z-index:999;
-}
-
-.load-prev-btn:hover {
-	background-color:rgba(196, 203, 209, 0.90);
+    position:absolute;
+    text-align: center;
+    margin-left:-1px;
+    font-weight:bold;
+    user-select: none;
+    right:0;
+    z-index:999;
+    margin-top:5px;
+    color: #6c757d!important;
 }
 
 .quick-replies{
@@ -1850,6 +1834,10 @@ html {
     min-height:32px
 }
 
+.chat-main-right-column{
+    border-left: 1px solid #dddddd;
+}
+
 .dashboard-height .chat-main-right-column > div{
     position: absolute;
     top: 0;
@@ -1882,4 +1870,16 @@ html {
 #sidebar-wrapper a,
 .top-menu-bar-lhc a{
     color: #7c7c7d;
+}
+
+.nav-underline a.nav-link{
+    color: #3e3e3e;
+}
+
+.nav-underline a.nav-link.active{
+    border-bottom: 3px solid #dee2e6;
+}
+
+.nav-small a.nav-link{
+    padding: 0.4rem 0.5rem;
 }

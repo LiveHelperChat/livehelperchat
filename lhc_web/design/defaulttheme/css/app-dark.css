@@ -638,7 +638,7 @@ div.message-admin+div.message-admin .msg-date,div.message-row.response+div.messa
 
 .last-user-msg{
     position:absolute;
-    margin-top:-14px;
+    margin-top:-18px;
     font-size:11px;
 }
 
@@ -836,9 +836,9 @@ ul.user-settings-list li{
 .collapse-right:hover{
     position:absolute;
     right:0px;
-    margin-top: -16px;
-    margin-right: 0px;
-    color:#000;
+    margin-top: -19px;
+    margin-right: 5px;
+    color: #6c757d;
     text-decoration:none;
     font-size:24px;
 }
@@ -1301,16 +1301,8 @@ input[type="file"]{
     font-weight:bold;
     user-select: none;
     right:0;
-    -webkit-border-bottom-left-radius: 10px;
-    -moz-border-radius-bottomleft: 10px;
-    border-bottom-left-radius: 10px;
-    padding:1px 5px 2px 5px;
-    border:1px solid #63676b;
     z-index:999;
-}
-
-.load-prev-btn:hover {
-    background-color: #2a2d31;
+    margin-top:5px;
 }
 
 .quick-replies{
@@ -1852,6 +1844,7 @@ html {
 
 #right-column-page .alert-light,
 .dashboard-panels .alert-light,
+.sub-tabs-content .alert-light,
 .card-dashboard .alert-light{
     background-color: #2a2d31;
     color: #a7a7a7;
@@ -1883,4 +1876,20 @@ html {
 .card-dashboard .btn-block-department .btn-light{
     background-color: #393f44;
     border: 1px solid #343a40;
+}
+
+.nav-underline a.nav-link{
+    color: #adb5bd;
+}
+
+.nav-underline a.nav-link.active{
+    border-bottom: 3px solid #63676b;
+}
+
+.chat-main-right-column{
+    border-left: 1px solid #63676b;
+}
+
+.nav-small a.nav-link{
+    padding: 0.4rem 0.5rem;
 }

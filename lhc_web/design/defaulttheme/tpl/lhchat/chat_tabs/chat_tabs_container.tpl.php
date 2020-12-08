@@ -1,5 +1,5 @@
 <div role="tabpanel">
-	<ul class="nav nav-pills" role="tablist" id="chat-tab-items-<?php echo $chat->id?>">	
+	<ul class="nav nav-underline mb-1 pb-1 nav-small" role="tablist" id="chat-tab-items-<?php echo $chat->id?>">
 	    <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/tabs_order.tpl.php')); ?>
 		    
 	    <?php

@@ -782,7 +782,9 @@ function lh(){
     	    	
     	this.removeBackgroundChat(chat_id);
     	this.hideNotification(chat_id);
-    	
+
+    	$('#sub-tabs').length > 0 && $('#sub-tabs a[href=\'#sub-tabs-open\']').tab('show');
+
         if ( this.chatUnderSynchronization(chat_id) == false ) {        	
         	var focusTabAction = typeof focusTab !== 'undefined' ? focusTab : true;
         	var rememberAppend = this.disableremember == false ? '/(remember)/true' : '';
@@ -795,7 +797,7 @@ function lh(){
         	tabs.find('> ul > li > a.active').removeClass("active");
     		tabs.find('> ul > li#chat-tab-li-'+chat_id+' > a').addClass("active");
     		tabs.find('> div.tab-content > div.active').removeClass('active');
-    		tabs.find('> div.tab-content > #chat-id-'+chat_id).addClass('active');  
+    		tabs.find('> div.tab-content > #chat-id-'+chat_id).addClass('active');
     		window.location.hash = '#/chat-id-'+chat_id;
         }
         

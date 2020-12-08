@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-sm-8 chat-main-left-column" id="chat-main-column-<?php echo $chat->id;?>">
+	<div class="col-sm-8 pl-0 chat-main-left-column" id="chat-main-column-<?php echo $chat->id;?>">
 
         <span class="last-user-msg" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Last visitor message time')?>"><i class="material-icons">access_time</i><span id="last-msg-chat-<?php echo $chat->id?>">...</span></span>
 
