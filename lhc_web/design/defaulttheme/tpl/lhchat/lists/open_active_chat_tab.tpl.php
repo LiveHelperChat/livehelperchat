@@ -15,7 +15,7 @@
                         <?php endif; ?>
                 </a>
                 <?php if ((int)erLhcoreClassModelUserSetting::getSetting('new_dashboard',1) == 1) : ?>
-                    <a class="dropdown-item" href="<?php echo erLhcoreClassDesign::baseurl('front/switchdashboard/(action)/tabs')?>"><i class="material-icons">chat</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Hide/Show chat tabs'); ?></a>
+                    <a class="dropdown-item" href="<?php echo erLhcoreClassDesign::baseurl('front/switchdashboard')?>/(action)/tabs"><i class="material-icons">chat</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Hide/Show chat tabs'); ?></a>
                 <?php endif; ?>
                 <div class="dropdown-item">
                     <div class="input-group input-group-sm">
