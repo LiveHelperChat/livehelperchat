@@ -2214,7 +2214,7 @@ class erLhcoreClassChat {
        
        if ( $ts > 0 ) {
        
-           $periods         = array("s.", "m.", "h.", "d.", "w.", "m.", "y.", "dec.");
+           $periods         = array("s.", "m.", "h.", "d.", "w.", "M.", "y.", "dec.");
            $lengths         = array("60","60","24","7","4.35","12","10");
        
            $difference     = time() - $ts;
