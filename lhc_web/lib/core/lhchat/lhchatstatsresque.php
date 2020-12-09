@@ -18,9 +18,11 @@ class erLhcoreClassChatStatsResque {
         $db = ezcDbInstance::get();
 
         // Get max load for a specific department
-        $stmt = $db->prepare('SELECT SUM(max_chats) as max_chats FROM (SELECT MAX(max_chats) as max_chats FROM `lh_userdep` WHERE dep_id = :dep_id AND lastd_activity > :last_activity GROUP BY user_id) as tmp;');
+
+        $stmt = $db->prepare('SELECT SUM(max_chats) as max_chats FROM (SELECT MAX(max_chats) as max_chats FROM `lh_userdep` WHERE dep_id = :dep_id AND last_activity > :last_activity AND (hide_online = 0 OR hide_online_ts > :hide_online_ts) GROUP BY user_id) as tmp;');
         $stmt->bindValue(':dep_id',$dep->id,PDO::PARAM_INT);
         $stmt->bindValue(':last_activity',time()-600, PDO::PARAM_INT);
+        $stmt->bindValue(':hide_online_ts',time()-600, PDO::PARAM_INT);
         $stmt->execute();
         $maxChats = (int)$stmt->fetchColumn();
 
@@ -61,7 +63,7 @@ class erLhcoreClassChatStatsResque {
             if (in_array((int)$statsChat['status'],array(erLhcoreClassModelChat::STATUS_PENDING_CHAT, erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) && in_array((int)$statsChat['status_sub'],array(erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW))) {
                 $dep->inactive_chats_cnt += $statsChat['total'];
             }
-         }
+        }
 
         $dep->max_load = $maxChats;
         $dep->max_load_h = isset($maxChatsHard['max_chats']) ? $maxChatsHard['max_chats'] : 0;
@@ -74,9 +76,10 @@ class erLhcoreClassChatStatsResque {
         $depGroups = erLhcoreClassModelDepartamentGroupMember::getList(array('filter' => array('dep_id' => $dep->id)));
 
         foreach ($depGroups as $depGroup) {
-            $stmt = $db->prepare('SELECT SUM(`max_chats`) AS `max_chats` FROM (SELECT MAX(`max_chats`) AS `max_chats` FROM `lh_userdep` WHERE `dep_id` IN (SELECT `dep_id` FROM `lh_departament_group_member` WHERE `dep_group_id` = :dep_group_id) AND `lastd_activity` > :last_activity GROUP BY `user_id`) as `tmp`;');
+            $stmt = $db->prepare('SELECT SUM(`max_chats`) AS `max_chats` FROM (SELECT MAX(`max_chats`) AS `max_chats` FROM `lh_userdep` WHERE `dep_id` IN (SELECT `dep_id` FROM `lh_departament_group_member` WHERE `dep_group_id` = :dep_group_id) AND last_activity > :last_activity AND (hide_online = 0 OR hide_online_ts > :hide_online_ts) GROUP BY `user_id`) as `tmp`;');
             $stmt->bindValue(':dep_group_id',$depGroup->dep_group_id,PDO::PARAM_INT);
             $stmt->bindValue(':last_activity',time()-600, PDO::PARAM_INT);
+            $stmt->bindValue(':hide_online_ts',time()-600, PDO::PARAM_INT);
             $stmt->execute();
             $maxChats = (int)$stmt->fetchColumn();
 
