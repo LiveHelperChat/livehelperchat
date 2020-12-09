@@ -15,12 +15,14 @@ class erLhcoreClassModelChatWebhook {
     public function getState()
     {
         return array(
-            'id'          => $this->id,
-            'event'       => $this->event,
-            'bot_id'      => $this->bot_id,
-            'trigger_id'  => $this->trigger_id,
-            'disabled'    => $this->disabled,
-            'type'        => $this->type,
+            'id'            => $this->id,
+            'event'         => $this->event,
+            'bot_id'        => $this->bot_id,
+            'trigger_id'    => $this->trigger_id,
+            'trigger_id_alt'=> $this->trigger_id_alt,
+            'bot_id_alt'    => $this->bot_id_alt,
+            'disabled'      => $this->disabled,
+            'type'          => $this->type,
             'configuration' => $this->configuration,
         );
     }
@@ -54,6 +56,8 @@ class erLhcoreClassModelChatWebhook {
     public $event = '';
     public $bot_id = 0;
     public $trigger_id = 0;
+    public $bot_id_alt = 0;
+    public $trigger_id_alt = 0;
     public $disabled = 0;
     public $type = 0;
     public $configuration = '';

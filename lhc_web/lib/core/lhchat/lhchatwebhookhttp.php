@@ -20,6 +20,11 @@ class erLhcoreClassChatWebhookHttp {
                     if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
                         erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('args' => $params));
                     }
+                } elseif ($webhook->trigger_id_alt > 0) {
+                    $trigger = erLhcoreClassModelGenericBotTrigger::fetch($webhook->trigger_id_alt);
+                    if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                        erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('args' => $params));
+                    }
                 }
             }
         }
