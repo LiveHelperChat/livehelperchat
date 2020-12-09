@@ -37,6 +37,14 @@ class OfflineChat extends Component {
     handleSubmit(event) {
 
         var fields = this.state;
+        var hasFile = false;
+        const formData = new FormData();
+
+        if (typeof fields['File'] !== 'undefined') {
+            hasFile = true;
+            formData.append("File", fields['File'], fields['File'].name);
+        }
+
         fields['jsvar'] = this.props.chatwidget.get('jsVars');
         fields['captcha_' + this.props.chatwidget.getIn(['captcha','hash'])] = this.props.chatwidget.getIn(['captcha','ts']);
         fields['tscaptcha'] = this.props.chatwidget.getIn(['captcha','ts']);
@@ -65,7 +73,11 @@ class OfflineChat extends Component {
             'fields' : fields
         };
 
-        this.props.dispatch(submitOfflineForm(submitData));
+        if (hasFile) {
+            formData.append('document', JSON.stringify(submitData));
+        }
+
+        this.props.dispatch(submitOfflineForm(hasFile ? formData : submitData));
         event.preventDefault();
     }
 

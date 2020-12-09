@@ -217,6 +217,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
         ($Params['user_parameters_unordered']['mode'] == 'widget' && isset($start_data_fields['offline_file_visible_in_page_widget']) && $start_data_fields['offline_file_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['offline_file_visible_in_popup']) && $start_data_fields['offline_file_visible_in_popup'] == true)
     ) {
+        $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
         $fields[] = array(
             'type' => 'file',
             'width' => 12,
@@ -225,6 +226,8 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'required' => false,
             'name' => 'File',
             'placeholder' => null,
+            'fs' => $fileData['fs_max']*1024,
+            'ft_us' => $fileData['ft_us'],
         );
     }
 
@@ -232,7 +235,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
         ( ($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['offline_message_visible_in_page_widget']) && $start_data_fields['offline_message_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['offline_message_visible_in_popup']) && $start_data_fields['offline_message_visible_in_popup'] == true)
     ) {
-        $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
+
 
         $fields[] = array(
             'type' => (isset($start_data_fields['offline_message_hidden']) && $start_data_fields['offline_message_hidden'] == true ? 'hidden' : 'textarea'),
@@ -242,8 +245,6 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'required' => (isset($start_data_fields['offline_message_require_option']) && $start_data_fields['offline_message_require_option'] == 'required'),
             'hide_prefilled' => (isset($start_data_fields['offline_message_hidden_prefilled']) && $start_data_fields['offline_message_hidden_prefilled'] == true),
             'name' => 'Question',
-            'fs' => $fileData['fs_max']*1024,
-            'ft_us' => $fileData['ft_us'],
             'identifier' => 'question',
             'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message'),
         );

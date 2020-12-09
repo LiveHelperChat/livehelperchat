@@ -1691,6 +1691,45 @@ class erLhcoreClassChatValidator {
                 $params['chat']->saveThis();
             }
 
+            if (isset($params['input_data']) && $params['input_data']->has_file == true) {
+                $fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
+                $data = (array)$fileData->data;
+                $path = 'var/storage/' . date('Y') . 'y/' . date('m') . '/' . date('d') . '/' . $params['chat']->id . '/';
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfile.file_path', array('path' => & $path, 'storage_id' => $params['chat']->id));
+
+                $clamav = false;
+
+                if (isset($data['clamav_enabled']) && $data['clamav_enabled'] == true) {
+
+                    $opts = array();
+
+                    if (isset($data['clamd_sock']) && !empty($data['clamd_sock'])) {
+                        $opts['clamd_sock'] = $data['clamd_sock'];
+                    }
+
+                    if (isset($data['clamd_sock_len']) && !empty($data['clamd_sock_len'])) {
+                        $opts['clamd_sock_len'] = $data['clamd_sock_len'];
+                    }
+
+                    $clamav = new Clamav($opts);
+                }
+
+                $upload_handler = new erLhcoreClassFileUpload(array(
+                    'antivirus' => $clamav,
+                    'user_id' => 0,
+                    'param_name' => 'File',
+                    'max_file_size' => $data['fs_max'] * 1024,
+                    'accept_file_types_lhc' => '/\.(' . $data['ft_us'] . ')$/i',
+                    'chat' => $params['chat'],
+                    'download_via_php' => true,
+                    'upload_dir' => $path));
+
+                if ($upload_handler->uploadedFile instanceof erLhcoreClassModelChatFile) {
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfile.file_store', array('chat_file' => $upload_handler->uploadedFile));
+                }
+            }
+
             if (isset($data['close_offline']) && $data['close_offline'] == 1) {
                 erLhcoreClassChatHelper::closeChat(array(
                     'chat' => & $params['chat'],

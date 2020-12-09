@@ -17,10 +17,14 @@ class ChatField extends Component {
     }
 
     onFileAdded(e) {
-        const list = this.fileListToArray(e.target.files);
+        const list = e.target.files;
         const files = [];
         for (var i = 0; i < list.length; i++) {
             files.push(list.item(i));
+        }
+
+        if (list.length == 0) {
+            return null;
         }
 
         const ruleTest = new RegExp("(\.|\/)(" + this.props.field.get('ft_us') + ")$","i");
@@ -40,7 +44,9 @@ class ChatField extends Component {
             //alert(uploadErrors.join("\n"));
             console.log(uploadErrors);
         } else {
-            console.log(files);
+            this.props.onChangeContent({id : this.props.field.get('name'), value : files[0], field : this.props.field});
+
+            //console.log(files);
             /*this.setState({
                 'files': files
             })*/
