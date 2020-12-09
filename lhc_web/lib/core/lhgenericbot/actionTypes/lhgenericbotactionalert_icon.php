@@ -50,7 +50,7 @@ class erLhcoreClassGenericBotActionAlert_icon {
         if ($needUpdate == true) {
             $chat->chat_variables = json_encode($chatVariables);
             $chat->chat_variables_array = $chatVariables;
-            $chat->saveThis();
+            $chat->saveThis(array('update' => array('chat_variables')));
         }
     }
 }
