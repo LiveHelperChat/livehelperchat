@@ -119,6 +119,10 @@ export class mainWidgetPopup {
                 }
             }
 
+            if (this.attributes['leaveMessage'] === true) {
+                urlArgumetns = urlArgumetns + "/(leaveamessage)/true";
+            }
+
             if (this.attributes['userSession'].getSessionReferrer() !== null && this.attributes['userSession'].getSessionReferrer() != '') {
                 urlArgumetns = urlArgumetns + '?ses_ref=' + this.attributes['userSession'].getSessionReferrer() + this.parseOptions();
             } else {
