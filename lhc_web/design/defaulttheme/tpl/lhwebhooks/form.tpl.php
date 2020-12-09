@@ -18,6 +18,9 @@
     <div role="tabpanel" class="tab-pane form-group" id="chooks-settings">
         <div class="form-group">
             <label><input type="radio" value="1" name="type" <?php if ($item->type == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','This is continuous event');?></label>
+
+            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Make sure you define some conditions. Only pending, active and bot chats are checked against these conditions.');?></p>
+
         </div>
     </div>
 </div>
