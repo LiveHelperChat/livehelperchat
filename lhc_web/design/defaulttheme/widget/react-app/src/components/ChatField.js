@@ -9,12 +9,47 @@ class ChatField extends Component {
     constructor(props) {
         super(props);
         this.onchangeAttr = this.onchangeAttr.bind(this);
+        this.onFileAdded = this.onFileAdded.bind(this);
     }
 
     onchangeAttr(e) {
         this.props.onChangeContent({id : this.props.field.get('name'), value : e.value, field : this.props.field});
     }
- 
+
+    onFileAdded(e) {
+        const list = this.fileListToArray(e.target.files);
+        const files = [];
+        for (var i = 0; i < list.length; i++) {
+            files.push(list.item(i));
+        }
+
+        const ruleTest = new RegExp("(\.|\/)(" + this.props.field.get('ft_us') + ")$","i");
+
+        let uploadErrors = [];
+        files.forEach(file => {
+            if (!(ruleTest.test(file.type) || ruleTest.test(file.name))) {
+                uploadErrors.push(file.name + ': ') ;//+ t('file.incorrect_type'));
+            }
+
+            if (file.size > this.props.field.get('fs')) {
+                uploadErrors.push(file.name + ': ');//+ t('file.to_big_file'));
+            }
+        });
+
+        if (uploadErrors.length > 0) {
+            //alert(uploadErrors.join("\n"));
+            console.log(uploadErrors);
+        } else {
+            console.log(files);
+            /*this.setState({
+                'files': files
+            })*/
+        }
+
+        /*this.onFilesAdded(array);*/
+    }
+
+
     componentDidMount() {
         if (this.props.field.get('type') == 'checkbox' && this.props.field.get('default') == true) {
             this.props.onChangeContent({id : this.props.field.get('name'), value : true});
@@ -86,7 +121,7 @@ class ChatField extends Component {
                 <div className={className}>
                     <div className="form-group">
                         <label className="control-label">{this.props.field.get('label')}{required === true ? '*' : ''}</label>
-                        <input type="file" className={this.props.field.get('class')} required={required} name={this.props.field.get('name')}  />
+                        <input type="file" onChange={(e) => this.onFileAdded(e)} className={this.props.field.get('class')} required={required} name={this.props.field.get('name')}  />
                     </div>
                 </div>
             )
