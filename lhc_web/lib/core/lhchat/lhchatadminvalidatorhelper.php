@@ -1004,6 +1004,12 @@ class erLhcoreClassAdminChatValidatorHelper {
             'AbstractInput_trigger_id' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
             ),
+            'bot_id_alt' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
+            ),
+            'AbstractInput_trigger_id_alt' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
+            ),
             'type' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'max_range' => 1)
             ),
@@ -1037,10 +1043,22 @@ class erLhcoreClassAdminChatValidatorHelper {
             $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Please choose a bot');
         }
 
+        if ( $form->hasValidData( 'bot_id_alt' )) {
+            $webhook->bot_id_alt = $form->bot_id_alt;
+        } else {
+            $webhook->bot_id_alt = 0;
+        }
+
         if ( $form->hasValidData( 'AbstractInput_trigger_id' )) {
             $webhook->trigger_id = $form->AbstractInput_trigger_id;
         } else {
             $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Please choose a trigger');
+        }
+
+        if ( $form->hasValidData( 'AbstractInput_trigger_id_alt' )) {
+            $webhook->trigger_id_alt = $form->AbstractInput_trigger_id_alt;
+        } else {
+            $webhook->trigger_id_alt = 0;
         }
 
         if ( $form->hasValidData( 'disabled' ) && $form->disabled == true ) {

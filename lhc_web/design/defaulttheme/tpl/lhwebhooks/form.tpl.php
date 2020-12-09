@@ -22,7 +22,7 @@
     </div>
 </div>
 
-<hr>
+<hr class="border-top">
 
 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Conditions');?></h5>
 
@@ -117,38 +117,70 @@
         </span>
 <span class="mt-1 mb-1 p-2 badge fs14 d-block badge-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Success');?></span>
 
-<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Execute');?></h5>
+<hr class="border-top">
 
-<div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Please choose a bot');?></label>
-    <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-        'input_name'     => 'bot_id',
-        'display_name'   => 'name',
-        'css_class'      => 'form-control',
-        'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Choose a bot'),
-        'selected_id'    => $item->bot_id,
-        'list_function'  => 'erLhcoreClassModelGenericBotBot::getList',
-        'list_function_params'  => array()
-    ) ); ?>
-</div>
+<div class="row">
+    <div class="col-6">
+        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Execute if conditions are valid');?></h5>
 
-<div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Please choose a trigger');?></label>
-    <div id="trigger-list-id"></div>
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Please choose a bot');?></label>
+            <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                'input_name'     => 'bot_id',
+                'display_name'   => 'name',
+                'css_class'      => 'form-control',
+                'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Choose a bot'),
+                'selected_id'    => $item->bot_id,
+                'list_function'  => 'erLhcoreClassModelGenericBotBot::getList',
+                'list_function_params'  => array()
+            ) ); ?>
+        </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Please choose a trigger');?></label>
+            <div id="trigger-list-id"></div>
+        </div>
+    </div>
+    <div class="col-6">
+        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Execute if conditions are NOT valid');?></h5>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Please choose a bot');?></label>
+            <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                'input_name'     => 'bot_id_alt',
+                'display_name'   => 'name',
+                'css_class'      => 'form-control',
+                'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Choose a bot'),
+                'selected_id'    => $item->bot_id_alt,
+                'list_function'  => 'erLhcoreClassModelGenericBotBot::getList',
+                'list_function_params'  => array()
+            ) ); ?>
+        </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Please choose a trigger');?></label>
+            <div id="trigger-alt-list-id"></div>
+        </div>
+
+    </div>
 </div>
 
 <script>
     $('select[name="bot_id"]').change(function(){
         $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $(this).val(), { }, function(data) {
             $('#trigger-list-id').html(data);
-        }).fail(function() {
-
+        });
+    });
+    $('select[name="bot_id_alt"]').change(function(){
+        $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $(this).val(), { }, function(data) {
+            $('#trigger-alt-list-id').html(data);
         });
     });
     $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $('select[name="bot_id"]').val() + '/<?php echo $item->trigger_id?>',  { }, function(data) {
         $('#trigger-list-id').html(data);
-    }).fail(function() {
-
+    });
+    $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $('select[name="bot_id_alt"]').val() + '/<?php echo $item->trigger_id_alt?>',  { }, function(data) {
+        $('#trigger-alt-list-id').html(data);
     });
 </script>
 

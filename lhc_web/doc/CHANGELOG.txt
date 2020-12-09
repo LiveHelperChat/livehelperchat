@@ -1,3 +1,18 @@
+3.57v
+
+1. New widget offline form will support file field now.
+2. Webhook has option to set alternative scenario of conditions are not met.
+3. Change how soft limit is calculated for department load statistic.
+4. Popup was not showing offline form even argument was passed in embed code.
+5. Dashboard open chats has sub-tabs instead of list one after another.
+6. Start chat custom field settings was not setting required attribute if not first one was checked.
+7. Webhooks conditions can be applied to standard events now.
+8. JS API to send messages as visitor from third party JS.
+9. Images will show download icon always.
+10. If sending message to chat fails we will show an error to visitor.
+
+execute doc/update_db/update_230.sql for update
+
 3.56v
 
 1. Chat export will have modal window dedicated to chat's export with subject and messages types inclusion.

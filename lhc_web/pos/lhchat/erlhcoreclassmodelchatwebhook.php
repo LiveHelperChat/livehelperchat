@@ -24,6 +24,16 @@ $def->properties['bot_id']->columnName   = 'bot_id';
 $def->properties['bot_id']->propertyName = 'bot_id';
 $def->properties['bot_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['trigger_id_alt'] = new ezcPersistentObjectProperty();
+$def->properties['trigger_id_alt']->columnName   = 'trigger_id_alt';
+$def->properties['trigger_id_alt']->propertyName = 'trigger_id_alt';
+$def->properties['trigger_id_alt']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['bot_id_alt'] = new ezcPersistentObjectProperty();
+$def->properties['bot_id_alt']->columnName   = 'bot_id_alt';
+$def->properties['bot_id_alt']->propertyName = 'bot_id_alt';
+$def->properties['bot_id_alt']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['disabled'] = new ezcPersistentObjectProperty();
 $def->properties['disabled']->columnName   = 'disabled';
 $def->properties['disabled']->propertyName = 'disabled';
