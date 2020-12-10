@@ -2088,8 +2088,8 @@ function lh(){
 	this.playNewMessageSound = function() {
 
 	    if (Modernizr.audio && this.audio !== null) {
-    	    this.audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/new_message.ogg?v=2' :
-                        Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/new_message.mp3?v=2' : WWW_DIR_JAVASCRIPT_FILES + '/new_message.wav?v=2';
+    	    this.audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/new_message.ogg?v=3' :
+                        Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/new_message.mp3?v=3' : WWW_DIR_JAVASCRIPT_FILES + '/new_message.wav?v=3';
     	    this.audio.load();
 	    };
 
@@ -2381,8 +2381,8 @@ function lh(){
 		this.soundPlayedTimes++;
 		if (Modernizr.audio && this.audio !== null) {
 
-			this.audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/'+sound+'.ogg?v=2' :
-                        Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/'+sound+'.mp3?v=2' : WWW_DIR_JAVASCRIPT_FILES + '/'+sound+'.wav?v=2';
+			this.audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/'+sound+'.ogg?v=3' :
+                        Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/'+sound+'.mp3?v=3' : WWW_DIR_JAVASCRIPT_FILES + '/'+sound+'.wav?v=3';
 			this.audio.load();
 
             if (confLH.repeat_sound > this.soundPlayedTimes) {
