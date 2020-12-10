@@ -199,6 +199,18 @@ class erLhcoreClassChatWebhookContinuous {
                 }
             }
 
+            // Execute alternative trigger if to chat was not applied matching trigger
+            if ($continuousHook->trigger_id_alt > 0) {
+                $trigger = erLhcoreClassModelGenericBotTrigger::fetch($continuousHook->trigger_id_alt);
+                if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                    foreach ($chats as $chat) {
+                        if (!isset($chatsApplied[$continuousHook->id]) || !in_array($chat->id,$chatsApplied[$continuousHook->id])) {
+                            erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('chat' => $chat)));
+                        }
+                    }
+                }
+            }
+
             if (isset($chatsApplied[$continuousHook->id])) {
                 unset($chatsApplied[$continuousHook->id]);
             }
