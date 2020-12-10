@@ -5,8 +5,6 @@
 $jsonObject = json_decode(erLhcoreClassModelChatOnlineUser::executeRequest('https://raw.githubusercontent.com/LiveHelperChat/livehelperchat/master/lhc_web/doc/update_db/structure.json'),true);
 $localFile = false;
 
-$jsonObject = null;
-
 if (!is_array($jsonObject)) {
     $localFile = true;
     echo "We could not connect to github to fetch database schema. Trying to update database from local file.\n";
