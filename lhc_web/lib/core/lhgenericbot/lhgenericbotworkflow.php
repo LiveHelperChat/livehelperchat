@@ -1465,7 +1465,8 @@ class erLhcoreClassGenericBotWorkflow {
 
         $recursion_counter++;
 
-        if ($recursion_counter > 50) {
+        // Limit calls only for web calls
+        if (($recursion_counter > 50 && erLhcoreClassSystem::instance()->backgroundMode === false) || $recursion_counter > 1000) {
             throw new Exception('To many calls to process trigger! [50]');
         }
 
