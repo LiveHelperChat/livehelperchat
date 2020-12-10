@@ -34,7 +34,7 @@
             <div class="col chats-column border-right pr-0 pl-0">
 
                 <div class="w-100 d-flex flex-column flex-grow-1">
-                    <div class="clearfix">
+                    <div class="clearfix bg-light">
                         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/open_active_chat_tab.tpl.php')); ?>
 
                         <div class="text-muted p-2 float-left"><i class="material-icons mr-0">list</i><span class="fs13 font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Open chats'); ?></span></div>
@@ -86,6 +86,14 @@
                             <div role="tabpanel" class="tab-pane active" id="sub-tabs-open">
                                 <div id="tabs-dashboard">
                                 </div>
+
+                                <?php if ($currentUser->hasAccessTo('lhgroupchat','use')) : ?>
+                                    <div class="border-top border-bottom bg-light">
+                                        <div class="text-muted p-2"><i class="material-icons mr-0">list</i><span class="fs13 font-weight-bold">Group chats</span></div>
+                                    </div>
+
+                                    <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bodies/group_chats.tpl.php'));?>
+                                <?php endif;?>
                             </div>
                             <?php if ($basicChatEnabled == true) : ?>
                             <div role="tabpanel" class="tab-pane" id="sub-tabs-my-assigned">
