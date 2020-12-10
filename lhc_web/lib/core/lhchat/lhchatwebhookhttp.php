@@ -4,7 +4,11 @@ class erLhcoreClassChatWebhookHttp {
 
     public function processEvent($event, $params) {
 
-        $webhooks = erLhcoreClassModelChatWebhook::getList(array('filter' => array('event' => $event, 'disabled' => 0)));
+        try {
+            $webhooks = erLhcoreClassModelChatWebhook::getList(array('filter' => array('event' => $event, 'disabled' => 0)));
+        } catch (Exception $e) {
+            return;
+        }
 
         if (!empty($webhooks)) {
             foreach ($webhooks as $webhook) {

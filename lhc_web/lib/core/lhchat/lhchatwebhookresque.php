@@ -4,10 +4,15 @@ class erLhcoreClassChatWebhookResque {
 
     public function processEvent($event, $params) {
         $db = ezcDbInstance::get();
-        $stmt = $db->prepare("SELECT `id` FROM `lh_webhook` WHERE `event` = :event AND `disabled` = 0");
-        $stmt->bindValue(':event', $event,PDO::PARAM_STR);
-        $stmt->execute();
-        $hooks = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+        try {
+            $stmt = $db->prepare("SELECT `id` FROM `lh_webhook` WHERE `event` = :event AND `disabled` = 0");
+            $stmt->bindValue(':event', $event,PDO::PARAM_STR);
+            $stmt->execute();
+            $hooks = $stmt->fetchAll(PDO::FETCH_COLUMN);
+        } catch (Exception $e) {
+            return;
+        }
 
         if (!empty($hooks)) {
             foreach ($hooks as $hookId) {

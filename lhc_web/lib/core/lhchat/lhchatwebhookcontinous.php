@@ -4,7 +4,11 @@ class erLhcoreClassChatWebhookContinuous {
 
     public static function processEvent() {
 
-        $continuousHooks = erLhcoreClassModelChatWebhook::getList(array('filter' => array('type' => 1, 'disabled' => 0)));
+        try {
+            $continuousHooks = erLhcoreClassModelChatWebhook::getList(array('filter' => array('type' => 1, 'disabled' => 0)));
+        } catch (Exception $e) {
+            return;
+        }
 
         $chats = erLhcoreClassModelChat::getList(array(
             'limit' => false,
