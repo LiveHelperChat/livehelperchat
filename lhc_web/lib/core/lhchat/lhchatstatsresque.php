@@ -28,7 +28,7 @@ class erLhcoreClassChatStatsResque {
 
         $stmt = $db->prepare('SELECT SUM(`max_chats`) as `max_chats`, SUM(`active_chats`) AS `active_chats`, SUM(`inactive_chats`) AS `inactive_chats` FROM (SELECT MAX(`max_chats`) as `max_chats`,MAX(`inactive_chats`) AS `inactive_chats`,MAX(`active_chats`) AS `active_chats` FROM `lh_userdep` WHERE dep_id = :dep_id AND hide_online = 0 AND last_activity > :last_activity GROUP BY user_id) as tmp;');
         $stmt->bindValue(':dep_id',$dep->id,PDO::PARAM_INT);
-        $stmt->bindValue(':last_activity',time()-300, PDO::PARAM_INT);
+        $stmt->bindValue(':last_activity',time()-600, PDO::PARAM_INT);
         $stmt->execute();
         $maxChatsHard = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -85,7 +85,7 @@ class erLhcoreClassChatStatsResque {
 
             $stmt = $db->prepare('SELECT SUM(`max_chats`) AS `max_chats`, SUM(`active_chats`) AS `active_chats`, SUM(`inactive_chats`) AS `inactive_chats` FROM (SELECT MAX(`max_chats`) AS `max_chats`,MAX(`inactive_chats`) AS `inactive_chats`,MAX(`active_chats`) AS `active_chats` FROM `lh_userdep` WHERE `dep_id` IN (SELECT `dep_id` FROM `lh_departament_group_member` WHERE `dep_group_id` = :dep_group_id) AND hide_online = 0 AND `last_activity` > :last_activity GROUP BY `user_id`) as `tmp`;');
             $stmt->bindValue(':dep_group_id',$depGroup->dep_group_id,PDO::PARAM_INT);
-            $stmt->bindValue(':last_activity',time()-300, PDO::PARAM_INT);
+            $stmt->bindValue(':last_activity',time()-600, PDO::PARAM_INT);
             $stmt->execute();
             $maxChatsHard = $stmt->fetch(PDO::FETCH_ASSOC);
 
