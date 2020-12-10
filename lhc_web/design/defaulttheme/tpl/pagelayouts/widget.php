@@ -46,16 +46,16 @@ if (!!window.postMessage) {
     <?php if (!isset($Result['fullheight']) || (isset($Result['fullheight']) && !$Result['fullheight'])) : ?>
         var heightContent = 0;
         var heightElement = $('#widget-layout');
-        setInterval(function(){
-            var currentHeight = heightElement.height();
-            if (heightContent != currentHeight){
-                heightContent = currentHeight;
-                try {
+        var intervalCounter = setInterval(function(){
+            try {
+                var currentHeight = heightElement.height();
+                if (heightContent != currentHeight) {
+                    heightContent = currentHeight;
                     parent.postMessage('<?php echo $Result['dynamic_height_message']?>:'+(parseInt(heightContent)+<?php (isset($Result['dynamic_height_append'])) ? print $Result['dynamic_height_append'] : print 15?>), '*');
-                } catch(e) {
-
                 };
-            };
+            } catch (e) {
+                clearInterval(intervalCounter);
+            }
         },200);
 
     <?php endif; ?>
