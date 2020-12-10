@@ -175,14 +175,14 @@
         });
     });
     $('select[name="bot_id_alt"]').change(function(){
-        $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $(this).val(), { }, function(data) {
+        $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $(this).val() + '/0/(element)/trigger_id_alt', { }, function(data) {
             $('#trigger-alt-list-id').html(data);
         });
     });
     $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $('select[name="bot_id"]').val() + '/<?php echo $item->trigger_id?>',  { }, function(data) {
         $('#trigger-list-id').html(data);
     });
-    $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $('select[name="bot_id_alt"]').val() + '/<?php echo $item->trigger_id_alt?>',  { }, function(data) {
+    $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $('select[name="bot_id_alt"]').val() + '/<?php echo $item->trigger_id_alt?>/(element)/trigger_id_alt',  { }, function(data) {
         $('#trigger-alt-list-id').html(data);
     });
 </script>
