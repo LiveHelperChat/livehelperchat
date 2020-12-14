@@ -1675,6 +1675,10 @@ class erLhcoreClassChatValidator {
                 $params['chat']->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
             }
 
+            if ( empty($params['chat']->email) && isset($params['input_data']) && $params['input_data']->email != '') {
+                $params['chat']->email = $params['input_data']->email;
+            }
+
             $params['chat']->saveThis();
 
             if ( $params['question'] != '' ) {
