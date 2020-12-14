@@ -68,7 +68,7 @@ try {
     		$department = $chat->department;
     		if ($department !== false) {
     			$delay = time()-$department->delay_lm;
-    			if ($department->delay_lm > 0 && $chat->time < $delay) {
+    			if ($department->delay_lm > 0 && $chat->pnd_time < $delay) {
     				$baseURL = (isset($Params['user_parameters_unordered']['mode']) && $Params['user_parameters_unordered']['mode'] == 'widget') ? erLhcoreClassDesign::baseurl('chat/chatwidget') : erLhcoreClassDesign::baseurl('chat/startchat');
     				$ru = $baseURL.'/(department)/'.$department->id.'/(offline)/true/(leaveamessage)/true/(chatprefill)/'.$chat->id.'_'.$chat->hash;
     				
