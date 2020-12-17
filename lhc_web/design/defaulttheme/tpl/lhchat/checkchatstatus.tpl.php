@@ -66,15 +66,21 @@
                 strpos($theme->pending_join_queue,'{avg_wait_time}') !== false
         ) {
 
+            $valueWaitTimeLive = 60;
+
             // If we do not have stats always set as 1 minute
             if (!isset($chat->department->stats->stats_array['avg_wait_time'])) {
                 $valueWaitTime = 60;
             } else {
                 $valueWaitTime = $chat->department->stats->stats_array['avg_wait_time'];
+                $valueWaitTimeLive = $chat->department->stats->stats_array['avg_wait_time'] - $chat->wait_time_seconds;
+                $valueWaitTimeLive = $valueWaitTimeLive > 60 ? $valueWaitTimeLive : 60;
             }
 
             $statusSet = true;
             $m = (int)gmdate('i', $valueWaitTime);
+            $mLive = (int)gmdate('i', $valueWaitTimeLive);
+
             if ($m == 0) {
                 echo htmlspecialchars(str_replace('{avg_wait_time}','',$theme->pending_join));
             } else {
@@ -83,7 +89,12 @@
                 } else {
                     $theme->pending_join_queue = preg_replace('/{avg_wait_time__(.*?)}/','\\1',$theme->pending_join_queue);
                 }
-                echo htmlspecialchars(str_replace(array('{avg_wait_time}','{number}'),array($m,$chat->number_in_queue),$theme->pending_join_queue));
+                if ($mLive == 1) {
+                    $theme->pending_join_queue = preg_replace('/{avg_wait_time_live__(.*?)}/','',$theme->pending_join_queue);
+                } else {
+                    $theme->pending_join_queue = preg_replace('/{avg_wait_time_live__(.*?)}/','\\1',$theme->pending_join_queue);
+                }
+                echo htmlspecialchars(str_replace(array('{avg_wait_time}','{number}','{avg_wait_time_live}'),array($m,$chat->number_in_queue, $mLive),$theme->pending_join_queue));
             }
 
         } ?>
