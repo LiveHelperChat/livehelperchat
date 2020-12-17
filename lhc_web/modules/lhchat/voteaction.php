@@ -19,6 +19,8 @@ if ($chat->hash == $Params['user_parameters']['hash'] && ($chat->status == erLhc
         $chat->operation_admin .= "lhinst.updateVoteStatus(".$chat->id.");";
         
         $chat->updateThis(array('update' => array('fbst','user_typing','user_typing_txt','operation_admin')));
+        
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('vote.action', array('chat' => & $chat));
 
         echo json_encode(array('error' => 'false', 'status' => $chat->fbst));
         exit;
