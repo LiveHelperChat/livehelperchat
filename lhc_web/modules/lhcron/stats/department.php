@@ -3,7 +3,7 @@
 /**
  * php cron.php -s site_admin -c cron/stats/department
  *
- * Run every 12h or so
+ * Run every 6h-12h or so
  *
  * */
 
@@ -18,6 +18,9 @@ foreach (erLhcoreClassModelDepartament::getList(array('filter' => array('archive
     // But we can easily add another stats we want.
     $durationAverage = (int)erLhcoreClassChatStatistic::getAverageChatduration(30,array('filter' => array('dep_id' => $department->id)));
     $statsArray['avg_chat_duration'] = $durationAverage;
+
+    // Store average wait time in seconds
+    $statsArray['avg_wait_time'] = (int)erLhcoreClassChat::getCount(array('filter' => array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT, 'dep_id' => $department->id), 'filterlt' =>  array('wait_time' => 600), 'filtergt' => array('wait_time' => 0, 'time' => (time()-(259200*50))/* last 3 days*/)),'lh_chat','AVG(wait_time)');
 
     // Updates stats
     $stats->stats_array = $statsArray;

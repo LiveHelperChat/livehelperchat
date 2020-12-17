@@ -58,7 +58,37 @@
 
     <?php elseif ($is_online == true) : ?>
     <h6 class="fs12 status-text">
-         <?php if ($chat->number_in_queue > 1) : ?>
+
+        <?php if (
+                $theme !== false &&
+                $theme->pending_join_queue != '' &&
+                $theme->pending_join != '' &&
+                strpos($theme->pending_join_queue,'{avg_wait_time}') !== false
+        ) {
+
+            // If we do not have stats always set as 1 minute
+            if (!isset($chat->department->stats->stats_array['avg_wait_time'])) {
+                $valueWaitTime = 60;
+            } else {
+                $valueWaitTime = $chat->department->stats->stats_array['avg_wait_time'];
+            }
+
+            $statusSet = true;
+            $m = (int)gmdate('i', $valueWaitTime);
+            if ($m == 0) {
+                echo htmlspecialchars(str_replace('{avg_wait_time}','',$theme->pending_join));
+            } else {
+                if ($m == 1) {
+                    $theme->pending_join_queue = preg_replace('/{avg_wait_time__(.*?)}/','',$theme->pending_join_queue);
+                } else {
+                    $theme->pending_join_queue = preg_replace('/{avg_wait_time__(.*?)}/','\\1',$theme->pending_join_queue);
+                }
+                echo htmlspecialchars(str_replace(array('{avg_wait_time}','{number}'),array($m,$chat->number_in_queue),$theme->pending_join_queue));
+            }
+
+        } ?>
+
+         <?php if (!isset($statusSet)) : if ($chat->number_in_queue > 1) : ?>
             <?php if ($theme !== false  && $theme->pending_join_queue != '') : ?>
                  <?php echo htmlspecialchars(str_replace('{number}',$chat->number_in_queue,$theme->pending_join_queue))?>
             <?php else : ?>
@@ -70,7 +100,7 @@
         	<?php else : ?>
         	   <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/pending_join.tpl.php'));?>
             <?php endif;?>
-        <?php endif;?>
+        <?php endif;endif;?>
     </h6>
    
     <?php else : ?>
