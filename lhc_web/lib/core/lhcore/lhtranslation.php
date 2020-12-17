@@ -29,10 +29,9 @@ class erTranslationClassLhTranslation
             $cfg->save();
         }
 
-        $this->cacheObj = new ezcCacheStorageFileArray($sys . '/cache/translations');
+        $this->cacheObj = new ezcCacheStorageFileArray($sys . '/cache/translations', array('ttl' => false));
         $this->backend = new ezcTranslationCacheBackend($this->cacheObj);
         $this->manager = new ezcTranslationManager($this->backend);
-
     }
 
     public function initLanguage()
