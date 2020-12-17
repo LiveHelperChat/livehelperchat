@@ -63,7 +63,8 @@
                 $theme !== false &&
                 $theme->pending_join_queue != '' &&
                 $theme->pending_join != '' &&
-                strpos($theme->pending_join_queue,'{avg_wait_time}') !== false
+                (strpos($theme->pending_join_queue,'{avg_wait_time}') !== false ||
+                strpos($theme->pending_join_queue,'{avg_wait_time_live}') !== false)
         ) {
 
             $valueWaitTimeLive = 60;
