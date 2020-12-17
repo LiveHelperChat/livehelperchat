@@ -285,11 +285,15 @@ div.system-response {
 }
 
 .sys-tit{
-    background-color:#CCC;
-    padding-left:3px;
+    background-color:#495057;
+    padding-left:6px;
     padding-right:3px;
-    color:#fff;
+    color:#d4d0d0;
     display: inline-block;
+}
+
+.sys-tit .msg-date{
+    color: #d4d0d0!important;
 }
 
 .op-tit{

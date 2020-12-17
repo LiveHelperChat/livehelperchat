@@ -45,7 +45,13 @@ class erLhAbstractModelChatVariable
 
         $item = new stdClass();
         $item->id = 0;
-        $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','String');
+        $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','String (case sensitive)');
+
+        $items[] = $item;
+
+        $item = new stdClass();
+        $item->id = 4;
+        $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','String (case insensitive)');
 
         $items[] = $item;
 

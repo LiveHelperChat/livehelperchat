@@ -836,13 +836,13 @@ class erLhcoreClassChatValidator {
             $val = null;
 
             if (isset($data[str_replace('lhc_var.','',$jsVar->js_variable)]) && !empty(str_replace('lhc_var.','',$jsVar->js_variable))) {
-                $val = $data[str_replace('lhc_var.','',$jsVar->js_variable)];
+                $val = trim($data[str_replace('lhc_var.','',$jsVar->js_variable)]);
             } elseif (isset($data[$jsVar->id]) && !empty($data[$jsVar->id])) {
-                $val = $data[$jsVar->id];
+                $val = trim($data[$jsVar->id]);
             }
 
             if (!empty($val)) {
-                if ($jsVar->type == 0) {
+                if ($jsVar->type == 0 || $jsVar->type == 4) {
                     $val = (string)$val;
                 } elseif ($jsVar->type == 1) {
                     $val = (int)$val;
@@ -877,7 +877,8 @@ class erLhcoreClassChatValidator {
         }
 
         $visitor->online_attr = json_encode($onlineAttr);
-        $visitor->saveThis();
+        $visitor->online_attr_array = $onlineAttr;
+        $visitor->saveThis(array('update' => array('online_attr', 'online_attr_system')));
 
     }
 
@@ -907,9 +908,9 @@ class erLhcoreClassChatValidator {
             foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
 
                 if (isset($data[str_replace('lhc_var.','',$jsVar->js_variable)]) && !empty(str_replace('lhc_var.','',$jsVar->js_variable))) {
-                    $val = $data[str_replace('lhc_var.','',$jsVar->js_variable)];
+                    $val = trim($data[str_replace('lhc_var.','',$jsVar->js_variable)]);
                 } elseif (isset($data[$jsVar->id]) && !empty($data[$jsVar->id])) {
-                    $val = $data[$jsVar->id];
+                    $val = trim($data[$jsVar->id]);
                 } else {
                     $val = null;
                 }
@@ -917,7 +918,10 @@ class erLhcoreClassChatValidator {
                 if (!empty($val)) {
                     if (strpos($jsVar->var_identifier,'lhc.') !== false) {
                         $lhcVar = str_replace('lhc.','',$jsVar->var_identifier);
-                        if ($chat->{$lhcVar} != $val && $val != '') {
+                        if (
+                            ($jsVar->type != 4 && $chat->{$lhcVar} != $val && $val != '') ||
+                            ($jsVar->type == 4 && mb_strtolower($chat->{$lhcVar}) != mb_strtolower($val) && $val != '')
+                        ) {
 
                             if ($jsVar->change_message != '') {
                                 $messagesSave[] = str_replace(['{old_val}','{new_val}'],[$chat->{$lhcVar},$val],$jsVar->change_message);
@@ -928,7 +932,7 @@ class erLhcoreClassChatValidator {
                             $needUpdate = true;
                         }
                     } else {
-                        if ($jsVar->type == 0) {
+                        if ($jsVar->type == 0 || $jsVar->type == 4) {
                             $val = (string)$val;
                         } elseif ($jsVar->type == 1) {
                             $val = (int)$val;
@@ -943,7 +947,10 @@ class erLhcoreClassChatValidator {
                         }
 
                         if ($jsVar->inv == 1) {
-                            if (!isset($chatVariablesDataArray[$jsVar->var_identifier]) || $chatVariablesDataArray[$jsVar->var_identifier] != $val) {
+                            if (
+                                !isset($chatVariablesDataArray[$jsVar->var_identifier]) ||
+                                ($jsVar->type != 4 && $chatVariablesDataArray[$jsVar->var_identifier] != $val) ||
+                                ($jsVar->type == 4 && mb_strtolower($chatVariablesDataArray[$jsVar->var_identifier]) != mb_strtolower($val))) {
 
                                 if ($jsVar->change_message != '') {
                                     $messagesSave[] = str_replace(['{old_val}','{new_val}'],[(isset($chatVariablesDataArray[$jsVar->var_identifier]) ? $chatVariablesDataArray[$jsVar->var_identifier] : '...'), $val],$jsVar->change_message);
@@ -960,7 +967,7 @@ class erLhcoreClassChatValidator {
                                 $logMessage[$jsVar->var_identifier] = $jsVar->change_message;
                             }
 
-                            $stringParts[] = array('h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
+                            $stringParts[] = array('t' => $jsVar->type, 'h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
                         }
                     }
                 }
@@ -976,7 +983,10 @@ class erLhcoreClassChatValidator {
             foreach ($additionalDataArray as  & $item) {
                 foreach ($stringParts as $newItem) {
                     if ($item['identifier'] == $newItem['identifier']) {
-                        if ( $newItem['value'] != $item['value'] ) {
+                        if (
+                            ($newItem['value'] != $item['value'] && (!isset($newItem['t']) || $newItem['t'] != 4)) ||
+                            (isset($newItem['t']) && $newItem['t'] == 4 && mb_strtolower($newItem['value']) != mb_strtolower($item['value']))
+                        ) {
 
                             if (isset($logMessage[$newItem['identifier']])) {
                                 $messagesSave[] = str_replace(['{old_val}','{new_val}'] ,[$item['value'], $newItem['value']], $logMessage[$newItem['identifier']]);
@@ -992,6 +1002,9 @@ class erLhcoreClassChatValidator {
 
             foreach ($stringParts as $newItem) {
                 if (!in_array($newItem['identifier'],$identifiersUpdated)){
+                    if (isset($newItem['t'])) {
+                        unset($newItem['t']);
+                    }
                     $additionalDataArray[] = $newItem;
                     $needUpdate = true;
                 }
@@ -1066,13 +1079,16 @@ class erLhcoreClassChatValidator {
                 if (isset($form->jsvar[$jsVar->id]) && !empty($form->jsvar[$jsVar->id])) {
                     if (strpos($jsVar->var_identifier,'lhc.') !== false) {
                         $lhcVar = str_replace('lhc.','',$jsVar->var_identifier);
-                        if ($chat->{$lhcVar} != $form->jsvar[$jsVar->id] && $form->jsvar[$jsVar->id] != '') {
+                        if (
+                            ($jsVar->type != 4 && $chat->{$lhcVar} != $form->jsvar[$jsVar->id] && $form->jsvar[$jsVar->id] != '') ||
+                            ($jsVar->type == 4 && mb_strtolower($chat->{$lhcVar}) != mb_strtolower($form->jsvar[$jsVar->id]) && $form->jsvar[$jsVar->id] != '')
+                        ) {
                             $chat->{$lhcVar} = $form->jsvar[$jsVar->id];
                             $updateColumns[] = $lhcVar;
                         }
                     } else {
                         $val = $form->jsvar[$jsVar->id];
-                        if ($jsVar->type == 0) {
+                        if ($jsVar->type == 0 || $jsVar->type == 4) {
                             $val = (string)$val;
                         } elseif ($jsVar->type == 1) {
                             $val = (int)$val;
@@ -1081,7 +1097,7 @@ class erLhcoreClassChatValidator {
                         }
                         
                         // Invisible variable is supported only by a new widget
-                        if ($jsVar->inv == 0){
+                        if ($jsVar->inv == 0) {
                             $stringParts[] = array('h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
                         }
                     }
