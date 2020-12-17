@@ -62,7 +62,6 @@
         <?php if (
                 $theme !== false &&
                 $theme->pending_join_queue != '' &&
-                $theme->pending_join != '' &&
                 (strpos($theme->pending_join_queue,'{avg_wait_time}') !== false ||
                 strpos($theme->pending_join_queue,'{avg_wait_time_live}') !== false)
         ) {
@@ -83,7 +82,9 @@
             $mLive = (int)gmdate('i', $valueWaitTimeLive);
 
             if ($m == 0) {
-                echo htmlspecialchars(str_replace('{avg_wait_time}','',$theme->pending_join));
+                if ($theme->pending_join != '') {
+                    echo htmlspecialchars($theme->pending_join);
+                }
             } else {
                 if ($m == 1) {
                     $theme->pending_join_queue = preg_replace('/{avg_wait_time__(.*?)}/','',$theme->pending_join_queue);
