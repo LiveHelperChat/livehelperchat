@@ -2,12 +2,6 @@
 
 header ( 'content-type: application/json; charset=utf-8' );
 
-/*
-$pollingEnabled = (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['long_polling_enabled'];
-$pollingServerTimeout = (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['connection_timeout'];
-$pollingMessageTimeout = (float)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['polling_chat_message_sinterval'];
-$breakSync = false;*/
-
 $content = 'false';
 $content_status = 'false';
 $userOwner = 'true';
