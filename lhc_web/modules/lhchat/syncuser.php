@@ -1,9 +1,5 @@
 <?php
 header ( 'content-type: application/json; charset=utf-8' );
-$timeCurrent = time();
-$pollingEnabled = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['long_polling_enabled'];
-$pollingServerTimeout = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['connection_timeout'];
-$pollingMessageTimeout = (float)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['polling_chat_message_sinterval'];
 
 $db = ezcDbInstance::get();
 $db->beginTransaction();
@@ -17,7 +13,6 @@ $ott = '';
 $LastMessageID = 0;
 $userOwner = 'true';
 $checkStatus = 'f';
-$breakSync = false;
 $saveChat = false;
 $operation = '';
 $operatorId = 0;
@@ -30,8 +25,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
     erLhcoreClassChat::setTimeZoneByChat($chat);
 
 	try {
-		while (true) {
-	    
+
 		    if ($chat->auto_responder !== false) {
 		        $chat->auto_responder->chat = $chat;
 		        $chat->auto_responder->process();
@@ -130,21 +124,13 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 				        end($Messages);
 				        $LastMessageIDs = current($Messages);
 				        $LastMessageID = $LastMessageIDs['id'];
-				        
-				        
-				        
-				        $breakSync = true;
 				    }
 				}
 				
 				if ( $chat->is_operator_typing == true && $Params['user_parameters_unordered']['ot'] != 't' ) {
-				    
 				    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncuser.operator_typing',array('chat' => & $chat));
-				    
 					$ott = ($chat->operator_typing_user !== false) ? $chat->operator_typing_user->name_support . ' ' . htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','is typing now...'),ENT_QUOTES) : htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Operator is typing now...'),ENT_QUOTES);
-					$breakSync = true;
 				}  elseif ($Params['user_parameters_unordered']['ot'] == 't' && $chat->is_operator_typing == false) {
-					$breakSync = true;
 					$ott = 'f';
 				}
 			}
@@ -182,15 +168,13 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		        $status = $tpl->fetch();
 		        
 		    	$blocked = 'true';
-		    	$breakSync = true;
-		    	
+
 		    	$responseArray['closed'] = true;
 		    }
 		    
 		    // If there was two tabs open with same chat force chat close in another tab also
 		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
 		        $blocked = 'true';
-		        $breakSync = true;
 		        $responseArray['closed'] = true;
 		        $status = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You have closed this chat!');
 		    }
@@ -203,7 +187,6 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    		    		    
 		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
 		    	$blocked = 'true';
-		    	$breakSync = true;
 		    	$responseArray['closed'] = true;
 		    	$status = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You have been redirected to survey!');
 		    	if ($chat->status_sub_arg != '') {		    	    
@@ -249,19 +232,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    }
 		    
 		    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncuser',array('chat' => & $chat, 'response' => & $responseArray));
-		    
-		    if ($pollingEnabled == false || $breakSync == true || ($pollingServerTimeout + $timeCurrent) < time() ) {	    	
-		    	break;
-		    } else {
-		    	try {
-		    		usleep($pollingMessageTimeout * 1000000);
-		    		$chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
-		    	} catch (Exception $e) {
-		    		break;
-		    	}
-		    }
-		}
-		
+
 		$db->commit();
 
 	} catch (Exception $e) {
