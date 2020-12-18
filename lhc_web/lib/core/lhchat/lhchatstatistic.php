@@ -2711,6 +2711,20 @@ class erLhcoreClassChatStatistic {
                     $statistic['visitors_new'][$dateUnix] = erLhcoreClassModelChatOnlineUser::getCount($filterFormated);
                 }
 
+                // Visitors all
+                if (in_array('visitors_all', $params['charttypes'])) {
+                    $filterNew = $filter;
+
+                    if (isset($filterNew['filtergte']['time'])) {
+                        $filterNew['filtergte']['last_visit'] = $filterNew['filtergte']['time'];
+                        unset($filterNew['filtergte']['time']);
+                    }
+
+                    $filterFormated = array_merge_recursive($filterNew,array('customfilter' =>  array('FROM_UNIXTIME(last_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. date($groupAttributes[$params['groupby']]['php'],$dateUnix))));
+
+                    $statistic['visitors_all'][$dateUnix] = erLhcoreClassModelChatOnlineUser::getCount($filterFormated);
+                }
+
                 // Returning visitors
                 if (in_array('visitors_returning', $params['charttypes'])) {
                     $filterNew = $filter;
