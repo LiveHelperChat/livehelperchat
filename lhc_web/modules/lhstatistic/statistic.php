@@ -361,6 +361,12 @@ if ($tab == 'active') {
             ),
             'chat_chart_type' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL,  'string',null,FILTER_REQUIRE_ARRAY
+            ),
+            'avg_wait_time' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL,  'int', array('min_range' => 5*60, 'max_range' => 4*7*24*3600)
+            ),
+            'avg_chat_duration' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL,  'int', array('min_range' => 5*60, 'max_range' => 4*7*24*3600)
             )
         );
 
@@ -374,6 +380,19 @@ if ($tab == 'active') {
         if ($form->hasValidData('chat_chart_type')) {
             $configuration['chat_statistic'] = $form->chat_chart_type;
         }
+
+        if ($form->hasValidData('avg_wait_time')) {
+            $configuration['avg_wait_time'] = $form->avg_wait_time;
+        } else {
+            $configuration['avg_wait_time'] = 0;
+        }
+
+        if ($form->hasValidData('avg_chat_duration')) {
+            $configuration['avg_chat_duration'] = $form->avg_chat_duration;
+        } else {
+            $configuration['avg_chat_duration'] = 0;
+        }
+
 
         $statisticOptions->explain = '';
         $statisticOptions->type = 0;

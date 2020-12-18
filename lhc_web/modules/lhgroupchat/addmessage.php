@@ -42,7 +42,7 @@ try {
 
     $options[] = 'status';
     $groupChat->last_msg_op_id = $userData->id;
-    $groupChat->last_msg = $msg->msg;
+    $groupChat->last_msg = mb_substr($msg->msg,0,200);
     $groupChat->last_user_msg_time = time();
     $groupChat->last_msg_id = $msg->id;
     $groupChat->updateThis(array('update' => array('last_msg_op_id','last_msg','last_user_msg_time','last_msg_id')));
