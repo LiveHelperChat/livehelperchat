@@ -2720,6 +2720,11 @@ class erLhcoreClassChatStatistic {
                         unset($filterNew['filtergte']['time']);
                     }
 
+                    if (isset($filterNew['filterlte']['time'])) {
+                        $filterNew['filterlte']['last_visit'] = $filterNew['filterlte']['time'];
+                        unset($filterNew['filterlte']['time']);
+                    }
+
                     $filterFormated = array_merge_recursive($filterNew,array('customfilter' =>  array('FROM_UNIXTIME(last_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. date($groupAttributes[$params['groupby']]['php'],$dateUnix))));
 
                     $statistic['visitors_all'][$dateUnix] = erLhcoreClassModelChatOnlineUser::getCount($filterFormated);
