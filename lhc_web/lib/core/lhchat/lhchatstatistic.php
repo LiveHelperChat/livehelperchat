@@ -2843,6 +2843,7 @@ class erLhcoreClassChatStatistic {
         if ($params['groupby'] == 0) {
             $statistic['visitors_new'] = array_reverse($statistic['visitors_new'],true);
             $statistic['visitors_returning'] = array_reverse($statistic['visitors_returning'],true);
+            $statistic['visitors_all'] = array_reverse($statistic['visitors_all'],true);
         }
 
         return $statistic;
