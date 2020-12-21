@@ -466,7 +466,12 @@ class erLhcoreClassChatValidator {
                     
                         // There was no callbacks or file not found etc, we try to download from standard location
                         if ($response === false) {
-                            $departments = erLhcoreClassModelDepartament::getList(array('limit' => 1,'filter' => array('disabled' => 0)));
+                            $departments = erLhcoreClassModelDepartament::getList(array('limit' => 1,'filter' => array('disabled' => 0, 'hidden' => 0)));
+                            
+                            if (empty($departments)) {
+                                $departments = erLhcoreClassModelDepartament::getList(array('limit' => 1,'filter' => array('disabled' => 0)));
+                            }
+
                             if (!empty($departments) ) {
                                 $department = array_shift($departments);
                                 $chat->dep_id = $department->id;
