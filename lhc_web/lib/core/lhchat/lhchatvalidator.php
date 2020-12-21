@@ -466,7 +466,7 @@ class erLhcoreClassChatValidator {
                     
                         // There was no callbacks or file not found etc, we try to download from standard location
                         if ($response === false) {
-                            $departments = erLhcoreClassModelDepartament::getList(array('sort' => 'hidden ASC', 'limit' => 1,'filter' => array('disabled' => 0)));
+                            $departments = erLhcoreClassModelDepartament::getList(array('sort' => 'hidden ASC, priority ASC', 'limit' => 1,'filter' => array('disabled' => 0)));
 
                             if (!empty($departments) ) {
                                 $department = array_shift($departments);
@@ -516,7 +516,7 @@ class erLhcoreClassChatValidator {
                 
                 // There was no callbacks or file not found etc, we try to download from standard location
                 if ($response === false) {
-                	$departments = erLhcoreClassModelDepartament::getList(array('limit' => 1, 'sort' => 'hidden ASC','filter' => array('disabled' => 0)));
+                	$departments = erLhcoreClassModelDepartament::getList(array('limit' => 1, 'sort' => 'hidden ASC, priority ASC', 'filter' => array('disabled' => 0)));
                 	if (!empty($departments) ) {
         	        	$department = array_shift($departments);
         	        	$chat->dep_id = $department->id;
