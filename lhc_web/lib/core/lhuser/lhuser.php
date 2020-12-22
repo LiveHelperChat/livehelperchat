@@ -79,6 +79,8 @@ class erLhcoreClassUser{
 
    function authenticate($username, $password, $remember = false)
    {
+        session_regenerate_id(true);
+
 		$this->session->destroy();
        
 		$user = erLhcoreClassModelUser::findOne(array(
@@ -203,6 +205,8 @@ class erLhcoreClassUser{
    function setLoggedUser($user_id, $remember = false)
    {
 	   	if ($user_id != $this->userid) {
+
+            session_regenerate_id(true);
 
 	   		$this->credentials = new ezcAuthenticationIdCredentials( $user_id );
 	   		$this->authentication = new ezcAuthentication( $this->credentials );
