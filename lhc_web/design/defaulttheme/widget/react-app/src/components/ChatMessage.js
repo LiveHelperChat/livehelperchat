@@ -168,7 +168,15 @@ class ChatMessage extends PureComponent {
             } else if (attr['data-bot-event']) {
                 this.props[attr['data-bot-event']]();
             } else {
-                eval(domNode.children[0]['data']);
+                if (attr.src) {
+                    var th = document.getElementsByTagName('head')[0];
+                    var s = document.createElement('script');
+                    s.setAttribute('type','text/javascript');
+                    s.setAttribute('src', attr.src);
+                    th.appendChild(s);
+                } else if (typeof domNode.children[0] !== 'undefined' && typeof domNode.children[0]['data'] !== 'undefined') {
+                    eval(domNode.children[0]['data']);
+                }
             }
         }
     }

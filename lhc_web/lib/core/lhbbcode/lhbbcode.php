@@ -1078,14 +1078,23 @@ class erLhcoreClassBBCode
 
         if (isset($paramsMessage['sender']) && $paramsMessage['sender'] == 0) {
             $ret = preg_replace('/\[html\](.*?)\[\/html\]/ms','',$ret);
+        } else if (isset($paramsMessage['html_as_text']) && $paramsMessage['html_as_text'] == true) {
+            $ret = preg_replace_callback('/\[html\](.*?)\[\/html\]/ms', function ($matches) {
+                return '<code class="rounded mx170">'.trim($matches[1]).'</code>';
+            }, $ret);
         }
 
-        $ret = preg_replace_callback('/\[html\](.*?)\[\/html\]/ms', function ($matches) {
+        $ret = preg_replace_callback('/\[html\](.*?)\[\/html\]/ms', function ($matches) use ($paramsMessage) {
             $html = htmlspecialchars_decode($matches[1]);
 
             $html = preg_replace_callback('/"window\.parent\.(.*)"/ms',function ($matches){
                 return "'lhinst.executeRemoteCommands([\"lhc_eval:" . $matches[1] . "\"])'";
             },$html);
+
+            // Remove JS if it's not the first run
+            if (!isset($paramsMessage['render_js']) || $paramsMessage['render_js'] == false) {
+                $html = preg_replace("/<script.*?\/script>/s", "", $html);
+            }
 
             return $html;
 
