@@ -6,8 +6,8 @@
 
     <div ng-cloak class="version-updated float-left" ng-if="lhc.lhcPendingRefresh == true || lhc.lhcConnectivityProblem == true || lhc.inActive == true">
         <div ng-if="lhc.lhcPendingRefresh == true"><i class="material-icons">update</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','This window will be automatically refreshed in {{lhc.lhcVersionCounter}} seconds due to a version update.');?></div>
-        <div ng-if="lhc.lhcConnectivityProblem == true">You have weak internet connection or the server has problems. Try to refresh the  page. Error code {{lhc.lhcConnectivityProblemExplain}}</div>
-        <div ng-if="lhc.inActive == true">You went offline because of inactivity. Please close other chat windows if you have any</div>
+        <div ng-if="lhc.lhcConnectivityProblem == true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','You have weak internet connection or the server has problems. Try to refresh the  page. Error code {{lhc.lhcConnectivityProblemExplain}}');?></div>
+        <div ng-if="lhc.inActive == true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','You went offline because of inactivity. Please close other chat windows if you have any');?></div>
     </div>
     <button class="navbar-toggler btn border-0 btn-outline-secondary pb-2" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-icons mr-0">menu</span>

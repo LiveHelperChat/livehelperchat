@@ -8040,7 +8040,15 @@
     </message>
     <message>
       <source>This window will be automatically refreshed in {{lhc.lhcVersionCounter}} seconds due to a version update.</source>
-      <translation type="unfinished"/>
+      <translation>Toto okno bude automaticky obnovené o {{lhc.lhcVersionCounter}} sekúnd z dôvodu aktualizácie verzie.</translation>
+    </message>
+    <message>
+      <source>You have weak internet connection or the server has problems. Try to refresh the  page. Error code {{lhc.lhcConnectivityProblemExplain}}</source>
+      <translation>Vaše internetové spojenie so serverom má problémy. Skúste obnoviť stránku. Error kód {{lhc.lhcConnectivityProblemExplain}}</translation>
+    </message>
+    <message>
+      <source>You went offline because of inactivity. Please close other chat windows if you have any</source>
+      <translation>Boli ste odpojení pre nečinnosť. Prosím zavrite ostatné okná rozhovorov ak nejaké máte stále otvorené.</translation>
     </message>
     <message>
       <source>Chat tabs</source>
