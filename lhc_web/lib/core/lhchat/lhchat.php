@@ -641,8 +641,6 @@ class erLhcoreClassChat {
     	$filter['offset'] = $offset;
     	$filter['smart_select'] = true;
 
-        //SELECT * from lh_chat WHERE id IN (SELECT id FROM (SELECT id from lh_chat order by id desc LIMIT 0, 150) as sq) and status = 2 and dep_id = 18 LIMIT 10;
-
     	if (!empty($filterAdditional)) {
     		$filter = array_merge_recursive($filter,$filterAdditional);
     	}
