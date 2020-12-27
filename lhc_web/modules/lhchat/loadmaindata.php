@@ -3,6 +3,7 @@
 header('Content-Type: application/json');
 
 $items = array();
+$data_ext = array();
 
 $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
 
@@ -96,10 +97,15 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
             'action' => 'event'
         );
     }
+
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.loadmainchatdata',array(
+        'chat' => $chat,
+        'items' => & $items,
+        'data_ext' => & $data_ext));
 }
 
 
 
-echo json_encode(array('error' => true, 'items' => $items));
+echo json_encode(array('error' => true, 'items' => $items, 'data_ext' => $data_ext));
 exit;
 ?>

@@ -543,6 +543,9 @@ class erLhcoreClassChat {
     		$filter = array_merge_recursive($filter,$filterAdditional);
     	}
 
+    	// Optimization - we get these stats only from last 50 chats
+        $filter['customfilter'][] = '`lh_chat`.`id` IN (SELECT `id` FROM (SELECT `id` FROM `lh_chat` ORDER BY `id` DESC LIMIT 50) AS `sq`)';
+
     	return self::getList($filter);
     }
 
@@ -637,10 +640,15 @@ class erLhcoreClassChat {
     	$filter['limit'] = $limit;
     	$filter['offset'] = $offset;
     	$filter['smart_select'] = true;
-    	
+
+        //SELECT * from lh_chat WHERE id IN (SELECT id FROM (SELECT id from lh_chat order by id desc LIMIT 0, 150) as sq) and status = 2 and dep_id = 18 LIMIT 10;
+
     	if (!empty($filterAdditional)) {
     		$filter = array_merge_recursive($filter,$filterAdditional);
     	}
+
+    	// Optimization - we get these stats only from last 50 chats
+        $filter['customfilter'][] = '`lh_chat`.`id` IN (SELECT `id` FROM (SELECT `id` FROM `lh_chat` ORDER BY `id` DESC LIMIT 50) AS `sq`)';
 
     	return self::getList($filter);
     }

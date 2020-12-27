@@ -220,6 +220,9 @@ function lh(){
                     }
                 }
             });
+
+            ee.emitEvent('mainChatDataLoaded', [chat_id, data]);
+
         }).fail(function() {
 
         });

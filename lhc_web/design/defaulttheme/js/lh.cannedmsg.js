@@ -127,13 +127,22 @@ var LHCCannedMessageAutoSuggest = (function() {
                     evt.stopImmediatePropagation();
 
 				} else if (evt.keyCode == 39 || evt.keyCode == 13) { // right arrow OR enter
-					if (_that.cannedMode === false) {
-						$('#canned-hash-'+_that.chat_id+' > li.current-item a').trigger( "click" );								
+
+				    var preventDefault = true;
+                    var element = null;
+
+				    if (_that.cannedMode === false) {
+				        element = $('#canned-hash-'+_that.chat_id+' > li.current-item a');
 					} else {
-						$('#canned-hash-current-'+_that.chat_id+' li.current-item > span.canned-msg').trigger( "click" );
-					}					
-					evt.preventDefault();
-					evt.stopImmediatePropagation();
+                        element = $('#canned-hash-current-'+_that.chat_id+' li.current-item > span.canned-msg');
+					}
+
+				    if (element !== null && element.length > 0) {
+                        element.trigger( "click" );
+                        evt.preventDefault();
+                        evt.stopImmediatePropagation();
+                    }
+
 				}
 			}
 		});

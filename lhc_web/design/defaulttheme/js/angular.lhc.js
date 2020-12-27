@@ -174,6 +174,7 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 	return this;
 }]);
 
+var $_LHC_API = {};
 
 lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location','$rootScope', '$log','$interval','LiveHelperChatFactory', function($scope, $http, $location, $rootScope, $log, $interval,LiveHelperChatFactory) {
 
@@ -1598,6 +1599,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             });
 
             ee.emitEvent('eventLoadInitialData', [data, $scope, _that]);
+
+            $_LHC_API['initial_data'] = data;
 
             // Verify that filter attribute are existing
 			// Let say some user was removed, but visitor still had it as filter.
