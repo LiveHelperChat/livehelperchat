@@ -382,8 +382,16 @@ var LHCCannedMessageAutoSuggest = (function() {
 	LHCCannedMessageAutoSuggest.prototype.initSuggester = function()
 	{
 		var _that = this;
-		var currentElement = $('#canned-hash-'+this.chat_id+' > li:last-child').addClass('current-item');
-		
+		var currentElement = $('#canned-hash-'+this.chat_id+' > li:last-child');
+
+		if (currentElement.length > 0) {
+            currentElement.addClass('current-item');
+            this.textarea.parent().find('.canned-suggester').css("bottom", _that.textarea.height() + 16);
+        } else {
+            this.stopSuggesting();
+		    return;
+        }
+
 		$('#canned-hash-'+this.chat_id+' > li > a').click(function() {
 			
 			_that.cannedMode = true;

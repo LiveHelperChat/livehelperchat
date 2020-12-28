@@ -1237,7 +1237,7 @@ input[type="file"]{
 .canned-suggester{
 	position:absolute;
 	background-color:#f5f5f5;
-	bottom:54px;
+	bottom:58px;
 	border:1px solid #ddd;
 	font-size:12px;
     z-index:999;
