@@ -7,7 +7,7 @@ if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'],
 }
 
 $activeChats = erLhcoreClassChat::getActiveChats(10);
-$closedChats = array(); //erLhcoreClassChat::getClosedChats(10);
+$closedChats = erLhcoreClassChat::getClosedChats(10);
 $pendingChats = erLhcoreClassChat::getPendingChats(10);
 $transferedChats = erLhcoreClassTransfer::getTransferChats();
 $unreadChats = array(); // erLhcoreClassChat::getUnreadMessagesChats(10,0);
@@ -18,6 +18,10 @@ foreach ($activeChats as $index => $activeChat) {
 
 foreach ($pendingChats as $index => $pendingChat) {
     $pendingChats[$index]->owner = $pendingChat->n_off_full;
+}
+
+foreach ($closedChats as $index => $closedChat) {
+    $closedChats[$index]->owner = $closedChat->n_off_full;
 }
 
 erLhcoreClassChat::prefillGetAttributes($activeChats,array('department_name','user_status_front'),array('updateIgnoreColumns','department','user'));
@@ -48,14 +52,18 @@ $columnsName = array('id' => 'ID','chat_locale' => 'Visitor language','user_tz_i
 $onlineuserscolumnsToHide = array('requires_phone','lat_check_time','dep_id','requires_email','requires_username','invitation_seen_count','screenshot_id','operation','reopen_chat','vid','user_country_code','invitation_assigned','current_page', 'chat_id', 'operator_user_id', 'message_seen','operator_user_proactive','message_seen_ts','lat','lon','invitation_id','time_on_site','tt_time_on_site','invitation_count','store_chat');
 $onlineuserscolumnsNames = array('last_check_time' => 'Last online check', 'notes' => 'Notes','referrer' => 'Referrer', 'page_title' => 'Page title', 'visitor_tz' => 'Visitor time zone','online_attr' => 'Attributes','id' => 'ID','operator_message' => 'Operator message', 'ip' => 'IP','identifier' => 'Identifier','user_agent' => 'Browser','last_visit' => 'Last visit','first_visit' => 'First visit','total_visits' => 'Total visits','user_country_name' => 'Country','city' => 'City','pages_count' => 'Pages viewed','tt_pages_count' => 'Total pages viewed');
 
-echo json_encode(array(
-'active_chats' => array('rows' => $activeChats, 'size' => count($activeChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
-'unread_chats' => array('rows' => $unreadChats, 'size' => count($unreadChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
-'online_users' => array('rows' => $onlineUsers, 'size' => count($onlineUsers), 'hidden_columns' => $onlineuserscolumnsToHide,'column_names' => $onlineuserscolumnsNames, 'timestamp_delegate' => array('last_check_time','last_visit','first_visit')),
-'closed_chats' => array('rows' => $closedChats, 'size' => count($closedChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
-'pending_chats' => array('rows' => $pendingChats, 'size' => count($pendingChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
-'transfered_chats' => array('rows' => $transferedChats, 'size' => count($transferedChats), 'hidden_columns' => array_merge($columnsToHide,array('transfer_id')), 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
-));
+$response = array(
+    'active_chats' => array('rows' => $activeChats, 'size' => count($activeChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
+    'unread_chats' => array('rows' => $unreadChats, 'size' => count($unreadChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
+    'online_users' => array('rows' => $onlineUsers, 'size' => count($onlineUsers), 'hidden_columns' => $onlineuserscolumnsToHide,'column_names' => $onlineuserscolumnsNames, 'timestamp_delegate' => array('last_check_time','last_visit','first_visit')),
+    'closed_chats' => array('rows' => $closedChats, 'size' => count($closedChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
+    'pending_chats' => array('rows' => $pendingChats, 'size' => count($pendingChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
+    'transfered_chats' => array('rows' => $transferedChats, 'size' => count($transferedChats), 'hidden_columns' => array_merge($columnsToHide,array('transfer_id')), 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
+);
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('xml.lists', array('list' => & $response));
+
+echo json_encode($response);
 
 $currentUser->updateLastVisit();
 exit;
