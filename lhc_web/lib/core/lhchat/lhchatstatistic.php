@@ -423,7 +423,7 @@ class erLhcoreClassChatStatistic {
             $returnArray['ttmvis'] = erLhcoreClassChat::getCount(array_merge_recursive($filterMsg,array('innerjoin' => array('lh_chat' => array('lh_msg.chat_id','lh_chat.id')),'filter' => array('lh_msg.user_id' => 0))),'lh_msg','count(lh_msg.id)');
             $returnArray['ttmsys'] = erLhcoreClassChat::getCount(array_merge_recursive($filterMsg,array('innerjoin' => array('lh_chat' => array('lh_msg.chat_id','lh_chat.id')), 'filterin' => array('lh_msg.user_id' => array(-1,-2)))),'lh_msg','count(lh_msg.id)');
             $returnArray['ttmop'] = $returnArray['ttmall'] - $returnArray['ttmvis'] - $returnArray['ttmsys'];
-            
+
             return $returnArray;
             
         } else {

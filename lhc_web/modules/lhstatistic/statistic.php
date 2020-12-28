@@ -247,10 +247,14 @@ if ($tab == 'active') {
         }
     }
 
-    $tpl->set('last24hstatistic',erLhcoreClassChatStatistic::getLast24HStatistic($filter24));    
+    if (isset($_GET['doSearch'])) {
+        $tpl->set('last24hstatistic',erLhcoreClassChatStatistic::getLast24HStatistic($filter24));
+        $tpl->set('operators',erLhcoreClassChatStatistic::getTopTodaysOperators(100,0,$filter24));
+    }
+
     $tpl->set('input',$filterParams['input_form']);
     $tpl->set('filter24',$filter24);
-    $tpl->set('operators',erLhcoreClassChatStatistic::getTopTodaysOperators(100,0,$filter24));
+
     
 } else if ($tab == 'agentstatistic') {
 

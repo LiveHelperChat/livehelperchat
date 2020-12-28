@@ -1,6 +1,6 @@
 <h2><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/last_24h_statistic.tpl.php'));?></h2>
 
-<form action="" method="get" autocomplete="off">
+<form action="" method="get" autocomplete="off" class="mb-2">
 
 <div class="form-group">
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from to');?></label>
@@ -88,6 +88,8 @@ $(function() {
 	
 </form>
 
+<?php if (isset($last24hstatistic)) : ?>
+
 <table class="table">
 	<thead>
 		<tr>
@@ -151,3 +153,10 @@ $(function() {
 	</thead>
 	<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/part/top_24_operators.tpl.php'));?>
 </table>
+
+<?php else : ?>
+<br/>
+<div class="alert alert-info">
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Please choose statistic parameters first!');?>. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','If you have thousands of chats generating this report can significantly increase server load!');?>
+</div>
+<?php endif; ?>
