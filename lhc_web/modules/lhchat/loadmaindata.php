@@ -101,10 +101,9 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.loadmainchatdata',array(
         'chat' => $chat,
         'items' => & $items,
+        'user' => $currentUser->getUserData(true),
         'data_ext' => & $data_ext));
 }
-
-
 
 echo json_encode(array('error' => true, 'items' => $items, 'data_ext' => $data_ext));
 exit;
