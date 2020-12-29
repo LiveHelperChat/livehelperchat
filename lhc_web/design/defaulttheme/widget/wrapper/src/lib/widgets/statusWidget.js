@@ -113,7 +113,7 @@ export class statusWidget{
 
         if (this.attributes.theme > 0) {
             this.loadStatus['theme'] = false;
-            this.cont.insertCssRemoteFile({onload: ()=>{this.loadStatus['theme'] = true; this.checkLoadStatus()}, crossOrigin : "anonymous",  href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/themestatus/' + this.attributes.theme + '?v=' + this.attributes.theme_v}, true);
+            this.cont.insertCssRemoteFile({onload: ()=>{this.loadStatus['theme'] = true; this.checkLoadStatus()}, id: "lhc-theme-status", crossOrigin : "anonymous",  href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/themestatus/' + this.attributes.theme + '?v=' + this.attributes.theme_v}, true);
         } else {
             this.loadStatus['theme'] = true;
         }
@@ -121,7 +121,7 @@ export class statusWidget{
         this.cont.insertCssRemoteFile({onload: ()=>{this.loadStatus['main'] = true; this.checkLoadStatus()}, crossOrigin : "anonymous",  href : this.attributes.staticJS['status_css'] });
 
         if (this.attributes.staticJS['page_css']) {
-            helperFunctions.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/themepage/' + this.attributes.theme + '?v=' + this.attributes.theme_v});
+            helperFunctions.insertCssRemoteFile({crossOrigin : "anonymous", id: "lhc-theme-page", href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/themepage/' + this.attributes.theme + '?v=' + this.attributes.theme_v});
         }
 
         attributes.onlineStatus.subscribe((data) => this.toggleOfflineIcon(data));
@@ -142,6 +142,16 @@ export class statusWidget{
         if (attributes.storageHandler.getSessionStorage(this.attributes['prefixStorage']+'_unr') == "1") {
             this.showUnreadIndicator();
         }
+
+        // Widget reload was called
+        // We avoid cache by using timestamp because we do not call init call.
+        // We also always insert themepage even if there is no css in it.
+        attributes.eventEmitter.addListener('reloadWidget',() => {
+            if (this.attributes.theme > 0) {
+                this.cont.insertCssRemoteFile({crossOrigin : "anonymous", id: "lhc-theme-status", href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/themestatus/' + this.attributes.theme + '?v=' + Date.now()}, true);
+            }
+            helperFunctions.insertCssRemoteFile({crossOrigin : "anonymous", id: "lhc-theme-page", href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/themepage/' + this.attributes.theme + '?v=' + Date.now()});
+        });
     }
 
     hide () {
