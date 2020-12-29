@@ -131,6 +131,8 @@ export class mainWidget{
         attributes.eventEmitter.addListener('reloadWidget',() => {
             this.isLoaded = false;
             this.makeContent();
+            attributes.eventEmitter.emitEvent('widgetHeight',[{'reset_height' : true}]);
+            this.toggleVisibility(attributes.widgetStatus.valueInternal);
         });
 
     }

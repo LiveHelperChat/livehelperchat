@@ -63,6 +63,14 @@ export class UIConsturctor {
     }
 
     insertCssRemoteFile(attr) {
+
+        var elm = null;
+
+        if (attr.id && attr.href && (elm = this.elmDomDoc.getElementById(attr.id)) !== null) {
+            elm.href = attr.href
+            return;
+        }
+
         var d = this.elmDomDoc.getElementsByTagName("head")[0],
             k = this.elmDomDoc.createDocumentFragment(),
             e = this.elmDomDoc.createElement('link');

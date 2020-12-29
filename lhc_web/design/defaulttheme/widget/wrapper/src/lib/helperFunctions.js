@@ -165,6 +165,14 @@ class _helperFunctions {
     }
 
     insertCssRemoteFile(attr) {
+
+        var elm = null;
+
+        if (attr.id && attr.href && (elm = document.getElementById(attr.id)) !== null) {
+            elm.href = attr.href
+            return;
+        }
+
         var d = document.getElementsByTagName("head")[0],
             k = document.createDocumentFragment(),
             e = document.createElement('link');
