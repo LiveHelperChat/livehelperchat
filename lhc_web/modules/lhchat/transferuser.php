@@ -149,7 +149,7 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                 $Chat->transfer_uid = $currentUser->getUserID();
                 $Chat->saveThis();
 
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_transfered', array('chat' => & $Chat, 'transfer' => $Transfer));
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_transfered', array('chat' => & $Chat, 'transfer' => $Transfer, 'msg' => $msg));
 
                 echo json_encode(['error' => 'false', 'result' => $tpl->fetch(), 'chat_id' => $Params['user_parameters']['chat_id']]);
             }

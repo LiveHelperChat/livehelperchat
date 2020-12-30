@@ -109,7 +109,7 @@ class erLhcoreClassLHCMobile {
                     self::sendPushNotification($operator, $params['chat'], array(
                         'msg' => $params['chat']->nick . ' - ' . trim(erLhcoreClassBBCodePlain::make_clickable($params['msg']->msg, array('sender' => 0))),
                         'chat_type' => 'new_msg',
-                        'title' => 'New message',
+                        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/mobilenotifications','New message'),
                     ));
                 }
             }
@@ -122,16 +122,21 @@ class erLhcoreClassLHCMobile {
         }
     }
 
+    public static function chatTransferred($params) {
+            self::chatStarted(array('chat' => $params['chat'], 'msg' => $params['msg'], 'user_id' => $params['transfer']->transfer_to_user_id));
+    }
+
     public static function chatStarted($params) {
 
         // New chat notification should be send only if chat is pending
         // We are not interested in pending or bot chats etc.
-        if ($params['chat']->status != erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
+        // But we are interested in direct notifications about chat
+        if ($params['chat']->status != erLhcoreClassModelChat::STATUS_PENDING_CHAT && (!isset($params['user_id']) || $params['user_id'] == 0)) {
             return;
         }
 
         if (!isset($params['resque']) && class_exists('erLhcoreClassExtensionLhcphpresque')) {
-            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mobile_notify', 'erLhcoreClassLHCMobile', array('type' => 'started', 'msg_id' => (isset($params['msg']) ? $params['msg']->id : 0), 'chat_id' => $params['chat']->id));
+            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mobile_notify', 'erLhcoreClassLHCMobile', array('type' => 'started', 'user_id' => (isset($params['user_id']) ? $params['user_id'] : 0), 'msg_id' => (isset($params['msg']) ? $params['msg']->id : 0), 'chat_id' => $params['chat']->id));
             return;
         }
 
@@ -139,7 +144,13 @@ class erLhcoreClassLHCMobile {
         if (isset($options['notifications']) && $options['notifications'] == true) {
 
             foreach (erLhcoreClassModelUserSession::getList(array('filternot' => array('token' => ''), 'filter' => array('error' => 0))) as $operator) {
-                if (is_object($operator->user) && $operator->user->hide_online == 0 && ($operator->user->id == $params['chat']->user_id || $params['chat']->user_id == 0)) {
+                if (is_object($operator->user) && $operator->user->hide_online == 0 &&
+                    (
+                        (isset($params['user_id']) && $params['user_id'] > 0 && $operator->user->id == $params['user_id'])
+                        ||
+                        ((!isset($params['user_id']) || $params['user_id'] == 0) && ($operator->user->id == $params['chat']->user_id || $params['chat']->user_id == 0))
+                    )
+                ) {
 
                     // Do not notify if user is not assigned to department
                     // Do not notify if user has only read department permission
@@ -159,10 +170,15 @@ class erLhcoreClassLHCMobile {
                     }
 
                     $visitor = array();
-                    $visitor[] = 'Department: ' . ((string)$params['chat']->department) .',  ID: ' . $params['chat']->id .', Nick: ' . $params['chat']->nick;
+                    $visitor[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/mobilenotifications','Department').': ' . ((string)$params['chat']->department) .',  ID: ' . $params['chat']->id .', '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/mobilenotifications','Nick').': ' . $params['chat']->nick;
 
                     if (isset($params['msg'])) {
-                        $visitor[] = 'Message: ' . trim(erLhcoreClassBBCodePlain::make_clickable($params['msg']->msg, array('sender' => 0))) . '';
+                        if (isset($params['user_id']) && $params['user_id'] > 0) {
+                            $visitor = array();
+                            $visitor[] = trim(erLhcoreClassBBCodePlain::make_clickable($params['msg']->msg, array('sender' => 0))) . '';
+                        } else {
+                            $visitor[] = 'Message: ' . trim(erLhcoreClassBBCodePlain::make_clickable($params['msg']->msg, array('sender' => 0))) . '';
+                        }
                     } elseif ($params['chat']->user_id > 0) {
                         $visitor[] = 'Chat was assigned to you';
                     }
@@ -170,7 +186,7 @@ class erLhcoreClassLHCMobile {
                     self::sendPushNotification($operator, $params['chat'], array(
                         'msg' => implode("\n", $visitor),
                         'chat_type' => 'pending',
-                        'title' => 'New chat',
+                        'title' => isset($params['user_id']) && $params['user_id'] > 0 ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/mobilenotifications','Transferred chat') : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/mobilenotifications','New chat'),
                     ));
                 }
             }
