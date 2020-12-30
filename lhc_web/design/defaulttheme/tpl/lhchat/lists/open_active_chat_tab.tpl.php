@@ -17,6 +17,7 @@
                 <?php if ((int)erLhcoreClassModelUserSetting::getSetting('new_dashboard',1) == 1) : ?>
                     <a class="dropdown-item" href="<?php echo erLhcoreClassDesign::baseurl('front/switchdashboard')?>/(action)/tabs"><i class="material-icons">chat</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Hide/Show chat tabs'); ?></a>
                 <?php endif; ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/open_active_chat_tab_multiinclude.tpl.php'));?>
                 <div class="dropdown-item">
                     <div class="input-group input-group-sm">
                         <input type="text" class="form-control" ng-model="lhc.chat_to_open" ng-keyup="$event.keyCode == 13 ? lhc.startChatByID(lhc.chat_to_open) : ''" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Chat ID to open')?>" aria-describedby="inputGroupPrepend" required>
