@@ -10,13 +10,17 @@ class erLhcoreClassChatWebhookContinuous {
             return;
         }
 
-        $chats = erLhcoreClassModelChat::getList(array(
-            'limit' => false,
-            'filterin' => array('status' => array(
+        $statusValid = array(
             erLhcoreClassModelChat::STATUS_PENDING_CHAT,
             erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,
             erLhcoreClassModelChat::STATUS_BOT_CHAT,
-        ))));
+        );
+
+        $chats = erLhcoreClassModelChat::getList(array(
+            'limit' => false,
+            'filterin' => array('status' => $statusValid)));
+
+        $db = ezcDbInstance::get();
 
         $chatsApplied = array();
 
@@ -83,7 +87,7 @@ class erLhcoreClassChatWebhookContinuous {
                             $conditionItemValid = false;
 
                             if ($conditionsCurrent['type'] == '1') { // Visitor message contains
-                                $paramsMessage = array('limit' => 1, 'sort' => 'id DESC', 'filternotin' => array('user_id' => array(-1)), 'filter' => array('chat_id' => $chat->id));
+                                $paramsMessage = array('limit' => 1, 'sort' => 'id DESC', 'filter' => array('chat_id' => $chat->id), 'filternotin' => array('user_id' => array(-1)));
                                 if ($previousMessageId > 0) {
                                     $paramsMessage['filterlt']['id'] = $previousMessageId;
                                 }
@@ -192,8 +196,13 @@ class erLhcoreClassChatWebhookContinuous {
                         $chatsApplied[$continuousHook->id][] = $chat->id;
                         $trigger = erLhcoreClassModelGenericBotTrigger::fetch($continuousHook->trigger_id);
                         if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
-                            // processTrigger always requires a chat so fake it.
-                            erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('chat' => $chat)));
+                            $db->beginTransaction();
+                            $chat = erLhcoreClassModelChat::fetchAndLock($chat->id);
+                            if ($chat instanceof erLhcoreClassModelChat && in_array($chat->status,$statusValid)) {
+                                // processTrigger always requires a chat so fake it.
+                                erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('chat' => $chat)));
+                            }
+                            $db->commit();
                         }
                     }
                 }
@@ -205,7 +214,13 @@ class erLhcoreClassChatWebhookContinuous {
                 if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
                     foreach ($chats as $chat) {
                         if (!isset($chatsApplied[$continuousHook->id]) || !in_array($chat->id,$chatsApplied[$continuousHook->id])) {
-                            erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('chat' => $chat)));
+                            $db->beginTransaction();
+                            $chat = erLhcoreClassModelChat::fetchAndLock($chat->id);
+                            if ($chat instanceof erLhcoreClassModelChat && in_array($chat->status,$statusValid)) {
+                                // processTrigger always requires a chat so fake it.
+                                erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('chat' => $chat)));
+                            }
+                            $db->commit();
                         }
                     }
                 }
