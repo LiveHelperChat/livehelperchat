@@ -3735,16 +3735,16 @@ function lh(){
     this.updateScreenshot = function(chat_id) {
     	$('#user-screenshot-container').html('').addClass('screenshot-pending');
     	$.get(this.wwwDir + 'chat/checkscreenshot/' + chat_id,function(data){
-    		$('#user-screenshot-container').html(data);
-    		$('#user-screenshot-container').removeClass('screenshot-pending');
+    		$('#user-screenshot-container-'+chat_id).html(data);
+    		$('#user-screenshot-container-'+chat_id).removeClass('screenshot-pending');
     	});
     };
 
     this.updateScreenshotOnline = function(online_id) {
     	$('#user-screenshot-container').html('').addClass('screenshot-pending');
     	$.get(this.wwwDir + 'chat/checkscreenshotonline/' + online_id,function(data){
-    		$('#user-screenshot-container').html(data);
-    		$('#user-screenshot-container').removeClass('screenshot-pending');
+    		$('#user-screenshot-container-'+online_id).html(data);
+    		$('#user-screenshot-container-'+online_id).removeClass('screenshot-pending');
     	});
     };
 

@@ -1,83 +1,83 @@
 <?php
 $orderInformation = array(
-    array(
+    'department' => array(
         'item' => 'department',
         'enabled' => true
     ),
-    array(
+    'chat_owner' => array(
+        'item' => 'chat_owner',
+        'enabled' => true
+    ),
+    'subject' => array(
         'item' => 'subject',
         'enabled' => true
     ),
-    array(
+    'product' => array(
         'item' => 'product',
         'enabled' => true
     ),
-    array(
+    'uagent' => array(
         'item' => 'uagent',
         'enabled' => true
     ),
-    array(
+    'country_code' => array(
         'item' => 'country_code',
         'enabled' => true
     ),
-    array(
+    'user_tz_identifier' => array(
         'item' => 'user_tz_identifier',
         'enabled' => true
     ),
-    array(
+    'city' => array(
         'item' => 'city',
         'enabled' => true
     ),
-    array(
+    'ip' => array(
         'item' => 'ip',
         'enabled' => true
     ),
-    array(
+    'referrer' => array(
         'item' => 'referrer',
         'enabled' => true
     ),
-    array(
+    'session_referrer' => array(
         'item' => 'session_referrer',
         'enabled' => true
     ),
-    array(
+    'id' => array(
         'item' => 'id',
         'enabled' => true
     ),
-    array(
+    'email' => array(
         'item' => 'email',
         'enabled' => true
     ),
-    array(
+    'phone' => array(
         'item' => 'phone',
         'enabled' => true
     ),
-    array(
+    'additional_data' => array(
         'item' => 'additional_data',
         'enabled' => true
     ),
-    array(
+    'created' => array(
         'item' => 'created',
         'enabled' => true
     ),
-    array(
+    'user_left' => array(
         'item' => 'user_left',
         'enabled' => true
     ),
-    array(
+    'wait_time' => array(
         'item' => 'wait_time',
         'enabled' => true
     ),
-    array(
+    'chat_duration' => array(
         'item' => 'chat_duration',
         'enabled' => true
     ),
-    array(
+    'chat_status' => array(
         'item' => 'chat_status',
-        'enabled' => true
-    ),
-    array(
-        'item' => 'chat_owner',
         'enabled' => true
     )
 );

@@ -1,4 +1,4 @@
-<div role="tabpanel" class="tab-pane" id="userchats">
+<div role="tabpanel" class="tab-pane<?php if (isset($tab) && $tab == 'chats') : ?> active<?php endif; ?>" id="userchats">
   <ul class="foot-print-content list-unstyled" style="max-height: 170px;">
 	<?php foreach (erLhcoreClassChat::getList(array('limit' => 100, 'filter' => array('online_user_id' => $online_user->id))) as $chatPrev) : ?>
 		<?php if (!isset($chat) || $chat->id != $chatPrev->id) : ?>

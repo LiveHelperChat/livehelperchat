@@ -1,3 +1,4 @@
+<?php $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat', 'Online profile')?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 
 <a href="<?php echo htmlspecialchars(trim($online_user->current_page))?>" class="no-wrap fs12"><?php echo htmlspecialchars(trim($online_user->referrer))?></a>
@@ -5,8 +6,8 @@
 <div class="online-user-info">
     <div role="tabpanel">
     	<!-- Nav tabs -->
-    	<ul class="nav nav-tabs" role="tablist">
-    		<li role="presentation" class="nav-item" ><a class="active nav-link" href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Visitor')?></a></li>
+    	<ul class="nav nav-tabs mb-2" role="tablist">
+    		<li role="presentation" class="nav-item" ><a class="<?php if (!isset($tab) || empty($tab)) :?>active<?php endif;?> nav-link" href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Visitor')?></a></li>
     		
     		<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/footprint_tab_tab_pre.tpl.php')); ?>
     		
@@ -27,7 +28,7 @@
     
     	<!-- Tab panes -->
     	<div class="tab-content">
-    		<div role="tabpanel" class="tab-pane active" id="panel1">
+    		<div role="tabpanel" class="tab-pane <?php if (!isset($tab) || empty($tab)) :?>active<?php endif;?>" id="panel1">
     		  <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/online_user_info.tpl.php')); ?>
     		  
     		  <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/proactive_pre.tpl.php'));?>

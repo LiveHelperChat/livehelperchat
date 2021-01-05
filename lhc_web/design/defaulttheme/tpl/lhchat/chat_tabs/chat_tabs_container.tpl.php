@@ -1,5 +1,5 @@
 <div role="tabpanel">
-	<ul class="nav nav-underline mb-1 pb-1 nav-small" role="tablist" id="chat-tab-items-<?php echo $chat->id?>">
+	<ul class="nav nav-underline mb-1 pb-1 nav-small nav-fill" role="tablist" id="chat-tab-items-<?php echo $chat->id?>">
 	    <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/tabs_order.tpl.php')); ?>
 		    
 	    <?php
@@ -23,11 +23,11 @@
 	       <?php elseif ($tabItem == 'operator_screenshot_tab' && isset($canEditChat) && $canEditChat == true) : ?>
 	       <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/operator_screenshot_tab.tpl.php'));?>
 	       <?php elseif ($tabItem == 'footprint_tab_tab') : ?>
-	       <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/footprint_tab_tab.tpl.php')); ?>
+	       <?php //include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/footprint_tab_tab.tpl.php')); ?>
 	       <?php elseif ($tabItem == 'map_tab_tab') : ?>
 	       <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/map_tab_tab.tpl.php')); ?>
 	       <?php elseif ($tabItem == 'online_user_info_tab') : ?>
-	       <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/online_user_info_tab.tpl.php')); ?>	
+	       <?php //include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/online_user_info_tab.tpl.php')); ?>
 	       <?php elseif ($tabItem == 'extension_chat_tab_multiinclude') : ?>
 	       <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/extension_chat_tab_multiinclude.tpl.php'));?>  
 	       <?php endif;?>
@@ -40,9 +40,9 @@
 	   <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_tab_user_files_tab_content.tpl.php'));?>
 	   <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/chat_translation.tpl.php'));?>
 	   <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/operator_screenshot.tpl.php'));?>
-       <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/footprint_tab.tpl.php')); ?>
+       <?php //include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/footprint_tab.tpl.php')); ?>
        <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/map_tab.tpl.php')); ?>
-       <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/online_user_info.tpl.php')); ?>
+       <?php //include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/online_user_info.tpl.php')); ?>
        <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/extension_chat_tab_content_multiinclude.tpl.php'));?>
 	</div>
 </div>
