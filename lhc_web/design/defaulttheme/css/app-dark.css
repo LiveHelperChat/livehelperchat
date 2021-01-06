@@ -632,7 +632,6 @@ div.pending-storage {
 #messages{position:relative;}
 .message-block{
     font-size: 13px;
-    border-bottom:1px solid #63676b;
 }
 
 div.message-admin+div.message-admin .msg-date,div.message-row.response+div.message-row.response .msg-date,
