@@ -1,1 +1,5 @@
-<a class="material-icons mr-0 text-muted" data-title="<?php echo htmlspecialchars($chat->nick,ENT_QUOTES);?>" onclick="lhinst.startChatCloseTabNewWindow('<?php echo $chat->id;?>',$('#tabs'),$(this).attr('data-title'))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>">open_in_new</a>
+<div class="col-6 pb-1">
+<a class="text-muted" data-title="<?php echo htmlspecialchars($chat->nick,ENT_QUOTES);?>" onclick="lhinst.startChatCloseTabNewWindow('<?php echo $chat->id;?>',$('#tabs'),$(this).attr('data-title'))">
+<span class="material-icons">open_in_new</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','New window');?>
+</a>
+</div>

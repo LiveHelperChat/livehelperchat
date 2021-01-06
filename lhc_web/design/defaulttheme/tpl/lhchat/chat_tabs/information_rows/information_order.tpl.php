@@ -1,83 +1,83 @@
 <?php
 $orderInformation = array(
-    array(
+    'chat' => array(
+        'item' => 'chat',
+        'enabled' => true
+    ),
+    'department' => array(
         'item' => 'department',
         'enabled' => true
     ),
-    array(
-        'item' => 'subject',
+    'chat_owner' => array(
+        'item' => 'chat_owner',
         'enabled' => true
     ),
-    array(
-        'item' => 'product',
-        'enabled' => true
-    ),
-    array(
+    'uagent' => array(
         'item' => 'uagent',
         'enabled' => true
     ),
-    array(
-        'item' => 'country_code',
-        'enabled' => true
-    ),
-    array(
-        'item' => 'user_tz_identifier',
-        'enabled' => true
-    ),
-    array(
-        'item' => 'city',
-        'enabled' => true
-    ),
-    array(
-        'item' => 'ip',
-        'enabled' => true
-    ),
-    array(
-        'item' => 'referrer',
-        'enabled' => true
-    ),
-    array(
-        'item' => 'session_referrer',
-        'enabled' => true
-    ),
-    array(
-        'item' => 'id',
-        'enabled' => true
-    ),
-    array(
-        'item' => 'email',
-        'enabled' => true
-    ),
-    array(
-        'item' => 'phone',
-        'enabled' => true
-    ),
-    array(
-        'item' => 'additional_data',
-        'enabled' => true
-    ),
-    array(
-        'item' => 'created',
-        'enabled' => true
-    ),
-    array(
-        'item' => 'user_left',
-        'enabled' => true
-    ),
-    array(
-        'item' => 'wait_time',
-        'enabled' => true
-    ),
-    array(
+    'chat_duration' => array(
         'item' => 'chat_duration',
         'enabled' => true
     ),
-    array(
-        'item' => 'chat_status',
+    'subject' => array(
+        'item' => 'subject',
         'enabled' => true
     ),
-    array(
-        'item' => 'chat_owner',
+    'product' => array(
+        'item' => 'product',
+        'enabled' => true
+    ),
+    'country_code' => array(
+        'item' => 'country_code',
+        'enabled' => true
+    ),
+    'user_tz_identifier' => array(
+        'item' => 'user_tz_identifier',
+        'enabled' => true
+    ),
+    'city' => array(
+        'item' => 'city',
+        'enabled' => true
+    ),
+    'ip' => array(
+        'item' => 'ip',
+        'enabled' => true
+    ),
+    'referrer' => array(
+        'item' => 'referrer',
+        'enabled' => true
+    ),
+    'session_referrer' => array(
+        'item' => 'session_referrer',
+        'enabled' => true
+    ),
+    'id' => array(
+        'item' => 'id',
+        'enabled' => true
+    ),
+    'email' => array(
+        'item' => 'email',
+        'enabled' => true
+    ),
+    'phone' => array(
+        'item' => 'phone',
+        'enabled' => true
+    ),
+    'additional_data' => array(
+        'item' => 'additional_data',
+        'enabled' => true
+    ),
+    'created' => array(
+        'item' => 'created',
+        'enabled' => true
+    ),
+    'user_left' => array(
+        'item' => 'user_left',
+        'enabled' => true
+    ),
+    'wait_time' => array(
+        'item' => 'wait_time',
         'enabled' => true
     )
 );

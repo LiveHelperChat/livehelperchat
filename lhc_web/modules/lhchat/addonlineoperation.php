@@ -38,7 +38,16 @@ if (trim($form->operation) != '')
 	    if ($form->operation == "lhc_screenshot") {
 	       $onlineuser->operation_chat .= $form->operation . "\n";
 	    }
-	    	    
+
+	    if ($onlineuser->chat_id > 0) {
+	        $chat = erLhcoreClassModelChat::fetch($onlineuser->chat_id);
+	        if ($chat instanceof erLhcoreClassModelChat) {
+                $chat->operation .= $form->operation . "\n";
+                $chat->updateThis(array('update' => array('operation')));
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.added_operation',array('chat' => & $chat));
+            }
+        }
+
 	    $onlineuser->operation .= str_replace(array('{online_user_id}','{online_user_hash}'), array($onlineuser->id,$onlineuser->vid), $validOperations[$operation]);
 	    $onlineuser->saveThis();	    
 	}

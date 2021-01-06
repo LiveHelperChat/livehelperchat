@@ -34,6 +34,16 @@
 		
 		<div class="message-container-admin">
 
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_tab_user_files_tab_pre.tpl.php'));?>
+            <?php if ($information_tab_user_files_tab_enabled == true) : ?>
+            <?php $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data ?>
+            <?php if ( isset($fileData['active_admin_upload']) && $fileData['active_admin_upload'] == true && erLhcoreClassUser::instance()->hasAccessTo('lhfile','use_operator') ) : $filesEnabled = true;?>
+                <input id="fileupload-<?php echo $chat->id?>" class="fs12 d-none" type="file" name="files[]" multiple>
+                <script>
+                    lhinst.addFileUpload({ft_msg:'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('files/files','Not an accepted file type')?>',fs_msg:'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('files/files','Filesize is too big')?>',chat_id:'<?php echo $chat->id?>',fs:<?php echo $fileData['fs_max']*1024?>,ft_op:/(\.|\/)(<?php echo $fileData['ft_op']?>)$/i});
+                </script>
+            <?php endif; endif;?>
+
             <div class="d-flex flex-nowrap">
                 <div class="flex-shrink-1 ">
                     <button type="button" class="btn btn-sm btn-outline-primary" id="chat-write-button-<?php echo $chat->id?>"><i class="material-icons mr-0">create</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Write')?></button>&nbsp;<button type="button" class="btn btn-sm btn-outline-secondary" id="chat-preview-button-<?php echo $chat->id?>"><i class="material-icons mr-0">visibility</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Preview')?></button>
@@ -48,7 +58,7 @@
 
             <?php else : ?>
 
-                <?php $placeholderValue = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You are not chat owner, type with caution.')?><?php endif;?><?php else :?><?php $placeholderValue = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Switch between chats using Alt+') . '&#8593;&#8595 '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','arrows') . '. ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Search for canned messages by using their tags #hash.')?>
+                <?php $placeholderValue = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You are not chat owner, type with caution.')?><?php endif;?><?php else :?><?php $placeholderValue = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Switch between chats using Alt+') . '&#8593;&#8595 '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','arrows') . '. ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Search for canned messages by using their tags #hash. You can drop files here.')?>
 
             <?php endif;?>
 

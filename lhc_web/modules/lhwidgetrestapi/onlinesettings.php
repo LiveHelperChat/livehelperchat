@@ -254,10 +254,17 @@ if ($Params['user_parameters_unordered']['online'] == '0')
         (($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['offline_tos_visible_in_page_widget']) && $start_data_fields['offline_tos_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['offline_tos_visible_in_popup']) && $start_data_fields['offline_tos_visible_in_popup'] == true)
     ) {
+
+        $label = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'I accept my personal data will be handled according to') . ' <a target="_blank" href="' . erLhcoreClassModelChatConfig::fetch('accept_tos_link')->current_value . '">' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'our terms and to the Law') . '</a>';
+
+        if (isset($theme->bot_configuration_array['custom_tos_text']) && $theme->bot_configuration_array['custom_tos_text'] != '') {
+            $label = erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->bot_configuration_array['custom_tos_text']));
+        }
+
         $fields[] = array(
             'type' => 'checkbox',
             'width' => 12,
-            'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'I accept my personal data will be handled according to') . ' <a target="_blank" href="' . erLhcoreClassModelChatConfig::fetch('accept_tos_link')->current_value . '">' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'our terms and to the Law') . '</a>',
+            'label' => $label,
             'class' => 'form-check-input',
             'required' => false,
             'name' => 'AcceptTOS',
@@ -348,10 +355,17 @@ if ($Params['user_parameters_unordered']['online'] == '0')
         (($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['tos_visible_in_page_widget']) && $start_data_fields['tos_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['tos_visible_in_popup']) && $start_data_fields['tos_visible_in_popup'] == true)
     ) {
+
+        $label = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'I accept my personal data will be handled according to') . ' <a target="_blank" href="' . erLhcoreClassModelChatConfig::fetch('accept_tos_link')->current_value . '">' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'our terms and to the Law') . '</a>';
+
+        if (isset($theme->bot_configuration_array['custom_tos_text']) && $theme->bot_configuration_array['custom_tos_text'] != '') {
+            $label = erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->bot_configuration_array['custom_tos_text']));
+        }
+
         $fields[] = array(
             'type' => 'checkbox',
             'width' => 12,
-            'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'I accept my personal data will be handled according to') . ' <a target="_blank" href="' . erLhcoreClassModelChatConfig::fetch('accept_tos_link')->current_value . '">' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'our terms and to the Law') . '</a>',
+            'label' => $label,
             'class' => 'form-check-input',
             'required' => false,
             'name' => 'AcceptTOS',

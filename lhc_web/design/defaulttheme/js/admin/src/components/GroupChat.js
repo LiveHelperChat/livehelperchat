@@ -427,7 +427,7 @@ const GroupChat = props => {
         <React.Fragment>
             <div className={"row group-chat-"+(props.chatPublicId ? "public" : "private")}>
 
-                {props.chatPublicId && state.chat.type == 2 && <div className="col-12 pb-1 border-bottom">
+                {props.chatPublicId && state.chat.type == 2 && <div className="col-12 pb-1">
 
                     {state.operators.map((operator, index) => (
                         <button className="btn btn-sm fs12 btn-outline-secondary mb-1 mr-1">{props.userId != operator.user_id && <i title="Start chat with an operator directly" onClick={(e) => startChatWithOperator(operator)} className="material-icons action-image">chat</i>} {state.chat.user_id == operator.user_id && <i title="Group owner" className="material-icons">account_balance</i>} {operator.n_off_full}

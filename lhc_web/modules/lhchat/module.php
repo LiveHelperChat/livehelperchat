@@ -17,6 +17,12 @@ $ViewList['getchatdata'] = array(
     'functions' => array( 'use' ),
 );
 
+$ViewList['singleaction'] = array(
+    'params' => array('chat_id','action'),
+    'uparams' => array(),
+    'functions' => array( 'use' ),
+);
+
 $ViewList['loadoperatorjs'] = array(
     'params' => array(),
     'uparams' => array('type','id'),
@@ -539,7 +545,7 @@ $ViewList['jsononlineusers'] = array(
 
 $ViewList['getonlineuserinfo'] = array(
     'params' => array('id'),
-    'uparams' => array(),
+    'uparams' => array('tab','chat_id'),
     'functions' => array( 'use_onlineusers' )
 );
 

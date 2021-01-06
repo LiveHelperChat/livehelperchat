@@ -1,6 +1,5 @@
-<?php if ( !empty($chat->city) ) : ?>
-    <tr>
-        <td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','City')?></td>
-        <td><?php echo htmlspecialchars($chat->city);?></td>
-    </tr>
+<?php if (isset($orderInformation['city']['enabled']) && $orderInformation['city']['enabled'] == true && !empty($chat->city) ) : ?>
+<div class="col-6 pb-1">
+    <?php echo htmlspecialchars($chat->city);?>
+</div>
 <?php endif;?>

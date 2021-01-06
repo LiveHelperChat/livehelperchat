@@ -570,6 +570,9 @@
 
                     <?php $translatableItem = array('identifier' => 'bot_status_text'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+                    
+                    <?php $translatableItem = array('identifier' => 'custom_tos_text'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
                     <?php $translatableItem = array('identifier' => 'support_joined'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>

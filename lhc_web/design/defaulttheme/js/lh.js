@@ -187,6 +187,7 @@ function lh(){
             inst.addQuateHandler(chat_id);
             inst.loadMainData(chat_id);
             ee.emitEvent('chatTabLoaded', [chat_id]);
+            ee.emitEvent('chatStartTab', [chat_id, {name: nick, focus: true}]);
         });
     }
 
@@ -3647,7 +3648,7 @@ function lh(){
     				LHCCallbacks.addFileUpload(data_config.chat_id);
     			}
     		},
-    		dropZone: $('#drop-zone-'+data_config.chat_id),
+    		dropZone: $('#CSChatMessage-'+data_config.chat_id),
     		pasteZone: $('#CSChatMessage-'+data_config.chat_id),
     		progressall: function (e, data) {
     			var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -3735,16 +3736,16 @@ function lh(){
     this.updateScreenshot = function(chat_id) {
     	$('#user-screenshot-container').html('').addClass('screenshot-pending');
     	$.get(this.wwwDir + 'chat/checkscreenshot/' + chat_id,function(data){
-    		$('#user-screenshot-container').html(data);
-    		$('#user-screenshot-container').removeClass('screenshot-pending');
+    		$('#user-screenshot-container-'+chat_id).html(data);
+    		$('#user-screenshot-container-'+chat_id).removeClass('screenshot-pending');
     	});
     };
 
     this.updateScreenshotOnline = function(online_id) {
     	$('#user-screenshot-container').html('').addClass('screenshot-pending');
     	$.get(this.wwwDir + 'chat/checkscreenshotonline/' + online_id,function(data){
-    		$('#user-screenshot-container').html(data);
-    		$('#user-screenshot-container').removeClass('screenshot-pending');
+    		$('#user-screenshot-container-'+online_id).html(data);
+    		$('#user-screenshot-container-'+online_id).removeClass('screenshot-pending');
     	});
     };
 

@@ -1,6 +1,5 @@
-<?php if ( $chat->department !== false ) : ?>
-    <tr>
-        <td class="department-id" data-dep-id="<?php echo $chat->dep_id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Department')?></td>
-        <td><?php if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST) : ?><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','This is offline message')?>" class="material-icons">mail</i> <?php endif?><?php echo htmlspecialchars($chat->department);?></td>
-    </tr>
-<?php endif;?>
+<div class="col-6 pb-1">
+    <div class="department-id" data-dep-id="<?php echo $chat->dep_id?>">
+        <i title="><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Department')?>" class="material-icons">home</i><?php if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST) : ?><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','This is offline message')?>" class="material-icons">mail</i><?php endif?><?php echo htmlspecialchars($chat->department);?>
+    </div>
+</div>
