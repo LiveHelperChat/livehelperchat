@@ -38,6 +38,7 @@
                 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Empty...')?>
             <?php endif;?>
         </div>
+
     <?php endif; ?>
 
 <?php elseif ($singleAction == 'translation') : ?>

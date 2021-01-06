@@ -20,9 +20,12 @@
     		<?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/user_chats_tab.tpl.php')); ?>
 
             <?php if ($online_user->id > 0) : ?>
+
+                <?php if (isset($chat_id_present) && is_numeric($chat_id_present)) : ?>
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/operator_screenshot_pre.tpl.php')); ?>
                 <?php if ($operator_screenshot_enabled == true) : ?>
                   <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/screenshot_tab.tpl.php')); ?>
+                <?php endif;?>
                 <?php endif;?>
 
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/notes_tab.tpl.php')); ?>
@@ -61,7 +64,7 @@
     		<?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/user_chats.tpl.php')); ?>
 
             <?php if ($online_user->id > 0) : ?>
-                <?php if ($operator_screenshot_enabled == true) : ?>
+                <?php if (isset($chat_id_present) && is_numeric($chat_id_present) && $operator_screenshot_enabled == true) : ?>
                   <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/screenshot.tpl.php')); ?>
                 <?php endif;?>
 

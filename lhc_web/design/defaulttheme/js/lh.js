@@ -187,6 +187,7 @@ function lh(){
             inst.addQuateHandler(chat_id);
             inst.loadMainData(chat_id);
             ee.emitEvent('chatTabLoaded', [chat_id]);
+            ee.emitEvent('chatStartTab', [chat_id, {name: nick, focus: true}]);
         });
     }
 

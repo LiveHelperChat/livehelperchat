@@ -108,6 +108,13 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
             erLhcoreClassModelChatOnlineUserFootprint::addPageView($userInstance);
         }
 
+        if ($userInstance->operation != '') {
+            $outputResponse['operation'] = explode("\n", trim($userInstance->operation_chat));
+            $userInstance->operation = '';
+            $userInstance->operation_chat = '';
+            $userInstance->updateThis(array('update' => array('operation','operation_chat')));
+        }
+
         if ($userInstance->invitation_id == -1) {
             $userInstance->invitation_id = 0;
             $userInstance->invitation_assigned = true;
