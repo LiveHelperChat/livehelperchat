@@ -60,8 +60,8 @@
                     </ul>
     		</div>
     		<?php endif;?>
-    		
-    		<?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/user_chats.tpl.php')); ?>
+
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/user_chats.tpl.php')); ?>
 
             <?php if ($online_user->id > 0) : ?>
                 <?php if (isset($chat_id_present) && is_numeric($chat_id_present) && $operator_screenshot_enabled == true) : ?>
