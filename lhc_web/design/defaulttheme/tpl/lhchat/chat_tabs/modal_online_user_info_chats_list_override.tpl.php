@@ -1,0 +1,1 @@
+<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/online_user_info_chats_list_list.tpl.php'));?>
