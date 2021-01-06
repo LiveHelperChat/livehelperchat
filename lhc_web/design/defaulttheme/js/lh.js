@@ -3647,7 +3647,7 @@ function lh(){
     				LHCCallbacks.addFileUpload(data_config.chat_id);
     			}
     		},
-    		dropZone: $('#drop-zone-'+data_config.chat_id),
+    		dropZone: $('#CSChatMessage-'+data_config.chat_id),
     		pasteZone: $('#CSChatMessage-'+data_config.chat_id),
     		progressall: function (e, data) {
     			var progress = parseInt(data.loaded / data.total * 100, 10);

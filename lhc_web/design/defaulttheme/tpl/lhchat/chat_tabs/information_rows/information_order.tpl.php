@@ -1,5 +1,9 @@
 <?php
 $orderInformation = array(
+    'chat' => array(
+        'item' => 'chat',
+        'enabled' => true
+    ),
     'department' => array(
         'item' => 'department',
         'enabled' => true
@@ -8,16 +12,20 @@ $orderInformation = array(
         'item' => 'chat_owner',
         'enabled' => true
     ),
+    'uagent' => array(
+        'item' => 'uagent',
+        'enabled' => true
+    ),
+    'chat_duration' => array(
+        'item' => 'chat_duration',
+        'enabled' => true
+    ),
     'subject' => array(
         'item' => 'subject',
         'enabled' => true
     ),
     'product' => array(
         'item' => 'product',
-        'enabled' => true
-    ),
-    'uagent' => array(
-        'item' => 'uagent',
         'enabled' => true
     ),
     'country_code' => array(
@@ -70,14 +78,6 @@ $orderInformation = array(
     ),
     'wait_time' => array(
         'item' => 'wait_time',
-        'enabled' => true
-    ),
-    'chat_duration' => array(
-        'item' => 'chat_duration',
-        'enabled' => true
-    ),
-    'chat_status' => array(
-        'item' => 'chat_status',
         'enabled' => true
     )
 );

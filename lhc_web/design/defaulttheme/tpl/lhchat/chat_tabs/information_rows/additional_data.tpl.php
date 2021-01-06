@@ -2,9 +2,9 @@
     <tr>
         <td colspan="2">
 
-            <h6 class="font-weight-bold py-2"><i class="material-icons">storage</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Additional data')?></h6>
+            <h6 class="font-weight-bold"><i class="material-icons">storage</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Additional data')?></h6>
 
-            <div class="text-muted" id="custom-data-td-<?php echo $chat->id?>">
+            <div class="text-muted pb-1" id="custom-data-td-<?php echo $chat->id?>">
                 <?php if (is_array($chat->additional_data_array)) : ?>
                     <ul class="circle mb-0">
                         <?php foreach ($chat->additional_data_array as $keyItem => $addItem) : if (!is_string($addItem) || (is_string($addItem) && ($addItem != ''))) : ?>

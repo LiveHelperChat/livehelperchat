@@ -1,4 +1,4 @@
-<div role="tabpanel" class="tab-pane<?php if ($chatTabsOrderDefault == 'private_chat_tab') print ' active';?>" id="private-chat-tab-<?php echo $chat->id?>">
+<div role="tabpanel" class="tab-pane pl-2 <?php if ($chatTabsOrderDefault == 'private_chat_tab') print ' active';?>" id="private-chat-tab-<?php echo $chat->id?>">
     <?php if (isset($archive)) : ?>
         <?php
             try {

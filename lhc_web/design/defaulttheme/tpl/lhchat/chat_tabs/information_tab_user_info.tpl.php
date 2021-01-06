@@ -59,9 +59,9 @@
 <table class="table table-sm table-borderless">
 <?php foreach ($orderInformation as $buttonData) : ?>
     <?php if ($buttonData['enabled'] == true) : ?>
-        <?php if ($buttonData['item'] == 'department') : ?>
+        <?php if ($buttonData['item'] == 'chat') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/above_department_extension_multiinclude.tpl.php'));?>
-            <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/department.tpl.php'));?>
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/chat.tpl.php'));?>
         <?php elseif ($buttonData['item'] == 'product') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/product.tpl.php'));?>
         <?php elseif ($buttonData['item'] == 'uagent') : ?>
@@ -98,7 +98,7 @@
         <?php elseif ($buttonData['item'] == 'chat_duration') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/chat_duration.tpl.php'));?>
         <?php elseif ($buttonData['item'] == 'chat_status') : ?>
-            <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/chat_status.tpl.php'));?>
+            <?php //include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/chat_status.tpl.php'));?>
         <?php elseif ($buttonData['item'] == 'chat_owner') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/chat_owner.tpl.php'));?>
         <?php else : ?>
