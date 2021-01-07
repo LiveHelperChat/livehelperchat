@@ -8477,6 +8477,13 @@
         "hidden": "0"
       },
       {
+        "identifier": "autoclose_activity_timeout",
+        "value": "0",
+        "type": "0",
+        "explain": "Automatically close active chat if from last visitor/operator message passed. 0 - disabled, n > 0 time in minutes",
+        "hidden": "0"
+      },
+      {
         "identifier": "do_no_track_ip",
         "value": "0",
         "type": "0",

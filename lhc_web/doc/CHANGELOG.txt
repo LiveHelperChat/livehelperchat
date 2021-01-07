@@ -1,3 +1,17 @@
+3.58v
+
+1. You can change TOS field text value directly in theme. E.g Our terms of service [url=http://livehelperchat.com]Live Helper Chat[/url]
+2. There is new option to close all active chats based on last message.
+3. Right chat column layout was changes
+4. Screenshot from chat was not updating image if more than one chat was open at a time.
+5. Mobile app will show notification if chat was transfered to an operator.
+6. Option to reload widget theme on the fly. Usefull if your APP is switching between dark/bright themes.
+7. Statistic for last 24 hours won't be generated if operator clicks a tab.
+8. [html] tag will not be rendered for an operator to avoid bad operator scenario :D
+9. We will try to assign default chat by departments priority.
+
+execute doc/update_db/update_231.sql for update
+
 3.57v
 
 1. New widget offline form will support file field now.

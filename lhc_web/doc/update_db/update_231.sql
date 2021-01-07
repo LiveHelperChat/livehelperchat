@@ -1,0 +1,1 @@
+INSERT INTO `lh_chat_config` (`identifier`,`value`,`type`,`explain`,`hidden`) VALUES ('autoclose_activity_timeout','0','0','Automatically close active chat if from last visitor/operator message passed. 0 - disabled, n > 0 time in minutes','0');

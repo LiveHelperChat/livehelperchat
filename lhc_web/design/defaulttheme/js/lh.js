@@ -2282,13 +2282,11 @@ function lh(){
                                       }
 
 	        	                      if (item.um == 1) {
-	        	                    	  statusel.removeClass('chat-active');
 	        	                    	  statusel.addClass('chat-unread');
 	        	                    	  $('#msg-send-status-'+item.chat_id).addClass('icon-user-offline');
 	  	                			  } else {
 	  	                				  $('#msg-send-status-'+item.chat_id).addClass('icon-user-online');
 	  	                				  statusel.removeClass('chat-unread');
-	  	                				  statusel.addClass('chat-active');
 	  	                			  }
 
 	        	                      if (item.lp !== false) {

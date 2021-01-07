@@ -406,6 +406,47 @@ class erLhcoreClassChatWorkflow {
             }
         }
 
+        $timeout = (int)erLhcoreClassModelChatConfig::fetch('autoclose_activity_timeout')->current_value;
+        if ($timeout > 0) {
+            $delay = time()-($timeout*60);
+            foreach (erLhcoreClassChat::getList(array('limit' => 500, 'customfilter' => array('((
+            (last_user_msg_time = 0 AND last_op_msg_time = 0 AND time < ' . $delay . ') OR 
+            (last_user_msg_time > 0 AND last_user_msg_time >= last_op_msg_time AND last_user_msg_time < ' . $delay . ') OR 
+            (last_op_msg_time > 0 AND last_op_msg_time >= last_user_msg_time AND last_op_msg_time < ' . $delay . ') 
+            ) AND (GREATEST(`pnd_time`,`time`) + `wait_time`) < '.$delay.')'), 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)))) as $chat) {
+                $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
+
+                $msg = new erLhcoreClassModelmsg();
+                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was automatically closed by cron because of inactivity');
+                $msg->chat_id = $chat->id;
+                $msg->user_id = -1;
+
+                $chat->last_user_msg_time = $msg->time = time();
+
+                erLhcoreClassChat::getSession()->save($msg);
+
+                if ($chat->last_msg_id < $msg->id) {
+                    $chat->last_msg_id = $msg->id;
+                }
+
+                if ($chat->wait_time == 0) {
+                    $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
+                }
+
+                $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat);
+                $chat->cls_time = time();
+                $chat->has_unread_messages = 0;
+                $chat->updateThis();
+
+                erLhcoreClassChat::closeChatCallback($chat, $chat->user);
+
+                erLhcoreClassChat::updateActiveChats($chat->user_id);
+
+                $closedChatsNumber++;
+            }
+        }
+
+
         return $closedChatsNumber;
     }
 

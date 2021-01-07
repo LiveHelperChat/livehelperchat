@@ -1243,6 +1243,7 @@ class Install
                 ('list_unread','0','0','List unread chats','0'),
                 ('mobile_options',	'a:2:{s:13:\"notifications\";i:0;s:7:\"fcm_key\";s:152:\"AAAAiF8DeNk:APA91bFVHu2ybhBUTtlEtQrUEPpM2fb-5ovgo0FVNm4XxK3cYJtSwRcd-pqcBot_422yDOzHyw2p9ZFplkHrmNXjm8f5f-OIzfalGmpsypeXvnPxhU6Db1B2Z1Acc-TamHUn2F4xBJkP\";}',	0,	'',	1),
                 ('list_closed','0','0','List closed chats','0'),
+                ('autoclose_activity_timeout','0','0','Automatically close active chat if from last visitor/operator message passed. 0 - disabled, n > 0 time in minutes','0'),
                 ('footprint_background','0','0','Footprint updates should be processed in the background. Make sure you are running workflow background cronjob.','0'),
                 ('reverse_pending','0','0','Make default pending chats order from old to new','0'),
                 ('departament_availability','364','0','How long department availability statistic should be kept? (days)','0'),
