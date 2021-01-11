@@ -126,6 +126,19 @@ class _helperFunctions {
         }
     }
 
+    logJSError(params) {
+        var e;
+        e = {};
+        e.location = location && location.href ? location.href : "";
+        e.message = window.navigator.userAgent;
+        e.stack = params['stack'];// error.stack ? JSON.stringify(error.stack) : "";
+        e.stack = e.stack.replace(/(\r\n|\n|\r)/gm, "");
+        var xhr = new XMLHttpRequest();
+        xhr.open( "POST",  window.lhcChat['base_url'] + 'audit/logjserror', true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send( "data=" + encodeURIComponent( JSON.stringify(e) ) );
+    }
+
 };
 
 const helperFunctions = new _helperFunctions();

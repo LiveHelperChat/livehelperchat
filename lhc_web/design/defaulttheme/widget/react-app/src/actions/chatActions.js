@@ -461,6 +461,8 @@ export function pageUnload() {
     }
 }
 
+
+
 export function addMessage(obj) {
     return function(dispatch, getState) {
         axios.post(window.lhcChat['base_url'] + "widgetrestapi/addmsguser", obj)
@@ -472,12 +474,36 @@ export function addMessage(obj) {
                 }
 
                 fetchMessages({'theme' : obj.theme, 'chat_id' : obj.id, 'lmgsid' : obj.lmgsid, 'hash' : obj.hash})(dispatch, getState);
+
                 if (response.data.t) {
                     helperFunctions.sendMessageParent('botTrigger',[{'trigger' : response.data.t}]);
                 }
+
+                if (typeof response.data.r === 'undefined') {
+                    helperFunctions.logJSError({
+                        'stack' :  JSON.stringify(JSON.stringify(response) + "\nRD:"+JSON.stringify(response.data) +"\nRH:"+ JSON.stringify(response.headers) +"\nRS:"+ JSON.stringify(response.status))
+                    });
+                }
+
             })
-            .catch((err) => {
-                dispatch({type: "ADD_MESSAGES_SUBMITTED", data: {r: "SEND_FAILED", "msg" : obj.msg}})
+            .catch((error) => {
+                dispatch({type: "ADD_MESSAGES_SUBMITTED", data: {r: "SEND_FAILED", "msg" : obj.msg}});
+
+                var stack = null;
+
+                // Error
+                if (error.response) {
+                    stack = JSON.stringify(JSON.stringify(error) + "\nRD:"+JSON.stringify(error.response.data) +"\nRH:"+ JSON.stringify(error.response.headers) +"\nRS:"+ JSON.stringify(error.response.status));
+                } else if (error.request) {
+                    stack = JSON.stringify(JSON.stringify(error));
+                } else {
+                    stack = JSON.stringify(JSON.stringify(error));
+                }
+
+                helperFunctions.logJSError({
+                    'stack' : stack
+                });
+
             })
     }
 }
