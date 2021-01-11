@@ -449,9 +449,9 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
      * @param object $object
      * @return void
      */
-    public function saveOrUpdate( $object )
+    public function saveOrUpdate( $object, $updateIgnoreColumns = array(), $updateOnlyColumn = array() )
     {
-        return $this->saveHandler->saveOrUpdate( $object, $updateIgnoreColumns = array(), $updateOnlyColumn = array());
+        return $this->saveHandler->saveOrUpdate( $object, $updateIgnoreColumns, $updateOnlyColumn);
     }
 
     /**

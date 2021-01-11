@@ -14,7 +14,7 @@ $definition = array(
 
 $form = new ezcInputForm( INPUT_POST, $definition );
 
-$Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
+$Chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 $errorTpl = erLhcoreClassTemplate::getInstance( 'lhkernel/validation_error.tpl.php');
 
 if ( erLhcoreClassChat::hasAccessToRead($Chat) )
@@ -23,9 +23,18 @@ if ( erLhcoreClassChat::hasAccessToRead($Chat) )
 	    $errors = array();
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_save_remarks',array('chat' => & $Chat, 'errors' => & $errors));
 
-        if(empty($errors)) {
+        if (empty($errors)) {
+
+            $db = ezcDbInstance::get();
+
+            $db->beginTransaction();
+
+            $Chat->syncAndLock();
             $Chat->remarks = $form->data;
-            $Chat->saveThis(array('update' => array('remarks')));
+            $Chat->updateThis(array('update' => array('remarks')));
+
+            $db->commit();
+            
             echo json_encode(array('error' => 'false'));
             exit;
         } else {
