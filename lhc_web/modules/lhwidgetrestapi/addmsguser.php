@@ -129,7 +129,20 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
 
     } catch (Exception $e) {
         $db->rollback();
+
         echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $e->getMessage()));
+
+        erLhcoreClassLog::write($e->getMessage() . ' - ' . $e->getTraceAsString(),
+            ezcLog::SUCCESS_AUDIT,
+            array(
+                'source' => 'lhc',
+                'category' => 'store',
+                'line' => $e->getLine(),
+                'file' => 'addmsguser.php',
+                'object_id' => $payload['id']
+            )
+        );
+
         exit;
     }
 

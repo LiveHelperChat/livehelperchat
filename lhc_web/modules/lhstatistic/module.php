@@ -30,6 +30,12 @@ $ViewList['abstatistic'] = array(
     'functions' => array( 'viewstatistic' )
 );
 
+$ViewList['departmentstats'] = array(
+    'params' => array('id'),
+    'uparams' => array('type'),
+    'functions' => array( 'statisticdep' )
+);
+
 $ViewList['onlinehours'] = array(
     'params' => array(),
     'uparams' => array('group_by','xls','timefrom','timeto','user_id','timefrom_minutes','timefrom_hours','timeto_hours','timeto_minutes'),
@@ -39,5 +45,6 @@ $ViewList['onlinehours'] = array(
 $FunctionList['exportxls'] = array('explain' => 'Allow to operator to export departments statistic in XLS');
 $FunctionList['viewstatistic'] = array('explain' =>'Allow operator to view statistic');
 $FunctionList['configuration'] = array('explain' =>'Allow operator to configure statistic');
+$FunctionList['statisticdep'] = array('explain' =>'Allow operator to see departments/departments groups statistic in modal window');
 
 ?>
