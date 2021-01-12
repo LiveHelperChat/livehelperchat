@@ -10,7 +10,10 @@ class erLhcoreClassGenericBotActionCommand {
 
         if ($action['content']['command'] == 'stopchat') {
 
-            $isOnline = (isset($action['content']['payload_ignore_status']) && $action['content']['payload_ignore_status'] == true) || erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true));
+            $isOnline = (isset($action['content']['payload_ignore_status']) && $action['content']['payload_ignore_status'] == true) || erLhcoreClassChat::isOnline($chat->dep_id,false, array(
+                'exclude_bot' => true,
+                'exclude_online_hours' => (isset($action['content']['payload_ignore_dep_hours']) && $action['content']['payload_ignore_dep_hours'] == true)
+            ));
 
             if ($isOnline == false && isset($action['content']['payload']) && is_numeric($action['content']['payload'])) {
 
