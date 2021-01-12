@@ -2237,11 +2237,15 @@ function lh(){
 
 	        	                $.each(data.result_status,function(i,item) {
 
+	        	                      var typingIndicator = $('#user-is-typing-'+item.chat_id);
+
 	        	                      if (item.tp == 'true') {
-	                                      $('#user-is-typing-'+item.chat_id).html(item.tx).css('visibility','visible');
+	        	                          if (typingIndicator.css('visibility') == 'hidden') {
+                                              typingIndicator.html(item.tx).css('visibility','visible');
+                                          }
 	        	                      } else {
                                           if (lhinst.nodeJsMode == false) {
-                                              $('#user-is-typing-'+item.chat_id).css('visibility','hidden');
+                                              typingIndicator.css('visibility','hidden');
                                           }
 	        	                      };
 

@@ -68,6 +68,24 @@ class _nodeJSChat {
             }
         }
 
+       function messageSend(data)
+       {
+            if (params.instance_id > 0) {
+                socket.publish('chat_'+params.instance_id+'_'+chatId, {'op':'vt','msg':'✉️ ' + data.msg});
+            } else {
+                socket.publish('chat_'+chatId,{'op':'vt', 'msg':'✉️ ' + data.msg});
+            }
+        }
+
+       function messageSendError(data)
+       {
+            if (params.instance_id > 0) {
+                socket.publish('chat_'+params.instance_id+'_'+chatId,{'op':'vt','msg':'📕️ error happened while sending visitor message, please inform your administrator!'});
+            } else {
+                socket.publish('chat_'+chatId, {'op':'vt','msg':'📕️ error happened while sending visitor message, please inform your administrator!'});
+            }
+        }
+
         socket.on('close', function() {
 
             if (sampleChannel !== null) {
@@ -75,6 +93,8 @@ class _nodeJSChat {
             }
 
             helperFunctions.eventEmitter.removeListener('visitorTyping', visitorTypingListener);
+            helperFunctions.eventEmitter.removeListener('messageSend', messageSend);
+            helperFunctions.eventEmitter.removeListener('messageSendError', messageSendError);
 
             dispatch({
                 'type': 'CHAT_UI_UPDATE',
@@ -136,6 +156,8 @@ class _nodeJSChat {
             });
 
             helperFunctions.eventEmitter.addListener('visitorTyping', visitorTypingListener);
+            helperFunctions.eventEmitter.addListener('messageSend', messageSend);
+            helperFunctions.eventEmitter.addListener('messageSendError', messageSendError);
 
 
             dispatch({

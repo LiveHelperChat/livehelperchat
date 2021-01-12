@@ -726,7 +726,6 @@ div.message-row.response+div.message-row.response:hover .msg-date,
 .user-is-typing,
 #id-operator-typing {
     visibility:hidden;
-    font-style:italic;
     font-weight:bold;
     line-height:140%;
     min-height:14px;
@@ -1809,7 +1808,7 @@ html {
     width: 100%;
 }
 
-::-webkit-scrollbar{width:0.4em;height:0.8em;background-color: #343a40;cursor: pointer}
+::-webkit-scrollbar{width:0.4em;height:0.8em;background-color: transparent;cursor: pointer}
 ::-webkit-scrollbar:hover{background-color:transparent;}
 ::-webkit-scrollbar-thumb{min-height:0.8em;min-width:1em;background-color:#2a2d31;}
 ::-webkit-scrollbar-thumb:hover{background-color: #171a1a}

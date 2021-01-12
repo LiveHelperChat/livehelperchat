@@ -531,7 +531,7 @@ class OnlineChat extends Component {
                 this.props.dispatch(userTyping('true',this.state.value));
             } else {
                 clearTimeout(this.typingStopped);
-                this.typingStopped = setTimeout(this.typingStoppedAction, 3000);
+                this.typingStopped = setTimeout(this.typingStoppedAction, 6000);
                 if (this.currentMessageTyping != this.state.value ) {
                     if (Math.abs(this.currentMessageTyping.length - this.state.value.length) > 6 || this.props.chatwidget.get('overrides').contains('typing')) {
                         this.currentMessageTyping = this.state.value;

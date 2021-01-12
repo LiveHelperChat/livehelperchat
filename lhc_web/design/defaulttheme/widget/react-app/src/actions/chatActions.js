@@ -465,6 +465,15 @@ export function pageUnload() {
 
 export function addMessage(obj) {
     return function(dispatch, getState) {
+
+        try {
+            helperFunctions.eventEmitter.emitEvent('messageSend', [{'chat_id':obj.id, 'hash': obj.hash, msg: obj.msg}]);
+        } catch (error) {
+            helperFunctions.logJSError({
+                'stack' : JSON.stringify(JSON.stringify(error))
+            });
+        }
+
         axios.post(window.lhcChat['base_url'] + "widgetrestapi/addmsguser", obj)
             .then((response) => {
 
@@ -483,6 +492,7 @@ export function addMessage(obj) {
                     helperFunctions.logJSError({
                         'stack' :  JSON.stringify(JSON.stringify(response) + "\nRD:"+JSON.stringify(response.data) +"\nRH:"+ JSON.stringify(response.headers) +"\nRS:"+ JSON.stringify(response.status))
                     });
+                    helperFunctions.eventEmitter.emitEvent('messageSendError', [{'chat_id':obj.id, 'hash': obj.hash, msg: JSON.stringify(response.data)}]);
                 }
 
             })
@@ -503,6 +513,8 @@ export function addMessage(obj) {
                 helperFunctions.logJSError({
                     'stack' : stack
                 });
+
+                helperFunctions.eventEmitter.emitEvent('messageSendError', [{'chat_id':obj.id, 'hash': obj.hash, msg: stack}]);
 
             })
     }
