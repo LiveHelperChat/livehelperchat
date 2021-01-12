@@ -225,6 +225,12 @@ try {
             $outputResponse['chat_ui']['voice_message'] = $fileData['sound_length'];
         }
 
+        $voiceData = (array)erLhcoreClassModelChatConfig::fetch('vvsh_configuration')->data;
+
+        if (isset($voiceData['voice']) && $voiceData['voice'] == true) {
+            $outputResponse['chat_ui']['voice'] = true;
+        }
+
         $outputResponse['chat_ui']['fbst'] = $chat->fbst;
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.initchat', array('output' => & $outputResponse, 'chat' => $chat));

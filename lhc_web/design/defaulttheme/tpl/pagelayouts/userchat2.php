@@ -71,9 +71,17 @@ if (
         ($detect->version('Chrome') !== false && $detect->version('Chrome',Mobile_Detect::VERSION_TYPE_FLOAT) < 46) ||
         ($detect->version('Firefox') !== false && $detect->version('Firefox',Mobile_Detect::VERSION_TYPE_FLOAT) < 35)
 ) : ?>
-    <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.ie.js')?>?t=148"></script>
+    <?php if (!isset($Result['voice_call'])) : ?>
+        <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.ie.js')?>?t=148"></script>
+    <?php else : ?>
+        <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/voice/voice.call.ie.js')?>?t=1"></script>
+    <?php endif; ?>
 <?php else : ?>
-    <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.js')?>?t=148"></script>
+    <?php if (!isset($Result['voice_call'])) : ?>
+        <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.js')?>?t=148"></script>
+        <?php else : ?>
+        <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/voice/voice.call.js')?>?t=1"></script>
+    <?php endif; ?>
 <?php endif; ?>
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer_widget2_js_extension_multiinclude.tpl.php'));?>
