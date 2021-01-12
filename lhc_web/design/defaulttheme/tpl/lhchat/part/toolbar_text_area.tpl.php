@@ -60,7 +60,7 @@
 
     <?php if (isset($chat)) : ?>
 
-    <div class="btn-group btn-group-sm mr-2<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?> hide<?php endif;?>" id="action-block-row-<?php echo $chat->id?>">
+    <div class="btn-group btn-group-sm<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?> hide<?php endif;?>" id="action-block-row-<?php echo $chat->id?>">
         <?php include(erLhcoreClassDesign::designtpl('lhchat/part/speech_action.tpl.php')); ?>
 
         <?php include(erLhcoreClassDesign::designtpl('lhchat/part/voice_action.tpl.php')); ?>
