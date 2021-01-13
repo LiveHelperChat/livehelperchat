@@ -1,3 +1,15 @@
+3.59v
+
+1. Option to automatically close the chats where visitor has abandoned them. In other words will close chats where pending widget row indicates that visitor has left the chat.
+2. Option to do prefill offline message form. Usefull if bot redirects to offline form and you do not want that message area would be prefilled by previous covnersation.
+3. Update chat -> Transfer to operator has now option to transfer chat to operator and ignore department online hours.
+4. Internal failing of visitor sending messages will be logged in audit log. Usefull if you experiencing high load and want to investigate why it's happening.
+5. Transactions will be used on remarks saving.
+6. saveThis method was not respecting passed arguments to indicate what columns should be updated.
+7. Department load statistic modal window.
+
+execute doc/update_db/update_232.sql for update
+
 3.58v
 
 1. You can change TOS field text value directly in theme. E.g Our terms of service [url=http://livehelperchat.com]Live Helper Chat[/url]
