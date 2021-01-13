@@ -546,7 +546,7 @@ $ViewList['jsononlineusers'] = array(
 $ViewList['getonlineuserinfo'] = array(
     'params' => array('id'),
     'uparams' => array('tab','chat_id'),
-    'functions' => array( 'use_onlineusers' )
+    'functions' => array( 'use' )
 );
 
 $ViewList['sendnotice'] = array(
