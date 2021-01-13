@@ -417,7 +417,51 @@ class erLhcoreClassChatWorkflow {
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was automatically closed by cron because of inactivity');
+                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was automatically by cron because of inactivity');
+                $msg->chat_id = $chat->id;
+                $msg->user_id = -1;
+
+                $chat->last_user_msg_time = $msg->time = time();
+
+                erLhcoreClassChat::getSession()->save($msg);
+
+                if ($chat->last_msg_id < $msg->id) {
+                    $chat->last_msg_id = $msg->id;
+                }
+
+                if ($chat->wait_time == 0) {
+                    $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
+                }
+
+                $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat);
+                $chat->cls_time = time();
+                $chat->has_unread_messages = 0;
+                $chat->updateThis();
+
+                erLhcoreClassChat::closeChatCallback($chat, $chat->user);
+
+                erLhcoreClassChat::updateActiveChats($chat->user_id);
+
+                $closedChatsNumber++;
+            }
+        }
+        
+        $timeoutParts = explode(',',str_replace(' ','',erLhcoreClassModelChatConfig::fetch('autoclose_abandon_pending')->current_value));
+
+        if ((int)$timeoutParts[0] > 0) {
+            $delay = time()-((int)$timeoutParts[0]*60);
+            $delayMobile = time()-((isset($timeoutParts[1]) && is_numeric($timeoutParts[1]) ? (int)$timeoutParts[1] : (int)$timeoutParts[0]) * 60);
+
+            foreach (erLhcoreClassChat::getList(array('limit' => 500, 'customfilter' => array('(`status_sub` IN ('.
+                erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW . ',' .
+                erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT . ',' .
+                erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM . ') OR (`lsync` > 0 AND ((`lsync` < '. $delay .' AND `device_type` = 0) OR  (`lsync` < '. $delayMobile .' AND `device_type` IN (1,2)))))'),
+                'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_PENDING_CHAT)))) as $chat) {
+
+                $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
+
+                $msg = new erLhcoreClassModelmsg();
+                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was automatically closed by cron because visitor left the pending chat!');
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
 
