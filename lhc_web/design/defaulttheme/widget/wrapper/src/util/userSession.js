@@ -163,7 +163,10 @@ export class userSession {
     setChatInformation(data) {
         this.id = data.id;
         this.hash = data.hash;
-        this.hnh = Math.round(Date.now() / 1000);
+        // Hide only chat starts otherwise don't touch it.
+        if (this.id !== null) {
+            this.hnh = Math.round(Date.now() / 1000);
+        }
     }
 
 }

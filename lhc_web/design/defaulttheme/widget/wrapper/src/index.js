@@ -393,7 +393,7 @@
                     }
 
                     if (data.nh && attributesWidget.fresh === false && attributesWidget['position'] != 'api' && attributesWidget.userSession.id === null) {
-                        if (attributesWidget.mode == 'widget') {
+                        if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
                             showNeedHelp(data.nh);
                         } else {
                             // Store for later use

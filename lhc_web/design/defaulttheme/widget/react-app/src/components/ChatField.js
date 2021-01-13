@@ -129,8 +129,8 @@ class ChatField extends Component {
                 <div className={className}>
                     <div className="form-group">
                         <div className="form-check">
-                            <input className={classNameInput.join(' ')} defaultChecked={this.props.field.get('default')} type="checkbox" value="on" onChange={(e) => this.onchangeAttr({'value' : e.target.checked})} required={required} name={this.props.field.get('name')} />
-                            <label className="form-check-label form-control-sm" dangerouslySetInnerHTML={{ __html:this.props.field.get('label')}}></label>
+                            <input className={classNameInput.join(' ')} id={"check-for-"+this.props.field.get('name')} defaultChecked={this.props.field.get('default')} type="checkbox" value="on" onChange={(e) => this.onchangeAttr({'value' : e.target.checked})} required={required} name={this.props.field.get('name')} />
+                            <label className="form-check-label" for={'check-for-'+this.props.field.get('name')} dangerouslySetInnerHTML={{ __html:this.props.field.get('label')}}></label>
                         </div>
                     </div>
                 </div>
