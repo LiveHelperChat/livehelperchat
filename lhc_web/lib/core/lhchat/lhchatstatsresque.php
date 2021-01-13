@@ -66,6 +66,24 @@ class erLhcoreClassChatStatsResque {
         }
     }
 
+    public static function getDepartmentChatsOperatorsStatistic($dep)
+    {
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare('SELECT MAX(`max_chats`) AS `max_chats`, MAX(`inactive_chats`) AS `inactive_chats`, MAX(`active_chats`) AS `active_chats`, `user_id`, MAX(`hide_online`) AS `hide_online`, MAX(`hide_online_ts`) AS `hide_online_ts`, MAX(`last_activity`) AS `last_activity` FROM `lh_userdep` WHERE `user_id` IN (SELECT `user_id` FROM `lh_chat` WHERE `status` IN (1,0) AND `dep_id` = :dep_id) GROUP BY `user_id`;');
+        $stmt->bindValue(':dep_id',$dep->id,PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function getDepartmentChatsGroupOperatorsStatistic($depGroupObj)
+    {
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare('SELECT MAX(`max_chats`) AS `max_chats`, MAX(`inactive_chats`) AS `inactive_chats`, MAX(`active_chats`) AS `active_chats`, `user_id`, MAX(`hide_online`) AS `hide_online`, MAX(`hide_online_ts`) AS `hide_online_ts`, MAX(`last_activity`) AS `last_activity` FROM `lh_userdep` WHERE `user_id` IN (SELECT `user_id` FROM `lh_chat` WHERE `status` IN (1,0) AND `dep_id` IN (SELECT `dep_id` FROM `lh_departament_group_member` WHERE `dep_group_id` = :dep_group_id)) GROUP BY `user_id`;');
+        $stmt->bindValue(':dep_group_id', $depGroupObj->id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public static function updateDepartmentStats($dep, $update = true)
     {
         $db = ezcDbInstance::get();
