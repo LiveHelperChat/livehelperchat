@@ -2641,7 +2641,10 @@ function lh(){
 
                         lhinst.syncadmincall();
                     } else {
-                        textArea.attr('placeholder',placeholerOriginal).val(textArea.val() + ' ' + pdata.msg);
+                        if (typeof data.token !== 'undefined') {
+                            confLH.csrf_token = data.token;
+                        }
+                        textArea.attr('placeholder',placeholerOriginal).val((textArea.val() + ' ' + pdata.msg).trim());
                         $('.pending-storage').first().remove();
                         var escaped = '<div style="margin:10px 10px 30px 10px;" class="alert alert-warning" role="alert">' + $("<div>").text(data.r).html() + '</div>';
                         $('#messagesBlock-'+chat_id).append(escaped).scrollTop($("#messagesBlock-"+chat_id).prop("scrollHeight"));
