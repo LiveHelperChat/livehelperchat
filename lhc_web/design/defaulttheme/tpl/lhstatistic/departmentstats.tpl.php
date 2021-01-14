@@ -199,7 +199,10 @@ $modalBodyClass = 'p-1'
                         </thead>
                         <?php $totalStats = array('max_chats' => 0, 'active_chats' => 0, 'inactive_chats' => 0); foreach ($operatorsStatus as $operator) : ?>
                         <tr>
-                            <td><a href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $operator['user_id']?>"><?php echo $operator['user_id']?></a></td>
+                            <td>
+                                <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(user_ids)/<?php echo $operator['user_id']?>/(chat_status_ids)/0/1"><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator active/pending chats');?>" class="material-icons">chat</span></a>
+                                <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Edit operator');?>" href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $operator['user_id']?>"><span class="material-icons">account_box</span><?php echo $operator['user_id']?></a>
+                            </td>
                             <td><?php echo $operator['max_chats'];$totalStats['max_chats'] += $operator['max_chats']?></td>
                             <td><?php echo $operator['active_chats'];$totalStats['active_chats'] += $operator['active_chats']?></td>
                             <td><?php echo $operator['inactive_chats'];$totalStats['inactive_chats'] += $operator['inactive_chats']?></td>
@@ -240,7 +243,8 @@ $modalBodyClass = 'p-1'
                         <?php $totalStats = array('max_chats' => 0, 'active_chats' => 0, 'inactive_chats' => 0); foreach ($operatorsStatusHard as $operator) : ?>
                         <tr>
                             <td>
-                                <a href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $operator['user_id']?>"><?php echo $operator['user_id']?></a>
+                                <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(user_ids)/<?php echo $operator['user_id']?>/(chat_status_ids)/0/1"><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator active/pending chats');?>" class="material-icons">chat</span></a>
+                                <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Edit operator');?>" href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $operator['user_id']?>"><span class="material-icons">account_box</span><?php echo $operator['user_id']?></a>
                             </td>
                             <td><?php echo $operator['max_chats'];$totalStats['max_chats'] += $operator['max_chats']?></td>
                             <td><?php echo $operator['active_chats'];$totalStats['active_chats'] += $operator['active_chats']?></td>
@@ -291,14 +295,17 @@ $modalBodyClass = 'p-1'
                     </thead>
                     <?php $totalStats = array('max_chats' => 0, 'active_chats' => 0, 'inactive_chats' => 0); foreach ($operatorsStatus as $operator) : ?>
                         <tr>
-                            <td><a href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $operator['user_id']?>"><?php echo $operator['user_id']?></a></td>
+                            <td>
+                                <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(user_ids)/<?php echo $operator['user_id']?>/(chat_status_ids)/0/1"><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator active/pending chats');?>" class="material-icons">chat</span></a>
+                                <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Edit operator');?>" href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $operator['user_id']?>"><span class="material-icons">account_box</span><?php echo $operator['user_id']?></a>
+                            </td>
                             <td><?php echo $operator['max_chats'];$totalStats['max_chats'] += $operator['max_chats']?></td>
                             <td><?php echo $operator['active_chats'];$totalStats['active_chats'] += $operator['active_chats']?></td>
                             <td><?php echo $operator['inactive_chats'];$totalStats['inactive_chats'] += $operator['inactive_chats']?></td>
                             <td>
-                                <span class="material-icons"><?php echo $operator['hide_online'] == 0 ? 'flash_on' : 'flash_off';?></span>
+                                <span class="material-icons<?php if ($operator['hide_online'] == 1 && (time() - (int)$operator['hide_online_ts']) > 600) : ?> text-danger<?php endif;?>"><?php echo $operator['hide_online'] == 0 ? 'flash_on' : 'flash_off';?></span>
                                 <?php if ($operator['hide_online'] == 1 &&  $operator['hide_online_ts'] > 0) : ?>
-                                    <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Offline for');?>"><?php echo erLhcoreClassChat::formatSeconds(time() - (int)$operator['hide_online_ts']); ?></span>
+                                    <span <?php if ((time() - (int)$operator['hide_online_ts']) > 600) : ?>class="text-danger"<?php endif;?> title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Offline for');?>"><?php echo erLhcoreClassChat::formatSeconds(time() - (int)$operator['hide_online_ts']); ?></span>
                                 <?php endif; ?>
                             </td>
                             <td>
