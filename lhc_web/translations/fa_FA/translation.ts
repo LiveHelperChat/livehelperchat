@@ -1126,6 +1126,10 @@
       <translation>متن دکمه شروع چت ، چت استاندارد</translation>
     </message>
     <message>
+      <source>TOS text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Start chat button text, bot chat</source>
       <translation>متن دکمه شروع چت ، چت ربات</translation>
     </message>
@@ -1178,12 +1182,12 @@
       <translation>متن موقعی که اپراتور چت را می بندد</translation>
     </message>
     <message>
-      <source>Text when user starts a chat and is waiting for operator to join a chat. Only if queue is 1</source>
-      <translation>متن پیامی برای کاربری که به چت میپیوندد و منتظر قبول چت توسط اپراتور است . در صورتی که فقط یک نفر در صف باشد 1=&lt;</translation>
+      <source>Text when user starts a chat and is waiting for operator to join a chat. Only if queue is 1 or if less than a minute wait time.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Text when user starts a chat and is waiting for operator to join a chat. Only if queue is &gt;= 1</source>
-      <translation>متن پیامی برای کاربری که به چت میپیوندد و منتظر قبول چت توسط اپراتور است . در صورتی که فقط یک نفر در صف باشد 1=&lt;</translation>
+      <source>Text when user starts a chat and is waiting for operator to join a chat. Only if queue is &gt; 1. {number}, {avg_wait_time}, {avg_wait_time_live}, {avg_wait_time_live__string if more than one minute live wait time}, {avg_wait_time__string if more than one minute wait time}</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Text when user starts a chat but department is offline</source>
@@ -1925,8 +1929,12 @@
       <translation>اولویت چت</translation>
     </message>
     <message>
-      <source>String</source>
-      <translation>رشته</translation>
+      <source>String (case sensitive)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>String (case insensitive)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Integer</source>
@@ -2511,6 +2519,10 @@
       <translation>چاپ</translation>
     </message>
     <message>
+      <source>chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose department</source>
       <translation>انتخاب دپارتمان</translation>
     </message>
@@ -2745,6 +2757,10 @@
     <message>
       <source>JSON</source>
       <translation>JSON</translation>
+    </message>
+    <message>
+      <source>Save</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Username</source>
@@ -3833,8 +3849,8 @@
       <translation>به اشتراک گذاری صفحه نمایش</translation>
     </message>
     <message>
-      <source>Copy messages to clipboard</source>
-      <translation>کپی کردن پیام به کلیپبورد</translation>
+      <source>Copy messages</source>
+      <translation>کپی کردن پیام</translation>
     </message>
     <message>
       <source>Delete chat</source>
@@ -3845,20 +3861,20 @@
       <translation>ویرایش چت</translation>
     </message>
     <message>
-      <source>Edit chat information</source>
-      <translation>ویرایش اطلاعات چت</translation>
+      <source>Edit chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Print</source>
       <translation>چاپ</translation>
     </message>
     <message>
-      <source>Redirect user to contact form.</source>
-      <translation>ارسال کاربر به فرم تماس</translation>
-    </message>
-    <message>
       <source>Are you sure?</source>
       <translation>آیا مطمئن هستید؟</translation>
+    </message>
+    <message>
+      <source>Redirect user to contact form</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a URL</source>
@@ -3881,8 +3897,8 @@
       <translation>هدایت کاربر به نظرسنجی</translation>
     </message>
     <message>
-      <source>Choose other than default recognition language</source>
-      <translation>انتخاب زبانی به غیر از زبان پیش فرض تشخیص</translation>
+      <source>Choose recognition language</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Transfer chat</source>
@@ -3891,10 +3907,6 @@
     <message>
       <source>Footprint</source>
       <translation>رهگیری</translation>
-    </message>
-    <message>
-      <source>Refresh</source>
-      <translation>نوسازی</translation>
     </message>
     <message>
       <source>Additional data</source>
@@ -3909,100 +3921,8 @@
       <translation>شناسه</translation>
     </message>
     <message>
-      <source>Chat duration</source>
-      <translation>مدت چت</translation>
-    </message>
-    <message>
-      <source>Chat owner</source>
-      <translation>شروع کننده چت</translation>
-    </message>
-    <message>
-      <source>Chat between operators, chat initializer</source>
-      <translation>چت بین اپراتورها، آغازکننده چت</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>شهر</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>کشور</translation>
-    </message>
-    <message>
-      <source>Created at</source>
-      <translation>ایجاد شده در</translation>
-    </message>
-    <message>
-      <source>Started at</source>
-      <translation>شروع شده در</translation>
-    </message>
-    <message>
-      <source>Closed at</source>
-      <translation>بسته شده در</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>دپارتمان</translation>
-    </message>
-    <message>
-      <source>This is offline message</source>
-      <translation>این یک پیام آفلاین است</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>ایمیل</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>تلفن</translation>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation>محصول</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>صفحه</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>از طرف</translation>
-    </message>
-    <message>
-      <source>Device</source>
-      <translation>دستگاه</translation>
-    </message>
-    <message>
-      <source>Computer</source>
-      <translation>کامپیوتر</translation>
-    </message>
-    <message>
-      <source>Smartphone</source>
-      <translation>گوشی هوشمند</translation>
-    </message>
-    <message>
-      <source>Tablet</source>
-      <translation>تبلت</translation>
-    </message>
-    <message>
-      <source>User left</source>
-      <translation>کاربر محیط چت را ترک کرد</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>منطقه زمانی</translation>
-    </message>
-    <message>
-      <source>Waited</source>
-      <translation>در انتظار</translation>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>بازدید کننده</translation>
-    </message>
-    <message>
-      <source>Files</source>
-      <translation>فایل ها</translation>
+      <source>Chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Click to change chat status</source>
@@ -4033,12 +3953,116 @@
       <translation>چت های ربات </translation>
     </message>
     <message>
+      <source>Chat duration</source>
+      <translation>مدت چت</translation>
+    </message>
+    <message>
+      <source>Chat owner</source>
+      <translation>شروع کننده چت</translation>
+    </message>
+    <message>
+      <source>Location on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created at</source>
+      <translation>ایجاد شده در</translation>
+    </message>
+    <message>
+      <source>Started at</source>
+      <translation>شروع شده در</translation>
+    </message>
+    <message>
+      <source>Closed at</source>
+      <translation>بسته شده در</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>دپارتمان</translation>
+    </message>
+    <message>
+      <source>This is offline message</source>
+      <translation>این یک پیام آفلاین است</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>ایمیل</translation>
+    </message>
+    <message>
+      <source>Online profile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Previous chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>تلفن</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>محصول</translation>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>صفحه</translation>
+    </message>
+    <message>
+      <source>Screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>از طرف</translation>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>بازدید کننده</translation>
+    </message>
+    <message>
+      <source>Computer</source>
+      <translation>کامپیوتر</translation>
+    </message>
+    <message>
+      <source>Smartphone</source>
+      <translation>گوشی هوشمند</translation>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation>تبلت</translation>
+    </message>
+    <message>
+      <source>User left</source>
+      <translation>کاربر محیط چت را ترک کرد</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>منطقه زمانی</translation>
+    </message>
+    <message>
+      <source>Waited</source>
+      <translation>در انتظار</translation>
+    </message>
+    <message>
+      <source>Files</source>
+      <translation>فایل ها</translation>
+    </message>
+    <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
       <translation>شناسایی نشد. مطمئن شوید قابلیت موقعیت جغرافیایی فعال باشد.</translation>
     </message>
     <message>
       <source>Map</source>
       <translation>نقشه</translation>
+    </message>
+    <message>
+      <source>No information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Refresh</source>
+      <translation>نوسازی</translation>
     </message>
     <message>
       <source>User browsing information</source>
@@ -4071,10 +4095,6 @@
     <message>
       <source>Copy to clipboard</source>
       <translation>کپی کردن در کلیپبورد</translation>
-    </message>
-    <message>
-      <source>Copy messages</source>
-      <translation>کپی کردن پیام</translation>
     </message>
     <message>
       <source>Close dialog</source>
@@ -4127,6 +4147,10 @@
     <message>
       <source>Select campaign</source>
       <translation>کمپین را انتخاب کنید</translation>
+    </message>
+    <message>
+      <source>Automatic translation</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Sending...</source>
@@ -4301,8 +4325,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>You are not chat owner, type with caution</source>
-      <translation>شما مالک چت  نیستید، با احتیاط چت کنید</translation>
+      <source>You are not chat owner, type with caution.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Switch between chats using Alt+</source>
@@ -4313,7 +4337,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Search for canned messages by using their tags #hash.</source>
+      <source>Search for canned messages by using their tags #hash. You can drop files here.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4419,6 +4443,37 @@
     <message>
       <source>You have been redirected to survey!</source>
       <translation>شما به نظرسنجی هدایت شدید!</translation>
+    </message>
+  </context>
+  <context>
+    <name>files/files</name>
+    <message>
+      <source>Not an accepted file type</source>
+      <translation>نوع فایل مورد قبول نیست</translation>
+    </message>
+    <message>
+      <source>Filesize is too big</source>
+      <translation>اندازه فایل بسیار بزرگ است</translation>
+    </message>
+    <message>
+      <source>Refresh</source>
+      <translation>رفرش</translation>
+    </message>
+    <message>
+      <source>Delete file</source>
+      <translation>حذف فایل</translation>
+    </message>
+    <message>
+      <source>Sent by Customer</source>
+      <translation>ارسال شده توسط مشتریان</translation>
+    </message>
+    <message>
+      <source>Sent by Operator</source>
+      <translation>ارسال شده توسط اپراتور</translation>
+    </message>
+    <message>
+      <source>Drop your files here.</source>
+      <translation>فایل خود را اینجا بگذارید</translation>
     </message>
   </context>
   <context>
@@ -4691,6 +4746,14 @@
     <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
       <translation>ساعات کاری، فرمت 24 ساعته، 1 - 24، فرمت دقیقه 0 - 60</translation>
+    </message>
+    <message>
+      <source>If you want that chat ignored operators online status and went online only by these defined hours can do that</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>here</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Hours from</source>
@@ -5336,6 +5399,10 @@
       <translation>پیام خوانده نشده</translation>
     </message>
     <message>
+      <source>Alert notification</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Bot Chat</source>
       <translation>چت ربات </translation>
     </message>
@@ -5448,6 +5515,10 @@
       <translation>رفتن به نظرسنجی</translation>
     </message>
     <message>
+      <source>There was an issue sending the message. Try again.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose!</source>
       <translation>لطفا انتخاب کنید</translation>
     </message>
@@ -5466,6 +5537,10 @@
   </context>
   <context>
     <name>chat/syncadmininterface</name>
+    <message>
+      <source>New window</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Open in a new window</source>
       <translation>در پنجره جدید باز کن</translation>
@@ -5575,20 +5650,40 @@
       <translation>نام</translation>
     </message>
     <message>
+      <source>You have unread messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Accept invitation and join private chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Accept invite</source>
       <translation>پذیرفتن دعوت</translation>
+    </message>
+    <message>
+      <source>Reject for private chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reject invite</source>
       <translation>رد کردن دعوت</translation>
     </message>
     <message>
+      <source>You can join public chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Join public chat</source>
       <translation>پیوستن به چت عمومی</translation>
     </message>
     <message>
-      <source>Already a member</source>
-      <translation>قبلا عضو شده اید</translation>
+      <source>You are member of this group chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Member</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Your new group name</source>
@@ -5879,37 +5974,6 @@
     </message>
   </context>
   <context>
-    <name>files/files</name>
-    <message>
-      <source>Refresh</source>
-      <translation>رفرش</translation>
-    </message>
-    <message>
-      <source>Delete file</source>
-      <translation>حذف فایل</translation>
-    </message>
-    <message>
-      <source>Sent by Customer</source>
-      <translation>ارسال شده توسط مشتریان</translation>
-    </message>
-    <message>
-      <source>Sent by Operator</source>
-      <translation>ارسال شده توسط اپراتور</translation>
-    </message>
-    <message>
-      <source>Drop your files here.</source>
-      <translation>فایل خود را اینجا بگذارید</translation>
-    </message>
-    <message>
-      <source>Not an accepted file type</source>
-      <translation>نوع فایل مورد قبول نیست</translation>
-    </message>
-    <message>
-      <source>Filesize is too big</source>
-      <translation>اندازه فایل بسیار بزرگ است</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/screenshot</name>
     <message>
       <source>Take user screenshot</source>
@@ -6105,12 +6169,12 @@
       <translation>Custom need help HTML</translation>
     </message>
     <message>
-      <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
-      <translation>گفتگوی شما در صف انتظار است، شما میتوانید برای تسریع در امر پاسخگویی تا زمانی که کارشناسان به گفتگوی شما وارد شوند سوالتان را بپرسید. سوال شما برای کارشناسان ارسال خواهد شد.</translation>
+      <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages OR Less than a minute</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>You are number {number} in the queue. Please wait...</source>
-      <translation>شما در صف شماره {number} هستید. لطفا صبر کنید...</translation>
+      <source>You are number {number} in the queue. Please wait... OR Average waiting time for attention is {avg_wait_time} minute{avg_wait_time__s}</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Thank you for your feedback</source>
@@ -6212,6 +6276,10 @@
     <message>
       <source>Column number</source>
       <translation>Column number</translation>
+    </message>
+    <message>
+      <source>Choose for what icons we should show notification.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose what icons you want to exclude from the list.</source>
@@ -8043,6 +8111,14 @@
       <translation>به دلیل به روزرسانی نسخه ، این پنجره در {{lhc.lhcVersionCounter}} ثانیه به طور خودکار تازه می شود.</translation>
     </message>
     <message>
+      <source>You have weak internet connection or the server has problems. Try to refresh the  page. Error code {{lhc.lhcConnectivityProblemExplain}}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You went offline because of inactivity. Please close other chat windows if you have any</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat tabs</source>
       <translation>تب های چت</translation>
     </message>
@@ -8280,6 +8356,54 @@
       <translation>ربات</translation>
     </message>
     <message>
+      <source>Default checked charts for</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation>آمار چت ها</translation>
+    </message>
+    <message>
+      <source>Department statistic generation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average chat duration should be calculated fo the last</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>week</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>weeks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average wait time should be calculated for the last</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Updated</source>
       <translation>به روزشده</translation>
     </message>
@@ -8336,6 +8460,10 @@
       <translation>آخرین فعالیت</translation>
     </message>
     <message>
+      <source>If you have thousands of chats generating this report can significantly increase server load!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>ago</source>
       <translation>پیش</translation>
     </message>
@@ -8362,6 +8490,22 @@
     <message>
       <source>Total</source>
       <translation>مجموع</translation>
+    </message>
+    <message>
+      <source>Total visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitors City</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitors Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New visitors</source>
+      <translation>بازدید کننده جدید</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
@@ -8424,10 +8568,6 @@
       <translation>Agents statistics</translation>
     </message>
     <message>
-      <source>Chats statistic</source>
-      <translation>آمار چت ها</translation>
-    </message>
-    <message>
       <source>Departments</source>
       <translation>دپارتمان ها</translation>
     </message>
@@ -8470,10 +8610,6 @@
     <message>
       <source>Unanswered chats</source>
       <translation>گفت و گوهای بدون جواب</translation>
-    </message>
-    <message>
-      <source>New visitors</source>
-      <translation>بازدید کننده جدید</translation>
     </message>
     <message>
       <source>Returning visitors</source>
@@ -8743,18 +8879,6 @@
       <translation>نمایش آگاه کننده مرورگر برای پیام های جدید</translation>
     </message>
     <message>
-      <source>Long polling (experimental)</source>
-      <translation>رای گیری طولانی (تجربی)</translation>
-    </message>
-    <message>
-      <source>Enable long polling</source>
-      <translation>فعال کردن رای گیری طولانی</translation>
-    </message>
-    <message>
-      <source>How many seconds keep connection to server?</source>
-      <translation>اتصال به سرور، چند ثانیه به طول انجامد؟</translation>
-    </message>
-    <message>
       <source>New chat request notification settings</source>
       <translation>تنظیمات آگاه کننده درخواست چت جدید</translation>
     </message>
@@ -8799,16 +8923,8 @@
       <translation>لطفا مقدار صحیح برای فاصله زمانی وارد کنید.</translation>
     </message>
     <message>
-      <source>Please enter a valid server connection timeout value!</source>
-      <translation>لطفا مقدار درستی برای زمان قطع ارتباط با سرور وارد کنید</translation>
-    </message>
-    <message>
       <source>Please enter a valid operator message timeout value!</source>
       <translation>لطفا یک مقدار صحیح برای فاصله زمانی پیام اپراتور وارد کنید</translation>
-    </message>
-    <message>
-      <source>Please enter a valid new messages polling sync interval!</source>
-      <translation>لطفا یک فاصله زمانی درست برای هماهنگ سازی پیام های جدید وارد کنید</translation>
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
@@ -10442,10 +10558,6 @@
     <message>
       <source>You can put visitor message as placeholder</source>
       <translation>You can put visitor message as placeholder</translation>
-    </message>
-    <message>
-      <source>all chat messages</source>
-      <translation>همه پیام های چت</translation>
     </message>
     <message>
       <source>Add param</source>
@@ -12254,6 +12366,13 @@
     </message>
   </context>
   <context>
+    <name>lhsystem/singlesetting</name>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>system/transferconfiguration</name>
     <message>
       <source>Transfer configuration</source>
@@ -13072,7 +13191,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>required if it is hook event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>This is continuous event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make sure you define some conditions. Only pending, active and bot chats are checked against these conditions.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>optional</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13117,6 +13252,18 @@
     </message>
     <message>
       <source>Success</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Execute if conditions are valid</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Execute if conditions are NOT valid</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -13695,6 +13842,29 @@
     <message>
       <source>Please enter a department group name</source>
       <translation>لطفا نام گروه دپارتمان را وارد کنید.</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/mobilenotifications</name>
+    <message>
+      <source>New message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transferred chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New chat</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
