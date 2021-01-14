@@ -1814,8 +1814,6 @@ html {
 ::-webkit-scrollbar-thumb:hover{background-color: #171a1a}
 ::-webkit-scrollbar-thumb:active{background-color:#2a2d31}
 
-
-
 .canned-message-holder{
     min-height:32px
 }
@@ -1886,10 +1884,6 @@ html {
 
 .nav-underline a.nav-link.active{
     border-bottom: 3px solid #63676b;
-}
-
-.chat-main-right-column{
-    border-left: 1px solid #63676b;
 }
 
 .nav-small a.nav-link{
