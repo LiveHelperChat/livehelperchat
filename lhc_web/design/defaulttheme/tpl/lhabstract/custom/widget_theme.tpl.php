@@ -458,6 +458,10 @@
 						</div>
 
         		        <div class="form-group">
+        		        <label><?php echo erLhcoreClassAbstract::renderInput('hide_mobile_nh', $fields['hide_mobile_nh'], $object)?><?php echo $fields['hide_mobile_nh']['trans'];?></label>
+						</div>
+
+        		        <div class="form-group">
         		        <label><?php echo $fields['show_need_help_timeout']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('show_need_help_timeout', $fields['show_need_help_timeout'], $object)?>
 						</div>
