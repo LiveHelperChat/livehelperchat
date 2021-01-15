@@ -32,8 +32,14 @@ if ($chat->hash == $Params['user_parameters']['hash'] && (in_array($chat->status
             $vvcall->video = 0;
         }
 
-        $vvcall->vi_status = erLhcoreClassModelChatVoiceVideo::STATUS_VI_REQUESTED;
-        $vvcall->updateThis(array('update' => array('vi_status', 'voice', 'video')));
+        if ($vvcall->status == erLhcoreClassModelChatVoiceVideo::STATUS_CONFIRMED) {
+            $vvcall->vi_status = erLhcoreClassModelChatVoiceVideo::STATUS_VI_JOINED;
+        } else {
+            $vvcall->vi_status = erLhcoreClassModelChatVoiceVideo::STATUS_VI_REQUESTED;
+            $vvcall->status = erLhcoreClassModelChatVoiceVideo::STATUS_CONFIRM;
+        }
+
+        $vvcall->updateThis(array('update' => array('vi_status', 'voice', 'video', 'status')));
     }
 
     echo json_encode($vvcall->getState());

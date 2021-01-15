@@ -215,8 +215,12 @@ if ((string)$Params['user_parameters_unordered']['chatprefill'] != '') {
 			$inputData->departament_id = $chatPrefill->dep_id;
 			$inputData->email = $chatPrefill->email;
 			$inputData->phone = $chatPrefill->phone;
-			$inputData->accept_tos = true;			
-			$inputData->question = erLhcoreClassChat::getFirstUserMessage($chatPrefill->id);				
+			$inputData->accept_tos = true;
+
+            if (!($theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['dont_prefill_offline']) && $theme->bot_configuration_array['dont_prefill_offline'] == true)) {
+                $inputData->question = erLhcoreClassChat::getFirstUserMessage($chatPrefill->id);
+            }
+
 		} else {
 			unset($chatPrefill);
 		}

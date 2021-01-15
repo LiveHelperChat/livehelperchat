@@ -23,6 +23,17 @@ $ViewList['join'] = array(
     'uparams' => array('action'),
 );
 
+$ViewList['joinop'] = array(
+    'params' => array('id'),
+    'uparams' => array('action'),
+);
+
+$ViewList['joinoperator'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use' )
+);
+
 $FunctionList['configuration'] = array('explain' => 'Voice & Video & ScreenShare module configuration');
+$FunctionList['use'] = array('explain' => 'Allow operator to use Voice & Video & ScreenShare calls');
 
 ?>

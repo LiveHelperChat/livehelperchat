@@ -29,13 +29,17 @@ class erLhcoreClassModelChatVoiceVideo {
         );
     }
 
-    public static function getInstance($chatId) {
+    public static function getInstance($chatId, $store = true) {
         $vvcall = self::findOne(array('filter' => array('chat_id' => $chatId)));
         if (!($vvcall instanceof erLhcoreClassModelChatVoiceVideo)) {
+            
             $vvcall = new self();
             $vvcall->ctime = time();
             $vvcall->chat_id = $chatId;
-            $vvcall->saveThis();
+
+            if ($store == true) {
+                $vvcall->saveThis();
+            }
         }
         return $vvcall;
     }

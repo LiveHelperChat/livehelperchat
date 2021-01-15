@@ -8477,6 +8477,13 @@
         "hidden": "0"
       },
       {
+        "identifier": "autoclose_abandon_pending",
+        "value": "0,0",
+        "type": "0",
+        "explain": "Automatically close pending chats where visitor has left a chat. Timeout in minutes, last activity by visitor <desktop timeout>,<mobile timeout>.",
+        "hidden": "0"
+      },
+      {
         "identifier": "autoclose_activity_timeout",
         "value": "0",
         "type": "0",

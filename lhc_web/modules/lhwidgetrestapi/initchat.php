@@ -182,7 +182,7 @@ try {
         $outputResponse['status_sub'] = $chat->status_sub;
         $outputResponse['status'] = $chat->status;
 
-        if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW || $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
+        if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM || $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW || $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
             $outputResponse['closed'] = true;
         } else {
             $outputResponse['closed'] = false;

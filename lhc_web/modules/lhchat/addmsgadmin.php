@@ -20,7 +20,7 @@ if (trim($form->msg) != '')
 	        $currentUser = erLhcoreClassUser::instance();
 	
 	        if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
-	        	echo erLhcoreClassChat::safe_json_encode(array('error' => 'true', 'r' => 'Try again or refresh a page. Invalid CSRF Token.' ));
+	        	echo erLhcoreClassChat::safe_json_encode(array('error' => 'true', 'token' => $currentUser->getCSFRToken(), 'r' => 'Try again or refresh a page. We could not verify your request.' ));
 	        	$db->rollback();
 	        	exit;
 	        }

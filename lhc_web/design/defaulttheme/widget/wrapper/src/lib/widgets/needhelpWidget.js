@@ -62,9 +62,9 @@ export class needhelpWidget{
         
         this.cont.elmDom.className += this.attributes.isMobile === true ? ' lhc-mobile' : ' lhc-desktop';
 
-        this.cont.attachUserEventListener("click", function (a) {
-            attributes.eventEmitter.emitEvent('nhClicked', [{'sender' : 'closeButton'}]);
-            attributes.eventEmitter.emitEvent('showWidget', [{'sender' : 'closeButton'}]);
+        this.cont.attachUserEventListener("click", function (e) {
+            attributes.eventEmitter.emitEvent('nhClicked', [{'event': e, 'sender' : 'closeButton'}]);
+            attributes.eventEmitter.emitEvent('showWidget', [{'event': e}]);
         }, "start-chat-btn",'nhstrt');
 
         var _that = this;
@@ -146,7 +146,7 @@ export class needhelpWidget{
 
     hide (persistent) {
 
-        if (typeof persistent !== 'undefined' && persistent === true){
+        if (typeof persistent !== 'undefined' && persistent === true) {
             this.attributes.userSession.hnh = Math.round(Date.now() / 1000);
             this.attributes.storageHandler.storeSessionInformation(this.attributes.userSession.getSessionAttributes());
             this.hidden = true;

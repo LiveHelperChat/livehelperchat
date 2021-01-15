@@ -2,6 +2,9 @@ import React, { useEffect, useState, useReducer, useRef, useBoolean } from "reac
 import axios from "axios";
 import {useTranslation} from 'react-i18next';
 import useInterval from "../lib/useInterval";
+import AgoraRTC from "agora-rtc-sdk-ng"
+
+const client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
 
 function reducer(state, action) {
     switch (action.type) {
@@ -12,6 +15,16 @@ function reducer(state, action) {
             state.chats[foundIndex] = { ...state.chats[foundIndex], ...action.value};
             state = { ... state};
             return state;
+
+        case 'user_published': {
+            state.remoteUsers[action.user.uid] = action.user;
+            return { ...state}
+        }
+
+        case 'user_unpublished': {
+            delete state.remoteUsers[action.user.uid];
+            return { ...state}
+        }
 
         case 'attr_remove':
             var foundIndex = state.chats.findIndex(x => x[action.attr] == action.id);
@@ -104,8 +117,13 @@ function reducer(state, action) {
 const VoiceCall = props => {
 
     const [state, dispatch] = useReducer(reducer, {
-        chats: [],
         call : {},
+        localTracks : {
+            videoTrack : null,
+            audioTrack: null
+        },
+        remoteUsers : {},
+        uid : null,
         inCall: false
     });
 
@@ -144,13 +162,111 @@ const VoiceCall = props => {
 
         // Cleanup
         return function cleanup() {
+
         };
 
     },[]);
 
+    const subscribe = async (user, mediaType) => {
+
+        const uid = user.uid;
+
+        // subscribe to a remote user
+        await client.subscribe(user, mediaType);
+
+        console.log("subscribe success");
+
+        /*if (mediaType === 'video') {
+            const player = $(`
+              <div id="player-wrapper-${uid}">
+                <p class="player-name">remoteUser(${uid})</p>
+                <div id="player-${uid}" class="player"></div>
+              </div>
+            `);
+            $("#remote-playerlist").append(player);
+            user.videoTrack.play(`player-${uid}`);
+        }
+        if (mediaType === 'audio') {
+            user.audioTrack.play();
+        }*/
+    }
+
+    const handleUserPublished = (user, mediaType) =>  {
+        //const id = user.uid;
+        //remoteUsers[id] = user;
+
+        dispatch({
+            type: 'user_published',
+            user: user
+        });
+
+        subscribe(user, mediaType);
+    }
+
+    const handleUserUnpublished = (user) => {
+        //const id = user.uid;
+        //delete remoteUsers[id];
+
+        dispatch({
+            type: 'user_unpublished',
+            user: user
+        });
+
+        //$(`#player-wrapper-${id}`).remove();
+    }
+
+    const join = async (data) => {
+        // add event listener to play remote tracks when remote user publishs.
+        client.on("user-published", handleUserPublished);
+        client.on("user-unpublished", handleUserUnpublished);
+
+        var uui = null;
+        var localTracks = {
+            audioTrack : null,
+            videoTrack : null
+        };
+
+        // join a channel and create local tracks, we can use Promise.all to run them concurrently
+        [ uui, localTracks.audioTrack, localTracks.videoTrack] = await Promise.all([
+            // join the channel
+            client.join(props.initParams.appid, props.initParams.id + '_' + props.initParams.hash, data.token || null),
+            // create local tracks, using microphone and camera
+            AgoraRTC.createMicrophoneAudioTrack(),
+            AgoraRTC.createCameraVideoTrack()
+        ]);
+
+        // play local video track
+        localTracks.videoTrack.play("local-player");
+
+        dispatch({
+            type: 'update',
+            value: {
+                "uid" : uui,
+                "localTracks" : localTracks,
+            }
+        });
+
+        await client.publish(Object.values(localTracks));
+    }
+
+
+    useEffect(() => {
+
+        if (state.call.vi_status === STATUS_VI_JOINED){
+            join(state.call);
+        }
+
+        // Cleanup
+        return function cleanup() {
+
+        };
+
+    },[state.call.vi_status]);
+
+
     const { t, i18n } = useTranslation('voice_call');
 
-    const cancelJoin = () => {
+    const cancelJoin = async () => {
         axios.get(WWW_DIR_JAVASCRIPT  + "voicevideo/join/" + props.initParams.id + '/' + props.initParams.hash + '/(action)/cancel').then(result => {
             dispatch({
                 type: 'update',
@@ -159,6 +275,31 @@ const VoiceCall = props => {
                 }
             });
         });
+
+        Object.keys(state.localTracks).forEach(trackName => {
+            var track = state.localTracks[trackName];
+            if (track) {
+                track.stop();
+                track.close();
+                state.localTracks[trackName] = undefined;
+            }
+        })
+
+        dispatch({
+            type: 'update',
+            value: {
+                "remoteUsers" : {},
+                "uid": null,
+                "localTracks" : {
+                    videoTrack : null,
+                    audioTrack: null
+                }
+            }
+        });
+
+        // leave the channel
+        await client.leave();
+
     }
 
     useInterval(
@@ -172,12 +313,12 @@ const VoiceCall = props => {
                 });
             });
         },
-        state.call.vi_status == STATUS_VI_REQUESTED ? 2000 : null
+        (state.call.status != STATUS_CONFIRMED || state.call.vi_status != STATUS_VI_JOINED || state.call.op_status != STATUS_OP_JOINED) ? 2000 : null
     );
 
-    const requestJoin = () => {
+    const requestJoin = (type) => {
         axios.post(WWW_DIR_JAVASCRIPT  + "voicevideo/join/" + props.initParams.id + '/' + props.initParams.hash + '/(action)/request',{
-            'type' : (document.getElementById('inlineFormCheck1').checked ? 'audiovideo' : 'audio')
+            'type' : type
         }).then(result => {
             dispatch({
                 type: 'update',
@@ -190,39 +331,40 @@ const VoiceCall = props => {
 
     return (
         <React.Fragment>
+            <div className="d-flex flex-row flex-grow-1 pt-2">
+                <div className="col bg-light mx-1 align-middle text-center d-flex pl-0 pr-0" title={"UID "+state.uid} id="local-player">
+                    {state.call.vi_status == STATUS_VI_REQUESTED && <div className="align-self-center mx-auto text-muted font-weight-bold">Please wait untill operator let's you join a room</div>}
+                </div>
+                <div className="col bg-light mx-1 align-middle text-center d-flex pl-0 pr-0">
+                    <div className="align-self-center mx-auto text-muted font-weight-bold">Operator stream will appear here</div>
+                </div>
+            </div>
+            <div className="row header-chat desktop-header">
 
-            {state.call.vi_status == STATUS_VI_JOINED && <div className="mx-auto pt-4">
+                <div className="btn-toolbar p-2 text-center mx-auto btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
 
-                <div className="row">
-                    <div className="col-4">Visitor visitor</div>
+                    <div className="p-2 text-center mx-auto btn-group" role="group">
+                        {state.call.vi_status == STATUS_VI_JOINED && <span className="text-muted py-2">Visitor has joined a call!</span>}
+                        {state.call.vi_status == STATUS_VI_PENDING && <span className="text-muted py-2">Pending visitor to join a call!</span>}
+                        {state.call.vi_status == STATUS_VI_REQUESTED && <span className="text-muted py-2">Visitor is waiting for someone to let him in!</span>}
+                    </div>
+
+                    <div className="p-2 text-center mx-auto btn-group" role="group">
+                        {state.call.vi_status == STATUS_VI_JOINED && <button className="btn btn-primary w-100" onClick={() => cancelJoin()} >{t('voice_call.leave_room')}</button>}
+                        {state.call.vi_status == STATUS_VI_REQUESTED && <button className="btn btn-primary w-100" onClick={() => cancelJoin()} >{t('voice_call.cancel_join')}</button>}
+                        {state.call.vi_status == STATUS_VI_PENDING && <React.Fragment>
+                                <button className="btn btn-sm btn-outline-secondary" onClick={() => requestJoin('audio')}>Join with audio</button>
+                                <button className="btn btn-sm btn-outline-secondary" onClick={() => requestJoin('audiovideo')}>Join with audio & video</button>
+                            </React.Fragment>}
+                    </div>
+
                 </div>
 
-                <div className="mx-auto">
-                    <button className="btn btn-primary w-100" onClick={() => cancelJoin()} >{t('voice_call.leave_room')}</button>
-                </div>
+            </div>
 
-            </div>}
 
-            {state.call.vi_status == STATUS_VI_REQUESTED && <div className="mx-auto pt-4">
-                <p>Please wait untill operator let's you join a room</p>
-                <div className="mx-auto">
-                    <button className="btn btn-primary w-100" onClick={() => cancelJoin()} >{t('voice_call.cancel_join')}</button>
-                </div>
-            </div>}
 
-            {state.call.vi_status == STATUS_VI_PENDING && <div className="mx-auto pt-4">
-                        <div className="form-group">
-                            <h5>Choose call type</h5>
-                            <input type="radio" className="form-check-input" defaultChecked={true} value="audio" name="callType" id="inlineFormCheck1" />
-                            <label className="form-check-label" htmlFor="inlineFormCheck1">Audio & Video call</label>
-                            <br/>
-                            <input type="radio" className="form-check-input" value="audio" name="callType" id="inlineFormCheck2" />
-                            <label className="form-check-label" htmlFor="inlineFormCheck2">Only Audio call</label>
-                        </div>
-                        <div className="mx-auto">
-                            <button onClick={() => requestJoin()} className="btn btn-primary w-100">{t('voice_call.join_call')}</button>
-                        </div>
-                    </div>}
+
         </React.Fragment>
     );
 }

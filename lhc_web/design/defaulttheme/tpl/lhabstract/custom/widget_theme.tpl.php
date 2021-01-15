@@ -375,6 +375,10 @@
 						<div class="form-group">
 						    <label><?php echo erLhcoreClassAbstract::renderInput('close_on_unload', $fields['close_on_unload'], $object)?> <?php echo $fields['close_on_unload']['trans'];?></label>
         		        </div>
+                    
+						<div class="form-group">
+						    <label><?php echo erLhcoreClassAbstract::renderInput('dont_prefill_offline', $fields['dont_prefill_offline'], $object)?> <?php echo $fields['dont_prefill_offline']['trans'];?></label>
+        		        </div>
 
                         <div class="form-group">
                             <label><?php echo $fields['switch_to_human']['trans'];?></label>
