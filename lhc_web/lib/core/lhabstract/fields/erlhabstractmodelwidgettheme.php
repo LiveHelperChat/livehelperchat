@@ -104,7 +104,6 @@ $fields = array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'string'
                     )),
-
    				'show_need_help' => array(
    				        'type' => 'checkbox',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Show need help tooltip?'),
@@ -113,6 +112,16 @@ $fields = array(
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
    						)),
+                'hide_mobile_nh' => array(
+                    'type' => 'checkbox',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Hide need help widget for mobile devices.'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                    )),
                 'hide_ts' => array(
    				        'type' => 'checkbox',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Hide message time from visitor'),
