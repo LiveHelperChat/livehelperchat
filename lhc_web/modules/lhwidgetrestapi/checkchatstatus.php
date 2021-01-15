@@ -18,8 +18,10 @@ $tpl->set('react',true);
 if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
     try {
         $theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
-        $theme->translate();
-        $tpl->set('theme',$theme);
+        if (is_object($theme)) {
+            $theme->translate();
+            $tpl->set('theme',$theme);
+        }
     } catch (Exception $e) {
 
     }
