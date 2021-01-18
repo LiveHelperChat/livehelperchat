@@ -56,6 +56,11 @@ class NodeTriggerActionRepeatRestrict extends Component {
                             <input type="text" maxLength="20" placeholder="E.g global_counter" title="If you define identifier counter will be using it for repeatable identification so you can use same identifier in multiple places." className="form-control form-control-sm" defaultValue={this.props.action.getIn(['content','identifier'])} onChange={(e) => this.onchangeAttr({'path' : ['identifier'], 'value' : e.target.value})}/>
                         </div>
                     </div>
+
+                    <div className="col-12">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['reset_counter'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','reset_counter'])} /> This is reset operation.</label>
+                    </div>
+
                     <div className="col-12">
                         <div className="form-group">
                             <label>If limit is reached execute this trigger</label>
