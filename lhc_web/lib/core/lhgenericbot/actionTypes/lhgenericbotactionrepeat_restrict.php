@@ -4,7 +4,23 @@ class erLhcoreClassGenericBotActionRepeat_restrict {
 
     public static function process($chat, $action, $trigger, $params)
     {
-        if (isset($action['content']['repeat_count']) && is_numeric($action['content']['repeat_count']) && $action['content']['repeat_count'] > 0) {
+        if (isset($action['content']['reset_counter']) && $action['content']['reset_counter'] == true) {
+
+            $filterId = 'trigger_id';
+            $filterValue = $trigger->id;
+
+            if (isset($action['content']['identifier']) && $action['content']['identifier'] != '') {
+                $filterId = 'identifier';
+                $filterValue = $action['content']['identifier'];
+            }
+
+            $restrict = erLhcoreClassModelGenericBotRepeatRestrict::findOne(array('filter' => array($filterId => $filterValue, 'chat_id' => $chat->id)));
+
+            if ($restrict instanceof erLhcoreClassModelGenericBotRepeatRestrict) {
+                $restrict->removeThis();
+            }
+
+        } else if (isset($action['content']['repeat_count']) && is_numeric($action['content']['repeat_count']) && $action['content']['repeat_count'] > 0) {
 
             $filterId = 'trigger_id';
             $filterValue = $trigger->id;
@@ -30,7 +46,7 @@ class erLhcoreClassGenericBotActionRepeat_restrict {
                 return null;
             }
 
-            if (is_numeric($action['content']['alternative_callback']) && $action['content']['alternative_callback'] > 0){
+            if (is_numeric($action['content']['alternative_callback']) && $action['content']['alternative_callback'] > 0) {
                 return array(
                     'status' => 'stop',
                     'trigger_id' => $action['content']['alternative_callback']
