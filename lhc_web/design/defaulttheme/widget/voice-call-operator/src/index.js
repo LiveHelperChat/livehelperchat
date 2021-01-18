@@ -11,7 +11,7 @@ __webpack_public_path__ = WWW_DIR_LHC_WEBPACK_ADMIN;
 var el = document.getElementById('root');
 if (el !== null) {
     ReactDOM.render(
-        <Suspense fallback="..."><VoiceCall initParams={window.initParams} ></VoiceCall></Suspense>,
+        <Suspense fallback="..."><VoiceCall isVisitor={window.initParams.isVisitor} initParams={window.initParams} ></VoiceCall></Suspense>,
         el
     );
 }

@@ -18,12 +18,13 @@
     </div>
 </div>
 <script>
-    var WWW_DIR_LHC_WEBPACK_ADMIN = '<?php echo erLhcoreClassDesign::design('js/voice_op')?>/';
+    var WWW_DIR_LHC_WEBPACK_ADMIN = '<?php echo erLhcoreClassDesign::design('js/voice')?>/';
     (function (){
         var initParams = <?php
             $params = array (
                 'id' => $chat->id,
                 'hash' => $chat->hash,
+                'isVisitor' => false,
                 'appid' => $voice_data['agora_app_id'],
             );
             echo json_encode($params); ?>;
@@ -31,4 +32,4 @@
 
     })();
 </script>
-<script src="<?php echo erLhcoreClassDesign::designJS('js/voice_op/voice.call.js');?>"></script>
+<script src="<?php echo erLhcoreClassDesign::designJS('js/voice/voice.call.js');?>"></script>

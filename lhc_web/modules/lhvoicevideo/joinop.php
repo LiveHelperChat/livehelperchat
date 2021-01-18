@@ -19,7 +19,7 @@ if (is_numeric($Params['user_parameters']['id']))
             $vvcall->updateThis(array('update' => array('op_status')));
         } else if ($Params['user_parameters_unordered']['action'] == 'join') {
             $vvcall->op_status = erLhcoreClassModelChatVoiceVideo::STATUS_OP_JOINED;
-            $vvcall->token = '0063ec24f9a1e0649839ea488d685ef2f35IAAKEznoUGC3I0iwM2Dx2PGH/xu7EIvu3pAwEkpYYqJxLQEGzJ0AAAAAEACpE93IXIkBYAEAAQBeiQFg';
+            $vvcall->token = '0063ec24f9a1e0649839ea488d685ef2f35IADIXwR55G5WGskJQCwXSqZnx7dYbNOfTpR4sCFx9OwL2gEGzJ0AAAAAEACpE93IkuYCYAEAAQCS5gJg';
             // 10488039_a2b92671541d0175d98b91f39d5179cff8c91d6b
             $vvcall->updateThis(array('update' => array('op_status','token')));
         } else if ($Params['user_parameters_unordered']['action'] == 'letvisitorin') {

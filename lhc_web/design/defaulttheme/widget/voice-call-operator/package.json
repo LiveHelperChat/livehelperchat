@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack -d --mode development",
-    "build": "webpack -p --mode production && cp -v dist/*.js ../../js/voice_op/ && cp -v dist/*.js.map ../../js/voice_op/",
+    "build": "webpack -p --mode production && cp -v dist/*.js ../../js/voice/ && cp -v dist/*.js.map ../../js/voice/",
     "start": "webpack-dev-server --hot --mode development"
   },
   "dependencies": {

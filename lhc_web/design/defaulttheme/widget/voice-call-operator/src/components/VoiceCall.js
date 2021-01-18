@@ -31,9 +31,16 @@ function reducer(state, action) {
         case 'user_published': {
 
             if (typeof state.remoteUsers[action.user.uid] == 'undefined') {
-                state.remoteUsers[action.user.uid] = {'media' : action.media, 'user' : action.user};
-            } else if (state.remoteUsers[action.user.uid].media == 'audio') {
-                state.remoteUsers[action.user.uid] = {'media' : action.media, 'user' : action.user};
+                var obj =  {'user' : action.user, video: (action.media == 'video'), audio: (action.media == 'audio'), media : [action.media]};
+                state.remoteUsers[action.user.uid] = obj;
+            } else {
+                if (action.media == 'audio') {
+                    state.remoteUsers[action.user.uid].audio = true;
+                } else if (action.media == 'video') {
+                    state.remoteUsers[action.user.uid].video = true;
+                }
+
+                state.remoteUsers[action.user.uid].media.push(action.media);
             }
 
             return { ...state}
@@ -177,7 +184,16 @@ const VoiceCall = props => {
     const { t, i18n } = useTranslation('voice_call');
 
     const cancelJoin = async (type) => {
-        axios.get(WWW_DIR_JAVASCRIPT  + "voicevideo/joinop/" + props.initParams.id + '/' + props.initParams.hash + '/(action)/' + type).then(result => {
+
+        var url = null;
+
+        if (props.isVisitor === true) {
+            url = WWW_DIR_JAVASCRIPT  + "voicevideo/join/" + props.initParams.id + '/' + props.initParams.hash + '/(action)/' + type;
+        } else {
+            url = WWW_DIR_JAVASCRIPT  + "voicevideo/joinop/" + props.initParams.id + '/' + '/(action)/' + type;
+        }
+
+        axios.get(url).then(result => {
             dispatch({
                 type: 'update',
                 value: {
@@ -186,7 +202,7 @@ const VoiceCall = props => {
             });
         });
 
-        if (type == 'leave' || type == 'end')
+        if (type == 'leave' || type == 'end' || type == 'cancel')
         {
 
             Object.keys(state.localTracks).forEach(trackName => {
@@ -218,7 +234,16 @@ const VoiceCall = props => {
 
     useInterval(
         () => {
-            axios.get(WWW_DIR_JAVASCRIPT  + "voicevideo/joinop/" + props.initParams.id).then(result => {
+
+            var url = null;
+
+            if (props.isVisitor === true) {
+                url = WWW_DIR_JAVASCRIPT + "voicevideo/join/" + props.initParams.id + '/' + props.initParams.hash;
+            } else {
+                url = WWW_DIR_JAVASCRIPT  + "voicevideo/joinop/" + props.initParams.id;
+            }
+
+            axios.get(url).then(result => {
                 dispatch({
                     type: 'update',
                     value: {
@@ -226,6 +251,7 @@ const VoiceCall = props => {
                     }
                 });
             });
+
         },
         (state.call.status != STATUS_CONFIRMED || state.call.vi_status != STATUS_VI_JOINED || state.call.op_status != STATUS_OP_JOINED) ? 2000 : null
     );
@@ -247,6 +273,10 @@ const VoiceCall = props => {
             user.audioTrack.play();
         }
 
+        /*if (mediaType === 'audio') {
+            user.audioTrack.play();
+        }*/
+
         /*if (mediaType === 'video') {
             const player = $(`
               <div id="player-wrapper-${uid}">
@@ -263,20 +293,23 @@ const VoiceCall = props => {
     }
     
     const handleUserPublished = (user, mediaType) =>  {
+
         subscribe(user, mediaType);
     }
 
     const handleUserUnpublished = (user) => {
-        //const id = user.uid;
-        //delete remoteUsers[id];
-
         dispatch({
             type: 'user_unpublished',
             user: user
         });
-
-        //$(`#player-wrapper-${id}`).remove();
     }
+
+    useEffect(() => {
+        if (state.call.vi_status === STATUS_VI_JOINED && props.isVisitor == true) {
+            join(state.call);
+        }
+    },[state.call.vi_status]);
+
 
     const join = async (data) => {
         // add event listener to play remote tracks when remote user publishs.
@@ -315,7 +348,15 @@ const VoiceCall = props => {
 
     const requestJoin = (type) => {
 
-        axios.post(WWW_DIR_JAVASCRIPT  + "voicevideo/joinop/" + props.initParams.id + '/(action)/join').then(result => {
+        var url = null;
+
+        if (props.isVisitor === true) {
+            url = WWW_DIR_JAVASCRIPT  + "voicevideo/join/" + props.initParams.id + '/' + props.initParams.hash + '/(action)/request';
+        } else {
+            url = WWW_DIR_JAVASCRIPT  + "voicevideo/joinop/" + props.initParams.id + '/(action)/join';
+        }
+
+        axios.post(url).then(result => {
             if (type == 'audiovideo') {
                 join(result.data);
             }
@@ -328,16 +369,14 @@ const VoiceCall = props => {
         });
     }
 
-    console.log(state.inCall);
-
     return (
         <React.Fragment>
             <div className="d-flex flex-row flex-grow-1 pt-2">
                 <div className="col bg-light mx-1 align-middle text-center d-flex pl-0 pr-0" title={"UID "+state.uid} id="local-player">
+                    {props.isVisitor == true && state.call.vi_status == STATUS_VI_REQUESTED && <div className="align-self-center mx-auto text-muted font-weight-bold">Please wait untill operator let's you join a room</div>}
                 </div>
-                {state.inCall}
                 {state.inCall == true && Object.keys(state.remoteUsers).map((val, k) => {
-                    return (<MediaStream user={state.remoteUsers[val].user} media={state.remoteUsers[val].media} />)
+                    return (<MediaStream user={state.remoteUsers[val].user} key={"media_" + (state.remoteUsers[val].user.uid) + '_' + state.remoteUsers[val].media.join('_')} audio={state.remoteUsers[val].audio} video={state.remoteUsers[val].video} media={state.remoteUsers[val].media} />)
                 })}
             </div>
             <div className="row header-chat desktop-header">
@@ -345,22 +384,25 @@ const VoiceCall = props => {
                 <div className="btn-toolbar p-2 text-center mx-auto btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
 
                     <div className="p-2 text-center mx-auto btn-group" role="group">
-                        {state.call.vi_status == STATUS_VI_JOINED && <span className="text-muted py-2">Visitor has joined a call!</span>}
-                        {state.call.vi_status == STATUS_VI_PENDING && <span className="text-muted py-2">Pending visitor to join a call!</span>}
-                        {state.call.vi_status == STATUS_VI_REQUESTED && <span className="text-muted py-2">Visitor is waiting for someone to let him in!</span>}
+                        {props.isVisitor == true && state.call.vi_status == STATUS_VI_PENDING && <span className="text-muted py-2">Please wait untill operator let's you in</span>}
+                        {props.isVisitor == false && state.call.vi_status == STATUS_VI_JOINED && <span className="text-muted py-2">Visitor has joined a call!</span>}
+                        {props.isVisitor == false && state.call.vi_status == STATUS_VI_PENDING && <span className="text-muted py-2">Pending visitor to join a call!</span>}
+                        {props.isVisitor == false && state.call.vi_status == STATUS_VI_REQUESTED && <span className="text-muted py-2">Visitor is waiting for someone to let him in!</span>}
                     </div>
 
                     <div className="p-2 text-center mx-auto btn-group" role="group">
-                        {state.call.vi_status == STATUS_VI_REQUESTED && <button className="btn btn-sm btn-outline-secondary" onClick={() => cancelJoin('letvisitorin')} ><span className="material-icons">face</span>Let visitor in</button>}
+                        {props.isVisitor == false && state.call.vi_status == STATUS_VI_REQUESTED && <button className="btn btn-sm btn-outline-secondary" onClick={() => cancelJoin('letvisitorin')} ><span className="material-icons">face</span>Let visitor in</button>}
+                        {props.isVisitor == false && state.call.op_status == STATUS_OP_JOINED && <button title="Leave a call. Visitor still remain on the call" className="btn btn-sm btn-outline-secondary" onClick={() => cancelJoin('leave')}><span className="material-icons">call_end</span>Leave a call</button>}
+                        {props.isVisitor == false && state.call.op_status == STATUS_OP_JOINED && <button title="Call for the visitor also will end." className="btn btn-sm btn-outline-secondary" onClick={() => cancelJoin('end')}><span className="material-icons">call_end</span>End a call</button>}
 
-                        {state.call.op_status == STATUS_OP_JOINED && <button title="Leave a call. Visitor still remain on the call" className="btn btn-sm btn-outline-secondary" onClick={() => cancelJoin('leave')}><span className="material-icons">call_end</span>Leave a call</button>}
-
-                        {state.call.op_status == STATUS_OP_JOINED && <button title="Call for the visitor also will end." className="btn btn-sm btn-outline-secondary" onClick={() => cancelJoin('end')}><span className="material-icons">call_end</span>End a call</button>}
-
-                        {state.call.op_status == STATUS_OP_PENDING && <React.Fragment>
+                        {( (props.isVisitor == false && state.call.op_status == STATUS_OP_PENDING) || (props.isVisitor == true && state.call.vi_status == STATUS_VI_PENDING) )&& <React.Fragment>
                             <button className="btn btn-sm btn-outline-secondary" onClick={() => requestJoin('audio')}><span className="material-icons">call</span>Join with audio</button>
                             <button className="btn btn-sm btn-outline-secondary" onClick={() => requestJoin('audiovideo')}><span className="material-icons">video_call</span>Join with audio & video</button>
                         </React.Fragment>}
+
+                        {props.isVisitor == true && state.call.vi_status == STATUS_VI_JOINED && <button className="btn btn-primary w-100" onClick={() => cancelJoin('cancel')} >{t('voice_call.leave_room')}</button>}
+                        {props.isVisitor == true && state.call.vi_status == STATUS_VI_REQUESTED && <button className="btn btn-primary w-100" onClick={() => cancelJoin('cancel')} >{t('voice_call.cancel_join')}</button>}
+
                     </div>
 
                 </div>

@@ -6,11 +6,12 @@
     (function (){
         var initParams = <?php
             $params = array (
+                'isVisitor' => true,
                 'id' => $chat->id,
                 'hash' => $chat->hash,
+                'appid' => $voice_data['agora_app_id'],
             );
             echo json_encode($params); ?>;
             window.initParams = initParams;
-
     })();
 </script>
