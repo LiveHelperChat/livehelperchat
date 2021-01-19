@@ -1979,6 +1979,7 @@ class Install
                 array('module' => 'lhspeech', 'function' => 'change_chat_recognition'),
                 array('module' => 'lhgroupchat', 'function' => 'use'),
                 array('module' => 'lhuser', 'function' => 'see_all_group_users'),
+                array('module' => 'lhvoicevideo', 'function' => 'use'),
             );
 
             foreach ($permissionsArray as $paramsPermission) {
