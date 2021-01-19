@@ -7,9 +7,7 @@
         <a onclick="window.open('<?php echo erLhcoreClassDesign::baseurl('voicevideo/joinoperator')?>/<?php echo $chat->id?>','lhc_voice_call','scrollbars=yes,menubar=1,resizable=1,width=800,height=600')" class="text-muted"><i class="material-icons">call</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Start a call')?></a>
 
         <div id="call-status-<?php echo $chat->id?>">
-
             <?php if (($voiceCallInstance = erLhcoreClassModelChatVoiceVideo::getInstance($chat->id,false)) instanceof erLhcoreClassModelChatVoiceVideo && $voiceCallInstance->id !== null) : ?>
-
                     <?php if ($voiceCallInstance->status == erLhcoreClassModelChatVoiceVideo::STATUS_PENDING) : ?>
                     <span class="badge badge-secondary fs12 mr-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Has not started')?></span>
                     <?php elseif ($voiceCallInstance->status == erLhcoreClassModelChatVoiceVideo::STATUS_CONFIRM) : ?>
@@ -31,9 +29,6 @@
                     <?php elseif ($voiceCallInstance->vi_status == erLhcoreClassModelChatVoiceVideo::STATUS_VI_JOINED) : ?>
                     <span class="badge badge-success fs12 mr-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Visitor has joined a call')?></span>
                     <?php endif; ?>
-
-            <?php else : ?>
-                    <span class="badge badge-secondary fs12 mr-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Not initiated yet')?></span>
             <?php endif; ?>
         </div>
     </td>
