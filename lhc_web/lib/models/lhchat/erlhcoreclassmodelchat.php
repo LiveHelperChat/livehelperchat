@@ -168,6 +168,11 @@ class erLhcoreClassModelChat {
        $stmt = $q->prepare();
        $stmt->execute();
 
+       // Voice calls
+       $q->deleteFrom( 'lh_chat_voice_video' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+       $stmt = $q->prepare();
+       $stmt->execute();
+
        $this->removePendingEvents();
 
        erLhcoreClassModelGroupChat::deleteByChatId($this->id);

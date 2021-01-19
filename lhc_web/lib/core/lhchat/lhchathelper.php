@@ -135,6 +135,11 @@ class erLhcoreClassChatHelper
         $stmt = $q->prepare();
         $stmt->execute();
 
+        // Voice calls
+        $q->deleteFrom( 'lh_chat_voice_video' )->where( $q->expr->eq( 'chat_id', $chatId ) );
+        $stmt = $q->prepare();
+        $stmt->execute();
+
         // Close by support chat
         erLhcoreClassModelGroupChat::closeByChatId($chatId);
     }

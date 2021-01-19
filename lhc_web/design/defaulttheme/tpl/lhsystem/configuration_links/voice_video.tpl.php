@@ -3,7 +3,6 @@
         <b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Voice & Video & ScreenShare');?></b>
         <ul>
             <li><a href="<?php echo erLhcoreClassDesign::baseurl('voicevideo/configuration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Configuration');?></a></li>
-            <li><a href="<?php echo erLhcoreClassDesign::baseurl('voicevideo/calls')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Calls');?></a></li>
         </ul>
     </li>
 <?php endif; ?>

@@ -1,3 +1,10 @@
+3.60v
+
+1. Voice & Video & ScreenShare powered by agora.io. They give 10 000 call minits every month for free.
+2. Option to reset counter from bot https://doc.livehelperchat.com/docs/bot/multiple-unknown-messages
+
+execute doc/update_db/update_233.sql for update
+
 3.59v
 
 1. Option to automatically close the chats where visitor has abandoned them. In other words will close chats where pending widget row indicates that visitor has left the chat.

@@ -26,6 +26,7 @@ $ViewList['join'] = array(
 $ViewList['joinop'] = array(
     'params' => array('id'),
     'uparams' => array('action'),
+    'functions' => array( 'use' )
 );
 
 $ViewList['joinoperator'] = array(
