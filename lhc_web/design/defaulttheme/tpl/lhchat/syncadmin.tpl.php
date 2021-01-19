@@ -25,15 +25,25 @@
 
 
         // We skip render only if message is empty and it's not one of the supported admin meta messages
-        if ($msg['msg'] == '' && (!isset($metaMessageData['content']['text_conditional'])) && (!isset($metaMessageData['content']['html']['content']))) {
+        if ($msg['msg'] == '' &&
+            (!isset($metaMessageData['content']['text_conditional'])) &&
+            (!isset($metaMessageData['content']['html']['content'])) &&
+            (!isset($metaMessageData['content']['button_message']))) {
             continue;
         }
 
 if ($msg['user_id'] == -1) : ?>
 <div class="message-row system-response" id="msg-<?php echo $msg['id']?>" title="<?php echo erLhcoreClassChat::formatDate($msg['time']);?>">
     <span class="usr-tit sys-tit"><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant')?></i><span class="msg-date text-white pl-2 font-weight-normal"><?php echo erLhcoreClassChat::formatDate($msg['time']);?></span></span>
-        <i><?php $msgBody = $msg['msg']; $paramsMessageRender = array('sender' => $msg['user_id'], 'html_as_text' => true); ?>
-        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?></i>
+
+        <?php if ($msg['msg'] != '') : ?>
+            <i><?php $msgBody = $msg['msg']; $paramsMessageRender = array('sender' => $msg['user_id'], 'html_as_text' => true); ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?></i>
+        <?php endif; ?>
+
+        <?php if (isset($metaMessageData)) : ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/meta_render_admin.tpl.php'));?>
+        <?php endif; ?>
 </div>
 <?php else : ?>
 <div class="message-row<?php echo $msg['user_id'] == 0 ? ' response' : ' message-admin'.($lastOperatorChanged == true ? ' operator-changes' : '') ?><?php echo $otherOperator == true ? ' other-operator' : ''?>" data-op-id="<?php echo $msg['user_id']?>" title="<?php echo erLhcoreClassChat::formatDate($msg['time']);?>" id="msg-<?php echo $msg['id']?>">

@@ -22,7 +22,8 @@ $translations = array(
         "popup" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Popup'),
         "record_voice" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Record voice message'),
         "start_chat_With_us" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Start a chat with us!'),
-        "cancel" => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel')
+        "cancel" => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel'),
+        "voice" => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Voice call')
     ],
     "chat" => [
         "option_sound" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new messages from the operator'),

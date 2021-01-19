@@ -12,6 +12,10 @@ $orderInformation = array(
         'item' => 'chat_owner',
         'enabled' => true
     ),
+    'voice_call' => array(
+        'item' => 'voice_call',
+        'enabled' => true
+    ),
     'uagent' => array(
         'item' => 'uagent',
         'enabled' => true

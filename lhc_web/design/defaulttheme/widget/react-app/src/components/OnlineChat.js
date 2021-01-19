@@ -60,6 +60,7 @@ class OnlineChat extends Component {
         this.sendMessage = this.sendMessage.bind(this);
         this.endChat = this.endChat.bind(this);
         this.mailChat = this.mailChat.bind(this);
+        this.voiceCall = this.voiceCall.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.setStatusText = this.setStatusText.bind(this);
         this.dragging = this.dragging.bind(this);
@@ -569,6 +570,52 @@ class OnlineChat extends Component {
         });
     }
 
+    voiceCall() {
+
+        const dualScreenLeft = window.screenLeft !==  undefined ? window.screenLeft : window.screenX;
+        const dualScreenTop = window.screenTop !==  undefined   ? window.screenTop  : window.screenY;
+
+        const width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+        const height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+        const systemZoom = width / window.screen.availWidth;
+        const left = (width - parseInt(800)) / 2 / systemZoom + dualScreenLeft;
+        const top = (height - parseInt(600)) / 2 / systemZoom + dualScreenTop;
+
+        var paramsWindow = "scrollbars=yes,menubar=1,resizable=1,width=800,height=600,top=" + top + ",left=" + left;
+        var newWin = window.open("", helperFunctions.prefix + '_voice_popup_v2', paramsWindow);
+        var needWindow = false;
+        var windowCreated = false;
+
+        // First try to find any existing window
+        try {
+            // It has to be new window or popup was blocked
+            if (!newWin || newWin.closed || typeof newWin.closed=='undefined' || newWin.location.href === "about:blank") {
+                newWin = window.open(this.props.chatwidget.get('base_url') + "voicevideo/call/" + this.props.chatwidget.getIn(['chatData', 'id']) + '/' + this.props.chatwidget.getIn(['chatData', 'hash']), helperFunctions.prefix + '_voice_popup_v2', paramsWindow);
+                windowCreated = true;
+            } else {
+                needWindow = true;
+            }
+        } catch (e) { // We get cross-origin error only if window exist and it's location is other one than about:blank
+            needWindow = true;
+        }
+
+        // Now if visitor has blocked popup change chat status link and just allow browser handle the rest.
+        if (!newWin || newWin.closed || typeof newWin.closed=='undefined') {
+            try {
+                // Change href to open window
+            } catch (e) {
+                alert('You have disabled popups!');
+            }
+        } else if (windowCreated == true) {
+            /*typeof chatEvents !== 'undefined' && chatEvents.sendChildEvent('endedChat', [{'sender': 'endButton'}]);
+            typeof paramsPopup !== 'undefined' && paramsPopup.event !== 'undefined' && paramsPopup.event.preventDefault();*/
+        } else if (needWindow === true) {
+            newWin.focus();
+        }
+
+    }
+
     toggleSound() {
         this.props.dispatch({type : 'toggleSound', data: !this.props.chatwidget.getIn(['usersettings','soundOn'])});
         helperFunctions.sendMessageParent('toggleSound', [{'sender' : 'toolbarButton'}]);
@@ -607,7 +654,7 @@ class OnlineChat extends Component {
         } else {
 
             if (this.props.chatwidget.get('chatLiveData').has('messages')) {
-                var messages = this.props.chatwidget.getIn(['chatLiveData','messages']).map((msg, index) =><ChatMessage endChat={this.props.endChat} setMetaUpdateState={this.setMetaUpdateState} sendDelay={this.sendDelay} setEditorEnabled={this.setEditorEnabled} abstractAction={this.abstractAction} updateStatus={this.updateStatus} focusMessage={this.focusMessage} updateMessages={this.updateMessages} scrollBottom={this.scrollBottom} id={index} key={'msg_'+index} msg={msg} />);
+                var messages = this.props.chatwidget.getIn(['chatLiveData','messages']).map((msg, index) =><ChatMessage voiceCall={this.voiceCall} endChat={this.props.endChat} setMetaUpdateState={this.setMetaUpdateState} sendDelay={this.sendDelay} setEditorEnabled={this.setEditorEnabled} abstractAction={this.abstractAction} updateStatus={this.updateStatus} focusMessage={this.focusMessage} updateMessages={this.updateMessages} scrollBottom={this.scrollBottom} id={index} key={'msg_'+index} msg={msg} />);
             } else {
                 var messages = "";
             }
@@ -734,6 +781,7 @@ class OnlineChat extends Component {
                                         <a onClick={this.toggleSound} title={t('chat.option_sound')}><i className="material-icons chat-setting-item text-muted">{this.props.chatwidget.getIn(['usersettings','soundOn']) === true ? <React.Fragment>&#xf102;</React.Fragment> : <React.Fragment>&#xf101;</React.Fragment>}</i></a>
                                         {this.props.chatwidget.hasIn(['chat_ui','print']) && <a target="_blank" href={this.props.chatwidget.get('base_url') + "chat/printchat/" +this.props.chatwidget.getIn(['chatData','id']) + "/" + this.props.chatwidget.getIn(['chatData','hash'])} title={t('button.print')}><i className="material-icons chat-setting-item text-muted">&#xf10c;</i></a>}
                                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.hasIn(['chat_ui','file']) && <ChatFileUploader fileOptions={this.props.chatwidget.getIn(['chat_ui','file_options'])} onDrag={this.dragging} dropArea={this.textMessageRef} onCompletion={this.updateMessages} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} link={true}/>}
+                                        {!this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.getIn(['chatLiveData','status']) == 1 && this.props.chatwidget.hasIn(['chat_ui','voice']) && <a onClick={this.voiceCall} title={t('button.voice')}><i className="material-icons chat-setting-item text-muted">&#xf117;</i></a>}
                                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && <a onClick={this.toggleModal} title={t('button.bb_code')}><i className="material-icons chat-setting-item text-muted">&#xf104;</i></a>}
                                         {this.props.chatwidget.hasIn(['chat_ui','mail']) && <a onClick={this.mailChat} title={t('button.mail')} ><i className="material-icons chat-setting-item text-muted">&#xf11a;</i></a>}
                                         {this.props.chatwidget.hasIn(['chat_ui','close_btn']) && <a onClick={this.endChat} title={t('button.end_chat')} ><i className="material-icons chat-setting-item text-muted">&#xf10a;</i></a>}

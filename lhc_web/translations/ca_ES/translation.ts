@@ -358,6 +358,14 @@
       <translation>Intèrval en minuts per tancar xats automàticment. 0: inhabilitat.</translation>
     </message>
     <message>
+      <source>Automatically close active chat if from last visitor/operator message passed. 0 - disabled, n &gt; 0 time in minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically close pending chats where visitor has left a chat. Timeout in minutes, last activity by visitor &lt;desktop timeout&gt;,&lt;mobile timeout&gt;.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds</source>
       <translation>Temps d&apos;espera en segons abans que els xats no siguin assignats automàticament.</translation>
     </message>
@@ -1363,6 +1371,10 @@
     </message>
     <message>
       <source>Close chat if page is refreshed. Usefull if you have embed code in popup.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not prefill offline message with chat messages.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4005,16 +4017,8 @@
       <translation>Producte</translation>
     </message>
     <message>
-      <source>Page</source>
-      <translation>Pàgina</translation>
-    </message>
-    <message>
       <source>Screenshot</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>Vingut des de</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -6438,8 +6442,16 @@
       <translation>des de</translation>
     </message>
     <message>
-      <source>Chat was automatically closed by cron</source>
-      <translation>El xat s&apos;ha tancat per tasca programada</translation>
+      <source>Chat was closed by cron!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was closed by cron because of inactivity!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was closed by cron because visitor left the pending chat!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
@@ -11805,6 +11817,145 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     </message>
     <message>
       <source>Visitor started chat by online invitation</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>statistic/departmentstats</name>
+    <message>
+      <source>Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live data</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>bot chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>in-active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat is active/pending and user has closed widget or has been redirected to survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Load statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>soft limit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator is logged to back office during last 10 minutes and is online/offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>hard limit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator is logged to back office during last 10 minutes and is in online status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>active operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>inactive operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Summary statistic [Hard limit]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Summary statistic [Soft limit]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Soft limit. Operator is logged to back office during last 10 minutes and is online/offline.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inactive chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator active/pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No data.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hard limit. Operator is logged to back office during last 10 minutes and is in online status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats statistic by operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last activity</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline for</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Just now</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Statistic</source>
       <translation type="unfinished"/>
     </message>
   </context>

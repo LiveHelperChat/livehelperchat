@@ -30,6 +30,8 @@
             <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/product.tpl.php'));?>
         <?php elseif ($buttonData['item'] == 'uagent') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/uagent.tpl.php'));?>
+        <?php elseif ($buttonData['item'] == 'voice_call') : ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/voice_call.tpl.php'));?>
         <?php elseif ($buttonData['item'] == 'subject') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/subject.tpl.php'));?>
         <?php elseif ($buttonData['item'] == 'phone') : ?>
