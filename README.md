@@ -20,7 +20,7 @@ http://livehelperchat.com/demo-12c.html
 ## Integrations
 
  * [Mobile app](https://github.com/LiveHelperChat/lhc_messenger) flutter
- * [Voice & Video & ScreenShare](https://github.com/LiveHelperChat/lhc_messenger) powered by [agora](https://www.agora.io/en/)
+ * [Voice & Video & ScreenShare](https://doc.livehelperchat.com/docs/voice-video-screenshare) powered by [agora](https://www.agora.io/en/)
  * [Rest API](https://api.livehelperchat.com)
  * [Bot](https://doc.livehelperchat.com/docs/how-to-use-bot) with possibility to integrate any third party AI
  * [Telegram](https://github.com/LiveHelperChat/telegram)
