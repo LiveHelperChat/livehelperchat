@@ -19,6 +19,16 @@ $def->properties['bot_id']->columnName   = 'bot_id';
 $def->properties['bot_id']->propertyName = 'bot_id';
 $def->properties['bot_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['is_collapsed'] = new ezcPersistentObjectProperty();
+$def->properties['is_collapsed']->columnName   = 'is_collapsed';
+$def->properties['is_collapsed']->propertyName = 'is_collapsed';
+$def->properties['is_collapsed']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['pos'] = new ezcPersistentObjectProperty();
+$def->properties['pos']->columnName   = 'pos';
+$def->properties['pos']->propertyName = 'pos';
+$def->properties['pos']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

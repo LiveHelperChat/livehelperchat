@@ -7,10 +7,10 @@ class App extends Component {
   render() {
     return (
       <div className="row">
-        <div className="col-3">
+        <div className="col-4">
               <NodeGroups botId={this.props.botId} />
         </div>
-        <div className="col-6">
+        <div className="col-5">
               <NodeTriggerBuilder botId={this.props.botId} />
         </div>
         <div className="col-3">

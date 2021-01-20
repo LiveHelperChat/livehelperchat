@@ -1,3 +1,9 @@
+3.61v
+
+1. Bot building interface will have option to set group position, expand collapse group triggers. Usefull if you have a big bot.
+
+execute doc/update_db/update_234.sql for update
+
 3.60v
 
 1. Voice & Video & ScreenShare powered by agora.io. They give 10 000 call minits every month for free.
