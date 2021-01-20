@@ -11,6 +11,9 @@ echo json_encode(
     array(
         'name' => $group->name,
         'id' => $group->id,
+        'pos' => $group->pos,
+        'is_collapsed' => $group->is_collapsed,
+        'bot_id' => $group->bot_id,
     )
 );
 

@@ -3,7 +3,8 @@ import NodeGroupTrigger from './NodeGroupTrigger';
 import NodeGroupTriggerEvents from './NodeGroupTriggerEvents';
 import { connect } from "react-redux";
 
-import { fetchNodeGroupTriggers, addTrigger, addTriggerEvent, updateTriggerEvent, deleteTriggerEvent, deleteGroup } from "../actions/nodeGroupTriggerActions"
+import { fetchNodeGroupTriggers, addTrigger, addTriggerEvent, updateTriggerEvent, deleteTriggerEvent, deleteGroup } from "../actions/nodeGroupTriggerActions";
+import { updateNodeGroup } from "../actions/nodeGroupActions";
 
 @connect((store) => {
     return {
@@ -14,12 +15,23 @@ import { fetchNodeGroupTriggers, addTrigger, addTriggerEvent, updateTriggerEvent
 
 class NodeGroup extends Component {
 
-    handleChange(e) {
-        const name = e.target.value;
-        this.props.changeTitle(this.props.group.set('name',name));
+    constructor(props) {
+        super(props);
+        this.state = {position: this.props.group.get('pos')};
         this.addTriggerEvent = this.addTriggerEvent.bind(this);
         this.updateEvent = this.updateEvent.bind(this);
         this.deleteEvent = this.deleteEvent.bind(this);
+    }
+
+    handleChange(e)
+    {
+        const name = e.target.value;
+        this.props.changeTitle(this.props.group.set('name',name));
+    }
+
+    handleCollapse()
+    {
+        this.props.dispatch(updateNodeGroup(this.props.group.set('is_collapsed',!this.props.group.get('is_collapsed'))));
     }
 
     addTrigger() {
@@ -49,6 +61,10 @@ class NodeGroup extends Component {
         if (confirm('Are you sure?')){
             this.props.dispatch(deleteGroup({id: this.props.group.get('id')}));
         }
+    }
+
+    setPosition() {
+        this.props.dispatch(updateNodeGroup(this.props.group.set('pos',this.state.position)));
     }
 
     /*shouldComponentUpdate(nextProps, nextState) {
@@ -88,7 +104,7 @@ class NodeGroup extends Component {
         return (
             <div className="row">
                 <div className="col-12">
-                    <hr/>
+                    <hr className="my-2" />
 
                     <div className="d-flex">
                         <div className="flex-grow-1">
@@ -100,23 +116,36 @@ class NodeGroup extends Component {
                             </div>
                         </div>
                         <div>
-                            <div className="btn-group" role="group" aria-label="Basic example">
-                                <a className="btn btn-sm btn-secondary float-right" href={WWW_DIR_JAVASCRIPT + "genericbot/downloadbotgroup/" + this.props.group.get('id')}><i className="material-icons mr-0">cloud_download</i></a>
-                                <button className="btn btn-sm btn-danger float-right" onClick={this.deleteGroup.bind(this)}><i className="material-icons mr-0">delete</i></button>
+                            <div className="btn-toolbar">
+                                <div className="input-group input-group-sm mr-2">
+                                    <input type="number" title="Position" onChange={(e) => this.setState({position: parseInt(e.target.value)})} className="form-control" style={{"width" : "65px"}} defaultValue={this.props.group.get('pos')} placeholder="Position" aria-label="Input group example" aria-describedby="btnGroupAddon" />
+                                    <div className="input-group-append">
+                                        <button className="btn btn-secondary" disabled={this.props.group.get('pos') == this.state.position} onClick={this.setPosition.bind(this)} type="button" id="button-addon1"><span className="material-icons mr-0">done</span></button>
+                                    </div>
+                                </div>
+                                <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                    <button title="Collapse/Expand" className="btn btn-sm btn-secondary float-right" onClick={this.handleCollapse.bind(this)} ><span className="material-icons mr-0">{this.props.group.get('is_collapsed') ? 'unfold_more' : 'unfold_less'}</span> <span className="fs11">{this.props.nodegrouptriggers.get('nodegrouptriggers').get(this.props.group.get('id')) ? "["+this.props.nodegrouptriggers.get('nodegrouptriggers').get(this.props.group.get('id')).size+"]" : ""}</span></button>
+                                    <a className="btn btn-sm btn-secondary float-right" href={WWW_DIR_JAVASCRIPT + "genericbot/downloadbotgroup/" + this.props.group.get('id')}><i className="material-icons mr-0">cloud_download</i></a>
+                                    <button className="btn btn-sm btn-danger float-right" onClick={this.deleteGroup.bind(this)}><i className="material-icons mr-0">delete</i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="row">
-                        <div className="col-12">
-                            <ul className="gbot-trglist">
-                                {mappedNodeGroupTriggers}
-                                <li><button className="btn btn-sm btn-secondary" onClick={this.addTrigger.bind(this)} ><i className="material-icons mr-0">add</i></button></li>
-                            </ul>
+                    <div className={this.props.group.get('is_collapsed') ? "d-none" : ""}>
+
+                        <div className="row">
+                            <div className="col-12">
+                                <ul className="gbot-trglist">
+                                    {mappedNodeGroupTriggers}
+                                    <li><button className="btn btn-sm btn-secondary" onClick={this.addTrigger.bind(this)} ><i className="material-icons mr-0">add</i></button></li>
+                                </ul>
+                            </div>
                         </div>
+
+                        {triggerAction}
                     </div>
-                    
-                    {triggerAction}
+
                 </div>
             </div>
         );

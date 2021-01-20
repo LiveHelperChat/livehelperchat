@@ -59,7 +59,7 @@ export function updateNodeGroup(obj) {
                 .catch((err) => {
                         dispatch({type: "ADD_GROUP_REJECTED", payload: err})
                     })
-        },1000);
+        },200);
     }
 }
 
