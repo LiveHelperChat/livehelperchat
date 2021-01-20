@@ -6,7 +6,8 @@ window.lhcAxios = axios;
 
 let syncStatus = {
     'msg' : false,
-    'status' : false
+    'status' : false,
+    'error_counter' : 0
 };
 
 export function closeWidget() {
@@ -461,7 +462,12 @@ export function pageUnload() {
     }
 }
 
-
+function checkErrorCounter() {
+   if (syncStatus.error_counter == 2) {
+       // Restart widget on second error
+       helperFunctions.sendMessageParent('reloadWidget',[]);
+   }
+}
 
 export function addMessage(obj) {
     return function(dispatch, getState) {
@@ -488,16 +494,28 @@ export function addMessage(obj) {
                     helperFunctions.sendMessageParent('botTrigger',[{'trigger' : response.data.t}]);
                 }
 
-                if (typeof response.data.r === 'undefined') {
-                    helperFunctions.logJSError({
-                        'stack' :  JSON.stringify(JSON.stringify(response) + "\nRD:"+JSON.stringify(response.data) +"\nRH:"+ JSON.stringify(response.headers) +"\nRS:"+ JSON.stringify(response.status))
-                    });
+                if (typeof response.data.r === 'undefined' || (response.data.error === true && response.data.system === true)) {
+
+                    syncStatus.error_counter++;
+
+                    // Log error only if it happens two times in a row
+                    if (syncStatus.error_counter == 2) {
+                        helperFunctions.logJSError({
+                            'stack' :  JSON.stringify(JSON.stringify(response) + "\nRD:"+JSON.stringify(response.data) +"\nRH:"+ JSON.stringify(response.headers) +"\nRS:"+ JSON.stringify(response.status))
+                        });
+
+                        checkErrorCounter();
+                    }
+
                     helperFunctions.eventEmitter.emitEvent('messageSendError', [{'chat_id':obj.id, 'hash': obj.hash, msg: JSON.stringify(response.data)}]);
+                } else {
+                    syncStatus.error_counter = 0;
                 }
 
             })
             .catch((error) => {
-                dispatch({type: "ADD_MESSAGES_SUBMITTED", data: {r: "SEND_FAILED", "msg" : obj.msg}});
+
+                syncStatus.error_counter++;
 
                 var stack = null;
 
@@ -510,15 +528,29 @@ export function addMessage(obj) {
                     stack = JSON.stringify(JSON.stringify(error));
                 }
 
-                helperFunctions.logJSError({
-                    'stack' : stack
-                });
+                // Log error only if it happens two times in a row
+                if (syncStatus.error_counter == 2) {
 
-                helperFunctions.eventEmitter.emitEvent('messageSendError', [{'chat_id':obj.id, 'hash': obj.hash, msg: stack}]);
+                    helperFunctions.logJSError({
+                        'stack': stack
+                    });
+
+                    helperFunctions.eventEmitter.emitEvent('messageSendError', [{'chat_id':obj.id, 'hash': obj.hash, msg: stack}]);
+
+                    checkErrorCounter();
+                } else {
+
+                    dispatch({type: "ADD_MESSAGES_SUBMITTED", data: {r: "SEND_FAILED", "msg" : obj.msg}});
+
+                    // Try to send message again
+                    addMessage(obj)(dispatch, getState);
+                }
 
             })
     }
 }
+
+
 
 export function userTyping(status, msg) {
     return function(dispatch, getState) {
