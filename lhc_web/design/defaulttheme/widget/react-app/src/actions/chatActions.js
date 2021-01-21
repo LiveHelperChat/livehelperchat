@@ -10,6 +10,8 @@ let syncStatus = {
     'error_counter' : 0
 };
 
+const defaultHeaders = {headers : {'Content-Type': 'application/x-www-form-urlencoded'}};
+
 export function closeWidget() {
     return function(dispatch) {
         dispatch({type: "closeWidget"});
@@ -106,7 +108,7 @@ export function initProactive(data) {
             payload['vid'] = state.chatwidget.get('vid');
         }
 
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/getinvitation", payload).then((response) => {
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/getinvitation", payload, defaultHeaders).then((response) => {
             dispatch({type: "PROACTIVE", data: response.data})
         });
     }
@@ -130,7 +132,7 @@ export function storeSubscriber(payload) {
             args = args + '/(vid)/' + state.chatwidget.get('vid');
         }
 
-        axios.post(window.lhcChat['base_url'] + "notifications/subscribe" +args, {'data' : payload})
+        axios.post(window.lhcChat['base_url'] + "notifications/subscribe" +args, {'data' : payload}, defaultHeaders)
             .then((response) => {
                 if (state.chatwidget.hasIn(['chatData','id']) && state.chatwidget.hasIn(['chatData','hash'])) {
                     dispatch(fetchMessages({
@@ -147,7 +149,7 @@ export function storeSubscriber(payload) {
 export function updateTriggerClicked(typeParams, params) {
     return function(dispatch, getState) {
         const state = getState();
-        return axios.post(window.lhcChat['base_url'] + "genericbot/"+(typeParams.mainType ? typeParams.mainType : "buttonclicked")+"/" + state.chatwidget.getIn(['chatData','id']) + '/' + state.chatwidget.getIn(['chatData','hash']) + typeParams.type, params)
+        return axios.post(window.lhcChat['base_url'] + "genericbot/"+(typeParams.mainType ? typeParams.mainType : "buttonclicked")+"/" + state.chatwidget.getIn(['chatData','id']) + '/' + state.chatwidget.getIn(['chatData','hash']) + typeParams.type, params, defaultHeaders)
     }
 }
 
@@ -160,7 +162,7 @@ export function subscribeNotifications(params) {
 
 export function initOfflineForm(obj) {
     return function(dispatch) {
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/onlinesettings", obj)
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/onlinesettings", obj, defaultHeaders)
         .then((response) => {
             dispatch({type: "OFFLINE_FIELDS_UPDATED", data: response.data})
         })
@@ -172,7 +174,7 @@ export function initOfflineForm(obj) {
 
 export function initOnlineForm(obj) {
     return function(dispatch) {
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/onlinesettings", obj)
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/onlinesettings", obj, defaultHeaders)
         .then((response) => {
             if (response.data.paid.continue && response.data.paid.continue === true) {
                 dispatch({type: "ONLINE_SUBMITTED", data: {
@@ -217,7 +219,7 @@ export function getCaptcha(dispatch, form, obj) {
 export function submitOnlineForm(obj) {
     return function(dispatch) {
         dispatch({type: "ONLINE_SUBMITTING"});
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/submitonline", obj)
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/submitonline", obj, defaultHeaders)
         .then((response) => {
 
             // If validation contains invalid captcha update it instantly
@@ -265,7 +267,7 @@ export function submitOfflineForm(obj) {
 
 export function updateUISettings(obj) {
     return function(dispatch, getState) {
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/uisettings", obj)
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/uisettings", obj, defaultHeaders)
             .then((response) => {
                 dispatch({type: "REFRESH_UI_COMPLETED", data: response.data})
             })
@@ -278,7 +280,7 @@ export function updateUISettings(obj) {
 
 export function initChatUI(obj) {
     return function(dispatch, getState) {
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/initchat", obj)
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/initchat", obj, defaultHeaders)
         .then((response) => {
             dispatch({type: "INIT_CHAT_SUBMITTED", data: response.data})
 
@@ -342,7 +344,7 @@ function processResponseCheckStatus(response, getState, dispatch) {
 export function updateMessage(obj) {
     return function(dispatch, getState) {
         const state = getState();
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/fetchmessage", obj)
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/fetchmessage", obj, defaultHeaders)
         .then((response) => {
             let elm = document.getElementById('msg-'+response.data.id);
             const classNameRow = elm.className;
@@ -371,7 +373,7 @@ export function fetchMessages(obj) {
 
         syncStatus.msg = true;
 
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/fetchmessages", obj)
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/fetchmessages", obj, defaultHeaders)
         .then((response) => {
 
             syncStatus.msg = false;
@@ -383,7 +385,7 @@ export function fetchMessages(obj) {
             helperFunctions.emitEvent('chat.fetch_messages',[response.data, dispatch, getState]);
 
             if (response.data.cs || (response.data.closed && response.data.closed === true)) {
-                axios.post(window.lhcChat['base_url'] + "widgetrestapi/checkchatstatus", obj)
+                axios.post(window.lhcChat['base_url'] + "widgetrestapi/checkchatstatus", obj, defaultHeaders)
                 .then((response) => {
                     if (response.data.deleted) {
                         //window.lhcChat.eventEmitter.emitEvent('endChat', [{'sender' : 'endButton'}]);
@@ -413,7 +415,7 @@ export function checkChatStatus(obj) {
 
         syncStatus.status = true;
 
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/checkchatstatus", obj)
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/checkchatstatus", obj, defaultHeaders)
         .then((response) => {
             if (response.data.deleted) {
                 helperFunctions.sendMessageParent('endChat',[{'sender' : 'endButton'}]);
@@ -480,7 +482,7 @@ export function addMessage(obj) {
             });
         }
 
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/addmsguser", obj)
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/addmsguser", obj, defaultHeaders)
             .then((response) => {
 
                 // Update error state if it changed
@@ -563,7 +565,7 @@ export function userTyping(status, msg) {
         }
 
         if (!state.chatwidget.get('overrides').contains('typing')) {
-            axios.post(window.lhcChat['base_url'] + "chat/usertyping/" + state.chatwidget.getIn(['chatData','id']) + '/' + state.chatwidget.getIn(['chatData','hash']) + '/' + status, {'msg' : msg})
+            axios.post(window.lhcChat['base_url'] + "chat/usertyping/" + state.chatwidget.getIn(['chatData','id']) + '/' + state.chatwidget.getIn(['chatData','hash']) + '/' + status, {'msg' : msg}, defaultHeaders)
                 .then((response) => {
             });
         }
