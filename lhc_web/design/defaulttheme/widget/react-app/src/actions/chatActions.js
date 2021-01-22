@@ -84,11 +84,11 @@ export function getProducts(obj) {
 }
 
 export function voteAction(obj) {
-    return axios.post(window.lhcChat['base_url'] + "chat/voteaction/" + obj.id + '/' + obj.hash + '/' + obj.type)
+    return axios.get(window.lhcChat['base_url'] + "chat/voteaction/" + obj.id + '/' + obj.hash + '/' + obj.type)
 }
 
 export function transferToHumanAction(obj) {
-    return axios.post(window.lhcChat['base_url'] + "chat/transfertohuman/" + obj.id + '/' + obj.hash)
+    return axios.get(window.lhcChat['base_url'] + "chat/transfertohuman/" + obj.id + '/' + obj.hash)
 }
 
 export function initProactive(data) {
@@ -108,7 +108,7 @@ export function initProactive(data) {
             payload['vid'] = state.chatwidget.get('vid');
         }
 
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/getinvitation", payload, defaultHeaders).then((response) => {
+        axios.get(window.lhcChat['base_url'] + "widgetrestapi/getinvitation", {params : payload}).then((response) => {
             dispatch({type: "PROACTIVE", data: response.data})
         });
     }
@@ -197,7 +197,7 @@ export function initOnlineForm(obj) {
 export function getCaptcha(dispatch, form, obj) {
     var date = new Date();
     var timestamp = Math.round(date.getTime()/1000);
-    axios.post(window.lhcChat['base_url'] + "captcha/captchastring/fake/" + timestamp)
+    axios.get(window.lhcChat['base_url'] + "captcha/captchastring/fake/" + timestamp)
     .then((response) => {
         dispatch({type: "captcha", data: {'hash' : response.data.result, 'ts' : timestamp}});
 
@@ -267,7 +267,7 @@ export function submitOfflineForm(obj) {
 
 export function updateUISettings(obj) {
     return function(dispatch, getState) {
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/uisettings", obj, defaultHeaders)
+        axios.get(window.lhcChat['base_url'] + "widgetrestapi/uisettings", {params : obj})
             .then((response) => {
                 dispatch({type: "REFRESH_UI_COMPLETED", data: response.data})
             })
@@ -280,7 +280,7 @@ export function updateUISettings(obj) {
 
 export function initChatUI(obj) {
     return function(dispatch, getState) {
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/initchat", obj, defaultHeaders)
+        axios.get(window.lhcChat['base_url'] + "widgetrestapi/initchat", {params: obj})
         .then((response) => {
             dispatch({type: "INIT_CHAT_SUBMITTED", data: response.data})
 
@@ -344,7 +344,7 @@ function processResponseCheckStatus(response, getState, dispatch) {
 export function updateMessage(obj) {
     return function(dispatch, getState) {
         const state = getState();
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/fetchmessage", obj, defaultHeaders)
+        axios.get(window.lhcChat['base_url'] + "widgetrestapi/fetchmessage", {params: obj})
         .then((response) => {
             let elm = document.getElementById('msg-'+response.data.id);
             const classNameRow = elm.className;
@@ -373,7 +373,7 @@ export function fetchMessages(obj) {
 
         syncStatus.msg = true;
 
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/fetchmessages", obj, defaultHeaders)
+        axios.get(window.lhcChat['base_url'] + "widgetrestapi/fetchmessages", {params : obj})
         .then((response) => {
 
             syncStatus.msg = false;
@@ -385,7 +385,7 @@ export function fetchMessages(obj) {
             helperFunctions.emitEvent('chat.fetch_messages',[response.data, dispatch, getState]);
 
             if (response.data.cs || (response.data.closed && response.data.closed === true)) {
-                axios.post(window.lhcChat['base_url'] + "widgetrestapi/checkchatstatus", obj, defaultHeaders)
+                axios.get(window.lhcChat['base_url'] + "widgetrestapi/checkchatstatus", {params :obj})
                 .then((response) => {
                     if (response.data.deleted) {
                         //window.lhcChat.eventEmitter.emitEvent('endChat', [{'sender' : 'endButton'}]);
@@ -415,7 +415,7 @@ export function checkChatStatus(obj) {
 
         syncStatus.status = true;
 
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/checkchatstatus", obj, defaultHeaders)
+        axios.get(window.lhcChat['base_url'] + "widgetrestapi/checkchatstatus", {params : obj})
         .then((response) => {
             if (response.data.deleted) {
                 helperFunctions.sendMessageParent('endChat',[{'sender' : 'endButton'}]);
@@ -551,8 +551,6 @@ export function addMessage(obj) {
             })
     }
 }
-
-
 
 export function userTyping(status, msg) {
     return function(dispatch, getState) {

@@ -1,7 +1,12 @@
 <?php
 
 erLhcoreClassRestAPIHandler::setHeaders();
-$requestPayload = json_decode(file_get_contents('php://input'),true);
+
+if (!empty($_GET) && $_SERVER['REQUEST_METHOD'] === 'GET') {
+    $requestPayload = $_GET;
+} else {
+    $requestPayload = json_decode(file_get_contents('php://input'),true);
+}
 
 try {
     $db = ezcDbInstance::get();

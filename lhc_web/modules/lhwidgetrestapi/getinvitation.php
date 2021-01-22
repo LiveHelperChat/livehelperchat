@@ -2,7 +2,11 @@
 
 erLhcoreClassRestAPIHandler::setHeaders();
 
-$payload = json_decode(file_get_contents('php://input'),true);
+if (!empty($_GET) && $_SERVER['REQUEST_METHOD'] === 'GET') {
+    $payload = $_GET;
+} else {
+    $payload = json_decode(file_get_contents('php://input'),true);
+}
 
 if (isset($payload['vid_id']) && is_numeric($payload['vid_id'])) {
     $onlineUser = erLhcoreClassModelChatOnlineUser::fetch($payload['vid_id']);
