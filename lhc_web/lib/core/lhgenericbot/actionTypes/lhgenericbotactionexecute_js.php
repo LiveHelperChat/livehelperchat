@@ -10,6 +10,18 @@ class erLhcoreClassGenericBotActionExecute_js {
 
         if ((isset($action['content']['payload']) && !empty($action['content']['payload'])) || (isset($action['content']['ext_execute']) && !empty($action['content']['ext_execute'])))
         {
+            if (isset($action['content']['payload'])) {
+                $action['content']['payload'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload'], array('chat' => $chat, 'args' => $params));
+            }
+
+            if (isset($action['content']['ext_args'])) {
+                $action['content']['ext_args'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['ext_args'], array('chat' => $chat, 'args' => $params));
+            }
+
+            if (isset($action['content']['ext_execute'])) {
+                $action['content']['ext_execute'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['ext_execute'], array('chat' => $chat, 'args' => $params));
+            }
+
             $metaMessage['content']['execute_js'] = $action['content'];
 
             $msg->msg = "";
