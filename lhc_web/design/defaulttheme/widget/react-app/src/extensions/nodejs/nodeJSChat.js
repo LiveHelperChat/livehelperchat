@@ -119,6 +119,10 @@ class _nodeJSChat {
                 console.error('Failed to subscribe to the sample channel due to error: ' + err);
             });
 
+            sampleChannel.on('subscribe', function () {
+                socket.publish((params.instance_id > 0 ? 'chat_'+params.instance_id+'_'+chatId : 'chat_'+chatId), {'op':'vi_online', status: true});
+            });
+
             sampleChannel.watch(function (op) {
                 if (op.op == 'ot') { // Operator Typing Message
                     if (op.data.status == true) {
@@ -151,6 +155,11 @@ class _nodeJSChat {
                             'mode' : state.chatwidget.get('mode'),
                             'theme' : state.chatwidget.get('theme')
                         }));
+                    }
+                } else if (op.op == 'vo') {
+                    const state = getState();
+                    if (state.chatwidget.hasIn(['chatData','id'])) {
+                        socket.publish((params.instance_id > 0 ? 'chat_'+params.instance_id+'_'+state.chatwidget.getIn(['chatData','id']) : 'chat_'+state.chatwidget.getIn(['chatData','id'])) ,{'op':'vi_online', status: true});
                     }
                 }
             });

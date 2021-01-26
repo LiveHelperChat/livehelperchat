@@ -30,7 +30,7 @@ export function hideInvitation() {
         helperFunctions.sendMessageParent('closeWidget', [{'sender' : 'closeButton'}]);
         helperFunctions.sendMessageParent('cancelInvitation', [{'name' :  state.chatwidget.getIn(['proactive','data','invitation_name'])}]);
 
-        axios.get(window.lhcChat['base_url'] + "chat/chatwidgetclosed/(vid)/" + state.chatwidget.get('vid')).then((response) => {
+        axios.post(window.lhcChat['base_url'] + "chat/chatwidgetclosed/(vid)/" + state.chatwidget.get('vid'), null, defaultHeaders).then((response) => {
             dispatch({type: "HIDE_INVITATION"});
         })
         .catch((err) => {
@@ -52,7 +52,7 @@ export function minimizeWidget() {
 
 export function endChat(obj) {
     return function(dispatch, getState) {
-        axios.get(window.lhcChat['base_url'] + "chat/chatwidgetclosed/(eclose)/t/(hash)/" + obj['chat']['id'] +'_'+ obj['chat']['hash'] + '/(vid)/' + obj['vid'])
+        axios.post(window.lhcChat['base_url'] + "chat/chatwidgetclosed/(eclose)/t/(hash)/" + obj['chat']['id'] +'_'+ obj['chat']['hash'] + '/(vid)/' + obj['vid'], null, defaultHeaders)
         .then((response) => {
             if (!obj.noClose) {
                 if (window.lhcChat['mode'] == 'popup') {
@@ -73,7 +73,7 @@ export function endChat(obj) {
 
 export function getProducts(obj) {
     return function(dispatch) {
-        axios.get(window.lhcChat['base_url'] + "widgetrestapi/getproducts/" + obj['dep_id'])
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/getproducts/" + obj['dep_id'], null, defaultHeaders)
         .then((response) => {
             dispatch({type: "INIT_PRODUCTS", data: response.data})
         })
@@ -84,11 +84,11 @@ export function getProducts(obj) {
 }
 
 export function voteAction(obj) {
-    return axios.get(window.lhcChat['base_url'] + "chat/voteaction/" + obj.id + '/' + obj.hash + '/' + obj.type)
+    return axios.post(window.lhcChat['base_url'] + "chat/voteaction/" + obj.id + '/' + obj.hash + '/' + obj.type, null, defaultHeaders)
 }
 
 export function transferToHumanAction(obj) {
-    return axios.get(window.lhcChat['base_url'] + "chat/transfertohuman/" + obj.id + '/' + obj.hash)
+    return axios.post(window.lhcChat['base_url'] + "chat/transfertohuman/" + obj.id + '/' + obj.hash, null, defaultHeaders)
 }
 
 export function initProactive(data) {
@@ -97,7 +97,8 @@ export function initProactive(data) {
 
         let payload = {
             'invitation' : data.invitation,
-            'vid_id' : data.vid_id
+            'vid_id' : data.vid_id,
+            'uts' : (new Date()).getTime()
         };
 
         if (state.chatwidget.get('theme')) {
@@ -108,7 +109,7 @@ export function initProactive(data) {
             payload['vid'] = state.chatwidget.get('vid');
         }
 
-        axios.get(window.lhcChat['base_url'] + "widgetrestapi/getinvitation", {params : payload}).then((response) => {
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/getinvitation", payload, defaultHeaders).then((response) => {
             dispatch({type: "PROACTIVE", data: response.data})
         });
     }
@@ -197,7 +198,7 @@ export function initOnlineForm(obj) {
 export function getCaptcha(dispatch, form, obj) {
     var date = new Date();
     var timestamp = Math.round(date.getTime()/1000);
-    axios.get(window.lhcChat['base_url'] + "captcha/captchastring/fake/" + timestamp)
+    axios.post(window.lhcChat['base_url'] + "captcha/captchastring/fake/" + timestamp, null, defaultHeaders)
     .then((response) => {
         dispatch({type: "captcha", data: {'hash' : response.data.result, 'ts' : timestamp}});
 
@@ -267,7 +268,7 @@ export function submitOfflineForm(obj) {
 
 export function updateUISettings(obj) {
     return function(dispatch, getState) {
-        axios.get(window.lhcChat['base_url'] + "widgetrestapi/uisettings", {params : obj})
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/uisettings", obj, defaultHeaders)
             .then((response) => {
                 dispatch({type: "REFRESH_UI_COMPLETED", data: response.data})
             })
@@ -280,7 +281,7 @@ export function updateUISettings(obj) {
 
 export function initChatUI(obj) {
     return function(dispatch, getState) {
-        axios.get(window.lhcChat['base_url'] + "widgetrestapi/initchat", {params: obj})
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/initchat", obj, defaultHeaders)
         .then((response) => {
             dispatch({type: "INIT_CHAT_SUBMITTED", data: response.data})
 
@@ -344,7 +345,8 @@ function processResponseCheckStatus(response, getState, dispatch) {
 export function updateMessage(obj) {
     return function(dispatch, getState) {
         const state = getState();
-        axios.get(window.lhcChat['base_url'] + "widgetrestapi/fetchmessage", {params: obj})
+
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/fetchmessage", obj, defaultHeaders)
         .then((response) => {
             let elm = document.getElementById('msg-'+response.data.id);
             const classNameRow = elm.className;
@@ -364,6 +366,10 @@ export function updateMessage(obj) {
     }
 }
 
+function isNetworkError(err) {
+    return !!err.isAxiosError && !err.response;
+}
+
 export function fetchMessages(obj) {
     return function(dispatch, getState) {
 
@@ -373,7 +379,7 @@ export function fetchMessages(obj) {
 
         syncStatus.msg = true;
 
-        axios.get(window.lhcChat['base_url'] + "widgetrestapi/fetchmessages", {params : obj})
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/fetchmessages", obj, defaultHeaders)
         .then((response) => {
 
             syncStatus.msg = false;
@@ -385,7 +391,7 @@ export function fetchMessages(obj) {
             helperFunctions.emitEvent('chat.fetch_messages',[response.data, dispatch, getState]);
 
             if (response.data.cs || (response.data.closed && response.data.closed === true)) {
-                axios.get(window.lhcChat['base_url'] + "widgetrestapi/checkchatstatus", {params :obj})
+                axios.post(window.lhcChat['base_url'] + "widgetrestapi/checkchatstatus", obj, defaultHeaders)
                 .then((response) => {
                     if (response.data.deleted) {
                         //window.lhcChat.eventEmitter.emitEvent('endChat', [{'sender' : 'endButton'}]);
@@ -401,6 +407,11 @@ export function fetchMessages(obj) {
 
         })
         .catch((err) => {
+
+            if (isNetworkError(err)) {
+                dispatch({type: "NO_CONNECTION", data: true});
+            }
+
             syncStatus.msg = false;
         })
     }
@@ -415,7 +426,7 @@ export function checkChatStatus(obj) {
 
         syncStatus.status = true;
 
-        axios.get(window.lhcChat['base_url'] + "widgetrestapi/checkchatstatus", {params : obj})
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/checkchatstatus", obj, defaultHeaders)
         .then((response) => {
             if (response.data.deleted) {
                 helperFunctions.sendMessageParent('endChat',[{'sender' : 'endButton'}]);
@@ -457,7 +468,7 @@ export function pageUnload() {
         }
 
         if (state.chatwidget.hasIn(['chatData','id']) && state.chatwidget.hasIn(['chatData','hash'])) {
-            axios.get(window.lhcChat['base_url'] + "chat/userclosechat/" +  state.chatwidget.getIn(['chatData','id']) + '/' + state.chatwidget.getIn(['chatData','hash']));
+            axios.post(window.lhcChat['base_url'] + "chat/userclosechat/" +  state.chatwidget.getIn(['chatData','id']) + '/' + state.chatwidget.getIn(['chatData','hash']), null, defaultHeaders);
         } else if (state.chatwidget.getIn(['proactive','has']) === true && window.lhcChat['mode'] == 'popup' && window.opener) {
             hideInvitation()(dispatch, getState);
         }
@@ -516,38 +527,41 @@ export function addMessage(obj) {
 
             })
             .catch((error) => {
-
-                syncStatus.error_counter++;
-
-                var stack = null;
-
-                // Error
-                if (error.response) {
-                    stack = JSON.stringify(JSON.stringify(error) + "\nRD:"+JSON.stringify(error.response.data) +"\nRH:"+ JSON.stringify(error.response.headers) +"\nRS:"+ JSON.stringify(error.response.status));
-                } else if (error.request) {
-                    stack = JSON.stringify(JSON.stringify(error));
+                if (isNetworkError(error)) {
+                    dispatch({type: "ADD_MESSAGES_SUBMITTED", data: {r: "SEND_CONNECTION", "msg" : obj.msg}});
+                    dispatch({type: "NO_CONNECTION", data: true});
                 } else {
-                    stack = JSON.stringify(JSON.stringify(error));
+                    syncStatus.error_counter++;
+
+                    var stack = null;
+
+                    // Error
+                    if (error.response) {
+                        stack = JSON.stringify(JSON.stringify(error) + "\nRD:"+JSON.stringify(error.response.data) +"\nRH:"+ JSON.stringify(error.response.headers) +"\nRS:"+ JSON.stringify(error.response.status));
+                    } else if (error.request) {
+                        stack = JSON.stringify(JSON.stringify(error));
+                    } else {
+                        stack = JSON.stringify(JSON.stringify(error));
+                    }
+
+                    // Log error only if it happens two times in a row
+                    if (syncStatus.error_counter == 2) {
+
+                        helperFunctions.logJSError({
+                            'stack': stack
+                        });
+
+                        helperFunctions.eventEmitter.emitEvent('messageSendError', [{'chat_id':obj.id, 'hash': obj.hash, msg: stack}]);
+
+                        checkErrorCounter();
+                    } else {
+
+                        dispatch({type: "ADD_MESSAGES_SUBMITTED", data: {r: "SEND_FAILED", "msg" : obj.msg}});
+
+                        // Try to send message again
+                        addMessage(obj)(dispatch, getState);
+                    }
                 }
-
-                // Log error only if it happens two times in a row
-                if (syncStatus.error_counter == 2) {
-
-                    helperFunctions.logJSError({
-                        'stack': stack
-                    });
-
-                    helperFunctions.eventEmitter.emitEvent('messageSendError', [{'chat_id':obj.id, 'hash': obj.hash, msg: stack}]);
-
-                    checkErrorCounter();
-                } else {
-
-                    dispatch({type: "ADD_MESSAGES_SUBMITTED", data: {r: "SEND_FAILED", "msg" : obj.msg}});
-
-                    // Try to send message again
-                    addMessage(obj)(dispatch, getState);
-                }
-
             })
     }
 }
@@ -565,6 +579,8 @@ export function userTyping(status, msg) {
         if (!state.chatwidget.get('overrides').contains('typing')) {
             axios.post(window.lhcChat['base_url'] + "chat/usertyping/" + state.chatwidget.getIn(['chatData','id']) + '/' + state.chatwidget.getIn(['chatData','hash']) + '/' + status, {'msg' : msg}, defaultHeaders)
                 .then((response) => {
+            }).catch((err) => {
+                console.log(err);
             });
         }
     }

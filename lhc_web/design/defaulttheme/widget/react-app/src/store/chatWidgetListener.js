@@ -298,6 +298,9 @@ export default function (dispatch, getState) {
         });
     };
 
+    window.addEventListener('online', () => dispatch({type: "NO_CONNECTION", data: false}));
+    window.addEventListener('offline', () => dispatch({type: "NO_CONNECTION", data: true}));
+
     // Iframe is ready to receive updates
     // But we do not want to receive any updates as popup
     if (!window.opener && !window.initializeLHC) {

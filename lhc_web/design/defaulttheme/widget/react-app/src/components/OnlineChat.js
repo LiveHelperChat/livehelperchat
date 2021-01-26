@@ -771,7 +771,7 @@ class OnlineChat extends Component {
                     </div>
 
                     <div className={(this.props.chatwidget.get('msgLoaded') === false || this.state.enabledEditor === false ? 'd-none ' : 'd-flex ') + "flex-row border-top position-relative message-send-area"} >
-                        {(this.props.chatwidget.getIn(['chatLiveData','ott']) || this.props.chatwidget.getIn(['chatLiveData','error'])) && <div id="id-operator-typing" className="bg-white pl-1">{this.props.chatwidget.getIn(['chatLiveData','error']) ? (this.props.chatwidget.getIn(['chatLiveData','error']) != 'SEND_FAILED' ? this.props.chatwidget.getIn(['chatLiveData','error']) : t('online_chat.send_failed')) : this.props.chatwidget.getIn(['chatLiveData','ott'])}</div>}
+                        {(this.props.chatwidget.getIn(['chatLiveData','ott']) || (this.props.chatwidget.getIn(['chatLiveData','error']) && this.props.chatwidget.getIn(['chatLiveData','error']) != 'SEND_CONNECTION') || this.props.chatwidget.get('network_down')) && <div id="id-operator-typing" className="bg-white pl-1">{this.props.chatwidget.getIn(['chatLiveData','error']) ? (this.props.chatwidget.getIn(['chatLiveData','error']).indexOf('SEND_') === -1 ? this.props.chatwidget.getIn(['chatLiveData','error']) : t('online_chat.'+this.props.chatwidget.getIn(['chatLiveData','error']).toLowerCase())) : (this.props.chatwidget.get('network_down') ? t('online_chat.send_connection') : this.props.chatwidget.getIn(['chatLiveData','ott']))}</div>}
 
                         <ChatOptions elementId="chat-dropdown-options">
                             <div className="btn-group dropup disable-select pl-2 pt-2">
@@ -792,10 +792,10 @@ class OnlineChat extends Component {
 
                         <div className={message_send_style}>
                             {this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.hasIn(['chat_ui','survey_id']) && <button onClick={this.goToSurvey} className="w-100 btn btn-success">{t('online_chat.go_to_survey')}</button>}
-                            {(!this.props.chatwidget.getIn(['chatLiveData','closed']) || !this.props.chatwidget.hasIn(['chat_ui','survey_id'])) && <textarea maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} onFocus={this.scrollBottom} onTouchStart={this.scrollBottom} aria-label="Type your message here..." onKeyUp={this.keyUp} readOnly={this.props.chatwidget.getIn(['chatLiveData','closed'])} id="CSChatMessage" placeholder={placeholder} onKeyDown={this.enterKeyDown} value={this.state.value} onChange={this.handleChange} ref={this.textMessageRef} rows="1" className={"pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0 "+((this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/8.6))) ? 'msg-two-line' : 'msg-one-line')} />}
+                            {(!this.props.chatwidget.getIn(['chatLiveData','closed']) || !this.props.chatwidget.hasIn(['chat_ui','survey_id'])) && <textarea maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} onFocus={this.scrollBottom} onTouchStart={this.scrollBottom} onKeyUp={this.keyUp} readOnly={this.props.chatwidget.getIn(['chatLiveData','closed']) || this.props.chatwidget.get('network_down')} id="CSChatMessage" placeholder={placeholder} onKeyDown={this.enterKeyDown} value={!this.props.chatwidget.getIn(['chatLiveData','closed']) ? this.state.value : ''} onChange={this.handleChange} ref={this.textMessageRef} rows="1" className={"pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0 "+((this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/8.6))) ? 'msg-two-line' : 'msg-one-line')} />}
                         </div>
 
-                        {!this.props.chatwidget.getIn(['chatLiveData','closed']) && <div className="disable-select">
+                        {!this.props.chatwidget.getIn(['chatLiveData','closed']) && !this.props.chatwidget.get('network_down') && <div className="disable-select">
 
                                 <div className="user-chatwidget-buttons pt-1 pr-1" id="ChatSendButtonContainer">
 

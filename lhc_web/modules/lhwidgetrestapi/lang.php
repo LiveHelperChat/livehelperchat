@@ -41,7 +41,8 @@ $translations = array(
     "online_chat" => [
         "go_to_survey" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Go to Survey.'),
         "leave_a_message" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Leave a message'),
-        "send_failed" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','There was an issue sending the message. Try again.')
+        "send_failed" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','There was an issue sending the message. Try again.'),
+        "send_connection" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','No internet connection.')
     ],
     "department" => [
         "offline" => "--=" . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Offline') . "=--",
