@@ -111,7 +111,7 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
             $msg->msg = trim(implode("\n", $messagesToStore));
 
         } else {
-            throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You cannot send messages to this chat. Please refresh your browser.'), 100);
+            throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You cannot send messages to this chat. Chat has been closed.'), 100);
         }
 
         $db->commit();
@@ -130,24 +130,30 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
     } catch (Exception $e) {
         $db->rollback();
 
-        echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $e->getMessage(), 'system' => true));
-
-        $statusString = '';
-
-        if (isset($chat)) {
-            $statusString = ' | '. $chat->status . '_' . $chat->satus_sub;
+        if ($e->getCode() !== 100) {
+            echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $e->getMessage(), 'system' => true));
+        } else {
+            echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $e->getMessage()));
         }
 
-        erLhcoreClassLog::write($e->getMessage() . ' - ' . $e->getTraceAsString() . $statusString,
-            ezcLog::SUCCESS_AUDIT,
-            array(
-                'source' => 'lhc',
-                'category' => 'store',
-                'line' => $e->getLine(),
-                'file' => 'addmsguser.php',
-                'object_id' => $payload['id']
-            )
-        );
+        if ($e->getCode() !== 100) {
+            $statusString = '';
+
+            if (isset($chat)) {
+                $statusString = ' | '. $chat->status . '_' . $chat->satus_sub;
+            }
+
+            erLhcoreClassLog::write($e->getMessage() . ' - ' . $e->getTraceAsString() . $statusString,
+                ezcLog::SUCCESS_AUDIT,
+                array(
+                    'source' => 'lhc',
+                    'category' => 'store',
+                    'line' => $e->getLine(),
+                    'file' => 'addmsguser.php',
+                    'object_id' => $payload['id']
+                )
+            );
+        }
 
         exit;
     }

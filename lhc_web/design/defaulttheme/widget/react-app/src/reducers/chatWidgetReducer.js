@@ -13,6 +13,7 @@ const initialState = fromJS({
     theme: null,
     pvhash: null,
     phash: null,
+    network_down: false,
     leave_message: true,
     mode: 'widget',
     overrides: [], // we store here extensions flags. Like do we override typing monitoring so we send every request
@@ -278,6 +279,7 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.setIn(['chatLiveData','status_sub'], action.data.status_sub)
                 .setIn(['chatLiveData','status'], action.data.status)
                 .set('msgLoaded', true)
+                .set('network_down', false)
                 .setIn(['chatLiveData','closed'], action.data.closed && action.data.closed === true)
         }
 
@@ -292,6 +294,7 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .setIn(['chatLiveData','status'], action.data.status)
                 .setIn(['chatLiveData','uid'], action.data.uid)
                 .setIn(['chatLiveData','ru'], action.data.ru ? action.data.ru : null)
+                .set('network_down', false)
                 .setIn(['chatLiveData','status_sub'], action.data.status_sub);
         }
 
@@ -321,6 +324,10 @@ const chatWidgetReducer = (state = initialState, action) => {
 
         case 'ADD_MESSAGES_SUBMITTED': {
             return state.setIn(['chatLiveData','error'], action.data.r).setIn(['chatLiveData','lmsg'], action.data.r ? action.data.msg : "");
+        }
+
+        case 'NO_CONNECTION': {
+            return state.set('network_down', action.data);
         }
 
         default:
