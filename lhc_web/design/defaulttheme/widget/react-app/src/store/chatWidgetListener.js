@@ -298,7 +298,8 @@ export default function (dispatch, getState) {
         });
     };
 
-    window.addEventListener('online', () => dispatch({type: "NO_CONNECTION", data: false}));
+    // We are not listening online event, because we want that this attribute would be changed by xhr call so we will be sure there is an internet.
+    // window.addEventListener('online', () => dispatch({type: "NO_CONNECTION", data: false}));
     window.addEventListener('offline', () => dispatch({type: "NO_CONNECTION", data: true}));
 
     // Iframe is ready to receive updates
