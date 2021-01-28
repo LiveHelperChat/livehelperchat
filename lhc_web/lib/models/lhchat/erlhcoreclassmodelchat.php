@@ -278,6 +278,10 @@ class erLhcoreClassModelChat {
             $this->last_msg_time = max($this->last_user_msg_time, $this->last_op_msg_time);
             return $this->last_msg_time;
 
+       case 'last_msg_time_front':
+            $this->last_msg_time_front = erLhcoreClassChat::formatSeconds(time() - max($this->last_user_msg_time, $this->last_op_msg_time, $this->pnd_time));
+            return $this->last_msg_time_front;
+
        	case 'wait_time_front':
        		   $this->wait_time_front = erLhcoreClassChat::formatSeconds($this->wait_time);
        		   return $this->wait_time_front;
@@ -289,6 +293,10 @@ class erLhcoreClassModelChat {
        	case 'wait_time_pending':
        		   $this->wait_time_pending = erLhcoreClassChat::formatSeconds($this->wait_time_seconds);
        		   return $this->wait_time_pending;
+
+       	case 'pnd_rsp':
+       		   $this->pnd_rsp = $this->status == self::STATUS_PENDING_CHAT || $this->last_user_msg_time > $this->last_op_msg_time;
+       		   return $this->pnd_rsp;
 
        	case 'chat_duration_front':
        	       if ($this->chat_duration > 0) {

@@ -12,8 +12,11 @@
 			</th>           
             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/additional_column_header.tpl.php'));?>
 			<th width="20%">
-    			<a ng-click="lhc.toggleWidgetSort('active_chats_sort','id_dsc','id_asc',true)">
-    			 <i ng-class="{'text-muted' : (lhc.toggleWidgetData['active_chats_sort'] != 'id_asc' && lhc.toggleWidgetData['active_chats_sort'] != 'id_dsc')}" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort by time')?>" class="material-icons">{{lhc.toggleWidgetData['active_chats_sort'] == 'id_dsc' || lhc.toggleWidgetData['active_chats_sort'] != 'id_asc' ? 'trending_up' : 'trending_down'}}</i>
+    			<a ng-click="lhc.toggleWidgetSort('active_chats_sort','lmt_dsc','lmt_asc',true)">
+    			 <i ng-class="{'text-muted' : (lhc.toggleWidgetData['active_chats_sort'] != 'lmt_asc' && lhc.toggleWidgetData['active_chats_sort'] != 'lmt_dsc')}" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort by last message time')?>" class="material-icons">{{lhc.toggleWidgetData['active_chats_sort'] == 'lmt_dsc' || lhc.toggleWidgetData['active_chats_sort'] != 'lmt_asc' ? 'trending_up' : 'trending_down'}}</i>
+    			</a>
+                <a ng-click="lhc.toggleWidgetSort('active_chats_sort','id_dsc','id_asc',true)">
+    			 <i ng-class="{'text-muted' : (lhc.toggleWidgetData['active_chats_sort'] != 'id_asc' && lhc.toggleWidgetData['active_chats_sort'] != 'id_dsc')}" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort by chat start time')?>" class="material-icons">{{lhc.toggleWidgetData['active_chats_sort'] == 'id_dsc' || lhc.toggleWidgetData['active_chats_sort'] != 'id_asc' ? 'trending_up' : 'trending_down'}}</i>
     			</a>
 			</th>
 			<th width="20%">
@@ -34,7 +37,10 @@
 		</td>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/additional_column_body.tpl.php'));?>
 		<td>
-		  <div class="abbr-list" title="{{chat.time_created_front}}">{{chat.time_created_front}}</div>
+		  <div class="abbr-list" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Chat started at');?> - {{chat.time_created_front}}">
+              <span class="material-icons text-success" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Receive or send indicator and time since it happened');?>" ng-class="{'text-danger' : chat.pnd_rsp}"}>{{chat.pnd_rsp === true ? 'call_received' : 'call_made'}}</span>
+              {{chat.last_msg_time_front ? chat.last_msg_time_front : '&#x2709;'}}
+          </div>
 		</td>
 		<td>
 			<div class="abbr-list" title="{{chat.n_off_full}} | {{chat.plain_user_name}}">{{chat.n_office}}</div>

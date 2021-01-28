@@ -202,6 +202,8 @@ if ($activeTabEnabled == true) {
         'dep_dsc' => 'dep_id DESC',
         'id_asc' => 'id ASC',
         'id_dsc' => 'id DESC',
+        'lmt_asc' => 'last_msg_id ASC',
+        'lmt_dsc' => 'last_msg_id DESC',
         'loc_dsc' => 'country_code DESC',
         'loc_asc' => 'country_code ASC',
         'u_dsc' => 'nick DESC',
@@ -236,7 +238,7 @@ if ($activeTabEnabled == true) {
 	    $db->query('UPDATE `lh_chat` SET `status_sub_sub` = 0 WHERE `id` IN (' . implode(',', $transferedArray) . ')');
 	}
 
-	erLhcoreClassChat::prefillGetAttributes($chats,array('hum','time_created_front','department_name','plain_user_name','product_name','n_official','n_off_full','aicons'),array('has_unread_messages','product_id','product','department','time','pnd_time','status','user_id','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
+	erLhcoreClassChat::prefillGetAttributes($chats,array('hum','time_created_front','department_name','plain_user_name','product_name','n_official','pnd_rsp','n_off_full','aicons','last_msg_time_front'),array('last_op_msg_time','has_unread_messages','product_id','product','department','time','pnd_time','status','user_id','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
 	$ReturnMessages['active_chats'] = array('last_id_identifier' => 'active_chats', 'list' => array_values($chats));
 	$chatsList[] = & $ReturnMessages['active_chats']['list'];
 }
@@ -321,7 +323,7 @@ if ($myChatsEnabled == true) {
     /**
      * Get last pending chat
      * */
-    erLhcoreClassChat::prefillGetAttributes($myChats,array('hum','time_created_front','product_name','department_name','wait_time_pending','wait_time_seconds','plain_user_name','aicons'), array('has_unread_messages','product_id','product','department','time','pnd_time','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
+    erLhcoreClassChat::prefillGetAttributes($myChats,array('hum','time_created_front','product_name','department_name','pnd_rsp','last_msg_time_front','wait_time_pending','wait_time_seconds','plain_user_name','aicons'), array('last_op_msg_time','has_unread_messages','product_id','product','department','time','pnd_time','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
     
     $ReturnMessages['my_chats'] = array('list' => array_values($myChats));
     
@@ -371,7 +373,7 @@ if ($closedTabEnabled == true) {
 
 	$chatsListAll = $chatsListAll+$chats;
 
-	erLhcoreClassChat::prefillGetAttributes($chats,array('cls_time_front', 'time_created_front','department_name','plain_user_name','product_name'),array('product_id','product','department','time','status','user_id','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
+	erLhcoreClassChat::prefillGetAttributes($chats,array('cls_time_front', 'time_created_front','department_name','plain_user_name','product_name'),array('product_id','product','department','time','status','user_id','user','additional_data','additional_data_array','chat_variables','chat_variables_array','last_op_msg_time','pnd_time'),array('additional_columns' => $columnsAdditional));
 	$ReturnMessages['closed_chats'] = array('list' => array_values($chats));
 	
 	$chatsList[] = & $ReturnMessages['closed_chats']['list'];

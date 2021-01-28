@@ -50,7 +50,7 @@ class erLhcoreClassChat {
 			//'chat_variables',
 			// Angular remake
 			'referrer',
-			'last_op_msg_time',
+			//'last_op_msg_time',
 			'has_unread_op_messages',
 			'unread_op_messages_informed',
 			'tslasign',
