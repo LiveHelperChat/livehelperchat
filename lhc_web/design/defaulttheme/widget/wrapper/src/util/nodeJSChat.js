@@ -1,3 +1,5 @@
+import {helperFunctions} from '../lib/helperFunctions';
+
 class _nodeJSChat {
 
     constructor() {
@@ -15,7 +17,8 @@ class _nodeJSChat {
 
         var socketOptions = {
             hostname: params.hostname,
-            path: params.path
+            path: params.path,
+            authTokenName: 'socketCluster.authToken_vi'
         }
 
         if (params.port != '') {
@@ -48,27 +51,36 @@ class _nodeJSChat {
             });
         }
 
-        var chanelName = 'chat_'+'uo_' + vid;
+        var chanelName = 'uo_' + vid;
+
+        socket.on('deauthenticate', function() {
+            helperFunctions.makeRequest(attributes.LHC_API.args.lhc_base_url + attributes['lang'] + "nodejshelper/tokenvisitor", { params: {ts: (new Date()).getTime()}}, (data) => {
+                socket.emit('login', {hash: data, chanelName: chanelName}, function (err) {
+                    if (err) {
+                        console.log(err);
+                        socket.destroy();
+                    }
+                });
+            })
+        });
 
         socket.on('connect', function (status) {
             if (status.isAuthenticated) {
                 connectSiteVisitor();
-
                 // Disable check messages in case we connect to nodejs
                 attributes.LHC_API.args.check_messages = false;
-
             } else {
-                socket.emit('login', {hash: params.hash, chanelName: chanelName}, function (err) {
-                    if (err) {
-                        console.log(err);
-                    } else {
-
-                        connectSiteVisitor();
-
-                        // Disable check messages in case we connect to nodejs
-                        attributes.LHC_API.args.check_messages = false;
-                    }
-                });
+                helperFunctions.makeRequest(attributes.LHC_API.args.lhc_base_url + attributes['lang'] + "nodejshelper/tokenvisitor", { params: {ts: (new Date()).getTime()}}, (data) => {
+                    socket.emit('login', {hash: data, chanelName: chanelName}, function (err) {
+                        if (err) {
+                            console.log(err);
+                        } else {
+                            connectSiteVisitor();
+                            // Disable check messages in case we connect to nodejs
+                            attributes.LHC_API.args.check_messages = false;
+                        }
+                    });
+                })
             }
         });
     }

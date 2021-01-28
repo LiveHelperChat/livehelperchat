@@ -52,7 +52,7 @@ class _nodeJSChat {
         });
 
        function visitorTypingListener(data)
-        {
+       {
             if (data.status == true){
                 if (params.instance_id > 0) {
                     socket.publish('chat_'+params.instance_id+'_'+chatId,{'op':'vt','msg':data.msg});
@@ -66,7 +66,7 @@ class _nodeJSChat {
                     socket.publish('chat_'+chatId,{'op':'vts'});
                 }
             }
-        }
+       }
 
        function messageSend(data)
        {
@@ -168,7 +168,6 @@ class _nodeJSChat {
             helperFunctions.eventEmitter.addListener('messageSend', messageSend);
             helperFunctions.eventEmitter.addListener('messageSendError', messageSendError);
 
-
             dispatch({
                 'type': 'CHAT_UI_UPDATE',
                 'data': {sync_interval: 10000}
@@ -180,16 +179,34 @@ class _nodeJSChat {
             });
         }
 
+        socket.on('deauthenticate', function(){
+            const state = getState();
+            let chat_id = state.chatwidget.getIn(['chatData','id']);
+            window.lhcAxios.post(window.lhcChat['base_url'] + "nodejshelper/tokenvisitor/"+chat_id+"/"+state.chatwidget.getIn(['chatData','hash']), null, {headers : {'Content-Type': 'application/x-www-form-urlencoded'}}).then((response) => {
+                socket.emit('login', {hash:response.data, chanelName: (params.instance_id > 0 ? ('chat_'+params.instance_id+'_'+chat_id) : ('chat_'+chat_id)) }, function (err) {
+                    if (err) {
+                        console.log(err);
+                        socket.destroy();
+                    }
+                });
+            });
+        });
+
         socket.on('connect', function (status) {
             if (status.isAuthenticated && chatId > 0) {
                 connectVisitor();
             } else {
-                socket.emit('login', {hash:params.hash, chanelName: chanelName}, function (err) {
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        connectVisitor();
-                    }
+                const state = getState();
+                let chat_id = state.chatwidget.getIn(['chatData','id']);
+                window.lhcAxios.post(window.lhcChat['base_url'] + "nodejshelper/tokenvisitor/"+chat_id+"/"+state.chatwidget.getIn(['chatData','hash']), null, {headers : {'Content-Type': 'application/x-www-form-urlencoded'}}).then((response) => {
+                    socket.emit('login', {hash: response.data, chanelName: (params.instance_id > 0 ? ('chat_'+params.instance_id+'_'+chat_id) : ('chat_'+chat_id)) }, function (err) {
+                        if (err) {
+                            console.log(err);
+                            socket.destroy();
+                        } else {
+                            connectVisitor();
+                        }
+                    });
                 });
             }
         });
