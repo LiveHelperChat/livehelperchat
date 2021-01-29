@@ -10,6 +10,8 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 {
   $tpl = erLhcoreClassTemplate::getInstance('lhchat/sendmail.tpl.php');
   $mailTemplate = erLhAbstractModelEmailTemplate::fetch(1);
+  $mailTemplate->translate($chat->chat_locale);
+
   erLhcoreClassChatMail::prepareSendMail($mailTemplate, $chat);
   $mailTemplate->recipient = $chat->email;
 

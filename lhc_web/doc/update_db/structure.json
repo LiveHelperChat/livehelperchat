@@ -2220,6 +2220,15 @@
         "collation": "utf8mb4_unicode_ci"
       },
       {
+        "field": "translations",
+        "type": "longtext",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
         "field": "subject",
         "type": "varchar(250)",
         "null": "NO",

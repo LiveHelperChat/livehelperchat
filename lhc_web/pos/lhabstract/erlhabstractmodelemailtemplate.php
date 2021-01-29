@@ -54,6 +54,11 @@ $def->properties['reply_to']->columnName   = 'reply_to';
 $def->properties['reply_to']->propertyName = 'reply_to';
 $def->properties['reply_to']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['translations'] = new ezcPersistentObjectProperty();
+$def->properties['translations']->columnName   = 'translations';
+$def->properties['translations']->propertyName = 'translations';
+$def->properties['translations']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['reply_to_ac'] = new ezcPersistentObjectProperty();
 $def->properties['reply_to_ac']->columnName   = 'reply_to_ac';
 $def->properties['reply_to_ac']->propertyName = 'reply_to_ac';

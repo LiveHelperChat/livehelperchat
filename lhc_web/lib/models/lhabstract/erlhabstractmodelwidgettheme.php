@@ -210,8 +210,6 @@ class erLhAbstractModelWidgetTheme {
 	    return $metaData;
 	}
 
-
-
 	public function afterSave()
     {
         $movePhotos = array(

@@ -18,6 +18,8 @@ if ($chat instanceof erLhcoreClassModelChat && $chat->hash == $Params['user_para
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_send', array('chat' => & $chat, 'errors' => & $Errors));
 
                 $mailTemplate = erLhAbstractModelEmailTemplate::fetch(3);
+                $mailTemplate->translate($chat->chat_locale);
+
                 erLhcoreClassChatMail::prepareSendMail($mailTemplate, $chat);
                 $mailTemplate->recipient = $payload['email'];
 
