@@ -921,6 +921,7 @@ class Install
 				  `from_email_ac` tinyint(4) NOT NULL,
 				  `user_mail_as_sender` tinyint(4) NOT NULL,
 				  `content` text NOT NULL,
+				  `use_chat_locale` tinyint(1) NOT NULL DEFAULT '0',
                   `translations` longtext NOT NULL,
 				  `subject` varchar(250) NOT NULL,
 				  `bcc_recipients` varchar(200) NOT NULL,

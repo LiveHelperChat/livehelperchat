@@ -59,6 +59,11 @@ $def->properties['translations']->columnName   = 'translations';
 $def->properties['translations']->propertyName = 'translations';
 $def->properties['translations']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['use_chat_locale'] = new ezcPersistentObjectProperty();
+$def->properties['use_chat_locale']->columnName   = 'use_chat_locale';
+$def->properties['use_chat_locale']->propertyName = 'use_chat_locale';
+$def->properties['use_chat_locale']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['reply_to_ac'] = new ezcPersistentObjectProperty();
 $def->properties['reply_to_ac']->columnName   = 'reply_to_ac';
 $def->properties['reply_to_ac']->propertyName = 'reply_to_ac';

@@ -1054,6 +1054,7 @@ try {
 				  `from_email` varchar(150) NOT NULL,
 				  `from_email_ac` tinyint(4) NOT NULL,
 				  `user_mail_as_sender` tinyint(4) NOT NULL,
+                  `use_chat_locale` tinyint(1) NOT NULL DEFAULT '0',
 				  `content` text NOT NULL,
                   `translations` longtext NOT NULL,
 				  `subject` varchar(250) NOT NULL,

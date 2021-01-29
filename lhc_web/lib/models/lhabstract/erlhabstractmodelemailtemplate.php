@@ -30,6 +30,7 @@ class erLhAbstractModelEmailTemplate {
 			'content'    	=> $this->content,
 			'bcc_recipients'=> $this->bcc_recipients,
 			'translations'=> $this->translations,
+			'use_chat_locale'=> $this->use_chat_locale,
 		);
 
 		return $stateArray;
@@ -68,7 +69,7 @@ class erLhAbstractModelEmailTemplate {
         $chatLocale = null;
         $chatLocaleFallback = erConfigClassLhConfig::getInstance()->getDirLanguage('content_language');
 
-        if ($locale != '') {
+        if ($this->use_chat_locale == 1 && $locale != '') {
             $chatLocale = $locale;
         } else if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
             $parts = explode(';',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
@@ -171,6 +172,7 @@ class erLhAbstractModelEmailTemplate {
 	public $recipient = '';
 	public $bcc_recipients = '';
 	public $translations = '';
+	public $use_chat_locale = 0;
 
 	public $hide_add = true;
 	public $hide_delete = true;

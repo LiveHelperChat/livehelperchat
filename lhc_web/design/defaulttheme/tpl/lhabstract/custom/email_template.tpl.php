@@ -13,6 +13,10 @@
     <?php echo erLhcoreClassAbstract::renderInput('name', $fields['name'], $object)?>
 </div>
 
+<div class="form-group">
+    <label><?php echo erLhcoreClassAbstract::renderInput('use_chat_locale', $fields['use_chat_locale'], $object)?> <?php echo $fields['use_chat_locale']['trans'];?></label>
+</div>
+
 <?php $translatableItem = array('identifier' => 'subject'); ?>
 <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
