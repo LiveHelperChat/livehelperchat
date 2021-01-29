@@ -482,6 +482,9 @@ class erLhAbstractModelWidgetTheme {
             'chat_unavailable',
             'custom_op_name',
             'custom_tos_text',
+            'min_text',
+            'popup_text',
+            'end_chat_text',
         ),$attributesDirect);
 
         $attributes = $this->bot_configuration_array;

@@ -517,10 +517,30 @@ if (erLhcoreClassModelChatConfig::fetch('product_enabled_module')->current_value
     $departmentsOptions['settings']['product'] = true;
 }
 
-
 if ($theme !== false) {
 
     if ($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') {
+
+        if ($Params['user_parameters_unordered']['mode'] == 'widget') {
+            if ($theme->popup_image_url != '') {
+                $chat_ui['img_icon_popup'] = $theme->popup_image_url;
+            }
+
+            if ($theme->close_image_url != '') {
+                $chat_ui['img_icon_close'] = $theme->close_image_url;
+            }
+
+            if ($theme->minimize_image_url != '') {
+                $chat_ui['img_icon_min'] = $theme->minimize_image_url;
+            }
+
+            foreach (array('min_text','popup_text','end_chat_text') as $textIcon) {
+                if (isset($theme->bot_configuration_array[$textIcon]) && $theme->bot_configuration_array[$textIcon] != '') {
+                    $chat_ui[$textIcon] = $theme->bot_configuration_array[$textIcon];
+                }
+            }
+        }
+
         if (isset($theme->bot_configuration_array['custom_html_widget_bot']) && $theme->bot_configuration_array['custom_html_widget_bot'] != '') {
             $onlyBotOnline = erLhcoreClassChat::isOnlyBotOnline($departament_id > 0 ? $departament_id : $Params['user_parameters_unordered']['department']);
 

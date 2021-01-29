@@ -474,6 +474,39 @@ $fields = array(
                       'validation_definition' => new ezcInputFormDefinitionElement(
                           ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                       )),
+                'min_text' => array(
+                      'type' => 'text',
+                      'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Title of the minimize icon'),
+                      'required' => false,
+                      'hidden' => true,
+                      'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Minimize'),
+                      'translatable' => true,
+                      'main_attr' => 'bot_configuration_array',
+                      'validation_definition' => new ezcInputFormDefinitionElement(
+                          ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                      )),
+                'popup_text' => array(
+                      'type' => 'text',
+                      'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Title of the popup icon'),
+                      'required' => false,
+                      'hidden' => true,
+                      'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Popup'),
+                      'translatable' => true,
+                      'main_attr' => 'bot_configuration_array',
+                      'validation_definition' => new ezcInputFormDefinitionElement(
+                          ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                      )),
+                'end_chat_text' => array(
+                      'type' => 'text',
+                      'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Title of the end chat icon'),
+                      'required' => false,
+                      'hidden' => true,
+                      'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','End chat'),
+                      'translatable' => true,
+                      'main_attr' => 'bot_configuration_array',
+                      'validation_definition' => new ezcInputFormDefinitionElement(
+                          ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                      )),
                 'custom_start_button_bot' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Start chat button text, bot chat'),

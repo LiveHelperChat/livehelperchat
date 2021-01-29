@@ -54,14 +54,20 @@ class HeaderChat extends Component {
                 {hasHeader && <div className="lhc-custom-header-inside" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header_body'])}}></div>}
 
                 {closeInst && <div className="col-6 pl-1 minimize-icon">
-                    <span className="header-link" title={t('button.minimize')} onClick={this.closeWidget}><i className="material-icons">&#xf103;</i></span>
+                    <span className="header-link" title={this.props.chatwidget.getIn(['chat_ui','min_text']) || t('button.minimize')} onClick={this.closeWidget}>
+                        {(this.props.chatwidget.hasIn(['chat_ui','img_icon_min']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_min'])} alt="" />) || <i className="material-icons">&#xf103;</i>}
+                    </span>
                 </div>}
 
                 {(hasPopup || showClose) && <div className={classNameMenu}>
                     <div className="d-flex">
                         <div className={(window.lhcChat['staticJS']['dir'] == 'rtl' ? "mr" : "ml")+"-auto"}>
-                            {hasPopup && <a className="header-link" title={t('button.popup')} onClick={this.popup}><i className="material-icons">&#xf106;</i></a>}
-                            {showClose && <a title={t('button.end_chat')} className="header-link" onClick={this.endChat}><i className="material-icons">&#xf10a;</i></a>}
+                            {hasPopup && <a className="header-link" title={this.props.chatwidget.getIn(['chat_ui','popup_text']) || t('button.popup')} onClick={this.popup}>
+                                    {(this.props.chatwidget.hasIn(['chat_ui','img_icon_popup']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_popup'])} alt="" />) || <i className="material-icons">&#xf106;</i>}
+                                </a>}
+                            {showClose && <a title={this.props.chatwidget.getIn(['chat_ui','end_chat_text']) || t('button.end_chat')} className="header-link" onClick={this.endChat}>
+                                {(this.props.chatwidget.hasIn(['chat_ui','img_icon_close']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_close'])} alt="" />) || <i className="material-icons">&#xf10a;</i>}
+                            </a>}
                         </div>
                     </div>
                 </div>}
