@@ -43,7 +43,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'] && ($c
 
             $tpl = erLhcoreClassTemplate::getInstance('lhchat/sendmail.tpl.php');
             $mailTemplate = erLhAbstractModelEmailTemplate::fetch(3);
-            $mailTemplate->translate();
+            $mailTemplate->translate($chat->chat_locale);
 
             erLhcoreClassChatMail::prepareSendMail($mailTemplate, $chat);
             $mailTemplate->recipient = $form->email;

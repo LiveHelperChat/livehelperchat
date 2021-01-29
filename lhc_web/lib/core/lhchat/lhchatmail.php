@@ -526,7 +526,7 @@ class erLhcoreClassChatMail {
     	}
     	
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(11);
-        $sendMail->translate();
+        $sendMail->translate($chat->chat_locale);
 
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
