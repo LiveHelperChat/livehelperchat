@@ -22,7 +22,8 @@ class _nodeJSChat {
 
         var socketOptions = {
             hostname: params.hostname,
-            path: params.path
+            path: params.path,
+            autoReconnectOptions: {initialDelay: 5000, randomness: 5000}
         }
 
         if (params.port != '') {
