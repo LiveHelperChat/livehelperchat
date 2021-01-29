@@ -328,9 +328,9 @@ class erLhcoreClassGenericBotActionRestapi
             $headers[] = 'Authorization: Bearer ' . $methodSettings['auth_bearer'];
         } else if (isset($methodSettings['authorization']) && $methodSettings['authorization'] == 'apikey') {
             if ($methodSettings['api_key_location'] == 'header' && isset($methodSettings['auth_api_key_key']) && isset($methodSettings['auth_api_key_name'])) {
-                $headers[] = $methodSettings['auth_api_key_key'] . ': ' . $methodSettings['auth_api_key_name'];
+                $headers[] = $methodSettings['auth_api_key_name'] . ': ' . $methodSettings['auth_api_key_key'];
             } else if ($methodSettings['api_key_location'] == 'queryparams') {
-                $queryArgs[$methodSettings['auth_api_key_key']] = $methodSettings['auth_api_key_name'];
+                $queryArgs[$methodSettings['auth_api_key_name']] = $methodSettings['auth_api_key_key'];
             }
         }
 
