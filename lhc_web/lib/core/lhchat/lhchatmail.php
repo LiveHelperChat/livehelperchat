@@ -201,6 +201,7 @@ class erLhcoreClassChatMail {
     public static function sendMailFAQ($faq) {
 
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(6);
+        $sendMail->translate();
 
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
@@ -238,7 +239,8 @@ class erLhcoreClassChatMail {
     
     public static function sendMailRequestPermission(erLhcoreClassModelUser $recipient, erLhcoreClassModelUser $sender, $requestedPermissions) {
         $sendMail = erLhAbstractModelEmailTemplate::fetch(10);
-        
+        $sendMail->translate();
+
         $mail = new PHPMailer();
         $mail->CharSet = "UTF-8";
         
@@ -262,6 +264,7 @@ class erLhcoreClassChatMail {
     public static function sendMailRequest($inputData, erLhcoreClassModelChat $chat, $params = array()) {
 
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(2);
+        $sendMail->translate();
 
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
@@ -343,7 +346,8 @@ class erLhcoreClassChatMail {
     
     public static function sendMailUnacceptedChat(erLhcoreClassModelChat $chat, $templateID = 4) {
     	$sendMail = erLhAbstractModelEmailTemplate::fetch($templateID);
-    	
+        $sendMail->translate();
+
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
     	
@@ -471,7 +475,8 @@ class erLhcoreClassChatMail {
     
     public static function informFormFilled($formCollected, $params = array()) {
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(8);
-    	
+        $sendMail->translate();
+
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
     	
@@ -521,6 +526,7 @@ class erLhcoreClassChatMail {
     	}
     	
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(11);
+        $sendMail->translate($chat->chat_locale);
 
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
@@ -568,7 +574,8 @@ class erLhcoreClassChatMail {
     
     public static function informChatClosed(erLhcoreClassModelChat $chat, $operator = false) {
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(5);
-    	
+        $sendMail->translate();
+
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
 
@@ -673,6 +680,7 @@ class erLhcoreClassChatMail {
 
     public static function informVisitorReturned($item) {
         $sendMail = erLhAbstractModelEmailTemplate::fetch(12);
+        $sendMail->translate();
 
         $mail = new PHPMailer();
         $mail->CharSet = "UTF-8";

@@ -1,3 +1,13 @@
+3.62v
+
+1. E-mail templates can be translatable now
+2. New widget now supports custom images for the header icons
+3. Title attribute can be translated for the header icons
+4. New dashboard left column can have lists instead of tabs layout.
+5. Changes to support to NodeJS Extension. Now it can track live connectivity status of the visitor.
+
+execute doc/update_db/update_235.sql for update
+
 3.61v
 
 1. Bot building interface will have option to set group position, expand collapse group triggers. Usefull if you have a big bot.

@@ -2,6 +2,16 @@
 
 class erLhAbstractModelEmailTemplate {
 
+    use erLhcoreClassDBTrait;
+
+    public static $dbTable = 'lh_abstract_email_template';
+
+    public static $dbTableId = 'id';
+
+    public static $dbSessionHandler = 'erLhcoreClassAbstract::getSession';
+
+    public static $dbSortOrder = 'ASC';
+
 	public function getState()
 	{
 		$stateArray = array (
@@ -18,19 +28,17 @@ class erLhAbstractModelEmailTemplate {
 			'recipient'     => $this->recipient,
 			'user_mail_as_sender'     => $this->user_mail_as_sender,
 			'content'    	=> $this->content,
-			'bcc_recipients'=> $this->bcc_recipients
+			'bcc_recipients'=> $this->bcc_recipients,
+			'translations'=> $this->translations,
+			'use_chat_locale'=> $this->use_chat_locale,
 		);
 
 		return $stateArray;
 	}
 
-	public function setState( array $properties )
-	{
-		foreach ( $properties as $key => $val )
-		{
-			$this->$key = $val;
-		}
-	}
+    public function customForm() {
+        return 'email_template.tpl.php';
+    }
 
 	public function __toString()
 	{
@@ -39,140 +47,89 @@ class erLhAbstractModelEmailTemplate {
 
    	public function getFields()
    	{
-   		return array(
-   				'name' => array(
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Name, for personal purposes'),
-   						'required' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'subject' => array (
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Subject'),
-   						'required' => false,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'subject_ac' => array (
-   						'type' => 'checkbox',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Allow user to change subject'),
-   						'required' => false,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'from_name' => array(
-   								'type' => 'text',
-   								'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','From name'),
-   								'required' => false,
-   								'validation_definition' => new ezcInputFormDefinitionElement(
-   										ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   								)),
-   				'from_name_ac' => array(
-   								'type' => 'checkbox',
-   								'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Allow to change from name'),
-   								'required' => false,
-   								'hidden' => true,
-   								'validation_definition' => new ezcInputFormDefinitionElement(
-   										ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-   								)),
-   				'from_email' => array(
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','From e-mail'),
-   						'required' => false,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'from_email_ac' => array(
-   						'type' => 'checkbox',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Allow to change from e-mail'),
-   						'required' => false,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-   						)),
-   				'user_mail_as_sender' => array(
-   						'type' => 'checkbox',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Use user e-mail as from address'),
-   						'required' => false,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-   						)),
-   				'reply_to' => array(
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Reply to'),
-   						'required' => false,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'reply_to_ac' => array(
-   						'type' => 'checkbox',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Allow to change reply e-mail'),
-   						'required' => false,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-   						)),
-   				'recipient' => array(
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Recipient email, this is used if the application could not determine who should receive an email.'),
-   						'required' => false,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'bcc_recipients' => array(
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','BCC recipients, can be separated by comma.'),
-   						'required' => false,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'content' => array(
-   						'type' => 'textarea',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Content'),
-   						'required' => false,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						))
-   		);
+        return include('lib/core/lhabstract/fields/erlhabstractmodelemailtemplate.php');
 	}
+
+    public function beforeUpdate()
+    {
+        $this->translations = json_encode($this->translations_array);
+    }
+
+    public function beforeSave()
+    {
+        $this->translations = json_encode($this->translations_array);
+    }
 
 	public function getModuleTranslations()
 	{
 		return array('permission_delete' => array('module' => 'lhsystem','function' => 'changetemplates'),'permission' => array('module' => 'lhsystem','function' => 'changetemplates'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','E-mail templates'));
 	}
 
-	public static function getCount($params = array())
-	{
-		$session = erLhcoreClassAbstract::getSession();
-		$q = $session->database->createSelectQuery();
-		$q->select( "COUNT(id)" )->from( "lh_abstract_email_template" );
+    public function translate($locale = '') {
+        $chatLocale = null;
+        $chatLocaleFallback = erConfigClassLhConfig::getInstance()->getDirLanguage('content_language');
 
-		if (isset($params['filter']) && count($params['filter']) > 0)
-		{
-	   		$conditions = array();
+        if ($this->use_chat_locale == 1) {
+            if ($locale != '') {
+                $chatLocale = $locale;
+            } else if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+                $parts = explode(';',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
+                $languages = explode(',',$parts[0]);
+                if (isset($languages[0])) {
+                    $chatLocale = $languages[0];
+                }
+            }
+        }
 
-		   	foreach ($params['filter'] as $field => $fieldValue)
-		   	{
-		    	$conditions[] = $q->expr->eq( $field, $q->bindValue($fieldValue) );
-		   	}
+        $attributesDirect = array(
+            'subject',
+            'from_name',
+            'content'
+        );
 
-	   		$q->where( $conditions );
-		}
+        $translatableAttributes = array_merge(array(
+        ),$attributesDirect);
 
-		$stmt = $q->prepare();
-		$stmt->execute();
-		$result = $stmt->fetchColumn();
+        $attributes = $this->translations_array;
 
-		return $result;
-	}
+        foreach ($translatableAttributes as $attr) {
+            if (isset($attributes[$attr . '_lang'])) {
+
+                $translated = false;
+
+                if ($chatLocale !== null) {
+                    foreach ($attributes[$attr . '_lang'] as $attrTrans) {
+                        if (in_array($chatLocale, $attrTrans['languages']) && $attrTrans['content'] != '') {
+                            $attributes[$attr] = $attrTrans['content'];
+                            $translated = true;
+                            break;
+                        }
+                    }
+                }
+
+                if ($translated == false) {
+                    foreach ($attributes[$attr . '_lang'] as $attrTrans) {
+                        if (in_array($chatLocaleFallback, $attrTrans['languages']) && $attrTrans['content'] != '') {
+                            $attributes[$attr] = $attrTrans['content'];
+                            $translated = true;
+                            break;
+                        }
+                    }
+                }
+
+                if ($translated === true && in_array($attr,$attributesDirect)) {
+                    $this->$attr = $attributes[$attr];
+                }
+            }
+        }
+
+        $this->translations_array = $attributes;
+    }
+
+    public function dependFooterJs()
+    {
+        return '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/angular.lhc.theme.js').'"></script>';
+    }
 
 	public function __get($var)
 	{
@@ -182,85 +139,24 @@ class erLhAbstractModelEmailTemplate {
 	   		   return $this->left_menu;
 	   		break;
 
+       case 'translations_array':
+           $attr = str_replace('_array','',$var);
+           if (!empty($this->{$attr})) {
+               $jsonData = json_decode($this->{$attr},true);
+               if ($jsonData !== null) {
+                   $this->{$var} = $jsonData;
+               } else {
+                   $this->{$var} = array();
+               }
+           } else {
+               $this->{$var} = array();
+           }
+           return $this->{$var};
+           break;
+
 	   	default:
 	   		break;
 	   }
-	}
-
-	public static function fetch($id)
-	{
-		if (isset($GLOBALS['erLhAbstractModelEmailTemplate_'.$id])) return $GLOBALS['erLhAbstractModelEmailTemplate_'.$id];
-
-		try {
-			$GLOBALS['erLhAbstractModelEmailTemplate_'.$id] = erLhcoreClassAbstract::getSession()->load( 'erLhAbstractModelEmailTemplate', (int)$id );
-		} catch (Exception $e) {
-			$GLOBALS['erLhAbstractModelEmailTemplate_'.$id] = '-';
-		}
-
-		return $GLOBALS['erLhAbstractModelEmailTemplate_'.$id];
-	}
-
-	public function removeThis()
-	{
-		erLhcoreClassAbstract::getSession()->delete($this);
-	}
-
-	public static function getList($paramsSearch = array())
-   	{
-       	$paramsDefault = array('limit' => 500, 'offset' => 0);
-
-       	$params = array_merge($paramsDefault,$paramsSearch);
-
-       	$session = erLhcoreClassAbstract::getSession();
-
-       	$q = $session->createFindQuery( 'erLhAbstractModelEmailTemplate' );
-
-		$conditions = array();
-
-		if (isset($params['filter']) && count($params['filter']) > 0)
-		{
-			foreach ($params['filter'] as $field => $fieldValue)
-			{
-				$conditions[] = $q->expr->eq( $field, $q->bindValue($fieldValue) );
-			}
-		}
-
-		if (isset($params['filterin']) && count($params['filterin']) > 0)
-		{
-			foreach ($params['filterin'] as $field => $fieldValue)
-			{
-				$conditions[] = $q->expr->in( $field, $fieldValue );
-			}
-		}
-
-		if (isset($params['filterlt']) && count($params['filterlt']) > 0)
-		{
-			foreach ($params['filterlt'] as $field => $fieldValue)
-			{
-				$conditions[] = $q->expr->lt( $field, $q->bindValue($fieldValue) );
-			}
-		}
-
-		if (isset($params['filtergt']) && count($params['filtergt']) > 0)
-		{
-			foreach ($params['filtergt'] as $field => $fieldValue)
-			{
-				$conditions[] = $q->expr->gt( $field, $q->bindValue($fieldValue) );
-			}
-		}
-
-		if (count($conditions) > 0)
-		{
-			$q->where( $conditions );
-		}
-
-      	$q->limit($params['limit'],$params['offset']);
-
-      	$q->orderBy(isset($params['sort']) ? $params['sort'] : 'id ASC' );
-
-       	$objects = $session->find( $q );
-
-    	return $objects;
 	}
 
    	public $id = null;
@@ -277,6 +173,8 @@ class erLhAbstractModelEmailTemplate {
 	public $content = '';
 	public $recipient = '';
 	public $bcc_recipients = '';
+	public $translations = '';
+	public $use_chat_locale = 0;
 
 	public $hide_add = true;
 	public $hide_delete = true;
