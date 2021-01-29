@@ -53,6 +53,8 @@
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/basic_chat_enabled.tpl.php'));?>
 
                     <div role="tabpanel" class="border-top">
+
+                        <?php if ((int)erLhcoreClassModelUserSetting::getSetting('left_list',0) == 0) : ?>
                         <ul class="nav nav-underline nav-small nav-fill mb-0 pb-0 border-bottom" role="tablist" id="sub-tabs">
                             <li role="presentation" class="nav-item">
                                 <a class="nav-link active" href="#sub-tabs-open" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Open chats'); ?>" aria-controls="sub-tabs-open" role="tab" data-toggle="tab" aria-selected="true">
@@ -82,20 +84,26 @@
                             </li>
                             <?php endif;?>
                         </ul>
+                        <?php endif; ?>
+
                         <div class="tab-content sub-tabs-content">
                             <div role="tabpanel" class="tab-pane active" id="sub-tabs-open">
-                                <div id="tabs-dashboard">
-                                </div>
+                                <div id="tabs-dashboard"></div>
 
                                 <?php if ($currentUser->hasAccessTo('lhgroupchat','use')) : ?>
-                                    <div class="border-top border-bottom bg-light">
-                                        <div class="text-muted p-2"><i class="material-icons mr-0">list</i><span class="fs13 font-weight-bold">Group chats</span></div>
+                                <div class="border-top border-bottom bg-light card-header">
+                                    <div class="text-muted"><i class="material-icons">list</i><span class="fs13 font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Group chats')?></span>
+                                        <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('group_chat_widget_exp')" class="fs24 float-right material-icons exp-cntr">{{lhc.toggleWidgetData['group_chat_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
                                     </div>
+                                </div>
 
-                                    <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bodies/group_chats.tpl.php'));?>
+                                <div ng-if="lhc.toggleWidgetData['group_chat_widget_exp'] !== true">
+                                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bodies/group_chats.tpl.php'));?>
+                                </div>
                                 <?php endif;?>
+
                             </div>
-                            <?php if ($basicChatEnabled == true) : ?>
+                            <?php if ($basicChatEnabled == true && (int)erLhcoreClassModelUserSetting::getSetting('left_list',0) == 0) : ?>
                             <div role="tabpanel" class="tab-pane" id="sub-tabs-my-assigned">
                                 <?php $rightPanelMode = true; $hideCardHeader = true; ?>
                                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/my_chats_panel.tpl.php'));?>
@@ -120,10 +128,12 @@
                         </div>
                     </div>
 
-                    <?php /*<div class="dashboard-panels border-top d-flex flex-column flex-grow-1" style="position:relative">
-                    <?php $hideCard = true; ?>
-                    <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/right_panel_container.tpl.php'));?>
-                    </div>*/ ?>
+                    <?php if ($basicChatEnabled == true && (int)erLhcoreClassModelUserSetting::getSetting('left_list',0) == 1) : ?>
+                    <div class="dashboard-panels d-flex flex-column flex-grow-1" style="position:relative">
+                        <?php $hideCard = true; ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/right_panel_container.tpl.php'));?>
+                    </div>
+                    <?php endif; ?>
 
                 </div>
             </div>

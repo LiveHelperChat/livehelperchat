@@ -8,6 +8,9 @@ if ($Params['user_parameters_unordered']['action'] == 'tabs') {
 } elseif ($Params['user_parameters_unordered']['action'] == 'mode') {
     $identifier = 'dark_mode';
     $defaultValue = 0;
+} elseif ($Params['user_parameters_unordered']['action'] == 'left_list') {
+    $identifier = 'left_list';
+    $defaultValue = 0;
 }
 
 $oldSetting = (int)erLhcoreClassModelUserSetting::getSetting($identifier, $defaultValue);
