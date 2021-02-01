@@ -628,12 +628,19 @@ class erLhcoreClassTranslate
                 } else {
                     self::getBingAccessToken($translationConfig, $translationData);
                 }
-                
+
+                $supportedLanguages = self::getSupportedLanguages(true);
+
                 if ($translateFrom == false) {
                     $translateFrom = self::detectLanguage($text);
+                } else {
+                    if (!key_exists($translateFrom, $supportedLanguages)) {
+                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Operator language is not supported by Google translation service'). ' [' . $translateFrom . ']' );
+                    }
                 }
                 
                 return erLhcoreClassTranslateBing::translate($translationData['bing_access_token'], $text, $translateFrom, $translateTo);
+                
             } elseif ($translationData['translation_handler'] == 'google') {
 
                 $supportedLanguages = self::getSupportedLanguages(true);
@@ -653,8 +660,14 @@ class erLhcoreClassTranslate
                 return erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $text, $translateFrom, $translateTo, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
             } elseif ($translationData['translation_handler'] == 'yandex') {
 
+                $supportedLanguages = self::getSupportedLanguages(true);
+
                 if ($translateFrom == false) {
                     $translateFrom = self::detectLanguage($text);
+                } else {
+                    if (!key_exists($translateFrom, $supportedLanguages)) {
+                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Operator language is not supported by Google translation service'). ' [' . $translateFrom . ']' );
+                    }
                 }
 
 
