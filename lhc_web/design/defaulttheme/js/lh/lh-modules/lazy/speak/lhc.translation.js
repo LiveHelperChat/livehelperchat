@@ -11,8 +11,11 @@ module.exports = (function() {
 		// Disable buttons
 		params.btn.prop('disabled','disabled');		
 		params.btn.button('loading');
-	    
-		jQuery.getJSON(WWW_DIR_JAVASCRIPT + 'translation/starttranslation/' + params['chat_id'] + '/' +jQuery('#id_chat_locale_'+params['chat_id']).val()+'/'+jQuery('#id_chat_locale_to_'+params['chat_id']).val(), function(data){
+
+        jQuery.postJSON(WWW_DIR_JAVASCRIPT + 'translation/starttranslation/' + params['chat_id'] + '/' +jQuery('#id_chat_locale_'+params['chat_id']).val()+'/'+jQuery('#id_chat_locale_to_'+params['chat_id']).val(), {
+            live_translations: jQuery('#live_translations_'+params['chat_id']).is(':checked'),
+            translate_old: jQuery('#chat_auto_translate_'+params['chat_id']).is(':checked')
+        }, function(data) {
 			
 			// Handle errors
 			jQuery('#main-user-info-translation-'+params['chat_id']+' > div.alert').remove();
@@ -22,9 +25,6 @@ module.exports = (function() {
 			if (data.error === false) {				
 				if (data.translation_status === true) // User started translation process
 				{				
-					jQuery('#id_chat_locale_'+params['chat_id']+' option[value="' + data.chat_locale + '"]').prop('selected',true);
-					jQuery('#id_chat_locale_to_'+params['chat_id']+' option[value="' + data.chat_locale_to + '"]').prop('selected',true);
-					
 					// Clear current chat messages
 					jQuery('#messagesBlock-'+params['chat_id']).html('');
 					
@@ -39,10 +39,7 @@ module.exports = (function() {
 					
 					// Restore button
 					jQuery('.translate-button-'+params['chat_id']).removeClass('btn-success');
-					
-					// Restore to default options
-					jQuery('#id_chat_locale_'+params['chat_id']+' option[value="0"]').prop('selected',true);
-					jQuery('#id_chat_locale_to_'+params['chat_id']+' option[value="0"]').prop('selected',true);						
+
 				}
 			} else {
 				// There was an error so show tab for user
@@ -54,6 +51,33 @@ module.exports = (function() {
 			
 		});
 	};
-		
+
+    LHCTranslationText.prototype.translateMessage = function(params) {
+        params.btn.prop('disabled', 'disabled');
+        params.btn.button('loading');
+
+        jQuery.postJSON(WWW_DIR_JAVASCRIPT + 'translation/translateoperatormessage/' + params['chat_id'], {msg: jQuery('#CSChatMessage-' + params['chat_id']).val()}, function (data) {
+
+            if (data.error === false) {
+                jQuery('#CSChatMessage-' + params['chat_id']).val(data.msg)
+            } else {
+                alert(data.msg);
+            }
+
+            params.btn.button('reset');
+            params.btn.prop('disabled','');
+        });
+    };
+
+    LHCTranslationText.prototype.translateMessageVisitor = function(params) {
+        jQuery.postJSON(WWW_DIR_JAVASCRIPT + 'translation/translatevisitormessage/' + params['chat_id'] + '/' + params['msg_id'], function (data) {
+            if (data.error == false) {
+                lhinst.updateMessageRowAdmin(params['chat_id'], params['msg_id']);
+            } else {
+                alert(data.msg);
+            }
+        });
+    }
+
 	return new LHCTranslationText();
 })();

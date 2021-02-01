@@ -31,7 +31,6 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
 
         if ($chat->hash == $payload['hash'] && (in_array($chat->status,$validStatuses)) && !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) // Allow add messages only if chat is active
         {
-
             $msgText = preg_replace('/\[html\](.*?)\[\/html\]/ms','',$payload['msg']);
 
             $messagesToStore = explode('[[msgitm]]', trim($msgText));
@@ -46,7 +45,7 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
                     $msg->user_id = 0;
                     $msg->time = time();
 
-                    if ($chat->chat_locale != '' && $chat->chat_locale_to != '') {
+                    if ($chat->chat_locale != '' && $chat->chat_locale_to != '' && isset($chat->chat_variables_array['lhc_live_trans']) && $chat->chat_variables_array['lhc_live_trans'] === true) {
                         erLhcoreClassTranslate::translateChatMsgVisitor($chat, $msg);
                     }
 

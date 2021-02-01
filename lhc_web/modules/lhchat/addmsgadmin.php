@@ -66,7 +66,7 @@ if (trim($form->msg) != '')
     	        $msg->time = time();
     	        $msg->name_support = $userData->name_support;
     	        
-    	        if ($messageUserId != -1 && $Chat->chat_locale != '' && $Chat->chat_locale_to != '') {
+    	        if ($messageUserId != -1 && $Chat->chat_locale != '' && $Chat->chat_locale_to != '' && isset($Chat->chat_variables_array['lhc_live_trans']) && $Chat->chat_variables_array['lhc_live_trans'] === true) {
     	            erLhcoreClassTranslate::translateChatMsgOperator($Chat, $msg);
     	        }
 

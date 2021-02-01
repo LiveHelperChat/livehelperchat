@@ -16,6 +16,18 @@ $ViewList['starttranslation'] = array(
 		'uparams' => array()
 );
 
+$ViewList['translateoperatormessage'] = array(
+		'params' => array('chat_id'),
+		'functions' => array('use'),
+		'uparams' => array()
+);
+
+$ViewList['translatevisitormessage'] = array(
+		'params' => array('chat_id','msg_id'),
+		'functions' => array('use'),
+		'uparams' => array()
+);
+
 $FunctionList = array();
 $FunctionList['configuration'] = array('explain' => 'Allow operator to configure automatic translations module');
 $FunctionList['use'] = array('explain' => 'Allow operator to use automatic translations');

@@ -72,16 +72,28 @@
                             <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                                 'input_name'     => 'chat_locale_to_'.$chat->id,
                                 'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Automatically detected'),
-                                'selected_id'    => $chat->chat_locale_to,
+                                'selected_id'    => ($chat->chat_locale_to != '' ? $chat->chat_locale_to : substr(erLhcoreClassSystem::instance()->Language, 0, 2)),
                                 'css_class'      => 'form-control',
                                 'list_function'  => 'erLhcoreClassTranslate::getSupportedLanguages'
                             )); ?>
                         </div>
                     </div>
                 </div>
+
+                <label>
+                    <input id="chat_auto_translate_<?php echo $chat->id?>" type="checkbox" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','On save automatically translate old chat messages. If not checked only new messages will be translated.');?>
+                </label>
+
+                <label>
+                    <input <?php if (isset($chat->chat_variables_array['lhc_live_trans']) && $chat->chat_variables_array['lhc_live_trans'] === true) : ?>checked="checked"<?php endif; ?> id="live_translations_<?php echo $chat->id?>" type="checkbox" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Automatically translate operator and visitor messages');?>
+                </label>
+
+                <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','You can always translate old chat messages by clicking right mouse button on the message.');?></p>
+
                 <div class="btn-group form-group" role="group" aria-label="...">
-                    <input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Auto translate')?>" class="translate-button-<?php echo $chat->id?> btn btn-secondary<?php if ($chat->chat_locale != '' && $chat->chat_locale_to != '') :?> btn-success<?php endif;?>" data-loading-text="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Translating')?>..." onclick="return lhc.methodCall('lhc.translation','startTranslation',{'btn':$(this),'chat_id':'<?php echo $chat->id?>'})" />
+                    <input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Save settings')?>" class="translate-button-<?php echo $chat->id?> btn btn-secondary<?php if ($chat->chat_locale != '' && $chat->chat_locale_to != '') :?> btn-success<?php endif;?>" data-loading-text="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Translating')?>..." onclick="return lhc.methodCall('lhc.translation','startTranslation',{'btn':$(this),'chat_id':'<?php echo $chat->id?>'})" />
                 </div>
+
             </div>
         <?php endif;?>
     <?php endif;?>
