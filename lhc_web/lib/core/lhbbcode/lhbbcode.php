@@ -1121,7 +1121,25 @@ class erLhcoreClassBBCode
 
     	$ret = preg_replace_callback('#\[button_action="?(.*?)"?\](.*?)\[/button_action\]#is', 'erLhcoreClassBBCode::_make_button_action', $ret);
 
-    	$ret = preg_replace('#\[translation\](.*?)\[/translation\]#is', '<span class="tr-msg">$1</span>', $ret);
+    	if (strpos($ret,'[translation]') !== false) {
+            // For the admin we show original and translated text
+            if (isset($paramsMessage['html_as_text']) && $paramsMessage['html_as_text'] == true) {
+                $ret = preg_replace('#\[translation\](.*?)\[/translation\]#is', '<span class="tr-msg">$1</span>', $ret);
+            } else {
+                // This is visitor translated message. We show original message for the visitor
+                if (isset($paramsMessage['sender']) && $paramsMessage['sender'] > 0) {
+                    // This is admin message. We show translated content only
+                    $translations = array();
+                    preg_match('#\[translation\](.*?)\[/translation\]#is',$ret, $translations);
+                    if (isset($translations[1])) {
+                        $ret = $translations[1];
+                    }
+
+                } else {
+                    $ret = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $ret);
+                }
+            }
+        }
 
     	// File block
     	$ret = preg_replace_callback('#\[file="?(.*?)"?\]#is', 'erLhcoreClassBBCode::_make_url_file', $ret);

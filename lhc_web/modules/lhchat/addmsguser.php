@@ -45,7 +45,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
                     $msg->user_id = 0;
                     $msg->time = time();
 
-                    if ($chat->chat_locale != '' && $chat->chat_locale_to != '') {
+                    if ($chat->chat_locale != '' && $chat->chat_locale_to != '' && isset($chat->chat_variables_array['lhc_live_trans']) && $chat->chat_variables_array['lhc_live_trans'] === true) {
                         erLhcoreClassTranslate::translateChatMsgVisitor($chat, $msg);
                     }
 

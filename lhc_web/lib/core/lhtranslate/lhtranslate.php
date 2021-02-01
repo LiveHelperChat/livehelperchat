@@ -33,7 +33,7 @@ class erLhcoreClassTranslate
      * @return void || Exception
      *        
      */
-    public static function setChatLanguages(erLhcoreClassModelChat $chat, $visitorLanguage, $operatorLanguage)
+    public static function setChatLanguages(erLhcoreClassModelChat $chat, $visitorLanguage, $operatorLanguage, $params = array())
     {
         $originalLanguages = array(
             'chat_locale' => $chat->chat_locale,
@@ -84,8 +84,7 @@ class erLhcoreClassTranslate
         $stmt->execute();
         
         // We have to translate only if our languages are different
-        if ($originalLanguages['chat_locale'] != $chat->chat_locale || $originalLanguages['chat_locale_to'] != $chat->chat_locale_to) {
-            // And now we can translate all chat messages
+        if ($chat->chat_locale != '' &&  $chat->chat_locale_to != '' && isset($params['translate_old']) && $params['translate_old'] === true) {
             self::translateChatMessages($chat);
         }
         
@@ -636,17 +635,29 @@ class erLhcoreClassTranslate
                 
                 return erLhcoreClassTranslateBing::translate($translationData['bing_access_token'], $text, $translateFrom, $translateTo);
             } elseif ($translationData['translation_handler'] == 'google') {
-            
-                if ($translateFrom == false) {
+
+                $supportedLanguages = self::getSupportedLanguages(true);
+
+                if ($translateFrom === false) {
                     $translateFrom = self::detectLanguage($text, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
+                } else {
+                    if (!key_exists($translateFrom, $supportedLanguages)) {
+                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Operator language is not supported by Google translation service'). ' [' . $translateFrom . ']' );
+                    }
                 }
-            
+
+                if (!key_exists($translateTo, $supportedLanguages)) {
+                    throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Visitor language is not supported by Google translation service!'). ' [' . $translateTo . ']' );
+                }
+
                 return erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $text, $translateFrom, $translateTo, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
             } elseif ($translationData['translation_handler'] == 'yandex') {
 
-                if($translateFrom == false) {
+                if ($translateFrom == false) {
                     $translateFrom = self::detectLanguage($text);
                 }
+
+
                 return erLhcoreClassTranslateYandex::translate($translationData['yandex_api_key'], $text, $translateFrom, $translateTo);
             }
         }

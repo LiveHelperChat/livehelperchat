@@ -35,7 +35,7 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
 	        if ($msg->chat_id == $Chat->id && $msg->user_id == $currentUser->getUserID()) {
 		        $msg->msg = trim($form->msg);
 		        
-		        if ($Chat->chat_locale != '' && $Chat->chat_locale_to != '') {
+		        if ($Chat->chat_locale != '' && $Chat->chat_locale_to != '' && isset($Chat->chat_variables_array['lhc_live_trans']) && $Chat->chat_variables_array['lhc_live_trans'] === true) {
 		            erLhcoreClassTranslate::translateChatMsgOperator($Chat, $msg);
 		        }
 
