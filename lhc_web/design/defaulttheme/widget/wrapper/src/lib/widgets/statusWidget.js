@@ -162,7 +162,7 @@ export class statusWidget{
             const chatParams = this.attributes['userSession'].getSessionAttributes();
             if (this.attributes.leaveMessage == true || this.attributes.onlineStatus.value == true || chatParams['id']) {
 
-                if (this.attributes['position'] != 'api' || (this.attributes['position'] == 'api' && chatParams['id'] && chatParams['hash'])) {
+                if (this.attributes['position'] != 'api' || (this.attributes['position'] == 'api' && this.attributes['hideStatus'] !== true && chatParams['id'] && chatParams['hash'])) {
                     this.cont.show();
                 }
 
@@ -202,7 +202,7 @@ export class statusWidget{
             }
 
             // show status icon only if we are not in api mode or chat is going now
-            if (this.attributes['position'] != 'api' || (this.attributes['position'] == 'api' && chatParams['id'] && chatParams['hash'])) {
+            if (this.attributes['position'] != 'api' || (this.attributes['position'] == 'api' && this.attributes['hide_status'] !== true && chatParams['id'] && chatParams['hash'])) {
                 this.cont.show();
             }
 

@@ -116,6 +116,7 @@
                     cookie_enabled: cookieEnabledUser,
                     LHC_API: LHC_API,
                     viewHandler: null,
+                    hide_status: LHC_API.args.hide_status || null,
                     mainWidget: new mainWidget(prefixLowercase),
                     popupWidget: new mainWidgetPopup(),
                     chatNotifications: chatNotifications,
