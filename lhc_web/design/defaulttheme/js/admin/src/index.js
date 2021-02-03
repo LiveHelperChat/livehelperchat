@@ -84,7 +84,7 @@ $(document).ready(function(){
                     achat_id_array = achat_id.split(',');
                     achat_id_array.forEach((chatId) => {
                         if ($('#tabs').length > 0) {
-                            return lhinst.startGroupChat(chatId,$('#tabs'),LiveHelperChatFactory.truncate(name,10));
+                            return lhinst.startGroupChat(chatId, $('#tabs'), LiveHelperChatFactory.truncate(name,10), true);
                         }
                     });
                 }
