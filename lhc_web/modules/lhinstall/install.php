@@ -86,6 +86,9 @@ try {
             if (!function_exists('json_encode'))
                 $Errors[] = "json support not detected. Please install php extension";
 
+            if (!function_exists('simplexml_load_string'))
+                $Errors[] = "XML support not detected. Please install php-xml extension";
+
             if (version_compare(PHP_VERSION, '5.4.0','<')) {
                 $Errors[] = "Minimum 5.4.0 PHP version is required";
             }
