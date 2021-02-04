@@ -2,6 +2,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>在投票小部件显示后，有多少天不会再次启用</translation>
     </message>
@@ -491,6 +499,10 @@
     <message>
       <source>Send test message</source>
       <translation>发送测试讯息</translation>
+    </message>
+    <message>
+      <source>Voice call</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -996,6 +1008,10 @@
     <message>
       <source>Show need help tooltip?</source>
       <translation>显示需要帮助工具提示？</translation>
+    </message>
+    <message>
+      <source>Hide need help widget for mobile devices.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Hide message time from visitor</source>
@@ -4043,6 +4059,10 @@
     <message>
       <source>Time zone</source>
       <translation>时区</translation>
+    </message>
+    <message>
+      <source>Start a call</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Waited</source>
@@ -7582,6 +7602,10 @@
     <message>
       <source>Users actions</source>
       <translation>用户动作</translation>
+    </message>
+    <message>
+      <source>Voice &amp; Video &amp; ScreenShare</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Webhooks</source>
@@ -14614,6 +14638,192 @@
     <message>
       <source>Deny screen share</source>
       <translation>拒绝屏幕共享</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/voice_video</name>
+    <message>
+      <source>Voice &amp; Video &amp; ScreenShare</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has not started</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor - waiting for permission to join the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor - permission granted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending operator to join the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator has joined the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending visitor to join the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor requested to join a call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor has joined a call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not initiated yet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator has requested a voice call with you!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start a call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor requested to start a voice call.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Join call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stop sharing your screen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Share your screen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable video</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable video</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Un-mute mic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mute mic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Call for the visitor also will end.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>End the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a call. Visitor will remain on the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Audio call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Audio &amp; video call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Let visitor in</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please wait untill operator let&apos;s you in</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please wait untill operator let&apos;s you join the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor is waiting for someone to let him in!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending visitor to join the call!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor has joined the call!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start conversation</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>voice/configuration</name>
+    <message>
+      <source>Voice &amp; Video &amp; ScreenShare</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Features</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Calls enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Video enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ScreenShare enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Agora integration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Agora APP ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Agora App Certificate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

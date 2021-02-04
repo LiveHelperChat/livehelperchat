@@ -2,6 +2,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -492,6 +500,10 @@
       <source>Send test message</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Voice call</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>abstract/abstract_form</name>
@@ -951,7 +963,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>Name of the company</source>
@@ -998,6 +1010,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hide need help widget for mobile devices.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide message time from visitor</source>
       <translation type="unfinished"/>
     </message>
@@ -1031,7 +1047,7 @@
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation type="unfinished"/>
+      <translation>Spør oss her!</translation>
     </message>
     <message>
       <source>Background color</source>
@@ -1550,7 +1566,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>Operator. Visitor will see this operator nick.</source>
@@ -2608,7 +2624,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>Hidden</source>
@@ -2957,7 +2973,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>Department, if you do not choose command will be available to all departments.</source>
@@ -3703,7 +3719,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -3755,7 +3771,7 @@
     </message>
     <message>
       <source>Username (Nickname)</source>
-      <translation type="unfinished"/>
+      <translation>Brukernavn (Kallenavn)</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -4042,6 +4058,10 @@
     </message>
     <message>
       <source>Time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start a call</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5204,7 +5224,7 @@
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation type="unfinished"/>
+      <translation>Spør oss her!</translation>
     </message>
     <message>
       <source>Send</source>
@@ -5651,7 +5671,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>You have unread messages</source>
@@ -7581,6 +7601,10 @@
     </message>
     <message>
       <source>Users actions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Voice &amp; Video &amp; ScreenShare</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10271,7 +10295,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -10505,7 +10529,7 @@
     <name>genericbot/restapi</name>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>Description</source>
@@ -12719,7 +12743,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>Header content</source>
@@ -12739,7 +12763,7 @@
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation type="unfinished"/>
+      <translation>Vennligst skriv inn et navn</translation>
     </message>
     <message>
       <source>File not chosen for</source>
@@ -12758,7 +12782,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>Operator</source>
@@ -13468,7 +13492,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>Priority</source>
@@ -13491,7 +13515,7 @@
     <name>abstract/survey</name>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Navn</translation>
     </message>
     <message>
       <source>Feedback text</source>
@@ -13921,7 +13945,7 @@
     <name>departament/edit</name>
     <message>
       <source>Please enter a name</source>
-      <translation type="unfinished"/>
+      <translation>Vennligst skriv inn et navn</translation>
     </message>
     <message>
       <source>Please enter a department name</source>
@@ -14038,7 +14062,7 @@
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation type="unfinished"/>
+      <translation>Vennligst skriv inn et navn</translation>
     </message>
     <message>
       <source>In order to assign user all departments you have to provide  `departments` and `departments_read` argument.</source>
@@ -14613,6 +14637,192 @@
     </message>
     <message>
       <source>Deny screen share</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/voice_video</name>
+    <message>
+      <source>Voice &amp; Video &amp; ScreenShare</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has not started</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor - waiting for permission to join the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor - permission granted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending operator to join the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator has joined the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending visitor to join the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor requested to join a call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor has joined a call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not initiated yet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator has requested a voice call with you!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start a call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor requested to start a voice call.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Join call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stop sharing your screen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Share your screen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable video</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable video</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Un-mute mic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mute mic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Call for the visitor also will end.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>End the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a call. Visitor will remain on the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Audio call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Audio &amp; video call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Let visitor in</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please wait untill operator let&apos;s you in</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please wait untill operator let&apos;s you join the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor is waiting for someone to let him in!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending visitor to join the call!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor has joined the call!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start conversation</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>voice/configuration</name>
+    <message>
+      <source>Voice &amp; Video &amp; ScreenShare</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Features</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Calls enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Video enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ScreenShare enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Agora integration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Agora APP ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Agora App Certificate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
       <translation type="unfinished"/>
     </message>
   </context>
