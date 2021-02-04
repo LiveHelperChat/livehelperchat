@@ -60,7 +60,9 @@ class erLhcoreClassChatEventDispatcher {
    {
        $this->setGlobalListeners($event, $param);
 
-	   	if (isset($this->listeners[$event])){
+	   	if (isset($this->listeners[$event])) {
+            $param['lhc_caller'] = debug_backtrace(2,2)[1];
+
 		   	foreach ($this->listeners[$event] as $listener)
 		   	{
 		   		$responseData = call_user_func_array($listener, array($param));

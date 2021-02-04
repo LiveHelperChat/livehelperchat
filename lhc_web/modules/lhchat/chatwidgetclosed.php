@@ -140,7 +140,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
                                 erLhcoreClassChat::updateActiveChats($chat->user_id);
                             }
 
-				            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.explicitly_closed',array('chat' => & $chat));
+				            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.explicitly_closed',array('chat' => & $chat, 'msg' => (isset($msg) ? $msg : null)));
 				        } else {
                             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.visitor_regular_closed',array('chat' => & $chat));
                         }
@@ -180,7 +180,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
                         erLhcoreClassChat::updateActiveChats($chat->user_id);
                     }
 
-                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.explicitly_closed',array('chat' => & $chat));
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.explicitly_closed',array('chat' => & $chat, 'msg' => $msg));
 	        }
 	        
 	        $db->commit();
