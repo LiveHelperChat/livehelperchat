@@ -19,7 +19,8 @@ class _helperFunctions {
 
     removeById(EId)
     {
-        return(EObj=document.getElementById(EId))?EObj.parentNode.removeChild(EObj):false;
+        var EObj = null;
+        return(EObj = document.getElementById(EId)) ? EObj.parentNode.removeChild(EObj) : false;
     }
 
     // Returns time zone offset

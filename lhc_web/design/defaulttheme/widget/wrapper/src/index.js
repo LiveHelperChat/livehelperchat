@@ -47,7 +47,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 4;
+            lhc.version = 157;
 
             var init = () => {
 
@@ -114,6 +114,7 @@
 
                 // Main attributes
                 var attributesWidget = {
+                    terminated: false,
                     prefixLowercase: prefixLowercase,
                     prefixStorage: prefixStorage,
                     prefixScope: scopeScript,
@@ -255,6 +256,28 @@
                 helperFunctions.makeRequest(LHC_API.args.lhc_base_url + attributesWidget.lang + 'widgetrestapi/settings', {
                     params: getArguments()
                 }, (data) => {
+
+                    if (lhc.version !== data.wv && document.getElementById(attributesWidget.prefixLowercase+'-js-reload') === null) {
+
+                        // Mark script as terminated
+                        attributesWidget.terminated = true;
+
+                        // Remove legacy dom
+                        helperFunctions.removeById(attributesWidget.prefixLowercase+'_container_v2');
+                        helperFunctions.removeById(attributesWidget.prefixLowercase+'_status_widget_v2');
+
+                        // Create new embed script
+                        var po = document.createElement("script");
+                        po.type = currentScript.type;
+                        po.id = attributesWidget.prefixLowercase+'-js-reload';
+                        po.async = true;
+                        if (currentScript.getAttribute('scope')) { po.setAttribute('scope',currentScript.getAttribute('scope')); }
+
+                        // Expires cache
+                        po.src = currentScript.getAttribute('src') + '&r='+ (new Date()).getHours() + (new Date()).getMinutes();
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                        return;
+                    }
 
                     if (data.terminate || ((!attributesWidget.leaveMessage && data.chat_ui.leaveamessage === false) && data.isOnline === false)) {
 
@@ -770,7 +793,8 @@
 
                 // Listed for post messages
                 const handleMessages = (e) => {
-                    if (typeof e.data !== 'string' || e.data.indexOf(attributesWidget.prefixLowercase + '::')) {
+
+                    if (attributesWidget.terminated === true || typeof e.data !== 'string' || e.data.indexOf(attributesWidget.prefixLowercase + '::')) {
                         return;
                     }
 
@@ -833,7 +857,6 @@
                 } else if (document.attachEvent) {
                     document.attachEvent("onmessage", handleMessages);
                 }
-                ;
             };
 
             var preInit = () => {
