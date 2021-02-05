@@ -70,9 +70,13 @@
 
                 const isMobileItem = require('ismobilejs');
 
-                var isMobile = isMobileItem.default(global.navigator.userAgent).any;
+                var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
 
                 LHC_API.args = LHC_API.args || {};
+
+                if (typeof LHC_API.args.mobile_view !== 'undefined') {
+                    isMobile = LHC_API.args.mobile_view;
+                }
 
                 const prefixLowercase = scopeScript.toLowerCase();
                 const prefixStorage = (prefixLowercase && LHC_API.args.scope_storage ? prefixLowercase : 'lhc');
