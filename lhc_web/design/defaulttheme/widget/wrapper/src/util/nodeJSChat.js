@@ -58,7 +58,6 @@ class _nodeJSChat {
                 socket.emit('login', {hash: data, chanelName: chanelName}, function (err) {
                     if (err) {
                         console.log(err);
-                        socket.destroy();
                     }
                 });
             })

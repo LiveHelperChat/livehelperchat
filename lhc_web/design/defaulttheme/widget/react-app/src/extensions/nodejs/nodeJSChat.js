@@ -87,10 +87,13 @@ class _nodeJSChat {
             }
         }
 
-        socket.on('close', function() {
-
+        function disconnect() {
             if (sampleChannel !== null) {
-                sampleChannel.destroy();
+                try {
+                    sampleChannel.destroy();
+                } catch (e) {
+
+                }
             }
 
             helperFunctions.eventEmitter.removeListener('visitorTyping', visitorTypingListener);
@@ -106,7 +109,10 @@ class _nodeJSChat {
                 'type': 'CHAT_REMOVE_OVERRIDE',
                 'data': "typing"
             });
+        }
 
+        socket.on('close', function() {
+            disconnect();
         });
 
         function connectVisitor(){
@@ -187,7 +193,7 @@ class _nodeJSChat {
                 socket.emit('login', {hash:response.data, chanelName: (params.instance_id > 0 ? ('chat_'+params.instance_id+'_'+chat_id) : ('chat_'+chat_id)) }, function (err) {
                     if (err) {
                         console.log(err);
-                        socket.destroy();
+                        disconnect();
                     }
                 });
             });
