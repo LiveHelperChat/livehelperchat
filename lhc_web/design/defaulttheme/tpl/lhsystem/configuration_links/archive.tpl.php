@@ -1,3 +1,4 @@
+<?php if ($currentUser->hasAccessTo('lhchat','maintenance') || $currentUser->hasAccessTo('lhchatarchive','archive') || $currentUser->hasAccessTo('lhchatarchive','configuration')) : ?>
 <li>
     <b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chat archive');?></b>
     <ul>
@@ -7,3 +8,4 @@
         <?php endif; ?>
     </ul>
 </li>
+<?php endif; ?>

@@ -1,3 +1,8 @@
+<?php if (
+    ($currentUser->hasAccessTo('lhabstract','use') && $currentUser->hasAccessTo('lhtheme','administratethemes')) ||
+    $currentUser->hasAccessTo('lhchatsettings','administrate') ||
+    $currentUser->hasAccessTo('lhsurvey','manage_survey')
+) : ?>
 <li>
     <b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Visual settings for the visitor');?></b>
     <ul>
@@ -12,6 +17,8 @@
     </ul>
     <?php endif; ?>
 </li>
+<?php endif; ?>
+
 
 <?php if ($currentUser->hasAccessTo('lhabstract','use') && $currentUser->hasAccessTo('lhtheme','administratethemes')) : ?>
 <li>
