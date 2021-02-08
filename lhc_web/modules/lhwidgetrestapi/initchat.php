@@ -91,6 +91,10 @@ try {
             $outputResponse['chat_ui']['mn'] = 1;
         }
 
+        if ((int)erLhcoreClassModelChatConfig::fetch('bbc_button_visible')->value != 1) {
+            $outputResponse['chat_ui']['bbc_btnh'] = true;
+        }
+
         if (isset($requestPayload['theme']) && $requestPayload['theme'] > 0) {
 
             $theme = erLhAbstractModelWidgetTheme::fetch($requestPayload['theme']);
@@ -109,6 +113,13 @@ try {
 
                 if (isset($theme->bot_configuration_array['msg_expand']) && $theme->bot_configuration_array['msg_expand'] == true) {
                     $outputResponse['chat_ui']['msg_expand'] = true;
+                }
+
+                // Theme configuration overrides default settings
+                if (isset($theme->bot_configuration_array['hide_bb_code']) && $theme->bot_configuration_array['hide_bb_code'] == true) {
+                    $outputResponse['chat_ui']['bbc_btnh'] = true;
+                } elseif (isset($outputResponse['chat_ui']['bbc_btnh'])) {
+                    unset($outputResponse['chat_ui']['bbc_btnh']);
                 }
 
                 if ($theme->hide_popup == 1) {

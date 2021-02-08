@@ -123,6 +123,10 @@ if (isset($startDataFields['hide_start_button']) && $startDataFields['hide_start
     $chat_ui['hstr_btn'] = true;
 }
 
+if ((int)erLhcoreClassModelChatConfig::fetch('bbc_button_visible')->value != 1) {
+    $chat_ui['bbc_btnh'] = true;
+}
+
 if ($Params['user_parameters_unordered']['online'] == '0') {
 
     if (isset($start_data_fields['pre_offline_chat_html']) && $start_data_fields['pre_offline_chat_html'] != '') {
@@ -518,6 +522,13 @@ if (erLhcoreClassModelChatConfig::fetch('product_enabled_module')->current_value
 }
 
 if ($theme !== false) {
+
+    // Theme configuration overrides default settings
+    if (isset($theme->bot_configuration_array['hide_bb_code']) && $theme->bot_configuration_array['hide_bb_code'] == true) {
+        $chat_ui['bbc_btnh'] = true;
+    } elseif (isset($chat_ui['bbc_btnh'])) {
+        unset($chat_ui['bbc_btnh']);
+    }
 
     if ($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') {
 

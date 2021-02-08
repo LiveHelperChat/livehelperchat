@@ -380,6 +380,10 @@
 						    <label><?php echo erLhcoreClassAbstract::renderInput('dont_prefill_offline', $fields['dont_prefill_offline'], $object)?> <?php echo $fields['dont_prefill_offline']['trans'];?></label>
         		        </div>
 
+						<div class="form-group">
+						    <label><?php echo erLhcoreClassAbstract::renderInput('hide_bb_code', $fields['hide_bb_code'], $object)?> <?php echo $fields['hide_bb_code']['trans'];?></label>
+        		        </div>
+
                         <div class="form-group">
                             <label><?php echo $fields['switch_to_human']['trans'];?></label>
                             <?php echo erLhcoreClassAbstract::renderInput('switch_to_human', $fields['switch_to_human'], $object)?>
