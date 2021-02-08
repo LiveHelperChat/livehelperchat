@@ -10,6 +10,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Son gösteriminden kaç gün sonra oy kullanma kutucuğu açılmamalı?</translation>
     </message>
@@ -1151,6 +1159,18 @@
     </message>
     <message>
       <source>TOS text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title of the minimize icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title of the popup icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title of the end chat icon</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5275,6 +5295,18 @@
       <translation>Dilinizi seçin</translation>
     </message>
     <message>
+      <source>Minimize</source>
+      <translation>Minimize</translation>
+    </message>
+    <message>
+      <source>Popup</source>
+      <translation>Açılır pencere</translation>
+    </message>
+    <message>
+      <source>End chat</source>
+      <translation>Konuşma sonlandır</translation>
+    </message>
+    <message>
       <source>You</source>
       <translation>Sen</translation>
     </message>
@@ -5487,6 +5519,10 @@
       <translation>Gruptan ayrılın, yine de istediğiniz zaman katılabilirsiniz.</translation>
     </message>
     <message>
+      <source>You cannot send messages to this chat. Chat has been closed.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a message</source>
       <translation>Lütfen mesajınızı yazın</translation>
     </message>
@@ -5495,24 +5531,12 @@
       <translation>maks. karakter</translation>
     </message>
     <message>
-      <source>Minimize</source>
-      <translation>Minimize</translation>
-    </message>
-    <message>
-      <source>End chat</source>
-      <translation>Konuşma sonlandır</translation>
-    </message>
-    <message>
       <source>Start a chat</source>
       <translation>Konuşma başlat</translation>
     </message>
     <message>
       <source>BB code</source>
       <translation>BB Kodu</translation>
-    </message>
-    <message>
-      <source>Popup</source>
-      <translation>Açılır pencere</translation>
     </message>
     <message>
       <source>Start a chat with us!</source>
@@ -5543,6 +5567,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>No internet connection.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose!</source>
       <translation>Lütfen seçiniz</translation>
     </message>
@@ -5561,6 +5589,14 @@
   </context>
   <context>
     <name>chat/syncadmininterface</name>
+    <message>
+      <source>Sort by time</source>
+      <translation>Zaman sıralaması</translation>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation>Durum</translation>
+    </message>
     <message>
       <source>New window</source>
       <translation type="unfinished"/>
@@ -5638,8 +5674,12 @@
       <translation>Ziyaretçiyi rumuza göre sırala</translation>
     </message>
     <message>
-      <source>Sort by time</source>
-      <translation>Zaman sıralaması</translation>
+      <source>Sort by last message time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort by chat start time</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Sort by operator</source>
@@ -5652,6 +5692,14 @@
     <message>
       <source>Has unread messages</source>
       <translation>Okunmamış mesajlar var</translation>
+    </message>
+    <message>
+      <source>Chat started at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Receive or send indicator and time since it happened</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Offline request</source>
@@ -5726,8 +5774,8 @@
       <translation>Yeni</translation>
     </message>
     <message>
-      <source>Status</source>
-      <translation>Durum</translation>
+      <source>Last message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
@@ -5853,6 +5901,14 @@
   <context>
     <name>chat/translation</name>
     <message>
+      <source>Chat messages automatic translations has been stopped</source>
+      <translation>Sohbet mesajları için otomatik çeviri özelliği durduruldu</translation>
+    </message>
+    <message>
+      <source>Messages has been translated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor language</source>
       <translation>Kullanıcı dili</translation>
     </message>
@@ -5875,6 +5931,26 @@
     <message>
       <source>Automatic translation</source>
       <translation>Otomatik çeviri</translation>
+    </message>
+    <message>
+      <source>Translate operator message to visitor language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On save automatically translate old chat messages. If not checked only new messages will be translated.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically translate operator and visitor messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can always translate old chat messages by clicking right mouse button on the message.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Save settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Translation settings</source>
@@ -5981,15 +6057,19 @@
       <translation>Algılanan operatör ve ziyaretçi dilleri eşleşiyor, lütfen dilleri manuel olarak seçin</translation>
     </message>
     <message>
+      <source>Operator language is not supported by Google translation service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor language is not supported by Google translation service!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Translation configuration</source>
       <translation>Çeviri ayarı</translation>
     </message>
     <message>
-      <source>Chat messages automatic translations has been stopped</source>
-      <translation>Sohbet mesajları için otomatik çeviri özelliği durduruldu</translation>
-    </message>
-    <message>
-      <source>Messages has been translated</source>
+      <source>Settings has been saved</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6124,6 +6204,10 @@
     <message>
       <source>Hide/Show chat tabs</source>
       <translation>Konuşma sekmelerini Gizle/Göster</translation>
+    </message>
+    <message>
+      <source>Tabs/List in left column</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat ID to open</source>
@@ -8127,6 +8211,10 @@
     <message>
       <source>Ask for help</source>
       <translation>Yardım isteyin</translation>
+    </message>
+    <message>
+      <source>Translate</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New</source>
@@ -14264,6 +14352,10 @@
       <translation>Kullanıcının konuyu değiştirmesine izin ver</translation>
     </message>
     <message>
+      <source>Set language based on visitor language. By default we set language by embed code.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>From name</source>
       <translation>İsimden </translation>
     </message>
@@ -14645,6 +14737,10 @@
   <context>
     <name>chat/voice_video</name>
     <message>
+      <source>Not initiated yet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Voice &amp; Video &amp; ScreenShare</source>
       <translation type="unfinished"/>
     </message>
@@ -14678,10 +14774,6 @@
     </message>
     <message>
       <source>Visitor has joined a call</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Not initiated yet</source>
       <translation type="unfinished"/>
     </message>
     <message>
