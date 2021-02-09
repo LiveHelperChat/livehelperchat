@@ -8,6 +8,10 @@ $ViewList['getproducts'] = array(
     'params' => array('id','product_id')
 );
 
+$ViewList['avatar'] = array(
+    'params' => array('id')
+);
+
 $ViewList['settings'] = array(
     'params' => array(),
     'uparams' => array('department','ua','identifier'),

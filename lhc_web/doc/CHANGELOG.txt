@@ -1,3 +1,19 @@
+3.63v
+
+1. You can generate avatar for your profile.
+2. Avatar for bot added.
+3. Avatar in widget themes.
+4. BB Code turn off/on support for a new widget.
+5. Option to set full screen mode from embed code directly.
+6. Fix. Voice message for the admin was broken.
+7. Group chats won't be focused by default.
+8. Tablets won't show widget in full screen mode.
+9. Option to have hidden status widget in case of api position
+
+Avatars are generated using https://multiavatar.com project
+
+execute doc/update_db/update_236.sql for update
+
 3.62v
 
 1. E-mail templates can be translatable now

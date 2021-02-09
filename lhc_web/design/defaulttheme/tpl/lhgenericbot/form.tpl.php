@@ -16,9 +16,17 @@
             <input type="text" class="form-control" name="nick"  value="<?php echo htmlspecialchars($item->nick);?>" />
         </div>
 
-        <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Photo');?>, (jpg,png)</label>
-            <input type="file" name="UserPhoto" value="" />
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Photo');?>, (jpg,png)</label>
+                    <input type="file" name="UserPhoto" value="" />
+                </div>
+            </div>
+            <div class="col-6">
+                <?php $avatarOptions = ['avatar' => $item->avatar]; ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/avatar_build.tpl.php'));?>
+            </div>
         </div>
 
         <?php if ($item->has_photo) : ?>

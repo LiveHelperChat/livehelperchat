@@ -19,15 +19,19 @@
     </thead>
     <tr ng-repeat="operator in online_op.list track by operator.id">
         <td>
+            <img ng-if="operator.avatar" ng-src="{{operator.avatar}}" alt="" width="35" />
+
             <?php if ($currentUser->hasAccessTo('lhgroupchat','use')) : ?>
             <a ng-show="operator.user_id != <?php echo erLhcoreClassUser::instance()->getUserID();?>" href="#" ng-click="lhc.startChatOperator(operator.user_id)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Start chat');?>"><i class="material-icons">chat</i></a>
             <?php endif; ?>
-            <i class="material-icons<?php if ($currentUser->hasAccessTo('lhuser','setopstatus')) : ?> action-image<?php endif;?>" <?php if ($currentUser->hasAccessTo('lhuser','setopstatus')) : ?>ng-click="lhc.openModal('user/setopstatus/' + operator.user_id)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Change operator status');?>" <?php endif;?> >{{operator.hide_online == 1 ? 'flash_off' : 'flash_on'}}</i>{{operator.hide_online == 1 ? operator.offline_since : ''}} {{operator.name_official}}</td>
-        <td>
+            <i class="material-icons<?php if ($currentUser->hasAccessTo('lhuser','setopstatus')) : ?> action-image<?php endif;?>" <?php if ($currentUser->hasAccessTo('lhuser','setopstatus')) : ?>ng-click="lhc.openModal('user/setopstatus/' + operator.user_id)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Change operator status');?>" <?php endif;?> >{{operator.hide_online == 1 ? 'flash_off' : 'flash_on'}}</i>
+            {{operator.hide_online == 1 ? operator.offline_since : ''}} {{operator.name_official}}
+        </td>
+        <td class="align-middle">
             <div class="abbr-list" title="{{operator.lastactivity_ago}}">{{operator.lastactivity_ago}}</div>
         </td>
-        <td>{{operator.active_chats}}</td>
-        <td><div class="abbr-list" title="{{operator.departments_names.join(', ')}}">{{operator.departments_names.join(", ")}}</div></td>
+        <td class="align-middle">{{operator.active_chats}}</td>
+        <td class="align-middle"><div class="abbr-list" title="{{operator.departments_names.join(', ')}}">{{operator.departments_names.join(", ")}}</div></td>
 
     </tr>
 </table>

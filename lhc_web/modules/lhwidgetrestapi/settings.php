@@ -265,7 +265,7 @@ if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme-
           <span class="px-1" aria-hidden="true">&times;</span>
         </button>
         <div class="d-flex">
-          <div class="p-1"><img class="img-fluid rounded-circle" src="{{need_help_image_url}}"/></div>
+          <div class="p-1"><img style="min-width: 50px;" class="img-fluid rounded-circle" src="{{need_help_image_url}}"/></div>
           <div class="p-1 flex-grow-1"><h6 class="mb-0">{{need_help_header}}</h6>
             <p class="mb-1" style="font-size: 14px">{{need_help_body}}</p></div>
         </div>
@@ -292,7 +292,11 @@ if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme-
         $replaceVars = $theme->replace_array;
 
         if ($theme->need_help_image_url === false) {
-            $replaceVars['replace'][8] = '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('images/general/operator.png');
+            if ((isset($theme->bot_configuration_array['nh_avatar']) && $theme->bot_configuration_array['nh_avatar'] != '')) {
+                $replaceVars['replace'][8] = erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] .erLhcoreClassDesign::baseurldirect('widgetrestapi/avatar') . '/' . $theme->bot_configuration_array['nh_avatar'];
+            } else {
+                $replaceVars['replace'][8] = erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('images/general/operator.png');
+            }
         }
 
         $replaceVars['search'][] = '{{need_help_header}}';

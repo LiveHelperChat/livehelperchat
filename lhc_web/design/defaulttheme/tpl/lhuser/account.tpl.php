@@ -67,12 +67,18 @@
 			<div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Repeat password');?></label> <input autocomplete="new-password" type="password" class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Repeat the new password');?>" name="Password1" value="<?php echo htmlspecialchars(isset($user->password_temp_2) ? $user->password_temp_2 : '');?>" />
 			</div>
+
 			<div class="form-group">
-				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Email');?></label> <input type="text" class="form-control" value="<?php echo $user->email;?>" name="Email" placeholder="Your email address" id="email" class="required email valid">
+				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Email');?></label>
+                <input type="text" class="form-control" value="<?php echo $user->email;?>" name="Email" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Your email address');?>" id="email" class="required email valid">
 			</div>
-			<div class="form-group">
-				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Chat nickname');?></label> <input type="text" class="form-control" name="ChatNickname" value="<?php echo htmlspecialchars($user->chat_nickname);?>" />
-			</div>
+
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Chat nickname');?></label>
+                <input type="text" class="form-control" name="ChatNickname" value="<?php echo htmlspecialchars($user->chat_nickname);?>" />
+            </div>
+
+
 			<div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Name');?></label> <input type="text" class="form-control" name="Name" value="<?php echo htmlspecialchars($user->name);?>" />
 			</div>
@@ -111,14 +117,22 @@
 			</div>
 		</div>
 
-		<div class="form-group">
-		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Photo');?>, (jpg,png)</label> <input type="file" name="UserPhoto" value="" />
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Photo');?>, (jpg,png)</label> <input type="file" name="UserPhoto" value="" />
 
-		<?php if ($user->has_photo) : ?>
-		  <div><img src="<?php echo $user->photo_path?>" alt="" width="50" /><br /> <label><input type="checkbox" name="DeletePhoto" value="1" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Delete')?></label></div>
-		<?php endif;?>
-	    </div>
-	        	
+                    <?php if ($user->has_photo) : ?>
+                        <div><img src="<?php echo $user->photo_path?>" alt="" width="50" /><br /> <label><input type="checkbox" name="DeletePhoto" value="1" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Delete')?></label></div>
+                    <?php endif;?>
+                </div>
+            </div>
+            <div class="col-6">
+                <?php $avatarOptions = ['avatar' => $user->avatar]; ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/avatar_build.tpl.php'));?>
+            </div>
+        </div>
+
 	    <?php include(erLhcoreClassDesign::designtpl('lhuser/account/below_account_multiinclude.tpl.php'));?>
 	        				
 			<div class="btn-group" role="group" aria-label="...">
