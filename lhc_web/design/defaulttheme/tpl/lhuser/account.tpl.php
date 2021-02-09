@@ -70,7 +70,7 @@
 
 			<div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Email');?></label>
-                <input type="text" class="form-control" value="<?php echo $user->email;?>" name="Email" placeholder="Your email address" id="email" class="required email valid">
+                <input type="text" class="form-control" value="<?php echo $user->email;?>" name="Email" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Your email address');?>" id="email" class="required email valid">
 			</div>
 
             <div class="form-group">
