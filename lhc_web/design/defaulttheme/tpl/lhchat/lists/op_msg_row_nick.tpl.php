@@ -18,7 +18,7 @@
     ) : ?>
             <i title="<?php echo htmlspecialchars($msg['name_support'])?>" class="chat-operators mi-fs15 mr-0">
                 <?php if ($userMessage->has_photo) : ?>
-                    <img class="profile-msg-pic" src="<?php echo $userMessage->photo_path_avatar?>" alt="">
+                    <img class="profile-msg-pic" src="<?php echo $userMessage->photo_path?>" alt="">
                 <?php else : ?>
                     <img class="profile-msg-pic" src="<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect('widgetrestapi/avatar')?>/<?php echo htmlspecialchars($userMessage->avatar)?>" alt="" />
                 <?php endif; ?>
