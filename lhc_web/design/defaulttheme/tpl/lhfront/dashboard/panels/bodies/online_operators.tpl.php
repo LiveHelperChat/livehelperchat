@@ -19,7 +19,7 @@
     </thead>
     <tr ng-repeat="operator in online_op.list track by operator.id">
         <td>
-            <img ng-if="operator.avatar" ng-src="{{operator.avatar}}" alt="" width="35" />
+            <img class="rounded-circle" ng-if="operator.avatar" ng-src="{{operator.avatar}}" alt="" width="35" />
 
             <?php if ($currentUser->hasAccessTo('lhgroupchat','use')) : ?>
             <a ng-show="operator.user_id != <?php echo erLhcoreClassUser::instance()->getUserID();?>" href="#" ng-click="lhc.startChatOperator(operator.user_id)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Start chat');?>"><i class="material-icons">chat</i></a>
