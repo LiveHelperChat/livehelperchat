@@ -130,11 +130,18 @@
 						<?php echo erLhcoreClassAbstract::renderInput('offline_image', $fields['offline_image'], $object)?>
 						</div>
 
-
-						<div class="form-group">
-						<label><?php echo $fields['operator_image']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('operator_image', $fields['operator_image'], $object)?>
-						</div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['operator_image']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('operator_image', $fields['operator_image'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <?php $avatarOptions = ['field_name' => 'AbstractInput_operator_avatar', 'avatar' => (isset($object->bot_configuration_array['operator_avatar']) ? $object->bot_configuration_array['operator_avatar'] : '') ]; ?>
+                                <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/avatar_build.tpl.php'));?>
+                            </div>
+                        </div>
 
                         <?php $translatableItem = array('identifier' => 'explain_text', 'bb_code_selected' => 'textarea[name=AbstractInput_explain_text]'); ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
@@ -510,11 +517,20 @@
 						<label><?php echo $fields['need_help_close_hover_bg']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('need_help_close_hover_bg', $fields['need_help_close_hover_bg'], $object)?>												
 						</div>
-						
-						<div class="form-group">										
-						<label><?php echo $fields['need_help_image']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('need_help_image', $fields['need_help_image'], $object)?>		
-						</div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label><?php echo $fields['need_help_image']['trans'];?></label>
+                                <?php echo erLhcoreClassAbstract::renderInput('need_help_image', $fields['need_help_image'], $object)?>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <?php $avatarOptions = ['field_prefix' => 'nh_', 'field_name' => 'AbstractInput_nh_avatar', 'avatar' => (isset($object->bot_configuration_array['nh_avatar']) ? $object->bot_configuration_array['nh_avatar'] : '') ]; ?>
+                            <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/avatar_build.tpl.php'));?>
+                        </div>
+                    </div>
+
 
                     <hr>
                     <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Build your own need help widget layout')?></h4>

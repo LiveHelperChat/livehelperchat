@@ -291,6 +291,9 @@ class erLhAbstractModelWidgetTheme {
                return $this->replace_array;
                break;
 
+           case 'operator_image_avatar':
+               return $this->operator_image_url !== false || (isset($this->bot_configuration_array['operator_avatar']) && $this->bot_configuration_array['operator_avatar'] != '');
+
 	   	case 'notification_icon_url':
 	   	case 'logo_image_url':
 	   	case 'minimize_image_url':

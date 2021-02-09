@@ -14,6 +14,11 @@ $def->properties['username']->columnName   = 'username';
 $def->properties['username']->propertyName = 'username';
 $def->properties['username']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['avatar'] = new ezcPersistentObjectProperty();
+$def->properties['avatar']->columnName   = 'avatar';
+$def->properties['avatar']->propertyName = 'avatar';
+$def->properties['avatar']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['password'] = new ezcPersistentObjectProperty();
 $def->properties['password']->columnName   = 'password';
 $def->properties['password']->propertyName = 'password';

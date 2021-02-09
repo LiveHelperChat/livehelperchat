@@ -40,6 +40,12 @@ $ViewList['account'] = array(
     'functions' => array( 'selfedit' )
 );
 
+$ViewList['avatarbuilder'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'selfedit' )
+);
+
 $ViewList['userlist'] = array(
     'params' => array(),
     'uparams' => array('email' , 'name' , 'username' , 'surname', 'group_ids', 'disabled'),

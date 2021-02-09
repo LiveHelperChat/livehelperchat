@@ -6518,6 +6518,15 @@
         "collation": "utf8mb4_unicode_ci"
       },
       {
+        "field": "avatar",
+        "type": "varchar(150)",
+        "null": "NO",
+        "key": "",
+        "default": "",
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
         "field": "attr_str_1",
         "type": "varchar(100)",
         "null": "NO",
@@ -7354,6 +7363,15 @@
         "null": "NO",
         "key": "",
         "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "avatar",
+        "type": "varchar(150)",
+        "null": "NO",
+        "key": "",
+        "default": "",
         "extra": "",
         "collation": "utf8mb4_unicode_ci"
       },

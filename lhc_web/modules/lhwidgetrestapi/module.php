@@ -9,7 +9,7 @@ $ViewList['getproducts'] = array(
 );
 
 $ViewList['avatar'] = array(
-    'params' => array()
+    'params' => array('id')
 );
 
 $ViewList['settings'] = array(

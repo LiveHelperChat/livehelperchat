@@ -657,18 +657,59 @@ class Multiavatar {
     }
 }
 
+if (empty($Params['user_parameters']['id'])) {
+    echo '<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="300" height="300">
+  <metadata>
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+    <path style="fill:#938d8d" d="M150,0A150 150 0 1 0 150,300A150 150 0 1 0 150,0Z
+      M75.586,54.102A121.429 121.429 0 0 1 150,28.571A121.429 121.429 0 0 1 271.429,150A121.429 121.429 0 0 1 245.898,224.414Z
+      M224.414,245.898A121.429 121.429 0 0 1 150,271.429A121.429 121.429 0 0 1 28.571,150A121.429 121.429 0 0 1 54.102,75.586Z"/>
+</svg>';
+    header('Content-type: image/svg+xml');
+}
 
-/*[clo] => 09B
-[head] => 09C
-[mouth] => 01C
-[eyes] => 06B
-[top] => 03B*/
+$propsMapping = [
+    'c' => 'clo',
+    'h' => 'head',
+    'm' => 'mouth',
+    'e' => 'eyes',
+    't' => 'top',
+];
 
-$avatarId = "remdex";
-$multiavatar = new Multiavatar($avatarId, true, ['top' => ['part' => '01', 'theme' => 'B'],'mouth' => ['part' => '02', 'theme' => 'A'], 'head' => ['part' => '10', 'theme'  => 'C']]);
+$avatarProps = explode('__',$Params['user_parameters']['id']);
+
+$avatarId = array_shift($avatarProps);
+
+// The rest properties is just custom parts
+$ver = null;
+
+foreach ($avatarProps as $prop) {
+    $propParts = explode('_', $prop);
+
+    if (count($propParts) == 3) {
+        if (isset($propsMapping[$propParts[0]])) {
+            $ver[$propsMapping[$propParts[0]]] = ['part' => $propParts[1], 'theme' => $propParts[2]];
+        }
+    }
+}
+
+header('Content-type: image/svg+xml');
+
+$multiavatar = new Multiavatar($avatarId, true, $ver);
 echo($multiavatar->svgCode);
-
-
-
 
 exit;

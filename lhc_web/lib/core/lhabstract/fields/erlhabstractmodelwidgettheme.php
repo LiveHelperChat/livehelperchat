@@ -1036,6 +1036,26 @@ $fields = array(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 )),
 
+                'operator_avatar' => array(
+                    'type' => 'text',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator avatar'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                    )),
+
+                'nh_avatar' => array(
+                    'type' => 'text',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help avatar'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                    )),
+
                 'wright' => array(
                     'type' => 'text',
                     'main_attr' => 'bot_configuration_array',

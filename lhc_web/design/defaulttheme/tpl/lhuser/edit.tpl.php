@@ -105,18 +105,25 @@
     				<input type="text" class="form-control" name="XMPPUsername" value="<?php echo htmlspecialchars($user->xmpp_username);?>"/>
     			</div>
     		</div>
-    		
-    		<div class="form-group">
-    		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Photo');?>, (jpg,png)</label>
-    		  <input type="file" name="UserPhoto" value="" />
-    		</div>
-    		
-    		<?php if ($user->has_photo) : ?>
-    		<div class="form-group">
-    			<img src="<?php echo $user->photo_path?>" alt="" width="50" /><br />
-    			<label><input type="checkbox" name="DeletePhoto" value="1" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Delete')?></label>
-    		</div>
-    		<?php endif;?>
+
+           <div class="row">
+               <div class="col-6">
+                   <div class="form-group">
+                       <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Photo');?>, (jpg,png)</label>
+                       <input type="file" name="UserPhoto" value="" />
+                   </div>
+                   <?php if ($user->has_photo) : ?>
+                       <div class="form-group">
+                           <img src="<?php echo $user->photo_path?>" alt="" width="50" /><br />
+                           <label><input type="checkbox" name="DeletePhoto" value="1" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Delete')?></label>
+                       </div>
+                   <?php endif;?>
+               </div>
+               <div class="col-6">
+                   <?php $avatarOptions = ['avatar' => $user->avatar]; ?>
+                   <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/avatar_build.tpl.php'));?>
+               </div>
+           </div>
 
             <?php if ($can_edit_groups === true) : ?>
 

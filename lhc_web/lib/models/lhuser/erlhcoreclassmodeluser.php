@@ -44,7 +44,8 @@ class erLhcoreClassModelUser {
             'operation_admin' => $this->operation_admin,
             'exclude_autoasign' => $this->exclude_autoasign,
             'pswd_updated' => $this->pswd_updated,
-            'always_on' => $this->always_on
+            'always_on' => $this->always_on,
+            'avatar' => $this->avatar
         );
    }
 
@@ -109,6 +110,10 @@ class erLhcoreClassModelUser {
 
        	case 'has_photo':
        	    	return $this->filename != '';
+       	    break;
+
+       	case 'has_photo_avatar':
+       	    	return $this->filename != '' || $this->avatar != '';
        	    break;
 
        	case 'photo_path':
@@ -241,6 +246,7 @@ class erLhcoreClassModelUser {
     public $exclude_autoasign = 0;
     public $pswd_updated = 0;
     public $always_on = 0;
+    public $avatar = '';
 
     public $attr_int_1 = 0;
     public $attr_int_2 = 0;
