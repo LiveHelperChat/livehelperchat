@@ -707,7 +707,14 @@ foreach ($avatarProps as $prop) {
     }
 }
 
+if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])) {
+    header('HTTP/1.1 304 Not Modified');
+    die();
+}
+
 header('Content-type: image/svg+xml');
+header('Cache-control: max-age='.(60*60*24*365));
+header('Expires: '.gmdate(DATE_RFC1123,time()+60*60*24*365));
 
 $multiavatar = new Multiavatar($avatarId, true, $ver);
 echo($multiavatar->svgCode);
