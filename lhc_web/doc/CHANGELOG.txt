@@ -8,6 +8,8 @@
 6. Fix. Voice message for the admin was broken.
 7. Group chats won't be focused by default.
 
+Avatars are generated using https://multiavatar.com project
+
 execute doc/update_db/update_236.sql for update
 
 3.62v
