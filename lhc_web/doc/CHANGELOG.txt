@@ -7,6 +7,8 @@
 5. Option to set full screen mode from embed code directly.
 6. Fix. Voice message for the admin was broken.
 7. Group chats won't be focused by default.
+8. Tablets won't show widget in full screen mode.
+9. Option to have hidden status widget in case of api position
 
 Avatars are generated using https://multiavatar.com project
 
