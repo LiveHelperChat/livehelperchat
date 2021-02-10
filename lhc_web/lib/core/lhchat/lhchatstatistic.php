@@ -649,9 +649,9 @@ class erLhcoreClassChatStatistic {
 
         	for ($i = 0; $i < 24; $i++) {
         		$dateHour = str_pad($i , 2, '0' , STR_PAD_LEFT);
-        		$numberOfChats['total'][$i] = erLhcoreClassModelChat::getCount(array_merge(array('customfilter' =>  array('FROM_UNIXTIME(time,\'%k\') = '. $dateHour)),$filter));
+        		$numberOfChats['total'][$i] = erLhcoreClassModelChat::getCount(array_merge_recursive(array('customfilter' =>  array('FROM_UNIXTIME(time,\'%k\') = '. $dateHour)),$filter));
                 $numberOfChats['byday'][$i] = $numberOfChats['total'][$i]/$diffDays;
-                $numberOfChats['bydaymax'][$i] = erLhcoreClassModelChat::getCount(array_merge(array('sort' => 'total_records DESC', 'limit' => 1, 'group' => 'FROM_UNIXTIME(time,\'%Y%m%d\')', 'customfilter' =>  array('FROM_UNIXTIME(time,\'%k\') = '. $dateHour)),$filter),'',false,'max(time) as time, count(`lh_chat`.`id`) as total_records', false);
+                $numberOfChats['bydaymax'][$i] = erLhcoreClassModelChat::getCount(array_merge_recursive(array('sort' => 'total_records DESC', 'limit' => 1, 'group' => 'FROM_UNIXTIME(time,\'%Y%m%d\')', 'customfilter' =>  array('FROM_UNIXTIME(time,\'%k\') = '. $dateHour)),$filter),'',false,'max(time) as time, count(`lh_chat`.`id`) as total_records', false);
 
                 if (!isset($numberOfChats['bydaymax'][$i]['time'])){
                     $numberOfChats['bydaymax'][$i]['time'] = 0;
@@ -1899,8 +1899,15 @@ class erLhcoreClassChatStatistic {
                 }
 
                 $chatStarted = erLhcoreClassChat::getCount(array_merge_recursive($filter, $filterTimeout), 'lh_chat', 'count(id)');
-                $abandonedStarted = erLhcoreClassChat::getCount(array_merge_recursive($filter, $filterTimeout, array('filter' => array('user_id' => 0, 'status_sub' => erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT))), 'lh_chat', 'count(id)');
-                
+
+                // Abandoned chat is considered if
+                // * There is no operator assigned to the chat and visitor has already left
+                // * Last sync was before chat was accepted by the operator
+                $abandonedStarted = erLhcoreClassModelChat::getCount(array_merge_recursive($filter, $filterTimeout, array(
+                    'filter_custom' => array (
+                        '((user_id = 0 AND status_sub = ' . erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT . ') OR (lsync < (pnd_time + wait_time)))'
+                    ))));
+
                 $stats['rows'][] = array(
                     'from' => $rangeData['from'],
                     'to' => $rangeData['to'],

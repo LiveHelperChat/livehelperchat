@@ -221,6 +221,30 @@ $fieldsSearch['no_operator'] = array (
     )
 );
 
+$fieldsSearch['has_unread_messages'] = array (
+    'type' => 'boolean',
+    'trans' => 'groupby',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'manual',
+    'filter_table_field' => ['filter' => ['has_unread_messages' => 1]],
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    )
+);
+
+$fieldsSearch['abandoned_chat'] = array (
+    'type' => 'boolean',
+    'trans' => 'groupby',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'manual',
+    'filter_table_field' => ['customfilter' => ['((`lh_chat`.`user_id` = 0 AND `status_sub` = ' . erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT . ') OR (`lsync` < (`pnd_time` + `wait_time`)))']],
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    )
+);
+
 $fieldsSearch['has_operator'] = array (
     'type' => 'boolean',
     'trans' => 'groupby',
