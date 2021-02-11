@@ -256,6 +256,15 @@
                 var meta = chart.getDatasetMeta(i);
                 if (!meta.hidden) {
                     meta.data.forEach(function(element, index) {
+
+                        var maxValue = 0;
+
+                        if (chart.options.perc) {
+                            meta.data.forEach(function(element, index) {
+                                maxValue += dataset.data[index];
+                            })
+                        }
+
                         // Draw the text in black, with the specified font
                         var dataString = dataset.data[index].toString();
                         if (dataString !== '0')
@@ -272,6 +281,11 @@
                             ctx.textBaseline = 'middle';
                             var padding = 5;
                             var position = element.tooltipPosition();
+
+                            if (chart.options.perc) {
+                                dataString = (chart.options.exc_counter ? '' : dataString+' / ') + (parseInt(dataString)*100 / maxValue).toFixed(2)+"%";
+                            }
+
                             ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
                         }
                     });
@@ -956,6 +970,7 @@
                          top: 20
                     }
                 },
+                perc: true,
                 scales: {
                     xAxes: [{
                         ticks: {

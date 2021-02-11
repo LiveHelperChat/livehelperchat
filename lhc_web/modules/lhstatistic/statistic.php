@@ -159,6 +159,7 @@ if ($tab == 'active') {
                 'numberOfChatsPerMonth' => (
                 (is_array($filterParams['input_form']->chart_type) && (
                         in_array('active',$filterParams['input_form']->chart_type) ||
+                        in_array('total_chats',$filterParams['input_form']->chart_type) ||
                         in_array('proactivevsdefault',$filterParams['input_form']->chart_type) ||
                         in_array('msgtype',$filterParams['input_form']->chart_type) ||
                         in_array('unanswered',$filterParams['input_form']->chart_type)
@@ -176,6 +177,7 @@ if ($tab == 'active') {
                 'numberOfChatsPerMonth' => (
                 (is_array($filterParams['input_form']->chart_type) && (
                         in_array('active',$filterParams['input_form']->chart_type) ||
+                        in_array('total_chats',$filterParams['input_form']->chart_type) ||
                         in_array('proactivevsdefault',$filterParams['input_form']->chart_type) ||
                         in_array('msgtype',$filterParams['input_form']->chart_type) ||
                         in_array('unanswered',$filterParams['input_form']->chart_type)
@@ -188,11 +190,30 @@ if ($tab == 'active') {
 
                 'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
             ));
+        } elseif ($filterParams['input_form']->groupby == 3) {
+            $tpl->setArray(array(
+                'numberOfChatsPerMonth' => (
+                (is_array($filterParams['input_form']->chart_type) && (
+                        in_array('active',$filterParams['input_form']->chart_type) ||
+                        in_array('total_chats',$filterParams['input_form']->chart_type) ||
+                        in_array('proactivevsdefault',$filterParams['input_form']->chart_type) ||
+                        in_array('msgtype',$filterParams['input_form']->chart_type) ||
+                        in_array('unanswered',$filterParams['input_form']->chart_type)
+                    )
+                ) ? erLhcoreClassChatStatistic::getNumberOfChatsPerWeekDay($filterParams['filter'], array('charttypes' => $filterParams['input_form']->chart_type)): array()),
+                'numberOfChatsPerWaitTimeMonth' => ((is_array($filterParams['input_form']->chart_type) && in_array('waitmonth',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getNumberOfChatsWaitTimePerWeekDay($filterParams['filter']): array()),
+
+                'nickgroupingdate' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdate',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateWeekDay($filterParams['filter'], array('group_field' => $filterParams['input']->group_field)) : array()),
+                'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdatenick',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateNickWeekDay($filterParams['filter'], array('group_field' => $filterParams['input']->group_field)) : array()),
+
+                'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
+            ));
         } else {
             $tpl->setArray(array(
                 'numberOfChatsPerMonth' => (
                 (is_array($filterParams['input_form']->chart_type) && (
                         in_array('active',$filterParams['input_form']->chart_type) ||
+                        in_array('total_chats',$filterParams['input_form']->chart_type) ||
                         in_array('proactivevsdefault',$filterParams['input_form']->chart_type) ||
                         in_array('msgtype',$filterParams['input_form']->chart_type) ||
                         in_array('unanswered',$filterParams['input_form']->chart_type)

@@ -281,9 +281,6 @@ $fieldsSearch['without_bot'] = array (
     )
 );
 
-
-
-
 $fieldSortAttr = array (
 'field'      => false,
 'default'    => false,

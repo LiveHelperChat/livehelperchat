@@ -39,6 +39,7 @@
 	       <option value="0" <?php $input->groupby == 0 ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Month');?></option>
 	       <option value="1" <?php $input->groupby == 1 ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Day');?></option>
 	       <option value="2" <?php $input->groupby == 2 ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Week');?></option>
+	       <option value="3" <?php $input->groupby == 3 ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Day of the week');?></option>
 	   </select>
 	</div>
 	</div>
@@ -198,6 +199,7 @@
     <div class="col-md-12">
         <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','What charts to display')?></h6>
         <div class="row">
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="total_chats" <?php if (in_array('total_chats',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Total chats')?></label></div>
             <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="active" <?php if (in_array('active',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chat numbers by status')?></label></div>
             <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="unanswered" <?php if (in_array('unanswered',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Unanswered chat numbers')?></label></div>
             <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="msgtype" <?php if (in_array('msgtype',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Message types')?></label></div>
@@ -222,7 +224,17 @@
 	</script>							
 </form>
 
-<?php if (isset($_GET['doSearch'])) : ?> 
+<?php if (isset($_GET['doSearch'])) : ?>
+    <?php $weekDays = array(
+        0 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Sunday'),
+        1 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Monday'),
+        2 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Tuesday'),
+        3 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Wednesday'),
+        4 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Thursday'),
+        5 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Friday'),
+        6 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Saturday'),
+    ); ?>
+
 <script type="text/javascript">
 	function redrawAllCharts(){
 			drawChartPerMonth();
@@ -237,8 +249,18 @@
             chart.data.datasets.forEach(function (dataset, i) {
                 var meta = chart.getDatasetMeta(i);
                 if (!meta.hidden) {
+
+                    var maxValue = 0;
+
+                    if (chart.options.perc) {
+                        meta.data.forEach(function(element, index) {
+                            maxValue += dataset.data[index];
+                        })
+                    }
+
                     meta.data.forEach(function(element, index) {
                         // Draw the text in black, with the specified font
+
                         var dataString = dataset.data[index].toString();
                         if (dataString !== '0')
                         {
@@ -254,6 +276,11 @@
                             ctx.textBaseline = 'middle';
                             var padding = 5;
                             var position = element.tooltipPosition();
+
+                            if (chart.options.perc) {
+                                dataString = (chart.options.exc_counter ? '' : dataString+' / ') + (parseInt(dataString)*100 / maxValue).toFixed(2)+"%";
+                            }
+
                             ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
                         }
                     });
@@ -268,39 +295,43 @@
 
     function drawBasicChart(data, id) {
         var ctx = document.getElementById(id).getContext("2d");
+
+        var options = {
+            responsive: true,
+            legend: {
+                display : false,
+                position: 'top',
+            },
+            perc : true,
+            layout: {
+                padding: {
+                    top: 20
+                }
+            },
+            scales: {
+                xAxes: [{
+                    ticks: {
+                        fontSize: 11,
+                        stepSize: 1,
+                        min: 0,
+                        autoSkip: false
+                    }
+                }],
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
+            title: {
+                display: false
+            }
+        };
+
         var myBar = new Chart(ctx, {
             type: 'bar',
             data: data,
-            options: {
-                responsive: true,
-                legend: {
-                    display : false,
-                    position: 'top',
-                },
-                layout: {
-                    padding: {
-                        top: 20
-                    }
-                },
-                scales: {
-                    xAxes: [{
-                        ticks: {
-                            fontSize: 11,
-                            stepSize: 1,
-                            min: 0,
-                            autoSkip: false
-                        }
-                    }],
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                },
-                title: {
-                    display: false
-                }
-            }
+            options: options
         });
     }
 
@@ -308,7 +339,7 @@
         <?php if (isset($nickgroupingdate) && !empty($nickgroupingdate)) : ?>
         <?php if (in_array('nickgroupingdate',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
         var barChartData = {
-            labels: [<?php $key = 0; foreach ($nickgroupingdate as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date($groupby,$monthUnix).'\'';$key++; endforeach;?>],
+            labels: [<?php $key = 0; foreach ($nickgroupingdate as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.($monthUnix > 10 ? date($groupby,$monthUnix) : $weekDays[(int)$monthUnix] ).'\'';$key++; endforeach;?>],
             datasets: [
                 {
                     label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Unique records');?>',
@@ -364,7 +395,7 @@
 
         <?php if (in_array('nickgroupingdatenick',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
         var barChartData = {
-            labels: [<?php $key = 0; foreach ($nickgroupingdatenick['labels'] as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date($groupby,$monthUnix).'\'';$key++; endforeach;?>],
+            labels: [<?php $key = 0; foreach ($nickgroupingdatenick['labels'] as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.($monthUnix > 10 ? date($groupby,$monthUnix) : $weekDays[(int)$monthUnix] ).'\'';$key++; endforeach;?>],
             datasets: [
                 <?php foreach ($nickgroupingdatenick['data'] as $data) : ?>
                 {
@@ -431,9 +462,10 @@
 
 	function drawChartPerMonth() {
 
+
         <?php if (in_array('active',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
         var barChartData = {
-            labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date($groupby,$monthUnix).'\'';$key++; endforeach;?>],
+            labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''. ($monthUnix > 10 ? date($groupby,$monthUnix) : $weekDays[(int)$monthUnix] ).'\'';$key++; endforeach;?>],
             datasets: [
                 {
                     label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Active');?>',
@@ -507,7 +539,7 @@
 
         <?php if (in_array('unanswered',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
         var barChartData = {
-            labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : ; echo ($key > 0 ? ',' : ''),'\''.date($groupby,$monthUnix).'\'';$key++; endforeach;?>],
+            labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : ; echo ($key > 0 ? ',' : ''),'\''.($monthUnix > 10 ? date($groupby,$monthUnix) : $weekDays[(int)$monthUnix] ).'\'';$key++; endforeach;?>],
             datasets: [{
                 backgroundColor: '#36c',
                 borderColor: '#36c',
@@ -520,7 +552,7 @@
 
         <?php if (in_array('waitmonth',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
         var barChartData = {
-            labels: [<?php $key = 0; foreach ($numberOfChatsPerWaitTimeMonth as $monthUnix => $data) : ; echo ($key > 0 ? ',' : ''),'\''.date($groupby,$monthUnix).'\'';$key++; endforeach;?>],
+            labels: [<?php $key = 0; foreach ($numberOfChatsPerWaitTimeMonth as $monthUnix => $data) : ; echo ($key > 0 ? ',' : ''),'\''.($monthUnix > 10 ? date($groupby,$monthUnix) : $weekDays[(int)$monthUnix] ).'\'';$key++; endforeach;?>],
             datasets: [{
                 backgroundColor: '#36c',
                 borderColor: '#36c',
@@ -531,9 +563,22 @@
         drawBasicChart(barChartData,'chart_div_per_month_wait_time');
         <?php endif; ?>
 
+        <?php if (in_array('total_chats',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
+        var barChartData = {
+            labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : ; echo ($key > 0 ? ',' : ''),'\''.($monthUnix > 10 ? date($groupby,$monthUnix) : $weekDays[(int)$monthUnix] ).'\'';$key++; endforeach;?>],
+            datasets: [{
+                backgroundColor: '#36c',
+                borderColor: '#36c',
+                borderWidth: 1,
+                data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['total_chats']; $key++; endforeach;?>]
+            }]
+        };
+        drawBasicChart(barChartData,'chart_div_per_total');
+        <?php endif; ?>
+
         <?php if (in_array('proactivevsdefault',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
         var barChartData = {
-            labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date($groupby,$monthUnix).'\'';$key++; endforeach;?>],
+            labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.($monthUnix > 10 ? date($groupby,$monthUnix) : $weekDays[(int)$monthUnix] ).'\'';$key++; endforeach;?>],
             datasets: [
                 {
                     label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Proactive');?>',
@@ -593,7 +638,7 @@
 
         <?php if (in_array('msgtype',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
         var barChartData = {
-            labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date($groupby,$monthUnix).'\'';$key++; endforeach;?>],
+            labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.($monthUnix > 10 ? date($groupby,$monthUnix) : $weekDays[(int)$monthUnix]).'\'';$key++; endforeach;?>],
             datasets: [
                 {
                     label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Visitors');?>',
@@ -678,6 +723,12 @@
 <hr>
 <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_number_by_statuses.tpl.php'));?></h5>
 <canvas id="chart_div_per_month"></canvas>
+<?php endif; ?>
+
+<?php if (in_array('total_chats',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
+<hr>
+<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_number_by_total.tpl.php'));?></h5>
+<canvas id="chart_div_per_total"></canvas>
 <?php endif; ?>
 
 <?php if (in_array('nickgroupingdate',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
