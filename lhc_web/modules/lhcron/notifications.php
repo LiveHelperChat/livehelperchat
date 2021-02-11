@@ -7,8 +7,6 @@
  * */
 echo "Starting chat/notifications\n";
 
-include 'lib/vendor/autoload.php';
-
 erLhcoreClassNotifications::informAboutUnreadMessages();
 
 /*
