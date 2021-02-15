@@ -219,7 +219,7 @@ class erLhcoreClassChatStatistic {
 
     public static function getNumberOfChatsPerWeekDay($filter = array(), $paramsExecution = array())
     {
-        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getnumberofchatsperweekday',array('params_execution' => $paramsExecution, 'filter' => $filter));
+         $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getnumberofchatsperweekday',array('params_execution' => $paramsExecution, 'filter' => $filter));
 
         if ($statusWorkflow === false) {
 
@@ -271,7 +271,8 @@ class erLhcoreClassChatStatistic {
                     $numberOfChats[$i]['active'] = (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%w\') = '. $i))));
                     $numberOfChats[$i]['operators'] = (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_OPERATORS_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%w\') = '. $i))));
                     $numberOfChats[$i]['pending'] = (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%w\') = '. $i))));
-                    $numberOfChats[$i]['total_chats'] = $numberOfChats[$i]['closed'] + $numberOfChats[$i]['active'] + $numberOfChats[$i]['operators'] + $numberOfChats[$i]['pending'];
+                    $numberOfChats[$i]['bot'] = (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_BOT_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%w\') = '. $i))));
+                    $numberOfChats[$i]['total_chats'] = $numberOfChats[$i]['closed'] + $numberOfChats[$i]['active'] + $numberOfChats[$i]['operators'] + $numberOfChats[$i]['pending'] + $numberOfChats[$i]['bot'];
                 }
 
                 if (isset($paramsExecution['charttypes']) && is_array($paramsExecution['charttypes']) && in_array('unanswered',$paramsExecution['charttypes'])){
