@@ -6,7 +6,11 @@ $ignorable_ip = erLhcoreClassModelChatConfig::fetch('ignorable_ip')->current_val
 
 $outputResponse = array('status' => true);
 
-if ( $ignorable_ip != '' && erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(),explode(',',$ignorable_ip))) {
+if (
+    ($ignorable_ip != '' && erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(),explode(',',$ignorable_ip)))
+    ||
+    (erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value != 1)
+) {
     erLhcoreClassRestAPIHandler::outputResponse(array('status' => false));
     exit;
 }
