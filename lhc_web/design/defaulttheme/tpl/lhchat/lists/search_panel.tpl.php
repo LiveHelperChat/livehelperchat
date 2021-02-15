@@ -288,7 +288,7 @@
 		<div class="col-md-2">
 			<div class="form-group">
 		    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat ID');?></label>
-				<input type="text" class="form-control form-control-sm" name="chat_id" value="<?php echo htmlspecialchars($input->chat_id)?>" />
+				<input type="text" class="form-control form-control-sm" placeholder="<?php echo htmlspecialchars("<id>[,<id>]");?>" name="chat_id" value="<?php echo htmlspecialchars($input->chat_id)?>" />
 			</div>
 		</div>
         <div class="col-md-3">

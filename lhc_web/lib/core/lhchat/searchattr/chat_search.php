@@ -115,10 +115,11 @@ $fieldsSearch['chat_id'] = array (
     'trans' => 'id',
     'required' => false,
     'valid_if_filled' => false,
+    'multiple_id' => true,
     'filter_type' => 'filter',
     'filter_table_field' => '`lh_chat`.`id`',
     'validation_definition' => new ezcInputFormDefinitionElement (
-            ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
     )
 );
 
