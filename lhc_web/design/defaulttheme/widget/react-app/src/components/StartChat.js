@@ -333,7 +333,7 @@ class StartChat extends Component {
         return null;
     }
 
-    if (this.props.chatwidget.get('onlineData').has('fields') && !(this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 && this.props.chatwidget.getIn(['customData','fields']).size == 0)) {
+    if (this.props.chatwidget.getIn(['onlineData','fields']).size > 0 && !(this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 && this.props.chatwidget.getIn(['customData','fields']).size == 0)) {
         var mappedFields = this.props.chatwidget.getIn(['onlineData','fields']).map(field =><ChatField chatUI={this.props.chatwidget.get('chat_ui')} key={field.get('identifier')} isInvalid={this.props.chatwidget.hasIn(['validationErrors',field.get('identifier')])} defaultValueField={this.state[field.get('name')] || field.get('value')} attrPrefill={{'attr_prefill_admin' : this.props.chatwidget.get('attr_prefill_admin'), 'attr_prefill' : this.props.chatwidget.get('attr_prefill')}} onChangeContent={this.handleContentChange} field={field} />);
     } else {
         var mappedFields = "";
@@ -415,7 +415,6 @@ class StartChat extends Component {
                                 {this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || t('button.start_chat_With_us')}
                             </button>}
 
-
                           </div>}
                     </React.Fragment>
                 )
@@ -426,7 +425,7 @@ class StartChat extends Component {
                     {
                             (this.props.chatwidget.getIn(['proactive','has']) === true && <ChatInvitationMessage mode='profile' invitation={this.props.chatwidget.getIn(['proactive','data'])} />)
                             ||
-                            (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div className="p-2 border-bottom" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div>)
+                            (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div className={"p-2"+(this.props.chatwidget.hasIn(['chat_ui','np_border']) ? '' : ' border-bottom')} dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div>)
                     }
                     <div className="container-fluid">
                         <ChatErrorList errors={this.props.chatwidget.get('validationErrors')} />
@@ -439,11 +438,11 @@ class StartChat extends Component {
                                 {mappedFieldsCustom}
                                 {this.props.chatwidget.hasIn(['onlineData','department']) && <ChatDepartment defaultValueField={this.state['DepartamentID']} setDefaultValue={this.props.chatwidget.get('departmentDefault')} onChangeContent={this.handleContentChange} isInvalidProduct={this.props.chatwidget.hasIn(['validationErrors','ProductID'])} isInvalid={this.props.chatwidget.hasIn(['validationErrors','department'])} departments={this.props.chatwidget.getIn(['onlineData','department'])} />}
                             </div>
-                            <div className="row">
+                            {(!this.props.chatwidget.hasIn(['chat_ui','hstr_btn']) || mappedFieldsCustom !== "" || mappedFields !== "" || this.props.chatwidget.getIn(['proactive','has']) === true) && <div className="row">
                                 <div className="col-12 pb-3">
                                     <button disabled={this.props.chatwidget.get('processStatus') == 1} type="submit" className="btn btn-secondary btn-sm">{this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || t('button.start_chat')}</button>
                                 </div>
-                            </div>
+                            </div>}
                         </form>
                     </div>
                 </div>

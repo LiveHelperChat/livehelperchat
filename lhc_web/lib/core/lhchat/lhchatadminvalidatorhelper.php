@@ -258,8 +258,9 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'MessageAutoStartOnKeyPress' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
-
-
+            'NoProfileBorder' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	        ),
 
 	        'MessageRequireOption' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'string'
@@ -463,6 +464,12 @@ class erLhcoreClassAdminChatValidatorHelper {
             $data['disable_start_chat'] = true;
         } else {
             $data['disable_start_chat'] = false;
+        }
+
+        if ( $form->hasValidData( 'NoProfileBorder' ) && $form->NoProfileBorder == true ) {
+            $data['np_border'] = true;
+        } else {
+            $data['np_border'] = false;
         }
 
         // Width options

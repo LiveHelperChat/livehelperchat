@@ -321,6 +321,9 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
 			<label><input type="checkbox" value="on" name="HideStartButton" <?php (isset($start_chat_data['hide_start_button']) && $start_chat_data['hide_start_button'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.');?></label>
 
             <br />
+			<label><input type="checkbox" value="on" name="NoProfileBorder" <?php (isset($start_chat_data['np_border']) && $start_chat_data['np_border'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','No border under a profile');?></label>
+
+            <br />
 			<label><input type="checkbox" value="on" name="LazyLoad" <?php (isset($start_chat_data['lazy_load']) && $start_chat_data['lazy_load'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.');?></label>
 
 			<div class="form-group">

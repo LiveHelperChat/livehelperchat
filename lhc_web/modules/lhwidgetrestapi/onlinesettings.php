@@ -111,6 +111,10 @@ if (isset($startDataFields['hide_message_label']) && $startDataFields['hide_mess
     $chat_ui['hide_message_label'] = true;
 }
 
+if (isset($startDataFields['np_border']) && $startDataFields['np_border'] == true) {
+    $chat_ui['np_border'] = true;
+}
+
 if (isset($startDataFields['show_messages_box']) && $startDataFields['show_messages_box'] == true){
     $chat_ui['show_messages_box'] = true;
 }

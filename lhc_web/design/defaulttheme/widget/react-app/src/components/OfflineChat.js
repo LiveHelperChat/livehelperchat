@@ -135,9 +135,12 @@ class OfflineChat extends Component {
             )
         }
 
-        
-        
-        if (this.props.chatwidget.get('offlineData').has('fields')) {
+        if (this.props.chatwidget.getIn(['offlineData','fetched']) === false)
+        {
+            return null;
+        }
+
+        if (this.props.chatwidget.getIn(['offlineData','fields']).size > 0) {
             var mappedFields = this.props.chatwidget.getIn(['offlineData','fields']).map(field =><ChatField chatUI={this.props.chatwidget.get('chat_ui')} isInvalid={this.props.chatwidget.hasIn(['validationErrors',field.get('identifier')])} attrPrefill={{'attr_prefill_admin' : this.props.chatwidget.get('attr_prefill_admin'), 'attr_prefill' : this.props.chatwidget.get('attr_prefill')}} defaultValueField={this.state[field.get('name')] || field.get('value')} onChangeContent={this.handleContentChange} field={field} />);
         } else {
             var mappedFields = "";
@@ -166,11 +169,11 @@ class OfflineChat extends Component {
                                 {mappedFieldsCustom}
                                 {this.props.chatwidget.hasIn(['offlineData','department']) && <ChatDepartment defaultValueField={this.state['DepartamentID']} setDefaultValue={this.props.chatwidget.get('departmentDefault')} onChangeContent={this.handleContentChange} isInvalid={this.props.chatwidget.hasIn(['validationErrors','department'])} departments={this.props.chatwidget.getIn(['offlineData','department'])} />}
                             </div>
-                            <div className="row">
+                            {(!this.props.chatwidget.hasIn(['chat_ui','hstr_btn']) || mappedFieldsCustom !== "" || mappedFields !== "") && <div className="row">
                                 <div className="col-12 pb-2">
                                     <button type="submit" disabled={this.props.chatwidget.get('processStatus') == 1} className="btn btn-secondary btn-sm">{this.props.chatwidget.get('processStatus') == 1 && <i className="material-icons">&#xf113;</i>}{this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || t('start_chat.leave_a_message')}</button>
                                 </div>
-                            </div>
+                            </div>}
                         </form>
                     </div>}
                       
