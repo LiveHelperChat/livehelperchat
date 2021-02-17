@@ -1886,6 +1886,8 @@ function lh(){
 	{
 		this.explicitClose = true;
 
+        ee.emitEvent('endedChat', []);
+
 		if (this.isWidgetMode && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {
 	 		 parent.postMessage('lhc_chat_closed_explicit', '*');
 		} else {
@@ -3069,6 +3071,7 @@ function lh(){
         }
 
         try {
+            ee.emitEvent('messageSend', [{'chat_id':this.chat_id, 'hash': this.hash, msg: pdata.msg}]);
             if (sessionStorage) {
                 sessionStorage.setItem('lhc_ttxt','');
             };

@@ -158,12 +158,12 @@ if (isset($_GET['name']) && is_array($_GET['name']) && !empty($_GET['name'])) {
             'index' => $index,
             'name' => $value,
             'class' => 'form-control form-control-sm',
-            'type' => $_GET['type'][$index],
+            'type' => isset($_GET['type'][$index]) ? $_GET['type'][$index] : 'hidden',
             'identifier' => ('additional_' . $index),
             'placeholder' => (isset($_GET['placeholder'][$index]) ? $_GET['placeholder'][$index] : ''),
             'width' => (isset($_GET['size'][$index]) ? $_GET['size'][$index] : 6),
-            'encrypted' => ($_GET['encattr'][$index] === 't'),
-            'required' => ($_GET['req'][$index] === 't'),
+            'encrypted' => (isset($_GET['encattr'][$index]) && $_GET['encattr'][$index] === 't'),
+            'required' => (isset($_GET['req'][$index]) && $_GET['req'][$index] === 't'),
             'label' => $value,
         );
     }
