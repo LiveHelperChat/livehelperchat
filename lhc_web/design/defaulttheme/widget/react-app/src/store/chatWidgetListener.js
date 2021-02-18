@@ -8,27 +8,33 @@ export default function (dispatch, getState) {
     let extensions = {};
     let readyReceived = false;
 
-    function executeExtension(extension, args) {
-        if (typeof extensions[extension] !== 'undefined') {
-
-            if (Array.isArray(args)) {
-                args.push(dispatch);
-                args.push(getState);
-            }
-
-            if (document.getElementById('ext-' + extension) === null) {
-                var th = document.getElementsByTagName('head')[0];
-                var s = document.createElement('script');
-                s.setAttribute('type','text/javascript');
-                s.setAttribute('src',extensions[extension]);
-                s.setAttribute('id','ext-' + extension);
-                th.appendChild(s);
-                s.onreadystatechange = s.onload = function() {
-                    helperFunctions.emitEvent(extension + '.init', args);
-                };
-            } else {
+    function insertJS(extension, src, args) {
+        if (document.getElementById('ext-' + extension) === null) {
+            var th = document.getElementsByTagName('head')[0];
+            var s = document.createElement('script');
+            s.setAttribute('type','text/javascript');
+            s.setAttribute('src',src);
+            s.setAttribute('id','ext-' + extension);
+            th.appendChild(s);
+            s.onreadystatechange = s.onload = function() {
                 helperFunctions.emitEvent(extension + '.init', args);
-            }
+            };
+        } else {
+            helperFunctions.emitEvent(extension + '.init', args);
+        }
+    }
+
+    function executeExtension(extension, args) {
+        if (Array.isArray(args)) {
+            args.push(dispatch);
+            args.push(getState);
+        }
+
+        if (typeof extensions[extension] !== 'undefined') {
+            insertJS(extension, extensions[extension], args);
+        } else if (extension == 'modal_ext') {
+            var date = new Date();
+            insertJS(extension, __webpack_public_path__.replace('/widgetv2/','') + '/modal.ext.min.js?'+(""+date.getFullYear() + date.getMonth() + date.getDate()), args);
         }
     }
 

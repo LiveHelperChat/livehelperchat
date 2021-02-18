@@ -34,6 +34,16 @@ $def->properties['identifier']->columnName   = 'identifier';
 $def->properties['identifier']->propertyName = 'identifier';
 $def->properties['identifier']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['custom_fields'] = new ezcPersistentObjectProperty();
+$def->properties['custom_fields']->columnName   = 'custom_fields';
+$def->properties['custom_fields']->propertyName = 'custom_fields';
+$def->properties['custom_fields']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+$def->properties['chat_id'] = new ezcPersistentObjectProperty();
+$def->properties['chat_id']->columnName   = 'chat_id';
+$def->properties['chat_id']->propertyName = 'chat_id';
+$def->properties['chat_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

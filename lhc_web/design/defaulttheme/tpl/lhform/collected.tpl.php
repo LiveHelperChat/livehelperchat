@@ -1,6 +1,6 @@
 <h1><?php echo htmlspecialchars($form)?></h1>
 
-<div class="row">
+<div class="row pb-2">
 	<div class="col-6"><a href="<?php echo erLhcoreClassDesign::baseurl('form/downloadcollected')?>/<?php echo $form->id?>" class="btn btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Download XLS');?></a></div>
 	<div class="col-6">
 	
@@ -17,6 +17,7 @@
 <tr>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Name');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Identifier');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Chat');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Intro');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Time');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','IP');?></th>
@@ -29,6 +30,13 @@
     	<td><?php echo htmlspecialchars($item->getAttrValue($form->name_attr))?></td>
     	<td>
     	<div class="page-url"><span><?php echo htmlspecialchars($item->identifier)?></span></div>
+    	</td>
+        <td>
+    	<?php if ($item->chat_id > 0) : ?>
+            <a class="material-icons" onclick="lhc.previewChat(<?php echo $item->chat_id?>)">info_outline</a>
+        <?php else : ?>
+            <i class="material-icons">remove_circle_outline</i>
+        <?php endif; ?>
     	</td>
         <td><?php echo $form->intro_attr != '' ? htmlspecialchars($item->getAttrValue($form->intro_attr)) : ''?></td>
         <td><?php echo $item->ctime_front?></td>

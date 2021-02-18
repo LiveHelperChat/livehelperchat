@@ -1,3 +1,15 @@
+3.64v
+
+1. Any form now can be integrated into a widget. https://doc.livehelperchat.com/docs/modules/forms/
+2. Widget can have only pre chat form now only.
+3. New widget was not respecting do not track online visitors setting.
+4. Chat's can be searched by entering multiple id's
+5. Some charts will show percentages at the top of column
+6. Abandoned chats statistic
+7. Forms were not exported to zip by clicking download icon.
+
+execute doc/update_db/update_237.sql for update
+
 3.63v
 
 1. You can generate avatar for your profile.

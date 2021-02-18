@@ -31,6 +31,9 @@ $i++;
 $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($i, 1, 'IP');
 
 $i++;
+$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($i, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('form/index','Custom fields'));
+
+$i++;
 $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($i, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('form/index','Identifier'));
 
 // Set data
@@ -56,8 +59,12 @@ foreach ($items as $item) {
 	}
 	
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($y, $i, $item->ctime_full_front);
+
 	$y++;
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($y, $i, $item->ip);
+
+	$y++;
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($y, $i, $item->custom_fields);
 	
 	$y++;	
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($y, $i, $item->identifier);

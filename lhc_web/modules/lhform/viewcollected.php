@@ -10,7 +10,7 @@ erLhcoreClassFormRenderer::setCollectedObject($collected);
 
 $tpl->set('collected',$collected);
 $tpl->set('form',$collected->form);
-$tpl->set('content',$collected->form->content_rendered);
+$tpl->set('content',$collected->form->content_rendered_admin);
 
 $Result['content'] = $tpl->fetch();
 
