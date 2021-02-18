@@ -793,6 +793,12 @@ class erLhcoreClassBBCode
        return '<a class="action-image alert-link" onclick="lhinst.chooseFile()">' . htmlspecialchars($data) . '</a>';
    }
 
+   public static function _make_base_link($matches) {
+       $data = htmlspecialchars($matches[1]);
+       $url = (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//'. (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '') . erLhcoreClassDesign::baseurl($data);
+       return '<a target="_blank" href="'.$url.'">' . $url . '</a>';
+   }
+
    public static function _make_url_file($matches)
    {
 
@@ -1118,6 +1124,9 @@ class erLhcoreClassBBCode
 
     	// File upload link directly in chat message
     	$ret = preg_replace_callback('#\[fupload\](.*?)\[/fupload\]#is', 'erLhcoreClassBBCode::_make_upload_link', $ret);
+
+    	// Make base URL
+    	$ret = preg_replace_callback('#\[baseurl\](.*?)\[/baseurl\]#is', 'erLhcoreClassBBCode::_make_base_link', $ret);
 
     	$ret = preg_replace_callback('#\[button_action="?(.*?)"?\](.*?)\[/button_action\]#is', 'erLhcoreClassBBCode::_make_button_action', $ret);
 

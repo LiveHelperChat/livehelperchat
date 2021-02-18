@@ -971,6 +971,12 @@ class erLhcoreClassBBCodePlain
         return $meta;
     }
 
+    public static function _make_base_link($matches) {
+        $data = htmlspecialchars($matches[1]);
+        $url = (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//'. (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '') . erLhcoreClassDesign::baseurl($data);
+        return $url;
+    }
+
     // Converts bbcode and general links to hmtl code
     public static function make_clickable($ret, $paramsMessage = array()) {
         $ret = ' ' . $ret;
@@ -1013,6 +1019,9 @@ class erLhcoreClassBBCodePlain
 
         // Youtube block
         $ret = preg_replace_callback('#\[youtube\](.*?)\[/youtube\]#is', 'erLhcoreClassBBCodePlain::_make_youtube_block', $ret);
+
+        // Make base URL
+        $ret = preg_replace_callback('#\[baseurl\](.*?)\[/baseurl\]#is', 'erLhcoreClassBBCode::_make_base_link', $ret);
 
         $ret = preg_replace('#\[translation\](.*?)\[/translation\]#is', '<span class="tr-msg">$1</span>', $ret);
 

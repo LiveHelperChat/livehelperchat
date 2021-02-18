@@ -1047,7 +1047,9 @@ class Install
 				  `ctime` int(11) NOT NULL,
 				  `ip` varchar(250) NOT NULL,
         	   	  `identifier` varchar(250) NOT NULL,
+        	   	  `chat_id` bigint(20) NOT NULL,
 				  `content` longtext NOT NULL,
+				  `custom_fields` longtext NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `form_id` (`form_id`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
