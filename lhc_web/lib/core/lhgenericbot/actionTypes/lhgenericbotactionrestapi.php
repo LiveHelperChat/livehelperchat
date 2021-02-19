@@ -324,6 +324,9 @@ class erLhcoreClassGenericBotActionRestapi
 
         if (isset($methodSettings['authorization']) && $methodSettings['authorization'] == 'basicauth') {
             curl_setopt($ch, CURLOPT_USERPWD, $methodSettings['auth_username'] . ":" . $methodSettings['auth_password']);
+        } elseif (isset($methodSettings['authorization']) && $methodSettings['authorization'] == 'NTLMauth') {
+            curl_setopt($ch, CURLOPT_USERPWD, $methodSettings['auth_username'] . ":" . $methodSettings['auth_password']);
+            curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_NTLM);
         } elseif (isset($methodSettings['authorization']) && $methodSettings['authorization'] == 'bearer' && isset($methodSettings['auth_bearer']) && $methodSettings['auth_bearer'] != '') {
             $headers[] = 'Authorization: Bearer ' . $methodSettings['auth_bearer'];
         } else if (isset($methodSettings['authorization']) && $methodSettings['authorization'] == 'apikey') {
