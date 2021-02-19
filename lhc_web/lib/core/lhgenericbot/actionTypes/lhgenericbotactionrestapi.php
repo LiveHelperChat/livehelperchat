@@ -730,7 +730,10 @@ class erLhcoreClassGenericBotActionRestapi
 
     public static function extractAttribute($partData, $string, $separator = ':')
     {
-        $parts = explode($separator, $string);
+
+        $stringParts = explode('^',$string);
+
+        $parts = explode($separator, $stringParts[0]);
 
         $partFound = true;
         foreach ($parts as $part) {
@@ -769,6 +772,26 @@ class erLhcoreClassGenericBotActionRestapi
                         $partFound = false;
                         break;
                     }
+                }
+            }
+        }
+
+        if (isset($stringParts[1])) {
+
+            $combinations = explode('==',$stringParts[1]);
+            $paramsOutput = [];
+
+            for ($i = 0; $i < count($combinations)/2; $i++) {
+                $paramsOutput[$combinations[$i * 2]] = $combinations[$i+1];
+            }
+
+            if (is_array($partData)) {
+                if (isset($paramsOutput['implode'])) {
+                    $output = "";
+                    foreach ($partData as $partDataItem){
+                        $output .= (strpos($paramsOutput['implode'],'{item}') === false ? (string)$partDataItem : '').str_replace(["{n}","{item}"],["\n",(string)$partDataItem],$paramsOutput['implode']);
+                    }
+                    $partData = trim($output);
                 }
             }
         }
