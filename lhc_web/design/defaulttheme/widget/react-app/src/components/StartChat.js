@@ -339,10 +339,14 @@ class StartChat extends Component {
         var mappedFields = "";
     }
 
+    var hasVisibleCustomFields = false;
+    var mappedFieldsCustom = "";
+
     if (this.props.chatwidget.getIn(['customData','fields']).size > 0) {
-        var mappedFieldsCustom = this.props.chatwidget.getIn(['customData','fields']).map(field =><ChatField chatUI={this.props.chatwidget.get('chat_ui')} key={field.get('identifier')} isInvalid={this.props.chatwidget.hasIn(['validationErrors',field.get('identifier')])} defaultValueField={field.get('value')} onChangeContent={this.handleContentChangeCustom} field={field} />);
-    } else {
-        var mappedFieldsCustom = "";
+        this.props.chatwidget.getIn(['customData','fields']).map(field => hasVisibleCustomFields = !(field.has('type') && field.get('type') === 'hidden') ? true : hasVisibleCustomFields);
+        if (hasVisibleCustomFields == true) {
+            mappedFieldsCustom = this.props.chatwidget.getIn(['customData','fields']).map(field =><ChatField chatUI={this.props.chatwidget.get('chat_ui')} key={field.get('identifier')} isInvalid={this.props.chatwidget.hasIn(['validationErrors',field.get('identifier')])} defaultValueField={field.get('value')} onChangeContent={this.handleContentChangeCustom} field={field} />);
+        }
     }
 
     if (this.props.chatwidget.hasIn(['onlineData','paid','error']) && this.props.chatwidget.getIn(['onlineData','paid','error'])) {
@@ -350,7 +354,7 @@ class StartChat extends Component {
     }
 
     if (this.props.chatwidget.get('processStatus') == 0 || this.props.chatwidget.get('processStatus') == 1) {
-            if (this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','fields_visible']) <= 1 && this.props.chatwidget.getIn(['customData','fields']).size == 0) {
+            if (this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','fields_visible']) <= 1 && (this.props.chatwidget.getIn(['customData','fields']).size == 0 || hasVisibleCustomFields === false)) {
 
                 var classMessageInput = "pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0 " + (this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.Question) || (this.state.Question.length > this.textMessageRef.current.offsetWidth/8.6)) ? 'msg-two-line' : 'msg-one-line');
 
