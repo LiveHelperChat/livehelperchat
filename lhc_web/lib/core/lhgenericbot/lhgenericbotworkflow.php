@@ -793,38 +793,68 @@ class erLhcoreClassGenericBotWorkflow {
                             }
                         }
 
-                        // Preg match validation
-                        if (isset($eventData['content']['preg_match']) && !empty($eventData['content']['preg_match']))
-                        {
-                            if (!preg_match('/' . $eventData['content']['preg_match'] . '/',$payload)) {
+                        $invalidMessage = false;
 
-                                $metaMessage = array();
+                        if (isset($eventData['content']['attr_options']['identifier']) && $eventData['content']['attr_options']['identifier'] == '[file]') {
+                            // Make sure visitor has uploaded a file
 
-                                if (isset($eventData['content']['attr_options']['cancel_button_enabled']) && $eventData['content']['attr_options']['cancel_button_enabled'] == true) {
-                                    $metaMessage = array('content' =>
-                                        array (
-                                            'quick_replies' =>
-                                                array (
-                                                    0 =>
-                                                        array (
-                                                            'type' => 'button',
-                                                            'content' =>
-                                                                array (
-                                                                    'name' => (($eventData['content']['cancel_button'] && $eventData['content']['cancel_button'] != '') ? $eventData['content']['cancel_button'] : 'Cancel?'),
-                                                                    'payload' => 'cancel_workflow',
-                                                                ),
-                                                        )
-                                                ),
-                                        ));
-                                }
+                            $invalidMessage = true;
+                            $fileAttributes = array();
 
-                                if (isset($eventData['content']['validation_error']) && !empty($eventData['content']['validation_error'])){
-                                    throw new erLhcoreClassGenericBotException($eventData['content']['validation_error'], 0, null, $metaMessage);
-                                } else {
-                                    throw new erLhcoreClassGenericBotException('Your message does not match required format!', 0, null, $metaMessage);
+                            preg_match_all('/^\[file="?(.*?)"?\]$/is', $payload, $fileAttributes);
+
+                            if (isset($fileAttributes[0][0]) && isset($fileAttributes[1][0])) {
+
+                                $partsFile = explode('_',$fileAttributes[1][0]);
+
+                                $file = erLhcoreClassModelChatFile::fetch($partsFile[0]);
+
+                                if (is_object($file)) {
+                                    // Check that user has permission to see the chat. Let say if user purposely types file bbcode
+                                    if ($partsFile[1] == $file->security_hash) {
+                                        if (preg_match('/' . $eventData['content']['preg_match'] . '/', $file->extension)) {
+                                            $invalidMessage = false;
+                                        } else {
+                                            // Remove file and message because it's an invalid file
+                                            $file->removeThis();
+                                            $params['msg']->removeThis();
+                                        }
+                                    }
                                 }
                             }
+
+                        } else if (isset($eventData['content']['preg_match']) && !empty($eventData['content']['preg_match']) && !preg_match('/' . $eventData['content']['preg_match'] . '/',$payload)) { // Preg match validation
+                            $invalidMessage = true;
                         }
+
+                        if ($invalidMessage === true) {
+                            $metaMessage = array();
+
+                            if (isset($eventData['content']['attr_options']['cancel_button_enabled']) && $eventData['content']['attr_options']['cancel_button_enabled'] == true) {
+                                $metaMessage = array('content' =>
+                                    array (
+                                        'quick_replies' =>
+                                            array (
+                                                0 =>
+                                                    array (
+                                                        'type' => 'button',
+                                                        'content' =>
+                                                            array (
+                                                                'name' => (($eventData['content']['cancel_button'] && $eventData['content']['cancel_button'] != '') ? $eventData['content']['cancel_button'] : 'Cancel?'),
+                                                                'payload' => 'cancel_workflow',
+                                                            ),
+                                                    )
+                                            ),
+                                    ));
+                            }
+
+                            if (isset($eventData['content']['validation_error']) && !empty($eventData['content']['validation_error'])){
+                                throw new erLhcoreClassGenericBotException($eventData['content']['validation_error'], 0, null, $metaMessage);
+                            } else {
+                                throw new erLhcoreClassGenericBotException('Your message does not match required format!', 0, null, $metaMessage);
+                            }
+                        }
+
 
                         if (!empty($chat->additional_data)){
                             $chatAttributes = (array)json_decode($chat->additional_data,true);
@@ -847,7 +877,7 @@ class erLhcoreClassGenericBotWorkflow {
                         } elseif ($attrIdToUpdate == 'lhc.phone') {
                             $chat->phone = $payload;
                         } else {
-                            $chatAttributes[] = array('key' => $eventData['content']['attr_options']['name'], 'identifier' => $attrIdToUpdate, 'value' => $payload);
+                            $chatAttributes[] = array('key' => (isset($eventData['content']['attr_options']['name']) ? $eventData['content']['attr_options']['name'] : $attrIdToUpdate), 'identifier' => $attrIdToUpdate, 'value' => $payload);
                         }
 
                         $chat->additional_data = json_encode(array_values($chatAttributes));
