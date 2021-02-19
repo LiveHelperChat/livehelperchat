@@ -39,7 +39,7 @@ class erLhcoreClassGenericBotActionConditions {
                     } elseif (isset($chatAttributesFrontend[$condition['content']['attr']])) {
                         $attr = $chatAttributesFrontend[$condition['content']['attr']];
                     } elseif (strpos($condition['content']['attr'],'{args.') !== false) {
-                        $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params, str_replace(array('{args.','{','}'),'',$condition['content']['attr']), '.');
+                        $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array_merge($params,array('chat' => $chat)), str_replace(array('{args.','{','}'),'',$condition['content']['attr']), '.');
                         $attr = $valueAttribute['found'] == true ? $valueAttribute['value'] : null;
                     } else {
                         $attrData = erLhcoreClassGenericBotActionRestapi::extractAttribute($chatVariables, $condition['content']['attr']);
@@ -57,6 +57,12 @@ class erLhcoreClassGenericBotActionConditions {
 
                     if (empty($attr) && isset($params['replace_array']) && !empty($params['replace_array'])) {
                         $attr = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$condition['content']['attr']);
+                    }
+
+                    // Replace right side of the attribute
+                    if (strpos($valAttr,'{args.') !== false) {
+                        $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array_merge($params,array('chat' => $chat)), str_replace(array('{args.','{','}'),'',$valAttr), '.');
+                        $valAttr = $valueAttribute['found'] == true ? $valueAttribute['value'] : $valAttr;
                     }
 
                     if ($condition['content']['comp'] == 'eq' && !($attr == $valAttr)) {
