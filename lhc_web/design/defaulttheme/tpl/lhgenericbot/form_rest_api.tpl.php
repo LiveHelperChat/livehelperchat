@@ -96,12 +96,24 @@
                 <select ng-model="param.authorization" class="form-control form-control-sm">
                     <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Skip')?></option>
                     <option value="basicauth">Basic Auth</option>
+                    <option value="NTLMauth">NTLM Auth</option>
                     <option value="bearer">Bearer token</option>
                     <option value="apikey">API Key</option>
                 </select>
             </div>
 
             <div ng-if="param.authorization == 'basicauth'">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="text" autocomplete="new-password" class="form-control form-control-sm" ng-model="param.auth_username" placeholder="Username">
+                    </div>
+                    <div class="col-6">
+                        <input type="password" autocomplete="new-password" class="form-control form-control-sm" ng-model="param.auth_password" placeholder="Password">
+                    </div>
+                </div>
+            </div>
+            
+            <div ng-if="param.authorization == 'NTLMauth'">
                 <div class="row">
                     <div class="col-6">
                         <input type="text" autocomplete="new-password" class="form-control form-control-sm" ng-model="param.auth_username" placeholder="Username">
