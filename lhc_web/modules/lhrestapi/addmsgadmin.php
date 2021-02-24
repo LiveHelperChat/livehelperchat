@@ -44,7 +44,9 @@ try {
             {
                 $userData = erLhcoreClassRestAPIHandler::getUser();
 
-                if ($form->sender != 'bot') {
+                if ($form->sender == 'system') {
+                    $messageUserId = -1;
+                } else if ($form->sender != 'bot') {
                     $messageUserId = $userData->id;
                 } else {
                     $messageUserId = -2;
