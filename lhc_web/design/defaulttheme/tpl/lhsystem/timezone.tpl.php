@@ -10,7 +10,7 @@
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/timezone','Set application specific time zone');?></label>
 <?php $tzlist = DateTimeZone::listIdentifiers(DateTimeZone::ALL); ?>
 <select class="form-control" name="TimeZone">
-		<option value="">[[<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Server default time zone');?>]]</option>
+		<option value="">[[<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Server default time zone');?> - <?php echo date_default_timezone_get()?>]]</option>
 	<?php foreach ($tzlist as $zone) : ?>
 		<option value="<?php echo htmlspecialchars($zone)?>" <?php $timezone == $zone ? print 'selected="selected"' : ''?>><?php echo htmlspecialchars($zone)?></option>
 	<?php endforeach;?>
