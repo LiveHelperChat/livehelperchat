@@ -64,16 +64,6 @@
         <div class="col-md-2">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User group');?></label>
-
-                <?php /*echo erLhcoreClassRenderHelper::renderCombobox( array (
-                    'input_name'     => 'group_id',
-                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select group'),
-                    'selected_id'    => $input->group_id,
-                    'css_class'      => 'form-control',
-                    'display_name'   => 'name',
-                    'list_function'  => 'erLhcoreClassModelGroup::getList'
-                ));*/ ?>
-
                 <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
                     'input_name'     => 'group_ids[]',
                     'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select group'),
@@ -83,7 +73,6 @@
                     'list_function_params' => erLhcoreClassGroupUser::getConditionalUserFilter(false, true),
                     'list_function'  => 'erLhcoreClassModelGroup::getList'
                 )); ?>
-
             </div>
         </div>
 
@@ -100,11 +89,11 @@
 
 		<div class="col-md-3">
 		  <div class="form-group">
-			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hour and minute from');?></label>
+              <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hour and minute from');?> <small>[<?php echo date('H:i:s')?>]</small></label>
 			<div class="row">				
 				<div class="col-md-6">
 				    <select name="timefrom_hours" class="form-control form-control-sm">
-				        <option value="">Select hour</option>
+				        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select hour');?></option>
 				        <?php for ($i = 0; $i <= 23; $i++) : ?>
 				            <option value="<?php echo $i?>" <?php if (isset($input->timefrom_hours) && $input->timefrom_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
 				        <?php endfor;?>
@@ -112,7 +101,7 @@
 				</div>
 				<div class="col-md-6">
 				    <select name="timefrom_minutes" class="form-control form-control-sm">
-				        <option value="">Select minute</option>
+				        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select minute');?></option>
 				        <?php for ($i = 0; $i <= 59; $i++) : ?>
 				            <option value="<?php echo $i?>" <?php if (isset($input->timefrom_minutes) && $input->timefrom_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> m.</option>
 				        <?php endfor;?>
@@ -135,7 +124,7 @@
 		
 		<div class="col-md-3">
 		  <div class="form-group">
-			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hour and minute to');?></label>
+              <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hour and minute to');?> <small>[<?php echo date('H:i:s')?>]</small></label>
 		    <div class="row">				
 				<div class="col-md-6">
 				    <select name="timeto_hours" class="form-control form-control-sm">
