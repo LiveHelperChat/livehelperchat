@@ -869,12 +869,13 @@
           {
             "name": "sender",
             "in": "formData",
-            "description": "Sender - operator or bot is sending a message. On it depends how Live Helper Chat will change chat statuses.",
+            "description": "Sender - `operator` / `bot` / `system` is sending a message. On it depends how Live Helper Chat will change chat statuses.",
             "required": true,
             "type": "string",
             "enum": [
               "operator",
-              "bot"
+              "bot",
+              "system"
             ]
           },
           {
