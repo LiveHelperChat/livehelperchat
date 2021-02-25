@@ -15,6 +15,8 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
     try {
         $db->beginTransaction();
 
+        $chat->syncAndLock();
+
         if ($chat->hash == $Params['user_parameters']['hash'] && ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) // Allow add messages only if chat is active
         {
             $errors = array();
