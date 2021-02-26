@@ -18,7 +18,7 @@
         </div>
         <div class="col-6">
             <div class="form-group">
-                <label><input type="checkbox" name="AllowOnlyOneFileUpload" value="on" <?php isset($file_data['one_file_upload']) && ($file_data['one_file_upload'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Allow only one file per upload for the visitor'); ?></label>
+                <label><input type="checkbox" name="AllowOnlyOneFileUpload" value="on" <?php isset($file_data['one_file_upload']) && ($file_data['one_file_upload'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Allow visitor to choose only one file for the upload'); ?></label>
             </div>
         </div>
         <div class="col-6">
