@@ -81,7 +81,6 @@ if (is_array($Params['user_parameters_unordered']['department']) && !empty($Para
     }
 }
 
-
 $departament_id_array = array();
 
 if (is_array($Params['user_parameters_unordered']['department'])) {
@@ -89,7 +88,24 @@ if (is_array($Params['user_parameters_unordered']['department'])) {
     $departament_id_array = $Params['user_parameters_unordered']['department'];
 }
 
-if (is_numeric($departament_id) && $departament_id > 0 && ($startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('filter' => array('department_id' => $departament_id)))) !== false) {
+// Fetch correct start chat form settings
+if (!(is_numeric($departament_id) && $departament_id > 0)) {
+    if (isset($Params['user_parameters_unordered']['dep_default']) && is_numeric($Params['user_parameters_unordered']['dep_default']) && $Params['user_parameters_unordered']['dep_default'] > 0) {
+        $department_id_form = (int)$Params['user_parameters_unordered']['dep_default'];
+    } else {
+        $filter = array('filter' => array('disabled' => 0, 'hidden' => 0));
+        if (!empty($departament_id_array)) {
+            $filter['filterin']['id'] = $departament_id_array;
+        }
+        $filter['sort'] = 'sort_priority ASC, name ASC';
+        $departmentStartChat = erLhcoreClassModelDepartament::findOne($filter);
+        $department_id_form = $departmentStartChat->id;
+    }
+} else {
+    $department_id_form = $departament_id;
+}
+
+if (is_numeric($department_id_form) && $department_id_form > 0 && ($startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('filter' => array('department_id' => $department_id_form)))) !== false) {
     $start_data_fields = $startDataFields = $startDataDepartment->data_array;
 } else {
     // Start chat field options
@@ -135,12 +151,14 @@ if ($Params['user_parameters_unordered']['online'] == '0') {
 
     if (isset($start_data_fields['pre_offline_chat_html']) && $start_data_fields['pre_offline_chat_html'] != '') {
         $chat_ui['operator_profile'] = $start_data_fields['pre_offline_chat_html'];
+        $chat_ui['offline_intro'] = '';
     } else {
         if ($theme instanceof erLhAbstractModelWidgetTheme && $theme->noonline_operators_offline) {
             $chat_ui['offline_intro'] = $theme->noonline_operators_offline;
         } else {
             $chat_ui['offline_intro'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','There are no online operators at the moment, please leave a message');
         }
+        $chat_ui['operator_profile'] = '';
     }
 
     if ($Params['user_parameters_unordered']['online'] == '0') {
@@ -791,6 +809,7 @@ if ($outputResponse['disabled'] === true) {
 }
 
 $outputResponse['department'] = $departmentsOptions;
+$outputResponse['dep_forms'] = $department_id_form;
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.onlinesettings', array('output' => & $outputResponse));
 

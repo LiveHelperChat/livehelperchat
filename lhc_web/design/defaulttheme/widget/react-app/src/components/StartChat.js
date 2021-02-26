@@ -133,6 +133,11 @@ class StartChat extends Component {
                             this.props.dispatch({'type' : 'dep_default', data : obj.value});
                             this.props.dispatch({'type' : 'onlineStatus', data : false});
                         }
+
+                        // Update online fields settings if different department
+                        if (this.props.chatwidget.getIn(['onlineData','dep_forms']) != obj.value) {
+                            this.updateOnlineFieldsInit(obj.value);
+                        }
                     }
                 })
             }
@@ -187,20 +192,25 @@ class StartChat extends Component {
         this.handleSubmit();
     }
 
-    updateOnlineFields(){
+    updateOnlineFieldsInit(dep_default) {
+        // Init offline form with all attributes
+        this.props.dispatch(initOnlineForm({
+            'department':this.props.chatwidget.get('department'),
+            'product':this.props.chatwidget.get('product'),
+            'theme' : this.props.chatwidget.get('theme'),
+            'mode' : this.props.chatwidget.get('mode'),
+            'pvhash' : this.props.chatwidget.get('pvhash'),
+            'phash' : this.props.chatwidget.get('phash'),
+            'bot_id' : this.props.chatwidget.get('bot_id'),
+            'vid' : this.props.chatwidget.get('vid'),
+            'dep_default' : (dep_default || 0),
+            'online' : 1
+        }));
+    }
+
+    updateOnlineFields() {
         if (this.props.chatwidget.getIn(['onlineData','fetched']) === false) {
-            // Init offline form with all attributes
-            this.props.dispatch(initOnlineForm({
-                'department':this.props.chatwidget.get('department'),
-                'product':this.props.chatwidget.get('product'),
-                'theme' : this.props.chatwidget.get('theme'),
-                'mode' : this.props.chatwidget.get('mode'),
-                'pvhash' : this.props.chatwidget.get('pvhash'),
-                'phash' : this.props.chatwidget.get('phash'),
-                'bot_id' : this.props.chatwidget.get('bot_id'),
-                'vid' : this.props.chatwidget.get('vid'),
-                'online' : 1
-            }));
+            this.updateOnlineFieldsInit();
         }
     }
 
@@ -374,7 +384,7 @@ class StartChat extends Component {
                         {
                             (this.props.chatwidget.getIn(['proactive','has']) === true && !this.props.chatwidget.hasIn(['proactive','data','std_header'])  && <ChatInvitationMessage mode='profile_only' invitation={this.props.chatwidget.getIn(['proactive','data'])} />)
                             ||
-                            (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div id="lhc-profile-body"><div id="chat-status-container" className="p-2 border-bottom" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div></div>)
+                            (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && this.props.chatwidget.getIn(['chat_ui','operator_profile']) != '' && <div id="lhc-profile-body"><div id="chat-status-container" className="p-2 border-bottom" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div></div>)
                         }
 
                         <div className={msg_expand} id="messagesBlock">
@@ -429,7 +439,7 @@ class StartChat extends Component {
                     {
                             (this.props.chatwidget.getIn(['proactive','has']) === true && <ChatInvitationMessage mode='profile' invitation={this.props.chatwidget.getIn(['proactive','data'])} />)
                             ||
-                            (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div className={"p-2"+(this.props.chatwidget.hasIn(['chat_ui','np_border']) ? '' : ' border-bottom')} dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div>)
+                            (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && this.props.chatwidget.getIn(['chat_ui','operator_profile']) != '' && <div className={"p-2"+(this.props.chatwidget.hasIn(['chat_ui','np_border']) ? '' : ' border-bottom')} dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div>)
                     }
                     <div className="container-fluid">
                         <ChatErrorList errors={this.props.chatwidget.get('validationErrors')} />

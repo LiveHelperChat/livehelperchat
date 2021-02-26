@@ -21,6 +21,10 @@ $inputData->priority = (isset($requestPayload['fields']['priority']) && is_numer
 $inputData->only_bot_online = isset($_POST['onlyBotOnline']) ? (int)$_POST['onlyBotOnline'] : 0;
 $inputData->vid = isset($requestPayload['vid']) && $requestPayload['vid'] != '' ? (string)$requestPayload['vid'] : '';
 
+if (isset($requestPayload['fields']['DepartamentID']) && is_numeric($requestPayload['fields']['DepartamentID'])) {
+    $Params['user_parameters_unordered']['department'] = [$requestPayload['fields']['DepartamentID']];
+}
+
 $validStart = false;
 
 if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1) {
