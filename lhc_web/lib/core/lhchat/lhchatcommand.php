@@ -188,16 +188,18 @@ class erLhcoreClassChatCommand
             $params['chat']->chat_variables_array = $chatVariables;
         }
 
-        $msg = new erLhcoreClassModelmsg();
-        $msg->msg = (isset($params['argument']) && $params['argument'] != '') ? $params['argument'] : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Files upload was disabled!');
-        $msg->chat_id = $params['chat']->id;
-        $msg->user_id = $params['user']->id;
-        $msg->time = time();
-        $msg->name_support = $params['user']->name_support;
+        if (!isset($params['argument']) || $params['argument'] != 'no') {
+            $msg = new erLhcoreClassModelmsg();
+            $msg->msg = (isset($params['argument']) && $params['argument'] != '') ? $params['argument'] : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Files upload was disabled!');
+            $msg->chat_id = $params['chat']->id;
+            $msg->user_id = $params['user']->id;
+            $msg->time = time();
+            $msg->name_support = $params['user']->name_support;
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg, 'chat' => & $params['chat']));
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $params['chat']));
 
-        $msg->saveThis();
+            $msg->saveThis();
+        }
 
         // Schedule UI Refresh
         $params['chat']->operation .= "lhc_ui_refresh:0\n";
@@ -220,16 +222,18 @@ class erLhcoreClassChatCommand
         $params['chat']->chat_variables = json_encode($chatVariables);
         $params['chat']->chat_variables_array = $chatVariables;
 
-        $msg = new erLhcoreClassModelmsg();
-        $msg->msg = (isset($params['argument']) && $params['argument'] != '') ? $params['argument'] : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','I have enabled files upload for you. [fupload]Upload a file[/fupload].');
-        $msg->chat_id = $params['chat']->id;
-        $msg->user_id = $params['user']->id;
-        $msg->time = time();
-        $msg->name_support = $params['user']->name_support;
+        if (!isset($params['argument']) || $params['argument'] != 'no') {
+            $msg = new erLhcoreClassModelmsg();
+            $msg->msg = (isset($params['argument']) && $params['argument'] != '') ? $params['argument'] : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','I have enabled files upload for you. [fupload]Upload a file[/fupload].');
+            $msg->chat_id = $params['chat']->id;
+            $msg->user_id = $params['user']->id;
+            $msg->time = time();
+            $msg->name_support = $params['user']->name_support;
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg, 'chat' => & $params['chat']));
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg, 'chat' => & $params['chat']));
 
-        $msg->saveThis();
+            $msg->saveThis();
+        }
 
         // Schedule UI Refresh
         $params['chat']->operation .= "lhc_ui_refresh:1\n";

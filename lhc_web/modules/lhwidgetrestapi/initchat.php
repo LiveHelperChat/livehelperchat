@@ -260,6 +260,10 @@ try {
                 'fs' => $fileData['fs_max']*1024,
                 'ft_us' => $fileData['ft_us'],
             );
+            
+            if (isset($fileData['one_file_upload']) && $fileData['one_file_upload'] == true) {
+                $outputResponse['chat_ui']['file_options']['one_file_upload'] = true;
+            }
         }
 
         if (isset($fileData['sound_messages']) && $fileData['sound_messages'] == true) {

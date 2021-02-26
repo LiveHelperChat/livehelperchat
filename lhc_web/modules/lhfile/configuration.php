@@ -26,6 +26,9 @@ if (isset($_POST['StoreFileConfiguration'])) {
         'ActiveFileUploadUser' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
+        'AllowOnlyOneFileUpload' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
         'ActiveFileUploadAdmin' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
@@ -99,6 +102,12 @@ if (isset($_POST['StoreFileConfiguration'])) {
         $data['active_admin_upload'] = true;
     } else {
         $data['active_admin_upload'] = false;
+    }
+
+    if ($form->hasValidData('AllowOnlyOneFileUpload') && $form->AllowOnlyOneFileUpload == true) {
+        $data['one_file_upload'] = true;
+    } else {
+        $data['one_file_upload'] = false;
     }
 
     if ($form->hasValidData('removeMetaTag') && $form->removeMetaTag == true) {

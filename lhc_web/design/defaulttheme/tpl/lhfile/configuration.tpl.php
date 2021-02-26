@@ -18,6 +18,11 @@
         </div>
         <div class="col-6">
             <div class="form-group">
+                <label><input type="checkbox" name="AllowOnlyOneFileUpload" value="on" <?php isset($file_data['one_file_upload']) && ($file_data['one_file_upload'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Allow only one file per upload for the visitor'); ?></label>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
                 <label><input type="checkbox" name="ActiveFileUploadAdmin" value="on" <?php isset($file_data['active_admin_upload']) && ($file_data['active_admin_upload'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Files upload for operators is active'); ?></label>
             </div>
         </div>

@@ -154,6 +154,21 @@ class erLhcoreClassGenericBotActionText {
             $msg->user_id = -1;
         }
 
+        // Support for commands
+        if (strpos($msg->msg, '!') === 0) {
+            $bot = erLhcoreClassModelGenericBotBot::fetch($trigger->bot_id);
+            if ($bot instanceof erLhcoreClassModelGenericBotBot) {
+                $bot->id = -2;
+                $statusCommand = erLhcoreClassChatCommand::processCommand(array('user' => $bot, 'msg' => $msg->msg, 'chat' => & $chat));
+
+                if ($statusCommand['processed'] === true) {
+                    $msg->user_id = -1;
+                    $rawMessage = !isset($statusCommand['raw_message']) ? $msg->msg : $statusCommand['raw_message'];
+                    $msg->msg = trim('[b]'.$bot->name_support.'[/b]: '.$rawMessage .' '. ($statusCommand['process_status'] != '' ? '|| '.$statusCommand['process_status'] : ''));
+                }
+            }
+        }
+
         if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
             erLhcoreClassChat::getSession()->save($msg);
         }

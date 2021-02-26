@@ -15,7 +15,14 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
     try {
         $db->beginTransaction();
 
-        $chat->syncAndLock();
+        $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id'], false);
+
+        $chatVariables = $chat->chat_variables_array;
+
+        if (!(isset($fileData['active_user_upload']) && $fileData['active_user_upload'] == true || (isset($chatVariables['lhc_fu']) && $chatVariables['lhc_fu'] == 1))) {
+            // Make sure nothing changed since last request
+            exit;
+        }
 
         if ($chat->hash == $Params['user_parameters']['hash'] && ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) // Allow add messages only if chat is active
         {
@@ -45,8 +52,6 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
 
                     $clamav = new Clamav($opts);
                 }
-
-
 
                 $upload_handler = new erLhcoreClassFileUpload(array(
                     'antivirus' => $clamav,
