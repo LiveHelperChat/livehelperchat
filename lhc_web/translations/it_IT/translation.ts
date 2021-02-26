@@ -18,6 +18,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -1363,6 +1371,14 @@ CSS pagina personalizzata (solo nuovo widget)</translation>
       <translation>Lunghezza Widget (px)</translation>
     </message>
     <message>
+      <source>Operator avatar</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help avatar</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget position from right to append</source>
       <translation type="unfinished"/>
     </message>
@@ -1413,6 +1429,10 @@ Chiudi la chat se la pagina viene aggiornata. Utile se hai incorporato il codice
     </message>
     <message>
       <source>Do not prefill offline message with chat messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide BB Code button</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9180,6 +9200,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Email</translation>
     </message>
     <message>
+      <source>Your email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat nickname</source>
       <translation>Nickname della chat</translation>
     </message>
@@ -9346,6 +9370,18 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Personal canned messages</source>
       <translation>Messaggi personali predefiniti</translation>
+    </message>
+    <message>
+      <source>Avatar builder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter any string to generate an avatar</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Click to set avatar</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Main</source>
@@ -14923,6 +14959,93 @@ Iscrizione ...
     </message>
     <message>
       <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/avatarbuilder</name>
+    <message>
+      <source>Build your avatar</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We will generate avatar based on this string if you do not choose some parts</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Robo</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Girl</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Blonde</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Evilnormie</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Johnyold</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Asian</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Punk</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Afrohair</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Normie female</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Older</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Firehair</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Blond</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ateam</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rasta</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Meta</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set</source>
       <translation type="unfinished"/>
     </message>
   </context>

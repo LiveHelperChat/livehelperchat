@@ -18,6 +18,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Wie viele Tage lang soll das Bewertungs-Widget seit der letzten Anzeige nicht erweitert werden</translation>
     </message>
@@ -375,7 +383,7 @@
     </message>
     <message>
       <source>Automatically close active chat if from last visitor/operator message passed. 0 - disabled, n &gt; 0 time in minutes</source>
-      <translation type="unfinished"/>
+      <translation>Aktiven Chat automatisch schließen, wenn seit der letzten Besucher-/Bedienermeldung vergangen ist. 0 - deaktiviert, n &gt; 0 Zeit in Minuten</translation>
     </message>
     <message>
       <source>Automatically close pending chats where visitor has left a chat. Timeout in minutes, last activity by visitor &lt;desktop timeout&gt;,&lt;mobile timeout&gt;.</source>
@@ -547,7 +555,7 @@
     </message>
     <message>
       <source>Pending chat messaging</source>
-      <translation type="unfinished"/>
+      <translation>Nachrichten zu anstehenden Chats</translation>
     </message>
     <message>
       <source>Visitor not replying messaging</source>
@@ -611,7 +619,7 @@
     </message>
     <message>
       <source>Choose what bot trigger element append after auto responder message</source>
-      <translation type="unfinished"/>
+      <translation>Wählen Sie, welches Bot-Trigger-Element nach der Auto-Responder-Nachricht angehängt werden soll</translation>
     </message>
     <message>
       <source>Preview</source>
@@ -907,15 +915,15 @@
     </message>
     <message>
       <source>Minimum time in second how long sync has to be stopped before allowing reset auto responder</source>
-      <translation type="unfinished"/>
+      <translation>Mindestzeit in Sekunden, wie lange die Synchronisation angehalten werden muss, bevor ein Reset des Auto-Responders möglich ist</translation>
     </message>
     <message>
       <source>Maximum time in seconds how long sync has to be stopped before we do not reset auto responder</source>
-      <translation type="unfinished"/>
+      <translation>Maximale Zeit in Sekunden, wie lange die Synchronisation angehalten werden muss, bevor wir den Auto-Responder nicht zurücksetzen</translation>
     </message>
     <message>
       <source>Disable reset auto responder if visitor was redirected to survey</source>
-      <translation type="unfinished"/>
+      <translation>Auto-Responder zurücksetzen deaktivieren, wenn der Besucher zur Umfrage weitergeleitet wurde</translation>
     </message>
     <message>
       <source>Do not send messages to pending chat if chat is assigned to operator.</source>
@@ -923,7 +931,7 @@
     </message>
     <message>
       <source>This auto responder applies only to proactive invitations.</source>
-      <translation type="unfinished"/>
+      <translation>Dieser Auto-Responder gilt nur für proaktive Einladungen.</translation>
     </message>
     <message>
       <source>If variable is not passed should we keep previously recorded value?</source>
@@ -1362,6 +1370,14 @@
       <translation>Widget Breite (px)</translation>
     </message>
     <message>
+      <source>Operator avatar</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help avatar</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget position from right to append</source>
       <translation type="unfinished"/>
     </message>
@@ -1411,6 +1427,10 @@
     </message>
     <message>
       <source>Do not prefill offline message with chat messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide BB Code button</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1494,7 +1514,7 @@
     <name>abstract/proactivechatinvitation</name>
     <message>
       <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.</source>
-      <translation type="unfinished"/>
+      <translation>Wenn die Abteilung online ist und der Besucher einen Chat startet und darauf wartet, dass jemand den Chat akzeptiert. Dies ist die erste Nachricht, die er erhält.</translation>
     </message>
     <message>
       <source>If department is offline and visitor starts a chat this message will be send instaed of default welcome message. If this message is empty - welcome message will be send.</source>
@@ -1582,7 +1602,7 @@
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation type="unfinished"/>
+      <translation>Sprache, für alle Sprachen leer lassen. z.B. lit, rus, ger, etc...</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1590,7 +1610,7 @@
     </message>
     <message>
       <source>Operator. Visitor will see this operator nick.</source>
-      <translation type="unfinished"/>
+      <translation>Operator. Der Besucher wird diesen Operator-Nick sehen.</translation>
     </message>
     <message>
       <source>Position</source>
@@ -1618,7 +1638,7 @@
     </message>
     <message>
       <source>How many times repeat message? Applied only to first message.</source>
-      <translation type="unfinished"/>
+      <translation>Wie oft Nachricht wiederholen? Wird nur auf die erste Nachricht angewendet.</translation>
     </message>
     <message>
       <source>Redirect visitor to survey if visitor does not responds within N seconds</source>
@@ -1774,7 +1794,7 @@
     </message>
     <message>
       <source>Name for personal purposes</source>
-      <translation type="unfinished"/>
+      <translation>Name, für die eigene Übersicht</translation>
     </message>
     <message>
       <source>Operator name</source>
@@ -1782,15 +1802,15 @@
     </message>
     <message>
       <source>Time on site in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Zeit auf der Webseite in Sekunden</translation>
     </message>
     <message>
       <source>Delay invitation widget show for N seconds if invitation was already matched.</source>
-      <translation type="unfinished"/>
+      <translation>Verzögerung der Anzeige des Einladungs-Widgets für N Sekunden, wenn die Einladung bereits gematcht wurde.</translation>
     </message>
     <message>
       <source>Delay invitation widget show for N seconds if trigger is matched for first time.</source>
-      <translation type="unfinished"/>
+      <translation>Verzögerung der Anzeige des Einladungs-Widgets für N Sekunden, wenn der Auslöser zum ersten Mal gematcht wird.</translation>
     </message>
     <message>
       <source>If dynamic invitation was matched on page refresh show instantly. Otherwise dynamic conditions will have to be matched again.</source>
@@ -1802,11 +1822,11 @@
     </message>
     <message>
       <source>Pageviews</source>
-      <translation type="unfinished"/>
+      <translation>Seitenansichten</translation>
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation type="unfinished"/>
+      <translation>Referrer Domain ohne www. z.B. werden bei dem Suchwort Google alle Google-Domains erkannt</translation>
     </message>
     <message>
       <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
@@ -1814,11 +1834,11 @@
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-Mail-Adresse erforderlich</translation>
     </message>
     <message>
       <source>Requires name</source>
-      <translation type="unfinished"/>
+      <translation>Name erforderlich</translation>
     </message>
     <message>
       <source>Show on these devices only</source>
@@ -1826,15 +1846,15 @@
     </message>
     <message>
       <source>Assign to shown operator</source>
-      <translation type="unfinished"/>
+      <translation>Dem angezeigten Operator zuweisen</translation>
     </message>
     <message>
       <source>Show everytime it is matched</source>
-      <translation type="unfinished"/>
+      <translation>Jedes Mal anzeigen, wenn es gematcht wird</translation>
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefonnummer benötigt</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
@@ -1842,11 +1862,11 @@
     </message>
     <message>
       <source>Enter operators IDs from whom random operator should be shown, separated by comma</source>
-      <translation type="unfinished"/>
+      <translation>Geben Sie die Operator-IDs ein, von denen ein zufälliger Operator angezeigt werden soll, getrennt durch Komma</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation type="unfinished"/>
+      <translation>Merkmal, für welches Merkmal diese Nachricht angezeigt werden soll, für alle leer lassen</translation>
     </message>
     <message>
       <source>Tag</source>
@@ -1874,19 +1894,19 @@
     </message>
     <message>
       <source>Matched times</source>
-      <translation type="unfinished"/>
+      <translation>Anzahl der Ausführungen</translation>
     </message>
     <message>
       <source>Message to user</source>
-      <translation type="unfinished"/>
+      <translation>Nachricht an Besucher</translation>
     </message>
     <message>
       <source>Message to returning user</source>
-      <translation type="unfinished"/>
+      <translation>Nachricht an wiederkehrende Besucher</translation>
     </message>
     <message>
       <source>Nick which will be used if we cannot determine returning user name</source>
-      <translation type="unfinished"/>
+      <translation>Nickname für wiederkehrende Benutzer, deren Nutzername nicht wiederhergestellt werden kann</translation>
     </message>
     <message>
       <source>This is dynamic invitation</source>
@@ -2026,7 +2046,7 @@
     </message>
     <message>
       <source>Subject</source>
-      <translation type="unfinished"/>
+      <translation>Thema</translation>
     </message>
   </context>
   <context>
@@ -2524,7 +2544,7 @@
     </message>
     <message>
       <source>Subject</source>
-      <translation type="unfinished"/>
+      <translation>Thema</translation>
     </message>
     <message>
       <source>Proactive invitation</source>
@@ -2843,7 +2863,7 @@
     </message>
     <message>
       <source>Subject</source>
-      <translation type="unfinished"/>
+      <translation>Thema</translation>
     </message>
     <message>
       <source>Choose a subject</source>
@@ -2851,7 +2871,7 @@
     </message>
     <message>
       <source>Set a subject</source>
-      <translation type="unfinished"/>
+      <translation>Thema setzen</translation>
     </message>
     <message>
       <source>Subject selected!</source>
@@ -2893,11 +2913,11 @@
     <name>chat/cannedmsg</name>
     <message>
       <source>Main</source>
-      <translation type="unfinished"/>
+      <translation>Allgemein</translation>
     </message>
     <message>
       <source>Add translation</source>
-      <translation type="unfinished"/>
+      <translation>Übersetzung hinzufügen</translation>
     </message>
     <message>
       <source>Search for language. Enter * to see all.</source>
@@ -3324,7 +3344,7 @@
     </message>
     <message>
       <source>Show a ‘leave a message form’ when there are no online operators</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Nachricht hinterlassen&quot; anzeigen, wenn keine Operatoren online sind</translation>
     </message>
     <message>
       <source>Department</source>
@@ -3352,7 +3372,7 @@
     </message>
     <message>
       <source>Disable proactive invitations</source>
-      <translation type="unfinished"/>
+      <translation>Proaktive Einladungen deaktivieren</translation>
     </message>
     <message>
       <source>Disable online tracking (this overrides the system configuration)</source>
@@ -3444,7 +3464,7 @@
     </message>
     <message>
       <source>Static image</source>
-      <translation type="unfinished"/>
+      <translation>Statisches Bild</translation>
     </message>
     <message>
       <source>On each refresh start a new chat. Users will loose chat session browsing through pages! Usefull in embed mode.</source>
@@ -3452,7 +3472,7 @@
     </message>
     <message>
       <source>Check for operator invitation messages. If you are planning to send messages to online visitors manually you can check this.</source>
-      <translation type="unfinished"/>
+      <translation>Prüfen Sie, ob Einladungsnachrichten für Bediener vorhanden sind. Wenn Sie planen, Nachrichten an Online-Besucher manuell zu senden, können Sie dies aktivieren.</translation>
     </message>
     <message>
       <source>Widget embed/click mode</source>
@@ -3504,7 +3524,7 @@
     </message>
     <message>
       <source>Sample image</source>
-      <translation type="unfinished"/>
+      <translation>Beispielbild</translation>
     </message>
     <message>
       <source>Source code with a link</source>
@@ -3910,7 +3930,7 @@
     </message>
     <message>
       <source>Edit chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat editieren</translation>
     </message>
     <message>
       <source>Print</source>
@@ -3946,7 +3966,7 @@
     </message>
     <message>
       <source>Choose recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Erkennungssprache wählen</translation>
     </message>
     <message>
       <source>Transfer chat</source>
@@ -4082,7 +4102,7 @@
     </message>
     <message>
       <source>Start a call</source>
-      <translation type="unfinished"/>
+      <translation>Anruf starten</translation>
     </message>
     <message>
       <source>Waited</source>
@@ -5532,7 +5552,7 @@
     </message>
     <message>
       <source>Start a chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat starten</translation>
     </message>
     <message>
       <source>BB code</source>
@@ -5599,7 +5619,7 @@
     </message>
     <message>
       <source>New window</source>
-      <translation type="unfinished"/>
+      <translation>Neues Fenster</translation>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -9174,6 +9194,10 @@
       <translation>E-Mail-Adresse</translation>
     </message>
     <message>
+      <source>Your email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat nickname</source>
       <translation>Chatspitzname</translation>
     </message>
@@ -9342,12 +9366,24 @@
       <translation>Eigene vorgefertigte Nachrichten</translation>
     </message>
     <message>
-      <source>Main</source>
+      <source>Avatar builder</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Add translation</source>
+      <source>Enter any string to generate an avatar</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Click to set avatar</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Main</source>
+      <translation>Allgemein</translation>
+    </message>
+    <message>
+      <source>Add translation</source>
+      <translation>Übersetzung hinzufügen</translation>
     </message>
     <message>
       <source>Password was updated. Now you can go to back office.</source>
@@ -10956,7 +10992,7 @@
     <name>notifications/edit</name>
     <message>
       <source>Main</source>
-      <translation type="unfinished"/>
+      <translation>Allgemein</translation>
     </message>
     <message>
       <source>Test notification</source>
@@ -13915,7 +13951,7 @@
     </message>
     <message>
       <source>Subject</source>
-      <translation type="unfinished"/>
+      <translation>Thema</translation>
     </message>
     <message>
       <source>User ID</source>
@@ -14752,7 +14788,7 @@
     </message>
     <message>
       <source>Visitor - permission granted</source>
-      <translation type="unfinished"/>
+      <translation>Besucher - Erlaubnis erteilt</translation>
     </message>
     <message>
       <source>Pending operator to join the call</source>
@@ -14760,35 +14796,35 @@
     </message>
     <message>
       <source>Operator has joined the call</source>
-      <translation type="unfinished"/>
+      <translation>Operator hat sich dem Anruf zugeschaltet.</translation>
     </message>
     <message>
       <source>Pending visitor to join the call</source>
-      <translation type="unfinished"/>
+      <translation>Warten bis der Besucher dem Gespräch beitritt</translation>
     </message>
     <message>
       <source>Visitor requested to join a call</source>
-      <translation type="unfinished"/>
+      <translation>Besucher möchte am Gespräch teilnehmen</translation>
     </message>
     <message>
       <source>Visitor has joined a call</source>
-      <translation type="unfinished"/>
+      <translation>Besucher nimmt am Anruf teil</translation>
     </message>
     <message>
       <source>Operator has requested a voice call with you!</source>
-      <translation type="unfinished"/>
+      <translation>Operator hat ein Audioanruf mit Ihnen angefordert!</translation>
     </message>
     <message>
       <source>Start a call</source>
-      <translation type="unfinished"/>
+      <translation>Anruf starten</translation>
     </message>
     <message>
       <source>Visitor requested to start a voice call.</source>
-      <translation type="unfinished"/>
+      <translation>Der Besucher möchte einen Anruf starten.</translation>
     </message>
     <message>
       <source>Join call</source>
-      <translation type="unfinished"/>
+      <translation>am Anruf teilnehmen</translation>
     </message>
     <message>
       <source>Cancel</source>
@@ -14796,51 +14832,51 @@
     </message>
     <message>
       <source>Stop sharing your screen</source>
-      <translation type="unfinished"/>
+      <translation>Bildschirm nicht mehr teilen</translation>
     </message>
     <message>
       <source>Share your screen</source>
-      <translation type="unfinished"/>
+      <translation>Teilen Sie Ihren Bildschirm</translation>
     </message>
     <message>
       <source>Enable video</source>
-      <translation type="unfinished"/>
+      <translation>Video einschalten</translation>
     </message>
     <message>
       <source>Disable video</source>
-      <translation type="unfinished"/>
+      <translation>Video deaktivieren</translation>
     </message>
     <message>
       <source>Un-mute mic</source>
-      <translation type="unfinished"/>
+      <translation>Stummschaltung aufheben</translation>
     </message>
     <message>
       <source>Mute mic</source>
-      <translation type="unfinished"/>
+      <translation>Mikrofon stummschalten</translation>
     </message>
     <message>
       <source>Call for the visitor also will end.</source>
-      <translation type="unfinished"/>
+      <translation>Der Anruf für den Besucher wird ebenfalls beendet.</translation>
     </message>
     <message>
       <source>End the call</source>
-      <translation type="unfinished"/>
+      <translation>Anruf beenden</translation>
     </message>
     <message>
       <source>Leave a call. Visitor will remain on the call</source>
-      <translation type="unfinished"/>
+      <translation>Anruf verlassen. Der Besucher bleibt im Gespräch</translation>
     </message>
     <message>
       <source>Leave the call</source>
-      <translation type="unfinished"/>
+      <translation>Anruf beenden</translation>
     </message>
     <message>
       <source>Audio call</source>
-      <translation type="unfinished"/>
+      <translation>Audioanruf</translation>
     </message>
     <message>
       <source>Audio &amp; video call</source>
-      <translation type="unfinished"/>
+      <translation>Audio und Videoanruf</translation>
     </message>
     <message>
       <source>Let visitor in</source>
@@ -14852,11 +14888,11 @@
     </message>
     <message>
       <source>Me</source>
-      <translation type="unfinished"/>
+      <translation>Ich</translation>
     </message>
     <message>
       <source>Please wait untill operator let&apos;s you join the call</source>
-      <translation type="unfinished"/>
+      <translation>Bitte warten Sie, bis der Operator Sie dem Anruf beitreten lässt</translation>
     </message>
     <message>
       <source>Visitor is waiting for someone to let him in!</source>
@@ -14864,11 +14900,11 @@
     </message>
     <message>
       <source>Pending visitor to join the call!</source>
-      <translation type="unfinished"/>
+      <translation>Wartender Besucher, der sich dem Gespräch anschließt!</translation>
     </message>
     <message>
       <source>Visitor has joined the call!</source>
-      <translation type="unfinished"/>
+      <translation>Besucher nimmt am Anruf teil!</translation>
     </message>
     <message>
       <source>Operator</source>
@@ -14895,7 +14931,7 @@
     </message>
     <message>
       <source>Video enabled</source>
-      <translation type="unfinished"/>
+      <translation>Video aktiviert</translation>
     </message>
     <message>
       <source>ScreenShare enabled</source>
@@ -14915,6 +14951,93 @@
     </message>
     <message>
       <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/avatarbuilder</name>
+    <message>
+      <source>Build your avatar</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We will generate avatar based on this string if you do not choose some parts</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Robo</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Girl</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Blonde</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Evilnormie</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Johnyold</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Asian</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Punk</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Afrohair</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Normie female</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Older</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Firehair</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Blond</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ateam</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rasta</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Meta</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set</source>
       <translation type="unfinished"/>
     </message>
   </context>

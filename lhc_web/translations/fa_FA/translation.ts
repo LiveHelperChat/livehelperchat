@@ -18,6 +18,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>چند روز بعد از آخرین نمایش، ابزارک رأی گیری باز نشود؟</translation>
     </message>
@@ -139,7 +147,7 @@
     </message>
     <message>
       <source>Should we remember username for the next time visitor starts a chat?</source>
-      <translation type="unfinished"/>
+      <translation>آیا برای بار بعدی که بازدید کننده چت شروع می کند ، باید نام کاربری را بخاطر بسپاریم؟</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
@@ -375,7 +383,7 @@
     </message>
     <message>
       <source>Automatically close active chat if from last visitor/operator message passed. 0 - disabled, n &gt; 0 time in minutes</source>
-      <translation type="unfinished"/>
+      <translation>در صورت عبور از آخرین پیام بازدید کننده / اپراتور ، چت فعال را به طور خودکار بسته کنید. 0 - غیرفعال ، n&gt; 0 بار در دقیقه</translation>
     </message>
     <message>
       <source>Automatically close pending chats where visitor has left a chat. Timeout in minutes, last activity by visitor &lt;desktop timeout&gt;,&lt;mobile timeout&gt;.</source>
@@ -462,7 +470,7 @@
     </message>
     <message>
       <source>Close</source>
-      <translation type="unfinished"/>
+      <translation>بستن</translation>
     </message>
     <message>
       <source>Send</source>
@@ -510,7 +518,7 @@
     </message>
     <message>
       <source>Voice call</source>
-      <translation type="unfinished"/>
+      <translation>تماس صوتی</translation>
     </message>
   </context>
   <context>
@@ -683,7 +691,7 @@
     </message>
     <message>
       <source>Override embed code settings</source>
-      <translation type="unfinished"/>
+      <translation>تنظیمات کد جاسازی را لغو کنید</translation>
     </message>
     <message>
       <source>Build your own need help widget layout</source>
@@ -755,7 +763,7 @@
     </message>
     <message>
       <source>New message separator color</source>
-      <translation type="unfinished"/>
+      <translation>رنگ جداساز پیام جدید</translation>
     </message>
     <message>
       <source>Time text color</source>
@@ -931,7 +939,7 @@
     </message>
     <message>
       <source>This variable is invisible for operator and will be stored in chat_variables attribute</source>
-      <translation type="unfinished"/>
+      <translation>این متغیر برای اپراتور نامرئی است و در ویژگی chat_variables ذخیره می شود</translation>
     </message>
     <message>
       <source>Invitation message width</source>
@@ -1019,7 +1027,7 @@
     </message>
     <message>
       <source>Hide need help widget for mobile devices.</source>
-      <translation type="unfinished"/>
+      <translation>پنهان کردن ابزارک کمک برای دستگاه های تلفن همراه.</translation>
     </message>
     <message>
       <source>Hide message time from visitor</source>
@@ -1159,19 +1167,19 @@
     </message>
     <message>
       <source>TOS text</source>
-      <translation type="unfinished"/>
+      <translation>متن TOS</translation>
     </message>
     <message>
       <source>Title of the minimize icon</source>
-      <translation type="unfinished"/>
+      <translation>عنوان آیکون پنهان کردن</translation>
     </message>
     <message>
       <source>Title of the popup icon</source>
-      <translation type="unfinished"/>
+      <translation>عنوان نماد پنجره بازشو </translation>
     </message>
     <message>
       <source>Title of the end chat icon</source>
-      <translation type="unfinished"/>
+      <translation>عنوان نماد گپ پایان </translation>
     </message>
     <message>
       <source>Start chat button text, bot chat</source>
@@ -1227,7 +1235,7 @@
     </message>
     <message>
       <source>Text when user starts a chat and is waiting for operator to join a chat. Only if queue is 1 or if less than a minute wait time.</source>
-      <translation type="unfinished"/>
+      <translation>وقتی کاربر چت را شروع می کند و منتظر است اپراتور به یک چت بپیوندد ، پیامک را ارسال کنید. فقط اگر صف 1 باشد یا کمتر از یک دقیقه زمان انتظار داشته باشد. </translation>
     </message>
     <message>
       <source>Text when user starts a chat and is waiting for operator to join a chat. Only if queue is &gt; 1. {number}, {avg_wait_time}, {avg_wait_time_live}, {avg_wait_time_live__string if more than one minute live wait time}, {avg_wait_time__string if more than one minute wait time}</source>
@@ -1362,6 +1370,14 @@
       <translation>عرض ابزارک (پیکسل)</translation>
     </message>
     <message>
+      <source>Operator avatar</source>
+      <translation>آواتار اپراتور </translation>
+    </message>
+    <message>
+      <source>Need help avatar</source>
+      <translation>تصویر  نیاز به راهنما</translation>
+    </message>
+    <message>
       <source>Widget position from right to append</source>
       <translation>Widget position from right to append</translation>
     </message>
@@ -1387,7 +1403,7 @@
     </message>
     <message>
       <source>Chat is unavailable and offline form is disabled.</source>
-      <translation type="unfinished"/>
+      <translation>گپ در دسترس نیست و فرم آفلاین غیرفعال است. </translation>
     </message>
     <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
@@ -1414,12 +1430,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hide BB Code button</source>
+      <translation>دکمه کد BB را پنهان کنید </translation>
+    </message>
+    <message>
       <source>Show go to survey button on chat close</source>
       <translation>Show go to survey button on chat close</translation>
     </message>
     <message>
       <source>Try to expand widget to full screen in page embed mode</source>
-      <translation type="unfinished"/>
+      <translation>سعی کنید ویجت را به حالت تمام صفحه در حالت تعبیه صفحه گسترش دهید </translation>
     </message>
     <message>
       <source>Automatically determine intro message by bot default message</source>
@@ -1483,7 +1503,7 @@
     </message>
     <message>
       <source>Enable embed code override</source>
-      <translation type="unfinished"/>
+      <translation>لغو کد تعبیه را فعال کنید </translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -1686,15 +1706,15 @@
     </message>
     <message>
       <source>Icon name</source>
-      <translation type="unfinished"/>
+      <translation>نام نماد </translation>
     </message>
     <message>
       <source>Icon identifier</source>
-      <translation type="unfinished"/>
+      <translation>شناسه نماد </translation>
     </message>
     <message>
       <source>it should have same value you enter in alert icon trigger</source>
-      <translation type="unfinished"/>
+      <translation>باید همان مقداری داشته باشد که در ماشه آیکون هشدار وارد می کنید </translation>
     </message>
     <message>
       <source>Column name</source>
@@ -1826,7 +1846,7 @@
     </message>
     <message>
       <source>Assign to shown operator</source>
-      <translation type="unfinished"/>
+      <translation>اختصاص به اپراتور نشان داده شده </translation>
     </message>
     <message>
       <source>Show everytime it is matched</source>
@@ -1966,7 +1986,7 @@
     </message>
     <message>
       <source>Chat alert icons</source>
-      <translation type="unfinished"/>
+      <translation>نمادهای هشدار چت </translation>
     </message>
     <message>
       <source>Chat columns</source>
@@ -1978,11 +1998,11 @@
     </message>
     <message>
       <source>String (case sensitive)</source>
-      <translation type="unfinished"/>
+      <translation>رشته (حساس به حروف کوچک) </translation>
     </message>
     <message>
       <source>String (case insensitive)</source>
-      <translation type="unfinished"/>
+      <translation>رشته (حساس به حروف بزرگ) </translation>
     </message>
     <message>
       <source>Integer</source>
@@ -2161,7 +2181,7 @@
     </message>
     <message>
       <source>Disable start chat URL</source>
-      <translation type="unfinished"/>
+      <translation>URL چت شروع را غیرفعال کنید </translation>
     </message>
     <message>
       <source>Online form settings</source>
@@ -2364,7 +2384,7 @@
     </message>
     <message>
       <source>User ID</source>
-      <translation type="unfinished"/>
+      <translation>شناسه کاربر </translation>
     </message>
     <message>
       <source>Search</source>
@@ -9174,6 +9194,10 @@
       <translation>ایمیل</translation>
     </message>
     <message>
+      <source>Your email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat nickname</source>
       <translation>نام در گفتگو</translation>
     </message>
@@ -9340,6 +9364,18 @@
     <message>
       <source>Personal canned messages</source>
       <translation>پیام های شخصی از پیش تعریف شده</translation>
+    </message>
+    <message>
+      <source>Avatar builder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter any string to generate an avatar</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Click to set avatar</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Main</source>
@@ -14915,6 +14951,93 @@
     </message>
     <message>
       <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/avatarbuilder</name>
+    <message>
+      <source>Build your avatar</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We will generate avatar based on this string if you do not choose some parts</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Robo</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Girl</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Blonde</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Evilnormie</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Johnyold</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Asian</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Punk</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Afrohair</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Normie female</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Older</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Firehair</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Blond</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ateam</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rasta</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Meta</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set</source>
       <translation type="unfinished"/>
     </message>
   </context>

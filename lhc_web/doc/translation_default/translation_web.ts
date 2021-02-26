@@ -28,6 +28,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -2298,6 +2306,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>No border under a profile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
       <translation type="unfinished"/>
     </message>
@@ -2478,6 +2490,14 @@
     </message>
     <message>
       <source>Hour and minute from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select minute</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2717,6 +2737,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Has unread messages from visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Abandoned chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Compare to past</source>
       <translation type="unfinished"/>
     </message>
@@ -2749,15 +2777,39 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Day of the week</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Monday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Day interval to include from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Select hour</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Select minute</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4806,6 +4858,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Your personal time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
       <translation type="unfinished"/>
     </message>
@@ -4819,6 +4879,22 @@
     </message>
     <message>
       <source>here</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>These hours will be using</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>to render widget online status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Change default time zone.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7251,6 +7327,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Allow visitor to choose only one file for the upload</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Files upload for operators is active</source>
       <translation type="unfinished"/>
     </message>
@@ -8498,6 +8578,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Total chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Bot</source>
       <translation type="unfinished"/>
     </message>
@@ -8587,10 +8671,6 @@
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Total chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10428,6 +10508,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Intro</source>
       <translation type="unfinished"/>
     </message>
@@ -10494,6 +10578,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Custom fields</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Identifier</source>
       <translation type="unfinished"/>
     </message>
@@ -10506,6 +10594,14 @@
     </message>
     <message>
       <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>identifier</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13690,6 +13786,18 @@
   <context>
     <name>chat/chatcommand</name>
     <message>
+      <source>Please provide modal URL!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We will show a form in a moment!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Modal activated!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>was executed</source>
       <translation type="unfinished"/>
     </message>
@@ -13807,6 +13915,10 @@
     </message>
     <message>
       <source>Remarks were saved!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Information collected. [baseurl]form/viewcollected/'.$formCollected-&gt;id.'[/baseurl]</source>
       <translation type="unfinished"/>
     </message>
   </context>
