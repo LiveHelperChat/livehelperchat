@@ -89,6 +89,10 @@ class chatEventsHandler {
             attr['proactive'] = this.attributes['proactive'];
         }
 
+        if (this.attributes['dep_default'] !== null) {
+            attr['dep_default'] = this.attributes['dep_default'];
+        }
+
         if (this.attributes.LHCChatOptions && this.attributes.LHCChatOptions.attr) {
             var prefillOptions = this.attributes.LHCChatOptions.attr;
             let fieldsCustom = [];

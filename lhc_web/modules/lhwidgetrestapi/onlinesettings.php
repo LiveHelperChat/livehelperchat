@@ -181,6 +181,8 @@ if ($Params['user_parameters_unordered']['online'] == '0') {
 } else {
     if (isset($start_data_fields['pre_chat_html']) && $start_data_fields['pre_chat_html'] != '') {
         $chat_ui['operator_profile'] = $start_data_fields['pre_chat_html'];
+    } else {
+        $chat_ui['operator_profile'] = '';
     }
 }
 

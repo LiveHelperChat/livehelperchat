@@ -203,7 +203,7 @@ class StartChat extends Component {
             'phash' : this.props.chatwidget.get('phash'),
             'bot_id' : this.props.chatwidget.get('bot_id'),
             'vid' : this.props.chatwidget.get('vid'),
-            'dep_default' : (dep_default || 0),
+            'dep_default' : (dep_default || this.props.chatwidget.get('departmentDefault') || 0),
             'online' : 1
         }));
     }
@@ -237,6 +237,16 @@ class StartChat extends Component {
         if (this.props.chatwidget.getIn(['onlineData','fetched']) === true && prevProps.chatwidget.getIn(['onlineData','fetched']) === false) {
             this.props.chatwidget.hasIn(['chat_ui','uprev']) && helperFunctions.emitEvent('play_sound', [{'type' : 'new_message','sound_on' : (this.props.chatwidget.getIn(['usersettings','soundOn']) === true), 'widget_open' : ((this.props.chatwidget.get('shown') && this.props.chatwidget.get('mode') == 'widget') || document.hasFocus())}]);
             this.scrollBottom();
+        }
+
+        // If parent pages changes default department we have to reload
+        if (this.props.chatwidget.get('departmentDefault') !== prevProps.chatwidget.get('departmentDefault')) {
+            this.setState({'DepartamentID': this.props.chatwidget.get('departmentDefault')});
+            var elm = document.getElementById('id-department-field');
+            if (elm !== null) {
+                elm.value = this.props.chatwidget.get('departmentDefault');
+            }
+            this.updateOnlineFieldsInit();
         }
     }
 
