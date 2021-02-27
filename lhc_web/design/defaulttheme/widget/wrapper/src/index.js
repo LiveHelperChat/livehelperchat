@@ -7,8 +7,16 @@
 
     var scopeScript = currentScript.getAttribute('scope') || 'LHC';
 
-    if (!global[scopeScript+'_API'] || /google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|Chrome-Lighthouse/i.test(navigator.userAgent)) {
+    if (/google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|Chrome-Lighthouse/i.test(navigator.userAgent)) {
         return;
+    }
+
+    if (!global[scopeScript+'_API']) {
+        if (global['LHC_API']) {
+            global[scopeScript+'_API'] = global['LHC_API'];
+        } else {
+            return;
+        }
     }
 
     var lhcError = {
