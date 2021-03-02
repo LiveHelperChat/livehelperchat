@@ -278,10 +278,11 @@
                             var position = element.tooltipPosition();
 
                             if (chart.options.perc) {
-                                dataString = (chart.options.exc_counter ? '' : dataString+' / ') + (parseInt(dataString)*100 / maxValue).toFixed(2)+"%";
+                                ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
+                                ctx.fillText((parseInt(dataString)*100 / maxValue).toFixed(2)+"%", position.x, position.y - (fontSize / 2) - padding - 15);
+                            } else {
+                                ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
                             }
-
-                            ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
                         }
                     });
                 }
@@ -366,6 +367,7 @@
                         top: 20
                     }
                 },
+                perc: true,
                 scales: {
                     xAxes: [{
                         stacked: true,
