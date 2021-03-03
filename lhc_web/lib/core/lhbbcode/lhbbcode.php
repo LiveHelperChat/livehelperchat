@@ -1014,17 +1014,27 @@ class erLhcoreClassBBCode
 
    public static function makeSubmessages($msg, $paramsMessage = array()) {
 
-       // Links wraps images
+       $replacer = 'IMG_REPLACE';
+
+       if (strpos($msg,'[quote]') !== false) {
+           $replacer = '';
+       }
+
+        // Links wraps images
        $msg = preg_replace('#\[url\="?(.*?)"?\]\[file="?(.*?)_img"?\]\[\/url\]#is','[file=\2_img link=\1]',$msg);
 
        // pure files
-       $msg = preg_replace('#\[file="?(.*?)_img"?(.*?)\]#is','IMG_REPLACE[file=\1_img\2]IMG_REPLACE',$msg);
+       $msg = preg_replace('#\[file="?(.*?)_img"?(.*?)\]#is',$replacer.'[file=\1_img\2]'.$replacer,$msg);
 
        // Images within links
        $msg = preg_replace('#\[url\="?(.*?)"?\]\[img\](.*?)\[\/img\]\[\/url\]#is','[img=\1]\2[/img]',$msg);
 
        // Pure images
-       $msg = preg_replace('#\[img(.*?)\](.*?)\[\/img\]#is','IMG_REPLACE[img\1]\2[/img]IMG_REPLACE',$msg);
+       $msg = preg_replace('#\[img(.*?)\](.*?)\[\/img\]#is',$replacer.'[img\1]\2[/img]'.$replacer,$msg);
+
+
+       $msg = preg_replace('#\[img(.*?)\](.*?)\[\/img\]#is',$replacer.'[img\1]\2[/img]'.$replacer,$msg);
+
 
        $msg = trim($msg);
 
