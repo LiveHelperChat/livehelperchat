@@ -114,21 +114,6 @@ class NodeGroupTrigger extends Component {
 
         var list = this.props.nodegroups.get('nodegroups').sortBy(group => group.get('pos')).map(nodegroup =><option key={nodegroup.get('id')} value={nodegroup.get('id')}>{nodegroup.get('name')}</option>);
 
-
-        /*var list = this.props.payloads.get('payloads').map((option, index) => <option key={option.get('id')} value={option.get('payload')}>{option.get('name')+' [' + option.get('payload') + ']'}</option>);
-
-        var controlPayload = "";
-
-        if (this.props.payloadType == 'button') {
-            controlPayload =
-                <div className="col-9">
-                    <div className="form-group">
-                        <label>Payload</label>
-                        {this.state.addingPayload == false ? (
-                            <select className="form-control form-control-sm" onChange={this.onChange.bind(this)} value={this.props.currentPayload.get('payload')}><option value="">Select event</option>{list}</select>*/
-
-
-
         return (
                 <li>
                     <div class="btn-group trigger-btn">
