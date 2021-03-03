@@ -198,6 +198,12 @@ class erLhcoreClassGenericBotActionRestapi
 
         $replaceVariables = array_merge($replaceVariables, $dynamicParamsVariables);
 
+        foreach ($replaceVariables as $keyVariable => $variableValue) {
+            if (is_array($variableValue) || is_object($variableValue)) {
+                $replaceVariables[$keyVariable] = json_encode($variableValue);
+            }
+        }
+
         $replaceVariablesJSON = array(
             '{{msg}}' => json_encode($msg_text),
             '{{msg_clean}}' => json_encode(trim($msg_text_cleaned)),
@@ -625,6 +631,25 @@ class erLhcoreClassGenericBotActionRestapi
             }
 
             // Detect does customer want's somewhere all messages
+            if (strpos($item,'{{msg_all_html}}') !== false && !in_array('{{msg_all_html}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{msg_all_html}}';
+
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
+
+                // Fetch chat messages
+                $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/full.tpl.php');
+                $tpl->set('chat', $userData['chat']);
+                $tpl->set('messages', $messages);
+                $userData['dynamic_variables']['{{msg_all_html}}'] = $tpl->fetch();
+            }
+
+            // Detect does customer want's somewhere all messages
+            if (strpos($item,'{{msg_items}}') !== false && !in_array('{{msg_items}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{msg_items}}';
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
+                $userData['dynamic_variables']['{{msg_items}}'] = $messages;
+            }
+
             if (strpos($item,'{{msg_all}}') !== false && !in_array('{{msg_all}}',$userData['required_vars'])) {
                 $userData['required_vars'][] = '{{msg_all}}';
 

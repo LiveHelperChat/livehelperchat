@@ -243,7 +243,7 @@
 
             <div ng-if="param.body_request_type == 'form-data'">
 
-                <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','You can put visitor message as placeholder')?> <code ng-non-bindable>{{msg}}, {{chat_id}}</code></p>
+                <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','You can put visitor message as placeholder')?>&nbsp;<a href="https://doc.livehelperchat.com/docs/bot/rest-api#replaceable-variables" target="_blank"><i class="material-icons">help</i></a></p>
 
                 <button type="button" class="btn btn-secondary btn-xs" ng-click="lhcrestapi.addParam(param.postparams)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Add param')?></button>
 
