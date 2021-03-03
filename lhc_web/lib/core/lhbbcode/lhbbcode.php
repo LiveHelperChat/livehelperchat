@@ -1032,10 +1032,6 @@ class erLhcoreClassBBCode
        // Pure images
        $msg = preg_replace('#\[img(.*?)\](.*?)\[\/img\]#is',$replacer.'[img\1]\2[/img]'.$replacer,$msg);
 
-
-       $msg = preg_replace('#\[img(.*?)\](.*?)\[\/img\]#is',$replacer.'[img\1]\2[/img]'.$replacer,$msg);
-
-
        $msg = trim($msg);
 
        $messages = array_filter(explode('IMG_REPLACE', $msg));
