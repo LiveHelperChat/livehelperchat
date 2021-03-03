@@ -65,7 +65,22 @@ if (trim($form->msg) != '')
     	        $msg->user_id = $messageUserId;
     	        $msg->time = time();
     	        $msg->name_support = $userData->name_support;
-    	        
+
+    	        if (isset($_POST['meta_msg'])) {
+                    $meta_msg = json_decode($_POST['meta_msg'], true);
+                    if (is_array($meta_msg)) {
+                        $metaContent = [];
+
+                        foreach ($meta_msg as $meta_msg_key => $meta_msg_value) {
+                            $metaContent['content'][$meta_msg_key] = $meta_msg_value;
+                        }
+
+                        if (!empty($metaContent)) {
+                            $msg->meta_msg = json_encode($metaContent);
+                        }
+                    }
+                }
+
     	        if ($messageUserId != -1 && $Chat->chat_locale != '' && $Chat->chat_locale_to != '' && isset($Chat->chat_variables_array['lhc_live_trans']) && $Chat->chat_variables_array['lhc_live_trans'] === true) {
     	            erLhcoreClassTranslate::translateChatMsgOperator($Chat, $msg);
     	        }

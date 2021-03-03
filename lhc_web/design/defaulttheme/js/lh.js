@@ -2575,6 +2575,11 @@ function lh(){
 				msg	: message || textArea.val()
 		};
 
+		if (textArea.attr('meta-msg')) {
+            pdata.meta_msg = textArea.attr('meta-msg');
+            textArea.removeAttr('meta-msg');
+        }
+
 		if (pdata.msg == '') {
 		    return;
         }
