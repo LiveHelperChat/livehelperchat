@@ -67,20 +67,6 @@ class NodeGroup extends Component {
         this.props.dispatch(updateNodeGroup(this.props.group.set('pos',this.state.position)));
     }
 
-    /*shouldComponentUpdate(nextProps, nextState) {
-
-        if (this.props.group !== nextProps.group) {
-            return true;
-        }
-
-        if (nextProps.nodegrouptriggers !== this.props.nodegrouptriggers)
-        {
-            return true;
-        }
-
-        return false;
-    }*/
-
     render() {
 
         if (this.props.nodegrouptriggers.get('nodegrouptriggers').has(this.props.group.get('id'))) {

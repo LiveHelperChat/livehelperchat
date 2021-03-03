@@ -59,40 +59,12 @@ export function fetchNodeGroupTriggerAction(triggerId) {
 export function updateTriggerType(obj) {
     return function(dispatch) {
         dispatch({type: "UPDATE_TRIGGER_TYPE", payload : obj});
-
-        /*
-          http://rest.learncode.academy is a public test server, so another user's experimentation can break your tests
-          If you get console errors due to bad data:
-          - change "reacttest" below to any other username
-          - post some tweets to http://rest.learncode.academy/api/yourusername/tweets
-        */
-        /*axios.get(WWW_DIR_JAVASCRIPT + "genericbot/nodetriggeractions/" + triggerId)
-            .then((response) => {
-            dispatch({type: "FETCH_TRIGGER_RESPONSE_FULFILLED", payload: response.data})
-    })
-    .catch((err) => {
-            dispatch({type: "FETCH_TRIGGER_RESPONSE_REJECTED", payload: err})
-        })*/
     }
 }
 
 export function updateTriggerName(obj) {
     return function(dispatch) {
         dispatch({type: "UPDATE_TRIGGER_NAME", payload : obj});
-
-        /*
-          http://rest.learncode.academy is a public test server, so another user's experimentation can break your tests
-          If you get console errors due to bad data:
-          - change "reacttest" below to any other username
-          - post some tweets to http://rest.learncode.academy/api/yourusername/tweets
-        */
-        /*axios.get(WWW_DIR_JAVASCRIPT + "genericbot/nodetriggeractions/" + triggerId)
-            .then((response) => {
-            dispatch({type: "FETCH_TRIGGER_RESPONSE_FULFILLED", payload: response.data})
-    })
-    .catch((err) => {
-            dispatch({type: "FETCH_TRIGGER_RESPONSE_REJECTED", payload: err})
-        })*/
     }
 }
 
@@ -139,6 +111,18 @@ export function deleteTriggerEvent(obj) {
                 dispatch({type: "DELETE_TRIGGER_EVENT_FULFILLED", payload: response.data})
         }).catch((err) => {
                 dispatch({type: "DELETE_TRIGGER_EVENT_FULFILLED", payload: err})
+            })
+        }
+}
+
+export function setTriggerGroup(obj, group_id) {
+    return function(dispatch) {
+        dispatch({type: "SET_GROUP_TRIGGER_EVENT", payload : obj, group_id: group_id});
+        axios.post(WWW_DIR_JAVASCRIPT + "genericbot/settriggergroup/" + obj.get('id') + '/' + obj.get('group_id'))
+                .then((response) => {
+                dispatch({type: "SET_GROUP_TRIGGER_EVENT_FULFILLED", payload: response.data})
+        }).catch((err) => {
+                dispatch({type: "SET_GROUP_TRIGGER_EVENT_FULFILLED", payload: err})
             })
         }
 }

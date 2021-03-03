@@ -311,6 +311,12 @@ $ViewList['setdefaulttrigger'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['settriggergroup'] = array(
+    'params' => array('id','group_id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['setdefaultunknowntrigger'] = array(
     'params' => array('id','default'),
     'uparams' => array(),
