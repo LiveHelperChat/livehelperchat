@@ -173,6 +173,10 @@ $ViewList['addmsgadmin'] = array(
     'params' => array()
 );
 
+$ViewList['file'] = array(
+    'params' => array('id')
+);
+
 $ViewList['setchatstatus'] = array(
     'params' => array()
 );

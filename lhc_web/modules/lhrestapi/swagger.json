@@ -1214,6 +1214,203 @@
         ]
       }
     },
+    "/restapi/file/{file_id}": {
+      "get": {
+        "tags": [
+          "file"
+        ],
+        "summary": "Fetches file by file id",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "file_id",
+            "in": "path",
+            "description": "File ID to fetch",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "meta",
+            "in": "query",
+            "default": true,
+            "description": "Fetch only meta information. Otherwise file content will be returned.",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns file data",
+            "schema": {
+              "$ref": "#/definitions/File"
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "file"
+        ],
+        "summary": "Update file meta data",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "File object needs to be updated",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/File"
+            }
+          },
+          {
+            "name": "file_id",
+            "in": "path",
+            "description": "File to update",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates user with specified attributes",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "file"
+        ],
+        "summary": "Deletes specified file",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "file_id",
+            "in": "path",
+            "description": "File to delete",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deletes specified file",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/file": {
+      "post": {
+        "tags": [
+          "file"
+        ],
+        "summary": "Upload a file",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "type": "file",
+            "name": "files",
+            "description": "Upload a file and returns it's meta data",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "name_prepend",
+            "description": "You can prepend custom string to file name",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "name_replace",
+            "description": "You can override file name.",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "type": "boolean",
+            "name": "persistent",
+            "description": "Store file as persistent",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "type": "integer",
+            "name": "chat_id",
+            "description": "Associated chat id",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Creates a file and returns it's attributes",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
     "/restapi/user": {
       "post": {
         "tags": [
@@ -3353,7 +3550,7 @@
        "required": false,
        "description": "To what user groups operator belongs"
      }
-},
+     },
       "example" : {
           "username" : "username",
           "password" : "password",
@@ -3365,6 +3562,91 @@
           "departments_read" : [2],
           "department_groups" : [1],
           "user_groups" : [1]
+      }
+   },
+   "File": {
+      "type": "object",
+      "properties": {
+        "id": {
+            "type": "integer",
+            "default": null,
+            "required": false,
+            "description": "File ID"
+        },
+        "name": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "System file name"
+        },
+        "upload_name": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Uploaded file name. This name is used to render file name for the vistior."
+        },
+        "type": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Meta type"
+        },
+        "file_path": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Directory path to the file"
+        },
+        "size": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Size in bytes"
+        },
+        "extension": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "File extension"
+       },
+       "date": {
+          "type": "integer",
+          "default": false,
+          "required": false,
+          "description": "File upload date in unixtimestamp"
+       },
+       "user_id": {
+          "type": "integer",
+          "default": 0,
+          "required": false,
+          "description": "User ID"
+       },
+      "chat_id": {
+          "type": "integer",
+          "default": 0,
+          "required": false,
+          "description": "Chat ID"
+       },
+      "online_user_id": {
+          "type": "integer",
+          "default": 0,
+          "required": false,
+          "description": "Online user ID"
+       },
+      "persistent": {
+          "type": "integer",
+          "default": 0,
+          "required": false,
+          "description": "Is file persistent and should not be removed within files maintenence cronjob."
+       },
+      "security_hash": {
+        "type": "string",
+        "description": "Image content encoded with base64_encode. It's used to change operator profile photo."
+      }
+     },
+      "example" : {
+          "upload_name" : "invoice",
+          "chat_id" : 11
       }
    },
    "NewChat": {

@@ -983,6 +983,9 @@ class erLhcoreClassBBCodePlain
 
         $makeLinksClickable = true;
 
+        // Make base URL
+        $ret = preg_replace_callback('#\[baseurl\](.*?)\[/baseurl\]#is', 'erLhcoreClassBBCode::_make_base_link', $ret);
+
         $ret = preg_replace_callback('/\[img=?(.*?)\](.*?)\[\/img\]/ms', "erLhcoreClassBBCodePlain::_make_url_embed_image", $ret);
 
         $ret = preg_replace_callback('/\[loc\](.*?)\[\/loc\]/ms', "erLhcoreClassBBCodePlain::_make_embed_map", $ret);
@@ -1019,9 +1022,6 @@ class erLhcoreClassBBCodePlain
 
         // Youtube block
         $ret = preg_replace_callback('#\[youtube\](.*?)\[/youtube\]#is', 'erLhcoreClassBBCodePlain::_make_youtube_block', $ret);
-
-        // Make base URL
-        $ret = preg_replace_callback('#\[baseurl\](.*?)\[/baseurl\]#is', 'erLhcoreClassBBCode::_make_base_link', $ret);
 
         $ret = preg_replace('#\[translation\](.*?)\[/translation\]#is', '<span class="tr-msg">$1</span>', $ret);
 
