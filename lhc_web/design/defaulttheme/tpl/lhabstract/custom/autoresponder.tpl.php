@@ -11,7 +11,7 @@
     $object->languages_ignore; // Just to init
 ?>
 
-<div ng-controller="AutoResponderCtrl as cmsg"  ng-init='<?php if (!empty($object->languages_ignore)) : ?>cmsg.ignoreLanguages.languages = <?php echo json_encode($object->languages_ignore); ?>;<?php endif; ?><?php if ($object->languages != '') : ?>cmsg.languages = <?php echo json_encode(json_decode($object->languages,true),JSON_HEX_APOS)?>;<?php endif;?>cmsg.dialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>'>
+<div ng-controller="AutoResponderCtrl as cmsg" ng-cloak ng-init='<?php if (!empty($object->languages_ignore)) : ?>cmsg.ignoreLanguages.languages = <?php echo json_encode($object->languages_ignore); ?>;<?php endif; ?><?php if ($object->languages != '') : ?>cmsg.languages = <?php echo json_encode(json_decode($object->languages,true),JSON_HEX_APOS)?>;<?php endif;?>cmsg.dialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>'>
 
 <div class="form-group">
 <label><?php echo $fields['name']['trans'];?></label>
