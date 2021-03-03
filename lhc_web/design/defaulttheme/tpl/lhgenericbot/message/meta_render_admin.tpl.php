@@ -6,6 +6,8 @@
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/html_admin.tpl.php'));?>
         <?php elseif ($type == 'button_message') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/button_message_admin.tpl.php'));?>
+        <?php else : ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/meta_admin_multiinclude.tpl.php'));?>
         <?php endif; ?>
-    <?php endforeach; endif;  ?>
+    <?php endforeach; endif; ?>
 <?php endif; ?>

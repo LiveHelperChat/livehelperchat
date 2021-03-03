@@ -34,9 +34,10 @@
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/text_conditional.tpl.php'));?>
         <?php elseif ($type == 'attr_options' && (!isset($messagesStats) || $messagesStats['total_messages'] == $messagesStats['counter_messages'])) : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/attr_options.tpl.php'));?>
+        <?php else : ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/meta_user_multiinclude.tpl.php'));?>
         <?php endif; ?>
     <?php endforeach; endif;  ?>
-
 
     <?php if (isset($metaMessageData['content_error']) && is_array($metaMessageData['content_error'])) : ?>
         <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/error.tpl.php'));?>
