@@ -128,7 +128,12 @@ class erLhcoreClassModelCannedMsg
     }
 
     public function afterSave()
-    {            
+    {
+        if ($this->unique_id == 0) {
+            $this->unique_id = $this->id;
+            $this->updateThis(array('update' => array('unique_id')));
+        }
+
         $tagLinks = erLhcoreClassModelCannedMsgTagLink::getList(array('filter' => array('canned_id' => $this->id)));
                 
         $tagsArray = array();
