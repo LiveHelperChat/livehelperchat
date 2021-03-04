@@ -9,103 +9,19 @@ $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
 $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
-/**
- * Explain for canned messages
- * */
-$def->properties['title'] = new ezcPersistentObjectProperty();
-$def->properties['title']->columnName   = 'title';
-$def->properties['title']->propertyName = 'title';
-$def->properties['title']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+foreach (['title','unique_id','explain','msg','html_snippet','fallback_msg','languages','additional_data'] as $posAttr) {
+    $def->properties[$posAttr] = new ezcPersistentObjectProperty();
+    $def->properties[$posAttr]->columnName   = $posAttr;
+    $def->properties[$posAttr]->propertyName = $posAttr;
+    $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+}
 
-/**
- * Unique ID, we use it during import
- */
-$def->properties['unique_id'] = new ezcPersistentObjectProperty();
-$def->properties['unique_id']->columnName   = 'unique_id';
-$def->properties['unique_id']->propertyName = 'unique_id';
-$def->properties['unique_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-/**
- * Can be used as explain for extensions
- * */
-$def->properties['explain'] = new ezcPersistentObjectProperty();
-$def->properties['explain']->columnName   = 'explain';
-$def->properties['explain']->propertyName = 'explain';
-$def->properties['explain']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-/**
- * Main message text
- * */
-$def->properties['msg'] = new ezcPersistentObjectProperty();
-$def->properties['msg']->columnName   = 'msg';
-$def->properties['msg']->propertyName = 'msg';
-$def->properties['msg']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-/**
- * Main message text
- * */
-$def->properties['html_snippet'] = new ezcPersistentObjectProperty();
-$def->properties['html_snippet']->columnName   = 'html_snippet';
-$def->properties['html_snippet']->propertyName = 'html_snippet';
-$def->properties['html_snippet']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-/**
- * If some of the main message replacable variables is not found this one is used
- * */
-$def->properties['fallback_msg'] = new ezcPersistentObjectProperty();
-$def->properties['fallback_msg']->columnName   = 'fallback_msg';
-$def->properties['fallback_msg']->propertyName = 'fallback_msg';
-$def->properties['fallback_msg']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['position'] = new ezcPersistentObjectProperty();
-$def->properties['position']->columnName   = 'position';
-$def->properties['position']->propertyName = 'position';
-$def->properties['position']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['delay'] = new ezcPersistentObjectProperty();
-$def->properties['delay']->columnName   = 'delay';
-$def->properties['delay']->propertyName = 'delay';
-$def->properties['delay']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['department_id'] = new ezcPersistentObjectProperty();
-$def->properties['department_id']->columnName   = 'department_id';
-$def->properties['department_id']->propertyName = 'department_id';
-$def->properties['department_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['user_id'] = new ezcPersistentObjectProperty();
-$def->properties['user_id']->columnName   = 'user_id';
-$def->properties['user_id']->propertyName = 'user_id';
-$def->properties['user_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['auto_send'] = new ezcPersistentObjectProperty();
-$def->properties['auto_send']->columnName   = 'auto_send';
-$def->properties['auto_send']->propertyName = 'auto_send';
-$def->properties['auto_send']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['attr_int_1'] = new ezcPersistentObjectProperty();
-$def->properties['attr_int_1']->columnName   = 'attr_int_1';
-$def->properties['attr_int_1']->propertyName = 'attr_int_1';
-$def->properties['attr_int_1']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['attr_int_2'] = new ezcPersistentObjectProperty();
-$def->properties['attr_int_2']->columnName   = 'attr_int_2';
-$def->properties['attr_int_2']->propertyName = 'attr_int_2';
-$def->properties['attr_int_2']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['attr_int_3'] = new ezcPersistentObjectProperty();
-$def->properties['attr_int_3']->columnName   = 'attr_int_3';
-$def->properties['attr_int_3']->propertyName = 'attr_int_3';
-$def->properties['attr_int_3']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['languages'] = new ezcPersistentObjectProperty();
-$def->properties['languages']->columnName   = 'languages';
-$def->properties['languages']->propertyName = 'languages';
-$def->properties['languages']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['additional_data'] = new ezcPersistentObjectProperty();
-$def->properties['additional_data']->columnName   = 'additional_data';
-$def->properties['additional_data']->propertyName = 'additional_data';
-$def->properties['additional_data']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+foreach (['position','delay','department_id','user_id','auto_send','attr_int_1','attr_int_2','attr_int_3'] as $posAttr) {
+    $def->properties[$posAttr] = new ezcPersistentObjectProperty();
+    $def->properties[$posAttr]->columnName   = $posAttr;
+    $def->properties[$posAttr]->propertyName = $posAttr;
+    $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+}
 
 return $def;
 
