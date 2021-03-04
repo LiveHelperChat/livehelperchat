@@ -5,7 +5,6 @@
 <table class="table table-sm" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
-    <th width="1%">ID</th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Title/Message');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Department');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','User');?></th>
@@ -19,8 +18,7 @@
 </thead>
 <?php foreach ($items as $item) : ?>
     <tr>
-        <td><?php echo $item->id?></td>
-        <td><?php echo nl2br(htmlspecialchars($item->title != '' ? $item->title : $item->msg))?></td>
+        <td title="<?php echo htmlspecialchars($item->unique_id)?>"><?php echo nl2br(htmlspecialchars($item->title != '' ? $item->title : $item->msg))?></td>
         <td><?php if ($item->department !== false) : ?><?php echo htmlspecialchars($item->department)?><?php else : ?>-<?php endif;?></td>
         <td><?php echo htmlspecialchars($item->user)?></td>
         <td><?php echo $item->delay?></td>

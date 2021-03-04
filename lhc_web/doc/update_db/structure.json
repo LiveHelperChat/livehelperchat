@@ -3564,6 +3564,15 @@
         "collation": "utf8mb4_unicode_ci"
       },
       {
+        "field": "unique_id",
+        "type": "varchar(20)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
         "field": "explain",
         "type": "varchar(250)",
         "null": "NO",
@@ -9554,6 +9563,7 @@
         "attr_int_1" : "ALTER TABLE `lh_canned_msg` ADD INDEX `attr_int_1` (`attr_int_1`);",
         "attr_int_2" : "ALTER TABLE `lh_canned_msg` ADD INDEX `attr_int_2` (`attr_int_2`);",
         "attr_int_3" : "ALTER TABLE `lh_canned_msg` ADD INDEX `attr_int_3` (`attr_int_3`);",
+        "unique_id" : "ALTER TABLE `lh_canned_msg` ADD INDEX `unique_id` (`unique_id`);",
         "position_title_v2" : "ALTER TABLE `lh_canned_msg` ADD INDEX `position_title_v2` (`position`, `title`(191));"
       },
       "old" : ["position_title"]

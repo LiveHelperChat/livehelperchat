@@ -18,6 +18,14 @@ $def->properties['title']->propertyName = 'title';
 $def->properties['title']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 /**
+ * Unique ID, we use it during import
+ */
+$def->properties['unique_id'] = new ezcPersistentObjectProperty();
+$def->properties['unique_id']->columnName   = 'unique_id';
+$def->properties['unique_id']->propertyName = 'unique_id';
+$def->properties['unique_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+/**
  * Can be used as explain for extensions
  * */
 $def->properties['explain'] = new ezcPersistentObjectProperty();

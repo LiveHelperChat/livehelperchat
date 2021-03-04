@@ -1081,6 +1081,7 @@ class Install
         	   	  `attr_int_1` int(11) NOT NULL,
         	   	  `attr_int_2` int(11) NOT NULL,
         	   	  `attr_int_3` int(11) NOT NULL,
+                  `unique_id` varchar(20) NOT NULL,
                   PRIMARY KEY (`id`),
         	   	  KEY `department_id` (`department_id`),
         	   	  KEY `attr_int_1` (`attr_int_1`),

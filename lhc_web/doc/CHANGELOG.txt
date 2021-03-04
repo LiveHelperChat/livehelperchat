@@ -1,3 +1,21 @@
+3.65v
+
+1. In master/master replication environment canned messages import did not worked correctly because we did id's comparison. We now will have unique_id field for that.
+2. Now you can move triggers between trigger groups.
+3. There is now Rest API for files upload.
+4. Bugfix - https://github.com/LiveHelperChat/livehelperchat/issues/1624
+5. Rest API call now has {{msg_items}} and {{msg_all_html}} replaceable variables. https://doc.livehelperchat.com/docs/bot/rest-api#replaceable-variables
+6. Percentages now are rendered at the top instead of the same line.
+7. Javascript argument for default department if more than one department is passed. Related section - https://doc.livehelperchat.com/docs/javascript-arguments/#how-to-change-default-department-from-parent-page
+8. Changing department in the widget will update it's fields now. You can have custom fields by department now.
+9. Bot now supports file upload handling https://doc.livehelperchat.com/docs/bot/collect-custom-attribute#file-expecting-trigger-example
+10. Rest API authentication method now supports NTLMauth. Thanks to https://github.com/ProsWeb
+11. `addmsgadmin` now will support also system messages. https://api.livehelperchat.com/#/chat/post_restapi_addmsgadmin
+
+And various other small changes :)
+
+execute doc/update_db/update_238.sql for update
+
 3.64v
 
 1. Any form now can be integrated into a widget. https://doc.livehelperchat.com/docs/modules/forms/

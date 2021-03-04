@@ -1245,13 +1245,15 @@ try {
         	   	  `attr_int_1` int(11) NOT NULL,
         	   	  `attr_int_2` int(11) NOT NULL,
         	   	  `attr_int_3` int(11) NOT NULL,
+        	   	  `unique_id` varchar(20) NOT NULL,
                   PRIMARY KEY (`id`),
         	   	  KEY `department_id` (`department_id`),
         	   	  KEY `attr_int_1` (`attr_int_1`),
         	   	  KEY `attr_int_2` (`attr_int_2`),
         	   	  KEY `attr_int_3` (`attr_int_3`),
         	   	  KEY `position_title_v2` (`position`, `title`(191)),
-        	   	  KEY `user_id` (`user_id`)
+        	   	  KEY `user_id` (`user_id`),
+        	   	  KEY `unique_id` (`unique_id`)
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_online_user_footprint` (
