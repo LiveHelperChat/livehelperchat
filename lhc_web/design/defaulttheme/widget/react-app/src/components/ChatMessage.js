@@ -33,6 +33,21 @@ class ChatMessage extends PureComponent {
 
         if (typeof attrs.onchange !== 'undefined') {
 
+            // Checkbox support
+            if (attrs.type && attrs.type == "checkbox") {
+                if (attrs['payload-type'] == 'enable-confirm') {
+                    var elm = document.getElementById('confirm-button-'+attrs['data-id']);
+                    if (e.target.checked) {
+                        elm.removeAttribute('disabled');
+                        elm.onclick = (e) => this.updateTriggerClicked({type:''}, {'data-payload':'confirm', 'data-id' : attrs['data-id']}, e.target);
+                    } else {
+                        elm.setAttribute('disabled','disabled');
+                    }
+                }
+                return ;
+            }
+
+            // Drop down support
             const optionSelected = e.target.options[e.target.selectedIndex];
 
             const attrLoad = {
@@ -275,6 +290,15 @@ class ChatMessage extends PureComponent {
                             }
 
                             return <select {...domNode.attribs} onChange={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</select>
+                        }
+
+                    } else if (domNode.name && domNode.name === 'input') {
+
+                        if (domNode.attribs.type && domNode.attribs.type == 'checkbox' && cloneAttr.onchange) {
+                            if (domNode.attribs.style) {
+                                domNode.attribs.style = this.getStyleObjectFromString(domNode.attribs.style);
+                            }
+                            return <input type="checkbox" {...domNode.attribs} onChange={(e) => this.abstractClick(cloneAttr, e)} />
                         }
 
                     } else if (domNode.name && domNode.name === 'script' && domNode.attribs['data-bot-action']) {
