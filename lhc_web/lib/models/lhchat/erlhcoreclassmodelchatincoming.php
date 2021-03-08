@@ -18,7 +18,8 @@ class erLhcoreClassModelChatIncoming {
             'id'                => $this->id,
             'chat_external_id'  => $this->chat_external_id,
             'chat_id'           => $this->chat_id,
-            'incoming_id'       => $this->incoming_id
+            'incoming_id'       => $this->incoming_id,
+            'utime'             => $this->utime
         );
     }
 
@@ -45,6 +46,9 @@ class erLhcoreClassModelChatIncoming {
 
     // Which webhook was used
     public $incoming_id = 0;
+
+    // Last update happened
+    public $utime = 0;
 }
 
 ?>

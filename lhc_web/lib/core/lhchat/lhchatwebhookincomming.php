@@ -15,30 +15,6 @@ class erLhcoreClassChatWebhookIncoming {
 
     public static function processMessage($incomingWebhook, $payloadMessage) {
 
-       /* $def = new ezcPersistentObjectDefinition();
-        $def->table = "lh_chat_incoming";
-        $def->class = "erLhcoreClassModelChatIncoming";
-
-        $def->idProperty = new ezcPersistentObjectIdProperty();
-        $def->idProperty->columnName = 'id';
-        $def->idProperty->propertyName = 'id';
-        $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
-
-        foreach (['chat_external_id'] as $posAttr) {
-            $def->properties[$posAttr] = new ezcPersistentObjectProperty();
-            $def->properties[$posAttr]->columnName   = $posAttr;
-            $def->properties[$posAttr]->propertyName = $posAttr;
-            $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-        }
-
-        foreach (['incoming_id','chat_id'] as $posAttr) {
-            $def->properties[$posAttr] = new ezcPersistentObjectProperty();
-            $def->properties[$posAttr]->columnName   = $posAttr;
-            $def->properties[$posAttr]->propertyName = $posAttr;
-            $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-        }
-        */
-
         $conditions = $incomingWebhook->conditions_array;
 
         $eChat = erLhcoreClassModelChatIncoming::findOne(array(
@@ -48,16 +24,31 @@ class erLhcoreClassChatWebhookIncoming {
             )
         ));
 
-        if ($eChat !== false && ($chat = $eChat->chat) !== false ) {
+        $continueIfHasChat = false;
+
+        if ($eChat !== false && ($chat = $eChat->chat) !== false) {
+            $continueIfHasChat = ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) || ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && !(!isset($conditions['chat_status']) || $conditions['chat_status'] == ""));
+        }
+
+        if ($continueIfHasChat == true && $eChat !== false && ($chat = $eChat->chat) !== false ) {
             $renotify = false;
 
-            // fix https://github.com/LiveHelperChat/fbmessenger/issues/1
             if ($chat instanceof erLhcoreClassModelChat && $chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
-                $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
-                $chat->status_sub_sub = 2; // Will be used to indicate that we have to show notification for this chat if it appears on list
-                $chat->user_id = 0;
-                $chat->pnd_time = time();
-                $renotify = true;
+
+                if (isset($conditions['chat_status']) && $conditions['chat_status'] == 'active' && $chat->user_id > 0) {
+                    $chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
+                    $chat->status_sub_sub = 2; // Will be used to indicate that we have to show notification for this chat if it appears on list
+                } else {
+                    $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
+                    $chat->status_sub_sub = 2; // Will be used to indicate that we have to show notification for this chat if it appears on list
+
+                    if (isset($conditions['reset_op']) && $conditions['reset_op'] == true) {
+                        $chat->user_id = 0;
+                    }
+
+                    $chat->pnd_time = time();
+                    $renotify = true;
+                }
             }
 
             $msg = new erLhcoreClassModelmsg();
@@ -68,6 +59,11 @@ class erLhcoreClassChatWebhookIncoming {
             erLhcoreClassChat::getSession()->save($msg);
 
             $chat->last_user_msg_time = $msg->time;
+            $chat->last_msg_id = $msg->id;
+
+            if ($renotify == true) {
+                erLhcoreClassChatValidator::setBot($chat, array('msg' => $msg));
+            }
 
             // Create auto responder if there is none
             if ($chat->auto_responder === false) {
@@ -91,7 +87,7 @@ class erLhcoreClassChatWebhookIncoming {
 
                 $responder = $chat->auto_responder->auto_responder;
 
-                if (is_object($responder) && $responder->offline_message != '' && !erLhcoreClassChat::isOnline($chat->dep_id, false, array(
+                if ($chat->status !== erLhcoreClassModelChat::STATUS_BOT_CHAT && is_object($responder) && $responder->offline_message != '' && !erLhcoreClassChat::isOnline($chat->dep_id, false, array(
                         'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
                         'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value,
                         'exclude_bot' => true
@@ -109,9 +105,7 @@ class erLhcoreClassChatWebhookIncoming {
                         $msgResponder->time = time() + 5;
                         erLhcoreClassChat::getSession()->save($msgResponder);
 
-                        if ($chat->last_msg_id < $msgResponder->id) {
-                            $chat->last_msg_id = $msgResponder->id;
-                        }
+                        $chat->last_msg_id = $msgResponder->id;
 
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array(
                             'chat' => & $chat,
@@ -133,7 +127,7 @@ class erLhcoreClassChatWebhookIncoming {
             $eChat->utime = time();
             $eChat->updateThis();
 
-            self::sendBotResponse($chat, $msg);
+            self::sendBotResponse($chat, $msg, array('init' => $renotify));
 
             // Standard event on unread chat messages
             if ($chat->has_unread_messages == 1 && $chat->last_user_msg_time < (time() - 5)) {
@@ -193,10 +187,11 @@ class erLhcoreClassChatWebhookIncoming {
             erLhcoreClassChat::getSession()->save($msg);
 
             // Save external chat
-            $eChat = new erLhcoreClassModelChatIncoming();
+            $eChat = ($eChat instanceof erLhcoreClassModelChatIncoming) ? $eChat : (new erLhcoreClassModelChatIncoming());
             $eChat->chat_external_id = $payloadMessage[$conditions['chat_id']];
             $eChat->incoming_id = $incomingWebhook->id;
             $eChat->chat_id = $chat->id;
+            $eChat->utime = time();
             $eChat->saveThis();
 
             // Set bot
@@ -270,7 +265,7 @@ class erLhcoreClassChatWebhookIncoming {
         }
     }
 
-    public function sendBotResponse($chat, $msg, $params = array()) {
+    public static function sendBotResponse($chat, $msg, $params = array()) {
         if ($chat->gbot_id > 0 && (!isset($chat->chat_variables_array['gbot_disabled']) || $chat->chat_variables_array['gbot_disabled'] == 0)) {
 
             $chat->refreshThis();
