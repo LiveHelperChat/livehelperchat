@@ -1079,6 +1079,65 @@ class erLhcoreClassAdminChatValidatorHelper {
         return $Errors;
     }
 
+    public static function validateIncomingWebhook(& $webhook )
+    {
+        $definition = array(
+            'name' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'identifier' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'configuration' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'disabled' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
+            'dep_id' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+            )
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = array();
+
+        if ($form->hasValidData('name'))
+        {
+            $webhook->name = $form->name;
+        }
+
+        if ($form->hasValidData('configuration'))
+        {
+            $webhook->configuration = $form->configuration;
+        } else {
+            $webhook->configuration = '';
+        }
+
+        if ( $form->hasValidData( 'identifier' ))
+        {
+            $webhook->identifier = $form->identifier;
+        } else {
+            $webhook->identifier = '';
+        }
+
+        if ($form->hasValidData('disabled') && $form->disabled == true)
+        {
+            $webhook->disabled = 1;
+        } else {
+            $webhook->disabled = 0;
+        }
+
+        if ($form->hasValidData('dep_id'))
+        {
+            $webhook->dep_id = $form->dep_id;
+        } else {
+            $webhook->dep_id = 0;
+        }
+
+        return $Errors;
+    }
+
 }
 
 ?>

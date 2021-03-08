@@ -519,8 +519,8 @@ class erLhcoreClassModelChat {
             $this->aalert = null;
             $chatVariables = $this->chat_variables_array;
             if (isset($chatVariables['aicons'])) {
-                foreach ($chatVariables['aicons'] as $aicon){
-                    if ($aicon['alert'] == true){
+                foreach ($chatVariables['aicons'] as $aicon) {
+                    if ($aicon['alert'] == true) {
                         $this->aalert = true;
                         break;
                     }

@@ -14,6 +14,20 @@ $ViewList['new'] = array(
     'functions' => array( 'configuration' )
 );
 
+$ViewList['newincoming'] = array(
+    'params' => array(),
+    'functions' => array( 'configuration' )
+);
+
+$ViewList['editincoming'] = array(
+    'params' => array('id'),
+    'functions' => array( 'configuration' )
+);
+
+$ViewList['incoming'] = array(
+    'params' => array('identifier'),
+);
+
 $ViewList['edit'] = array(
     'params' => array('id'),
     'functions' => array( 'configuration' )

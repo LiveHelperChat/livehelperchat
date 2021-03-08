@@ -319,9 +319,12 @@ return array_merge(array (
         // Web hooks
         'erLhcoreClassChatWebhookHttp'              => 'lib/core/lhchat/lhchatwebhookhttp.php',
         'erLhcoreClassModelChatWebhook'             => 'lib/models/lhchat/erlhcoreclassmodelchatwebhook.php',
+        'erLhcoreClassModelChatIncomingWebhook'     => 'lib/models/lhchat/erlhcoreclassmodelchatincomingwebhook.php',
         'erLhcoreClassChatWebhookResque'            => 'lib/core/lhchat/lhchatwebhookresque.php',
         'erLhcoreClassChatStatsResque'              => 'lib/core/lhchat/lhchatstatsresque.php',
         'erLhcoreClassChatWebhookContinuous'        => 'lib/core/lhchat/lhchatwebhookcontinous.php',
+        'erLhcoreClassModelChatIncoming'            => 'lib/models/lhchat/erlhcoreclassmodelchatincoming.php',
+        'erLhcoreClassChatWebhookIncoming'          => 'lib/core/lhchat/lhchatwebhookincomming.php',
 
         // Voice Video
         'erLhcoreClassModelChatVoiceVideo'          => 'lib/models/lhchat/erlhcoreclassmodelchatvoicevideo.php'

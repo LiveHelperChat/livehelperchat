@@ -12,7 +12,7 @@
         </div>
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Event');?><span class="text-muted fs13 pl-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','required if it is hook event');?>)</span></label>
-            <input type="text" class="form-control" name="event"  value="<?php echo htmlspecialchars($item->event);?>" />
+            <input type="text" class="form-control" name="event" value="<?php echo htmlspecialchars($item->event);?>" />
         </div>
     </div>
     <div role="tabpanel" class="tab-pane form-group" id="chooks-settings">
