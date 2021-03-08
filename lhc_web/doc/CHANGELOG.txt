@@ -1,3 +1,12 @@
+3.66v
+
+1. Now you can also import/export Rest API configuration.
+2. `Collect information` response type `Ask user to confirm information by checking checkbox` was not working.
+3. `Check for conditions to proceed` response type now can check is there any operator online or not https://doc.livehelperchat.com/docs/bot/check-conditions/
+4. Canned messages import changed the workflow so master-master replication won't break it.
+
+execute doc/update_db/update_239.sql for update
+
 3.65v
 
 1. In master/master replication environment canned messages import did not worked correctly because we did id's comparison. We now will have unique_id field for that.
