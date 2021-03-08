@@ -13,7 +13,7 @@
 
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/import','File')?> (json)</label>
-        <input type="file" name="botfile" value="" />
+        <input type="file" accept=".json" name="botfile" value="" />
     </div>
 
     <input type="submit" name="ImportBot" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/import','Import')?>" />

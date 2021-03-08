@@ -1,0 +1,1 @@
+ALTER TABLE `lh_generic_bot_rest_api` CHANGE `name` `name` varchar(50) NOT NULL;
