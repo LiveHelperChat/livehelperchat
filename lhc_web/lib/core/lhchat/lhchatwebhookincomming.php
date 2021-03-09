@@ -6,6 +6,16 @@ class erLhcoreClassChatWebhookIncoming {
 
         $conditions = $incomingWebhook->conditions_array;
 
+        if (isset($conditions['main_cond']) && $conditions['main_cond'] != "") {
+            $conditionsPairs = explode("||",$conditions['main_cond']);
+            foreach ($conditionsPairs as $conditionsPair) {
+                $conditionsPairData = explode('=',$conditionsPair);
+                if (!(isset($payload[$conditionsPairData[0]]) && $payload[$conditionsPairData[0]] == $conditionsPairData[1])) {
+                    return;
+                }
+            }
+        }
+
         $messages = isset($conditions['messages']) && $conditions['messages'] != '' ? $payload[$conditions['messages']] : [$payload];
 
         foreach ($messages as $message){
@@ -16,6 +26,25 @@ class erLhcoreClassChatWebhookIncoming {
     public static function processMessage($incomingWebhook, $payloadMessage) {
 
         $conditions = $incomingWebhook->conditions_array;
+
+        $typeMessage = 'unknown';
+
+        if (isset($conditions['msg_cond']) && $conditions['msg_cond'] != "") {
+            $conditionsPairs = explode("||",$conditions['msg_cond']);
+            foreach ($conditionsPairs as $conditionsPair) {
+                $conditionsPairData = explode('=',$conditionsPair);
+                if (isset($payloadMessage[$conditionsPairData[0]]) && $payloadMessage[$conditionsPairData[0]] == $conditionsPairData[1]) {
+                    $typeMessage = 'text';
+                }
+            }
+        } else {
+            $typeMessage = 'text';
+        }
+
+        // Unknown message type.
+        if ($typeMessage == 'unknown') {
+            return;
+        }
 
         $eChat = erLhcoreClassModelChatIncoming::findOne(array(
             'filter' => array(
@@ -92,7 +121,7 @@ class erLhcoreClassChatWebhookIncoming {
                         'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value,
                         'exclude_bot' => true
                     ))) {
-                    if (!isset($chatVariables['iwh_timeout']) || $chatVariables['iwh_timeout'] < time() - (int)600) {
+                    if (!isset($chatVariables['iwh_timeout']) || $chatVariables['iwh_timeout'] < time() - (int)259200) {
                         $chatVariables['iwh_timeout'] = time();
                         $chat->chat_variables_array = $chatVariables;
                         $chat->chat_variables = json_encode($chatVariables);
