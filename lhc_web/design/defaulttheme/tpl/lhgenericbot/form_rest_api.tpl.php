@@ -239,6 +239,19 @@
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Paste your request here (E.g JSON body). You can put visitor message as placeholder')?>&nbsp;<a href="https://doc.livehelperchat.com/docs/bot/rest-api#replaceable-variables" target="_blank"><i class="material-icons">help</i></a></label>
                     <textarea rows="10" class="form-control form-control-sm" ng-model="param.body_raw"></textarea>
                 </div>
+
+                <hr>
+                
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Sub URL for file');?></label>
+                    <input type="text" class="form-control form-control-sm" ng-model="param.suburl_file" placeholder="" value="" />
+                </div>
+
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','If you are sending file you can have a different body content')?></label>
+                    <textarea rows="10" class="form-control form-control-sm" ng-model="param.body_raw_file"></textarea>
+                </div>
+
             </div>
 
             <div ng-if="param.body_request_type == 'form-data'">

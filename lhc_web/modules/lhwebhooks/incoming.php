@@ -1,18 +1,8 @@
 <?php
 
-$dummyPayload = json_decode('{
-    "messages": [{
-        "id": "false_17472822486@c.us_DF38E6A25B42CC8CCE57EC40F",
-        "body": "Ok!",
-        "type": "chat",
-        "senderName": "Ilya",
-        "fromMe": true,
-        "author": "17472822486@c.us",
-        "time": 1504208593,
-        "chatId": "17472822486@c.us",
-        "messageNumber": 100
-    }]
-}', true);
+erLhcoreClassLog::write(file_get_contents('php://input'));
+
+$dummyPayload = null;//;json_decode('{"messages":[{"id":"false_37065272274@c.us_3A5911DB19C785450372","body":"https://s3.eu-central-1.wasabisys.com/incoming-chat-api/2021/3/9/229607/218ea8e2-6ecb-4281-85c4-0b14c8bf7902.jpeg","fromMe":false,"self":0,"isForwarded":0,"author":"37065272274@c.us","time":1615273008,"chatId":"37065272274@c.us","messageNumber":3000,"type":"image","senderName":"Remigijus Kiminas","caption":null,"quotedMsgBody":null,"quotedMsgId":null,"quotedMsgType":null,"chatName":"Remigijus Kiminas"}],"instanceId":"229607"}', true);
 
 try {
 

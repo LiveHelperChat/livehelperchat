@@ -582,7 +582,12 @@ class erLhcoreClassModelChat {
             $this->bot = $bot;
             return $this->bot;
        	break;
-       		
+
+       case 'incoming_chat':
+           $this->incoming_chat = erLhcoreClassModelChatIncoming::findOne(array('filter' => array('chat_id' => $this->id)));
+           return $this->incoming_chat;
+           break;
+
        	default:
        		break;
        }
