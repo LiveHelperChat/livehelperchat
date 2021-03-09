@@ -52,8 +52,6 @@ class erLhcoreClassGenericBotActionRestapi
 
                 $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
 
-                //print_r($response);
-
                 // We have found exact matching response type
                 // Let's check has user checked any trigger to execute.
                 if (isset($response['id'])) {
