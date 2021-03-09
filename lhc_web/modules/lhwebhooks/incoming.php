@@ -14,8 +14,12 @@ try {
         throw new Exception('Incoming webhook is disabled!');
     }
 
-    if (!is_array($dummyPayload)){
-        $data = json_decode(file_get_contents('php://input'), true);
+    if (!is_array($dummyPayload)) {
+        if (isset($_POST) && is_array($_POST) && !empty($_POST)){
+            $data = $_POST;
+        } else {
+            $data = json_decode(file_get_contents('php://input'), true);
+        }
     } else {
         $data = $dummyPayload;
     }
@@ -25,8 +29,6 @@ try {
 } catch (Exception $e) {
     erLhcoreClassLog::write(print_r($e, true));
 }
-
-
 
 exit;
 
