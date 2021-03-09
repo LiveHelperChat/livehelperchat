@@ -36,6 +36,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -2371,6 +2387,10 @@
     </message>
     <message>
       <source>Start chat form settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default settings</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -7798,6 +7818,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Incoming Webhooks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>XMPP settings</source>
       <translation type="unfinished"/>
     </message>
@@ -10469,11 +10493,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Upload</source>
+      <source>Update</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>File updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10640,7 +10668,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Rest API imported</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Invalid file!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy of</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -10883,6 +10919,14 @@
     </message>
     <message>
       <source>Paste your request here (E.g JSON body). You can put visitor message as placeholder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sub URL for file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you are sending file you can have a different body content</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13549,6 +13593,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Incoming webhooks list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose a bot</source>
       <translation type="unfinished"/>
     </message>
@@ -13562,6 +13622,10 @@
     </message>
     <message>
       <source>Webhooks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Incoming webhooks</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13663,11 +13727,131 @@
       <source>Execute if conditions are NOT valid</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>URL to put in third party Rest API service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Main attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attachments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Images</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages attribute location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID field location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>General conditions for messages being processed. These are first level attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message body content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For message being considered text message should have attribute value equal to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download attachment instead of using external URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For message being considered attachment message should have attribute value equal to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download image instead of using external URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For message being considered images message should have attribute value equal to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If previous chat is found and it is closed we should</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Create a new chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set previous chat to Pending/Bot depending on department configuration.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set as active if operator was assigned. Operator will not be reset.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator should be reset if chat being transferred to pending state.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Expected JSON payload for text message.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>expected message body</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>expected nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>unix timestamp E.g 1504208593</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unique Chat ID.</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>webhooks/new</name>
     <message>
       <source>New webhook</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New incoming webhook</source>
       <translation type="unfinished"/>
     </message>
   </context>

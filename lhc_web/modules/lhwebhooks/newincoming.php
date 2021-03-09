@@ -35,7 +35,7 @@ $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS(
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','System configuration')),
-    array('url' => erLhcoreClassDesign::baseurl('webhooks/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Incoming webhooks')),
+    array('url' => erLhcoreClassDesign::baseurl('webhooks/incomingwebhooks'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Incoming webhooks')),
     array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','New')),
 )
 

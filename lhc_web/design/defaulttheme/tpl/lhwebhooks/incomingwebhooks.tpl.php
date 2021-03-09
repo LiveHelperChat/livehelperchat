@@ -1,5 +1,9 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Incoming webhooks list')?></h1>
 
+<?php if (isset($imported_rest)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/import','Webhook imported'); ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
+<?php endif; ?>
+
 <?php if (isset($items)) : ?>
     <table class="table" cellpadding="0" cellspacing="0" width="100%">
         <thead>
