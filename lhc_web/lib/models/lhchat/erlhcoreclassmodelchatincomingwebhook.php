@@ -20,7 +20,7 @@ class erLhcoreClassModelChatIncomingWebhook {
             'dep_id'        => $this->dep_id,
             'disabled'      => $this->disabled,
             'identifier'    => $this->identifier,
-            'configuration'=> $this->configuration
+            'configuration' => $this->configuration
         );
     }
 

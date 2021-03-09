@@ -39,6 +39,12 @@ $ViewList['delete'] = array(
     'functions' => array( 'configuration' )
 );
 
+$ViewList['deleteincoming'] = array(
+    'params' => array('id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'configuration' )
+);
+
 $ViewList['incomingwebhooks'] = array(
     'params' => array(),
     'uparams' => array(),

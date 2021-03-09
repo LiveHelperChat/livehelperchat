@@ -51,8 +51,6 @@ if (ezcInputForm::hasPostData()) {
     }
 }
 
-
-
 erLhcoreClassChatStatistic::formatUserFilter($filterParams);
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);

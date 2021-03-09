@@ -13,7 +13,10 @@
         </thead>
         <?php foreach ($items as $item) : ?>
             <tr>
-                <td nowrap="nowrap"><?php echo htmlspecialchars($item->name)?></td>
+                <td nowrap="nowrap">
+                    <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Download')?>" href="?id=<?php echo $item->id?>"><i class="material-icons">cloud_download</i></a>
+                    <a href="<?php echo erLhcoreClassDesign::baseurl('webhooks/editincoming')?>/<?php echo $item->id?>"><?php echo htmlspecialchars($item->name)?></a>
+                </td>
                 <td><?php echo htmlspecialchars($item->identifier)?></td>
                 <td nowrap="nowrap"><?php echo htmlspecialchars($item->disabled == 1 ? 'Y' : 'N')?></td>
                 <td><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('webhooks/editincoming')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Edit');?></a></td>
@@ -30,5 +33,14 @@
 
 <?php endif; ?>
 
-<a href="<?php echo erLhcoreClassDesign::baseurl('webhooks/newincoming')?>" class="btn btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>
+<form action="" method="post" class="form-inline" autocomplete="off" enctype="multipart/form-data">
+    <div class="form-group mr-2">
+        <a href="<?php echo erLhcoreClassDesign::baseurl('webhooks/newincoming')?>" class="btn btn-sm btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>
+    </div>
 
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+    <div class="form-group">
+        <input title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/import','File')?> (json)" accept=".json" type="file" class="form-control-file" name="restfile" value="" />
+    </div>
+    <input type="submit" name="ImportRestAPI" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/import','Import')?>" />
+</form>

@@ -173,6 +173,11 @@ class erLhcoreClassModelChat {
        $stmt = $q->prepare();
        $stmt->execute();
 
+       // Incoming chats
+       $q->deleteFrom( 'lh_chat_incoming' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+       $stmt = $q->prepare();
+       $stmt->execute();
+
        $this->removePendingEvents();
 
        erLhcoreClassModelGroupChat::deleteByChatId($this->id);
