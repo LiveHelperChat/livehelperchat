@@ -7,6 +7,8 @@
 
     <title><?php echo htmlspecialchars(erLhcoreClassModelChatConfig::fetch('application_name')->current_value)?></title>
 
+    <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/favicon.tpl.php'));?>
+
     <?php if (erConfigClassLhConfig::getInstance()->getDirLanguage('dir_language') == 'ltr') : ?>
     <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/widgetv2/bootstrap.min.css;css/widgetv2/widget.css;css/widgetv2/widget_popup_override.css')?>" />
     <?php else : ?>
