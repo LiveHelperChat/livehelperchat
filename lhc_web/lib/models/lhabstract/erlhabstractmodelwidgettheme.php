@@ -308,7 +308,7 @@ class erLhAbstractModelWidgetTheme {
 	   	       $attr = str_replace('_url', '', $var);	   	       	   	       
 	   	       $this->$var = false;	   	        
 	   	       if ($this->$attr != ''){
-	   	           $this->$var =  ($this->{$attr.'_path'} != '' ? '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) . '/' . $this->{$attr.'_path'} . $this->$attr;
+	   	           $this->$var =  ($this->{$attr.'_path'} != '' ? (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) . '/' . $this->{$attr.'_path'} . $this->$attr;
 	   	       }	   	        
 	   	       return $this->$var;
 	   	    break;
@@ -326,7 +326,7 @@ class erLhAbstractModelWidgetTheme {
 	   	        $attr = str_replace('_url_img', '', $var);	   	    
 	   			$this->$var = false;	   		
 	   			if($this->$attr != ''){
-	   				$this->$var = '<img src="'.($this->{$attr.'_path'} != '' ? '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->{$attr.'_path'} . $this->$attr.'"/>';
+	   				$this->$var = '<img src="'.($this->{$attr.'_path'} != '' ? (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->{$attr.'_path'} . $this->$attr.'"/>';
 	   			}
 	   			return $this->$var;
 	   		break;
