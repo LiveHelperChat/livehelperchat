@@ -44,14 +44,34 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Messages attribute location');?></label>
             <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.messages" value="" />
         </div>
-        <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Nick');?></label>
-            <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.nick" value="" />
+
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Nick');?></label>
+                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.nick" value="" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Phone');?></label>
+                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.phone" value="" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','E-mail');?></label>
+                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.email" value="" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Time');?></label>
+                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.time" value="" />
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Time');?></label>
-            <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.time" value="" />
-        </div>
+
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID field location');?></label>
             <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.chat_id" value="" />

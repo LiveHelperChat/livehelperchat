@@ -19,7 +19,8 @@ class erLhcoreClassModelChatIncoming {
             'chat_external_id'  => $this->chat_external_id,
             'chat_id'           => $this->chat_id,
             'incoming_id'       => $this->incoming_id,
-            'utime'             => $this->utime
+            'utime'             => $this->utime,
+            'payload'           => $this->payload
         );
     }
 
@@ -30,6 +31,19 @@ class erLhcoreClassModelChatIncoming {
             case 'chat':
                 $this->chat = erLhcoreClassModelChat::fetch($this->chat_id);
                 return $this->chat;
+
+            case 'payload_array':
+                $this->payload_array = array();
+                if ($this->payload != '') {
+                    $jsonData = json_decode($this->payload,true);
+                    if ($jsonData !== null) {
+                        $this->payload_array = $jsonData;
+                    } else {
+                        $this->payload_array = array();
+                    }
+                }
+                return $this->payload_array;
+
 
             default:
                 break;
@@ -46,6 +60,9 @@ class erLhcoreClassModelChatIncoming {
 
     // Which webhook was used
     public $incoming_id = 0;
+
+    // Initial payload because of which we have started a chat
+    public $payload = '';
 
     // Last update happened
     public $utime = 0;

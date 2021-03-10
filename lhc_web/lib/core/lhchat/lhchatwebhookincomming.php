@@ -15,9 +15,11 @@ class erLhcoreClassChatWebhookIncoming {
                     $conditionsPairData[1] = false;
                 } elseif ($conditionsPairData[1] === 'true') {
                     $conditionsPairData[1] = true;
+                } elseif (strpos($conditionsPairData[1], ',') !== false) {
+                    $conditionsPairData[1] = explode(',', $conditionsPairData[1]);
                 }
 
-                if (!(isset($payload[$conditionsPairData[0]]) && $payload[$conditionsPairData[0]] == $conditionsPairData[1])) {
+                if ((is_array($conditionsPairData[1]) && !in_array($payload[$conditionsPairData[0]], $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($payload[$conditionsPairData[0]]) && $payload[$conditionsPairData[0]] == $conditionsPairData[1]))) {
                     return;
                 }
             }
@@ -26,11 +28,11 @@ class erLhcoreClassChatWebhookIncoming {
         $messages = isset($conditions['messages']) && $conditions['messages'] != '' ? $payload[$conditions['messages']] : [$payload];
 
         foreach ($messages as $message){
-            self::processMessage($incomingWebhook, $message);
+            self::processMessage($incomingWebhook, $message, $payload);
         }
     }
 
-    public static function processMessage($incomingWebhook, $payloadMessage) {
+    public static function processMessage($incomingWebhook, $payloadMessage, $payloadAll) {
 
         $conditions = $incomingWebhook->conditions_array;
 
@@ -273,7 +275,9 @@ class erLhcoreClassChatWebhookIncoming {
 
             // Save chat
             $chat = new erLhcoreClassModelChat();
-            $chat->nick = $payloadMessage[$conditions['nick']];
+            $chat->nick = self::extractAttribute('nick',$conditions,$payloadMessage,'Visitor');
+            $chat->phone = self::extractAttribute('phone',$conditions,$payloadMessage);
+            $chat->email = self::extractAttribute('email',$conditions,$payloadMessage);
             $chat->time = time();
             $chat->pnd_time = time();
             $chat->status = 0;
@@ -312,6 +316,7 @@ class erLhcoreClassChatWebhookIncoming {
             $eChat->incoming_id = $incomingWebhook->id;
             $eChat->chat_id = $chat->id;
             $eChat->utime = time();
+            $eChat->payload = json_encode($payloadAll);
             $eChat->saveThis();
 
             // Set bot
@@ -383,6 +388,28 @@ class erLhcoreClassChatWebhookIncoming {
                 'msg' => $msg
             ));
         }
+    }
+
+    public static function extractAttribute($attr, $conditions, $payload, $defaultValue = '') {
+
+        if (!isset($conditions[$attr]) || $conditions[$attr] == '') {
+            return $defaultValue;
+        } else {
+            $attrParams = explode('||',$conditions[$attr]);
+        }
+
+        $baseValue = isset($payload[$attrParams[0]]) && !empty($payload[$attrParams[0]]) ? $payload[$attrParams[0]] : $defaultValue;
+
+        if (isset($attrParams[1]) && isset($attrParams[2])) {
+            $baseValueParams = explode($attrParams[1],$baseValue);
+            if ($attrParams[2] == 'last') {
+                $baseValue = array_pop($baseValueParams);
+            } elseif (isset($baseValueParams[(int)$attrParams[2]])) {
+                $baseValue = $baseValueParams[(int)$attrParams[2]];
+            }
+        }
+
+        return $baseValue;
     }
 
     public static function sendBotResponse($chat, $msg, $params = array()) {
