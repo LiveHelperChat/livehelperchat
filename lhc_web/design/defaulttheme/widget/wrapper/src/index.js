@@ -163,6 +163,7 @@
                     captcha: null,
                     focused: true,
                     clinst: false,
+                    kcw: false,
                     offline_redirect: LHC_API.args.offline_redirect || null,
                     identifier: LHC_API.args.identifier || '',
                     proactive_interval: null,
@@ -378,6 +379,10 @@
                             attributesWidget.hhtml = data.chat_ui.hhtml;
                         }
 
+                        if (data.chat_ui.kcw) {
+                            attributesWidget.kcw = true;
+                        }
+
                         if (data.chat_ui.clinst) {
                             attributesWidget.clinst = true;
                         }
@@ -569,9 +574,11 @@
                 // Clear chat cookies if there is any
                 // Then popup finishes loading it calls this to clean up chat cookies. So visitor can start new chat.
                 attributesWidget.eventEmitter.addListener('endChatCookies', function () {
-                    attributesWidget.userSession.setChatInformation({'id': null, 'hash': null});
-                    attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
-                    attributesWidget.proactive = {};
+                    if (attributesWidget.kcw === false) {
+                        attributesWidget.userSession.setChatInformation({'id': null, 'hash': null});
+                        attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
+                        attributesWidget.proactive = {};
+                    }
                 });
 
                 attributesWidget.eventEmitter.addListener('endChat', function (params) {
@@ -649,14 +656,16 @@
 
                     attributesWidget.widgetDimesions.nextProperty('height_override', null);
 
-                    if (mode !== 'popup') {
+                    if (mode !== 'popup' || attributesWidget.kcw === true) {
                         attributesWidget.userSession.setChatInformation(data);
-                    } else if (mode == 'popup') {
+                    }
+
+                    if (mode == 'popup') {
                         attributesWidget.mainWidget.hide();
                     }
 
                     // Store information permanently
-                    if (attributesWidget.fresh === false && mode !== 'popup') {
+                    if (attributesWidget.fresh === false && (mode !== 'popup' || attributesWidget.kcw === true)) {
                         attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
                     }
                 });

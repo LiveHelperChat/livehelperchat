@@ -165,7 +165,7 @@ export class mainWidgetPopup {
                     alert('You have disabled popups!');
                 }
             } else if (windowCreated == true) {
-                typeof chatEvents !== 'undefined' && chatEvents.sendChildEvent('endedChat', [{'sender': 'endButton'}]);
+                typeof chatEvents !== 'undefined' && this.attributes.kcw === false && chatEvents.sendChildEvent('endedChat', [{'sender': 'endButton'}]);
                 typeof paramsPopup !== 'undefined' && paramsPopup.event !== 'undefined' && paramsPopup.event.preventDefault();
             } else if (needWindow === true) {
                 this.cont.elementReferrerPopup = newWin;

@@ -19,6 +19,11 @@ $ViewList['backtochat'] = array(
     'uparams' => array()
 );
 
+$ViewList['isfilled'] = array(
+    'params' => array('chat_id','hash','survey'),
+    'uparams' => array()
+);
+
 $ViewList['choosesurvey'] = array(
     'params' => array('chat_id','survey_id'),
     'uparams' => array(),

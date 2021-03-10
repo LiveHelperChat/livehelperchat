@@ -33,6 +33,15 @@
     </div>
 </div>
 <script type="text/javascript">
+<?php if ($survey_item->is_filled == false) : ?>
+setInterval(function(){
+    $.getJSON(WWW_DIR_JAVASCRIPT + 'survey/isfilled/<?php echo $chat->id?>/<?php echo $chat->hash?>/<?php echo $survey->id?>', function(data) {
+        if (data === true) {
+            document.location.reload();
+        }
+    });
+},2000);
+<?php endif; ?>
 
 <?php if ($survey_item->is_filled == true && $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_COLLECTED && isset($just_stored) && $just_stored == true) : ?>
 setTimeout(function() {

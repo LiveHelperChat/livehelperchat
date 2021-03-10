@@ -89,6 +89,7 @@ class OnlineChat extends Component {
         this.delayQueue = [];
         this.intervalPending = null;
         this.intervalFunction = null;
+        this.unhideDelayedTimer = null;
         this.pendingMetaUpdate = false;
 
         this.isTyping = false;
@@ -288,7 +289,7 @@ class OnlineChat extends Component {
                         this.addClass(item,'hide');
                     });
 
-                    setTimeout(() => {
+                    this.unhideDelayedTimer = setTimeout(() => {
                         this.unhideDelayed(id);
                     }, duration * 1000);
 
@@ -360,6 +361,7 @@ class OnlineChat extends Component {
     componentWillUnmount() {
         clearInterval(this.intervalPending);
         clearInterval(this.typingStopped);
+        clearTimeout(this.unhideDelayedTimer);
     }
 
     // https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html

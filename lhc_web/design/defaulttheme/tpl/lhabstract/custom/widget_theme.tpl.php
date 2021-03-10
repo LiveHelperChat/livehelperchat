@@ -355,6 +355,10 @@
 						<label><?php echo erLhcoreClassAbstract::renderInput('hide_popup', $fields['hide_popup'], $object)?> <?php echo $fields['hide_popup']['trans'];?></label>	
         		        </div>
 
+						<div class="form-group">
+						<label><?php echo erLhcoreClassAbstract::renderInput('kcw', $fields['kcw'], $object)?> <?php echo $fields['kcw']['trans'];?></label>
+        		        </div>
+
 						<div class="form-group">	
 						<label><?php echo erLhcoreClassAbstract::renderInput('detect_language', $fields['detect_language'], $object)?> <?php echo $fields['detect_language']['trans'];?></label>
         		        </div>

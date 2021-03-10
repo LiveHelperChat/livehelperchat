@@ -175,6 +175,10 @@ if (isset($outputResponse['theme'])){
             $outputResponse['cont_css'] =  str_replace(array("\n","\r"), '', $theme->custom_container_css);
         }
 
+        if (isset($theme->bot_configuration_array['kcw']) && $theme->bot_configuration_array['kcw'] == 1) {
+            $outputResponse['chat_ui']['kcw'] = 1;
+        }
+
         if (isset($theme->bot_configuration_array['custom_page_css']) && $theme->bot_configuration_array['custom_page_css'] != '') {
             $pageCSS = true;
         }
@@ -351,7 +355,7 @@ $ts = time();
 $outputResponse['wv'] = 157;
 
 // React APP versions
-$outputResponse['v'] = 165;
+$outputResponse['v'] = 166;
 
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
