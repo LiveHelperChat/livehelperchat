@@ -20,7 +20,7 @@ class erLhcoreClassChatWebhookIncoming {
                 }
 
                 if ((is_array($conditionsPairData[1]) && !in_array($payload[$conditionsPairData[0]], $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($payload[$conditionsPairData[0]]) && $payload[$conditionsPairData[0]] == $conditionsPairData[1]))) {
-                    return;
+                    throw new Exception('Main conditions does not met!' . json_encode($payload));
                 }
             }
         }
@@ -118,7 +118,7 @@ class erLhcoreClassChatWebhookIncoming {
 
         // Unknown message type.
         if ($typeMessage == 'unknown') {
-            return;
+            throw new Exception('Message conditions does not met! ' . json_encode($payloadMessage));
         }
 
         $eChat = erLhcoreClassModelChatIncoming::findOne(array(
