@@ -555,7 +555,6 @@ if ($theme !== false) {
     }
 
     if ($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') {
-
         if ($Params['user_parameters_unordered']['mode'] == 'widget') {
             if ($theme->popup_image_url != '') {
                 $chat_ui['img_icon_popup'] = $theme->popup_image_url;
@@ -587,112 +586,111 @@ if ($theme !== false) {
         if (!isset($chat_ui['custom_html_widget']) && isset($theme->bot_configuration_array['custom_html_widget']) && $theme->bot_configuration_array['custom_html_widget'] != '') {
             $chat_ui['custom_html_widget'] = $theme->bot_configuration_array['custom_html_widget'];
         }
+    }
 
-        if (isset($theme->bot_configuration_array['trigger_id']) && !empty($theme->bot_configuration_array['trigger_id']) && $theme->bot_configuration_array['trigger_id'] > 0) {
+    if (isset($theme->bot_configuration_array['trigger_id']) && !empty($theme->bot_configuration_array['trigger_id']) && $theme->bot_configuration_array['trigger_id'] > 0) {
 
-            $tpl = new erLhcoreClassTemplate('lhchat/part/render_intro.tpl.php');
+        $tpl = new erLhcoreClassTemplate('lhchat/part/render_intro.tpl.php');
 
-            // Use bot photo in case it's bot messages
-            $bot = erLhcoreClassModelGenericBotBot::fetch($theme->bot_configuration_array['bot_id']);
+        // Use bot photo in case it's bot messages
+        $bot = erLhcoreClassModelGenericBotBot::fetch($theme->bot_configuration_array['bot_id']);
 
-            if ($bot instanceof erLhcoreClassModelGenericBotBot)
+        if ($bot instanceof erLhcoreClassModelGenericBotBot)
+        {
+            if ($bot->has_photo) {
+                $theme->operator_image_url = $bot->photo_path;
+            }
+
+            if (isset($Params['user_parameters_unordered']['vid']) && !empty($Params['user_parameters_unordered']['vid'])){
+                $onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($Params['user_parameters_unordered']['vid']);
+                if ($onlineUser instanceof erLhcoreClassModelChatOnlineUser) {
+                    $chat = new erLhcoreClassModelChat();
+                    $chat->bot = $bot;
+                    $chat->gbot_id = $bot->id;
+                    $chat->additional_data_array = $onlineUser->online_attr_array;
+                    $chat->chat_variables_array = $onlineUser->chat_variables_array;
+                    $tpl->set('chat',$chat);
+                }
+            }
+        }
+
+        $tpl->set('theme',$theme);
+        $tpl->set('react',true);
+        $tpl->set('no_wrap_intro',true);
+        $tpl->set('no_br',true);
+        $tpl->set('triggerMessageId',$theme->bot_configuration_array['trigger_id']);
+
+        $chat_ui['cmmsg_widget'] = $tpl->fetch();
+
+    } elseif (isset($theme->bot_configuration_array['auto_bot_intro']) && $theme->bot_configuration_array['auto_bot_intro'] == true) {
+
+        if (isset($requestPayload['bot_id']) && is_numeric($requestPayload['bot_id']) && $requestPayload['bot_id'] > 0) {
+            $bot = erLhcoreClassModelGenericBotBot::fetch($requestPayload['bot_id']);
+        } elseif ($departament_id > 0) {
+            $department = erLhcoreClassModelDepartament::fetch($departament_id);
+            if (isset($department->bot_configuration_array['bot_id']) && is_numeric($department->bot_configuration_array['bot_id']) && $department->bot_configuration_array['bot_id'] > 0) {
+                $bot = erLhcoreClassModelGenericBotBot::fetch($department->bot_configuration_array['bot_id']);
+            }
+        }
+
+        if (isset($bot) && $bot instanceof erLhcoreClassModelGenericBotBot) {
+
+            $botIds = $bot->getBotIds();
+
+            if ($bot instanceof erLhcoreClassModelGenericBotBot && $bot->has_photo)
             {
-                if ($bot->has_photo) {
-                    $theme->operator_image_url = $bot->photo_path;
-                }
-
-                if (isset($Params['user_parameters_unordered']['vid']) && !empty($Params['user_parameters_unordered']['vid'])){
-                    $onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($Params['user_parameters_unordered']['vid']);
-                    if ($onlineUser instanceof erLhcoreClassModelChatOnlineUser) {
-                        $chat = new erLhcoreClassModelChat();
-                        $chat->bot = $bot;
-                        $chat->gbot_id = $bot->id;
-                        $chat->additional_data_array = $onlineUser->online_attr_array;
-                        $chat->chat_variables_array = $onlineUser->chat_variables_array;
-                        $tpl->set('chat',$chat);
-                    }
-                }
+                $theme->operator_image_url = $bot->photo_path;
             }
 
-            $tpl->set('theme',$theme);
-            $tpl->set('react',true);
-            $tpl->set('no_wrap_intro',true);
-            $tpl->set('no_br',true);
-            $tpl->set('triggerMessageId',$theme->bot_configuration_array['trigger_id']);
+            $triggerDefault = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $botIds), 'filter' => array('default' => 1)));
 
-            $chat_ui['cmmsg_widget'] = $tpl->fetch();
-
-        } elseif (isset($theme->bot_configuration_array['auto_bot_intro']) && $theme->bot_configuration_array['auto_bot_intro'] == true) {
-
-            if (isset($requestPayload['bot_id']) && is_numeric($requestPayload['bot_id']) && $requestPayload['bot_id'] > 0) {
-                $bot = erLhcoreClassModelGenericBotBot::fetch($requestPayload['bot_id']);
-            } elseif ($departament_id > 0) {
-                $department = erLhcoreClassModelDepartament::fetch($departament_id);
-                if (isset($department->bot_configuration_array['bot_id']) && is_numeric($department->bot_configuration_array['bot_id']) && $department->bot_configuration_array['bot_id'] > 0) {
-                    $bot = erLhcoreClassModelGenericBotBot::fetch($department->bot_configuration_array['bot_id']);
-                }
+            if ($triggerDefault instanceof erLhcoreClassModelGenericBotTrigger) {
+                $tpl = new erLhcoreClassTemplate('lhchat/part/render_intro.tpl.php');
+                $tpl->set('theme',$theme);
+                $tpl->set('react',true);
+                $tpl->set('no_wrap_intro',true);
+                $tpl->set('no_br',true);
+                $tpl->set('triggerMessageId',$triggerDefault->id);
+                $chat_ui['cmmsg_widget'] = $tpl->fetch();
             }
+        }
+    }
 
-            if (isset($bot) && $bot instanceof erLhcoreClassModelGenericBotBot) {
-
-                $botIds = $bot->getBotIds();
-
-                if ($bot instanceof erLhcoreClassModelGenericBotBot && $bot->has_photo)
-                {
-                    $theme->operator_image_url = $bot->photo_path;
-                }
-
-                $triggerDefault = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $botIds), 'filter' => array('default' => 1)));
-
-                if ($triggerDefault instanceof erLhcoreClassModelGenericBotTrigger) {
-                    $tpl = new erLhcoreClassTemplate('lhchat/part/render_intro.tpl.php');
-                    $tpl->set('theme',$theme);
-                    $tpl->set('react',true);
-                    $tpl->set('no_wrap_intro',true);
-                    $tpl->set('no_br',true);
-                    $tpl->set('triggerMessageId',$triggerDefault->id);
-                    $chat_ui['cmmsg_widget'] = $tpl->fetch();
-                }
+    if (isset($theme->bot_configuration_array['prev_msg']) && $theme->bot_configuration_array['prev_msg'] == true) {
+        if (!isset($onlineUser) || !($onlineUser instanceof erLhcoreClassModelChatOnlineUser)) {
+            if (isset($Params['user_parameters_unordered']['vid']) && !empty($Params['user_parameters_unordered']['vid'])){
+                $onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($Params['user_parameters_unordered']['vid']);
             }
         }
 
-        if (isset($theme->bot_configuration_array['prev_msg']) && $theme->bot_configuration_array['prev_msg'] == true) {
-            if (!isset($onlineUser) || !($onlineUser instanceof erLhcoreClassModelChatOnlineUser)) {
-                if (isset($Params['user_parameters_unordered']['vid']) && !empty($Params['user_parameters_unordered']['vid'])){
-                    $onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($Params['user_parameters_unordered']['vid']);
+        if (isset($onlineUser) && $onlineUser instanceof erLhcoreClassModelChatOnlineUser) {
+
+            $previousChat = erLhcoreClassModelChat::findOne(array('sort' => 'id DESC', 'limit' => 1, 'filter' => array('online_user_id' => $onlineUser->id)));
+
+            if ($previousChat instanceof erLhcoreClassModelChat) {
+
+                if (!isset($chat_ui['cmmsg_widget'])) {
+                    $chat_ui['cmmsg_widget'] = '';
                 }
-            }
 
-            if (isset($onlineUser) && $onlineUser instanceof erLhcoreClassModelChatOnlineUser) {
-
-                $previousChat = erLhcoreClassModelChat::findOne(array('sort' => 'id DESC', 'limit' => 1, 'filter' => array('online_user_id' => $onlineUser->id)));
-
-                if ($previousChat instanceof erLhcoreClassModelChat) {
-
-                    if (!isset($chat_ui['cmmsg_widget'])) {
-                        $chat_ui['cmmsg_widget'] = '';
-                    }
-
-                    if ($previousChat->has_unread_op_messages == 1) {
-                        $previousChat->unread_op_messages_informed = 0;
-                        $previousChat->has_unread_op_messages = 0;
-                        $previousChat->unanswered_chat = 0;
-                        $previousChat->updateThis(array('update' => array('unread_op_messages_informed','has_unread_op_messages','unanswered_chat')));
-                        $chat_ui['uprev'] = true;
-                    }
-
-                    $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/previous_chat.tpl.php');
-                    $tpl->set('messages', erLhcoreClassChat::getPendingMessages((int)$previousChat->id,  0));
-                    $tpl->set('chat',$previousChat);
-                    $tpl->set('sync_mode','');
-                    $tpl->set('async_call',true);
-                    $tpl->set('theme',$theme);
-                    $tpl->set('react',true);
-                    $chat_ui['cmmsg_widget'] = $tpl->fetch() . $chat_ui['cmmsg_widget'];
+                if ($previousChat->has_unread_op_messages == 1) {
+                    $previousChat->unread_op_messages_informed = 0;
+                    $previousChat->has_unread_op_messages = 0;
+                    $previousChat->unanswered_chat = 0;
+                    $previousChat->updateThis(array('update' => array('unread_op_messages_informed','has_unread_op_messages','unanswered_chat')));
+                    $chat_ui['uprev'] = true;
                 }
+
+                $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/previous_chat.tpl.php');
+                $tpl->set('messages', erLhcoreClassChat::getPendingMessages((int)$previousChat->id,  0));
+                $tpl->set('chat',$previousChat);
+                $tpl->set('sync_mode','');
+                $tpl->set('async_call',true);
+                $tpl->set('theme',$theme);
+                $tpl->set('react',true);
+                $chat_ui['cmmsg_widget'] = $tpl->fetch() . $chat_ui['cmmsg_widget'];
             }
         }
-
     }
 
     if ($Params['user_parameters_unordered']['mode'] == 'popup') {
