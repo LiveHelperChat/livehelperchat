@@ -1251,6 +1251,14 @@
         "key": "PRI",
         "default": null,
         "extra": "auto_increment"
+      },
+      {
+        "field": "dep_id",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
       }
     ],
     "lh_chat_incoming": [
@@ -9766,7 +9774,7 @@
     "lh_abstract_chat_alert_icon": "CREATE TABLE `lh_abstract_chat_alert_icon` (`id` bigint(20) NOT NULL AUTO_INCREMENT, `name` varchar(50) NOT NULL, `identifier` varchar(50) NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_abstract_stats": "CREATE TABLE `lh_abstract_stats` (\n  `id` bigint(20) NOT NULL AUTO_INCREMENT,\n  `type` int(11) NOT NULL,\n  `lupdate` bigint(20) NOT NULL,\n  `object_id` bigint(20) NOT NULL,\n  `stats` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `type_object_id` (`type`,`object_id`)\n) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_chat_voice_video" : "CREATE TABLE IF NOT EXISTS `lh_chat_voice_video` (`id` bigint(20) NOT NULL AUTO_INCREMENT,`chat_id` bigint(20) NOT NULL,`user_id` bigint(20) NOT NULL,`op_status` tinyint(4) NOT NULL,`vi_status` tinyint(4) NOT NULL,`voice` tinyint(4) NOT NULL, `video` tinyint(4) NOT NULL,`screen_share` tinyint(4) NOT NULL,`status` tinyint(4) NOT NULL,`ctime` int(11) NOT NULL, `token` varchar(200) NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`) ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
-    "lh_incoming_webhook" : "CREATE TABLE `lh_incoming_webhook` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `name` varchar(50) NOT NULL,`identifier` varchar(50) NOT NULL, `disabled` tinyint(1) NOT NULL, `configuration` longtext NOT NULL, PRIMARY KEY (`id`),  KEY `identifier` (`identifier`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lh_incoming_webhook" : "CREATE TABLE `lh_incoming_webhook` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `name` varchar(50) NOT NULL, `dep_id` int(11) NOT NULL, `identifier` varchar(50) NOT NULL, `disabled` tinyint(1) NOT NULL, `configuration` longtext NOT NULL, PRIMARY KEY (`id`),  KEY `identifier` (`identifier`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_chat_incoming" : "CREATE TABLE `lh_chat_incoming` (  `id` bigint(20) NOT NULL AUTO_INCREMENT, `chat_id` bigint(20) NOT NULL, `utime` bigint(20) NOT NULL, `incoming_id` int(11) NOT NULL, `payload` longtext NOT NULL, `chat_external_id` varchar(50) NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`),  KEY `incoming_ext_id` (`incoming_id`,`chat_external_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
   }
 }
