@@ -1,3 +1,9 @@
+3.67v
+
+1. Incoming webhooks support. You can integrate easily any third party API providers.
+
+execute doc/update_db/update_239.sql for update
+
 3.66v
 
 1. Now you can also import/export Rest API configuration.

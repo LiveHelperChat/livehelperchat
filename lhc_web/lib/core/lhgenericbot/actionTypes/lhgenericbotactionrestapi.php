@@ -144,6 +144,7 @@ class erLhcoreClassGenericBotActionRestapi
         preg_match_all('/\[file="?(.*?)"?\]/', $msg_text, $matches);
 
         $media = array();
+        $files = array();
 
         foreach ($matches[1] as $index => $body) {
             $parts = explode('_', $body);
@@ -166,14 +167,35 @@ class erLhcoreClassGenericBotActionRestapi
                         'type' => $file->type,
                         'extension' => $file->extension,
                         'hash' => $hash,
-                        'url' => $url,
+                        'url' => $url
                     );
 
                     $msg_text_cleaned = str_replace($matches[0][$index],'',$msg_text_cleaned);
+
+                    $files[] = $file;
                 }
 
             } catch (Exception $e) {
 
+            }
+        }
+
+        $file_body = null;
+        $file_name = null;
+
+        $file_api = false;
+        
+        // Switch to file API if it's only one file send
+        if (isset($methodSettings['body_raw_file']) && $methodSettings['body_raw_file'] != '' && count($files) == 1 && trim($msg_text_cleaned) == '') {
+            foreach ($files as $mediaFile) {
+
+                if (isset($methodSettings['suburl_file']) && !empty($methodSettings['suburl_file'])) {
+                    $methodSettings['suburl'] = $methodSettings['suburl_file'];
+                }
+
+                $file_body = 'data:'.$mediaFile->type.';base64,'.base64_encode(file_get_contents($mediaFile->file_path_server));
+                $file_name = $mediaFile->upload_name;
+                $file_api = true;
             }
         }
 
@@ -191,7 +213,9 @@ class erLhcoreClassGenericBotActionRestapi
             '{{lhc.department}}' => (string)$paramsCustomer['chat']->department,
             '{{lhc.dep_id}}' => (string)$paramsCustomer['chat']->dep_id,
             '{{ip}}' => (string)erLhcoreClassIPDetect::getIP(),
-            '{{media}}' => json_encode($media)
+            '{{media}}' => json_encode($media),
+            '{{file_body}}' => $file_body,
+            '{{file_name}}' => $file_name
         );
 
         $replaceVariables = array_merge($replaceVariables, $dynamicReplaceVariables);
@@ -215,6 +239,8 @@ class erLhcoreClassGenericBotActionRestapi
             '{{lhc.dep_id}}' => json_encode((string)$paramsCustomer['chat']->dep_id),
             '{{ip}}' => json_encode(erLhcoreClassIPDetect::getIP()),
             '{{media}}' => json_encode($media),
+            '{{file_body}}' => json_encode($file_body),
+            '{{file_name}}' =>json_encode($file_name)
         );
 
         foreach ($dynamicReplaceVariables as $keyDynamic => $valueDynamic) {
@@ -357,7 +383,7 @@ class erLhcoreClassGenericBotActionRestapi
                 } elseif (isset($userParam['location']) && $userParam['location'] == 'post_param') {
                     $postParams[$userParam['key']] = $valueParam;
                 } elseif (isset($userParam['location']) && $userParam['location'] == 'body_param') {
-                    $methodSettings['body_raw'] = str_replace('{{' . $userParam['key'] . '}}', json_encode($valueParam), $methodSettings['body_raw']);
+                    $methodSettings['body_raw'] = str_replace('{{' . $userParam['key'] . '}}', json_encode($valueParam), $file_api === true ? $methodSettings['body_raw_file'] : $methodSettings['body_raw']);
                 }
             }
         }
@@ -371,7 +397,7 @@ class erLhcoreClassGenericBotActionRestapi
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $postParams);
             }
         } elseif (isset($methodSettings['body_request_type']) && $methodSettings['body_request_type'] == 'raw') {
-            $bodyPOST = str_replace(array_keys($replaceVariablesJSON), array_values($replaceVariablesJSON), $methodSettings['body_raw']);
+            $bodyPOST = str_replace(array_keys($replaceVariablesJSON), array_values($replaceVariablesJSON), $file_api === true ? $methodSettings['body_raw_file'] : $methodSettings['body_raw']);
             $bodyPOST = preg_replace('/{{lhc\.(var|add)\.(.*?)}}/','""',$bodyPOST);
 
             curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyPOST);

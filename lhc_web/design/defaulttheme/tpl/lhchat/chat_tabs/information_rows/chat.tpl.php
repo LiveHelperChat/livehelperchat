@@ -48,6 +48,8 @@
 
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/id.tpl.php'));?>
 
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/external_chat.tpl.php'));?>
+
             </div>
         </td>
     </tr>

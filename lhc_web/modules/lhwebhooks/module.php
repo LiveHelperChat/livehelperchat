@@ -14,6 +14,20 @@ $ViewList['new'] = array(
     'functions' => array( 'configuration' )
 );
 
+$ViewList['newincoming'] = array(
+    'params' => array(),
+    'functions' => array( 'configuration' )
+);
+
+$ViewList['editincoming'] = array(
+    'params' => array('id'),
+    'functions' => array( 'configuration' )
+);
+
+$ViewList['incoming'] = array(
+    'params' => array('identifier'),
+);
+
 $ViewList['edit'] = array(
     'params' => array('id'),
     'functions' => array( 'configuration' )
@@ -22,6 +36,18 @@ $ViewList['edit'] = array(
 $ViewList['delete'] = array(
     'params' => array('id'),
     'uparams' => array('csfr'),
+    'functions' => array( 'configuration' )
+);
+
+$ViewList['deleteincoming'] = array(
+    'params' => array('id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'configuration' )
+);
+
+$ViewList['incomingwebhooks'] = array(
+    'params' => array(),
+    'uparams' => array(),
     'functions' => array( 'configuration' )
 );
 

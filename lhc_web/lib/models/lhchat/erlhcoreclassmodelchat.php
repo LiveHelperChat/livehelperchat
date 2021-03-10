@@ -173,6 +173,11 @@ class erLhcoreClassModelChat {
        $stmt = $q->prepare();
        $stmt->execute();
 
+       // Incoming chats
+       $q->deleteFrom( 'lh_chat_incoming' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+       $stmt = $q->prepare();
+       $stmt->execute();
+
        $this->removePendingEvents();
 
        erLhcoreClassModelGroupChat::deleteByChatId($this->id);
@@ -519,8 +524,8 @@ class erLhcoreClassModelChat {
             $this->aalert = null;
             $chatVariables = $this->chat_variables_array;
             if (isset($chatVariables['aicons'])) {
-                foreach ($chatVariables['aicons'] as $aicon){
-                    if ($aicon['alert'] == true){
+                foreach ($chatVariables['aicons'] as $aicon) {
+                    if ($aicon['alert'] == true) {
                         $this->aalert = true;
                         break;
                     }
@@ -582,7 +587,12 @@ class erLhcoreClassModelChat {
             $this->bot = $bot;
             return $this->bot;
        	break;
-       		
+
+       case 'incoming_chat':
+           $this->incoming_chat = erLhcoreClassModelChatIncoming::findOne(array('filter' => array('chat_id' => $this->id)));
+           return $this->incoming_chat;
+           break;
+
        	default:
        		break;
        }

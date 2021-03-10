@@ -10,6 +10,7 @@
         <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/restapi.tpl.php'));?>
         <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/ga.tpl.php'));?>
         <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/webhooks.tpl.php'));?>
+        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/webhooks_incoming.tpl.php'));?>
     </ul>
 </li>
 <?php endif; ?>

@@ -4,38 +4,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -2373,6 +2341,10 @@
       <source>Start chat form settings</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Default settings</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/lists/search_panel</name>
@@ -4595,6 +4567,93 @@
     </message>
   </context>
   <context>
+    <name>chat/avatarbuilder</name>
+    <message>
+      <source>Build your avatar</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We will generate avatar based on this string if you do not choose some parts</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Robo</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Girl</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Blonde</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Evilnormie</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Johnyold</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Asian</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Punk</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Afrohair</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Normie female</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Older</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Firehair</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Blond</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ateam</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rasta</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Meta</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/bbcodeinsert</name>
     <message>
       <source>Image</source>
@@ -5688,14 +5747,6 @@
   <context>
     <name>chat/syncadmininterface</name>
     <message>
-      <source>Sort by time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>New window</source>
       <translation type="unfinished"/>
     </message>
@@ -5999,14 +6050,6 @@
   <context>
     <name>chat/translation</name>
     <message>
-      <source>Chat messages automatic translations has been stopped</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Messages has been translated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Visitor language</source>
       <translation type="unfinished"/>
     </message>
@@ -6172,6 +6215,149 @@
     </message>
     <message>
       <source>Please choose translation languages manually and click Auto translate</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/voice_video</name>
+    <message>
+      <source>Voice &amp; Video &amp; ScreenShare</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has not started</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor - waiting for permission to join the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor - permission granted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending operator to join the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator has joined the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending visitor to join the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor requested to join a call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor has joined a call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator has requested a voice call with you!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start a call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor requested to start a voice call.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Join call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stop sharing your screen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Share your screen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable video</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable video</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Un-mute mic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mute mic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Call for the visitor also will end.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>End the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave a call. Visitor will remain on the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Leave the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Audio call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Audio &amp; video call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Let visitor in</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please wait untill operator let's you in</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please wait untill operator let's you join the call</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor is waiting for someone to let him in!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending visitor to join the call!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor has joined the call!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start conversation</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -7795,6 +7981,10 @@
     </message>
     <message>
       <source>Webhooks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Incoming webhooks</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10469,11 +10659,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Upload</source>
+      <source>Update</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>File updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10640,7 +10834,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Rest API imported</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Webhook imported</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Invalid file!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy of</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -10883,6 +11089,14 @@
     </message>
     <message>
       <source>Paste your request here (E.g JSON body). You can put visitor message as placeholder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sub URL for file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you are sending file you can have a different body content</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13519,6 +13733,45 @@
     </message>
   </context>
   <context>
+    <name>voice/configuration</name>
+    <message>
+      <source>Voice &amp; Video &amp; ScreenShare</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Features</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Calls enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Video enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ScreenShare enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Agora integration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Agora APP ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Agora App Certificate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>webhooks/module</name>
     <message>
       <source>Webhooks list</source>
@@ -13549,6 +13802,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Incoming webhooks list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose a bot</source>
       <translation type="unfinished"/>
     </message>
@@ -13562,6 +13831,10 @@
     </message>
     <message>
       <source>Webhooks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Incoming webhooks</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13663,11 +13936,131 @@
       <source>Execute if conditions are NOT valid</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>URL to put in third party Rest API service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Main attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attachments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Images</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages attribute location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID field location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>General conditions for messages being processed. These are first level attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message body content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For message being considered text message should have attribute value equal to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download attachment instead of using external URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For message being considered attachment message should have attribute value equal to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download image instead of using external URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For message being considered images message should have attribute value equal to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If previous chat is found and it is closed we should</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Create a new chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set previous chat to Pending/Bot depending on department configuration.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set as active if operator was assigned. Operator will not be reset.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator should be reset if chat being transferred to pending state.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Expected JSON payload for text message.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>expected message body</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>expected nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>unix timestamp E.g 1504208593</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unique Chat ID.</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>webhooks/new</name>
     <message>
       <source>New webhook</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New incoming webhook</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -13703,6 +14096,69 @@
     </message>
     <message>
       <source>Message seen</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/email_template</name>
+    <message>
+      <source>Name, for personal purposes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow user to change subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set language based on visitor language. By default we set language by embed code.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow to change from name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow to change from e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use user e-mail as from address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reply to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow to change reply e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>BCC recipients, can be separated by comma.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail templates</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -14486,69 +14942,6 @@
     </message>
   </context>
   <context>
-    <name>abstract/email_template</name>
-    <message>
-      <source>Name, for personal purposes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Subject</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Allow user to change subject</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Set language based on visitor language. By default we set language by embed code.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>From name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Allow to change from name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>From e-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Allow to change from e-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Use user e-mail as from address</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Reply to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Allow to change reply e-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>BCC recipients, can be separated by comma.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail templates</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>genericbot/new</name>
     <message>
       <source>System configuration</source>
@@ -14879,279 +15272,6 @@
     </message>
     <message>
       <source>Deny screen share</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/voice_video</name>
-    <message>
-      <source>Not initiated yet</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Voice &amp; Video &amp; ScreenShare</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Has not started</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor - waiting for permission to join the call</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor - permission granted</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pending operator to join the call</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operator has joined the call</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pending visitor to join the call</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor requested to join a call</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor has joined a call</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operator has requested a voice call with you!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Start a call</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor requested to start a voice call.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Join call</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Cancel</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Stop sharing your screen</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Share your screen</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enable video</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Disable video</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Un-mute mic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Mute mic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Call for the visitor also will end.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>End the call</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Leave a call. Visitor will remain on the call</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Leave the call</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Audio call</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Audio &amp; video call</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Let visitor in</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please wait untill operator let's you in</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Me</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please wait untill operator let's you join the call</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor is waiting for someone to let him in!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pending visitor to join the call!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor has joined the call!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Start conversation</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>voice/configuration</name>
-    <message>
-      <source>Voice &amp; Video &amp; ScreenShare</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Features</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Calls enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Video enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>ScreenShare enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Agora integration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Agora APP ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Agora App Certificate</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/avatarbuilder</name>
-    <message>
-      <source>Build your avatar</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>We will generate avatar based on this string if you do not choose some parts</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Robo</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Girl</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Blonde</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Evilnormie</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Johnyold</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Asian</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Punk</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Afrohair</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Normie female</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Older</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Firehair</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Blond</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Ateam</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Rasta</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Meta</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Color</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Set</source>
       <translation type="unfinished"/>
     </message>
   </context>
