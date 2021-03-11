@@ -38,6 +38,18 @@ $fieldsSearch['bot_ids'] = array (
     )
 );
 
+$fieldsSearch['subject_ids'] = array (
+    'type' => 'text',
+    'trans' => 'Bot ID',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterin_elastic',
+    'filter_table_field' => 'subject_ids',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1), FILTER_REQUIRE_ARRAY
+    )
+);
+
 $fieldsSearch['timefrom'] = array (
     'type' => 'text',
     'trans' => 'Timefrom',
