@@ -163,7 +163,7 @@
                     captcha: null,
                     focused: true,
                     clinst: false,
-                    kcw: false,
+                    kcw: LHC_API.args.kcw || false,
                     offline_redirect: LHC_API.args.offline_redirect || null,
                     identifier: LHC_API.args.identifier || '',
                     proactive_interval: null,

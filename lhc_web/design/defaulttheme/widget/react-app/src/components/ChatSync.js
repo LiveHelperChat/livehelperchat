@@ -40,24 +40,27 @@ class ChatSync extends PureComponent {
     }
 
     componentDidUpdate(prevProps, prevState) {
-
-        if ((
+        if (
             this.props.status == STATUS_CLOSED_CHAT ||
             this.props.status_sub == STATUS_SUB_SURVEY_SHOW ||
             this.props.status_sub == STATUS_SUB_USER_CLOSED_CHAT ||
             this.props.status_sub == STATUS_SUB_CONTACT_FORM
-        ) && this.state.intervalId) {
-            clearTimeout(this.state.intervalId);
+        ) {
+            if (this.state.intervalId) {
+                clearTimeout(this.state.intervalId);
+                this.state.intervalId = null;
+            }
         } else if (!this.state.intervalId) {
             this.syncChat();
         }
 
-        if ((this.props.status_sub != prevProps.status_sub || this.props.status != prevProps.status) || (this.props.initClose != prevProps.initClose)) {
+        if ((this.props.status_sub != prevProps.status_sub || this.props.status != prevProps.status) || (this.props.initClose != prevProps.initClose) || (prevProps.hasSurvey != this.props.hasSurvey)) {
             this.checkStatusChat();
         }
 
-        if ((this.props.status == STATUS_CLOSED_CHAT || this.props.status == STATUS_BOT_CHAT || this.props.status == STATUS_ACTIVE_CHAT || this.props.status_sub == STATUS_SUB_SURVEY_SHOW) && this.state.intervalCheckStatusId) {
+        if ((this.props.status == STATUS_CLOSED_CHAT || this.props.status == STATUS_BOT_CHAT || this.props.status == STATUS_ACTIVE_CHAT || this.props.status_sub == STATUS_SUB_SURVEY_SHOW) && this.state.intervalCheckStatusId && this.props.hasSurvey == false) {
             clearTimeout(this.state.intervalCheckStatusId);
+            this.state.intervalCheckStatusId = null;
         }
     }
 

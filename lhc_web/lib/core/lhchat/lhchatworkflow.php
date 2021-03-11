@@ -455,6 +455,7 @@ class erLhcoreClassChatWorkflow {
             foreach (erLhcoreClassChat::getList(array('limit' => 500, 'customfilter' => array('(`status_sub` IN ('.
                 erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW . ',' .
                 erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT . ',' .
+                erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED . ',' .
                 erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM . ') OR (`lsync` > 0 AND ((`lsync` < '. $delay .' AND `device_type` = 0) OR  (`lsync` < '. $delayMobile .' AND `device_type` IN (1,2)))))'),
                 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_PENDING_CHAT)))) as $chat) {
 

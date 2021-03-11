@@ -141,7 +141,11 @@ try {
 	    		// We do not store last msg time for chat here, because in any case none of opeators has opened it
 	    	}
 	    }
-	    
+
+	    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED) {
+            $responseArray['deleted'] = true;
+        }
+
 	    $tpl->set('chat', $chat);
     } else {
         $responseArray['error'] = 'false';
