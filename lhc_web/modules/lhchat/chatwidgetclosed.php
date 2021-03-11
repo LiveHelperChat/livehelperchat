@@ -59,7 +59,14 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
             $db->beginTransaction();
             
             $chat = erLhcoreClassModelChat::fetchAndLock($chatID);
-    	        
+
+            if ($chat instanceof erLhcoreClassModelChat && $chat->hash == $hash && $Params['user_parameters_unordered']['eclose'] == 'survey' && $chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED) {
+                $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED;
+                $chat->updateThis(array('update' => array(
+                    'status_sub'
+                )));
+            }
+
 	        if ($chat instanceof erLhcoreClassModelChat && $chat->hash == $hash &&  $chat->user_status != 1) {
 		        	
 				        // User closed chat

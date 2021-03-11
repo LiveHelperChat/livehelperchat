@@ -157,6 +157,16 @@ export default function (dispatch, getState) {
                 }
             }
 
+        } else if (action == 'lhc_survey_completed') {
+            const state = getState();
+            dispatch(
+                endChat({
+                'vid' : state.chatwidget.get('vid'),
+                'chat': {
+                    id : state.chatwidget.getIn(['chatData','id']),
+                    hash : state.chatwidget.getIn(['chatData','hash'])
+                }
+            },'survey'));
         } else if (action == 'lhc_load_ext') {
             const parts = e.data.replace('lhc_load_ext:','').split('::');
             executeExtension(parts[0],JSON.parse(parts[1]));

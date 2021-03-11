@@ -441,6 +441,14 @@ class OnlineChat extends Component {
             this.props.endChat({"show_start": this.props.chatwidget.get('shown')});
         }
 
+        if (this.props.chatwidget.getIn(['chatLiveData','closed']) === true && this.props.chatwidget.getIn(['chatLiveData','status_sub']) === 0 &&  prevProps.chatwidget.getIn(['chatLiveData','status_sub']) === 5) {
+            this.props.dispatch(initChatUI({
+                'id': this.props.chatwidget.getIn(['chatData','id']),
+                'hash' : this.props.chatwidget.getIn(['chatData','hash']),
+                'theme' :  this.props.chatwidget.get('theme')
+            }));
+        }
+
         // At the moment not used because logic migrated to one time call componentDidMount
         if (this.props.chatwidget.get('shown') === true && (this.props.chatwidget.get('mode') == 'widget' || this.props.chatwidget.get('mode') == 'embed') && this.props.chatwidget.get('initLoaded') === true && this.props.chatwidget.get('msgLoaded') === true && (prevProps.chatwidget.get('msgLoaded') == false || prevProps.chatwidget.get('initLoaded') == false)) {
 
@@ -727,7 +735,7 @@ class OnlineChat extends Component {
                 location = location + '/(survey)/' + this.props.chatwidget.getIn(['chat_ui', 'survey_id']) + (forceSurvey === true ? '/(force)/true' : '');
                 
                 if (this.props.chatwidget.hasIn(['chat_ui', 'survey_url'])) {
-                    location = this.props.chatwidget.getIn(['chat_ui', 'survey_url']) + (forceSurvey === true ? '?force=true' : '');
+                    location = this.props.chatwidget.getIn(['chat_ui', 'survey_url']).replace('{chat_id}',this.props.chatwidget.getIn(['chatData', 'id'])).replace('{chat_hash}',this.props.chatwidget.getIn(['chatData', 'hash'])) + (forceSurvey === true ? '?force=true' : '');
                 }
 
                 preloadSurvey = true;
@@ -753,9 +761,9 @@ class OnlineChat extends Component {
 
                     {preloadSurvey && <iframe allowtransparency="true" src={location} frameBorder="0" className={classSurvey} />}
 
-                    {showChat && <React.Fragment>
+                    {(showChat || preloadSurvey) && <ChatSync hasSurvey={preloadSurvey} syncInterval={this.props.chatwidget.getIn(['chat_ui','sync_interval'])} updateStatus={this.updateStatus} updateMessages={this.updateMessages} initClose={this.props.chatwidget.get('initClose')} dispatch={this.props.dispatch} status_sub={this.props.chatwidget.getIn(['chatLiveData','status_sub'])} status={this.props.chatwidget.getIn(['chatLiveData','status'])} theme={this.props.chatwidget.get('theme')} lmgsid={this.props.chatwidget.getIn(['chatLiveData','lmsgid'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} chat_id={this.props.chatwidget.getIn(['chatData','id'])} />}
 
-                    <ChatSync syncInterval={this.props.chatwidget.getIn(['chat_ui','sync_interval'])} updateStatus={this.updateStatus} updateMessages={this.updateMessages} initClose={this.props.chatwidget.get('initClose')} dispatch={this.props.dispatch} status_sub={this.props.chatwidget.getIn(['chatLiveData','status_sub'])} status={this.props.chatwidget.getIn(['chatLiveData','status'])} theme={this.props.chatwidget.get('theme')} lmgsid={this.props.chatwidget.getIn(['chatLiveData','lmsgid'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} chat_id={this.props.chatwidget.getIn(['chatData','id'])} />
+                    {showChat && <React.Fragment>
 
                     {this.props.chatwidget.getIn(['chat_ui_state','confirm_close']) == 1 && <ChatModal confirmClose={this.props.endChat} cancelClose={this.props.cancelClose} toggle={this.props.cancelClose} dataUrl={"/chat/confirmleave/"+this.props.chatwidget.getIn(['chatData','id'])+"/"+this.props.chatwidget.getIn(['chatData','hash'])} />}
 
