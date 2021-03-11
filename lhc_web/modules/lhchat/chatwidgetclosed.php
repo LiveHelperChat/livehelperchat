@@ -91,7 +91,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
                                 $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
 
                                 $msg = new erLhcoreClassModelmsg();
-                                $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','Visitor has closed the chat explicitly!'),ENT_QUOTES);;
+                                $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','Visitor has closed the chat explicitly!'),ENT_QUOTES);
                                 $msg->chat_id = $chat->id;
                                 $msg->user_id = -1;
                                 $msg->time = time();
