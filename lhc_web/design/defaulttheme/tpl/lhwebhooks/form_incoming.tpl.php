@@ -40,9 +40,19 @@
 
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane form-group active" id="main_message_attributes">
-        <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Messages attribute location');?></label>
-            <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.messages" value="" />
+
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Messages attribute location');?></label>
+                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.messages" value="" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                       <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.message_direct" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','This attribute contains direct message and NOT a messages array');?></label>
+                </div>
+            </div>
         </div>
 
         <div class="row">
@@ -100,6 +110,8 @@
         </div>
         <div class="form-group">
             <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_attachments_download" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Download attachment instead of using external URL');?></label>
+            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_attachments_base64" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','This is base64 encoded content');?></label>
+
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_body" value="" />
         </div>
         <div class="form-group">
@@ -115,6 +127,7 @@
         </div>
         <div class="form-group">
             <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_img_download" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Download image instead of using external URL');?></label>
+            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_img_base64" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','This is base64 encoded content');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_body" value="" />
         </div>
         <div class="form-group">

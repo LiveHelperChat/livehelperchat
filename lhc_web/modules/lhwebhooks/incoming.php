@@ -2,6 +2,8 @@
 
 $dummyPayload = null;
 
+
+
 try {
 
     $incomingWebhook = erLhcoreClassModelChatIncomingWebhook::findOne(array('filter' => array('identifier' => $Params['user_parameters']['identifier'])));
@@ -23,6 +25,8 @@ try {
     } else {
         $data = $dummyPayload;
     }
+
+    erLhcoreClassLog::write(print_r($data, true));
 
     erLhcoreClassChatWebhookIncoming::processEvent($incomingWebhook, $data);
 

@@ -27,6 +27,11 @@ class erLhcoreClassModelChatIncomingWebhook {
     public function __get($var) {
         switch ($var) {
             case 'conditions_array':
+
+                if ($this->configuration == '[]') {
+                    $this->configuration = '{}';
+                }
+
                 $conditions_array = json_decode($this->configuration,true);
                 if ($conditions_array === null) {
                     $conditions_array = new stdClass();

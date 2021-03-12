@@ -27,7 +27,11 @@ class erLhcoreClassChatWebhookIncoming {
 
         $messages = isset($conditions['messages']) && $conditions['messages'] != '' ? $payload[$conditions['messages']] : [$payload];
 
-        foreach ($messages as $message){
+        if (isset($conditions['messages']) && $conditions['messages'] != '' &&  isset($conditions['message_direct']) && $conditions['message_direct'] == true) {
+            $messages = [$messages];
+        }
+
+        foreach ($messages as $message) {
             self::processMessage($incomingWebhook, $message, $payload);
         }
     }
@@ -312,7 +316,12 @@ class erLhcoreClassChatWebhookIncoming {
 
             // Save external chat
             $eChat = ($eChat instanceof erLhcoreClassModelChatIncoming) ? $eChat : (new erLhcoreClassModelChatIncoming());
-            $eChat->chat_external_id = $payloadMessage[$conditions['chat_id']];
+            $eChat->chat_external_id = self::extractAttribute('chat_id',$conditions,$payloadMessage);
+
+            if ($eChat->chat_external_id == '') {
+                throw new Exception('ChatId attribute could not be found!');
+            }
+
             $eChat->incoming_id = $incomingWebhook->id;
             $eChat->chat_id = $chat->id;
             $eChat->utime = time();
@@ -398,7 +407,9 @@ class erLhcoreClassChatWebhookIncoming {
             $attrParams = explode('||',$conditions[$attr]);
         }
 
-        $baseValue = isset($payload[$attrParams[0]]) && !empty($payload[$attrParams[0]]) ? $payload[$attrParams[0]] : $defaultValue;
+        $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($payload, $attrParams[0], '.');
+
+        $baseValue = $valueAttribute['found'] == true ? $valueAttribute['value'] : $defaultValue;
 
         if (isset($attrParams[1]) && isset($attrParams[2])) {
             $baseValueParams = explode($attrParams[1],$baseValue);
