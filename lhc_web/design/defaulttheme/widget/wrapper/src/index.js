@@ -588,7 +588,7 @@
 
                     attributesWidget.proactive = {};
 
-                    if (attributesWidget.mode != 'popup' && !params['show_start']) {
+                    if (attributesWidget.mode != 'popup' && (!params || !params['show_start'])) {
                         attributesWidget.widgetStatus.next(false);
                     }
 
@@ -596,7 +596,7 @@
 
                     chatEvents.sendChildEvent('endedChat', [{'sender': 'endButton'}]);
 
-                    if (attributesWidget.mode == 'embed' || params['show_start']) {
+                    if (attributesWidget.mode == 'embed' || (params && params['show_start'])) {
                         attributesWidget.eventEmitter.emitEvent('showWidget', [{'sender': 'closeButton'}]);
                     }
 
