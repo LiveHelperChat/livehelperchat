@@ -260,9 +260,17 @@ class erLhcoreClassChatCommand
         $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_ON_HOLD;
 
         if ($params['argument'] != '') {
+            $defaultHoldMessage = $params['argument'];
+        } else if ($params['chat']->auto_responder !== false && $params['chat']->auto_responder->auto_responder !== false && $params['chat']->auto_responder->auto_responder->wait_timeout_hold != '') {
+            $defaultHoldMessage = $params['chat']->auto_responder->auto_responder->wait_timeout_hold;
+        } else {
+            $defaultHoldMessage = '';
+        }
+
+        if ($defaultHoldMessage != '') {
             // Store as message to visitor
             $msg = new erLhcoreClassModelmsg();
-            $msg->msg = $params['argument'];
+            $msg->msg = $defaultHoldMessage;
             $msg->chat_id = $params['chat']->id;
             $msg->user_id = $params['user']->id;
             $msg->time = time();

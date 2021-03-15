@@ -258,6 +258,8 @@ class erLhcoreClassGenericBotActionCommand {
                     erLhcoreClassChat::updateDepartmentStats($department);
                 }
 
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed', array('chat' => & $chat));
+
         } elseif ($action['content']['command'] == 'setdepartment') {
 
             // Department was changed
