@@ -27,14 +27,12 @@ if (ezcInputForm::hasPostData()) {
     $Errors = array();
     $form = new ezcInputForm(INPUT_POST, $definition);
 
-    // Twilio phone number
     if ($form->hasValidData('chat_id') && !empty($form->chat_id)) {
         $item->chat_id = $form->chat_id;
     } else {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('twilio/sendmessage','Please enter chatId!');
     }
 
-    // Twilio message
     if ($form->hasValidData('message') && !empty($form->message)) {
         $item->message = $form->message;
     } else {
