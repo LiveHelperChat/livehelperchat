@@ -523,7 +523,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                 'transfered_chats' : 8,
                 'departments_stats' : 9}
             var activeWidgets = [];
-            angular.forEach(_that.widgetsActive, function(widget) {activeWidgets.push(map[widget]);})
+            angular.forEach(_that.widgetsActive, function(widget) {
+                map[widget] && activeWidgets.push(map[widget]);
+            })
             filter += '/(w)/'+activeWidgets.join('/');
         }
 

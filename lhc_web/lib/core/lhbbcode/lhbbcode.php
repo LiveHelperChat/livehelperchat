@@ -1034,8 +1034,15 @@ class erLhcoreClassBBCode
 
        $msg = trim($msg);
 
-       $messages = array_filter(explode('IMG_REPLACE', $msg));
-       $totalMessages = count($messages);
+       if (strpos($msg,'IMG_REPLACE') !== false) {
+           $messages = array_filter(explode('IMG_REPLACE', $msg), function($v) {
+               return $v != "";
+           });
+           $totalMessages = count($messages);
+       } else {
+           $totalMessages = 1;
+           $messages = [$msg];
+       }
 
        $messagesData = array();
        foreach ($messages as $indexMessage => $message) {

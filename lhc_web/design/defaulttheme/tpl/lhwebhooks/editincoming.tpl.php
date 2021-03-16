@@ -8,7 +8,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="" method="post" enctype="multipart/form-data" ng-controller="WebhooksIncomingCtrl as webhookincomingsctl" ng-submit="webhookincomingsctl.updateContinuous()" ng-init='webhookincomingsctl.conditions = <?php echo json_encode($item->conditions_array,JSON_HEX_APOS)?>'>
+<form action="" method="post" enctype="multipart/form-data" ng-controller="WebhooksIncomingCtrl as webhookincomingsctl" ng-submit="webhookincomingsctl.updateContinuous()" ng-init='webhookincomingsctl.conditions = <?php echo json_encode($item->conditions_array,JSON_HEX_APOS & JSON_FORCE_OBJECT)?>'>
 
     <?php include(erLhcoreClassDesign::designtpl('lhwebhooks/form_incoming.tpl.php'));?>
 

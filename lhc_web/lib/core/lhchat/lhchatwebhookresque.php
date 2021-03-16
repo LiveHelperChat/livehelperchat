@@ -16,8 +16,11 @@ class erLhcoreClassChatWebhookResque {
 
         if (!empty($hooks)) {
             foreach ($hooks as $hookId) {
-                if (class_exists('erLhcoreClassExtensionLhcphpresque')) {
-                    erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_rest_webhook', 'erLhcoreClassChatWebhookResque', array('hook_id' => $hookId, 'params' => base64_encode(gzdeflate(serialize($params)))));
+                if (isset($params['wh_worker']) && $params['wh_worker'] == 'http') {
+                    $worker = new erLhcoreClassChatWebhookHttp();
+                    $worker->processEvent($event, $params);
+                } else if (class_exists('erLhcoreClassExtensionLhcphpresque')) {
+                     erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_rest_webhook', 'erLhcoreClassChatWebhookResque', array('hook_id' => $hookId, 'params' => base64_encode(gzdeflate(serialize($params)))));
                 }
             }
         }

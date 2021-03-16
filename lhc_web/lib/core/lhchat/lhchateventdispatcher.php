@@ -40,7 +40,7 @@ class erLhcoreClassChatEventDispatcher {
 
            $webhooksEnabled = $cfg->getSetting( 'webhooks', 'enabled', false );
 
-           // Web gooks disabled
+           // Web hooks disabled
            if ($webhooksEnabled === false) {
                $this->webhooksSet = true;
                return;
