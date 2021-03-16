@@ -40,9 +40,16 @@
     <label><input type="checkbox" value="on" name="disabled" <?php echo $item->disabled == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Disabled')?></label>
 </div>
 
+<div class="form-group">
+    <label><input type="checkbox" ng-model="show_wh_integration"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Show integration information.');?></label>
+</div>
+
+<div ng-show="show_wh_integration">
+
 <ul class="nav nav-tabs mb-3" role="tablist">
     <li role="presentation" class="nav-item"><a href="#main_message_attributes" class="nav-link active" aria-controls="main_message_attributes" role="tab" data-toggle="tab" aria-selected="false"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Main attributes')?></a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#text_messages" aria-controls="text_messages" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Text messages')?></a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#text_messages" aria-controls="text_messages" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Text messages 1')?></a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#text_messages_2" aria-controls="text_messages_2" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Text messages 2')?></a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#attachments" aria-controls="attachments" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attachments')?></a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#img-attachments" aria-controls="img-attachments" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Images')?></a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#chat_options" aria-controls="chat_options" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat options')?></a></li>
@@ -91,12 +98,20 @@
                     <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.time" value="" />
                 </div>
             </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID field location');?></label>
+                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.chat_id" value="" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID Template for manual message sending. Use {chat_id} as placeholder');?></label>
+                    <input type="text" class="form-control form-control-sm" title="{chat_id}@c.us" placeholder="E.g {chat_id}@c.us" ng-model="webhookincomingsctl.conditions.chat_id_template" value="" />
+                </div>
+            </div>
         </div>
 
-        <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID field location');?></label>
-            <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.chat_id" value="" />
-        </div>
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','General conditions for messages being processed. These are first level attributes');?></label>
             <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.main_cond" placeholder="main attribute=value expected||main attribute=value expected" value="" />
@@ -114,16 +129,43 @@
         </div>
     </div>
 
+    <div role="tabpanel" class="tab-pane form-group" id="text_messages_2">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Message body content');?></label>
+            <textarea class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_body_2"></textarea>
+        </div>
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered text message should have attribute value equal to');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_2" value="" />
+        </div>
+    </div>
+
     <div role="tabpanel" class="tab-pane form-group" id="attachments">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Message body content');?></label>
             <textarea class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_attachments"></textarea>
         </div>
+
         <div class="form-group">
             <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_attachments_download" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Download attachment instead of using external URL');?></label>
-
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_body" value="" />
         </div>
+
+        <div class="form-group">
+            <label>URL To make request to get content</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_url_decode" value="" />
+        </div>
+
+        <div class="form-group">
+            <label>Request content</label>
+            <textarea class="form-control" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_url_decode_content"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Response location</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_url_decode_output" value="" />
+        </div>
+
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered attachment message should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_attachments" value="" />
@@ -135,10 +177,27 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Message body content');?></label>
             <textarea class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_img"></textarea>
         </div>
+
         <div class="form-group">
             <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_img_download" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Download image instead of using external URL');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_body" value="" />
         </div>
+
+        <div class="form-group">
+            <label>URL To make request to get content</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_url_decode" value="" />
+        </div>
+
+        <div class="form-group">
+            <label>Request content</label>
+            <textarea class="form-control" ng-model="webhookincomingsctl.conditions.msg_cond_img_url_decode_content"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Response location</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_url_decode_output" value="" />
+        </div>
+
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered images message should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_img" value="" />
@@ -182,8 +241,6 @@
 
 </div>
 
-<textarea name="configuration" class="hide" ng-model="webhookincomingsctl.conditions_json"></textarea>
-
 <hr/>
 
 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Expected JSON payload for text message.');?></h5>
@@ -200,3 +257,7 @@
     {{webhookincomingsctl.conditions.main_cond ? "\""+webhookincomingsctl.conditions.main_cond.replaceAll("=","\":\"").replaceAll("||","\",        \n\"")+"\"," : ""}}
 '."\n".'}'?>
 </pre>
+
+</div>
+
+<textarea name="configuration" class="hide" ng-model="webhookincomingsctl.conditions_json"></textarea>

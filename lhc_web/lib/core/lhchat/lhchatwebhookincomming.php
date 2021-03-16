@@ -95,6 +95,31 @@ class erLhcoreClassChatWebhookIncoming {
 
         if ($typeMessage == 'unknown')
         {
+            $msgBody = $conditions['msg_body_2'];
+
+            if (isset($conditions['msg_cond_2']) && $conditions['msg_cond_2'] != "") {
+                $typeMessage = 'text';
+                $conditionsPairs = explode("||",$conditions['msg_cond_2']);
+                foreach ($conditionsPairs as $conditionsPair) {
+                    $conditionsPairData = explode('=', $conditionsPair);
+
+                    if ($conditionsPairData[1] === 'false') {
+                        $conditionsPairData[1] = false;
+                    } elseif ($conditionsPairData[1] === 'true') {
+                        $conditionsPairData[1] = true;
+                    } elseif (strpos($conditionsPairData[1], ',') !== false) {
+                        $conditionsPairData[1] = explode(',', $conditionsPairData[1]);
+                    }
+
+                    if ((is_array($conditionsPairData[1]) && !in_array($payloadMessage[$conditionsPairData[0]], $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($payloadMessage[$conditionsPairData[0]]) && $payloadMessage[$conditionsPairData[0]] == $conditionsPairData[1]))) {
+                        $typeMessage = 'unknown';
+                    }
+                }
+            }
+        }
+
+        if ($typeMessage == 'unknown')
+        {
             $msgBody = $conditions['msg_body'];
 
             if (isset($conditions['msg_cond']) && $conditions['msg_cond'] != "") {
@@ -160,7 +185,17 @@ class erLhcoreClassChatWebhookIncoming {
             }
 
             if ($typeMessage == 'img' || $typeMessage == 'attachments') {
-                if (isset($conditions['msg_'.$typeMessage.'_download']) && $conditions['msg_'.$typeMessage.'_download'] == true) {
+                if (isset($conditions['msg_cond_'.$typeMessage.'_url_decode']) && $conditions['msg_cond_'.$typeMessage.'_url_decode'] != '') {
+                    $file = self::parseFilesDecode(array(
+                        'msg' => $payloadMessage,
+                        'url' => $conditions['msg_cond_'.$typeMessage.'_url_decode'],
+                        'body_post' => $conditions['msg_cond_'.$typeMessage.'_url_decode_content'],
+                        'response_location' => $conditions['msg_cond_'.$typeMessage.'_url_decode_output']
+                    ), $chat);
+                    if (!empty($file)) {
+                        $payloadMessage[$conditions['msg_cond_'.$typeMessage.'_body']] = $file;
+                    }
+                } else if (isset($conditions['msg_'.$typeMessage.'_download']) && $conditions['msg_'.$typeMessage.'_download'] == true) {
                     $file = self::parseFiles($payloadMessage[$conditions['msg_cond_'.$typeMessage.'_body']], $chat);
                     if (!empty($file)) {
                         $payloadMessage[$conditions['msg_cond_'.$typeMessage.'_body']] = $file;
@@ -232,10 +267,17 @@ class erLhcoreClassChatWebhookIncoming {
                 }
             }
 
+            $chat->nick = self::extractAttribute('nick',$conditions,$payloadMessage,$chat->nick);
+            $chat->phone = self::extractAttribute('phone',$conditions,$payloadMessage,$chat->phone);
+            $chat->email = self::extractAttribute('email',$conditions,$payloadMessage,$chat->email);
+
             $chat->updateThis(array('update' => array(
                 'pnd_time',
                 'last_user_msg_time',
                 'status',
+                'nick',
+                'email',
+                'phone',
                 'user_id',
                 'chat_variables',
                 'status_sub_sub',
@@ -298,7 +340,17 @@ class erLhcoreClassChatWebhookIncoming {
             $chat->saveThis();
 
             if ($typeMessage == 'img' || $typeMessage == 'attachments') {
-                if (isset($conditions['msg_'.$typeMessage.'_download']) && $conditions['msg_'.$typeMessage.'_download'] == true) {
+                if (isset($conditions['msg_cond_'.$typeMessage.'_url_decode']) && $conditions['msg_cond_'.$typeMessage.'_url_decode'] != '') {
+                    $file = self::parseFilesDecode(array(
+                        'msg' => $payloadMessage,
+                        'url' => $conditions['msg_cond_'.$typeMessage.'_url_decode'],
+                        'body_post' => $conditions['msg_cond_'.$typeMessage.'_url_decode_content'],
+                        'response_location' => $conditions['msg_cond_'.$typeMessage.'_url_decode_output']
+                    ), $chat);
+                    if (!empty($file)) {
+                        $payloadMessage[$conditions['msg_cond_'.$typeMessage.'_body']] = $file;
+                    }
+                } else if (isset($conditions['msg_'.$typeMessage.'_download']) && $conditions['msg_'.$typeMessage.'_download'] == true) {
                     $file = self::parseFiles($payloadMessage[$conditions['msg_cond_'.$typeMessage.'_body']], $chat);
                     if (!empty($file)) {
                         $payloadMessage[$conditions['msg_cond_'.$typeMessage.'_body']] = $file;
@@ -443,7 +495,7 @@ class erLhcoreClassChatWebhookIncoming {
         }
     }
 
-    public static function extractMessageBody($body, $payload) {
+    public static function extractMessageBody($body, $payload, $jsonEncode = false) {
 
         $matchesValues = [];
 
@@ -452,7 +504,7 @@ class erLhcoreClassChatWebhookIncoming {
         if (!empty($matchesValues[0])) {
             foreach ($matchesValues[0] as $indexElement => $elementValue) {
                 $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($payload, $matchesValues[1][$indexElement], '.');
-                $userData[$elementValue] = $valueAttribute['found'] == true ? $valueAttribute['value'] : null;
+                $userData[$elementValue] = $valueAttribute['found'] == true ? ($jsonEncode == true ? json_encode($valueAttribute['value']) : $valueAttribute['value']) : null;
             }
         }
 
@@ -460,14 +512,9 @@ class erLhcoreClassChatWebhookIncoming {
     }
     
     public static function parseFiles($url, $chat) {
-        $mediaContent = erLhcoreClassModelChatOnlineUser::executeRequest($url);
-        if (!empty($mediaContent)) {
 
-            $path = 'var/storage/'.date('Y').'y/'.date('m').'/'.date('d').'/'. $chat->id.'/';
-
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfile.file_path', array('path' => & $path, 'storage_id' => $chat->id));
-
-            erLhcoreClassFileUpload::mkdirRecursive( $path );
+        if (!is_array($url)) {
+            $mediaContent = erLhcoreClassModelChatOnlineUser::executeRequest($url);
 
             // File name
             $partsFilename = explode('/',$url);
@@ -476,6 +523,20 @@ class erLhcoreClassChatWebhookIncoming {
             // File extension
             $partsExtension = explode('.',$url);
             $file_extension = array_pop($partsExtension);
+
+        } else {
+            $mediaContent = $url['body'];
+            $file_extension = isset($url['ext']) ? (string)$url['ext'] : '';
+            $upload_name = isset($url['upload_name']) ? (string)$url['upload_name'] : '';
+        }
+
+        if (!empty($mediaContent)) {
+
+            $path = 'var/storage/'.date('Y').'y/'.date('m').'/'.date('d').'/'. $chat->id.'/';
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfile.file_path', array('path' => & $path, 'storage_id' => $chat->id));
+
+            erLhcoreClassFileUpload::mkdirRecursive( $path );
 
             $fileUpload = new erLhcoreClassModelChatFile();
             $fileUpload->size = strlen($mediaContent);
@@ -493,72 +554,21 @@ class erLhcoreClassChatWebhookIncoming {
             file_put_contents($path . $fileUpload->name, $mediaContent);
             chmod($path . $fileUpload->name, 0644);
 
-            $mimeType = erLhcoreClassThemeValidator::get_mime($path . $fileUpload->name);
+            if (!is_array($url) || !isset($url['mime'])) {
+                $mimeType = erLhcoreClassThemeValidator::get_mime($path . $fileUpload->name);
+            } else {
+                $mimeType = $url['mime'];
+            }
 
             if ($mimeType !== false) {
-                $mime_types = array(
-                    'txt' => 'text/plain',
-                    'htm' => 'text/html',
-                    'html' => 'text/html',
-                    'php' => 'text/html',
-                    'css' => 'text/css',
-                    'js' => 'application/javascript',
-                    'json' => 'application/json',
-                    'xml' => 'application/xml',
-                    'swf' => 'application/x-shockwave-flash',
-                    'flv' => 'video/x-flv',
-
-                    // images
-                    'png' => 'image/png',
-                    'jpeg' => 'image/jpeg',
-                    'jpg' => 'image/jpeg',
-                    'gif' => 'image/gif',
-                    'bmp' => 'image/bmp',
-                    'ico' => 'image/vnd.microsoft.icon',
-                    'tiff' => 'image/tiff',
-                    'tif' => 'image/tiff',
-                    'svg' => 'image/svg+xml',
-                    'svgz' => 'image/svg+xml',
-
-                    // archives
-                    'zip' => 'application/zip',
-                    'rar' => 'application/x-rar-compressed',
-                    'exe' => 'application/x-msdownload',
-                    'msi' => 'application/x-msdownload',
-                    'cab' => 'application/vnd.ms-cab-compressed',
-
-                    // audio/video
-                    'mp3' => 'audio/mpeg',
-                    'qt' => 'video/quicktime',
-                    'mov' => 'video/quicktime',
-
-                    // adobe
-                    'pdf' => 'application/pdf',
-                    'psd' => 'image/vnd.adobe.photoshop',
-                    'ai' => 'application/postscript',
-                    'eps' => 'application/postscript',
-                    'ps' => 'application/postscript',
-
-                    // ms office
-                    'doc' => 'application/msword',
-                    'rtf' => 'application/rtf',
-                    'xls' => 'application/vnd.ms-excel',
-                    'ppt' => 'application/vnd.ms-powerpoint',
-
-                    // open office
-                    'odt' => 'application/vnd.oasis.opendocument.text',
-                    'ods' => 'application/vnd.oasis.opendocument.spreadsheet',
-                );
-
-                $extension = array_search($mimeType,$mime_types);
-
+                $extension = self::getExtensionByMime($mimeType);
                 if ($extension !== false) {
                     $fileUpload->extension = $extension;
                 }
             }
 
             $fileUpload->type = $mimeType !== false ? $mimeType : 'application/octet-stream';
-            $fileUpload->saveThis();;
+            $fileUpload->saveThis();
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfile.file_store', array('chat_file' => $fileUpload));
 
@@ -566,32 +576,198 @@ class erLhcoreClassChatWebhookIncoming {
         }
     }
 
-    public function sendMessage($incomingWebhook, $item) {
+    public function getExtensionByMime($mimeType) {
+        $mime_types = array(
+            'txt' => 'text/plain',
+            'htm' => 'text/html',
+            'html' => 'text/html',
+            'php' => 'text/html',
+            'css' => 'text/css',
+            'js' => 'application/javascript',
+            'json' => 'application/json',
+            'xml' => 'application/xml',
+            'swf' => 'application/x-shockwave-flash',
+            'flv' => 'video/x-flv',
+            'ogg' => 'audio/ogg',
 
-        $incomingChat = erLhcoreClassModelChatIncoming::findOne(array('filter' => array('chat_external_id' => $item->chat_id)));
+            // images
+            'png' => 'image/png',
+            'jpeg' => 'image/jpeg',
+            'jpg' => 'image/jpeg',
+            'gif' => 'image/gif',
+            'bmp' => 'image/bmp',
+            'ico' => 'image/vnd.microsoft.icon',
+            'tiff' => 'image/tiff',
+            'tif' => 'image/tiff',
+            'svg' => 'image/svg+xml',
+            'svgz' => 'image/svg+xml',
 
-        if (!($incomingChat instanceof erLhcoreClassModelChatIncoming)) {
-            $incomingChat = new erLhcoreClassModelChatIncoming();
-            $incomingChat->chat_external_id = $item->chat_id;
-            $incomingChat->incoming_id = $incomingWebhook->id;
-            $incomingChat->utime = time();
-            $incomingChat->incoming = $incomingWebhook;
-        } else {
-            $incomingChat->incoming = $incomingWebhook;
-            $incomingChat->incoming_id = $incomingWebhook->id;
+            // archives
+            'zip' => 'application/zip',
+            'rar' => 'application/x-rar-compressed',
+            'exe' => 'application/x-msdownload',
+            'msi' => 'application/x-msdownload',
+            'cab' => 'application/vnd.ms-cab-compressed',
+
+            // audio/video
+            'mp3' => 'audio/mpeg',
+            'qt' => 'video/quicktime',
+            'mov' => 'video/quicktime',
+            'mp4' => 'video/mp4',
+
+            // adobe
+            'pdf' => 'application/pdf',
+            'psd' => 'image/vnd.adobe.photoshop',
+            'ai' => 'application/postscript',
+            'eps' => 'application/postscript',
+            'ps' => 'application/postscript',
+
+            // ms office
+            'doc' => 'application/msword',
+            'rtf' => 'application/rtf',
+            'xls' => 'application/vnd.ms-excel',
+            'ppt' => 'application/vnd.ms-powerpoint',
+
+            // open office
+            'odt' => 'application/vnd.oasis.opendocument.text',
+            'ods' => 'application/vnd.oasis.opendocument.spreadsheet',
+        );
+
+        return array_search($mimeType,$mime_types);
+    }
+
+    public function parseFilesDecode($params, $chat) {
+
+        $bodyPOST = self::extractMessageBody($params['body_post'], $params['msg'], true);
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_URL, $params['url']);
+        @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyPOST);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json'
+        ));
+
+        $content = curl_exec($ch);
+
+        $responseBody = json_decode($content,true);
+
+        $bodyRaw = erLhcoreClassGenericBotActionRestapi::extractAttribute($responseBody, $params['response_location'], '.');
+
+        if ($bodyRaw['found'] == 1) {
+            $parts = explode(',',$bodyRaw['value']);
+            $bodyEncoded = array_pop($parts);
+            $returnArray = array();
+            if (isset($parts[0])) {
+                $returnArray['mime'] = str_replace('data:','',explode(';',$parts[0])[0]);
+                $returnArray['ext'] = self::getExtensionByMime($returnArray['mime']);
+                $returnArray['upload_name'] = 'file.' . $returnArray['ext'];
+            }
+            $returnArray['body'] = base64_decode($bodyEncoded);
+            return self::parseFiles($returnArray, $chat);
         }
 
+        return null;
+    }
 
-        $chat = new erLhcoreClassModelChat();
-        $chat->incoming_chat = $incomingChat;
-        $chat->dep_id = $item->dep_id;
+    public static function sendMessage($incomingWebhook, $item) {
 
-        $incomingChat->chat_id = $chat->id;
+        $db = ezcDbInstance::get();
 
-        $msg = new erLhcoreClassModelmsg();
-        $msg->msg = $item->message;
+        try {
+            $db->beginTransaction();
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg, 'chat' => & $chat));
+            $incomingChat = erLhcoreClassModelChatIncoming::findOne(array('filter' => array('chat_external_id' => $item->chat_id)));
+
+            if (!($incomingChat instanceof erLhcoreClassModelChatIncoming)) {
+                $incomingChat = new erLhcoreClassModelChatIncoming();
+                $incomingChat->chat_external_id = str_replace('{chat_id}', $item->chat_id, $incomingWebhook->conditions_array['chat_id_template']);
+                $incomingChat->incoming_id = $incomingWebhook->id;
+                $incomingChat->utime = time();
+                $incomingChat->incoming = $incomingWebhook;
+            } else {
+                $incomingChat->incoming = $incomingWebhook;
+                $incomingChat->incoming_id = $incomingWebhook->id;
+            }
+
+            $chat = new erLhcoreClassModelChat();
+
+            if ($item->dep_id > 0) {
+                $chat->dep_id = $item->dep_id;
+            } else {
+                $chat->dep_id = $incomingWebhook->dep_id;
+            }
+
+            $chat->nick = $incomingWebhook->name . ' ' . $item->chat_id;
+            $chat->time = time();
+            $chat->status = 1;
+            $chat->hash = erLhcoreClassChat::generateHash();
+            $chat->referrer = '';
+            $chat->session_referrer = '';
+            $chat->chat_variables = json_encode(array(
+                'iwh_id' => $incomingWebhook->id
+            ));
+
+            $msg = new erLhcoreClassModelmsg();
+            $msg->msg = $item->message;
+
+            $worker = 'http';
+
+            if ($item->create_chat == true) {
+                $worker = 'resque';
+
+                $chat->saveThis();
+                $incomingChat->chat_id = $chat->id;
+                $incomingChat->saveThis();
+
+                /**
+                 * Store new message
+                 */
+                $msg->chat_id = $chat->id;
+                $msg->user_id =  $item->user_id;
+                $msg->name_support = $item->name_support;
+                $msg->time = time();
+                $msg->saveThis();
+
+                if ($item->close_chat == 1) {
+                    $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
+                }
+
+                /**
+                 * Set appropriate chat attributes
+                 */
+                $chat->last_msg_id = $msg->id;
+                $chat->last_user_msg_time = $msg->time;
+                $chat->saveThis();
+            }
+
+            $chat->incoming_chat = $incomingChat;
+            $incomingChat->chat_id = $chat->id;
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('wh_worker' => $worker, 'msg' => & $msg, 'chat' => & $chat));
+
+            $db->commit();
+
+            if ($item->create_chat == true) {
+                /**
+                 * Execute standard callback as chat was started
+                 */
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started', array(
+                    'chat' => & $chat,
+                    'msg' => $msg
+                ));
+            }
+
+        } catch (Exception $e) {
+            $db->rollback();
+            throw $e;
+        }
 
         return $chat;
     }

@@ -8,6 +8,7 @@ $item->chat_id = '';
 $item->message = '';
 $item->dep_id = 0;
 $item->create_chat = false;
+$item->close_chat = false;
 
 /**
  * Has post data
@@ -15,11 +16,12 @@ $item->create_chat = false;
 if (ezcInputForm::hasPostData()) {
 
     $definition = array(
-        'incoming_api_id' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', null),
+        'incoming_api_id' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)),
         'message' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null),
         'chat_id' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null),
         'create_chat' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean', null),
-        'dep_id' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', null),
+        'close_chat' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean', null),
+        'dep_id' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)),
     );
 
     $Errors = array();
@@ -39,17 +41,23 @@ if (ezcInputForm::hasPostData()) {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('twilio/sendmessage','Please enter a message!');
     }
 
-    // Should we create a chat or just send an SMS
+    // Should we create a chat or just send an a message
     if ($form->hasValidData('create_chat') && $form->create_chat == true) {
         $item->create_chat = true;
     } else {
         $item->create_chat = false;
     }
 
+    if ($form->hasValidData('close_chat') && $form->close_chat == true) {
+        $item->close_chat = true;
+    } else {
+        $item->close_chat = false;
+    }
+
     if ($form->hasValidData('incoming_api_id')) {
         $item->incoming_api_id = $form->incoming_api_id;
     } else {
-        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('twilio/sendmessage','Please choose an API!');
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('twilio/sendmessage','Please choose a webhook!');
     }
 
     // Set department
@@ -62,22 +70,13 @@ if (ezcInputForm::hasPostData()) {
     if (empty($Errors))
     {
         try {
-
-            $chat = erLhcoreClassChatWebhookIncoming::sendMessage(erLhcoreClassModelChatIncomingWebhook::fetch($item->incoming_api_id), $item);
-
-            /*$currentUser = erLhcoreClassUser::instance();
+            $currentUser = erLhcoreClassUser::instance();
             $userData = $currentUser->getUserData();
 
-            $twilio = erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionTwilio');
-            $chat = $twilio->sendManualMessage(array(
-                'msg' => $input->message,
-                'phone_number' => $input->phone_number,
-                'create_chat' => $input->create_chat,
-                'dep_id' => $input->dep_id,
-                'operator_id' => $userData->id,
-                'name_support' => $userData->name_support,
-                'twilio_id' => $input->twilio_id,
-            ));*/
+            $item->user_id = $userData->id;
+            $item->name_support = (string)$userData->name_support;
+
+            $chat = erLhcoreClassChatWebhookIncoming::sendMessage(erLhcoreClassModelChatIncomingWebhook::fetch($item->incoming_api_id), $item);
 
             $tpl->set('updated',true);
             $tpl->set('chat',$chat);

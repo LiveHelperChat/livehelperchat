@@ -181,6 +181,7 @@ class erLhcoreClassGenericBotActionRestapi
         }
 
         $file_body = null;
+        $file_url = null;
         $file_name = null;
 
         $file_api = false;
@@ -196,6 +197,12 @@ class erLhcoreClassGenericBotActionRestapi
                 $file_body = 'data:'.$mediaFile->type.';base64,'.base64_encode(file_get_contents($mediaFile->file_path_server));
                 $file_name = $mediaFile->upload_name;
                 $file_api = true;
+
+                if (isset($_SERVER['HTTP_HOST'])) {
+                    $file_url = (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$mediaFile->id}/{$mediaFile->security_hash}";
+                } else {
+                    $file_url = erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->settings['site_address'] . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$mediaFile->id}/{$mediaFile->security_hash}";
+                }
             }
         }
 
@@ -215,6 +222,7 @@ class erLhcoreClassGenericBotActionRestapi
             '{{ip}}' => (string)erLhcoreClassIPDetect::getIP(),
             '{{media}}' => json_encode($media),
             '{{file_body}}' => $file_body,
+            '{{file_url}}' => $file_url,
             '{{file_name}}' => $file_name
         );
 
@@ -240,6 +248,7 @@ class erLhcoreClassGenericBotActionRestapi
             '{{ip}}' => json_encode(erLhcoreClassIPDetect::getIP()),
             '{{media}}' => json_encode($media),
             '{{file_body}}' => json_encode($file_body),
+            '{{file_url}}' => json_encode($file_url),
             '{{file_name}}' =>json_encode($file_name)
         );
 
@@ -843,7 +852,7 @@ class erLhcoreClassGenericBotActionRestapi
             if (is_array($partData)) {
                 if (isset($paramsOutput['implode'])) {
                     $output = "";
-                    foreach ($partData as $partDataItem){
+                    foreach ($partData as $partDataItem) {
                         $output .= (strpos($paramsOutput['implode'],'{item}') === false ? (string)$partDataItem : '').str_replace(["{n}","{item}"],["\n",(string)$partDataItem],$paramsOutput['implode']);
                     }
                     $partData = trim($output);
