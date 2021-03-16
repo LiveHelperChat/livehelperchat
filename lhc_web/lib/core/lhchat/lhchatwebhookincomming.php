@@ -283,6 +283,10 @@ class erLhcoreClassChatWebhookIncoming {
                 'status_sub_sub',
                 'last_msg_id')));
 
+            if (empty($eChat->payload)) {
+                $eChat->payload = json_encode($payloadAll);
+            }
+
             $eChat->utime = time();
             $eChat->updateThis();
 
