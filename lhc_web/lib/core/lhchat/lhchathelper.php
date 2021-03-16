@@ -237,9 +237,9 @@ class erLhcoreClassChatHelper
             $chat->updateThis();
         
             
-        } elseif ($changeStatus == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && $chat->user_id == $userData->id || $allowCloseRemote == true) {
+        } elseif ($changeStatus == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && ($chat->user_id == $userData->id || $allowCloseRemote == true)) {
         
-            if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT){
+            if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
                 $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat);
                 $chat->cls_time = time();
@@ -269,6 +269,13 @@ class erLhcoreClassChatHelper
         } elseif ($changeStatus == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) {
             $chat->status = erLhcoreClassModelChat::STATUS_OPERATORS_CHAT;
             $chat->updateThis(array('update' => array('status')));
+        } elseif ($changeStatus == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
+            // If chat is changed to pending reset assigned operator
+            erLhcoreClassChat::updateActiveChats($chat->user_id);
+
+            $chat->user_id = 0;
+            $chat->status = erLhcoreClassModelChat::STATUS_BOT_CHAT;
+            $chat->updateThis(array('update' => array('status','user_id')));
         }
         
         erLhcoreClassChat::updateActiveChats($chat->user_id);

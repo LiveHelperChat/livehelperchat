@@ -1139,8 +1139,7 @@
     </message>
     <message>
       <source>Custom page CSS (new widget only)</source>
-      <translation> 
-CSS pagina personalizzata (solo nuovo widget)</translation>
+      <translation>CSS pagina personalizzata (solo nuovo widget)</translation>
     </message>
     <message>
       <source>Custom html before start chat form fields, popup (bot mode)</source>
@@ -1424,8 +1423,7 @@ CSS pagina personalizzata (solo nuovo widget)</translation>
     </message>
     <message>
       <source>Close chat if page is refreshed. Usefull if you have embed code in popup.</source>
-      <translation> 
-Chiudi la chat se la pagina viene aggiornata. Utile se hai incorporato il codice nel popup.</translation>
+      <translation>Chiudi la chat se la pagina viene aggiornata. Utile se hai incorporato il codice nel popup.</translation>
     </message>
     <message>
       <source>Do not prefill offline message with chat messages.</source>
@@ -1453,8 +1451,7 @@ Chiudi la chat se la pagina viene aggiornata. Utile se hai incorporato il codice
     </message>
     <message>
       <source>Bubble style messages</source>
-      <translation>Stile  
-Messaggi in stile bolla</translation>
+      <translation>Messaggi in stile bolla</translation>
     </message>
     <message>
       <source>Hide chat status block</source>
@@ -1729,8 +1726,7 @@ Messaggi in stile bolla</translation>
     </message>
     <message>
       <source>Column icon, material icons text</source>
-      <translation> 
-Icona colonna, testo icone materiale</translation>
+      <translation>Icona colonna, testo material icons</translation>
     </message>
     <message>
       <source>Variable name</source>
@@ -1910,9 +1906,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Nick which will be used if we cannot determine returning user name</source>
-      <translation>Nick che verrà utilizzato se non è possibile determinare il nome utente di ritorno
- 
- </translation>
+      <translation>Nick che verrà utilizzato se non è possibile determinare il nome utente di ritorno</translation>
     </message>
     <message>
       <source>This is dynamic invitation</source>
@@ -3047,7 +3041,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Personal auto responder message</source>
-      <translation> Messaggio di risposta automatica personale</translation>
+      <translation>Messaggio di risposta automatica personale</translation>
     </message>
     <message>
       <source>Please enter a canned message</source>
@@ -5701,11 +5695,11 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Sort by last message time</source>
-      <translation type="unfinished"/>
+      <translation>Ordina per orario dell'ultimo messaggio</translation>
     </message>
     <message>
       <source>Sort by chat start time</source>
-      <translation type="unfinished"/>
+      <translation>Ordina per ora di inizio della chat</translation>
     </message>
     <message>
       <source>Sort by operator</source>
@@ -5801,7 +5795,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Last message</source>
-      <translation type="unfinished"/>
+      <translation>Ultimo messaggio</translation>
     </message>
     <message>
       <source>Department</source>
@@ -6390,7 +6384,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Send chat</source>
-      <translation type="unfinished"/>
+        <translation>Invia chat</translation>
     </message>
   </context>
   <context>
@@ -11235,7 +11229,7 @@ Icona colonna, testo icone materiale</translation>
     <name>permission/editrole</name>
     <message>
       <source>Edit function</source>
-      <translation>Modifica funzione </translation>
+      <translation>Modifica funzione</translation>
     </message>
     <message>
       <source>Limitation</source>
@@ -14760,20 +14754,18 @@ Icona colonna, testo icone materiale</translation>
     <name>chat/notifications</name>
     <message>
       <source>Subscribing...</source>
-      <translation> 
-Iscrizione ...
- </translation>
+      <translation>Iscrizione...</translation>
     </message>
   </context>
   <context>
     <name>chat/screenshare</name>
     <message>
       <source>Start screen share session</source>
-      <translation type="unfinished"/>
+      <translation>Inizia sessione condivisione schermo</translation>
     </message>
     <message>
       <source>Deny screen share</source>
-      <translation type="unfinished"/>
+      <translation>Rifiuta condivisione schermo</translation>
     </message>
   </context>
   <context>
