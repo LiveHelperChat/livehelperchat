@@ -124,17 +124,20 @@ export default function (dispatch, getState) {
 
         if (typeof e.data !== 'string') { return; }
 
+        var action = e.data.split(':')[0];
+
         if (typeof e.origin !== 'undefined') {
             
             var originDomain = e.origin.replace("http://", "").replace("https://", "").replace(/:(\d+)$/,'');
 
             // We allow to send events only from chat installation or page where script is embeded.
             if (originDomain !== document.domain && (typeof window.lhcChat['domain_lhc'] === 'undefined' || window.lhcChat['domain_lhc'] !== originDomain)) {
-                return;
+                // Third party domains can send only these two events
+                if (action != 'lhc_chat_closed_explicit' && action != 'lhc_survey_completed') {
+                    return;
+                }
             }
         }
-
-        var action = e.data.split(':')[0];
 
         if (action == 'lhc_chat_closed_explicit') {
             const state = getState();

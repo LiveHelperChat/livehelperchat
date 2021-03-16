@@ -110,6 +110,13 @@ class NodeTriggerActionQuickReply extends Component {
                     </div>
                 </div>
 
+                {this.props.reply.get('type') == 'url' && <div className="col-12">
+                    <div className="form-group">
+                        <label>Button ID</label>
+                        <input type="text" placeholder="Button ID" onChange={this.onButtonIDChange} defaultValue={this.props.reply.getIn(['content','button_id'])} className="form-control form-control-sm" />
+                    </div>
+                </div>}
+
                 {(this.props.reply.get('type') == 'trigger' || this.props.reply.get('type') == 'button') && <div className="col-10">
                     <div className="row">
                         <div className="col-4">
