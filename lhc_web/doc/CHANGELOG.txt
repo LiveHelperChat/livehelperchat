@@ -1,3 +1,10 @@
+3.68v
+
+1. Support fully https://github.com/open-wa/wa-automate-nodejs integration.
+2. In widget themes you can set that chat remained in widget once was opened in a popup.
+
+execute doc/update_db/update_240.sql for update
+
 3.67v
 
 1. Incoming webhooks support. You can integrate easily any third party API providers.

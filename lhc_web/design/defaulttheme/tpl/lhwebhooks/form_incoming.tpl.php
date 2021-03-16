@@ -152,17 +152,17 @@
         </div>
 
         <div class="form-group">
-            <label>URL To make request to get content</label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','URL To make request to get content');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_url_decode" value="" />
         </div>
 
         <div class="form-group">
-            <label>Request content</label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Request content');?></label>
             <textarea class="form-control" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_url_decode_content"></textarea>
         </div>
 
         <div class="form-group">
-            <label>Response location</label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Response location');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_url_decode_output" value="" />
         </div>
 
@@ -184,17 +184,17 @@
         </div>
 
         <div class="form-group">
-            <label>URL To make request to get content</label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','URL To make request to get content');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_url_decode" value="" />
         </div>
 
         <div class="form-group">
-            <label>Request content</label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Request content');?></label>
             <textarea class="form-control" ng-model="webhookincomingsctl.conditions.msg_cond_img_url_decode_content"></textarea>
         </div>
 
         <div class="form-group">
-            <label>Response location</label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Response location');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_url_decode_output" value="" />
         </div>
 
@@ -219,7 +219,7 @@
     </div>
 
     <div role="tabpanel" class="tab-pane form-group" id="wh_attributes">
-        <p>These attributes can be accessed in Rest API. So you would not need to define them there.</p>
+        <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','These attributes can be accessed in Rest API. So you would not need to define them there.');?></p>
 
         <button type="button" class="btn btn-secondary btn-sm" ng-click="webhookincomingsctl.addParam(webhookincomingsctl.conditions.attr)">Add parameter</button>
 
