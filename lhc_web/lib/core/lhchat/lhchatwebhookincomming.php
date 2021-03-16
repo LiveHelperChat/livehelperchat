@@ -566,6 +566,36 @@ class erLhcoreClassChatWebhookIncoming {
         }
     }
 
+    public function sendMessage($incomingWebhook, $item) {
+
+        $incomingChat = erLhcoreClassModelChatIncoming::findOne(array('filter' => array('chat_external_id' => $item->chat_id)));
+
+        if (!($incomingChat instanceof erLhcoreClassModelChatIncoming)) {
+            $incomingChat = new erLhcoreClassModelChatIncoming();
+            $incomingChat->chat_external_id = $item->chat_id;
+            $incomingChat->incoming_id = $incomingWebhook->id;
+            $incomingChat->utime = time();
+            $incomingChat->incoming = $incomingWebhook;
+        } else {
+            $incomingChat->incoming = $incomingWebhook;
+            $incomingChat->incoming_id = $incomingWebhook->id;
+        }
+
+
+        $chat = new erLhcoreClassModelChat();
+        $chat->incoming_chat = $incomingChat;
+        $chat->dep_id = $item->dep_id;
+
+        $incomingChat->chat_id = $chat->id;
+
+        $msg = new erLhcoreClassModelmsg();
+        $msg->msg = $item->message;
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg, 'chat' => & $chat));
+
+        return $chat;
+    }
+
 }
 
 ?>

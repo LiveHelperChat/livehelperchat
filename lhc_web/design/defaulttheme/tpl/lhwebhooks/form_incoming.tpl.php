@@ -3,9 +3,19 @@
     <input type="text" class="form-control form-control-sm" name="name" value="<?php echo htmlspecialchars($item->name);?>" />
 </div>
 
-<div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Identifier');?></label>
-    <input type="text" class="form-control form-control-sm" name="identifier" onkeyup="$('#api-incoming-url').val($('#api-incoming-url').attr('data-base')+$(this).val())" value="<?php echo htmlspecialchars($item->identifier);?>" />
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Identifier');?></label>
+            <input type="text" class="form-control form-control-sm" name="identifier" onkeyup="$('#api-incoming-url').val($('#api-incoming-url').attr('data-base')+$(this).val())" value="<?php echo htmlspecialchars($item->identifier);?>" />
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Scope. This should be the same for all same provider implementations.');?></label>
+            <input type="text" class="form-control form-control-sm" name="scope" value="<?php echo htmlspecialchars($item->scope);?>" />
+        </div>
+    </div>
 </div>
 
 <div class="form-group">
@@ -36,6 +46,7 @@
     <li role="presentation" class="nav-item"><a class="nav-link" href="#attachments" aria-controls="attachments" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attachments')?></a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#img-attachments" aria-controls="img-attachments" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Images')?></a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#chat_options" aria-controls="chat_options" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat options')?></a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#wh_attributes" aria-controls="wh_attributes" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attributes')?></a></li>
 </ul>
 
 <div class="tab-content">
@@ -110,7 +121,6 @@
         </div>
         <div class="form-group">
             <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_attachments_download" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Download attachment instead of using external URL');?></label>
-            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_attachments_base64" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','This is base64 encoded content');?></label>
 
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_body" value="" />
         </div>
@@ -127,7 +137,6 @@
         </div>
         <div class="form-group">
             <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_img_download" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Download image instead of using external URL');?></label>
-            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_img_base64" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','This is base64 encoded content');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_body" value="" />
         </div>
         <div class="form-group">
@@ -150,6 +159,26 @@
         </div>
     </div>
 
+    <div role="tabpanel" class="tab-pane form-group" id="wh_attributes">
+        <p>These attributes can be accessed in Rest API. So you would not need to define them there.</p>
+
+        <button type="button" class="btn btn-secondary btn-sm" ng-click="webhookincomingsctl.addParam(webhookincomingsctl.conditions.attr)">Add parameter</button>
+
+        <div ng-repeat="paramQuery in webhookincomingsctl.conditions.attr" class="mt-2">
+            <div class="row">
+                <div class="col-4">
+                    <input type="text" class="form-control form-control-sm" ng-model="paramQuery.key" placeholder="Key">
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control form-control-sm" ng-model="paramQuery.value" placeholder="Value">
+                </div>
+                <div class="col-1">
+                    <button type="button" class="btn btn-danger d-block w-100 btn-xs" ng-click="webhookincomingsctl.deleteParam(webhookincomingsctl.conditions.attr,paramQuery)">-</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 </div>
 

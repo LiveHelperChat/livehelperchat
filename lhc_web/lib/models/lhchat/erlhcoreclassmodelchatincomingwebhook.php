@@ -20,6 +20,7 @@ class erLhcoreClassModelChatIncomingWebhook {
             'dep_id'        => $this->dep_id,
             'disabled'      => $this->disabled,
             'identifier'    => $this->identifier,
+            'scope'         => $this->scope,
             'configuration' => $this->configuration
         );
     }
@@ -27,17 +28,29 @@ class erLhcoreClassModelChatIncomingWebhook {
     public function __get($var) {
         switch ($var) {
             case 'conditions_array':
+                $this->conditions_array = [];
 
-                if ($this->configuration == '[]') {
-                    $this->configuration = '{}';
+                if ($this->configuration != '') {
+                    $conditions_array = json_decode($this->configuration,true);
+                    if ($conditions_array !== null) {
+                        $this->conditions_array = $conditions_array;
+                    }
                 }
 
-                $conditions_array = json_decode($this->configuration,true);
-                if ($conditions_array === null) {
-                    $conditions_array = new stdClass();
+                if (!isset($this->conditions_array['attr'])) {
+                    $this->conditions_array['attr'] = [];
                 }
-                $this->conditions_array = $conditions_array;
+
                 return $this->conditions_array;
+
+            case 'attributes':
+                $attributes = [];
+                foreach ($this->conditions_array['attr'] as $attr) {
+                    $attributes[$attr['key']] = $attr['value'];
+                }
+                $this->attributes = $attributes;
+                return $this->attributes;
+
             default:
                 break;
         }
@@ -48,6 +61,8 @@ class erLhcoreClassModelChatIncomingWebhook {
     public $disabled = 0;
     public $dep_id = 0;
     public $configuration = '';
+    public $scope = '';
+    public $identifier = '';
 }
 
 ?>

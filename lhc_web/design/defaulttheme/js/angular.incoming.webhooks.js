@@ -19,4 +19,16 @@ lhcAppControllers.controller('WebhooksIncomingCtrl',['$scope','$http','$location
         this.conditions_json = JSON.stringify(this.conditions)
     }
 
+    this.addParam = function (params) {
+        params.push({
+            'key' : '',
+            'value' : '',
+            'id' : 'temp'+new Date().getTime()
+        });
+    }
+
+    this.deleteParam = function (params,param) {
+        params.splice(params.indexOf(param),1);
+    }
+
 }]);

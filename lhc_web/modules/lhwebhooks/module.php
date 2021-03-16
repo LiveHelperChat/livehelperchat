@@ -9,6 +9,11 @@ $ViewList['configuration'] = array(
     'functions' => array( 'configuration' )
 );
 
+$ViewList['pushchat'] = array(
+    'params' => array(),
+    'functions' => array( 'configuration' )
+);
+
 $ViewList['new'] = array(
     'params' => array(),
     'functions' => array( 'configuration' )

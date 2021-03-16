@@ -2,8 +2,6 @@
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhwebhooks/incomingwebhooks.tpl.php');
 
-
-
 if (isset($_GET['doSearch'])) {
     $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'webhooks', 'format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
     $filterParams['is_search'] = true;

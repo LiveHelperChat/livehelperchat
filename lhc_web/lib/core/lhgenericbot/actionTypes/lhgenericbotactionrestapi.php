@@ -420,6 +420,7 @@ class erLhcoreClassGenericBotActionRestapi
         }
 
         $url = rtrim($host) . str_replace(array_keys($replaceVariables), array_values($replaceVariables), (isset($methodSettings['suburl']) ? $methodSettings['suburl'] : '')) . '?' . http_build_query($queryArgs);
+
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);

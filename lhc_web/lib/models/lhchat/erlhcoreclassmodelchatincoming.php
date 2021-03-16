@@ -32,6 +32,10 @@ class erLhcoreClassModelChatIncoming {
                 $this->chat = erLhcoreClassModelChat::fetch($this->chat_id);
                 return $this->chat;
 
+            case 'incoming':
+                $this->incoming = erLhcoreClassModelChatIncomingWebhook::fetch($this->incoming_id);
+                return $this->incoming;
+
             case 'payload_array':
                 $this->payload_array = array();
                 if ($this->payload != '') {

@@ -1091,6 +1091,9 @@ class erLhcoreClassAdminChatValidatorHelper {
             'configuration' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'scope' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
             'disabled' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
@@ -1119,6 +1122,13 @@ class erLhcoreClassAdminChatValidatorHelper {
             $webhook->identifier = $form->identifier;
         } else {
             $webhook->identifier = '';
+        }
+
+        if ( $form->hasValidData( 'scope' ))
+        {
+            $webhook->scope = $form->scope;
+        } else {
+            $webhook->scope = '';
         }
 
         if ($form->hasValidData('disabled') && $form->disabled == true)
