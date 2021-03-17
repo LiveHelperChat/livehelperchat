@@ -281,6 +281,11 @@ export function updateUISettings(obj) {
 }
 
 export function initChatUI(obj) {
+
+    // We should always sync chat status
+    // As this value can be true if visitor starts another chat just
+    syncStatus.status = false;
+
     return function(dispatch, getState) {
         axios.post(window.lhcChat['base_url'] + "widgetrestapi/initchat", obj, defaultHeaders)
         .then((response) => {
