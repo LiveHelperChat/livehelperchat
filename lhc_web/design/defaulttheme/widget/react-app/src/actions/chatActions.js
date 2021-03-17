@@ -53,7 +53,7 @@ export function minimizeWidget() {
 export function endChat(obj, action) {
     action = action || "t";
     return function(dispatch, getState) {
-        axios.post(window.lhcChat['base_url'] + "chat/chatwidgetclosed/(eclose)/"+action+"/(hash)/" + obj['chat']['id'] +'_'+ obj['chat']['hash'] + '/(vid)/' + obj['vid'], null, defaultHeaders)
+        axios.post(window.lhcChat['base_url'] + "chat/chatwidgetclosed/(eclose)/"+action+"/(hash)/" + obj['chat']['id'] +'_'+ obj['chat']['hash'] + '/(vid)/' + obj['vid'] + '/(close)/' + (!obj.noClose ? '1' : '0'), null, defaultHeaders)
         .then((response) => {
             if (!obj.noClose) {
                 if (window.lhcChat['mode'] == 'popup') {
