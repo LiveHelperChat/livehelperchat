@@ -49,7 +49,16 @@ class LHCRestAPI {
 		    curl_setopt($ch,CURLOPT_POST,1);
 		    curl_setopt($ch,CURLOPT_POSTFIELDS,$params);
 		}
-		
+
+        if ($method == 'PUT') {
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+            curl_setopt($ch,CURLOPT_POSTFIELDS,$params);
+        }
+
+        if ($method == 'DELETE') {
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
+        }
+
 		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 		curl_setopt($ch, CURLOPT_USERPWD, $this->username . ':' . $this->apiKey);		
 		curl_setopt($ch, CURLOPT_URL, $this->host . '/restapi/' . $function . $manualAppend . $uparamsArg . $requestArgs);
