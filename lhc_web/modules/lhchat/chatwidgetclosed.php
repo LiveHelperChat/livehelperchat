@@ -88,7 +88,12 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
                 if ($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT || $Params['user_parameters_unordered']['close'] == '1') {
                     erLhcoreClassChat::lockDepartment($chat->dep_id, $db);
 
-                    $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
+                    $informVisitorLeft = false;
+
+                    if ($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED) {
+                        $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
+                        $informVisitorLeft = true;
+                    }
 
                     // It is close widget action with permanent close
                     // In that case we set as it was closed as survey completed
@@ -96,7 +101,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
                         $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED;
                     }
 
-                    if ($Params['user_parameters_unordered']['close'] != '1') {
+                    if ($informVisitorLeft == true) {
                         $msg = new erLhcoreClassModelmsg();
                         $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor has closed the chat explicitly!'), ENT_QUOTES);
                         $msg->chat_id = $chat->id;
@@ -165,26 +170,33 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 
             erLhcoreClassChat::lockDepartment($chat->dep_id, $db);
 
-            // From now chat will be closed explicitly
-            $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
+            if ($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED) {
 
-            $msg = new erLhcoreClassModelmsg();
-            $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor has closed the chat explicitly!'), ENT_QUOTES);;
-            $msg->chat_id = $chat->id;
-            $msg->user_id = -1;
-            $msg->time = time();
+                // From now chat will be closed explicitly
+                $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
 
-            erLhcoreClassChat::getSession()->save($msg);
+                if ($Params['user_parameters_unordered']['close'] == '1') {
+                    $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED;
+                }
 
-            // Set last message ID
-            if ($chat->last_msg_id < $msg->id) {
-                $chat->last_msg_id = $msg->id;
+                $msg = new erLhcoreClassModelmsg();
+                $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor has closed the chat explicitly!'), ENT_QUOTES);;
+                $msg->chat_id = $chat->id;
+                $msg->user_id = -1;
+                $msg->time = time();
+
+                erLhcoreClassChat::getSession()->save($msg);
+
+                // Set last message ID
+                if ($chat->last_msg_id < $msg->id) {
+                    $chat->last_msg_id = $msg->id;
+                }
+
+                $chat->updateThis(array('update' => array(
+                    'status_sub',
+                    'last_msg_id'
+                )));
             }
-
-            $chat->updateThis(array('update' => array(
-                'status_sub',
-                'last_msg_id'
-            )));
 
             if ($chat->has_unread_messages == 1 && $chat->last_user_msg_time < (time() - 5)) {
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.unread_chat', array('chat' => & $chat));
