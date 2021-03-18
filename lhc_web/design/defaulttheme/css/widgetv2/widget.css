@@ -960,3 +960,43 @@ textarea[name=ChatMessage] {
     text-decoration: none;
     background-color: #eaeaea;
 }
+
+.new-msg-holder {
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-top:-26px;
+    border-bottom-style: dashed!important;
+}
+
+.new-msg{
+    padding: 0px 5px;
+    font-weight: bold;
+    line-height:21px;
+}
+
+.btn-bottom-scroll {
+    bottom:5px;
+    text-align: center;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.btn-bottom-scroll > button{
+    border-radius:15px;
+    padding: 3px 10px;
+    opacity: 0.85;
+}
+
+.fade-in-fast {
+    animation: fadeInFast ease 2s;
+    -webkit-animation: fadeInFast ease 2s;
+    -moz-animation: fadeInFast ease 2s;
+    -o-animation: fadeInFast ease 2s;
+    -ms-animation: fadeInFast ease 2s;
+}
+
+@keyframes fadeInFast {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}

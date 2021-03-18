@@ -148,7 +148,7 @@ class ChatMessage extends PureComponent {
 
     imageLoaded(attrs) {
         if (this.props.scrollBottom) {
-            this.props.scrollBottom();
+            this.props.scrollBottom(true);
         }
     }
 
@@ -225,9 +225,11 @@ class ChatMessage extends PureComponent {
 
     render() {
 
+        const { t } = this.props;
+
         var operatorChanged = false;
 
-        return parse(this.props.msg['msg'], {
+        var messages = parse(this.props.msg['msg'], {
 
             replace: domNode => {
                 if (domNode.attribs) {
@@ -307,6 +309,8 @@ class ChatMessage extends PureComponent {
                 }
             }
         });
+
+        return <React.Fragment>{this.props.hasNew == true && this.props.id == this.props.newId && <div id="scroll-to-message" className="message-admin border-bottom new-msg-holder border-danger text-center"><span className="new-msg bg-danger text-white d-inline-block fs12 rounded-top">{this.props.newTitle}</span></div>}{messages}</React.Fragment>
     }
 }
 

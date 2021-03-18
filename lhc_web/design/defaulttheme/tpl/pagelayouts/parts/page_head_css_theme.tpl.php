@@ -139,6 +139,36 @@ div.message-admin div.meta-message{
 }
 <?php endif; ?>
 
+<?php if (
+        (isset($theme->bot_configuration_array['bg_scroll_bottom']) && $theme->bot_configuration_array['bg_scroll_bottom'] != '') ||
+         (isset($theme->bot_configuration_array['text_scroll_bottom']) && $theme->bot_configuration_array['text_scroll_bottom'] != '')
+) : ?>
+.btn-bottom-scroll > button{
+    <?php if (isset($theme->bot_configuration_array['text_scroll_bottom']) && $theme->bot_configuration_array['text_scroll_bottom'] != '') : ?>
+    color: #<?php echo $theme->bot_configuration_array['text_scroll_bottom']?>!important;
+    <?php endif; ?>
+    <?php if (isset($theme->bot_configuration_array['bg_scroll_bottom']) && $theme->bot_configuration_array['bg_scroll_bottom'] != '') : ?>
+    background-color: #<?php echo $theme->bot_configuration_array['bg_scroll_bottom']?>!important;
+    border-color: #<?php echo $theme->bot_configuration_array['bg_scroll_bottom']?>!important;
+    <?php endif; ?>
+}
+<?php endif; ?>
+
+<?php if (isset($theme->bot_configuration_array['bg_new_msg']) && $theme->bot_configuration_array['bg_new_msg'] != '') : ?>
+    #scroll-to-message {
+        border-bottom-color: #<?php echo $theme->bot_configuration_array['bg_new_msg']?>!important;
+    }
+    .new-msg-holder > .new-msg {
+        background-color: #<?php echo $theme->bot_configuration_array['bg_new_msg']?>!important;
+    }
+<?php endif; ?>
+
+<?php if (isset($theme->bot_configuration_array['new_msg_text_color']) && $theme->bot_configuration_array['new_msg_text_color'] != '') : ?>
+.new-msg-holder > .new-msg {
+    color: #<?php echo $theme->bot_configuration_array['new_msg_text_color']?>!important;
+}
+<?php endif; ?>
+
 <?php echo $theme->custom_widget_css?>
 
 <?php if (isset($popup) && $popup == true) : ?>

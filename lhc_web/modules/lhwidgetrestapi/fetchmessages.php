@@ -29,6 +29,7 @@ $saveChat = false;
 $operation = '';
 $operatorId = 0;
 $visitorTotalMessages = 0;
+$operatorTotalMessages = 0;
 
 $responseArray = array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT, 'status_sub' => erLhcoreClassModelChat::STATUS_SUB_DEFAULT);
 
@@ -129,6 +130,8 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 
 				        	if ($msg['user_id'] == 0) {
                                 $visitorTotalMessages++;
+                            } else {
+                                $operatorTotalMessages++;
                             }
 
                             if ((int)$requestPayload['lmgsid'] == 0) {
@@ -222,6 +225,11 @@ $responseArray['ott'] = $ott;
 // Append how many of messages ones are visitor ones
 if ($visitorTotalMessages > 0) {
     $responseArray['vtm'] = $visitorTotalMessages;
+}
+
+// Append how many of messages ones are visitor ones
+if ($operatorTotalMessages > 0) {
+    $responseArray['otm'] = $operatorTotalMessages;
 }
 
 $responseArray['message_id'] = (int)$LastMessageID;

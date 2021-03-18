@@ -486,6 +486,10 @@ class erLhAbstractModelWidgetTheme {
             'min_text',
             'popup_text',
             'end_chat_text',
+            'cnew_msgh',
+            'cnew_msg',
+            'cscroll_btn',
+            'cnew_msgm',
         ),$attributesDirect);
 
         $attributes = $this->bot_configuration_array;

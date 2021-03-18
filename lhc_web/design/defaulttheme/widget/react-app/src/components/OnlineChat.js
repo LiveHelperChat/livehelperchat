@@ -39,7 +39,11 @@ class OnlineChat extends Component {
         gotToSurvey : false,
         voiceMode : false,
         showMail : false,
-        errorMode: false
+        errorMode: false,
+        hasNew: false,
+        newId: 0, // From what index there is a new messages
+        scrollButton: false,
+        otm: 0 // New operator messages
     };
 
     constructor(props) {
@@ -73,6 +77,8 @@ class OnlineChat extends Component {
         this.goToSurvey = this.goToSurvey.bind(this);
         this.startVoiceRecording = this.startVoiceRecording.bind(this);
         this.cancelVoiceRecording = this.cancelVoiceRecording.bind(this);
+        this.onScrollMessages = this.onScrollMessages.bind(this);
+        this.scrollToMessage = this.scrollToMessage.bind(this);
 
         // Messages Area
         this.messagesAreaRef = React.createRef();
@@ -91,6 +97,7 @@ class OnlineChat extends Component {
         this.intervalFunction = null;
         this.unhideDelayedTimer = null;
         this.pendingMetaUpdate = false;
+        this.timeoutNewMessage = null;
 
         this.isTyping = false;
         this.typingStopped = null;
@@ -128,6 +135,39 @@ class OnlineChat extends Component {
     handleChange(event) {
         this.setState({value: event.target.value});
         helperFunctions.setSessionStorage('_ttxt',event.target.value);
+    }
+
+    onScrollMessages() {
+        if (this.messagesAreaRef.current) {
+            let scrollValue = this.messagesAreaRef.current.scrollHeight - this.messagesAreaRef.current.scrollTop;
+            // Scroll to bottom if from bottom there is already less than 70px
+            if ((scrollValue - this.messagesAreaRef.current.offsetHeight) > 70 ) {
+                if (this.state.scrollButton !== true) {
+                    this.setState({scrollButton: true});
+                }
+            } else if (this.state.scrollButton !== false) {
+                this.setState({scrollButton: false, otm: 0});
+            }
+        }
+    }
+
+    scrollToMessage() {
+
+        if (this.state.hasNew == true) {
+            clearTimeout(this.timeoutNewMessage);
+            this.timeoutNewMessage = setTimeout(() => {this.setState({hasNew: false, newId: 0})},1000);
+        }
+
+        if (this.state.hasNew == true && this.state.otm > 0) {
+            this.setState({otm: 0})
+            try {
+                document.getElementById('scroll-to-message').scrollIntoView();
+            } catch (e) {
+                this.scrollBottom();
+            }
+        } else {
+            this.scrollBottom();
+        }
     }
 
     componentDidMount() {
@@ -362,26 +402,54 @@ class OnlineChat extends Component {
         clearInterval(this.intervalPending);
         clearInterval(this.typingStopped);
         clearTimeout(this.unhideDelayedTimer);
+        clearTimeout(this.timeoutNewMessage);
     }
 
     // https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html
     getSnapshotBeforeUpdate(prevProps, prevState) {
         // Are we adding new item
         if (prevProps.chatwidget.getIn(['chatLiveData','messages']).size != this.props.chatwidget.getIn(['chatLiveData','messages']).size) {
-            if (prevProps.chatwidget.getIn(['chatLiveData','messages']).size != 0 && this.props.chatwidget.getIn(['chatLiveData','uw']) === false) {
-                helperFunctions.emitEvent('play_sound', [{'type' : 'new_message','sound_on' : (this.props.chatwidget.getIn(['usersettings','soundOn']) === true), 'widget_open' : ((this.props.chatwidget.get('shown') && this.props.chatwidget.get('mode') == 'widget') || (this.props.chatwidget.get('mode') != 'widget' && document.hasFocus()))}]);
-            }
 
-            this.setState({valueSend: false});
+            let setScroll = false;
+            let setScrollBottom = true;
+            let scrollValue = 0;
 
-            if (this.messagesAreaRef.current){
-                let scrollValue = this.messagesAreaRef.current.scrollHeight - this.messagesAreaRef.current.scrollTop;
+            if (this.messagesAreaRef.current) {
+                scrollValue = this.messagesAreaRef.current.scrollHeight - this.messagesAreaRef.current.scrollTop;
 
                 // Scroll to bottom if from bottom there is already less than 70px
                 if ((scrollValue - this.messagesAreaRef.current.offsetHeight) < 70) {
                     scrollValue = 0;
+                } else {
+                    setScrollBottom = false
                 }
 
+                setScroll = true;
+            }
+
+            let hasNewMessages = this.state.hasNew;
+            let oldId = hasNewMessages == true ? this.state.newId : 0;
+            let otm = hasNewMessages == true ? this.state.otm : 0;
+
+            if (prevProps.chatwidget.getIn(['chatLiveData','messages']).size != 0 && this.props.chatwidget.getIn(['chatLiveData','uw']) === false) {
+                let widgetOpen = ((this.props.chatwidget.get('shown') && this.props.chatwidget.get('mode') == 'widget') || (this.props.chatwidget.get('mode') != 'widget' && document.hasFocus()));
+                helperFunctions.emitEvent('play_sound', [{'type' : 'new_message','sound_on' : (this.props.chatwidget.getIn(['usersettings','soundOn']) === true), 'widget_open' : widgetOpen}]);
+                if (hasNewMessages == false) {
+                    hasNewMessages = widgetOpen == false || window.lhcChat['is_focused'] == false || setScrollBottom == false;
+                    oldId = hasNewMessages == true ? prevProps.chatwidget.getIn(['chatLiveData','messages']).size : 0;
+                    otm = this.props.chatwidget.getIn(['chatLiveData','otm']);
+                } else {
+                    otm += this.props.chatwidget.getIn(['chatLiveData','otm']);
+                }
+            } else {
+                hasNewMessages = false;
+                oldId = 0;
+                otm = 0;
+            }
+
+            this.setState({valueSend: false, hasNew: hasNewMessages, newId: oldId, otm: otm, scrollButton: !setScrollBottom});
+
+            if (setScroll == true) {
                 return (
                     (scrollValue)
                 );
@@ -463,8 +531,8 @@ class OnlineChat extends Component {
         }
     }
 
-    scrollBottom() {
-        if (this.messagesAreaRef.current) {
+    scrollBottom(onlyIfAtBottom) {
+        if (this.messagesAreaRef.current && (!onlyIfAtBottom || !this.state.scrollButton)) {
 
             this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
 
@@ -526,6 +594,7 @@ class OnlineChat extends Component {
 
         this.currentMessageTyping = '';
         this.focusMessage();
+        this.scrollBottom();
     }
 
     enterKeyDown(e) {
@@ -664,7 +733,7 @@ class OnlineChat extends Component {
         } else {
 
             if (this.props.chatwidget.get('chatLiveData').has('messages')) {
-                var messages = this.props.chatwidget.getIn(['chatLiveData','messages']).map((msg, index) =><ChatMessage voiceCall={this.voiceCall} endChat={this.props.endChat} setMetaUpdateState={this.setMetaUpdateState} sendDelay={this.sendDelay} setEditorEnabled={this.setEditorEnabled} abstractAction={this.abstractAction} updateStatus={this.updateStatus} focusMessage={this.focusMessage} updateMessages={this.updateMessages} scrollBottom={this.scrollBottom} id={index} key={'msg_'+index} msg={msg} />);
+                var messages = this.props.chatwidget.getIn(['chatLiveData','messages']).map((msg, index) =><ChatMessage newTitle={this.props.chatwidget.getIn(['chat_ui','cnew_msgh']) || t('button.new')} newId={this.state.newId} hasNew={this.state.hasNew} voiceCall={this.voiceCall} endChat={this.props.endChat} setMetaUpdateState={this.setMetaUpdateState} sendDelay={this.sendDelay} setEditorEnabled={this.setEditorEnabled} abstractAction={this.abstractAction} updateStatus={this.updateStatus} focusMessage={this.focusMessage} updateMessages={this.updateMessages} scrollBottom={this.scrollBottom} id={index} key={'msg_'+index} msg={msg} />);
             } else {
                 var messages = "";
             }
@@ -773,11 +842,12 @@ class OnlineChat extends Component {
 
                     {this.props.chatwidget.hasIn(['chatStatusData','result']) && !this.props.chatwidget.hasIn(['chat_ui','hide_status']) && this.props.chatwidget.getIn(['chatStatusData','result']) && <div id="chat-status-container" className={"p-2 border-bottom live-status-"+this.props.chatwidget.getIn(['chatLiveData','status'])}><ChatStatus updateStatus={this.updateStatus} vtm={this.props.chatwidget.hasIn(['chat_ui','switch_to_human']) && this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_BOT_CHAT ? this.props.chatwidget.getIn(['chatLiveData','vtm']) : 0} status={this.props.chatwidget.getIn(['chatStatusData','result'])} /></div>}
 
-                    <div className={msg_expand} id="messagesBlock">
+                    <div className={msg_expand} id="messagesBlock" onScroll={this.onScrollMessages}>
                         <div className={bottom_messages} id="messages-scroll" ref={this.messagesAreaRef}>
                             {this.props.chatwidget.hasIn(['chat_ui','prev_chat']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','prev_chat'])}}></div>}
                             {messages}
                         </div>
+                        {this.state.scrollButton && <div className="position-absolute btn-bottom-scroll fade-in-fast"><button type="button" onClick={this.scrollToMessage} className="btn btn-sm btn-secondary">{(this.state.hasNew && this.state.otm > 0 && <div><i className="material-icons">&#xf11a;</i>{this.state.otm} {(this.state.otm == 1 ? (this.props.chatwidget.getIn(['chat_ui','cnew_msg']) || t('button.new_msg')) : (this.props.chatwidget.getIn(['chat_ui','cnew_msgm']) || t('button.new_msgm')))}</div>) || (this.props.chatwidget.getIn(['chat_ui','cscroll_btn']) || t('button.scroll_bottom'))}</button></div>}
                     </div>
 
                     <div className={(this.props.chatwidget.get('msgLoaded') === false || this.state.enabledEditor === false ? 'd-none ' : 'd-flex ') + "flex-row border-top position-relative message-send-area"} >
@@ -802,7 +872,7 @@ class OnlineChat extends Component {
 
                         <div className={message_send_style}>
                             {this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.hasIn(['chat_ui','survey_id']) && <button onClick={this.goToSurvey} className="w-100 btn btn-success">{t('online_chat.go_to_survey')}</button>}
-                            {(!this.props.chatwidget.getIn(['chatLiveData','closed']) || !this.props.chatwidget.hasIn(['chat_ui','survey_id'])) && <textarea maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} onFocus={this.scrollBottom} onTouchStart={this.scrollBottom} onKeyUp={this.keyUp} readOnly={this.props.chatwidget.getIn(['chatLiveData','closed']) || this.props.chatwidget.get('network_down')} id="CSChatMessage" placeholder={placeholder} onKeyDown={this.enterKeyDown} value={!this.props.chatwidget.getIn(['chatLiveData','closed']) ? this.state.value : ''} onChange={this.handleChange} ref={this.textMessageRef} rows="1" className={"pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0 "+((this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/8.6))) ? 'msg-two-line' : 'msg-one-line')} />}
+                            {(!this.props.chatwidget.getIn(['chatLiveData','closed']) || !this.props.chatwidget.hasIn(['chat_ui','survey_id'])) && <textarea onTouchStart={this.scrollBottom} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} onKeyUp={this.keyUp} readOnly={this.props.chatwidget.getIn(['chatLiveData','closed']) || this.props.chatwidget.get('network_down')} id="CSChatMessage" placeholder={placeholder} onKeyDown={this.enterKeyDown} value={!this.props.chatwidget.getIn(['chatLiveData','closed']) ? this.state.value : ''} onChange={this.handleChange} ref={this.textMessageRef} rows="1" className={"pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0 "+((this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/8.6))) ? 'msg-two-line' : 'msg-one-line')} />}
                         </div>
 
                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && !this.props.chatwidget.get('network_down') && <div className="disable-select">

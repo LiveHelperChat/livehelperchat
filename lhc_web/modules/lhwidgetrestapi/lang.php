@@ -23,7 +23,11 @@ $translations = array(
         "record_voice" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Record voice message'),
         "start_chat_With_us" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Start a chat with us!'),
         "cancel" => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel'),
-        "voice" => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Voice call')
+        "voice" => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Voice call'),
+        "scroll_bottom" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','↓ Scroll to the bottom'),
+        "new_msg" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','New message!'),
+        "new_msgm" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','New messages!'),
+        "new" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','New')
     ],
     "chat" => [
         "option_sound" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new messages from the operator'),
