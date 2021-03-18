@@ -41,6 +41,8 @@ class BodyChat extends Component {
         this.messagesHTML = null;
         this.hideMessageField = false;
         this.botPayload = null;
+
+        helperFunctions.eventEmitter.addListener('end_chat_visitor', (e) => this.endChat());
     }
 
     cancelClose() {
