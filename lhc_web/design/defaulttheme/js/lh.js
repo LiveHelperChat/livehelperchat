@@ -2153,6 +2153,19 @@ function lh(){
 
 	this.hidenicknamesstatus = null;
 
+	this.onScrollAdmin = function(chat_id)
+    {
+        var messageBlock = $('#messagesBlock-'+chat_id);
+        var scrollHeight = messageBlock.prop("scrollHeight");
+        var isAtTheBottom = Math.abs((scrollHeight - messageBlock.prop("scrollTop")) - messageBlock.prop("clientHeight"));
+
+        if (isAtTheBottom > 20) {
+            console.log('up in the content');
+        } else {
+            console.log('at the bottom');
+        }
+    }
+
     this.syncadmincall = function()
 	{
 	    if (this.chatsSynchronising.length > 0)
@@ -2197,6 +2210,10 @@ function lh(){
                                             mainElement.append('<span rel="'+item.mn+'" class="msg-nm"> ('+item.mn+')</span>');
                                             mainElement.addClass('has-pm');
                                         }
+                                    }
+
+                                    if (isAtTheBottom > 20) {
+                                        needUnreadSeparator = true;
                                     }
 
                                     if (needUnreadSeparator == true && document.getElementById('unread-separator-'+item.chat_id) === null) {

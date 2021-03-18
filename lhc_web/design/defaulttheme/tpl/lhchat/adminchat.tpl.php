@@ -15,7 +15,7 @@
 
             <?php include(erLhcoreClassDesign::designtpl('lhchat/part/load_previous.tpl.php'));?>
 
-			<div class="msgBlock msgBlock-admin" id="messagesBlock-<?php echo $chat->id?>">
+			<div class="msgBlock msgBlock-admin" id="messagesBlock-<?php echo $chat->id?>" onscroll="lhinst.onScrollAdmin(<?php echo $chat->id?>)">
 				<?php include(erLhcoreClassDesign::designtpl('lhchat/syncadmin.tpl.php'));?>
 				<?php if (isset($msg)) {	$LastMessageID = $msg['id'];} ?>
 
