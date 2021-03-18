@@ -103,8 +103,10 @@ try {
 
                 $theme->translate();
 
-                if (isset($theme->bot_configuration_array['placeholder_message']) && !empty($theme->bot_configuration_array['placeholder_message'])) {
-                    $outputResponse['chat_ui']['placeholder_message'] = $theme->bot_configuration_array['placeholder_message'];
+                foreach (array('placeholder_message','cnew_msgh','cnew_msg','cscroll_btn','cnew_msgm','min_text','popup_text','end_chat_text') as $attrTranslate) {
+                    if (isset($theme->bot_configuration_array[$attrTranslate]) && !empty($theme->bot_configuration_array[$attrTranslate])) {
+                        $outputResponse['chat_ui'][$attrTranslate] = $theme->bot_configuration_array[$attrTranslate];
+                    }
                 }
 
                 if (isset($theme->bot_configuration_array['hide_status']) && $theme->bot_configuration_array['hide_status'] == true) {
@@ -140,12 +142,6 @@ try {
 
                 if ($theme->minimize_image_url != '') {
                     $outputResponse['chat_ui']['img_icon_min'] = $theme->minimize_image_url;
-                }
-
-                foreach (array('min_text','popup_text','end_chat_text') as $textIcon) {
-                    if (isset($theme->bot_configuration_array[$textIcon]) && $theme->bot_configuration_array[$textIcon] != '') {
-                        $outputResponse['chat_ui'][$textIcon] = $theme->bot_configuration_array[$textIcon];
-                    }
                 }
 
                 if (isset($theme->bot_configuration_array['survey_button']) && $theme->bot_configuration_array['survey_button'] == true) {
