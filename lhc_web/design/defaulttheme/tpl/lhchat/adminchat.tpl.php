@@ -25,7 +25,11 @@
 				<?php include(erLhcoreClassDesign::designtpl('lhchat/userjoined.tpl.php')); ?>
 				<?php endif;?>
 			</div>
-			
+
+            <div class="position-absolute btn-bottom-scroll fade-in-fast d-none" id="scroll-button-admin-<?php echo $chat->id?>">
+                <button type="button" onclick="lhinst.scrollToTheBottomMessage(<?php echo $chat->id?>)" class="btn btn-sm btn-secondary" data-new="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','New message!')?>" data-default="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','↓ Scroll to the bottom')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','↓ Scroll to the bottom')?></button>
+            </div>
+
 		</div>
 
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/above_textarea.tpl.php')); ?>

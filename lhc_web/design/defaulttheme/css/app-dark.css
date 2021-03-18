@@ -1889,3 +1889,16 @@ html {
 .nav-small a.nav-link{
     padding: 0.4rem 0.5rem;
 }
+
+.btn-bottom-scroll {
+    bottom:5px;
+    text-align: center;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.btn-bottom-scroll > button{
+    border-radius:15px;
+    padding: 3px 10px;
+    opacity: 0.85;
+}

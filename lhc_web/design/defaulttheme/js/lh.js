@@ -2160,9 +2160,23 @@ function lh(){
         var isAtTheBottom = Math.abs((scrollHeight - messageBlock.prop("scrollTop")) - messageBlock.prop("clientHeight"));
 
         if (isAtTheBottom > 20) {
-            console.log('up in the content');
+            $('#scroll-button-admin-'+chat_id).removeClass('d-none');
         } else {
-            console.log('at the bottom');
+            $('#scroll-button-admin-'+chat_id).addClass('d-none').find('> button').text($('#scroll-button-admin-'+chat_id+' > button').attr('data-default'));
+        }
+    }
+
+    this.scrollToTheBottomMessage = function(chat_id)
+    {
+        var unreadSeparator = $('#unread-separator-'+chat_id);
+        if (unreadSeparator.length > 0) {
+            unreadSeparator[0].scrollIntoView();
+            setTimeout(function(){
+                unreadSeparator.remove();
+            },1000);
+        } else {
+            var messagesBlock = $('#messagesBlock-'+chat_id);
+            messagesBlock.scrollTop(messagesBlock.prop('scrollHeight'));
         }
     }
 
@@ -2214,6 +2228,7 @@ function lh(){
 
                                     if (isAtTheBottom > 20) {
                                         needUnreadSeparator = true;
+                                        $('#scroll-button-admin-'+item.chat_id+' > button').text($('#scroll-button-admin-'+item.chat_id+' > button').attr('data-new'));
                                     }
 
                                     if (needUnreadSeparator == true && document.getElementById('unread-separator-'+item.chat_id) === null) {
