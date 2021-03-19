@@ -49,6 +49,7 @@ export default function (dispatch, getState) {
         {id : 'reopenNotification', cb : (data) => {dispatch({type: 'CHAT_ALREADY_STARTED', data: {'id' : data.id, 'hash' : data.hash}})}},
         {id : 'subcribedEvent', cb : (e) => {dispatch(storeSubscriber(e.payload))}},
         {id : 'attr_set', cb : (data) => {dispatch({type: 'attr_set', attr : data.attr, data : data.data})}},
+        {id : 'attr_rem', cb : (data) => {dispatch({type: 'attr_rem', attr : data.attr})}},
         {id : 'dispatch_event', cb : (data) => {
 
                 const state = getState();

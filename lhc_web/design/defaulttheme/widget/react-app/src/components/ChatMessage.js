@@ -182,6 +182,12 @@ class ChatMessage extends PureComponent {
                     args = JSON.parse(attr['data-bot-args']);
                 }
                 helperFunctions.emitEvent('extensionExecute',[attr['data-bot-extension'],[args]]);
+            } else if (attr['data-bot-emit']) {
+                var args = {};
+                if (typeof attr['data-bot-args'] !== 'undefined') {
+                    args = JSON.parse(attr['data-bot-args']);
+                }
+                helperFunctions.emitEvent(attr['data-bot-emit'],[args]);
             } else if (attr['data-bot-event']) {
                 this.props[attr['data-bot-event']]();
             } else {

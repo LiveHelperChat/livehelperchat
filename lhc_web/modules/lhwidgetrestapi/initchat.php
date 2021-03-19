@@ -262,6 +262,16 @@ try {
             }
         }
 
+        if (isset($chatVariables['lhc_ds'])) {
+            if ((int)$chatVariables['lhc_ds'] == 0) {
+                if (isset($outputResponse['chat_ui']['survey_id'])) {
+                    unset($outputResponse['chat_ui']['survey_id']);
+                }
+            } else {
+                $outputResponse['chat_ui']['survey_id'] = (int)$chatVariables['lhc_ds'];
+            }
+        }
+
         if (isset($fileData['sound_messages']) && $fileData['sound_messages'] == true) {
             $outputResponse['chat_ui']['voice_message'] = $fileData['sound_length'];
         }
