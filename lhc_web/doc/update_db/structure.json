@@ -470,6 +470,15 @@
         "collation": "utf8mb4_unicode_ci"
       },
       {
+        "field": "configuration",
+        "type": "longtext",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
         "field": "max_stars_1_title",
         "type": "varchar(250)",
         "null": "NO",

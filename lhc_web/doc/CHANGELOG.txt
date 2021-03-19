@@ -1,15 +1,26 @@
+3.69v
+
+1. Survey control from a bot - https://doc.livehelperchat.com/docs/bot/survey-control-from-bot
+2. Scroll to the bottom UI for the operator and widget
+3. Another option to close widget from website itself. Gracefully https://doc.livehelperchat.com/docs/javascript-arguments/#to-end-the-chat
+4. Do not not close widget if automatic start chat is checked in widget themes.
+5. Rest API file updated to support PUT, DELETE methods.
+6. Custom post survey support - https://doc.livehelperchat.com/docs/integrating/custom-post-survey/
+
+execute doc/update_db/update_242.sql for update
+
 3.68v
 
 1. Support fully https://github.com/open-wa/wa-automate-nodejs integration.
 2. In widget themes you can set that chat remained in widget once was opened in a popup.
 
-execute doc/update_db/update_240.sql for update
+execute doc/update_db/update_241.sql for update
 
 3.67v
 
 1. Incoming webhooks support. You can integrate easily any third party API providers.
 
-execute doc/update_db/update_239.sql for update
+execute doc/update_db/update_240.sql for update
 
 3.66v
 
