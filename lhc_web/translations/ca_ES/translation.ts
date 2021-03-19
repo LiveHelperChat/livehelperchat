@@ -2,6 +2,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Quants dies després de l&apos;última visualització ha de romandre ocult el widget de votació</translation>
     </message>
@@ -666,6 +674,18 @@
       <translation>Estil els missatges dels agents</translation>
     </message>
     <message>
+      <source>New message separator style</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Scroll to the bottom style</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Override embed code settings</source>
       <translation type="unfinished"/>
     </message>
@@ -1078,6 +1098,10 @@
       <translation>Permet ocultar el pop-up</translation>
     </message>
     <message>
+      <source>If visitor opens a popup keep chat in the widget also</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Header height (px)</source>
       <translation>Alçada de la capçalera (px)</translation>
     </message>
@@ -1479,6 +1503,34 @@
     </message>
     <message>
       <source>Enable embed code override</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New messages text. 1 message case</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New messages text. 2 or more new messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Scroll to the bottom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Scroll to the bottom background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New message text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New message text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New message background color</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5262,6 +5314,14 @@
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>↓ Scroll to the bottom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat is currently unavailable</source>
       <translation type="unfinished"/>
     </message>
@@ -5695,6 +5755,14 @@
     </message>
     <message>
       <source>Start a chat with us!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New message!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New messages!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6580,6 +6648,22 @@
     </message>
     <message>
       <source>Chat is currently unavailable. Please try again later.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New message!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New messages!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>↓ Scroll to the bottom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7984,6 +8068,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     </message>
     <message>
       <source>Incoming webhooks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send webhook message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13840,9 +13928,17 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <source>New</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Push chat</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/webhooks</name>
+    <message>
+      <source>Text messages</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Hooks events</source>
       <translation type="unfinished"/>
@@ -13944,7 +14040,15 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Scope. This should be the same for all same provider implementations.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>URL to put in third party Rest API service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show integration information.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13952,7 +14056,11 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Text messages</source>
+      <source>Text messages 1</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text messages 2</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13968,11 +14076,27 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Messages attribute location</source>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>This attribute contains direct message and NOT a messages array</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13981,6 +14105,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     </message>
     <message>
       <source>Chat ID field location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID Template for manual message sending. Use {chat_id} as placeholder</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13997,6 +14125,18 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     </message>
     <message>
       <source>Download attachment instead of using external URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>URL To make request to get content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Request content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response location</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14029,6 +14169,10 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     </message>
     <message>
       <source>Operator should be reset if chat being transferred to pending state.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>These attributes can be accessed in Rest API. So you would not need to define them there.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -15271,6 +15415,76 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
     </message>
     <message>
       <source>Deny screen share</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>webhook/push</name>
+    <message>
+      <source>New chat based on incoming webhook</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Open chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will initiate chat as it was response to incoming webhook.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Webhook</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient. (chatId). In most cases it is just a phone number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department. If you do not choose one we will use the one defined in webhook.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Create chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set created chat status as closed. Visitor reply will initiate chat according to incoming webhook configuration.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message was send!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a webhook</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>twilio/sendmessage</name>
+    <message>
+      <source>Please enter chatId!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a message!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a webhook!</source>
       <translation type="unfinished"/>
     </message>
   </context>
