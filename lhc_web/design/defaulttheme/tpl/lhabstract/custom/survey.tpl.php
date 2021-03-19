@@ -20,6 +20,14 @@
 <?php echo erLhcoreClassAbstract::renderInput('feedback_text', $fields['feedback_text'], $object)?>
 </div>
 
+<div class="form-group">
+    <label><?php echo $fields['disable_chat_preview']['trans'];?></label>
+    <?php echo erLhcoreClassAbstract::renderInput('disable_chat_preview', $fields['disable_chat_preview'], $object)?>
+</div>
+
+<hr>
+
+
 <?php include(erLhcoreClassDesign::designtpl('lhsurvey/forms/fields_names.tpl.php'));?>
 
 <?php 

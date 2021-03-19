@@ -570,6 +570,7 @@ class Install
                   `question_plain_3_req` int(11) NOT NULL,
                   `question_plain_4_req` int(11) NOT NULL,
                   `question_plain_5_req` int(11) NOT NULL,
+                  `configuration` longtext NOT NULL,
                   PRIMARY KEY (`id`)
         	   ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
