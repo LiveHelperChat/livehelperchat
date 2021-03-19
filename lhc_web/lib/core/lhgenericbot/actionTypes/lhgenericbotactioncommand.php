@@ -296,13 +296,22 @@ class erLhcoreClassGenericBotActionCommand {
             if (isset($action['content']['remove_subject']) && $action['content']['remove_subject'] == true) {
                 $payload = array(
                     "chat_emit" => "attr_rem",
-                    "ext_args" => json_encode(['attr' => json_decode($action['content']['payload'],true)], JSON_HEX_APOS), // Path of the attribute
+                    "ext_args" => json_encode(['attr' => json_decode(erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload'], array('chat' => $chat, 'args' => $params)),true)], JSON_HEX_APOS), // Path of the attribute
                 );
             } else {
-                $payload = array(
-                    "chat_emit" => "attr_set",
-                    "ext_args" => json_encode(['attr' => json_decode($action['content']['payload'],true), 'data' => json_decode($action['content']['payload_arg'])], JSON_HEX_APOS), // Path of the attribute
-                );
+                $valueAttribute = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload_arg'], array('chat' => $chat, 'args' => $params));
+
+                if (isset($action['content']['remove_if_empty']) && $action['content']['remove_if_empty'] == true && empty($valueAttribute)) {
+                    $payload = array(
+                        "chat_emit" => "attr_rem",
+                        "ext_args" => json_encode(['attr' => json_decode(erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload'], array('chat' => $chat, 'args' => $params)),true)], JSON_HEX_APOS), // Path of the attribute
+                    );
+                } else {
+                    $payload = array(
+                        "chat_emit" => "attr_set",
+                        "ext_args" => json_encode(['attr' => json_decode(erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload'], array('chat' => $chat, 'args' => $params)),true), 'data' => json_decode($valueAttribute)], JSON_HEX_APOS), // Path of the attribute
+                    );
+                }
             }
 
             // Store as message to visitor

@@ -111,6 +111,10 @@ class NodeTriggerActionCommand extends Component {
                         <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['remove_subject'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','remove_subject'])} /> Remove attribute if it exists.</label>
                     </div>
 
+                    <div className="form-group">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['remove_if_empty'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','remove_if_empty'])} /> Remove attribute if it's value is empty (0,"",null).</label>
+                    </div>
+
                     {!this.props.action.getIn(['content','remove_subject']) && <div className="form-group">
                         <label>Live attribute value in JSON format.</label>
                         <textarea className="form-control form-control-sm" type="text" placeholder="" onChange={(e) => this.onchangeAttr({'path':['payload_arg'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg'])} ></textarea>
