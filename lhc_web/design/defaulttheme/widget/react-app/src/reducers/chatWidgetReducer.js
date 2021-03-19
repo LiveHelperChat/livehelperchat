@@ -76,6 +76,10 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.setIn(action.attr, action.data);
         }
 
+        case 'attr_rem': {
+            return state.removeIn(action.attr);
+        }
+
         case 'operator':
         case 'leave_message':
         case 'phash':

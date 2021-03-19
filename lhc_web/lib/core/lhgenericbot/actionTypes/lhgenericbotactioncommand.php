@@ -122,7 +122,7 @@ class erLhcoreClassGenericBotActionCommand {
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -2;
                 $msg->time = time();
-                $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);;
+                $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
                 $msg->saveThis();
             }
 
@@ -291,6 +291,40 @@ class erLhcoreClassGenericBotActionCommand {
                     erLhcoreClassChat::updateDepartmentStats($department);
                 }
             }
+        } elseif ($action['content']['command'] == 'setliveattr') {
+
+            if (isset($action['content']['remove_subject']) && $action['content']['remove_subject'] == true) {
+                $payload = array(
+                    "chat_emit" => "attr_rem",
+                    "ext_args" => json_encode(['attr' => json_decode($action['content']['payload'],true)], JSON_HEX_APOS), // Path of the attribute
+                );
+            } else {
+                $payload = array(
+                    "chat_emit" => "attr_set",
+                    "ext_args" => json_encode(['attr' => json_decode($action['content']['payload'],true), 'data' => json_decode($action['content']['payload_arg'])], JSON_HEX_APOS), // Path of the attribute
+                );
+            }
+
+            // Store as message to visitor
+            $msg = new erLhcoreClassModelmsg();
+            $msg->msg = '';
+            $msg->meta_msg = json_encode(array(
+                'content' => array(
+                    'execute_js' => $payload
+                )
+            ));
+            $msg->chat_id = $chat->id;
+            $msg->user_id = -2;
+            $msg->time = time();
+            $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);;
+            $msg->saveThis();
+
+            // Update last user msg time so auto responder work's correctly
+            $chat->last_op_msg_time = $chat->last_user_msg_time = time();
+            $chat->last_msg_id = $msg->id;
+
+            // All ok, we can make changes
+            $chat->updateThis(array('update' => array('last_msg_id', 'last_op_msg_time', 'status_sub', 'last_user_msg_time')));
 
         } elseif ($action['content']['command'] == 'removeprocess') {
 

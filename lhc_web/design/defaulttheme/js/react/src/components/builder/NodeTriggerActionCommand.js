@@ -59,6 +59,7 @@ class NodeTriggerActionCommand extends Component {
                                 <option value="setchatattribute">Update main chat attribute</option>
                                 <option value="setdepartment">Change department</option>
                                 <option value="setsubject">Set subject</option>
+                                <option value="setliveattr">Set widget live attribute</option>
                                 <option value="removeprocess">Remove any previous process</option>
                             </select>
                         </div>
@@ -98,6 +99,22 @@ class NodeTriggerActionCommand extends Component {
                         <label>Set chat variables in JSON format.</label>
                         <input className="form-control form-control-sm" type="text" placeholder="{&quot;bot_touched&quot;:true}" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
                     </div>
+                </div>}
+
+                {this.props.action.getIn(['content','command']) == 'setliveattr' && <div>
+                    <div className="form-group">
+                        <label>Live attribute path</label>
+                        <input className="form-control form-control-sm" type="text" placeholder="['chat_ui','survey_id']" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
+                    </div>
+
+                    <div className="form-group">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['remove_subject'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','remove_subject'])} /> Remove attribute if it exists.</label>
+                    </div>
+
+                    {!this.props.action.getIn(['content','remove_subject']) && <div className="form-group">
+                        <label>Live attribute value in JSON format.</label>
+                        <textarea className="form-control form-control-sm" type="text" placeholder="" onChange={(e) => this.onchangeAttr({'path':['payload_arg'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg'])} ></textarea>
+                    </div>}
                 </div>}
 
                 {this.props.action.getIn(['content','command']) == 'chatattribute' &&
