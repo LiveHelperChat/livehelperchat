@@ -234,6 +234,20 @@ class erLhcoreClassChatHelper
             $chat->support_informed = 0;
             $chat->has_unread_messages = 1;
             $chat->pnd_time = time();
+
+            // Store system message
+            $msg = new erLhcoreClassModelmsg();
+            $msg->chat_id = $chat->id;
+            $msg->user_id = -1;
+            $chat->last_user_msg_time = $msg->time = time();
+            $msg->name_support = $userData->name_support;
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
+
+            $msg->msg = (string)$msg->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin','has changed chat status to pending!');
+            erLhcoreClassChat::getSession()->save($msg);
+
+            $chat->last_msg_id = $msg->id;
             $chat->updateThis();
         
             
@@ -275,7 +289,21 @@ class erLhcoreClassChatHelper
 
             $chat->user_id = 0;
             $chat->status = erLhcoreClassModelChat::STATUS_BOT_CHAT;
-            $chat->updateThis(array('update' => array('status','user_id')));
+
+            // Store system message
+            $msg = new erLhcoreClassModelmsg();
+            $msg->chat_id = $chat->id;
+            $msg->user_id = -1;
+            $chat->last_user_msg_time = $msg->time = time();
+            $msg->name_support = $userData->name_support;
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
+
+            $msg->msg = (string)$msg->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin','has changed chat status to bot!');
+            erLhcoreClassChat::getSession()->save($msg);
+            $chat->last_msg_id = $msg->id;
+
+            $chat->updateThis(array('update' => array('status','user_id','last_user_msg_time','last_msg_id')));
         }
         
         erLhcoreClassChat::updateActiveChats($chat->user_id);
