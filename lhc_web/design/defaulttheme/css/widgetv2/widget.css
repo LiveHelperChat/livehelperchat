@@ -987,16 +987,3 @@ textarea[name=ChatMessage] {
     padding: 3px 10px;
     opacity: 0.85;
 }
-
-.fade-in-fast {
-    animation: fadeInFast ease 2s;
-    -webkit-animation: fadeInFast ease 2s;
-    -moz-animation: fadeInFast ease 2s;
-    -o-animation: fadeInFast ease 2s;
-    -ms-animation: fadeInFast ease 2s;
-}
-
-@keyframes fadeInFast {
-    0% {opacity:0;}
-    100% {opacity:1;}
-}
