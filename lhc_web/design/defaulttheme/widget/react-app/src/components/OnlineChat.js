@@ -458,7 +458,10 @@ class OnlineChat extends Component {
         // Are we restoring widget visibility
         } else if (prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true) {
             return 0;
-        } else if (this.props.chatwidget.getIn(['chatLiveData','error']) && this.props.chatwidget.getIn(['chatLiveData','lmsg']) && (this.state.errorMode == false || this.props.chatwidget.getIn(['chatLiveData','lmsg']) != prevProps.chatwidget.getIn(['chatLiveData','lmsg']))) {
+        } else if (this.props.chatwidget.getIn(['chatLiveData','error']) && (
+                (this.props.chatwidget.getIn(['chatLiveData','lmsg']) && (this.state.errorMode == false || this.props.chatwidget.getIn(['chatLiveData','lmsg']) != prevProps.chatwidget.getIn(['chatLiveData','lmsg']))) ||
+                (!this.props.chatwidget.getIn(['chatLiveData','lmsg']) && this.state.errorMode == false)))
+        {
             this.setState({errorMode: true, valueSend: false, value: this.props.chatwidget.getIn(['chatLiveData','lmsg'])});
         } else if (!this.props.chatwidget.getIn(['chatLiveData','error']) && prevProps.chatwidget.getIn(['chatLiveData','error'])) {
             this.setState({errorMode: false, valueSend: false, value: ''});
