@@ -206,7 +206,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
                 erLhcoreClassChat::updateActiveChats($chat->user_id);
             }
 
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.explicitly_closed', array('chat' => & $chat, 'msg' => $msg));
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.explicitly_closed', array('chat' => & $chat, 'msg' => (isset($msg) ? $msg : null)));
         }
 
         $db->commit();
