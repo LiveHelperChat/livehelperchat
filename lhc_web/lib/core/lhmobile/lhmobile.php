@@ -136,7 +136,11 @@ class erLhcoreClassLHCMobile {
         }
 
         if (!isset($params['resque']) && class_exists('erLhcoreClassExtensionLhcphpresque')) {
-            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mobile_notify', 'erLhcoreClassLHCMobile', array('type' => 'started', 'user_id' => (isset($params['user_id']) ? $params['user_id'] : 0), 'msg_id' => (isset($params['msg']) ? $params['msg']->id : 0), 'chat_id' => $params['chat']->id));
+            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mobile_notify', 'erLhcoreClassLHCMobile', array(
+                'type' => 'started',
+                'user_id' => (isset($params['user_id']) ? $params['user_id'] : 0),
+                'msg_id' => (isset($params['msg']) && is_object($params['msg']) ? $params['msg']->id : 0),
+                'chat_id' => $params['chat']->id));
             return;
         }
 
@@ -172,7 +176,7 @@ class erLhcoreClassLHCMobile {
                     $visitor = array();
                     $visitor[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/mobilenotifications','Department').': ' . ((string)$params['chat']->department) .',  ID: ' . $params['chat']->id .', '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/mobilenotifications','Nick').': ' . $params['chat']->nick;
 
-                    if (isset($params['msg'])) {
+                    if (isset($params['msg']) && is_object($params['msg'])) {
                         if (isset($params['user_id']) && $params['user_id'] > 0) {
                             $visitor = array();
                             $visitor[] = trim(erLhcoreClassBBCodePlain::make_clickable($params['msg']->msg, array('sender' => 0))) . '';

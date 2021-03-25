@@ -783,7 +783,8 @@ function lh(){
             } else if (data.replace_id && data.html) {
                 var messagesBlock = $('#messagesBlock-' + data.chat_id);
                 var needScroll = (messagesBlock.prop('scrollTop') + messagesBlock.height() + 30) > messagesBlock.prop('scrollHeight');
-                $(data.replace_id).html(data.html);
+                $(data.replace_id).replaceWith(data.html);
+                lhinst.addQuateHandler(data.chat_id);
                 needScroll && messagesBlock.scrollTop(messagesBlock.prop('scrollHeight'));
             }
         });

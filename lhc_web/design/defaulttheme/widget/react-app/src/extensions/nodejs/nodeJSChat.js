@@ -1,5 +1,5 @@
 import { helperFunctions } from "../../lib/helperFunctions";
-import { fetchMessages, checkChatStatus } from "../../actions/chatActions"
+import { fetchMessages, checkChatStatus, updateMessage } from "../../actions/chatActions"
 
 class _nodeJSChat {
     constructor() {
@@ -152,6 +152,11 @@ class _nodeJSChat {
                             'lmgsid' : state.chatwidget.getIn(['chatLiveData','lmsgid']),
                             'theme' : state.chatwidget.get('theme')
                         }));
+                    }
+                } else if (op.op == 'umsg') {
+                    const state = getState();
+                    if (state.chatwidget.hasIn(['chatData','id'])) {
+                        updateMessage({'msg_id' :  op.msid,'id' : state.chatwidget.getIn(['chatData','id']), 'hash' : state.chatwidget.getIn(['chatData','hash'])})(dispatch, getState);
                     }
                 } else if (op.op == 'schange') {
                     const state = getState();
