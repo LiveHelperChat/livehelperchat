@@ -81,7 +81,7 @@ class NodeTriggerActionAttribute extends Component {
                         </div>
                     </div>
 
-                    <div className="col-6">
+                    <div className="col-12">
                         <div className="form-group">
                             <label>Intro message</label>
                             <textarea className="form-control" defaultValue={this.props.action.getIn(['content','intro_message'])} onChange={(e) => this.onchangeAttr({'path' : ['intro_message'], 'value' : e.target.value})}></textarea>
@@ -89,8 +89,8 @@ class NodeTriggerActionAttribute extends Component {
                     </div>
                     <div className="col-6">
                         <div className="form-group">
-                            <label>Confirmation message</label>
-                            <textarea className="form-control" defaultValue={this.props.action.getIn(['content','success_message'])} onChange={(e) => this.onchangeAttr({'path' : ['success_message'], 'value' : e.target.value})}></textarea>
+                            <label>Execute trigger on validation failure</label>
+                            <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','collection_callback_fail'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','collection_callback_fail'])} />
                         </div>
                     </div>
                     <div className="col-6">
@@ -105,7 +105,12 @@ class NodeTriggerActionAttribute extends Component {
                             <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','collection_callback_pattern'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','collection_callback_pattern'])} />
                         </div>
                     </div>
-
+                    <div className="col-6">
+                        <div className="form-group">
+                            <label>Success message</label>
+                            <textarea className="form-control" defaultValue={this.props.action.getIn(['content','success_message'])} onChange={(e) => this.onchangeAttr({'path' : ['success_message'], 'value' : e.target.value})}></textarea>
+                        </div>
+                    </div>
                     <div className="col-12">
                         <div className="row">
                             <div className="col-6">

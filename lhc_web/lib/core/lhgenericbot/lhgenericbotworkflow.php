@@ -786,10 +786,10 @@ class erLhcoreClassGenericBotWorkflow {
 
                         // Make sure field is not empty
                         if (empty($payload)) {
-                            if (isset($eventData['content']['validation_error']) && !empty($eventData['content']['validation_error'])){
-                                throw new erLhcoreClassGenericBotException($eventData['content']['validation_error']);
+                            if (isset($eventData['content']['validation_error']) && !empty($eventData['content']['validation_error'])) {
+                                throw new erLhcoreClassGenericBotException($eventData['content']['validation_error'], (isset($eventData['content']['attr_options']['collection_callback_fail']) && is_numeric($eventData['content']['attr_options']['collection_callback_fail']) ? (int)$eventData['content']['attr_options']['collection_callback_fail'] : 0));
                             } else {
-                                throw new erLhcoreClassGenericBotException('Your message does not match required format!');
+                                throw new erLhcoreClassGenericBotException('Your message does not match required format!', (isset($eventData['content']['attr_options']['collection_callback_fail']) && is_numeric($eventData['content']['attr_options']['collection_callback_fail']) ? (int)$eventData['content']['attr_options']['collection_callback_fail'] : 0));
                             }
                         }
 
@@ -848,13 +848,12 @@ class erLhcoreClassGenericBotWorkflow {
                                     ));
                             }
 
-                            if (isset($eventData['content']['validation_error']) && !empty($eventData['content']['validation_error'])){
-                                throw new erLhcoreClassGenericBotException($eventData['content']['validation_error'], 0, null, $metaMessage);
+                            if (isset($eventData['content']['validation_error']) && !empty($eventData['content']['validation_error'])) {
+                                throw new erLhcoreClassGenericBotException($eventData['content']['validation_error'], (isset($eventData['content']['attr_options']['collection_callback_fail']) && is_numeric($eventData['content']['attr_options']['collection_callback_fail']) ? (int)$eventData['content']['attr_options']['collection_callback_fail'] : 0), null, $metaMessage);
                             } else {
-                                throw new erLhcoreClassGenericBotException('Your message does not match required format!', 0, null, $metaMessage);
+                                throw new erLhcoreClassGenericBotException('Your message does not match required format!', (isset($eventData['content']['attr_options']['collection_callback_fail']) && is_numeric($eventData['content']['attr_options']['collection_callback_fail']) ? (int)$eventData['content']['attr_options']['collection_callback_fail'] : 0), null, $metaMessage);
                             }
                         }
-
 
                         if (!empty($chat->additional_data)){
                             $chatAttributes = (array)json_decode($chat->additional_data,true);
@@ -935,27 +934,42 @@ class erLhcoreClassGenericBotWorkflow {
         } catch (Exception $e) {
              if ($e instanceof erLhcoreClassGenericBotException) {
 
-                 $message = $e->getMessage();
+                 // We have trigger to execute on failure
+                 $hasTrigger = false;
 
-                 $translatedMessage = false;
+                 if ($e->getCode() > 0) {
+                     $hasTrigger = true;
 
-                 $bot = erLhcoreClassModelGenericBotBot::fetch($chat->gbot_id);
-                 if ($bot instanceof erLhcoreClassModelGenericBotBot) {
-                     $configurationArray = $bot->configuration_array;
-                     if (isset($configurationArray['exc_group_id']) && !empty($configurationArray['exc_group_id'])){
-                         $exceptionMessage = erLhcoreClassModelGenericBotExceptionMessage::findOne(array('limit' => 1, 'sort' => 'priority ASC', 'filter' => array('active' => 1, 'code' => $e->getCode()), 'filterin' => array('exception_group_id' => $configurationArray['exc_group_id'])));
-                         if ($exceptionMessage instanceof erLhcoreClassModelGenericBotExceptionMessage && $exceptionMessage->message != '') {
-                             $message = erLhcoreClassGenericBotWorkflow::translateMessage($exceptionMessage->message, array('chat' => $chat));
-                             $translatedMessage = true;
-                         }
+                     $trigger = erLhcoreClassModelGenericBotTrigger::fetch($e->getCode());
+                     if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                         $paramsTrigger = array();
+                         erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, $paramsTrigger);
                      }
                  }
 
-                 if ($translatedMessage === false) {
-                     $message = erLhcoreClassGenericBotWorkflow::translateMessage($message, array('chat' => $chat));
-                 }
+                 if ($hasTrigger === false || !empty($e->getContent())) {
+                     $message = $e->getMessage();
 
-                 self::sendAsBot($chat, $message, $e->getContent());
+                     $translatedMessage = false;
+
+                     $bot = erLhcoreClassModelGenericBotBot::fetch($chat->gbot_id);
+                     if ($bot instanceof erLhcoreClassModelGenericBotBot) {
+                         $configurationArray = $bot->configuration_array;
+                         if (isset($configurationArray['exc_group_id']) && !empty($configurationArray['exc_group_id'])){
+                             $exceptionMessage = erLhcoreClassModelGenericBotExceptionMessage::findOne(array('limit' => 1, 'sort' => 'priority ASC', 'filter' => array('active' => 1, 'code' => $e->getCode()), 'filterin' => array('exception_group_id' => $configurationArray['exc_group_id'])));
+                             if ($exceptionMessage instanceof erLhcoreClassModelGenericBotExceptionMessage && $exceptionMessage->message != '') {
+                                 $message = erLhcoreClassGenericBotWorkflow::translateMessage($exceptionMessage->message, array('chat' => $chat));
+                                 $translatedMessage = true;
+                             }
+                         }
+                     }
+
+                     if ($translatedMessage === false) {
+                         $message = erLhcoreClassGenericBotWorkflow::translateMessage($message, array('chat' => $chat));
+                     }
+
+                     self::sendAsBot($chat, $message, $e->getContent());
+                 }
              } else {
                  self::sendAsBot($chat, erLhcoreClassGenericBotWorkflow::translateMessage($e->getMessage(), array('chat' => $chat)));
              }
