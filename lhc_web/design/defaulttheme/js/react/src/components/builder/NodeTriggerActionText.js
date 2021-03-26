@@ -28,6 +28,7 @@ class NodeTriggerActionText extends Component {
         this.onStoreNameChange = this.onStoreNameChange.bind(this);
         this.onStoreValueChange = this.onStoreValueChange.bind(this);
         this.onButtonIDChange = this.onButtonIDChange.bind(this);
+        this.onButtonStoreTypeChange = this.onButtonStoreTypeChange.bind(this);
 
         // Abstract methods
         this.onDeleteField = this.onDeleteField.bind(this);
@@ -97,6 +98,9 @@ class NodeTriggerActionText extends Component {
         this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content','button_id'], value : e.value});
     }
 
+    onButtonStoreTypeChange(e) {
+        this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content','as_variable'], value : e.value});
+    }
 
     onRenderArgsChange(e) {
         this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content','render_args'], value : e.value});
@@ -146,7 +150,7 @@ class NodeTriggerActionText extends Component {
             var totalButtons = this.props.action.getIn(['content','quick_replies']).size;
 
             quick_replies = this.props.action.getIn(['content','quick_replies']).map((reply, index) => {
-                return <NodeTriggerActionQuickReply onPayloadAttrChange={this.onPayloadAttrChange} upField={(e) => this.upChildField(index)} downField={(e) => this.downChildField(index)} onButtonIDChange={this.onButtonIDChange} isFirst={index == 0} isLast={index + 1 == totalButtons} onStoreValueChange={this.onStoreValueChange} onStoreNameChange={this.onStoreNameChange} onPrecheckChange={this.onPrecheckChange} onRenderArgsChange={this.onRenderArgsChange} onPayloadTypeChange={this.onQuickReplyPayloadTypeChange} deleteReply={this.onDeleteQuickReply} onNameChange={this.onQuickReplyNameChange}  onPayloadChange={this.onQuickReplyPayloadChange} id={index} key={reply.get('_id') || index} reply={reply} />
+                return <NodeTriggerActionQuickReply onPayloadAttrChange={this.onPayloadAttrChange} upField={(e) => this.upChildField(index)} downField={(e) => this.downChildField(index)} onButtonStoreTypeChange={this.onButtonStoreTypeChange} onButtonIDChange={this.onButtonIDChange} isFirst={index == 0} isLast={index + 1 == totalButtons} onStoreValueChange={this.onStoreValueChange} onStoreNameChange={this.onStoreNameChange} onPrecheckChange={this.onPrecheckChange} onRenderArgsChange={this.onRenderArgsChange} onPayloadTypeChange={this.onQuickReplyPayloadTypeChange} deleteReply={this.onDeleteQuickReply} onNameChange={this.onQuickReplyNameChange}  onPayloadChange={this.onQuickReplyPayloadChange} id={index} key={reply.get('_id') || index} reply={reply} />
             });
         }
 

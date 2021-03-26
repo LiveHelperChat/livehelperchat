@@ -1726,29 +1726,51 @@ class erLhcoreClassGenericBotWorkflow {
 
                             $messageClick = $messageClickData['name'];
 
-                            $chatAdditionalData = $chat->additional_data_array;
+                            if (isset($messageClickData['as_variable']) && $messageClickData['as_variable'] == true) {
+                                $chatAdditionalData = $chat->chat_variables_array;
 
-                            $updateAdditionalData = false;
-                            if (isset($messageClickData['store_name']) && $messageClickData['store_name'] != '') {
-                                foreach ($chatAdditionalData as $dataItemIndex => $dataItem) {
-                                    if ($dataItem['identifier'] == $messageClickData['store_name']) {
-                                        $chatAdditionalData[$dataItemIndex]['value'] = (isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ?  $messageClickData['store_value'] : $messageClick;
-                                        $updateAdditionalData = true;
-                                        break;
+                                if (isset($messageClickData['store_name']) && $messageClickData['store_name'] != '') {
+                                    $hasStoreValue = false;
+                                    if (isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') {
+                                        $chatAdditionalData[$messageClickData['store_name']] = $messageClickData['store_value'];
+                                        $hasStoreValue = true;
+                                    } elseif (isset($chatAdditionalData[$messageClickData['store_name']])) {
+                                        unset($chatAdditionalData[$messageClickData['store_name']]);
+                                        $hasStoreValue = true;
+                                    }
+
+                                    if ($hasStoreValue == true) {
+                                        $chat->chat_variables_array = $chatAdditionalData;
+                                        $chat->chat_variables = json_encode($chatAdditionalData);
+                                        $chat->updateThis(array('update' => array('chat_variables')));
                                     }
                                 }
 
-                                if ($updateAdditionalData == false) {
-                                    $chatAdditionalData[] = array(
-                                        'identifier' => $messageClickData['store_name'],
-                                        'key' => $messageClickData['store_name'],
-                                        'value' => ((isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ?  $messageClickData['store_value'] : $messageClick),
-                                    );
-                                }
+                            } else {
+                                $chatAdditionalData = $chat->additional_data_array;
 
-                                $chat->additional_data_array = $chatAdditionalData;
-                                $chat->additional_data = json_encode($chatAdditionalData);
-                                $chat->updateThis(array('update' => array('additional_data')));
+                                $updateAdditionalData = false;
+                                if (isset($messageClickData['store_name']) && $messageClickData['store_name'] != '') {
+                                    foreach ($chatAdditionalData as $dataItemIndex => $dataItem) {
+                                        if ($dataItem['identifier'] == $messageClickData['store_name']) {
+                                            $chatAdditionalData[$dataItemIndex]['value'] = (isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ?  $messageClickData['store_value'] : $messageClick;
+                                            $updateAdditionalData = true;
+                                            break;
+                                        }
+                                    }
+
+                                    if ($updateAdditionalData == false) {
+                                        $chatAdditionalData[] = array(
+                                            'identifier' => $messageClickData['store_name'],
+                                            'key' => $messageClickData['store_name'],
+                                            'value' => ((isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ?  $messageClickData['store_value'] : $messageClick),
+                                        );
+                                    }
+
+                                    $chat->additional_data_array = $chatAdditionalData;
+                                    $chat->additional_data = json_encode($chatAdditionalData);
+                                    $chat->updateThis(array('update' => array('additional_data')));
+                                }
                             }
                         }
 
@@ -1844,30 +1866,54 @@ class erLhcoreClassGenericBotWorkflow {
 
                             $messageClick = $messageClickData['name'];
 
-                            $chatAdditionalData = $chat->additional_data_array;
+                            if (isset($messageClickData['as_variable']) && $messageClickData['as_variable'] == true) {
+                                $chatAdditionalData = $chat->chat_variables_array;
 
-                            $updateAdditionalData = false;
-                            if (isset($messageClickData['store_name']) && $messageClickData['store_name'] != '') {
-                                foreach ($chatAdditionalData as $dataItemIndex => $dataItem) {
-                                    if ($dataItem['identifier'] == $messageClickData['store_name']) {
-                                        $chatAdditionalData[$dataItemIndex]['value'] = (isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ?  $messageClickData['store_value'] : $messageClick;
-                                        $updateAdditionalData = true;
-                                        break;
+                                if (isset($messageClickData['store_name']) && $messageClickData['store_name'] != '') {
+                                    $hasStoreValue = false;
+                                    if (isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') {
+                                        $chatAdditionalData[$messageClickData['store_name']] = $messageClickData['store_value'];
+                                        $hasStoreValue = true;
+                                    } elseif (isset($chatAdditionalData[$messageClickData['store_name']])) {
+                                        unset($chatAdditionalData[$messageClickData['store_name']]);
+                                        $hasStoreValue = true;
+                                    }
+
+                                    if ($hasStoreValue == true) {
+                                        $chat->chat_variables_array = $chatAdditionalData;
+                                        $chat->chat_variables = json_encode($chatAdditionalData);
+                                        $chat->updateThis(array('update' => array('chat_variables')));
                                     }
                                 }
 
-                                if ($updateAdditionalData == false) {
-                                    $chatAdditionalData[] = array(
-                                        'identifier' => $messageClickData['store_name'],
-                                        'key' => $messageClickData['store_name'],
-                                        'value' => ((isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ?  $messageClickData['store_value'] : $messageClick),
-                                    );
-                                }
+                            } else {
 
-                                $chat->additional_data_array = $chatAdditionalData;
-                                $chat->additional_data = json_encode($chatAdditionalData);
-                                $chat->updateThis(array('update' => array('additional_data')));
+                                $chatAdditionalData = $chat->additional_data_array;
+
+                                $updateAdditionalData = false;
+                                if (isset($messageClickData['store_name']) && $messageClickData['store_name'] != '') {
+                                    foreach ($chatAdditionalData as $dataItemIndex => $dataItem) {
+                                        if ($dataItem['identifier'] == $messageClickData['store_name']) {
+                                            $chatAdditionalData[$dataItemIndex]['value'] = (isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ? $messageClickData['store_value'] : $messageClick;
+                                            $updateAdditionalData = true;
+                                            break;
+                                        }
+                                    }
+
+                                    if ($updateAdditionalData == false) {
+                                        $chatAdditionalData[] = array(
+                                            'identifier' => $messageClickData['store_name'],
+                                            'key' => $messageClickData['store_name'],
+                                            'value' => ((isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ? $messageClickData['store_value'] : $messageClick),
+                                        );
+                                    }
+
+                                    $chat->additional_data_array = $chatAdditionalData;
+                                    $chat->additional_data = json_encode($chatAdditionalData);
+                                    $chat->updateThis(array('update' => array('additional_data')));
+                                }
                             }
+
                         }
 
                         if (!empty($messageClick)) {

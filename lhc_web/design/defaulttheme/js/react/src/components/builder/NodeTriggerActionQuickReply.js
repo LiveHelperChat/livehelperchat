@@ -119,19 +119,23 @@ class NodeTriggerActionQuickReply extends Component {
 
                 {(this.props.reply.get('type') == 'trigger' || this.props.reply.get('type') == 'button') && <div className="col-10">
                     <div className="row">
-                        <div className="col-4">
+                        <div className="col-6">
                             <div className="form-group">
                                 <label>Store name</label>
                                 <input type="text" title="If you do not set we will not save button click" placeholder="How should we name stored attribute?" onChange={this.onStoreNameChange} defaultValue={this.props.reply.getIn(['content','store_name'])} className="form-control form-control-sm" />
                             </div>
                         </div>
-                        <div className="col-4">
+                        <div className="col-6">
                             <div className="form-group">
                                 <label>Store value</label>
                                 <input type="text" placeholder="Button name is used by default." onChange={this.onStoreValueChange} defaultValue={this.props.reply.getIn(['content','store_value'])} className="form-control form-control-sm" />
                             </div>
                         </div>
-                        <div className="col-4">
+                        <div className="col-6">
+                            <label><input type="checkbox" onChange={(e) => this.props.onButtonStoreTypeChange({id : this.props.id, value : e.target.checked})} defaultChecked={this.props.reply.getIn(['content','as_variable'])} /> Save value as chat variable.</label> <i className="material-icons" title="This will be invisible for the operator.">info</i>
+                        </div>
+
+                        <div className="col-6">
                             <div className="form-group">
                                 <label>Button ID</label>
                                 <input type="text" placeholder="Button ID" onChange={this.onButtonIDChange} defaultValue={this.props.reply.getIn(['content','button_id'])} className="form-control form-control-sm" />
