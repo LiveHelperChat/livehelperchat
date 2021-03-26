@@ -232,13 +232,14 @@ $fieldsSearch['no_operator'] = array (
     )
 );
 
+
 $fieldsSearch['abandoned_chat'] = array (
     'type' => 'boolean',
     'trans' => 'groupby',
     'required' => false,
     'valid_if_filled' => false,
     'filter_type' => 'manual',
-    'filter_table_field' => ['customfilter' => ['((`lh_chat`.`user_id` = 0 AND `status_sub` = ' . erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT . ') OR (`lsync` < (`pnd_time` + `wait_time`)))']],
+    'filter_table_field' => ['customfilter' => ['((`lh_chat`.`user_id` = 0 AND `status_sub` IN (' . erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT . ',' . erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED . ')) OR (`lsync` < (`pnd_time` + `wait_time`)))']],
     'validation_definition' => new ezcInputFormDefinitionElement(
         ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
     )
