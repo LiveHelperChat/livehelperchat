@@ -563,7 +563,7 @@ class erLhcoreClassModelChat {
                     $timeout = 240;
                 }
 
-       	        $this->user_status_front =  (time() - $timeout > $this->lsync || in_array($this->status_sub,array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT,erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) ? 1 : 0;
+       	        $this->user_status_front =  (time() - $timeout > $this->lsync || in_array($this->status_sub,array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT,erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) ? 1 : 0;
 
        	    } elseif ($this->online_user !== false) {
        		    $this->user_status_front = erLhcoreClassChat::setActivityByChatAndOnlineUser($this, $this->online_user);
