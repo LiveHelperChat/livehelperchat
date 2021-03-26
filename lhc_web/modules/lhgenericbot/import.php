@@ -94,6 +94,9 @@ if (ezcInputForm::hasPostData()) {
                 $replaceArraySearch[] = '"collection_callback_pattern":"' . $oldTriggerId . '"';
                 $replaceArrayReplace[] = '"collection_callback_pattern":"' . $newTriggerId . '"';
 
+                $replaceArraySearch[] = '"collection_callback_fail":"' . $oldTriggerId . '"';
+                $replaceArrayReplace[] = '"collection_callback_fail":"' . $newTriggerId . '"';
+
                 $replaceArraySearch[] = '"alternative_callback":"' . $oldTriggerId . '"';
                 $replaceArrayReplace[] = '"alternative_callback":"' . $newTriggerId . '"';
 
