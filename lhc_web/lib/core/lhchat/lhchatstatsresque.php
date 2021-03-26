@@ -190,7 +190,7 @@ class erLhcoreClassChatStatsResque {
             }
 
             // Add to inactive chats if it's conditions matches
-            if (in_array((int)$statsChat['status'],array(erLhcoreClassModelChat::STATUS_PENDING_CHAT, erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) && in_array((int)$statsChat['status_sub'],array(erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW))) {
+            if (in_array((int)$statsChat['status'],array(erLhcoreClassModelChat::STATUS_PENDING_CHAT, erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) && in_array((int)$statsChat['status_sub'],array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW))) {
                 $depGroupObj->inachats_cnt += (int)$statsChat['total'];
             }
         }
