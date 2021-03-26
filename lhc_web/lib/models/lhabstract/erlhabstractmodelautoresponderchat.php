@@ -127,22 +127,26 @@ class erLhAbstractModelAutoResponderChat
                                 $this->pending_send_status = $i;
                                 $this->saveThis();
 
-                                $metaMessage = $this->auto_responder->getMeta($this->chat, 'pending_op', $i, array('include_message' => true));
+                                $name_support = $this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support');;
 
-                                $msg = new erLhcoreClassModelmsg();
-                                $msg->msg = trim($this->auto_responder->{'timeout_message_' . $i}) . $metaMessage['msg'];
-                                $msg->meta_msg = $metaMessage['meta_msg'];
-                                $msg->chat_id = $this->chat->id;
-                                $msg->name_support = $this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support');
-                                $msg->user_id = - 2;
-                                $msg->time = time();
+                                if (trim($this->auto_responder->{'timeout_message_' . $i}) != '') {
+                                    $msg = new erLhcoreClassModelmsg();
+                                    $msg->msg = trim($this->auto_responder->{'timeout_message_' . $i});
+                                    $msg->chat_id = $this->chat->id;
+                                    $msg->name_support = $name_support;
+                                    $msg->user_id = - 2;
+                                    $msg->time = time();
 
-                                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('msg' => & $msg, 'chat' => & $this->chat));
+                                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('msg' => & $msg, 'chat' => & $this->chat));
 
-                                erLhcoreClassChat::getSession()->save($msg);
+                                    erLhcoreClassChat::getSession()->save($msg);
 
-                                $this->chat->last_msg_id = $msg->id;
-                                $this->chat->updateThis(array('update' => array('last_msg_id')));
+                                    $this->chat->last_msg_id = $msg->id;
+                                    $this->chat->updateThis(array('update' => array('last_msg_id')));
+                                }
+
+                                $this->auto_responder->getMeta($this->chat, 'pending_op', $i, array('override_nick' => $name_support, 'store_messages' => true));
+
                             }
                         }
                     }
@@ -224,25 +228,31 @@ class erLhAbstractModelAutoResponderChat
                         }
 
                         for ($i = 5; $i >= 1; $i--) {
-                            if ($this->active_send_status < $i && !empty($this->auto_responder->{'timeout_reply_message_' . $i}) && $this->auto_responder->{'wait_timeout_reply_' . $i} > 0 && (time() - $this->chat->last_op_msg_time > $this->auto_responder->{'wait_timeout_reply_' . $i}) ) {
+                            if ($this->active_send_status < $i && (!empty($this->auto_responder->{'timeout_reply_message_' . $i}) || $this->auto_responder->hasMeta($this->chat, 'nreply')) && $this->auto_responder->{'wait_timeout_reply_' . $i} > 0 && (time() - $this->chat->last_op_msg_time > $this->auto_responder->{'wait_timeout_reply_' . $i}) ) {
 
                                 $this->active_send_status = $i;
                                 $this->saveThis();
 
-                                $msg = new erLhcoreClassModelmsg();
-                                $msg->msg = trim($this->auto_responder->{'timeout_reply_message_' . $i});
-                                $msg->meta_msg = $this->auto_responder->getMeta($this->chat, 'nreply');
-                                $msg->chat_id = $this->chat->id;
-                                $msg->name_support = $this->chat->user !== false ? $this->chat->user->name_support : ($this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support'));
-                                $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
-                                $msg->time = time();
+                                $name_support = $this->chat->user !== false ? $this->chat->user->name_support : ($this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support'));
 
-                                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('msg' => & $msg, 'chat' => & $this->chat));
+                                if (!empty(trim($this->auto_responder->{'timeout_reply_message_' . $i}))){
+                                    $msg = new erLhcoreClassModelmsg();
+                                    $msg->msg = trim($this->auto_responder->{'timeout_reply_message_' . $i});
+                                    $msg->chat_id = $this->chat->id;
+                                    $msg->name_support = $name_support;
+                                    $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
+                                    $msg->time = time();
 
-                                erLhcoreClassChat::getSession()->save($msg);
+                                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('msg' => & $msg, 'chat' => & $this->chat));
 
-                                $this->chat->last_msg_id = $msg->id;
-                                $this->chat->updateThis(array('update' => array('last_msg_id')));
+                                    erLhcoreClassChat::getSession()->save($msg);
+
+                                    $this->chat->last_msg_id = $msg->id;
+                                    $this->chat->updateThis(array('update' => array('last_msg_id')));
+                                }
+
+                                $this->auto_responder->getMeta($this->chat, 'nreply', null, array('override_user_id' => $this->chat->user_id, 'override_nick' => $name_support, 'store_messages' => true));
+
                             }
                         }
 
@@ -254,25 +264,32 @@ class erLhAbstractModelAutoResponderChat
                             $this->auto_responder->{'timeout_op_reply_message_' . $i};
                             $this->auto_responder->{'wait_op_timeout_reply_' . $i};
 
-                            if ($this->active_send_status < $i && !empty($this->auto_responder->{'timeout_op_reply_message_' . $i}) && $this->auto_responder->{'wait_op_timeout_reply_' . $i} > 0 && (time() - $lastMessageTime > $this->auto_responder->{'wait_op_timeout_reply_' . $i}) ) {
+                            if ($this->active_send_status < $i && (!empty($this->auto_responder->{'timeout_op_reply_message_' . $i}) || $this->auto_responder->hasMeta($this->chat, 'nreply_op', $i)) && $this->auto_responder->{'wait_op_timeout_reply_' . $i} > 0 && (time() - $lastMessageTime > $this->auto_responder->{'wait_op_timeout_reply_' . $i}) ) {
 
                                 $this->active_send_status = $i;
                                 $this->saveThis();
 
-                                $msg = new erLhcoreClassModelmsg();
-                                $msg->msg = trim($this->auto_responder->{'timeout_op_reply_message_' . $i});
-                                $msg->chat_id = $this->chat->id;
-                                $msg->name_support = $this->chat->user !== false ? $this->chat->user->name_support : ($this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support'));
-                                $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
-                                $msg->meta_msg = (string)$this->auto_responder->getMeta($this->chat, 'nreply_op', $i);
-                                $msg->time = time();
+                                $name_support = $this->chat->user !== false ? $this->chat->user->name_support : ($this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support'));
 
-                                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('msg' => & $msg, 'chat' => & $this->chat));
+                                if (!empty($this->auto_responder->{'timeout_op_reply_message_' . $i}))
+                                {
+                                    $msg = new erLhcoreClassModelmsg();
+                                    $msg->msg = trim($this->auto_responder->{'timeout_op_reply_message_' . $i});
+                                    $msg->chat_id = $this->chat->id;
+                                    $msg->name_support = $name_support;
+                                    $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
+                                    $msg->time = time();
 
-                                erLhcoreClassChat::getSession()->save($msg);
+                                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('msg' => & $msg, 'chat' => & $this->chat));
 
-                                $this->chat->last_msg_id = $msg->id;
-                                $this->chat->updateThis(array('update' => array('last_msg_id')));
+                                    erLhcoreClassChat::getSession()->save($msg);
+
+                                    $this->chat->last_msg_id = $msg->id;
+                                    $this->chat->updateThis(array('update' => array('last_msg_id')));
+                                }
+
+                                $this->auto_responder->getMeta($this->chat, 'nreply_op', $i, array('override_user_id' => $this->chat->user_id, 'override_nick' => $name_support, 'store_messages' => true));
+
                             }
                         }
 
@@ -283,25 +300,30 @@ class erLhAbstractModelAutoResponderChat
 
                 } elseif ($this->chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_ON_HOLD) {
                     for ($i = 5; $i >= 1; $i--) {
-                        if ($this->active_send_status < $i && !empty($this->auto_responder->{'timeout_hold_message_' . $i}) && $this->auto_responder->{'wait_timeout_hold_' . $i} > 0 && (time() - $this->chat->last_op_msg_time > $this->auto_responder->{'wait_timeout_hold_' . $i}) ) {
+                        if ($this->active_send_status < $i && (!empty($this->auto_responder->{'timeout_hold_message_' . $i}) || $this->auto_responder->hasMeta($this->chat, 'onhold')) && $this->auto_responder->{'wait_timeout_hold_' . $i} > 0 && (time() - $this->chat->last_op_msg_time > $this->auto_responder->{'wait_timeout_hold_' . $i}) ) {
 
                             $this->active_send_status = $i;
                             $this->saveThis();
+                            $name_support = $this->chat->user !== false ? $this->chat->user->name_support : ($this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support'));
 
-                            $msg = new erLhcoreClassModelmsg();
-                            $msg->msg = trim($this->auto_responder->{'timeout_hold_message_' . $i});
-                            $msg->meta_msg = $this->auto_responder->getMeta($this->chat, 'onhold');
-                            $msg->chat_id = $this->chat->id;
-                            $msg->name_support = $this->chat->user !== false ? $this->chat->user->name_support : ($this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support'));
-                            $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
-                            $msg->time = time();
+                            if (!empty($this->auto_responder->{'timeout_hold_message_' . $i})) {
+                                $msg = new erLhcoreClassModelmsg();
+                                $msg->msg = trim($this->auto_responder->{'timeout_hold_message_' . $i});
+                                $msg->chat_id = $this->chat->id;
+                                $msg->name_support = $name_support;
+                                $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
+                                $msg->time = time();
 
-                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('msg' => & $msg, 'chat' => & $this->chat));
+                                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('msg' => & $msg, 'chat' => & $this->chat));
 
-                            erLhcoreClassChat::getSession()->save($msg);
+                                erLhcoreClassChat::getSession()->save($msg);
 
-                            $this->chat->last_msg_id = $msg->id;
-                            $this->chat->updateThis(array('update' => array('last_msg_id')));
+                                $this->chat->last_msg_id = $msg->id;
+                                $this->chat->updateThis(array('update' => array('last_msg_id')));
+                            }
+
+                            $this->auto_responder->getMeta($this->chat, 'onhold', null, array('override_user_id' => $this->chat->user_id, 'override_nick' => $name_support, 'store_messages' => true));
+
                         }
                     }
                 }

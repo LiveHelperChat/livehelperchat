@@ -7,24 +7,26 @@ class erLhcoreClassChatWorkflow {
      */
     public static function timeoutWorkflow(erLhcoreClassModelChat & $chat)
     {
-        $msg = new erLhcoreClassModelmsg();
-
-        $metaMessage = $chat->auto_responder->auto_responder->getMeta($chat, 'pending_op', 1, array('include_message' => true));
-
-        $msg->msg = trim($chat->auto_responder->auto_responder->timeout_message) . $metaMessage['msg'];
-        $msg->meta_msg = $metaMessage['meta_msg'];
-        $msg->chat_id = $chat->id;
         $operator = $chat->auto_responder->auto_responder->operator;
-        $msg->name_support = $operator != '' ? $operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
-        $msg->user_id = -2;
-        $msg->time = time();
-        erLhcoreClassChat::getSession()->save($msg);
+        $name_support = $operator != '' ? $operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
 
-        if ($chat->last_msg_id < $msg->id) {
-            $chat->last_msg_id = $msg->id;
+        if (trim($chat->auto_responder->auto_responder->timeout_message) != '') {
+            $msg = new erLhcoreClassModelmsg();
+            $msg->msg = trim($chat->auto_responder->auto_responder->timeout_message);
+            $msg->chat_id = $chat->id;
+            $msg->name_support = $name_support;
+            $msg->user_id = -2;
+            $msg->time = time();
+            erLhcoreClassChat::getSession()->save($msg);
+
+            if ($chat->last_msg_id < $msg->id) {
+                $chat->last_msg_id = $msg->id;
+            }
+
+            $chat->updateThis(array('update' => array('last_msg_id')));
         }
 
-        $chat->updateThis(array('update' => array('last_msg_id')));
+        $chat->auto_responder->auto_responder->getMeta($chat, 'pending_op', 1, array('override_nick' => $name_support, 'store_messages' => true));
     }
 
     /**

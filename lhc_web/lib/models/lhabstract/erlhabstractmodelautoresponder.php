@@ -247,6 +247,17 @@ class erLhAbstractModelAutoResponder {
         }
     }
 
+    public function hasMeta(& $chat, $type, $counter = null, $options = array()) {
+        $botCounter = $counter !== null ? '_' . $counter : '';
+
+        if (isset($this->bot_configuration_array[$type . '_bot_id' . $botCounter]) && $this->bot_configuration_array[$type . '_bot_id' . $botCounter] > 0 &&
+            isset($this->bot_configuration_array[$type . $botCounter . '_trigger_id']) && $this->bot_configuration_array[$type . $botCounter . '_trigger_id'] > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
 	public function getMeta(& $chat, $type, $counter = null, $options = array())
     {
 
@@ -264,7 +275,21 @@ class erLhAbstractModelAutoResponder {
                     $chat->updateThis(array('update' => array('gbot_id')));
                 }
 
-                $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('do_not_save' => true)));
+                if (isset($options['store_messages']) && $options['store_messages'] == true) {
+                    $args = array();
+
+                    if (isset($options['override_nick']) && !empty($options['override_nick'])) {
+                        $args['args']['override_nick'] = $options['override_nick'];
+                    }
+
+                    if (isset($options['override_user_id']) && $options['override_user_id'] > 0) {
+                        $args['args']['override_user_id'] = $options['override_user_id'];
+                    }
+
+                    $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, $args);
+                } else {
+                    $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('do_not_save' => true)));
+                }
 
                 if ($message instanceof erLhcoreClassModelmsg) {
                     if (isset($options['include_message']) && $options['include_message'] == true) {

@@ -120,9 +120,13 @@ class erLhcoreClassGenericBotActionCommand {
                 $msg->msg = '';
                 $msg->meta_msg = '{"content":{"execute_js":{"chat_event":"endChat","payload":""}}}';
                 $msg->chat_id = $chat->id;
-                $msg->user_id = -2;
+                $msg->user_id = isset($params['override_user_id']) && $params['override_user_id'] > 0 ? (int)$params['override_user_id'] : -2;
                 $msg->time = time();
-                $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
+                if (isset($params['override_nick']) && !empty($params['override_nick'])) {
+                    $msg->name_support = (string)$params['override_nick'];
+                } else {
+                    $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
+                }
                 $msg->saveThis();
             }
 
@@ -323,9 +327,13 @@ class erLhcoreClassGenericBotActionCommand {
                 )
             ));
             $msg->chat_id = $chat->id;
-            $msg->user_id = -2;
+            $msg->user_id = isset($params['override_user_id']) && $params['override_user_id'] > 0 ? (int)$params['override_user_id'] : -2;
             $msg->time = time();
-            $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);;
+            if (isset($params['override_nick']) && !empty($params['override_nick'])) {
+                $msg->name_support = (string)$params['override_nick'];
+            } else {
+                $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
+            }
             $msg->saveThis();
 
             // Update last user msg time so auto responder work's correctly
