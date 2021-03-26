@@ -60,11 +60,15 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 
         $chat = erLhcoreClassModelChat::fetchAndLock($chatID);
 
+        $explicitClosed = false;
+
         if ($chat instanceof erLhcoreClassModelChat && $chat->hash == $hash && $Params['user_parameters_unordered']['eclose'] == 'survey' && $chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED) {
             $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED;
             $chat->updateThis(array('update' => array(
                 'status_sub'
             )));
+            
+            $explicitClosed = true;
         }
 
         if ($chat instanceof erLhcoreClassModelChat && $chat->hash == $hash && $chat->user_status != 1) {
@@ -79,8 +83,6 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
                 $chat->is_user_typing = 1;
                 $chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor has left the chat!'), ENT_QUOTES);
             }
-
-            $explicitClosed = false;
 
             // User Closed Chat
             if ($Params['user_parameters_unordered']['eclose'] == 't') {
