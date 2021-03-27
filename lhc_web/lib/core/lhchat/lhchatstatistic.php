@@ -2017,7 +2017,7 @@ class erLhcoreClassChatStatistic {
                 // * Last sync was before chat was accepted by the operator
                 $abandonedStarted = erLhcoreClassModelChat::getCount(array_merge_recursive($filter, $filterTimeout, array(
                     'filter_custom' => array (
-                        '((user_id = 0 AND status_sub = ' . erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT . ') OR (lsync < (pnd_time + wait_time)))'
+                        '((user_id = 0 AND status_sub IN ( ' . erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT . ',' . erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED .' ) ) OR (lsync < (pnd_time + wait_time)))'
                     ))));
 
                 $stats['rows'][] = array(
