@@ -20,7 +20,11 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    $chat->support_informed = 1;
 		    $chat->user_typing = time()-5;// Show for shorter period these status messages
 		    $chat->is_user_typing = 1;
-		    $chat->user_closed_ts = time();
+
+            if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT || !in_array($chat->status_sub,array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) {
+                $chat->user_closed_ts = time();
+            }
+
 		    $chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','Visitor has left the chat!'),ENT_QUOTES);
 
 		    $explicitClosed = false;

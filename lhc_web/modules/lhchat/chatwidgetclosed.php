@@ -76,7 +76,10 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
             // User closed chat
             $chat->user_status = erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT;
             $chat->support_informed = 1;
-            $chat->user_closed_ts = time();
+
+            if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT || !in_array($chat->status_sub,array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) {
+                $chat->user_closed_ts = time();
+            }
 
             if ($chat->user_typing < (time() - 12)) {
                 $chat->user_typing = time() - 5;// Show for shorter period these status messages

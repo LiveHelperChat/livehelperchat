@@ -218,8 +218,12 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    	$saveChat = true;
 		    }
 		    
-		    if ($saveChat === true || $chat->lsync < time()-30) {
-		        $chat->lsync = time();
+		    if ($saveChat === true || ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT && $chat->lsync < time()-30)) {
+
+                if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+                    $chat->lsync = time();
+                }
+
 		    	$chat->updateThis(array('update' => array(
 		    	    'unanswered_chat',
 		    	    'has_unread_op_messages',
