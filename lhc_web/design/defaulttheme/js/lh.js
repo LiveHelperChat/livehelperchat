@@ -2786,17 +2786,25 @@ function lh(){
         }
     }
 
-	this.handleBBCode = function(inst) {
+    this.handleBBCode = function(inst) {
         var str = $(inst.attr('data-selector')).val();
-        var selection = this.getInputSelection($(inst.attr('data-selector')));
+        var elem = $(inst.attr('data-selector'));
+
+        if (typeof elem != "undefined") {
+            var s = elem[0].selectionStart, e = elem[0].selectionEnd;
+            var selection = str.substring(s, e);
+        } else {
+            var selection = '';
+        }
 
         var bbcodeend = typeof inst.attr("data-bbcode-end") !== 'undefined' ?  inst.attr("data-bbcode-end") : inst.attr("data-bbcode");
 
         if (selection.length > 0) {
-            $(inst.attr('data-selector')).val(str.replace(selection, "[" + inst.attr("data-bbcode") + "]" + selection + "[/" + bbcodeend + "]"));
+            $(inst.attr('data-selector')).val(str.substr(0,s) + "[" + inst.attr("data-bbcode") + "]" + selection + "[/" + bbcodeend + "]" + str.substring(e));
         } else {
             $(inst.attr('data-selector')).val(str + "[" + inst.attr("data-bbcode") + "]" + "[/" + bbcodeend + "]");
         }
+
         return false;
     }
 
