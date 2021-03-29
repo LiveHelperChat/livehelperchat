@@ -118,7 +118,10 @@ if (trim($form->msg) != '')
     	        	$stmt->bindValue(':id',$Chat->id,PDO::PARAM_INT);
     	        	$stmt->bindValue(':last_msg_id',$msg->id,PDO::PARAM_INT);
     	        	$stmt->bindValue(':last_op_msg_time',time(),PDO::PARAM_INT);
-    	        	$stmt->bindValue(':has_unread_op_messages',1,PDO::PARAM_INT);
+
+    	        	// We should change status only if chat is not closed
+    	        	$stmt->bindValue(':has_unread_op_messages',($Chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT ? 1 : $Chat->has_unread_op_messages),PDO::PARAM_INT);
+    	        	
     	        	$stmt->bindValue(':unread_op_messages_informed',0,PDO::PARAM_INT);
     	        	
     	        	if ($userData->invisible_mode == 0 && $messageUserId > 0) { // Change status only if it's not internal command
